@@ -1,0 +1,73 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "sterling-reserve-6f7d9a",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "f1d6925f0b2b8fec6056dfc92b4c5b7b045cdad43d7e7b1f41ae0a6e82f01441",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"sterling reserve\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"1 beat(s) of part v6_s2s\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793584604.6123068,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "74ecd1a34144ba15731c758f591d90d7b1ef1ff4591c00c6366d9ff58fe595dc",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3983,
+    "output_tokens": 746,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Sterling reserve",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><g stroke=\"#283747\" stroke-width=\"9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"48\" y=\"70\" width=\"304\" height=\"368\" rx=\"22\" fill=\"#A8BCCB\"/><rect x=\"75\" y=\"99\" width=\"248\" height=\"310\" rx=\"12\" fill=\"#526C7B\"/><path d=\"M322 100L457 142V434L322 408Z\" fill=\"#D6E2E8\"/><path d=\"M343 132L433 160V398L343 377Z\" fill=\"#A8BCCB\"/><ellipse cx=\"389\" cy=\"263\" rx=\"25\" ry=\"39\" fill=\"#526C7B\"/><path d=\"M389 234V291M369 250L409 276M370 276L408 251\" fill=\"none\"/><circle cx=\"389\" cy=\"263\" r=\"9\" fill=\"#D6E2E8\"/><path d=\"M325 155H339M325 356H339\" fill=\"none\"/><rect x=\"98\" y=\"326\" width=\"196\" height=\"54\" rx=\"6\" fill=\"#8AC6A4\"/><path d=\"M100 344H291M100 362H291\" fill=\"none\"/><rect x=\"98\" y=\"295\" width=\"196\" height=\"48\" rx=\"6\" fill=\"#8AC6A4\"/><path d=\"M116 307H276V330H116Z\" fill=\"none\" stroke-width=\"5\"/><ellipse cx=\"196\" cy=\"319\" rx=\"23\" ry=\"13\" fill=\"#D6E2E8\" stroke-width=\"5\"/><path d=\"M177 296V380H212V296\" fill=\"#D6E2E8\"/><path d=\"M116 273V244H186V273C186 290 116 290 116 273Z\" fill=\"#EDC76A\"/><ellipse cx=\"151\" cy=\"244\" rx=\"35\" ry=\"12\" fill=\"#EDC76A\"/><path d=\"M117 260C130 272 172 272 185 260\" fill=\"none\" stroke-width=\"5\"/><path d=\"M208 273V217H278V273C278 290 208 290 208 273Z\" fill=\"#EDC76A\"/><ellipse cx=\"243\" cy=\"217\" rx=\"35\" ry=\"12\" fill=\"#EDC76A\"/><path d=\"M209 236C222 248 264 248 277 236M209 254C222 266 264 266 277 254\" fill=\"none\" stroke-width=\"5\"/></g></svg>",
+    "tags": [
+     "sterling",
+     "reserve",
+     "currency",
+     "money",
+     "vault",
+     "reserves",
+     "मुद्रा",
+     "भंडार"
+    ],
+    "alt": "A reserve vault holding stacks of generic currency notes and coins."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793584625.6412039
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 21.0,
+ "navin_verdict": null
+}

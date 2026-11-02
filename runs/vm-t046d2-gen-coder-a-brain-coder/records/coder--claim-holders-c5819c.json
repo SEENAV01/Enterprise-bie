@@ -1,0 +1,72 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "claim-holders-c5819c",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "4c37039fb8218ab0785a42a6e3e44dcdd757eb2225f3078356e0c0f32fc2c8be",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"claim holders\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"1 beat(s) of part v4_s2b\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793584373.9615314,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "0f350f4fc06feaf0aad3d5787963668102a238b824c3e3b22ab387fcf7a41be7",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3982,
+    "output_tokens": 674,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Claim holders",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><g stroke=\"#263747\" stroke-width=\"8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"113\" cy=\"119\" r=\"35\" fill=\"#F0C59E\"/><circle cx=\"399\" cy=\"119\" r=\"35\" fill=\"#F0C59E\"/><path d=\"M48 322V224Q48 174 98 174H128Q178 174 178 224V322Z\" fill=\"#68BDB1\"/><path d=\"M334 322V224Q334 174 384 174H414Q464 174 464 224V322Z\" fill=\"#68BDB1\"/><rect x=\"72\" y=\"221\" width=\"91\" height=\"111\" rx=\"7\" fill=\"#FFF3D8\"/><rect x=\"349\" y=\"221\" width=\"91\" height=\"111\" rx=\"7\" fill=\"#FFF3D8\"/><circle cx=\"117\" cy=\"272\" r=\"20\" fill=\"#F2C65E\"/><circle cx=\"394\" cy=\"272\" r=\"20\" fill=\"#F2C65E\"/><path d=\"M54 249H72Q86 249 86 264Q86 279 72 279H54M458 249H440Q426 249 426 264Q426 279 440 279H458\" fill=\"#F0C59E\"/><circle cx=\"256\" cy=\"190\" r=\"43\" fill=\"#F0C59E\"/><path d=\"M168 431V314Q168 252 232 252H280Q344 252 344 314V431Z\" fill=\"#719BCB\"/><rect x=\"194\" y=\"309\" width=\"124\" height=\"129\" rx=\"8\" fill=\"#FFF3D8\"/><circle cx=\"256\" cy=\"369\" r=\"28\" fill=\"#F2C65E\"/><path d=\"M170 344H194Q212 344 212 362Q212 380 194 380H170M342 344H318Q300 344 300 362Q300 380 318 380H342\" fill=\"#F0C59E\"/></g></svg>",
+    "tags": [
+     "claim",
+     "holders",
+     "creditors",
+     "money",
+     "finance",
+     "दावेदार",
+     "लेनदार"
+    ],
+    "alt": "Three generic claim holders holding papers marked with plain gold circles."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793584392.3891563
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 18.4,
+ "navin_verdict": null
+}

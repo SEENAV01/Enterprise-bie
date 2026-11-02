@@ -1,0 +1,73 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "bank-balance-display-3f427a",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "8b0b00ee80bad0cdd69f0ce474568bbd082866fac98615298d2a9adbee41dde3",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"bank balance display\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"1 beat(s) of part v2_s6\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793584192.1049638,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "b9a211acf079cf9f322572587452dcd647adcf3764e4331bb1d0cafb876d7f87",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3980,
+    "output_tokens": 591,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Bank balance display",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><g stroke=\"#263747\" stroke-width=\"10\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M224 380H288L300 438H212Z\" fill=\"#91A9BA\"/><rect x=\"155\" y=\"434\" width=\"202\" height=\"24\" rx=\"12\" fill=\"#91A9BA\"/><rect x=\"48\" y=\"62\" width=\"416\" height=\"322\" rx=\"24\" fill=\"#91A9BA\"/><rect x=\"69\" y=\"84\" width=\"374\" height=\"254\" rx=\"12\" fill=\"#F2F8F5\"/><path d=\"M99 147L159 111L219 147Z\" fill=\"#80CBB5\"/><path d=\"M109 216H209M104 231H214\" fill=\"none\"/><path d=\"M120 158V203M159 158V203M198 158V203\" fill=\"none\"/><path d=\"M252 126H407M252 153H356\" fill=\"none\" stroke-width=\"12\"/><rect x=\"252\" y=\"183\" width=\"154\" height=\"25\" rx=\"12\" fill=\"#80CBB5\"/><rect x=\"102\" y=\"270\" width=\"188\" height=\"38\" rx=\"8\" fill=\"#80CBB5\"/><path d=\"M118 289H257\" fill=\"none\" stroke-width=\"7\"/><path d=\"M327 277V303C327 312 345 319 367 319S407 312 407 303V277\" fill=\"#F1C467\"/><ellipse cx=\"367\" cy=\"277\" rx=\"40\" ry=\"16\" fill=\"#F1C467\"/><path d=\"M327 290C327 299 345 306 367 306S407 299 407 290\" fill=\"none\" stroke-width=\"6\"/><circle cx=\"256\" cy=\"360\" r=\"5\" fill=\"#263747\" stroke=\"none\"/></g></svg>",
+    "tags": [
+     "bank",
+     "balance",
+     "display",
+     "account",
+     "money",
+     "banking",
+     "khata",
+     "jama"
+    ],
+    "alt": "A bank account display with a bank building symbol, balance bar, and stack of coins."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793584210.710866
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 18.6,
+ "navin_verdict": null
+}

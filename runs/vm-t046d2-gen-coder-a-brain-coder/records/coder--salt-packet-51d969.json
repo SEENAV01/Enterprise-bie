@@ -1,0 +1,72 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "salt-packet-51d969",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "3ee28ad211a50a0155ea7b2c0bfae66d74a731490bc5b39566871a000b88b201",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"salt packet\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"3 beat(s) of part v2_s6\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793583755.1449454,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "2f53cf86abfedfdfdf4a9ab4e2da053e7a137893fa2172f7001e1870a264e285",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3977,
+    "output_tokens": 727,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Salt packet",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><g stroke=\"#263B49\" stroke-width=\"8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M133 54H379L367 104Q392 254 369 406L381 458H131L143 406Q120 254 145 104Z\" fill=\"#F8FAF4\"/><path d=\"M133 54H379L367 104H145Z\" fill=\"#75CDDC\"/><path d=\"M143 406H369L381 458H131Z\" fill=\"#75CDDC\"/><path d=\"M159 71V88M190 71V88M222 71V88M254 71V88M286 71V88M318 71V88M350 71V88M158 424V441M190 424V441M222 424V441M254 424V441M286 424V441M318 424V441M350 424V441\" fill=\"none\" stroke-width=\"5\"/><rect x=\"169\" y=\"155\" width=\"174\" height=\"202\" rx=\"33\" fill=\"#D6EBEE\"/><path d=\"M170 307L202 284L226 291L258 256L285 278L309 269L342 300V324Q342 357 309 357H202Q170 357 170 324Z\" fill=\"#F8FAF4\" stroke-width=\"5\"/><path d=\"M207 239L230 228L251 241L228 254Z\" fill=\"#FFFFFF\" stroke-width=\"5\"/><path d=\"M207 239V264L228 277V254M228 277L251 264V241\" fill=\"#F8FAF4\" stroke-width=\"5\"/><path d=\"M270 205L290 195L310 207L290 219Z\" fill=\"#FFFFFF\" stroke-width=\"5\"/><path d=\"M270 205V228L290 240V219M290 240L310 228V207\" fill=\"#F8FAF4\" stroke-width=\"5\"/><path d=\"M204 316L217 309L230 317L217 326ZM266 305L280 297L294 306L280 315ZM243 334L254 328L265 335L254 342Z\" fill=\"#FFFFFF\" stroke-width=\"4\"/><path d=\"M158 129Q147 211 150 271\" fill=\"none\" stroke=\"#263B49\" stroke-width=\"4\"/></g></svg>",
+    "tags": [
+     "salt",
+     "packet",
+     "pouch",
+     "food",
+     "seasoning",
+     "namak",
+     "नमक"
+    ],
+    "alt": "A sealed blue-and-white salt packet with a window showing white salt crystals."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793583775.222612
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 20.1,
+ "navin_verdict": null
+}

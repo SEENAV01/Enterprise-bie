@@ -1,0 +1,73 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "barter-a92f52",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "a55c837f0c49d408d08dc91cf46f73653ac187cb8a551c33be525b186369f025",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"barter\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"1 beat(s) of part v2_s5b\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793584159.4725268,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "e2146a3f4cccca5c87431b98cb21ca155b5a5dc2f404580d13ec88685ac50ec0",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3978,
+    "output_tokens": 672,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Barter",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><g stroke=\"#29343D\" stroke-width=\"9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M112 105H367L344 82M367 105L344 128\" fill=\"none\"/><path d=\"M400 412H145L168 389M145 412L168 435\" fill=\"none\"/><path d=\"M89 173L76 143Q126 157 173 143L161 173L178 207Q203 249 204 314Q203 355 171 363H81Q49 355 50 314Q51 249 76 207Z\" fill=\"#EAC77D\"/><path d=\"M87 177H162\" fill=\"none\"/><path d=\"M127 325V226M127 291L104 270M127 270L149 250M127 250L109 232\" fill=\"none\" stroke-width=\"7\"/><path d=\"M104 270Q83 267 91 249Q110 251 104 270ZM149 250Q143 230 162 225Q172 243 149 250ZM109 232Q89 232 96 214Q115 215 109 232ZM127 226Q111 211 127 197Q143 211 127 226Z\" fill=\"#93B379\" stroke-width=\"6\"/><path d=\"M329 181V207Q329 223 312 237Q282 263 289 309Q294 350 323 363H417Q446 350 451 309Q458 263 428 237Q411 223 411 207V181Z\" fill=\"#D88C68\"/><ellipse cx=\"370\" cy=\"181\" rx=\"43\" ry=\"13\" fill=\"#A96149\"/><path d=\"M305 260Q370 282 435 260M305 326Q370 347 435 326\" fill=\"none\"/><path d=\"M347 220Q342 239 327 250\" fill=\"none\" stroke=\"#29343D\" stroke-width=\"7\"/></g></svg>",
+    "tags": [
+     "barter",
+     "exchange",
+     "goods",
+     "trade",
+     "grain",
+     "pottery",
+     "विनिमय",
+     "अदला-बदली"
+    ],
+    "alt": "A sack of grain and a clay pot with opposing arrows showing barter."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793584179.3125165
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 19.8,
+ "navin_verdict": null
+}

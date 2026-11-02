@@ -1,0 +1,73 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "gold-linked-foreign-payment-1459d8",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "31ddadfb84d6652436e0f8bf50cdac418708020f79acdd5a5258fb66f270bd97",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"gold-linked foreign payment\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"1 beat(s) of part v6_s4b\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793584686.4389067,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "6397e0a6405ac7bbccfa2bcdea5bcca495b9c84c9bff8c437ea6dc443e7d844c",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3980,
+    "output_tokens": 584,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Gold-linked foreign payment",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><g stroke=\"#293B49\" stroke-width=\"8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"365\" cy=\"200\" r=\"98\" fill=\"#BCE5EE\"/><ellipse cx=\"365\" cy=\"200\" rx=\"42\" ry=\"98\" fill=\"none\"/><path d=\"M267 200h196M283 148h164M283 252h164\" fill=\"none\"/><path d=\"M58 164l24-70h113l28 70-23 32H79z\" fill=\"#F5C84C\"/><path d=\"M58 164h165M82 94l20 70M195 94l-20 70\" fill=\"none\"/><path d=\"M121 188v40\" fill=\"none\"/><rect x=\"105\" y=\"207\" width=\"32\" height=\"56\" rx=\"16\" fill=\"#FFF2CA\"/><rect x=\"105\" y=\"243\" width=\"32\" height=\"56\" rx=\"16\" fill=\"#FFF2CA\"/><rect x=\"48\" y=\"280\" width=\"208\" height=\"124\" rx=\"12\" fill=\"#8BCBA5\"/><path d=\"M79 303h146v78H79z\" fill=\"#C6E9CE\"/><ellipse cx=\"152\" cy=\"342\" rx=\"28\" ry=\"31\" fill=\"#8BCBA5\"/><path d=\"M276 343h99v-29l65 48-65 48v-29h-99z\" fill=\"#F5C84C\"/></g></svg>",
+    "tags": [
+     "gold",
+     "payment",
+     "foreign",
+     "international",
+     "money",
+     "सोना",
+     "भुगतान",
+     "विदेशी"
+    ],
+    "alt": "A gold bar linked to a generic banknote, with an outgoing payment arrow beside a globe."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793584711.0280263
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 24.6,
+ "navin_verdict": null
+}

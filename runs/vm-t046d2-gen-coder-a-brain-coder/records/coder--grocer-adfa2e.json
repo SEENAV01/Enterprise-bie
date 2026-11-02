@@ -1,0 +1,72 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "grocer-adfa2e",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "e39eae75ae9a57728e1fec3ab938c7565e3d689c205b59e73bb0336743338c85",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"grocer\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"1 beat(s) of part v4_s4b\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793584407.8347526,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "0f20f1e6cf99cad76f4076051a9bdae917961e2fc572d70227f82d36eb6cc971",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3980,
+    "output_tokens": 613,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Grocer",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><g stroke=\"#293943\" stroke-width=\"8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M163 286v-65c0-40 34-65 93-65s93 25 93 65v65\" fill=\"#65B9AE\"/><circle cx=\"256\" cy=\"111\" r=\"49\" fill=\"#F1C49D\"/><path d=\"M214 196l42 35 42-35 13 98H201z\" fill=\"#FFF0CD\"/><path d=\"M169 235l-42 48 35 26 53-48M343 235l42 48-35 26-53-48\" fill=\"#65B9AE\"/><path d=\"M161 278l-24 23 22 19 30-23M351 278l24 23-22 19-30-23\" fill=\"#F1C49D\"/><rect x=\"56\" y=\"310\" width=\"400\" height=\"132\" rx=\"8\" fill=\"#E7AE68\"/><rect x=\"48\" y=\"298\" width=\"416\" height=\"25\" rx=\"6\" fill=\"#FFF0CD\"/><path d=\"M78 297l-8-52h118l-8 52z\" fill=\"#E7AE68\"/><circle cx=\"99\" cy=\"254\" r=\"20\" fill=\"#E67B62\"/><circle cx=\"151\" cy=\"254\" r=\"20\" fill=\"#E67B62\"/><circle cx=\"125\" cy=\"239\" r=\"20\" fill=\"#E67B62\"/><path d=\"M125 219l6-13\" fill=\"none\"/><path d=\"M227 297v-49h57v49\" fill=\"#FFF0CD\"/><path d=\"M232 248l9-19h29l9 19\" fill=\"#65B9AE\"/><path d=\"M333 297l-5-59q33-16 66 0l-5 59z\" fill=\"#FFF0CD\"/><path d=\"M341 235q-8-22 6-40M362 232q-3-29 11-48M381 234q18-22 17-38\" fill=\"none\"/><path d=\"M82 355h348M82 412h348\" fill=\"none\"/></g></svg>",
+    "tags": [
+     "grocer",
+     "grocery",
+     "shopkeeper",
+     "shop",
+     "food",
+     "kirana",
+     "dukandar"
+    ],
+    "alt": "A grocer in an apron standing behind a counter with produce and grocery packages."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793584445.1944773
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 37.4,
+ "navin_verdict": null
+}

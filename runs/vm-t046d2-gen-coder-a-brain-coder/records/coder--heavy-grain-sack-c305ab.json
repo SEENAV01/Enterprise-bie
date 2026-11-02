@@ -1,0 +1,72 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "heavy-grain-sack-c305ab",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "6b80287b0ed5ea0b75b481738c0ef618c05aa465898801ccde712e997f451336",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"heavy grain sack\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"1 beat(s) of part v2_s9b\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793584288.2664087,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "7346aeb4068fa5ac41561d57f60b5630af122f6a6cd688803cf977bc4f78fe7d",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3979,
+    "output_tokens": 689,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Heavy grain sack",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><ellipse cx=\"256\" cy=\"447\" rx=\"170\" ry=\"22\" fill=\"#D8C9AD\"/><g stroke=\"#443626\" stroke-width=\"9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M160 113 Q139 91 153 68 Q201 46 256 52 Q318 46 359 69 Q374 92 351 114 L327 151 Q355 184 380 247 Q408 318 397 382 Q389 429 341 445 Q258 463 171 445 Q122 435 114 386 Q101 321 131 246 Q151 189 184 150Z\" fill=\"#C99B5B\"/><path d=\"M155 78 Q202 57 256 64 Q312 58 357 78 Q342 108 313 121 L198 121 Q168 104 155 78Z\" fill=\"#8A613B\"/><path d=\"M174 89 Q188 67 209 77 Q217 54 239 69 Q257 48 276 69 Q301 55 314 79 Q335 71 343 91 Q323 114 305 123 L205 123Z\" fill=\"#EDCE7A\"/><path d=\"M201 88 L210 94 M233 77 L241 85 M267 77 L275 84 M298 88 L306 95\" fill=\"none\" stroke-width=\"6\"/><path d=\"M181 139 Q256 153 331 139 L326 164 Q256 177 187 163Z\" fill=\"#E9C78C\"/><path d=\"M192 174 Q162 207 148 254 M321 177 Q347 207 360 252 M149 377 Q151 410 183 417 M363 374 Q361 408 333 419\" fill=\"none\" stroke-width=\"7\"/><path d=\"M254 370 L254 249 M254 282 Q222 283 216 254 Q245 251 254 282Z M254 308 Q286 307 292 278 Q263 277 254 308Z M254 333 Q222 333 216 304 Q246 303 254 333Z M254 357 Q286 357 292 328 Q263 327 254 357Z M254 259 Q236 242 254 224 Q272 242 254 259Z\" fill=\"#EDCE7A\" stroke-width=\"7\"/><path d=\"M172 339 L185 345 M323 365 L337 358 M176 279 L188 285\" fill=\"none\" stroke-width=\"5\"/></g></svg>",
+    "tags": [
+     "grain",
+     "sack",
+     "heavy",
+     "harvest",
+     "agriculture",
+     "अनाज",
+     "बोरी"
+    ],
+    "alt": "A heavy, bulging sack filled with grain, with a wheat-ear symbol on its front."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793584312.2010229
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 23.9,
+ "navin_verdict": null
+}

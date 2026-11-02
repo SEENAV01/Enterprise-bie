@@ -1,0 +1,72 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "grain-sack-667483",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "9ccaa215726313e29d95db02566a3b6e40a17946f7cd352de757ae52a46c3fb3",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"grain sack\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"1 beat(s) of part v2_s9b\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793584269.4205441,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "cb0567b07f14f789751c8d4a99cdc324fabfb009610a4b436a441aca0906b26f",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3980,
+    "output_tokens": 768,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Grain sack",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path d=\"M135 167 C143 217 82 288 78 370 C74 430 118 461 256 461 C394 461 438 430 434 370 C430 288 369 217 377 167 Z\" fill=\"#D7A568\" stroke=\"#493829\" stroke-width=\"10\" stroke-linejoin=\"round\"/><path d=\"M111 387 C141 416 185 428 256 428 C327 428 371 416 401 387 C394 431 349 445 256 445 C163 445 118 431 111 387 Z\" fill=\"#BE8953\"/><ellipse cx=\"256\" cy=\"167\" rx=\"125\" ry=\"47\" fill=\"#BE8953\" stroke=\"#493829\" stroke-width=\"10\"/><path d=\"M144 164 C153 135 172 118 191 111 C206 80 235 66 260 77 C289 60 321 86 331 112 C355 119 371 139 370 164 C311 190 203 190 144 164 Z\" fill=\"#F4D37A\" stroke=\"#493829\" stroke-width=\"9\" stroke-linejoin=\"round\"/><g fill=\"#E8B958\" stroke=\"#493829\" stroke-width=\"5\"><ellipse cx=\"191\" cy=\"143\" rx=\"8\" ry=\"15\" transform=\"rotate(-35 191 143)\"/><ellipse cx=\"229\" cy=\"114\" rx=\"8\" ry=\"15\" transform=\"rotate(35 229 114)\"/><ellipse cx=\"271\" cy=\"105\" rx=\"8\" ry=\"15\" transform=\"rotate(-25 271 105)\"/><ellipse cx=\"310\" cy=\"137\" rx=\"8\" ry=\"15\" transform=\"rotate(35 310 137)\"/><ellipse cx=\"252\" cy=\"151\" rx=\"8\" ry=\"15\" transform=\"rotate(-55 252 151)\"/><ellipse cx=\"342\" cy=\"156\" rx=\"7\" ry=\"12\" transform=\"rotate(-35 342 156)\"/></g><path d=\"M131 170 C156 192 201 203 256 203 C311 203 356 192 381 170 L374 202 C348 223 306 232 256 232 C206 232 164 223 138 202 Z\" fill=\"#EAC48D\" stroke=\"#493829\" stroke-width=\"9\" stroke-linejoin=\"round\"/><g fill=\"none\" stroke=\"#493829\" stroke-width=\"8\" stroke-linecap=\"round\"><path d=\"M151 242 C138 263 132 283 128 302\"/><path d=\"M361 242 C374 263 380 283 384 302\"/><path d=\"M148 391 C169 402 190 407 211 409\"/></g></svg>",
+    "tags": [
+     "grain",
+     "sack",
+     "food",
+     "agriculture",
+     "wheat",
+     "anaaj",
+     "bora"
+    ],
+    "alt": "An open burlap sack filled with golden grain."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793584288.2659159
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 18.8,
+ "navin_verdict": null
+}

@@ -1,0 +1,73 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "goods-worth-300-01f894",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "3457393b74ca9ca9f656b6d9c013c257645b340719bf333ce4ae3669c54fe8e2",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"goods worth ₹300\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"1 beat(s) of part v2_s5s\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793584101.0616405,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "b9fa2f03f70fff8022453d7dd60f690bad9a56d13f2e8561bf61e9584cebdb2b",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3984,
+    "output_tokens": 607,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Goods with a price tag",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><g stroke=\"#263746\" stroke-width=\"9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M77 276V133l40-45h78l32 45v143Z\" fill=\"#FFF1D2\"/><path d=\"M77 133h118l32 27M195 88v45l-27 30v113\" fill=\"none\"/><path d=\"M102 194h40v48h-40Z\" fill=\"#67BAB1\"/><path d=\"M257 159v-43h49v43l21 30v99h-91v-99Z\" fill=\"#67BAB1\"/><rect x=\"253\" y=\"91\" width=\"57\" height=\"29\" rx=\"7\" fill=\"#F0B64F\"/><path d=\"M238 216h87v45h-87\" fill=\"#FFF1D2\"/><path d=\"M349 194l-11-37 27 6 22-15 7 43c31 24 43 54 34 91h-99c-9-37-4-65 20-88Z\" fill=\"#F0B64F\"/><path d=\"M350 193l44-2\" fill=\"none\"/><path d=\"M57 271h398l-30 160H87Z\" fill=\"#E89A6B\"/><path d=\"M68 294h376M105 332l14 67m54-67 7 67m64-67v67m65-67-7 67m64-67-14 67\" fill=\"none\"/><path d=\"M383 279c17-38 36-40 43-21 5 13-3 30-15 39\" fill=\"none\"/><path d=\"M389 281l52 22 16 66-67 17-20-68Z\" fill=\"#FFF1D2\"/><circle cx=\"395\" cy=\"308\" r=\"6\" fill=\"#263746\" stroke=\"none\"/></g></svg>",
+    "tags": [
+     "goods",
+     "groceries",
+     "commodities",
+     "price",
+     "value",
+     "सामान",
+     "वस्तुएं",
+     "कीमत"
+    ],
+    "alt": "A basket of assorted goods with a blank price tag; the lesson can add the amount beside it."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793584126.228906
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 25.2,
+ "navin_verdict": null
+}

@@ -1,0 +1,73 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "grain-seeds-2b9baa",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "4cdd619e52a337b29bb21adaea7e86a63cbd77b305c663f673825453914b0c30",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"grain seeds\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"1 beat(s) of part v6_s2s\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793584581.461323,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "b5f8702b84ff78afb79079758ff9c4a4944cccca3782956d6eea0de5d34a1d66",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3980,
+    "output_tokens": 734,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Grain seeds",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><g stroke=\"#543C29\" stroke-width=\"9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M91 186C54 159 66 92 113 57C158 85 174 150 145 181C132 196 109 199 91 186Z\" fill=\"#EFC268\"/><path d=\"M113 81C101 111 107 150 120 174\" fill=\"none\"/><path d=\"M230 164C190 148 181 91 210 54C260 64 293 112 276 146C268 165 250 172 230 164Z\" fill=\"#F6D88B\"/><path d=\"M217 77C226 108 241 132 256 145\" fill=\"none\"/><path d=\"M344 191C311 163 326 104 374 76C415 108 427 161 397 187C382 201 360 203 344 191Z\" fill=\"#EFC268\"/><path d=\"M372 99C358 127 359 157 371 179\" fill=\"none\"/><path d=\"M67 326C38 294 57 235 103 212C146 249 151 301 121 325C105 339 82 342 67 326Z\" fill=\"#F6D88B\"/><path d=\"M102 236C88 263 88 294 98 315\" fill=\"none\"/><path d=\"M200 311C163 282 177 220 223 191C266 221 281 280 251 308C238 323 215 326 200 311Z\" fill=\"#EFC268\"/><path d=\"M222 214C209 243 213 277 225 300\" fill=\"none\"/><path d=\"M341 319C314 283 340 229 389 214C426 254 426 309 393 329C375 340 353 335 341 319Z\" fill=\"#F6D88B\"/><path d=\"M385 237C365 260 361 289 368 314\" fill=\"none\"/><path d=\"M147 449C111 428 113 372 151 336C200 355 224 409 200 439C187 456 165 461 147 449Z\" fill=\"#EFC268\"/><path d=\"M153 359C149 389 158 420 174 438\" fill=\"none\"/><path d=\"M290 449C255 422 266 362 311 333C356 361 374 416 346 446C332 461 308 463 290 449Z\" fill=\"#F6D88B\"/><path d=\"M311 356C300 383 304 418 319 441\" fill=\"none\"/></g></svg>",
+    "tags": [
+     "grain",
+     "seeds",
+     "wheat",
+     "cereal",
+     "food",
+     "agriculture",
+     "anaaj",
+     "beej"
+    ],
+    "alt": "Eight golden grain seeds with curved grooves."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793584604.6110132
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 23.1,
+ "navin_verdict": null
+}

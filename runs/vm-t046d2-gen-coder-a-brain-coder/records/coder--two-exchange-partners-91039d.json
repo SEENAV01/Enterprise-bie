@@ -1,0 +1,73 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "two-exchange-partners-91039d",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "6247e17eff45f153ea7a23a8658d1d964493178faa52e4bd3e1b141e67ed341e",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"two exchange partners\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"2 beat(s) of part v2_s2\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793583812.6086473,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "bda302a39a2439f9f8847713b212b6f891ffb7947c378c12a8764c23ac56a33a",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3980,
+    "output_tokens": 721,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Two exchange partners",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><g stroke=\"#263442\" stroke-width=\"9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"111\" cy=\"111\" r=\"39\" fill=\"#F4D5AA\"/><circle cx=\"401\" cy=\"111\" r=\"39\" fill=\"#F4D5AA\"/><path d=\"M59 434V223Q59 174 109 174Q150 174 164 210L185 255H231V287H164Q151 287 145 274L137 256V434Z\" fill=\"#6BBACD\"/><path d=\"M453 434V223Q453 174 403 174Q362 174 348 210L327 255H281V287H348Q361 287 367 274L375 256V434Z\" fill=\"#EFAB68\"/><path d=\"M83 243V321Q83 344 107 344H211V312H121V243\" fill=\"#6BBACD\"/><path d=\"M429 243V321Q429 344 405 344H301V312H391V243\" fill=\"#EFAB68\"/><rect x=\"210\" y=\"223\" width=\"92\" height=\"55\" rx=\"5\" fill=\"#95CBA2\"/><path d=\"M226 236H286M226 264H286\" fill=\"none\" stroke-width=\"5\"/><ellipse cx=\"256\" cy=\"250\" rx=\"11\" ry=\"13\" fill=\"#F4D5AA\" stroke-width=\"5\"/><path d=\"M237 301L225 284H282L270 301Q303 323 304 349Q304 369 256 369Q208 369 208 349Q209 323 237 301Z\" fill=\"#F4D5AA\"/><path d=\"M237 302H270\" fill=\"none\"/><path d=\"M209 257H225Q237 257 237 270Q237 283 225 283H209M303 257H287Q275 257 275 270Q275 283 287 283H303M203 314H218Q231 314 231 328Q231 341 218 341H203M309 314H294Q281 314 281 328Q281 341 294 341H309\" fill=\"#F4D5AA\"/></g></svg>",
+    "tags": [
+     "exchange",
+     "partners",
+     "trade",
+     "barter",
+     "money",
+     "goods",
+     "विनिमय",
+     "व्यापार"
+    ],
+    "alt": "Two generic people exchange a plain banknote and a sack of goods."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793583834.7407105
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 22.1,
+ "navin_verdict": null
+}

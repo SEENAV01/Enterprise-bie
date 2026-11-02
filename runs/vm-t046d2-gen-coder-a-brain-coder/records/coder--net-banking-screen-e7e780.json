@@ -1,0 +1,73 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "net-banking-screen-e7e780",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "946c09388c668c512784b269e471accc1516134d7fc2d80a06bca534c652cd08",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"net banking screen\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"1 beat(s) of part v2_s5s\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793584123.4906037,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "4f9c56c86d79954ad4a27891147b54322d854456145335fead1c29093033c251",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3979,
+    "output_tokens": 635,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Net banking screen",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><g stroke=\"#243746\" stroke-width=\"9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M219 365H293L303 425H209Z\" fill=\"#91B9CC\"/><rect x=\"159\" y=\"423\" width=\"194\" height=\"23\" rx=\"10\" fill=\"#91B9CC\"/><rect x=\"48\" y=\"65\" width=\"416\" height=\"306\" rx=\"20\" fill=\"#91B9CC\"/><rect x=\"65\" y=\"83\" width=\"382\" height=\"259\" rx=\"9\" fill=\"#F6FAFC\"/><path d=\"M65 123H447\" fill=\"none\"/><circle cx=\"86\" cy=\"103\" r=\"4\" fill=\"#243746\" stroke=\"none\"/><circle cx=\"102\" cy=\"103\" r=\"4\" fill=\"#243746\" stroke=\"none\"/><circle cx=\"118\" cy=\"103\" r=\"4\" fill=\"#243746\" stroke=\"none\"/><path d=\"M157 103H412\" fill=\"none\" stroke-width=\"6\"/><rect x=\"84\" y=\"145\" width=\"131\" height=\"177\" rx=\"9\" fill=\"#D6EAF1\"/><path d=\"M102 186L149 158L196 186Z\" fill=\"#F6FAFC\"/><path d=\"M108 242H190M103 254H195M118 199V229M149 199V229M180 199V229\" fill=\"none\" stroke-width=\"7\"/><rect x=\"118\" y=\"276\" width=\"62\" height=\"32\" rx=\"7\" fill=\"#F2C56B\"/><path d=\"M130 276V267C130 247 168 247 168 267V276\" fill=\"none\" stroke-width=\"7\"/><rect x=\"237\" y=\"146\" width=\"187\" height=\"69\" rx=\"10\" fill=\"#73C9B1\"/><path d=\"M256 168H297M256 191H335\" fill=\"none\" stroke-width=\"7\"/><rect x=\"237\" y=\"235\" width=\"187\" height=\"87\" rx=\"10\" fill=\"#D6EAF1\"/><path d=\"M260 264H392L377 250M392 264L377 278M399 294H267L282 280M267 294L282 308\" fill=\"none\" stroke-width=\"7\"/></g></svg>",
+    "tags": [
+     "banking",
+     "online",
+     "internet",
+     "screen",
+     "transfer",
+     "bank",
+     "बैंकिंग",
+     "बैंक"
+    ],
+    "alt": "A computer screen showing an online banking dashboard with a bank, padlock, account panel and transfer arrows."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793584143.689575
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 20.2,
+ "navin_verdict": null
+}

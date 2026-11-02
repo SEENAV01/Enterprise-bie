@@ -1,0 +1,72 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "salt-carrier-ecd1d8",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "dc693abbdcfc2b79a999c45c9cb8ee7e386514e048b436bd0b05ff65f271444c",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"salt carrier\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"1 beat(s) of part v2_s6\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793584171.7992263,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "bb01ff511cbf70ce69688dba663d174e098efbf46374931da192787a94cf9c1a",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3975,
+    "output_tokens": 887,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Salt carrier",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><g stroke=\"#303840\" stroke-width=\"8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M142 279 Q86 265 69 307 L58 339\" fill=\"none\"/><path d=\"M148 311 L140 423 L170 423 L190 323 M291 320 L306 423 L337 423 L334 300\" fill=\"#A8ADB0\"/><path d=\"M125 266 Q134 230 187 230 L298 235 L338 191 L382 207 L368 292 Q353 345 299 346 L180 343 Q125 336 125 266Z\" fill=\"#A8ADB0\"/><path d=\"M343 176 L325 104 Q324 86 337 90 Q356 108 365 165 M370 167 L380 91 Q384 73 395 84 Q405 105 392 180\" fill=\"#A8ADB0\"/><path d=\"M341 168 Q366 149 395 177 L423 219 Q436 238 422 254 Q410 266 389 254 L346 232 Q326 209 341 168Z\" fill=\"#A8ADB0\"/><path d=\"M395 214 L423 219 Q436 238 422 254 Q409 265 390 254 L378 242Z\" fill=\"#D9D5CC\"/><circle cx=\"386\" cy=\"195\" r=\"5\" fill=\"#303840\" stroke=\"none\"/><path d=\"M329 170 L336 205 L327 238\" fill=\"none\"/><path d=\"M172 320 L179 431 L210 431 L218 325 M300 324 L284 431 L315 431 L337 318\" fill=\"#A8ADB0\"/><path d=\"M178 416 L210 416 L210 432 L178 432Z M285 416 L316 416 L315 432 L284 432Z M140 409 L172 409 L170 424 L139 424Z M305 409 L338 409 L338 424 L306 424Z\" fill=\"#59636A\"/><path d=\"M160 229 Q235 194 301 235 L290 288 L165 288Z\" fill=\"#BA8352\"/><path d=\"M168 239 L176 211 L199 200 L210 173 L239 185 L261 172 L284 191 L300 220 L302 244Z\" fill=\"#F6F3E8\"/><path d=\"M190 229 L207 213 L224 229 M239 205 L257 193 L272 215 M251 238 L271 224 L285 240\" fill=\"none\" stroke=\"#B8D6DC\" stroke-width=\"6\"/><path d=\"M151 239 L312 239 L298 335 Q233 362 168 334Z\" fill=\"#D7A66B\"/><path d=\"M163 270 L307 270 M168 300 L302 300 M194 244 L205 342 M268 244 L260 344\" fill=\"none\" stroke=\"#BA8352\" stroke-width=\"6\"/><path d=\"M151 239 L312 239 L309 258 L154 258Z\" fill=\"#BA8352\"/></g></svg>",
+    "tags": [
+     "salt",
+     "carrier",
+     "donkey",
+     "trade",
+     "commodity",
+     "namak",
+     "gadhaa"
+    ],
+    "alt": "A pack donkey carrying a large basket heaped with salt crystals."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793584193.8932745
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 22.1,
+ "navin_verdict": null
+}

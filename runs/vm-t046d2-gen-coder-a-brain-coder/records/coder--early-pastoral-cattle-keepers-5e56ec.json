@@ -1,0 +1,73 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "early-pastoral-cattle-keepers-5e56ec",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "6db0ab1ea3ac6a965e2d3f9b19fb655eeaae3379d7287eaaa977f7ce40d4da53",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"early pastoral cattle keepers\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"1 beat(s) of part v2_s8a\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793584229.9413052,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "418f72b4191020582be842cc1bd2b4660a20c50eecbad1279e7c96d14f1454b4",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3983,
+    "output_tokens": 1097,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Early pastoral cattle keepers",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><g stroke=\"#34302B\" stroke-width=\"7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M258 221V326H278L286 260H341L348 326H368V226\" fill=\"#C68D59\"/><path d=\"M243 216Q218 206 216 239L213 268\" fill=\"none\"/><path d=\"M243 198Q289 180 355 198L381 179L410 199L400 246L375 253L353 236H258Q239 233 243 198Z\" fill=\"#C68D59\"/><path d=\"M382 185Q364 166 372 148Q378 167 392 169M401 189Q425 177 421 158Q412 173 401 172\" fill=\"#F6E8C9\"/><path d=\"M375 196L357 187L362 208M409 202L429 194L423 215\" fill=\"#C68D59\"/><circle cx=\"396\" cy=\"211\" r=\"4\" fill=\"#34302B\" stroke=\"none\"/><path d=\"M383 238L400 240\" fill=\"none\"/><path d=\"M190 309L186 417H211L225 346H311L326 417H351L344 307\" fill=\"#F6E8C9\"/><path d=\"M190 294Q164 284 163 318L158 354\" fill=\"none\"/><path d=\"M181 286Q238 263 332 282L365 255L410 280L423 319Q423 335 407 340L374 338L345 319H209Q184 318 181 286Z\" fill=\"#F6E8C9\"/><path d=\"M245 279Q270 274 291 278L299 303L279 320H248L233 300Z\" fill=\"#C68D59\"/><path d=\"M374 267Q347 245 354 222Q363 245 385 246M399 275Q430 260 430 236Q417 255 401 253\" fill=\"#F6E8C9\"/><path d=\"M369 279L345 270L352 293M409 288L444 274L433 298\" fill=\"#F6E8C9\"/><path d=\"M389 312Q405 307 420 316L423 326Q415 341 396 336L384 329Z\" fill=\"#C68D59\"/><circle cx=\"390\" cy=\"291\" r=\"4\" fill=\"#34302B\" stroke=\"none\"/><path d=\"M190 405H211M328 405H350M260 316H277M350 316H367\" fill=\"none\"/><path d=\"M80 305L76 407L59 418H91L105 320L116 407L106 418H139L132 305\" fill=\"#C68D59\"/><path d=\"M77 204L56 261L73 270L92 230M122 209L143 245L160 227L171 239L150 270Q142 277 133 266L117 246\" fill=\"#C68D59\"/><path d=\"M89 186V211H115V184\" fill=\"#C68D59\"/><circle cx=\"102\" cy=\"158\" r=\"30\" fill=\"#C68D59\"/><path d=\"M80 204L116 199L132 315H68Z\" fill=\"#B96D4F\"/><path d=\"M85 203L112 232L121 210M76 276L126 268\" fill=\"none\"/><path d=\"M165 421V165Q165 144 184 144\" fill=\"none\"/><path d=\"M157 233L170 229\" fill=\"none\"/></g></svg>",
+    "tags": [
+     "pastoral",
+     "cattle",
+     "herder",
+     "livestock",
+     "ancient",
+     "पशुपालक",
+     "पशुपालन",
+     "गाय"
+    ],
+    "alt": "An early cattle keeper in a simple tunic holds a wooden staff beside two horned cattle."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793584269.4195406
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 39.5,
+ "navin_verdict": null
+}

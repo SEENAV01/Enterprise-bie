@@ -1,0 +1,73 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "thing-663f96",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "a6c7a3f8e3c547a913859ef1b36d3cacd04702c5f1a158acd4aaba19ac9ab4e3",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"उधार का बहीखाता\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"1 beat(s) of part v2_s4b\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793584052.2099817,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "eca773f0c1efb4b1327bfef0aee899734e38c854ee00a3512e916972fe7468db",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3984,
+    "output_tokens": 752,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "उधार का बहीखाता",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><g stroke=\"#303841\" stroke-width=\"8\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M54 106 Q155 77 256 113 Q357 77 458 106 L458 402 Q357 375 256 411 Q155 375 54 402 Z\" fill=\"#CF6660\"/><path d=\"M62 91 Q159 65 256 101 Q353 65 450 91 L450 381 Q353 355 256 391 Q159 355 62 381 Z\" fill=\"#FFF2D4\"/><path d=\"M256 102 L256 391\" fill=\"none\"/><path d=\"M87 127 Q159 113 231 135 M281 135 Q353 113 425 127\" fill=\"none\" stroke=\"#669D9C\" stroke-width=\"13\"/><path d=\"M87 160 Q159 146 231 168 L231 351 Q159 329 87 343 Z M281 168 Q353 146 425 160 L425 343 Q353 329 281 351 Z\" fill=\"none\" stroke-width=\"5\"/><path d=\"M181 157 L181 339 M375 154 L375 338\" fill=\"none\" stroke=\"#CF6660\" stroke-width=\"5\"/><path d=\"M88 197 Q159 183 230 205 M88 234 Q159 220 230 242 M88 271 Q159 257 230 279 M88 308 Q159 294 230 316 M282 205 Q353 183 424 197 M282 242 Q353 220 424 234 M282 279 Q353 257 424 271 M282 316 Q353 294 424 308\" fill=\"none\" stroke=\"#669D9C\" stroke-width=\"4\"/><path d=\"M105 177 L151 177 M105 215 L142 215 M105 252 L155 252 M105 289 L137 289 M300 183 L343 176 M300 220 L350 213 M300 257 L338 251 M300 294 L347 287 M196 181 L215 184 M196 218 L215 221 M196 255 L215 258 M390 177 L410 178 M390 214 L410 215 M390 251 L410 252\" fill=\"none\" stroke-width=\"5\"/><path d=\"M256 391 L256 432 L274 419 L290 432 L290 382\" fill=\"#CF6660\" stroke-width=\"6\"/></g></svg>",
+    "tags": [
+     "ledger",
+     "debt",
+     "credit",
+     "account",
+     "bookkeeping",
+     "उधार",
+     "बहीखाता",
+     "हिसाब"
+    ],
+    "alt": "An open red-bound credit ledger with ruled columns and handwritten entry lines."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793584075.2249677
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 23.0,
+ "navin_verdict": null
+}

@@ -1,0 +1,73 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "coder",
+ "unit": "cowrie-shells-in-palm-f8b4db",
+ "status": "passed",
+ "instructions_version": "2026-11-02.1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "49b70475b5f065c8d75ee4f5a096c4d3eb550d64c4c37203afd9fdc0d33681bd",
+ "card": null,
+ "prefix_sha256": "f0e24603caaf038785bbcf757f8d68dbbf6c4d46f63dacf1cfef53700ca6bff4",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's coder. BIE makes video lessons from books; a lesson's beat names a thing that no icon set, open library or\nfetch had a picture of, so you draw it as a small SVG icon that BIE adds to its shared library for every later book.\nNavin, 2 November 2026: \"jis cheej ka jikar hai wohi cheej dikhe\" (the thing that is named is the thing that is shown).\n\nDraw exactly the thing in the spec: the object itself, recognisable at 120 pixels, as a teacher would draw it on a board.\n\nThe drawing:\n- one `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">` with the thing centred, filling about 80 % of the box;\n- flat shapes with a dark outline (one ink colour for all outlines) and two to five friendly fill colours; a soft shadow is\n  allowed as one darker shape;\n- only these elements: svg, g, path, rect, circle, ellipse, line, polyline, polygon, defs, linearGradient, radialGradient,\n  stop, clipPath, title, desc;\n- only plain attributes (geometry, fill, stroke, opacity, transform, id, gradient and clip attributes); no `style`\n  attribute, no `<style>`, no script, no event handler, no link or image, no `href`, no font, no `url()` except `url(#id)`\n  of a gradient or clip in the same file;\n- no words, letters or numbers anywhere in the picture (the lesson writes its own words and amounts next to it);\n- at most 400 elements and 40 KB.\n\nNever draw:\n- a real person, a face of a real person, or a likeness of anyone (generic figures only, with a plain round head);\n- a logo, a brand, a trademark, a national emblem, a flag, a map or a border;\n- a copy of a real banknote, coin, stamp or payment document: money is drawn as a generic shape (a plain rectangle note\n  with a simple pattern, a plain round coin) with no emblem, portrait, script or number.\n\nReply with JSON: `name` (the thing in a few words), `svg` (the whole file), `tags` (up to 8 lowercase words a lesson would\nuse to search for it, English and Hindi when you know the Hindi word), `alt` (one short line saying what the picture shows).\nIf BIE's checks refuse your drawing, the next message names each problem: fix exactly those and send the whole file again.\n",
+  "user": "Draw this thing as one SVG icon (the rules are above).\n\n{\n \"thing\": \"cowrie shells in palm\",\n \"for\": \"a video lesson (3. Money, Indian Economy, UPSC / State PCS aspirants)\",\n \"shown_in\": \"1 beat(s) of part v2_s8a\"\n}\n\nReply with the JSON (name, svg, tags, alt)."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793584254.7312562,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "b05900660524f117d65d77655286a847e472c49bbef13050f62834973e9b9318",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 3985,
+    "output_tokens": 1135,
+    "cost_usd": 0.0
+   },
+   "notes": null,
+   "output": {
+    "name": "Cowrie shells in palm",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path d=\"M174 456L168 380Q120 347 102 297L65 238Q53 218 69 206Q85 195 101 215L145 265L128 133Q124 110 142 104Q163 98 170 123L195 223L191 78Q191 54 212 54Q233 54 234 79L244 215L260 91Q264 67 284 72Q305 76 301 100L289 225L318 131Q325 108 344 115Q363 122 355 145L328 267Q351 308 335 353L315 393L319 456Z\" fill=\"#E8AF80\" stroke=\"#343039\" stroke-width=\"9\" stroke-linejoin=\"round\"/><path d=\"M145 265Q177 282 174 322M183 367Q229 390 280 368\" fill=\"none\" stroke=\"#343039\" stroke-width=\"7\" stroke-linecap=\"round\"/><g stroke=\"#343039\" stroke-linejoin=\"round\"><g transform=\"rotate(-24 209 281)\"><ellipse cx=\"209\" cy=\"281\" rx=\"35\" ry=\"55\" fill=\"#FFF1CC\" stroke-width=\"7\"/><path d=\"M210 239Q190 280 210 323Q227 282 210 239Z\" fill=\"#AE7455\" stroke-width=\"5\"/><path d=\"M193 256L206 260M190 270L203 273M191 286L203 286M195 301L206 299M225 256L215 261M228 271L216 275M226 288L216 288M222 302L214 300\" fill=\"none\" stroke-width=\"4\" stroke-linecap=\"round\"/></g><g transform=\"rotate(22 284 266)\"><ellipse cx=\"284\" cy=\"266\" rx=\"33\" ry=\"51\" fill=\"#FFF1CC\" stroke-width=\"7\"/><path d=\"M285 228Q266 266 285 305Q301 266 285 228Z\" fill=\"#AE7455\" stroke-width=\"5\"/><path d=\"M269 243L281 247M267 257L278 260M268 272L278 273M272 287L281 285M298 243L289 248M302 258L291 262M300 274L290 275M296 288L289 286\" fill=\"none\" stroke-width=\"4\" stroke-linecap=\"round\"/></g><g transform=\"rotate(68 256 337)\"><ellipse cx=\"256\" cy=\"337\" rx=\"29\" ry=\"45\" fill=\"#FFF1CC\" stroke-width=\"7\"/><path d=\"M257 304Q240 337 257 370Q271 337 257 304Z\" fill=\"#AE7455\" stroke-width=\"5\"/><path d=\"M243 318L253 321M241 331L250 333M243 345L252 345M247 357L254 355M269 318L261 322M272 332L263 335M269 346L262 347M266 358L260 356\" fill=\"none\" stroke-width=\"4\" stroke-linecap=\"round\"/></g></g></svg>",
+    "tags": [
+     "cowrie",
+     "shells",
+     "palm",
+     "hand",
+     "money",
+     "kaudi",
+     "कौड़ी",
+     "हथेली"
+    ],
+    "alt": "Three cream cowrie shells with toothed slits resting in an open palm."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793584288.5401623
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 33.8,
+ "navin_verdict": null
+}
