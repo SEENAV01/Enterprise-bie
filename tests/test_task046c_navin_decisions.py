@@ -166,7 +166,7 @@ class GeneratedImages(unittest.TestCase):
 class Licences(unittest.TestCase):
     def test_navins_approvals_of_29_october_open_three_sources_with_a_credit(self):
         pol = licence.policy()
-        self.assertEqual(pol["version"], "2026-11-01.1")            # 2026-10-29.1, then Navin's brief of 1 November 2026 (Part D2)
+        self.assertEqual(pol["version"], "2026-11-02.1")            # 2026-10-29.1, Navin's brief of 1 November 2026 (Part D2), his addendum of 2 November
         approved = {a["id"]: a for a in pol["sources"]["approved_by_navin"]}
         self.assertEqual(set(approved), {"india-code", "gmt-earth-relief", "bodyparts3d", "fluentui-emoji"})
         self.assertTrue(all(a["approved_on"] == ("2026-11-01" if i == "fluentui-emoji" else "2026-10-29") and a["words"] and a["condition"]

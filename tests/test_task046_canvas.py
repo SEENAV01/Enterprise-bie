@@ -413,8 +413,8 @@ class Icons(unittest.TestCase):
         self.assertGreater(data["count"], 4000)
         sets = {icons.set_of(r["id"]) for r in data["icons"]}
         # Part D2 (1 November 2026) added Fluent Emoji (MIT, approved by name) and BIE's own drawings (CC0): tests/test_task046d2_pictures.py
-        self.assertEqual(sets, {"tw", "fa", "fl", "bie"})
-        licences = {"tw": "CC BY 4.0", "fa": "CC BY 4.0", "fl": "MIT", "bie": "CC0 1.0"}
+        self.assertEqual(sets, {"tw", "fa", "fl"})
+        licences = {"tw": "CC BY 4.0", "fa": "CC BY 4.0", "fl": "MIT"}
         for r in data["icons"]:
             self.assertTrue(icons.ID.match(r["id"]), r["id"])
             self.assertEqual(r["licence"], licences[icons.set_of(r["id"])])

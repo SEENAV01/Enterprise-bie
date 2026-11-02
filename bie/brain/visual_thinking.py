@@ -528,7 +528,9 @@ def nouns_of(ideas: dict) -> list:
 
 def resolve_needs(ideas: dict, library=None, *, index=None, per_noun: int = 3) -> dict:
     """{found: {noun: [icon ids]}, images: {noun: [asset ids]}, needs: [{thing, beats, kind, sources_tried}]}: the icon index and
-    the asset library are searched for every noun the ideas name; a noun found nowhere is a need."""
+    the asset library are searched for every noun the ideas name; only an icon that is a picture OF the noun counts
+    (``icons.fits``; Navin's addendum of 2 November 2026: a near word is not the thing), and a noun with none is a need (the
+    general path: the fetch step, then BIE's coder)."""
     found, images, needs = {}, {}, []
     beats_of = {}
     for row in ideas.get("beats") or []:
@@ -536,7 +538,7 @@ def resolve_needs(ideas: dict, library=None, *, index=None, per_noun: int = 3) -
             for n in row.get(key) or []:
                 beats_of.setdefault(str(n).strip(), []).append(row["beat_id"])
     for noun in nouns_of(ideas):
-        rows = icons.search(noun, limit=per_noun) if index is None else icons.search(noun, index, limit=per_noun)
+        rows = [r for r in _search(noun, index) if icons.fits(noun, r)][:per_noun]
         if rows:
             found[noun] = [r["id"] for r in rows]
         hits = library.find([noun]) if library is not None else []

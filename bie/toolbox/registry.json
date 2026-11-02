@@ -3079,7 +3079,7 @@
  },
  {
   "id": "bie-objects",
-  "name": "BIE's own money drawings (bie/toolbox/icons/bie)",
+  "name": "BIE's own money drawings (retired)",
   "kind": "asset_source",
   "subjects": [
    "economics_commerce_management",
@@ -3100,17 +3100,48 @@
   "version": "2026-11-01",
   "licence": "CC0 1.0 (BIE's own drawings)",
   "licence_flags": [],
-  "source": "https://github.com/SEENAV01/Enterprise-bie/tree/main/bie/toolbox/icons/bie",
+  "source": "https://github.com/SEENAV01/Enterprise-bie/tree/ef77d816/bie/toolbox/icons/bie",
+  "install_group": "in-repo",
+  "status": "blocked_with_reason",
+  "batch": 3,
+  "adapter": "bie.toolbox.icons",
+  "blocked_reason": "Retired by Navin's addendum of 2 November 2026 (\"maine salt aur kapde ka example diya ... jis cheej ka jikar hai wohi cheej dikhe\"; nothing hand-made for one chapter): the 26 drawings, their index rows and the aliases that named them are removed. A thing no icon fits now goes the general path (shared library, icon index, fetch, BIE's coder: bie-coder).",
+  "notes": "Task 046 Part D2 item F (1 November 2026): 26 flat SVG icons drawn by tools/bie_objects.py (bie:<name>), coins, notes and the objects of a money lesson. Kept in the registry so the retirement is visible; the files are in git history (commit ef77d816 and earlier)."
+ },
+ {
+  "id": "bie-coder",
+  "name": "BIE's coder: SVG drawings of the things no source has (bie/brain/coder.py)",
+  "kind": "asset_source",
+  "subjects": [
+   "all_subjects"
+  ],
+  "content_types": [
+   "figure",
+   "process",
+   "cause_effect",
+   "comparison"
+  ],
+  "capabilities": [
+   "board_build",
+   "concept_arrow"
+  ],
+  "role": "asset",
+  "path": "web",
+  "version": "2026-11-02",
+  "licence": "CC0 1.0 (drawn by BIE's coder through the ChatGPT plan; the licence policy's generated_images, with provenance)",
+  "licence_flags": [],
+  "source": "https://github.com/SEENAV01/Enterprise-bie/blob/main/bie/brain/coder.py",
   "install_group": "in-repo",
   "status": "wrapped",
   "batch": 3,
-  "adapter": "bie.toolbox.icons",
+  "adapter": "bie.brain.coder",
   "proof": {
    "tests": [
-    "tests/test_task046d2_pictures.py::BieDrawings"
+    "tests/test_task046d2_coder.py::SvgChecks",
+    "tests/test_task046d2_coder.py::CoderRun"
    ]
   },
-  "notes": "Task 046 Part D2: 26 flat SVG icons drawn by tools/bie_objects.py (bie:<name>): Indian coins (₹1, ₹2, ₹5, ₹10, ₹20, 50 paise, 25 paise) and notes (₹10 to ₹2000) in BIE's own shapes and colours with their denomination, a BIE mark and 'नमूना · not money', never replicas of RBI designs (docs/bie/BIE_MONEY_OBJECTS.md), and cheque, passbook, QR stand (decorative, cannot be scanned), POS machine, phone, salt sack, cowrie shells, cattle, grain sack, cloth roll, gold bar, ledger. Read from the repository (no network); the money words of the icon search prefer them. Not yet in a proof clip or a real-book render."
+  "notes": "Task 046 Part D2 addendum (Navin, 2 November 2026, point 1): the last step of the general path (library, icon index, fetch, coder). For each need of needs.json no source had, code writes a short spec, the maker (Codex through the ChatGPT plan) writes one SVG, code checks it (one svg root, square viewBox, allowed elements and attributes only, no script, link, image, style, font or words, at most 400 elements and 40 KB, a visible drawing) and sends the problems back; made.json carries the provenance, and the fetch workflow (--made) checks each drawing again and adds it to the shared library for every later book. Never a person, a name, a map, a flag, a logo or a copy of real money. Not yet in a proof clip or a real-book render."
  },
   {
    "id": "bie-econ-blocks",

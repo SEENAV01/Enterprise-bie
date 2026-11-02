@@ -108,6 +108,7 @@ BIE wrote still reads; the keys named as required and the enums are the lock.
 | chapter_review_record | `bie.brain.coverage.chapter/1` | `<page>.coverage.json` | tools/task046c_chapter_page.py (bie/brain/coverage.py chapter_coverage) | Navin | every teachable line → the video that teaches it | 2026-10-29 |
 | visual_ideas | `bie.brain.visual-ideas/1` | `visual_ideas/<video>.json` | Section 3c, the visual-idea step (bie/brain/visual_thinking.py) | the dikhane-ki-list page (tools/task046d_ideas_page.py); the review page; Navin | per part its picture (type; decided by code from the book, by the card type, or by the maker) and per beat the idea, its relation, its nouns, what is seen and on which word; the relations outside the list; the needs | 2026-10-31 |
 | needs | `bie.brain.needs/1` | `needs.json` | Section 3c (bie/brain/canvas_director.py) | the fetch step in GitHub Actions (tools/task046d_fetch_needs.py); Navin | the things no source had (thing, beats, kind, sources tried) and the capabilities BIE lacks (world kits, blocks) with the parts and beats that needed them | 2026-10-31 |
+| coder_made | `bie.brain.coder-made/1` | `made.json` | the coder section (bie/brain/coder.py) | the fetch step in GitHub Actions (tools/task046d_fetch_needs.py --made); Navin | the drawings BIE's coder made for the needs no source had: per thing its file, hash, tags, licence and provenance (who drew it, the spec, the date), and the needs it did not draw with the reason | 2026-11-02 |
 
 **Reserved for Task 047 (voice).** Every beat of the lesson plan may carry `audio` = `{"file", "duration", "words": [{"w",
 "start", "end"}]}`, written by the voice section. `formats.voice_of(beats)` turns the beats that have it into the `voice`
@@ -200,9 +201,8 @@ No format changes version in Part D2: every new key is optional, and the readers
   `bie.look-request/1` with rule `LOOK-D2`: per part up to 8 beats, each with its still, what it should show and its items (the
   dikhane ki list's nouns, its relation, its process). The VM's look section asks only visible yes/no and happening yes/no per item
   (`look.D2_SCHEMA`); `look.d2_score` computes the part's score (10 × (visible + happening) / (2 × items)). Report only.
-- **Pictures**: the icon index (`bie.icons/1`, unchanged) adds the `fl:` set (Microsoft Fluent Emoji 3D, MIT, pinned commit) and
-  the `bie:` set (BIE's own drawings, CC0, `bie/toolbox/icons/bie/`); the money drawings keep the rules of
-  `docs/bie/BIE_MONEY_OBJECTS.md`.
+- **Pictures**: the icon index (`bie.icons/1`, unchanged) adds the `fl:` set (Microsoft Fluent Emoji 3D, MIT, pinned commit). The
+  `bie:` set of BIE's own money drawings was retired on 2 November 2026 (§8c).
 
 ### 8a. Saanche from general motion parts (Navin's addendum of 2 November 2026)
 
@@ -255,3 +255,29 @@ that beat. No format changes version: the new keys are optional and the readers 
   (`visual_ideas/<video>.json`) adds `coverage` {mentioned, shown, coverage_pct, not_shown [{beat_id, thing, has_picture}]}; each
   video's `report` adds `mentioned_things`, `shown_things`, `coverage_pct` and `things_not_shown` [{beat_id, thing, has_picture,
   part}]; `quality` adds `mentioned_things`, `shown_things`, `coverage_pct` and `things_without_a_picture`; `CANVAS.md` shows them.
+
+### 8c. One general path for every thing a beat names (Navin's addendum of 2 November 2026, point 1)
+
+"Nothing is hand-made for one chapter. Whatever a beat names goes through the one general path: library -> icon index (incl.
+Fluent Emoji) -> fetch -> if still missing, BIE's own coder makes a new SVG component from a short spec, tested and
+licence-clean, and adds it to the library for every later book."
+
+- **Retired**: the `bie:` set (26 money drawings, `tools/bie_objects.py`, `bie/toolbox/icons/bie/`), its index rows and every alias
+  that named it; the registry keeps `bie-objects` as `blocked_with_reason`. An id of the set still parses, so `check_ids` names it
+  as not in the index (an earlier plan that uses one is refused, and its maker continues from it).
+- **The words of the search** are data: `bie/toolbox/icons/aliases.json` (`bie.icon-aliases/1`), vocabulary (Hindi words,
+  synonyms, emoji names) that points at existing icons, never a list of things to draw.
+- **A picture OF the thing** (`toolbox.icons.fits`, also used by `resolve_needs`): an alias naming the phrase's head noun ("debt
+  ledger" → the ledger; "sack of salt" is a sack, not the salt shaker), and then the alias decides; otherwise every content word is
+  a whole word of the icon's name or terms. Only fitting icons are offered to the maker; a thing with none is a need.
+- **BIE's coder** (`bie/brain/coder.py`; `tools/run_brain.py --section coder --from-run <canvas run> [--library <shared library>]`;
+  VM job section `coder`): for every need of kind `icon` or `image` the coder may draw (`coder.wants`: never a person, a name, a map,
+  a flag, a logo or a copy of real money) and the library lacks, code writes a short spec and the maker writes one SVG
+  (`rulebook/coder_card.md`). `coder.svg_problems` checks it (one `<svg>` root in the SVG namespace, a square viewBox, only the
+  allowed elements and attributes, no script, link, image, style, font, entity or words, `url()` only to an id of the same file, at
+  most 400 elements and 40 KB, at least 3 shapes, something visible) and sends the problems back; a passed file is stored cleaned
+  as `made/<slug>.svg` with `made.json` (`bie.brain.coder-made/1`) and `MADE.md`.
+- **Into the library**: `tools/task046d_fetch_needs.py --made <made.json>` (the fetch workflow's `made_url`) reads every drawing,
+  checks its sha256 and `svg_problems` again and adds it to `blindtest-results:library/` as source `bie_coder`, licence CC0 1.0,
+  with `generated_by`, `prompt` and `generated_on` (the licence policy's `generated_images`, Navin's decision of 29 October 2026;
+  `bie/brain/assets.py` `Asset` carries the three fields). A canvas run then finds it first (`resolve_needs` images).

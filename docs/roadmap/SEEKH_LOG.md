@@ -1501,3 +1501,50 @@ salt sack). A check that asked for those would have pushed the maker to draw the
 | Passed outputs | — | 0 problems |
 
 The measured effect on a live run (rounds, first-try passes, coverage after the maker's rounds) comes with the proof run (point 5).
+
+## Entry 36 · one general path for every thing a beat names; BIE's coder, 2 November 2026
+
+**Run:** none new; run c's dikhane ki list re-read with the new code. Navin's addendum, point 1: "Drop the hand-picked list in F
+... Nothing is hand-made for one chapter. Whatever a beat names goes through the one general path: library -> icon index (incl.
+Fluent Emoji) -> fetch -> if still missing, BIE's own coder makes a new SVG component from a short spec, tested and
+licence-clean, and adds it to the library for every later book. The Money items appear only if the needs list asks for them."
+
+**Taught:** with the 26 money drawings and their 210 aliases, a beat that named "goods", "a basket of vegetables" or "a goods
+shelf" got the salt sack, because the drawings' words caught every near word. The needs list looked short (15 distinct things
+for v2 and v4) only because any near word counted as found. Read strictly ("a picture OF the thing"), 469 of run c's 683 nouns
+have an icon that is a picture of them, and 200 distinct things have none.
+
+**Changed in BIE** (branch `task046d2-asset-path`, IMPLEMENTED):
+- **Retired** the `bie:` set: the 26 drawings, `tools/bie_objects.py`, their 26 index rows, and every alias that named them,
+  including the money-word generator. The registry keeps `bie-objects` as blocked, with the reason.
+- **The search's vocabulary** (280 + 9 aliases, every target an existing icon) moved from code to `icons/aliases.json`.
+- **`icons.fits`** settles whether an icon is a picture of the thing:
+  - an alias for the phrase's head noun decides ("sack of salt" is a sack, so the salt shaker does not fit);
+  - otherwise every content word must be a whole word of the icon's name or terms (no chequered flag for "cheque", no musical
+    note for "₹500 note").
+  - `resolve_needs` offers the maker only icons that fit; a thing with none is a need.
+- **BIE's coder** (`bie/brain/coder.py`, `--section coder`, VM section `coder`):
+  - For each need it may draw, code writes a short spec and the maker (Codex through the plan, ₹0) writes one SVG.
+  - It never draws a person, a name, a map, a flag, a logo, a copy of real money, or text such as a label, tag, marker or code.
+  - `svg_problems` checks the file: allowed elements and attributes only; no script, link, image, style, entity or words; a
+    square viewBox; 400 elements or 40 KB at most; something visible. The problems go back for another round.
+  - Each drawing passed is written to `made.json` with its provenance.
+- **Into the library**: `--made` in the fetch workflow checks every drawing again (hash and SVG) and adds it to the shared
+  library with its provenance. It goes under the licence policy's `generated_images` (Navin's decision of 29 October), and
+  `Asset` now carries the three provenance fields. A later book's canvas run finds it first.
+- `tools/task046d2_pick_videos.py` picks the proof's other videos by code: the most words v1, v2 and v4 never say, then fewer
+  beats. On the Money lesson it picks v6 and v8.
+
+| Measure | Before (PR 2) | After |
+| --- | --- | --- |
+| Hand-made drawings in the icon index, aliases naming them | 26, 210 | 0, 0 |
+| Run c nouns with an icon that is a picture of them | 671 of 683 by any near word | 469 of 683 |
+| Distinct things in needs.json for v2 and v4 | 15 | 200 |
+| …of them the coder may draw | — | 139 (27 names, 32 labels, tags and marks, 1 map and 1 description left out) |
+| Coder end to end, offline (run c's needs.json) | — | 11 of 11 drawn, checked, written with provenance |
+| Tests (Task 045/046) | 551 | 557, all pass (the 6 tests of the retired drawings removed, 12 coder tests added) |
+| Earlier plans recompiled (415) | — | 0 differences |
+| Passed outputs | — | 0 problems |
+
+The proof (point 5) runs the general path live: canvas on v2, v4, v6 and v8 → needs.json → fetch → coder → library → canvas
+resume → renders, with mentioned vs shown, needs.json and what the coder made.

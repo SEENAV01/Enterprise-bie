@@ -75,6 +75,10 @@ class Asset:
     credit: str
     tags: list = field(default_factory=list)
     description: str = ""
+    # a picture BIE generated (the licence policy's generated_images: Navin, 29 October 2026): who made it, from what, when
+    generated_by: str = ""
+    prompt: str = ""
+    generated_on: str = ""
 
 
 def normalise_licence(name: str) -> str:
@@ -99,16 +103,23 @@ def _strip_html(text) -> str:
 
 TRANSIENT_HTTP = (429, 500, 502, 503, 504)   # a busy or stumbling server: asked again after a wait, never on a 4xx of our own making
 TRANSIENT_ERRNO = (errno.ECONNRESET, errno.ETIMEDOUT, errno.ECONNREFUSED, errno.EPIPE)   # the line dropped mid-way: asked again too
+# A name lookup that failed for the moment (F-19, 1 November 2026: a runner's resolver answered "No address associated with
+# hostname" for indiacode.gov.in, which answered at once from elsewhere): "try again" and "no data". A name that does not
+# exist (EAI_NONAME) is not asked again.
+TRANSIENT_DNS = tuple(n for n in (getattr(socket, "EAI_AGAIN", None), getattr(socket, "EAI_NODATA", None)) if n is not None)
 
 
 def transient(exc: BaseException) -> bool:
     """Whether an error is the server's or the line's passing trouble (asked again after a wait) rather than ours: a 429 or
     5xx, a socket read that timed out, a connection reset or refused (F-15, 27 October 2026; F-17, 29 October 2026: Commons
-    or Openverse let a read time out once and the archive demo failed). A 4xx of our own making is never transient."""
+    or Openverse let a read time out once and the archive demo failed), a name lookup that failed for the moment (F-19). A 4xx
+    of our own making is never transient."""
     if isinstance(exc, urllib.error.HTTPError):
         return exc.code in TRANSIENT_HTTP
     if isinstance(exc, (TimeoutError, socket.timeout)):
         return True
+    if isinstance(exc, socket.gaierror):
+        return exc.errno in TRANSIENT_DNS
     if isinstance(exc, urllib.error.URLError):
         return transient(exc.reason) if isinstance(exc.reason, BaseException) else "timed out" in str(exc.reason).lower()
     if isinstance(exc, OSError):
@@ -326,7 +337,8 @@ class AssetLibrary:
                               author=candidate.author, credit=candidate.credit, tags=list(tags), description=description)
 
     def add_bytes(self, data: bytes, *, mime: str, source: str, title: str, page_url: str, licence: str, licence_url: str,
-                  author: str, credit: str, tags=(), description: str = "") -> Asset:
+                  author: str, credit: str, tags=(), description: str = "", generated_by: str = "", prompt: str = "",
+                  generated_on: str = "") -> Asset:
         digest = hashlib.sha256(data).hexdigest()
         asset_id = "a-" + digest[:16]
         if asset_id in self.assets:
@@ -340,7 +352,8 @@ class AssetLibrary:
         path.write_bytes(data)
         asset = Asset(asset_id=asset_id, path=str(path.relative_to(self.folder)), sha256=digest, mime=mime, source=source,
                       title=title, page_url=page_url, licence=licence, licence_url=licence_url, author=author, credit=credit,
-                      tags=sorted(set(tags)), description=description)
+                      tags=sorted(set(tags)), description=description, generated_by=generated_by, prompt=prompt,
+                      generated_on=generated_on)
         self.assets[asset_id] = asset
         self.save()
         return asset
@@ -390,6 +403,7 @@ def seed_library(library: "AssetLibrary", source, *, opener=None) -> int:
             raise AssetError(f"{row['asset_id']}: the file does not match its recorded hash")
         library.add_bytes(data, mime=row["mime"], source=row["source"], title=row["title"], page_url=row["page_url"], licence=row["licence"],
                           licence_url=row["licence_url"], author=row["author"], credit=row["credit"], tags=row.get("tags") or [],
-                          description=row.get("description", ""))
+                          description=row.get("description", ""), generated_by=row.get("generated_by", ""),
+                          prompt=row.get("prompt", ""), generated_on=row.get("generated_on", ""))
         added += 1
     return added
