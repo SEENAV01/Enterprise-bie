@@ -1,0 +1,191 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v2_s4b-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "fd4afc4746a65c0972a9471eb3f9bdc73674358243e7057cc7a718a8d5339144",
+ "card": null,
+ "prefix_sha256": "bdcc0d88147a6a4f03aeae3ea404f900ccdc03c329fc67a0db105442310b10a9",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses) (saanche: refuse)\n- accept: a tick on the thing accepted (saanche: accept)\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line) (saanche: coin_count)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word (saanche: cheque)\n- count: a counted stack or crowd whose number is the narration's number (saanche: count_stack, coin_count)\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline (saanche: hand_over, pay_change, upi, card_tap, cheque, barter_swap)\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number (saanche: pay_change, upi, card_tap, cheque)\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one (saanche: barter_swap)\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha (saanche: pay_change, cheque)\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label (saanche: cheque, hand_over)\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns THIS beat names or implies, as plain English or Hindi words a picture can show:\n  exactly the beat's own things, never a thing from an example, a card or another part (Navin, 2 November 2026: \"jis cheej ka\n  jikar hai wohi cheej dikhe\"). Every thing you list is a promise: it must appear on screen in this beat. A real person is never\n  drawn (card rule 8): name the role or the object, not the person.\n- shows: what is seen, in at most 8 words, as a picture description of this beat's own things and what happens to\n  them. Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object of this beat that an icon cannot show and a photograph or museum image can, as search words; \"\"\n  when an icon is enough. Never a person's portrait (card rule 8).\n- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: \"process show nahi ho rahi hai\"),\n  the recipe that shows it, or \"compose\" when no recipe fits but the motion parts do (the layout step writes the parts); \"none\"\n  when the beat tells no process; \"other\" only when a motion part BIE lacks is needed (template_note names it: it goes to the\n  missing-capability log). The actors, things and numbers always come from this beat. The recipes:\n- hand_over: one person gives a thing to another (steps give, take; actors giver, taker; objects thing; parts give, hold)\n- pay_change: the buyer hands over the payment, takes the goods and gets the difference back (each amount travels as a tag on what carries it) (steps pay, goods, change; actors buyer, seller; objects goods, money (optional), change_money (optional); amounts paid, change, price (optional); parts appear, give, hold, move, show_text)\n- barter_swap: two people swap their things; at 'ask' each wonders whether they want the other's thing (steps offer, ask, swap; actors a, b; objects a_thing, b_thing; parts give, hold, show_text)\n- upi: the buyer's device moves to the seller's sign and back; the buyer's device shows the amount paid, the seller's shows it received (steps scan, paid, received; actors buyer, seller; objects device (optional), sign (optional), seller_device (optional); amounts amount; parts appear, hold, move, show_text)\n- card_tap: a card moves to the seller's machine and back; the machine shows the amount approved (steps tap, approved; actors buyer, seller; objects card (optional), machine (optional); amounts amount; parts appear, hold, move, show_text)\n- cheque: the amount is written on the instrument, it moves into the place that pays, and the two balances change (payer down, payee up) (steps write, hand, balances; actors payer, payee; objects cheque (optional), place (optional); amounts amount, payer_before (optional), payer_after (optional), payee_before (optional), payee_after (optional); parts appear, hold, meter, move, show_text)\n- coin_count: things drop onto a pile while a meter rises; at 'limit' the meter stops at its red line and one more is refused (steps count, limit; objects coin (optional); amounts each, limit; parts appear, meter, refuse)\n- refuse: the person looks at the thing, shakes the head, and a cross lands on the thing (steps show, refuse; actors who; objects thing; parts appear, refuse)\n- accept: the person looks at the thing, nods, and a tick lands on the thing (steps show, accept; actors who; objects thing; parts accept, appear)\n- count_stack: n things appear one by one as they are said (steps count; objects thing; amounts n; parts appear)\n- compose: a process no recipe has, written as its parts in order (parts [{part, cue, ...fields}]); a part BIE lacks: template other in the dikhane ki list, with a note (it goes to the missing-capability log)\n  The motion parts every process is made of:\n- hold (actor, object, reach?): a person holds a thing in the front hand (reach 0..1 lifts it towards the other)\n- give (from, to, object, text?): a thing travels from one person's hand to the other's (give and take), with an optional tag of text on it\n- move (object, to, back?, into?, text?): a thing moves along a path to a spot, a person or another thing; back returns it; into lets it go into the target\n- transform (object, into): a thing turns into another thing where it is (A → B)\n- show_text (on, text, style?, inside?): a screen, sign, tag or thought bubble on a person or thing shows a short text (style: tag, sign, screen, ok, bubble, write)\n- meter (to, from?, limit?, style?, title?, dir?, on?, end?): a counter or meter changes: a bar fills to its limit (style bar), or a number changes from one value to another with an up or down arrow (style number)\n- appear (object, n?, spot?, layout?, end?): things appear one by one (n of them in a grid, or dropping onto a pile until a later step)\n- refuse (object, actor?): a person shakes the head and a cross lands on the thing\n- accept (object, actor?): a person nods and a tick lands on the thing\n- compare (left, right, sign?, left_text?, right_text?): two things side by side with a sign between them (=, ≠, ?, vs, <, >)\n- template_note: for \"other\" the process in a few words; for \"none\" on a beat that names a process word, why no saancha.\npicture_type: the one picture this part needs most, from timeline, gallery (a row of icon cards), table, flow, tree, chart, map or things (the things themselves with the relation's mark, arrow, meter or scale); the card part's type is \"cause_effect\". picture_note: one line on why.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c03.4 (3 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v2_s4b\", \"part_id\": \"c03.4\", \"card_type\": \"cause_effect\", \"story\": false}, \"beats\": [{\"beat_id\": \"b21\", \"say\": \"अलग ratios यानी no common measure of value; गाय न बाँट पाना indivisibility है। अनाज सड़े तो wealth रखना मुश्किल; deferred payments यानी बाद में चुकाते समय वही मात्रा कम सामान दिला सकती है।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b22\", \"say\": \"पैसे में उधार लिखना आसान, purchasing power fixed नहीं। जरूरतें मिलना और quantities मानना अलग शर्तें हैं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b23\", \"say\": \"Barter में matching से repayment तक मुश्किलें हैं।\", \"relation_guess\": \"place\", \"template_guess\": \"barter_swap\"}], \"items\": [{\"item_id\": \"p002-i27\", \"content_type\": \"cause_effect\", \"content\": \"Double coincidence of wants: Both parties must want what other offers.\"}, {\"item_id\": \"p003-i1\", \"content_type\": \"cause_effect\", \"content\": \"• No common measure of value\\n• Indivisibility of goods\\n• Difficulty in storing wealth\\n• Deferred payments are difficult\"}], \"book_pictures\": []}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793578092.7091637,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "7e15464403ae4e05a0702825c481b96b44886bb02f722de5ba4ee282c52db6ef",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 6052,
+    "output_tokens": 1085,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "यह भाग barter की कठिनाइयों को समेटता है और पैसे में उधार लिखने की सुविधा को purchasing power की गारंटी से अलग करता है।",
+    "key_questions": [
+     "अलग ratios, indivisibility, storage और deferred payments की कठिनाइयाँ कैसे अलग दिखें?",
+     "जरूरतें मिलने और quantities पर सहमति में क्या फर्क है?"
+    ],
+    "decisions": [
+     {
+      "decision": "कारण और परिणाम को वस्तुओं की छोटी दृश्य-जोड़ियों में दिखाएँ।",
+      "reason": "एक beat में कई कठिनाइयाँ हैं; केवल labels उनका अंतर स्पष्ट नहीं करेंगे।"
+     },
+     {
+      "decision": "कोई निश्चित कीमत, अनुपात या repayment amount न जोड़ें।",
+      "reason": "नरेशन में ये संख्याएँ नहीं दी गई हैं।"
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "यह भाग barter की कठिनाइयों को समेटता है और पैसे में उधार लिखने की सुविधा को purchasing power की गारंटी से अलग करता है।",
+     "key_questions": [
+      "अलग ratios, indivisibility, storage और deferred payments की कठिनाइयाँ कैसे अलग दिखें?",
+      "जरूरतें मिलने और quantities पर सहमति में क्या फर्क है?"
+     ],
+     "decisions": [
+      {
+       "decision": "कारण और परिणाम को वस्तुओं की छोटी दृश्य-जोड़ियों में दिखाएँ।",
+       "reason": "एक beat में कई कठिनाइयाँ हैं; केवल labels उनका अंतर स्पष्ट नहीं करेंगे।"
+      },
+      {
+       "decision": "कोई निश्चित कीमत, अनुपात या repayment amount न जोड़ें।",
+       "reason": "नरेशन में ये संख्याएँ नहीं दी गई हैं।"
+      }
+     ],
+     "uncertain": []
+    },
+    "beats": [
+     {
+      "beat_id": "b21",
+      "idea": "Barter में मूल्य, विभाजन, संग्रह और repayment की मुश्किलें",
+      "relation": "cause_effect",
+      "relation_note": "चार जोड़ियाँ: अलग ratios से साझा माप का अभाव; गाय का न बँटना; अनाज सड़ना; समान repayment मात्रा से कम सामान।",
+      "things": [
+       "वस्तुओं के अनुपात दर्शाते तराजू",
+       "गाय",
+       "अनाज",
+       "बाद में चुकाने की मात्रा",
+       "मिलने वाला सामान"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "अलग अनुपात; अखंड गाय; सड़ता अनाज; घटता सामान",
+      "on_word": "अलग",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "क्रम: appear अलग अनुपात वाले तराजू; show_text साझा माप पर '?'; appear अखंड गाय, 'न बाँट पाना' पर विभाजन-चिह्न पर cross; transform ताजा अनाज into सड़ा अनाज; compare पहले और बाद में समान repayment मात्रा; appear बाद वाली मात्रा के सामने कम सामान। गाय को काटते न दिखाएँ।"
+     },
+     {
+      "beat_id": "b22",
+      "idea": "उधार का monetary record मूल्य की गारंटी नहीं",
+      "relation": "compare",
+      "relation_note": "उधार लिखने की सुविधा बनाम अनिश्चित purchasing power; फिर जरूरतों का मिलना बनाम मात्रा पर सहमति।",
+      "things": [
+       "पैसा",
+       "उधार का बहीखाता",
+       "खरीदा जा सकने वाला सामान",
+       "विनिमय की वस्तुओं के ढेर"
+      ],
+      "people": [
+       "दो विनिमयकर्ता"
+      ],
+      "places": [],
+      "shows": "उधार दर्ज; सामान अनिश्चित; जरूरतें और मात्राएँ अलग",
+      "on_word": "पैसे",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear पैसा और बहीखाता; show_text बहीखाते में 'उधार ₹…'; compare पैसा और सामान, सामान की मात्रा पर '?'। 'जरूरतें' पर दोनों विनिमयकर्ताओं के thought bubbles में दूसरे की वस्तु; 'quantities' पर उन्हीं वस्तुओं के ढेर अलग खाँचे में, बीच में सहमति का '?'। कोई भुगतान या swap न कराएँ।"
+     },
+     {
+      "beat_id": "b23",
+      "idea": "Barter की कठिनाइयाँ matching से repayment तक",
+      "relation": "sequence",
+      "relation_note": "यह कठिनाइयों के विस्तार का सार है, सफल विनिमय की प्रक्रिया नहीं।",
+      "things": [
+       "विनिमय की वस्तुएँ",
+       "बाद में लौटाई जाने वाली वस्तुएँ"
+      ],
+      "people": [
+       "दो विनिमयकर्ता"
+      ],
+      "places": [],
+      "shows": "जरूरतों पर प्रश्न से repayment पर प्रश्न",
+      "on_word": "matching",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": "Matching और repayment प्रक्रिया के सिरों का उल्लेख हैं। स्थिर तीर-पंक्ति में दोनों व्यक्तियों की वस्तु-जरूरतों पर प्रश्नचिह्न और अंत में लौटाई जाने वाली वस्तुओं पर प्रश्नचिह्न दिखाएँ; narration कोई वास्तविक swap नहीं बताता।"
+     }
+    ],
+    "picture_type": "flow",
+    "picture_note": "वस्तुओं पर आधारित कारण–परिणाम जोड़ियाँ, अंत में matching से repayment तक कठिनाइयों की संक्षिप्त तीर-पंक्ति।"
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793578122.1711628
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 29.5,
+ "navin_verdict": null
+}

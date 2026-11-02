@@ -1,0 +1,227 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v6_s3-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "ee218fc27024deb0acffe690a2ae539892c4e4c8079ead7c5073df7e5925f43a",
+ "card": null,
+ "prefix_sha256": "72555581884b7cfe9dfdebf891eb3615c40bd77e516e4cbfcdad48700ee83062",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses) (saanche: refuse)\n- accept: a tick on the thing accepted (saanche: accept)\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line) (saanche: coin_count)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word (saanche: cheque)\n- count: a counted stack or crowd whose number is the narration's number (saanche: count_stack, coin_count)\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline (saanche: hand_over, pay_change, upi, card_tap, cheque, barter_swap)\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number (saanche: pay_change, upi, card_tap, cheque)\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one (saanche: barter_swap)\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha (saanche: pay_change, cheque)\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label (saanche: cheque, hand_over)\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns THIS beat names or implies, as plain English or Hindi words a picture can show:\n  exactly the beat's own things, never a thing from an example, a card or another part (Navin, 2 November 2026: \"jis cheej ka\n  jikar hai wohi cheej dikhe\"). Every thing you list is a promise: it must appear on screen in this beat. A real person is never\n  drawn (card rule 8): name the role or the object, not the person.\n- shows: what is seen, in at most 8 words, as a picture description of this beat's own things and what happens to\n  them. Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object of this beat that an icon cannot show and a photograph or museum image can, as search words; \"\"\n  when an icon is enough. Never a person's portrait (card rule 8).\n- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: \"process show nahi ho rahi hai\"),\n  the recipe that shows it, or \"compose\" when no recipe fits but the motion parts do (the layout step writes the parts); \"none\"\n  when the beat tells no process; \"other\" only when a motion part BIE lacks is needed (template_note names it: it goes to the\n  missing-capability log). The actors, things and numbers always come from this beat. The recipes:\n- hand_over: one person gives a thing to another (steps give, take; actors giver, taker; objects thing; parts give, hold)\n- pay_change: the buyer hands over the payment, takes the goods and gets the difference back (each amount travels as a tag on what carries it) (steps pay, goods, change; actors buyer, seller; objects goods, money (optional), change_money (optional); amounts paid, change, price (optional); parts appear, give, hold, move, show_text)\n- barter_swap: two people swap their things; at 'ask' each wonders whether they want the other's thing (steps offer, ask, swap; actors a, b; objects a_thing, b_thing; parts give, hold, show_text)\n- upi: the buyer's device moves to the seller's sign and back; the buyer's device shows the amount paid, the seller's shows it received (steps scan, paid, received; actors buyer, seller; objects device (optional), sign (optional), seller_device (optional); amounts amount; parts appear, hold, move, show_text)\n- card_tap: a card moves to the seller's machine and back; the machine shows the amount approved (steps tap, approved; actors buyer, seller; objects card (optional), machine (optional); amounts amount; parts appear, hold, move, show_text)\n- cheque: the amount is written on the instrument, it moves into the place that pays, and the two balances change (payer down, payee up) (steps write, hand, balances; actors payer, payee; objects cheque (optional), place (optional); amounts amount, payer_before (optional), payer_after (optional), payee_before (optional), payee_after (optional); parts appear, hold, meter, move, show_text)\n- coin_count: things drop onto a pile while a meter rises; at 'limit' the meter stops at its red line and one more is refused (steps count, limit; objects coin (optional); amounts each, limit; parts appear, meter, refuse)\n- refuse: the person looks at the thing, shakes the head, and a cross lands on the thing (steps show, refuse; actors who; objects thing; parts appear, refuse)\n- accept: the person looks at the thing, nods, and a tick lands on the thing (steps show, accept; actors who; objects thing; parts accept, appear)\n- count_stack: n things appear one by one as they are said (steps count; objects thing; amounts n; parts appear)\n- compose: a process no recipe has, written as its parts in order (parts [{part, cue, ...fields}]); a part BIE lacks: template other in the dikhane ki list, with a note (it goes to the missing-capability log)\n  The motion parts every process is made of:\n- hold (actor, object, reach?): a person holds a thing in the front hand (reach 0..1 lifts it towards the other)\n- give (from, to, object, text?): a thing travels from one person's hand to the other's (give and take), with an optional tag of text on it\n- move (object, to, back?, into?, text?): a thing moves along a path to a spot, a person or another thing; back returns it; into lets it go into the target\n- transform (object, into): a thing turns into another thing where it is (A → B)\n- show_text (on, text, style?, inside?): a screen, sign, tag or thought bubble on a person or thing shows a short text (style: tag, sign, screen, ok, bubble, write)\n- meter (to, from?, limit?, style?, title?, dir?, on?, end?): a counter or meter changes: a bar fills to its limit (style bar), or a number changes from one value to another with an up or down arrow (style number)\n- appear (object, n?, spot?, layout?, end?): things appear one by one (n of them in a grid, or dropping onto a pile until a later step)\n- refuse (object, actor?): a person shakes the head and a cross lands on the thing\n- accept (object, actor?): a person nods and a tick lands on the thing\n- compare (left, right, sign?, left_text?, right_text?): two things side by side with a sign between them (=, ≠, ?, vs, <, >)\n- template_note: for \"other\" the process in a few words; for \"none\" on a beat that names a process word, why no saancha.\nCode has already decided this part's picture (table: Coin | Metal\nMohur | Gold\nRupee | Silver\nDam | Copper) from the book's own table; it is placed at the top of the canvas. Set picture_type to \"table\" and use picture_note for what the beats add around it.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c14.3 (4 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v6_s3\", \"part_id\": \"c14.3\", \"card_type\": \"classification\", \"story\": false}, \"beats\": [{\"beat_id\": \"b19\", \"say\": \"पुराने coins को किस metal से पहचानोगे? परिवार में Mohur–gold, Rupee–silver, Dam–copper हैं; जैसे अलग metal के बर्तन पहचानते हो, वैसे इन्हें जोड़ो।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b20\", \"say\": \"Gold वाला कौन? Mohur; चाँदी जैसा metal किसका? Rupee; ताँबे वाला कौन? Dam—यह metal पहचान है, denomination ratio नहीं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b21\", \"say\": \"Mohur gold है, Rupee silver, Dam copper; matching में swap मत करना। Silver Rupee की पहचान आगे silver-price trouble समझाएगी, आज की backing नहीं।\", \"relation_guess\": \"place\", \"template_guess\": \"barter_swap\"}, {\"beat_id\": \"b22\", \"say\": \"Memory के लिए 3 shelves सोचो: gold पर Mohur, silver पर Rupee, copper पर Dam। ये पहचान के shelves हैं, exchange ratios नहीं।\", \"relation_guess\": \"place\", \"template_guess\": \"pay_change\"}], \"items\": [{\"item_id\": \"p007-i3\", \"content_type\": \"classification\", \"content\": \"Coin: Mohur | Metal: Gold\"}, {\"item_id\": \"p007-i4\", \"content_type\": \"classification\", \"content\": \"Coin: Rupee | Metal: Silver\"}, {\"item_id\": \"p007-i5\", \"content_type\": \"classification\", \"content\": \"Coin: Dam | Metal: Copper\"}], \"book_pictures\": [{\"item_id\": \"p007-i2\", \"type\": \"table\", \"title\": \"Coin | Metal\\nMohur | Gold\\nRupee | Silver\\nDam | Copper\"}]}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793580054.7894075,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "02c4d842d768d9670bef65c1a4e29f4b08c3ca7d00371ba25c2df60169701cb9",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 6182,
+    "output_tokens": 977,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Identify Mohur, Rupee and Dam by their metals using the book’s table, then reinforce the same matches visually.",
+    "key_questions": [
+     "Which metal identifies each coin?",
+     "Is the learner distinguishing metal identity from exchange ratios and present-day backing?"
+    ],
+    "decisions": [
+     {
+      "decision": "Keep all three coin–metal matches consistent with the book table.",
+      "reason": "The lesson teaches classification, not transactions or exchange values."
+     },
+     {
+      "decision": "Use labelled coin symbols rather than invented historical designs.",
+      "reason": "The supplied material establishes names and metals, not coin appearances."
+     },
+     {
+      "decision": "Do not illustrate utensils or animate a barter or payment.",
+      "reason": "Utensils are only an analogy; swapping and payment are not processes taught here."
+     }
+    ],
+    "uncertain": [
+     "No silver-price mechanism is supplied here; show only its connection to the silver Rupee, without inventing a price movement."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Identify Mohur, Rupee and Dam by their metals using the book’s table, then reinforce the same matches visually.",
+     "key_questions": [
+      "Which metal identifies each coin?",
+      "Is the learner distinguishing metal identity from exchange ratios and present-day backing?"
+     ],
+     "decisions": [
+      {
+       "decision": "Keep all three coin–metal matches consistent with the book table.",
+       "reason": "The lesson teaches classification, not transactions or exchange values."
+      },
+      {
+       "decision": "Use labelled coin symbols rather than invented historical designs.",
+       "reason": "The supplied material establishes names and metals, not coin appearances."
+      },
+      {
+       "decision": "Do not illustrate utensils or animate a barter or payment.",
+       "reason": "Utensils are only an analogy; swapping and payment are not processes taught here."
+      }
+     ],
+     "uncertain": [
+      "No silver-price mechanism is supplied here; show only its connection to the silver Rupee, without inventing a price movement."
+     ]
+    },
+    "beats": [
+     {
+      "beat_id": "b19",
+      "idea": "Identify coins by their metals",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "Mohur coin",
+       "gold",
+       "Rupee coin",
+       "silver",
+       "Dam coin",
+       "copper"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Three labelled coins beside matching metal swatches.",
+      "on_word": "coins",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": "जोड़ो asks for classification, not a physical exchange."
+     },
+     {
+      "beat_id": "b20",
+      "idea": "Recall each coin from its metal",
+      "relation": "question",
+      "relation_note": "",
+      "things": [
+       "gold",
+       "Mohur coin",
+       "silver",
+       "Rupee coin",
+       "copper",
+       "Dam coin"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Metal question marks become correctly labelled coins.",
+      "on_word": "Gold",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Appear: gold swatch with question mark; transform question mark into Mohur coin on Mohur. Repeat silver → Rupee and copper → Dam at their spoken answers. Show_text beneath matches: metal पहचान ≠ denomination ratio."
+     },
+     {
+      "beat_id": "b21",
+      "idea": "Keep matches fixed; silver identity matters later",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "Mohur coin",
+       "gold",
+       "Rupee coin",
+       "silver",
+       "Dam coin"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Fixed metal pairs; silver Rupee gets future-price callout.",
+      "on_word": "Mohur",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": "Swap मत करना prohibits a matching error, not a barter process. Keep the pairs stationary. Highlight the silver Rupee with a short 'आगे: silver-price trouble' callout and 'आज की backing नहीं'; do not depict an unsupported price mechanism."
+     },
+     {
+      "beat_id": "b22",
+      "idea": "Remember three metal-labelled shelves",
+      "relation": "part_whole",
+      "relation_note": "",
+      "things": [
+       "three shelves",
+       "gold",
+       "Mohur coin",
+       "silver",
+       "Rupee coin",
+       "copper",
+       "Dam coin"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Three metal-labelled shelves hold their matching coins.",
+      "on_word": "shelves",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": "The shelves are a static memory grouping, not a payment or exchange process. Label the grouping 'पहचान, exchange ratios नहीं'."
+     }
+    ],
+    "picture_type": "table",
+    "picture_note": "Keep the book’s Coin | Metal table at the top. Below it, reuse three labelled coin symbols and distinct labelled metal swatches for matching, question reveals and the final shelf mnemonic. Do not add exchange rates or historical coin details."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793580076.2549398
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 21.5,
+ "navin_verdict": null
+}

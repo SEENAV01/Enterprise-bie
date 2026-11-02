@@ -1,0 +1,332 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v8_s1-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "dd591f63ff929c8faf1e6cd391fa8d9d4aa8d764c64e2011a221b1e0265be2d0",
+ "card": null,
+ "prefix_sha256": "f9ffdbb8f231e142ee874aa01d78589ef702e5cc86dbf335392f60d80fe9eed7",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses) (saanche: refuse)\n- accept: a tick on the thing accepted (saanche: accept)\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line) (saanche: coin_count)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word (saanche: cheque)\n- count: a counted stack or crowd whose number is the narration's number (saanche: count_stack, coin_count)\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline (saanche: hand_over, pay_change, upi, card_tap, cheque, barter_swap)\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number (saanche: pay_change, upi, card_tap, cheque)\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one (saanche: barter_swap)\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha (saanche: pay_change, cheque)\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label (saanche: cheque, hand_over)\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns THIS beat names or implies, as plain English or Hindi words a picture can show:\n  exactly the beat's own things, never a thing from an example, a card or another part (Navin, 2 November 2026: \"jis cheej ka\n  jikar hai wohi cheej dikhe\"). Every thing you list is a promise: it must appear on screen in this beat. A real person is never\n  drawn (card rule 8): name the role or the object, not the person.\n- shows: what is seen, in at most 8 words, as a picture description of this beat's own things and what happens to\n  them. Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object of this beat that an icon cannot show and a photograph or museum image can, as search words; \"\"\n  when an icon is enough. Never a person's portrait (card rule 8).\n- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: \"process show nahi ho rahi hai\"),\n  the recipe that shows it, or \"compose\" when no recipe fits but the motion parts do (the layout step writes the parts); \"none\"\n  when the beat tells no process; \"other\" only when a motion part BIE lacks is needed (template_note names it: it goes to the\n  missing-capability log). The actors, things and numbers always come from this beat. The recipes:\n- hand_over: one person gives a thing to another (steps give, take; actors giver, taker; objects thing; parts give, hold)\n- pay_change: the buyer hands over the payment, takes the goods and gets the difference back (each amount travels as a tag on what carries it) (steps pay, goods, change; actors buyer, seller; objects goods, money (optional), change_money (optional); amounts paid, change, price (optional); parts appear, give, hold, move, show_text)\n- barter_swap: two people swap their things; at 'ask' each wonders whether they want the other's thing (steps offer, ask, swap; actors a, b; objects a_thing, b_thing; parts give, hold, show_text)\n- upi: the buyer's device moves to the seller's sign and back; the buyer's device shows the amount paid, the seller's shows it received (steps scan, paid, received; actors buyer, seller; objects device (optional), sign (optional), seller_device (optional); amounts amount; parts appear, hold, move, show_text)\n- card_tap: a card moves to the seller's machine and back; the machine shows the amount approved (steps tap, approved; actors buyer, seller; objects card (optional), machine (optional); amounts amount; parts appear, hold, move, show_text)\n- cheque: the amount is written on the instrument, it moves into the place that pays, and the two balances change (payer down, payee up) (steps write, hand, balances; actors payer, payee; objects cheque (optional), place (optional); amounts amount, payer_before (optional), payer_after (optional), payee_before (optional), payee_after (optional); parts appear, hold, meter, move, show_text)\n- coin_count: things drop onto a pile while a meter rises; at 'limit' the meter stops at its red line and one more is refused (steps count, limit; objects coin (optional); amounts each, limit; parts appear, meter, refuse)\n- refuse: the person looks at the thing, shakes the head, and a cross lands on the thing (steps show, refuse; actors who; objects thing; parts appear, refuse)\n- accept: the person looks at the thing, nods, and a tick lands on the thing (steps show, accept; actors who; objects thing; parts accept, appear)\n- count_stack: n things appear one by one as they are said (steps count; objects thing; amounts n; parts appear)\n- compose: a process no recipe has, written as its parts in order (parts [{part, cue, ...fields}]); a part BIE lacks: template other in the dikhane ki list, with a note (it goes to the missing-capability log)\n  The motion parts every process is made of:\n- hold (actor, object, reach?): a person holds a thing in the front hand (reach 0..1 lifts it towards the other)\n- give (from, to, object, text?): a thing travels from one person's hand to the other's (give and take), with an optional tag of text on it\n- move (object, to, back?, into?, text?): a thing moves along a path to a spot, a person or another thing; back returns it; into lets it go into the target\n- transform (object, into): a thing turns into another thing where it is (A → B)\n- show_text (on, text, style?, inside?): a screen, sign, tag or thought bubble on a person or thing shows a short text (style: tag, sign, screen, ok, bubble, write)\n- meter (to, from?, limit?, style?, title?, dir?, on?, end?): a counter or meter changes: a bar fills to its limit (style bar), or a number changes from one value to another with an up or down arrow (style number)\n- appear (object, n?, spot?, layout?, end?): things appear one by one (n of them in a grid, or dropping onto a pile until a later step)\n- refuse (object, actor?): a person shakes the head and a cross lands on the thing\n- accept (object, actor?): a person nods and a tick lands on the thing\n- compare (left, right, sign?, left_text?, right_text?): two things side by side with a sign between them (=, ≠, ?, vs, <, >)\n- template_note: for \"other\" the process in a few words; for \"none\" on a beat that names a process word, why no saancha.\npicture_type: the one picture this part needs most, from timeline, gallery (a row of icon cards), table, flow, tree, chart, map or things (the things themselves with the relation's mark, arrow, meter or scale); the card part's type is \"structure\". picture_note: one line on why.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c18.1 (9 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v8_s1\", \"part_id\": \"c18.1\", \"card_type\": \"structure\", \"story\": false}, \"beats\": [{\"beat_id\": \"b1\", \"say\": \"₹100 का promise क्या हमेशा उतना सामान दिलाता है? Note दिखे नहीं, तो उसकी value कैसे पहचानोगे?\", \"relation_guess\": \"question\", \"template_guess\": \"none\"}, {\"beat_id\": \"b2\", \"say\": \"छोटे अंक न दिखें तो? Accessibility Features यानी पहचान आसान बनाने वाली बनावट: raised printing और identification marks छूकर पहचानो; larger numerals और distinct note sizes भी मदद करते हैं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b3\", \"say\": \"रोशनी में कौन दिखता है? Watermark में Mahatma Gandhi कागज़ के भीतर दिखते हैं, ऊपर छपा portrait नहीं। Security Thread कागज़ में डाली पतली strip है; उसके भारत, RBI और denomination देखो, सिर्फ dark line नहीं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b4\", \"say\": \"Tilt पर चित्र उभरे? Latent Image देखने का angle बदलकर जाँचते हैं। See-through Register में आगे-पीछे के अधूरे निशान रोशनी में पूरी denomination बनाते हैं; यहाँ दोनों faces का alignment जाँचते हो, भीतर बना portrait नहीं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b5\", \"say\": \"Lens में छोटी line अक्षर बन जाए तो? Micro-lettering यानी बहुत छोटे अक्षरों में RBI और denomination; crude copy में ये धुँधले मिल सकते हैं। Higher denominations की Optically Variable Ink यानी tilt पर रंग बदलने वाली ink, जैसे चमकीला card घुमाओ; छिपा चित्र उभरना अलग check है।\", \"relation_guess\": \"place\", \"template_guess\": \"card_tap\"}, {\"beat_id\": \"b6\", \"say\": \"उँगली से उभार मिले? Intaglio Printing में छपे हिस्से raised होते हैं, पूरा कागज़ नहीं। Number Panels में छोटे से बड़े होते digits trace करो; यह printing-pattern check है, रकम बढ़ना नहीं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b7\", \"say\": \"भीतर की बनावट और बारीक छपाई अलग checks देते हैं; Intaglio touch-based पहचान भी देता है।\", \"relation_guess\": \"place\", \"template_guess\": \"hand_over\"}, {\"beat_id\": \"b8\", \"say\": \"Checks साथ लगाओ; features denomination और design के साथ बदल सकते हैं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b9\", \"say\": \"रास्ता याद रखो: light, tilt, magnify और touch।\", \"relation_guess\": \"other\", \"template_guess\": \"none\"}], \"items\": [{\"item_id\": \"p009-i10\", \"content_type\": \"structure\", \"content\": \"Accessibility Features: Designed for visually impaired users. Raised printing, Identification marks, Larger numerals, Distinct note sizes.\"}, {\"item_id\": \"p009-i15\", \"content_type\": \"structure\", \"content\": \"Watermark of Mahatma Gandhi.\"}, {\"item_id\": \"p009-i16\", \"content_type\": \"structure\", \"content\": \"Security Thread with \\\"भारत\\\", \\\"RBI\\\", and denomination.\"}, {\"item_id\": \"p009-i17\", \"content_type\": \"structure\", \"content\": \"Latent Image visible when tilted.\"}, {\"item_id\": \"p009-i18\", \"content_type\": \"structure\", \"content\": \"See-through Register that forms the denomination when viewed against light.\"}, {\"item_id\": \"p009-i19\", \"content_type\": \"structure\", \"content\": \"Micro-lettering reading \\\"RBI\\\" and the denomination.\"}, {\"item_id\": \"p009-i20\", \"content_type\": \"structure\", \"content\": \"Optically Variable Ink on higher denominations.\"}, {\"item_id\": \"p009-i21\", \"content_type\": \"structure\", \"content\": \"Intaglio Printing (raised printing) for tactile feel.\"}, {\"item_id\": \"p009-i22\", \"content_type\": \"structure\", \"content\": \"Number Panels with increasing numeral size.\"}], \"book_pictures\": []}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793581729.7522945,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "f2ef420842926d128b64a20d104fbddf0edfa72db4f4e454591e8617533266d8",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 6699,
+    "output_tokens": 1821,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This part teaches recognition and security checks on currency notes through light, tilt, magnification and touch.",
+    "key_questions": [
+     "Which feature requires which checking action?",
+     "How do internal features differ from surface printing?",
+     "Which features vary by denomination and design?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use close-ups of actual note features rather than generic security icons.",
+      "reason": "Learners must see the distinguishing details they are being asked to check."
+     },
+     {
+      "decision": "Show the Gandhi watermark only as an embedded banknote feature, never as a standalone portrait.",
+      "reason": "The lesson concerns the note's construction, not a person."
+     },
+     {
+      "decision": "Use a gallery as the permitted schema equivalent of the requested structure picture.",
+      "reason": "The output enum does not include structure."
+     },
+     {
+      "decision": "Do not animate the shiny-card analogy as a payment.",
+      "reason": "The beat explains optical change, not a card transaction."
+     }
+    ],
+    "uncertain": [
+     "No book pictures or denomination-specific feature photographs are supplied; feature close-ups must be verified against the selected note design.",
+     "The opening purchasing-power question has no specified goods or later explicit answer; do not invent a goods basket or a price change."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This part teaches recognition and security checks on currency notes through light, tilt, magnification and touch.",
+     "key_questions": [
+      "Which feature requires which checking action?",
+      "How do internal features differ from surface printing?",
+      "Which features vary by denomination and design?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use close-ups of actual note features rather than generic security icons.",
+       "reason": "Learners must see the distinguishing details they are being asked to check."
+      },
+      {
+       "decision": "Show the Gandhi watermark only as an embedded banknote feature, never as a standalone portrait.",
+       "reason": "The lesson concerns the note's construction, not a person."
+      },
+      {
+       "decision": "Use a gallery as the permitted schema equivalent of the requested structure picture.",
+       "reason": "The output enum does not include structure."
+      },
+      {
+       "decision": "Do not animate the shiny-card analogy as a payment.",
+       "reason": "The beat explains optical change, not a card transaction."
+      }
+     ],
+     "uncertain": [
+      "No book pictures or denomination-specific feature photographs are supplied; feature close-ups must be verified against the selected note design.",
+      "The opening purchasing-power question has no specified goods or later explicit answer; do not invent a goods basket or a price change."
+     ]
+    },
+    "beats": [
+     {
+      "beat_id": "b1",
+      "idea": "Face value versus recognition and purchasing power",
+      "relation": "question",
+      "relation_note": "",
+      "things": [
+       "₹100 note"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "₹100 note with two question marks",
+      "on_word": "₹100",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": "Questions introduce purchasing power and recognition; no transaction is narrated."
+     },
+     {
+      "beat_id": "b2",
+      "idea": "Accessible recognition uses touch, numerals and size",
+      "relation": "part_whole",
+      "relation_note": "",
+      "things": [
+       "currency notes",
+       "raised printing",
+       "identification marks",
+       "large numerals",
+       "different note sizes",
+       "fingertip"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Fingertip traces relief; numerals and sizes compare",
+      "on_word": "छोटे",
+      "image_wanted": "Indian banknotes accessibility raised printing identification marks large numerals size comparison",
+      "template": "compose",
+      "template_note": "Appear note details; move fingertip across raised printing and identification marks; compare numeral sizes and actual note dimensions without inventing denominations."
+     },
+     {
+      "beat_id": "b3",
+      "idea": "Light reveals embedded watermark and security thread",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "banknote",
+       "Gandhi watermark",
+       "printed portrait area",
+       "security thread",
+       "भारत RBI denomination inscriptions",
+       "light"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Backlight reveals watermark and inscribed embedded thread",
+      "on_word": "रोशनी",
+      "image_wanted": "Indian banknote transmitted light Gandhi watermark security thread भारत RBI denomination macro",
+      "template": "compose",
+      "template_note": "Move note against light; reveal embedded watermark separately from printed portrait area; enlarge thread until भारत, RBI and its denomination inscription are legible."
+     },
+     {
+      "beat_id": "b4",
+      "idea": "Angle-dependent image differs from aligned register",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "banknote",
+       "latent image",
+       "front register mark",
+       "back register mark",
+       "denomination numeral",
+       "light"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Tilt reveals image; backlighting joins register halves",
+      "on_word": "Tilt",
+      "image_wanted": "Indian banknote latent image viewing angle see through register front reverse transmitted light",
+      "template": "compose",
+      "template_note": "Move note through viewing angles to reveal latent image; separately show front and back register fragments, then move into registered overlap against light to form the denomination."
+     },
+     {
+      "beat_id": "b5",
+      "idea": "Magnification reveals letters; tilt changes ink colour",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "banknote",
+       "magnifying lens",
+       "micro-lettering",
+       "RBI and denomination letters",
+       "blurred copy detail",
+       "optically variable ink",
+       "shiny card",
+       "latent image"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Lens resolves letters; tilted ink changes colour",
+      "on_word": "Lens",
+      "image_wanted": "Indian banknote micro lettering RBI denomination macro optically variable ink two viewing angles",
+      "template": "compose",
+      "template_note": "Move lens over micro-lettering and reveal readable letters; compare with blurred copy detail. Move higher-denomination note between angles and transform ink colour using verified imagery; briefly move shiny card similarly. Compare colour change with latent-image appearance, not a payment."
+     },
+     {
+      "beat_id": "b6",
+      "idea": "Raised ink and growing digit sizes",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "banknote",
+       "raised printed areas",
+       "paper surface",
+       "fingertip",
+       "number panel"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Finger traces raised ink and growing digits",
+      "on_word": "उँगली",
+      "image_wanted": "Indian banknote intaglio raised ink macro number panel ascending numeral size",
+      "template": "compose",
+      "template_note": "Move fingertip across a magnified raised-ink detail beside flat paper; then move a tracing marker along the actual number panel. Keep digit values unchanged while showing their increasing printed size."
+     },
+     {
+      "beat_id": "b7",
+      "idea": "Internal, fine-print and tactile checks complement",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "banknote internal features",
+       "fine printing",
+       "intaglio printing",
+       "fingertip"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Internal detail, fine print, fingertip on relief",
+      "on_word": "भीतर",
+      "image_wanted": "banknote internal security detail fine printing intaglio relief comparison",
+      "template": "none",
+      "template_note": "A comparison of check types, not a handover or new checking sequence."
+     },
+     {
+      "beat_id": "b8",
+      "idea": "Combine checks without assuming identical features",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "banknotes of different denominations and designs",
+       "security feature details"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Different note designs beside their feature details",
+      "on_word": "Checks",
+      "image_wanted": "Indian banknotes different denominations designs verified security feature comparison",
+      "template": "none",
+      "template_note": "A combined-check reminder and variation warning; no specific checking action is narrated."
+     },
+     {
+      "beat_id": "b9",
+      "idea": "Recall the four checking actions",
+      "relation": "sequence",
+      "relation_note": "",
+      "things": [
+       "banknote",
+       "light",
+       "magnifying lens",
+       "fingertip"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Backlight, tilted note, lens, fingertip in sequence",
+      "on_word": "light",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Appear four numbered views in spoken order: note against light, note at changed angle, lens over note, fingertip touching note; connect with arrows as a recall route, not a mandatory testing order."
+     }
+    ],
+    "picture_type": "gallery",
+    "picture_note": "A feature gallery pairs actual note close-ups with the checking action and finishes with the four-action recall row."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793581772.3228793
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 42.6,
+ "navin_verdict": null
+}

@@ -1,0 +1,200 @@
+{
+ "id": "v2_s1s",
+ "part_id": "c03.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b2",
+   "say": "मानिए किसान के पास 10 kg wheat था। उसने 2 kg देकर 1 metre कपड़ा लिया; अब 8 kg wheat बचा और कपड़ा भी मिला।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "cloth_shop",
+   "kind": "shop",
+   "x": 3000,
+   "y": 860,
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "goods": [
+    {
+     "icon": "tw:1f9f5",
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "direct_exchange",
+   "kind": "action",
+   "x": 2500,
+   "y": 860,
+   "cue": [
+    "b2",
+    "किसान"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "farmer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "holding",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    },
+    {
+     "name": "portion",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    },
+    {
+     "name": "cloth",
+     "icon": "tw:1f9f5",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b2",
+      "किसान"
+     ],
+     "actor": "farmer",
+     "object": "holding"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b2",
+      "10"
+     ],
+     "on": "holding",
+     "text": "10 kg",
+     "style": "tag"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b2",
+      "2"
+     ],
+     "actor": "farmer",
+     "object": "portion"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b2",
+      "2"
+     ],
+     "on": "portion",
+     "text": "2 kg",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b2",
+      "देकर"
+     ],
+     "from": "farmer",
+     "to": "seller",
+     "object": "portion"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b2",
+      "1"
+     ],
+     "actor": "seller",
+     "object": "cloth"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b2",
+      "1"
+     ],
+     "on": "cloth",
+     "text": "1 metre",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b2",
+      "लिया;"
+     ],
+     "from": "seller",
+     "to": "farmer",
+     "object": "cloth"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b2",
+      "8"
+     ],
+     "from": "10 kg",
+     "to": "8 kg",
+     "object": "holding",
+     "on": "holding",
+     "text": "8 kg",
+     "style": "tag",
+     "dir": "down"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 590,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "देकर"
+   ],
+   "x": 2500,
+   "y": 610,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "8"
+   ],
+   "x": 2380,
+   "y": 590,
+   "zoom": 1.15,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

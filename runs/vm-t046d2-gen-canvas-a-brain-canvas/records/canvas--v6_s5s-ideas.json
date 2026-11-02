@@ -1,0 +1,276 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v6_s5s-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "572deeab02e96528e7728cb0d928ed677168a59771f8bfea9f40f51ff83852e8",
+ "card": null,
+ "prefix_sha256": "30472744004bbebee3dea76875c4a7424c379aa26e2b9ae596576b480234cee8",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses) (saanche: refuse)\n- accept: a tick on the thing accepted (saanche: accept)\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line) (saanche: coin_count)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word (saanche: cheque)\n- count: a counted stack or crowd whose number is the narration's number (saanche: count_stack, coin_count)\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline (saanche: hand_over, pay_change, upi, card_tap, cheque, barter_swap)\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number (saanche: pay_change, upi, card_tap, cheque)\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one (saanche: barter_swap)\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha (saanche: pay_change, cheque)\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label (saanche: cheque, hand_over)\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns THIS beat names or implies, as plain English or Hindi words a picture can show:\n  exactly the beat's own things, never a thing from an example, a card or another part (Navin, 2 November 2026: \"jis cheej ka\n  jikar hai wohi cheej dikhe\"). Every thing you list is a promise: it must appear on screen in this beat. A real person is never\n  drawn (card rule 8): name the role or the object, not the person.\n- shows: what is seen, in at most 8 words, as a picture description of this beat's own things and what happens to\n  them. Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object of this beat that an icon cannot show and a photograph or museum image can, as search words; \"\"\n  when an icon is enough. Never a person's portrait (card rule 8).\n- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: \"process show nahi ho rahi hai\"),\n  the recipe that shows it, or \"compose\" when no recipe fits but the motion parts do (the layout step writes the parts); \"none\"\n  when the beat tells no process; \"other\" only when a motion part BIE lacks is needed (template_note names it: it goes to the\n  missing-capability log). The actors, things and numbers always come from this beat. The recipes:\n- hand_over: one person gives a thing to another (steps give, take; actors giver, taker; objects thing; parts give, hold)\n- pay_change: the buyer hands over the payment, takes the goods and gets the difference back (each amount travels as a tag on what carries it) (steps pay, goods, change; actors buyer, seller; objects goods, money (optional), change_money (optional); amounts paid, change, price (optional); parts appear, give, hold, move, show_text)\n- barter_swap: two people swap their things; at 'ask' each wonders whether they want the other's thing (steps offer, ask, swap; actors a, b; objects a_thing, b_thing; parts give, hold, show_text)\n- upi: the buyer's device moves to the seller's sign and back; the buyer's device shows the amount paid, the seller's shows it received (steps scan, paid, received; actors buyer, seller; objects device (optional), sign (optional), seller_device (optional); amounts amount; parts appear, hold, move, show_text)\n- card_tap: a card moves to the seller's machine and back; the machine shows the amount approved (steps tap, approved; actors buyer, seller; objects card (optional), machine (optional); amounts amount; parts appear, hold, move, show_text)\n- cheque: the amount is written on the instrument, it moves into the place that pays, and the two balances change (payer down, payee up) (steps write, hand, balances; actors payer, payee; objects cheque (optional), place (optional); amounts amount, payer_before (optional), payer_after (optional), payee_before (optional), payee_after (optional); parts appear, hold, meter, move, show_text)\n- coin_count: things drop onto a pile while a meter rises; at 'limit' the meter stops at its red line and one more is refused (steps count, limit; objects coin (optional); amounts each, limit; parts appear, meter, refuse)\n- refuse: the person looks at the thing, shakes the head, and a cross lands on the thing (steps show, refuse; actors who; objects thing; parts appear, refuse)\n- accept: the person looks at the thing, nods, and a tick lands on the thing (steps show, accept; actors who; objects thing; parts accept, appear)\n- count_stack: n things appear one by one as they are said (steps count; objects thing; amounts n; parts appear)\n- compose: a process no recipe has, written as its parts in order (parts [{part, cue, ...fields}]); a part BIE lacks: template other in the dikhane ki list, with a note (it goes to the missing-capability log)\n  The motion parts every process is made of:\n- hold (actor, object, reach?): a person holds a thing in the front hand (reach 0..1 lifts it towards the other)\n- give (from, to, object, text?): a thing travels from one person's hand to the other's (give and take), with an optional tag of text on it\n- move (object, to, back?, into?, text?): a thing moves along a path to a spot, a person or another thing; back returns it; into lets it go into the target\n- transform (object, into): a thing turns into another thing where it is (A → B)\n- show_text (on, text, style?, inside?): a screen, sign, tag or thought bubble on a person or thing shows a short text (style: tag, sign, screen, ok, bubble, write)\n- meter (to, from?, limit?, style?, title?, dir?, on?, end?): a counter or meter changes: a bar fills to its limit (style bar), or a number changes from one value to another with an up or down arrow (style number)\n- appear (object, n?, spot?, layout?, end?): things appear one by one (n of them in a grid, or dropping onto a pile until a later step)\n- refuse (object, actor?): a person shakes the head and a cross lands on the thing\n- accept (object, actor?): a person nods and a tick lands on the thing\n- compare (left, right, sign?, left_text?, right_text?): two things side by side with a sign between them (=, ≠, ?, vs, <, >)\n- template_note: for \"other\" the process in a few words; for \"none\" on a beat that names a process word, why no saancha.\npicture_type: the one picture this part needs most, from timeline, gallery (a row of icon cards), table, flow, tree, chart, map or things (the things themselves with the relation's mark, arrow, meter or scale); the card part's type is \"timeline\". picture_note: one line on why.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c15.1 (6 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v6_s5s\", \"part_id\": \"c15.1\", \"card_type\": \"timeline\", \"story\": true}, \"beats\": [{\"beat_id\": \"b31\", \"say\": \"Jaipur की imaginary दुकान में bill कैसे जोड़ोगे? Salt ₹12.50, soap ₹7.50: 1250 + 750 = 2000 paise, यानी ₹20; ₹50 देने पर ₹30 वापस मिलते हैं।\", \"relation_guess\": \"place\", \"template_guess\": \"pay_change\"}, {\"beat_id\": \"b32\", \"say\": \"यही decimal currency है: ₹1 के 100 paise, ताकि bill में annas का conversion न करना पड़े। Decimalization 1957 में हुई; anna system हटाने वाला Indian Coinage (Amendment) Act, 1955 था—पहले law, फिर बदलाव।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b33\", \"say\": \"Lucknow में दुकानदार note क्यों लेगा? मान लो तुम्हारे पास ₹100 हैं; पूरा note देकर 1 rice bag लिया, अब cash नहीं बची। दुकानदार के 5 bags में 4 बचे और उसे ₹100 मिले; वह आगे payment करेगा, gold नहीं माँगेगा।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b34\", \"say\": \"यह fiat currency है: fixed gold redemption जरूरी नहीं। Gold देने का fixed वादा हो तो authority को gold resources रखने और वादा निभाने के लिए monetary choices सीमित रखने पड़ते हैं। 1971 में dollar–gold convertibility खत्म होने से वह खास constraint हटा, inflation का risk नहीं। India की दिशा gradual थी; fiat की शुरुआत उसी साल मत मानना।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b35\", \"say\": \"Mumbai bank में dollar orders बढ़ें तो? Imaginary ₹80 per dollar पर demand और supply $100 थीं; import orders से demand $150 हुई, supply $100 रही—shortage बना।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b36\", \"say\": \"मान लो ₹84 पर demand और supply $120 हो जाएँ। $10 invoice अब ₹800 नहीं, ₹840 का है; same dollars के लिए ज़्यादा rupees लगे।\", \"relation_guess\": \"more_less\", \"template_guess\": \"none\"}], \"items\": [{\"item_id\": \"p006-i17\", \"content_type\": \"timeline\", \"content\": \"Period: 1957 | Nature of the Rupee: Decimal currency\"}, {\"item_id\": \"p006-i18\", \"content_type\": \"timeline\", \"content\": \"Period: 1971 | Nature of the Rupee: Fiat currency\"}, {\"item_id\": \"p006-i19\", \"content_type\": \"timeline\", \"content\": \"Period: 1993 onwards | Nature of the Rupee: Market-determined exchange rate\"}, {\"item_id\": \"p007-i15\", \"content_type\": \"timeline\", \"content\": \"Decimalization (1957): Anna System was aborted [abolished] via the Indian Coinage (Amendment) Act, 1955.\"}, {\"item_id\": \"p007-i16\", \"content_type\": \"timeline\", \"content\": \"1971: End of Gold Convertibility\\nThe global monetary system changed.\\nIndia gradually moved toward a fiat currency.\"}, {\"item_id\": \"p007-i17\", \"content_type\": \"timeline\", \"content\": \"1993: India adopted a market-determined managed float.\"}], \"book_pictures\": []}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793580310.312935,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "0feed14e0200ab1f8ae910bd4c480ff325dfe1aa3ca17d0a83dda9c0b9d2c3be",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 6534,
+    "output_tokens": 1596,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Everyday shop and bank transactions explain decimal currency, fiat currency and exchange-rate changes alongside the chapter timeline.",
+    "key_questions": [
+     "How do paise simplify billing and change?",
+     "How does accepting fiat money differ from promising fixed gold redemption?",
+     "How can excess dollar demand raise the rupee cost of an unchanged invoice?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use a timeline with transaction demonstrations attached to its relevant milestones.",
+      "reason": "The part is a timeline, but learners must see the narrated payments and quantities move."
+     },
+     {
+      "decision": "Show 1955 before 1957, and qualify the 1971 marker.",
+      "reason": "The law preceded decimalization; 1971 marks the end of dollar–gold convertibility, not a single-year Indian fiat transition."
+     },
+     {
+      "decision": "Do not insert a spoken 1993 cue.",
+      "reason": "The supplied timeline includes 1993 onwards, but these beats do not narrate that date."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Everyday shop and bank transactions explain decimal currency, fiat currency and exchange-rate changes alongside the chapter timeline.",
+     "key_questions": [
+      "How do paise simplify billing and change?",
+      "How does accepting fiat money differ from promising fixed gold redemption?",
+      "How can excess dollar demand raise the rupee cost of an unchanged invoice?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use a timeline with transaction demonstrations attached to its relevant milestones.",
+       "reason": "The part is a timeline, but learners must see the narrated payments and quantities move."
+      },
+      {
+       "decision": "Show 1955 before 1957, and qualify the 1971 marker.",
+       "reason": "The law preceded decimalization; 1971 marks the end of dollar–gold convertibility, not a single-year Indian fiat transition."
+      },
+      {
+       "decision": "Do not insert a spoken 1993 cue.",
+       "reason": "The supplied timeline includes 1993 onwards, but these beats do not narrate that date."
+      }
+     ],
+     "uncertain": []
+    },
+    "beats": [
+     {
+      "beat_id": "b31",
+      "idea": "Decimal billing and correct change",
+      "relation": "sequence",
+      "relation_note": "",
+      "things": [
+       "salt packet",
+       "soap",
+       "bill",
+       "₹50 note",
+       "₹30 change"
+      ],
+      "people": [
+       "buyer",
+       "shopkeeper"
+      ],
+      "places": [
+       "Jaipur"
+      ],
+      "shows": "Bill totals; payment crosses; goods and change return.",
+      "on_word": "Jaipur",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear salt packet and soap beside Jaipur shop; show_text bill '₹12.50 = 1250 paise' and '₹7.50 = 750 paise'; show_text bill '1250 + 750 = 2000 paise = ₹20'; give ₹50 note buyer to shopkeeper tagged ₹50; give goods shopkeeper to buyer; give ₹30 change shopkeeper to buyer tagged ₹30."
+     },
+     {
+      "beat_id": "b32",
+      "idea": "Decimal units followed the enabling law",
+      "relation": "sequence",
+      "relation_note": "",
+      "things": [
+       "₹1 coin",
+       "paise",
+       "bill",
+       "anna-system conversion",
+       "Indian Coinage (Amendment) Act, 1955 law scroll"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Rupee equals hundred paise; law precedes decimalization.",
+      "on_word": "decimal",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "compare ₹1 coin with paise labelled '100 paise', sign '='; show_text bill 'No anna conversion'; refuse anna-system conversion on 'न'; appear stamped law scroll at 1955, then decimal-currency milestone at 1957, connected by a forward arrow; show_text 1957 milestone 'Decimal currency'."
+     },
+     {
+      "beat_id": "b33",
+      "idea": "Accepted notes circulate after a purchase",
+      "relation": "sequence",
+      "relation_note": "",
+      "things": [
+       "₹100 note",
+       "five rice bags",
+       "gold"
+      ],
+      "people": [
+       "buyer",
+       "shopkeeper",
+       "next payment recipient"
+      ],
+      "places": [
+       "Lucknow"
+      ],
+      "shows": "Note buys bag; four remain; note circulates.",
+      "on_word": "Lucknow",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear five rice bags beside Lucknow shopkeeper; hold buyer ₹100 note; give buyer to shopkeeper ₹100 note; give shopkeeper to buyer one rice bag; show_text buyer 'Cash ₹0'; show_text remaining bags '4 bags'; show_text shopkeeper note '₹100'; give shopkeeper to next payment recipient the same note on 'आगे payment'; appear gold then refuse gold on 'नहीं'."
+     },
+     {
+      "beat_id": "b34",
+      "idea": "Fiat removes a fixed gold-redemption obligation",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "currency note",
+       "fixed gold-redemption promise",
+       "gold reserves",
+       "monetary-choice controls",
+       "US dollar",
+       "inflation warning"
+      ],
+      "people": [
+       "monetary authority"
+      ],
+      "places": [
+       "India"
+      ],
+      "shows": "Gold promise constrains; 1971 ends dollar redemption.",
+      "on_word": "fiat",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "compare fixed-gold-redemption and fiat panels using matching currency and authority slots; in redemption panel show promise linking currency to gold reserves, with arrow to restricted monetary-choice controls; in fiat panel cross only the required fixed-redemption promise, not gold itself. At '1971', show US dollar linked to gold then refuse that fixed-convertibility link; retain inflation warning visibly uncrossed at 'risk नहीं'. Show India beside a gradual-transition arrow, not a 1971 start stamp."
+     },
+     {
+      "beat_id": "b35",
+      "idea": "Higher dollar demand creates a shortage",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "bank",
+       "US dollars",
+       "import orders",
+       "dollar-demand stack",
+       "dollar-supply stack"
+      ],
+      "people": [],
+      "places": [
+       "Mumbai"
+      ],
+      "shows": "Import orders grow demand beyond unchanged dollar supply.",
+      "on_word": "Mumbai",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear Mumbai bank with rate tag 'Imaginary ₹80/$'; compare dollar-demand and dollar-supply stacks, each labelled '$100'; move import orders into bank; meter demand from 100 to 150 with dollar units while supply stays at $100; connect import orders to enlarged demand by arrow; bracket the unmatched portion and show_text '$50 shortage'."
+     },
+     {
+      "beat_id": "b36",
+      "idea": "Same dollar invoice costs more rupees",
+      "relation": "change",
+      "relation_note": "",
+      "things": [
+       "dollar-demand stack",
+       "dollar-supply stack",
+       "$10 invoice",
+       "rupee payment"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Dollar stacks balance; unchanged invoice needs more rupees.",
+      "on_word": "₹84",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "show_text rate tag 'Hypothetical ₹84/$'; meter dollar demand from $150 to $120 and supply from $100 to $120; compare resulting stacks with '='. Keep the same $10 invoice visible throughout; compare before '₹80/$ → ₹800' and after '₹84/$ → ₹840'; meter its rupee-payment amount from 800 to 840, retaining $10 unchanged."
+     }
+    ],
+    "picture_type": "timeline",
+    "picture_note": "Use the book’s milestones as the backbone, with animated transactions explaining each concept and explicit caution around the 1971 label."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793580346.561105
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 36.2,
+ "navin_verdict": null
+}

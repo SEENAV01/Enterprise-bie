@@ -1,0 +1,361 @@
+{
+ "id": "v4_s4b",
+ "part_id": "c10.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b20",
+   "say": "यह fiat money है: value government authority और public trust से, material से नहीं। यानी आज मिला note कल groceries दिलाएगा।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "Gold-backed paper का आधार redemption था; इसलिए हर paper note fiat नहीं।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "Authority और trust वाला यही आधार आगे समझाएगा: gold बिना issue कैसे control होता है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "fiat-title",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    4,
+    1
+   ],
+   "cue": [
+    "b20",
+    "fiat"
+   ],
+   "until_cue": [
+    "b21",
+    "Gold-backed"
+   ],
+   "text": "यह fiat money है",
+   "style": "title",
+   "tone": "ink",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "authority",
+   "kind": "icon",
+   "cell": [
+    4,
+    0,
+    3,
+    2
+   ],
+   "cue": [
+    "b20",
+    "authority"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/stamp",
+   "label": "government authority",
+   "size": 30
+  },
+  {
+   "id": "trust",
+   "kind": "icon",
+   "cell": [
+    8,
+    0,
+    3,
+    2
+   ],
+   "cue": [
+    "b20",
+    "trust"
+   ],
+   "tone": "ok",
+   "icon": "tw:1f91d",
+   "label": "public trust",
+   "size": 30
+  },
+  {
+   "id": "purchase",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    12,
+    5
+   ],
+   "cue": [
+    "b20",
+    "fiat"
+   ],
+   "until_cue": [
+    "b21",
+    "Gold-backed"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "groceries",
+     "icon": "tw:1f6cd",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b20",
+      "fiat"
+     ],
+     "actor": "buyer",
+     "object": "note"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b20",
+      "note"
+     ],
+     "actor": "buyer",
+     "from": "buyer",
+     "to": "seller",
+     "object": "note"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b20",
+      "groceries"
+     ],
+     "actor": "seller",
+     "from": "seller",
+     "to": "buyer",
+     "object": "groceries"
+    }
+   ]
+  },
+  {
+   "id": "paper-comparison",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    12,
+    5
+   ],
+   "cue": [
+    "b21",
+    "Gold-backed"
+   ],
+   "until_cue": [
+    "b22",
+    "Authority"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "backed",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "fiat",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "gold",
+     "icon": "fa:solid/coins",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "compare",
+     "cue": [
+      "b21",
+      "Gold-backed"
+     ],
+     "left": "backed",
+     "right": "fiat",
+     "sign": "vs",
+     "left_text": "Gold-backed paper"
+    },
+    {
+     "part": "transform",
+     "cue": [
+      "b21",
+      "redemption"
+     ],
+     "object": "backed",
+     "into": "gold"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b21",
+      "नहीं।"
+     ],
+     "on": "fiat",
+     "text": "हर paper note fiat नहीं",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "authority-return",
+   "kind": "highlight",
+   "cue": [
+    "b22",
+    "Authority"
+   ],
+   "style": "band",
+   "tone": "accent",
+   "target": "authority"
+  },
+  {
+   "id": "issuance-notes",
+   "kind": "icon",
+   "cell": [
+    4,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b22",
+    "issue"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/money-bill-1"
+  },
+  {
+   "id": "control-question",
+   "kind": "icon",
+   "cell": [
+    8,
+    3,
+    3,
+    3
+   ],
+   "cue": [
+    "b22",
+    "control"
+   ],
+   "tone": "warm",
+   "icon": "tw:2753",
+   "label": "issue कैसे control होता है",
+   "size": 28
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b20",
+    "fiat"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b21",
+    "Gold-backed"
+   ]
+  },
+  {
+   "cells": [
+    3,
+    0,
+    9,
+    7
+   ],
+   "cue": [
+    "b22",
+    "Authority"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b20",
+    "groceries"
+   ],
+   "ids": [
+    "purchase",
+    "authority",
+    "trust"
+   ],
+   "until_cue": [
+    "b21",
+    "Gold-backed"
+   ]
+  },
+  {
+   "cue": [
+    "b21",
+    "redemption"
+   ],
+   "ids": [
+    "paper-comparison"
+   ],
+   "until_cue": [
+    "b22",
+    "Authority"
+   ]
+  },
+  {
+   "cue": [
+    "b22",
+    "Authority"
+   ],
+   "ids": [
+    "authority",
+    "trust",
+    "authority-return",
+    "issuance-notes",
+    "control-question"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

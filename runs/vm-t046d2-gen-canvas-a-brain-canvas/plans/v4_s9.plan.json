@@ -1,0 +1,570 @@
+{
+ "id": "v4_s9",
+ "part_id": "c11.4",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b54",
+   "say": "₹100 silver commemorative coin पर collector कई हज़ार क्यों दे? वही coin payment और collection में अलग role निभाता है।"
+  },
+  {
+   "beat_id": "b55",
+   "say": "Payment में ₹100; collector sale में कई हज़ार संभव। Face value और market price अलग हैं।"
+  },
+  {
+   "beat_id": "b56",
+   "say": "Collector silver, condition और collectability के लिए ज़्यादा देता है; denomination नहीं बदलती।"
+  },
+  {
+   "beat_id": "b57",
+   "say": "Collector price debt-settlement amount या compulsory coin-payment limit नहीं है।"
+  },
+  {
+   "beat_id": "b58",
+   "say": "Payment में denomination, collection में agreed price याद रखिए।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor_coin",
+   "kind": "icon",
+   "cell": [
+    5,
+    0,
+    2,
+    2
+   ],
+   "cue": [
+    "b54",
+    "₹100"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "label": "₹100",
+   "size": 32
+  },
+  {
+   "id": "collector_question",
+   "kind": "icon",
+   "cell": [
+    8,
+    0,
+    2,
+    2
+   ],
+   "cue": [
+    "b54",
+    "क्यों"
+   ],
+   "until_cue": [
+    "b55",
+    "Payment"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2753",
+   "size": 32
+  },
+  {
+   "id": "payment_role",
+   "kind": "text",
+   "cell": [
+    0,
+    2,
+    5,
+    1
+   ],
+   "cue": [
+    "b54",
+    "payment"
+   ],
+   "until_cue": [
+    "b56",
+    "Collector"
+   ],
+   "text": "Payment में",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "collection_role",
+   "kind": "text",
+   "cell": [
+    7,
+    2,
+    5,
+    1
+   ],
+   "cue": [
+    "b54",
+    "collection"
+   ],
+   "until_cue": [
+    "b56",
+    "Collector"
+   ],
+   "text": "Collection में",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "payment_copy",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b55",
+    "Payment"
+   ],
+   "until_cue": [
+    "b56",
+    "Collector"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "size": 32
+  },
+  {
+   "id": "payment_value",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    5,
+    1
+   ],
+   "cue": [
+    "b55",
+    "₹100;"
+   ],
+   "until_cue": [
+    "b56",
+    "Collector"
+   ],
+   "text": "Payment में ₹100",
+   "style": "tag",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "collection_copy",
+   "kind": "icon",
+   "cell": [
+    8,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b55",
+    "collector"
+   ],
+   "until_cue": [
+    "b56",
+    "Collector"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "size": 32
+  },
+  {
+   "id": "collector_value",
+   "kind": "text",
+   "cell": [
+    7,
+    5,
+    5,
+    1
+   ],
+   "cue": [
+    "b55",
+    "हज़ार"
+   ],
+   "until_cue": [
+    "b56",
+    "Collector"
+   ],
+   "text": "कई हज़ार संभव",
+   "style": "tag",
+   "tone": "warm",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "premium_process",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    12,
+    4
+   ],
+   "cue": [
+    "b56",
+    "silver,"
+   ],
+   "until_cue": [
+    "b57",
+    "Collector"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [
+    {
+     "role": "collector",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "coin",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b56",
+      "silver,"
+     ],
+     "actor": "collector",
+     "object": "coin"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b56",
+      "silver,"
+     ],
+     "on": "coin",
+     "text": "Silver के लिए",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b56",
+      "condition"
+     ],
+     "on": "coin",
+     "text": "Condition के लिए",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b56",
+      "collectability"
+     ],
+     "on": "coin",
+     "text": "Collectability के लिए",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b56",
+      "ज़्यादा"
+     ],
+     "actor": "collector",
+     "on": "collector",
+     "text": "ज़्यादा देता है",
+     "style": "bubble"
+    }
+   ]
+  },
+  {
+   "id": "unchanged_denomination",
+   "kind": "highlight",
+   "cue": [
+    "b56",
+    "denomination"
+   ],
+   "until_cue": [
+    "b57",
+    "Collector"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "anchor_coin"
+  },
+  {
+   "id": "rule_comparison",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    12,
+    4
+   ],
+   "cue": [
+    "b57",
+    "Collector"
+   ],
+   "until_cue": [
+    "b58",
+    "Payment"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "coin",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "receipt",
+     "icon": "tw:1f9fe",
+     "label": ""
+    },
+    {
+     "name": "limit",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    },
+    {
+     "name": "law",
+     "icon": "tw:1f4dc",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b57",
+      "Collector"
+     ],
+     "object": "coin",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b57",
+      "debt-settlement"
+     ],
+     "object": "receipt",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b57",
+      "compulsory"
+     ],
+     "object": "law",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b57",
+      "limit"
+     ],
+     "object": "limit",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b57",
+      "नहीं"
+     ],
+     "left": "coin",
+     "right": "receipt",
+     "sign": "≠",
+     "left_text": "Collector price",
+     "right_text": "Debt-settlement amount"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b57",
+      "है।"
+     ],
+     "left": "coin",
+     "right": "limit",
+     "sign": "≠",
+     "left_text": "Collector price",
+     "right_text": "Compulsory coin-payment limit"
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "final_payment",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    4,
+    3
+   ],
+   "cue": [
+    "b58",
+    "Payment"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "size": 32
+  },
+  {
+   "id": "final_payment_label",
+   "kind": "text",
+   "cell": [
+    0,
+    5,
+    6,
+    1
+   ],
+   "cue": [
+    "b58",
+    "denomination,"
+   ],
+   "text": "Payment में denomination",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "final_collection",
+   "kind": "icon",
+   "cell": [
+    7,
+    2,
+    4,
+    3
+   ],
+   "cue": [
+    "b58",
+    "collection"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "size": 32
+  },
+  {
+   "id": "final_collection_label",
+   "kind": "text",
+   "cell": [
+    6,
+    5,
+    6,
+    1
+   ],
+   "cue": [
+    "b58",
+    "price"
+   ],
+   "text": "Collection में agreed price",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    6
+   ],
+   "cue": [
+    "b54",
+    "₹100"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    6
+   ],
+   "cue": [
+    "b56",
+    "silver,"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    6
+   ],
+   "cue": [
+    "b58",
+    "Payment"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b56",
+    "denomination"
+   ],
+   "ids": [
+    "anchor_coin",
+    "unchanged_denomination"
+   ],
+   "until_cue": [
+    "b57",
+    "Collector"
+   ]
+  },
+  {
+   "cue": [
+    "b58",
+    "Payment"
+   ],
+   "ids": [
+    "anchor_coin",
+    "final_payment",
+    "final_payment_label"
+   ],
+   "until_cue": [
+    "b58",
+    "collection"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

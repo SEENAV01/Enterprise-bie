@@ -1,0 +1,991 @@
+{
+ "id": "v2_s4s",
+ "part_id": "c03.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b16",
+   "say": "तेल चाहने वाला seller wheat क्यों लेगा? किसान 2 kg wheat देकर 1 metre कपड़ा चाहता है। पहला seller मना करता है; wheat चाहने वाला दूसरा मान जाता है।"
+  },
+  {
+   "beat_id": "b17",
+   "say": "इसे double coincidence of wants कहते हैं: मुझे आपकी चीज़ और आपको मेरी चाहिए। सिर्फ एक तरफ की जरूरत काफी नहीं।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "ऐसा साथी खोजना मुश्किल है। Accepted पैसे से wheat किसी को बेचें, कपड़ा दूसरे से खरीदें; cloth seller को wheat नहीं चाहिए।"
+  },
+  {
+   "beat_id": "b19",
+   "say": "मानिए 2 kg wheat के बदले 1 metre कपड़ा तय किया; गाय के लिए अलग ratio चाहिए। छोटी खरीद में गाय बाँटेंगे कैसे?"
+  },
+  {
+   "beat_id": "b20",
+   "say": "अब 2 metres कपड़ा लेकर तय quality का 10 kg अनाज बाद में देना माना। लौटाया 10 kg ही, लेकिन उससे तब 1 metre कपड़ा मिलता है।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "market",
+   "kind": "shop",
+   "x": 2600,
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "goods": [
+    {
+     "icon": "tw:1f9f5",
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "first_offer",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b16",
+    "तेल"
+   ],
+   "until_cue": [
+    "b16",
+    "दूसरा"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "farmer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "unsure"
+    }
+   ],
+   "objects": [
+    {
+     "name": "oil",
+     "icon": "tw:1f6e2",
+     "label": ""
+    },
+    {
+     "name": "wheat",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    },
+    {
+     "name": "cloth",
+     "icon": "tw:1f9f5",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b16",
+      "तेल"
+     ],
+     "actor": "seller",
+     "object": "oil",
+     "style": "bubble",
+     "spot": "seller",
+     "n": 1
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b16",
+      "किसान"
+     ],
+     "actor": "farmer",
+     "object": "wheat",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b16",
+      "2"
+     ],
+     "object": "wheat",
+     "on": "wheat",
+     "text": "2 kg",
+     "style": "tag"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b16",
+      "देकर"
+     ],
+     "actor": "farmer",
+     "from": "farmer",
+     "to": "seller",
+     "object": "wheat",
+     "reach": 0.65,
+     "back": true
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b16",
+      "1"
+     ],
+     "actor": "seller",
+     "object": "cloth",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b16",
+      "metre"
+     ],
+     "object": "cloth",
+     "on": "cloth",
+     "text": "1 metre",
+     "style": "tag"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b16",
+      "मना"
+     ],
+     "actor": "seller",
+     "object": "wheat",
+     "on": "wheat"
+    }
+   ]
+  },
+  {
+   "id": "second_swap",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b16",
+    "दूसरा"
+   ],
+   "until_cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "farmer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "second_seller",
+     "who": "other",
+     "mood": "pleased"
+    }
+   ],
+   "objects": [
+    {
+     "name": "wheat",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    },
+    {
+     "name": "cloth",
+     "icon": "tw:1f9f5",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b16",
+      "दूसरा"
+     ],
+     "actor": "farmer",
+     "object": "wheat",
+     "n": 1
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b16",
+      "दूसरा"
+     ],
+     "actor": "second_seller",
+     "object": "cloth",
+     "n": 1
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b16",
+      "मान"
+     ],
+     "actor": "second_seller",
+     "object": "wheat",
+     "on": "wheat"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b16",
+      "जाता"
+     ],
+     "from": "farmer",
+     "to": "second_seller",
+     "object": "wheat"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b16",
+      "जाता"
+     ],
+     "from": "second_seller",
+     "to": "farmer",
+     "object": "cloth"
+    }
+   ]
+  },
+  {
+   "id": "reciprocal_wants",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b18",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "farmer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "wheat",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    },
+    {
+     "name": "cloth",
+     "icon": "tw:1f9f5",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b17",
+      "double"
+     ],
+     "actor": "farmer",
+     "object": "wheat",
+     "n": 1
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b17",
+      "double"
+     ],
+     "actor": "seller",
+     "object": "cloth",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b17",
+      "मुझे"
+     ],
+     "from": "seller",
+     "to": "farmer",
+     "object": "cloth",
+     "reach": 0.65,
+     "back": true
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b17",
+      "आपको"
+     ],
+     "from": "farmer",
+     "to": "seller",
+     "object": "wheat",
+     "reach": 0.65,
+     "back": true
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b17",
+      "सिर्फ"
+     ],
+     "actor": "seller",
+     "object": "wheat",
+     "on": "wheat"
+    }
+   ]
+  },
+  {
+   "id": "sell_wheat",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b18",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b18",
+    "कपड़ा"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "farmer",
+     "who": "main",
+     "mood": "unsure"
+    },
+    {
+     "role": "buyer",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "wheat",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    },
+    {
+     "name": "money",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b18",
+      "साथी"
+     ],
+     "actor": "farmer",
+     "object": "wheat",
+     "n": 1
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b18",
+      "Accepted"
+     ],
+     "actor": "buyer",
+     "object": "money",
+     "n": 1
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b18",
+      "पैसे"
+     ],
+     "actor": "farmer",
+     "object": "money",
+     "on": "money"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b18",
+      "बेचें"
+     ],
+     "from": "farmer",
+     "to": "buyer",
+     "object": "wheat"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b18",
+      "बेचें"
+     ],
+     "from": "buyer",
+     "to": "farmer",
+     "object": "money"
+    }
+   ]
+  },
+  {
+   "id": "buy_cloth",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b18",
+    "कपड़ा"
+   ],
+   "until_cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "farmer",
+     "who": "main",
+     "mood": "pleased"
+    },
+    {
+     "role": "cloth_seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "money",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "cloth",
+     "icon": "tw:1f9f5",
+     "label": ""
+    },
+    {
+     "name": "wheat",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b18",
+      "कपड़ा"
+     ],
+     "actor": "farmer",
+     "object": "money",
+     "n": 1
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b18",
+      "दूसरे"
+     ],
+     "actor": "cloth_seller",
+     "object": "cloth",
+     "n": 1
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b18",
+      "खरीदें"
+     ],
+     "from": "farmer",
+     "to": "cloth_seller",
+     "object": "money"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b18",
+      "खरीदें"
+     ],
+     "from": "cloth_seller",
+     "to": "farmer",
+     "object": "cloth"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b18",
+      "wheat"
+     ],
+     "object": "wheat",
+     "style": "bubble",
+     "spot": "cloth_seller",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b18",
+      "नहीं"
+     ],
+     "actor": "cloth_seller",
+     "object": "wheat",
+     "on": "wheat"
+    }
+   ]
+  },
+  {
+   "id": "ratios_and_cow",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b20",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "farmer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "wheat",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    },
+    {
+     "name": "cloth",
+     "icon": "tw:1f9f5",
+     "label": ""
+    },
+    {
+     "name": "cow",
+     "icon": "tw:1f404",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b19",
+      "2"
+     ],
+     "actor": "farmer",
+     "object": "wheat",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b19",
+      "2"
+     ],
+     "object": "wheat",
+     "on": "wheat",
+     "text": "2 kg",
+     "style": "tag"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b19",
+      "1"
+     ],
+     "actor": "seller",
+     "object": "cloth",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b19",
+      "1"
+     ],
+     "object": "cloth",
+     "on": "cloth",
+     "text": "1 metre",
+     "style": "tag"
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b19",
+      "तय"
+     ],
+     "actor": "seller",
+     "object": "wheat",
+     "on": "wheat"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b19",
+      "गाय"
+     ],
+     "object": "cow",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b19",
+      "ratio"
+     ],
+     "left": "cow",
+     "right": "cloth",
+     "sign": "?"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b19",
+      "बाँटेंगे"
+     ],
+     "from": "center",
+     "to": "seller",
+     "object": "cow",
+     "reach": 0.25,
+     "back": true
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "deferred_payment",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b20",
+    "अब"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "borrower",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "lender",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "cloth",
+     "icon": "tw:1f9f5",
+     "label": ""
+    },
+    {
+     "name": "grain",
+     "icon": "fa:solid/wheat-alt",
+     "label": ""
+    },
+    {
+     "name": "promise",
+     "icon": "tw:1f91d",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b20",
+      "अब"
+     ],
+     "actor": "lender",
+     "object": "cloth",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b20",
+      "2"
+     ],
+     "object": "cloth",
+     "on": "cloth",
+     "text": "2 metres",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b20",
+      "लेकर"
+     ],
+     "from": "lender",
+     "to": "borrower",
+     "object": "cloth"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b20",
+      "10"
+     ],
+     "object": "grain",
+     "spot": "borrower",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b20",
+      "10"
+     ],
+     "object": "grain",
+     "on": "grain",
+     "text": "10 kg",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b20",
+      "माना"
+     ],
+     "object": "promise",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b20",
+      "लौटाया"
+     ],
+     "from": "borrower",
+     "to": "lender",
+     "object": "grain"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b20",
+      "लेकिन"
+     ],
+     "left": "grain",
+     "right": "cloth"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b20",
+      "1"
+     ],
+     "to": "1 metre",
+     "object": "cloth",
+     "on": "cloth",
+     "text": "1 metre",
+     "style": "tag",
+     "dir": "down"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 590,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b16",
+    "देकर"
+   ],
+   "x": 2600,
+   "y": 620,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b16",
+    "दूसरा"
+   ],
+   "x": 2600,
+   "y": 590,
+   "zoom": 1.08,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b17",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 600,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b17",
+    "सिर्फ"
+   ],
+   "x": 2740,
+   "y": 590,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b18",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 590,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b18",
+    "Accepted"
+   ],
+   "x": 2600,
+   "y": 620,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b18",
+    "कपड़ा"
+   ],
+   "x": 2600,
+   "y": 600,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 590,
+   "zoom": 1.12,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "गाय"
+   ],
+   "x": 2600,
+   "y": 580,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "बाँटेंगे"
+   ],
+   "x": 2600,
+   "y": 620,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b20",
+    "अब"
+   ],
+   "x": 2600,
+   "y": 590,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b20",
+    "माना"
+   ],
+   "x": 2600,
+   "y": 610,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b20",
+    "लौटाया"
+   ],
+   "x": 2600,
+   "y": 620,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b20",
+    "लेकिन"
+   ],
+   "x": 2600,
+   "y": 590,
+   "zoom": 1.15,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

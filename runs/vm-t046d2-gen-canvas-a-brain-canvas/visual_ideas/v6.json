@@ -1,0 +1,3435 @@
+{
+ "schema": "bie.brain.visual-ideas/1",
+ "video_id": "v6",
+ "parts": [
+  {
+   "id": "v6_s1",
+   "part_id": "c14.1",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b1",
+     "idea": "आज की गिनती, आगे की पड़ताल",
+     "relation": "question",
+     "relation_note": "वर्तमान बराबरी दिखाकर पुरानी गिनती पर प्रश्न; आगे coins से Digital Rupee तक का संकेत।",
+     "nouns": [
+      "₹1 value marker",
+      "100 paise counting units",
+      "coin",
+      "Digital Rupee symbol",
+      "issuer institution symbol",
+      "payment arrow"
+     ],
+     "shows": "₹1 equals hundred units; coins-to-digital path questioned",
+     "on_word": "100",
+     "image_wanted": "",
+     "icons": [
+      "tw:1fa99",
+      "tw:27a1"
+     ],
+     "template": "compose",
+     "template_note": "appear: 100 abstract counting units in a ten-by-ten grid, not 100 currently circulating coins; show_text: ₹1 = 100 paise. At 'हमेशा', appear: question mark beside past counting. At 'Coins', appear: coin; at 'Digital Rupee', appear: digital-rupee symbol with connecting arrow. At 'issuer' and 'payment', reveal institution symbol and payment arrow respectively."
+    },
+    {
+     "beat_id": "b2",
+     "idea": "Rupya यानी आकार दिया silver",
+     "relation": "change",
+     "relation_note": "चाँदी का पदार्थ वही रहता है; उसका आकार बदलता है।",
+     "nouns": [
+      "unshaped silver",
+      "shaped silver piece"
+     ],
+     "shows": "Unshaped silver becomes shaped silver; Rupya names it",
+     "on_word": "चाँदी",
+     "image_wanted": "unworked silver lump and worked shaped silver piece",
+     "icons": [
+      "tw:1fa99"
+     ],
+     "template": "compose",
+     "template_note": "appear: unshaped silver with question mark at 'क्या'. At 'आकार', transform: silver lump into a shaped silver piece. At 'wrought silver', show_text: wrought silver on the shaped piece. Reveal Sanskrit Rupya, then an arrow to Rupiya at their spoken cues.",
+     "realised": true
+    },
+    {
+     "beat_id": "b3",
+     "idea": "पुराना नाम, silver की अनिवार्यता नहीं",
+     "relation": "reject",
+     "relation_note": "क्रॉस silver पर नहीं, note में silver होने की अनिवार्यता वाले संबंध पर लगे।",
+     "nouns": [
+      "currency note",
+      "silver piece",
+      "mandatory silver-content link"
+     ],
+     "shows": "Note–silver requirement link crossed; word-origin remains separate",
+     "on_word": "नहीं",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/money-bill-1"
+     ],
+     "template": "compose",
+     "template_note": "appear: Rupya word-origin label separately from a modern note and silver piece. Show a connecting link labelled 'silver जरूरी'; at the final 'नहीं', refuse that requirement link only. Do not cross out silver itself or imply a physical assay of the note.",
+     "realised": true
+    },
+    {
+     "beat_id": "b4",
+     "idea": "Rupya से Rupiya की नाम-कड़ी",
+     "relation": "sequence",
+     "relation_note": "यह शब्दों की कड़ी है, मुद्रा-निर्गमन या भुगतान का क्रम नहीं।",
+     "nouns": [
+      "shaped silver piece",
+      "coin"
+     ],
+     "shows": "Rupya-to-Rupiya chain above silver; coin introduces next topic",
+     "on_word": "Rupya",
+     "image_wanted": "",
+     "icons": [
+      "tw:1fa99"
+     ],
+     "template": "none",
+     "template_note": "नाम-कड़ी स्थिर labelled arrow से दिखे; कोई वस्तु हस्तांतरण नहीं होता। 'coin' पर अलग coin icon और 'common standard' label आए; फायदा अभी न दिखाएँ।",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v6_s2s",
+   "part_id": "c14.2",
+   "mode": "C",
+   "kit": "shop",
+   "picture": {
+    "type": "timeline",
+    "by": "card",
+    "hint": "timeline"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b5",
+     "idea": "Unfamiliar coins add checking costs",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "cloth",
+      "8 g coin",
+      "10 g coin",
+      "weighing balance",
+      "checking fee",
+      "buyer",
+      "merchant",
+      "Agra imaginary market"
+     ],
+     "shows": "Uncertain coins; cloth 10 plus checking 1 equals 11.",
+     "on_word": "Agra",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f9f5",
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:2696",
+      "tw:1f6cd",
+      "tw:1f3ea"
+     ],
+     "template": "compose",
+     "template_note": "appear cloth tagged 10 units between buyer and merchant; appear coins tagged 8 g and 10 g with purity question marks; move coins to weighing balance on जाँचोगे; show_text checking fee 1 unit; show_text total 10 + 1 = 11 on खर्च. Mark scene imaginary.",
+     "realised": true
+    },
+    {
+     "beat_id": "b6",
+     "idea": "Common standards save the checking fee",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "two mints",
+      "10 g coins",
+      "checking fee",
+      "payment",
+      "buyer",
+      "merchant"
+     ],
+     "shows": "Two mints; matching coins accepted; fee disappears.",
+     "on_word": "2",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f3ed",
+      "tw:1fa99",
+      "fa:solid/austral-sign",
+      "tw:1f6cd"
+     ],
+     "template": "compose",
+     "template_note": "appear two mints; move matching 10 g coins with equal purity badges from both mints; accept coins by merchant on लेता; refuse checking fee tagged 1 unit on बचा; meter payment from 11 to 10. Keep imaginary label.",
+     "realised": true
+    },
+    {
+     "beat_id": "b7",
+     "idea": "1540 Rupiya establishes a uniform silver standard",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "silver Rupiya",
+      "weight marker",
+      "purity indicator",
+      "Sher Shah Suri's empire"
+     ],
+     "shows": "1540 silver Rupiya; weight, purity, empire-wide matching coins.",
+     "on_word": "1540",
+     "image_wanted": "Sher Shah Suri silver rupiya inscription side",
+     "icons": [],
+     "template": "none",
+     "template_note": "Introduced currency is a historical milestone, not a narrated personal handover. Place coin at 1540 with issuer name, about 178 grains = 11.5 grams, high purity and matching coins across an empire outline; label preceding example nonhistorical.",
+     "realised": true
+    },
+    {
+     "beat_id": "b8",
+     "idea": "Weight and silver purity measure different things",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "coin",
+      "weighing balance",
+      "silver portion",
+      "grain seeds",
+      "purity test"
+     ],
+     "shows": "Whole coin weighed; silver portion highlighted; seeds crossed.",
+     "on_word": "Grains",
+     "image_wanted": "",
+     "icons": [
+      "tw:1fa99",
+      "tw:2696"
+     ],
+     "template": "compose",
+     "template_note": "appear grain seeds then refuse on नहीं; compare whole coin on balance labelled total mass with coin cutaway highlighting silver share; appear repeated weighing and purity-test icons; reduce their repetition on घटाता. Do not imply a numerical purity percentage.",
+     "realised": true
+    },
+    {
+     "beat_id": "b9",
+     "idea": "Many mints produce standardized silver coins",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "mints",
+      "standardized silver coins",
+      "Mughal empire"
+     ],
+     "shows": "Empire-wide mints produce silver coins with matching weights.",
+     "on_word": "1556–1707",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f3ed",
+      "tw:1fa99"
+     ],
+     "template": "compose",
+     "template_note": "Place book milestone Mughal Standardization 1556–1707; appear distributed mint icons in an empire outline, grouped as hundreds rather than inventing an exact count; label mint expansion Akbar; move equal-weight silver coins out of mints.",
+     "realised": true
+    },
+    {
+     "beat_id": "b10",
+     "idea": "Familiar coinage coexists with presidency differences",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "emperor-name coin inscription",
+      "Mughal-style coins",
+      "presidency coins",
+      "Bombay Presidency",
+      "Calcutta Presidency",
+      "Madras Presidency"
+     ],
+     "shows": "Issuer inscription; three presidencies display distinct coin sets.",
+     "on_word": "Emperor",
+     "image_wanted": "",
+     "icons": [
+      "tw:1fa99",
+      "tw:1fa99"
+     ],
+     "template": "none",
+     "template_note": "Use a coin inscription callout for issuing authority, then three equal comparison slots under the book's 1757–1835 Company milestone. Retained style is historical context, not a narrated minting process; use schematic coins without invented inscriptions.",
+     "realised": true
+    },
+    {
+     "beat_id": "b11",
+     "idea": "1835 law creates uniform legal tender",
+     "relation": "compulsory",
+     "relation_note": "",
+     "nouns": [
+      "Currency Act of 1835 scroll",
+      "uniform Indian Rupee",
+      "payment",
+      "payer",
+      "payment recipient",
+      "British India"
+     ],
+     "shows": "Stamped 1835 law; matching rupees accepted across territory.",
+     "on_word": "Currency Act",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f4dc",
+      "fa:solid/indian-rupee-sign",
+      "fa:solid/austral-sign",
+      "fa:solid/hand-holding-dollar",
+      "fa:solid/user-check"
+     ],
+     "template": "compose",
+     "template_note": "appear stamped Currency Act of 1835 scroll beside matching rupees across British India outline; show_text standard design and single legal tender; give payment from payer to recipient; accept payment on accepted with qualifier कानून के नियमों से."
+    },
+    {
+     "beat_id": "b12",
+     "idea": "Uniformity is not decimalisation; identify 1835 correctly",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "matching rupees",
+      "decimal division diagram",
+      "1835 coin issue label",
+      "Queen Victoria issue label"
+     ],
+     "shows": "Uniform coins ≠ decimals; William IV, not Victoria.",
+     "on_word": "Uniformity",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/indian-rupee-sign"
+     ],
+     "template": "compose",
+     "template_note": "compare matching coins with decimal division diagram using ≠ on नहीं; show_text original 1835 issue: William IV on a portrait-free coin issue label; accept that label; refuse Queen Victoria issue label on final नहीं. No ruler portraits.",
+     "realised": true
+    },
+    {
+     "beat_id": "b13",
+     "idea": "Exclusive issuance differs from repayable lending",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "Paper Currency Act 1861 scroll",
+      "banknotes",
+      "loan agreement",
+      "loan money",
+      "British government issuer",
+      "lender",
+      "borrower"
+     ],
+     "shows": "One authorised note issuer; loan money returns separately.",
+     "on_word": "1861",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f4dc",
+      "fa:solid/money-bill-1",
+      "tw:1f91d",
+      "tw:1f4b0",
+      "fa:solid/user-tie",
+      "fa:solid/user"
+     ],
+     "template": "compose",
+     "template_note": "appear stamped 1861 Act beside one British government issuer; appear banknotes at issuer labelled issuance; in separate lending panel give loan money lender to borrower with loan agreement, then move money back labelled repayment obligation. Keep creation and lending visually distinct.",
+     "realised": true
+    },
+    {
+     "beat_id": "b14",
+     "idea": "Sterling reserves settle an overseas payment",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "₹100 payment",
+      "sterling reserve",
+      "£10 transfer",
+      "seller receipt",
+      "gold",
+      "importer",
+      "bank",
+      "foreign seller",
+      "Mumbai",
+      "abroad"
+     ],
+     "shows": "₹100 paid; reserve falls £10; seller receives £10.",
+     "on_word": "₹100",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/austral-sign",
+      "fa:solid/money-bill-transfer",
+      "tw:1f9fe",
+      "tw:1fa99",
+      "tw:1f3e6",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "compose",
+     "template_note": "show_text imaginary rate ₹10 per £1 on Mumbai bank; give ₹100 importer to bank; move £10 transfer from sterling reserve to foreign seller; meter reserve £100 to £90 and seller receipt £0 to £10; show gold stationary with crossed outward transfer path, not destroyed gold.",
+     "realised": true
+    },
+    {
+     "beat_id": "b15",
+     "idea": "Gold exchange links rupees indirectly through sterling",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "rupee",
+      "sterling",
+      "gold",
+      "domestic gold redemption arrow",
+      "silver price chart",
+      "Fowler Committee recommendation"
+     ],
+     "shows": "Rupee–sterling–gold bridge; direct redemption crossed; 1898 recommendation.",
+     "on_word": "gold-linked",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/indian-rupee-sign",
+      "fa:solid/sterling-sign",
+      "tw:1fa99",
+      "tw:27a1",
+      "tw:1f4c8"
+     ],
+     "template": "compose",
+     "template_note": "appear rupee to sterling to gold link arrows, sterling-gold link marked conditional; refuse direct domestic rupee-to-gold redemption arrow on नहीं; appear fluctuating silver-price chart leading to Fowler Committee recommendation document at 1898, labelled recommend rupee–gold link. No physical gold payout.",
+     "realised": true
+    },
+    {
+     "beat_id": "b16",
+     "idea": "Distinguish recommendation, implementation and illustrative rate",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "1898 recommendation marker",
+      "1899 implementation marker",
+      "₹10 per £1 rate label",
+      "sterling reserves",
+      "policy document",
+      "exchange link"
+     ],
+     "shows": "1898 recommendation → 1899 implementation; reserves support exchange link.",
+     "on_word": "1898",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f4c4"
+     ],
+     "template": "none",
+     "template_note": "Show 1898 and late-1890s implementation, especially 1899, on the timeline; mark ₹10 per £1 as illustrative, not historical. Reserves and policy support the exchange-link diagram; चलाने names a general requirement, not a new payment process.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v6_s2b",
+   "part_id": "c14.2",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "timeline",
+    "by": "card",
+    "hint": "timeline"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b17",
+     "idea": "RBI establishment precedes its first banknotes",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "banknote",
+      "RBI institution symbol",
+      "1935 establishment marker",
+      "1938 first RBI banknote",
+      "crossed-out George V → George VI initial-RBI sequence"
+     ],
+     "shows": "RBI 1935 → banknote 1938; mistaken sequence crossed.",
+     "on_word": "Note",
+     "image_wanted": "1938 first RBI George VI banknote full note facsimile",
+     "icons": [
+      "fa:solid/money-bill-1",
+      "fa:solid/money-bill-1"
+     ],
+     "template": "compose",
+     "template_note": "appear banknote with issuer question mark at 'कौन'; appear RBI symbol and 1935 marker at '1935'; appear first-note facsimile and 1938 marker at '1938'; show_text labels George V → George VI under 'initial RBI notes'; refuse that sequence at 'नहीं'. Use names rather than drawn portraits.",
+     "realised": true
+    },
+    {
+     "beat_id": "b18",
+     "idea": "Monetary chronology has three distinct dimensions",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "silver Rupiya",
+      "Mughal mint",
+      "Company coins",
+      "1835 uniform coinage",
+      "1861 note monopoly",
+      "gold-exchange reforms",
+      "RBI institution symbol",
+      "coin-standard lane",
+      "issuer lane",
+      "external-link lane"
+     ],
+     "shows": "Currency milestones progress; three distinct lanes remain.",
+     "on_word": "क्रम",
+     "image_wanted": "historical silver Rupiya Mughal mint East India Company coins 1835 uniform coinage",
+     "icons": [
+      "tw:1f3ed",
+      "tw:1fa99"
+     ],
+     "template": "compose",
+     "template_note": "appear each milestone in spoken order, connected by timeline arrows: silver Rupiya, Mughal mint, Company coins, 1835 uniformity, 1861 note monopoly, gold-exchange reforms, RBI. Show monopoly as a banknote beside a stamped law scroll; reforms as gold linked to currency. At 'अलग' appear three separate labeled lanes: coin standard with coin, issuer with issuing institution, external link with gold-currency link. Do not transform these different dimensions into one quantity.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v6_s3",
+   "part_id": "c14.3",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "table",
+    "by": "book",
+    "hint": "tree"
+   },
+   "book_pictures": [
+    {
+     "item_id": "p007-i2",
+     "type": "table",
+     "title": "Coin | Metal\nMohur | Gold\nRupee | Silver\nDam | Copper",
+     "page": 7
+    }
+   ],
+   "beats": [
+    {
+     "beat_id": "b19",
+     "idea": "Identify coins by their metals",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "Mohur coin",
+      "gold",
+      "Rupee coin",
+      "silver",
+      "Dam coin",
+      "copper"
+     ],
+     "shows": "Three labelled coins beside matching metal swatches.",
+     "on_word": "coins",
+     "image_wanted": "",
+     "icons": [
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:1fa99"
+     ],
+     "template": "none",
+     "template_note": "जोड़ो asks for classification, not a physical exchange.",
+     "realised": true
+    },
+    {
+     "beat_id": "b20",
+     "idea": "Recall each coin from its metal",
+     "relation": "question",
+     "relation_note": "",
+     "nouns": [
+      "gold",
+      "Mohur coin",
+      "silver",
+      "Rupee coin",
+      "copper",
+      "Dam coin"
+     ],
+     "shows": "Metal question marks become correctly labelled coins.",
+     "on_word": "Gold",
+     "image_wanted": "",
+     "icons": [
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:1fa99"
+     ],
+     "template": "compose",
+     "template_note": "Appear: gold swatch with question mark; transform question mark into Mohur coin on Mohur. Repeat silver → Rupee and copper → Dam at their spoken answers. Show_text beneath matches: metal पहचान ≠ denomination ratio."
+    },
+    {
+     "beat_id": "b21",
+     "idea": "Keep matches fixed; silver identity matters later",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "Mohur coin",
+      "gold",
+      "Rupee coin",
+      "silver",
+      "Dam coin"
+     ],
+     "shows": "Fixed metal pairs; silver Rupee gets future-price callout.",
+     "on_word": "Mohur",
+     "image_wanted": "",
+     "icons": [
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:1fa99"
+     ],
+     "template": "none",
+     "template_note": "Swap मत करना prohibits a matching error, not a barter process. Keep the pairs stationary. Highlight the silver Rupee with a short 'आगे: silver-price trouble' callout and 'आज की backing नहीं'; do not depict an unsupported price mechanism.",
+     "realised": true
+    },
+    {
+     "beat_id": "b22",
+     "idea": "Remember three metal-labelled shelves",
+     "relation": "part_whole",
+     "relation_note": "",
+     "nouns": [
+      "three shelves",
+      "gold",
+      "Mohur coin",
+      "silver",
+      "Rupee coin",
+      "copper",
+      "Dam coin"
+     ],
+     "shows": "Three metal-labelled shelves hold their matching coins.",
+     "on_word": "shelves",
+     "image_wanted": "",
+     "icons": [
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:1fa99",
+      "tw:1fa99"
+     ],
+     "template": "none",
+     "template_note": "The shelves are a static memory grouping, not a payment or exchange process. Label the grouping 'पहचान, exchange ratios नहीं'."
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v6_s4s",
+   "part_id": "c14.4",
+   "mode": "C",
+   "kit": "shop",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b23",
+     "idea": "More silver, unchanged buyers, lower asking price",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "silver",
+      "silver supply counter",
+      "asking-price tags",
+      "buyers",
+      "dealers",
+      "silver mines",
+      "imaginary market"
+     ],
+     "shows": "Mines add silver; buyers unchanged; dealer prices fall.",
+     "on_word": "Silver",
+     "image_wanted": "",
+     "icons": [
+      "tw:1fa99",
+      "tw:1f6cd",
+      "tw:1f3ea"
+     ],
+     "template": "compose",
+     "template_note": "appear: silver, dealers and a buyer group in an imaginary market; keep the buyer group unchanged throughout. show_text: supply counter reads 100 kg on '100 kg'. appear: mines with a separate silver stack tagged 50 kg on '50 kg'; move: that stack from mines into the market on 'भेजा'; meter: supply counter rises from 100 to 150 kg on '150 kg'. show_text: dealers’ asking-price tags read ₹100 on '₹100'; meter: asking price falls from ₹100 to ₹80 per unit on '₹80', striking the old value. Show an arrow from increased silver supply to the lower asking price.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v6_s4b",
+   "part_id": "c14.4",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b24",
+     "idea": "Silver discoveries increased supply and depressed prices",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "silver deposit",
+      "silver",
+      "silver price tag"
+     ],
+     "shows": "Silver discovery, growing supply, falling price; period bracket.",
+     "on_word": "discoveries",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/piggy-bank",
+      "tw:1fa99"
+     ],
+     "template": "compose",
+     "template_note": "appear silver deposit at discoveries; appear additional silver at extra silver; meter silver-price tag downward at prices गिरे, without numerical values. Add a 1873–1947 bracket labelled Silver Crisis / Gold-exchange era when spoken; mark discoveries late nineteenth century."
+    },
+    {
+     "beat_id": "b25",
+     "idea": "Weaker silver means more rupees per foreign payment",
+     "relation": "more_less",
+     "relation_note": "",
+     "nouns": [
+      "silver",
+      "gold",
+      "silver-linked rupees",
+      "gold-linked foreign payment"
+     ],
+     "shows": "Cheaper silver; more rupees for unchanged foreign payment.",
+     "on_word": "सस्ता",
+     "image_wanted": "",
+     "icons": [
+      "tw:1fa99",
+      "tw:1fa99",
+      "fa:solid/indian-rupee-sign"
+     ],
+     "template": "compose",
+     "template_note": "compare silver and gold with silver's relative value falling; compare smaller and larger rupee stacks beside identical gold-linked foreign-payment tags. Keep the foreign payment unchanged as additional rupees appear. At steadier anchor, place a question mark beside the rupee's linkage; no invented exchange rates."
+    },
+    {
+     "beat_id": "b26",
+     "idea": "Historical relationship, not historical example quantities",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "silver deposit",
+      "silver",
+      "silver price tag",
+      "kilogram label",
+      "illustrative price tag"
+     ],
+     "shows": "Historical silver-price link beside clearly illustrative quantity tags.",
+     "on_word": "Historical",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/piggy-bank",
+      "tw:1fa99"
+     ],
+     "template": "none",
+     "template_note": "Static evidence-versus-illustration comparison: discovery and falling silver-price symbols under Historical relationship; kg and price placeholders under Illustration—not actual data. Extra silver beside the illustrative tags explains supply pressure without replaying a process."
+    },
+    {
+     "beat_id": "b27",
+     "idea": "Price pressure requires supply beyond demand absorption",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "silver deposit",
+      "silver supply",
+      "expected silver supply",
+      "silver demand",
+      "silver price tag"
+     ],
+     "shows": "Unabsorbed silver surplus pushes the price indicator downward.",
+     "on_word": "Discovery",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/piggy-bank"
+     ],
+     "template": "compose",
+     "template_note": "appear silver deposit without a direct price-drop arrow; appear solid additional silver for actual supply or outlined silver labelled Expected for expected supply. Show silver-demand capacity as a bounded grouping; move only absorbed silver into it, leaving excess outside. Only with excess remaining, meter the price indicator downward without numeric values."
+    },
+    {
+     "beat_id": "b28",
+     "idea": "Recall the complete silver-to-gold-link causal chain",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "silver deposit",
+      "silver supply",
+      "silver price tag",
+      "rupee",
+      "foreign payment",
+      "gold"
+     ],
+     "shows": "Discovery → surplus → cheaper silver → rupee strain → gold link.",
+     "on_word": "discoveries",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/piggy-bank",
+      "fa:solid/indian-rupee-sign",
+      "tw:1fa99"
+     ],
+     "template": "compose",
+     "template_note": "Reveal connected nodes in spoken order: appear silver deposit; appear growing silver supply; show downward silver-price indicator; compare rupee with foreign-payment symbol using a strain mark; appear gold linked to the rupee, labelled जरूरत. Present the final link as a need, not an enacted policy transaction."
+    }
+   ],
+   "status": "failed"
+  },
+  {
+   "id": "v6_s5a",
+   "part_id": "c15.1",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "table",
+    "by": "book",
+    "hint": "timeline"
+   },
+   "book_pictures": [
+    {
+     "item_id": "p006-i11",
+     "type": "table",
+     "title": "Period | Nature of the Rupee\nEight chronological rows",
+     "page": 6
+    }
+   ],
+   "beats": [
+    {
+     "beat_id": "b29",
+     "idea": "New national symbols, continuing monetary link",
+     "relation": "change",
+     "relation_note": "Contrast the replaced currency symbol with the monetary connection that temporarily persists.",
+     "nouns": [
+      "rupee",
+      "text-only King's portrait placeholder",
+      "Ashoka Lion Capital",
+      "British monetary system",
+      "monetary link",
+      "independent India"
+     ],
+     "shows": "Rupee emblem changes; British monetary link remains.",
+     "on_word": "Portrait",
+     "image_wanted": "Ashoka Lion Capital currency emblem close-up without portrait",
+     "icons": [
+      "fa:solid/indian-rupee-sign"
+     ],
+     "template": "compose",
+     "template_note": "appear: rupee with question mark at 'Portrait'; show_text: independent India, 1947 at '1947'; appear: text-only King's portrait placeholder at \"King's portrait\"; transform: placeholder into Ashoka Lion Capital at 'Ashoka Lion Capital'; appear: connecting line from rupee to British monetary system at 'British monetary link'; keep line visible through 'रहा', labelled 'कुछ समय'.",
+     "realised": true
+    },
+    {
+     "beat_id": "b30",
+     "idea": "Identity and monetary arrangements change separately",
+     "relation": "compare",
+     "relation_note": "Two aligned tracks distinguish national symbolism from external monetary arrangements without assigning a shared change date.",
+     "nouns": [
+      "Ashoka Lion Capital",
+      "monetary link",
+      "British monetary system"
+     ],
+     "shows": "Lion emblem and monetary connection occupy separate tracks.",
+     "on_word": "Ashoka Lion Capital",
+     "image_wanted": "Ashoka Lion Capital currency emblem close-up without portrait",
+     "icons": [],
+     "template": "none",
+     "template_note": "The reference to बदलाव explains independent timing, not a dated process to animate. Show the emblem under 'national identity' and a connecting line to the British monetary system under 'external arrangement'; place ≠ between their timing markers.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v6_s5s",
+   "part_id": "c15.1",
+   "mode": "C",
+   "kit": "shop",
+   "picture": {
+    "type": "timeline",
+    "by": "card",
+    "hint": "timeline"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b31",
+     "idea": "Decimal billing and correct change",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "salt packet",
+      "soap",
+      "bill",
+      "₹50 note",
+      "₹30 change",
+      "buyer",
+      "shopkeeper",
+      "Jaipur"
+     ],
+     "shows": "Bill totals; payment crosses; goods and change return.",
+     "on_word": "Jaipur",
+     "image_wanted": "",
+     "icons": [
+      "fl:soap",
+      "tw:1f9fe",
+      "fa:solid/money-bill-1",
+      "fa:solid/arrows-turn-to-dots",
+      "tw:1f6cd",
+      "tw:1f9d1-200d-1f4bc"
+     ],
+     "template": "compose",
+     "template_note": "appear salt packet and soap beside Jaipur shop; show_text bill '₹12.50 = 1250 paise' and '₹7.50 = 750 paise'; show_text bill '1250 + 750 = 2000 paise = ₹20'; give ₹50 note buyer to shopkeeper tagged ₹50; give goods shopkeeper to buyer; give ₹30 change shopkeeper to buyer tagged ₹30."
+    },
+    {
+     "beat_id": "b32",
+     "idea": "Decimal units followed the enabling law",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "₹1 coin",
+      "paise",
+      "bill",
+      "anna-system conversion",
+      "Indian Coinage (Amendment) Act, 1955 law scroll"
+     ],
+     "shows": "Rupee equals hundred paise; law precedes decimalization.",
+     "on_word": "decimal",
+     "image_wanted": "",
+     "icons": [
+      "tw:1fa99",
+      "tw:1f9fe",
+      "tw:1f4dc"
+     ],
+     "template": "compose",
+     "template_note": "compare ₹1 coin with paise labelled '100 paise', sign '='; show_text bill 'No anna conversion'; refuse anna-system conversion on 'न'; appear stamped law scroll at 1955, then decimal-currency milestone at 1957, connected by a forward arrow; show_text 1957 milestone 'Decimal currency'."
+    },
+    {
+     "beat_id": "b33",
+     "idea": "Accepted notes circulate after a purchase",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "₹100 note",
+      "five rice bags",
+      "gold",
+      "buyer",
+      "shopkeeper",
+      "next payment recipient",
+      "Lucknow"
+     ],
+     "shows": "Note buys bag; four remain; note circulates.",
+     "on_word": "Lucknow",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/money-bill-1",
+      "tw:1fa99",
+      "tw:1f6cd",
+      "tw:1f9d1-200d-1f4bc",
+      "fa:solid/user-check"
+     ],
+     "template": "compose",
+     "template_note": "appear five rice bags beside Lucknow shopkeeper; hold buyer ₹100 note; give buyer to shopkeeper ₹100 note; give shopkeeper to buyer one rice bag; show_text buyer 'Cash ₹0'; show_text remaining bags '4 bags'; show_text shopkeeper note '₹100'; give shopkeeper to next payment recipient the same note on 'आगे payment'; appear gold then refuse gold on 'नहीं'."
+    },
+    {
+     "beat_id": "b34",
+     "idea": "Fiat removes a fixed gold-redemption obligation",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "currency note",
+      "fixed gold-redemption promise",
+      "gold reserves",
+      "monetary-choice controls",
+      "US dollar",
+      "inflation warning",
+      "monetary authority",
+      "India"
+     ],
+     "shows": "Gold promise constrains; 1971 ends dollar redemption.",
+     "on_word": "fiat",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/money-bill-1",
+      "tw:1f91d",
+      "tw:1f4b5",
+      "fl:lotus"
+     ],
+     "template": "compose",
+     "template_note": "compare fixed-gold-redemption and fiat panels using matching currency and authority slots; in redemption panel show promise linking currency to gold reserves, with arrow to restricted monetary-choice controls; in fiat panel cross only the required fixed-redemption promise, not gold itself. At '1971', show US dollar linked to gold then refuse that fixed-convertibility link; retain inflation warning visibly uncrossed at 'risk नहीं'. Show India beside a gradual-transition arrow, not a 1971 start stamp."
+    },
+    {
+     "beat_id": "b35",
+     "idea": "Higher dollar demand creates a shortage",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "bank",
+      "US dollars",
+      "import orders",
+      "dollar-demand stack",
+      "dollar-supply stack",
+      "Mumbai"
+     ],
+     "shows": "Import orders grow demand beyond unchanged dollar supply.",
+     "on_word": "Mumbai",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f3e6",
+      "tw:1f4b5"
+     ],
+     "template": "compose",
+     "template_note": "appear Mumbai bank with rate tag 'Imaginary ₹80/$'; compare dollar-demand and dollar-supply stacks, each labelled '$100'; move import orders into bank; meter demand from 100 to 150 with dollar units while supply stays at $100; connect import orders to enlarged demand by arrow; bracket the unmatched portion and show_text '$50 shortage'."
+    },
+    {
+     "beat_id": "b36",
+     "idea": "Same dollar invoice costs more rupees",
+     "relation": "change",
+     "relation_note": "",
+     "nouns": [
+      "dollar-demand stack",
+      "dollar-supply stack",
+      "$10 invoice",
+      "rupee payment"
+     ],
+     "shows": "Dollar stacks balance; unchanged invoice needs more rupees.",
+     "on_word": "₹84",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/file-invoice-dollar",
+      "fa:solid/indian-rupee-sign"
+     ],
+     "template": "compose",
+     "template_note": "show_text rate tag 'Hypothetical ₹84/$'; meter dollar demand from $150 to $120 and supply from $100 to $120; compare resulting stacks with '='. Keep the same $10 invoice visible throughout; compare before '₹80/$ → ₹800' and after '₹84/$ → ₹840'; meter its rupee-payment amount from 800 to 840, retaining $10 unchanged."
+    }
+   ],
+   "status": "failed"
+  },
+  {
+   "id": "v6_s5b",
+   "part_id": "c15.1",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "table",
+    "by": "book",
+    "hint": "timeline"
+   },
+   "book_pictures": [
+    {
+     "item_id": "p006-i11",
+     "type": "table",
+     "title": "Period | Nature of the Rupee\nEight chronological rows",
+     "page": 6
+    }
+   ],
+   "beats": [
+    {
+     "beat_id": "b37",
+     "idea": "Market pricing with RBI shock management",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "rupee",
+      "demand and supply arrows",
+      "exchange-rate graph",
+      "RBI institution",
+      "fixed-rate commitment",
+      "unmanaged float"
+     ],
+     "shows": "Market arrows move rupee; RBI cushions fluctuations.",
+     "on_word": "market determination",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/indian-rupee-sign",
+      "tw:27a1",
+      "tw:1f4c8"
+     ],
+     "template": "compose",
+     "template_note": "Highlight the table’s 1993 onwards row. Parts: appear rupee and exchange-rate graph; move rupee downward on 'depreciation', labelled foreign value; appear demand and supply arrows feeding the graph on 'demand–supply'; move RBI institution beside the fluctuating graph on 'RBI'; transform sharply fluctuating graph into a gentler fluctuating graph on 'झटके सँभाल सकता है', retaining movement rather than fixing a rate. Show fixed-rate commitment as a locked horizontal rate line, then refuse it on 'न'; show unmanaged float as an unbuffered fluctuating graph, then refuse it on the second 'न'."
+    },
+    {
+     "beat_id": "b38",
+     "idea": "₹ identifies the rupee, not new money",
+     "relation": "part_whole",
+     "relation_note": "",
+     "nouns": [
+      "₹100 price label",
+      "₹ symbol",
+      "rupee",
+      "Devanagari script elements",
+      "Roman script elements"
+     ],
+     "shows": "₹100 tag enlarges ₹; script elements combine.",
+     "on_word": "Price label",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/barcode",
+      "fl:anger-symbol",
+      "fa:solid/indian-rupee-sign"
+     ],
+     "template": "compose",
+     "template_note": "Parts: appear price label bearing ₹100; move an enlarged copy of ₹ beside the unchanged tag on '₹'; compare symbol and rupee with an identity link, labelled 'written पहचान', rather than creating a second currency. Show the credit 'D. Udaya Kumar' as text only. Show '2010' beside the symbol on '2010'. Appear Devanagari and Roman script elements in separate slots, then move them into an enlarged ₹ construction diagram. Use script-form highlights, not a claim that two complete letters simply join."
+    },
+    {
+     "beat_id": "b39",
+     "idea": "Chronology links distinct monetary changes",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "independence flag",
+      "decimal subdivision diagram",
+      "gold-link diagram",
+      "managed-float graph",
+      "₹ symbol",
+      "fiat currency",
+      "gold redemption link",
+      "foreign exchange price",
+      "gold reserves"
+     ],
+     "shows": "Milestones align; redemption, exchange price, reserves separate.",
+     "on_word": "क्रम",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f3f3",
+      "tw:1f4c8",
+      "fl:anger-symbol",
+      "fa:solid/money-bill-1"
+     ],
+     "template": "compose",
+     "template_note": "Parts: appear a numbered sequence of independence flag, decimal subdivision diagram, changed gold-link diagram, managed-float graph and ₹ symbol, cued by their respective spoken terms; connect these to corresponding book-table rows without adding unsupported dates. Then compare two panels: fiat currency with a crossed gold-redemption link under 'redemption', and managed-float graph with foreign exchange price under 'foreign price'. On 'gold reserves रह सकते हैं', appear gold reserves alongside fiat currency without reconnecting the redemption link. This shows reserve holdings can coexist with fiat status."
+    }
+   ],
+   "status": "failed"
+  },
+  {
+   "id": "v6_s6",
+   "part_id": "c15.2",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b40",
+     "idea": "One rupee, different subdivisions",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "old-system ₹1 subdivision strips",
+      "modern-system ₹1 subdivision strip"
+     ],
+     "shows": "Equal rupee strips; old subdivisions beside modern hundredths.",
+     "on_word": "Old",
+     "image_wanted": "",
+     "icons": [],
+     "template": "none",
+     "template_note": "Static comparison: old strips show 1 Rupee = 16 Annas = 64 Paise = 192 Pies; modern strip shows 1 Rupee = 100 Paise."
+    },
+    {
+     "beat_id": "b41",
+     "idea": "Equal value does not mean equal count",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "₹1 strip divided into 16 annas",
+      "₹1 strip divided into 64 old paise",
+      "₹1 strip divided into 192 pies",
+      "₹1 strip divided into 100 modern paise"
+     ],
+     "shows": "Equal-length strips gain different numbers of divisions.",
+     "on_word": "पट्टी",
+     "image_wanted": "",
+     "icons": [],
+     "template": "compose",
+     "template_note": "Keep four strips equal in length, each tagged ₹1. Parts in order: appear four undivided strips; transform the first into 16 equal sections on '16', second into 64 on '64', third into 192 on '192', fourth into 100 on '100'; compare the old and modern strips with '=' and labels 'same value' and 'different subdivision counts'. Use fine ticks with enlarged detail, not coin piles."
+    },
+    {
+     "beat_id": "b42",
+     "idea": "Old pice are not modern paise",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "old ₹1 strip with 64 paise divisions",
+      "modern ₹1 strip with 100 paise divisions",
+      "1957 reform divider"
+     ],
+     "shows": "1957 separates strips; highlighted old/new units differ.",
+     "on_word": "1957",
+     "image_wanted": "",
+     "icons": [],
+     "template": "none",
+     "template_note": "Show old and new strips across a 1957 divider. Enlarge one section from each: 'old paisa / pice = ₹1/64' versus 'modern paisa = ₹1/100', joined by ≠. No conversion process is enacted."
+    },
+    {
+     "beat_id": "b43",
+     "idea": "Decimal clarity is not increased purchasing power",
+     "relation": "part_whole",
+     "relation_note": "",
+     "nouns": [
+      "₹1.25 amount strip",
+      "₹1 segment",
+      "25 modern paise segment",
+      "purchasing-power meter"
+     ],
+     "shows": "₹1.25 splits; purchasing-power meter stays unchanged.",
+     "on_word": "₹1.25",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/chart-pie",
+      "fa:solid/gauge-high"
+     ],
+     "template": "compose",
+     "template_note": "Parts: appear an amount strip tagged ₹1.25; transform it into adjoining ₹1 and 25 modern paise segments, with the latter one-quarter of the former; show_text above them '1 rupee + 25 paise'. On 'अपने-आप', appear a purchasing-power meter with a fixed pointer and label 'No automatic increase'. Do not introduce an annas–pies conversion or imply that purchasing power can never change."
+    },
+    {
+     "beat_id": "b44",
+     "idea": "Derive old units; isolate modern hundredths",
+     "relation": "part_whole",
+     "relation_note": "",
+     "nouns": [
+      "old ₹1 strip divided into 64 paise",
+      "16 anna groups",
+      "old paisa subdivided into three pies",
+      "modern ₹1 strip divided into 100 paise"
+     ],
+     "shows": "Old units group and subdivide; modern hundredths separate.",
+     "on_word": "64",
+     "image_wanted": "",
+     "icons": [],
+     "template": "compose",
+     "template_note": "Parts: appear the old ₹1 strip with 64 sections; transform it into 16 outlined groups of four sections; show_text '64 ÷ 16 = 4 old paise per anna'. Appear an enlarged old paisa; transform it into three pie sections; show_text '192 ÷ 64 = 3 pies per old paisa'. Appear a separate modern ₹1 strip with 100 divisions; show_text on one highlighted section 'modern paisa = ₹1/100'. Keep the modern panel visually isolated."
+    }
+   ],
+   "status": "failed"
+  },
+  {
+   "id": "v6_s7s",
+   "part_id": "c15.3",
+   "mode": "C",
+   "kit": "bank",
+   "picture": {
+    "type": "flow",
+    "by": "card",
+    "hint": "flow"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b45",
+     "idea": "Dollar demand raises the importer's bill",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "dollars",
+      "rupees",
+      "dollar demand meter",
+      "bank exchange-rate display",
+      "$100 bill",
+      "importer",
+      "bank representative"
+     ],
+     "shows": "Demand rises; quote and importer’s bill rise.",
+     "on_word": "Dollar",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f4b5",
+      "fa:solid/indian-rupee-sign",
+      "fa:solid/gauge-high",
+      "tw:1f9fe"
+     ],
+     "template": "compose",
+     "template_note": "Show importer facing bank with dollars and rupees; show_text quote ₹80/$ and $100 bill ₹8,000. At demand बढ़ी, raise demand meter; change quote to ₹84/$ and bill to ₹8,400. Move ₹8,400-tagged rupees from importer to bank and $100-tagged dollars back."
+    },
+    {
+     "beat_id": "b46",
+     "idea": "RBI dollar sales soften the quote",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "RBI institutional emblem",
+      "dollars",
+      "rupees",
+      "dollar supply meter",
+      "exchange-rate display",
+      "$100 bill",
+      "bank representatives",
+      "foreign-exchange market"
+     ],
+     "shows": "RBI sells dollars; rupees return; quote softens.",
+     "on_word": "RBI",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f4b5",
+      "fa:solid/indian-rupee-sign",
+      "fa:solid/gauge-high",
+      "tw:1f9fe",
+      "tw:1f3ea"
+     ],
+     "template": "compose",
+     "template_note": "Place banks inside foreign-exchange market. Move dollars from RBI to banks and raise supply meter; move rupees back to RBI. At same मानो show a conditional tag; lower quote ₹84/$ to ₹82/$ and $100 bill ₹8,400 to ₹8,200. Retain ₹8,000 as a distinct initial reference, not the outcome."
+    },
+    {
+     "beat_id": "b47",
+     "idea": "Smooth volatility, not fix the rate",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "RBI institutional emblem",
+      "exchange-rate chart",
+      "fixed-rate line",
+      "dollars",
+      "dollar supply meter",
+      "upward pressure arrow"
+     ],
+     "shows": "Rate swings soften; fixed-rate line crossed out.",
+     "on_word": "volatility",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f4c8",
+      "tw:1f4b5",
+      "fa:solid/gauge-high",
+      "tw:27a1"
+     ],
+     "template": "compose",
+     "template_note": "Compare sharp rate swings with smaller but continuing swings, marking smoothing as the aim. At नहीं cross out a separate fixed-rate line. Move dollars from RBI into supply, raise supply meter, and shrink upward pressure arrow to connect sales with reduced pressure."
+    },
+    {
+     "beat_id": "b48",
+     "idea": "No guaranteed rate or automatic ₹84 trigger",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "dollar demand pressure meter",
+      "exchange-rate chart",
+      "guarantee stamp",
+      "excessive-volatility chart",
+      "₹84 trigger marker",
+      "RBI institutional emblem"
+     ],
+     "shows": "Demand lifts rate; automatic ₹84 trigger crossed.",
+     "on_word": "Demand",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/gauge-high",
+      "tw:1f4c8",
+      "fa:solid/stamp",
+      "tw:1f4c8"
+     ],
+     "template": "compose",
+     "template_note": "Raise demand-pressure meter and reveal a possible upward rate path, tagged सकता है. At नहीं cross out guarantee stamp. Highlight excessive swings as the intervention condition. Show ₹84 trigger marker beside RBI and cross out its automatic-trigger connection at नहीं; do not show a sale being triggered."
+    }
+   ],
+   "status": "failed"
+  },
+  {
+   "id": "v6_s7b",
+   "part_id": "c15.3",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "flow",
+    "by": "card",
+    "hint": "flow"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b49",
+     "idea": "Dollar sales ease market pressure",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "dollars",
+      "dollar demand meter",
+      "dollar price meter",
+      "RBI institution",
+      "foreign exchange market",
+      "dollar supply meter",
+      "exchange-rate pressure meter"
+     ],
+     "shows": "Demand rises; RBI dollars enter market; pressure falls.",
+     "on_word": "demand",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f4b5",
+      "fa:solid/gauge-high",
+      "fa:solid/gauge-high",
+      "tw:1f3ea",
+      "fa:solid/gauge-high",
+      "fa:solid/gauge-high"
+     ],
+     "template": "compose",
+     "template_note": "Ordered parts: appear dollar demand meter; meter upward on 'बढ़ी'; meter dollar price upward on 'महँगा'; appear dollars beside RBI institution on 'RBI'; move dollars from RBI into foreign exchange market with sale tag on 'बेचे'; meter dollar supply upward on 'supply बढ़ी'; meter exchange-rate pressure downward on 'pressure घटा'. Connect stages with arrows; use no invented amounts.",
+     "realised": true
+    },
+    {
+     "beat_id": "b50",
+     "idea": "Smoothing is not a fixed-rate commitment",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "exchange-rate charts",
+      "fixed-rate commitment",
+      "foreign exchange market",
+      "RBI intervention"
+     ],
+     "shows": "Smaller fluctuations versus fixed line; market with intervention.",
+     "on_word": "Smoothing",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f4c8",
+      "tw:1f3ea"
+     ],
+     "template": "compose",
+     "template_note": "Ordered parts: appear two matched exchange-rate charts; transform large fluctuations into smaller, still-varying fluctuations on 'झटके घटाता'; show a horizontal rate line in the fixing chart on 'fixing', with 'तय rate की commitment' as its short label on 'commitment'; compare charts with ≠. On 'साथ', appear foreign exchange market beside RBI intervention, joined with +; retain the varying smoothing chart above both to show coexistence without a fixed-rate promise. Charts are schematic, with no invented values.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v6_s8s",
+   "part_id": "c16.1",
+   "mode": "C",
+   "kit": "shop",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b51",
+     "idea": "Digital payment, rupee accounting",
+     "relation": "cause_effect",
+     "relation_note": "A ₹40 wallet payment reduces the buyer's ₹100 to ₹60 and credits the merchant ₹40.",
+     "nouns": [
+      "digital wallet",
+      "digital currency",
+      "sugar",
+      "buyer",
+      "merchant",
+      "participating shop"
+     ],
+     "shows": "Wallet pays ₹40; sugar transfers; ₹60 remains.",
+     "on_word": "Participating",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f45b",
+      "fa:solid/money-bill-1",
+      "tw:1f36c",
+      "tw:1f6cd",
+      "tw:1f3ea"
+     ],
+     "template": "compose",
+     "template_note": "appear: buyer with digital wallet, merchant holding sugar at participating shop; show_text on wallet at '₹100': '₹100'; move digital-currency payment tagged '₹40' from wallet to merchant at 'चुकाए'; meter on wallet from 100 to 60, style number, rupee labels at '₹60'; give sugar from merchant to buyer; show_text on merchant at 'मिले': '₹40 मिले'; keep ₹60 and ₹40 visible at 'rupees'.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v6_s8b",
+   "part_id": "c16.1",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "things",
+    "by": "card",
+    "hint": "things"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b52",
+     "idea": "Legal tender, digital रूप, वही ₹ इकाई",
+     "relation": "part_whole",
+     "relation_note": "",
+     "nouns": [
+      "Digital Rupee",
+      "law scroll with stamp",
+      "digital wallet",
+      "₹ symbol"
+     ],
+     "shows": "2022 Digital Rupee: कानूनी मुहर, wallet में ₹",
+     "on_word": "Digital Rupee",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/indian-rupee-sign",
+      "tw:1f4dc",
+      "tw:1f45b",
+      "fl:anger-symbol"
+     ],
+     "template": "none",
+     "template_note": "परिभाषा के तीन गुण हैं; payment या counting की प्रक्रिया नहीं।"
+    },
+    {
+     "beat_id": "b53",
+     "idea": "Channel अलग, money का issuer अलग",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "UPI",
+      "bank deposit",
+      "commercial bank",
+      "Digital Rupee",
+      "central bank",
+      "app",
+      "private cryptoasset",
+      "fluctuating rupee price graph"
+     ],
+     "shows": "Deposit→commercial bank; Digital Rupee→central bank; crypto-price लहराता",
+     "on_word": "UPI",
+     "image_wanted": "",
+     "icons": [
+      "tw:1f4f1",
+      "fa:solid/piggy-bank",
+      "tw:1f3e6",
+      "fa:solid/indian-rupee-sign",
+      "fa:solid/building-columns",
+      "tw:1f4f1",
+      "tw:1f4c8"
+     ],
+     "template": "compose",
+     "template_note": "appear bank deposit और commercial bank, claim की connecting line सहित; appear UPI channel; move bank deposit along UPI channel, identity अपरिवर्तित; compare bank deposit और Digital Rupee, sign ≠, cue 'नहीं'; appear central bank और Digital Rupee का connection; show_text app पर 'channel'; appear private cryptoasset के पास fluctuating ₹ price graph; compare cryptoasset और Digital Rupee, बाद वाले पर 'same ₹ unit', अलग floating price graph नहीं।",
+     "realised": true
+    },
+    {
+     "beat_id": "b54",
+     "idea": "Official currency का digital रूप, वही unit",
+     "relation": "part_whole",
+     "relation_note": "",
+     "nouns": [
+      "official currency",
+      "Digital Rupee",
+      "₹ symbol",
+      "pilot sign",
+      "banks",
+      "public"
+     ],
+     "shows": "Official currency में digital ₹; आगे banks/public pilots",
+     "on_word": "Boundary",
+     "image_wanted": "",
+     "icons": [
+      "fa:solid/money-bill-1",
+      "fa:solid/indian-rupee-sign",
+      "fl:anger-symbol",
+      "tw:1f3e6",
+      "tw:1f4e2"
+     ],
+     "template": "none",
+     "template_note": "परिभाषा का recap और अगले pilots का preview है; अलग इस्तेमाल की प्रक्रिया अभी नहीं बताई गई।"
+    }
+   ],
+   "status": "passed"
+  },
+  {
+   "id": "v6_s9",
+   "part_id": "c16.2",
+   "mode": "B",
+   "kit": "",
+   "picture": {
+    "type": "timeline",
+    "by": "card",
+    "hint": "timeline"
+   },
+   "book_pictures": [],
+   "beats": [
+    {
+     "beat_id": "b55",
+     "idea": "Two separate pilots, not one segment",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "bank buildings",
+      "shopping bag",
+      "digital payment",
+      "technology test checklist",
+      "shopper"
+     ],
+     "shows": "Bank payments versus shopping; separate limited trial enclosures.",
+     "on_word": "Banks",
+     "image_wanted": "",
+     "icons": [
+      "fl:bank",
+      "fa:solid/bag-shopping"
+     ],
+     "template": "none",
+     "template_note": "Pilot testing is defined, not enacted; bounded trial groups and a checklist explain it.",
+     "realised": true
+    },
+    {
+     "beat_id": "b56",
+     "idea": "Wholesale settles bank dues; November official start",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "bank buildings",
+      "interbank dues ledger",
+      "e₹-W",
+      "October 2022 announcement marker",
+      "1 November 2022 launch marker",
+      "discount tag"
+     ],
+     "shows": "Banks settle dues; announcement precedes official launch.",
+     "on_word": "e₹-W",
+     "image_wanted": "",
+     "icons": [
+      "fl:bank",
+      "tw:1f4d2",
+      "fa:solid/tag"
+     ],
+     "template": "compose",
+     "template_note": "appear bank buildings and dues ledger; move e₹-W between banks at 'settlements'; show_text on ledger 'Settled'; appear October announcement marker at 'October'; appear official launch marker at '1 November 2022'; show_text on W 'Institutional'; appear discount tag then refuse it at 'नहीं'.",
+     "realised": true
+    },
+    {
+     "beat_id": "b57",
+     "idea": "Retail pilot serves public purchases",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "December 2022 timeline marker",
+      "e₹-R",
+      "sugar packet",
+      "bank buildings",
+      "shop counters",
+      "customer",
+      "merchants",
+      "users"
+     ],
+     "shows": "Retail sugar payment; participating groups gradually grow.",
+     "on_word": "दुकान",
+     "image_wanted": "",
+     "icons": [
+      "fl:bank",
+      "tw:1f6cd",
+      "fa:solid/users-between-lines"
+     ],
+     "template": "compose",
+     "template_note": "appear December 2022 marker at 'December'; hold sugar packet with merchant; give e₹-R from customer to merchant at 'payment'; give sugar packet from merchant to customer; appear additional bank buildings, merchants and users progressively at 'धीरे-धीरे', without numerical counts.",
+     "realised": true
+    },
+    {
+     "beat_id": "b58",
+     "idea": "Shared currency notation, different use cases",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "bank buildings",
+      "settlement ledger",
+      "e₹-W",
+      "e₹-R",
+      "electronic screen",
+      "rupee symbol",
+      "public users"
+     ],
+     "shows": "W banks versus R public; notation splits visibly.",
+     "on_word": "दो",
+     "image_wanted": "",
+     "icons": [
+      "fl:bank",
+      "tw:1f4d2",
+      "fa:solid/display",
+      "fa:solid/indian-rupee-sign"
+     ],
+     "template": "none",
+     "template_note": "Testing and settlement identify use cases here, not a new transaction process; show matched panels and notation callouts.",
+     "realised": true
+    },
+    {
+     "beat_id": "b59",
+     "idea": "Expansion does not mean universal availability",
+     "relation": "cause_effect",
+     "relation_note": "",
+     "nouns": [
+      "testing checklist",
+      "bank buildings",
+      "shop counters",
+      "e₹ availability signs",
+      "merchants",
+      "users"
+     ],
+     "shows": "Testing grows participation; not every shop enabled.",
+     "on_word": "Testing",
+     "image_wanted": "",
+     "icons": [
+      "fl:bank",
+      "fa:solid/users-between-lines"
+     ],
+     "template": "compose",
+     "template_note": "appear testing checklist; move an arrow toward participating groups at 'सीख'; appear additional banks, merchants and users at 'बढ़ते'; show e₹ availability signs only on participating shops; show_text over the full shop group 'हर दुकान'; refuse that universal claim at 'नहीं', without marking all shops unavailable.",
+     "realised": true
+    },
+    {
+     "beat_id": "b60",
+     "idea": "Recall chronology and segment pairing",
+     "relation": "sequence",
+     "relation_note": "",
+     "nouns": [
+      "1 November 2022 wholesale launch marker",
+      "December 2022 retail marker",
+      "expansion marker",
+      "e₹-W",
+      "e₹-R",
+      "bank buildings",
+      "public users"
+     ],
+     "shows": "Wholesale, retail, expansion timeline; W banks, R public.",
+     "on_word": "क्रम",
+     "image_wanted": "",
+     "icons": [
+      "fl:bank"
+     ],
+     "template": "compose",
+     "template_note": "appear wholesale marker at '1 November 2022'; appear retail marker at 'December 2022'; appear expansion marker at 'expansion', connected in order; move W beside banks at 'banks' and R beside public users at 'public'.",
+     "realised": true
+    },
+    {
+     "beat_id": "b61",
+     "idea": "Keep money's dimensions distinct",
+     "relation": "compare",
+     "relation_note": "",
+     "nouns": [
+      "silver coin",
+      "currency issuer emblem",
+      "rupee subdivision diagram",
+      "fiat currency note",
+      "managed-float exchange-rate chart",
+      "Digital Rupee screen"
+     ],
+     "shows": "Separate dimension compartments prevent mixing money concepts.",
+     "on_word": "material",
+     "image_wanted": "",
+     "icons": [
+      "tw:1fa99",
+      "fa:solid/money-bill-1",
+      "tw:1f4c8"
+     ],
+     "template": "none",
+     "template_note": "This is a conceptual recap, not a historical transformation. Place silver under material, issuer emblem under issuer, rupee-to-100-paise diagram under subdivision, managed-float chart under external price and Digital Rupee under payment form; keep fiat separately tagged as monetary basis.",
+     "realised": true
+    }
+   ],
+   "status": "passed"
+  }
+ ],
+ "relations_outside_list": [],
+ "needs": [
+  {
+   "thing": "₹1 value marker",
+   "beats": [
+    "b1"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s1"
+  },
+  {
+   "thing": "100 paise counting units",
+   "beats": [
+    "b1"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s1"
+  },
+  {
+   "thing": "Digital Rupee symbol",
+   "beats": [
+    "b1"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s1"
+  },
+  {
+   "thing": "issuer institution symbol",
+   "beats": [
+    "b1"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s1"
+  },
+  {
+   "thing": "shaped silver piece",
+   "beats": [
+    "b2",
+    "b4"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s1"
+  },
+  {
+   "thing": "silver piece",
+   "beats": [
+    "b3"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s1"
+  },
+  {
+   "thing": "mandatory silver-content link",
+   "beats": [
+    "b3"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s1"
+  },
+  {
+   "thing": "unworked silver lump and worked shaped silver piece",
+   "beats": [
+    "b2"
+   ],
+   "kind": "image",
+   "sources_tried": [
+    "asset-library"
+   ],
+   "part": "v6_s1"
+  },
+  {
+   "thing": "checking fee",
+   "beats": [
+    "b5",
+    "b6"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "merchant",
+   "beats": [
+    "b5",
+    "b6"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "silver Rupiya",
+   "beats": [
+    "b7"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "weight marker",
+   "beats": [
+    "b7"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "purity indicator",
+   "beats": [
+    "b7"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "Sher Shah Suri's empire",
+   "beats": [
+    "b7"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "silver portion",
+   "beats": [
+    "b8"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "grain seeds",
+   "beats": [
+    "b8"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "purity test",
+   "beats": [
+    "b8"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "Mughal empire",
+   "beats": [
+    "b9"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "emperor-name coin inscription",
+   "beats": [
+    "b10"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "Bombay Presidency",
+   "beats": [
+    "b10"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "Calcutta Presidency",
+   "beats": [
+    "b10"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "Madras Presidency",
+   "beats": [
+    "b10"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "British India",
+   "beats": [
+    "b11"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "decimal division diagram",
+   "beats": [
+    "b12"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "1835 coin issue label",
+   "beats": [
+    "b12"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "Queen Victoria issue label",
+   "beats": [
+    "b12"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "British government issuer",
+   "beats": [
+    "b13"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "sterling reserve",
+   "beats": [
+    "b14"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "importer",
+   "beats": [
+    "b14"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "Mumbai",
+   "beats": [
+    "b14"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "abroad",
+   "beats": [
+    "b14"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "Fowler Committee recommendation",
+   "beats": [
+    "b15"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "1898 recommendation marker",
+   "beats": [
+    "b16"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "1899 implementation marker",
+   "beats": [
+    "b16"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "₹10 per £1 rate label",
+   "beats": [
+    "b16"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "sterling reserves",
+   "beats": [
+    "b16"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "exchange link",
+   "beats": [
+    "b16"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "Sher Shah Suri silver rupiya inscription side",
+   "beats": [
+    "b7"
+   ],
+   "kind": "image",
+   "sources_tried": [
+    "asset-library"
+   ],
+   "part": "v6_s2s"
+  },
+  {
+   "thing": "RBI institution symbol",
+   "beats": [
+    "b17",
+    "b18"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2b"
+  },
+  {
+   "thing": "1935 establishment marker",
+   "beats": [
+    "b17"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2b"
+  },
+  {
+   "thing": "crossed-out George V → George VI initial-RBI sequence",
+   "beats": [
+    "b17"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2b"
+  },
+  {
+   "thing": "silver Rupiya",
+   "beats": [
+    "b18"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2b"
+  },
+  {
+   "thing": "1835 uniform coinage",
+   "beats": [
+    "b18"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2b"
+  },
+  {
+   "thing": "1861 note monopoly",
+   "beats": [
+    "b18"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2b"
+  },
+  {
+   "thing": "gold-exchange reforms",
+   "beats": [
+    "b18"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2b"
+  },
+  {
+   "thing": "coin-standard lane",
+   "beats": [
+    "b18"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2b"
+  },
+  {
+   "thing": "issuer lane",
+   "beats": [
+    "b18"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2b"
+  },
+  {
+   "thing": "external-link lane",
+   "beats": [
+    "b18"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s2b"
+  },
+  {
+   "thing": "1938 first RBI George VI banknote full note facsimile",
+   "beats": [
+    "b17"
+   ],
+   "kind": "image",
+   "sources_tried": [
+    "asset-library"
+   ],
+   "part": "v6_s2b"
+  },
+  {
+   "thing": "historical silver Rupiya Mughal mint East India Company coins 1835 uniform coinage",
+   "beats": [
+    "b18"
+   ],
+   "kind": "image",
+   "sources_tried": [
+    "asset-library"
+   ],
+   "part": "v6_s2b"
+  },
+  {
+   "thing": "copper",
+   "beats": [
+    "b19",
+    "b20",
+    "b22"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s3"
+  },
+  {
+   "thing": "three shelves",
+   "beats": [
+    "b22"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s3"
+  },
+  {
+   "thing": "silver supply counter",
+   "beats": [
+    "b23"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s4s"
+  },
+  {
+   "thing": "asking-price tags",
+   "beats": [
+    "b23"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s4s"
+  },
+  {
+   "thing": "dealers",
+   "beats": [
+    "b23"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s4s"
+  },
+  {
+   "thing": "silver mines",
+   "beats": [
+    "b23"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s4s"
+  },
+  {
+   "thing": "silver price tag",
+   "beats": [
+    "b24",
+    "b26",
+    "b27",
+    "b28"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s4b"
+  },
+  {
+   "thing": "gold-linked foreign payment",
+   "beats": [
+    "b25"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s4b"
+  },
+  {
+   "thing": "kilogram label",
+   "beats": [
+    "b26"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s4b"
+  },
+  {
+   "thing": "illustrative price tag",
+   "beats": [
+    "b26"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s4b"
+  },
+  {
+   "thing": "silver supply",
+   "beats": [
+    "b27",
+    "b28"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s4b"
+  },
+  {
+   "thing": "expected silver supply",
+   "beats": [
+    "b27"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s4b"
+  },
+  {
+   "thing": "silver demand",
+   "beats": [
+    "b27"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s4b"
+  },
+  {
+   "thing": "foreign payment",
+   "beats": [
+    "b28"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s4b"
+  },
+  {
+   "thing": "text-only King's portrait placeholder",
+   "beats": [
+    "b29"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5a"
+  },
+  {
+   "thing": "Ashoka Lion Capital",
+   "beats": [
+    "b29",
+    "b30"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5a"
+  },
+  {
+   "thing": "British monetary system",
+   "beats": [
+    "b29",
+    "b30"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5a"
+  },
+  {
+   "thing": "monetary link",
+   "beats": [
+    "b29",
+    "b30"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5a"
+  },
+  {
+   "thing": "independent India",
+   "beats": [
+    "b29"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5a"
+  },
+  {
+   "thing": "salt packet",
+   "beats": [
+    "b31"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5s"
+  },
+  {
+   "thing": "Jaipur",
+   "beats": [
+    "b31"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5s"
+  },
+  {
+   "thing": "anna-system conversion",
+   "beats": [
+    "b32"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5s"
+  },
+  {
+   "thing": "five rice bags",
+   "beats": [
+    "b33"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5s"
+  },
+  {
+   "thing": "Lucknow",
+   "beats": [
+    "b33"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5s"
+  },
+  {
+   "thing": "gold reserves",
+   "beats": [
+    "b34"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5s"
+  },
+  {
+   "thing": "monetary-choice controls",
+   "beats": [
+    "b34"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5s"
+  },
+  {
+   "thing": "inflation warning",
+   "beats": [
+    "b34"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5s"
+  },
+  {
+   "thing": "monetary authority",
+   "beats": [
+    "b34"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5s"
+  },
+  {
+   "thing": "import orders",
+   "beats": [
+    "b35"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5s"
+  },
+  {
+   "thing": "dollar-demand stack",
+   "beats": [
+    "b35",
+    "b36"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5s"
+  },
+  {
+   "thing": "dollar-supply stack",
+   "beats": [
+    "b35",
+    "b36"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5s"
+  },
+  {
+   "thing": "Mumbai",
+   "beats": [
+    "b35"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5s"
+  },
+  {
+   "thing": "RBI institution",
+   "beats": [
+    "b37"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5b"
+  },
+  {
+   "thing": "fixed-rate commitment",
+   "beats": [
+    "b37"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5b"
+  },
+  {
+   "thing": "unmanaged float",
+   "beats": [
+    "b37"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5b"
+  },
+  {
+   "thing": "Devanagari script elements",
+   "beats": [
+    "b38"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5b"
+  },
+  {
+   "thing": "Roman script elements",
+   "beats": [
+    "b38"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5b"
+  },
+  {
+   "thing": "decimal subdivision diagram",
+   "beats": [
+    "b39"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5b"
+  },
+  {
+   "thing": "gold-link diagram",
+   "beats": [
+    "b39"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5b"
+  },
+  {
+   "thing": "gold redemption link",
+   "beats": [
+    "b39"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5b"
+  },
+  {
+   "thing": "foreign exchange price",
+   "beats": [
+    "b39"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5b"
+  },
+  {
+   "thing": "gold reserves",
+   "beats": [
+    "b39"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s5b"
+  },
+  {
+   "thing": "old-system ₹1 subdivision strips",
+   "beats": [
+    "b40"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s6"
+  },
+  {
+   "thing": "modern-system ₹1 subdivision strip",
+   "beats": [
+    "b40"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s6"
+  },
+  {
+   "thing": "₹1 strip divided into 16 annas",
+   "beats": [
+    "b41"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s6"
+  },
+  {
+   "thing": "₹1 strip divided into 64 old paise",
+   "beats": [
+    "b41"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s6"
+  },
+  {
+   "thing": "₹1 strip divided into 192 pies",
+   "beats": [
+    "b41"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s6"
+  },
+  {
+   "thing": "₹1 strip divided into 100 modern paise",
+   "beats": [
+    "b41"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s6"
+  },
+  {
+   "thing": "old ₹1 strip with 64 paise divisions",
+   "beats": [
+    "b42"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s6"
+  },
+  {
+   "thing": "modern ₹1 strip with 100 paise divisions",
+   "beats": [
+    "b42"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s6"
+  },
+  {
+   "thing": "1957 reform divider",
+   "beats": [
+    "b42"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s6"
+  },
+  {
+   "thing": "₹1.25 amount strip",
+   "beats": [
+    "b43"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s6"
+  },
+  {
+   "thing": "25 modern paise segment",
+   "beats": [
+    "b43"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s6"
+  },
+  {
+   "thing": "old ₹1 strip divided into 64 paise",
+   "beats": [
+    "b44"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s6"
+  },
+  {
+   "thing": "16 anna groups",
+   "beats": [
+    "b44"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s6"
+  },
+  {
+   "thing": "old paisa subdivided into three pies",
+   "beats": [
+    "b44"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s6"
+  },
+  {
+   "thing": "modern ₹1 strip divided into 100 paise",
+   "beats": [
+    "b44"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s6"
+  },
+  {
+   "thing": "bank exchange-rate display",
+   "beats": [
+    "b45"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s7s"
+  },
+  {
+   "thing": "importer",
+   "beats": [
+    "b45"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s7s"
+  },
+  {
+   "thing": "bank representative",
+   "beats": [
+    "b45"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s7s"
+  },
+  {
+   "thing": "RBI institutional emblem",
+   "beats": [
+    "b46",
+    "b47",
+    "b48"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s7s"
+  },
+  {
+   "thing": "exchange-rate display",
+   "beats": [
+    "b46"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s7s"
+  },
+  {
+   "thing": "bank representatives",
+   "beats": [
+    "b46"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s7s"
+  },
+  {
+   "thing": "fixed-rate line",
+   "beats": [
+    "b47"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s7s"
+  },
+  {
+   "thing": "₹84 trigger marker",
+   "beats": [
+    "b48"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s7s"
+  },
+  {
+   "thing": "RBI institution",
+   "beats": [
+    "b49"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s7b"
+  },
+  {
+   "thing": "fixed-rate commitment",
+   "beats": [
+    "b50"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s7b"
+  },
+  {
+   "thing": "RBI intervention",
+   "beats": [
+    "b50"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s7b"
+  },
+  {
+   "thing": "merchant",
+   "beats": [
+    "b51"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s8s"
+  },
+  {
+   "thing": "private cryptoasset",
+   "beats": [
+    "b53"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s8b"
+  },
+  {
+   "thing": "pilot sign",
+   "beats": [
+    "b54"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s8b"
+  },
+  {
+   "thing": "digital payment",
+   "beats": [
+    "b55"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "technology test checklist",
+   "beats": [
+    "b55"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "shopper",
+   "beats": [
+    "b55"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "e₹-W",
+   "beats": [
+    "b56",
+    "b58",
+    "b60"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "October 2022 announcement marker",
+   "beats": [
+    "b56"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "1 November 2022 launch marker",
+   "beats": [
+    "b56"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "December 2022 timeline marker",
+   "beats": [
+    "b57"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "e₹-R",
+   "beats": [
+    "b57",
+    "b58",
+    "b60"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "sugar packet",
+   "beats": [
+    "b57"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "shop counters",
+   "beats": [
+    "b57",
+    "b59"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "merchants",
+   "beats": [
+    "b57",
+    "b59"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "public users",
+   "beats": [
+    "b58",
+    "b60"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "testing checklist",
+   "beats": [
+    "b59"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "e₹ availability signs",
+   "beats": [
+    "b59"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "1 November 2022 wholesale launch marker",
+   "beats": [
+    "b60"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "December 2022 retail marker",
+   "beats": [
+    "b60"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "expansion marker",
+   "beats": [
+    "b60"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "currency issuer emblem",
+   "beats": [
+    "b61"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "rupee subdivision diagram",
+   "beats": [
+    "b61"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  },
+  {
+   "thing": "Digital Rupee screen",
+   "beats": [
+    "b61"
+   ],
+   "kind": "icon",
+   "sources_tried": [
+    "icon-index",
+    "asset-library"
+   ],
+   "part": "v6_s9"
+  }
+ ],
+ "verbs_version": "2026-11-02.2"
+}

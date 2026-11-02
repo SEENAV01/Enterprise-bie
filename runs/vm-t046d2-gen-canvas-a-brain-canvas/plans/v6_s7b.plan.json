@@ -1,0 +1,359 @@
+{
+ "id": "v6_s7b",
+ "part_id": "c15.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b49",
+   "say": "फिर देखो: demand बढ़ी, dollar महँगा हुआ, RBI ने dollars बेचे, supply बढ़ी और pressure घटा।"
+  },
+  {
+   "beat_id": "b50",
+   "say": "Smoothing झटके घटाता है; fixing तय rate की commitment है। इसलिए market pricing और RBI intervention साथ चल सकते हैं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "replay",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    5
+   ],
+   "cue": [
+    "b49",
+    "demand"
+   ],
+   "until_cue": [
+    "b50",
+    "Smoothing"
+   ],
+   "tone": "ink",
+   "size": 32,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "demand",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    },
+    {
+     "name": "price",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    },
+    {
+     "name": "dollars",
+     "icon": "tw:1f4b5",
+     "label": ""
+    },
+    {
+     "name": "market",
+     "icon": "tw:1f3ea",
+     "label": ""
+    },
+    {
+     "name": "supply",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    },
+    {
+     "name": "pressure",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "meter",
+     "cue": [
+      "b49",
+      "demand"
+     ],
+     "to": "demand",
+     "object": "demand",
+     "text": "demand बढ़ी",
+     "spot": "left",
+     "dir": "up",
+     "reach": 0.8
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b49",
+      "महँगा"
+     ],
+     "to": "price",
+     "object": "price",
+     "text": "dollar महँगा हुआ",
+     "spot": "center",
+     "dir": "up",
+     "reach": 0.8
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b49",
+      "dollars"
+     ],
+     "object": "dollars",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b49",
+      "बेचे,"
+     ],
+     "to": "market",
+     "object": "dollars",
+     "into": "market"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b49",
+      "supply"
+     ],
+     "to": "supply",
+     "object": "supply",
+     "text": "supply बढ़ी",
+     "spot": "left",
+     "dir": "up",
+     "reach": 0.8
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b49",
+      "pressure"
+     ],
+     "to": "pressure",
+     "object": "pressure",
+     "text": "pressure घटा",
+     "spot": "center",
+     "dir": "down",
+     "reach": 0.35
+    }
+   ]
+  },
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    4,
+    0,
+    4,
+    1
+   ],
+   "cue": [
+    "b49",
+    "RBI"
+   ],
+   "text": "RBI",
+   "style": "tag",
+   "tone": "accent",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "comparison",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    5
+   ],
+   "cue": [
+    "b50",
+    "Smoothing"
+   ],
+   "tone": "ink",
+   "size": 32,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "smoothing",
+     "icon": "tw:1f4c8",
+     "label": ""
+    },
+    {
+     "name": "fixing",
+     "icon": "tw:1f4c8",
+     "label": ""
+    },
+    {
+     "name": "commitment",
+     "icon": "tw:1f91d",
+     "label": ""
+    },
+    {
+     "name": "market",
+     "icon": "tw:1f3ea",
+     "label": ""
+    },
+    {
+     "name": "dollars",
+     "icon": "tw:1f4b5",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b50",
+      "Smoothing"
+     ],
+     "object": "smoothing",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b50",
+      "घटाता"
+     ],
+     "to": "smoothing",
+     "object": "smoothing",
+     "text": "Smoothing झटके घटाता है",
+     "spot": "left",
+     "dir": "down",
+     "reach": 0.3
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b50",
+      "fixing"
+     ],
+     "left": "smoothing",
+     "right": "fixing",
+     "sign": "vs",
+     "left_text": "Smoothing",
+     "right_text": "fixing"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b50",
+      "commitment"
+     ],
+     "object": "commitment",
+     "on": "fixing",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b50",
+      "commitment"
+     ],
+     "on": "fixing",
+     "text": "तय rate की commitment",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b50",
+      "market"
+     ],
+     "object": "market",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b50",
+      "intervention"
+     ],
+     "to": "market",
+     "object": "dollars",
+     "into": "market"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b50",
+      "साथ"
+     ],
+     "on": "market",
+     "text": "market pricing और RBI intervention साथ",
+     "style": "tag"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b49",
+    "demand"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b50",
+    "Smoothing"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b49",
+    "pressure"
+   ],
+   "ids": [
+    "replay",
+    "anchor"
+   ],
+   "until_cue": [
+    "b50",
+    "Smoothing"
+   ]
+  },
+  {
+   "cue": [
+    "b50",
+    "साथ"
+   ],
+   "ids": [
+    "comparison",
+    "anchor"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

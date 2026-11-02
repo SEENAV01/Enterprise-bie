@@ -1,0 +1,216 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v4_s7b-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "eb87aacbec391117f4e5a259cf361c70d3e47b74bcb2b595e1dae5c6facf6eaa",
+ "card": null,
+ "prefix_sha256": "96a464effd4bc0854a1715b0c2fe251770b9c5bdefae8c2999458b293e153fbb",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses) (saanche: refuse)\n- accept: a tick on the thing accepted (saanche: accept)\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line) (saanche: coin_count)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word (saanche: cheque)\n- count: a counted stack or crowd whose number is the narration's number (saanche: count_stack, coin_count)\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline (saanche: hand_over, pay_change, upi, card_tap, cheque, barter_swap)\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number (saanche: pay_change, upi, card_tap, cheque)\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one (saanche: barter_swap)\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha (saanche: pay_change, cheque)\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label (saanche: cheque, hand_over)\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns THIS beat names or implies, as plain English or Hindi words a picture can show:\n  exactly the beat's own things, never a thing from an example, a card or another part (Navin, 2 November 2026: \"jis cheej ka\n  jikar hai wohi cheej dikhe\"). Every thing you list is a promise: it must appear on screen in this beat. A real person is never\n  drawn (card rule 8): name the role or the object, not the person.\n- shows: what is seen, in at most 8 words, as a picture description of this beat's own things and what happens to\n  them. Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object of this beat that an icon cannot show and a photograph or museum image can, as search words; \"\"\n  when an icon is enough. Never a person's portrait (card rule 8).\n- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: \"process show nahi ho rahi hai\"),\n  the recipe that shows it, or \"compose\" when no recipe fits but the motion parts do (the layout step writes the parts); \"none\"\n  when the beat tells no process; \"other\" only when a motion part BIE lacks is needed (template_note names it: it goes to the\n  missing-capability log). The actors, things and numbers always come from this beat. The recipes:\n- hand_over: one person gives a thing to another (steps give, take; actors giver, taker; objects thing; parts give, hold)\n- pay_change: the buyer hands over the payment, takes the goods and gets the difference back (each amount travels as a tag on what carries it) (steps pay, goods, change; actors buyer, seller; objects goods, money (optional), change_money (optional); amounts paid, change, price (optional); parts appear, give, hold, move, show_text)\n- barter_swap: two people swap their things; at 'ask' each wonders whether they want the other's thing (steps offer, ask, swap; actors a, b; objects a_thing, b_thing; parts give, hold, show_text)\n- upi: the buyer's device moves to the seller's sign and back; the buyer's device shows the amount paid, the seller's shows it received (steps scan, paid, received; actors buyer, seller; objects device (optional), sign (optional), seller_device (optional); amounts amount; parts appear, hold, move, show_text)\n- card_tap: a card moves to the seller's machine and back; the machine shows the amount approved (steps tap, approved; actors buyer, seller; objects card (optional), machine (optional); amounts amount; parts appear, hold, move, show_text)\n- cheque: the amount is written on the instrument, it moves into the place that pays, and the two balances change (payer down, payee up) (steps write, hand, balances; actors payer, payee; objects cheque (optional), place (optional); amounts amount, payer_before (optional), payer_after (optional), payee_before (optional), payee_after (optional); parts appear, hold, meter, move, show_text)\n- coin_count: things drop onto a pile while a meter rises; at 'limit' the meter stops at its red line and one more is refused (steps count, limit; objects coin (optional); amounts each, limit; parts appear, meter, refuse)\n- refuse: the person looks at the thing, shakes the head, and a cross lands on the thing (steps show, refuse; actors who; objects thing; parts appear, refuse)\n- accept: the person looks at the thing, nods, and a tick lands on the thing (steps show, accept; actors who; objects thing; parts accept, appear)\n- count_stack: n things appear one by one as they are said (steps count; objects thing; amounts n; parts appear)\n- compose: a process no recipe has, written as its parts in order (parts [{part, cue, ...fields}]); a part BIE lacks: template other in the dikhane ki list, with a note (it goes to the missing-capability log)\n  The motion parts every process is made of:\n- hold (actor, object, reach?): a person holds a thing in the front hand (reach 0..1 lifts it towards the other)\n- give (from, to, object, text?): a thing travels from one person's hand to the other's (give and take), with an optional tag of text on it\n- move (object, to, back?, into?, text?): a thing moves along a path to a spot, a person or another thing; back returns it; into lets it go into the target\n- transform (object, into): a thing turns into another thing where it is (A → B)\n- show_text (on, text, style?, inside?): a screen, sign, tag or thought bubble on a person or thing shows a short text (style: tag, sign, screen, ok, bubble, write)\n- meter (to, from?, limit?, style?, title?, dir?, on?, end?): a counter or meter changes: a bar fills to its limit (style bar), or a number changes from one value to another with an up or down arrow (style number)\n- appear (object, n?, spot?, layout?, end?): things appear one by one (n of them in a grid, or dropping onto a pile until a later step)\n- refuse (object, actor?): a person shakes the head and a cross lands on the thing\n- accept (object, actor?): a person nods and a tick lands on the thing\n- compare (left, right, sign?, left_text?, right_text?): two things side by side with a sign between them (=, ≠, ?, vs, <, >)\n- template_note: for \"other\" the process in a few words; for \"none\" on a beat that names a process word, why no saancha.\nCode has already decided this part's picture (table: Current legal limits for coins (Coinage Act, 2011)) from the book's own table; it is placed at the top of the canvas. Set picture_type to \"table\" and use picture_note for what the beats add around it.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c11.2 (4 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v4_s7b\", \"part_id\": \"c11.2\", \"card_type\": \"facts_numbers\", \"story\": false}, \"beats\": [{\"beat_id\": \"b45\", \"say\": \"₹20 के 50 coins जोड़ें तो ₹1,000 बनते हैं; limit 1,000 coins की नहीं है। 50 paise के 20 coins जोड़ें तो ₹10 बनते हैं; denomination और total limit अलग हैं।\", \"relation_guess\": \"place\", \"template_guess\": \"coin_count\"}, {\"beat_id\": \"b46\", \"say\": \"डिब्बे से 50 और 25 paise अलग रखिए: Coinage Act, 2011 में पहले की ₹10 limit है, दूसरे का tender status नहीं। Commemorative coins में ‘most’ यानी सभी नहीं; इससे गिनती नहीं निकाल सकते।\", \"relation_guess\": \"place\", \"template_guess\": \"coin_count\"}, {\"beat_id\": \"b47\", \"say\": \"Limit पार करना status खोना नहीं; collector price legal status लौटाती नहीं।\", \"relation_guess\": \"limit\", \"template_guess\": \"pay_change\"}, {\"beat_id\": \"b48\", \"say\": \"Denomination × count निकालिए; फिर total limit और status जाँचिए।\", \"relation_guess\": \"place\", \"template_guess\": \"coin_count\"}], \"items\": [{\"item_id\": \"p004-i26\", \"content_type\": \"facts_numbers\", \"content\": \"Commemorative Coins = Fiat money yes but may or may not be legal tender (Most of them are).\"}, {\"item_id\": \"p005-i9\", \"content_type\": \"facts_numbers\", \"content\": \"Coin: ₹1, ₹2, ₹5, ₹10, ₹20 coins | Legal Tender Limit: Up to ₹1,000\"}, {\"item_id\": \"p005-i10\", \"content_type\": \"facts_numbers\", \"content\": \"Coin: 50 paise coin | Legal Tender Limit: Up to ₹10\"}, {\"item_id\": \"p005-i11\", \"content_type\": \"facts_numbers\", \"content\": \"Coin: Coins below 50 paise | Legal Tender Limit: No longer legal tender (demonetized)\"}], \"book_pictures\": [{\"item_id\": \"p005-i7\", \"type\": \"table\", \"title\": \"Current legal limits for coins (Coinage Act, 2011)\"}]}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793579648.9133978,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "65b89167dedf87942f7c4fa23f2ae0d3b66fdf0d7f6b40c46395b8e26c039b31",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 6257,
+    "output_tokens": 1091,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Distinguish coin denomination, count, total tender limit and legal-tender status using the book's table.",
+    "key_questions": [
+     "Is the limit expressed in rupees or number of coins?",
+     "How do denomination, total value and legal-tender status differ?",
+     "Why does ‘most’ not establish every commemorative coin's status?"
+    ],
+    "decisions": [
+     {
+      "decision": "Show monetary limits separately from coin counters.",
+      "reason": "₹1,000 is a value ceiling, not a 1,000-coin ceiling."
+     },
+     {
+      "decision": "Keep legal status independent of amount and collector price.",
+      "reason": "Neither exceeding a tender limit nor acquiring collector value changes status by itself."
+     }
+    ],
+    "uncertain": [
+     "No specific commemorative issue or numerical proportion is supplied; show neither an invented issue nor an exact count."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Distinguish coin denomination, count, total tender limit and legal-tender status using the book's table.",
+     "key_questions": [
+      "Is the limit expressed in rupees or number of coins?",
+      "How do denomination, total value and legal-tender status differ?",
+      "Why does ‘most’ not establish every commemorative coin's status?"
+     ],
+     "decisions": [
+      {
+       "decision": "Show monetary limits separately from coin counters.",
+       "reason": "₹1,000 is a value ceiling, not a 1,000-coin ceiling."
+      },
+      {
+       "decision": "Keep legal status independent of amount and collector price.",
+       "reason": "Neither exceeding a tender limit nor acquiring collector value changes status by itself."
+      }
+     ],
+     "uncertain": [
+      "No specific commemorative issue or numerical proportion is supplied; show neither an invented issue nor an exact count."
+     ]
+    },
+    "beats": [
+     {
+      "beat_id": "b45",
+      "idea": "Coin count is not the monetary limit",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "₹20 coins",
+       "50 paise coins",
+       "coin counters",
+       "total-value meters"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Coin piles grow; separate counters and rupee meters.",
+      "on_word": "₹20",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Appear 50 ₹20 coins while count rises to 50 and total-value meter reaches ₹1,000. At ‘नहीं’, cross a separate ‘1,000 coins’ interpretation, not the coins. Repeat with 20 fifty-paise coins, count 20 and total ₹10. Label denomination on each coin type and monetary limit on each meter's red line."
+     },
+     {
+      "beat_id": "b46",
+      "idea": "Different denominations have different tender rules",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "coin box",
+       "50 paise coin",
+       "25 paise coin",
+       "Coinage Act, 2011 scroll",
+       "₹10 limit meter",
+       "commemorative coins"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Coins separate; limit and status diverge; commemoratives questioned.",
+      "on_word": "डिब्बे",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Appear box, then move 50-paise and 25-paise coins into separate comparison slots. Place the Act scroll beside both; show ₹10 ceiling beside 50 paise. At ‘नहीं’, cross the 25-paise coin's legal-tender indicator. Then appear generic commemorative coins with ‘most ≠ all’ and a question mark beside their count; do not assign a numerical proportion or blanket status."
+     },
+     {
+      "beat_id": "b47",
+      "idea": "Amount and collector price do not determine status",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "coin pile",
+       "limit meter",
+       "legal-tender status indicator",
+       "collector-price tag"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Over-limit pile retains status; price cannot restore status.",
+      "on_word": "Limit",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Use two independent panels. Move a coin pile's amount above a red limit line while its legal-tender status indicator remains unchanged. In the other panel, attach a collector-price tag to a coin with crossed legal-tender status; retain that cross at ‘लौटाती नहीं’. Supply no invented amounts or denominations."
+     },
+     {
+      "beat_id": "b48",
+      "idea": "Calculate total, then check limit and status",
+      "relation": "sequence",
+      "relation_note": "",
+      "things": [
+       "coin denomination marker",
+       "coin counter",
+       "total-value display",
+       "limit meter",
+       "legal-tender status indicator"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Denomination times count; total, limit, status checks follow.",
+      "on_word": "Denomination",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Appear denomination marker and coin counter separated by ×; connect to total-value display at ‘निकालिए’. At ‘फिर’, move the total marker beside the limit meter, then highlight the separate status indicator at ‘status’. Link both checks to the corresponding columns of the book table; add no numerical example."
+     }
+    ],
+    "picture_type": "table",
+    "picture_note": "Keep the book's current coin-limit table at the top. Below it, animate calculations and comparison panels, linking monetary ceilings and legal-tender status to separate table entries."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793579673.4167469
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 24.5,
+ "navin_verdict": null
+}

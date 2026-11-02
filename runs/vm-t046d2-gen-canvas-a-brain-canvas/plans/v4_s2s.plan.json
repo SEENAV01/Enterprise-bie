@@ -1,0 +1,169 @@
+{
+ "id": "v4_s2s",
+ "part_id": "c09.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b6",
+   "say": "Bank 11वाँ note कैसे दे? मानिए, 10 grams के पीछे 10 notes हैं, हर note पर 1 gram का वादा। Fully backed उदाहरण में अगला note देने को 1 gram और चाहिए।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "sign": "Bank",
+   "cue": [
+    "b6",
+    "Bank"
+   ]
+  },
+  {
+   "id": "backed_issue",
+   "kind": "action",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b6",
+    "Bank"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "holder",
+     "who": "main",
+     "mood": "unsure"
+    },
+    {
+     "role": "teller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "backed_notes",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "next_note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b6",
+      "11वाँ"
+     ],
+     "actor": "teller",
+     "object": "next_note",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b6",
+      "notes"
+     ],
+     "object": "backed_notes",
+     "spot": "left",
+     "n": 10
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b6",
+      "वादा।"
+     ],
+     "object": "backed_notes",
+     "on": "backed_notes",
+     "text": "1 gram का वादा",
+     "style": "tag"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b6",
+      "अगला"
+     ],
+     "actor": "teller",
+     "object": "next_note",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b6",
+      "चाहिए।"
+     ],
+     "object": "next_note",
+     "on": "next_note",
+     "text": "1 gram और चाहिए",
+     "style": "tag"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b6",
+    "Bank"
+   ],
+   "x": 2600,
+   "y": 610,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b6",
+    "grams"
+   ],
+   "x": 2520,
+   "y": 620,
+   "zoom": 1.2,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b6",
+    "वादा।"
+   ],
+   "x": 2600,
+   "y": 610,
+   "zoom": 1.3,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b6",
+    "अगला"
+   ],
+   "x": 2700,
+   "y": 620,
+   "zoom": 1.35,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b6",
+    "और"
+   ],
+   "x": 2600,
+   "y": 620,
+   "zoom": 1.2,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

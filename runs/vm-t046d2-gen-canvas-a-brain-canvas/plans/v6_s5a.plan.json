@@ -1,0 +1,300 @@
+{
+ "id": "v6_s5a",
+ "part_id": "c15.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b29",
+   "say": "Portrait बदले तो सारे rules बदलेंगे? 1947 में rupee independent India's currency बना; 1947–1957 transition में King's portrait की जगह Ashoka Lion Capital आया, लेकिन British monetary link कुछ समय रहा।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "Ashoka Lion Capital national identity दिखाता है; monetary link external arrangement है। इसलिए दोनों का बदलाव एक दिन होना जरूरी नहीं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p006_i11",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b29",
+    ""
+   ],
+   "picture": {
+    "type": "table",
+    "title": "Period | Nature of the Rupee\nEight chronological rows",
+    "item_id": "p006-i11",
+    "columns": [
+     "Period",
+     "Nature of the Rupee"
+    ],
+    "rows": [
+     {
+      "cells": [
+       "1540",
+       "Silver rupee introduced"
+      ],
+      "item_id": "p006-i12",
+      "cue": [
+       "b29",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Mughal era",
+       "Standard silver coin"
+      ],
+      "item_id": "p006-i13",
+      "cue": [
+       "b29",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "1835",
+       "Uniform British Indian Rupee"
+      ],
+      "item_id": "p006-i14",
+      "cue": [
+       "b29",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "1898",
+       "Gold Exchange Standard"
+      ],
+      "item_id": "p006-i15",
+      "cue": [
+       "b29",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "1947",
+       "Independent India's currency"
+      ],
+      "item_id": "p006-i16",
+      "cue": [
+       "b29",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "1957",
+       "Decimal currency"
+      ],
+      "item_id": "p006-i17",
+      "cue": [
+       "b29",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "1971",
+       "Fiat currency"
+      ],
+      "item_id": "p006-i18",
+      "cue": [
+       "b29",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "1993 onwards",
+       "Market-determined exchange rate"
+      ],
+      "item_id": "p006-i19",
+      "cue": [
+       "b29",
+       ""
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "portrait_question",
+   "kind": "highlight",
+   "cue": [
+    "b29",
+    "Portrait"
+   ],
+   "until_cue": [
+    "b29",
+    "1947"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "book_p006_i11"
+  },
+  {
+   "id": "rupee_anchor",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    1,
+    1
+   ],
+   "cue": [
+    "b29",
+    "rupee"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/indian-rupee-sign",
+   "size": 32
+  },
+  {
+   "id": "portrait_change",
+   "kind": "value",
+   "cell": [
+    1,
+    7,
+    5,
+    1
+   ],
+   "cue": [
+    "b29",
+    "King's"
+   ],
+   "until_cue": [
+    "b30",
+    "Ashoka"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "size": 24,
+   "steps": [
+    {
+     "cue": [
+      "b29",
+      "King's"
+     ],
+     "text": "King's portrait"
+    },
+    {
+     "cue": [
+      "b29",
+      "Ashoka"
+     ],
+     "text": "Ashoka Lion Capital"
+    }
+   ]
+  },
+  {
+   "id": "continuing_link",
+   "kind": "text",
+   "cell": [
+    7,
+    7,
+    5,
+    1
+   ],
+   "cue": [
+    "b29",
+    "British"
+   ],
+   "until_cue": [
+    "b30",
+    "Ashoka"
+   ],
+   "text": "British monetary link",
+   "style": "tag",
+   "tone": "warm",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "separate_tracks",
+   "kind": "table",
+   "cell": [
+    1,
+    7,
+    11,
+    1
+   ],
+   "cue": [
+    "b30",
+    "Ashoka"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "size": 24,
+   "columns": [
+    "Ashoka Lion Capital",
+    "monetary link"
+   ],
+   "rows": [
+    {
+     "cells": [
+      "national identity",
+      "external arrangement"
+     ],
+     "cue": [
+      "b30",
+      "external"
+     ]
+    }
+   ],
+   "highlights": [
+    {
+     "cue": [
+      "b30",
+      "national"
+     ],
+     "tone": "accent",
+     "col": 0,
+     "until_cue": [
+      "b30",
+      "monetary"
+     ]
+    },
+    {
+     "cue": [
+      "b30",
+      "monetary"
+     ],
+     "tone": "warm",
+     "col": 1,
+     "until_cue": [
+      "b30",
+      "दोनों"
+     ]
+    }
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b30",
+    "दोनों"
+   ],
+   "ids": [
+    "rupee_anchor",
+    "separate_tracks"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

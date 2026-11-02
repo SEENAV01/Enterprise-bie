@@ -1,0 +1,4250 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v4_s7b",
+ "status": "failed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "92cdd3917d444035f41d481b362ee726083f17d23c18f824cecda4c0626f4548",
+ "card": null,
+ "prefix_sha256": "3827b6770f9f8a37a6ca8996ab9672a3618c40b0506a79dcac5e63688d86e658",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's canvas director for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is\nalready written and passed; you do not change a word of it. You plan ONE build-up canvas for this part: what appears, in\nwhich grid cell, and on which spoken word. Code places, times and checks it; a refused plan comes back to you with the\nexact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish. Navin's level for this part: B (a build-up canvas with L3 touches (shadows, idle motion, walk-ins, the beat's things flowing, a camera that follows)).\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[CV-13] On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').\n[CV-14] Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.\n[CV-15] A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.\n[CV-16] Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[VG-02] Labels are code text tied to their object by a leader line and move with it; a label is never baked into an image, so one asset works in every language.\n[VG-04] Size is taught by scale comparison with a thing the learner knows (one book = 1 MB; access time as a distance), never by a number alone.\n[VG-07] Two things are compared on a split screen (the split_compare block), the same slots on both sides.\n[VG-08] Processes show flow with moving arrows or particles (magma, water, concrete, ions, mucus), never a still diagram with static arrows.\n[VG-10] History and polity use a lit timeline with nodes; maps appear only through the licence gate's map rule (India's boundary waits for Navin's approval).\n[D1-01] Every beat shows at least one non-text thing tied to its nouns or its relation (an icon, a mark, an arrow, a crowd or value step, a table row, a picture event; in a world a prop, a person, a price or a crowd step), cued on a word of that beat. A beat that only adds text is refused.\n[D1-02] The screen never shows text alone for more than 10 seconds: while a beat is spoken, the thing it names is on screen (Navin, 30 October 2026: 'sirf text hi text screen par dikha to video ... ek book ban jaayegi').\n[D1-03] Screen text is a name or a short natural phrase (at most 8 words; a board 2 lines of 28 characters), never a sentence: the sentence lives in the narration and the subtitles. The picture shows the thing itself, so its label is understood without reading (page-2 principle).\n[D1-04] A book diagram or table the part covers is drawn as itself: a timeline with the book's years and labels, a table row by row, a panel of items as a gallery of icon cards, a flow as boxes and arrows. Code places it; the plan builds around it and never leaves it out.\n[D1-05] A world (C) is used only when the beats are the story of the concept's real-world example with actors at a place, and that place comes from the example itself, never from a keyword of the narration; the same world kit is never used in two consecutive parts.\n[D1-06] A caution, caveat or fact-check line ('illustrative numbers', 'imagined market', 'data not given', 'outside clarification') never appears on screen: it stays a background check in the records.\n[D2-01] A beat that tells a process (paying and getting change, a UPI scan, a card tap, a cheque, a barter swap, a refusal, counting up to a limit, counting) shows it HAPPENING with its kriya ka saancha: the people act on their cue words (hands give and take, the phone is raised to the QR stand, a head shakes), the camera moves in to the hands and the screen and back out (Navin, 1 November 2026: 'process show nahi ho rahi hai, like upi payment ka jikar hai shop par, par agar wo visuals se clear ho jaise scanner phone scan, tab maja hai'). A process no saancha fits goes to the missing-capability log.\n[D2-02] Story goods come from the story: a shop's stock, the buyers' bags, a balance's pans and an action's objects are the things the beat names (salt for salt, cloth for cloth), from the icon index and the asset library; nothing is drawn from a fixed picture (Navin, 1 November 2026: 'baat ho rahi hai kapda khareedne ki namak khareedne ki aur wo wahi cheeni ko show kar rha hai'). A thing no source has goes to needs.json.\n[D2-03] Layout in every mode: boards, labels, price tags, balances and actions never overlap while on screen together; in a world at most one board, label or title is on screen at a time and numbers go on objects (a price tag, the note, the phone screen, a passbook), never on a label; nothing sits under the subtitle strip (the bottom 14 % of the frame); an action's people are at least about a quarter of the frame tall; no camera key shows an empty street.\n[D2-04] Meaning: every relation of the dikhane ki list is realised by an element on its beat (a refusal or 'no status' puts a cross on that thing; an acceptance a tick; a limit a meter stopping at its red line); a struck value with an up or down arrow only when the same quantity changes, and change given back is the pay_change saancha (Navin's D1 findings 4 and 5).\n[D2-05] One main character per video: the person the story follows keeps the same face, clothes and cap in every part; the others are generic. Icons fit the era and the concept (a phone or a card in a barter beat is reported).\n\n# Director card: build-up canvas plans (for the AI director step)\n\nYou plan ONE canvas for ONE part of a passed script. You do not write narration and you do not place pixels: you say\nwhat appears, in which grid cell, and on which spoken word. Code (`econ_canvas.compile_plan`) places, times and checks\nit; a refused plan comes back to you with the exact error.\n\n## Input you get\n\n- `beats`: the part's spoken beats `[{beat_id, say}]` (Hinglish, Devanagari with English terms). Do not change them.\n- The chapter map items this part covers (terms, numbers, causes, examples).\n- The icon search tool: `icon_index.search(\"bank\")` → ids like `tw:1f3e6` (colour), `fa:solid/building-columns` (line) or\n  `fl:bank` (Fluent 3D), or a picture in the lesson's asset library; the candidates listed under the part are the ones code\n  found for the beat's own things.\n\n## Output you give (JSON only)\n\n```json\n{\"id\": \"<part id>\", \"theme\": \"paper\", \"grid\": [12, 8], \"beats\": <as given>,\n \"nodes\": [ ...elements... ], \"focus\": [ ... ], \"camera\": [ ... ], \"graph\": { ...optional... }}\n```\n\nGrid: 12 columns × 8 rows inside the safe area. `cell` = `[col, row, width, height]`. Two elements may share cells\nonly if they are never on screen together (use `until_cue`). Reading order: left → right, top → bottom.\n\nEvery element has `cue`: `[beat_id, \"<a word exactly as written in that beat>\"]` — the element appears while that word\nis spoken. Use `[beat_id, \"\", 0.0]` for \"at the start of the beat\" only for titles.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `text` | `text`, `style`: `plain` / `box` / `note` / `title` / `tag`, `size`, `tone`, `fill`, `align`, `marks` | definitions (box), side notes (note), headings (title), chips (tag) |\n| `callout` | like text (style `note`), `marks: [{phrase, cue}]` | the one sentence to remember; its key phrase lights up when said |\n| `icon` | `icon` (id from the index), `label` | objects and actors: shop, factory, bank, RBI (use a bank / classical building icon), people, money, goods |\n| `crowd` | `icon`, `steps: [{n, cue}]`, `cols` | many buyers / workers / firms; the number grows or shrinks with the story |\n| `value` | `steps: [{text, cue, dir}]`, `size`, `align` | a number that changes: the old value is struck out, the new one appears with ▲/▼ |\n| `arrow` | `from`, `to` (element ids), `from_side`/`to_side` (`l r t b`), `label`, `elbow` (`hv`, `vh`, `vhv`), `curve`, `dashed`, `tone` | cause → effect, flow of goods / money, sequence |\n| `tree` | `root`, `children: [text or {text, cue}]`, `cell`, `size` | a concept and its types (Inflation → WPI / CPI) |\n| `table` | `columns`, `rows: [{cells, cue}]`, `highlights: [{row?, col?, cue, until_cue?, tone}]` | year-by-year numbers, comparisons |\n| `mark` | `mark`: `tick` / `cross`, `target`, `pos`: `c` / `tr` | right / wrong, done, rejected |\n| `highlight` | `target`, `style`: `box` / `dashed` / `band`, `tone` | \"look here\" on what is being explained |\n| `picture` | `cell`, `picture`: `{type: timeline / gallery / flow, title, items: [{when, name, icon, cue}], arrows}` | a row of things you draw yourself: dates on a timeline (`when` = the date as said), a numbered row of things (gallery), steps joined by arrows (flow); each item appears on its own cue |\n| `action` | `cell` (at least 3 rows tall, best 5–6 rows and 8–12 columns), `action: {template, actors, objects, amounts, steps, texts, parts, close_up}` | a process the learner sees happen, made of motion parts (the saanche below), with the beat's own actors, things and numbers |\n\n`focus: [{cue, until_cue?, ids: [...]}]` dims everything else. `camera: [{cells: [...], cue}]` zooms to a region\n(use it when the canvas is dense or to re-frame for the next sub-idea). `graph` = a `curve_story` (axes, curves as\npoints, a dot that walks to named x values, guides like NAIRU, shaded bands, notes) for any economic curve.\n\nTones: `ink`, `muted`, `accent` (blue), `warm` (orange), `danger` (red), `ok` (green), `tag` (pink), `note`, `band`.\n\n## Dikhane ki soch (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\")\n\nBefore you plan, BIE has thought about every beat: its idea, its relation (reject, accept, compulsory, limit, sequence,\ncompare, …) and the things it names; the part message lists them with the icons BIE found for each thing. Draw THAT:\n\n- Every beat shows at least one thing that is not text (an icon, a mark, an arrow, a crowd or value step, a table row, a\n  picture item), cued on a word of that beat (D1-01). A screen of text alone for more than 10 s is refused (D1-02): a video\n  that is only text is a book.\n- Show the relation the way BIE's visual verbs say: a cross on the thing refused, a tick on the thing accepted, a law scroll\n  and stamp for \"compulsory\", a meter with a red line for a limit, a numbered row or a timeline for a sequence, an arrow chain\n  for cause → effect, a split or a scale for a comparison, before/after for a change, a receipt or a handshake for a promise.\n- The picture shows the thing itself, so its label is understood without reading (the book's page 2): screen text is a\n  name or a short phrase of at most 8 words, never a sentence; the sentence is the narration and the subtitles (D1-03).\n- When the part message says BIE has placed the book's own picture (a timeline, a table, a gallery of the book's panels, a\n  flow), keep it: never redraw it, never reuse its cells or its id, and build your elements in the rows below it (D1-04).\n- Never put a caution or fact-check line on screen (\"illustrative numbers\", \"imagined market\", \"data not given\",\n  \"outside clarification\"): those are BIE's background checks (D1-06).\n\n## Kriya ke saanche: processes the learner sees happen (Task 046 Part D2; Navin, 1 and 2 November 2026)\n\nNavin on the D1 videos: \"process show nahi ho rahi hai ... agar wo visuals se clear ho, tab maja hai\"; and on 2 November 2026:\n\"jis cheej ka jikar hai wohi cheej dikhe\" — examples are illustrations, never a list of things to draw. When a beat tells a\nPROCESS (someone gives, pays, scans, swaps, writes, counts, refuses, accepts, turns one thing into another), show it with an\n`action` element made of general motion parts; the actors, the things and the numbers are THIS beat's own.\n\nThe motion parts BIE draws: `hold` (a person holds a thing), `give` (a thing goes from one hand to the other), `move` (a thing\nmoves along a path to a spot, a person or another thing; `back` returns it, `into` lets it go in), `transform` (A turns into B\nwhere it is), `show_text` (a tag, sign, screen, ok screen, thought bubble or written text shows a short text), `meter` (a bar\nfills to its limit, or a number changes with an up/down arrow), `appear` (things appear one by one, in a grid or onto a pile),\n`refuse` / `accept` (a head shake and a cross, a nod and a tick), `compare` (two things side by side with = ≠ ? vs < >).\n\nRecipes are ready compositions of these parts (`template`, each step on its cue word):\n\n| template | steps | actors (role) | objects (name; optional ones may be left out) | amounts |\n| --- | --- | --- | --- | --- |\n| `hand_over` | give, take | giver, taker | thing | – |\n| `pay_change` | pay, goods, change | buyer, seller | goods; money, change_money (optional: else a plain chip with the amount) | paid, change (price optional) |\n| `barter_swap` | offer, ask, swap | a, b | a_thing, b_thing | – |\n| `upi` | scan, paid, received | buyer, seller | device, sign, seller_device (all optional) | amount |\n| `card_tap` | tap, approved | buyer, seller | card, machine (optional) | amount |\n| `cheque` | write, hand, balances | payer, payee | cheque, place (optional) | amount (payer/payee before and after optional) |\n| `coin_count` | count, limit | – | coin (optional) | each, limit |\n| `refuse` | show, refuse | who | thing | – |\n| `accept` | show, accept | who | thing | – |\n| `count_stack` | count | – | thing | n (1 to 12) |\n| `compose` | one per part | your own (at most two) | your own | – |\n\n- Every object's icon is the thing the beat names, from the icon candidates of THAT beat's things; never a thing from an\n  example, a card or another part, never a stand-in. A thing the beat names that has no icon goes to the needs list (code finds\n  or makes it); meanwhile leave the optional object out.\n- Numbers go on what carries them (a tag on the thing that travels, a screen, a meter), never on a separate label; every amount\n  is said in the narration of the action's beats, written as the narration writes it (CV-16). `texts` adds one short word the\n  narration says to a step's sign.\n- A value given back travels back in a process (a `give` with its tag), never as a struck value with an arrow: a struck value\n  with ▲/▼ is only for the SAME quantity changing.\n- \"Refused\", \"not valid\": a `refuse` part puts the cross on that thing; \"accepted\", \"valid\": `accept`.\n- One main character per video: the person the story follows has `who: \"main\"`; everyone else is `\"other\"`. `mood` is neutral,\n  pleased, unsure or refusing; the parts change moods on their steps.\n- A process no recipe fits: `template: \"compose\"` with its parts in order (each with its cue word and the fields it needs).\n  A motion BIE has no part for: show it with icons and arrows meanwhile; the visual-idea step names it (`template: other`) and\n  it goes to the missing-capability log.\n\nNothing sits under the subtitle strip: the bottom 14 % of the frame belongs to the captions; code moves the camera so that\nwhat a beat shows stays above it, and refuses a plan whose element is still under it.\n\n## Rules (from 20 reference videos, rules/econ_canvas_rules.json)\n\n1. One canvas per idea; build it piece by piece. Re-frame with `camera` instead of starting a new canvas.\n2. Something changes about every 5 s; never let the picture stay still more than 15 s (the code refuses it).\n3. Each element appears on ITS word, while it is said.\n4. Carry the idea with a running example with numbers (price 50 → 65; GDP 10,000 → 11,000 → 12,100); show changes\n   with `value` steps, crowds with `crowd` steps.\n5. A tree/branch overview first, then tick the branch that is done before the next.\n6. Keep one anchor (a tree, a band, a rate card) while the rest changes.\n7. On-screen text (CV-13 to CV-16, Navin's verdict on Money v1, 29 October 2026): a box holds ONE idea as a short COMPLETE\n   phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), at most ~12\n   words; never a code: no ✓ ✗ ≠, no list of bare words (\"Exchange · Account / Store · Deferred\"), no line ending on → = : /;\n   every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a\n   text the beat does not say, and a number the beat does not say); a caveat (\"imagined market\") once per part on its own\n   small note. The narration says the rest.\n8. Never a photo or caricature of a real person, never a logo, emblem or regulator mark: a name tag or a generic icon.\n9. Tags must fit on one line in their cell; text must fit at ≥ 24 px (the code refuses otherwise: make the cell bigger\n   or the text shorter).\n10. A part longer than about 10 beats (real BIE plans have parts of 19 beats) becomes two or three canvases, or one\n    canvas re-framed by `camera` keys; at most 16 elements are on screen at once (the code refuses more).\n\nIcons you may use (id · name): the ones listed under the part for its nouns, and these; any other id is refused:\n- tw:274c · cross mark\n- tw:2705 · white heavy check mark\n- tw:1f4dc · scroll\n- fa:solid/stamp · Stamp\n- fa:solid/gavel · Gavel\n- fa:solid/gauge-high · Gauge High\n- tw:2696 · scales\n- tw:1f5fa · world map\n- tw:1f9fe · receipt\n- tw:1f91d · handshake\n- tw:2753 · black question mark ornament\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] / false mean \"not used\"):\n- notes: brief notes for the record: the idea of this canvas, the running example with numbers, what is uncertain.\n- nodes: the elements, in the order they appear. id (unique), kind, cell [col, row, width, height] on the 12 x 8 grid\n  (arrows, marks and highlights have no cell), cue [beat_id, word] with the word exactly as written in that beat (or\n  [beat_id, \"\"] for the start of the beat, cue_fraction 0..1 moves it into the beat). until_cue when the element leaves.\n  value/crowd use steps (text or n, with cue each; dir \"up\"/\"down\" on a value step). tree: root + children (text, cue).\n  table: columns + rows (cells, cue) + highlights (row or col, -1 when not used). callout/text: marks (phrase, cue).\n  arrow: from, to (+ from_side/to_side l r t b, elbow hv/vh/vhv). mark: mark tick/cross + target + pos c/tr.\n  highlight: target + style box/dashed/band. flow on an arrow (icon, count, period, size, reverse, cue) makes the beat's\n  own things travel along it. action (a kriya ka saancha, the card's table): cell at least 3 rows tall, action.template,\n  actors (role, who main/other, label, mood), objects (name, icon from the candidates of THIS beat's things, label),\n  amounts (name, text as the narration writes it), steps (name, cue) in the recipe's order, texts (step, a short word the\n  narration says, shown with that step's sign), close_up; template \"compose\": parts in order (part, cue and the fields it\n  needs: actor/from/to/object/into/on/text/style/inside/n/spot/back/left/right/sign) with the action's own actors and\n  objects; for every other kind action.template is \"\".\n- camera: zoom to a region of cells on a cue (use it to re-frame instead of a new canvas). focus: dim everything but ids.\n- graph_used true + graph for an economic curve (axes, curves as [x, y] points, a dot that walks to x values, guides,\n  shades, notes); plot is the graph's box as fractions of the canvas.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c11.2 (4 beats).\nDikhane ki soch for this part (the visual-idea step; every beat shows its thing on its word, D1-01):\n- b45: Coin count is not the monetary limit · relation compare · shows: Coin piles grow; separate counters and rupee meters. · on '₹20' · saancha compose\n- b46: Different denominations have different tender rules · relation compare · shows: Coins separate; limit and status diverge; commemoratives questioned. · on 'डिब्बे' · saancha compose\n- b47: Amount and collector price do not determine status · relation compare · shows: Over-limit pile retains status; price cannot restore status. · on 'Limit' · saancha compose\n- b48: Calculate total, then check limit and status · relation sequence · shows: Denomination times count; total, limit, status checks follow. · on 'Denomination' · saancha compose\nIcons found for the things named (id · name); you may also use any id from the general menu below:\n- ₹20 coins: tw:1fa99 (coin); fa:solid/coins (Coins)\n- 50 paise coins: tw:1fa99 (coin); fa:solid/coins (Coins)\n- total-value meters: fa:solid/gauge-high (Gauge High)\n- coin box: tw:1f4e6 (package)\n- 50 paise coin: tw:1fa99 (coin)\n- 25 paise coin: tw:1fa99 (coin)\n- Coinage Act, 2011 scroll: tw:1f4dc (scroll)\n- ₹10 limit meter: fa:solid/gauge-high (Gauge High)\n- commemorative coins: tw:1fa99 (coin); fa:solid/coins (Coins)\n- limit meter: fa:solid/gauge-high (Gauge High)\n\nCode has already placed the book's own picture in this plan: node 'book_p005_i7' (table: Current legal limits for coins (Coinage Act, 2011)) in cells [0, 0, 12, 3] (col, row, width, height). Do not add another timeline, table or row for it and do not reuse its id or its cells; build your elements in the rows below it (row 3 onward) and let the picture carry the beats that cover its items (D1-04).\nThe part (JSON):\n{\"part\": {\"id\": \"v4_s7b\", \"part_id\": \"c11.2\", \"mode\": \"B\", \"place\": \"\", \"story\": false}, \"beats\": [{\"beat_id\": \"b45\", \"say\": \"₹20 के 50 coins जोड़ें तो ₹1,000 बनते हैं; limit 1,000 coins की नहीं है। 50 paise के 20 coins जोड़ें तो ₹10 बनते हैं; denomination और total limit अलग हैं।\"}, {\"beat_id\": \"b46\", \"say\": \"डिब्बे से 50 और 25 paise अलग रखिए: Coinage Act, 2011 में पहले की ₹10 limit है, दूसरे का tender status नहीं। Commemorative coins में ‘most’ यानी सभी नहीं; इससे गिनती नहीं निकाल सकते।\"}, {\"beat_id\": \"b47\", \"say\": \"Limit पार करना status खोना नहीं; collector price legal status लौटाती नहीं।\"}, {\"beat_id\": \"b48\", \"say\": \"Denomination × count निकालिए; फिर total limit और status जाँचिए।\"}], \"items\": [{\"item_id\": \"p004-i26\", \"content_type\": \"facts_numbers\", \"content\": \"Commemorative Coins = Fiat money yes but may or may not be legal tender (Most of them are).\"}, {\"item_id\": \"p005-i9\", \"content_type\": \"facts_numbers\", \"content\": \"Coin: ₹1, ₹2, ₹5, ₹10, ₹20 coins | Legal Tender Limit: Up to ₹1,000\"}, {\"item_id\": \"p005-i10\", \"content_type\": \"facts_numbers\", \"content\": \"Coin: 50 paise coin | Legal Tender Limit: Up to ₹10\"}, {\"item_id\": \"p005-i11\", \"content_type\": \"facts_numbers\", \"content\": \"Coin: Coins below 50 paise | Legal Tender Limit: No longer legal tender (demonetized)\", \"real_world_example\": {\"place\": \"A hypothetical Indian kirana shop\", \"actors\": [\"buyer\", \"shopkeeper\"], \"goods\": [\"₹1 grocery bill\", \"four old 25 paise coins\", \"valid ₹1 coin\"], \"numbers\": [{\"what\": \"bill outstanding after rejected old coins\", \"before\": \"₹1\", \"after\": \"₹1\"}, {\"what\": \"bill outstanding after valid replacement payment\", \"before\": \"₹1\", \"after\": \"₹0\"}], \"steps\": [{\"step\": \"The buyer offers four old 25 paise coins for an existing ₹1 grocery bill; the shopkeeper refuses them and ₹1 remains due.\", \"mechanism_link\": \"Coins below 50 paise cannot compel discharge of the obligation as legal tender.\"}, {\"step\": \"The buyer replaces them with a valid ₹1 coin, settling the bill.\", \"mechanism_link\": \"Recognised money within its tender limit can discharge the obligation.\"}], \"term_after\": \"The old coins' loss of legal-tender status is demonetization.\", \"real_life_link\": \"The page's rule explains why coins found in an old household collection differ from current payment money.\"}}], \"on_screen_hints\": [\"50 × ₹20 = ₹1,000; 20 × ₹0.50 = ₹10\", \"Coinage Act, 2011: listed rupee coins → ₹1,000; sort 50 paise → ₹10 limit, 25 paise → no legal-tender status. Most commemorative issues ≠ every issue or a numerical count.\", \"Excess amount ≠ demonetization\", \"Total = denomination × count → ceiling + status\"], \"ideas\": [{\"beat_id\": \"b45\", \"idea\": \"Coin count is not the monetary limit\", \"relation\": \"compare\", \"things\": [\"₹20 coins\", \"50 paise coins\", \"coin counters\", \"total-value meters\"], \"people\": [], \"places\": [], \"shows\": \"Coin piles grow; separate counters and rupee meters.\", \"on_word\": \"₹20\", \"template\": \"compose\"}, {\"beat_id\": \"b46\", \"idea\": \"Different denominations have different tender rules\", \"relation\": \"compare\", \"things\": [\"coin box\", \"50 paise coin\", \"25 paise coin\", \"Coinage Act, 2011 scroll\", \"₹10 limit meter\", \"commemorative coins\"], \"people\": [], \"places\": [], \"shows\": \"Coins separate; limit and status diverge; commemoratives questioned.\", \"on_word\": \"डिब्बे\", \"template\": \"compose\"}, {\"beat_id\": \"b47\", \"idea\": \"Amount and collector price do not determine status\", \"relation\": \"compare\", \"things\": [\"coin pile\", \"limit meter\", \"legal-tender status indicator\", \"collector-price tag\"], \"people\": [], \"places\": [], \"shows\": \"Over-limit pile retains status; price cannot restore status.\", \"on_word\": \"Limit\", \"template\": \"compose\"}, {\"beat_id\": \"b48\", \"idea\": \"Calculate total, then check limit and status\", \"relation\": \"sequence\", \"things\": [\"coin denomination marker\", \"coin counter\", \"total-value display\", \"limit meter\", \"legal-tender status indicator\"], \"people\": [], \"places\": [], \"shows\": \"Denomination times count; total, limit, status checks follow.\", \"on_word\": \"Denomination\", \"template\": \"compose\"}], \"picture\": [{\"id\": \"book_p005_i7\", \"type\": \"table\", \"cell\": [0, 0, 12, 3]}]}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793579674.1152256,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "e34f0428f8faa601e3ce3cc1ff13f2eaaa31d45a675d64b9da3b8119e3d64223",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 13039,
+    "output_tokens": 5964,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Coin count, monetary ceilings and legal-tender status are distinguished beneath the persistent book table.",
+    "key_questions": [
+     "Is the ceiling measured in coins or rupees?",
+     "How do denomination, amount and tender status differ?",
+     "Why can collector price not restore legal status?"
+    ],
+    "decisions": [
+     {
+      "decision": "Keep the supplied table untouched and animate only rows below it.",
+      "reason": "The book's rules remain the anchor while the examples change."
+     },
+     {
+      "decision": "Use the spoken examples without inventing an excess amount or commemorative count.",
+      "reason": "The script supplies no such numbers."
+     },
+     {
+      "decision": "Separate coin status from the amount meter.",
+      "reason": "Crossing a monetary ceiling must not visually demonetize the coin."
+     }
+    ],
+    "uncertain": [
+     "The supplied book table is injected by the compiler and is not duplicated here."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Coin count, monetary ceilings and legal-tender status are distinguished beneath the persistent book table.",
+     "key_questions": [
+      "Is the ceiling measured in coins or rupees?",
+      "How do denomination, amount and tender status differ?",
+      "Why can collector price not restore legal status?"
+     ],
+     "decisions": [
+      {
+       "decision": "Keep the supplied table untouched and animate only rows below it.",
+       "reason": "The book's rules remain the anchor while the examples change."
+      },
+      {
+       "decision": "Use the spoken examples without inventing an excess amount or commemorative count.",
+       "reason": "The script supplies no such numbers."
+      },
+      {
+       "decision": "Separate coin status from the amount meter.",
+       "reason": "Crossing a monetary ceiling must not visually demonetize the coin."
+      }
+     ],
+     "uncertain": [
+      "The supplied book table is injected by the compiler and is not duplicated here."
+     ]
+    },
+    "nodes": [
+     {
+      "id": "rupee_example",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       6,
+       4
+      ],
+      "cue": [
+       "b45",
+       "₹20"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b45",
+       "50 paise"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "coins",
+         "icon": "tw:1fa99",
+         "label": ""
+        },
+        {
+         "name": "total",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b45",
+          "₹20"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b45",
+          "₹20"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "coins",
+         "text": "₹20",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b45",
+          "50"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 50,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b45",
+          "₹1,000"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "total",
+         "into": "",
+         "on": "",
+         "text": "₹1,000",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "₹1,000",
+         "dir": "",
+         "title": "",
+         "reach": 1
+        },
+        {
+         "part": "compare",
+         "cue": [
+          "b45",
+          "नहीं"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "coins",
+         "right": "total",
+         "sign": "≠",
+         "left_text": "1,000 coins",
+         "right_text": "₹1,000",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "paise_example",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b45",
+       "50 paise"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b46",
+       "डिब्बे"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "coins",
+         "icon": "tw:1fa99",
+         "label": ""
+        },
+        {
+         "name": "total",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b45",
+          "50 paise"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b45",
+          "50 paise"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "coins",
+         "text": "50 paise",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b45",
+          "20"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 20,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b45",
+          "₹10"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "total",
+         "into": "",
+         "on": "",
+         "text": "₹10",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "₹10",
+         "dir": "",
+         "title": "",
+         "reach": 1
+        },
+        {
+         "part": "compare",
+         "cue": [
+          "b45",
+          "denomination"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "coins",
+         "right": "total",
+         "sign": "≠",
+         "left_text": "denomination",
+         "right_text": "total limit",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "sort_rules",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b46",
+       "डिब्बे"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b47",
+       "Limit"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "box",
+         "icon": "tw:1f4e6",
+         "label": ""
+        },
+        {
+         "name": "fifty",
+         "icon": "tw:1fa99",
+         "label": ""
+        },
+        {
+         "name": "twentyfive",
+         "icon": "tw:1fa99",
+         "label": ""
+        },
+        {
+         "name": "law",
+         "icon": "tw:1f4dc",
+         "label": ""
+        },
+        {
+         "name": "meter",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "commemorative",
+         "icon": "fa:solid/coins",
+         "label": ""
+        },
+        {
+         "name": "question",
+         "icon": "tw:2753",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b46",
+          "डिब्बे"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "box",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b46",
+          "50"
+         ],
+         "actor": "",
+         "from": "box",
+         "to": "",
+         "object": "fifty",
+         "into": "",
+         "on": "",
+         "text": "50 paise",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b46",
+          "25"
+         ],
+         "actor": "",
+         "from": "box",
+         "to": "",
+         "object": "twentyfive",
+         "into": "",
+         "on": "",
+         "text": "25 paise",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b46",
+          "Coinage"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "law",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b46",
+          "₹10"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "meter",
+         "into": "",
+         "on": "fifty",
+         "text": "₹10",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "₹10",
+         "dir": "",
+         "title": "",
+         "reach": 1
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b46",
+          "नहीं।"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "twentyfive",
+         "into": "",
+         "on": "twentyfive",
+         "text": "tender status नहीं",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b46",
+          "Commemorative"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "commemorative",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b46",
+          "गिनती"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "question",
+         "into": "",
+         "on": "commemorative",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "status_distinction",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b47",
+       "Limit"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b48",
+       "Denomination"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "pile",
+         "icon": "fa:solid/coins",
+         "label": ""
+        },
+        {
+         "name": "limit",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "status",
+         "icon": "tw:1fa99",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b47",
+          "Limit"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "pile",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b47",
+          "पार"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "limit",
+         "into": "",
+         "on": "",
+         "text": "Limit पार",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "Limit",
+         "dir": "",
+         "title": "",
+         "reach": 1.15
+        },
+        {
+         "part": "compare",
+         "cue": [
+          "b47",
+          "खोना"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "limit",
+         "right": "status",
+         "sign": "≠",
+         "left_text": "Limit पार",
+         "right_text": "status खोना",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "compare",
+         "cue": [
+          "b47",
+          "collector"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "pile",
+         "right": "status",
+         "sign": "≠",
+         "left_text": "collector price",
+         "right_text": "legal status",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "check_sequence",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b48",
+       "Denomination"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "coin",
+         "icon": "tw:1fa99",
+         "label": ""
+        },
+        {
+         "name": "pile",
+         "icon": "fa:solid/coins",
+         "label": ""
+        },
+        {
+         "name": "limit",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "status",
+         "icon": "tw:1f4dc",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b48",
+          "Denomination"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coin",
+         "into": "",
+         "on": "",
+         "text": "Denomination",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b48",
+          "count"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "pile",
+         "into": "",
+         "on": "",
+         "text": "count",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b48",
+          "निकालिए;"
+         ],
+         "actor": "",
+         "from": "coin",
+         "to": "pile",
+         "object": "coin",
+         "into": "",
+         "on": "",
+         "text": "Denomination × count",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b48",
+          "total"
+         ],
+         "actor": "",
+         "from": "pile",
+         "to": "limit",
+         "object": "coin",
+         "into": "",
+         "on": "",
+         "text": "total limit",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b48",
+          "status"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "status",
+         "into": "",
+         "on": "",
+         "text": "status जाँचिए",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     }
+    ],
+    "camera": [
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b45",
+       "₹20"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b46",
+       "डिब्बे"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b47",
+       "Limit"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b48",
+       "Denomination"
+      ]
+     }
+    ],
+    "focus": [],
+    "graph_used": false,
+    "graph": {
+     "plot": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+     },
+     "x_label": "",
+     "y_label": "",
+     "x_domain": [],
+     "y_domain": [],
+     "axes_cue": [],
+     "curves": [],
+     "dots": [],
+     "shades": [],
+     "guides": [],
+     "notes": []
+    }
+   },
+   "code_problems": [
+    "[code] rupee_example part 3: n is a whole number from 1 to 12; rupee_example part 4: meter needs to"
+   ],
+   "passed": false,
+   "finished_at": 1793579740.4676704
+  },
+  {
+   "round": 2,
+   "started_at": 1793579740.4678671,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "7494e03b823fa9a4fa14750f5e849a591dfabbc01c1543a5a2360b7cdbcbfa8e",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 16699,
+    "output_tokens": 6085,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Coin count, monetary ceilings and legal-tender status remain distinct beneath the supplied book table.",
+    "key_questions": [
+     "Is the ceiling measured in coins or rupees?",
+     "Does exceeding a limit remove legal-tender status?",
+     "Can collector price restore legal status?"
+    ],
+    "decisions": [
+     {
+      "decision": "Replace oversized appear counts with representative piles and spoken count tags.",
+      "reason": "Appear accepts only 1–12 objects; the tags preserve the exact examples without treating the representative pile as an exact count."
+     },
+     {
+      "decision": "Give every meter an explicit to destination.",
+      "reason": "The meter motion requires a destination as well as its limit."
+     },
+     {
+      "decision": "Keep the injected book table untouched.",
+      "reason": "It remains the persistent anchor; all added actions occupy rows below it."
+     },
+     {
+      "decision": "Use no invented excess amount or commemorative count.",
+      "reason": "Neither is supplied by the narration."
+     }
+    ],
+    "uncertain": [
+     "The supplied book table is injected separately and is not duplicated."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Coin count, monetary ceilings and legal-tender status remain distinct beneath the supplied book table.",
+     "key_questions": [
+      "Is the ceiling measured in coins or rupees?",
+      "Does exceeding a limit remove legal-tender status?",
+      "Can collector price restore legal status?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace oversized appear counts with representative piles and spoken count tags.",
+       "reason": "Appear accepts only 1–12 objects; the tags preserve the exact examples without treating the representative pile as an exact count."
+      },
+      {
+       "decision": "Give every meter an explicit to destination.",
+       "reason": "The meter motion requires a destination as well as its limit."
+      },
+      {
+       "decision": "Keep the injected book table untouched.",
+       "reason": "It remains the persistent anchor; all added actions occupy rows below it."
+      },
+      {
+       "decision": "Use no invented excess amount or commemorative count.",
+       "reason": "Neither is supplied by the narration."
+      }
+     ],
+     "uncertain": [
+      "The supplied book table is injected separately and is not duplicated."
+     ]
+    },
+    "nodes": [
+     {
+      "id": "rupee_example",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b45",
+       "₹20"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b45",
+       "50 paise"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "coins",
+         "icon": "tw:1fa99",
+         "label": ""
+        },
+        {
+         "name": "total",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b45",
+          "₹20"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b45",
+          "₹20"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "coins",
+         "text": "₹20",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b45",
+          "50"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 10,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b45",
+          "50"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "coins",
+         "text": "50 coins",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b45",
+          "₹1,000"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "₹1,000",
+         "object": "total",
+         "into": "",
+         "on": "",
+         "text": "₹1,000",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "₹1,000",
+         "dir": "",
+         "title": "",
+         "reach": 1
+        },
+        {
+         "part": "compare",
+         "cue": [
+          "b45",
+          "नहीं"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "coins",
+         "right": "total",
+         "sign": "≠",
+         "left_text": "1,000 coins",
+         "right_text": "₹1,000",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "paise_example",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b45",
+       "50 paise"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b46",
+       "डिब्बे"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "coins",
+         "icon": "tw:1fa99",
+         "label": ""
+        },
+        {
+         "name": "total",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b45",
+          "50 paise"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b45",
+          "50 paise"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "coins",
+         "text": "50 paise",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b45",
+          "20"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 10,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b45",
+          "20"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "coins",
+         "text": "20 coins",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b45",
+          "₹10"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "₹10",
+         "object": "total",
+         "into": "",
+         "on": "",
+         "text": "₹10",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "₹10",
+         "dir": "",
+         "title": "",
+         "reach": 1
+        },
+        {
+         "part": "compare",
+         "cue": [
+          "b45",
+          "denomination"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "coins",
+         "right": "total",
+         "sign": "≠",
+         "left_text": "denomination",
+         "right_text": "total limit",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "sort_rules",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b46",
+       "डिब्बे"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b47",
+       "Limit"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "box",
+         "icon": "tw:1f4e6",
+         "label": ""
+        },
+        {
+         "name": "fifty",
+         "icon": "tw:1fa99",
+         "label": ""
+        },
+        {
+         "name": "twentyfive",
+         "icon": "tw:1fa99",
+         "label": ""
+        },
+        {
+         "name": "law",
+         "icon": "tw:1f4dc",
+         "label": ""
+        },
+        {
+         "name": "meter",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "commemorative",
+         "icon": "fa:solid/coins",
+         "label": ""
+        },
+        {
+         "name": "question",
+         "icon": "tw:2753",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b46",
+          "डिब्बे"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "box",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b46",
+          "50"
+         ],
+         "actor": "",
+         "from": "box",
+         "to": "",
+         "object": "fifty",
+         "into": "",
+         "on": "",
+         "text": "50 paise",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b46",
+          "25"
+         ],
+         "actor": "",
+         "from": "box",
+         "to": "",
+         "object": "twentyfive",
+         "into": "",
+         "on": "",
+         "text": "25 paise",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b46",
+          "Coinage"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "law",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b46",
+          "₹10"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "₹10",
+         "object": "meter",
+         "into": "",
+         "on": "fifty",
+         "text": "₹10",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "₹10",
+         "dir": "",
+         "title": "",
+         "reach": 1
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b46",
+          "नहीं।"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "twentyfive",
+         "into": "",
+         "on": "twentyfive",
+         "text": "tender status नहीं",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b46",
+          "Commemorative"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "commemorative",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b46",
+          "गिनती"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "question",
+         "into": "",
+         "on": "commemorative",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "status_distinction",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b47",
+       "Limit"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b48",
+       "Denomination"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "pile",
+         "icon": "fa:solid/coins",
+         "label": ""
+        },
+        {
+         "name": "limit",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "status",
+         "icon": "tw:1fa99",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b47",
+          "Limit"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "pile",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b47",
+          "पार"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "Limit पार",
+         "object": "limit",
+         "into": "",
+         "on": "",
+         "text": "Limit पार",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "Limit",
+         "dir": "",
+         "title": "",
+         "reach": 1.15
+        },
+        {
+         "part": "compare",
+         "cue": [
+          "b47",
+          "खोना"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "limit",
+         "right": "status",
+         "sign": "≠",
+         "left_text": "Limit पार",
+         "right_text": "status खोना",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "compare",
+         "cue": [
+          "b47",
+          "collector"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "pile",
+         "right": "status",
+         "sign": "≠",
+         "left_text": "collector price",
+         "right_text": "legal status",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "check_sequence",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b48",
+       "Denomination"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "coin",
+         "icon": "tw:1fa99",
+         "label": ""
+        },
+        {
+         "name": "pile",
+         "icon": "fa:solid/coins",
+         "label": ""
+        },
+        {
+         "name": "limit",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "status",
+         "icon": "tw:1f4dc",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b48",
+          "Denomination"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coin",
+         "into": "",
+         "on": "",
+         "text": "Denomination",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b48",
+          "count"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "pile",
+         "into": "",
+         "on": "",
+         "text": "count",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b48",
+          "निकालिए;"
+         ],
+         "actor": "",
+         "from": "coin",
+         "to": "pile",
+         "object": "coin",
+         "into": "",
+         "on": "",
+         "text": "Denomination × count",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b48",
+          "total"
+         ],
+         "actor": "",
+         "from": "pile",
+         "to": "limit",
+         "object": "coin",
+         "into": "",
+         "on": "",
+         "text": "total limit",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b48",
+          "status"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "status",
+         "into": "",
+         "on": "",
+         "text": "status जाँचिए",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     }
+    ],
+    "camera": [
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b45",
+       "₹20"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b46",
+       "डिब्बे"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b47",
+       "Limit"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b48",
+       "Denomination"
+      ]
+     }
+    ],
+    "focus": [],
+    "graph_used": false,
+    "graph": {
+     "plot": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+     },
+     "x_label": "",
+     "y_label": "",
+     "x_domain": [],
+     "y_domain": [],
+     "axes_cue": [],
+     "curves": [],
+     "dots": [],
+     "shades": [],
+     "guides": [],
+     "notes": []
+    }
+   },
+   "code_problems": [
+    "[code] sort_rules part 2: move needs to; sort_rules part 3: move needs to"
+   ],
+   "passed": false,
+   "finished_at": 1793579797.955877
+  },
+  {
+   "round": 3,
+   "started_at": 1793579797.9560785,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "bbba298b5843fddcadde81a7b400c906e952716755ebe261dbb8352234fb5084",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 16872,
+    "output_tokens": 6057,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Coin count, monetary ceilings and legal-tender status remain distinct beneath the supplied book table.",
+    "key_questions": [
+     "Is the ceiling measured in coins or rupees?",
+     "Does exceeding a limit remove legal-tender status?",
+     "Can collector price restore legal status?"
+    ],
+    "decisions": [
+     {
+      "decision": "Add explicit left and right destinations to the two sorting moves.",
+      "reason": "Both move parts require a nonempty to field; these destinations preserve the intended separation."
+     },
+     {
+      "decision": "Retain representative piles with spoken count tags.",
+      "reason": "Appear accepts only 1–12 objects; tags preserve the exact examples."
+     },
+     {
+      "decision": "Keep the injected book table untouched and all actions below it.",
+      "reason": "The table remains the persistent anchor."
+     },
+     {
+      "decision": "Use no invented excess amount or commemorative count.",
+      "reason": "Neither is supplied by the narration."
+     }
+    ],
+    "uncertain": [
+     "The supplied book table is injected separately and is not duplicated."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Coin count, monetary ceilings and legal-tender status remain distinct beneath the supplied book table.",
+     "key_questions": [
+      "Is the ceiling measured in coins or rupees?",
+      "Does exceeding a limit remove legal-tender status?",
+      "Can collector price restore legal status?"
+     ],
+     "decisions": [
+      {
+       "decision": "Add explicit left and right destinations to the two sorting moves.",
+       "reason": "Both move parts require a nonempty to field; these destinations preserve the intended separation."
+      },
+      {
+       "decision": "Retain representative piles with spoken count tags.",
+       "reason": "Appear accepts only 1–12 objects; tags preserve the exact examples."
+      },
+      {
+       "decision": "Keep the injected book table untouched and all actions below it.",
+       "reason": "The table remains the persistent anchor."
+      },
+      {
+       "decision": "Use no invented excess amount or commemorative count.",
+       "reason": "Neither is supplied by the narration."
+      }
+     ],
+     "uncertain": [
+      "The supplied book table is injected separately and is not duplicated."
+     ]
+    },
+    "nodes": [
+     {
+      "id": "rupee_example",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b45",
+       "₹20"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b45",
+       "50 paise"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "coins",
+         "icon": "tw:1fa99",
+         "label": ""
+        },
+        {
+         "name": "total",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b45",
+          "₹20"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b45",
+          "₹20"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "coins",
+         "text": "₹20",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b45",
+          "50"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 10,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b45",
+          "50"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "coins",
+         "text": "50 coins",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b45",
+          "₹1,000"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "₹1,000",
+         "object": "total",
+         "into": "",
+         "on": "",
+         "text": "₹1,000",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "₹1,000",
+         "dir": "",
+         "title": "",
+         "reach": 1
+        },
+        {
+         "part": "compare",
+         "cue": [
+          "b45",
+          "नहीं"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "coins",
+         "right": "total",
+         "sign": "≠",
+         "left_text": "1,000 coins",
+         "right_text": "₹1,000",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "paise_example",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b45",
+       "50 paise"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b46",
+       "डिब्बे"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "coins",
+         "icon": "tw:1fa99",
+         "label": ""
+        },
+        {
+         "name": "total",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b45",
+          "50 paise"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b45",
+          "50 paise"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "coins",
+         "text": "50 paise",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b45",
+          "20"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 10,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b45",
+          "20"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coins",
+         "into": "",
+         "on": "coins",
+         "text": "20 coins",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b45",
+          "₹10"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "₹10",
+         "object": "total",
+         "into": "",
+         "on": "",
+         "text": "₹10",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "₹10",
+         "dir": "",
+         "title": "",
+         "reach": 1
+        },
+        {
+         "part": "compare",
+         "cue": [
+          "b45",
+          "denomination"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "coins",
+         "right": "total",
+         "sign": "≠",
+         "left_text": "denomination",
+         "right_text": "total limit",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "sort_rules",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b46",
+       "डिब्बे"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b47",
+       "Limit"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "box",
+         "icon": "tw:1f4e6",
+         "label": ""
+        },
+        {
+         "name": "fifty",
+         "icon": "tw:1fa99",
+         "label": ""
+        },
+        {
+         "name": "twentyfive",
+         "icon": "tw:1fa99",
+         "label": ""
+        },
+        {
+         "name": "law",
+         "icon": "tw:1f4dc",
+         "label": ""
+        },
+        {
+         "name": "meter",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "commemorative",
+         "icon": "fa:solid/coins",
+         "label": ""
+        },
+        {
+         "name": "question",
+         "icon": "tw:2753",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b46",
+          "डिब्बे"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "box",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b46",
+          "50"
+         ],
+         "actor": "",
+         "from": "box",
+         "to": "left",
+         "object": "fifty",
+         "into": "",
+         "on": "",
+         "text": "50 paise",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b46",
+          "25"
+         ],
+         "actor": "",
+         "from": "box",
+         "to": "right",
+         "object": "twentyfive",
+         "into": "",
+         "on": "",
+         "text": "25 paise",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b46",
+          "Coinage"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "law",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b46",
+          "₹10"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "₹10",
+         "object": "meter",
+         "into": "",
+         "on": "fifty",
+         "text": "₹10",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "₹10",
+         "dir": "",
+         "title": "",
+         "reach": 1
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b46",
+          "नहीं।"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "twentyfive",
+         "into": "",
+         "on": "twentyfive",
+         "text": "tender status नहीं",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b46",
+          "Commemorative"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "commemorative",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b46",
+          "गिनती"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "question",
+         "into": "",
+         "on": "commemorative",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "status_distinction",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b47",
+       "Limit"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b48",
+       "Denomination"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "pile",
+         "icon": "fa:solid/coins",
+         "label": ""
+        },
+        {
+         "name": "limit",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "status",
+         "icon": "tw:1fa99",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b47",
+          "Limit"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "pile",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b47",
+          "पार"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "Limit पार",
+         "object": "limit",
+         "into": "",
+         "on": "",
+         "text": "Limit पार",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "Limit",
+         "dir": "",
+         "title": "",
+         "reach": 1.15
+        },
+        {
+         "part": "compare",
+         "cue": [
+          "b47",
+          "खोना"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "limit",
+         "right": "status",
+         "sign": "≠",
+         "left_text": "Limit पार",
+         "right_text": "status खोना",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "compare",
+         "cue": [
+          "b47",
+          "collector"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "pile",
+         "right": "status",
+         "sign": "≠",
+         "left_text": "collector price",
+         "right_text": "legal status",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "check_sequence",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b48",
+       "Denomination"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 24,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "coin",
+         "icon": "tw:1fa99",
+         "label": ""
+        },
+        {
+         "name": "pile",
+         "icon": "fa:solid/coins",
+         "label": ""
+        },
+        {
+         "name": "limit",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "status",
+         "icon": "tw:1f4dc",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b48",
+          "Denomination"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "coin",
+         "into": "",
+         "on": "",
+         "text": "Denomination",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b48",
+          "count"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "pile",
+         "into": "",
+         "on": "",
+         "text": "count",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b48",
+          "निकालिए;"
+         ],
+         "actor": "",
+         "from": "coin",
+         "to": "pile",
+         "object": "coin",
+         "into": "",
+         "on": "",
+         "text": "Denomination × count",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b48",
+          "total"
+         ],
+         "actor": "",
+         "from": "pile",
+         "to": "limit",
+         "object": "coin",
+         "into": "",
+         "on": "",
+         "text": "total limit",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b48",
+          "status"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "status",
+         "into": "",
+         "on": "",
+         "text": "status जाँचिए",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     }
+    ],
+    "camera": [
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b45",
+       "₹20"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b46",
+       "डिब्बे"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b47",
+       "Limit"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b48",
+       "Denomination"
+      ]
+     }
+    ],
+    "focus": [],
+    "graph_used": false,
+    "graph": {
+     "plot": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+     },
+     "x_label": "",
+     "y_label": "",
+     "x_domain": [],
+     "y_domain": [],
+     "axes_cue": [],
+     "curves": [],
+     "dots": [],
+     "shades": [],
+     "guides": [],
+     "notes": []
+    }
+   },
+   "code_problems": [
+    "[code] rupee_example and paise_example overlap on screen"
+   ],
+   "passed": false,
+   "finished_at": 1793579848.8395646
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2,
+  3
+ ],
+ "cost_usd": 0.0,
+ "seconds": 174.7,
+ "navin_verdict": null
+}

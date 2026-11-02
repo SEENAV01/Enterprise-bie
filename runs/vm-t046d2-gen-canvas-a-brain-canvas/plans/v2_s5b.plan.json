@@ -1,0 +1,473 @@
+{
+ "id": "v2_s5b",
+ "part_id": "c04.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b33",
+   "say": "Intermediary matching आसान करता है, आगे handling सुधरती है। UPI existing deposits भेजता है, extra पैसा नहीं बनाता।"
+  },
+  {
+   "beat_id": "b34",
+   "say": "Forms साथ रहते हैं; हर card में पैसा stored नहीं होता।"
+  },
+  {
+   "beat_id": "b35",
+   "say": "क्रम barter, commodity, metallic, paper, bank, फिर digital है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p002_i12",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    3
+   ],
+   "cue": [
+    "b33",
+    ""
+   ],
+   "picture": {
+    "type": "gallery",
+    "title": "EVOLUTION OF MONEY",
+    "item_id": "p002-i12",
+    "panels": [
+     {
+      "n": 1,
+      "name": "BARTER",
+      "caption": "Wheat exchanged for cloth",
+      "nouns": [
+       "BARTER",
+       "Wheat",
+       "exchanged",
+       "for",
+       "cloth"
+      ],
+      "item_id": "p002-i13",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1f33e"
+     },
+     {
+      "n": 2,
+      "name": "COMMODITY MONEY",
+      "caption": "Salt, cattle, shells",
+      "nouns": [
+       "COMMODITY",
+       "MONEY",
+       "Salt",
+       "cattle",
+       "shells"
+      ],
+      "item_id": "p002-i14",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1f4b0"
+     },
+     {
+      "n": 3,
+      "name": "METALLIC MONEY",
+      "caption": "Gold and silver coins",
+      "nouns": [
+       "METALLIC",
+       "MONEY",
+       "Gold",
+       "and",
+       "silver",
+       "coins"
+      ],
+      "item_id": "p002-i15",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1f4b0"
+     },
+     {
+      "n": 4,
+      "name": "PAPER MONEY",
+      "caption": "Currency notes",
+      "nouns": [
+       "PAPER",
+       "MONEY",
+       "Currency",
+       "notes"
+      ],
+      "item_id": "p002-i16",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1f4c4"
+     },
+     {
+      "n": 5,
+      "name": "BANK MONEY",
+      "caption": "Cheques and deposits",
+      "nouns": [
+       "BANK",
+       "MONEY",
+       "Cheques",
+       "and",
+       "deposits"
+      ],
+      "item_id": "p002-i17",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1f3e6"
+     },
+     {
+      "n": 6,
+      "name": "DIGITAL MONEY",
+      "caption": "UPI, net banking, cards",
+      "nouns": [
+       "DIGITAL",
+       "MONEY",
+       "UPI",
+       "net",
+       "banking",
+       "cards"
+      ],
+      "item_id": "p002-i18",
+      "numbered": true,
+      "cue": [
+       "b33",
+       ""
+      ],
+      "icon": "tw:1f4b0"
+     }
+    ]
+   }
+  },
+  {
+   "id": "transfer",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b33",
+    "Intermediary"
+   ],
+   "until_cue": [
+    "b34",
+    "Forms"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "sender",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "receiver",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "connection",
+     "icon": "tw:1f91d",
+     "label": ""
+    },
+    {
+     "name": "phone",
+     "icon": "tw:1f4f1",
+     "label": ""
+    },
+    {
+     "name": "deposits",
+     "icon": "fa:solid/piggy-bank",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b33",
+      "Intermediary"
+     ],
+     "object": "connection",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b33",
+      "matching"
+     ],
+     "actor": "receiver",
+     "object": "connection"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b33",
+      "UPI"
+     ],
+     "actor": "sender",
+     "object": "phone"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b33",
+      "existing"
+     ],
+     "actor": "sender",
+     "object": "deposits"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b33",
+      "भेजता"
+     ],
+     "from": "sender",
+     "to": "receiver",
+     "object": "deposits"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b33",
+      "extra"
+     ],
+     "on": "phone",
+     "text": "extra पैसा नहीं बनाता",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "coexist",
+   "kind": "highlight",
+   "cue": [
+    "b34",
+    "Forms"
+   ],
+   "until_cue": [
+    "b35",
+    "क्रम"
+   ],
+   "style": "band",
+   "tone": "accent",
+   "target": "book_p002_i12"
+  },
+  {
+   "id": "card",
+   "kind": "icon",
+   "cell": [
+    1,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b34",
+    "card"
+   ],
+   "until_cue": [
+    "b35",
+    "क्रम"
+   ],
+   "icon": "tw:1f4b3"
+  },
+  {
+   "id": "storage",
+   "kind": "text",
+   "cell": [
+    5,
+    4,
+    6,
+    2
+   ],
+   "cue": [
+    "b34",
+    "stored"
+   ],
+   "until_cue": [
+    "b35",
+    "क्रम"
+   ],
+   "text": "हर card में पैसा stored नहीं",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "sequence",
+   "kind": "highlight",
+   "cue": [
+    "b35",
+    "क्रम"
+   ],
+   "style": "box",
+   "tone": "warm",
+   "target": "book_p002_i12"
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b33",
+    "Intermediary"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b34",
+    "Forms"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    6,
+    3
+   ],
+   "cue": [
+    "b35",
+    "barter,"
+   ]
+  },
+  {
+   "cells": [
+    1,
+    0,
+    6,
+    3
+   ],
+   "cue": [
+    "b35",
+    "commodity,"
+   ]
+  },
+  {
+   "cells": [
+    3,
+    0,
+    6,
+    3
+   ],
+   "cue": [
+    "b35",
+    "metallic,"
+   ]
+  },
+  {
+   "cells": [
+    5,
+    0,
+    6,
+    3
+   ],
+   "cue": [
+    "b35",
+    "paper,"
+   ]
+  },
+  {
+   "cells": [
+    6,
+    0,
+    6,
+    3
+   ],
+   "cue": [
+    "b35",
+    "bank,"
+   ]
+  },
+  {
+   "cells": [
+    6,
+    0,
+    6,
+    3
+   ],
+   "cue": [
+    "b35",
+    "digital"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b33",
+    "UPI"
+   ],
+   "ids": [
+    "transfer"
+   ],
+   "until_cue": [
+    "b34",
+    "Forms"
+   ]
+  },
+  {
+   "cue": [
+    "b35",
+    "क्रम"
+   ],
+   "ids": [
+    "book_p002_i12_p1",
+    "book_p002_i12_p2",
+    "book_p002_i12_p3",
+    "book_p002_i12_p4",
+    "book_p002_i12_p5",
+    "book_p002_i12_p6",
+    "book_p002_i12_a1",
+    "book_p002_i12_a2",
+    "book_p002_i12_a3",
+    "book_p002_i12_a4",
+    "book_p002_i12_a5",
+    "sequence"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,472 @@
+{
+ "id": "v2_s4b",
+ "part_id": "c03.4",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b21",
+   "say": "अलग ratios यानी no common measure of value; गाय न बाँट पाना indivisibility है। अनाज सड़े तो wealth रखना मुश्किल; deferred payments यानी बाद में चुकाते समय वही मात्रा कम सामान दिला सकती है।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "पैसे में उधार लिखना आसान, purchasing power fixed नहीं। जरूरतें मिलना और quantities मानना अलग शर्तें हैं।"
+  },
+  {
+   "beat_id": "b23",
+   "say": "Barter में matching से repayment तक मुश्किलें हैं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "icon",
+   "cell": [
+    0,
+    0,
+    2,
+    2
+   ],
+   "cue": [
+    "b21",
+    "अलग"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:2696",
+   "size": 48
+  },
+  {
+   "id": "measure",
+   "kind": "text",
+   "cell": [
+    2,
+    0,
+    8,
+    2
+   ],
+   "cue": [
+    "b21",
+    "common"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "text": "Common measure नहीं",
+   "style": "box",
+   "tone": "ink",
+   "fill": "note",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "cow",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b21",
+    "गाय"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f404",
+   "label": "गाय न बाँट पाना",
+   "size": 80
+  },
+  {
+   "id": "cow_division",
+   "kind": "highlight",
+   "cue": [
+    "b21",
+    "indivisibility"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "style": "box",
+   "tone": "warm",
+   "target": "cow"
+  },
+  {
+   "id": "grain",
+   "kind": "icon",
+   "cell": [
+    4,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b21",
+    "अनाज"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f33e",
+   "size": 80
+  },
+  {
+   "id": "spoiled",
+   "kind": "mark",
+   "cue": [
+    "b21",
+    "सड़े"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "danger",
+   "target": "grain",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "repayment",
+   "kind": "action",
+   "cell": [
+    8,
+    2,
+    4,
+    4
+   ],
+   "cue": [
+    "b21",
+    "deferred"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "repayment_grain",
+     "icon": "tw:1f33e",
+     "label": ""
+    },
+    {
+     "name": "goods",
+     "icon": "tw:1f404",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b21",
+      "deferred"
+     ],
+     "object": "repayment_grain",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b21",
+      "वही"
+     ],
+     "on": "repayment_grain",
+     "text": "वही मात्रा",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b21",
+      "कम"
+     ],
+     "on": "goods",
+     "text": "कम सामान",
+     "style": "tag",
+     "spot": "right"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b21",
+      "सामान"
+     ],
+     "object": "goods",
+     "spot": "right",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "monetary_record",
+   "kind": "action",
+   "cell": [
+    2,
+    2,
+    8,
+    4
+   ],
+   "cue": [
+    "b22",
+    "पैसे"
+   ],
+   "until_cue": [
+    "b23",
+    "Barter"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "money",
+     "icon": "tw:1f4b0",
+     "label": ""
+    },
+    {
+     "name": "record",
+     "icon": "tw:1f9fe",
+     "label": ""
+    },
+    {
+     "name": "question",
+     "icon": "tw:2753",
+     "label": ""
+    },
+    {
+     "name": "matching",
+     "icon": "tw:1f91d",
+     "label": ""
+    },
+    {
+     "name": "quantities",
+     "icon": "tw:2696",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b22",
+      "पैसे"
+     ],
+     "object": "money",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b22",
+      "उधार"
+     ],
+     "object": "record",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b22",
+      "लिखना"
+     ],
+     "on": "record",
+     "text": "उधार",
+     "style": "write"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b22",
+      "purchasing"
+     ],
+     "object": "question",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b22",
+      "नहीं।"
+     ],
+     "on": "question",
+     "text": "Purchasing power fixed नहीं",
+     "style": "tag"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b22",
+      "जरूरतें"
+     ],
+     "left": "matching",
+     "right": "quantities",
+     "sign": "vs",
+     "left_text": "जरूरतें मिलना",
+     "right_text": "quantities मानना"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b22",
+      "अलग"
+     ],
+     "on": "quantities",
+     "text": "अलग शर्तें",
+     "style": "tag",
+     "spot": "bottom"
+    }
+   ]
+  },
+  {
+   "id": "recap",
+   "kind": "picture",
+   "cell": [
+    2,
+    2,
+    10,
+    4
+   ],
+   "cue": [
+    "b23",
+    "matching"
+   ],
+   "tone": "warm",
+   "size": 30,
+   "picture": {
+    "type": "flow",
+    "title": "",
+    "item_id": "",
+    "nodes": [
+     {
+      "cue": [
+       "b23",
+       "matching"
+      ],
+      "id": "n1",
+      "label": "matching"
+     },
+     {
+      "cue": [
+       "b23",
+       "repayment"
+      ],
+      "id": "n2",
+      "label": "repayment"
+     }
+    ],
+    "arrows": true
+   }
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b21",
+    "अलग"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b22",
+    "पैसे"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b23",
+    "matching"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b21",
+    "गाय"
+   ],
+   "ids": [
+    "anchor",
+    "cow",
+    "cow_division"
+   ],
+   "until_cue": [
+    "b21",
+    "अनाज"
+   ]
+  },
+  {
+   "cue": [
+    "b21",
+    "अनाज"
+   ],
+   "ids": [
+    "anchor",
+    "grain",
+    "spoiled"
+   ],
+   "until_cue": [
+    "b21",
+    "deferred"
+   ]
+  },
+  {
+   "cue": [
+    "b21",
+    "deferred"
+   ],
+   "ids": [
+    "anchor",
+    "repayment"
+   ],
+   "until_cue": [
+    "b22",
+    "पैसे"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

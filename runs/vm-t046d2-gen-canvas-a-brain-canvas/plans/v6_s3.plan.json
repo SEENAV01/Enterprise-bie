@@ -1,0 +1,634 @@
+{
+ "id": "v6_s3",
+ "part_id": "c14.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b19",
+   "say": "पुराने coins को किस metal से पहचानोगे? परिवार में Mohur–gold, Rupee–silver, Dam–copper हैं; जैसे अलग metal के बर्तन पहचानते हो, वैसे इन्हें जोड़ो।"
+  },
+  {
+   "beat_id": "b20",
+   "say": "Gold वाला कौन? Mohur; चाँदी जैसा metal किसका? Rupee; ताँबे वाला कौन? Dam—यह metal पहचान है, denomination ratio नहीं।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "Mohur gold है, Rupee silver, Dam copper; matching में swap मत करना। Silver Rupee की पहचान आगे silver-price trouble समझाएगी, आज की backing नहीं।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "Memory के लिए 3 shelves सोचो: gold पर Mohur, silver पर Rupee, copper पर Dam। ये पहचान के shelves हैं, exchange ratios नहीं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p007_i2",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    3
+   ],
+   "cue": [
+    "b20",
+    ""
+   ],
+   "picture": {
+    "type": "table",
+    "title": "Coin | Metal\nMohur | Gold\nRupee | Silver\nDam | Copper",
+    "item_id": "p007-i2",
+    "columns": [
+     "Coin",
+     "Metal"
+    ],
+    "rows": [
+     {
+      "cells": [
+       "Mohur",
+       "Gold"
+      ],
+      "item_id": "p007-i3",
+      "cue": [
+       "b20",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Rupee",
+       "Silver"
+      ],
+      "item_id": "p007-i4",
+      "cue": [
+       "b20",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Dam",
+       "Copper"
+      ],
+      "item_id": "p007-i5",
+      "cue": [
+       "b20",
+       ""
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "mohur_intro",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b19",
+    "coins"
+   ],
+   "until_cue": [
+    "b20",
+    "Gold"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "size": 40
+  },
+  {
+   "id": "mohur_pair",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    4,
+    1
+   ],
+   "cue": [
+    "b19",
+    "Mohur–gold,"
+   ],
+   "until_cue": [
+    "b20",
+    "Gold"
+   ],
+   "text": "Mohur gold है",
+   "style": "tag",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "rupee_intro",
+   "kind": "icon",
+   "cell": [
+    4,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b19",
+    "Rupee–silver,"
+   ],
+   "until_cue": [
+    "b20",
+    "Gold"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "label": "Rupee silver है",
+   "size": 40
+  },
+  {
+   "id": "dam_intro",
+   "kind": "icon",
+   "cell": [
+    8,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b19",
+    "Dam–copper"
+   ],
+   "until_cue": [
+    "b20",
+    "Gold"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "label": "Dam copper है",
+   "size": 40
+  },
+  {
+   "id": "metal_recall",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b20",
+    "Gold"
+   ],
+   "until_cue": [
+    "b21",
+    "Mohur"
+   ],
+   "tone": "ink",
+   "size": 28,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "gold_question",
+     "icon": "tw:2753",
+     "label": ""
+    },
+    {
+     "name": "silver_question",
+     "icon": "tw:2753",
+     "label": ""
+    },
+    {
+     "name": "copper_question",
+     "icon": "tw:2753",
+     "label": ""
+    },
+    {
+     "name": "mohur",
+     "icon": "tw:1fa99",
+     "label": "Mohur"
+    },
+    {
+     "name": "rupee",
+     "icon": "tw:1fa99",
+     "label": "Rupee"
+    },
+    {
+     "name": "dam",
+     "icon": "tw:1fa99",
+     "label": "Dam"
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b20",
+      "Gold"
+     ],
+     "object": "gold_question",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b20",
+      "Gold"
+     ],
+     "on": "gold_question",
+     "text": "Gold वाला कौन?",
+     "style": "tag"
+    },
+    {
+     "part": "transform",
+     "cue": [
+      "b20",
+      "Mohur;"
+     ],
+     "object": "gold_question",
+     "into": "mohur"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b20",
+      "चाँदी"
+     ],
+     "object": "silver_question",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b20",
+      "चाँदी"
+     ],
+     "on": "silver_question",
+     "text": "चाँदी जैसा metal",
+     "style": "tag"
+    },
+    {
+     "part": "transform",
+     "cue": [
+      "b20",
+      "Rupee;"
+     ],
+     "object": "silver_question",
+     "into": "rupee"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b20",
+      "ताँबे"
+     ],
+     "object": "copper_question",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b20",
+      "ताँबे"
+     ],
+     "on": "copper_question",
+     "text": "ताँबे वाला कौन?",
+     "style": "tag"
+    },
+    {
+     "part": "transform",
+     "cue": [
+      "b20",
+      "Dam—यह"
+     ],
+     "object": "copper_question",
+     "into": "dam"
+    }
+   ]
+  },
+  {
+   "id": "fixed_mohur",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b21",
+    "Mohur"
+   ],
+   "until_cue": [
+    "b22",
+    "shelves"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "label": "Mohur gold है",
+   "size": 32
+  },
+  {
+   "id": "fixed_rupee",
+   "kind": "icon",
+   "cell": [
+    4,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b21",
+    "Rupee"
+   ],
+   "until_cue": [
+    "b22",
+    "shelves"
+   ],
+   "tone": "muted",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "label": "Rupee silver है",
+   "size": 32
+  },
+  {
+   "id": "fixed_dam",
+   "kind": "icon",
+   "cell": [
+    8,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b21",
+    "Dam"
+   ],
+   "until_cue": [
+    "b22",
+    "shelves"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "label": "Dam copper है",
+   "size": 32
+  },
+  {
+   "id": "silver_attention",
+   "kind": "highlight",
+   "cue": [
+    "b21",
+    "Silver"
+   ],
+   "until_cue": [
+    "b22",
+    "shelves"
+   ],
+   "style": "band",
+   "tone": "accent",
+   "target": "fixed_rupee"
+  },
+  {
+   "id": "future_trouble",
+   "kind": "callout",
+   "cell": [
+    3,
+    6,
+    6,
+    1
+   ],
+   "cue": [
+    "b21",
+    "silver-price"
+   ],
+   "until_cue": [
+    "b22",
+    "shelves"
+   ],
+   "text": "आगे silver-price trouble",
+   "style": "note",
+   "tone": "accent",
+   "align": "center",
+   "size": 28,
+   "marks": [
+    {
+     "phrase": "silver-price trouble",
+     "cue": [
+      "b21",
+      "trouble"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shelf_memory",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b22",
+    "shelves"
+   ],
+   "tone": "ink",
+   "size": 28,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "mohur",
+     "icon": "tw:1fa99",
+     "label": "Mohur"
+    },
+    {
+     "name": "rupee",
+     "icon": "tw:1fa99",
+     "label": "Rupee"
+    },
+    {
+     "name": "dam",
+     "icon": "tw:1fa99",
+     "label": "Dam"
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "show_text",
+     "cue": [
+      "b22",
+      "shelves"
+     ],
+     "on": "mohur",
+     "text": "3 shelves",
+     "style": "tag",
+     "spot": "top"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b22",
+      "gold"
+     ],
+     "on": "mohur",
+     "text": "gold पर Mohur",
+     "style": "tag",
+     "spot": "left"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b22",
+      "Mohur,"
+     ],
+     "object": "mohur",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b22",
+      "silver"
+     ],
+     "on": "rupee",
+     "text": "silver पर Rupee",
+     "style": "tag",
+     "spot": "center"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b22",
+      "Rupee,"
+     ],
+     "object": "rupee",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b22",
+      "copper"
+     ],
+     "on": "dam",
+     "text": "copper पर Dam",
+     "style": "tag",
+     "spot": "right"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b22",
+      "Dam।"
+     ],
+     "object": "dam",
+     "spot": "right",
+     "n": 1
+    }
+   ],
+   "close_up": false
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b19",
+    "coins"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b20",
+    "Gold"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b21",
+    "Mohur"
+   ]
+  },
+  {
+   "cells": [
+    3,
+    3,
+    6,
+    4
+   ],
+   "cue": [
+    "b21",
+    "Silver"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b22",
+    "shelves"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b21",
+    "Silver"
+   ],
+   "ids": [
+    "fixed_rupee",
+    "silver_attention",
+    "future_trouble"
+   ],
+   "until_cue": [
+    "b22",
+    "shelves"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

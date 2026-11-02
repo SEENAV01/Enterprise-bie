@@ -1,0 +1,425 @@
+{
+ "id": "v6_s2b",
+ "part_id": "c14.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b17",
+   "say": "Note का issuer कौन है? RBI का establishment 1935, first banknotes 1938 में George VI वाले थे। George V फिर George VI का broader portrait क्रम initial RBI notes का क्रम नहीं है।"
+  },
+  {
+   "beat_id": "b18",
+   "say": "क्रम हुआ silver Rupiya, Mughal mints, Company coins, 1835 uniformity, 1861 note monopoly, gold-exchange reforms और RBI। Coin standard, issuer और external link अलग रखो।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "note_anchor",
+   "kind": "icon",
+   "cell": [
+    0,
+    0,
+    2,
+    2
+   ],
+   "cue": [
+    "b17",
+    "Note"
+   ],
+   "until_cue": [
+    "b18",
+    "क्रम"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "size": 32
+  },
+  {
+   "id": "rbi_timeline",
+   "kind": "picture",
+   "cell": [
+    2,
+    0,
+    10,
+    2
+   ],
+   "cue": [
+    "b17",
+    "RBI"
+   ],
+   "tone": "accent",
+   "size": 28,
+   "picture": {
+    "type": "timeline",
+    "title": "",
+    "item_id": "",
+    "events": [
+     {
+      "cue": [
+       "b17",
+       "1935,"
+      ],
+      "name": "RBI का establishment",
+      "icon": "tw:1f4dc",
+      "numbered": false,
+      "when": "1935"
+     },
+     {
+      "cue": [
+       "b17",
+       "1938"
+      ],
+      "name": "First banknotes",
+      "icon": "fa:solid/money-bill-1",
+      "numbered": false,
+      "when": "1938"
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "portrait_label",
+   "kind": "text",
+   "cell": [
+    8,
+    2,
+    4,
+    1
+   ],
+   "cue": [
+    "b17",
+    "VI"
+   ],
+   "until_cue": [
+    "b18",
+    "क्रम"
+   ],
+   "text": "George VI वाले notes",
+   "style": "tag",
+   "tone": "accent",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "wrong_sequence",
+   "kind": "picture",
+   "cell": [
+    2,
+    3,
+    8,
+    2
+   ],
+   "cue": [
+    "b17",
+    "broader"
+   ],
+   "until_cue": [
+    "b18",
+    "क्रम"
+   ],
+   "tone": "muted",
+   "size": 26,
+   "picture": {
+    "type": "flow",
+    "title": "Initial RBI notes का क्रम",
+    "item_id": "",
+    "nodes": [
+     {
+      "cue": [
+       "b17",
+       "broader"
+      ],
+      "id": "n1",
+      "label": "George V"
+     },
+     {
+      "cue": [
+       "b17",
+       "portrait"
+      ],
+      "id": "n2",
+      "label": "George VI"
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "reject_sequence",
+   "kind": "mark",
+   "cue": [
+    "b17",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b18",
+    "क्रम"
+   ],
+   "tone": "danger",
+   "target": "wrong_sequence",
+   "mark": "cross",
+   "pos": "c",
+   "size": 32
+  },
+  {
+   "id": "chronology",
+   "kind": "picture",
+   "cell": [
+    0,
+    2,
+    12,
+    2
+   ],
+   "cue": [
+    "b18",
+    "क्रम"
+   ],
+   "until_cue": [
+    "b18",
+    "Coin"
+   ],
+   "tone": "accent",
+   "size": 26,
+   "picture": {
+    "type": "timeline",
+    "title": "",
+    "item_id": "",
+    "events": [
+     {
+      "cue": [
+       "b18",
+       "silver"
+      ],
+      "name": "Silver Rupiya",
+      "icon": "fa:solid/coins",
+      "numbered": false,
+      "when": ""
+     },
+     {
+      "cue": [
+       "b18",
+       "Mughal"
+      ],
+      "name": "Mughal mints",
+      "icon": "tw:1f3ed",
+      "numbered": false,
+      "when": ""
+     },
+     {
+      "cue": [
+       "b18",
+       "Company"
+      ],
+      "name": "Company coins",
+      "icon": "tw:1fa99",
+      "numbered": false,
+      "when": ""
+     },
+     {
+      "cue": [
+       "b18",
+       "1835"
+      ],
+      "name": "Uniformity",
+      "icon": "fa:solid/coins",
+      "numbered": false,
+      "when": "1835"
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "chronology_later",
+   "kind": "picture",
+   "cell": [
+    0,
+    4,
+    12,
+    2
+   ],
+   "cue": [
+    "b18",
+    "1861"
+   ],
+   "until_cue": [
+    "b18",
+    "Coin"
+   ],
+   "tone": "accent",
+   "size": 26,
+   "picture": {
+    "type": "timeline",
+    "title": "",
+    "item_id": "",
+    "events": [
+     {
+      "cue": [
+       "b18",
+       "1861"
+      ],
+      "name": "Note monopoly",
+      "icon": "fa:solid/money-bill-1",
+      "numbered": false,
+      "when": "1861"
+     },
+     {
+      "cue": [
+       "b18",
+       "gold-exchange"
+      ],
+      "name": "Gold-exchange reforms",
+      "icon": "tw:2696",
+      "numbered": false,
+      "when": ""
+     },
+     {
+      "cue": [
+       "b18",
+       "RBI।"
+      ],
+      "name": "RBI",
+      "icon": "tw:1f4dc",
+      "numbered": false,
+      "when": ""
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "distinct_lanes",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    3
+   ],
+   "cue": [
+    "b18",
+    "Coin"
+   ],
+   "tone": "accent",
+   "size": 26,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "standard",
+     "icon": "fa:solid/coins",
+     "label": ""
+    },
+    {
+     "name": "issuer",
+     "icon": "tw:1f4dc",
+     "label": ""
+    },
+    {
+     "name": "external",
+     "icon": "tw:2696",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b18",
+      "Coin"
+     ],
+     "object": "standard",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b18",
+      "standard,"
+     ],
+     "on": "standard",
+     "text": "Coin standard",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b18",
+      "issuer"
+     ],
+     "object": "issuer",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b18",
+      "issuer"
+     ],
+     "on": "issuer",
+     "text": "Issuer",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b18",
+      "external"
+     ],
+     "object": "external",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b18",
+      "link"
+     ],
+     "on": "external",
+     "text": "External link",
+     "style": "tag"
+    }
+   ],
+   "close_up": false
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    6
+   ],
+   "cue": [
+    "b17",
+    "Note"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b18",
+    "क्रम"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,178 @@
+{
+ "id": "v4_s4s",
+ "part_id": "c10.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b19",
+   "say": "दुकानदार paper क्यों ले? आप अपने ₹100 देकर चावल लेते हैं। दुकानदार उन्हें स्वीकार करता है क्योंकि आगे खुद खर्च कर पाने का भरोसा है।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "rice_shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "goods": [
+    {
+     "icon": "tw:1f33e",
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "trusted_payment",
+   "kind": "action",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b19",
+    "paper"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "unsure"
+    }
+   ],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "rice",
+     "icon": "tw:1f33e",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b19",
+      "paper"
+     ],
+     "actor": "buyer",
+     "object": "note"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b19",
+      "₹100"
+     ],
+     "actor": "buyer",
+     "object": "note",
+     "on": "note",
+     "text": "₹100",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b19",
+      "देकर"
+     ],
+     "actor": "buyer",
+     "from": "buyer",
+     "to": "seller",
+     "object": "note"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b19",
+      "चावल"
+     ],
+     "actor": "seller",
+     "from": "seller",
+     "to": "buyer",
+     "object": "rice"
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b19",
+      "स्वीकार"
+     ],
+     "actor": "seller",
+     "object": "note"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b19",
+      "खर्च"
+     ],
+     "actor": "seller",
+     "object": "note",
+     "on": "seller",
+     "text": "खुद खर्च कर पाने का भरोसा",
+     "style": "bubble"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b19",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 520,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "₹100"
+   ],
+   "x": 2600,
+   "y": 570,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b19",
+    "स्वीकार"
+   ],
+   "x": 2700,
+   "y": 510,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b19",
+    "खर्च"
+   ],
+   "x": 2770,
+   "y": 470,
+   "zoom": 1.15,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

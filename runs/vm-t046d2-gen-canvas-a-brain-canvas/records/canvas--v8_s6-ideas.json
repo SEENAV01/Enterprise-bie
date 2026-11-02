@@ -1,0 +1,234 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v8_s6-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.2+saanche@2026-11-02.1+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.2",
+ "rulebook_digest": "96a45646bcdf8a8713c2b1a24ce1e7cfaf95705e84968a85fcede3704cd51998",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "28932a1545976eb687224dbc6133d31d368e39b4d27e9c7e4799ec2566f4a25c",
+ "card": null,
+ "prefix_sha256": "5cb6d71a1110d07f9f4828e04399be419a2c70e94d4868709c039fb2ee9ff586",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses) (saanche: refuse)\n- accept: a tick on the thing accepted (saanche: accept)\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line) (saanche: coin_count)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word (saanche: cheque)\n- count: a counted stack or crowd whose number is the narration's number (saanche: count_stack, coin_count)\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline (saanche: hand_over, pay_change, upi, card_tap, cheque, barter_swap)\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number (saanche: pay_change, upi, card_tap, cheque)\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one (saanche: barter_swap)\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha (saanche: pay_change, cheque)\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label (saanche: cheque, hand_over)\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns THIS beat names or implies, as plain English or Hindi words a picture can show:\n  exactly the beat's own things, never a thing from an example, a card or another part (Navin, 2 November 2026: \"jis cheej ka\n  jikar hai wohi cheej dikhe\"). Every thing you list is a promise: it must appear on screen in this beat. A real person is never\n  drawn (card rule 8): name the role or the object, not the person.\n- shows: what is seen, in at most 8 words, as a picture description of this beat's own things and what happens to\n  them. Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object of this beat that an icon cannot show and a photograph or museum image can, as search words; \"\"\n  when an icon is enough. Never a person's portrait (card rule 8).\n- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: \"process show nahi ho rahi hai\"),\n  the recipe that shows it, or \"compose\" when no recipe fits but the motion parts do (the layout step writes the parts); \"none\"\n  when the beat tells no process; \"other\" only when a motion part BIE lacks is needed (template_note names it: it goes to the\n  missing-capability log). The actors, things and numbers always come from this beat. The recipes:\n- hand_over: one person gives a thing to another (steps give, take; actors giver, taker; objects thing; parts give, hold)\n- pay_change: the buyer hands over the payment, takes the goods and gets the difference back (each amount travels as a tag on what carries it) (steps pay, goods, change; actors buyer, seller; objects goods, money (optional), change_money (optional); amounts paid, change, price (optional); parts appear, give, hold, move, show_text)\n- barter_swap: two people swap their things; at 'ask' each wonders whether they want the other's thing (steps offer, ask, swap; actors a, b; objects a_thing, b_thing; parts give, hold, show_text)\n- upi: the buyer's device moves to the seller's sign and back; the buyer's device shows the amount paid, the seller's shows it received (steps scan, paid, received; actors buyer, seller; objects device (optional), sign (optional), seller_device (optional); amounts amount; parts appear, hold, move, show_text)\n- card_tap: a card moves to the seller's machine and back; the machine shows the amount approved (steps tap, approved; actors buyer, seller; objects card (optional), machine (optional); amounts amount; parts appear, hold, move, show_text)\n- cheque: the amount is written on the instrument, it moves into the place that pays, and the two balances change (payer down, payee up) (steps write, hand, balances; actors payer, payee; objects cheque (optional), place (optional); amounts amount, payer_before (optional), payer_after (optional), payee_before (optional), payee_after (optional); parts appear, hold, meter, move, show_text)\n- coin_count: things drop onto a pile while a meter rises; at 'limit' the meter stops at its red line and one more is refused (steps count, limit; objects coin (optional); amounts each, limit; parts appear, meter, refuse)\n- refuse: the person looks at the thing, shakes the head, and a cross lands on the thing (steps show, refuse; actors who; objects thing; parts appear, refuse)\n- accept: the person looks at the thing, nods, and a tick lands on the thing (steps show, accept; actors who; objects thing; parts accept, appear)\n- count_stack: n things appear one by one as they are said (steps count; objects thing; amounts n; parts appear)\n- compose: a process no recipe has, written as its parts in order (parts [{part, cue, ...fields}]); a part BIE lacks: template other in the dikhane ki list, with a note (it goes to the missing-capability log)\n  The motion parts every process is made of:\n- hold (actor, object, reach?): a person holds a thing in the front hand (reach 0..1 lifts it towards the other)\n- give (from, to, object, text?): a thing travels from one person's hand to the other's (give and take), with an optional tag of text on it\n- move (object, to, back?, into?, text?): a thing moves along a path to a spot, a person or another thing; back returns it; into lets it go into the target\n- transform (object, into): a thing turns into another thing where it is (A → B)\n- show_text (on, text, style?, inside?): a screen, sign, tag or thought bubble on a person or thing shows a short text (style: tag, sign, screen, ok, bubble, write)\n- meter (to, from?, limit?, style?, title?, dir?, on?, end?): a counter or meter changes: a bar fills to its limit (style bar), or a number changes from one value to another with an up or down arrow (style number)\n- appear (object, n?, spot?, layout?, end?): things appear one by one (n of them in a grid, or dropping onto a pile until a later step)\n- refuse (object, actor?): a person shakes the head and a cross lands on the thing\n- accept (object, actor?): a person nods and a tick lands on the thing\n- compare (left, right, sign?, left_text?, right_text?): two things side by side with a sign between them (=, ≠, ?, vs, <, >)\n- template_note: for \"other\" the process in a few words; for \"none\" on a beat that names a process word, why no saancha.\nCode has already decided this part's picture (gallery: Photograph of a ₹100 note's promise and signature area) from the book's own diagram; it is placed at the top of the canvas. Set picture_type to \"gallery\" and use picture_note for what the beats add around it.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c19.4 (5 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v8_s6\", \"part_id\": \"c19.4\", \"card_type\": \"figure\", \"story\": false}, \"beats\": [{\"beat_id\": \"b36\", \"say\": \"₹100 specimen में ऊपर-नीचे क्या है? दोनों languages का promise ऊपर है और Governor का signature नीचे; अब इन्हें पहचानो।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b37\", \"say\": \"बाएँ Hindi, दाएँ English में वही ₹100 हैं, ₹200 नहीं। ‘I PROMISE TO PAY’ रकम देने का वादा है; ‘THE BEARER’ यानी note रखने वाले से यह वादा है।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b38\", \"say\": \"नीचे Raghuram G. Rajan का नाम, signature और Governor title दिखते हैं। यह specimen का signatory है, current-office दावा नहीं; ₹1 पर Finance Secretary sign करते हैं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b39\", \"say\": \"Amount, bearer और इस instrument का signatory पहचानो।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b40\", \"say\": \"इस crop का रास्ता है: दोनों भाषाओं में एक रकम, फिर नीचे signatory।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}], \"items\": [{\"item_id\": \"p009-i28\", \"content_type\": \"figure\", \"content\": \"Photograph of a ₹100 note's promise and signature area. Hindi text reads 'मैं धारक को एक सौ रुपये अदा करने का वचन देता हूँ'; English text reads 'I PROMISE TO PAY THE BEARER THE SUM OF ONE HUNDRED RUPEES'. Below are a handwritten Governor's signature, 'रघुराम जी. राजन', 'गवर्नर', and 'GOVERNOR'. The two language versions sit above the signature area.\"}, {\"item_id\": \"p009-i29\", \"content_type\": \"figure\", \"content\": \"Promise wording: 'मैं धारक को एक सौ रुपये अदा करने का वचन देता हूँ' and 'I PROMISE TO PAY THE BEARER THE SUM OF ONE HUNDRED RUPEES'; these are the Hindi and English promise texts above the signature.\"}, {\"item_id\": \"p009-i30\", \"content_type\": \"figure\", \"content\": \"Signature and title area: 'रघुराम जी. राजन', a handwritten signature, 'गवर्नर', and 'GOVERNOR', beneath the promise wording.\"}], \"book_pictures\": [{\"item_id\": \"p009-i28\", \"type\": \"gallery\", \"title\": \"Photograph of a ₹100 note's promise and signature area\"}]}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793582159.9824944,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "a7ffac71de93ee11a13de5a991be3f81ad22e99fca54bca8e6f13f4c51bc04d2",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 6353,
+    "output_tokens": 1025,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Learners read the ₹100 specimen’s bilingual promise and identify its bearer and signatory using the book photograph.",
+    "key_questions": [
+     "Where are the promise and signature?",
+     "Do both languages promise the same amount?",
+     "Who is the bearer, and who signed this specimen?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use highlights and magnified details from the supplied photograph, never a signatory portrait.",
+      "reason": "The lesson concerns the note’s printed wording and signature, not the person’s appearance."
+     },
+     {
+      "decision": "Keep the ₹1 signatory comparison separate from the ₹100 specimen.",
+      "reason": "The Finance Secretary reference must not appear to label the pictured ₹100 signature."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Learners read the ₹100 specimen’s bilingual promise and identify its bearer and signatory using the book photograph.",
+     "key_questions": [
+      "Where are the promise and signature?",
+      "Do both languages promise the same amount?",
+      "Who is the bearer, and who signed this specimen?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use highlights and magnified details from the supplied photograph, never a signatory portrait.",
+       "reason": "The lesson concerns the note’s printed wording and signature, not the person’s appearance."
+      },
+      {
+       "decision": "Keep the ₹1 signatory comparison separate from the ₹100 specimen.",
+       "reason": "The Finance Secretary reference must not appear to label the pictured ₹100 signature."
+      }
+     ],
+     "uncertain": []
+    },
+    "beats": [
+     {
+      "beat_id": "b36",
+      "idea": "Promise above, signature below",
+      "relation": "place",
+      "relation_note": "Spatial placement within the specimen, not geographic location.",
+      "things": [
+       "₹100 specimen",
+       "Hindi promise",
+       "English promise",
+       "Governor signature"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Upper promises highlighted; lower signature boxed.",
+      "on_word": "ऊपर-नीचे",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": ""
+     },
+     {
+      "beat_id": "b37",
+      "idea": "Same ₹100 promise to the bearer",
+      "relation": "promise",
+      "relation_note": "Both language versions promise the same amount to whoever holds the note.",
+      "things": [
+       "Hindi promise",
+       "English promise",
+       "₹100 note",
+       "₹200 amount"
+      ],
+      "people": [
+       "note holder"
+      ],
+      "places": [],
+      "shows": "Matching ₹100 promises; ₹200 crossed; bearer holds note.",
+      "on_word": "Hindi",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear Hindi and English promise crops side by side; compare their highlighted amounts with = and ₹100 tags; appear ₹200 amount then refuse it on नहीं; highlight I PROMISE TO PAY on वादा; appear note holder holding ₹100 note and connect THE BEARER to holder on रखने."
+     },
+     {
+      "beat_id": "b38",
+      "idea": "Specimen signatory versus ₹1 signing role",
+      "relation": "compare",
+      "relation_note": "Separate note-and-signatory slots distinguish the ₹100 specimen from the ₹1 rule.",
+      "things": [
+       "₹100 specimen",
+       "printed signatory name",
+       "Governor signature",
+       "Governor title",
+       "₹1 note"
+      ],
+      "people": [
+       "Finance Secretary"
+      ],
+      "places": [],
+      "shows": "Specimen signature enlarged; ₹1 paired with Secretary.",
+      "on_word": "नीचे",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": "sign करते हैं states the signing role, not a signing demonstration; show a static comparison with specimen-only labeling, not a current-office claim."
+     },
+     {
+      "beat_id": "b39",
+      "idea": "Identify amount, bearer and signatory",
+      "relation": "question",
+      "relation_note": "Three identification prompts attach to their corresponding visual evidence.",
+      "things": [
+       "₹100 amount",
+       "bearer wording",
+       "₹100 specimen",
+       "Governor signature"
+      ],
+      "people": [
+       "note holder"
+      ],
+      "places": [],
+      "shows": "Question markers beside amount, bearer, signature.",
+      "on_word": "Amount",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": ""
+     },
+     {
+      "beat_id": "b40",
+      "idea": "Read both amounts, then the signatory",
+      "relation": "sequence",
+      "relation_note": "Numbered reading path through the existing crop.",
+      "things": [
+       "Hindi ₹100 promise",
+       "English ₹100 promise",
+       "Governor signature"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Matching amounts linked; arrow descends to signature.",
+      "on_word": "रास्ता",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear numbered highlights on both promise amounts; compare Hindi and English amounts with =; move a reading marker from the paired amounts down to the signature on नीचे."
+     }
+    ],
+    "picture_type": "gallery",
+    "picture_note": "Keep the book’s ₹100 promise-and-signature photograph at the top. Add anchored highlights, enlarged wording, a bearer illustration, identification markers and a reading-path arrow; place the ₹1 signing-role comparison separately below."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793582182.7911983
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 22.8,
+ "navin_verdict": null
+}

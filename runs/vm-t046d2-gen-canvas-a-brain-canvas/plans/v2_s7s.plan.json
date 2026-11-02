@@ -1,0 +1,148 @@
+{
+ "id": "v2_s7s",
+ "part_id": "c06.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b46",
+   "say": "Payment में मिले salt का दूसरा उपयोग? मानिए grain देकर seller ने 2 packets लिए; आगे न चलें तो खाना बनाएगा।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "village_shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b46",
+    "",
+    0.0
+   ],
+   "goods": [
+    {
+     "icon": "tw:1f33e",
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "salt_exchange_and_cooking",
+   "kind": "action",
+   "x": 2500,
+   "y": 860,
+   "cue": [
+    "b46",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "seller",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "trader",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "grain",
+     "icon": "tw:1f33e",
+     "label": ""
+    },
+    {
+     "name": "pot",
+     "icon": "fa:solid/kitchen-set",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b46",
+      "grain"
+     ],
+     "actor": "seller",
+     "object": "grain",
+     "n": 1
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b46",
+      "देकर"
+     ],
+     "actor": "seller",
+     "from": "seller",
+     "to": "trader",
+     "object": "grain",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b46",
+      "packets"
+     ],
+     "actor": "seller",
+     "on": "seller",
+     "text": "2 packets",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b46",
+      "खाना"
+     ],
+     "actor": "seller",
+     "object": "pot",
+     "n": 1
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b46",
+    "",
+    0.0
+   ],
+   "x": 2500,
+   "y": 570,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b46",
+    "grain"
+   ],
+   "x": 2500,
+   "y": 610,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b46",
+    "खाना"
+   ],
+   "x": 2300,
+   "y": 610,
+   "zoom": 1.35,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}
