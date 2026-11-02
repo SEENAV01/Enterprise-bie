@@ -61,10 +61,6 @@ PEOPLE = re.compile(r"\b(person|people|man|men|woman|women|boy|girl|child|childr
                     r"king|queen|emperor|sultan|minister|president|leader|governor)s?\b|व्यक्ति|आदमी|औरत|लोग|चेहरा|राजा|रानी",
                     re.IGNORECASE)
 NEVER = re.compile(r"\b(map|maps|flag|flags|logo|logos|emblem|emblems|trademark|brand|border|boundary)\b|नक्शा|झंडा", re.IGNORECASE)
-# A label, a tag, a marker, a code, a sign or a number is text on screen that the blocks write; a mark (a tick, a cross, an
-# arrow) is drawn by the blocks too. The coder draws things.
-TEXT_HEADS = frozenset("label labels tag tags marker markers code codes badge badges symbol symbols sign signs dot dots counter "
-                       "counters number numbers digit digits text caption title tick ticks cross arrow arrows mark marks".split())
 LIMIT = 150                               # drawings per run, most-used things first (run c: 139 would be drawn)
 
 
@@ -172,8 +168,9 @@ def wants(need: dict) -> tuple:
     if NEVER.search(thing):
         return False, "a map, a flag, a border, a logo or an emblem is never drawn by the coder"
     from ..toolbox import icons
+    from . import visual_thinking
     head = icons._head(icons._words(thing))
-    if head in TEXT_HEADS:
+    if visual_thinking.is_text_thing(thing):       # the lexicon's text_heads: a label, a tag, an amount, a symbol, a mark
         return False, f"a {head} is text or a mark on screen, written by the blocks, not a picture"
     return True, ""
 

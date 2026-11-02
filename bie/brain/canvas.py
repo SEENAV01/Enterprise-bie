@@ -450,12 +450,39 @@ def auto_camera(els, beat_frames, beat_order, duration, min_size=0.72, margin=0.
     return keys
 
 
-def action_close_ups(keys: list, els: list) -> list:
+def _zoomed_during(keys: list, start: int, end: int, *, wide: float = 0.95) -> bool:
+    """Whether a camera (its keys with ``at`` and ``box``) is zoomed in at any time between ``start`` and ``end``."""
+    keys = sorted((k for k in keys or [] if "box" in k), key=lambda k: k["at"])
+    for i, k in enumerate(keys):
+        until = keys[i + 1]["at"] if i + 1 < len(keys) else 10 ** 9
+        if k["at"] < end and until > start and float(k["box"].get("w", 1)) < wide:
+            return True
+    return False
+
+
+def one_camera_at_a_time(keys: list, scene_keys: list | None) -> list:
+    """The block camera stays on the whole canvas while the scene camera (the plan's own) is zoomed in: two zooms together
+    pushed a node under the captions though each kept it above them (seekh -> BIE, the addendum proof's run a)."""
+    if not scene_keys:
+        return keys
+    keys = sorted((dict(k) for k in keys or []), key=lambda k: k["at"])
+    for i, k in enumerate(keys):
+        until = keys[i + 1]["at"] if i + 1 < len(keys) else 10 ** 9
+        if "box" in k and float(k["box"].get("w", 1)) < 1 and _zoomed_during(scene_keys, k["at"], until):
+            k["box"] = {"x": 0.0, "y": 0.0, "w": 1.0, "h": 1.0}
+    return keys
+
+
+def action_close_ups(keys: list, els: list, scene_keys: list | None = None) -> list:
     """The block camera moves in to each action's close-up (its box, square, with the action above the subtitle strip) and back
-    to the auto camera's frame after it (D2: "the camera moves in to the action and back out")."""
+    to the auto camera's frame after it (D2: "the camera moves in to the action and back out"). Not while the scene camera
+    (``scene_keys``, the plan's own camera) is zoomed in already: the two zooms together pushed an action under the captions
+    though each kept it above them (seekh -> BIE, the addendum proof's run a: 3 parts refused after three rounds)."""
     out = [dict(k) for k in keys]
     for e in sorted((e for e in els if e.get("close_up")), key=lambda e: e["close_up"]["at"]):
         cu = e["close_up"]
+        if scene_keys and _zoomed_during(scene_keys, cu["at"], min(cu["until"], e.get("until", 10 ** 9))):
+            continue
         size = min(1.0, max(e["w"], e["h"] / (SUBTITLE_TOP - 0.04)) + 0.04)
         x = min(max(e["x"] + e["w"] / 2 - size / 2, 0.0), 1 - size)
         y = min(max(e["y"] + e["h"] - (SUBTITLE_TOP - 0.03) * size, 0.0), 1 - size)
@@ -802,7 +829,8 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
     data = {"theme": plan.get("theme", "paper"), "elements": els}
     if plan.get("touches"):
         data["touches"] = True
-        data["cam"] = action_close_ups(auto_camera(els, tl[scene_id]["beats"], [b["beat_id"] for b in beats], duration), els)
+        data["cam"] = one_camera_at_a_time(action_close_ups(auto_camera(els, tl[scene_id]["beats"], [b["beat_id"] for b in beats],
+                                                                        duration), els, camera_keys), camera_keys)
     for e, n in zip(els, expand_pictures(expand_trees(plan.get("nodes", []), grid), grid)):
         if n.get("flow"):
             f = dict(n["flow"])

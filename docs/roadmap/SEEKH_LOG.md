@@ -1548,3 +1548,48 @@ have an icon that is a picture of them, and 200 distinct things have none.
 
 The proof (point 5) runs the general path live: canvas on v2, v4, v6 and v8 → needs.json → fetch → coder → library → canvas
 resume → renders, with mentioned vs shown, needs.json and what the coder made.
+
+## Entry 37 · the addendum proof's run a: what code can read itself, 2 November 2026
+
+**Run:** `runs/vm-t046d2-gen-canvas-a-brain-canvas/`, the canvas section on Money v2, v4, v6 and v8. Main was `3be6680f`, the
+narration was locked, v6 and v8 were picked by code (`tools/task046d2_pick_videos.py`), and nothing was added by hand. Codex
+did the work through the plan in 79 minutes, for ₹0.
+- 43 of 61 parts passed, 12 of them on the first try, in 137 rounds.
+- Mentioned things on screen: 464 of 600 (77.3 %).
+- `needs.json`: 434 rows, 415 distinct things.
+- No video spec was written, because every video had a refused part.
+
+**Taught:** of the 18 parts refused after three rounds:
+- 9 were composed processes whose fields code can read itself:
+  - a style the part has no use for ("particles", "grid", "red_limit");
+  - a meter's own `number` style, which BIE refused as a show_text style;
+  - a place word for a spot ("up", "offstage", "top");
+  - a meter with its value given as `text`, or no value at all;
+  - a move whose thing was named as `from`, or whose target was named as `spot`;
+  - an object named without its icon.
+- 3 were the two cameras zooming together: the plan's scene camera framed an action while BIE's block camera also zoomed in
+  on it. Each kept the action above the captions; together they pushed it under.
+- 2 were near-word fits: "₹ symbol" asked for an anger-symbol icon, and "measurement ruler" asked for a crown (the alias
+  "ruler").
+- The rest were the maker's own: overlaps, a focus on a missing id, a sequence not shown.
+
+**Changed in BIE** (branch `task046d2-gen-seekh`, IMPLEMENTED):
+- `saanche.settle_compose` reads all of the composed-process fields above itself; `meter_styles` and `spot_words` are
+  rulebook data. A word that names no spot, and an action with two actors where one is meant, are still refused.
+- The block camera stays on the whole canvas while the scene camera is zoomed in, and an action's close-up waits for it
+  (`canvas.one_camera_at_a_time`, `action_close_ups`).
+- `visual_thinking.lift_from_strip` moves a node out from under the captions into free cells.
+- A thing named by a text or mark head noun (lexicon `text_heads`: symbol, amount, tag, label, marker …) is shown by the words
+  on screen and never asked for as a picture. Any currency sign counts (`unicodedata` category Sc), so no single currency is
+  named in code.
+- The alias "ruler" is gone: a measuring ruler is a ruler too.
+
+| Measure (run a's own answers, read again) | main `3be6680f` | after |
+| --- | --- | --- |
+| Last answers that pass | 43 of 61 | 48 of 61 |
+| Parts refused only because two cameras zoomed together | 3 | 0 (v2_s3 now in `tests/fixtures/task046d2/`) |
+| Tests (Task 04x) | 608 | 616, all pass |
+| Earlier plans recompiled (458) | — | 0 differences |
+| Passed outputs | — | 0 problems |
+
+Next: BIE's coder on run a's needs, the drawings into the library, then the canvas resumes from run a's answers.

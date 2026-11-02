@@ -31,6 +31,7 @@ from __future__ import annotations
 
 import json
 import re
+import unicodedata
 from functools import lru_cache
 from pathlib import Path
 
@@ -911,6 +912,13 @@ def thing_pictures(thing: str, found: dict | None = None, images: dict | None = 
 MARK_THINGS = {k: dict(v, key=k, rx=re.compile(v["words"], re.IGNORECASE)) for k, v in (LEXICON.get("mark_things") or {}).items()
                if not k.startswith("_")}
 TEXT_THINGS = re.compile(LEXICON.get("text_things", r"(?!x)x"), re.IGNORECASE)
+TEXT_HEADS = frozenset(LEXICON.get("text_heads") or ())          # a thing named by these is text or a mark on screen
+
+
+def is_text_thing(thing: str) -> bool:
+    """A thing whose head noun is text or a mark ('₹ symbol', '₹100 amount', '2024 timeline marker'): shown by the words or
+    the mark on screen, never asked for as a picture (seekh -> BIE, the addendum proof's run a)."""
+    return icons._head(icons._words(thing)) in TEXT_HEADS
 GENERIC_TEXT_WORDS = re.compile(r"\b(label|tag|marker|code|badge|stamp|symbol|sign|counter|denomination|example|timeline|dot)s?\b", re.IGNORECASE)
 
 
@@ -941,12 +949,16 @@ def _shows_mark(item: dict, cls: dict) -> bool:
 
 
 def _shows_text(item: dict, thing: str) -> bool:
-    """A text thing ('₹100 label', 'number 1', '2024 marker') is shown by an element whose words carry its numbers or its words."""
+    """A text thing ('₹100 label', 'number 1', '2024 marker', '₹ symbol') is shown by an element whose words carry its numbers,
+    its signs or its words."""
     digits = re.findall(r"\d[\d,]*", thing)
+    signs = [c for c in thing if unicodedata.category(c) == "Sc" or c == "%"]     # a currency sign of any currency, a per cent
     words = [w for w in re.findall(r"[A-Za-z\u0900-\u097f]{3,}", GENERIC_TEXT_WORDS.sub(" ", thing))]
     texts = " ".join(_texts_of(item)).lower()
     if digits:
         return all(d.replace(",", "") in texts.replace(",", "") for d in digits)
+    if signs:
+        return all(c in texts for c in signs)
     return bool(words) and all(w.lower() in texts for w in words)
 
 
@@ -983,9 +995,12 @@ def coverage_rows(plan: dict, mode: str, ideas: dict | None, *, found: dict | No
             if thing not in cache:
                 cache[thing] = thing_pictures(thing, found, images, index)
             ids, fit = cache[thing]
+            text_thing = is_text_thing(thing)
+            if text_thing:
+                fit = []                              # text or a mark: never asked for as a picture
             by = [eid for eid, pics, (first, last) in spans if first <= order[bid] <= last and pics & ids]
             by += [x.get("id") for x in here if x.get("id") not in by and _draws(x, mode, thing)]
-            if not by and TEXT_THINGS.search(thing):   # a number, a label, a tag: shown by the words of an element on screen
+            if not by and (text_thing or TEXT_THINGS.search(thing)):   # a number, a label, a tag: shown by the words on screen
                 by = [x.get("id") for x in here if _shows_text(x, thing)]
             rows.append({"beat_id": bid, "thing": thing, "shown": bool(by), "by": by, "has_picture": bool(fit or by),
                          "pictures": fit[:3]})
@@ -1015,6 +1030,44 @@ def _under_the_strip(plan: dict, ids: set):
     except (canvas.PlanError, KeyError, TypeError, ValueError, IndexError):
         return None
     return {i for i in ids if any(p.startswith(f"{i} sits under") for p in canvas.subtitle_problems(scene))}
+
+
+def _boxes_meet(a, b) -> bool:
+    return a[0] < b[0] + b[2] and b[0] < a[0] + a[2] and a[1] < b[1] + b[3] and b[1] < a[1] + a[3]
+
+
+def lift_from_strip(plan: dict) -> list:
+    """Code moves a canvas node out from under the subtitle strip (seekh -> BIE, the addendum proof's run a of 2 November
+    2026: 3 parts refused after three rounds only because a node in the bottom rows went under the captions as the camera
+    moved): a node the compiled plan shows under the strip goes up one, two or three rows where those cells are free while it
+    is on screen, else it gives up its bottom row. Never when the plan does not compile; never into another node. In place;
+    returns what was done."""
+    nodes = [n for n in plan.get("nodes") or [] if n.get("cell")]
+    under = _under_the_strip(plan, {n.get("id") for n in nodes})
+    if not under:
+        return []
+    order = {b["beat_id"]: i for i, b in enumerate(plan.get("beats") or [])}
+    fixes = []
+    for node in nodes:
+        if node.get("id") not in under:
+            continue
+        span = _present(node, order) or (0, max(order.values(), default=0))
+        busy = [m["cell"] for m in nodes if m is not node and (lambda o: o and o[0] <= span[1] and span[0] <= o[1])(_present(m, order))]
+        c, r, w, h = node["cell"][:4]
+        tries = [[c, r - d, w, h] for d in (1, 2, 3) if r - d >= 0] + ([[c, r, w, h - 1]] if h > 1 else [])
+        old = list(node["cell"])
+        for cell in tries:
+            if any(_boxes_meet(cell, b) for b in busy):
+                continue
+            node["cell"] = cell
+            still = _under_the_strip(plan, {node["id"]})
+            if still == set():
+                fixes.append(f"{node['id']} moved from cells {old} to {cell}, out from under the subtitle strip")
+                break
+            node["cell"] = old
+            if still is None:
+                break
+    return fixes
 
 
 def show_missing_things(plan: dict, mode: str, ideas: dict | None, *, found: dict | None = None, images: dict | None = None) -> list:

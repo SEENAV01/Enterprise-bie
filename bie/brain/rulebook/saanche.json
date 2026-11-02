@@ -1,7 +1,7 @@
 {
  "schema": "bie.brain.saanche/1",
  "rulebook": "saanche",
- "version": "2026-11-02.1",
+ "version": "2026-11-02.2",
  "status": "IMPLEMENTED",
  "source": "Navin, 2 November 2026 (Task 046 Part D2 addendum): \"jis cheej ka jikar hai wohi cheej dikhe\"; kriya ke saanche are built from general motion parts, not one-off scenes; the actors, objects and numbers come from the beat; UPI, cheque, change and barter are compositions of the parts; a new process is composed from the parts, a missing part goes to the missing-capability log.",
  "how_it_is_used": "bie/brain/video/saanche.py reads this file: the parts are the motions the block (bie/brain/video/blocks/toolbox/saanche.tsx) knows how to draw; a recipe is a named composition of parts, step by step, with roles, objects and amounts the maker fills from the beat; template 'compose' lets the maker write the parts directly. No object is drawn unless the plan names its icon; an optional object the plan leaves out is a plain chip with the part's text, or its parts are skipped.",
@@ -35,6 +35,60 @@
    600
   ]
  },
+ "spot_words": {
+  "_": "The words a maker uses for a place on the stage, read as the named spot (seekh -> BIE, the addendum proof's run a of 2 November 2026: 'up', 'top' and 'offstage' cost parts their rounds). A word that is no spot and no actor or object is still refused.",
+  "far": [
+   "up",
+   "top",
+   "above",
+   "away",
+   "offstage",
+   "off",
+   "out",
+   "exit",
+   "back",
+   "behind",
+   "sky",
+   "far away",
+   "distance"
+  ],
+  "pile": [
+   "down",
+   "bottom",
+   "below",
+   "ground",
+   "floor",
+   "heap",
+   "stack"
+  ],
+  "center": [
+   "middle",
+   "centre",
+   "mid",
+   "front",
+   "stage"
+  ],
+  "counter": [
+   "desk",
+   "table",
+   "window"
+  ],
+  "left": [
+   "west"
+  ],
+  "right": [
+   "east"
+  ],
+  "meter": [
+   "gauge",
+   "bar",
+   "dial"
+  ]
+ },
+ "meter_styles": [
+  "bar",
+  "number"
+ ],
  "parts": {
   "hold": {
    "needs": [
@@ -832,5 +886,8 @@
   "accept": 150,
   "default": 240
  },
- "realises_note": "A relation of the dikhane ki list is realised by an action when any condition holds (and the action has at least min_parts parts): parts by name, a meter with a limit or a number style, a give with a text tag, at least n things appearing."
+ "realises_note": "A relation of the dikhane ki list is realised by an action when any condition holds (and the action has at least min_parts parts): parts by name, a meter with a limit or a number style, a give with a text tag, at least n things appearing.",
+ "changes": [
+  "2026-11-02.2 (seekh -> BIE, the addendum proof's run a): spot_words (a place word read as its spot) and meter_styles (a composed meter's own styles, bar and number, were refused as show_text styles)"
+ ]
 }
