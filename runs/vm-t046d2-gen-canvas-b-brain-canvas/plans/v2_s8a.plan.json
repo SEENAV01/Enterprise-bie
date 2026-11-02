@@ -1,0 +1,462 @@
+{
+ "id": "v2_s8a",
+ "part_id": "c06.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b50",
+   "say": "नमक कहाँ चला? Salt Ancient Rome और Africa में; cattle early pastoral societies में, यानी पशु रखने से रोज़ी कमाने वाले लोगों में। दूसरा किसी country का नाम नहीं।"
+  },
+  {
+   "beat_id": "b51",
+   "say": "हथेली के छोटे खोल गिनकर payment हो सकता है? Cowrie shells, यानी कौड़ियाँ, India, China और Africa में चलीं; खाने की चीज़ होना ज़रूरी नहीं, लोगों का स्वीकार करना ज़रूरी है।"
+  },
+  {
+   "beat_id": "b52",
+   "say": "चाय का चौकोर टुकड़ा कैसे बनेगा? Tea bricks यानी दबाई हुई चाय, बनाने वाली ईंट नहीं; Central Asia और Tibet में चली। Tobacco के सूखे पत्तों वाला उदाहरण Colonial America का है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p003_i4",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    5
+   ],
+   "cue": [
+    "b50",
+    ""
+   ],
+   "picture": {
+    "type": "table",
+    "title": "Columns",
+    "item_id": "p003-i4",
+    "columns": [
+     "Commodity",
+     "Where it was used"
+    ],
+    "rows": [
+     {
+      "cells": [
+       "Salt",
+       "Ancient Rome and Africa"
+      ],
+      "item_id": "p003-i5",
+      "cue": [
+       "b50",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Cattle",
+       "Early pastoral societies"
+      ],
+      "item_id": "p003-i6",
+      "cue": [
+       "b50",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Cowrie shells",
+       "India, China, and Africa"
+      ],
+      "item_id": "p003-i7",
+      "cue": [
+       "b51",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Tea bricks",
+       "Central Asia and Tibet"
+      ],
+      "item_id": "p003-i8",
+      "cue": [
+       "b52",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Tobacco",
+       "Colonial America"
+      ],
+      "item_id": "p003-i9",
+      "cue": [
+       "b52",
+       ""
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "salt",
+   "kind": "icon",
+   "cell": [
+    0,
+    5,
+    3,
+    3
+   ],
+   "cue": [
+    "b50",
+    "नमक"
+   ],
+   "until_cue": [
+    "b51",
+    "खोल"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f9c2",
+   "size": 32
+  },
+  {
+   "id": "africa",
+   "kind": "icon",
+   "cell": [
+    3,
+    5,
+    3,
+    3
+   ],
+   "cue": [
+    "b50",
+    "Africa"
+   ],
+   "until_cue": [
+    "b51",
+    "खोल"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f30d",
+   "size": 32
+  },
+  {
+   "id": "cattle",
+   "kind": "icon",
+   "cell": [
+    6,
+    5,
+    3,
+    3
+   ],
+   "cue": [
+    "b50",
+    "cattle"
+   ],
+   "until_cue": [
+    "b51",
+    "खोल"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f404",
+   "size": 32
+  },
+  {
+   "id": "pastoral_phrase",
+   "kind": "text",
+   "cell": [
+    9,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b50",
+    "रोज़ी"
+   ],
+   "until_cue": [
+    "b51",
+    "खोल"
+   ],
+   "text": "पशु रखने से रोज़ी",
+   "style": "tag",
+   "tone": "ink",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "shell_acceptance",
+   "kind": "action",
+   "cell": [
+    0,
+    5,
+    12,
+    3
+   ],
+   "cue": [
+    "b51",
+    "खोल"
+   ],
+   "until_cue": [
+    "b52",
+    "चाय"
+   ],
+   "tone": "ink",
+   "template": "accept",
+   "actors": [
+    {
+     "role": "who",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "thing",
+     "icon": "tw:1f41a",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [
+    {
+     "name": "show",
+     "cue": [
+      "b51",
+      "खोल"
+     ]
+    },
+    {
+     "name": "accept",
+     "cue": [
+      "b51",
+      "स्वीकार"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tea_tobacco",
+   "kind": "action",
+   "cell": [
+    0,
+    5,
+    12,
+    3
+   ],
+   "cue": [
+    "b52",
+    "चाय"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "commodities",
+     "icon": "asset:a-f8340c6d406b2ee5",
+     "label": ""
+    },
+    {
+     "name": "construction_brick",
+     "icon": "asset:a-6fd86983eefb0450",
+     "label": ""
+    },
+    {
+     "name": "tobacco",
+     "icon": "asset:a-4071d698c5ea6a52",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b52",
+      "चाय"
+     ],
+     "object": "commodities",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b52",
+      "दबाई"
+     ],
+     "on": "commodities",
+     "text": "दबाई हुई चाय",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b52",
+      "बनाने"
+     ],
+     "object": "construction_brick",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b52",
+      "नहीं;"
+     ],
+     "object": "construction_brick"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b52",
+      "Tobacco"
+     ],
+     "object": "tobacco",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b52",
+      "सूखे"
+     ],
+     "on": "tobacco",
+     "text": "Tobacco के सूखे पत्ते",
+     "style": "tag"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b50",
+    "नमक"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b51",
+    "India,"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    5,
+    12,
+    3
+   ],
+   "cue": [
+    "b51",
+    "स्वीकार"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b52",
+    "चाय"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b52",
+    "Tibet"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b52",
+    "Colonial"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b50",
+    "cattle"
+   ],
+   "ids": [
+    "book_p003_i4",
+    "cattle",
+    "pastoral_phrase"
+   ],
+   "until_cue": [
+    "b51",
+    "खोल"
+   ]
+  },
+  {
+   "cue": [
+    "b51",
+    "India,"
+   ],
+   "ids": [
+    "book_p003_i4",
+    "shell_acceptance"
+   ],
+   "until_cue": [
+    "b51",
+    "स्वीकार"
+   ]
+  },
+  {
+   "cue": [
+    "b52",
+    "Central"
+   ],
+   "ids": [
+    "book_p003_i4",
+    "tea_tobacco"
+   ],
+   "until_cue": [
+    "b52",
+    "Tobacco"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

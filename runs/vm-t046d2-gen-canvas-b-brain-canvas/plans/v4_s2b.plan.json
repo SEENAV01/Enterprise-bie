@@ -1,0 +1,607 @@
+{
+ "id": "v4_s2b",
+ "part_id": "c09.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b7",
+   "say": "यही gold-backing constraint है; gold reserves यानी वादा पूरा करने का रखा हुआ gold।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "Central bank gold रखकर notes जारी करता था और माँगने पर तय gold देता था। इसलिए नए notes को backing चाहिए थी; redemption in principle था, हर जगह unrestricted नहीं।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "Claims चुकाने की क्षमता घटे, तो भरोसा टूटे और लोग gold माँगें।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "Gold का वादा, उसे चुकाने के reserves, फिर उन्हीं से बँधा issue; 1 gram सिर्फ उदाहरण था।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "याद रखिए: issue के पीछे redemption की ज़िम्मेदारी थी।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "gold_anchor",
+   "kind": "icon",
+   "cell": [
+    1,
+    0,
+    2,
+    2
+   ],
+   "cue": [
+    "b7",
+    "gold-backing"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/coins",
+   "size": 48
+  },
+  {
+   "id": "backing_title",
+   "kind": "text",
+   "cell": [
+    4,
+    0,
+    7,
+    1
+   ],
+   "cue": [
+    "b7",
+    "constraint"
+   ],
+   "text": "gold-backing constraint",
+   "style": "title",
+   "tone": "ink",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "promise_anchor",
+   "kind": "icon",
+   "cell": [
+    4,
+    1,
+    2,
+    1
+   ],
+   "cue": [
+    "b7",
+    "वादा"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f9fe",
+   "size": 40
+  },
+  {
+   "id": "backing_link",
+   "kind": "arrow",
+   "cue": [
+    "b7",
+    "रखा"
+   ],
+   "tone": "warm",
+   "from": "gold_anchor",
+   "to": "promise_anchor",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:1fa99",
+    "count": 1,
+    "period": 2400,
+    "size": 20,
+    "cue": [
+     "b7",
+     "रखा"
+    ]
+   }
+  },
+  {
+   "id": "issue_redemption",
+   "kind": "action",
+   "cell": [
+    1,
+    2,
+    10,
+    5
+   ],
+   "cue": [
+    "b8",
+    "Central"
+   ],
+   "until_cue": [
+    "b9",
+    "Claims"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [
+    {
+     "role": "official",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "holder",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "bank",
+     "icon": "fa:solid/building-columns",
+     "label": ""
+    },
+    {
+     "name": "gold",
+     "icon": "fa:solid/coins",
+     "label": ""
+    },
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b8",
+      "Central"
+     ],
+     "actor": "official",
+     "object": "bank",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b8",
+      "रखकर"
+     ],
+     "actor": "official",
+     "object": "gold"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b8",
+      "जारी"
+     ],
+     "from": "official",
+     "to": "holder",
+     "object": "note"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b8",
+      "माँगने"
+     ],
+     "from": "holder",
+     "to": "official",
+     "object": "note"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b8",
+      "देता"
+     ],
+     "from": "official",
+     "to": "holder",
+     "object": "gold"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b8",
+      "backing"
+     ],
+     "actor": "official",
+     "object": "gold"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b8",
+      "principle"
+     ],
+     "on": "bank",
+     "text": "redemption in principle",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b8",
+      "unrestricted"
+     ],
+     "on": "bank",
+     "text": "हर जगह unrestricted नहीं",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "capacity_confidence",
+   "kind": "action",
+   "cell": [
+    1,
+    2,
+    10,
+    4
+   ],
+   "cue": [
+    "b9",
+    "Claims"
+   ],
+   "until_cue": [
+    "b10",
+    "Gold"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [
+    {
+     "role": "holder",
+     "who": "main",
+     "mood": "unsure"
+    },
+    {
+     "role": "official",
+     "who": "other",
+     "mood": "unsure"
+    }
+   ],
+   "objects": [
+    {
+     "name": "claim",
+     "icon": "tw:1f9fe",
+     "label": ""
+    },
+    {
+     "name": "capacity",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    },
+    {
+     "name": "trust",
+     "icon": "tw:1f91d",
+     "label": ""
+    },
+    {
+     "name": "gold",
+     "icon": "fa:solid/coins",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b9",
+      "Claims"
+     ],
+     "actor": "holder",
+     "object": "claim"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b9",
+      "घटे,"
+     ],
+     "to": "capacity",
+     "object": "capacity",
+     "on": "official",
+     "dir": "down",
+     "title": "चुकाने की क्षमता",
+     "reach": 0.25
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b9",
+      "टूटे"
+     ],
+     "actor": "holder",
+     "object": "trust"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b9",
+      "माँगें।"
+     ],
+     "actor": "holder",
+     "object": "gold",
+     "on": "holder",
+     "text": "gold",
+     "style": "bubble"
+    }
+   ]
+  },
+  {
+   "id": "constraint_sequence",
+   "kind": "picture",
+   "cell": [
+    1,
+    3,
+    10,
+    3
+   ],
+   "cue": [
+    "b10",
+    "वादा,"
+   ],
+   "until_cue": [
+    "b11",
+    "issue"
+   ],
+   "tone": "ink",
+   "size": 28,
+   "picture": {
+    "type": "flow",
+    "title": "",
+    "item_id": "",
+    "nodes": [
+     {
+      "cue": [
+       "b10",
+       "वादा,"
+      ],
+      "id": "n1",
+      "label": "Gold का वादा"
+     },
+     {
+      "cue": [
+       "b10",
+       "reserves,"
+      ],
+      "id": "n2",
+      "label": "चुकाने के reserves"
+     },
+     {
+      "cue": [
+       "b10",
+       "बँधा"
+      ],
+      "id": "n3",
+      "label": "उन्हीं से बँधा issue"
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "constrained_paper_notes",
+   "kind": "icon",
+   "cell": [
+    9,
+    2,
+    2,
+    1
+   ],
+   "cue": [
+    "b10",
+    "बँधा"
+   ],
+   "until_cue": [
+    "b11",
+    "issue"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "size": 40
+  },
+  {
+   "id": "gram_example",
+   "kind": "icon",
+   "cell": [
+    8,
+    6,
+    3,
+    1
+   ],
+   "cue": [
+    "b10",
+    "gram"
+   ],
+   "until_cue": [
+    "b11",
+    "issue"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "label": "1 gram",
+   "size": 28
+  },
+  {
+   "id": "final_obligation",
+   "kind": "picture",
+   "cell": [
+    2,
+    3,
+    8,
+    3
+   ],
+   "cue": [
+    "b11",
+    "issue"
+   ],
+   "tone": "accent",
+   "size": 30,
+   "picture": {
+    "type": "flow",
+    "title": "",
+    "item_id": "",
+    "nodes": [
+     {
+      "cue": [
+       "b11",
+       "issue"
+      ],
+      "id": "n1",
+      "label": "issue"
+     },
+     {
+      "cue": [
+       "b11",
+       "redemption"
+      ],
+      "id": "n2",
+      "label": "redemption की ज़िम्मेदारी"
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "auto_thing_1",
+   "kind": "icon",
+   "icon": "asset:a-4ec8476f36c8403f",
+   "cell": [
+    6,
+    1,
+    2,
+    1
+   ],
+   "cue": [
+    "b9",
+    "Claims"
+   ],
+   "until_cue": [
+    "b10",
+    ""
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b7",
+    "gold-backing"
+   ]
+  },
+  {
+   "cells": [
+    1,
+    2,
+    10,
+    5
+   ],
+   "cue": [
+    "b8",
+    "माँगने"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b8",
+    "इसलिए"
+   ]
+  },
+  {
+   "cells": [
+    1,
+    2,
+    10,
+    5
+   ],
+   "cue": [
+    "b9",
+    "क्षमता"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b10",
+    "Gold"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b8",
+    "माँगने"
+   ],
+   "ids": [
+    "issue_redemption"
+   ],
+   "until_cue": [
+    "b8",
+    "इसलिए"
+   ]
+  },
+  {
+   "cue": [
+    "b9",
+    "क्षमता"
+   ],
+   "ids": [
+    "capacity_confidence"
+   ],
+   "until_cue": [
+    "b10",
+    "Gold"
+   ]
+  },
+  {
+   "cue": [
+    "b11",
+    "redemption"
+   ],
+   "ids": [
+    "final_obligation_s1",
+    "final_obligation_s2",
+    "final_obligation_a1",
+    "gold_anchor",
+    "promise_anchor",
+    "backing_link"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

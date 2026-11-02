@@ -1,0 +1,320 @@
+{
+ "id": "v2_s8s",
+ "part_id": "c06.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b53",
+   "say": "अब illustrative bazaar में किसान को 2 metres कपड़ा चाहिए। उसके 10 kg grain, trader के 2 kg salt और कपड़े की value बराबर मानिए।"
+  },
+  {
+   "beat_id": "b54",
+   "say": "किसान अपना 10 kg grain देकर 2 kg salt लेता है। फिर पूरा salt देकर 2 metres कपड़ा लेता है; grain और salt उसके पास नहीं बचे।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "bazaar",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "बाज़ार",
+   "cue": [
+    "b53",
+    "illustrative"
+   ],
+   "goods": [
+    {
+     "icon": "tw:1f33e",
+     "label": ""
+    },
+    {
+     "icon": "tw:1f9c2",
+     "label": ""
+    },
+    {
+     "icon": "tw:1f9f5",
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "grain_for_salt",
+   "kind": "action",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b53",
+    "illustrative"
+   ],
+   "until_cue": [
+    "b54",
+    "फिर"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "farmer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "salt_trader",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "grain",
+     "icon": "tw:1f33e",
+     "label": "10 kg grain"
+    },
+    {
+     "name": "salt",
+     "icon": "tw:1f9c2",
+     "label": "2 kg salt"
+    },
+    {
+     "name": "wanted_cloth",
+     "icon": "tw:1f9f5",
+     "label": "2 metres कपड़ा"
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b53",
+      "कपड़ा"
+     ],
+     "actor": "farmer",
+     "object": "wanted_cloth",
+     "spot": "farmer",
+     "n": 1
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b53",
+      "grain,"
+     ],
+     "actor": "farmer",
+     "object": "grain"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b53",
+      "salt"
+     ],
+     "actor": "salt_trader",
+     "object": "salt"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b53",
+      "बराबर"
+     ],
+     "left": "grain",
+     "right": "salt",
+     "sign": "="
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b53",
+      "मानिए।"
+     ],
+     "left": "salt",
+     "right": "wanted_cloth",
+     "sign": "="
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b54",
+      "देकर"
+     ],
+     "from": "farmer",
+     "to": "salt_trader",
+     "object": "grain"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b54",
+      "लेता"
+     ],
+     "from": "salt_trader",
+     "to": "farmer",
+     "object": "salt"
+    }
+   ]
+  },
+  {
+   "id": "salt_for_cloth",
+   "kind": "action",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b54",
+    "फिर"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "farmer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "cloth_seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "salt",
+     "icon": "tw:1f9c2",
+     "label": ""
+    },
+    {
+     "name": "cloth",
+     "icon": "tw:1f9f5",
+     "label": "2 metres कपड़ा"
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b54",
+      "फिर"
+     ],
+     "actor": "farmer",
+     "object": "salt"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b54",
+      "पूरा"
+     ],
+     "actor": "cloth_seller",
+     "object": "cloth"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b54",
+      "metres"
+     ],
+     "from": "farmer",
+     "to": "cloth_seller",
+     "object": "salt"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b54",
+      "कपड़ा"
+     ],
+     "from": "cloth_seller",
+     "to": "farmer",
+     "object": "cloth"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b54",
+      "बचे।"
+     ],
+     "actor": "farmer",
+     "object": "cloth"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b53",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 590,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b53",
+    "grain,"
+   ],
+   "x": 2500,
+   "y": 590,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b53",
+    "बराबर"
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b54",
+    "देकर"
+   ],
+   "x": 2600,
+   "y": 650,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b54",
+    "फिर"
+   ],
+   "x": 2600,
+   "y": 590,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b54",
+    "कपड़ा"
+   ],
+   "x": 2600,
+   "y": 650,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b54",
+    "नहीं"
+   ],
+   "x": 2420,
+   "y": 590,
+   "zoom": 1.15,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

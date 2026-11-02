@@ -1,0 +1,1211 @@
+{
+ "id": "v6_s5s",
+ "part_id": "c15.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b31",
+   "say": "Jaipur की imaginary दुकान में bill कैसे जोड़ोगे? Salt ₹12.50, soap ₹7.50: 1250 + 750 = 2000 paise, यानी ₹20; ₹50 देने पर ₹30 वापस मिलते हैं।"
+  },
+  {
+   "beat_id": "b32",
+   "say": "यही decimal currency है: ₹1 के 100 paise, ताकि bill में annas का conversion न करना पड़े। Decimalization 1957 में हुई; anna system हटाने वाला Indian Coinage (Amendment) Act, 1955 था—पहले law, फिर बदलाव।"
+  },
+  {
+   "beat_id": "b33",
+   "say": "Lucknow में दुकानदार note क्यों लेगा? मान लो तुम्हारे पास ₹100 हैं; पूरा note देकर 1 rice bag लिया, अब cash नहीं बची। दुकानदार के 5 bags में 4 बचे और उसे ₹100 मिले; वह आगे payment करेगा, gold नहीं माँगेगा।"
+  },
+  {
+   "beat_id": "b34",
+   "say": "यह fiat currency है: fixed gold redemption जरूरी नहीं। Gold देने का fixed वादा हो तो authority को gold resources रखने और वादा निभाने के लिए monetary choices सीमित रखने पड़ते हैं। 1971 में dollar–gold convertibility खत्म होने से वह खास constraint हटा, inflation का risk नहीं। India की दिशा gradual थी; fiat की शुरुआत उसी साल मत मानना।"
+  },
+  {
+   "beat_id": "b35",
+   "say": "Mumbai bank में dollar orders बढ़ें तो? Imaginary ₹80 per dollar पर demand और supply $100 थीं; import orders से demand $150 हुई, supply $100 रही—shortage बना।"
+  },
+  {
+   "beat_id": "b36",
+   "say": "मान लो ₹84 पर demand और supply $120 हो जाएँ। $10 invoice अब ₹800 नहीं, ₹840 का है; same dollars के लिए ज़्यादा rupees लगे।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "sign": "दुकान",
+   "cue": [
+    "b31",
+    "Jaipur"
+   ],
+   "goods": [
+    {
+     "icon": "asset:a-8128bbb0e42246c7",
+     "label": ""
+    },
+    {
+     "icon": "fl:soap",
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "decimal_purchase",
+   "kind": "action",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b31",
+    "Jaipur"
+   ],
+   "until_cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "bill",
+     "icon": "tw:1f9fe",
+     "label": ""
+    },
+    {
+     "name": "salt",
+     "icon": "asset:a-8128bbb0e42246c7",
+     "label": ""
+    },
+    {
+     "name": "soap",
+     "icon": "fl:soap",
+     "label": ""
+    },
+    {
+     "name": "money",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "change",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b31",
+      "Jaipur"
+     ],
+     "actor": "seller",
+     "object": "bill"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b31",
+      "Salt"
+     ],
+     "actor": "seller",
+     "object": "salt"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b31",
+      "₹12.50,"
+     ],
+     "on": "bill",
+     "text": "₹12.50",
+     "style": "write"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b31",
+      "soap"
+     ],
+     "actor": "seller",
+     "object": "soap"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b31",
+      "₹7.50:"
+     ],
+     "on": "soap",
+     "text": "₹7.50",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b31",
+      "paise,"
+     ],
+     "on": "bill",
+     "text": "1250 + 750\n2000 paise",
+     "style": "write"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b31",
+      "₹20;"
+     ],
+     "on": "bill",
+     "text": "₹20",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b31",
+      "₹50"
+     ],
+     "on": "money",
+     "text": "₹50",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b31",
+      "देने"
+     ],
+     "from": "buyer",
+     "to": "seller",
+     "object": "money"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b31",
+      "पर"
+     ],
+     "from": "seller",
+     "to": "buyer",
+     "object": "salt"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b31",
+      "पर"
+     ],
+     "from": "seller",
+     "to": "buyer",
+     "object": "soap"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b31",
+      "₹30"
+     ],
+     "on": "change",
+     "text": "₹30",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b31",
+      "वापस"
+     ],
+     "from": "seller",
+     "to": "buyer",
+     "object": "change"
+    }
+   ]
+  },
+  {
+   "id": "decimal_units_history",
+   "kind": "action",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b33",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "rupee",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "paise",
+     "icon": "asset:a-b323282959b2c70e",
+     "label": ""
+    },
+    {
+     "name": "bill",
+     "icon": "tw:1f9fe",
+     "label": ""
+    },
+    {
+     "name": "anna_conversion",
+     "icon": "asset:a-d28b4d573684686f",
+     "label": ""
+    },
+    {
+     "name": "law",
+     "icon": "tw:1f4dc",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b32",
+      "decimal"
+     ],
+     "actor": "buyer",
+     "object": "rupee"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b32",
+      "₹1"
+     ],
+     "on": "rupee",
+     "text": "₹1",
+     "style": "tag"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b32",
+      "paise,"
+     ],
+     "left": "rupee",
+     "right": "paise",
+     "sign": "=",
+     "left_text": "₹1",
+     "right_text": "100 paise"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b32",
+      "annas"
+     ],
+     "object": "anna_conversion",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b32",
+      "conversion"
+     ],
+     "from": "paise",
+     "to": "bill",
+     "object": "paise",
+     "into": "bill"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b32",
+      "1957"
+     ],
+     "on": "rupee",
+     "text": "Decimalization\n1957",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b32",
+      "Act,"
+     ],
+     "object": "law",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b32",
+      "1955"
+     ],
+     "on": "law",
+     "text": "Act, 1955",
+     "style": "write"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b32",
+      "पहले"
+     ],
+     "from": "law",
+     "to": "rupee",
+     "object": "law",
+     "spot": "left",
+     "back": true
+    }
+   ]
+  },
+  {
+   "id": "fiat_purchase",
+   "kind": "action",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b33",
+    "Lucknow"
+   ],
+   "until_cue": [
+    "b34",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "rice_stock",
+     "icon": "asset:a-f626fc073f0fcd8b",
+     "label": ""
+    },
+    {
+     "name": "rice_bag",
+     "icon": "asset:a-f626fc073f0fcd8b",
+     "label": ""
+    },
+    {
+     "name": "recipient",
+     "icon": "fa:solid/user-check",
+     "label": ""
+    },
+    {
+     "name": "gold",
+     "icon": "fa:solid/coins",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b33",
+      "Lucknow"
+     ],
+     "actor": "buyer",
+     "object": "note"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b33",
+      "Lucknow"
+     ],
+     "object": "rice_stock",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b33",
+      "₹100"
+     ],
+     "on": "note",
+     "text": "₹100",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b33",
+      "देकर"
+     ],
+     "from": "buyer",
+     "to": "seller",
+     "object": "note"
+    },
+    {
+     "part": "transform",
+     "cue": [
+      "b33",
+      "1"
+     ],
+     "object": "rice_stock",
+     "into": "rice_bag",
+     "n": 1
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b33",
+      "लिया,"
+     ],
+     "from": "seller",
+     "to": "buyer",
+     "object": "rice_bag",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b33",
+      "5"
+     ],
+     "on": "rice_stock",
+     "text": "5 bags",
+     "style": "tag"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b33",
+      "4"
+     ],
+     "object": "rice_stock",
+     "on": "rice_stock",
+     "text": "4 bags",
+     "dir": "down",
+     "n": 4,
+     "to": "4 bags"
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b33",
+      "मिले;"
+     ],
+     "actor": "seller",
+     "object": "note"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b33",
+      "payment"
+     ],
+     "from": "seller",
+     "to": "recipient",
+     "object": "note"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b33",
+      "नहीं"
+     ],
+     "actor": "seller",
+     "object": "gold"
+    }
+   ]
+  },
+  {
+   "id": "gold_constraint",
+   "kind": "action",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b34",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b35",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "authority",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "promise",
+     "icon": "tw:1f91d",
+     "label": ""
+    },
+    {
+     "name": "gold",
+     "icon": "fa:solid/coins",
+     "label": ""
+    },
+    {
+     "name": "controls",
+     "icon": "asset:a-cf2bb8f448d2b608",
+     "label": ""
+    },
+    {
+     "name": "warning",
+     "icon": "asset:a-b45be1719bb35126",
+     "label": ""
+    },
+    {
+     "name": "dollar",
+     "icon": "fa:solid/dollar-sign",
+     "label": ""
+    },
+    {
+     "name": "history",
+     "icon": "tw:1f4dc",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b34",
+      "fiat"
+     ],
+     "actor": "authority",
+     "object": "note"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b34",
+      "वादा"
+     ],
+     "object": "promise",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b34",
+      "resources"
+     ],
+     "actor": "authority",
+     "object": "gold"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b34",
+      "monetary"
+     ],
+     "object": "controls",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b34",
+      "सीमित"
+     ],
+     "object": "note",
+     "on": "promise",
+     "text": "monetary choices",
+     "to": "monetary choices"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b34",
+      "1971"
+     ],
+     "on": "history",
+     "text": "1971",
+     "style": "write"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b34",
+      "खत्म"
+     ],
+     "actor": "authority",
+     "object": "promise",
+     "on": "dollar"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b34",
+      "हटा,"
+     ],
+     "from": "promise",
+     "to": "authority",
+     "object": "dollar"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b34",
+      "inflation"
+     ],
+     "object": "warning",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b34",
+      "risk"
+     ],
+     "on": "note",
+     "text": "inflation का risk",
+     "style": "tag"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b34",
+      "gradual"
+     ],
+     "from": "gold",
+     "to": "note",
+     "object": "note"
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "dollar_shortage",
+   "kind": "action",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b35",
+    "Mumbai"
+   ],
+   "until_cue": [
+    "b36",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "bank",
+     "icon": "tw:1f3e6",
+     "label": ""
+    },
+    {
+     "name": "demand",
+     "icon": "fa:solid/dollar-sign",
+     "label": ""
+    },
+    {
+     "name": "supply",
+     "icon": "fa:solid/dollar-sign",
+     "label": ""
+    },
+    {
+     "name": "orders",
+     "icon": "fa:solid/file-invoice-dollar",
+     "label": ""
+    },
+    {
+     "name": "rate",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b35",
+      "Mumbai"
+     ],
+     "object": "bank",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b35",
+      "₹80"
+     ],
+     "on": "rate",
+     "text": "₹80",
+     "style": "tag"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b35",
+      "$100"
+     ],
+     "left": "demand",
+     "right": "supply",
+     "sign": "=",
+     "left_text": "demand $100",
+     "right_text": "supply $100"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b35",
+      "orders"
+     ],
+     "from": "buyer",
+     "to": "demand",
+     "object": "orders",
+     "into": "demand"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b35",
+      "$150"
+     ],
+     "object": "demand",
+     "on": "demand",
+     "text": "$150",
+     "dir": "up",
+     "to": "$150"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b35",
+      "shortage"
+     ],
+     "left": "demand",
+     "right": "supply",
+     "sign": ">",
+     "left_text": "demand $150",
+     "right_text": "supply $100"
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "new_rate_invoice",
+   "kind": "action",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b36",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "rate",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": ""
+    },
+    {
+     "name": "demand",
+     "icon": "fa:solid/dollar-sign",
+     "label": ""
+    },
+    {
+     "name": "supply",
+     "icon": "fa:solid/dollar-sign",
+     "label": ""
+    },
+    {
+     "name": "invoice",
+     "icon": "fa:solid/file-invoice-dollar",
+     "label": ""
+    },
+    {
+     "name": "payment",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "meter",
+     "cue": [
+      "b36",
+      "₹84"
+     ],
+     "object": "rate",
+     "on": "rate",
+     "text": "₹84",
+     "dir": "up",
+     "to": "₹84"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b36",
+      "$120"
+     ],
+     "left": "demand",
+     "right": "supply",
+     "sign": "=",
+     "left_text": "demand $120",
+     "right_text": "supply $120"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b36",
+      "invoice"
+     ],
+     "actor": "buyer",
+     "object": "invoice"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b36",
+      "invoice"
+     ],
+     "on": "invoice",
+     "text": "$10",
+     "style": "write"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b36",
+      "₹800"
+     ],
+     "on": "payment",
+     "text": "₹800",
+     "style": "tag"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b36",
+      "₹840"
+     ],
+     "object": "payment",
+     "on": "payment",
+     "text": "₹840",
+     "dir": "up",
+     "to": "₹840"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b36",
+      "ज़्यादा"
+     ],
+     "from": "buyer",
+     "to": "invoice",
+     "object": "payment"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b31",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 590,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b31",
+    "soap"
+   ],
+   "x": 2600,
+   "y": 620,
+   "zoom": 1.25,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b31",
+    "देने"
+   ],
+   "x": 2600,
+   "y": 650,
+   "zoom": 1.35,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b32",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 570,
+   "zoom": 1.15,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b32",
+    "1957"
+   ],
+   "x": 2600,
+   "y": 570,
+   "zoom": 1.3,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b32",
+    "पहले"
+   ],
+   "x": 2600,
+   "y": 560,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b33",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 600,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b33",
+    "देकर"
+   ],
+   "x": 2600,
+   "y": 650,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b33",
+    "5"
+   ],
+   "x": 2650,
+   "y": 590,
+   "zoom": 1.05,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b33",
+    "payment"
+   ],
+   "x": 2600,
+   "y": 610,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b34",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 570,
+   "zoom": 1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b34",
+    "resources"
+   ],
+   "x": 2600,
+   "y": 600,
+   "zoom": 1.2,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b34",
+    "सीमित"
+   ],
+   "x": 2600,
+   "y": 570,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b34",
+    "1971"
+   ],
+   "x": 2600,
+   "y": 570,
+   "zoom": 1.1,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b34",
+    "risk"
+   ],
+   "x": 2600,
+   "y": 600,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b34",
+    "gradual"
+   ],
+   "x": 2600,
+   "y": 570,
+   "zoom": 1.05,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b35",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 570,
+   "zoom": 1.05,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b35",
+    "$100"
+   ],
+   "x": 2600,
+   "y": 600,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b35",
+    "$150"
+   ],
+   "x": 2600,
+   "y": 580,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b36",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 580,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b36",
+    "invoice"
+   ],
+   "x": 2600,
+   "y": 620,
+   "zoom": 1.35,
+   "frames": 36
+  },
+  {
+   "cue": [
+    "b36",
+    "ज़्यादा"
+   ],
+   "x": 2600,
+   "y": 600,
+   "zoom": 1.15,
+   "frames": 36
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

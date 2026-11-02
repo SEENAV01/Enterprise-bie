@@ -1,0 +1,915 @@
+{
+ "id": "v6_s9",
+ "part_id": "c16.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b55",
+   "say": "Banks का आपसी payment और तुम्हारी shopping एक segment हैं? 2022 में wholesale और retail pilots अलग थे; pilot यानी limited trial, ताकि technology और इस्तेमाल जाँच सकें।"
+  },
+  {
+   "beat_id": "b56",
+   "say": "e₹-W wholesale interbank settlements, यानी banks के आपसी dues चुकाने के लिए है। October 2022 के announcement context और actual launch को अलग रखो: official start 1 November 2022 है। W institutional segment बताता है, discount नहीं।"
+  },
+  {
+   "beat_id": "b57",
+   "say": "दुकान वाली payment किसकी है? December 2022 का e₹-R retail pilot public के लिए था—यानी तुम्हारी sugar खरीद जैसी payment। RBI ने participating banks, merchants और users धीरे-धीरे बढ़ाए।"
+  },
+  {
+   "beat_id": "b58",
+   "say": "बदलाव दो use cases की testing है: W banks के settlement का, R public का। दोनों में e electronic form, ₹ rupee और आखिरी letter segment बताता है।"
+  },
+  {
+   "beat_id": "b59",
+   "say": "Testing की सीख से participating banks, merchants और users बढ़ते हैं; gradual expansion का मतलब हर दुकान पर availability नहीं है।"
+  },
+  {
+   "beat_id": "b60",
+   "say": "क्रम हुआ wholesale official launch 1 November 2022, retail December 2022, फिर expansion। Exam में W को banks, R को public से जोड़ो।"
+  },
+  {
+   "beat_id": "b61",
+   "say": "पूरी यात्रा में material, issuer, subdivision, external price और payment form अलग रखो। तभी silver coin, decimal rupee, fiat, managed float और Digital Rupee आपस में नहीं उलझेंगे।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "bank_trial",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    5,
+    3
+   ],
+   "cue": [
+    "b55",
+    "Banks"
+   ],
+   "until_cue": [
+    "b56",
+    "e₹-W"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "fill": "band",
+   "align": "center",
+   "icon": "fl:bank",
+   "size": 32
+  },
+  {
+   "id": "shopping_trial",
+   "kind": "icon",
+   "cell": [
+    7,
+    3,
+    5,
+    3
+   ],
+   "cue": [
+    "b55",
+    "shopping"
+   ],
+   "until_cue": [
+    "b56",
+    "e₹-W"
+   ],
+   "style": "box",
+   "tone": "warm",
+   "fill": "note",
+   "align": "center",
+   "icon": "fl:shopping-bags",
+   "size": 32
+  },
+  {
+   "id": "trial_anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b55",
+    "limited"
+   ],
+   "until_cue": [
+    "b61",
+    "material"
+   ],
+   "text": "Pilot यानी limited trial",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "trial_focus",
+   "kind": "highlight",
+   "cue": [
+    "b55",
+    "जाँच"
+   ],
+   "until_cue": [
+    "b56",
+    "e₹-W"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "bank_trial"
+  },
+  {
+   "id": "wholesale",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    10,
+    4
+   ],
+   "cue": [
+    "b56",
+    "e₹-W"
+   ],
+   "until_cue": [
+    "b57",
+    "दुकान"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "bank_a",
+     "icon": "fl:bank",
+     "label": ""
+    },
+    {
+     "name": "bank_b",
+     "icon": "fl:bank",
+     "label": ""
+    },
+    {
+     "name": "dues",
+     "icon": "tw:1f4d2",
+     "label": ""
+    },
+    {
+     "name": "payment",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b56",
+      "e₹-W"
+     ],
+     "object": "bank_a",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b56",
+      "interbank"
+     ],
+     "object": "bank_b",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b56",
+      "dues"
+     ],
+     "object": "dues",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b56",
+      "चुकाने"
+     ],
+     "from": "bank_a",
+     "to": "bank_b",
+     "object": "payment"
+    }
+   ]
+  },
+  {
+   "id": "chronology",
+   "kind": "picture",
+   "cell": [
+    0,
+    1,
+    12,
+    2
+   ],
+   "cue": [
+    "b56",
+    "October"
+   ],
+   "until_cue": [
+    "b61",
+    "material"
+   ],
+   "tone": "accent",
+   "size": 24,
+   "picture": {
+    "type": "timeline",
+    "title": "",
+    "item_id": "",
+    "events": [
+     {
+      "cue": [
+       "b56",
+       "announcement"
+      ],
+      "name": "Announcement context",
+      "icon": "tw:1f4dc",
+      "numbered": false,
+      "when": "October 2022"
+     },
+     {
+      "cue": [
+       "b56",
+       "1"
+      ],
+      "name": "Official start",
+      "icon": "fl:bank",
+      "numbered": false,
+      "when": "1 November 2022"
+     },
+     {
+      "cue": [
+       "b57",
+       "December"
+      ],
+      "name": "Retail pilot",
+      "icon": "fl:shopping-bags",
+      "numbered": false,
+      "when": "December 2022"
+     },
+     {
+      "cue": [
+       "b60",
+       "expansion।"
+      ],
+      "name": "Expansion",
+      "icon": "fa:solid/users-between-lines",
+      "numbered": false,
+      "when": ""
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "discount",
+   "kind": "icon",
+   "cell": [
+    10,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b56",
+    "discount"
+   ],
+   "until_cue": [
+    "b57",
+    "दुकान"
+   ],
+   "tone": "muted",
+   "icon": "fa:solid/tag"
+  },
+  {
+   "id": "not_discount",
+   "kind": "mark",
+   "cue": [
+    "b56",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b57",
+    "दुकान"
+   ],
+   "tone": "danger",
+   "target": "discount",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "retail",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b57",
+    "दुकान"
+   ],
+   "until_cue": [
+    "b58",
+    "दो"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "payment",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": ""
+    },
+    {
+     "name": "bank",
+     "icon": "fl:bank",
+     "label": ""
+    },
+    {
+     "name": "participants",
+     "icon": "fa:solid/users-between-lines",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b57",
+      "दुकान"
+     ],
+     "actor": "buyer",
+     "object": "payment"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b57",
+      "e₹-R"
+     ],
+     "on": "payment",
+     "text": "e₹-R retail pilot",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b57",
+      "payment।"
+     ],
+     "from": "buyer",
+     "to": "seller",
+     "object": "payment"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b57",
+      "banks,"
+     ],
+     "object": "bank",
+     "spot": "top",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b57",
+      "बढ़ाए।"
+     ],
+     "object": "participants",
+     "spot": "center",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "notation",
+   "kind": "picture",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b58",
+    "दो"
+   ],
+   "until_cue": [
+    "b59",
+    "Testing"
+   ],
+   "tone": "accent",
+   "size": 28,
+   "picture": {
+    "type": "gallery",
+    "title": "",
+    "item_id": "",
+    "panels": [
+     {
+      "cue": [
+       "b58",
+       "W"
+      ],
+      "name": "W banks के settlement का",
+      "icon": "fl:bank",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b58",
+       "R"
+      ],
+      "name": "R public का",
+      "icon": "fa:solid/users-between-lines",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b58",
+       "electronic"
+      ],
+      "name": "e electronic form",
+      "icon": "fa:solid/display",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b58",
+       "rupee"
+      ],
+      "name": "₹ rupee",
+      "icon": "fa:solid/indian-rupee-sign",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b58",
+       "segment"
+      ],
+      "name": "आखिरी letter segment बताता है",
+      "icon": "tw:1f4d2",
+      "numbered": false
+     }
+    ],
+    "arrows": false
+   }
+  },
+  {
+   "id": "expansion",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b59",
+    "Testing"
+   ],
+   "until_cue": [
+    "b60",
+    "क्रम"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "bank",
+     "icon": "fl:bank",
+     "label": ""
+    },
+    {
+     "name": "users",
+     "icon": "fa:solid/users-between-lines",
+     "label": ""
+    },
+    {
+     "name": "availability",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b59",
+      "Testing"
+     ],
+     "object": "bank",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b59",
+      "बढ़ते"
+     ],
+     "object": "users",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b59",
+      "availability"
+     ],
+     "object": "availability",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b59",
+      "नहीं"
+     ],
+     "object": "availability"
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "recall",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b60",
+    "क्रम"
+   ],
+   "until_cue": [
+    "b61",
+    "material"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "bank",
+     "icon": "fl:bank",
+     "label": ""
+    },
+    {
+     "name": "public",
+     "icon": "fa:solid/users-between-lines",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b60",
+      "क्रम"
+     ],
+     "object": "bank",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b60",
+      "retail"
+     ],
+     "object": "public",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b60",
+      "banks,"
+     ],
+     "on": "bank",
+     "text": "W को banks से जोड़ो",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b60",
+      "public"
+     ],
+     "on": "public",
+     "text": "R को public से जोड़ो",
+     "style": "tag"
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "dimensions",
+   "kind": "picture",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b61",
+    "material"
+   ],
+   "tone": "ink",
+   "size": 28,
+   "picture": {
+    "type": "gallery",
+    "title": "",
+    "item_id": "",
+    "panels": [
+     {
+      "cue": [
+       "b61",
+       "material,"
+      ],
+      "name": "Material अलग रखो",
+      "icon": "tw:1fa99",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b61",
+       "issuer,"
+      ],
+      "name": "Issuer अलग रखो",
+      "icon": "fl:bank",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b61",
+       "subdivision,"
+      ],
+      "name": "Subdivision अलग रखो",
+      "icon": "fa:solid/indian-rupee-sign",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b61",
+       "external"
+      ],
+      "name": "External price अलग रखो",
+      "icon": "tw:1f4c8",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b61",
+       "payment"
+      ],
+      "name": "Payment form अलग रखो",
+      "icon": "fa:solid/display",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b61",
+       "silver"
+      ],
+      "name": "Silver coin",
+      "icon": "tw:1fa99",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b61",
+       "decimal"
+      ],
+      "name": "Decimal rupee",
+      "icon": "fa:solid/indian-rupee-sign",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b61",
+       "fiat,"
+      ],
+      "name": "Fiat",
+      "icon": "fa:solid/money-bill-1",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b61",
+       "managed"
+      ],
+      "name": "Managed float",
+      "icon": "tw:1f4c8",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b61",
+       "Digital"
+      ],
+      "name": "Digital Rupee",
+      "icon": "fa:solid/display",
+      "numbered": false
+     }
+    ],
+    "arrows": false
+   }
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b55",
+    "Banks"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    10,
+    4
+   ],
+   "cue": [
+    "b56",
+    "dues"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b56",
+    "October"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b57",
+    "sugar"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b57",
+    "RBI"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b60",
+    "क्रम"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b61",
+    "material,"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b56",
+    "official"
+   ],
+   "ids": [
+    "chronology_y1",
+    "chronology_e1",
+    "chronology_y2",
+    "chronology_e2",
+    "chronology_y3",
+    "chronology_e3",
+    "chronology_y4",
+    "chronology_e4",
+    "chronology_a1",
+    "chronology_a2",
+    "chronology_a3"
+   ],
+   "until_cue": [
+    "b56",
+    "W"
+   ]
+  },
+  {
+   "cue": [
+    "b58",
+    "electronic"
+   ],
+   "ids": [
+    "notation_p1",
+    "notation_p2",
+    "notation_p3",
+    "notation_p4",
+    "notation_p5"
+   ],
+   "until_cue": [
+    "b59",
+    "Testing"
+   ]
+  },
+  {
+   "cue": [
+    "b60",
+    "क्रम"
+   ],
+   "ids": [
+    "chronology_y1",
+    "chronology_e1",
+    "chronology_y2",
+    "chronology_e2",
+    "chronology_y3",
+    "chronology_e3",
+    "chronology_y4",
+    "chronology_e4",
+    "chronology_a1",
+    "chronology_a2",
+    "chronology_a3"
+   ],
+   "until_cue": [
+    "b60",
+    "Exam"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

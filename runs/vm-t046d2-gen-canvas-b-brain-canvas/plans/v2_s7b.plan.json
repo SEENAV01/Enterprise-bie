@@ -1,0 +1,356 @@
+{
+ "id": "v2_s7b",
+ "part_id": "c06.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b47",
+   "say": "यह commodity money है: money बनी चीज़ में intrinsic value होती है, यानी monetary use के बाहर भी कीमत, जैसे kitchen में salt।"
+  },
+  {
+   "beat_id": "b48",
+   "say": "Useful होना काफी नहीं, payment में चलना चाहिए; purchasing power अकेली note को commodity money नहीं बनाती।"
+  },
+  {
+   "beat_id": "b49",
+   "say": "Commodity money payment के बाहर भी उपयोगी है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b47",
+    "commodity"
+   ],
+   "text": "Commodity money",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 36
+  },
+  {
+   "id": "money_salt",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    4,
+    3
+   ],
+   "cue": [
+    "b47",
+    "intrinsic"
+   ],
+   "until_cue": [
+    "b48",
+    "Useful"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f9c2",
+   "label": "Money बनी चीज़"
+  },
+  {
+   "id": "outside_salt",
+   "kind": "icon",
+   "cell": [
+    7,
+    2,
+    4,
+    3
+   ],
+   "cue": [
+    "b47",
+    "बाहर"
+   ],
+   "until_cue": [
+    "b48",
+    "Useful"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1f9c2",
+   "label": "Monetary use के बाहर भी कीमत"
+  },
+  {
+   "id": "kitchen",
+   "kind": "icon",
+   "cell": [
+    8,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b47",
+    "kitchen"
+   ],
+   "until_cue": [
+    "b48",
+    "Useful"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/kitchen-set",
+   "label": "Kitchen में salt"
+  },
+  {
+   "id": "classification_test",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b48",
+    "Useful"
+   ],
+   "until_cue": [
+    "b49",
+    "Commodity"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "commodity",
+     "icon": "tw:1f9c2",
+     "label": ""
+    },
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b48",
+      "Useful"
+     ],
+     "object": "commodity",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b48",
+      "नहीं,"
+     ],
+     "on": "commodity",
+     "text": "Useful होना काफी नहीं",
+     "style": "tag"
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b48",
+      "चाहिए;"
+     ],
+     "object": "commodity",
+     "text": "Payment में चलना चाहिए"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b48",
+      "note"
+     ],
+     "object": "note",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b48",
+      "commodity"
+     ],
+     "on": "note",
+     "text": "Commodity money",
+     "style": "tag"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b48",
+      "नहीं"
+     ],
+     "object": "note",
+     "text": "Commodity money नहीं"
+    }
+   ]
+  },
+  {
+   "id": "final_comparison",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b49",
+    "Commodity"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "payment_salt",
+     "icon": "tw:1f9c2",
+     "label": ""
+    },
+    {
+     "name": "useful_salt",
+     "icon": "tw:1f9c2",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b49",
+      "Commodity"
+     ],
+     "object": "payment_salt",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b49",
+      "payment"
+     ],
+     "on": "payment_salt",
+     "text": "Payment",
+     "style": "tag"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b49",
+      "बाहर"
+     ],
+     "left": "payment_salt",
+     "right": "useful_salt"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b49",
+      "उपयोगी"
+     ],
+     "on": "useful_salt",
+     "text": "Payment के बाहर भी उपयोगी",
+     "style": "tag"
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "auto_thing_1",
+   "kind": "icon",
+   "icon": "asset:a-4a9289d82ce9814f",
+   "cell": [
+    0,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b48",
+    "Useful"
+   ],
+   "until_cue": [
+    "b49",
+    ""
+   ]
+  },
+  {
+   "id": "auto_thing_2",
+   "kind": "icon",
+   "icon": "asset:a-2577ef036060700c",
+   "cell": [
+    2,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b48",
+    "payment"
+   ],
+   "until_cue": [
+    "b49",
+    ""
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b47",
+    "commodity"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b48",
+    "Useful"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b49",
+    "Commodity"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

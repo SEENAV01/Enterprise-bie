@@ -1,0 +1,239 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v4_s6b-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.3+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3",
+ "rulebook_digest": "8806c6ee4a7b0de68af6d616d63f489dcda85e158cf4d213d81d43562bb5b1fc",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "4d9aaa89f91dbc7f1db340ff87ebf2e0efb240dd1228cfb6d757fc633ab444d2",
+ "card": null,
+ "prefix_sha256": "dc1a955df1bc5e15057ef23e14f7213056de14391a492f39021cf1e7110cf4a8",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses) (saanche: refuse)\n- accept: a tick on the thing accepted (saanche: accept)\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line) (saanche: coin_count)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word (saanche: cheque)\n- count: a counted stack or crowd whose number is the narration's number (saanche: count_stack, coin_count)\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline (saanche: hand_over, pay_change, upi, card_tap, cheque, barter_swap)\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number (saanche: pay_change, upi, card_tap, cheque)\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one (saanche: barter_swap)\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha (saanche: pay_change, cheque)\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label (saanche: cheque, hand_over)\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns THIS beat names or implies, as plain English or Hindi words a picture can show:\n  exactly the beat's own things, never a thing from an example, a card or another part (Navin, 2 November 2026: \"jis cheej ka\n  jikar hai wohi cheej dikhe\"). Every thing you list is a promise: it must appear on screen in this beat. A real person is never\n  drawn (card rule 8): name the role or the object, not the person.\n- shows: what is seen, in at most 8 words, as a picture description of this beat's own things and what happens to\n  them. Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object of this beat that an icon cannot show and a photograph or museum image can, as search words; \"\"\n  when an icon is enough. Never a person's portrait (card rule 8).\n- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: \"process show nahi ho rahi hai\"),\n  the recipe that shows it, or \"compose\" when no recipe fits but the motion parts do (the layout step writes the parts); \"none\"\n  when the beat tells no process; \"other\" only when a motion part BIE lacks is needed (template_note names it: it goes to the\n  missing-capability log). The actors, things and numbers always come from this beat. The recipes:\n- hand_over: one person gives a thing to another (steps give, take; actors giver, taker; objects thing; parts give, hold)\n- pay_change: the buyer hands over the payment, takes the goods and gets the difference back (each amount travels as a tag on what carries it) (steps pay, goods, change; actors buyer, seller; objects goods, money (optional), change_money (optional); amounts paid, change, price (optional); parts appear, give, hold, move, show_text)\n- barter_swap: two people swap their things; at 'ask' each wonders whether they want the other's thing (steps offer, ask, swap; actors a, b; objects a_thing, b_thing; parts give, hold, show_text)\n- upi: the buyer's device moves to the seller's sign and back; the buyer's device shows the amount paid, the seller's shows it received (steps scan, paid, received; actors buyer, seller; objects device (optional), sign (optional), seller_device (optional); amounts amount; parts appear, hold, move, show_text)\n- card_tap: a card moves to the seller's machine and back; the machine shows the amount approved (steps tap, approved; actors buyer, seller; objects card (optional), machine (optional); amounts amount; parts appear, hold, move, show_text)\n- cheque: the amount is written on the instrument, it moves into the place that pays, and the two balances change (payer down, payee up) (steps write, hand, balances; actors payer, payee; objects cheque (optional), place (optional); amounts amount, payer_before (optional), payer_after (optional), payee_before (optional), payee_after (optional); parts appear, hold, meter, move, show_text)\n- coin_count: things drop onto a pile while a meter rises; at 'limit' the meter stops at its red line and one more is refused (steps count, limit; objects coin (optional); amounts each, limit; parts appear, meter, refuse)\n- refuse: the person looks at the thing, shakes the head, and a cross lands on the thing (steps show, refuse; actors who; objects thing; parts appear, refuse)\n- accept: the person looks at the thing, nods, and a tick lands on the thing (steps show, accept; actors who; objects thing; parts accept, appear)\n- count_stack: n things appear one by one as they are said (steps count; objects thing; amounts n; parts appear)\n- compose: a process no recipe has, written as its parts in order (parts [{part, cue, ...fields}]); a part BIE lacks: template other in the dikhane ki list, with a note (it goes to the missing-capability log)\n  The motion parts every process is made of:\n- hold (actor, object, reach?): a person holds a thing in the front hand (reach 0..1 lifts it towards the other)\n- give (from, to, object, text?): a thing travels from one person's hand to the other's (give and take), with an optional tag of text on it\n- move (object, to, back?, into?, text?): a thing moves along a path to a spot, a person or another thing; back returns it; into lets it go into the target\n- transform (object, into): a thing turns into another thing where it is (A → B)\n- show_text (on, text, style?, inside?): a screen, sign, tag or thought bubble on a person or thing shows a short text (style: tag, sign, screen, ok, bubble, write)\n- meter (to, from?, limit?, style?, title?, dir?, on?, end?): a counter or meter changes: a bar fills to its limit (style bar), or a number changes from one value to another with an up or down arrow (style number)\n- appear (object, n?, spot?, layout?, end?): things appear one by one (n of them in a grid, or dropping onto a pile until a later step)\n- refuse (object, actor?): a person shakes the head and a cross lands on the thing\n- accept (object, actor?): a person nods and a tick lands on the thing\n- compare (left, right, sign?, left_text?, right_text?): two things side by side with a sign between them (=, ≠, ?, vs, <, >)\n- template_note: for \"other\" the process in a few words; for \"none\" on a beat that names a process word, why no saancha.\npicture_type: the one picture this part needs most, from timeline, gallery (a row of icon cards), table, flow, tree, chart, map or things (the things themselves with the relation's mark, arrow, meter or scale); the card part's type is \"definition\". picture_note: one line on why.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c11.1 (5 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v4_s6b\", \"part_id\": \"c11.1\", \"card_type\": \"definition\", \"story\": false}, \"beats\": [{\"beat_id\": \"b35\", \"say\": \"Legal tender government से officially recognised money है, जो उसकी territory में debts और transactions चुकाता है। Circulation commemorative coins याद में बने, लेकिन रोज़ ordinary coins जैसे इस्तेमाल होने वाले coins हैं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b36\", \"say\": \"Unlimited Legal Tender यानी genuine, valid notes जोड़ते जाएँ, tender की कुल रकम की ceiling नहीं आती। ₹10, ₹20, ₹50, ₹100, ₹200, ₹500 notes का यह status Reserve Bank of India Act, 1934 से जुड़ा है।\", \"relation_guess\": \"place\", \"template_guess\": \"coin_count\"}, {\"beat_id\": \"b37\", \"say\": \"Limited Legal Tender में तय amount तक लेना ज़रूरी, आगे मर्ज़ी है; coins के लिए Coinage Act, 2011 है। यानी बड़ा coin ढेर लेने की मजबूरी limit पर रुकती है।\", \"relation_guess\": \"limit\", \"template_guess\": \"coin_count\"}, {\"beat_id\": \"b38\", \"say\": \"Unlimited हर cash transaction की छूट नहीं। खास design circulation साबित नहीं करता; collector set अलग है। Valid coins की limit पार करना status खोना नहीं।\", \"relation_guess\": \"place\", \"template_guess\": \"coin_count\"}, {\"beat_id\": \"b39\", \"say\": \"Recognition के बाद अगला सवाल denomination और total limit है: notes की ceiling नहीं, coins की तय है।\", \"relation_guess\": \"limit\", \"template_guess\": \"coin_count\"}], \"items\": [{\"item_id\": \"p004-i22\", \"content_type\": \"definition\", \"content\": \"Legal tender is a form of money that a government officially recognises as acceptable for settling debts and transactions within its territory.\"}, {\"item_id\": \"p004-i27\", \"content_type\": \"definition\", \"content\": \"Circulation commemorative coins: Released into circulation and usable like ordinary coins.\"}, {\"item_id\": \"p005-i5\", \"content_type\": \"definition\", \"content\": \"Unlimited Legal Tender:\\nMust be accepted for any amount (subject to the note being genuine and valid).\\nBanknotes are unlimited legal tender in India.\\n₹10, ₹20, ₹50, ₹100, ₹200, ₹500 notes.\\nReserve Bank of India Act, 1934\"}, {\"item_id\": \"p005-i6\", \"content_type\": \"definition\", \"content\": \"Limited Legal Tender:\\nMust be accepted only up to a legally prescribed limit; beyond that, acceptance is voluntary.\\nCoinage Act, 2011\"}], \"book_pictures\": []}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 0,
+   "started_at": 1793590187.4502416,
+   "mode": "resume",
+   "notes": {
+    "about": "Legal tender recognition leads into the distinction between unlimited banknote tender and limited coin tender. Visuals separate compulsory acceptance limits from validity and circulation status.",
+    "key_questions": [
+     "What does official recognition mean within a government's territory?",
+     "How do unlimited banknote tender and limited coin tender differ?",
+     "Why do design, circulation, validity and acceptance limits need separate treatment?"
+    ],
+    "decisions": [
+     {
+      "decision": "Show no numerical coin limit.",
+      "reason": "These beats name no prescribed amount."
+     },
+     {
+      "decision": "Beyond the coin limit, show choice rather than automatic refusal.",
+      "reason": "Acceptance becomes voluntary; coins do not become invalid."
+     },
+     {
+      "decision": "Use labelled generic currency icons, not invented commemorative designs.",
+      "reason": "No particular commemorative issue is named."
+     }
+    ],
+    "uncertain": [
+     "No specific commemorative coin or numerical coin acceptance limit is supplied."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Legal tender recognition leads into the distinction between unlimited banknote tender and limited coin tender. Visuals separate compulsory acceptance limits from validity and circulation status.",
+     "key_questions": [
+      "What does official recognition mean within a government's territory?",
+      "How do unlimited banknote tender and limited coin tender differ?",
+      "Why do design, circulation, validity and acceptance limits need separate treatment?"
+     ],
+     "decisions": [
+      {
+       "decision": "Show no numerical coin limit.",
+       "reason": "These beats name no prescribed amount."
+      },
+      {
+       "decision": "Beyond the coin limit, show choice rather than automatic refusal.",
+       "reason": "Acceptance becomes voluntary; coins do not become invalid."
+      },
+      {
+       "decision": "Use labelled generic currency icons, not invented commemorative designs.",
+       "reason": "No particular commemorative issue is named."
+      }
+     ],
+     "uncertain": [
+      "No specific commemorative coin or numerical coin acceptance limit is supplied."
+     ]
+    },
+    "beats": [
+     {
+      "beat_id": "b35",
+      "idea": "Official recognition and ordinary usability",
+      "relation": "place",
+      "relation_note": "Recognition applies within the government's territory; a second vignette shows commemorative coins used like ordinary coins.",
+      "things": [
+       "money",
+       "government recognition stamp",
+       "debt ledger",
+       "transaction receipt",
+       "circulation commemorative coins",
+       "ordinary coins"
+      ],
+      "people": [],
+      "places": [
+       "government territory"
+      ],
+      "shows": "Recognised money inside territory; both coin types usable.",
+      "on_word": "Legal tender",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Appear: territory boundary, money and government recognition stamp inside. Move: money toward debt ledger and transaction receipt within boundary. On 'Circulation commemorative coins', appear: labelled commemorative and ordinary coin icons side by side; compare with equal usability tags. No specific coin design."
+     },
+     {
+      "beat_id": "b36",
+      "idea": "Valid banknotes have no total tender ceiling",
+      "relation": "count",
+      "relation_note": "An accumulating note stack has an open-ended amount meter, not a numerical count or capped meter.",
+      "things": [
+       "₹10 banknote",
+       "₹20 banknote",
+       "₹50 banknote",
+       "₹100 banknote",
+       "₹200 banknote",
+       "₹500 banknote",
+       "Reserve Bank of India Act, 1934 law scroll",
+       "total tender amount meter"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Valid notes accumulate; amount meter has no ceiling.",
+      "on_word": "Unlimited Legal Tender",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Appear: generic notes carrying denomination labels, with genuine and valid ticks. Appear repeatedly: notes join stack as meter grows, ending in an upward continuation arrow labelled 'No ceiling', without invented totals. Reveal each denomination on its spoken cue. Appear: stamped Reserve Bank of India Act, 1934 scroll beside notes on the Act's name."
+     },
+     {
+      "beat_id": "b37",
+      "idea": "Coin acceptance is compulsory only to a limit",
+      "relation": "limit",
+      "relation_note": "A red line ends compulsory acceptance, not coin validity.",
+      "things": [
+       "coins",
+       "coin amount meter",
+       "Coinage Act, 2011 law scroll"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Coin pile reaches line; further acceptance becomes optional.",
+      "on_word": "Limited Legal Tender",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Appear: coins accumulate while amount meter fills to red line labelled 'Prescribed limit'; stamp the compulsory-acceptance region. Above line show 'Acceptance voluntary', without crossing out coins. On 'Coinage Act, 2011', appear: named stamped law scroll beside coins. Stop compulsory-region fill on 'रुकती'."
+     },
+     {
+      "beat_id": "b38",
+      "idea": "Tender amount, circulation and validity are distinct",
+      "relation": "compare",
+      "relation_note": "Three paired comparisons prevent three separate misconceptions.",
+      "things": [
+       "banknotes",
+       "cash transaction receipt",
+       "specially designed coin",
+       "collector coin set",
+       "circulation coins",
+       "coin amount meter",
+       "validity tick"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Three comparisons separate ceiling, circulation and coin validity.",
+      "on_word": "Unlimited",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Compare: banknotes tagged 'No tender ceiling' versus cash transaction receipt; cross only the claim 'हर cash transaction की छूट' on 'नहीं'. Compare: specially designed coin with circulation coins using a question mark, not an automatic circulation tick; show collector coin set separately on 'अलग'. Appear: coins above prescribed-limit meter line; retain validity tick on coins while crossing 'status खोना' on 'नहीं'."
+     },
+     {
+      "beat_id": "b39",
+      "idea": "After recognition, check denomination and total limit",
+      "relation": "compare",
+      "relation_note": "Matched note and coin columns answer the total-limit question.",
+      "things": [
+       "recognition stamp",
+       "banknotes",
+       "coins",
+       "denomination tags",
+       "banknote amount meter",
+       "coin amount meter"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Recognised notes: no ceiling; recognised coins: fixed limit.",
+      "on_word": "Recognition",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Appear: recognition stamp above banknotes and coins. On 'denomination', reveal face-value tags without adding new denominations. On 'total limit', reveal matched amount meters. Notes meter ends with continuation arrow on 'ceiling नहीं'; coins meter stops at red 'Prescribed limit' line on 'तय'."
+     }
+    ],
+    "picture_type": "table",
+    "picture_note": "A visual notes-versus-coins comparison aligns recognition, denominations, acceptance ceiling and governing law, with separate misconception vignettes."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793590187.4505115
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 0.0,
+ "navin_verdict": null
+}

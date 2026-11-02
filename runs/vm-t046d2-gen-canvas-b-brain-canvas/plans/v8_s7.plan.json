@@ -1,0 +1,308 @@
+{
+ "id": "v8_s7",
+ "part_id": "c20.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b41",
+   "say": "दुकान पर note पढ़ न सको तो? दूसरों से पूछे बिना value पहचानना accessibility की जरूरत है।"
+  },
+  {
+   "beat_id": "b42",
+   "say": "RBI ने 1 January 2020 को free MANI—Mobile Aided Note Identifier—launch किया; यानी phone से note पहचानने की मदद।"
+  },
+  {
+   "beat_id": "b43",
+   "say": "पहचान में मदद अब phone से भी मिल सकती थी।"
+  },
+  {
+   "beat_id": "b44",
+   "say": "Launch याद रखो: RBI, 1 January 2020।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "note",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b41",
+    "note"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "size": 64
+  },
+  {
+   "id": "question",
+   "kind": "icon",
+   "cell": [
+    4,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b41",
+    "सको"
+   ],
+   "until_cue": [
+    "b42",
+    "RBI"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2753",
+   "size": 64
+  },
+  {
+   "id": "accessibility",
+   "kind": "text",
+   "cell": [
+    1,
+    6,
+    9,
+    1
+   ],
+   "cue": [
+    "b41",
+    "accessibility"
+   ],
+   "until_cue": [
+    "b42",
+    "RBI"
+   ],
+   "text": "value पहचानना accessibility की जरूरत",
+   "style": "note",
+   "tone": "ink",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "launch_timeline",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    2
+   ],
+   "cue": [
+    "b42",
+    "1 January 2020"
+   ],
+   "text": "RBI\n1 January 2020",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "mani_name",
+   "kind": "text",
+   "cell": [
+    4,
+    2,
+    4,
+    1
+   ],
+   "cue": [
+    "b42",
+    "free"
+   ],
+   "text": "free MANI",
+   "style": "tag",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "mani_expansion",
+   "kind": "text",
+   "cell": [
+    2,
+    6,
+    8,
+    1
+   ],
+   "cue": [
+    "b42",
+    "Identifier—launch"
+   ],
+   "text": "Mobile Aided Note Identifier",
+   "style": "plain",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "mani_phone",
+   "kind": "icon",
+   "cell": [
+    5,
+    3,
+    2,
+    3
+   ],
+   "cue": [
+    "b42",
+    "phone"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4f1",
+   "size": 88
+  },
+  {
+   "id": "note_to_phone",
+   "kind": "arrow",
+   "cue": [
+    "b43",
+    "phone"
+   ],
+   "tone": "accent",
+   "from": "note",
+   "to": "mani_phone",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "fa:solid/money-bill-1",
+    "count": 1,
+    "period": 2400,
+    "size": 28,
+    "cue": [
+     "b43",
+     "phone"
+    ]
+   }
+  },
+  {
+   "id": "identification_help",
+   "kind": "mark",
+   "cue": [
+    "b43",
+    "मिल"
+   ],
+   "tone": "ok",
+   "target": "mani_phone",
+   "mark": "tick",
+   "pos": "tr"
+  },
+  {
+   "id": "launch_recall",
+   "kind": "highlight",
+   "cue": [
+    "b44",
+    "Launch"
+   ],
+   "style": "band",
+   "tone": "warm",
+   "target": "launch_timeline"
+  },
+  {
+   "id": "launch_to_mani",
+   "kind": "arrow",
+   "cue": [
+    "b44",
+    "Launch"
+   ],
+   "tone": "accent",
+   "from": "launch_timeline",
+   "to": "mani_phone",
+   "from_side": "r",
+   "to_side": "r",
+   "elbow": "vhv",
+   "flow": {
+    "icon": "tw:1f4f1",
+    "count": 1,
+    "period": 2400,
+    "size": 24,
+    "cue": [
+     "b44",
+     "Launch"
+    ]
+   }
+  },
+  {
+   "id": "auto_arrow_b42",
+   "kind": "arrow",
+   "from": "note",
+   "to": "mani_phone",
+   "cue": [
+    "b42",
+    "phone"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b41",
+    "note"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b44",
+    "Launch"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b43",
+    "phone"
+   ],
+   "ids": [
+    "note",
+    "mani_phone",
+    "mani_name",
+    "note_to_phone",
+    "identification_help"
+   ],
+   "until_cue": [
+    "b44",
+    "Launch"
+   ]
+  },
+  {
+   "cue": [
+    "b44",
+    "Launch"
+   ],
+   "ids": [
+    "launch_timeline",
+    "launch_recall",
+    "mani_name",
+    "mani_phone",
+    "launch_to_mani"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

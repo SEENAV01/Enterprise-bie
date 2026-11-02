@@ -1,0 +1,405 @@
+{
+ "id": "v2_s3",
+ "part_id": "c03.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b12",
+   "say": "पड़ोसी सामान बदलें, तो क्या पुराना तरीका बचा है? हाँ; barter early civilizations में common था, आज छोटे आपसी exchanges में मिलता है।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "पड़ोसियों की जरूरतें मिलें, तो पैसे के बिना भी swap आसान है।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "पैसा आने पर barter मिटा नहीं; दोनों साथ रह सकते हैं।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "पहले common था, अब सीमित है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "neighbors",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b12",
+    "पड़ोसी"
+   ],
+   "until_cue": [
+    "b13",
+    "जरूरतें"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/people-roof",
+   "size": 48
+  },
+  {
+   "id": "history",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    2
+   ],
+   "cue": [
+    "b12",
+    "early"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "size": 28,
+   "picture": {
+    "type": "timeline",
+    "title": "",
+    "item_id": "",
+    "events": [
+     {
+      "cue": [
+       "b12",
+       "early"
+      ],
+      "name": "early civilizations में common",
+      "icon": "tw:1f91d",
+      "numbered": false,
+      "when": ""
+     },
+     {
+      "cue": [
+       "b12",
+       "आज"
+      ],
+      "name": "आज छोटे आपसी exchanges",
+      "icon": "fa:solid/people-roof",
+      "numbered": false,
+      "when": ""
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "swap",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    8,
+    5
+   ],
+   "cue": [
+    "b13",
+    "जरूरतें"
+   ],
+   "until_cue": [
+    "b15",
+    "पहले"
+   ],
+   "tone": "accent",
+   "size": 28,
+   "template": "compose",
+   "actors": [
+    {
+     "role": "a",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "b",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "agreement",
+     "icon": "tw:1f91d",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "show_text",
+     "cue": [
+      "b13",
+      "जरूरतें"
+     ],
+     "actor": "a",
+     "on": "a",
+     "text": "जरूरतें",
+     "style": "bubble"
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b13",
+      "मिलें,"
+     ],
+     "actor": "b",
+     "object": "agreement"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b13",
+      "swap"
+     ],
+     "object": "agreement",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "money",
+   "kind": "action",
+   "cell": [
+    8,
+    2,
+    4,
+    5
+   ],
+   "cue": [
+    "b14",
+    "पैसा"
+   ],
+   "until_cue": [
+    "b15",
+    "पहले"
+   ],
+   "tone": "warm",
+   "size": 28,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "money",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b14",
+      "पैसा"
+     ],
+     "object": "money",
+     "n": 1
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "barter_remains",
+   "kind": "highlight",
+   "cue": [
+    "b14",
+    "मिटा"
+   ],
+   "until_cue": [
+    "b15",
+    "पहले"
+   ],
+   "style": "band",
+   "tone": "ok",
+   "target": "swap"
+  },
+  {
+   "id": "prevalence",
+   "kind": "crowd",
+   "cell": [
+    2,
+    3,
+    8,
+    3
+   ],
+   "cue": [
+    "b15",
+    "पहले"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f91d",
+   "size": 48,
+   "cols": 4,
+   "steps": [
+    {
+     "cue": [
+      "b15",
+      "पहले"
+     ],
+     "n": 8
+    },
+    {
+     "cue": [
+      "b15",
+      "सीमित"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "auto_thing_1",
+   "kind": "icon",
+   "icon": "asset:a-f462ec7d6f4d6711",
+   "cell": [
+    5,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b12",
+    ""
+   ],
+   "until_cue": [
+    "b13",
+    ""
+   ]
+  },
+  {
+   "id": "auto_thing_2",
+   "kind": "icon",
+   "icon": "asset:a-d5a6fe2c110fbc38",
+   "cell": [
+    8,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b13",
+    ""
+   ],
+   "until_cue": [
+    "b14",
+    ""
+   ]
+  },
+  {
+   "id": "auto_thing_3",
+   "kind": "icon",
+   "icon": "tw:1f4b0",
+   "cell": [
+    10,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b13",
+    ""
+   ],
+   "until_cue": [
+    "b14",
+    ""
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b12",
+    "पड़ोसी"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    2,
+    8,
+    5
+   ],
+   "cue": [
+    "b13",
+    "swap"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b14",
+    "पैसा"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b12",
+    "early"
+   ],
+   "ids": [
+    "history_y1",
+    "history_e1",
+    "history_y2",
+    "history_e2",
+    "history_a1"
+   ],
+   "until_cue": [
+    "b13",
+    "जरूरतें"
+   ]
+  },
+  {
+   "cue": [
+    "b13",
+    "जरूरतें"
+   ],
+   "ids": [
+    "swap"
+   ],
+   "until_cue": [
+    "b14",
+    "पैसा"
+   ]
+  },
+  {
+   "cue": [
+    "b14",
+    "दोनों"
+   ],
+   "ids": [
+    "swap",
+    "money"
+   ],
+   "until_cue": [
+    "b15",
+    "पहले"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,255 @@
+{
+ "id": "v4_s1s",
+ "part_id": "c09.1",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b2",
+   "say": "पुराने hypothetical bank में 1 note लौटाएँ तो? Bank उसे लेकर 1 gram gold देता है; आपके हाथ में अब gold है। आज का rupee ऐसा नहीं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "bank",
+   "kind": "bank",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b2",
+    "पुराने"
+   ]
+  },
+  {
+   "id": "historical_redemption",
+   "kind": "action",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b2",
+    "पुराने"
+   ],
+   "until_cue": [
+    "b2",
+    "आज"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "customer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "teller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "gold",
+     "icon": "fa:solid/coins",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b2",
+      "पुराने"
+     ],
+     "actor": "customer",
+     "object": "note",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b2",
+      "note"
+     ],
+     "object": "note",
+     "on": "note",
+     "text": "1 note",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b2",
+      "लौटाएँ"
+     ],
+     "actor": "customer",
+     "from": "customer",
+     "to": "teller",
+     "object": "note",
+     "n": 1
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b2",
+      "gram"
+     ],
+     "actor": "teller",
+     "object": "gold",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b2",
+      "gold"
+     ],
+     "object": "gold",
+     "on": "gold",
+     "text": "1 gram gold",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b2",
+      "देता"
+     ],
+     "actor": "teller",
+     "from": "teller",
+     "to": "customer",
+     "object": "gold",
+     "n": 1
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b2",
+      "हाथ"
+     ],
+     "actor": "customer",
+     "object": "gold",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "modern_contrast",
+   "kind": "action",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b2",
+    "आज"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "customer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "teller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "rupee",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": ""
+    },
+    {
+     "name": "redemption_gold",
+     "icon": "fa:solid/coins",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b2",
+      "आज"
+     ],
+     "actor": "customer",
+     "object": "rupee",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b2",
+      "ऐसा"
+     ],
+     "object": "redemption_gold",
+     "spot": "teller",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b2",
+      "नहीं।"
+     ],
+     "actor": "teller",
+     "object": "redemption_gold"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b2",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 570,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "लौटाएँ"
+   ],
+   "x": 2600,
+   "y": 650,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "हाथ"
+   ],
+   "x": 2420,
+   "y": 640,
+   "zoom": 1.4,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b2",
+    "आज"
+   ],
+   "x": 2600,
+   "y": 610,
+   "zoom": 1.15,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

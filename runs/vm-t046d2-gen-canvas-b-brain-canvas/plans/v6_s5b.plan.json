@@ -1,0 +1,887 @@
+{
+ "id": "v6_s5b",
+ "part_id": "c15.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b37",
+   "say": "यह market determination और rupee depreciation है। 1993 से managed float में demand–supply भाव बनाते हैं, RBI झटके सँभाल सकता है; न fixed-rate commitment, न पूरी तरह unmanaged float।"
+  },
+  {
+   "beat_id": "b38",
+   "say": "Price label पर ₹100 क्यों लिखते हैं? ₹ rupee की छोटी written पहचान है, नई currency नहीं। D. Udaya Kumar का यह symbol 2010 में adopted हुआ; इसमें Devanagari और Roman scripts के elements हैं।"
+  },
+  {
+   "beat_id": "b39",
+   "say": "क्रम में independence, decimal subdivision, gold-link change, managed float और symbol आए। Fiat redemption का सवाल है, exchange regime foreign price का; fiat में gold reserves रह सकते हैं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p006_i11",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b37",
+    ""
+   ],
+   "picture": {
+    "type": "table",
+    "title": "Period | Nature of the Rupee\nEight chronological rows",
+    "item_id": "p006-i11",
+    "columns": [
+     "Period",
+     "Nature of the Rupee"
+    ],
+    "rows": [
+     {
+      "cells": [
+       "1540",
+       "Silver rupee introduced"
+      ],
+      "item_id": "p006-i12",
+      "cue": [
+       "b37",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Mughal era",
+       "Standard silver coin"
+      ],
+      "item_id": "p006-i13",
+      "cue": [
+       "b37",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "1835",
+       "Uniform British Indian Rupee"
+      ],
+      "item_id": "p006-i14",
+      "cue": [
+       "b37",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "1898",
+       "Gold Exchange Standard"
+      ],
+      "item_id": "p006-i15",
+      "cue": [
+       "b37",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "1947",
+       "Independent India's currency"
+      ],
+      "item_id": "p006-i16",
+      "cue": [
+       "b37",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "1957",
+       "Decimal currency"
+      ],
+      "item_id": "p006-i17",
+      "cue": [
+       "b37",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "1971",
+       "Fiat currency"
+      ],
+      "item_id": "p006-i18",
+      "cue": [
+       "b37",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "1993 onwards",
+       "Market-determined exchange rate"
+      ],
+      "item_id": "p006-i19",
+      "cue": [
+       "b37",
+       ""
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "market_graph",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b37",
+    "market"
+   ],
+   "until_cue": [
+    "b38",
+    "Price"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4c8",
+   "size": 28
+  },
+  {
+   "id": "market_rupee",
+   "kind": "icon",
+   "cell": [
+    4,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b37",
+    "rupee"
+   ],
+   "until_cue": [
+    "b38",
+    "Price"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/indian-rupee-sign",
+   "size": 32
+  },
+  {
+   "id": "market_phrase",
+   "kind": "text",
+   "cell": [
+    6,
+    7,
+    6,
+    1
+   ],
+   "cue": [
+    "b37",
+    "depreciation"
+   ],
+   "until_cue": [
+    "b37",
+    "1993"
+   ],
+   "text": "Rupee depreciation",
+   "style": "tag",
+   "tone": "ink",
+   "fill": "band",
+   "align": "left",
+   "size": 26
+  },
+  {
+   "id": "managed_phrase",
+   "kind": "text",
+   "cell": [
+    6,
+    7,
+    6,
+    1
+   ],
+   "cue": [
+    "b37",
+    "1993"
+   ],
+   "until_cue": [
+    "b37",
+    "RBI"
+   ],
+   "text": "1993 से managed float",
+   "style": "tag",
+   "tone": "accent",
+   "align": "left",
+   "size": 24
+  },
+  {
+   "id": "demand_supply_arrows",
+   "kind": "arrow",
+   "cue": [
+    "b37",
+    "demand–supply"
+   ],
+   "until_cue": [
+    "b38",
+    "Price"
+   ],
+   "tone": "accent",
+   "from": "market_graph",
+   "to": "market_rupee",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "tw:27a1",
+    "count": 2,
+    "period": 1600,
+    "size": 24,
+    "cue": [
+     "b37",
+     "demand–supply"
+    ]
+   }
+  },
+  {
+   "id": "market_attention",
+   "kind": "highlight",
+   "cue": [
+    "b37",
+    "भाव"
+   ],
+   "until_cue": [
+    "b37",
+    "RBI"
+   ],
+   "style": "band",
+   "tone": "accent",
+   "target": "market_rupee"
+  },
+  {
+   "id": "rbi_phrase",
+   "kind": "text",
+   "cell": [
+    6,
+    7,
+    6,
+    1
+   ],
+   "cue": [
+    "b37",
+    "RBI"
+   ],
+   "until_cue": [
+    "b37",
+    "fixed-rate"
+   ],
+   "text": "RBI झटके सँभाल सकता है",
+   "style": "tag",
+   "tone": "accent",
+   "align": "left",
+   "size": 24
+  },
+  {
+   "id": "rbi_cushion",
+   "kind": "highlight",
+   "cue": [
+    "b37",
+    "सँभाल"
+   ],
+   "until_cue": [
+    "b38",
+    "Price"
+   ],
+   "style": "box",
+   "tone": "ok",
+   "target": "market_rupee"
+  },
+  {
+   "id": "regime_phrase",
+   "kind": "text",
+   "cell": [
+    6,
+    7,
+    6,
+    1
+   ],
+   "cue": [
+    "b37",
+    "fixed-rate"
+   ],
+   "until_cue": [
+    "b38",
+    "Price"
+   ],
+   "text": "न fixed-rate commitment",
+   "style": "tag",
+   "tone": "ink",
+   "align": "left",
+   "size": 24
+  },
+  {
+   "id": "price_tag",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b38",
+    "Price"
+   ],
+   "until_cue": [
+    "b38",
+    "₹"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "fa:solid/tag",
+   "size": 28
+  },
+  {
+   "id": "price_phrase",
+   "kind": "text",
+   "cell": [
+    2,
+    7,
+    10,
+    1
+   ],
+   "cue": [
+    "b38",
+    "₹100"
+   ],
+   "until_cue": [
+    "b38",
+    "rupee"
+   ],
+   "text": "Price label पर ₹100",
+   "style": "tag",
+   "tone": "ink",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "symbol_glyph_b38",
+   "kind": "text",
+   "cell": [
+    0,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b38",
+    "₹"
+   ],
+   "until_cue": [
+    "b38",
+    "rupee"
+   ],
+   "text": "₹ की पहचान",
+   "style": "plain",
+   "tone": "accent",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "rupee_symbol",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b38",
+    "rupee"
+   ],
+   "until_cue": [
+    "b39",
+    "क्रम"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/indian-rupee-sign",
+   "size": 36
+  },
+  {
+   "id": "identity_phrase",
+   "kind": "text",
+   "cell": [
+    2,
+    7,
+    10,
+    1
+   ],
+   "cue": [
+    "b38",
+    "पहचान"
+   ],
+   "until_cue": [
+    "b38",
+    "Udaya"
+   ],
+   "text": "Written पहचान है, नई currency नहीं",
+   "style": "tag",
+   "tone": "ink",
+   "align": "left",
+   "size": 26
+  },
+  {
+   "id": "designer_phrase",
+   "kind": "text",
+   "cell": [
+    2,
+    7,
+    10,
+    1
+   ],
+   "cue": [
+    "b38",
+    "Udaya"
+   ],
+   "until_cue": [
+    "b38",
+    "2010"
+   ],
+   "text": "D. Udaya Kumar का symbol",
+   "style": "tag",
+   "tone": "ink",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "adoption_phrase",
+   "kind": "text",
+   "cell": [
+    2,
+    7,
+    10,
+    1
+   ],
+   "cue": [
+    "b38",
+    "2010"
+   ],
+   "until_cue": [
+    "b38",
+    "Devanagari"
+   ],
+   "text": "2010 में adopted हुआ",
+   "style": "tag",
+   "tone": "accent",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "scripts_phrase",
+   "kind": "text",
+   "cell": [
+    2,
+    7,
+    10,
+    1
+   ],
+   "cue": [
+    "b38",
+    "Devanagari"
+   ],
+   "until_cue": [
+    "b39",
+    "क्रम"
+   ],
+   "text": "Devanagari और Roman scripts के elements",
+   "style": "tag",
+   "tone": "ink",
+   "align": "left",
+   "size": 26
+  },
+  {
+   "id": "chronology_attention",
+   "kind": "highlight",
+   "cue": [
+    "b39",
+    "क्रम"
+   ],
+   "until_cue": [
+    "b39",
+    "Fiat"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "book_p006_i11"
+  },
+  {
+   "id": "independence_flag",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b39",
+    "independence,"
+   ],
+   "until_cue": [
+    "b39",
+    "Fiat"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "tw:1f3f3",
+   "size": 28
+  },
+  {
+   "id": "managed_float_graph",
+   "kind": "icon",
+   "cell": [
+    5,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b39",
+    "managed"
+   ],
+   "until_cue": [
+    "b39",
+    "Fiat"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f4c8",
+   "size": 28
+  },
+  {
+   "id": "chronology_rupee_symbol",
+   "kind": "icon",
+   "cell": [
+    9,
+    7,
+    1,
+    1
+   ],
+   "cue": [
+    "b39",
+    "symbol"
+   ],
+   "until_cue": [
+    "b39",
+    "Fiat"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/indian-rupee-sign",
+   "size": 32
+  },
+  {
+   "id": "symbol_glyph_b39",
+   "kind": "text",
+   "cell": [
+    10,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b39",
+    "symbol"
+   ],
+   "until_cue": [
+    "b39",
+    "Fiat"
+   ],
+   "text": "₹ symbol",
+   "style": "plain",
+   "tone": "accent",
+   "align": "center",
+   "label": "₹ symbol",
+   "size": 24
+  },
+  {
+   "id": "fiat_note",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b39",
+    "Fiat"
+   ],
+   "until_cue": [
+    "b39",
+    "redemption"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "size": 28
+  },
+  {
+   "id": "gold_redemption_link",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b39",
+    "redemption"
+   ],
+   "until_cue": [
+    "b39",
+    "reserves"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "asset:a-bd1719f0db8b12f7",
+   "size": 28
+  },
+  {
+   "id": "redemption_phrase",
+   "kind": "text",
+   "cell": [
+    2,
+    7,
+    10,
+    1
+   ],
+   "cue": [
+    "b39",
+    "redemption"
+   ],
+   "until_cue": [
+    "b39",
+    "exchange"
+   ],
+   "text": "Fiat redemption का सवाल है",
+   "style": "tag",
+   "tone": "ink",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "foreign_price_phrase",
+   "kind": "text",
+   "cell": [
+    2,
+    7,
+    10,
+    1
+   ],
+   "cue": [
+    "b39",
+    "exchange"
+   ],
+   "until_cue": [
+    "b39",
+    "reserves"
+   ],
+   "text": "Exchange regime foreign price का",
+   "style": "tag",
+   "tone": "accent",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "gold_reserves",
+   "kind": "icon",
+   "cell": [
+    0,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b39",
+    "reserves"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "asset:a-b64e2dca39c2207d",
+   "size": 28
+  },
+  {
+   "id": "reserves_phrase",
+   "kind": "text",
+   "cell": [
+    2,
+    7,
+    10,
+    1
+   ],
+   "cue": [
+    "b39",
+    "reserves"
+   ],
+   "text": "Fiat में gold reserves रह सकते हैं",
+   "style": "tag",
+   "tone": "ink",
+   "align": "left",
+   "size": 26
+  },
+  {
+   "id": "auto_arrow_b39",
+   "kind": "arrow",
+   "from": "book_p006_i11",
+   "to": "independence_flag",
+   "cue": [
+    "b39",
+    "independence,"
+   ]
+  },
+  {
+   "id": "auto_thing_1",
+   "kind": "icon",
+   "icon": "asset:a-0df0224db30b5056",
+   "cell": [
+    2,
+    7,
+    2,
+    1
+   ],
+   "cue": [
+    "b37",
+    "fixed-rate"
+   ],
+   "until_cue": [
+    "b38",
+    ""
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b37",
+    "market"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    6,
+    12,
+    2
+   ],
+   "cue": [
+    "b38",
+    "₹100"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b39",
+    "क्रम"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    6,
+    12,
+    2
+   ],
+   "cue": [
+    "b39",
+    "Fiat"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b37",
+    "1993"
+   ],
+   "ids": [
+    "book_p006_i11",
+    "market_graph",
+    "market_rupee",
+    "demand_supply_arrows",
+    "managed_phrase",
+    "rbi_phrase",
+    "regime_phrase",
+    "rbi_cushion",
+    "market_attention"
+   ],
+   "until_cue": [
+    "b38",
+    "Price"
+   ]
+  },
+  {
+   "cue": [
+    "b38",
+    "Price"
+   ],
+   "ids": [
+    "price_tag",
+    "price_phrase",
+    "rupee_symbol",
+    "symbol_glyph_b38",
+    "identity_phrase",
+    "designer_phrase",
+    "adoption_phrase",
+    "scripts_phrase"
+   ],
+   "until_cue": [
+    "b39",
+    "क्रम"
+   ]
+  },
+  {
+   "cue": [
+    "b39",
+    "क्रम"
+   ],
+   "ids": [
+    "book_p006_i11",
+    "independence_flag",
+    "managed_float_graph",
+    "chronology_rupee_symbol",
+    "symbol_glyph_b39"
+   ],
+   "until_cue": [
+    "b39",
+    "Fiat"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

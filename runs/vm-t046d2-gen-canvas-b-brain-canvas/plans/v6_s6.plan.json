@@ -1,0 +1,701 @@
+{
+ "id": "v6_s6",
+ "part_id": "c15.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b40",
+   "say": "पुरानी price में anna मिले तो? Old system में 1 Rupee = 16 Annas = 64 Paise = 192 Pies; यानी same money के अलग छोटे हिस्से। New system में 100 Paise हैं।"
+  },
+  {
+   "beat_id": "b41",
+   "say": "₹1 की same पट्टी को 16, 64 या 192 हिस्सों में सोचो; new में 100 हैं। Equals same value बताता है, coins की same गिनती नहीं।"
+  },
+  {
+   "beat_id": "b42",
+   "say": "1957 reform का old/new comparison यही है। पुराने Paise, जिन्हें pice भी कहते हैं, modern decimal paise नहीं; उन्हें मिलाने से conversion गलत होगा।"
+  },
+  {
+   "beat_id": "b43",
+   "say": "₹1.25 सीधे 1 rupee और 25 paise बताता है; annas–pies conversion नहीं चाहिए। आसान subdivision से purchasing power अपने-आप नहीं बढ़ती।"
+  },
+  {
+   "beat_id": "b44",
+   "say": "64 को 16 से बाँटो तो 1 anna में 4 old paise मिलते हैं; 192 को 64 से बाँटो तो 1 old paisa में 3 pies मिलते हैं। Modern paisa ₹1 का 1/100 है; systems अलग रखो।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "old_anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    5,
+    1
+   ],
+   "cue": [
+    "b40",
+    "Old"
+   ],
+   "text": "Old system",
+   "style": "tag",
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "old_units",
+   "kind": "table",
+   "cell": [
+    0,
+    1,
+    5,
+    4
+   ],
+   "cue": [
+    "b40",
+    "1"
+   ],
+   "until_cue": [
+    "b41",
+    "पट्टी"
+   ],
+   "tone": "warm",
+   "fill": "paper",
+   "align": "center",
+   "size": 28,
+   "cols": 1,
+   "columns": [
+    "Old system"
+   ],
+   "rows": [
+    {
+     "cells": [
+      "1 Rupee"
+     ],
+     "cue": [
+      "b40",
+      "1"
+     ]
+    },
+    {
+     "cells": [
+      "16 Annas"
+     ],
+     "cue": [
+      "b40",
+      "16"
+     ]
+    },
+    {
+     "cells": [
+      "64 Paise"
+     ],
+     "cue": [
+      "b40",
+      "64"
+     ]
+    },
+    {
+     "cells": [
+      "192 Pies"
+     ],
+     "cue": [
+      "b40",
+      "192"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "old_segment",
+   "kind": "icon",
+   "cell": [
+    5,
+    1,
+    1,
+    2
+   ],
+   "cue": [
+    "b40",
+    "Old"
+   ],
+   "until_cue": [
+    "b41",
+    "पट्टी"
+   ],
+   "tone": "warm",
+   "icon": "fa:solid/chart-pie",
+   "size": 32
+  },
+  {
+   "id": "new_anchor",
+   "kind": "text",
+   "cell": [
+    7,
+    0,
+    5,
+    1
+   ],
+   "cue": [
+    "b40",
+    "New"
+   ],
+   "text": "New system",
+   "style": "tag",
+   "tone": "accent",
+   "fill": "paper",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "new_segment",
+   "kind": "icon",
+   "cell": [
+    8,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b40",
+    "100"
+   ],
+   "until_cue": [
+    "b41",
+    "पट्टी"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/chart-pie",
+   "label": "100 Paise",
+   "size": 32
+  },
+  {
+   "id": "equal_value",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    5
+   ],
+   "cue": [
+    "b41",
+    "पट्टी"
+   ],
+   "until_cue": [
+    "b42",
+    "1957"
+   ],
+   "tone": "ink",
+   "fill": "paper",
+   "size": 28,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "old",
+     "icon": "fa:solid/chart-pie",
+     "label": ""
+    },
+    {
+     "name": "modern",
+     "icon": "fa:solid/chart-pie",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "compare",
+     "cue": [
+      "b41",
+      "पट्टी"
+     ],
+     "left": "old",
+     "right": "modern",
+     "sign": "=",
+     "left_text": "₹1",
+     "right_text": "₹1"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b41",
+      "16,"
+     ],
+     "on": "old",
+     "text": "16",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b41",
+      "64"
+     ],
+     "on": "old",
+     "text": "64",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b41",
+      "192"
+     ],
+     "on": "old",
+     "text": "192",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b41",
+      "100"
+     ],
+     "on": "modern",
+     "text": "100",
+     "style": "tag"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b41",
+      "value"
+     ],
+     "left": "old",
+     "right": "modern",
+     "sign": "=",
+     "left_text": "same value",
+     "right_text": "same value"
+    }
+   ]
+  },
+  {
+   "id": "reform",
+   "kind": "icon",
+   "cell": [
+    0,
+    1,
+    12,
+    2
+   ],
+   "cue": [
+    "b42",
+    "1957"
+   ],
+   "until_cue": [
+    "b43",
+    "₹1.25"
+   ],
+   "tone": "ink",
+   "fill": "paper",
+   "icon": "tw:1f4dc",
+   "label": "1957 reform",
+   "size": 28
+  },
+  {
+   "id": "unit_distinction",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    3
+   ],
+   "cue": [
+    "b42",
+    "Paise,"
+   ],
+   "until_cue": [
+    "b43",
+    "₹1.25"
+   ],
+   "tone": "ink",
+   "fill": "paper",
+   "size": 28,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "pice",
+     "icon": "fa:solid/file-fragment",
+     "label": "पुराने Paise"
+    },
+    {
+     "name": "decimal",
+     "icon": "fa:solid/file-fragment",
+     "label": "modern decimal paise"
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "compare",
+     "cue": [
+      "b42",
+      "नहीं;"
+     ],
+     "left": "pice",
+     "right": "decimal",
+     "sign": "≠",
+     "left_text": "pice",
+     "right_text": "decimal paise"
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "decimal_split",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    8,
+    5
+   ],
+   "cue": [
+    "b43",
+    "₹1.25"
+   ],
+   "until_cue": [
+    "b44",
+    "64"
+   ],
+   "tone": "accent",
+   "fill": "paper",
+   "size": 28,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "whole",
+     "icon": "fa:solid/chart-pie",
+     "label": ""
+    },
+    {
+     "name": "rupee",
+     "icon": "fa:solid/file-fragment",
+     "label": ""
+    },
+    {
+     "name": "paise",
+     "icon": "fa:solid/file-fragment",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b43",
+      "₹1.25"
+     ],
+     "object": "whole",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b43",
+      "₹1.25"
+     ],
+     "on": "whole",
+     "text": "₹1.25",
+     "style": "tag"
+    },
+    {
+     "part": "transform",
+     "cue": [
+      "b43",
+      "rupee"
+     ],
+     "object": "whole",
+     "into": "rupee"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b43",
+      "rupee"
+     ],
+     "on": "rupee",
+     "text": "1 rupee",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b43",
+      "25"
+     ],
+     "object": "paise",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b43",
+      "paise"
+     ],
+     "on": "paise",
+     "text": "25 paise",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "power",
+   "kind": "icon",
+   "cell": [
+    9,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b43",
+    "purchasing"
+   ],
+   "until_cue": [
+    "b44",
+    "64"
+   ],
+   "tone": "muted",
+   "icon": "fa:solid/gauge-high",
+   "label": "purchasing power",
+   "size": 28
+  },
+  {
+   "id": "derivations",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    7,
+    5
+   ],
+   "cue": [
+    "b44",
+    "64"
+   ],
+   "tone": "warm",
+   "fill": "paper",
+   "size": 28,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "anna",
+     "icon": "fa:solid/chart-pie",
+     "label": ""
+    },
+    {
+     "name": "old_paisa",
+     "icon": "fa:solid/file-fragment",
+     "label": ""
+    },
+    {
+     "name": "pie",
+     "icon": "fa:solid/puzzle-piece",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b44",
+      "64"
+     ],
+     "object": "anna",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b44",
+      "16"
+     ],
+     "on": "anna",
+     "text": "64 को 16 से बाँटो",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b44",
+      "4"
+     ],
+     "object": "old_paisa",
+     "on": "anna",
+     "inside": "anna",
+     "n": 4
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b44",
+      "paise"
+     ],
+     "on": "anna",
+     "text": "1 anna में 4 old paise",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b44",
+      "192"
+     ],
+     "on": "old_paisa",
+     "text": "192 को 64 से बाँटो",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b44",
+      "3"
+     ],
+     "object": "pie",
+     "on": "old_paisa",
+     "inside": "old_paisa",
+     "n": 3
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b44",
+      "pies"
+     ],
+     "on": "old_paisa",
+     "text": "1 old paisa में 3 pies",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "modern_fraction",
+   "kind": "icon",
+   "cell": [
+    8,
+    2,
+    4,
+    3
+   ],
+   "cue": [
+    "b44",
+    "1/100"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/chart-pie",
+   "label": "Modern paisa ₹1 का 1/100",
+   "size": 28
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    6
+   ],
+   "cue": [
+    "b40",
+    "Old"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    6
+   ],
+   "cue": [
+    "b41",
+    "पट्टी"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    6
+   ],
+   "cue": [
+    "b42",
+    "1957"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    8,
+    5
+   ],
+   "cue": [
+    "b43",
+    "₹1.25"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    6
+   ],
+   "cue": [
+    "b43",
+    "purchasing"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    8,
+    6
+   ],
+   "cue": [
+    "b44",
+    "64"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    6
+   ],
+   "cue": [
+    "b44",
+    "Modern"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

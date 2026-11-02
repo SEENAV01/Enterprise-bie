@@ -1,0 +1,740 @@
+{
+ "id": "v2_s9b",
+ "part_id": "c06.3",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b59",
+   "say": "यह perishability, यानी खराब होना है। बाकी limitations हैं lack of uniformity, poor divisibility, difficult transport और limited standardization; इन्हें गाय और grain से समझिए।"
+  },
+  {
+   "beat_id": "b60",
+   "say": "गायों का size और health अलग होना lack of uniformity है। Weight और quality के तय rules standardization हैं; इनके बिना बार-बार checking और bargaining चाहिए।"
+  },
+  {
+   "beat_id": "b61",
+   "say": "गाय बाँटना मुश्किल, grain खराब हो सकता है, भारी sack ढोना पड़ता है। इसलिए छोटे payments, storage और transport में extra खर्च जुड़ता है।"
+  },
+  {
+   "beat_id": "b62",
+   "say": "सब पर बराबर लागू नहीं: grain बाँट सकते हैं, गाय नहीं; shells food जैसे नहीं सड़ते। ‘सभी’ से सावधान।"
+  },
+  {
+   "beat_id": "b63",
+   "say": "Matching आसान हुई, handling नहीं; इसलिए टिकाऊ, measured metallic units उपयोगी बने।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b59",
+    "limitations"
+   ],
+   "text": "Commodity money की limitations",
+   "style": "title",
+   "tone": "ink",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "limitations",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b59",
+    "perishability"
+   ],
+   "until_cue": [
+    "b60",
+    "गायों"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "grain",
+     "icon": "tw:1f33e",
+     "label": ""
+    },
+    {
+     "name": "cow",
+     "icon": "tw:1f404",
+     "label": ""
+    },
+    {
+     "name": "scale",
+     "icon": "tw:2696",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b59",
+      "perishability"
+     ],
+     "object": "grain",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b59",
+      "खराब"
+     ],
+     "object": "grain"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b59",
+      "uniformity"
+     ],
+     "on": "cow",
+     "text": "Lack of uniformity",
+     "style": "tag",
+     "spot": "top"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b59",
+      "divisibility"
+     ],
+     "on": "cow",
+     "text": "Poor divisibility",
+     "style": "tag",
+     "spot": "center"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b59",
+      "transport"
+     ],
+     "on": "grain",
+     "text": "Difficult transport",
+     "style": "tag",
+     "spot": "bottom"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b59",
+      "standardization;"
+     ],
+     "object": "scale",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b59",
+      "standardization;"
+     ],
+     "on": "scale",
+     "text": "Limited standardization",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b59",
+      "गाय"
+     ],
+     "object": "cow",
+     "spot": "center",
+     "n": 1
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "uniformity",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b60",
+    "गायों"
+   ],
+   "until_cue": [
+    "b61",
+    "गाय"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "trader",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "other_trader",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "cow_a",
+     "icon": "tw:1f404",
+     "label": ""
+    },
+    {
+     "name": "cow_b",
+     "icon": "tw:1f404",
+     "label": ""
+    },
+    {
+     "name": "scale",
+     "icon": "tw:2696",
+     "label": ""
+    },
+    {
+     "name": "grain",
+     "icon": "tw:1f33e",
+     "label": ""
+    },
+    {
+     "name": "rules",
+     "icon": "asset:a-049e60ec516cd41d",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "compare",
+     "cue": [
+      "b60",
+      "size"
+     ],
+     "left": "cow_a",
+     "right": "cow_b",
+     "sign": "vs",
+     "left_text": "size",
+     "right_text": "health"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b60",
+      "uniformity"
+     ],
+     "on": "cow_a",
+     "text": "Lack of uniformity",
+     "style": "tag",
+     "spot": "top"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b60",
+      "Weight"
+     ],
+     "object": "scale",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b60",
+      "rules"
+     ],
+     "object": "rules",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b60",
+      "standardization"
+     ],
+     "on": "scale",
+     "text": "Weight और quality के तय rules",
+     "style": "tag"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b60",
+      "checking"
+     ],
+     "from": "trader",
+     "to": "scale",
+     "object": "grain",
+     "back": true
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b60",
+      "bargaining"
+     ],
+     "actor": "other_trader",
+     "on": "other_trader",
+     "text": "बार-बार bargaining",
+     "style": "bubble"
+    }
+   ]
+  },
+  {
+   "id": "handling",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b61",
+    "गाय"
+   ],
+   "until_cue": [
+    "b62",
+    "सब"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "cow",
+     "icon": "tw:1f404",
+     "label": ""
+    },
+    {
+     "name": "grain",
+     "icon": "tw:1f33e",
+     "label": ""
+    },
+    {
+     "name": "storage",
+     "icon": "fa:solid/jar-wheat",
+     "label": ""
+    },
+    {
+     "name": "cost",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b61",
+      "गाय"
+     ],
+     "object": "cow",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b61",
+      "मुश्किल,"
+     ],
+     "object": "cow",
+     "text": "बाँटना मुश्किल"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b61",
+      "grain"
+     ],
+     "object": "grain",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b61",
+      "खराब"
+     ],
+     "object": "grain"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b61",
+      "ढोना"
+     ],
+     "on": "grain",
+     "text": "भारी sack ढोना",
+     "style": "tag",
+     "spot": "right"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b61",
+      "storage"
+     ],
+     "object": "storage",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b61",
+      "खर्च"
+     ],
+     "object": "cost",
+     "spot": "bottom",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b61",
+      "जुड़ता"
+     ],
+     "on": "cost",
+     "text": "Extra खर्च जुड़ता है",
+     "style": "tag"
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "specific",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b62",
+    "सब"
+   ],
+   "until_cue": [
+    "b63",
+    "Matching"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "grain",
+     "icon": "tw:1f33e",
+     "label": ""
+    },
+    {
+     "name": "cow",
+     "icon": "tw:1f404",
+     "label": ""
+    },
+    {
+     "name": "shell",
+     "icon": "tw:1f41a",
+     "label": ""
+    },
+    {
+     "name": "food",
+     "icon": "fl:pot-of-food",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b62",
+      "grain"
+     ],
+     "object": "grain",
+     "spot": "left",
+     "n": 2
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b62",
+      "सकते"
+     ],
+     "object": "grain",
+     "text": "बाँट सकते हैं"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b62",
+      "गाय"
+     ],
+     "object": "cow",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b62",
+      "नहीं;"
+     ],
+     "object": "cow"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b62",
+      "food"
+     ],
+     "spot": "bottom",
+     "left": "shell",
+     "right": "food",
+     "sign": "vs"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b62",
+      "सड़ते।"
+     ],
+     "on": "shell",
+     "text": "Food जैसे नहीं सड़ते",
+     "style": "tag"
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "transition",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b63",
+    "Matching"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "cow",
+     "icon": "tw:1f404",
+     "label": ""
+    },
+    {
+     "name": "grain",
+     "icon": "tw:1f33e",
+     "label": ""
+    },
+    {
+     "name": "scale",
+     "icon": "tw:2696",
+     "label": ""
+    },
+    {
+     "name": "bundles",
+     "icon": "asset:a-61f60f29957ad6e8",
+     "label": ""
+    },
+    {
+     "name": "heavy_sack",
+     "icon": "asset:a-75ac3ae70675c7ef",
+     "label": ""
+    },
+    {
+     "name": "metal",
+     "icon": "asset:a-3ed6e081168b7df3",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "compare",
+     "cue": [
+      "b63",
+      "Matching"
+     ],
+     "left": "cow",
+     "right": "grain",
+     "sign": "vs"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b63",
+      "Matching"
+     ],
+     "object": "bundles",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b63",
+      "आसान"
+     ],
+     "object": "grain",
+     "text": "Matching आसान हुई"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b63",
+      "handling"
+     ],
+     "object": "heavy_sack",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b63",
+      "नहीं;"
+     ],
+     "on": "grain",
+     "text": "Handling आसान नहीं",
+     "style": "tag",
+     "spot": "top"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b63",
+      "measured"
+     ],
+     "object": "scale",
+     "spot": "bottom",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b63",
+      "metallic"
+     ],
+     "object": "metal",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b63",
+      "units"
+     ],
+     "on": "metal",
+     "text": "टिकाऊ, measured metallic units",
+     "style": "tag",
+     "spot": "bottom"
+    }
+   ],
+   "close_up": false
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b59",
+    "perishability"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b60",
+    "checking"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b61",
+    "गाय"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b62",
+    "grain"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b63",
+    "Matching"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

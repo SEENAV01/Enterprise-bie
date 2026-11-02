@@ -1,0 +1,335 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v4_s5-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.3+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3",
+ "rulebook_digest": "8806c6ee4a7b0de68af6d616d63f489dcda85e158cf4d213d81d43562bb5b1fc",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "ac772c6ba6b0b21c094b3fd3bd598668b3a14a614dae35b67186dd37c69cd82c",
+ "card": null,
+ "prefix_sha256": "d19734ca24ac9e4468a0376c80b1fc5a794e797c80e778cedce9151a2ac05b7a",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses) (saanche: refuse)\n- accept: a tick on the thing accepted (saanche: accept)\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line) (saanche: coin_count)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word (saanche: cheque)\n- count: a counted stack or crowd whose number is the narration's number (saanche: count_stack, coin_count)\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline (saanche: hand_over, pay_change, upi, card_tap, cheque, barter_swap)\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number (saanche: pay_change, upi, card_tap, cheque)\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one (saanche: barter_swap)\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha (saanche: pay_change, cheque)\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label (saanche: cheque, hand_over)\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns THIS beat names or implies, as plain English or Hindi words a picture can show:\n  exactly the beat's own things, never a thing from an example, a card or another part (Navin, 2 November 2026: \"jis cheej ka\n  jikar hai wohi cheej dikhe\"). Every thing you list is a promise: it must appear on screen in this beat. A real person is never\n  drawn (card rule 8): name the role or the object, not the person.\n- shows: what is seen, in at most 8 words, as a picture description of this beat's own things and what happens to\n  them. Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object of this beat that an icon cannot show and a photograph or museum image can, as search words; \"\"\n  when an icon is enough. Never a person's portrait (card rule 8).\n- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: \"process show nahi ho rahi hai\"),\n  the recipe that shows it, or \"compose\" when no recipe fits but the motion parts do (the layout step writes the parts); \"none\"\n  when the beat tells no process; \"other\" only when a motion part BIE lacks is needed (template_note names it: it goes to the\n  missing-capability log). The actors, things and numbers always come from this beat. The recipes:\n- hand_over: one person gives a thing to another (steps give, take; actors giver, taker; objects thing; parts give, hold)\n- pay_change: the buyer hands over the payment, takes the goods and gets the difference back (each amount travels as a tag on what carries it) (steps pay, goods, change; actors buyer, seller; objects goods, money (optional), change_money (optional); amounts paid, change, price (optional); parts appear, give, hold, move, show_text)\n- barter_swap: two people swap their things; at 'ask' each wonders whether they want the other's thing (steps offer, ask, swap; actors a, b; objects a_thing, b_thing; parts give, hold, show_text)\n- upi: the buyer's device moves to the seller's sign and back; the buyer's device shows the amount paid, the seller's shows it received (steps scan, paid, received; actors buyer, seller; objects device (optional), sign (optional), seller_device (optional); amounts amount; parts appear, hold, move, show_text)\n- card_tap: a card moves to the seller's machine and back; the machine shows the amount approved (steps tap, approved; actors buyer, seller; objects card (optional), machine (optional); amounts amount; parts appear, hold, move, show_text)\n- cheque: the amount is written on the instrument, it moves into the place that pays, and the two balances change (payer down, payee up) (steps write, hand, balances; actors payer, payee; objects cheque (optional), place (optional); amounts amount, payer_before (optional), payer_after (optional), payee_before (optional), payee_after (optional); parts appear, hold, meter, move, show_text)\n- coin_count: things drop onto a pile while a meter rises; at 'limit' the meter stops at its red line and one more is refused (steps count, limit; objects coin (optional); amounts each, limit; parts appear, meter, refuse)\n- refuse: the person looks at the thing, shakes the head, and a cross lands on the thing (steps show, refuse; actors who; objects thing; parts appear, refuse)\n- accept: the person looks at the thing, nods, and a tick lands on the thing (steps show, accept; actors who; objects thing; parts accept, appear)\n- count_stack: n things appear one by one as they are said (steps count; objects thing; amounts n; parts appear)\n- compose: a process no recipe has, written as its parts in order (parts [{part, cue, ...fields}]); a part BIE lacks: template other in the dikhane ki list, with a note (it goes to the missing-capability log)\n  The motion parts every process is made of:\n- hold (actor, object, reach?): a person holds a thing in the front hand (reach 0..1 lifts it towards the other)\n- give (from, to, object, text?): a thing travels from one person's hand to the other's (give and take), with an optional tag of text on it\n- move (object, to, back?, into?, text?): a thing moves along a path to a spot, a person or another thing; back returns it; into lets it go into the target\n- transform (object, into): a thing turns into another thing where it is (A → B)\n- show_text (on, text, style?, inside?): a screen, sign, tag or thought bubble on a person or thing shows a short text (style: tag, sign, screen, ok, bubble, write)\n- meter (to, from?, limit?, style?, title?, dir?, on?, end?): a counter or meter changes: a bar fills to its limit (style bar), or a number changes from one value to another with an up or down arrow (style number)\n- appear (object, n?, spot?, layout?, end?): things appear one by one (n of them in a grid, or dropping onto a pile until a later step)\n- refuse (object, actor?): a person shakes the head and a cross lands on the thing\n- accept (object, actor?): a person nods and a tick lands on the thing\n- compare (left, right, sign?, left_text?, right_text?): two things side by side with a sign between them (=, ≠, ?, vs, <, >)\n- template_note: for \"other\" the process in a few words; for \"none\" on a beat that names a process word, why no saancha.\nCode has already decided this part's picture (gallery: Major Examples of Fiat Currency Today) from the book's own diagram; it is placed at the top of the canvas. Set picture_type to \"gallery\" and use picture_note for what the beats add around it.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c10.2 (9 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v4_s5\", \"part_id\": \"c10.2\", \"card_type\": \"facts_numbers\", \"story\": false}, \"beats\": [{\"beat_id\": \"b23\", \"say\": \"Press से note निकलना और पैसा जारी होना क्या एक काम है? Fiat paper या digital numbers हो सकता है; face value gold-silver से नहीं बँधी, government authority, central-bank control और public trust से जुड़ी है।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b24\", \"say\": \"और issue संभव है, मगर monetary policy control करती है। एक फर्क समझिए: printing notes बनाती है; authorised issuance circulation में लाता है। पुराने notes बदलना कुल पैसा बढ़ाना नहीं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b25\", \"say\": \"Policy rates और liquidity से loan महँगा हो तो दुकानदार expansion रोक सकता है। Borrowing और spending घटने से prices का दबाव घट सकता है; सस्ता credit उलटा असर करे। असर समय लेता है, missing goods नहीं बनाता।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b26\", \"say\": \"Foreign price tags में codes क्यों देखें? $ वाला United States Dollar, USD, सबसे widely held और traded fiat currency है। € यानी Euro, EUR, कई EU देशों की shared currency है।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b27\", \"say\": \"¥ Japan या China, कैसे पहचानेंगे? Japanese Yen, JPY, stability और global currency markets में बड़े role के लिए जाना जाता है। Chinese Yuan Renminbi, CNY, trade और international reserves में बढ़ रहा है, यानी बाहरी payments के लिए रखे foreign assets में।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b28\", \"say\": \"Britain की दुकान में £ दिखे तो? यह British Pound Sterling, GBP है, जिसकी जड़ें 8th century में हैं। आज की fiat currencies में सबसे पुराना, लेकिन नाम पुराना होने से gold वाला वादा हमेशा गायब नहीं था।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b29\", \"say\": \"Euro का historical count 27 EU members में 20 adopters है, सभी नहीं; इसे आज की updated गिनती मत मानिए।\", \"relation_guess\": \"count\", \"template_guess\": \"count_stack\"}, {\"beat_id\": \"b30\", \"say\": \"इन descriptions से exact shares या हमेशा stable exchange rate मत निकालिए। पुराना currency नाम लगातार fiat होना नहीं बताता; Euro ranking के लिए measure चाहिए।\", \"relation_guess\": \"place\", \"template_guess\": \"pay_change\"}, {\"beat_id\": \"b31\", \"say\": \"Reserve holdings backing नहीं; ज़्यादा पैसा goods नहीं बढ़ाता। Demand supply से आगे निकले तो purchasing power घट सकती है।\", \"relation_guess\": \"more_less\", \"template_guess\": \"none\"}], \"items\": [{\"item_id\": \"p004-i10\", \"content_type\": \"facts_numbers\", \"content\": \"Characteristics of Fiat Money: No intrinsic value: Just paper or digital numbers. Not backed by commodities: Value not tied to gold or silver. Govt-issued: Central banks control production. Trust-based: Value relies on public’s faith in govt. Easily printed: Govts can print more in need. Highly regulated: Controlled by monetary policy.\"}, {\"item_id\": \"p004-i12\", \"content_type\": \"facts_numbers\", \"content\": \"$ | United States Dollar (USD) | The most widely held and traded fiat currency globally.\"}, {\"item_id\": \"p004-i13\", \"content_type\": \"facts_numbers\", \"content\": \"€ | Euro (EUR) | Adopted by 20 of the 27 European Union member states, the euro is the second-most [caption ends here in the image].\"}, {\"item_id\": \"p004-i14\", \"content_type\": \"facts_numbers\", \"content\": \"¥ | Japanese Yen (JPY) | Known for its stability, the yen is a major player in global currency markets.\"}, {\"item_id\": \"p004-i15\", \"content_type\": \"facts_numbers\", \"content\": \"£ | British Pound Sterling (GBP) | The oldest fiat currency still in use, dating back to the 8th century.\"}, {\"item_id\": \"p004-i16\", \"content_type\": \"facts_numbers\", \"content\": \"¥ | Chinese Yuan Renminbi (CNY) | Increasingly influential in global trade and international reserves.\"}], \"book_pictures\": [{\"item_id\": \"p004-i11\", \"type\": \"gallery\", \"title\": \"Major Examples of Fiat Currency Today\"}]}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 0,
+   "started_at": 1793590180.3851051,
+   "mode": "resume",
+   "notes": {
+    "about": "Distinguish fiat money creation from printing, then connect the book’s currency gallery to country codes and carefully qualified claims.",
+    "key_questions": [
+     "How does printing differ from authorised issuance?",
+     "How can monetary policy influence demand without creating goods?",
+     "How do codes distinguish currencies sharing a symbol?",
+     "Which historical counts and descriptive claims need qualifications?"
+    ],
+    "decisions": [
+     {
+      "decision": "Keep the book gallery above beat-specific visual explanations.",
+      "reason": "The gallery identifies currencies; added pictures explain processes and qualifications."
+     },
+     {
+      "decision": "Label the Euro count historical and avoid invented shares or rankings.",
+      "reason": "The script explicitly limits these claims."
+     }
+    ],
+    "uncertain": [
+     "No reference date is supplied for the historical 20-of-27 Euro count.",
+     "The book’s Euro ranking caption is incomplete; no ranking is inferred."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Distinguish fiat money creation from printing, then connect the book’s currency gallery to country codes and carefully qualified claims.",
+     "key_questions": [
+      "How does printing differ from authorised issuance?",
+      "How can monetary policy influence demand without creating goods?",
+      "How do codes distinguish currencies sharing a symbol?",
+      "Which historical counts and descriptive claims need qualifications?"
+     ],
+     "decisions": [
+      {
+       "decision": "Keep the book gallery above beat-specific visual explanations.",
+       "reason": "The gallery identifies currencies; added pictures explain processes and qualifications."
+      },
+      {
+       "decision": "Label the Euro count historical and avoid invented shares or rankings.",
+       "reason": "The script explicitly limits these claims."
+      }
+     ],
+     "uncertain": [
+      "No reference date is supplied for the historical 20-of-27 Euro count.",
+      "The book’s Euro ranking caption is incomplete; no ranking is inferred."
+     ]
+    },
+    "beats": [
+     {
+      "beat_id": "b23",
+      "idea": "Printing is not issuance; fiat rests on authority and trust",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "printing press",
+       "banknotes",
+       "digital balance",
+       "gold",
+       "silver",
+       "government authority seal",
+       "central bank"
+      ],
+      "people": [
+       "public"
+      ],
+      "places": [],
+      "shows": "Printing versus issuance; authority and trust, not bullion",
+      "on_word": "Press",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear printing press and notes beside issuance question mark; compare printing with issuance, sign ?; appear digital balance alongside notes; refuse gold-and-silver backing link at नहीं; appear government seal, central bank and public linked to fiat value."
+     },
+     {
+      "beat_id": "b24",
+      "idea": "Authorised circulation differs from printing and replacement",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "monetary policy control",
+       "printing press",
+       "new banknotes",
+       "authorisation stamp",
+       "circulating banknotes",
+       "old banknotes",
+       "total money meter"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Printed notes enter circulation; replacement leaves total unchanged",
+      "on_word": "issue",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear policy control over issuance; move new notes out of printing press at printing; appear authorisation stamp at authorised; move authorised notes into circulation; move old notes out and replacement notes in at बदलना; hold total money meter unchanged, without invented amounts."
+     },
+     {
+      "beat_id": "b25",
+      "idea": "Costlier credit can cool demand, with delays",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "policy rate meter",
+       "liquidity meter",
+       "loan",
+       "shop",
+       "shop expansion plan",
+       "borrowing meter",
+       "spending meter",
+       "price pressure meter",
+       "clock",
+       "goods"
+      ],
+      "people": [
+       "shopkeeper"
+      ],
+      "places": [],
+      "shows": "Costlier loans slow expansion; demand eases after delay",
+      "on_word": "Policy",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear policy-rate and liquidity controls pointing to loan cost; meter loan cost upward at महँगा; hold expansion plan with shopkeeper and show pause at रोक; meter borrowing, spending and price pressure downward in an arrow chain marked possible; reverse direction for सस्ता credit; appear clock at समय; keep goods unchanged at नहीं बनाता."
+     },
+     {
+      "beat_id": "b26",
+      "idea": "Codes identify dollar and shared Euro currency",
+      "relation": "place",
+      "relation_note": "",
+      "things": [
+       "foreign price tags",
+       "USD currency symbol",
+       "EUR currency symbol",
+       "reserve holdings",
+       "currency trading arrows"
+      ],
+      "people": [],
+      "places": [
+       "United States",
+       "European Union countries"
+      ],
+      "shows": "Price tags connect USD and EUR to places",
+      "on_word": "codes",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": "Static country-linked currency identifiers; reserve and trading icons accompany USD without numerical shares, while multiple EU country outlines share EUR."
+     },
+     {
+      "beat_id": "b27",
+      "idea": "JPY and CNY disambiguate the shared yen symbol",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "¥ currency symbol",
+       "JPY code tag",
+       "CNY code tag",
+       "currency market",
+       "stability shield",
+       "trade goods",
+       "international reserve assets",
+       "external payment arrow"
+      ],
+      "people": [],
+      "places": [
+       "Japan",
+       "China"
+      ],
+      "shows": "Shared ¥ splits into JPY and CNY",
+      "on_word": "¥",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear shared ¥ with question mark; compare Japan–JPY and China–CNY beneath it; appear stability shield and currency-market icon beside JPY; meter CNY trade and reserve influence upward without numbers at बढ़; show reserve assets linked to external payments, not commodity backing."
+     },
+     {
+      "beat_id": "b28",
+      "idea": "Sterling’s old name does not imply uninterrupted fiat",
+      "relation": "sequence",
+      "relation_note": "",
+      "things": [
+       "shop",
+       "£ price tag",
+       "GBP code tag",
+       "currency history timeline",
+       "gold",
+       "promise receipt"
+      ],
+      "people": [],
+      "places": [
+       "Britain"
+      ],
+      "shows": "Sterling timeline separates old roots from fiat status",
+      "on_word": "£",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": "Static timeline from 8th century roots to today; historical gold-promise receipt prevents reading the whole timeline as continuously fiat."
+     },
+     {
+      "beat_id": "b29",
+      "idea": "Historical Euro adoption was twenty of twenty-seven",
+      "relation": "count",
+      "relation_note": "",
+      "things": [
+       "EU member markers",
+       "Euro adoption badges",
+       "historical count label"
+      ],
+      "people": [],
+      "places": [
+       "European Union"
+      ],
+      "shows": "Twenty Euro badges among twenty-seven historical EU markers",
+      "on_word": "27",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear 27 neutral EU-member markers in a grid at 27; appear Euro badges on exactly 20 at 20; leave seven unbadged; show historical label and cross only the आज की updated गिनती tag at मत."
+     },
+     {
+      "beat_id": "b30",
+      "idea": "Descriptions cannot establish shares, stability or rankings",
+      "relation": "reject",
+      "relation_note": "",
+      "things": [
+       "currency share chart",
+       "flat exchange-rate line",
+       "currency history timeline",
+       "Euro ranking podium",
+       "measurement ruler"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Unsupported share, stability and continuity inferences crossed out",
+      "on_word": "exact",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear share chart with unknown values and flat exchange-rate line before crossing both at मत; appear old-name timeline with an uninterrupted-fiat overlay and refuse that overlay at नहीं; appear Euro podium with question mark beside measurement ruler at measure; invent no shares, rates or rank."
+     },
+     {
+      "beat_id": "b31",
+      "idea": "Reserves are not backing; excess demand erodes purchasing power",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "reserve holdings",
+       "backing link",
+       "money stack",
+       "goods stack",
+       "demand meter",
+       "supply meter",
+       "purchasing power meter"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Money grows, goods stay; purchasing power can fall",
+      "on_word": "Reserve",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear reserves and proposed backing link; refuse link at नहीं; grow money stack at ज़्यादा while goods stack stays fixed; compare demand above supply at आगे; meter purchasing power downward at घट with a possibility marker, not an inevitable-outcome claim."
+     }
+    ],
+    "picture_type": "gallery",
+    "picture_note": "Keep the book’s currency gallery at the top. Below it, add printing-versus-issuance motion, policy transmission, country/code pairings, a qualified Sterling timeline, the historical Euro count, and visual guards against unsupported inferences."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793590180.385684
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 0.0,
+ "navin_verdict": null
+}

@@ -1,0 +1,1454 @@
+{
+ "id": "v4_s5",
+ "part_id": "c10.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b23",
+   "say": "Press से note निकलना और पैसा जारी होना क्या एक काम है? Fiat paper या digital numbers हो सकता है; face value gold-silver से नहीं बँधी, government authority, central-bank control और public trust से जुड़ी है।"
+  },
+  {
+   "beat_id": "b24",
+   "say": "और issue संभव है, मगर monetary policy control करती है। एक फर्क समझिए: printing notes बनाती है; authorised issuance circulation में लाता है। पुराने notes बदलना कुल पैसा बढ़ाना नहीं।"
+  },
+  {
+   "beat_id": "b25",
+   "say": "Policy rates और liquidity से loan महँगा हो तो दुकानदार expansion रोक सकता है। Borrowing और spending घटने से prices का दबाव घट सकता है; सस्ता credit उलटा असर करे। असर समय लेता है, missing goods नहीं बनाता।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "Foreign price tags में codes क्यों देखें? $ वाला United States Dollar, USD, सबसे widely held और traded fiat currency है। € यानी Euro, EUR, कई EU देशों की shared currency है।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "¥ Japan या China, कैसे पहचानेंगे? Japanese Yen, JPY, stability और global currency markets में बड़े role के लिए जाना जाता है। Chinese Yuan Renminbi, CNY, trade और international reserves में बढ़ रहा है, यानी बाहरी payments के लिए रखे foreign assets में।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "Britain की दुकान में £ दिखे तो? यह British Pound Sterling, GBP है, जिसकी जड़ें 8th century में हैं। आज की fiat currencies में सबसे पुराना, लेकिन नाम पुराना होने से gold वाला वादा हमेशा गायब नहीं था।"
+  },
+  {
+   "beat_id": "b29",
+   "say": "Euro का historical count 27 EU members में 20 adopters है, सभी नहीं; इसे आज की updated गिनती मत मानिए।"
+  },
+  {
+   "beat_id": "b30",
+   "say": "इन descriptions से exact shares या हमेशा stable exchange rate मत निकालिए। पुराना currency नाम लगातार fiat होना नहीं बताता; Euro ranking के लिए measure चाहिए।"
+  },
+  {
+   "beat_id": "b31",
+   "say": "Reserve holdings backing नहीं; ज़्यादा पैसा goods नहीं बढ़ाता। Demand supply से आगे निकले तो purchasing power घट सकती है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p004_i11",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    3
+   ],
+   "cue": [
+    "b26",
+    ""
+   ],
+   "picture": {
+    "type": "gallery",
+    "title": "Major Examples of Fiat Currency Today",
+    "item_id": "p004-i11",
+    "panels": [
+     {
+      "n": 1,
+      "name": "United States Dollar (USD)",
+      "caption": "The most widely held and traded fiat currency globally",
+      "nouns": [
+       "United",
+       "States",
+       "Dollar",
+       "USD",
+       "The",
+       "most"
+      ],
+      "item_id": "p004-i12",
+      "numbered": false,
+      "cue": [
+       "b26",
+       ""
+      ],
+      "icon": "tw:1f4b5"
+     },
+     {
+      "n": 2,
+      "name": "Euro (EUR)",
+      "caption": "Adopted by 20 of the 27 European Union member states, the eu",
+      "nouns": [
+       "Euro",
+       "EUR",
+       "Adopted",
+       "the",
+       "European",
+       "Union"
+      ],
+      "item_id": "p004-i13",
+      "numbered": false,
+      "cue": [
+       "b26",
+       ""
+      ],
+      "icon": "tw:1f4b6"
+     },
+     {
+      "n": 3,
+      "name": "Japanese Yen (JPY)",
+      "caption": "Known for its stability, the yen is a major player in global",
+      "nouns": [
+       "Japanese",
+       "Yen",
+       "JPY",
+       "Known",
+       "for",
+       "its"
+      ],
+      "item_id": "p004-i14",
+      "numbered": false,
+      "cue": [
+       "b27",
+       ""
+      ],
+      "icon": "tw:1f4b4"
+     },
+     {
+      "n": 4,
+      "name": "British Pound Sterling (GBP)",
+      "caption": "The oldest fiat currency still in use, dating back to the 8t",
+      "nouns": [
+       "British",
+       "Pound",
+       "Sterling",
+       "GBP",
+       "The",
+       "oldest"
+      ],
+      "item_id": "p004-i15",
+      "numbered": false,
+      "cue": [
+       "b28",
+       ""
+      ],
+      "icon": "tw:1f4b7"
+     },
+     {
+      "n": 5,
+      "name": "Chinese Yuan Renminbi (CNY)",
+      "caption": "Increasingly influential in global trade and international r",
+      "nouns": [
+       "Chinese",
+       "Yuan",
+       "Renminbi",
+       "CNY",
+       "Increasingly",
+       "influential"
+      ],
+      "item_id": "p004-i16",
+      "numbered": false,
+      "cue": [
+       "b27",
+       ""
+      ],
+      "icon": "fa:solid/yen-sign"
+     }
+    ]
+   }
+  },
+  {
+   "id": "fiat_foundation",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b23",
+    "Press"
+   ],
+   "until_cue": [
+    "b24",
+    "issue"
+   ],
+   "tone": "ink",
+   "size": 28,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "press",
+     "icon": "fa:solid/industry",
+     "label": ""
+    },
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "gold",
+     "icon": "fa:solid/coins",
+     "label": ""
+    },
+    {
+     "name": "authority",
+     "icon": "fa:solid/stamp",
+     "label": ""
+    },
+    {
+     "name": "bank",
+     "icon": "fa:solid/building-columns",
+     "label": ""
+    },
+    {
+     "name": "trust",
+     "icon": "tw:1f91d",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b23",
+      "Press"
+     ],
+     "object": "press",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b23",
+      "निकलना"
+     ],
+     "from": "press",
+     "to": "bank",
+     "object": "note",
+     "spot": "center"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b23",
+      "digital"
+     ],
+     "on": "note",
+     "text": "paper या digital",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b23",
+      "gold-silver"
+     ],
+     "object": "gold",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b23",
+      "नहीं"
+     ],
+     "object": "gold"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b23",
+      "authority,"
+     ],
+     "object": "authority",
+     "on": "note",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b23",
+      "central-bank"
+     ],
+     "object": "bank",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b23",
+      "trust"
+     ],
+     "object": "trust",
+     "spot": "center",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "issuance",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b24",
+    "issue"
+   ],
+   "until_cue": [
+    "b25",
+    "Policy"
+   ],
+   "tone": "ink",
+   "size": 28,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "bank",
+     "icon": "fa:solid/building-columns",
+     "label": ""
+    },
+    {
+     "name": "press",
+     "icon": "fa:solid/industry",
+     "label": ""
+    },
+    {
+     "name": "new",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "old",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "stamp",
+     "icon": "fa:solid/stamp",
+     "label": ""
+    },
+    {
+     "name": "total",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b24",
+      "issue"
+     ],
+     "object": "bank",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b24",
+      "printing"
+     ],
+     "object": "press",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b24",
+      "बनाती"
+     ],
+     "from": "press",
+     "to": "bank",
+     "object": "new",
+     "spot": "center"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b24",
+      "authorised"
+     ],
+     "from": "bank",
+     "to": "new",
+     "object": "stamp"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b24",
+      "circulation"
+     ],
+     "from": "press",
+     "to": "bank",
+     "object": "new",
+     "text": "circulation",
+     "spot": "right"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b24",
+      "पुराने"
+     ],
+     "object": "old",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "transform",
+     "cue": [
+      "b24",
+      "बदलना"
+     ],
+     "object": "old",
+     "into": "new"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b24",
+      "कुल"
+     ],
+     "to": "total",
+     "object": "total",
+     "text": "कुल पैसा",
+     "spot": "left",
+     "reach": 0.5
+    }
+   ]
+  },
+  {
+   "id": "credit_transmission",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b25",
+    "Policy"
+   ],
+   "until_cue": [
+    "b26",
+    "codes"
+   ],
+   "tone": "ink",
+   "size": 28,
+   "template": "compose",
+   "actors": [
+    {
+     "role": "shopkeeper",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "policy",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    },
+    {
+     "name": "loan",
+     "icon": "fa:solid/hand-holding-dollar",
+     "label": ""
+    },
+    {
+     "name": "shop",
+     "icon": "tw:1f3ea",
+     "label": ""
+    },
+    {
+     "name": "spending",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    },
+    {
+     "name": "prices",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    },
+    {
+     "name": "clock",
+     "icon": "tw:1f550",
+     "label": ""
+    },
+    {
+     "name": "goods",
+     "icon": "fa:solid/basket-shopping",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b25",
+      "Policy"
+     ],
+     "object": "policy",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b25",
+      "loan"
+     ],
+     "from": "policy",
+     "to": "shopkeeper",
+     "object": "loan"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b25",
+      "महँगा"
+     ],
+     "on": "loan",
+     "text": "महँगा loan",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b25",
+      "दुकानदार"
+     ],
+     "object": "shop",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b25",
+      "expansion"
+     ],
+     "on": "shop",
+     "text": "expansion",
+     "style": "tag"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b25",
+      "रोक"
+     ],
+     "actor": "shopkeeper",
+     "object": "shop"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b25",
+      "घटने"
+     ],
+     "to": "spending",
+     "object": "spending",
+     "text": "Borrowing और spending",
+     "spot": "center",
+     "dir": "down",
+     "reach": 0.3
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b25",
+      "दबाव"
+     ],
+     "to": "prices",
+     "object": "prices",
+     "text": "prices का दबाव",
+     "spot": "right",
+     "dir": "down",
+     "reach": 0.3
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b25",
+      "उलटा"
+     ],
+     "to": "prices",
+     "object": "prices",
+     "dir": "up",
+     "reach": 0.7
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b25",
+      "समय"
+     ],
+     "object": "clock",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b25",
+      "goods"
+     ],
+     "object": "goods",
+     "spot": "center",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "code_tag",
+   "kind": "icon",
+   "cell": [
+    0,
+    4,
+    2,
+    2
+   ],
+   "cue": [
+    "b26",
+    "codes"
+   ],
+   "until_cue": [
+    "b27",
+    "¥"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/tags",
+   "size": 28
+  },
+  {
+   "id": "usd_tag",
+   "kind": "text",
+   "cell": [
+    2,
+    4,
+    5,
+    2
+   ],
+   "cue": [
+    "b26",
+    "USD,"
+   ],
+   "until_cue": [
+    "b27",
+    "¥"
+   ],
+   "text": "$ USD\nUnited States Dollar",
+   "style": "tag",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "usd_reserve_holdings",
+   "kind": "icon",
+   "cell": [
+    3,
+    6,
+    3,
+    1
+   ],
+   "cue": [
+    "b26",
+    "held"
+   ],
+   "until_cue": [
+    "b27",
+    "¥"
+   ],
+   "tone": "ink",
+   "icon": "asset:a-f14e82db0aafc98b",
+   "size": 28
+  },
+  {
+   "id": "eur_tag",
+   "kind": "text",
+   "cell": [
+    7,
+    4,
+    5,
+    2
+   ],
+   "cue": [
+    "b26",
+    "EUR,"
+   ],
+   "until_cue": [
+    "b27",
+    "¥"
+   ],
+   "text": "€ EUR\nEU की shared currency",
+   "style": "tag",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "yen_yuan",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b27",
+    "¥"
+   ],
+   "until_cue": [
+    "b28",
+    "£"
+   ],
+   "tone": "ink",
+   "size": 28,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "tag",
+     "icon": "fa:solid/tag",
+     "label": ""
+    },
+    {
+     "name": "market",
+     "icon": "tw:1f3ea",
+     "label": ""
+    },
+    {
+     "name": "shield",
+     "icon": "asset:a-b7663868eff5ae59",
+     "label": ""
+    },
+    {
+     "name": "goods",
+     "icon": "fa:solid/basket-shopping",
+     "label": ""
+    },
+    {
+     "name": "reserves",
+     "icon": "asset:a-7f755d9b7033ca98",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b27",
+      "¥"
+     ],
+     "object": "tag",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b27",
+      "JPY,"
+     ],
+     "left": "tag",
+     "right": "tag",
+     "sign": "vs",
+     "left_text": "¥ JPY · Japan",
+     "right_text": "¥ China"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b27",
+      "stability"
+     ],
+     "object": "shield",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b27",
+      "markets"
+     ],
+     "object": "market",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b27",
+      "CNY,"
+     ],
+     "on": "tag",
+     "text": "¥ CNY · China",
+     "style": "tag",
+     "spot": "right"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b27",
+      "trade"
+     ],
+     "to": "market",
+     "object": "goods",
+     "spot": "right"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b27",
+      "reserves"
+     ],
+     "object": "reserves",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b27",
+      "payments"
+     ],
+     "to": "market",
+     "object": "reserves"
+    }
+   ]
+  },
+  {
+   "id": "sterling_history",
+   "kind": "picture",
+   "cell": [
+    0,
+    3,
+    12,
+    3
+   ],
+   "cue": [
+    "b28",
+    "£"
+   ],
+   "until_cue": [
+    "b29",
+    "27"
+   ],
+   "tone": "accent",
+   "size": 28,
+   "picture": {
+    "type": "timeline",
+    "title": "",
+    "item_id": "",
+    "events": [
+     {
+      "cue": [
+       "b28",
+       "GBP"
+      ],
+      "name": "£ GBP",
+      "icon": "fa:solid/tag",
+      "numbered": false,
+      "when": ""
+     },
+     {
+      "cue": [
+       "b28",
+       "8th"
+      ],
+      "name": "Sterling की जड़ें",
+      "icon": "tw:1f9fe",
+      "numbered": false,
+      "when": "8th century"
+     },
+     {
+      "cue": [
+       "b28",
+       "आज"
+      ],
+      "name": "fiat currency",
+      "icon": "fa:solid/money-bill-1",
+      "numbered": false,
+      "when": "आज"
+     },
+     {
+      "cue": [
+       "b28",
+       "gold"
+      ],
+      "name": "gold वाला वादा",
+      "icon": "fa:solid/coins",
+      "numbered": false,
+      "when": ""
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "historical_adoption",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b29",
+    "27"
+   ],
+   "until_cue": [
+    "b30",
+    "exact"
+   ],
+   "tone": "ink",
+   "size": 28,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "members",
+     "icon": "fa:solid/tag",
+     "label": ""
+    },
+    {
+     "name": "euro",
+     "icon": "fa:solid/tag",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b29",
+      "27"
+     ],
+     "object": "members",
+     "text": "27 EU members",
+     "spot": "center",
+     "n": 12,
+     "layout": "grid"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b29",
+      "20"
+     ],
+     "object": "euro",
+     "on": "members",
+     "text": "€",
+     "n": 12,
+     "layout": "grid"
+    }
+   ]
+  },
+  {
+   "id": "inference_checks",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b30",
+    "exact"
+   ],
+   "until_cue": [
+    "b31",
+    "Reserve"
+   ],
+   "tone": "ink",
+   "size": 28,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "shares",
+     "icon": "tw:1f4c8",
+     "label": ""
+    },
+    {
+     "name": "rate",
+     "icon": "asset:a-843bd4b7959c6bbc",
+     "label": ""
+    },
+    {
+     "name": "history",
+     "icon": "asset:a-cfb0f52434780d00",
+     "label": ""
+    },
+    {
+     "name": "measure",
+     "icon": "fa:solid/pen-ruler",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b30",
+      "exact"
+     ],
+     "object": "shares",
+     "text": "exact shares",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b30",
+      "shares"
+     ],
+     "object": "shares"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b30",
+      "stable"
+     ],
+     "object": "rate",
+     "text": "हमेशा stable exchange rate",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b30",
+      "निकालिए।"
+     ],
+     "object": "rate"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b30",
+      "पुराना"
+     ],
+     "object": "history",
+     "text": "लगातार fiat",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b30",
+      "नहीं"
+     ],
+     "object": "history"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b30",
+      "measure"
+     ],
+     "object": "measure",
+     "text": "Euro ranking का measure",
+     "spot": "center",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "purchasing_power",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b31",
+    "Reserve"
+   ],
+   "tone": "ink",
+   "size": 28,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "reserve",
+     "icon": "asset:a-f14e82db0aafc98b",
+     "label": ""
+    },
+    {
+     "name": "promise",
+     "icon": "asset:a-00c1df9e95985a3c",
+     "label": ""
+    },
+    {
+     "name": "money",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "goods",
+     "icon": "fa:solid/basket-shopping",
+     "label": ""
+    },
+    {
+     "name": "demand",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    },
+    {
+     "name": "supply",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    },
+    {
+     "name": "power",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b31",
+      "Reserve"
+     ],
+     "object": "reserve",
+     "text": "Reserve holdings",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b31",
+      "backing"
+     ],
+     "object": "promise",
+     "text": "backing",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b31",
+      "नहीं;"
+     ],
+     "object": "promise"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b31",
+      "पैसा"
+     ],
+     "object": "money",
+     "spot": "left",
+     "n": 6,
+     "layout": "pile"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b31",
+      "goods"
+     ],
+     "object": "goods",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b31",
+      "Demand"
+     ],
+     "to": "demand",
+     "object": "demand",
+     "text": "Demand",
+     "spot": "left",
+     "dir": "up",
+     "reach": 0.85
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b31",
+      "supply"
+     ],
+     "to": "supply",
+     "object": "supply",
+     "text": "supply",
+     "spot": "center",
+     "reach": 0.45
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b31",
+      "घट"
+     ],
+     "to": "power",
+     "object": "power",
+     "text": "purchasing power",
+     "spot": "right",
+     "dir": "down",
+     "reach": 0.25
+    }
+   ]
+  },
+  {
+   "id": "auto_thing_1",
+   "kind": "icon",
+   "icon": "tw:2696",
+   "cell": [
+    0,
+    0,
+    2,
+    2
+   ],
+   "cue": [
+    "b23",
+    "digital"
+   ],
+   "until_cue": [
+    "b24",
+    ""
+   ]
+  },
+  {
+   "id": "auto_thing_2",
+   "kind": "icon",
+   "icon": "asset:a-c5775992556b3244",
+   "cell": [
+    2,
+    0,
+    2,
+    2
+   ],
+   "cue": [
+    "b24",
+    "monetary"
+   ],
+   "until_cue": [
+    "b25",
+    ""
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b23",
+    "Press"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b24",
+    "printing"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b26",
+    "codes"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b29",
+    "27"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b30",
+    "exact"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b31",
+    "Demand"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b23",
+    "Press"
+   ],
+   "ids": [
+    "fiat_foundation",
+    "issuance",
+    "credit_transmission"
+   ],
+   "until_cue": [
+    "b26",
+    "codes"
+   ]
+  },
+  {
+   "cue": [
+    "b26",
+    "codes"
+   ],
+   "ids": [
+    "book_p004_i11_p1",
+    "book_p004_i11_p2",
+    "book_p004_i11_p3",
+    "book_p004_i11_p4",
+    "book_p004_i11_p5",
+    "book_p004_i11_a1",
+    "book_p004_i11_a2",
+    "book_p004_i11_a3",
+    "book_p004_i11_a4",
+    "code_tag",
+    "usd_tag",
+    "usd_reserve_holdings",
+    "eur_tag",
+    "yen_yuan",
+    "sterling_history_y1",
+    "sterling_history_e1",
+    "sterling_history_y2",
+    "sterling_history_e2",
+    "sterling_history_y3",
+    "sterling_history_e3",
+    "sterling_history_y4",
+    "sterling_history_e4",
+    "sterling_history_a1",
+    "sterling_history_a2",
+    "sterling_history_a3"
+   ],
+   "until_cue": [
+    "b29",
+    "27"
+   ]
+  },
+  {
+   "cue": [
+    "b29",
+    "27"
+   ],
+   "ids": [
+    "historical_adoption"
+   ],
+   "until_cue": [
+    "b30",
+    "exact"
+   ]
+  },
+  {
+   "cue": [
+    "b30",
+    "exact"
+   ],
+   "ids": [
+    "inference_checks"
+   ],
+   "until_cue": [
+    "b31",
+    "Reserve"
+   ]
+  },
+  {
+   "cue": [
+    "b31",
+    "Reserve"
+   ],
+   "ids": [
+    "purchasing_power"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,5540 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v4_s5",
+ "status": "passed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.3+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3",
+ "rulebook_digest": "8806c6ee4a7b0de68af6d616d63f489dcda85e158cf4d213d81d43562bb5b1fc",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "f5f3a2a45510eb3581ca12d3a4bfa420794251d8d239da5e5646cd749c2b1d8c",
+ "card": null,
+ "prefix_sha256": "3827b6770f9f8a37a6ca8996ab9672a3618c40b0506a79dcac5e63688d86e658",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's canvas director for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is\nalready written and passed; you do not change a word of it. You plan ONE build-up canvas for this part: what appears, in\nwhich grid cell, and on which spoken word. Code places, times and checks it; a refused plan comes back to you with the\nexact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish. Navin's level for this part: B (a build-up canvas with L3 touches (shadows, idle motion, walk-ins, the beat's things flowing, a camera that follows)).\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[CV-13] On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').\n[CV-14] Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.\n[CV-15] A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.\n[CV-16] Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[VG-02] Labels are code text tied to their object by a leader line and move with it; a label is never baked into an image, so one asset works in every language.\n[VG-04] Size is taught by scale comparison with a thing the learner knows (one book = 1 MB; access time as a distance), never by a number alone.\n[VG-07] Two things are compared on a split screen (the split_compare block), the same slots on both sides.\n[VG-08] Processes show flow with moving arrows or particles (magma, water, concrete, ions, mucus), never a still diagram with static arrows.\n[VG-10] History and polity use a lit timeline with nodes; maps appear only through the licence gate's map rule (India's boundary waits for Navin's approval).\n[D1-01] Every beat shows at least one non-text thing tied to its nouns or its relation (an icon, a mark, an arrow, a crowd or value step, a table row, a picture event; in a world a prop, a person, a price or a crowd step), cued on a word of that beat. A beat that only adds text is refused.\n[D1-02] The screen never shows text alone for more than 10 seconds: while a beat is spoken, the thing it names is on screen (Navin, 30 October 2026: 'sirf text hi text screen par dikha to video ... ek book ban jaayegi').\n[D1-03] Screen text is a name or a short natural phrase (at most 8 words; a board 2 lines of 28 characters), never a sentence: the sentence lives in the narration and the subtitles. The picture shows the thing itself, so its label is understood without reading (page-2 principle).\n[D1-04] A book diagram or table the part covers is drawn as itself: a timeline with the book's years and labels, a table row by row, a panel of items as a gallery of icon cards, a flow as boxes and arrows. Code places it; the plan builds around it and never leaves it out.\n[D1-05] A world (C) is used only when the beats are the story of the concept's real-world example with actors at a place, and that place comes from the example itself, never from a keyword of the narration; the same world kit is never used in two consecutive parts.\n[D1-06] A caution, caveat or fact-check line ('illustrative numbers', 'imagined market', 'data not given', 'outside clarification') never appears on screen: it stays a background check in the records.\n[D2-01] A beat that tells a process (paying and getting change, a UPI scan, a card tap, a cheque, a barter swap, a refusal, counting up to a limit, counting) shows it HAPPENING with its kriya ka saancha: the people act on their cue words (hands give and take, the phone is raised to the QR stand, a head shakes), the camera moves in to the hands and the screen and back out (Navin, 1 November 2026: 'process show nahi ho rahi hai, like upi payment ka jikar hai shop par, par agar wo visuals se clear ho jaise scanner phone scan, tab maja hai'). A process no saancha fits goes to the missing-capability log.\n[D2-02] Story goods come from the story: a shop's stock, the buyers' bags, a balance's pans and an action's objects are the things the beat names (salt for salt, cloth for cloth), from the icon index and the asset library; nothing is drawn from a fixed picture (Navin, 1 November 2026: 'baat ho rahi hai kapda khareedne ki namak khareedne ki aur wo wahi cheeni ko show kar rha hai'). A thing no source has goes to needs.json.\n[D2-03] Layout in every mode: boards, labels, price tags, balances and actions never overlap while on screen together; in a world at most one board, label or title is on screen at a time and numbers go on objects (a price tag, the note, the phone screen, a passbook), never on a label; nothing sits under the subtitle strip (the bottom 14 % of the frame); an action's people are at least about a quarter of the frame tall; no camera key shows an empty street.\n[D2-04] Meaning: every relation of the dikhane ki list is realised by an element on its beat (a refusal or 'no status' puts a cross on that thing; an acceptance a tick; a limit a meter stopping at its red line); a struck value with an up or down arrow only when the same quantity changes, and change given back is the pay_change saancha (Navin's D1 findings 4 and 5).\n[D2-05] One main character per video: the person the story follows keeps the same face, clothes and cap in every part; the others are generic. Icons fit the era and the concept (a phone or a card in a barter beat is reported).\n\n# Director card: build-up canvas plans (for the AI director step)\n\nYou plan ONE canvas for ONE part of a passed script. You do not write narration and you do not place pixels: you say\nwhat appears, in which grid cell, and on which spoken word. Code (`econ_canvas.compile_plan`) places, times and checks\nit; a refused plan comes back to you with the exact error.\n\n## Input you get\n\n- `beats`: the part's spoken beats `[{beat_id, say}]` (Hinglish, Devanagari with English terms). Do not change them.\n- The chapter map items this part covers (terms, numbers, causes, examples).\n- The icon search tool: `icon_index.search(\"bank\")` → ids like `tw:1f3e6` (colour), `fa:solid/building-columns` (line) or\n  `fl:bank` (Fluent 3D), or a picture in the lesson's asset library; the candidates listed under the part are the ones code\n  found for the beat's own things.\n\n## Output you give (JSON only)\n\n```json\n{\"id\": \"<part id>\", \"theme\": \"paper\", \"grid\": [12, 8], \"beats\": <as given>,\n \"nodes\": [ ...elements... ], \"focus\": [ ... ], \"camera\": [ ... ], \"graph\": { ...optional... }}\n```\n\nGrid: 12 columns × 8 rows inside the safe area. `cell` = `[col, row, width, height]`. Two elements may share cells\nonly if they are never on screen together (use `until_cue`). Reading order: left → right, top → bottom.\n\nEvery element has `cue`: `[beat_id, \"<a word exactly as written in that beat>\"]` — the element appears while that word\nis spoken. Use `[beat_id, \"\", 0.0]` for \"at the start of the beat\" only for titles.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `text` | `text`, `style`: `plain` / `box` / `note` / `title` / `tag`, `size`, `tone`, `fill`, `align`, `marks` | definitions (box), side notes (note), headings (title), chips (tag) |\n| `callout` | like text (style `note`), `marks: [{phrase, cue}]` | the one sentence to remember; its key phrase lights up when said |\n| `icon` | `icon` (id from the index), `label` | objects and actors: shop, factory, bank, RBI (use a bank / classical building icon), people, money, goods |\n| `crowd` | `icon`, `steps: [{n, cue}]`, `cols` | many buyers / workers / firms; the number grows or shrinks with the story |\n| `value` | `steps: [{text, cue, dir}]`, `size`, `align` | a number that changes: the old value is struck out, the new one appears with ▲/▼ |\n| `arrow` | `from`, `to` (element ids), `from_side`/`to_side` (`l r t b`), `label`, `elbow` (`hv`, `vh`, `vhv`), `curve`, `dashed`, `tone` | cause → effect, flow of goods / money, sequence |\n| `tree` | `root`, `children: [text or {text, cue}]`, `cell`, `size` | a concept and its types (Inflation → WPI / CPI) |\n| `table` | `columns`, `rows: [{cells, cue}]`, `highlights: [{row?, col?, cue, until_cue?, tone}]` | year-by-year numbers, comparisons |\n| `mark` | `mark`: `tick` / `cross`, `target`, `pos`: `c` / `tr` | right / wrong, done, rejected |\n| `highlight` | `target`, `style`: `box` / `dashed` / `band`, `tone` | \"look here\" on what is being explained |\n| `picture` | `cell`, `picture`: `{type: timeline / gallery / flow, title, items: [{when, name, icon, cue}], arrows}` | a row of things you draw yourself: dates on a timeline (`when` = the date as said), a numbered row of things (gallery), steps joined by arrows (flow); each item appears on its own cue |\n| `action` | `cell` (at least 3 rows tall, best 5–6 rows and 8–12 columns), `action: {template, actors, objects, amounts, steps, texts, parts, close_up}` | a process the learner sees happen, made of motion parts (the saanche below), with the beat's own actors, things and numbers |\n\n`focus: [{cue, until_cue?, ids: [...]}]` dims everything else. `camera: [{cells: [...], cue}]` zooms to a region\n(use it when the canvas is dense or to re-frame for the next sub-idea). `graph` = a `curve_story` (axes, curves as\npoints, a dot that walks to named x values, guides like NAIRU, shaded bands, notes) for any economic curve.\n\nTones: `ink`, `muted`, `accent` (blue), `warm` (orange), `danger` (red), `ok` (green), `tag` (pink), `note`, `band`.\n\n## Dikhane ki soch (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\")\n\nBefore you plan, BIE has thought about every beat: its idea, its relation (reject, accept, compulsory, limit, sequence,\ncompare, …) and the things it names; the part message lists them with the icons BIE found for each thing. Draw THAT:\n\n- Every beat shows at least one thing that is not text (an icon, a mark, an arrow, a crowd or value step, a table row, a\n  picture item), cued on a word of that beat (D1-01). A screen of text alone for more than 10 s is refused (D1-02): a video\n  that is only text is a book.\n- Show the relation the way BIE's visual verbs say: a cross on the thing refused, a tick on the thing accepted, a law scroll\n  and stamp for \"compulsory\", a meter with a red line for a limit, a numbered row or a timeline for a sequence, an arrow chain\n  for cause → effect, a split or a scale for a comparison, before/after for a change, a receipt or a handshake for a promise.\n- The picture shows the thing itself, so its label is understood without reading (the book's page 2): screen text is a\n  name or a short phrase of at most 8 words, never a sentence; the sentence is the narration and the subtitles (D1-03).\n- When the part message says BIE has placed the book's own picture (a timeline, a table, a gallery of the book's panels, a\n  flow), keep it: never redraw it, never reuse its cells or its id, and build your elements in the rows below it (D1-04).\n- Never put a caution or fact-check line on screen (\"illustrative numbers\", \"imagined market\", \"data not given\",\n  \"outside clarification\"): those are BIE's background checks (D1-06).\n\n## Kriya ke saanche: processes the learner sees happen (Task 046 Part D2; Navin, 1 and 2 November 2026)\n\nNavin on the D1 videos: \"process show nahi ho rahi hai ... agar wo visuals se clear ho, tab maja hai\"; and on 2 November 2026:\n\"jis cheej ka jikar hai wohi cheej dikhe\" — examples are illustrations, never a list of things to draw. When a beat tells a\nPROCESS (someone gives, pays, scans, swaps, writes, counts, refuses, accepts, turns one thing into another), show it with an\n`action` element made of general motion parts; the actors, the things and the numbers are THIS beat's own.\n\nThe motion parts BIE draws: `hold` (a person holds a thing), `give` (a thing goes from one hand to the other), `move` (a thing\nmoves along a path to a spot, a person or another thing; `back` returns it, `into` lets it go in), `transform` (A turns into B\nwhere it is), `show_text` (a tag, sign, screen, ok screen, thought bubble or written text shows a short text), `meter` (a bar\nfills to its limit, or a number changes with an up/down arrow), `appear` (things appear one by one, in a grid or onto a pile),\n`refuse` / `accept` (a head shake and a cross, a nod and a tick), `compare` (two things side by side with = ≠ ? vs < >).\n\nRecipes are ready compositions of these parts (`template`, each step on its cue word):\n\n| template | steps | actors (role) | objects (name; optional ones may be left out) | amounts |\n| --- | --- | --- | --- | --- |\n| `hand_over` | give, take | giver, taker | thing | – |\n| `pay_change` | pay, goods, change | buyer, seller | goods; money, change_money (optional: else a plain chip with the amount) | paid, change (price optional) |\n| `barter_swap` | offer, ask, swap | a, b | a_thing, b_thing | – |\n| `upi` | scan, paid, received | buyer, seller | device, sign, seller_device (all optional) | amount |\n| `card_tap` | tap, approved | buyer, seller | card, machine (optional) | amount |\n| `cheque` | write, hand, balances | payer, payee | cheque, place (optional) | amount (payer/payee before and after optional) |\n| `coin_count` | count, limit | – | coin (optional) | each, limit |\n| `refuse` | show, refuse | who | thing | – |\n| `accept` | show, accept | who | thing | – |\n| `count_stack` | count | – | thing | n (1 to 12) |\n| `compose` | one per part | your own (at most two) | your own | – |\n\n- Every object's icon is the thing the beat names, from the icon candidates of THAT beat's things; never a thing from an\n  example, a card or another part, never a stand-in. A thing the beat names that has no icon goes to the needs list (code finds\n  or makes it); meanwhile leave the optional object out.\n- Numbers go on what carries them (a tag on the thing that travels, a screen, a meter), never on a separate label; every amount\n  is said in the narration of the action's beats, written as the narration writes it (CV-16). `texts` adds one short word the\n  narration says to a step's sign.\n- A value given back travels back in a process (a `give` with its tag), never as a struck value with an arrow: a struck value\n  with ▲/▼ is only for the SAME quantity changing.\n- \"Refused\", \"not valid\": a `refuse` part puts the cross on that thing; \"accepted\", \"valid\": `accept`.\n- One main character per video: the person the story follows has `who: \"main\"`; everyone else is `\"other\"`. `mood` is neutral,\n  pleased, unsure or refusing; the parts change moods on their steps.\n- A process no recipe fits: `template: \"compose\"` with its parts in order (each with its cue word and the fields it needs).\n  A motion BIE has no part for: show it with icons and arrows meanwhile; the visual-idea step names it (`template: other`) and\n  it goes to the missing-capability log.\n\nNothing sits under the subtitle strip: the bottom 14 % of the frame belongs to the captions; code moves the camera so that\nwhat a beat shows stays above it, and refuses a plan whose element is still under it.\n\n## Rules (from 20 reference videos, rules/econ_canvas_rules.json)\n\n1. One canvas per idea; build it piece by piece. Re-frame with `camera` instead of starting a new canvas.\n2. Something changes about every 5 s; never let the picture stay still more than 15 s (the code refuses it).\n3. Each element appears on ITS word, while it is said.\n4. Carry the idea with a running example with numbers (price 50 → 65; GDP 10,000 → 11,000 → 12,100); show changes\n   with `value` steps, crowds with `crowd` steps.\n5. A tree/branch overview first, then tick the branch that is done before the next.\n6. Keep one anchor (a tree, a band, a rate card) while the rest changes.\n7. On-screen text (CV-13 to CV-16, Navin's verdict on Money v1, 29 October 2026): a box holds ONE idea as a short COMPLETE\n   phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), at most ~12\n   words; never a code: no ✓ ✗ ≠, no list of bare words (\"Exchange · Account / Store · Deferred\"), no line ending on → = : /;\n   every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a\n   text the beat does not say, and a number the beat does not say); a caveat (\"imagined market\") once per part on its own\n   small note. The narration says the rest.\n8. Never a photo or caricature of a real person, never a logo, emblem or regulator mark: a name tag or a generic icon.\n9. Tags must fit on one line in their cell; text must fit at ≥ 24 px (the code refuses otherwise: make the cell bigger\n   or the text shorter).\n10. A part longer than about 10 beats (real BIE plans have parts of 19 beats) becomes two or three canvases, or one\n    canvas re-framed by `camera` keys; at most 16 elements are on screen at once (the code refuses more).\n\nIcons you may use (id · name): the ones listed under the part for its nouns, and these; any other id is refused:\n- tw:274c · cross mark\n- tw:2705 · white heavy check mark\n- tw:1f4dc · scroll\n- fa:solid/stamp · Stamp\n- fa:solid/gavel · Gavel\n- fa:solid/gauge-high · Gauge High\n- tw:2696 · scales\n- tw:1f5fa · world map\n- tw:1f9fe · receipt\n- tw:1f91d · handshake\n- tw:2753 · black question mark ornament\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] / false mean \"not used\"):\n- notes: brief notes for the record: the idea of this canvas, the running example with numbers, what is uncertain.\n- nodes: the elements, in the order they appear. id (unique), kind, cell [col, row, width, height] on the 12 x 8 grid\n  (arrows, marks and highlights have no cell), cue [beat_id, word] with the word exactly as written in that beat (or\n  [beat_id, \"\"] for the start of the beat, cue_fraction 0..1 moves it into the beat). until_cue when the element leaves.\n  value/crowd use steps (text or n, with cue each; dir \"up\"/\"down\" on a value step). tree: root + children (text, cue).\n  table: columns + rows (cells, cue) + highlights (row or col, -1 when not used). callout/text: marks (phrase, cue).\n  arrow: from, to (+ from_side/to_side l r t b, elbow hv/vh/vhv). mark: mark tick/cross + target + pos c/tr.\n  highlight: target + style box/dashed/band. flow on an arrow (icon, count, period, size, reverse, cue) makes the beat's\n  own things travel along it. action (a kriya ka saancha, the card's table): cell at least 3 rows tall, action.template,\n  actors (role, who main/other, label, mood), objects (name, icon from the candidates of THIS beat's things, label),\n  amounts (name, text as the narration writes it), steps (name, cue) in the recipe's order, texts (step, a short word the\n  narration says, shown with that step's sign), close_up; template \"compose\": parts in order (part, cue and the fields it\n  needs: actor/from/to/object/into/on/text/style/inside/n/spot/back/left/right/sign) with the action's own actors and\n  objects; for every other kind action.template is \"\".\n- camera: zoom to a region of cells on a cue (use it to re-frame instead of a new canvas). focus: dim everything but ids.\n- graph_used true + graph for an economic curve (axes, curves as [x, y] points, a dot that walks to x values, guides,\n  shades, notes); plot is the graph's box as fractions of the canvas.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c10.2 (9 beats).\nDikhane ki soch for this part (the visual-idea step; every beat shows its thing on its word, D1-01):\n- b23: Printing is not issuance; fiat rests on authority and trust · relation compare · shows: Printing versus issuance; authority and trust, not bullion · on 'Press' · saancha compose\n- b24: Authorised circulation differs from printing and replacement · relation compare · shows: Printed notes enter circulation; replacement leaves total unchanged · on 'issue' · saancha compose\n- b25: Costlier credit can cool demand, with delays · relation cause_effect · shows: Costlier loans slow expansion; demand eases after delay · on 'Policy' · saancha compose\n- b26: Codes identify dollar and shared Euro currency · relation place · shows: Price tags connect USD and EUR to places · on 'codes'\n- b27: JPY and CNY disambiguate the shared yen symbol · relation compare · shows: Shared ¥ splits into JPY and CNY · on '¥' · saancha compose\n- b28: Sterling’s old name does not imply uninterrupted fiat · relation sequence · shows: Sterling timeline separates old roots from fiat status · on '£'\n- b29: Historical Euro adoption was twenty of twenty-seven · relation count · shows: Twenty Euro badges among twenty-seven historical EU markers · on '27' · saancha compose\n- b30: Descriptions cannot establish shares, stability or rankings · relation reject · shows: Unsupported share, stability and continuity inferences crossed out · on 'exact' · saancha compose\n- b31: Reserves are not backing; excess demand erodes purchasing power · relation cause_effect · shows: Money grows, goods stay; purchasing power can fall · on 'Reserve' · saancha compose\nIcons found for the things named (id · name); you may also use any id from the general menu below:\n- printing press: fa:solid/industry (Industry)\n- banknotes: fa:solid/money-bill-1 (Money Bill 1); tw:1f4b5 (banknote with dollar sign)\n- digital balance: tw:2696 (scales)\n- gold: tw:1fa99 (coin); fa:solid/coins (Coins)\n- silver: tw:1fa99 (coin)\n- government authority seal: fa:solid/stamp (Stamp)\n- central bank: fa:solid/building-columns (Building Columns); tw:1f3e6 (bank)\n- public: tw:1f4e2 (public address loudspeaker); fl:loudspeaker (loudspeaker); fa:solid/bullhorn (Bullhorn)\n- new banknotes: fa:solid/money-bill-1 (Money Bill 1); tw:1f4b5 (banknote with dollar sign)\n- authorisation stamp: fa:solid/stamp (Stamp)\n- circulating banknotes: fa:solid/money-bill-1 (Money Bill 1); tw:1f4b5 (banknote with dollar sign)\n- old banknotes: fa:solid/money-bill-1 (Money Bill 1); tw:1f4b5 (banknote with dollar sign)\n- total money meter: fa:solid/gauge-high (Gauge High)\n- policy rate meter: fa:solid/gauge-high (Gauge High)\n- liquidity meter: fa:solid/gauge-high (Gauge High)\n- loan: fa:solid/hand-holding-dollar (Hand Holding Dollar)\n- shop: tw:1f3ea (convenience store)\n- borrowing meter: fa:solid/gauge-high (Gauge High)\n- spending meter: fa:solid/gauge-high (Gauge High)\n- price pressure meter: fa:solid/gauge-high (Gauge High)\n- clock: tw:1f550 (clock face one oclock)\n- goods: fa:solid/basket-shopping (Basket Shopping); fa:solid/square-nfi (Square Nfi)\n- shopkeeper: tw:1f9d1-200d-1f4bc (adult + briefcase)\n- currency trading arrows: tw:27a1 (black rightwards arrow)\n- United States: fa:solid/landmark (Landmark)\n- currency market: tw:1f3ea (convenience store)\n- external payment arrow: tw:27a1 (black rightwards arrow)\n- Japan: fl:map-of-japan (map of Japan); tw:1f5fe (silhouette of japan)\n- £ price tag: fa:solid/tag (Tag); fa:solid/tags (Tags)\n- promise receipt: tw:1f9fe (receipt)\n- currency share chart: tw:1f4c8 (chart with upwards trend)\n- measurement ruler: fa:solid/pen-ruler (Pen Ruler); fa:solid/ruler-combined (Ruler Combined); fa:solid/ruler-horizontal (Ruler Horizontal)\n- demand meter: fa:solid/gauge-high (Gauge High)\n- supply meter: fa:solid/gauge-high (Gauge High)\n- purchasing power meter: fa:solid/gauge-high (Gauge High)\nPictures in this lesson's asset library for the things named (use the id as an icon; the credit is added by code):\n- banknotes: asset:a-6a50590c64b3ff0a; asset:a-be21884a68c2a4fb\n- monetary policy control: asset:a-c5775992556b3244\n- shop expansion plan: asset:a-7a844c701ce0d70b\n- goods: asset:a-3978b4738358001e; asset:a-b2bf9db8e3876b9b\n- reserve holdings: asset:a-f14e82db0aafc98b\n- stability shield: asset:a-b7663868eff5ae59\n- trade goods: asset:a-b2bf9db8e3876b9b\n- international reserve assets: asset:a-7f755d9b7033ca98\n- China: asset:a-93d80fd8710d41bd\n- currency history timeline: asset:a-cfb0f52434780d00\n- flat exchange-rate line: asset:a-843bd4b7959c6bbc\n- backing link: asset:a-00c1df9e95985a3c\n- money stack: asset:a-6fb926b12f1afa9f; asset:a-0dda6c456ccd66de; asset:a-79b4b7ce8ff5bd94\n- goods stack: asset:a-78b14884b97c8a2e\n\nCode has already placed the book's own picture in this plan: node 'book_p004_i11' (gallery: Major Examples of Fiat Currency Today) in cells [0, 0, 12, 3] (col, row, width, height). Do not add another timeline, table or row for it and do not reuse its id or its cells; build your elements in the rows below it (row 3 onward) and let the picture carry the beats that cover its items (D1-04).\nThe part (JSON):\n{\"part\": {\"id\": \"v4_s5\", \"part_id\": \"c10.2\", \"mode\": \"B\", \"place\": \"\", \"story\": false}, \"beats\": [{\"beat_id\": \"b23\", \"say\": \"Press से note निकलना और पैसा जारी होना क्या एक काम है? Fiat paper या digital numbers हो सकता है; face value gold-silver से नहीं बँधी, government authority, central-bank control और public trust से जुड़ी है।\"}, {\"beat_id\": \"b24\", \"say\": \"और issue संभव है, मगर monetary policy control करती है। एक फर्क समझिए: printing notes बनाती है; authorised issuance circulation में लाता है। पुराने notes बदलना कुल पैसा बढ़ाना नहीं।\"}, {\"beat_id\": \"b25\", \"say\": \"Policy rates और liquidity से loan महँगा हो तो दुकानदार expansion रोक सकता है। Borrowing और spending घटने से prices का दबाव घट सकता है; सस्ता credit उलटा असर करे। असर समय लेता है, missing goods नहीं बनाता।\"}, {\"beat_id\": \"b26\", \"say\": \"Foreign price tags में codes क्यों देखें? $ वाला United States Dollar, USD, सबसे widely held और traded fiat currency है। € यानी Euro, EUR, कई EU देशों की shared currency है।\"}, {\"beat_id\": \"b27\", \"say\": \"¥ Japan या China, कैसे पहचानेंगे? Japanese Yen, JPY, stability और global currency markets में बड़े role के लिए जाना जाता है। Chinese Yuan Renminbi, CNY, trade और international reserves में बढ़ रहा है, यानी बाहरी payments के लिए रखे foreign assets में।\"}, {\"beat_id\": \"b28\", \"say\": \"Britain की दुकान में £ दिखे तो? यह British Pound Sterling, GBP है, जिसकी जड़ें 8th century में हैं। आज की fiat currencies में सबसे पुराना, लेकिन नाम पुराना होने से gold वाला वादा हमेशा गायब नहीं था।\"}, {\"beat_id\": \"b29\", \"say\": \"Euro का historical count 27 EU members में 20 adopters है, सभी नहीं; इसे आज की updated गिनती मत मानिए।\"}, {\"beat_id\": \"b30\", \"say\": \"इन descriptions से exact shares या हमेशा stable exchange rate मत निकालिए। पुराना currency नाम लगातार fiat होना नहीं बताता; Euro ranking के लिए measure चाहिए।\"}, {\"beat_id\": \"b31\", \"say\": \"Reserve holdings backing नहीं; ज़्यादा पैसा goods नहीं बढ़ाता। Demand supply से आगे निकले तो purchasing power घट सकती है।\"}], \"items\": [{\"item_id\": \"p004-i10\", \"content_type\": \"facts_numbers\", \"content\": \"Characteristics of Fiat Money: No intrinsic value: Just paper or digital numbers. Not backed by commodities: Value not tied to gold or silver. Govt-issued: Central banks control production. Trust-based: Value relies on public’s faith in govt. Easily printed: Govts can print more in need. Highly regulated: Controlled by monetary policy.\"}, {\"item_id\": \"p004-i12\", \"content_type\": \"facts_numbers\", \"content\": \"$ | United States Dollar (USD) | The most widely held and traded fiat currency globally.\"}, {\"item_id\": \"p004-i13\", \"content_type\": \"facts_numbers\", \"content\": \"€ | Euro (EUR) | Adopted by 20 of the 27 European Union member states, the euro is the second-most [caption ends here in the image].\"}, {\"item_id\": \"p004-i14\", \"content_type\": \"facts_numbers\", \"content\": \"¥ | Japanese Yen (JPY) | Known for its stability, the yen is a major player in global currency markets.\"}, {\"item_id\": \"p004-i15\", \"content_type\": \"facts_numbers\", \"content\": \"£ | British Pound Sterling (GBP) | The oldest fiat currency still in use, dating back to the 8th century.\"}, {\"item_id\": \"p004-i16\", \"content_type\": \"facts_numbers\", \"content\": \"¥ | Chinese Yuan Renminbi (CNY) | Increasingly influential in global trade and international reserves.\"}], \"on_screen_hints\": [\"Material value; commodity backing; authority; trust\", \"Book concepts: further issue and monetary-policy regulation. Outside clarification: printing ≠ authorised issuance; replacement need not expand currency\", \"Outside explanation: rates/liquidity → borrowing conditions → spending → price pressure; transmission takes time and cannot directly create missing supply\", \"$ USD: United States Dollar; € EUR: Euro\", \"Shared ¥ symbol → JPY / Japan versus CNY / China; reserves → assets held for external payments\", \"British shop price tag: £ → GBP. Currency history reaches the 8th century; an enduring name can span different backing arrangements.\", \"Historical count: 20 of 27; EU membership ≠ euro adoption\", \"Qualitative importance ≠ exact market share. Stability ≠ permanently fixed exchange rate. Currency age ≠ duration of fiat status. Rankings require a specified measure. Increasing influence ≠ a quantified growth rate.\", \"Outside clarification: reserve assets ≠ redemption promise; demand outpacing supply can weaken purchasing power\"], \"ideas\": [{\"beat_id\": \"b23\", \"idea\": \"Printing is not issuance; fiat rests on authority and trust\", \"relation\": \"compare\", \"things\": [\"printing press\", \"banknotes\", \"digital balance\", \"gold\", \"silver\", \"government authority seal\", \"central bank\"], \"people\": [\"public\"], \"places\": [], \"shows\": \"Printing versus issuance; authority and trust, not bullion\", \"on_word\": \"Press\", \"template\": \"compose\"}, {\"beat_id\": \"b24\", \"idea\": \"Authorised circulation differs from printing and replacement\", \"relation\": \"compare\", \"things\": [\"monetary policy control\", \"printing press\", \"new banknotes\", \"authorisation stamp\", \"circulating banknotes\", \"old banknotes\", \"total money meter\"], \"people\": [], \"places\": [], \"shows\": \"Printed notes enter circulation; replacement leaves total unchanged\", \"on_word\": \"issue\", \"template\": \"compose\"}, {\"beat_id\": \"b25\", \"idea\": \"Costlier credit can cool demand, with delays\", \"relation\": \"cause_effect\", \"things\": [\"policy rate meter\", \"liquidity meter\", \"loan\", \"shop\", \"shop expansion plan\", \"borrowing meter\", \"spending meter\", \"price pressure meter\", \"clock\", \"goods\"], \"people\": [\"shopkeeper\"], \"places\": [], \"shows\": \"Costlier loans slow expansion; demand eases after delay\", \"on_word\": \"Policy\", \"template\": \"compose\"}, {\"beat_id\": \"b26\", \"idea\": \"Codes identify dollar and shared Euro currency\", \"relation\": \"place\", \"things\": [\"foreign price tags\", \"USD currency symbol\", \"EUR currency symbol\", \"reserve holdings\", \"currency trading arrows\"], \"people\": [], \"places\": [\"United States\", \"European Union countries\"], \"shows\": \"Price tags connect USD and EUR to places\", \"on_word\": \"codes\", \"template\": \"none\"}, {\"beat_id\": \"b27\", \"idea\": \"JPY and CNY disambiguate the shared yen symbol\", \"relation\": \"compare\", \"things\": [\"¥ currency symbol\", \"JPY code tag\", \"CNY code tag\", \"currency market\", \"stability shield\", \"trade goods\", \"international reserve assets\", \"external payment arrow\"], \"people\": [], \"places\": [\"Japan\", \"China\"], \"shows\": \"Shared ¥ splits into JPY and CNY\", \"on_word\": \"¥\", \"template\": \"compose\"}, {\"beat_id\": \"b28\", \"idea\": \"Sterling’s old name does not imply uninterrupted fiat\", \"relation\": \"sequence\", \"things\": [\"shop\", \"£ price tag\", \"GBP code tag\", \"currency history timeline\", \"gold\", \"promise receipt\"], \"people\": [], \"places\": [\"Britain\"], \"shows\": \"Sterling timeline separates old roots from fiat status\", \"on_word\": \"£\", \"template\": \"none\"}, {\"beat_id\": \"b29\", \"idea\": \"Historical Euro adoption was twenty of twenty-seven\", \"relation\": \"count\", \"things\": [\"EU member markers\", \"Euro adoption badges\", \"historical count label\"], \"people\": [], \"places\": [\"European Union\"], \"shows\": \"Twenty Euro badges among twenty-seven historical EU markers\", \"on_word\": \"27\", \"template\": \"compose\"}, {\"beat_id\": \"b30\", \"idea\": \"Descriptions cannot establish shares, stability or rankings\", \"relation\": \"reject\", \"things\": [\"currency share chart\", \"flat exchange-rate line\", \"currency history timeline\", \"Euro ranking podium\", \"measurement ruler\"], \"people\": [], \"places\": [], \"shows\": \"Unsupported share, stability and continuity inferences crossed out\", \"on_word\": \"exact\", \"template\": \"compose\"}, {\"beat_id\": \"b31\", \"idea\": \"Reserves are not backing; excess demand erodes purchasing power\", \"relation\": \"cause_effect\", \"things\": [\"reserve holdings\", \"backing link\", \"money stack\", \"goods stack\", \"demand meter\", \"supply meter\", \"purchasing power meter\"], \"people\": [], \"places\": [], \"shows\": \"Money grows, goods stay; purchasing power can fall\", \"on_word\": \"Reserve\", \"template\": \"compose\"}], \"picture\": [{\"id\": \"book_p004_i11\", \"type\": \"gallery\", \"cell\": [0, 0, 12, 3]}]}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 0,
+   "started_at": 1793590182.9186082,
+   "mode": "resume",
+   "notes": {
+    "about": "Fiat authority, monetary control और currency examples को book gallery के नीचे समझाने वाला canvas।",
+    "key_questions": [
+     "Printing और authorised issuance में क्या अंतर है?",
+     "Credit conditions demand को कैसे प्रभावित करती हैं?",
+     "Currency descriptions से कौन-से निष्कर्ष नहीं निकलते?"
+    ],
+    "decisions": [
+     {
+      "decision": "हर meter part में to destination जोड़ा गया है।",
+      "reason": "Meter validation को स्पष्ट target चाहिए; सभी meters अपने संबंधित object को target करते हैं।"
+     },
+     {
+      "decision": "पहले के movements, cues और gallery layout सुरक्षित रखे हैं।",
+      "reason": "सुधार meter validation तक सीमित है।"
+     },
+     {
+      "decision": "Historical count में 27 markers और 20 badges रखे हैं।",
+      "reason": "ये दोनों numbers narration में हैं।"
+     },
+     {
+      "decision": "Caveats records में रखे हैं।",
+      "reason": "अतिरिक्त caution boards नहीं दिखाने हैं।"
+     }
+    ],
+    "uncertain": [
+     "Book gallery host द्वारा जोड़ी जाती है।",
+     "Dedicated expansion-plan, stability-shield और ranking-podium assets उपलब्ध नहीं हैं।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Fiat authority, monetary control और currency examples को book gallery के नीचे समझाने वाला canvas।",
+     "key_questions": [
+      "Printing और authorised issuance में क्या अंतर है?",
+      "Credit conditions demand को कैसे प्रभावित करती हैं?",
+      "Currency descriptions से कौन-से निष्कर्ष नहीं निकलते?"
+     ],
+     "decisions": [
+      {
+       "decision": "हर meter part में to destination जोड़ा गया है।",
+       "reason": "Meter validation को स्पष्ट target चाहिए; सभी meters अपने संबंधित object को target करते हैं।"
+      },
+      {
+       "decision": "पहले के movements, cues और gallery layout सुरक्षित रखे हैं।",
+       "reason": "सुधार meter validation तक सीमित है।"
+      },
+      {
+       "decision": "Historical count में 27 markers और 20 badges रखे हैं।",
+       "reason": "ये दोनों numbers narration में हैं।"
+      },
+      {
+       "decision": "Caveats records में रखे हैं।",
+       "reason": "अतिरिक्त caution boards नहीं दिखाने हैं।"
+      }
+     ],
+     "uncertain": [
+      "Book gallery host द्वारा जोड़ी जाती है।",
+      "Dedicated expansion-plan, stability-shield और ranking-podium assets उपलब्ध नहीं हैं।"
+     ]
+    },
+    "nodes": [
+     {
+      "id": "fiat_foundation",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b23",
+       "Press"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b24",
+       "issue"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "press",
+         "icon": "fa:solid/industry",
+         "label": ""
+        },
+        {
+         "name": "note",
+         "icon": "fa:solid/money-bill-1",
+         "label": ""
+        },
+        {
+         "name": "gold",
+         "icon": "fa:solid/coins",
+         "label": ""
+        },
+        {
+         "name": "authority",
+         "icon": "fa:solid/stamp",
+         "label": ""
+        },
+        {
+         "name": "bank",
+         "icon": "fa:solid/building-columns",
+         "label": ""
+        },
+        {
+         "name": "trust",
+         "icon": "tw:1f91d",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b23",
+          "Press"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "press",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b23",
+          "निकलना"
+         ],
+         "actor": "",
+         "from": "press",
+         "to": "bank",
+         "object": "note",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b23",
+          "digital"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "note",
+         "text": "paper या digital",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b23",
+          "gold-silver"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "gold",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "refuse",
+         "cue": [
+          "b23",
+          "नहीं"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "gold",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b23",
+          "authority,"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "authority",
+         "into": "",
+         "on": "note",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b23",
+          "central-bank"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "bank",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b23",
+          "trust"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "trust",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "issuance",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b24",
+       "issue"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b25",
+       "Policy"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "bank",
+         "icon": "fa:solid/building-columns",
+         "label": ""
+        },
+        {
+         "name": "press",
+         "icon": "fa:solid/industry",
+         "label": ""
+        },
+        {
+         "name": "new",
+         "icon": "fa:solid/money-bill-1",
+         "label": ""
+        },
+        {
+         "name": "old",
+         "icon": "fa:solid/money-bill-1",
+         "label": ""
+        },
+        {
+         "name": "stamp",
+         "icon": "fa:solid/stamp",
+         "label": ""
+        },
+        {
+         "name": "total",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b24",
+          "issue"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "bank",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b24",
+          "printing"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "press",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b24",
+          "बनाती"
+         ],
+         "actor": "",
+         "from": "press",
+         "to": "bank",
+         "object": "new",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b24",
+          "authorised"
+         ],
+         "actor": "",
+         "from": "bank",
+         "to": "new",
+         "object": "stamp",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b24",
+          "circulation"
+         ],
+         "actor": "",
+         "from": "press",
+         "to": "bank",
+         "object": "new",
+         "into": "",
+         "on": "",
+         "text": "circulation",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b24",
+          "पुराने"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "old",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "transform",
+         "cue": [
+          "b24",
+          "बदलना"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "old",
+         "into": "new",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b24",
+          "कुल"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "total",
+         "object": "total",
+         "into": "",
+         "on": "",
+         "text": "कुल पैसा",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0.5
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "credit_transmission",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b25",
+       "Policy"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b26",
+       "codes"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [
+        {
+         "role": "shopkeeper",
+         "who": "main",
+         "label": "",
+         "mood": "neutral"
+        }
+       ],
+       "objects": [
+        {
+         "name": "policy",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "loan",
+         "icon": "fa:solid/hand-holding-dollar",
+         "label": ""
+        },
+        {
+         "name": "shop",
+         "icon": "tw:1f3ea",
+         "label": ""
+        },
+        {
+         "name": "spending",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "prices",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "clock",
+         "icon": "tw:1f550",
+         "label": ""
+        },
+        {
+         "name": "goods",
+         "icon": "fa:solid/basket-shopping",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b25",
+          "Policy"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "policy",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b25",
+          "loan"
+         ],
+         "actor": "",
+         "from": "policy",
+         "to": "shopkeeper",
+         "object": "loan",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b25",
+          "महँगा"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "loan",
+         "text": "महँगा loan",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b25",
+          "दुकानदार"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "shop",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b25",
+          "expansion"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "shop",
+         "text": "expansion",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "refuse",
+         "cue": [
+          "b25",
+          "रोक"
+         ],
+         "actor": "shopkeeper",
+         "from": "",
+         "to": "",
+         "object": "shop",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b25",
+          "घटने"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "spending",
+         "object": "spending",
+         "into": "",
+         "on": "",
+         "text": "Borrowing और spending",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0.3
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b25",
+          "दबाव"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "prices",
+         "object": "prices",
+         "into": "",
+         "on": "",
+         "text": "prices का दबाव",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0.3
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b25",
+          "उलटा"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "prices",
+         "object": "prices",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "up",
+         "title": "",
+         "reach": 0.7
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b25",
+          "समय"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "clock",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b25",
+          "goods"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "goods",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "code_tag",
+      "kind": "icon",
+      "cell": [
+       0,
+       4,
+       2,
+       2
+      ],
+      "cue": [
+       "b26",
+       "codes"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b27",
+       "¥"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "fa:solid/tags",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "usd_tag",
+      "kind": "text",
+      "cell": [
+       2,
+       4,
+       5,
+       2
+      ],
+      "cue": [
+       "b26",
+       "USD,"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b27",
+       "¥"
+      ],
+      "until_fraction": 0,
+      "text": "$ USD\nUnited States Dollar",
+      "style": "tag",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "eur_tag",
+      "kind": "text",
+      "cell": [
+       7,
+       4,
+       5,
+       2
+      ],
+      "cue": [
+       "b26",
+       "EUR,"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b27",
+       "¥"
+      ],
+      "until_fraction": 0,
+      "text": "€ EUR\nEU की shared currency",
+      "style": "tag",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "yen_yuan",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b27",
+       "¥"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b28",
+       "£"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "tag",
+         "icon": "fa:solid/tag",
+         "label": ""
+        },
+        {
+         "name": "market",
+         "icon": "tw:1f3ea",
+         "label": ""
+        },
+        {
+         "name": "goods",
+         "icon": "fa:solid/basket-shopping",
+         "label": ""
+        },
+        {
+         "name": "reserves",
+         "icon": "fa:solid/money-bill-1",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b27",
+          "¥"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "tag",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "compare",
+         "cue": [
+          "b27",
+          "JPY,"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "tag",
+         "right": "tag",
+         "sign": "vs",
+         "left_text": "¥ JPY · Japan",
+         "right_text": "¥ China",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b27",
+          "markets"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "market",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b27",
+          "CNY,"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "tag",
+         "text": "¥ CNY · China",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b27",
+          "trade"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "market",
+         "object": "goods",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b27",
+          "reserves"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "reserves",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b27",
+          "payments"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "market",
+         "object": "reserves",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "sterling_history",
+      "kind": "picture",
+      "cell": [
+       0,
+       3,
+       12,
+       3
+      ],
+      "cue": [
+       "b28",
+       "£"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b29",
+       "27"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "timeline",
+       "title": "",
+       "items": [
+        {
+         "when": "",
+         "name": "£ GBP",
+         "icon": "fa:solid/tag",
+         "cue": [
+          "b28",
+          "GBP"
+         ]
+        },
+        {
+         "when": "8th century",
+         "name": "Sterling की जड़ें",
+         "icon": "tw:1f9fe",
+         "cue": [
+          "b28",
+          "8th"
+         ]
+        },
+        {
+         "when": "आज",
+         "name": "fiat currency",
+         "icon": "fa:solid/money-bill-1",
+         "cue": [
+          "b28",
+          "आज"
+         ]
+        },
+        {
+         "when": "",
+         "name": "gold वाला वादा",
+         "icon": "fa:solid/coins",
+         "cue": [
+          "b28",
+          "gold"
+         ]
+        }
+       ],
+       "arrows": true
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "historical_adoption",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b29",
+       "27"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b30",
+       "exact"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "members",
+         "icon": "fa:solid/tag",
+         "label": ""
+        },
+        {
+         "name": "euro",
+         "icon": "fa:solid/tag",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b29",
+          "27"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "members",
+         "into": "",
+         "on": "",
+         "text": "27 EU members",
+         "style": "grid",
+         "inside": "",
+         "n": 27,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b29",
+          "20"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "euro",
+         "into": "",
+         "on": "members",
+         "text": "€",
+         "style": "grid",
+         "inside": "",
+         "n": 20,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "inference_checks",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b30",
+       "exact"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b31",
+       "Reserve"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "shares",
+         "icon": "tw:1f4c8",
+         "label": ""
+        },
+        {
+         "name": "rate",
+         "icon": "tw:1f4c8",
+         "label": ""
+        },
+        {
+         "name": "history",
+         "icon": "tw:1f9fe",
+         "label": ""
+        },
+        {
+         "name": "measure",
+         "icon": "tw:2696",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b30",
+          "exact"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "shares",
+         "into": "",
+         "on": "",
+         "text": "exact shares",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "refuse",
+         "cue": [
+          "b30",
+          "shares"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "shares",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b30",
+          "stable"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "rate",
+         "into": "",
+         "on": "",
+         "text": "हमेशा stable exchange rate",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "refuse",
+         "cue": [
+          "b30",
+          "निकालिए।"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "rate",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b30",
+          "पुराना"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "history",
+         "into": "",
+         "on": "",
+         "text": "लगातार fiat",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "refuse",
+         "cue": [
+          "b30",
+          "नहीं"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "history",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b30",
+          "measure"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "measure",
+         "into": "",
+         "on": "",
+         "text": "Euro ranking का measure",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "purchasing_power",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b31",
+       "Reserve"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "reserve",
+         "icon": "fa:solid/money-bill-1",
+         "label": ""
+        },
+        {
+         "name": "promise",
+         "icon": "tw:1f9fe",
+         "label": ""
+        },
+        {
+         "name": "money",
+         "icon": "fa:solid/money-bill-1",
+         "label": ""
+        },
+        {
+         "name": "goods",
+         "icon": "fa:solid/basket-shopping",
+         "label": ""
+        },
+        {
+         "name": "demand",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "supply",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "power",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b31",
+          "Reserve"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "reserve",
+         "into": "",
+         "on": "",
+         "text": "Reserve holdings",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b31",
+          "backing"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "promise",
+         "into": "",
+         "on": "",
+         "text": "backing",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "refuse",
+         "cue": [
+          "b31",
+          "नहीं;"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "promise",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b31",
+          "पैसा"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "money",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "pile",
+         "inside": "",
+         "n": 6,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b31",
+          "goods"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "goods",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b31",
+          "Demand"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "demand",
+         "object": "demand",
+         "into": "",
+         "on": "",
+         "text": "Demand",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "up",
+         "title": "",
+         "reach": 0.85
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b31",
+          "supply"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "supply",
+         "object": "supply",
+         "into": "",
+         "on": "",
+         "text": "supply",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0.45
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b31",
+          "घट"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "power",
+         "object": "power",
+         "into": "",
+         "on": "",
+         "text": "purchasing power",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0.25
+        }
+       ],
+       "close_up": true
+      }
+     }
+    ],
+    "camera": [
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b23",
+       "Press"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b24",
+       "printing"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b26",
+       "codes"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b29",
+       "27"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b30",
+       "exact"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b31",
+       "Demand"
+      ]
+     }
+    ],
+    "focus": [
+     {
+      "cue": [
+       "b23",
+       "Press"
+      ],
+      "until_cue": [
+       "b26",
+       "codes"
+      ],
+      "ids": [
+       "fiat_foundation",
+       "issuance",
+       "credit_transmission"
+      ]
+     },
+     {
+      "cue": [
+       "b26",
+       "codes"
+      ],
+      "until_cue": [
+       "b29",
+       "27"
+      ],
+      "ids": [
+       "book_p004_i11",
+       "code_tag",
+       "usd_tag",
+       "eur_tag",
+       "yen_yuan",
+       "sterling_history"
+      ]
+     },
+     {
+      "cue": [
+       "b29",
+       "27"
+      ],
+      "until_cue": [
+       "b30",
+       "exact"
+      ],
+      "ids": [
+       "historical_adoption"
+      ]
+     },
+     {
+      "cue": [
+       "b30",
+       "exact"
+      ],
+      "until_cue": [
+       "b31",
+       "Reserve"
+      ],
+      "ids": [
+       "inference_checks"
+      ]
+     },
+     {
+      "cue": [
+       "b31",
+       "Reserve"
+      ],
+      "until_cue": [],
+      "ids": [
+       "purchasing_power"
+      ]
+     }
+    ],
+    "graph_used": false,
+    "graph": {
+     "plot": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+     },
+     "x_label": "",
+     "y_label": "",
+     "x_domain": [],
+     "y_domain": [],
+     "axes_cue": [],
+     "curves": [],
+     "dots": [],
+     "shades": [],
+     "guides": [],
+     "notes": []
+    }
+   },
+   "code_problems": [
+    "[code] beat b26: 'reserve holdings' is a thing of this beat in the dikhane ki list, but it is not on screen during the beat: show it (asset:a-f14e82db0aafc98b), on screen during that beat (Navin: \"jis cheej ka jikar hai wohi cheej dikhe\")",
+    "[code] beat b27: 'stability shield' is a thing of this beat in the dikhane ki list, but it is not on screen during the beat: show it (asset:a-b7663868eff5ae59), on screen during that beat (Navin: \"jis cheej ka jikar hai wohi cheej dikhe\")",
+    "[code] beat b27: 'international reserve assets' is a thing of this beat in the dikhane ki list, but it is not on screen during the beat: show it (asset:a-7f755d9b7033ca98), on screen during that beat (Navin: \"jis cheej ka jikar hai wohi cheej dikhe\")",
+    "[code] beat b30: 'flat exchange-rate line' is a thing of this beat in the dikhane ki list, but it is not on screen during the beat: show it (asset:a-843bd4b7959c6bbc), on screen during that beat (Navin: \"jis cheej ka jikar hai wohi cheej dikhe\")",
+    "[code] beat b30: 'currency history timeline' is a thing of this beat in the dikhane ki list, but it is not on screen during the beat: show it (asset:a-cfb0f52434780d00), on screen during that beat (Navin: \"jis cheej ka jikar hai wohi cheej dikhe\")",
+    "[code] beat b30: 'measurement ruler' is a thing of this beat in the dikhane ki list, but it is not on screen during the beat: show it (fa:solid/pen-ruler, fa:solid/ruler-combined, fa:solid/ruler-horizontal), on screen during that beat (Navin: \"jis cheej ka jikar hai wohi cheej dikhe\")",
+    "[code] beat b31: 'reserve holdings' is a thing of this beat in the dikhane ki list, but it is not on screen during the beat: show it (asset:a-f14e82db0aafc98b), on screen during that beat (Navin: \"jis cheej ka jikar hai wohi cheej dikhe\")",
+    "[code] beat b31: 'backing link' is a thing of this beat in the dikhane ki list, but it is not on screen during the beat: show it (asset:a-00c1df9e95985a3c), on screen during that beat (Navin: \"jis cheej ka jikar hai wohi cheej dikhe\")"
+   ],
+   "passed": false,
+   "finished_at": 1793590183.9699197
+  },
+  {
+   "round": 1,
+   "started_at": 1793590183.9702952,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "ec09d81e0c9903bca1396fc8c733b71222e6ace448ccceedf4df382c79b9022b",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 22611,
+    "output_tokens": 11937,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Fiat authority, monetary control और currency examples को book gallery के नीचे खोलने वाला build-up canvas।",
+    "key_questions": [
+     "Printing और authorised issuance में क्या अंतर है?",
+     "Credit conditions demand को कैसे प्रभावित करती हैं?",
+     "Currency descriptions से कौन-से निष्कर्ष नहीं निकलते?"
+    ],
+    "decisions": [
+     {
+      "decision": "b26 में reserve holdings का asset जोड़ा।",
+      "reason": "Widely held currency के साथ उसका reserve-holdings visual भी दिखना चाहिए।"
+     },
+     {
+      "decision": "b27 में stability shield जोड़ा और reserves को international reserve assets से बदला।",
+      "reason": "दोनों बोले गए concepts अब अपने निर्दिष्ट assets से दिखते हैं।"
+     },
+     {
+      "decision": "b30 में flat exchange-rate line, currency history timeline और measurement ruler के सही assets लगाए।",
+      "reason": "Inference checks में generic stand-ins के बजाय उन्हीं चीज़ों को दिखाना है।"
+     },
+     {
+      "decision": "b31 में reserve holdings और backing link के निर्दिष्ट assets लगाए।",
+      "reason": "Cross backing link पर लगेगा, reserve holdings पर नहीं।"
+     },
+     {
+      "decision": "बाकी cues, motion, historical count और gallery layout सुरक्षित रखे।",
+      "reason": "सुधार बताए गए missing visuals तक सीमित हैं।"
+     }
+    ],
+    "uncertain": [
+     "Book gallery host द्वारा जोड़ी जाती है; उसकी cells सुरक्षित हैं।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Fiat authority, monetary control और currency examples को book gallery के नीचे खोलने वाला build-up canvas।",
+     "key_questions": [
+      "Printing और authorised issuance में क्या अंतर है?",
+      "Credit conditions demand को कैसे प्रभावित करती हैं?",
+      "Currency descriptions से कौन-से निष्कर्ष नहीं निकलते?"
+     ],
+     "decisions": [
+      {
+       "decision": "b26 में reserve holdings का asset जोड़ा।",
+       "reason": "Widely held currency के साथ उसका reserve-holdings visual भी दिखना चाहिए।"
+      },
+      {
+       "decision": "b27 में stability shield जोड़ा और reserves को international reserve assets से बदला।",
+       "reason": "दोनों बोले गए concepts अब अपने निर्दिष्ट assets से दिखते हैं।"
+      },
+      {
+       "decision": "b30 में flat exchange-rate line, currency history timeline और measurement ruler के सही assets लगाए।",
+       "reason": "Inference checks में generic stand-ins के बजाय उन्हीं चीज़ों को दिखाना है।"
+      },
+      {
+       "decision": "b31 में reserve holdings और backing link के निर्दिष्ट assets लगाए।",
+       "reason": "Cross backing link पर लगेगा, reserve holdings पर नहीं।"
+      },
+      {
+       "decision": "बाकी cues, motion, historical count और gallery layout सुरक्षित रखे।",
+       "reason": "सुधार बताए गए missing visuals तक सीमित हैं।"
+      }
+     ],
+     "uncertain": [
+      "Book gallery host द्वारा जोड़ी जाती है; उसकी cells सुरक्षित हैं।"
+     ]
+    },
+    "nodes": [
+     {
+      "id": "fiat_foundation",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b23",
+       "Press"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b24",
+       "issue"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "press",
+         "icon": "fa:solid/industry",
+         "label": ""
+        },
+        {
+         "name": "note",
+         "icon": "fa:solid/money-bill-1",
+         "label": ""
+        },
+        {
+         "name": "gold",
+         "icon": "fa:solid/coins",
+         "label": ""
+        },
+        {
+         "name": "authority",
+         "icon": "fa:solid/stamp",
+         "label": ""
+        },
+        {
+         "name": "bank",
+         "icon": "fa:solid/building-columns",
+         "label": ""
+        },
+        {
+         "name": "trust",
+         "icon": "tw:1f91d",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b23",
+          "Press"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "press",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b23",
+          "निकलना"
+         ],
+         "actor": "",
+         "from": "press",
+         "to": "bank",
+         "object": "note",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b23",
+          "digital"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "note",
+         "text": "paper या digital",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b23",
+          "gold-silver"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "gold",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "refuse",
+         "cue": [
+          "b23",
+          "नहीं"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "gold",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b23",
+          "authority,"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "authority",
+         "into": "",
+         "on": "note",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b23",
+          "central-bank"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "bank",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b23",
+          "trust"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "trust",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "issuance",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b24",
+       "issue"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b25",
+       "Policy"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "bank",
+         "icon": "fa:solid/building-columns",
+         "label": ""
+        },
+        {
+         "name": "press",
+         "icon": "fa:solid/industry",
+         "label": ""
+        },
+        {
+         "name": "new",
+         "icon": "fa:solid/money-bill-1",
+         "label": ""
+        },
+        {
+         "name": "old",
+         "icon": "fa:solid/money-bill-1",
+         "label": ""
+        },
+        {
+         "name": "stamp",
+         "icon": "fa:solid/stamp",
+         "label": ""
+        },
+        {
+         "name": "total",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b24",
+          "issue"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "bank",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b24",
+          "printing"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "press",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b24",
+          "बनाती"
+         ],
+         "actor": "",
+         "from": "press",
+         "to": "bank",
+         "object": "new",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b24",
+          "authorised"
+         ],
+         "actor": "",
+         "from": "bank",
+         "to": "new",
+         "object": "stamp",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b24",
+          "circulation"
+         ],
+         "actor": "",
+         "from": "press",
+         "to": "bank",
+         "object": "new",
+         "into": "",
+         "on": "",
+         "text": "circulation",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b24",
+          "पुराने"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "old",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "transform",
+         "cue": [
+          "b24",
+          "बदलना"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "old",
+         "into": "new",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b24",
+          "कुल"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "total",
+         "object": "total",
+         "into": "",
+         "on": "",
+         "text": "कुल पैसा",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0.5
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "credit_transmission",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b25",
+       "Policy"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b26",
+       "codes"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [
+        {
+         "role": "shopkeeper",
+         "who": "main",
+         "label": "",
+         "mood": "neutral"
+        }
+       ],
+       "objects": [
+        {
+         "name": "policy",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "loan",
+         "icon": "fa:solid/hand-holding-dollar",
+         "label": ""
+        },
+        {
+         "name": "shop",
+         "icon": "tw:1f3ea",
+         "label": ""
+        },
+        {
+         "name": "spending",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "prices",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "clock",
+         "icon": "tw:1f550",
+         "label": ""
+        },
+        {
+         "name": "goods",
+         "icon": "fa:solid/basket-shopping",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b25",
+          "Policy"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "policy",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b25",
+          "loan"
+         ],
+         "actor": "",
+         "from": "policy",
+         "to": "shopkeeper",
+         "object": "loan",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b25",
+          "महँगा"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "loan",
+         "text": "महँगा loan",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b25",
+          "दुकानदार"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "shop",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b25",
+          "expansion"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "shop",
+         "text": "expansion",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "refuse",
+         "cue": [
+          "b25",
+          "रोक"
+         ],
+         "actor": "shopkeeper",
+         "from": "",
+         "to": "",
+         "object": "shop",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b25",
+          "घटने"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "spending",
+         "object": "spending",
+         "into": "",
+         "on": "",
+         "text": "Borrowing और spending",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0.3
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b25",
+          "दबाव"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "prices",
+         "object": "prices",
+         "into": "",
+         "on": "",
+         "text": "prices का दबाव",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0.3
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b25",
+          "उलटा"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "prices",
+         "object": "prices",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "up",
+         "title": "",
+         "reach": 0.7
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b25",
+          "समय"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "clock",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b25",
+          "goods"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "goods",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "code_tag",
+      "kind": "icon",
+      "cell": [
+       0,
+       4,
+       2,
+       2
+      ],
+      "cue": [
+       "b26",
+       "codes"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b27",
+       "¥"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "fa:solid/tags",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "usd_tag",
+      "kind": "text",
+      "cell": [
+       2,
+       4,
+       5,
+       2
+      ],
+      "cue": [
+       "b26",
+       "USD,"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b27",
+       "¥"
+      ],
+      "until_fraction": 0,
+      "text": "$ USD\nUnited States Dollar",
+      "style": "tag",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "usd_reserve_holdings",
+      "kind": "icon",
+      "cell": [
+       3,
+       6,
+       3,
+       1
+      ],
+      "cue": [
+       "b26",
+       "held"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b27",
+       "¥"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "asset:a-f14e82db0aafc98b",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "eur_tag",
+      "kind": "text",
+      "cell": [
+       7,
+       4,
+       5,
+       2
+      ],
+      "cue": [
+       "b26",
+       "EUR,"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b27",
+       "¥"
+      ],
+      "until_fraction": 0,
+      "text": "€ EUR\nEU की shared currency",
+      "style": "tag",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "yen_yuan",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b27",
+       "¥"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b28",
+       "£"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "tag",
+         "icon": "fa:solid/tag",
+         "label": ""
+        },
+        {
+         "name": "market",
+         "icon": "tw:1f3ea",
+         "label": ""
+        },
+        {
+         "name": "shield",
+         "icon": "asset:a-b7663868eff5ae59",
+         "label": ""
+        },
+        {
+         "name": "goods",
+         "icon": "fa:solid/basket-shopping",
+         "label": ""
+        },
+        {
+         "name": "reserves",
+         "icon": "asset:a-7f755d9b7033ca98",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b27",
+          "¥"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "tag",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "compare",
+         "cue": [
+          "b27",
+          "JPY,"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "tag",
+         "right": "tag",
+         "sign": "vs",
+         "left_text": "¥ JPY · Japan",
+         "right_text": "¥ China",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b27",
+          "stability"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "shield",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b27",
+          "markets"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "market",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b27",
+          "CNY,"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "tag",
+         "text": "¥ CNY · China",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b27",
+          "trade"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "market",
+         "object": "goods",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b27",
+          "reserves"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "reserves",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b27",
+          "payments"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "market",
+         "object": "reserves",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "sterling_history",
+      "kind": "picture",
+      "cell": [
+       0,
+       3,
+       12,
+       3
+      ],
+      "cue": [
+       "b28",
+       "£"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b29",
+       "27"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "timeline",
+       "title": "",
+       "items": [
+        {
+         "when": "",
+         "name": "£ GBP",
+         "icon": "fa:solid/tag",
+         "cue": [
+          "b28",
+          "GBP"
+         ]
+        },
+        {
+         "when": "8th century",
+         "name": "Sterling की जड़ें",
+         "icon": "tw:1f9fe",
+         "cue": [
+          "b28",
+          "8th"
+         ]
+        },
+        {
+         "when": "आज",
+         "name": "fiat currency",
+         "icon": "fa:solid/money-bill-1",
+         "cue": [
+          "b28",
+          "आज"
+         ]
+        },
+        {
+         "when": "",
+         "name": "gold वाला वादा",
+         "icon": "fa:solid/coins",
+         "cue": [
+          "b28",
+          "gold"
+         ]
+        }
+       ],
+       "arrows": true
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "historical_adoption",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b29",
+       "27"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b30",
+       "exact"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "members",
+         "icon": "fa:solid/tag",
+         "label": ""
+        },
+        {
+         "name": "euro",
+         "icon": "fa:solid/tag",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b29",
+          "27"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "members",
+         "into": "",
+         "on": "",
+         "text": "27 EU members",
+         "style": "grid",
+         "inside": "",
+         "n": 27,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b29",
+          "20"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "euro",
+         "into": "",
+         "on": "members",
+         "text": "€",
+         "style": "grid",
+         "inside": "",
+         "n": 20,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "inference_checks",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b30",
+       "exact"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [
+       "b31",
+       "Reserve"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "shares",
+         "icon": "tw:1f4c8",
+         "label": ""
+        },
+        {
+         "name": "rate",
+         "icon": "asset:a-843bd4b7959c6bbc",
+         "label": ""
+        },
+        {
+         "name": "history",
+         "icon": "asset:a-cfb0f52434780d00",
+         "label": ""
+        },
+        {
+         "name": "measure",
+         "icon": "fa:solid/pen-ruler",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b30",
+          "exact"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "shares",
+         "into": "",
+         "on": "",
+         "text": "exact shares",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "refuse",
+         "cue": [
+          "b30",
+          "shares"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "shares",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b30",
+          "stable"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "rate",
+         "into": "",
+         "on": "",
+         "text": "हमेशा stable exchange rate",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "refuse",
+         "cue": [
+          "b30",
+          "निकालिए।"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "rate",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b30",
+          "पुराना"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "history",
+         "into": "",
+         "on": "",
+         "text": "लगातार fiat",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "refuse",
+         "cue": [
+          "b30",
+          "नहीं"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "history",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b30",
+          "measure"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "measure",
+         "into": "",
+         "on": "",
+         "text": "Euro ranking का measure",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "purchasing_power",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b31",
+       "Reserve"
+      ],
+      "cue_fraction": 0.4,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "reserve",
+         "icon": "asset:a-f14e82db0aafc98b",
+         "label": ""
+        },
+        {
+         "name": "promise",
+         "icon": "asset:a-00c1df9e95985a3c",
+         "label": ""
+        },
+        {
+         "name": "money",
+         "icon": "fa:solid/money-bill-1",
+         "label": ""
+        },
+        {
+         "name": "goods",
+         "icon": "fa:solid/basket-shopping",
+         "label": ""
+        },
+        {
+         "name": "demand",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "supply",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        },
+        {
+         "name": "power",
+         "icon": "fa:solid/gauge-high",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b31",
+          "Reserve"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "reserve",
+         "into": "",
+         "on": "",
+         "text": "Reserve holdings",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b31",
+          "backing"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "promise",
+         "into": "",
+         "on": "",
+         "text": "backing",
+         "style": "tag",
+         "inside": "",
+         "n": 1,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "refuse",
+         "cue": [
+          "b31",
+          "नहीं;"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "promise",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b31",
+          "पैसा"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "money",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "pile",
+         "inside": "",
+         "n": 6,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b31",
+          "goods"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "goods",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b31",
+          "Demand"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "demand",
+         "object": "demand",
+         "into": "",
+         "on": "",
+         "text": "Demand",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "up",
+         "title": "",
+         "reach": 0.85
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b31",
+          "supply"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "supply",
+         "object": "supply",
+         "into": "",
+         "on": "",
+         "text": "supply",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0.45
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b31",
+          "घट"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "power",
+         "object": "power",
+         "into": "",
+         "on": "",
+         "text": "purchasing power",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0.25
+        }
+       ],
+       "close_up": true
+      }
+     }
+    ],
+    "camera": [
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b23",
+       "Press"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b24",
+       "printing"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b26",
+       "codes"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b29",
+       "27"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b30",
+       "exact"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b31",
+       "Demand"
+      ]
+     }
+    ],
+    "focus": [
+     {
+      "cue": [
+       "b23",
+       "Press"
+      ],
+      "until_cue": [
+       "b26",
+       "codes"
+      ],
+      "ids": [
+       "fiat_foundation",
+       "issuance",
+       "credit_transmission"
+      ]
+     },
+     {
+      "cue": [
+       "b26",
+       "codes"
+      ],
+      "until_cue": [
+       "b29",
+       "27"
+      ],
+      "ids": [
+       "book_p004_i11",
+       "code_tag",
+       "usd_tag",
+       "usd_reserve_holdings",
+       "eur_tag",
+       "yen_yuan",
+       "sterling_history"
+      ]
+     },
+     {
+      "cue": [
+       "b29",
+       "27"
+      ],
+      "until_cue": [
+       "b30",
+       "exact"
+      ],
+      "ids": [
+       "historical_adoption"
+      ]
+     },
+     {
+      "cue": [
+       "b30",
+       "exact"
+      ],
+      "until_cue": [
+       "b31",
+       "Reserve"
+      ],
+      "ids": [
+       "inference_checks"
+      ]
+     },
+     {
+      "cue": [
+       "b31",
+       "Reserve"
+      ],
+      "until_cue": [],
+      "ids": [
+       "purchasing_power"
+      ]
+     }
+    ],
+    "graph_used": false,
+    "graph": {
+     "plot": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+     },
+     "x_label": "",
+     "y_label": "",
+     "x_domain": [],
+     "y_domain": [],
+     "axes_cue": [],
+     "curves": [],
+     "dots": [],
+     "shades": [],
+     "guides": [],
+     "notes": []
+    }
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793590309.5100212
+  }
+ ],
+ "avoid_rounds": [
+  0
+ ],
+ "cost_usd": 0.0,
+ "seconds": 126.6,
+ "navin_verdict": null
+}

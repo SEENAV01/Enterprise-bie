@@ -1,0 +1,396 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v6_s2s-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.3+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3",
+ "rulebook_digest": "8806c6ee4a7b0de68af6d616d63f489dcda85e158cf4d213d81d43562bb5b1fc",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "04f53166489e5c183b40eda1e66ada34e83c3c6c67b903c8059a7d271a640e20",
+ "card": null,
+ "prefix_sha256": "30472744004bbebee3dea76875c4a7424c379aa26e2b9ae596576b480234cee8",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses) (saanche: refuse)\n- accept: a tick on the thing accepted (saanche: accept)\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line) (saanche: coin_count)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word (saanche: cheque)\n- count: a counted stack or crowd whose number is the narration's number (saanche: count_stack, coin_count)\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline (saanche: hand_over, pay_change, upi, card_tap, cheque, barter_swap)\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number (saanche: pay_change, upi, card_tap, cheque)\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one (saanche: barter_swap)\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha (saanche: pay_change, cheque)\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label (saanche: cheque, hand_over)\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns THIS beat names or implies, as plain English or Hindi words a picture can show:\n  exactly the beat's own things, never a thing from an example, a card or another part (Navin, 2 November 2026: \"jis cheej ka\n  jikar hai wohi cheej dikhe\"). Every thing you list is a promise: it must appear on screen in this beat. A real person is never\n  drawn (card rule 8): name the role or the object, not the person.\n- shows: what is seen, in at most 8 words, as a picture description of this beat's own things and what happens to\n  them. Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object of this beat that an icon cannot show and a photograph or museum image can, as search words; \"\"\n  when an icon is enough. Never a person's portrait (card rule 8).\n- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: \"process show nahi ho rahi hai\"),\n  the recipe that shows it, or \"compose\" when no recipe fits but the motion parts do (the layout step writes the parts); \"none\"\n  when the beat tells no process; \"other\" only when a motion part BIE lacks is needed (template_note names it: it goes to the\n  missing-capability log). The actors, things and numbers always come from this beat. The recipes:\n- hand_over: one person gives a thing to another (steps give, take; actors giver, taker; objects thing; parts give, hold)\n- pay_change: the buyer hands over the payment, takes the goods and gets the difference back (each amount travels as a tag on what carries it) (steps pay, goods, change; actors buyer, seller; objects goods, money (optional), change_money (optional); amounts paid, change, price (optional); parts appear, give, hold, move, show_text)\n- barter_swap: two people swap their things; at 'ask' each wonders whether they want the other's thing (steps offer, ask, swap; actors a, b; objects a_thing, b_thing; parts give, hold, show_text)\n- upi: the buyer's device moves to the seller's sign and back; the buyer's device shows the amount paid, the seller's shows it received (steps scan, paid, received; actors buyer, seller; objects device (optional), sign (optional), seller_device (optional); amounts amount; parts appear, hold, move, show_text)\n- card_tap: a card moves to the seller's machine and back; the machine shows the amount approved (steps tap, approved; actors buyer, seller; objects card (optional), machine (optional); amounts amount; parts appear, hold, move, show_text)\n- cheque: the amount is written on the instrument, it moves into the place that pays, and the two balances change (payer down, payee up) (steps write, hand, balances; actors payer, payee; objects cheque (optional), place (optional); amounts amount, payer_before (optional), payer_after (optional), payee_before (optional), payee_after (optional); parts appear, hold, meter, move, show_text)\n- coin_count: things drop onto a pile while a meter rises; at 'limit' the meter stops at its red line and one more is refused (steps count, limit; objects coin (optional); amounts each, limit; parts appear, meter, refuse)\n- refuse: the person looks at the thing, shakes the head, and a cross lands on the thing (steps show, refuse; actors who; objects thing; parts appear, refuse)\n- accept: the person looks at the thing, nods, and a tick lands on the thing (steps show, accept; actors who; objects thing; parts accept, appear)\n- count_stack: n things appear one by one as they are said (steps count; objects thing; amounts n; parts appear)\n- compose: a process no recipe has, written as its parts in order (parts [{part, cue, ...fields}]); a part BIE lacks: template other in the dikhane ki list, with a note (it goes to the missing-capability log)\n  The motion parts every process is made of:\n- hold (actor, object, reach?): a person holds a thing in the front hand (reach 0..1 lifts it towards the other)\n- give (from, to, object, text?): a thing travels from one person's hand to the other's (give and take), with an optional tag of text on it\n- move (object, to, back?, into?, text?): a thing moves along a path to a spot, a person or another thing; back returns it; into lets it go into the target\n- transform (object, into): a thing turns into another thing where it is (A → B)\n- show_text (on, text, style?, inside?): a screen, sign, tag or thought bubble on a person or thing shows a short text (style: tag, sign, screen, ok, bubble, write)\n- meter (to, from?, limit?, style?, title?, dir?, on?, end?): a counter or meter changes: a bar fills to its limit (style bar), or a number changes from one value to another with an up or down arrow (style number)\n- appear (object, n?, spot?, layout?, end?): things appear one by one (n of them in a grid, or dropping onto a pile until a later step)\n- refuse (object, actor?): a person shakes the head and a cross lands on the thing\n- accept (object, actor?): a person nods and a tick lands on the thing\n- compare (left, right, sign?, left_text?, right_text?): two things side by side with a sign between them (=, ≠, ?, vs, <, >)\n- template_note: for \"other\" the process in a few words; for \"none\" on a beat that names a process word, why no saancha.\npicture_type: the one picture this part needs most, from timeline, gallery (a row of icon cards), table, flow, tree, chart, map or things (the things themselves with the relation's mark, arrow, meter or scale); the card part's type is \"timeline\". picture_note: one line on why.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c14.2 (12 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v6_s2s\", \"part_id\": \"c14.2\", \"card_type\": \"timeline\", \"story\": true}, \"beats\": [{\"beat_id\": \"b5\", \"say\": \"Agra के imaginary बाज़ार में 10 units का कपड़ा है; unfamiliar coins कैसे जाँचोगे? मान लो weights 8 g और 10 g, purity uncertain और checking fee 1 unit है; खर्च 11 हुआ।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b6\", \"say\": \"मान लो 2 mints ने common purity वाले 10 g coins बनाए हैं। Merchant इन्हें लेता है; checking का 1 unit बचा, इसलिए तुमने 11 नहीं, 10 units दिए।\", \"relation_guess\": \"cause_effect\", \"template_guess\": \"none\"}, {\"beat_id\": \"b7\", \"say\": \"यही standardization का फायदा है; example के numbers historical नहीं। 1540 में Sher Shah Suri ने silver Rupiya दिया: लगभग 178 grains, यानी 11.5 grams, high purity और empire में uniform standard।\", \"relation_guess\": \"place\", \"template_guess\": \"hand_over\"}, {\"beat_id\": \"b8\", \"say\": \"Grains weight की unit है, अनाज नहीं। Weight कुल mass, purity उसमें silver का हिस्सा है; common standard बार-बार तौलने और जाँचने का काम घटाता है।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b9\", \"say\": \"Empire भर में coins कहाँ बनेंगे? Mughal standardization, 1556–1707 में Akbar ने minting बढ़ाई; hundreds of mints, यानी coin factories, standardized-weight silver coins बनाती थीं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b10\", \"say\": \"Emperor का नाम issuing authority बताता था। Company ने 1757–1835 में शुरुआत में familiar Mughal-style coins रखे, लेकिन Bombay, Calcutta और Madras Presidencies अलग coins बनाती थीं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b11\", \"say\": \"अलग coins एक जैसे कब हुए? Currency Act of 1835 ने uniform Indian Rupee, standard design और British India में single legal tender दिया—यानी कानून के नियमों से payment चुकाने में accepted पैसा।\", \"relation_guess\": \"place\", \"template_guess\": \"accept\"}, {\"beat_id\": \"b12\", \"say\": \"Uniformity का मतलब decimalisation नहीं। Queen/King portrait की broad पहचान में याद रखो: original 1835 issue William IV का था, Queen Victoria का नहीं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b13\", \"say\": \"Notes कौन जारी करे? Paper Currency Act, 1861 ने British government को exclusive right दिया, यानी एक authorised issuer। Issuance currency बनाता है; lending वापस चुकाने की शर्त वाला loan है।\", \"relation_guess\": \"more_less\", \"template_guess\": \"pay_change\"}, {\"beat_id\": \"b14\", \"say\": \"विदेशी seller को gold दिए बिना कैसे चुकाएँ? Mumbai bank के imaginary ₹10 per £1 rate पर importer के ₹100 से £10 भेजे; sterling reserve £100 से £90, seller receipt £0 से £10 हुई।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b15\", \"say\": \"Sterling gold-linked हो तो यही indirect bridge Gold Exchange Standard है, domestic gold redemption नहीं। Silver के बदलते भाव के जवाब में Fowler Committee, 1898 ने rupee को gold से जोड़ने की recommendation दी।\", \"relation_guess\": \"place\", \"template_guess\": \"pay_change\"}, {\"beat_id\": \"b16\", \"say\": \"1898 timeline marker है; implementation में late-1890s, खासकर 1899 भी याद रखो। ₹10 per £1 historical rate नहीं; exchange link चलाने को reserves और policy चाहिए।\", \"relation_guess\": \"place\", \"template_guess\": \"pay_change\"}], \"items\": [{\"item_id\": \"p006-i9\", \"content_type\": \"timeline\", \"content\": \"Sher Shah Suri: (1540)\\nIntroduced the Rupiya made of silver.\\nWeight: about 178 grains (11.5 grams). High purity.\\nUniform across the empire.\"}, {\"item_id\": \"p006-i10\", \"content_type\": \"timeline\", \"content\": \"Mughal Standardization (1556–1707):\\nAkbar expanded minting across the empire.\\nHundreds of mints produced coins with standardized weight.\\nCoins carried the emperor's name.\"}, {\"item_id\": \"p006-i12\", \"content_type\": \"timeline\", \"content\": \"Period: 1540 | Nature of the Rupee: Silver rupee introduced\"}, {\"item_id\": \"p006-i13\", \"content_type\": \"timeline\", \"content\": \"Period: Mughal era | Nature of the Rupee: Standard silver coin\"}, {\"item_id\": \"p006-i14\", \"content_type\": \"timeline\", \"content\": \"Period: 1835 | Nature of the Rupee: Uniform British Indian Rupee\"}, {\"item_id\": \"p006-i15\", \"content_type\": \"timeline\", \"content\": \"Period: 1898 | Nature of the Rupee: Gold Exchange Standard\"}, {\"item_id\": \"p007-i1\", \"content_type\": \"timeline\", \"content\": \"East India Company Rupee (1757–1835)\\nThe Company initially continued Mughal-style coinage.\\nThe three Presidencies (Bombay, Calcutta, Madras) minted different coins.\"}, {\"item_id\": \"p007-i6\", \"content_type\": \"timeline\", \"content\": \"Currency Act of 1835:\\nOne uniform Indian Rupee with standard design and Queen/King's portrait\\nSingle legal tender across British India\"}, {\"item_id\": \"p007-i7\", \"content_type\": \"timeline\", \"content\": \"Paper Currency Act, 1861: The British government obtained the exclusive right to issue banknotes.\"}, {\"item_id\": \"p007-i9\", \"content_type\": \"timeline\", \"content\": \"The Fowler Committee (1898):\\nThe committee recommended: Linking the rupee to gold.\\nIndia adopted a Gold Exchange Standard.\"}], \"book_pictures\": []}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 0,
+   "started_at": 1793590354.0542412,
+   "mode": "resume",
+   "notes": {
+    "about": "This part follows rupee standardization from an imaginary market problem to uniform coinage, note issuance and the gold-exchange link.",
+    "key_questions": [
+     "How do common weight and purity reduce checking costs?",
+     "How do uniform currency, legal tender and exclusive note issuance differ?",
+     "How does a sterling reserve settle foreign payments without domestic gold redemption?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use the book's timeline dates, with imaginary examples visually separated.",
+      "reason": "The market figures and ₹10 per £1 rate are teaching assumptions, not historical evidence."
+     },
+     {
+      "decision": "Represent rulers through name inscriptions, never portraits.",
+      "reason": "Real people must not be drawn; coin inscriptions and issue labels carry the historical distinctions."
+     },
+     {
+      "decision": "Separate the 1898 recommendation from implementation around 1899.",
+      "reason": "The narration explicitly qualifies the book's compressed timeline marker."
+     }
+    ],
+    "uncertain": [
+     "No book pictures are supplied; historical coin imagery must avoid unsupported designs and visible portraits.",
+     "The 1556–1707 span labels Mughal standardization, not Akbar's individual reign."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This part follows rupee standardization from an imaginary market problem to uniform coinage, note issuance and the gold-exchange link.",
+     "key_questions": [
+      "How do common weight and purity reduce checking costs?",
+      "How do uniform currency, legal tender and exclusive note issuance differ?",
+      "How does a sterling reserve settle foreign payments without domestic gold redemption?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use the book's timeline dates, with imaginary examples visually separated.",
+       "reason": "The market figures and ₹10 per £1 rate are teaching assumptions, not historical evidence."
+      },
+      {
+       "decision": "Represent rulers through name inscriptions, never portraits.",
+       "reason": "Real people must not be drawn; coin inscriptions and issue labels carry the historical distinctions."
+      },
+      {
+       "decision": "Separate the 1898 recommendation from implementation around 1899.",
+       "reason": "The narration explicitly qualifies the book's compressed timeline marker."
+      }
+     ],
+     "uncertain": [
+      "No book pictures are supplied; historical coin imagery must avoid unsupported designs and visible portraits.",
+      "The 1556–1707 span labels Mughal standardization, not Akbar's individual reign."
+     ]
+    },
+    "beats": [
+     {
+      "beat_id": "b5",
+      "idea": "Unfamiliar coins add checking costs",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "cloth",
+       "8 g coin",
+       "10 g coin",
+       "weighing balance",
+       "checking fee"
+      ],
+      "people": [
+       "buyer",
+       "merchant"
+      ],
+      "places": [
+       "Agra imaginary market"
+      ],
+      "shows": "Uncertain coins; cloth 10 plus checking 1 equals 11.",
+      "on_word": "Agra",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear cloth tagged 10 units between buyer and merchant; appear coins tagged 8 g and 10 g with purity question marks; move coins to weighing balance on जाँचोगे; show_text checking fee 1 unit; show_text total 10 + 1 = 11 on खर्च. Mark scene imaginary."
+     },
+     {
+      "beat_id": "b6",
+      "idea": "Common standards save the checking fee",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "two mints",
+       "10 g coins",
+       "checking fee",
+       "payment"
+      ],
+      "people": [
+       "buyer",
+       "merchant"
+      ],
+      "places": [],
+      "shows": "Two mints; matching coins accepted; fee disappears.",
+      "on_word": "2",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear two mints; move matching 10 g coins with equal purity badges from both mints; accept coins by merchant on लेता; refuse checking fee tagged 1 unit on बचा; meter payment from 11 to 10. Keep imaginary label."
+     },
+     {
+      "beat_id": "b7",
+      "idea": "1540 Rupiya establishes a uniform silver standard",
+      "relation": "sequence",
+      "relation_note": "",
+      "things": [
+       "silver Rupiya",
+       "weight marker",
+       "purity indicator"
+      ],
+      "people": [],
+      "places": [
+       "Sher Shah Suri's empire"
+      ],
+      "shows": "1540 silver Rupiya; weight, purity, empire-wide matching coins.",
+      "on_word": "1540",
+      "image_wanted": "Sher Shah Suri silver rupiya inscription side",
+      "template": "none",
+      "template_note": "Introduced currency is a historical milestone, not a narrated personal handover. Place coin at 1540 with issuer name, about 178 grains = 11.5 grams, high purity and matching coins across an empire outline; label preceding example nonhistorical."
+     },
+     {
+      "beat_id": "b8",
+      "idea": "Weight and silver purity measure different things",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "coin",
+       "weighing balance",
+       "silver portion",
+       "grain seeds",
+       "purity test"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Whole coin weighed; silver portion highlighted; seeds crossed.",
+      "on_word": "Grains",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear grain seeds then refuse on नहीं; compare whole coin on balance labelled total mass with coin cutaway highlighting silver share; appear repeated weighing and purity-test icons; reduce their repetition on घटाता. Do not imply a numerical purity percentage."
+     },
+     {
+      "beat_id": "b9",
+      "idea": "Many mints produce standardized silver coins",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "mints",
+       "standardized silver coins"
+      ],
+      "people": [],
+      "places": [
+       "Mughal empire"
+      ],
+      "shows": "Empire-wide mints produce silver coins with matching weights.",
+      "on_word": "1556–1707",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Place book milestone Mughal Standardization 1556–1707; appear distributed mint icons in an empire outline, grouped as hundreds rather than inventing an exact count; label mint expansion Akbar; move equal-weight silver coins out of mints."
+     },
+     {
+      "beat_id": "b10",
+      "idea": "Familiar coinage coexists with presidency differences",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "emperor-name coin inscription",
+       "Mughal-style coins",
+       "presidency coins"
+      ],
+      "people": [],
+      "places": [
+       "Bombay Presidency",
+       "Calcutta Presidency",
+       "Madras Presidency"
+      ],
+      "shows": "Issuer inscription; three presidencies display distinct coin sets.",
+      "on_word": "Emperor",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": "Use a coin inscription callout for issuing authority, then three equal comparison slots under the book's 1757–1835 Company milestone. Retained style is historical context, not a narrated minting process; use schematic coins without invented inscriptions."
+     },
+     {
+      "beat_id": "b11",
+      "idea": "1835 law creates uniform legal tender",
+      "relation": "compulsory",
+      "relation_note": "",
+      "things": [
+       "Currency Act of 1835 scroll",
+       "uniform Indian Rupee",
+       "payment"
+      ],
+      "people": [
+       "payer",
+       "payment recipient"
+      ],
+      "places": [
+       "British India"
+      ],
+      "shows": "Stamped 1835 law; matching rupees accepted across territory.",
+      "on_word": "Currency Act",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear stamped Currency Act of 1835 scroll beside matching rupees across British India outline; show_text standard design and single legal tender; give payment from payer to recipient; accept payment on accepted with qualifier कानून के नियमों से."
+     },
+     {
+      "beat_id": "b12",
+      "idea": "Uniformity is not decimalisation; identify 1835 correctly",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "matching rupees",
+       "decimal division diagram",
+       "1835 coin issue label",
+       "Queen Victoria issue label"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Uniform coins ≠ decimals; William IV, not Victoria.",
+      "on_word": "Uniformity",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "compare matching coins with decimal division diagram using ≠ on नहीं; show_text original 1835 issue: William IV on a portrait-free coin issue label; accept that label; refuse Queen Victoria issue label on final नहीं. No ruler portraits."
+     },
+     {
+      "beat_id": "b13",
+      "idea": "Exclusive issuance differs from repayable lending",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "Paper Currency Act 1861 scroll",
+       "banknotes",
+       "loan agreement",
+       "loan money"
+      ],
+      "people": [
+       "British government issuer",
+       "lender",
+       "borrower"
+      ],
+      "places": [],
+      "shows": "One authorised note issuer; loan money returns separately.",
+      "on_word": "1861",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear stamped 1861 Act beside one British government issuer; appear banknotes at issuer labelled issuance; in separate lending panel give loan money lender to borrower with loan agreement, then move money back labelled repayment obligation. Keep creation and lending visually distinct."
+     },
+     {
+      "beat_id": "b14",
+      "idea": "Sterling reserves settle an overseas payment",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "₹100 payment",
+       "sterling reserve",
+       "£10 transfer",
+       "seller receipt",
+       "gold"
+      ],
+      "people": [
+       "importer",
+       "bank",
+       "foreign seller"
+      ],
+      "places": [
+       "Mumbai",
+       "abroad"
+      ],
+      "shows": "₹100 paid; reserve falls £10; seller receives £10.",
+      "on_word": "₹100",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "show_text imaginary rate ₹10 per £1 on Mumbai bank; give ₹100 importer to bank; move £10 transfer from sterling reserve to foreign seller; meter reserve £100 to £90 and seller receipt £0 to £10; show gold stationary with crossed outward transfer path, not destroyed gold."
+     },
+     {
+      "beat_id": "b15",
+      "idea": "Gold exchange links rupees indirectly through sterling",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "rupee",
+       "sterling",
+       "gold",
+       "domestic gold redemption arrow",
+       "silver price chart",
+       "Fowler Committee recommendation"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Rupee–sterling–gold bridge; direct redemption crossed; 1898 recommendation.",
+      "on_word": "gold-linked",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear rupee to sterling to gold link arrows, sterling-gold link marked conditional; refuse direct domestic rupee-to-gold redemption arrow on नहीं; appear fluctuating silver-price chart leading to Fowler Committee recommendation document at 1898, labelled recommend rupee–gold link. No physical gold payout."
+     },
+     {
+      "beat_id": "b16",
+      "idea": "Distinguish recommendation, implementation and illustrative rate",
+      "relation": "sequence",
+      "relation_note": "",
+      "things": [
+       "1898 recommendation marker",
+       "1899 implementation marker",
+       "₹10 per £1 rate label",
+       "sterling reserves",
+       "policy document",
+       "exchange link"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "1898 recommendation → 1899 implementation; reserves support exchange link.",
+      "on_word": "1898",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": "Show 1898 and late-1890s implementation, especially 1899, on the timeline; mark ₹10 per £1 as illustrative, not historical. Reserves and policy support the exchange-link diagram; चलाने names a general requirement, not a new payment process."
+     }
+    ],
+    "picture_type": "timeline",
+    "picture_note": "Use the book's chronology as the backbone, with local process insets for checking costs, note issuance and sterling settlement."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793590354.0549982
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 0.0,
+ "navin_verdict": null
+}

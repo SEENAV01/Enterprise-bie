@@ -1,0 +1,259 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v8_s2-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.3+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3",
+ "rulebook_digest": "8806c6ee4a7b0de68af6d616d63f489dcda85e158cf4d213d81d43562bb5b1fc",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "a2b74d50dc3bf130c1419ef8b9d3eda256c1588b9d2653486860e5fed61a16c4",
+ "card": null,
+ "prefix_sha256": "8a08c6aa3145e8abe0c3315f9960006af862793f8e04d01a7ae18cb250df462e",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses) (saanche: refuse)\n- accept: a tick on the thing accepted (saanche: accept)\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line) (saanche: coin_count)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word (saanche: cheque)\n- count: a counted stack or crowd whose number is the narration's number (saanche: count_stack, coin_count)\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline (saanche: hand_over, pay_change, upi, card_tap, cheque, barter_swap)\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number (saanche: pay_change, upi, card_tap, cheque)\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one (saanche: barter_swap)\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha (saanche: pay_change, cheque)\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label (saanche: cheque, hand_over)\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns THIS beat names or implies, as plain English or Hindi words a picture can show:\n  exactly the beat's own things, never a thing from an example, a card or another part (Navin, 2 November 2026: \"jis cheej ka\n  jikar hai wohi cheej dikhe\"). Every thing you list is a promise: it must appear on screen in this beat. A real person is never\n  drawn (card rule 8): name the role or the object, not the person.\n- shows: what is seen, in at most 8 words, as a picture description of this beat's own things and what happens to\n  them. Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object of this beat that an icon cannot show and a photograph or museum image can, as search words; \"\"\n  when an icon is enough. Never a person's portrait (card rule 8).\n- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: \"process show nahi ho rahi hai\"),\n  the recipe that shows it, or \"compose\" when no recipe fits but the motion parts do (the layout step writes the parts); \"none\"\n  when the beat tells no process; \"other\" only when a motion part BIE lacks is needed (template_note names it: it goes to the\n  missing-capability log). The actors, things and numbers always come from this beat. The recipes:\n- hand_over: one person gives a thing to another (steps give, take; actors giver, taker; objects thing; parts give, hold)\n- pay_change: the buyer hands over the payment, takes the goods and gets the difference back (each amount travels as a tag on what carries it) (steps pay, goods, change; actors buyer, seller; objects goods, money (optional), change_money (optional); amounts paid, change, price (optional); parts appear, give, hold, move, show_text)\n- barter_swap: two people swap their things; at 'ask' each wonders whether they want the other's thing (steps offer, ask, swap; actors a, b; objects a_thing, b_thing; parts give, hold, show_text)\n- upi: the buyer's device moves to the seller's sign and back; the buyer's device shows the amount paid, the seller's shows it received (steps scan, paid, received; actors buyer, seller; objects device (optional), sign (optional), seller_device (optional); amounts amount; parts appear, hold, move, show_text)\n- card_tap: a card moves to the seller's machine and back; the machine shows the amount approved (steps tap, approved; actors buyer, seller; objects card (optional), machine (optional); amounts amount; parts appear, hold, move, show_text)\n- cheque: the amount is written on the instrument, it moves into the place that pays, and the two balances change (payer down, payee up) (steps write, hand, balances; actors payer, payee; objects cheque (optional), place (optional); amounts amount, payer_before (optional), payer_after (optional), payee_before (optional), payee_after (optional); parts appear, hold, meter, move, show_text)\n- coin_count: things drop onto a pile while a meter rises; at 'limit' the meter stops at its red line and one more is refused (steps count, limit; objects coin (optional); amounts each, limit; parts appear, meter, refuse)\n- refuse: the person looks at the thing, shakes the head, and a cross lands on the thing (steps show, refuse; actors who; objects thing; parts appear, refuse)\n- accept: the person looks at the thing, nods, and a tick lands on the thing (steps show, accept; actors who; objects thing; parts accept, appear)\n- count_stack: n things appear one by one as they are said (steps count; objects thing; amounts n; parts appear)\n- compose: a process no recipe has, written as its parts in order (parts [{part, cue, ...fields}]); a part BIE lacks: template other in the dikhane ki list, with a note (it goes to the missing-capability log)\n  The motion parts every process is made of:\n- hold (actor, object, reach?): a person holds a thing in the front hand (reach 0..1 lifts it towards the other)\n- give (from, to, object, text?): a thing travels from one person's hand to the other's (give and take), with an optional tag of text on it\n- move (object, to, back?, into?, text?): a thing moves along a path to a spot, a person or another thing; back returns it; into lets it go into the target\n- transform (object, into): a thing turns into another thing where it is (A → B)\n- show_text (on, text, style?, inside?): a screen, sign, tag or thought bubble on a person or thing shows a short text (style: tag, sign, screen, ok, bubble, write)\n- meter (to, from?, limit?, style?, title?, dir?, on?, end?): a counter or meter changes: a bar fills to its limit (style bar), or a number changes from one value to another with an up or down arrow (style number)\n- appear (object, n?, spot?, layout?, end?): things appear one by one (n of them in a grid, or dropping onto a pile until a later step)\n- refuse (object, actor?): a person shakes the head and a cross lands on the thing\n- accept (object, actor?): a person nods and a tick lands on the thing\n- compare (left, right, sign?, left_text?, right_text?): two things side by side with a sign between them (=, ≠, ?, vs, <, >)\n- template_note: for \"other\" the process in a few words; for \"none\" on a beat that names a process word, why no saancha.\npicture_type: the one picture this part needs most, from timeline, gallery (a row of icon cards), table, flow, tree, chart, map or things (the things themselves with the relation's mark, arrow, meter or scale); the card part's type is \"facts_numbers\". picture_note: one line on why.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c18.2 (6 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v8_s2\", \"part_id\": \"c18.2\", \"card_type\": \"facts_numbers\", \"story\": false}, \"beats\": [{\"beat_id\": \"b10\", \"say\": \"₹1 note कौन issue करता है? Government of India; signature Finance Secretary का है और circulation RBI संभालता है, यानी लोगों-बैंकों के बीच चलना।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b11\", \"say\": \"पीछे language panel में क्या दिखता है? यानी एक ही रकम 15 languages में लिखी है। Note के features मिलाने के लिए RBI की पैसा बोलता है website देख सकते हो।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b12\", \"say\": \"सामने Hindi और English जोड़ो तो total 17 हैं; जैसे कमरे और पूरे घर की गिनती अलग होती है।\", \"relation_guess\": \"more_less\", \"template_guess\": \"count_stack\"}, {\"beat_id\": \"b13\", \"say\": \"RBI reference से denomination-specific features मिलाओ। ₹1 का circulation RBI संभालता है; इससे वह issuer नहीं बनता।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b14\", \"say\": \"Statement trap पकड़ो: panel में 17 गलत है; circulation संभालना और issuer होना अलग काम हैं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b15\", \"say\": \"15 plus 2; तीन institutional roles; features के लिए RBI reference याद रखो।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}], \"items\": [{\"item_id\": \"p009-i11\", \"content_type\": \"facts_numbers\", \"content\": \"₹1 Note: Issued by the Govt of India. Contains the signature of Finance Secretary of India. RBI manages the circulation of this note.\"}, {\"item_id\": \"p009-i12\", \"content_type\": \"facts_numbers\", \"content\": \"https://paisaboltahai.rbi.org.in/: You can access the features of our notes from this website of RBI.\"}, {\"item_id\": \"p009-i13\", \"content_type\": \"facts_numbers\", \"content\": \"Languages: 15 languages appear in the language panel on the reverse. Along with Hindi (front) and English (front), the note represents 17 languages in total.\"}], \"book_pictures\": []}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 0,
+   "started_at": 1793590626.9712312,
+   "mode": "resume",
+   "notes": {
+    "about": "This recap distinguishes ₹1-note institutional roles and language-panel versus whole-note counts, with RBI’s website as the feature reference.",
+    "key_questions": [
+     "Who issues, signs and manages circulation of the ₹1 note?",
+     "Why does the reverse panel contain 15 languages while the note represents 17?",
+     "Where should denomination-specific features be checked?"
+    ],
+    "decisions": [
+     {
+      "decision": "Keep issuer, signatory and circulation manager in separate visual slots.",
+      "reason": "Managing circulation must not visually imply issuing the note."
+     },
+     {
+      "decision": "Use a magnified reverse panel and separate front-language slots.",
+      "reason": "The learner must see that 15 refers to a part and 17 to the whole note."
+     },
+     {
+      "decision": "Use object details rather than portraits.",
+      "reason": "A signature area and institutional symbols communicate roles without depicting real people."
+     }
+    ],
+    "uncertain": [
+     "No note images are supplied. Any sourced denomination-specific note details must be verified against the RBI reference before display."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This recap distinguishes ₹1-note institutional roles and language-panel versus whole-note counts, with RBI’s website as the feature reference.",
+     "key_questions": [
+      "Who issues, signs and manages circulation of the ₹1 note?",
+      "Why does the reverse panel contain 15 languages while the note represents 17?",
+      "Where should denomination-specific features be checked?"
+     ],
+     "decisions": [
+      {
+       "decision": "Keep issuer, signatory and circulation manager in separate visual slots.",
+       "reason": "Managing circulation must not visually imply issuing the note."
+      },
+      {
+       "decision": "Use a magnified reverse panel and separate front-language slots.",
+       "reason": "The learner must see that 15 refers to a part and 17 to the whole note."
+      },
+      {
+       "decision": "Use object details rather than portraits.",
+       "reason": "A signature area and institutional symbols communicate roles without depicting real people."
+      }
+     ],
+     "uncertain": [
+      "No note images are supplied. Any sourced denomination-specific note details must be verified against the RBI reference before display."
+     ]
+    },
+    "beats": [
+     {
+      "beat_id": "b10",
+      "idea": "Three distinct ₹1-note roles",
+      "relation": "part_whole",
+      "relation_note": "",
+      "things": [
+       "₹1 note",
+       "Government of India institutional symbol",
+       "Finance Secretary signature area",
+       "RBI institutional symbol"
+      ],
+      "people": [
+       "note holder",
+       "bank staff"
+      ],
+      "places": [
+       "bank"
+      ],
+      "shows": "₹1 issuer, signature, and RBI circulation shown separately",
+      "on_word": "₹1",
+      "image_wanted": "Indian one rupee note obverse Finance Secretary signature",
+      "template": "compose",
+      "template_note": "Appear ₹1 note beside Government of India issuer symbol; highlight Finance Secretary signature area; then move the note between note holder and bank staff under a separate RBI circulation bracket. Never move it from RBI as issuer."
+     },
+     {
+      "beat_id": "b11",
+      "idea": "Reverse panel has fifteen languages",
+      "relation": "count",
+      "relation_note": "",
+      "things": [
+       "note reverse",
+       "language panel",
+       "15 language entries",
+       "RBI Paisa Bolta Hai website"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Reverse panel enlarged; fifteen entries; RBI reference beside",
+      "on_word": "पीछे",
+      "image_wanted": "Indian banknote reverse language panel fifteen languages",
+      "template": "compose",
+      "template_note": "Appear the note reverse; move a magnified panel beside it; appear fifteen entry markers aligned with the actual panel entries; show the reference address paisaboltahai.rbi.org.in on a browser symbol at website. Do not fabricate website content."
+     },
+     {
+      "beat_id": "b12",
+      "idea": "Panel fifteen, whole note seventeen",
+      "relation": "part_whole",
+      "relation_note": "",
+      "things": [
+       "note front",
+       "reverse language panel",
+       "15 panel-language markers",
+       "Hindi language marker",
+       "English language marker"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Fifteen panel markers plus two front markers: seventeen",
+      "on_word": "सामने",
+      "image_wanted": "Indian banknote front Hindi English reverse language panel",
+      "template": "compose",
+      "template_note": "Retain fifteen markers grouped inside the reverse-panel boundary; appear Hindi and English markers beside the front; compare panel count 15 with a whole-note bracket enclosing all 17. Keep the two front markers outside the panel boundary."
+     },
+     {
+      "beat_id": "b13",
+      "idea": "Reference features; distinguish circulation from issuance",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "banknote denomination and feature details",
+       "RBI reference website",
+       "₹1 note",
+       "RBI institutional symbol",
+       "Government of India institutional symbol"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Features matched; ₹1 circulation and issuance kept separate",
+      "on_word": "RBI",
+      "image_wanted": "Indian one rupee note verified denomination features",
+      "template": "compose",
+      "template_note": "Compare denomination-specific note details with the RBI reference using matched detail pointers. Then show ₹1 beneath two distinct role slots: RBI circulation and Government of India issuer; put a cross on an RBI issuer attribution at नहीं."
+     },
+     {
+      "beat_id": "b14",
+      "idea": "Reject both statement traps",
+      "relation": "reject",
+      "relation_note": "",
+      "things": [
+       "reverse language panel",
+       "17 count tag",
+       "15 count tag",
+       "₹1 note",
+       "RBI institutional symbol",
+       "issuer role tag",
+       "circulation role tag"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Panel seventeen crossed; RBI issuer crossed; circulation retained",
+      "on_word": "panel",
+      "image_wanted": "Indian banknote reverse language panel",
+      "template": "compose",
+      "template_note": "Show panel with 17 tag before गलत; refuse that tag at गलत and reveal 15. Beside ₹1, compare RBI circulation and issuer role tags; refuse the RBI issuer attribution while retaining circulation."
+     },
+     {
+      "beat_id": "b15",
+      "idea": "Recall counts, roles and reference",
+      "relation": "part_whole",
+      "relation_note": "",
+      "things": [
+       "15 panel-language markers",
+       "two front-language markers",
+       "₹1 note",
+       "Government of India institutional symbol",
+       "Finance Secretary signature area",
+       "RBI institutional symbol",
+       "RBI reference website"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Fifteen plus two; three roles; RBI reference",
+      "on_word": "15",
+      "image_wanted": "Indian one rupee note Finance Secretary signature",
+      "template": "none",
+      "template_note": "Static recap, not a new process: retain the 15-plus-2 grouping, three separately labelled institutional roles and RBI reference browser symbol."
+     }
+    ],
+    "picture_type": "things",
+    "picture_note": "Note details, nested language counts and separate institutional-role symbols make the numerical and attribution traps visible."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793590626.9715781
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 0.0,
+ "navin_verdict": null
+}

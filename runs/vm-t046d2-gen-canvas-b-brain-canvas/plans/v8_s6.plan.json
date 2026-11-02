@@ -1,0 +1,649 @@
+{
+ "id": "v8_s6",
+ "part_id": "c19.4",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b36",
+   "say": "₹100 specimen में ऊपर-नीचे क्या है? दोनों languages का promise ऊपर है और Governor का signature नीचे; अब इन्हें पहचानो।"
+  },
+  {
+   "beat_id": "b37",
+   "say": "बाएँ Hindi, दाएँ English में वही ₹100 हैं, ₹200 नहीं। ‘I PROMISE TO PAY’ रकम देने का वादा है; ‘THE BEARER’ यानी note रखने वाले से यह वादा है।"
+  },
+  {
+   "beat_id": "b38",
+   "say": "नीचे Raghuram G. Rajan का नाम, signature और Governor title दिखते हैं। यह specimen का signatory है, current-office दावा नहीं; ₹1 पर Finance Secretary sign करते हैं।"
+  },
+  {
+   "beat_id": "b39",
+   "say": "Amount, bearer और इस instrument का signatory पहचानो।"
+  },
+  {
+   "beat_id": "b40",
+   "say": "इस crop का रास्ता है: दोनों भाषाओं में एक रकम, फिर नीचे signatory।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p009_i28",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    3
+   ],
+   "cue": [
+    "b36",
+    ""
+   ],
+   "picture": {
+    "type": "gallery",
+    "title": "Photograph of a ₹100 note's promise and signature area",
+    "item_id": "p009-i28",
+    "panels": [
+     {
+      "n": 1,
+      "name": "Promise wording: 'मैं धारक को एक सौ रुपय",
+      "caption": "",
+      "nouns": [
+       "Promise",
+       "wording",
+       "and",
+       "PROMISE",
+       "PAY",
+       "THE"
+      ],
+      "item_id": "p009-i29",
+      "numbered": false,
+      "cue": [
+       "b37",
+       ""
+      ],
+      "icon": "tw:1f91d"
+     },
+     {
+      "n": 2,
+      "name": "Signature and title area: 'रघुराम जी. रा",
+      "caption": "",
+      "nouns": [
+       "Signature",
+       "and",
+       "title",
+       "area",
+       "handwritten",
+       "signature"
+      ],
+      "item_id": "p009-i30",
+      "numbered": false,
+      "cue": [
+       "b38",
+       ""
+      ],
+      "icon": "fa:solid/file-signature"
+     }
+    ]
+   }
+  },
+  {
+   "id": "crop_intro",
+   "kind": "highlight",
+   "cue": [
+    "b36",
+    "ऊपर-नीचे"
+   ],
+   "until_cue": [
+    "b37",
+    "Hindi,"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "book_p009_i28"
+  },
+  {
+   "id": "upper_promise",
+   "kind": "icon",
+   "cell": [
+    2,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b36",
+    "promise"
+   ],
+   "until_cue": [
+    "b37",
+    "Hindi,"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:1f91d",
+   "label": "promise ऊपर है",
+   "size": 28
+  },
+  {
+   "id": "lower_signature",
+   "kind": "text",
+   "cell": [
+    6,
+    5,
+    5,
+    1
+   ],
+   "cue": [
+    "b36",
+    "signature"
+   ],
+   "until_cue": [
+    "b37",
+    "Hindi,"
+   ],
+   "text": "Governor का signature नीचे",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "bearer_demonstration",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    9,
+    4
+   ],
+   "cue": [
+    "b37",
+    "Hindi,"
+   ],
+   "until_cue": [
+    "b38",
+    "नीचे"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "holder",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "hindi",
+     "icon": "tw:1f91d",
+     "label": "Hindi"
+    },
+    {
+     "name": "english",
+     "icon": "tw:1f91d",
+     "label": "English"
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b37",
+      "Hindi,"
+     ],
+     "object": "hindi",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b37",
+      "English"
+     ],
+     "object": "english",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b37",
+      "₹100"
+     ],
+     "left": "hindi",
+     "right": "english",
+     "sign": "=",
+     "left_text": "₹100",
+     "right_text": "₹100"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b37",
+      "note"
+     ],
+     "actor": "holder",
+     "object": "note"
+    }
+   ]
+  },
+  {
+   "id": "wrong_amount",
+   "kind": "text",
+   "cell": [
+    9,
+    4,
+    3,
+    1
+   ],
+   "cue": [
+    "b37",
+    "₹200"
+   ],
+   "until_cue": [
+    "b38",
+    "नीचे"
+   ],
+   "text": "₹200",
+   "style": "box",
+   "tone": "muted",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "reject_double_amount",
+   "kind": "mark",
+   "cue": [
+    "b37",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b38",
+    "नीचे"
+   ],
+   "tone": "danger",
+   "target": "wrong_amount",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "signature_focus",
+   "kind": "highlight",
+   "cue": [
+    "b38",
+    "नीचे"
+   ],
+   "until_cue": [
+    "b39",
+    "Amount,"
+   ],
+   "style": "box",
+   "tone": "warm",
+   "target": "book_p009_i28"
+  },
+  {
+   "id": "specimen_name",
+   "kind": "text",
+   "cell": [
+    0,
+    3,
+    6,
+    2
+   ],
+   "cue": [
+    "b38",
+    "Raghuram"
+   ],
+   "until_cue": [
+    "b39",
+    "Amount,"
+   ],
+   "text": "Raghuram G. Rajan",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "one_rupee_role",
+   "kind": "icon",
+   "cell": [
+    7,
+    3,
+    5,
+    3
+   ],
+   "cue": [
+    "b38",
+    "₹1"
+   ],
+   "until_cue": [
+    "b39",
+    "Amount,"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "₹1",
+   "size": 28
+  },
+  {
+   "id": "secretary",
+   "kind": "text",
+   "cell": [
+    7,
+    6,
+    5,
+    1
+   ],
+   "cue": [
+    "b38",
+    "Finance"
+   ],
+   "until_cue": [
+    "b39",
+    "Amount,"
+   ],
+   "text": "Finance Secretary sign करते हैं",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "identification_specimen",
+   "kind": "icon",
+   "cell": [
+    0,
+    3,
+    12,
+    1
+   ],
+   "cue": [
+    "b39",
+    "Amount,"
+   ],
+   "until_cue": [
+    "b40",
+    "रास्ता"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "asset:a-be21884a68c2a4fb",
+   "size": 28
+  },
+  {
+   "id": "question_amount",
+   "kind": "icon",
+   "cell": [
+    0,
+    4,
+    4,
+    2
+   ],
+   "cue": [
+    "b39",
+    "Amount,"
+   ],
+   "until_cue": [
+    "b40",
+    "रास्ता"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:2753",
+   "label": "Amount",
+   "size": 28
+  },
+  {
+   "id": "question_bearer",
+   "kind": "icon",
+   "cell": [
+    4,
+    4,
+    4,
+    2
+   ],
+   "cue": [
+    "b39",
+    "bearer"
+   ],
+   "until_cue": [
+    "b40",
+    "रास्ता"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:2753",
+   "label": "bearer",
+   "size": 28
+  },
+  {
+   "id": "question_signatory",
+   "kind": "icon",
+   "cell": [
+    8,
+    4,
+    4,
+    2
+   ],
+   "cue": [
+    "b39",
+    "signatory"
+   ],
+   "until_cue": [
+    "b40",
+    "रास्ता"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:2753",
+   "label": "signatory",
+   "size": 28
+  },
+  {
+   "id": "reading_path",
+   "kind": "action",
+   "cell": [
+    1,
+    3,
+    10,
+    4
+   ],
+   "cue": [
+    "b40",
+    "रास्ता"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "left_promise",
+     "icon": "tw:1f91d",
+     "label": ""
+    },
+    {
+     "name": "right_promise",
+     "icon": "tw:1f91d",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b40",
+      "रास्ता"
+     ],
+     "object": "left_promise",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b40",
+      "दोनों"
+     ],
+     "object": "right_promise",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b40",
+      "रकम,"
+     ],
+     "left": "left_promise",
+     "right": "right_promise",
+     "sign": "="
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b40",
+      "नीचे"
+     ],
+     "to": "center",
+     "object": "left_promise",
+     "spot": "center",
+     "dir": "down"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b40",
+      "signatory।"
+     ],
+     "on": "left_promise",
+     "text": "नीचे signatory",
+     "style": "tag",
+     "spot": "center"
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "auto_thing_1",
+   "kind": "icon",
+   "icon": "asset:a-be21884a68c2a4fb",
+   "cell": [
+    0,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b36",
+    "₹100"
+   ],
+   "until_cue": [
+    "b37",
+    ""
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b36",
+    "ऊपर-नीचे"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b38",
+    "नीचे"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b40",
+    "रास्ता"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b36",
+    "signature"
+   ],
+   "ids": [
+    "book_p009_i28_p1",
+    "book_p009_i28_p2",
+    "book_p009_i28_a1",
+    "lower_signature"
+   ],
+   "until_cue": [
+    "b37",
+    "Hindi,"
+   ]
+  },
+  {
+   "cue": [
+    "b38",
+    "signature"
+   ],
+   "ids": [
+    "book_p009_i28_p1",
+    "book_p009_i28_p2",
+    "book_p009_i28_a1",
+    "specimen_name"
+   ],
+   "until_cue": [
+    "b38",
+    "₹1"
+   ]
+  },
+  {
+   "cue": [
+    "b38",
+    "Finance"
+   ],
+   "ids": [
+    "one_rupee_role",
+    "secretary"
+   ],
+   "until_cue": [
+    "b39",
+    "Amount,"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

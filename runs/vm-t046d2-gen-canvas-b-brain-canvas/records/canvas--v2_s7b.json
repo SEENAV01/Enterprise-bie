@@ -1,0 +1,904 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v2_s7b",
+ "status": "passed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.3+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3",
+ "rulebook_digest": "8806c6ee4a7b0de68af6d616d63f489dcda85e158cf4d213d81d43562bb5b1fc",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "89c9d3bb1e6c217d01b84f94c791bdf9c9f25099586fc8b09905a03f7a971dfd",
+ "card": null,
+ "prefix_sha256": "3827b6770f9f8a37a6ca8996ab9672a3618c40b0506a79dcac5e63688d86e658",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's canvas director for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is\nalready written and passed; you do not change a word of it. You plan ONE build-up canvas for this part: what appears, in\nwhich grid cell, and on which spoken word. Code places, times and checks it; a refused plan comes back to you with the\nexact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish. Navin's level for this part: B (a build-up canvas with L3 touches (shadows, idle motion, walk-ins, the beat's things flowing, a camera that follows)).\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[CV-13] On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').\n[CV-14] Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.\n[CV-15] A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.\n[CV-16] Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[VG-02] Labels are code text tied to their object by a leader line and move with it; a label is never baked into an image, so one asset works in every language.\n[VG-04] Size is taught by scale comparison with a thing the learner knows (one book = 1 MB; access time as a distance), never by a number alone.\n[VG-07] Two things are compared on a split screen (the split_compare block), the same slots on both sides.\n[VG-08] Processes show flow with moving arrows or particles (magma, water, concrete, ions, mucus), never a still diagram with static arrows.\n[VG-10] History and polity use a lit timeline with nodes; maps appear only through the licence gate's map rule (India's boundary waits for Navin's approval).\n[D1-01] Every beat shows at least one non-text thing tied to its nouns or its relation (an icon, a mark, an arrow, a crowd or value step, a table row, a picture event; in a world a prop, a person, a price or a crowd step), cued on a word of that beat. A beat that only adds text is refused.\n[D1-02] The screen never shows text alone for more than 10 seconds: while a beat is spoken, the thing it names is on screen (Navin, 30 October 2026: 'sirf text hi text screen par dikha to video ... ek book ban jaayegi').\n[D1-03] Screen text is a name or a short natural phrase (at most 8 words; a board 2 lines of 28 characters), never a sentence: the sentence lives in the narration and the subtitles. The picture shows the thing itself, so its label is understood without reading (page-2 principle).\n[D1-04] A book diagram or table the part covers is drawn as itself: a timeline with the book's years and labels, a table row by row, a panel of items as a gallery of icon cards, a flow as boxes and arrows. Code places it; the plan builds around it and never leaves it out.\n[D1-05] A world (C) is used only when the beats are the story of the concept's real-world example with actors at a place, and that place comes from the example itself, never from a keyword of the narration; the same world kit is never used in two consecutive parts.\n[D1-06] A caution, caveat or fact-check line ('illustrative numbers', 'imagined market', 'data not given', 'outside clarification') never appears on screen: it stays a background check in the records.\n[D2-01] A beat that tells a process (paying and getting change, a UPI scan, a card tap, a cheque, a barter swap, a refusal, counting up to a limit, counting) shows it HAPPENING with its kriya ka saancha: the people act on their cue words (hands give and take, the phone is raised to the QR stand, a head shakes), the camera moves in to the hands and the screen and back out (Navin, 1 November 2026: 'process show nahi ho rahi hai, like upi payment ka jikar hai shop par, par agar wo visuals se clear ho jaise scanner phone scan, tab maja hai'). A process no saancha fits goes to the missing-capability log.\n[D2-02] Story goods come from the story: a shop's stock, the buyers' bags, a balance's pans and an action's objects are the things the beat names (salt for salt, cloth for cloth), from the icon index and the asset library; nothing is drawn from a fixed picture (Navin, 1 November 2026: 'baat ho rahi hai kapda khareedne ki namak khareedne ki aur wo wahi cheeni ko show kar rha hai'). A thing no source has goes to needs.json.\n[D2-03] Layout in every mode: boards, labels, price tags, balances and actions never overlap while on screen together; in a world at most one board, label or title is on screen at a time and numbers go on objects (a price tag, the note, the phone screen, a passbook), never on a label; nothing sits under the subtitle strip (the bottom 14 % of the frame); an action's people are at least about a quarter of the frame tall; no camera key shows an empty street.\n[D2-04] Meaning: every relation of the dikhane ki list is realised by an element on its beat (a refusal or 'no status' puts a cross on that thing; an acceptance a tick; a limit a meter stopping at its red line); a struck value with an up or down arrow only when the same quantity changes, and change given back is the pay_change saancha (Navin's D1 findings 4 and 5).\n[D2-05] One main character per video: the person the story follows keeps the same face, clothes and cap in every part; the others are generic. Icons fit the era and the concept (a phone or a card in a barter beat is reported).\n\n# Director card: build-up canvas plans (for the AI director step)\n\nYou plan ONE canvas for ONE part of a passed script. You do not write narration and you do not place pixels: you say\nwhat appears, in which grid cell, and on which spoken word. Code (`econ_canvas.compile_plan`) places, times and checks\nit; a refused plan comes back to you with the exact error.\n\n## Input you get\n\n- `beats`: the part's spoken beats `[{beat_id, say}]` (Hinglish, Devanagari with English terms). Do not change them.\n- The chapter map items this part covers (terms, numbers, causes, examples).\n- The icon search tool: `icon_index.search(\"bank\")` → ids like `tw:1f3e6` (colour), `fa:solid/building-columns` (line) or\n  `fl:bank` (Fluent 3D), or a picture in the lesson's asset library; the candidates listed under the part are the ones code\n  found for the beat's own things.\n\n## Output you give (JSON only)\n\n```json\n{\"id\": \"<part id>\", \"theme\": \"paper\", \"grid\": [12, 8], \"beats\": <as given>,\n \"nodes\": [ ...elements... ], \"focus\": [ ... ], \"camera\": [ ... ], \"graph\": { ...optional... }}\n```\n\nGrid: 12 columns × 8 rows inside the safe area. `cell` = `[col, row, width, height]`. Two elements may share cells\nonly if they are never on screen together (use `until_cue`). Reading order: left → right, top → bottom.\n\nEvery element has `cue`: `[beat_id, \"<a word exactly as written in that beat>\"]` — the element appears while that word\nis spoken. Use `[beat_id, \"\", 0.0]` for \"at the start of the beat\" only for titles.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `text` | `text`, `style`: `plain` / `box` / `note` / `title` / `tag`, `size`, `tone`, `fill`, `align`, `marks` | definitions (box), side notes (note), headings (title), chips (tag) |\n| `callout` | like text (style `note`), `marks: [{phrase, cue}]` | the one sentence to remember; its key phrase lights up when said |\n| `icon` | `icon` (id from the index), `label` | objects and actors: shop, factory, bank, RBI (use a bank / classical building icon), people, money, goods |\n| `crowd` | `icon`, `steps: [{n, cue}]`, `cols` | many buyers / workers / firms; the number grows or shrinks with the story |\n| `value` | `steps: [{text, cue, dir}]`, `size`, `align` | a number that changes: the old value is struck out, the new one appears with ▲/▼ |\n| `arrow` | `from`, `to` (element ids), `from_side`/`to_side` (`l r t b`), `label`, `elbow` (`hv`, `vh`, `vhv`), `curve`, `dashed`, `tone` | cause → effect, flow of goods / money, sequence |\n| `tree` | `root`, `children: [text or {text, cue}]`, `cell`, `size` | a concept and its types (Inflation → WPI / CPI) |\n| `table` | `columns`, `rows: [{cells, cue}]`, `highlights: [{row?, col?, cue, until_cue?, tone}]` | year-by-year numbers, comparisons |\n| `mark` | `mark`: `tick` / `cross`, `target`, `pos`: `c` / `tr` | right / wrong, done, rejected |\n| `highlight` | `target`, `style`: `box` / `dashed` / `band`, `tone` | \"look here\" on what is being explained |\n| `picture` | `cell`, `picture`: `{type: timeline / gallery / flow, title, items: [{when, name, icon, cue}], arrows}` | a row of things you draw yourself: dates on a timeline (`when` = the date as said), a numbered row of things (gallery), steps joined by arrows (flow); each item appears on its own cue |\n| `action` | `cell` (at least 3 rows tall, best 5–6 rows and 8–12 columns), `action: {template, actors, objects, amounts, steps, texts, parts, close_up}` | a process the learner sees happen, made of motion parts (the saanche below), with the beat's own actors, things and numbers |\n\n`focus: [{cue, until_cue?, ids: [...]}]` dims everything else. `camera: [{cells: [...], cue}]` zooms to a region\n(use it when the canvas is dense or to re-frame for the next sub-idea). `graph` = a `curve_story` (axes, curves as\npoints, a dot that walks to named x values, guides like NAIRU, shaded bands, notes) for any economic curve.\n\nTones: `ink`, `muted`, `accent` (blue), `warm` (orange), `danger` (red), `ok` (green), `tag` (pink), `note`, `band`.\n\n## Dikhane ki soch (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\")\n\nBefore you plan, BIE has thought about every beat: its idea, its relation (reject, accept, compulsory, limit, sequence,\ncompare, …) and the things it names; the part message lists them with the icons BIE found for each thing. Draw THAT:\n\n- Every beat shows at least one thing that is not text (an icon, a mark, an arrow, a crowd or value step, a table row, a\n  picture item), cued on a word of that beat (D1-01). A screen of text alone for more than 10 s is refused (D1-02): a video\n  that is only text is a book.\n- Show the relation the way BIE's visual verbs say: a cross on the thing refused, a tick on the thing accepted, a law scroll\n  and stamp for \"compulsory\", a meter with a red line for a limit, a numbered row or a timeline for a sequence, an arrow chain\n  for cause → effect, a split or a scale for a comparison, before/after for a change, a receipt or a handshake for a promise.\n- The picture shows the thing itself, so its label is understood without reading (the book's page 2): screen text is a\n  name or a short phrase of at most 8 words, never a sentence; the sentence is the narration and the subtitles (D1-03).\n- When the part message says BIE has placed the book's own picture (a timeline, a table, a gallery of the book's panels, a\n  flow), keep it: never redraw it, never reuse its cells or its id, and build your elements in the rows below it (D1-04).\n- Never put a caution or fact-check line on screen (\"illustrative numbers\", \"imagined market\", \"data not given\",\n  \"outside clarification\"): those are BIE's background checks (D1-06).\n\n## Kriya ke saanche: processes the learner sees happen (Task 046 Part D2; Navin, 1 and 2 November 2026)\n\nNavin on the D1 videos: \"process show nahi ho rahi hai ... agar wo visuals se clear ho, tab maja hai\"; and on 2 November 2026:\n\"jis cheej ka jikar hai wohi cheej dikhe\" — examples are illustrations, never a list of things to draw. When a beat tells a\nPROCESS (someone gives, pays, scans, swaps, writes, counts, refuses, accepts, turns one thing into another), show it with an\n`action` element made of general motion parts; the actors, the things and the numbers are THIS beat's own.\n\nThe motion parts BIE draws: `hold` (a person holds a thing), `give` (a thing goes from one hand to the other), `move` (a thing\nmoves along a path to a spot, a person or another thing; `back` returns it, `into` lets it go in), `transform` (A turns into B\nwhere it is), `show_text` (a tag, sign, screen, ok screen, thought bubble or written text shows a short text), `meter` (a bar\nfills to its limit, or a number changes with an up/down arrow), `appear` (things appear one by one, in a grid or onto a pile),\n`refuse` / `accept` (a head shake and a cross, a nod and a tick), `compare` (two things side by side with = ≠ ? vs < >).\n\nRecipes are ready compositions of these parts (`template`, each step on its cue word):\n\n| template | steps | actors (role) | objects (name; optional ones may be left out) | amounts |\n| --- | --- | --- | --- | --- |\n| `hand_over` | give, take | giver, taker | thing | – |\n| `pay_change` | pay, goods, change | buyer, seller | goods; money, change_money (optional: else a plain chip with the amount) | paid, change (price optional) |\n| `barter_swap` | offer, ask, swap | a, b | a_thing, b_thing | – |\n| `upi` | scan, paid, received | buyer, seller | device, sign, seller_device (all optional) | amount |\n| `card_tap` | tap, approved | buyer, seller | card, machine (optional) | amount |\n| `cheque` | write, hand, balances | payer, payee | cheque, place (optional) | amount (payer/payee before and after optional) |\n| `coin_count` | count, limit | – | coin (optional) | each, limit |\n| `refuse` | show, refuse | who | thing | – |\n| `accept` | show, accept | who | thing | – |\n| `count_stack` | count | – | thing | n (1 to 12) |\n| `compose` | one per part | your own (at most two) | your own | – |\n\n- Every object's icon is the thing the beat names, from the icon candidates of THAT beat's things; never a thing from an\n  example, a card or another part, never a stand-in. A thing the beat names that has no icon goes to the needs list (code finds\n  or makes it); meanwhile leave the optional object out.\n- Numbers go on what carries them (a tag on the thing that travels, a screen, a meter), never on a separate label; every amount\n  is said in the narration of the action's beats, written as the narration writes it (CV-16). `texts` adds one short word the\n  narration says to a step's sign.\n- A value given back travels back in a process (a `give` with its tag), never as a struck value with an arrow: a struck value\n  with ▲/▼ is only for the SAME quantity changing.\n- \"Refused\", \"not valid\": a `refuse` part puts the cross on that thing; \"accepted\", \"valid\": `accept`.\n- One main character per video: the person the story follows has `who: \"main\"`; everyone else is `\"other\"`. `mood` is neutral,\n  pleased, unsure or refusing; the parts change moods on their steps.\n- A process no recipe fits: `template: \"compose\"` with its parts in order (each with its cue word and the fields it needs).\n  A motion BIE has no part for: show it with icons and arrows meanwhile; the visual-idea step names it (`template: other`) and\n  it goes to the missing-capability log.\n\nNothing sits under the subtitle strip: the bottom 14 % of the frame belongs to the captions; code moves the camera so that\nwhat a beat shows stays above it, and refuses a plan whose element is still under it.\n\n## Rules (from 20 reference videos, rules/econ_canvas_rules.json)\n\n1. One canvas per idea; build it piece by piece. Re-frame with `camera` instead of starting a new canvas.\n2. Something changes about every 5 s; never let the picture stay still more than 15 s (the code refuses it).\n3. Each element appears on ITS word, while it is said.\n4. Carry the idea with a running example with numbers (price 50 → 65; GDP 10,000 → 11,000 → 12,100); show changes\n   with `value` steps, crowds with `crowd` steps.\n5. A tree/branch overview first, then tick the branch that is done before the next.\n6. Keep one anchor (a tree, a band, a rate card) while the rest changes.\n7. On-screen text (CV-13 to CV-16, Navin's verdict on Money v1, 29 October 2026): a box holds ONE idea as a short COMPLETE\n   phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), at most ~12\n   words; never a code: no ✓ ✗ ≠, no list of bare words (\"Exchange · Account / Store · Deferred\"), no line ending on → = : /;\n   every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a\n   text the beat does not say, and a number the beat does not say); a caveat (\"imagined market\") once per part on its own\n   small note. The narration says the rest.\n8. Never a photo or caricature of a real person, never a logo, emblem or regulator mark: a name tag or a generic icon.\n9. Tags must fit on one line in their cell; text must fit at ≥ 24 px (the code refuses otherwise: make the cell bigger\n   or the text shorter).\n10. A part longer than about 10 beats (real BIE plans have parts of 19 beats) becomes two or three canvases, or one\n    canvas re-framed by `camera` keys; at most 16 elements are on screen at once (the code refuses more).\n\nIcons you may use (id · name): the ones listed under the part for its nouns, and these; any other id is refused:\n- tw:274c · cross mark\n- tw:2705 · white heavy check mark\n- tw:1f4dc · scroll\n- fa:solid/stamp · Stamp\n- fa:solid/gavel · Gavel\n- fa:solid/gauge-high · Gauge High\n- tw:2696 · scales\n- tw:1f5fa · world map\n- tw:1f9fe · receipt\n- tw:1f91d · handshake\n- tw:2753 · black question mark ornament\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] / false mean \"not used\"):\n- notes: brief notes for the record: the idea of this canvas, the running example with numbers, what is uncertain.\n- nodes: the elements, in the order they appear. id (unique), kind, cell [col, row, width, height] on the 12 x 8 grid\n  (arrows, marks and highlights have no cell), cue [beat_id, word] with the word exactly as written in that beat (or\n  [beat_id, \"\"] for the start of the beat, cue_fraction 0..1 moves it into the beat). until_cue when the element leaves.\n  value/crowd use steps (text or n, with cue each; dir \"up\"/\"down\" on a value step). tree: root + children (text, cue).\n  table: columns + rows (cells, cue) + highlights (row or col, -1 when not used). callout/text: marks (phrase, cue).\n  arrow: from, to (+ from_side/to_side l r t b, elbow hv/vh/vhv). mark: mark tick/cross + target + pos c/tr.\n  highlight: target + style box/dashed/band. flow on an arrow (icon, count, period, size, reverse, cue) makes the beat's\n  own things travel along it. action (a kriya ka saancha, the card's table): cell at least 3 rows tall, action.template,\n  actors (role, who main/other, label, mood), objects (name, icon from the candidates of THIS beat's things, label),\n  amounts (name, text as the narration writes it), steps (name, cue) in the recipe's order, texts (step, a short word the\n  narration says, shown with that step's sign), close_up; template \"compose\": parts in order (part, cue and the fields it\n  needs: actor/from/to/object/into/on/text/style/inside/n/spot/back/left/right/sign) with the action's own actors and\n  objects; for every other kind action.template is \"\".\n- camera: zoom to a region of cells on a cue (use it to re-frame instead of a new canvas). focus: dim everything but ids.\n- graph_used true + graph for an economic curve (axes, curves as [x, y] points, a dot that walks to x values, guides,\n  shades, notes); plot is the graph's box as fractions of the canvas.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c06.1 (3 beats).\nDikhane ki soch for this part (the visual-idea step; every beat shows its thing on its word, D1-01):\n- b47: Commodity money has nonmonetary value · relation compare · shows: Salt as money beside salt used in cooking · on 'intrinsic value'\n- b48: Usefulness and purchasing power alone are insufficient · relation reject · shows: Commodity needs payment tick; note's commodity classification crossed · on 'नहीं' · saancha compose\n- b49: Commodity remains useful outside payment · relation compare · shows: Same commodity: payment value and nonpayment usefulness · on 'बाहर'\nIcons found for the things named (id · name); you may also use any id from the general menu below:\n- salt: tw:1f9c2 (salt shaker)\n- cooking pot: fa:solid/kitchen-set (Kitchen Set)\n- kitchen: fl:kitchen-knife (kitchen knife); fa:solid/kitchen-set (Kitchen Set); fa:solid/blender-phone (Blender Phone)\n- payment: fa:solid/austral-sign (Austral Sign); fa:solid/baht-sign (Baht Sign); fa:solid/bangladeshi-taka-sign (Bangladeshi Taka Sign)\n- currency note: fa:solid/money-bill-1 (Money Bill 1); tw:1f4b5 (banknote with dollar sign)\n- commodity money: tw:1f4b0 (money bag); fa:solid/money-bill-1 (Money Bill 1)\nPictures in this lesson's asset library for the things named (use the id as an icon; the credit is added by code):\n- useful commodity: asset:a-4a9289d82ce9814f\n- payment: asset:a-2577ef036060700c; asset:a-31b28739fe00d01c; asset:a-c552933deb5d6114\n\nThe part (JSON):\n{\"part\": {\"id\": \"v2_s7b\", \"part_id\": \"c06.1\", \"mode\": \"B\", \"place\": \"\", \"story\": false}, \"beats\": [{\"beat_id\": \"b47\", \"say\": \"यह commodity money है: money बनी चीज़ में intrinsic value होती है, यानी monetary use के बाहर भी कीमत, जैसे kitchen में salt।\"}, {\"beat_id\": \"b48\", \"say\": \"Useful होना काफी नहीं, payment में चलना चाहिए; purchasing power अकेली note को commodity money नहीं बनाती।\"}, {\"beat_id\": \"b49\", \"say\": \"Commodity money payment के बाहर भी उपयोगी है।\"}], \"items\": [{\"item_id\": \"p003-i3\", \"content_type\": \"definition\", \"content\": \"Commodity money is a form of money in which the item used as money has intrinsic value, meaning it has value even outside its use as money.\", \"real_world_example\": {\"place\": \"Hypothetical village bazaar\", \"actors\": [\"salt trader\", \"grain seller\"], \"goods\": [\"salt\", \"grain\"], \"numbers\": [{\"what\": \"salt held by grain seller\", \"before\": \"0 packets\", \"after\": \"2 packets\"}], \"steps\": [{\"step\": \"A grain seller accepts 2 packets of salt for grain in a hypothetical community that accepts salt.\", \"mechanism_link\": \"The commodity performs the payment role.\"}, {\"step\": \"The seller can use the salt in food even if it is not passed onward.\", \"mechanism_link\": \"Non-monetary usefulness gives the commodity intrinsic value.\"}], \"term_after\": \"When such a useful commodity serves as money, it is commodity money.\", \"real_life_link\": \"The familiar kitchen use of salt explains intrinsic value; this story does not claim that modern Indian shops normally accept salt as money.\"}}], \"on_screen_hints\": [\"Defining test: value outside monetary use.\", \"Useful only ≠ money; monetary value alone ≠ commodity money.\", \"Accepted as money + value outside monetary use.\"], \"ideas\": [{\"beat_id\": \"b47\", \"idea\": \"Commodity money has nonmonetary value\", \"relation\": \"compare\", \"things\": [\"salt\", \"cooking pot\"], \"people\": [], \"places\": [\"kitchen\"], \"shows\": \"Salt as money beside salt used in cooking\", \"on_word\": \"intrinsic value\", \"template\": \"none\"}, {\"beat_id\": \"b48\", \"idea\": \"Usefulness and purchasing power alone are insufficient\", \"relation\": \"reject\", \"things\": [\"useful commodity\", \"payment\", \"currency note\"], \"people\": [], \"places\": [], \"shows\": \"Commodity needs payment tick; note's commodity classification crossed\", \"on_word\": \"नहीं\", \"template\": \"compose\"}, {\"beat_id\": \"b49\", \"idea\": \"Commodity remains useful outside payment\", \"relation\": \"compare\", \"things\": [\"commodity money\"], \"people\": [], \"places\": [], \"shows\": \"Same commodity: payment value and nonpayment usefulness\", \"on_word\": \"बाहर\", \"template\": \"none\"}], \"picture\": []}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 0,
+   "started_at": 1793590000.896382,
+   "mode": "resume",
+   "notes": {
+    "about": "Commodity money का defining test: payment में स्वीकार्यता और monetary use के बाहर intrinsic value। Salt दोनों भूमिकाओं को जोड़ता है।",
+    "key_questions": [
+     "Intrinsic value का अर्थ क्या है?",
+     "Useful वस्तु या purchasing power वाला note अपने-आप commodity money क्यों नहीं है?"
+    ],
+    "decisions": [
+     {
+      "decision": "एक स्थायी heading के नीचे salt का comparison, फिर animated test, फिर salt पर वापसी।",
+      "reason": "एक ही idea को बिना scene cut के क्रमशः स्पष्ट करता है।"
+     },
+     {
+      "decision": "Note के साथ commodity money classification पर refusal दिखाना है, उसकी payment validity पर नहीं।",
+      "reason": "Narration note की purchasing power नहीं नकारती।"
+     },
+     {
+      "decision": "कोई संख्या, village transaction या caveat नहीं जोड़ा।",
+      "reason": "Passed beats में ये बोले नहीं गए हैं।"
+     }
+    ],
+    "uncertain": [
+     "Split comparison उपलब्ध schema में अलग template नहीं है; समान आकार के paired slots और compose comparison से बनाया गया है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Commodity money का defining test: payment में स्वीकार्यता और monetary use के बाहर intrinsic value। Salt दोनों भूमिकाओं को जोड़ता है।",
+     "key_questions": [
+      "Intrinsic value का अर्थ क्या है?",
+      "Useful वस्तु या purchasing power वाला note अपने-आप commodity money क्यों नहीं है?"
+     ],
+     "decisions": [
+      {
+       "decision": "एक स्थायी heading के नीचे salt का comparison, फिर animated test, फिर salt पर वापसी।",
+       "reason": "एक ही idea को बिना scene cut के क्रमशः स्पष्ट करता है।"
+      },
+      {
+       "decision": "Note के साथ commodity money classification पर refusal दिखाना है, उसकी payment validity पर नहीं।",
+       "reason": "Narration note की purchasing power नहीं नकारती।"
+      },
+      {
+       "decision": "कोई संख्या, village transaction या caveat नहीं जोड़ा।",
+       "reason": "Passed beats में ये बोले नहीं गए हैं।"
+      }
+     ],
+     "uncertain": [
+      "Split comparison उपलब्ध schema में अलग template नहीं है; समान आकार के paired slots और compose comparison से बनाया गया है।"
+     ]
+    },
+    "nodes": [
+     {
+      "id": "anchor",
+      "kind": "text",
+      "cell": [
+       0,
+       0,
+       12,
+       1
+      ],
+      "cue": [
+       "b47",
+       "commodity"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "Commodity money",
+      "style": "title",
+      "size": 36,
+      "tone": "ink",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "money_salt",
+      "kind": "icon",
+      "cell": [
+       1,
+       2,
+       4,
+       3
+      ],
+      "cue": [
+       "b47",
+       "intrinsic"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b48",
+       "Useful"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f9c2",
+      "label": "Money बनी चीज़",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "outside_salt",
+      "kind": "icon",
+      "cell": [
+       7,
+       2,
+       4,
+       3
+      ],
+      "cue": [
+       "b47",
+       "बाहर"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b48",
+       "Useful"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "tw:1f9c2",
+      "label": "Monetary use के बाहर भी कीमत",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "kitchen",
+      "kind": "icon",
+      "cell": [
+       8,
+       5,
+       2,
+       2
+      ],
+      "cue": [
+       "b47",
+       "kitchen"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b48",
+       "Useful"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "warm",
+      "fill": "",
+      "align": "center",
+      "icon": "fa:solid/kitchen-set",
+      "label": "Kitchen में salt",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "classification_test",
+      "kind": "action",
+      "cell": [
+       0,
+       1,
+       12,
+       6
+      ],
+      "cue": [
+       "b48",
+       "Useful"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b49",
+       "Commodity"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "commodity",
+         "icon": "tw:1f9c2",
+         "label": ""
+        },
+        {
+         "name": "note",
+         "icon": "fa:solid/money-bill-1",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b48",
+          "Useful"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "commodity",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b48",
+          "नहीं,"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "commodity",
+         "text": "Useful होना काफी नहीं",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "accept",
+         "cue": [
+          "b48",
+          "चाहिए;"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "commodity",
+         "into": "",
+         "on": "",
+         "text": "Payment में चलना चाहिए",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b48",
+          "note"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "note",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b48",
+          "commodity"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "note",
+         "text": "Commodity money",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "refuse",
+         "cue": [
+          "b48",
+          "नहीं"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "note",
+         "into": "",
+         "on": "",
+         "text": "Commodity money नहीं",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "final_comparison",
+      "kind": "action",
+      "cell": [
+       0,
+       1,
+       12,
+       6
+      ],
+      "cue": [
+       "b49",
+       "Commodity"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "payment_salt",
+         "icon": "tw:1f9c2",
+         "label": ""
+        },
+        {
+         "name": "useful_salt",
+         "icon": "tw:1f9c2",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b49",
+          "Commodity"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "payment_salt",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 1,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b49",
+          "payment"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "payment_salt",
+         "text": "Payment",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "compare",
+         "cue": [
+          "b49",
+          "बाहर"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "payment_salt",
+         "right": "useful_salt",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b49",
+          "उपयोगी"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "useful_salt",
+         "text": "Payment के बाहर भी उपयोगी",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": false
+      }
+     }
+    ],
+    "camera": [
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b47",
+       "commodity"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b48",
+       "Useful"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b49",
+       "Commodity"
+      ]
+     }
+    ],
+    "focus": [],
+    "graph_used": false,
+    "graph": {
+     "plot": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+     },
+     "x_label": "",
+     "y_label": "",
+     "x_domain": [],
+     "y_domain": [],
+     "axes_cue": [],
+     "curves": [],
+     "dots": [],
+     "shades": [],
+     "guides": [],
+     "notes": []
+    }
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793590000.9628437
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 0.1,
+ "navin_verdict": null
+}

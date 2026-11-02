@@ -1,0 +1,241 @@
+{
+ "id": "v6_s4s",
+ "part_id": "c14.4",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b23",
+   "say": "Silver बढ़े, buyers उतने रहें तो? Imaginary market में पहले 100 kg था; mines ने 50 kg और भेजा, अब 150 kg है। Dealers पहले ₹100 माँगते थे, अब बेचने के लिए ₹80 per unit माँगते हैं।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "silver_shop",
+   "kind": "shop",
+   "x": 2800,
+   "y": 860,
+   "cue": [
+    "b23",
+    "Silver"
+   ],
+   "goods": [
+    {
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "unchanged_buyers",
+   "kind": "crowd",
+   "y": 860,
+   "x0": 3210,
+   "spacing": 110,
+   "enter_x": 3500,
+   "exit_x": 3500,
+   "face": -1,
+   "seed": 23,
+   "cue": [
+    "b23",
+    "buyers"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "buyers"
+     ],
+     "n": 2
+    }
+   ]
+  },
+  {
+   "id": "silver_delivery",
+   "kind": "action",
+   "x": 2350,
+   "y": 860,
+   "cue": [
+    "b23",
+    "Silver"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "dealer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "supplier",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "stock",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "delivery",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b23",
+      "Silver"
+     ],
+     "actor": "dealer",
+     "object": "stock"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b23",
+      "100"
+     ],
+     "actor": "dealer",
+     "to": "100 kg",
+     "object": "stock",
+     "on": "stock",
+     "text": "100 kg"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b23",
+      "mines"
+     ],
+     "actor": "supplier",
+     "object": "delivery"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b23",
+      "50"
+     ],
+     "actor": "supplier",
+     "object": "delivery",
+     "on": "delivery",
+     "text": "50 kg",
+     "style": "tag"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b23",
+      "भेजा,"
+     ],
+     "actor": "supplier",
+     "from": "supplier",
+     "to": "dealer",
+     "object": "delivery"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b23",
+      "150"
+     ],
+     "actor": "dealer",
+     "to": "150 kg",
+     "object": "stock",
+     "on": "stock",
+     "text": "150 kg",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "asking_price",
+   "kind": "price_tag",
+   "x": 3070,
+   "y": 350,
+   "string": 65,
+   "cue": [
+    "b23",
+    "₹100"
+   ],
+   "steps": [
+    {
+     "cue": [
+      "b23",
+      "₹100"
+     ],
+     "text": "₹100"
+    },
+    {
+     "cue": [
+      "b23",
+      "₹80"
+     ],
+     "text": "₹80",
+     "dir": "down"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b23",
+    "",
+    0.0
+   ],
+   "x": 2670,
+   "y": 550,
+   "zoom": 0.95,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b23",
+    "100"
+   ],
+   "x": 2440,
+   "y": 560,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b23",
+    "भेजा,"
+   ],
+   "x": 2450,
+   "y": 570,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b23",
+    "Dealers"
+   ],
+   "x": 2800,
+   "y": 530,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b23",
+    "₹80"
+   ],
+   "x": 2980,
+   "y": 520,
+   "zoom": 1.15,
+   "frames": 35
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

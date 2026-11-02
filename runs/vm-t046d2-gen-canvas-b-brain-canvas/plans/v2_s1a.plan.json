@@ -1,0 +1,132 @@
+{
+ "id": "v2_s1a",
+ "part_id": "c03.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "अनाज देकर shoes चाहिए, लेकिन seller अनाज नहीं चाहता। अब खरीद कैसे होगी?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "barter_attempt",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    10,
+    6
+   ],
+   "cue": [
+    "b1",
+    "अनाज"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "grain",
+     "icon": "tw:1f33e",
+     "label": ""
+    },
+    {
+     "name": "shoes",
+     "icon": "fl:ballet-shoes",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b1",
+      "अनाज"
+     ],
+     "actor": "buyer",
+     "object": "grain"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b1",
+      "देकर"
+     ],
+     "actor": "buyer",
+     "from": "buyer",
+     "to": "seller",
+     "object": "grain",
+     "reach": 0.65,
+     "back": true
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b1",
+      "shoes"
+     ],
+     "actor": "seller",
+     "object": "shoes"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b1",
+      "नहीं"
+     ],
+     "actor": "seller",
+     "object": "grain"
+    }
+   ]
+  },
+  {
+   "id": "purchase_question",
+   "kind": "icon",
+   "cell": [
+    10,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "कैसे"
+   ],
+   "tone": "warm",
+   "icon": "tw:2753"
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b1",
+    "अनाज"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

@@ -1,0 +1,3944 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v6_s4b",
+ "status": "passed",
+ "instructions_version": "canvas-plan/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.3+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3",
+ "rulebook_digest": "8806c6ee4a7b0de68af6d616d63f489dcda85e158cf4d213d81d43562bb5b1fc",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "492e3066dd38b6a458b63f54bb09d156211cd76170e5cf6994e7201ddb043baa",
+ "card": null,
+ "prefix_sha256": "3827b6770f9f8a37a6ca8996ab9672a3618c40b0506a79dcac5e63688d86e658",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's canvas director for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is\nalready written and passed; you do not change a word of it. You plan ONE build-up canvas for this part: what appears, in\nwhich grid cell, and on which spoken word. Code places, times and checks it; a refused plan comes back to you with the\nexact error, and you answer with the whole corrected plan.\n\nCourse: \"3. Money\" · learner language: Hinglish. Navin's level for this part: B (a build-up canvas with L3 touches (shadows, idle motion, walk-ins, the beat's things flowing, a camera that follows)).\n\nNavin's rules for this section (follow every one):\n[CV-01] One canvas per idea: build it piece by piece instead of cutting to a new shot every sentence. Clear the canvas only when the idea changes; otherwise re-frame with a zoom or pan to the part being explained.\n[CV-02] Something on the canvas changes about every 5 s (one change per one or two spoken phrases).\n[CV-03] The picture never stays the same for more than 15 s (the references sometimes hold 40-80 s; BIE must not).\n[CV-04] A new element appears on its own word, while it is being said (about 40% into the phrase, never in the pause after).\n[CV-05] Numbers that change are struck out and replaced on screen (50 -> 65), with an up/down arrow, on the word of the new number.\n[CV-06] Many people/things are shown as a crowd that grows or shrinks with the story (2 buyers -> 12 -> 3).\n[CV-07] A running numeric example carries the concept (price 50 -> 65, GDP 10K -> 11K -> 12.1K at 10%).\n[CV-08] Return to the topic tree and tick the branch that is done before starting the next branch.\n[CV-09] One anchor diagram stays (a band, a tree, a rate card) while the part beside or below it changes.\n[CV-10] No overlap, nothing outside the safe area, captions strip kept clear, readable text (>= 24 px at 1080p), at most 16 elements on screen.\n[CV-11] No photos or caricatures of real people, no logos, emblems or regulator marks: use a name card, a generic icon or BIE's own presenter character.\n[CV-12] Light paper theme for build-up canvases (dark theme stays for 3D/science worlds); subtitles on a dark strip.\n[CV-13] On-screen text is a short COMPLETE phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), one idea per board or box; never a code: no ✓ ✗ ≠, no list of bare words ('Exchange · Account / Store · Deferred'), no line that ends on → = : / (Navin, 29 October 2026: 'teacher ki naration uske sentence aise poore ho ki banawati na lage').\n[CV-14] Every on-screen text is explained: its key words are said in the narration of the beat it appears on (the cue beat), and every board step the director adds is spoken; a text the narration never says does not go on screen.\n[CV-15] A caveat ('imagined market', 'illustrative numbers') is shown once per part on its own small note, not on every board.\n[CV-16] Numbers on screen are written the way the narration says them: every number on a board, tag or box is said in its cue beat (₹500 on screen, '500 rupaye' in the narration), no counters the narration never mentions ('Payments: 0 → 2').\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[VG-02] Labels are code text tied to their object by a leader line and move with it; a label is never baked into an image, so one asset works in every language.\n[VG-04] Size is taught by scale comparison with a thing the learner knows (one book = 1 MB; access time as a distance), never by a number alone.\n[VG-07] Two things are compared on a split screen (the split_compare block), the same slots on both sides.\n[VG-08] Processes show flow with moving arrows or particles (magma, water, concrete, ions, mucus), never a still diagram with static arrows.\n[VG-10] History and polity use a lit timeline with nodes; maps appear only through the licence gate's map rule (India's boundary waits for Navin's approval).\n[D1-01] Every beat shows at least one non-text thing tied to its nouns or its relation (an icon, a mark, an arrow, a crowd or value step, a table row, a picture event; in a world a prop, a person, a price or a crowd step), cued on a word of that beat. A beat that only adds text is refused.\n[D1-02] The screen never shows text alone for more than 10 seconds: while a beat is spoken, the thing it names is on screen (Navin, 30 October 2026: 'sirf text hi text screen par dikha to video ... ek book ban jaayegi').\n[D1-03] Screen text is a name or a short natural phrase (at most 8 words; a board 2 lines of 28 characters), never a sentence: the sentence lives in the narration and the subtitles. The picture shows the thing itself, so its label is understood without reading (page-2 principle).\n[D1-04] A book diagram or table the part covers is drawn as itself: a timeline with the book's years and labels, a table row by row, a panel of items as a gallery of icon cards, a flow as boxes and arrows. Code places it; the plan builds around it and never leaves it out.\n[D1-05] A world (C) is used only when the beats are the story of the concept's real-world example with actors at a place, and that place comes from the example itself, never from a keyword of the narration; the same world kit is never used in two consecutive parts.\n[D1-06] A caution, caveat or fact-check line ('illustrative numbers', 'imagined market', 'data not given', 'outside clarification') never appears on screen: it stays a background check in the records.\n[D2-01] A beat that tells a process (paying and getting change, a UPI scan, a card tap, a cheque, a barter swap, a refusal, counting up to a limit, counting) shows it HAPPENING with its kriya ka saancha: the people act on their cue words (hands give and take, the phone is raised to the QR stand, a head shakes), the camera moves in to the hands and the screen and back out (Navin, 1 November 2026: 'process show nahi ho rahi hai, like upi payment ka jikar hai shop par, par agar wo visuals se clear ho jaise scanner phone scan, tab maja hai'). A process no saancha fits goes to the missing-capability log.\n[D2-02] Story goods come from the story: a shop's stock, the buyers' bags, a balance's pans and an action's objects are the things the beat names (salt for salt, cloth for cloth), from the icon index and the asset library; nothing is drawn from a fixed picture (Navin, 1 November 2026: 'baat ho rahi hai kapda khareedne ki namak khareedne ki aur wo wahi cheeni ko show kar rha hai'). A thing no source has goes to needs.json.\n[D2-03] Layout in every mode: boards, labels, price tags, balances and actions never overlap while on screen together; in a world at most one board, label or title is on screen at a time and numbers go on objects (a price tag, the note, the phone screen, a passbook), never on a label; nothing sits under the subtitle strip (the bottom 14 % of the frame); an action's people are at least about a quarter of the frame tall; no camera key shows an empty street.\n[D2-04] Meaning: every relation of the dikhane ki list is realised by an element on its beat (a refusal or 'no status' puts a cross on that thing; an acceptance a tick; a limit a meter stopping at its red line); a struck value with an up or down arrow only when the same quantity changes, and change given back is the pay_change saancha (Navin's D1 findings 4 and 5).\n[D2-05] One main character per video: the person the story follows keeps the same face, clothes and cap in every part; the others are generic. Icons fit the era and the concept (a phone or a card in a barter beat is reported).\n\n# Director card: build-up canvas plans (for the AI director step)\n\nYou plan ONE canvas for ONE part of a passed script. You do not write narration and you do not place pixels: you say\nwhat appears, in which grid cell, and on which spoken word. Code (`econ_canvas.compile_plan`) places, times and checks\nit; a refused plan comes back to you with the exact error.\n\n## Input you get\n\n- `beats`: the part's spoken beats `[{beat_id, say}]` (Hinglish, Devanagari with English terms). Do not change them.\n- The chapter map items this part covers (terms, numbers, causes, examples).\n- The icon search tool: `icon_index.search(\"bank\")` → ids like `tw:1f3e6` (colour), `fa:solid/building-columns` (line) or\n  `fl:bank` (Fluent 3D), or a picture in the lesson's asset library; the candidates listed under the part are the ones code\n  found for the beat's own things.\n\n## Output you give (JSON only)\n\n```json\n{\"id\": \"<part id>\", \"theme\": \"paper\", \"grid\": [12, 8], \"beats\": <as given>,\n \"nodes\": [ ...elements... ], \"focus\": [ ... ], \"camera\": [ ... ], \"graph\": { ...optional... }}\n```\n\nGrid: 12 columns × 8 rows inside the safe area. `cell` = `[col, row, width, height]`. Two elements may share cells\nonly if they are never on screen together (use `until_cue`). Reading order: left → right, top → bottom.\n\nEvery element has `cue`: `[beat_id, \"<a word exactly as written in that beat>\"]` — the element appears while that word\nis spoken. Use `[beat_id, \"\", 0.0]` for \"at the start of the beat\" only for titles.\n\n## Element vocabulary\n\n| kind | fields | use it for |\n| --- | --- | --- |\n| `text` | `text`, `style`: `plain` / `box` / `note` / `title` / `tag`, `size`, `tone`, `fill`, `align`, `marks` | definitions (box), side notes (note), headings (title), chips (tag) |\n| `callout` | like text (style `note`), `marks: [{phrase, cue}]` | the one sentence to remember; its key phrase lights up when said |\n| `icon` | `icon` (id from the index), `label` | objects and actors: shop, factory, bank, RBI (use a bank / classical building icon), people, money, goods |\n| `crowd` | `icon`, `steps: [{n, cue}]`, `cols` | many buyers / workers / firms; the number grows or shrinks with the story |\n| `value` | `steps: [{text, cue, dir}]`, `size`, `align` | a number that changes: the old value is struck out, the new one appears with ▲/▼ |\n| `arrow` | `from`, `to` (element ids), `from_side`/`to_side` (`l r t b`), `label`, `elbow` (`hv`, `vh`, `vhv`), `curve`, `dashed`, `tone` | cause → effect, flow of goods / money, sequence |\n| `tree` | `root`, `children: [text or {text, cue}]`, `cell`, `size` | a concept and its types (Inflation → WPI / CPI) |\n| `table` | `columns`, `rows: [{cells, cue}]`, `highlights: [{row?, col?, cue, until_cue?, tone}]` | year-by-year numbers, comparisons |\n| `mark` | `mark`: `tick` / `cross`, `target`, `pos`: `c` / `tr` | right / wrong, done, rejected |\n| `highlight` | `target`, `style`: `box` / `dashed` / `band`, `tone` | \"look here\" on what is being explained |\n| `picture` | `cell`, `picture`: `{type: timeline / gallery / flow, title, items: [{when, name, icon, cue}], arrows}` | a row of things you draw yourself: dates on a timeline (`when` = the date as said), a numbered row of things (gallery), steps joined by arrows (flow); each item appears on its own cue |\n| `action` | `cell` (at least 3 rows tall, best 5–6 rows and 8–12 columns), `action: {template, actors, objects, amounts, steps, texts, parts, close_up}` | a process the learner sees happen, made of motion parts (the saanche below), with the beat's own actors, things and numbers |\n\n`focus: [{cue, until_cue?, ids: [...]}]` dims everything else. `camera: [{cells: [...], cue}]` zooms to a region\n(use it when the canvas is dense or to re-frame for the next sub-idea). `graph` = a `curve_story` (axes, curves as\npoints, a dot that walks to named x values, guides like NAIRU, shaded bands, notes) for any economic curve.\n\nTones: `ink`, `muted`, `accent` (blue), `warm` (orange), `danger` (red), `ok` (green), `tag` (pink), `note`, `band`.\n\n## Dikhane ki soch (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\")\n\nBefore you plan, BIE has thought about every beat: its idea, its relation (reject, accept, compulsory, limit, sequence,\ncompare, …) and the things it names; the part message lists them with the icons BIE found for each thing. Draw THAT:\n\n- Every beat shows at least one thing that is not text (an icon, a mark, an arrow, a crowd or value step, a table row, a\n  picture item), cued on a word of that beat (D1-01). A screen of text alone for more than 10 s is refused (D1-02): a video\n  that is only text is a book.\n- Show the relation the way BIE's visual verbs say: a cross on the thing refused, a tick on the thing accepted, a law scroll\n  and stamp for \"compulsory\", a meter with a red line for a limit, a numbered row or a timeline for a sequence, an arrow chain\n  for cause → effect, a split or a scale for a comparison, before/after for a change, a receipt or a handshake for a promise.\n- The picture shows the thing itself, so its label is understood without reading (the book's page 2): screen text is a\n  name or a short phrase of at most 8 words, never a sentence; the sentence is the narration and the subtitles (D1-03).\n- When the part message says BIE has placed the book's own picture (a timeline, a table, a gallery of the book's panels, a\n  flow), keep it: never redraw it, never reuse its cells or its id, and build your elements in the rows below it (D1-04).\n- Never put a caution or fact-check line on screen (\"illustrative numbers\", \"imagined market\", \"data not given\",\n  \"outside clarification\"): those are BIE's background checks (D1-06).\n\n## Kriya ke saanche: processes the learner sees happen (Task 046 Part D2; Navin, 1 and 2 November 2026)\n\nNavin on the D1 videos: \"process show nahi ho rahi hai ... agar wo visuals se clear ho, tab maja hai\"; and on 2 November 2026:\n\"jis cheej ka jikar hai wohi cheej dikhe\" — examples are illustrations, never a list of things to draw. When a beat tells a\nPROCESS (someone gives, pays, scans, swaps, writes, counts, refuses, accepts, turns one thing into another), show it with an\n`action` element made of general motion parts; the actors, the things and the numbers are THIS beat's own.\n\nThe motion parts BIE draws: `hold` (a person holds a thing), `give` (a thing goes from one hand to the other), `move` (a thing\nmoves along a path to a spot, a person or another thing; `back` returns it, `into` lets it go in), `transform` (A turns into B\nwhere it is), `show_text` (a tag, sign, screen, ok screen, thought bubble or written text shows a short text), `meter` (a bar\nfills to its limit, or a number changes with an up/down arrow), `appear` (things appear one by one, in a grid or onto a pile),\n`refuse` / `accept` (a head shake and a cross, a nod and a tick), `compare` (two things side by side with = ≠ ? vs < >).\n\nRecipes are ready compositions of these parts (`template`, each step on its cue word):\n\n| template | steps | actors (role) | objects (name; optional ones may be left out) | amounts |\n| --- | --- | --- | --- | --- |\n| `hand_over` | give, take | giver, taker | thing | – |\n| `pay_change` | pay, goods, change | buyer, seller | goods; money, change_money (optional: else a plain chip with the amount) | paid, change (price optional) |\n| `barter_swap` | offer, ask, swap | a, b | a_thing, b_thing | – |\n| `upi` | scan, paid, received | buyer, seller | device, sign, seller_device (all optional) | amount |\n| `card_tap` | tap, approved | buyer, seller | card, machine (optional) | amount |\n| `cheque` | write, hand, balances | payer, payee | cheque, place (optional) | amount (payer/payee before and after optional) |\n| `coin_count` | count, limit | – | coin (optional) | each, limit |\n| `refuse` | show, refuse | who | thing | – |\n| `accept` | show, accept | who | thing | – |\n| `count_stack` | count | – | thing | n (1 to 12) |\n| `compose` | one per part | your own (at most two) | your own | – |\n\n- Every object's icon is the thing the beat names, from the icon candidates of THAT beat's things; never a thing from an\n  example, a card or another part, never a stand-in. A thing the beat names that has no icon goes to the needs list (code finds\n  or makes it); meanwhile leave the optional object out.\n- Numbers go on what carries them (a tag on the thing that travels, a screen, a meter), never on a separate label; every amount\n  is said in the narration of the action's beats, written as the narration writes it (CV-16). `texts` adds one short word the\n  narration says to a step's sign.\n- A value given back travels back in a process (a `give` with its tag), never as a struck value with an arrow: a struck value\n  with ▲/▼ is only for the SAME quantity changing.\n- \"Refused\", \"not valid\": a `refuse` part puts the cross on that thing; \"accepted\", \"valid\": `accept`.\n- One main character per video: the person the story follows has `who: \"main\"`; everyone else is `\"other\"`. `mood` is neutral,\n  pleased, unsure or refusing; the parts change moods on their steps.\n- A process no recipe fits: `template: \"compose\"` with its parts in order (each with its cue word and the fields it needs).\n  A motion BIE has no part for: show it with icons and arrows meanwhile; the visual-idea step names it (`template: other`) and\n  it goes to the missing-capability log.\n\nNothing sits under the subtitle strip: the bottom 14 % of the frame belongs to the captions; code moves the camera so that\nwhat a beat shows stays above it, and refuses a plan whose element is still under it.\n\n## Rules (from 20 reference videos, rules/econ_canvas_rules.json)\n\n1. One canvas per idea; build it piece by piece. Re-frame with `camera` instead of starting a new canvas.\n2. Something changes about every 5 s; never let the picture stay still more than 15 s (the code refuses it).\n3. Each element appears on ITS word, while it is said.\n4. Carry the idea with a running example with numbers (price 50 → 65; GDP 10,000 → 11,000 → 12,100); show changes\n   with `value` steps, crowds with `crowd` steps.\n5. A tree/branch overview first, then tick the branch that is done before the next.\n6. Keep one anchor (a tree, a band, a rate card) while the rest changes.\n7. On-screen text (CV-13 to CV-16, Navin's verdict on Money v1, 29 October 2026): a box holds ONE idea as a short COMPLETE\n   phrase or sentence in the learner's language (Devanagari Hinglish with the English terms the script uses), at most ~12\n   words; never a code: no ✓ ✗ ≠, no list of bare words (\"Exchange · Account / Store · Deferred\"), no line ending on → = : /;\n   every text is explained: its key words and every number are said in the narration of its cue beat (the code refuses a\n   text the beat does not say, and a number the beat does not say); a caveat (\"imagined market\") once per part on its own\n   small note. The narration says the rest.\n8. Never a photo or caricature of a real person, never a logo, emblem or regulator mark: a name tag or a generic icon.\n9. Tags must fit on one line in their cell; text must fit at ≥ 24 px (the code refuses otherwise: make the cell bigger\n   or the text shorter).\n10. A part longer than about 10 beats (real BIE plans have parts of 19 beats) becomes two or three canvases, or one\n    canvas re-framed by `camera` keys; at most 16 elements are on screen at once (the code refuses more).\n\nIcons you may use (id · name): the ones listed under the part for its nouns, and these; any other id is refused:\n- tw:274c · cross mark\n- tw:2705 · white heavy check mark\n- tw:1f4dc · scroll\n- fa:solid/stamp · Stamp\n- fa:solid/gavel · Gavel\n- fa:solid/gauge-high · Gauge High\n- tw:2696 · scales\n- tw:1f5fa · world map\n- tw:1f9fe · receipt\n- tw:1f91d · handshake\n- tw:2753 · black question mark ornament\n\nHow to fill the JSON (every field is present; \"\" / 0 / [] / false mean \"not used\"):\n- notes: brief notes for the record: the idea of this canvas, the running example with numbers, what is uncertain.\n- nodes: the elements, in the order they appear. id (unique), kind, cell [col, row, width, height] on the 12 x 8 grid\n  (arrows, marks and highlights have no cell), cue [beat_id, word] with the word exactly as written in that beat (or\n  [beat_id, \"\"] for the start of the beat, cue_fraction 0..1 moves it into the beat). until_cue when the element leaves.\n  value/crowd use steps (text or n, with cue each; dir \"up\"/\"down\" on a value step). tree: root + children (text, cue).\n  table: columns + rows (cells, cue) + highlights (row or col, -1 when not used). callout/text: marks (phrase, cue).\n  arrow: from, to (+ from_side/to_side l r t b, elbow hv/vh/vhv). mark: mark tick/cross + target + pos c/tr.\n  highlight: target + style box/dashed/band. flow on an arrow (icon, count, period, size, reverse, cue) makes the beat's\n  own things travel along it. action (a kriya ka saancha, the card's table): cell at least 3 rows tall, action.template,\n  actors (role, who main/other, label, mood), objects (name, icon from the candidates of THIS beat's things, label),\n  amounts (name, text as the narration writes it), steps (name, cue) in the recipe's order, texts (step, a short word the\n  narration says, shown with that step's sign), close_up; template \"compose\": parts in order (part, cue and the fields it\n  needs: actor/from/to/object/into/on/text/style/inside/n/spot/back/left/right/sign) with the action's own actors and\n  objects; for every other kind action.template is \"\".\n- camera: zoom to a region of cells on a cue (use it to re-frame instead of a new canvas). focus: dim everything but ids.\n- graph_used true + graph for an economic curve (axes, curves as [x, y] points, a dot that walks to x values, guides,\n  shades, notes); plot is the graph's box as fractions of the canvas.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c14.4 (5 beats).\nDikhane ki soch for this part (the visual-idea step; every beat shows its thing on its word, D1-01):\n- b24: Silver discoveries increased supply and depressed prices · relation cause_effect · shows: Silver discovery, growing supply, falling price; period bracket. · on 'discoveries' · saancha compose\n- b25: Weaker silver means more rupees per foreign payment · relation more_less · shows: Cheaper silver; more rupees for unchanged foreign payment. · on 'सस्ता' · saancha compose\n- b26: Historical relationship, not historical example quantities · relation compare · shows: Historical silver-price link beside clearly illustrative quantity tags. · on 'Historical'\n- b27: Price pressure requires supply beyond demand absorption · relation cause_effect · shows: Unabsorbed silver surplus pushes the price indicator downward. · on 'Discovery' · saancha compose\n- b28: Recall the complete silver-to-gold-link causal chain · relation cause_effect · shows: Discovery → surplus → cheaper silver → rupee strain → gold link. · on 'discoveries' · saancha compose\nIcons found for the things named (id · name); you may also use any id from the general menu below:\n- silver deposit: fa:solid/piggy-bank (Piggy Bank)\n- silver: tw:1fa99 (coin)\n- gold: tw:1fa99 (coin); fa:solid/coins (Coins)\n- silver-linked rupees: fa:solid/indian-rupee-sign (Indian Rupee Sign)\n- rupee: fa:solid/indian-rupee-sign (Indian Rupee Sign)\nPictures in this lesson's asset library for the things named (use the id as an icon; the credit is added by code):\n- gold-linked foreign payment: asset:a-31b28739fe00d01c\n- silver supply: asset:a-ffe909f59185d400; asset:a-5ecfd513eca7dedd\n- expected silver supply: asset:a-5ecfd513eca7dedd\n- silver demand: asset:a-fd3f790d546df5e2\n- foreign payment: asset:a-c552933deb5d6114; asset:a-31b28739fe00d01c\n\nThe part (JSON):\n{\"part\": {\"id\": \"v6_s4b\", \"part_id\": \"c14.4\", \"mode\": \"B\", \"place\": \"\", \"story\": false}, \"beats\": [{\"beat_id\": \"b24\", \"say\": \"यही Silver Crisis का mechanism है: late nineteenth century में discoveries से extra silver आया और prices गिरे, जैसे हमारे बाज़ार में। Silver crisis और gold-exchange व्यवस्था का यह दौर 1873–1947 तक फैला था।\"}, {\"beat_id\": \"b25\", \"say\": \"Silver gold के मुकाबले सस्ता हो तो silver-linked rupee कमजोर पड़ सकता है; same gold-linked foreign payment के लिए ज़्यादा rupees लगेंगे। इसलिए steadier anchor चाहिए था।\"}, {\"beat_id\": \"b26\", \"say\": \"Historical evidence discoveries और price collapse का संबंध है। हमारे kg और prices actual data नहीं; ये extra supply का दबाव समझाते हैं।\"}, {\"beat_id\": \"b27\", \"say\": \"Discovery भर से price नहीं गिरता; actual या expected supply बढ़े और demand extra silver न समेटे, तभी नीचे का दबाव बनेगा।\"}, {\"beat_id\": \"b28\", \"say\": \"Chain याद रखो: discoveries, supply का दबाव, सस्ता silver, rupee की external परेशानी और gold-link की जरूरत।\"}], \"items\": [{\"item_id\": \"p007-i8\", \"content_type\": \"cause_effect\", \"content\": \"Silver Crisis and Gold Exchange Standard (1873–1947):\\nIn the late nineteenth century: Large silver discoveries occurred and Silver prices collapsed.\", \"real_world_example\": {\"place\": \"Illustrative Indian bullion bazaar, not historical price data\", \"actors\": [\"silver dealers\", \"buyers\", \"mines\"], \"goods\": [\"silver\"], \"numbers\": [{\"what\": \"silver offered per market day\", \"before\": \"100 kg\", \"after\": \"150 kg\"}, {\"what\": \"illustrative silver price\", \"before\": \"₹100 per unit\", \"after\": \"₹80 per unit\"}], \"steps\": [{\"step\": \"New mine output raises silver offered from 100 kg to 150 kg while buying demand is unchanged.\", \"mechanism_link\": \"Increased supply relative to demand\"}, {\"step\": \"Dealers lower the illustrative price from ₹100 to ₹80 to attract buyers.\", \"mechanism_link\": \"Excess supply puts downward pressure on price\"}], \"term_after\": \"This supply-driven fall in silver's value illustrates the mechanism behind the page's Silver Crisis.\", \"real_life_link\": \"The book connects this mechanism to historical silver discoveries and collapsing silver prices; the numerical bazaar example is illustrative.\"}}], \"on_screen_hints\": [\"1873–1947 period; highlight late-nineteenth-century discoveries → increased silver supply → falling prices.\", \"Silver value ↓ → rupee external weakness → payment cost ↑.\", \"Historical statement ≠ illustrative measurements.\", \"Condition: supply increase not absorbed by demand.\", \"Discoveries → supply ↑ → price ↓ → external pressure.\"], \"ideas\": [{\"beat_id\": \"b24\", \"idea\": \"Silver discoveries increased supply and depressed prices\", \"relation\": \"cause_effect\", \"things\": [\"silver deposit\", \"silver\", \"silver price tag\"], \"people\": [], \"places\": [], \"shows\": \"Silver discovery, growing supply, falling price; period bracket.\", \"on_word\": \"discoveries\", \"template\": \"compose\"}, {\"beat_id\": \"b25\", \"idea\": \"Weaker silver means more rupees per foreign payment\", \"relation\": \"more_less\", \"things\": [\"silver\", \"gold\", \"silver-linked rupees\", \"gold-linked foreign payment\"], \"people\": [], \"places\": [], \"shows\": \"Cheaper silver; more rupees for unchanged foreign payment.\", \"on_word\": \"सस्ता\", \"template\": \"compose\"}, {\"beat_id\": \"b26\", \"idea\": \"Historical relationship, not historical example quantities\", \"relation\": \"compare\", \"things\": [\"silver deposit\", \"silver\", \"silver price tag\", \"kilogram label\", \"illustrative price tag\"], \"people\": [], \"places\": [], \"shows\": \"Historical silver-price link beside clearly illustrative quantity tags.\", \"on_word\": \"Historical\", \"template\": \"none\"}, {\"beat_id\": \"b27\", \"idea\": \"Price pressure requires supply beyond demand absorption\", \"relation\": \"cause_effect\", \"things\": [\"silver deposit\", \"silver supply\", \"expected silver supply\", \"silver demand\", \"silver price tag\"], \"people\": [], \"places\": [], \"shows\": \"Unabsorbed silver surplus pushes the price indicator downward.\", \"on_word\": \"Discovery\", \"template\": \"compose\"}, {\"beat_id\": \"b28\", \"idea\": \"Recall the complete silver-to-gold-link causal chain\", \"relation\": \"cause_effect\", \"things\": [\"silver deposit\", \"silver supply\", \"silver price tag\", \"rupee\", \"foreign payment\", \"gold\"], \"people\": [], \"places\": [], \"shows\": \"Discovery → surplus → cheaper silver → rupee strain → gold link.\", \"on_word\": \"discoveries\", \"template\": \"compose\"}], \"picture\": []}\n\nReply with the plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 0,
+   "started_at": 1793590391.6786878,
+   "mode": "resume",
+   "notes": {
+    "about": "Silver Crisis का supply–price mechanism, rupee पर external pressure और gold-link की जरूरत एक canvas पर खुलते हैं।",
+    "key_questions": [
+     "Discoveries से prices किन शर्तों पर गिरते हैं?",
+     "कमजोर silver से foreign payment में ज्यादा rupees क्यों लगते हैं?",
+     "Historical evidence और illustrative example में क्या अंतर है?"
+    ],
+    "decisions": [
+     {
+      "decision": "Single-panel gallery को period के text band में बदला।",
+      "reason": "1873–1947 एक अवधि है; इसके लिए gallery के दो panels या अलग timeline events गढ़ना जरूरी नहीं।"
+     },
+     {
+      "decision": "बाकी mechanism, cues और camera framing बनाए रखे।",
+      "reason": "Finding केवल period gallery की panel count से संबंधित थी।"
+     },
+     {
+      "decision": "Illustrative quantities और caution boards नहीं जोड़े।",
+      "reason": "इन beats में quantities बोली नहीं गईं; caveat narration में रहता है।"
+     }
+    ],
+    "uncertain": [
+     "Discovery को silver coins के प्रकट होने से दिखाया है; उपलब्ध piggy-bank icon खदान नहीं दिखाता।",
+     "Qualitative meter और partial absorption की renderer support की पुष्टि आवश्यक है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Silver Crisis का supply–price mechanism, rupee पर external pressure और gold-link की जरूरत एक canvas पर खुलते हैं।",
+     "key_questions": [
+      "Discoveries से prices किन शर्तों पर गिरते हैं?",
+      "कमजोर silver से foreign payment में ज्यादा rupees क्यों लगते हैं?",
+      "Historical evidence और illustrative example में क्या अंतर है?"
+     ],
+     "decisions": [
+      {
+       "decision": "Single-panel gallery को period के text band में बदला।",
+       "reason": "1873–1947 एक अवधि है; इसके लिए gallery के दो panels या अलग timeline events गढ़ना जरूरी नहीं।"
+      },
+      {
+       "decision": "बाकी mechanism, cues और camera framing बनाए रखे।",
+       "reason": "Finding केवल period gallery की panel count से संबंधित थी।"
+      },
+      {
+       "decision": "Illustrative quantities और caution boards नहीं जोड़े।",
+       "reason": "इन beats में quantities बोली नहीं गईं; caveat narration में रहता है।"
+      }
+     ],
+     "uncertain": [
+      "Discovery को silver coins के प्रकट होने से दिखाया है; उपलब्ध piggy-bank icon खदान नहीं दिखाता।",
+      "Qualitative meter और partial absorption की renderer support की पुष्टि आवश्यक है।"
+     ]
+    },
+    "nodes": [
+     {
+      "id": "anchor",
+      "kind": "text",
+      "cell": [
+       0,
+       0,
+       12,
+       1
+      ],
+      "cue": [
+       "b24",
+       "Silver"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "Silver Crisis का mechanism",
+      "style": "title",
+      "size": 32,
+      "tone": "ink",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "discovery_mechanism",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b24",
+       "discoveries"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b25",
+       "Silver"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "silver",
+         "icon": "tw:1fa99",
+         "label": "silver"
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b24",
+          "discoveries"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 3,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b24",
+          "extra"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 6,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b24",
+          "गिरे,"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "prices",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "period",
+      "kind": "text",
+      "cell": [
+       0,
+       1,
+       12,
+       2
+      ],
+      "cue": [
+       "b24",
+       "1873–1947"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "Silver crisis और gold-exchange व्यवस्था\n1873–1947",
+      "style": "box",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "foreign_payment",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b25",
+       "Silver"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b26",
+       "Historical"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "silver",
+         "icon": "tw:1fa99",
+         "label": "Silver"
+        },
+        {
+         "name": "gold",
+         "icon": "fa:solid/coins",
+         "label": "gold"
+        },
+        {
+         "name": "rupee",
+         "icon": "fa:solid/indian-rupee-sign",
+         "label": "rupee"
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "compare",
+         "cue": [
+          "b25",
+          "मुकाबले"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "silver",
+         "right": "gold",
+         "sign": "vs",
+         "left_text": "Silver",
+         "right_text": "gold",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b25",
+          "सस्ता"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "सस्ता",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b25",
+          "कमजोर"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "rupee",
+         "into": "",
+         "on": "",
+         "text": "कमजोर",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b25",
+          "payment"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "gold",
+         "into": "",
+         "on": "gold",
+         "text": "same gold-linked foreign payment",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b25",
+          "ज़्यादा"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "rupee",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 5,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b25",
+          "लगेंगे।"
+         ],
+         "actor": "",
+         "from": "center",
+         "to": "gold",
+         "object": "rupee",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b25",
+          "anchor"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "gold",
+         "into": "",
+         "on": "gold",
+         "text": "steadier anchor",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "historical_link",
+      "kind": "picture",
+      "cell": [
+       0,
+       3,
+       12,
+       3
+      ],
+      "cue": [
+       "b26",
+       "Historical"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b27",
+       "Discovery"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "flow",
+       "title": "Historical evidence",
+       "items": [
+        {
+         "when": "",
+         "name": "discoveries",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b26",
+          "discoveries"
+         ]
+        },
+        {
+         "when": "",
+         "name": "price collapse",
+         "icon": "fa:solid/gauge-high",
+         "cue": [
+          "b26",
+          "collapse"
+         ]
+        },
+        {
+         "when": "",
+         "name": "extra supply का दबाव",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b26",
+          "extra"
+         ]
+        }
+       ],
+       "arrows": true
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "absorption",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b27",
+       "Discovery"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b28",
+       "Chain"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "silver",
+         "icon": "tw:1fa99",
+         "label": "silver"
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b27",
+          "Discovery"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 3,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b27",
+          "expected"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "silver",
+         "text": "actual या expected supply",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b27",
+          "बढ़े"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 6,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b27",
+          "demand"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "demand",
+         "style": "box",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b27",
+          "समेटे,"
+         ],
+         "actor": "",
+         "from": "center",
+         "to": "right",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 2,
+         "spot": "",
+         "back": true,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b27",
+          "नीचे"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "नीचे का दबाव",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "recall_chain",
+      "kind": "picture",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b28",
+       "Chain"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "flow",
+       "title": "",
+       "items": [
+        {
+         "when": "",
+         "name": "discoveries",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b28",
+          "discoveries,"
+         ]
+        },
+        {
+         "when": "",
+         "name": "supply का दबाव",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b28",
+          "दबाव,"
+         ]
+        },
+        {
+         "when": "",
+         "name": "सस्ता silver",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b28",
+          "सस्ता"
+         ]
+        },
+        {
+         "when": "",
+         "name": "rupee की external परेशानी",
+         "icon": "fa:solid/indian-rupee-sign",
+         "cue": [
+          "b28",
+          "external"
+         ]
+        },
+        {
+         "when": "",
+         "name": "gold-link की जरूरत",
+         "icon": "fa:solid/coins",
+         "cue": [
+          "b28",
+          "gold-link"
+         ]
+        }
+       ],
+       "arrows": true
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     }
+    ],
+    "camera": [
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b24",
+       "Silver"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b25",
+       "सस्ता"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b26",
+       "Historical"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b27",
+       "demand"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b28",
+       "Chain"
+      ]
+     }
+    ],
+    "focus": [
+     {
+      "cue": [
+       "b24",
+       "1873–1947"
+      ],
+      "until_cue": [
+       "b25",
+       "Silver"
+      ],
+      "ids": [
+       "anchor",
+       "period"
+      ]
+     },
+     {
+      "cue": [
+       "b25",
+       "सस्ता"
+      ],
+      "until_cue": [
+       "b26",
+       "Historical"
+      ],
+      "ids": [
+       "foreign_payment"
+      ]
+     },
+     {
+      "cue": [
+       "b27",
+       "demand"
+      ],
+      "until_cue": [
+       "b28",
+       "Chain"
+      ],
+      "ids": [
+       "absorption"
+      ]
+     },
+     {
+      "cue": [
+       "b28",
+       "discoveries,"
+      ],
+      "until_cue": [],
+      "ids": [
+       "recall_chain",
+       "period"
+      ]
+     }
+    ],
+    "graph_used": false,
+    "graph": {
+     "plot": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+     },
+     "x_label": "",
+     "y_label": "",
+     "x_domain": [],
+     "y_domain": [],
+     "axes_cue": [],
+     "curves": [],
+     "dots": [],
+     "shades": [],
+     "guides": [],
+     "notes": []
+    }
+   },
+   "code_problems": [
+    "[code] absorption part 4: show_text needs on"
+   ],
+   "passed": false,
+   "finished_at": 1793590391.7593372
+  },
+  {
+   "round": 1,
+   "started_at": 1793590391.7595751,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "b944845a4a81c54e1ae6eb655684ec08aa62da95b9359ca2e22c236c3bf7ccc7",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 16293,
+    "output_tokens": 3404,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Silver Crisis का supply–price mechanism, rupee पर external pressure और gold-link की जरूरत एक canvas पर खुलते हैं।",
+    "key_questions": [
+     "Discoveries से prices किन शर्तों पर गिरते हैं?",
+     "कमजोर silver से foreign payment में ज्यादा rupees क्यों लगते हैं?",
+     "Historical evidence और illustrative example में क्या अंतर है?"
+    ],
+    "decisions": [
+     {
+      "decision": "absorption के demand show_text में on को demand object से जोड़ा और उपलब्ध silver-demand asset जोड़ा।",
+      "reason": "show_text को वैध target चाहिए; demand का tag अपने ही object पर रहता है।"
+     },
+     {
+      "decision": "बाकी cues, period band, mechanism और camera framing बनाए रखे।",
+      "reason": "Finding केवल absorption के show_text target से संबंधित थी।"
+     },
+     {
+      "decision": "Illustrative quantities और caution boards नहीं जोड़े।",
+      "reason": "इन beats में quantities बोली नहीं गईं; caveat narration में रहता है।"
+     }
+    ],
+    "uncertain": [
+     "Discovery को silver coins के प्रकट होने से दिखाया है; उपलब्ध piggy-bank icon खदान नहीं दिखाता।",
+     "Qualitative meter और partial absorption की renderer support की पुष्टि आवश्यक है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Silver Crisis का supply–price mechanism, rupee पर external pressure और gold-link की जरूरत एक canvas पर खुलते हैं।",
+     "key_questions": [
+      "Discoveries से prices किन शर्तों पर गिरते हैं?",
+      "कमजोर silver से foreign payment में ज्यादा rupees क्यों लगते हैं?",
+      "Historical evidence और illustrative example में क्या अंतर है?"
+     ],
+     "decisions": [
+      {
+       "decision": "absorption के demand show_text में on को demand object से जोड़ा और उपलब्ध silver-demand asset जोड़ा।",
+       "reason": "show_text को वैध target चाहिए; demand का tag अपने ही object पर रहता है।"
+      },
+      {
+       "decision": "बाकी cues, period band, mechanism और camera framing बनाए रखे।",
+       "reason": "Finding केवल absorption के show_text target से संबंधित थी।"
+      },
+      {
+       "decision": "Illustrative quantities और caution boards नहीं जोड़े।",
+       "reason": "इन beats में quantities बोली नहीं गईं; caveat narration में रहता है।"
+      }
+     ],
+     "uncertain": [
+      "Discovery को silver coins के प्रकट होने से दिखाया है; उपलब्ध piggy-bank icon खदान नहीं दिखाता।",
+      "Qualitative meter और partial absorption की renderer support की पुष्टि आवश्यक है।"
+     ]
+    },
+    "nodes": [
+     {
+      "id": "anchor",
+      "kind": "text",
+      "cell": [
+       0,
+       0,
+       12,
+       1
+      ],
+      "cue": [
+       "b24",
+       "Silver"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "Silver Crisis का mechanism",
+      "style": "title",
+      "size": 32,
+      "tone": "ink",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "discovery_mechanism",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b24",
+       "discoveries"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b25",
+       "Silver"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "silver",
+         "icon": "tw:1fa99",
+         "label": "silver"
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b24",
+          "discoveries"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 3,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b24",
+          "extra"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 6,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b24",
+          "गिरे,"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "prices",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "period",
+      "kind": "text",
+      "cell": [
+       0,
+       1,
+       12,
+       2
+      ],
+      "cue": [
+       "b24",
+       "1873–1947"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "Silver crisis और gold-exchange व्यवस्था\n1873–1947",
+      "style": "box",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "foreign_payment",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b25",
+       "Silver"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b26",
+       "Historical"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "silver",
+         "icon": "tw:1fa99",
+         "label": "Silver"
+        },
+        {
+         "name": "gold",
+         "icon": "fa:solid/coins",
+         "label": "gold"
+        },
+        {
+         "name": "rupee",
+         "icon": "fa:solid/indian-rupee-sign",
+         "label": "rupee"
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "compare",
+         "cue": [
+          "b25",
+          "मुकाबले"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "silver",
+         "right": "gold",
+         "sign": "vs",
+         "left_text": "Silver",
+         "right_text": "gold",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b25",
+          "सस्ता"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "सस्ता",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b25",
+          "कमजोर"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "rupee",
+         "into": "",
+         "on": "",
+         "text": "कमजोर",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b25",
+          "payment"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "gold",
+         "into": "",
+         "on": "gold",
+         "text": "same gold-linked foreign payment",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b25",
+          "ज़्यादा"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "rupee",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 5,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b25",
+          "लगेंगे।"
+         ],
+         "actor": "",
+         "from": "center",
+         "to": "gold",
+         "object": "rupee",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b25",
+          "anchor"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "gold",
+         "into": "",
+         "on": "gold",
+         "text": "steadier anchor",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "historical_link",
+      "kind": "picture",
+      "cell": [
+       0,
+       3,
+       12,
+       3
+      ],
+      "cue": [
+       "b26",
+       "Historical"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b27",
+       "Discovery"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "flow",
+       "title": "Historical evidence",
+       "items": [
+        {
+         "when": "",
+         "name": "discoveries",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b26",
+          "discoveries"
+         ]
+        },
+        {
+         "when": "",
+         "name": "price collapse",
+         "icon": "fa:solid/gauge-high",
+         "cue": [
+          "b26",
+          "collapse"
+         ]
+        },
+        {
+         "when": "",
+         "name": "extra supply का दबाव",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b26",
+          "extra"
+         ]
+        }
+       ],
+       "arrows": true
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "absorption",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b27",
+       "Discovery"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b28",
+       "Chain"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "silver",
+         "icon": "tw:1fa99",
+         "label": "silver"
+        },
+        {
+         "name": "demand",
+         "icon": "asset:a-fd3f790d546df5e2",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b27",
+          "Discovery"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 3,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b27",
+          "expected"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "silver",
+         "text": "actual या expected supply",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b27",
+          "बढ़े"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 6,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b27",
+          "demand"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "demand",
+         "into": "",
+         "on": "demand",
+         "text": "demand",
+         "style": "box",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b27",
+          "समेटे,"
+         ],
+         "actor": "",
+         "from": "center",
+         "to": "right",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 2,
+         "spot": "",
+         "back": true,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b27",
+          "नीचे"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "नीचे का दबाव",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "recall_chain",
+      "kind": "picture",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b28",
+       "Chain"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "flow",
+       "title": "",
+       "items": [
+        {
+         "when": "",
+         "name": "discoveries",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b28",
+          "discoveries,"
+         ]
+        },
+        {
+         "when": "",
+         "name": "supply का दबाव",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b28",
+          "दबाव,"
+         ]
+        },
+        {
+         "when": "",
+         "name": "सस्ता silver",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b28",
+          "सस्ता"
+         ]
+        },
+        {
+         "when": "",
+         "name": "rupee की external परेशानी",
+         "icon": "fa:solid/indian-rupee-sign",
+         "cue": [
+          "b28",
+          "external"
+         ]
+        },
+        {
+         "when": "",
+         "name": "gold-link की जरूरत",
+         "icon": "fa:solid/coins",
+         "cue": [
+          "b28",
+          "gold-link"
+         ]
+        }
+       ],
+       "arrows": true
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     }
+    ],
+    "camera": [
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b24",
+       "Silver"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b25",
+       "सस्ता"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b26",
+       "Historical"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b27",
+       "demand"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b28",
+       "Chain"
+      ]
+     }
+    ],
+    "focus": [
+     {
+      "cue": [
+       "b24",
+       "1873–1947"
+      ],
+      "until_cue": [
+       "b25",
+       "Silver"
+      ],
+      "ids": [
+       "anchor",
+       "period"
+      ]
+     },
+     {
+      "cue": [
+       "b25",
+       "सस्ता"
+      ],
+      "until_cue": [
+       "b26",
+       "Historical"
+      ],
+      "ids": [
+       "foreign_payment"
+      ]
+     },
+     {
+      "cue": [
+       "b27",
+       "demand"
+      ],
+      "until_cue": [
+       "b28",
+       "Chain"
+      ],
+      "ids": [
+       "absorption"
+      ]
+     },
+     {
+      "cue": [
+       "b28",
+       "discoveries,"
+      ],
+      "until_cue": [],
+      "ids": [
+       "recall_chain",
+       "period"
+      ]
+     }
+    ],
+    "graph_used": false,
+    "graph": {
+     "plot": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+     },
+     "x_label": "",
+     "y_label": "",
+     "x_domain": [],
+     "y_domain": [],
+     "axes_cue": [],
+     "curves": [],
+     "dots": [],
+     "shades": [],
+     "guides": [],
+     "notes": []
+    }
+   },
+   "code_problems": [
+    "[code] beat b28: 'rupee' is a thing of this beat in the dikhane ki list, but it is not on screen during the beat: show it (fa:solid/indian-rupee-sign), on screen during that beat (Navin: \"jis cheej ka jikar hai wohi cheej dikhe\")",
+    "[code] beat b28: 'foreign payment' is a thing of this beat in the dikhane ki list, but it is not on screen during the beat: show it (asset:a-c552933deb5d6114, asset:a-31b28739fe00d01c), on screen during that beat (Navin: \"jis cheej ka jikar hai wohi cheej dikhe\")"
+   ],
+   "passed": false,
+   "finished_at": 1793590442.1958785
+  },
+  {
+   "round": 2,
+   "started_at": 1793590442.196057,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "a71447e88372ecf6284de285913ac7061c09c20c5269ccd425c0451ffe5ead6e",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 16479,
+    "output_tokens": 6062,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Silver Crisis का supply–price mechanism और rupee पर external pressure एक build-up canvas पर खुलते हैं।",
+    "key_questions": [
+     "Discoveries से prices किन शर्तों पर गिरते हैं?",
+     "कमजोर silver से foreign payment में ज्यादा rupees क्यों लगते हैं?",
+     "Historical evidence और illustrative example में क्या अंतर है?"
+    ],
+    "decisions": [
+     {
+      "decision": "b28 में rupee और foreign payment के स्वतंत्र icons जोड़े।",
+      "reason": "दोनों चीजें recall beat में स्पष्ट रूप से मौजूद रहें और thing-presence checks पूरे हों।"
+     },
+     {
+      "decision": "Recall flow को तीन rows में रखा; नए icons उसके नीचे अलग cells में रखे।",
+      "reason": "Flow, icons और subtitle strip में overlap न हो।"
+     },
+     {
+      "decision": "बाकी mechanism, cues, period band और camera framing बनाए रखे।",
+      "reason": "पहले सही पाए गए काम को अनावश्यक रूप से बदलना नहीं है।"
+     }
+    ],
+    "uncertain": [
+     "Discovery को silver coins के प्रकट होने से दिखाया है; उपलब्ध piggy-bank icon खदान नहीं दिखाता।",
+     "Qualitative meter और partial absorption की renderer support की पुष्टि आवश्यक है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Silver Crisis का supply–price mechanism और rupee पर external pressure एक build-up canvas पर खुलते हैं।",
+     "key_questions": [
+      "Discoveries से prices किन शर्तों पर गिरते हैं?",
+      "कमजोर silver से foreign payment में ज्यादा rupees क्यों लगते हैं?",
+      "Historical evidence और illustrative example में क्या अंतर है?"
+     ],
+     "decisions": [
+      {
+       "decision": "b28 में rupee और foreign payment के स्वतंत्र icons जोड़े।",
+       "reason": "दोनों चीजें recall beat में स्पष्ट रूप से मौजूद रहें और thing-presence checks पूरे हों।"
+      },
+      {
+       "decision": "Recall flow को तीन rows में रखा; नए icons उसके नीचे अलग cells में रखे।",
+       "reason": "Flow, icons और subtitle strip में overlap न हो।"
+      },
+      {
+       "decision": "बाकी mechanism, cues, period band और camera framing बनाए रखे।",
+       "reason": "पहले सही पाए गए काम को अनावश्यक रूप से बदलना नहीं है।"
+      }
+     ],
+     "uncertain": [
+      "Discovery को silver coins के प्रकट होने से दिखाया है; उपलब्ध piggy-bank icon खदान नहीं दिखाता।",
+      "Qualitative meter और partial absorption की renderer support की पुष्टि आवश्यक है।"
+     ]
+    },
+    "nodes": [
+     {
+      "id": "anchor",
+      "kind": "text",
+      "cell": [
+       0,
+       0,
+       12,
+       1
+      ],
+      "cue": [
+       "b24",
+       "Silver"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "Silver Crisis का mechanism",
+      "style": "title",
+      "size": 32,
+      "tone": "ink",
+      "fill": "",
+      "align": "left",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "discovery_mechanism",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b24",
+       "discoveries"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b25",
+       "Silver"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "silver",
+         "icon": "tw:1fa99",
+         "label": "silver"
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b24",
+          "discoveries"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 3,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b24",
+          "extra"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 6,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b24",
+          "गिरे,"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "prices",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "period",
+      "kind": "text",
+      "cell": [
+       0,
+       1,
+       12,
+       2
+      ],
+      "cue": [
+       "b24",
+       "1873–1947"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "Silver crisis और gold-exchange व्यवस्था\n1873–1947",
+      "style": "box",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "center",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "foreign_payment",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b25",
+       "Silver"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b26",
+       "Historical"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "silver",
+         "icon": "tw:1fa99",
+         "label": "Silver"
+        },
+        {
+         "name": "gold",
+         "icon": "fa:solid/coins",
+         "label": "gold"
+        },
+        {
+         "name": "rupee",
+         "icon": "fa:solid/indian-rupee-sign",
+         "label": "rupee"
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "compare",
+         "cue": [
+          "b25",
+          "मुकाबले"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "silver",
+         "right": "gold",
+         "sign": "vs",
+         "left_text": "Silver",
+         "right_text": "gold",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b25",
+          "सस्ता"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "सस्ता",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b25",
+          "कमजोर"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "rupee",
+         "into": "",
+         "on": "",
+         "text": "कमजोर",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b25",
+          "payment"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "gold",
+         "into": "",
+         "on": "gold",
+         "text": "same gold-linked foreign payment",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b25",
+          "ज़्यादा"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "rupee",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 5,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b25",
+          "लगेंगे।"
+         ],
+         "actor": "",
+         "from": "center",
+         "to": "gold",
+         "object": "rupee",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b25",
+          "anchor"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "gold",
+         "into": "",
+         "on": "gold",
+         "text": "steadier anchor",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "historical_link",
+      "kind": "picture",
+      "cell": [
+       0,
+       3,
+       12,
+       3
+      ],
+      "cue": [
+       "b26",
+       "Historical"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b27",
+       "Discovery"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "flow",
+       "title": "Historical evidence",
+       "items": [
+        {
+         "when": "",
+         "name": "discoveries",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b26",
+          "discoveries"
+         ]
+        },
+        {
+         "when": "",
+         "name": "price collapse",
+         "icon": "fa:solid/gauge-high",
+         "cue": [
+          "b26",
+          "collapse"
+         ]
+        },
+        {
+         "when": "",
+         "name": "extra supply का दबाव",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b26",
+          "extra"
+         ]
+        }
+       ],
+       "arrows": true
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "absorption",
+      "kind": "action",
+      "cell": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b27",
+       "Discovery"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [
+       "b28",
+       "Chain"
+      ],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "compose",
+       "actors": [],
+       "objects": [
+        {
+         "name": "silver",
+         "icon": "tw:1fa99",
+         "label": "silver"
+        },
+        {
+         "name": "demand",
+         "icon": "asset:a-fd3f790d546df5e2",
+         "label": ""
+        }
+       ],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [
+        {
+         "part": "appear",
+         "cue": [
+          "b27",
+          "Discovery"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 3,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b27",
+          "expected"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "silver",
+         "text": "actual या expected supply",
+         "style": "tag",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "appear",
+         "cue": [
+          "b27",
+          "बढ़े"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 6,
+         "spot": "center",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "show_text",
+         "cue": [
+          "b27",
+          "demand"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "demand",
+         "into": "",
+         "on": "demand",
+         "text": "demand",
+         "style": "box",
+         "inside": "",
+         "n": 0,
+         "spot": "right",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "move",
+         "cue": [
+          "b27",
+          "समेटे,"
+         ],
+         "actor": "",
+         "from": "center",
+         "to": "right",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "",
+         "style": "",
+         "inside": "",
+         "n": 2,
+         "spot": "",
+         "back": true,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "",
+         "title": "",
+         "reach": 0
+        },
+        {
+         "part": "meter",
+         "cue": [
+          "b27",
+          "नीचे"
+         ],
+         "actor": "",
+         "from": "",
+         "to": "",
+         "object": "silver",
+         "into": "",
+         "on": "",
+         "text": "नीचे का दबाव",
+         "style": "",
+         "inside": "",
+         "n": 0,
+         "spot": "left",
+         "back": false,
+         "left": "",
+         "right": "",
+         "sign": "",
+         "left_text": "",
+         "right_text": "",
+         "limit": "",
+         "dir": "down",
+         "title": "",
+         "reach": 0
+        }
+       ],
+       "close_up": true
+      }
+     },
+     {
+      "id": "recall_chain",
+      "kind": "picture",
+      "cell": [
+       0,
+       3,
+       12,
+       3
+      ],
+      "cue": [
+       "b28",
+       "Chain"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 28,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "flow",
+       "title": "",
+       "items": [
+        {
+         "when": "",
+         "name": "discoveries",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b28",
+          "discoveries,"
+         ]
+        },
+        {
+         "when": "",
+         "name": "supply का दबाव",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b28",
+          "दबाव,"
+         ]
+        },
+        {
+         "when": "",
+         "name": "सस्ता silver",
+         "icon": "tw:1fa99",
+         "cue": [
+          "b28",
+          "सस्ता"
+         ]
+        },
+        {
+         "when": "",
+         "name": "rupee की external परेशानी",
+         "icon": "fa:solid/indian-rupee-sign",
+         "cue": [
+          "b28",
+          "external"
+         ]
+        },
+        {
+         "when": "",
+         "name": "gold-link की जरूरत",
+         "icon": "fa:solid/coins",
+         "cue": [
+          "b28",
+          "gold-link"
+         ]
+        }
+       ],
+       "arrows": true
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "recall_rupee",
+      "kind": "icon",
+      "cell": [
+       3,
+       6,
+       2,
+       1
+      ],
+      "cue": [
+       "b28",
+       "rupee"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "accent",
+      "fill": "",
+      "align": "",
+      "icon": "fa:solid/indian-rupee-sign",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     },
+     {
+      "id": "recall_foreign_payment",
+      "kind": "icon",
+      "cell": [
+       7,
+       6,
+       2,
+       1
+      ],
+      "cue": [
+       "b28",
+       "external"
+      ],
+      "cue_fraction": 0,
+      "until_cue": [],
+      "until_fraction": 0,
+      "text": "",
+      "style": "",
+      "size": 0,
+      "tone": "ink",
+      "fill": "",
+      "align": "",
+      "icon": "asset:a-31b28739fe00d01c",
+      "label": "",
+      "cols": 0,
+      "steps": [],
+      "from": "",
+      "to": "",
+      "from_side": "",
+      "to_side": "",
+      "elbow": "",
+      "dashed": false,
+      "curve": false,
+      "target": "",
+      "mark": "",
+      "pos": "",
+      "root": "",
+      "children": [],
+      "columns": [],
+      "rows": [],
+      "highlights": [],
+      "marks": [],
+      "flow": {
+       "icon": "",
+       "count": 0,
+       "period": 0,
+       "size": 0,
+       "reverse": false,
+       "cue": []
+      },
+      "picture": {
+       "type": "",
+       "title": "",
+       "items": [],
+       "arrows": false
+      },
+      "action": {
+       "template": "",
+       "actors": [],
+       "objects": [],
+       "amounts": [],
+       "steps": [],
+       "texts": [],
+       "parts": [],
+       "close_up": false
+      }
+     }
+    ],
+    "camera": [
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b24",
+       "Silver"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b25",
+       "सस्ता"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b26",
+       "Historical"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       3,
+       12,
+       4
+      ],
+      "cue": [
+       "b27",
+       "demand"
+      ]
+     },
+     {
+      "cells": [
+       0,
+       0,
+       12,
+       7
+      ],
+      "cue": [
+       "b28",
+       "Chain"
+      ]
+     }
+    ],
+    "focus": [
+     {
+      "cue": [
+       "b24",
+       "1873–1947"
+      ],
+      "until_cue": [
+       "b25",
+       "Silver"
+      ],
+      "ids": [
+       "anchor",
+       "period"
+      ]
+     },
+     {
+      "cue": [
+       "b25",
+       "सस्ता"
+      ],
+      "until_cue": [
+       "b26",
+       "Historical"
+      ],
+      "ids": [
+       "foreign_payment"
+      ]
+     },
+     {
+      "cue": [
+       "b27",
+       "demand"
+      ],
+      "until_cue": [
+       "b28",
+       "Chain"
+      ],
+      "ids": [
+       "absorption"
+      ]
+     },
+     {
+      "cue": [
+       "b28",
+       "discoveries,"
+      ],
+      "until_cue": [],
+      "ids": [
+       "recall_chain",
+       "period",
+       "recall_rupee",
+       "recall_foreign_payment"
+      ]
+     }
+    ],
+    "graph_used": false,
+    "graph": {
+     "plot": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+     },
+     "x_label": "",
+     "y_label": "",
+     "x_domain": [],
+     "y_domain": [],
+     "axes_cue": [],
+     "curves": [],
+     "dots": [],
+     "shades": [],
+     "guides": [],
+     "notes": []
+    }
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793590525.1535609
+  }
+ ],
+ "avoid_rounds": [
+  0,
+  1
+ ],
+ "cost_usd": 0.0,
+ "seconds": 133.5,
+ "navin_verdict": null
+}

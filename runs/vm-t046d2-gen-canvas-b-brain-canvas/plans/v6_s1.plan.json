@@ -1,0 +1,523 @@
+{
+ "id": "v6_s1",
+ "part_id": "c14.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "आज ₹1 में 100 paise हैं—क्या हमेशा ऐसे ही गिनते थे? Coins से Digital Rupee तक चलकर गिनती, issuer और payment का फर्क समझेंगे।"
+  },
+  {
+   "beat_id": "b2",
+   "say": "चाँदी को आकार दो तो क्या बदलेगा? वह wrought silver, यानी worked या shaped silver बनेगी; Sanskrit Rupya का यही अर्थ है, जिससे Rupiya आया।"
+  },
+  {
+   "beat_id": "b3",
+   "say": "यह Sanskrit word-origin है, आज की backing का नियम नहीं। पुराना नाम रहने से आज के note में silver होना जरूरी नहीं।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "नाम की कड़ी हुई Rupya से Rupiya, यानी आकार दिया silver। अब coin के common standard का फायदा देखो।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "subdivision",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    7,
+    5
+   ],
+   "cue": [
+    "b1",
+    "₹1"
+   ],
+   "until_cue": [
+    "b2",
+    "चाँदी"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "coin",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b1",
+      "₹1"
+     ],
+     "object": "coin",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b1",
+      "100"
+     ],
+     "left": "coin",
+     "right": "coin",
+     "sign": "=",
+     "left_text": "₹1",
+     "right_text": "100 paise"
+    }
+   ]
+  },
+  {
+   "id": "question",
+   "kind": "icon",
+   "cell": [
+    8,
+    2,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "क्या"
+   ],
+   "until_cue": [
+    "b2",
+    "चाँदी"
+   ],
+   "tone": "accent",
+   "icon": "tw:2753",
+   "size": 32
+  },
+  {
+   "id": "journey",
+   "kind": "text",
+   "cell": [
+    7,
+    5,
+    5,
+    1
+   ],
+   "cue": [
+    "b1",
+    "Digital"
+   ],
+   "until_cue": [
+    "b2",
+    "चाँदी"
+   ],
+   "text": "Coins से Digital Rupee तक",
+   "style": "box",
+   "tone": "accent",
+   "size": 28
+  },
+  {
+   "id": "journey_flow",
+   "kind": "arrow",
+   "cue": [
+    "b1",
+    "payment"
+   ],
+   "until_cue": [
+    "b2",
+    "चाँदी"
+   ],
+   "tone": "accent",
+   "from": "subdivision",
+   "to": "question",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "dashed": true,
+   "flow": {
+    "icon": "tw:27a1",
+    "count": 1,
+    "period": 1800,
+    "size": 24,
+    "cue": [
+     "b1",
+     "payment"
+    ]
+   }
+  },
+  {
+   "id": "silver_work",
+   "kind": "action",
+   "cell": [
+    1,
+    2,
+    10,
+    5
+   ],
+   "cue": [
+    "b2",
+    "चाँदी"
+   ],
+   "until_cue": [
+    "b3",
+    "यह"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "raw_silver",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "shaped_silver",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b2",
+      "चाँदी"
+     ],
+     "object": "raw_silver",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "transform",
+     "cue": [
+      "b2",
+      "आकार"
+     ],
+     "object": "raw_silver",
+     "into": "shaped_silver"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b2",
+      "wrought"
+     ],
+     "on": "shaped_silver",
+     "text": "wrought silver",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "rupya",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    4,
+    1
+   ],
+   "cue": [
+    "b2",
+    "Rupya"
+   ],
+   "text": "Sanskrit Rupya",
+   "style": "box",
+   "tone": "accent",
+   "size": 30
+  },
+  {
+   "id": "rupiya",
+   "kind": "text",
+   "cell": [
+    7,
+    0,
+    4,
+    1
+   ],
+   "cue": [
+    "b2",
+    "Rupiya"
+   ],
+   "text": "Rupiya",
+   "style": "box",
+   "tone": "accent",
+   "size": 30
+  },
+  {
+   "id": "name_chain",
+   "kind": "arrow",
+   "cue": [
+    "b2",
+    "आया।"
+   ],
+   "tone": "accent",
+   "from": "rupya",
+   "to": "rupiya",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "flow": {
+    "icon": "tw:27a1",
+    "count": 1,
+    "period": 2000,
+    "size": 24,
+    "cue": [
+     "b2",
+     "आया।"
+    ]
+   }
+  },
+  {
+   "id": "origin_focus",
+   "kind": "highlight",
+   "cue": [
+    "b3",
+    "word-origin"
+   ],
+   "until_cue": [
+    "b3",
+    "note"
+   ],
+   "style": "band",
+   "tone": "warm",
+   "target": "rupya"
+  },
+  {
+   "id": "note",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b3",
+    "backing"
+   ],
+   "until_cue": [
+    "b4",
+    "नाम"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/money-bill-1"
+  },
+  {
+   "id": "silver",
+   "kind": "icon",
+   "cell": [
+    8,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b3",
+    "backing"
+   ],
+   "tone": "muted",
+   "icon": "tw:1fa99"
+  },
+  {
+   "id": "requirement",
+   "kind": "arrow",
+   "cue": [
+    "b3",
+    "नियम"
+   ],
+   "until_cue": [
+    "b4",
+    "नाम"
+   ],
+   "tone": "muted",
+   "from": "note",
+   "to": "silver",
+   "from_side": "r",
+   "to_side": "l",
+   "elbow": "hv",
+   "dashed": true
+  },
+  {
+   "id": "not_required",
+   "kind": "mark",
+   "cue": [
+    "b3",
+    "नहीं।"
+   ],
+   "until_cue": [
+    "b4",
+    "नाम"
+   ],
+   "tone": "danger",
+   "target": "requirement",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "recall",
+   "kind": "highlight",
+   "cue": [
+    "b4",
+    "Rupya"
+   ],
+   "style": "band",
+   "tone": "warm",
+   "target": "name_chain"
+  },
+  {
+   "id": "worked_label",
+   "kind": "text",
+   "cell": [
+    6,
+    6,
+    6,
+    1
+   ],
+   "cue": [
+    "b4",
+    "आकार"
+   ],
+   "text": "आकार दिया silver",
+   "style": "plain",
+   "tone": "ink",
+   "size": 28
+  },
+  {
+   "id": "next_coin",
+   "kind": "icon",
+   "cell": [
+    1,
+    3,
+    3,
+    2
+   ],
+   "cue": [
+    "b4",
+    "coin"
+   ],
+   "tone": "accent",
+   "icon": "asset:a-b323282959b2c70e"
+  },
+  {
+   "id": "auto_arrow_b4",
+   "kind": "arrow",
+   "from": "silver",
+   "to": "next_coin",
+   "cue": [
+    "b4",
+    "coin"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b1",
+    "₹1"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b2",
+    "चाँदी"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b3",
+    "backing"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b4",
+    "Rupya"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b2",
+    "चाँदी"
+   ],
+   "ids": [
+    "silver_work"
+   ],
+   "until_cue": [
+    "b2",
+    "Rupya"
+   ]
+  },
+  {
+   "cue": [
+    "b3",
+    "नियम"
+   ],
+   "ids": [
+    "note",
+    "silver",
+    "requirement",
+    "not_required"
+   ],
+   "until_cue": [
+    "b4",
+    "नाम"
+   ]
+  },
+  {
+   "cue": [
+    "b4",
+    "Rupya"
+   ],
+   "ids": [
+    "rupya",
+    "rupiya",
+    "name_chain",
+    "recall",
+    "silver",
+    "worked_label"
+   ],
+   "until_cue": [
+    "b4",
+    "coin"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

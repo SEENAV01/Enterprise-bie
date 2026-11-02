@@ -1,0 +1,711 @@
+{
+ "id": "v6_s7s",
+ "part_id": "c15.3",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b45",
+   "say": "Dollar अचानक महँगा हो तो importer कितना देगा? मान लो पहले 1 dollar ₹80 में मिलता था; अचानक demand बढ़ी तो bank ने ₹84 माँगे। अब $100 खरीदने के लिए ₹8,000 की जगह ₹8,400 देने पड़ेंगे।"
+  },
+  {
+   "beat_id": "b46",
+   "say": "अब RBI banks के foreign-exchange market में dollars बेचता है; supply बढ़ती है और बदले में rupees उसके पास आते हैं। बाकी बातें same मानो तो quote ₹82 तक नरम हुआ; $100 का bill ₹8,200 हुआ, शुरुआती ₹8,000 नहीं।"
+  },
+  {
+   "beat_id": "b47",
+   "say": "इसे volatility smoothing कहते हैं, यानी भाव के तेज़ झटके घटाना। RBI intervention का मुख्य मकसद excessive volatility घटाना है, rate fix करना नहीं; dollar sales ने supply बढ़ाकर ऊपर का pressure कम किया।"
+  },
+  {
+   "beat_id": "b48",
+   "say": "Demand pressure बड़ा रहे तो rate फिर बढ़ सकता है। कोई guaranteed result नहीं; excessive volatility condition है, ₹84 automatic intervention trigger नहीं।"
+  }
+ ],
+ "kit": "bank",
+ "elements": [
+  {
+   "id": "forex_bank",
+   "kind": "bank",
+   "x": 2600,
+   "sign": "bank",
+   "cue": [
+    "b45",
+    "Dollar"
+   ]
+  },
+  {
+   "id": "importer_transaction",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b45",
+    "Dollar"
+   ],
+   "until_cue": [
+    "b46",
+    "अब"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "importer",
+     "who": "main",
+     "label": "importer",
+     "mood": "unsure"
+    },
+    {
+     "role": "bank",
+     "who": "other",
+     "label": "bank",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "dollars",
+     "icon": "tw:1f4b5",
+     "label": ""
+    },
+    {
+     "name": "rupees",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": ""
+    },
+    {
+     "name": "quote",
+     "icon": "fa:solid/dollar-sign",
+     "label": ""
+    },
+    {
+     "name": "demand",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    },
+    {
+     "name": "bill",
+     "icon": "tw:1f9fe",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b45",
+      "Dollar"
+     ],
+     "actor": "bank",
+     "object": "dollars"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b45",
+      "importer"
+     ],
+     "actor": "importer",
+     "object": "rupees"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b45",
+      "₹80"
+     ],
+     "object": "quote",
+     "on": "quote",
+     "text": "₹80",
+     "style": "tag"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b45",
+      "demand"
+     ],
+     "to": "0.85",
+     "object": "demand",
+     "dir": "up",
+     "reach": 0.85
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b45",
+      "₹84"
+     ],
+     "to": "₹84",
+     "object": "quote",
+     "text": "₹84",
+     "dir": "up"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b45",
+      "$100"
+     ],
+     "actor": "importer",
+     "object": "bill"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b45",
+      "$100"
+     ],
+     "object": "bill",
+     "on": "bill",
+     "text": "$100",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b45",
+      "₹8,000"
+     ],
+     "object": "bill",
+     "on": "bill",
+     "text": "$100\n₹8,000",
+     "style": "write"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b45",
+      "₹8,400"
+     ],
+     "to": "₹8,400",
+     "object": "bill",
+     "text": "₹8,400",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "intervention",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b46",
+    "अब"
+   ],
+   "until_cue": [
+    "b47",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "rbi",
+     "who": "other",
+     "label": "RBI",
+     "mood": "neutral"
+    },
+    {
+     "role": "bank",
+     "who": "other",
+     "label": "banks",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "dollars",
+     "icon": "tw:1f4b5",
+     "label": ""
+    },
+    {
+     "name": "rupees",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": ""
+    },
+    {
+     "name": "supply",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    },
+    {
+     "name": "quote",
+     "icon": "fa:solid/dollar-sign",
+     "label": ""
+    },
+    {
+     "name": "bill",
+     "icon": "tw:1f9fe",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b46",
+      "RBI"
+     ],
+     "actor": "rbi",
+     "object": "dollars"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b46",
+      "बेचता"
+     ],
+     "from": "rbi",
+     "to": "bank",
+     "object": "dollars"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b46",
+      "supply"
+     ],
+     "to": "0.8",
+     "object": "supply",
+     "dir": "up",
+     "reach": 0.8
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b46",
+      "rupees"
+     ],
+     "from": "bank",
+     "to": "rbi",
+     "object": "rupees"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b46",
+      "₹82"
+     ],
+     "to": "₹82",
+     "object": "quote",
+     "text": "₹82",
+     "dir": "down"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b46",
+      "$100"
+     ],
+     "object": "bill",
+     "on": "bill",
+     "text": "$100",
+     "style": "tag"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b46",
+      "₹8,200"
+     ],
+     "to": "₹8,200",
+     "object": "bill",
+     "text": "₹8,200",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "smoothing_comparison",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b47",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b48",
+    "Demand"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "rbi",
+     "who": "other",
+     "label": "RBI",
+     "mood": "neutral"
+    },
+    {
+     "role": "bank",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "swings",
+     "icon": "tw:1f4c8",
+     "label": ""
+    },
+    {
+     "name": "smooth",
+     "icon": "tw:1f4c8",
+     "label": ""
+    },
+    {
+     "name": "fixed",
+     "icon": "tw:1f4c8",
+     "label": ""
+    },
+    {
+     "name": "dollars",
+     "icon": "tw:1f4b5",
+     "label": ""
+    },
+    {
+     "name": "supply",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    },
+    {
+     "name": "pressure",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b47",
+      "volatility"
+     ],
+     "object": "swings",
+     "spot": "centre",
+     "n": 1
+    },
+    {
+     "part": "transform",
+     "cue": [
+      "b47",
+      "घटाना।"
+     ],
+     "object": "swings",
+     "into": "smooth"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b47",
+      "fix"
+     ],
+     "left": "smooth",
+     "right": "fixed",
+     "sign": "vs",
+     "left_text": "volatility घटाना",
+     "right_text": "rate fix"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b47",
+      "नहीं;"
+     ],
+     "actor": "rbi",
+     "object": "fixed"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b47",
+      "sales"
+     ],
+     "from": "rbi",
+     "to": "bank",
+     "object": "dollars"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b47",
+      "बढ़ाकर"
+     ],
+     "to": "0.8",
+     "object": "supply",
+     "dir": "up",
+     "reach": 0.8
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b47",
+      "कम"
+     ],
+     "to": "0.3",
+     "object": "pressure",
+     "dir": "down",
+     "reach": 0.3
+    }
+   ]
+  },
+  {
+   "id": "no_automatic_trigger",
+   "kind": "action",
+   "x": 2600,
+   "cue": [
+    "b48",
+    "Demand"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "rbi",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "bank",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "pressure",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    },
+    {
+     "name": "arrow",
+     "icon": "tw:27a1",
+     "label": ""
+    },
+    {
+     "name": "quote",
+     "icon": "tw:1f4c8",
+     "label": ""
+    },
+    {
+     "name": "guarantee",
+     "icon": "fa:solid/stamp",
+     "label": ""
+    },
+    {
+     "name": "volatility",
+     "icon": "tw:1f4c8",
+     "label": ""
+    },
+    {
+     "name": "trigger",
+     "icon": "fa:solid/gauge-high",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "meter",
+     "cue": [
+      "b48",
+      "Demand"
+     ],
+     "to": "0.9",
+     "object": "pressure",
+     "dir": "up",
+     "reach": 0.9
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b48",
+      "pressure"
+     ],
+     "from": "pressure",
+     "to": "quote",
+     "object": "arrow"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b48",
+      "बढ़"
+     ],
+     "to": "far",
+     "object": "quote",
+     "spot": "up",
+     "dir": "up",
+     "reach": 0.3
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b48",
+      "guaranteed"
+     ],
+     "object": "guarantee",
+     "spot": "centre",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b48",
+      "नहीं;"
+     ],
+     "actor": "bank",
+     "object": "guarantee"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b48",
+      "volatility"
+     ],
+     "object": "volatility",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b48",
+      "₹84"
+     ],
+     "object": "trigger",
+     "on": "trigger",
+     "text": "₹84",
+     "style": "tag"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b48",
+      "नहीं।"
+     ],
+     "actor": "rbi",
+     "object": "trigger"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b45",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 580,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b45",
+    "₹80"
+   ],
+   "x": 2730,
+   "y": 540,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b45",
+    "$100"
+   ],
+   "x": 2460,
+   "y": 570,
+   "zoom": 1.3,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b46",
+    "अब"
+   ],
+   "x": 2600,
+   "y": 580,
+   "zoom": 1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b46",
+    "rupees"
+   ],
+   "x": 2600,
+   "y": 610,
+   "zoom": 1.25,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b46",
+    "₹82"
+   ],
+   "x": 2700,
+   "y": 530,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b47",
+    "volatility"
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b47",
+    "fix"
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 1.05,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b47",
+    "sales"
+   ],
+   "x": 2600,
+   "y": 600,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b48",
+    "Demand"
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b48",
+    "₹84"
+   ],
+   "x": 2600,
+   "y": 550,
+   "zoom": 1.25,
+   "frames": 35
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

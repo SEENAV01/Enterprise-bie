@@ -1,0 +1,447 @@
+{
+ "id": "v4_s7s",
+ "part_id": "c11.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b43",
+   "say": "4 पुराने 25 paise coins दें तो ₹1 bill चुक जाएगा? दुकानदार मना करे तो ₹1 बाकी रहता है; valid ₹1 coin दें तो बकाया ₹0 होता है। पुराने coins का legal-tender status हटना demonetization है।"
+  },
+  {
+   "beat_id": "b44",
+   "say": "Change के डिब्बे में कौन-से coins हैं? ₹1, ₹2, ₹5, ₹10, ₹20 को जोड़कर ₹1,000 तक की tender limit है। 50 paise जोड़ें तो ₹10 तक; उससे छोटे coins जोड़ने से legal-tender payment नहीं बनता।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "shop",
+   "kind": "shop",
+   "x": 2600,
+   "y": 860,
+   "fill": "#F4EBDD",
+   "cue": [
+    "b43",
+    "",
+    0.0
+   ]
+  },
+  {
+   "id": "settle_bill",
+   "kind": "action",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b43",
+    "4"
+   ],
+   "until_cue": [
+    "b44",
+    "Change"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "old_coins",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "bill",
+     "icon": "tw:1f9fe",
+     "label": ""
+    },
+    {
+     "name": "valid_coin",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b43",
+      "4"
+     ],
+     "actor": "buyer",
+     "object": "old_coins",
+     "spot": "buyer",
+     "n": 4
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b43",
+      "25"
+     ],
+     "object": "old_coins",
+     "on": "old_coins",
+     "text": "25 paise",
+     "style": "tag"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b43",
+      "bill"
+     ],
+     "actor": "seller",
+     "object": "bill",
+     "text": "₹1"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b43",
+      "दें"
+     ],
+     "actor": "buyer",
+     "from": "buyer",
+     "to": "seller",
+     "object": "old_coins",
+     "reach": 0.7,
+     "back": true
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b43",
+      "मना"
+     ],
+     "actor": "seller",
+     "object": "old_coins"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b43",
+      "बाकी"
+     ],
+     "actor": "seller",
+     "object": "bill",
+     "text": "₹1"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b43",
+      "valid"
+     ],
+     "actor": "buyer",
+     "from": "buyer",
+     "to": "seller",
+     "object": "valid_coin",
+     "text": "₹1"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b43",
+      "₹0"
+     ],
+     "to": "₹0",
+     "object": "bill",
+     "on": "bill",
+     "text": "₹0",
+     "dir": "down"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b43",
+      "हटना"
+     ],
+     "actor": "seller",
+     "object": "old_coins"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b43",
+      "demonetization"
+     ],
+     "object": "old_coins",
+     "on": "old_coins",
+     "text": "demonetization",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "change_limits",
+   "kind": "action",
+   "x": 2600,
+   "y": 860,
+   "cue": [
+    "b44",
+    "Change"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "box",
+     "icon": "tw:1f4e6",
+     "label": ""
+    },
+    {
+     "name": "rupee_group",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "half_group",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "small_group",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b44",
+      "Change"
+     ],
+     "actor": "seller",
+     "object": "box"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b44",
+      "₹1,"
+     ],
+     "object": "rupee_group",
+     "into": "box",
+     "text": "₹1",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b44",
+      "₹2,"
+     ],
+     "object": "rupee_group",
+     "into": "box",
+     "text": "₹2",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b44",
+      "₹5,"
+     ],
+     "object": "rupee_group",
+     "into": "box",
+     "text": "₹5",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b44",
+      "₹10,"
+     ],
+     "object": "rupee_group",
+     "into": "box",
+     "text": "₹10",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b44",
+      "₹20"
+     ],
+     "object": "rupee_group",
+     "into": "box",
+     "text": "₹20",
+     "n": 1
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b44",
+      "₹1,000"
+     ],
+     "to": "₹1,000",
+     "object": "rupee_group",
+     "on": "box",
+     "text": "₹1,000 तक",
+     "limit": "₹1,000"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b44",
+      "50"
+     ],
+     "object": "half_group",
+     "into": "box",
+     "text": "50 paise",
+     "n": 1
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b44",
+      "₹10"
+     ],
+     "to": "₹10",
+     "object": "half_group",
+     "on": "half_group",
+     "text": "₹10 तक",
+     "limit": "₹10"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b44",
+      "छोटे"
+     ],
+     "object": "small_group",
+     "into": "box",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b44",
+      "नहीं"
+     ],
+     "actor": "seller",
+     "object": "small_group"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b43",
+    "",
+    0.0
+   ],
+   "x": 2600,
+   "y": 560,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b43",
+    "bill"
+   ],
+   "x": 2600,
+   "y": 575,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b43",
+    "बाकी"
+   ],
+   "x": 2720,
+   "y": 560,
+   "zoom": 1.3,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b43",
+    "valid"
+   ],
+   "x": 2600,
+   "y": 575,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b43",
+    "पुराने"
+   ],
+   "x": 2500,
+   "y": 550,
+   "zoom": 1.1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "Change"
+   ],
+   "x": 2600,
+   "y": 550,
+   "zoom": 1.15,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "₹1,000"
+   ],
+   "x": 2600,
+   "y": 540,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "50"
+   ],
+   "x": 2700,
+   "y": 550,
+   "zoom": 1.2,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b44",
+    "छोटे"
+   ],
+   "x": 2600,
+   "y": 560,
+   "zoom": 1,
+   "frames": 30
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

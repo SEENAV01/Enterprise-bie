@@ -1,0 +1,407 @@
+{
+ "id": "v6_s8b",
+ "part_id": "c16.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b52",
+   "say": "2022 का यह Digital Rupee है: legal tender digital currency denominated in Indian rupees। यानी payment का कानूनी status है, रूप digital है, और wallet में गिनती उसी ₹ में है।"
+  },
+  {
+   "beat_id": "b53",
+   "say": "UPI से bank deposit भेजना अपने-आप Digital Rupee नहीं है। Deposit commercial bank पर claim है; Digital Rupee central bank money है, app सिर्फ channel है। Private cryptoasset की तरह इसकी अलग floating rupee price नहीं है।"
+  },
+  {
+   "beat_id": "b54",
+   "say": "Boundary याद रखो: official currency का digital form, same rupee unit। आगे pilots में banks और public के अलग इस्तेमाल देखेंगे।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "year",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    3,
+    1
+   ],
+   "cue": [
+    "b52",
+    "2022"
+   ],
+   "until_cue": [
+    "b53",
+    "UPI"
+   ],
+   "text": "2022 का Digital Rupee",
+   "style": "title",
+   "tone": "ink",
+   "fill": "paper",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "rupee_anchor",
+   "kind": "icon",
+   "cell": [
+    9,
+    0,
+    3,
+    2
+   ],
+   "cue": [
+    "b52",
+    "Digital"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/indian-rupee-sign",
+   "label": "Digital Rupee",
+   "size": 48
+  },
+  {
+   "id": "legal",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b52",
+    "legal"
+   ],
+   "until_cue": [
+    "b53",
+    "UPI"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f4dc",
+   "label": "legal tender",
+   "size": 32
+  },
+  {
+   "id": "definition_motion",
+   "kind": "action",
+   "cell": [
+    3,
+    2,
+    9,
+    5
+   ],
+   "cue": [
+    "b52",
+    "digital"
+   ],
+   "until_cue": [
+    "b53",
+    "UPI"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "digital",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": ""
+    },
+    {
+     "name": "stamp",
+     "icon": "fa:solid/stamp",
+     "label": ""
+    },
+    {
+     "name": "wallet",
+     "icon": "tw:1f45b",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b52",
+      "digital"
+     ],
+     "object": "digital",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b52",
+      "कानूनी"
+     ],
+     "to": "digital",
+     "object": "stamp",
+     "back": true
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b52",
+      "रूप"
+     ],
+     "on": "digital",
+     "text": "रूप digital है",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b52",
+      "wallet"
+     ],
+     "object": "wallet",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b52",
+      "₹"
+     ],
+     "to": "wallet",
+     "object": "digital",
+     "into": "wallet"
+    }
+   ]
+  },
+  {
+   "id": "comparison",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    12,
+    5
+   ],
+   "cue": [
+    "b53",
+    "UPI"
+   ],
+   "until_cue": [
+    "b54",
+    "Boundary"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "phone",
+     "icon": "tw:1f4f1",
+     "label": "UPI"
+    },
+    {
+     "name": "deposit",
+     "icon": "fa:solid/piggy-bank",
+     "label": "bank deposit"
+    },
+    {
+     "name": "commercial",
+     "icon": "tw:1f3e6",
+     "label": "commercial bank"
+    },
+    {
+     "name": "digital",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": "Digital Rupee"
+    },
+    {
+     "name": "central",
+     "icon": "fa:solid/building-columns",
+     "label": "central bank"
+    },
+    {
+     "name": "floating",
+     "icon": "tw:1f4c8",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b53",
+      "UPI"
+     ],
+     "object": "phone",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b53",
+      "भेजना"
+     ],
+     "from": "phone",
+     "to": "commercial",
+     "object": "deposit"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b53",
+      "claim"
+     ],
+     "left": "deposit",
+     "right": "commercial",
+     "left_text": "Deposit",
+     "right_text": "commercial bank पर claim"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b53",
+      "central"
+     ],
+     "left": "digital",
+     "right": "central",
+     "left_text": "Digital Rupee",
+     "right_text": "central bank money"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b53",
+      "channel"
+     ],
+     "on": "phone",
+     "text": "app सिर्फ channel है",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b53",
+      "floating"
+     ],
+     "object": "floating",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b53",
+      "नहीं"
+     ],
+     "object": "floating"
+    }
+   ]
+  },
+  {
+   "id": "boundary",
+   "kind": "highlight",
+   "cue": [
+    "b54",
+    "Boundary"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "rupee_anchor"
+  },
+  {
+   "id": "official",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    4,
+    3
+   ],
+   "cue": [
+    "b54",
+    "official"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/money-bill-1",
+   "label": "official currency का digital form",
+   "size": 32
+  },
+  {
+   "id": "unit",
+   "kind": "icon",
+   "cell": [
+    4,
+    2,
+    4,
+    3
+   ],
+   "cue": [
+    "b54",
+    "same"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/indian-rupee-sign",
+   "label": "same rupee unit",
+   "size": 32
+  },
+  {
+   "id": "pilots",
+   "kind": "icon",
+   "cell": [
+    8,
+    3,
+    4,
+    3
+   ],
+   "cue": [
+    "b54",
+    "pilots"
+   ],
+   "tone": "ink",
+   "icon": "tw:1f3e6",
+   "label": "banks और public के अलग इस्तेमाल",
+   "size": 28
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b52",
+    "Digital"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b53",
+    "UPI"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b54",
+    "Boundary"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

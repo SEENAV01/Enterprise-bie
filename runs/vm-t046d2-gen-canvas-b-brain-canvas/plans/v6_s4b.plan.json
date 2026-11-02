@@ -1,0 +1,642 @@
+{
+ "id": "v6_s4b",
+ "part_id": "c14.4",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b24",
+   "say": "यही Silver Crisis का mechanism है: late nineteenth century में discoveries से extra silver आया और prices गिरे, जैसे हमारे बाज़ार में। Silver crisis और gold-exchange व्यवस्था का यह दौर 1873–1947 तक फैला था।"
+  },
+  {
+   "beat_id": "b25",
+   "say": "Silver gold के मुकाबले सस्ता हो तो silver-linked rupee कमजोर पड़ सकता है; same gold-linked foreign payment के लिए ज़्यादा rupees लगेंगे। इसलिए steadier anchor चाहिए था।"
+  },
+  {
+   "beat_id": "b26",
+   "say": "Historical evidence discoveries और price collapse का संबंध है। हमारे kg और prices actual data नहीं; ये extra supply का दबाव समझाते हैं।"
+  },
+  {
+   "beat_id": "b27",
+   "say": "Discovery भर से price नहीं गिरता; actual या expected supply बढ़े और demand extra silver न समेटे, तभी नीचे का दबाव बनेगा।"
+  },
+  {
+   "beat_id": "b28",
+   "say": "Chain याद रखो: discoveries, supply का दबाव, सस्ता silver, rupee की external परेशानी और gold-link की जरूरत।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b24",
+    "Silver"
+   ],
+   "text": "Silver Crisis का mechanism",
+   "style": "title",
+   "tone": "ink",
+   "align": "left",
+   "size": 32
+  },
+  {
+   "id": "discovery_mechanism",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b24",
+    "discoveries"
+   ],
+   "until_cue": [
+    "b25",
+    "Silver"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "silver",
+     "icon": "tw:1fa99",
+     "label": "silver"
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b24",
+      "discoveries"
+     ],
+     "object": "silver",
+     "spot": "left",
+     "n": 3
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b24",
+      "extra"
+     ],
+     "object": "silver",
+     "spot": "center",
+     "n": 6
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b24",
+      "गिरे,"
+     ],
+     "object": "silver",
+     "text": "prices",
+     "spot": "right",
+     "dir": "down",
+     "to": "prices"
+    }
+   ]
+  },
+  {
+   "id": "period",
+   "kind": "text",
+   "cell": [
+    0,
+    1,
+    12,
+    2
+   ],
+   "cue": [
+    "b24",
+    "1873–1947"
+   ],
+   "text": "Silver crisis और gold-exchange व्यवस्था\n1873–1947",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "foreign_payment",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b25",
+    "Silver"
+   ],
+   "until_cue": [
+    "b26",
+    "Historical"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "silver",
+     "icon": "tw:1fa99",
+     "label": "Silver"
+    },
+    {
+     "name": "gold",
+     "icon": "fa:solid/coins",
+     "label": "gold"
+    },
+    {
+     "name": "rupee",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": "rupee"
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "compare",
+     "cue": [
+      "b25",
+      "मुकाबले"
+     ],
+     "left": "silver",
+     "right": "gold",
+     "sign": "vs",
+     "left_text": "Silver",
+     "right_text": "gold"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b25",
+      "सस्ता"
+     ],
+     "object": "silver",
+     "text": "सस्ता",
+     "spot": "left",
+     "dir": "down",
+     "to": "सस्ता"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b25",
+      "कमजोर"
+     ],
+     "object": "rupee",
+     "text": "कमजोर",
+     "spot": "center",
+     "dir": "down",
+     "to": "कमजोर"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b25",
+      "payment"
+     ],
+     "object": "gold",
+     "on": "gold",
+     "text": "same gold-linked foreign payment",
+     "style": "tag",
+     "spot": "right"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b25",
+      "ज़्यादा"
+     ],
+     "object": "rupee",
+     "spot": "center",
+     "n": 5
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b25",
+      "लगेंगे।"
+     ],
+     "from": "center",
+     "to": "gold",
+     "object": "rupee"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b25",
+      "anchor"
+     ],
+     "object": "gold",
+     "on": "gold",
+     "text": "steadier anchor",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "historical_link",
+   "kind": "picture",
+   "cell": [
+    0,
+    3,
+    12,
+    3
+   ],
+   "cue": [
+    "b26",
+    "Historical"
+   ],
+   "until_cue": [
+    "b27",
+    "Discovery"
+   ],
+   "tone": "ink",
+   "size": 28,
+   "picture": {
+    "type": "flow",
+    "title": "Historical evidence",
+    "item_id": "",
+    "nodes": [
+     {
+      "cue": [
+       "b26",
+       "discoveries"
+      ],
+      "id": "n1",
+      "label": "discoveries"
+     },
+     {
+      "cue": [
+       "b26",
+       "collapse"
+      ],
+      "id": "n2",
+      "label": "price collapse"
+     },
+     {
+      "cue": [
+       "b26",
+       "extra"
+      ],
+      "id": "n3",
+      "label": "extra supply का दबाव"
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "absorption",
+   "kind": "action",
+   "cell": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b27",
+    "Discovery"
+   ],
+   "until_cue": [
+    "b28",
+    "Chain"
+   ],
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "silver",
+     "icon": "tw:1fa99",
+     "label": "silver"
+    },
+    {
+     "name": "demand",
+     "icon": "asset:a-fd3f790d546df5e2",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b27",
+      "Discovery"
+     ],
+     "object": "silver",
+     "spot": "left",
+     "n": 3
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b27",
+      "expected"
+     ],
+     "object": "silver",
+     "on": "silver",
+     "text": "actual या expected supply",
+     "style": "tag",
+     "spot": "left"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b27",
+      "बढ़े"
+     ],
+     "object": "silver",
+     "spot": "center",
+     "n": 6
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b27",
+      "demand"
+     ],
+     "object": "demand",
+     "on": "demand",
+     "text": "demand",
+     "style": "tag",
+     "spot": "right"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b27",
+      "समेटे,"
+     ],
+     "from": "center",
+     "to": "right",
+     "object": "silver",
+     "n": 2,
+     "back": true
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b27",
+      "नीचे"
+     ],
+     "object": "silver",
+     "text": "नीचे का दबाव",
+     "spot": "left",
+     "dir": "down",
+     "to": "नीचे का दबाव"
+    }
+   ]
+  },
+  {
+   "id": "recall_chain",
+   "kind": "picture",
+   "cell": [
+    0,
+    3,
+    12,
+    3
+   ],
+   "cue": [
+    "b28",
+    "Chain"
+   ],
+   "tone": "accent",
+   "size": 28,
+   "picture": {
+    "type": "flow",
+    "title": "",
+    "item_id": "",
+    "nodes": [
+     {
+      "cue": [
+       "b28",
+       "discoveries,"
+      ],
+      "id": "n1",
+      "label": "discoveries"
+     },
+     {
+      "cue": [
+       "b28",
+       "दबाव,"
+      ],
+      "id": "n2",
+      "label": "supply का दबाव"
+     },
+     {
+      "cue": [
+       "b28",
+       "सस्ता"
+      ],
+      "id": "n3",
+      "label": "सस्ता silver"
+     },
+     {
+      "cue": [
+       "b28",
+       "external"
+      ],
+      "id": "n4",
+      "label": "rupee की external परेशानी"
+     },
+     {
+      "cue": [
+       "b28",
+       "gold-link"
+      ],
+      "id": "n5",
+      "label": "gold-link की जरूरत"
+     }
+    ],
+    "arrows": true
+   }
+  },
+  {
+   "id": "recall_rupee",
+   "kind": "icon",
+   "cell": [
+    3,
+    6,
+    2,
+    1
+   ],
+   "cue": [
+    "b28",
+    "rupee"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/indian-rupee-sign"
+  },
+  {
+   "id": "recall_foreign_payment",
+   "kind": "icon",
+   "cell": [
+    7,
+    6,
+    2,
+    1
+   ],
+   "cue": [
+    "b28",
+    "external"
+   ],
+   "tone": "ink",
+   "icon": "asset:a-31b28739fe00d01c"
+  },
+  {
+   "id": "auto_arrow_b28",
+   "kind": "arrow",
+   "from": "anchor",
+   "to": "recall_chain",
+   "cue": [
+    "b28",
+    "Chain"
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b24",
+    "Silver"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b25",
+    "सस्ता"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b26",
+    "Historical"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    3,
+    12,
+    4
+   ],
+   "cue": [
+    "b27",
+    "demand"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b28",
+    "Chain"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b24",
+    "1873–1947"
+   ],
+   "ids": [
+    "anchor",
+    "period"
+   ],
+   "until_cue": [
+    "b25",
+    "Silver"
+   ]
+  },
+  {
+   "cue": [
+    "b25",
+    "सस्ता"
+   ],
+   "ids": [
+    "foreign_payment"
+   ],
+   "until_cue": [
+    "b26",
+    "Historical"
+   ]
+  },
+  {
+   "cue": [
+    "b27",
+    "demand"
+   ],
+   "ids": [
+    "absorption"
+   ],
+   "until_cue": [
+    "b28",
+    "Chain"
+   ]
+  },
+  {
+   "cue": [
+    "b28",
+    "discoveries,"
+   ],
+   "ids": [
+    "recall_chain_s1",
+    "recall_chain_s2",
+    "recall_chain_s3",
+    "recall_chain_s4",
+    "recall_chain_s5",
+    "recall_chain_a1",
+    "recall_chain_a2",
+    "recall_chain_a3",
+    "recall_chain_a4",
+    "period",
+    "recall_rupee",
+    "recall_foreign_payment"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

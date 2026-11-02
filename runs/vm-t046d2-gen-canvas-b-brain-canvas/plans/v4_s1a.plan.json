@@ -1,0 +1,189 @@
+{
+ "id": "v4_s1a",
+ "part_id": "c09.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "सस्ता ₹100 note चावल क्यों दिलाता है? क्या पीछे gold है? Payment में लेना और कानून से पैसा मानना क्या एक हैं?"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "opening_questions",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    5
+   ],
+   "cue": [
+    "b1",
+    "सस्ता"
+   ],
+   "tone": "ink",
+   "size": 32,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "rice",
+     "icon": "tw:1f33e",
+     "label": ""
+    },
+    {
+     "name": "gold",
+     "icon": "fa:solid/coins",
+     "label": ""
+    },
+    {
+     "name": "acceptance",
+     "icon": "tw:2705",
+     "label": ""
+    },
+    {
+     "name": "law",
+     "icon": "tw:1f4dc",
+     "label": ""
+    },
+    {
+     "name": "stamp",
+     "icon": "fa:solid/stamp",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b1",
+      "सस्ता"
+     ],
+     "object": "note",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b1",
+      "₹100"
+     ],
+     "object": "note",
+     "on": "note",
+     "text": "₹100",
+     "style": "tag",
+     "inside": "note"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b1",
+      "चावल"
+     ],
+     "object": "rice",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b1",
+      "क्यों"
+     ],
+     "left": "note",
+     "right": "rice",
+     "sign": "?"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b1",
+      "gold"
+     ],
+     "object": "gold",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b1",
+      "gold"
+     ],
+     "left": "note",
+     "right": "gold",
+     "sign": "?"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b1",
+      "लेना"
+     ],
+     "object": "acceptance",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b1",
+      "कानून"
+     ],
+     "object": "law",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b1",
+      "मानना"
+     ],
+     "object": "stamp",
+     "on": "law",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b1",
+      "एक"
+     ],
+     "left": "acceptance",
+     "right": "law",
+     "sign": "?"
+    }
+   ]
+  },
+  {
+   "id": "payment_acceptance_tick",
+   "kind": "mark",
+   "cue": [
+    "b1",
+    "लेना"
+   ],
+   "tone": "ok",
+   "target": "opening_questions",
+   "mark": "tick",
+   "pos": "tr",
+   "size": 32
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

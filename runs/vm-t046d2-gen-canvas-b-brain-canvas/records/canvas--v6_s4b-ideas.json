@@ -1,0 +1,232 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v6_s4b-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.3+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3",
+ "rulebook_digest": "8806c6ee4a7b0de68af6d616d63f489dcda85e158cf4d213d81d43562bb5b1fc",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "3ce0097afc023976092615ef45b49ace2b78899a7406d3ec3e6c6fcb5dd85f8f",
+ "card": null,
+ "prefix_sha256": "bdcc0d88147a6a4f03aeae3ea404f900ccdc03c329fc67a0db105442310b10a9",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses) (saanche: refuse)\n- accept: a tick on the thing accepted (saanche: accept)\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line) (saanche: coin_count)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word (saanche: cheque)\n- count: a counted stack or crowd whose number is the narration's number (saanche: count_stack, coin_count)\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline (saanche: hand_over, pay_change, upi, card_tap, cheque, barter_swap)\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number (saanche: pay_change, upi, card_tap, cheque)\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one (saanche: barter_swap)\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha (saanche: pay_change, cheque)\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label (saanche: cheque, hand_over)\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns THIS beat names or implies, as plain English or Hindi words a picture can show:\n  exactly the beat's own things, never a thing from an example, a card or another part (Navin, 2 November 2026: \"jis cheej ka\n  jikar hai wohi cheej dikhe\"). Every thing you list is a promise: it must appear on screen in this beat. A real person is never\n  drawn (card rule 8): name the role or the object, not the person.\n- shows: what is seen, in at most 8 words, as a picture description of this beat's own things and what happens to\n  them. Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object of this beat that an icon cannot show and a photograph or museum image can, as search words; \"\"\n  when an icon is enough. Never a person's portrait (card rule 8).\n- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: \"process show nahi ho rahi hai\"),\n  the recipe that shows it, or \"compose\" when no recipe fits but the motion parts do (the layout step writes the parts); \"none\"\n  when the beat tells no process; \"other\" only when a motion part BIE lacks is needed (template_note names it: it goes to the\n  missing-capability log). The actors, things and numbers always come from this beat. The recipes:\n- hand_over: one person gives a thing to another (steps give, take; actors giver, taker; objects thing; parts give, hold)\n- pay_change: the buyer hands over the payment, takes the goods and gets the difference back (each amount travels as a tag on what carries it) (steps pay, goods, change; actors buyer, seller; objects goods, money (optional), change_money (optional); amounts paid, change, price (optional); parts appear, give, hold, move, show_text)\n- barter_swap: two people swap their things; at 'ask' each wonders whether they want the other's thing (steps offer, ask, swap; actors a, b; objects a_thing, b_thing; parts give, hold, show_text)\n- upi: the buyer's device moves to the seller's sign and back; the buyer's device shows the amount paid, the seller's shows it received (steps scan, paid, received; actors buyer, seller; objects device (optional), sign (optional), seller_device (optional); amounts amount; parts appear, hold, move, show_text)\n- card_tap: a card moves to the seller's machine and back; the machine shows the amount approved (steps tap, approved; actors buyer, seller; objects card (optional), machine (optional); amounts amount; parts appear, hold, move, show_text)\n- cheque: the amount is written on the instrument, it moves into the place that pays, and the two balances change (payer down, payee up) (steps write, hand, balances; actors payer, payee; objects cheque (optional), place (optional); amounts amount, payer_before (optional), payer_after (optional), payee_before (optional), payee_after (optional); parts appear, hold, meter, move, show_text)\n- coin_count: things drop onto a pile while a meter rises; at 'limit' the meter stops at its red line and one more is refused (steps count, limit; objects coin (optional); amounts each, limit; parts appear, meter, refuse)\n- refuse: the person looks at the thing, shakes the head, and a cross lands on the thing (steps show, refuse; actors who; objects thing; parts appear, refuse)\n- accept: the person looks at the thing, nods, and a tick lands on the thing (steps show, accept; actors who; objects thing; parts accept, appear)\n- count_stack: n things appear one by one as they are said (steps count; objects thing; amounts n; parts appear)\n- compose: a process no recipe has, written as its parts in order (parts [{part, cue, ...fields}]); a part BIE lacks: template other in the dikhane ki list, with a note (it goes to the missing-capability log)\n  The motion parts every process is made of:\n- hold (actor, object, reach?): a person holds a thing in the front hand (reach 0..1 lifts it towards the other)\n- give (from, to, object, text?): a thing travels from one person's hand to the other's (give and take), with an optional tag of text on it\n- move (object, to, back?, into?, text?): a thing moves along a path to a spot, a person or another thing; back returns it; into lets it go into the target\n- transform (object, into): a thing turns into another thing where it is (A → B)\n- show_text (on, text, style?, inside?): a screen, sign, tag or thought bubble on a person or thing shows a short text (style: tag, sign, screen, ok, bubble, write)\n- meter (to, from?, limit?, style?, title?, dir?, on?, end?): a counter or meter changes: a bar fills to its limit (style bar), or a number changes from one value to another with an up or down arrow (style number)\n- appear (object, n?, spot?, layout?, end?): things appear one by one (n of them in a grid, or dropping onto a pile until a later step)\n- refuse (object, actor?): a person shakes the head and a cross lands on the thing\n- accept (object, actor?): a person nods and a tick lands on the thing\n- compare (left, right, sign?, left_text?, right_text?): two things side by side with a sign between them (=, ≠, ?, vs, <, >)\n- template_note: for \"other\" the process in a few words; for \"none\" on a beat that names a process word, why no saancha.\npicture_type: the one picture this part needs most, from timeline, gallery (a row of icon cards), table, flow, tree, chart, map or things (the things themselves with the relation's mark, arrow, meter or scale); the card part's type is \"cause_effect\". picture_note: one line on why.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c14.4 (5 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v6_s4b\", \"part_id\": \"c14.4\", \"card_type\": \"cause_effect\", \"story\": false}, \"beats\": [{\"beat_id\": \"b24\", \"say\": \"यही Silver Crisis का mechanism है: late nineteenth century में discoveries से extra silver आया और prices गिरे, जैसे हमारे बाज़ार में। Silver crisis और gold-exchange व्यवस्था का यह दौर 1873–1947 तक फैला था।\", \"relation_guess\": \"place\", \"template_guess\": \"pay_change\"}, {\"beat_id\": \"b25\", \"say\": \"Silver gold के मुकाबले सस्ता हो तो silver-linked rupee कमजोर पड़ सकता है; same gold-linked foreign payment के लिए ज़्यादा rupees लगेंगे। इसलिए steadier anchor चाहिए था।\", \"relation_guess\": \"more_less\", \"template_guess\": \"none\"}, {\"beat_id\": \"b26\", \"say\": \"Historical evidence discoveries और price collapse का संबंध है। हमारे kg और prices actual data नहीं; ये extra supply का दबाव समझाते हैं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b27\", \"say\": \"Discovery भर से price नहीं गिरता; actual या expected supply बढ़े और demand extra silver न समेटे, तभी नीचे का दबाव बनेगा।\", \"relation_guess\": \"more_less\", \"template_guess\": \"none\"}, {\"beat_id\": \"b28\", \"say\": \"Chain याद रखो: discoveries, supply का दबाव, सस्ता silver, rupee की external परेशानी और gold-link की जरूरत।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}], \"items\": [{\"item_id\": \"p007-i8\", \"content_type\": \"cause_effect\", \"content\": \"Silver Crisis and Gold Exchange Standard (1873–1947):\\nIn the late nineteenth century: Large silver discoveries occurred and Silver prices collapsed.\"}], \"book_pictures\": []}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 0,
+   "started_at": 1793590391.0963027,
+   "mode": "resume",
+   "notes": {
+    "about": "This part visualises the silver-supply shock and its consequences for a silver-linked rupee, ending with the need for a gold link.",
+    "key_questions": [
+     "How did silver discoveries put downward pressure on silver prices?",
+     "Why could cheaper silver increase rupees needed for the same gold-linked foreign payment?",
+     "Which relationships are historical evidence, and which quantities are illustrative?",
+     "What supply-and-demand conditions are necessary for downward price pressure?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use causal arrows rather than place markers.",
+      "reason": "The narration explains mechanisms, not geographical locations."
+     },
+     {
+      "decision": "Keep quantities qualitative and identify illustrative quantities as nonhistorical.",
+      "reason": "No actual kilogram, price or exchange-rate series is supplied."
+     },
+     {
+      "decision": "Show 1873–1947 as the period label, not as continuous price decline.",
+      "reason": "The date range describes the crisis and gold-exchange era."
+     }
+    ],
+    "uncertain": [
+     "The specific steadier anchor is named only in the concluding beat; do not introduce a particular gold-exchange operating procedure."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This part visualises the silver-supply shock and its consequences for a silver-linked rupee, ending with the need for a gold link.",
+     "key_questions": [
+      "How did silver discoveries put downward pressure on silver prices?",
+      "Why could cheaper silver increase rupees needed for the same gold-linked foreign payment?",
+      "Which relationships are historical evidence, and which quantities are illustrative?",
+      "What supply-and-demand conditions are necessary for downward price pressure?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use causal arrows rather than place markers.",
+       "reason": "The narration explains mechanisms, not geographical locations."
+      },
+      {
+       "decision": "Keep quantities qualitative and identify illustrative quantities as nonhistorical.",
+       "reason": "No actual kilogram, price or exchange-rate series is supplied."
+      },
+      {
+       "decision": "Show 1873–1947 as the period label, not as continuous price decline.",
+       "reason": "The date range describes the crisis and gold-exchange era."
+      }
+     ],
+     "uncertain": [
+      "The specific steadier anchor is named only in the concluding beat; do not introduce a particular gold-exchange operating procedure."
+     ]
+    },
+    "beats": [
+     {
+      "beat_id": "b24",
+      "idea": "Silver discoveries increased supply and depressed prices",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "silver deposit",
+       "silver",
+       "silver price tag"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Silver discovery, growing supply, falling price; period bracket.",
+      "on_word": "discoveries",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear silver deposit at discoveries; appear additional silver at extra silver; meter silver-price tag downward at prices गिरे, without numerical values. Add a 1873–1947 bracket labelled Silver Crisis / Gold-exchange era when spoken; mark discoveries late nineteenth century."
+     },
+     {
+      "beat_id": "b25",
+      "idea": "Weaker silver means more rupees per foreign payment",
+      "relation": "more_less",
+      "relation_note": "",
+      "things": [
+       "silver",
+       "gold",
+       "silver-linked rupees",
+       "gold-linked foreign payment"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Cheaper silver; more rupees for unchanged foreign payment.",
+      "on_word": "सस्ता",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "compare silver and gold with silver's relative value falling; compare smaller and larger rupee stacks beside identical gold-linked foreign-payment tags. Keep the foreign payment unchanged as additional rupees appear. At steadier anchor, place a question mark beside the rupee's linkage; no invented exchange rates."
+     },
+     {
+      "beat_id": "b26",
+      "idea": "Historical relationship, not historical example quantities",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "silver deposit",
+       "silver",
+       "silver price tag",
+       "kilogram label",
+       "illustrative price tag"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Historical silver-price link beside clearly illustrative quantity tags.",
+      "on_word": "Historical",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": "Static evidence-versus-illustration comparison: discovery and falling silver-price symbols under Historical relationship; kg and price placeholders under Illustration—not actual data. Extra silver beside the illustrative tags explains supply pressure without replaying a process."
+     },
+     {
+      "beat_id": "b27",
+      "idea": "Price pressure requires supply beyond demand absorption",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "silver deposit",
+       "silver supply",
+       "expected silver supply",
+       "silver demand",
+       "silver price tag"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Unabsorbed silver surplus pushes the price indicator downward.",
+      "on_word": "Discovery",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "appear silver deposit without a direct price-drop arrow; appear solid additional silver for actual supply or outlined silver labelled Expected for expected supply. Show silver-demand capacity as a bounded grouping; move only absorbed silver into it, leaving excess outside. Only with excess remaining, meter the price indicator downward without numeric values."
+     },
+     {
+      "beat_id": "b28",
+      "idea": "Recall the complete silver-to-gold-link causal chain",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "silver deposit",
+       "silver supply",
+       "silver price tag",
+       "rupee",
+       "foreign payment",
+       "gold"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Discovery → surplus → cheaper silver → rupee strain → gold link.",
+      "on_word": "discoveries",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Reveal connected nodes in spoken order: appear silver deposit; appear growing silver supply; show downward silver-price indicator; compare rupee with foreign-payment symbol using a strain mark; appear gold linked to the rupee, labelled जरूरत. Present the final link as a need, not an enacted policy transaction."
+     }
+    ],
+    "picture_type": "flow",
+    "picture_note": "A causal flow makes the supply shock, rupee consequences and gold-link need visible, with conditional supply-demand logic and a brief evidence comparison."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793590391.0965421
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 0.0,
+ "navin_verdict": null
+}

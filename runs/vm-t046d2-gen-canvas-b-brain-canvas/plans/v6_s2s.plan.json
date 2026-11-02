@@ -1,0 +1,1958 @@
+{
+ "id": "v6_s2s",
+ "part_id": "c14.2",
+ "world_width": 5200,
+ "beats": [
+  {
+   "beat_id": "b5",
+   "say": "Agra के imaginary बाज़ार में 10 units का कपड़ा है; unfamiliar coins कैसे जाँचोगे? मान लो weights 8 g और 10 g, purity uncertain और checking fee 1 unit है; खर्च 11 हुआ।"
+  },
+  {
+   "beat_id": "b6",
+   "say": "मान लो 2 mints ने common purity वाले 10 g coins बनाए हैं। Merchant इन्हें लेता है; checking का 1 unit बचा, इसलिए तुमने 11 नहीं, 10 units दिए।"
+  },
+  {
+   "beat_id": "b7",
+   "say": "यही standardization का फायदा है; example के numbers historical नहीं। 1540 में Sher Shah Suri ने silver Rupiya दिया: लगभग 178 grains, यानी 11.5 grams, high purity और empire में uniform standard।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "Grains weight की unit है, अनाज नहीं। Weight कुल mass, purity उसमें silver का हिस्सा है; common standard बार-बार तौलने और जाँचने का काम घटाता है।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "Empire भर में coins कहाँ बनेंगे? Mughal standardization, 1556–1707 में Akbar ने minting बढ़ाई; hundreds of mints, यानी coin factories, standardized-weight silver coins बनाती थीं।"
+  },
+  {
+   "beat_id": "b10",
+   "say": "Emperor का नाम issuing authority बताता था। Company ने 1757–1835 में शुरुआत में familiar Mughal-style coins रखे, लेकिन Bombay, Calcutta और Madras Presidencies अलग coins बनाती थीं।"
+  },
+  {
+   "beat_id": "b11",
+   "say": "अलग coins एक जैसे कब हुए? Currency Act of 1835 ने uniform Indian Rupee, standard design और British India में single legal tender दिया—यानी कानून के नियमों से payment चुकाने में accepted पैसा।"
+  },
+  {
+   "beat_id": "b12",
+   "say": "Uniformity का मतलब decimalisation नहीं। Queen/King portrait की broad पहचान में याद रखो: original 1835 issue William IV का था, Queen Victoria का नहीं।"
+  },
+  {
+   "beat_id": "b13",
+   "say": "Notes कौन जारी करे? Paper Currency Act, 1861 ने British government को exclusive right दिया, यानी एक authorised issuer। Issuance currency बनाता है; lending वापस चुकाने की शर्त वाला loan है।"
+  },
+  {
+   "beat_id": "b14",
+   "say": "विदेशी seller को gold दिए बिना कैसे चुकाएँ? Mumbai bank के imaginary ₹10 per £1 rate पर importer के ₹100 से £10 भेजे; sterling reserve £100 से £90, seller receipt £0 से £10 हुई।"
+  },
+  {
+   "beat_id": "b15",
+   "say": "Sterling gold-linked हो तो यही indirect bridge Gold Exchange Standard है, domestic gold redemption नहीं। Silver के बदलते भाव के जवाब में Fowler Committee, 1898 ने rupee को gold से जोड़ने की recommendation दी।"
+  },
+  {
+   "beat_id": "b16",
+   "say": "1898 timeline marker है; implementation में late-1890s, खासकर 1899 भी याद रखो। ₹10 per £1 historical rate नहीं; exchange link चलाने को reserves और policy चाहिए।"
+  }
+ ],
+ "kit": "shop",
+ "elements": [
+  {
+   "id": "market",
+   "kind": "shop",
+   "x": 3050,
+   "y": 860,
+   "fill": "#f6f0e4",
+   "cue": [
+    "b5",
+    "Agra"
+   ],
+   "goods": [
+    {
+     "icon": "tw:1f9f5",
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "checking",
+   "kind": "action",
+   "x": 2300,
+   "y": 860,
+   "cue": [
+    "b5",
+    "Agra"
+   ],
+   "until_cue": [
+    "b6",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "unsure"
+    },
+    {
+     "role": "merchant",
+     "who": "other",
+     "mood": "unsure"
+    }
+   ],
+   "objects": [
+    {
+     "name": "cloth",
+     "icon": "tw:1f9f5",
+     "label": ""
+    },
+    {
+     "name": "small",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "large",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "scales",
+     "icon": "tw:2696",
+     "label": ""
+    },
+    {
+     "name": "fee",
+     "icon": "asset:a-34f95451136ddf30",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b5",
+      "Agra"
+     ],
+     "actor": "merchant",
+     "object": "cloth"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b5",
+      "10"
+     ],
+     "actor": "merchant",
+     "object": "cloth",
+     "on": "cloth",
+     "text": "10 units",
+     "style": "tag"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b5",
+      "unfamiliar"
+     ],
+     "actor": "buyer",
+     "object": "small"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b5",
+      "weights"
+     ],
+     "object": "scales",
+     "n": 1
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b5",
+      "8"
+     ],
+     "left": "small",
+     "right": "large",
+     "sign": "?",
+     "left_text": "8 g",
+     "right_text": "10 g"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b5",
+      "fee"
+     ],
+     "from": "buyer",
+     "to": "merchant",
+     "object": "fee",
+     "text": "1 unit"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b5",
+      "11"
+     ],
+     "actor": "buyer",
+     "object": "small",
+     "on": "small",
+     "text": "11 units",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "common",
+   "kind": "action",
+   "x": 2300,
+   "y": 860,
+   "cue": [
+    "b6",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "buyer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "merchant",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "mint",
+     "icon": "tw:1f3ed",
+     "label": ""
+    },
+    {
+     "name": "coins",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "cloth",
+     "icon": "tw:1f9f5",
+     "label": ""
+    },
+    {
+     "name": "payment",
+     "icon": "fa:solid/austral-sign",
+     "label": ""
+    },
+    {
+     "name": "fee",
+     "icon": "asset:a-34f95451136ddf30",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b6",
+      "2"
+     ],
+     "object": "mint",
+     "n": 2
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b6",
+      "coins"
+     ],
+     "object": "coins",
+     "text": "10 g",
+     "n": 2
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b6",
+      "इन्हें"
+     ],
+     "actor": "merchant",
+     "object": "coins"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b6",
+      "लेता"
+     ],
+     "from": "buyer",
+     "to": "merchant",
+     "object": "coins"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b6",
+      "checking"
+     ],
+     "object": "fee",
+     "text": "1 unit",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b6",
+      "बचा,"
+     ],
+     "from": "merchant",
+     "to": "buyer",
+     "object": "fee",
+     "into": "buyer"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b6",
+      "दिए।"
+     ],
+     "actor": "buyer",
+     "from": "11",
+     "to": "10",
+     "object": "coins",
+     "on": "coins",
+     "text": "10 units",
+     "left_text": "11",
+     "right_text": "10",
+     "dir": "down"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b6",
+      "दिए।"
+     ],
+     "from": "buyer",
+     "to": "merchant",
+     "object": "payment",
+     "text": "10 units"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b6",
+      "दिए।"
+     ],
+     "from": "merchant",
+     "to": "buyer",
+     "object": "cloth"
+    }
+   ]
+  },
+  {
+   "id": "rupiya",
+   "kind": "action",
+   "x": 2300,
+   "y": 860,
+   "cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b8",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "presenter",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "coin",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "date",
+     "icon": "tw:1f4dc",
+     "label": ""
+    },
+    {
+     "name": "purity",
+     "icon": "asset:a-1e09af9536de965f",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b7",
+      "standardization"
+     ],
+     "actor": "presenter",
+     "object": "coin"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b7",
+      "1540"
+     ],
+     "object": "date",
+     "text": "1540",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b7",
+      "Rupiya"
+     ],
+     "object": "coin",
+     "on": "coin",
+     "text": "silver Rupiya",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b7",
+      "178"
+     ],
+     "object": "coin",
+     "on": "coin",
+     "text": "लगभग 178 grains",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b7",
+      "11.5"
+     ],
+     "object": "coin",
+     "on": "coin",
+     "text": "11.5 grams",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b7",
+      "high"
+     ],
+     "object": "purity",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b7",
+      "uniform"
+     ],
+     "object": "coin",
+     "n": 3
+    }
+   ]
+  },
+  {
+   "id": "weight",
+   "kind": "action",
+   "x": 2300,
+   "y": 860,
+   "cue": [
+    "b8",
+    "Grains"
+   ],
+   "until_cue": [
+    "b9",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "presenter",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "coin",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "scales",
+     "icon": "tw:2696",
+     "label": ""
+    },
+    {
+     "name": "seeds",
+     "icon": "asset:a-68a7a47d0ab0c7be",
+     "label": ""
+    },
+    {
+     "name": "test",
+     "icon": "asset:a-e82e321b59b81c18",
+     "label": ""
+    },
+    {
+     "name": "portion",
+     "icon": "asset:a-c0803cd9ff9b259c",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b8",
+      "Grains"
+     ],
+     "object": "scales",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b8",
+      "अनाज"
+     ],
+     "object": "seeds",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b8",
+      "नहीं।"
+     ],
+     "actor": "presenter",
+     "object": "seeds"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b8",
+      "Weight"
+     ],
+     "from": "presenter",
+     "to": "scales",
+     "object": "coin"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b8",
+      "mass,"
+     ],
+     "object": "scales",
+     "on": "scales",
+     "text": "कुल mass",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b8",
+      "purity"
+     ],
+     "object": "test",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b8",
+      "silver"
+     ],
+     "object": "portion",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b8",
+      "हिस्सा"
+     ],
+     "object": "coin",
+     "on": "coin",
+     "text": "silver का हिस्सा",
+     "style": "tag"
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b8",
+      "घटाता"
+     ],
+     "actor": "presenter",
+     "object": "coin"
+    }
+   ]
+  },
+  {
+   "id": "mints",
+   "kind": "action",
+   "x": 2300,
+   "y": 860,
+   "cue": [
+    "b9",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b10",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "presenter",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "mint",
+     "icon": "tw:1f3ed",
+     "label": ""
+    },
+    {
+     "name": "coin",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "date",
+     "icon": "tw:1f4dc",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b9",
+      "Empire"
+     ],
+     "object": "mint",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b9",
+      "1556–1707"
+     ],
+     "object": "date",
+     "text": "1556–1707",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b9",
+      "hundreds"
+     ],
+     "object": "mint",
+     "n": 6
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b9",
+      "standardized-weight"
+     ],
+     "object": "coin",
+     "n": 3
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b9",
+      "बनाती"
+     ],
+     "from": "mint",
+     "to": "presenter",
+     "object": "coin"
+    }
+   ]
+  },
+  {
+   "id": "presidencies",
+   "kind": "action",
+   "x": 2300,
+   "y": 860,
+   "cue": [
+    "b10",
+    "Emperor"
+   ],
+   "until_cue": [
+    "b11",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "presenter",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "coin",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "bombay",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "calcutta",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "madras",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b10",
+      "Emperor"
+     ],
+     "actor": "presenter",
+     "object": "coin"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b10",
+      "authority"
+     ],
+     "object": "coin",
+     "on": "coin",
+     "text": "Emperor का नाम",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b10",
+      "1757–1835"
+     ],
+     "object": "coin",
+     "on": "coin",
+     "text": "1757–1835",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b10",
+      "Bombay,"
+     ],
+     "object": "bombay",
+     "text": "Bombay",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b10",
+      "Calcutta"
+     ],
+     "object": "calcutta",
+     "text": "Calcutta",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b10",
+      "Madras"
+     ],
+     "object": "madras",
+     "text": "Madras",
+     "n": 1
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b10",
+      "अलग"
+     ],
+     "left": "bombay",
+     "right": "madras",
+     "sign": "vs"
+    }
+   ]
+  },
+  {
+   "id": "legal",
+   "kind": "action",
+   "x": 2300,
+   "y": 860,
+   "cue": [
+    "b11",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b12",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "payer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "recipient",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "law",
+     "icon": "tw:1f4dc",
+     "label": ""
+    },
+    {
+     "name": "rupee",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": ""
+    },
+    {
+     "name": "payment",
+     "icon": "fa:solid/austral-sign",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b11",
+      "coins"
+     ],
+     "actor": "payer",
+     "object": "rupee"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b11",
+      "Currency"
+     ],
+     "object": "law",
+     "text": "Currency Act of 1835",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b11",
+      "uniform"
+     ],
+     "object": "rupee",
+     "n": 3
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b11",
+      "payment"
+     ],
+     "from": "payer",
+     "to": "recipient",
+     "object": "rupee"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b11",
+      "payment"
+     ],
+     "from": "payer",
+     "to": "recipient",
+     "object": "payment"
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b11",
+      "accepted"
+     ],
+     "actor": "recipient",
+     "object": "rupee"
+    }
+   ]
+  },
+  {
+   "id": "identity",
+   "kind": "action",
+   "x": 2300,
+   "y": 860,
+   "cue": [
+    "b12",
+    "Uniformity"
+   ],
+   "until_cue": [
+    "b13",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "presenter",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "coin",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "william",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "victoria",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "decimal",
+     "icon": "asset:a-af1d4b012cb436d5",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b12",
+      "Uniformity"
+     ],
+     "object": "coin",
+     "n": 3
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b12",
+      "decimalisation"
+     ],
+     "object": "decimal",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b12",
+      "नहीं।"
+     ],
+     "object": "coin",
+     "on": "coin",
+     "text": "decimalisation नहीं",
+     "style": "tag"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b12",
+      "portrait"
+     ],
+     "actor": "presenter",
+     "object": "william"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b12",
+      "1835"
+     ],
+     "object": "william",
+     "on": "william",
+     "text": "original 1835 issue",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b12",
+      "IV"
+     ],
+     "object": "william",
+     "on": "william",
+     "text": "William IV",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b12",
+      "Victoria"
+     ],
+     "object": "victoria",
+     "text": "Queen Victoria",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b12",
+      "नहीं।"
+     ],
+     "actor": "presenter",
+     "object": "victoria"
+    }
+   ]
+  },
+  {
+   "id": "issuance",
+   "kind": "action",
+   "x": 2300,
+   "y": 860,
+   "cue": [
+    "b13",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "authority",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "borrower",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "law",
+     "icon": "tw:1f4dc",
+     "label": ""
+    },
+    {
+     "name": "notes",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "loan",
+     "icon": "tw:1f4b0",
+     "label": ""
+    },
+    {
+     "name": "agreement",
+     "icon": "tw:1f91d",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b13",
+      "Notes"
+     ],
+     "actor": "authority",
+     "object": "notes"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b13",
+      "1861"
+     ],
+     "object": "law",
+     "text": "Paper Currency Act, 1861",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b13",
+      "government"
+     ],
+     "actor": "authority",
+     "object": "law",
+     "on": "law",
+     "text": "British government",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b13",
+      "बनाता"
+     ],
+     "object": "notes",
+     "spot": "authority",
+     "n": 3
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b13",
+      "lending"
+     ],
+     "from": "authority",
+     "to": "borrower",
+     "object": "loan"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b13",
+      "चुकाने"
+     ],
+     "from": "borrower",
+     "to": "authority",
+     "object": "loan"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b13",
+      "शर्त"
+     ],
+     "object": "agreement",
+     "n": 1
+    }
+   ]
+  },
+  {
+   "id": "settlement",
+   "kind": "action",
+   "x": 2300,
+   "y": 860,
+   "cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "until_cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "importer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "seller",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "bank",
+     "icon": "tw:1f3e6",
+     "label": ""
+    },
+    {
+     "name": "rupees",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": ""
+    },
+    {
+     "name": "sterling",
+     "icon": "fa:solid/sterling-sign",
+     "label": ""
+    },
+    {
+     "name": "receipt",
+     "icon": "tw:1f9fe",
+     "label": ""
+    },
+    {
+     "name": "gold",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b14",
+      "seller"
+     ],
+     "actor": "seller",
+     "object": "receipt"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b14",
+      "bank"
+     ],
+     "object": "bank",
+     "text": "Mumbai bank",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b14",
+      "rate"
+     ],
+     "object": "bank",
+     "on": "bank",
+     "text": "₹10 per £1",
+     "style": "tag"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b14",
+      "₹100"
+     ],
+     "from": "importer",
+     "to": "bank",
+     "object": "rupees",
+     "into": "bank",
+     "text": "₹100"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b14",
+      "भेजे;"
+     ],
+     "from": "bank",
+     "to": "seller",
+     "object": "sterling",
+     "text": "£10"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b14",
+      "£100"
+     ],
+     "object": "bank",
+     "on": "bank",
+     "text": "£100",
+     "style": "tag"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b14",
+      "£90,"
+     ],
+     "from": "£100",
+     "to": "£90",
+     "object": "bank",
+     "on": "bank",
+     "text": "£90",
+     "left_text": "£100",
+     "right_text": "£90",
+     "dir": "down"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b14",
+      "£0"
+     ],
+     "object": "receipt",
+     "on": "receipt",
+     "text": "£0",
+     "style": "tag"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b14",
+      "हुई।"
+     ],
+     "from": "£0",
+     "to": "£10",
+     "object": "receipt",
+     "on": "receipt",
+     "text": "£10",
+     "left_text": "£0",
+     "right_text": "£10",
+     "dir": "up"
+    }
+   ]
+  },
+  {
+   "id": "bridge",
+   "kind": "action",
+   "x": 2300,
+   "y": 860,
+   "cue": [
+    "b15",
+    "Sterling"
+   ],
+   "until_cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "presenter",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "rupee",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": ""
+    },
+    {
+     "name": "sterling",
+     "icon": "fa:solid/sterling-sign",
+     "label": ""
+    },
+    {
+     "name": "gold",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "direct",
+     "icon": "tw:27a1",
+     "label": ""
+    },
+    {
+     "name": "silver",
+     "icon": "tw:1f4c8",
+     "label": ""
+    },
+    {
+     "name": "policy",
+     "icon": "tw:1f4c4",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b15",
+      "Sterling"
+     ],
+     "object": "sterling",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b15",
+      "gold-linked"
+     ],
+     "object": "gold",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b15",
+      "bridge"
+     ],
+     "from": "rupee",
+     "to": "sterling",
+     "object": "rupee",
+     "back": true
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b15",
+      "Standard"
+     ],
+     "from": "sterling",
+     "to": "gold",
+     "object": "sterling",
+     "back": true
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b15",
+      "redemption"
+     ],
+     "object": "direct",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b15",
+      "नहीं।"
+     ],
+     "actor": "presenter",
+     "object": "direct"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b15",
+      "Silver"
+     ],
+     "object": "silver",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b15",
+      "1898"
+     ],
+     "object": "policy",
+     "text": "Fowler Committee, 1898",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b15",
+      "जोड़ने"
+     ],
+     "from": "rupee",
+     "to": "gold",
+     "object": "policy"
+    }
+   ]
+  },
+  {
+   "id": "implementation",
+   "kind": "action",
+   "x": 2300,
+   "y": 860,
+   "cue": [
+    "b16",
+    "1898"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "presenter",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "recommendation",
+     "icon": "tw:1f4c4",
+     "label": ""
+    },
+    {
+     "name": "implementation",
+     "icon": "tw:1f4c4",
+     "label": ""
+    },
+    {
+     "name": "reserve",
+     "icon": "fa:solid/sterling-sign",
+     "label": ""
+    },
+    {
+     "name": "policy",
+     "icon": "tw:1f4c4",
+     "label": ""
+    },
+    {
+     "name": "rupee",
+     "icon": "fa:solid/indian-rupee-sign",
+     "label": ""
+    },
+    {
+     "name": "link",
+     "icon": "asset:a-786761ac14e9ca04",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b16",
+      "1898"
+     ],
+     "object": "recommendation",
+     "text": "1898",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b16",
+      "1899"
+     ],
+     "object": "implementation",
+     "text": "1899 implementation",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b16",
+      "याद"
+     ],
+     "from": "recommendation",
+     "to": "implementation",
+     "object": "recommendation",
+     "back": true
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b16",
+      "₹10"
+     ],
+     "actor": "presenter",
+     "object": "rupee"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b16",
+      "exchange"
+     ],
+     "object": "link",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b16",
+      "reserves"
+     ],
+     "object": "reserve",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b16",
+      "policy"
+     ],
+     "object": "policy",
+     "n": 1
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cue": [
+    "b5",
+    "",
+    0.0
+   ],
+   "x": 2520,
+   "y": 530,
+   "zoom": 1,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b5",
+    "weights"
+   ],
+   "x": 2300,
+   "y": 550,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b5",
+    "fee"
+   ],
+   "x": 2300,
+   "y": 570,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b6",
+    "",
+    0.0
+   ],
+   "x": 2400,
+   "y": 530,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b6",
+    "Merchant"
+   ],
+   "x": 2300,
+   "y": 570,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b7",
+    "",
+    0.0
+   ],
+   "x": 2470,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "1540"
+   ],
+   "x": 2300,
+   "y": 540,
+   "zoom": 1.2,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b7",
+    "high"
+   ],
+   "x": 2300,
+   "y": 550,
+   "zoom": 1.25,
+   "frames": 30
+  },
+  {
+   "cue": [
+    "b8",
+    "",
+    0.0
+   ],
+   "x": 2300,
+   "y": 540,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b8",
+    "purity"
+   ],
+   "x": 2300,
+   "y": 570,
+   "zoom": 1.25,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b9",
+    "",
+    0.0
+   ],
+   "x": 2420,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b9",
+    "hundreds"
+   ],
+   "x": 2300,
+   "y": 530,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b10",
+    "",
+    0.0
+   ],
+   "x": 2300,
+   "y": 550,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b10",
+    "Company"
+   ],
+   "x": 2300,
+   "y": 540,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b10",
+    "Bombay,"
+   ],
+   "x": 2300,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b11",
+    "",
+    0.0
+   ],
+   "x": 2420,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b11",
+    "Currency"
+   ],
+   "x": 2300,
+   "y": 530,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b11",
+    "payment"
+   ],
+   "x": 2300,
+   "y": 570,
+   "zoom": 1.25,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b12",
+    "",
+    0.0
+   ],
+   "x": 2300,
+   "y": 530,
+   "zoom": 1.1,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b12",
+    "original"
+   ],
+   "x": 2300,
+   "y": 550,
+   "zoom": 1.25,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b13",
+    "",
+    0.0
+   ],
+   "x": 2400,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b13",
+    "1861"
+   ],
+   "x": 2300,
+   "y": 530,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b13",
+    "lending"
+   ],
+   "x": 2300,
+   "y": 570,
+   "zoom": 1.25,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b14",
+    "",
+    0.0
+   ],
+   "x": 2400,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b14",
+    "₹100"
+   ],
+   "x": 2300,
+   "y": 570,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b14",
+    "reserve"
+   ],
+   "x": 2300,
+   "y": 540,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b15",
+    "",
+    0.0
+   ],
+   "x": 2300,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b15",
+    "redemption"
+   ],
+   "x": 2300,
+   "y": 550,
+   "zoom": 1.15,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b15",
+    "Fowler"
+   ],
+   "x": 2300,
+   "y": 530,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b16",
+    "",
+    0.0
+   ],
+   "x": 2300,
+   "y": 520,
+   "zoom": 1.1,
+   "frames": 40
+  },
+  {
+   "cue": [
+    "b16",
+    "₹10"
+   ],
+   "x": 2300,
+   "y": 550,
+   "zoom": 1.2,
+   "frames": 35
+  },
+  {
+   "cue": [
+    "b16",
+    "reserves"
+   ],
+   "x": 2450,
+   "y": 520,
+   "zoom": 1.05,
+   "frames": 45
+  }
+ ],
+ "schema": "bie.brain.world-c-plan/1"
+}

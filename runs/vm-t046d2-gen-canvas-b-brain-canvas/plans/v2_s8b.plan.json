@@ -1,0 +1,533 @@
+{
+ "id": "v2_s8b",
+ "part_id": "c06.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b55",
+   "say": "Salt medium of exchange बना। किसान को खुद salt नहीं चाहिए; आगे चलने से लिया। इसलिए double coincidence हटी: पहले buyer को कपड़ा देना नहीं पड़ा।"
+  },
+  {
+   "beat_id": "b56",
+   "say": "Payment के बाहर भी उपयोग है: salt खाने में, cattle रोज़ी में काम आते हैं; tea और tobacco की अलग demand है।"
+  },
+  {
+   "beat_id": "b57",
+   "say": "अपने उपयोग और community acceptance से barter आसान हुआ, हर जगह नहीं। Metallic coins common होने से पहले यह medium था; उपयोग अकेला काफी नहीं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "book_p003_i4",
+   "kind": "picture",
+   "cell": [
+    0,
+    0,
+    12,
+    5
+   ],
+   "cue": [
+    "b56",
+    ""
+   ],
+   "picture": {
+    "type": "table",
+    "title": "Columns",
+    "item_id": "p003-i4",
+    "columns": [
+     "Commodity",
+     "Where it was used"
+    ],
+    "rows": [
+     {
+      "cells": [
+       "Salt",
+       "Ancient Rome and Africa"
+      ],
+      "item_id": "p003-i5",
+      "cue": [
+       "b56",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Cattle",
+       "Early pastoral societies"
+      ],
+      "item_id": "p003-i6",
+      "cue": [
+       "b56",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Cowrie shells",
+       "India, China, and Africa"
+      ],
+      "item_id": "p003-i7",
+      "cue": [
+       "b56",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Tea bricks",
+       "Central Asia and Tibet"
+      ],
+      "item_id": "p003-i8",
+      "cue": [
+       "b56",
+       ""
+      ]
+     },
+     {
+      "cells": [
+       "Tobacco",
+       "Colonial America"
+      ],
+      "item_id": "p003-i9",
+      "cue": [
+       "b56",
+       ""
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "salt_onward",
+   "kind": "action",
+   "cell": [
+    0,
+    5,
+    12,
+    3
+   ],
+   "cue": [
+    "b55",
+    "Salt"
+   ],
+   "until_cue": [
+    "b56",
+    "Payment"
+   ],
+   "tone": "ink",
+   "size": 24,
+   "template": "compose",
+   "actors": [
+    {
+     "role": "farmer",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "recipient",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "salt",
+     "icon": "tw:1f9c2",
+     "label": ""
+    },
+    {
+     "name": "cloth_requirement",
+     "icon": "tw:1f9f5",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b55",
+      "Salt"
+     ],
+     "actor": "farmer",
+     "object": "salt"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b55",
+      "आगे"
+     ],
+     "actor": "farmer",
+     "from": "farmer",
+     "to": "recipient",
+     "object": "salt"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b55",
+      "कपड़ा"
+     ],
+     "object": "cloth_requirement",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b55",
+      "देना"
+     ],
+     "on": "cloth_requirement",
+     "text": "कपड़ा देना नहीं पड़ा",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "no_cloth_requirement",
+   "kind": "mark",
+   "cue": [
+    "b55",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b56",
+    "Payment"
+   ],
+   "tone": "danger",
+   "target": "salt_onward",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "independent_uses",
+   "kind": "action",
+   "cell": [
+    0,
+    5,
+    12,
+    3
+   ],
+   "cue": [
+    "b56",
+    "Payment"
+   ],
+   "until_cue": [
+    "b57",
+    "अपने"
+   ],
+   "tone": "ink",
+   "size": 24,
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "salt",
+     "icon": "tw:1f9c2",
+     "label": ""
+    },
+    {
+     "name": "food",
+     "icon": "fl:pot-of-food",
+     "label": ""
+    },
+    {
+     "name": "cattle",
+     "icon": "tw:1f404",
+     "label": ""
+    },
+    {
+     "name": "tea",
+     "icon": "tw:1f375",
+     "label": ""
+    },
+    {
+     "name": "tobacco",
+     "icon": "fa:solid/smoking",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b56",
+      "उपयोग"
+     ],
+     "object": "food",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b56",
+      "खाने"
+     ],
+     "to": "food",
+     "object": "salt",
+     "into": "food"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b56",
+      "cattle"
+     ],
+     "object": "cattle",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b56",
+      "रोज़ी"
+     ],
+     "on": "cattle",
+     "text": "रोज़ी में काम आते हैं",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b56",
+      "tea"
+     ],
+     "object": "tea",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b56",
+      "tobacco"
+     ],
+     "object": "tobacco",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b56",
+      "demand"
+     ],
+     "on": "tea",
+     "text": "अलग demand है",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "local_acceptance",
+   "kind": "action",
+   "cell": [
+    0,
+    5,
+    12,
+    3
+   ],
+   "cue": [
+    "b57",
+    "अपने"
+   ],
+   "tone": "ink",
+   "size": 24,
+   "template": "compose",
+   "actors": [
+    {
+     "role": "holder",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "member",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "salt",
+     "icon": "tw:1f9c2",
+     "label": ""
+    },
+    {
+     "name": "commodity_money",
+     "icon": "tw:1f4b0",
+     "label": ""
+    },
+    {
+     "name": "community",
+     "icon": "fa:solid/people-group",
+     "label": ""
+    },
+    {
+     "name": "coins",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b57",
+      "उपयोग"
+     ],
+     "actor": "holder",
+     "object": "salt"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b57",
+      "उपयोग"
+     ],
+     "object": "commodity_money",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b57",
+      "community"
+     ],
+     "object": "community",
+     "n": 1
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b57",
+      "acceptance"
+     ],
+     "actor": "member",
+     "object": "salt"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b57",
+      "आसान"
+     ],
+     "actor": "holder",
+     "from": "holder",
+     "to": "member",
+     "object": "salt"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b57",
+      "हर"
+     ],
+     "on": "community",
+     "text": "हर जगह नहीं",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b57",
+      "coins"
+     ],
+     "object": "coins",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b57",
+      "पहले"
+     ],
+     "on": "salt",
+     "text": "पहले यह medium था",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b57",
+      "अकेला"
+     ],
+     "on": "salt",
+     "text": "उपयोग अकेला काफी नहीं",
+     "style": "tag"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b55",
+    "Salt"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    5,
+    12,
+    3
+   ],
+   "cue": [
+    "b55",
+    "आगे"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b56",
+    "उपयोग"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    5,
+    12,
+    3
+   ],
+   "cue": [
+    "b57",
+    "acceptance"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    8
+   ],
+   "cue": [
+    "b57",
+    "coins"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

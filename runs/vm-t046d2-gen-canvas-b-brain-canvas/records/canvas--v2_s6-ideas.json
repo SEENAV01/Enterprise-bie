@@ -1,0 +1,358 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "canvas",
+ "unit": "v2_s6-ideas",
+ "status": "passed",
+ "instructions_version": "visual-ideas/1",
+ "rulebook_version": "canvas_profile@2026-10-29.1+content_types@2026-10-27.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-02.3+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3",
+ "rulebook_digest": "8806c6ee4a7b0de68af6d616d63f489dcda85e158cf4d213d81d43562bb5b1fc",
+ "rules_used": [
+  "CV-01",
+  "CV-02",
+  "CV-03",
+  "CV-04",
+  "CV-05",
+  "CV-06",
+  "CV-07",
+  "CV-08",
+  "CV-09",
+  "CV-10",
+  "CV-11",
+  "CV-12",
+  "CV-13",
+  "CV-14",
+  "CV-15",
+  "CV-16",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "VG-02",
+  "VG-04",
+  "VG-07",
+  "VG-08",
+  "VG-10",
+  "D1-01",
+  "D1-02",
+  "D1-03",
+  "D1-04",
+  "D1-05",
+  "D1-06",
+  "D2-01",
+  "D2-02",
+  "D2-03",
+  "D2-04",
+  "D2-05"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "4141701cfb667d082d27695cbf728a6ac5c5eae42ddd0d27b98085587f9a1e04",
+ "card": null,
+ "prefix_sha256": "6a98d0dea995c8d497d8579bfa576fdd9aec6bfb869340a518c495b55cecadfc",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's visual thinker for one part of a video lesson of Indian Economy for UPSC / State PCS aspirants (UPSC / State PCS). The script is written and\npassed; you do not change a word. Before any layout, say for EVERY beat what the learner should SEE so that the spoken point is\nclear through the eyes (Navin, 30 October 2026: \"jo bola ja rha hai screen ke visuals se wo baat clear ho\"; a screen of text alone\nis a book, not a video). Code then finds the things in BIE's icon index and asset library, places the book's own pictures, and\nchecks the layout.\n\nCourse: \"3. Money\" · learner language: Hinglish.\n\nFor each beat give:\n- idea: the key idea in a few words (what the teacher is making the learner understand right now).\n- relation: ONE id from this list, how the idea relates its things (or \"other\" with relation_note; an \"other\" is logged so Navin can\n  add it):\n- reject: a cross mark on the thing refused (the thing's icon first, then the cross on it, on the word that refuses) (saanche: refuse)\n- accept: a tick on the thing accepted (saanche: accept)\n- compulsory: a law scroll with a stamp on it, beside the thing the law binds\n- limit: a meter or a stack that fills up to a red line where it stops (the limit's number on the line) (saanche: coin_count)\n- more_less: two sizes side by side, or a crowd / stack that grows or shrinks on the word (saanche: cheque)\n- count: a counted stack or crowd whose number is the narration's number (saanche: count_stack, coin_count)\n- sequence: a numbered row or a timeline with arrows; the book's own years and labels when the part covers a book timeline (saanche: hand_over, pay_change, upi, card_tap, cheque, barter_swap)\n- cause_effect: an arrow chain: the cause's icon, an arrow, the effect's icon or number (saanche: pay_change, upi, card_tap, cheque)\n- compare: a split screen (the same slots on both sides) or a balance scale; the book's own table when the part covers one (saanche: barter_swap)\n- part_whole: a grouping: the whole as a box, its parts as icons inside it, or a tree\n- place: a map with the place marked, or the place's flag beside the thing\n- change: before and after side by side, the old struck out, the new in its place; a struck value with an arrow only when the SAME quantity changes; change given back is the pay_change saancha (saanche: pay_change, cheque)\n- promise: a receipt or a handshake between the two parties, the promise's words as a short label (saanche: cheque, hand_over)\n- question: the thing asked about with a question mark beside it; the answer's picture replaces the mark when the answer comes\n- other: a relation outside this list: the step logs it (relations_outside_list) so Navin can add an entry; the beat still shows its things as themselves\n- things, people, places: the concrete nouns THIS beat names or implies, as plain English or Hindi words a picture can show:\n  exactly the beat's own things, never a thing from an example, a card or another part (Navin, 2 November 2026: \"jis cheej ka\n  jikar hai wohi cheej dikhe\"). Every thing you list is a promise: it must appear on screen in this beat. A real person is never\n  drawn (card rule 8): name the role or the object, not the person.\n- shows: what is seen, in at most 8 words, as a picture description of this beat's own things and what happens to\n  them. Never a sentence for the screen: the sentence is the narration.\n- on_word: the word of this beat (exactly as written) on which the picture should appear (\"\" = the beat's start).\n- image_wanted: a real object of this beat that an icon cannot show and a photograph or museum image can, as search words; \"\"\n  when an icon is enough. Never a person's portrait (card rule 8).\n- template: when the beat tells a PROCESS the learner should see happen (Navin, 1 November 2026: \"process show nahi ho rahi hai\"),\n  the recipe that shows it, or \"compose\" when no recipe fits but the motion parts do (the layout step writes the parts); \"none\"\n  when the beat tells no process; \"other\" only when a motion part BIE lacks is needed (template_note names it: it goes to the\n  missing-capability log). The actors, things and numbers always come from this beat. The recipes:\n- hand_over: one person gives a thing to another (steps give, take; actors giver, taker; objects thing; parts give, hold)\n- pay_change: the buyer hands over the payment, takes the goods and gets the difference back (each amount travels as a tag on what carries it) (steps pay, goods, change; actors buyer, seller; objects goods, money (optional), change_money (optional); amounts paid, change, price (optional); parts appear, give, hold, move, show_text)\n- barter_swap: two people swap their things; at 'ask' each wonders whether they want the other's thing (steps offer, ask, swap; actors a, b; objects a_thing, b_thing; parts give, hold, show_text)\n- upi: the buyer's device moves to the seller's sign and back; the buyer's device shows the amount paid, the seller's shows it received (steps scan, paid, received; actors buyer, seller; objects device (optional), sign (optional), seller_device (optional); amounts amount; parts appear, hold, move, show_text)\n- card_tap: a card moves to the seller's machine and back; the machine shows the amount approved (steps tap, approved; actors buyer, seller; objects card (optional), machine (optional); amounts amount; parts appear, hold, move, show_text)\n- cheque: the amount is written on the instrument, it moves into the place that pays, and the two balances change (payer down, payee up) (steps write, hand, balances; actors payer, payee; objects cheque (optional), place (optional); amounts amount, payer_before (optional), payer_after (optional), payee_before (optional), payee_after (optional); parts appear, hold, meter, move, show_text)\n- coin_count: things drop onto a pile while a meter rises; at 'limit' the meter stops at its red line and one more is refused (steps count, limit; objects coin (optional); amounts each, limit; parts appear, meter, refuse)\n- refuse: the person looks at the thing, shakes the head, and a cross lands on the thing (steps show, refuse; actors who; objects thing; parts appear, refuse)\n- accept: the person looks at the thing, nods, and a tick lands on the thing (steps show, accept; actors who; objects thing; parts accept, appear)\n- count_stack: n things appear one by one as they are said (steps count; objects thing; amounts n; parts appear)\n- compose: a process no recipe has, written as its parts in order (parts [{part, cue, ...fields}]); a part BIE lacks: template other in the dikhane ki list, with a note (it goes to the missing-capability log)\n  The motion parts every process is made of:\n- hold (actor, object, reach?): a person holds a thing in the front hand (reach 0..1 lifts it towards the other)\n- give (from, to, object, text?): a thing travels from one person's hand to the other's (give and take), with an optional tag of text on it\n- move (object, to, back?, into?, text?): a thing moves along a path to a spot, a person or another thing; back returns it; into lets it go into the target\n- transform (object, into): a thing turns into another thing where it is (A → B)\n- show_text (on, text, style?, inside?): a screen, sign, tag or thought bubble on a person or thing shows a short text (style: tag, sign, screen, ok, bubble, write)\n- meter (to, from?, limit?, style?, title?, dir?, on?, end?): a counter or meter changes: a bar fills to its limit (style bar), or a number changes from one value to another with an up or down arrow (style number)\n- appear (object, n?, spot?, layout?, end?): things appear one by one (n of them in a grid, or dropping onto a pile until a later step)\n- refuse (object, actor?): a person shakes the head and a cross lands on the thing\n- accept (object, actor?): a person nods and a tick lands on the thing\n- compare (left, right, sign?, left_text?, right_text?): two things side by side with a sign between them (=, ≠, ?, vs, <, >)\n- template_note: for \"other\" the process in a few words; for \"none\" on a beat that names a process word, why no saancha.\nCode has already decided this part's picture (table: COMPARISON) from the book's own table; it is placed at the top of the canvas. Set picture_type to \"table\" and use picture_note for what the beats add around it.\nReply with the JSON object only.",
+  "user": "Chapter: 3. Money. Part c05.1 (11 beats).\nThe part (JSON):\n{\"part\": {\"id\": \"v2_s6\", \"part_id\": \"c05.1\", \"card_type\": \"comparison\", \"story\": false}, \"beats\": [{\"beat_id\": \"b36\", \"say\": \"Salt और note की कीमत कहाँ से आई? मानिए salt packet ₹20 में बिकता और payment में चलता है; note से ₹500 चुकते हैं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b36a\", \"say\": \"Payment में लेना बंद हो, तो salt फिर भी उपयोगी और बेचने लायक है; कीमत बदल सकती है। Note का कागज़ ₹500 नहीं दिलाता; यह redemption का वादा नहीं है।\", \"relation_guess\": \"reject\", \"template_guess\": \"none\"}, {\"beat_id\": \"b37\", \"say\": \"Intrinsic value अपनी चीज़ से है, जैसे सोना। Extrinsic value बाहर के trust और law से है, जैसे note; source में material बनाम government या authority backing का फर्क है।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b38\", \"say\": \"Inherent worth यानी payment के बाहर उपयोग: salt खाना बनाने में लगेगा। Monetary use हटे तो भी बिकेगा; note का कागज़ ₹500 नहीं दिलाएगा। यहाँ nil का मतलब negligible material value है, valid note की purchasing power नहीं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b39\", \"say\": \"Gold, silver, salt, cattle, cowrie shells commodity वाले examples हैं; notes, bank deposits, digital money दूसरे। जैसे account balance में physical सामान नहीं, bank पर payment योग्य claim है।\", \"relation_guess\": \"place\", \"template_guess\": \"count_stack\"}, {\"beat_id\": \"b40\", \"say\": \"Salt यहाँ उपलब्ध और उपयोगी है, इसलिए चलता है; बाहर seller मना कर सकता है: वहाँ buyers इसे आगे नहीं लेते। Trusted रुपये वह लेता है क्योंकि उन्हें दूसरी दुकान पर खर्च कर सकेगा।\", \"relation_guess\": \"cause_effect\", \"template_guess\": \"refuse\"}, {\"beat_id\": \"b41\", \"say\": \"Divisibility और portability पहले difficult, दूसरे में easy हैं: गाय बाँटने और salt ढोने के मुकाबले छोटा payment आसान है। Note के टुकड़े करना divisibility नहीं।\", \"relation_guess\": \"sequence\", \"template_guess\": \"none\"}, {\"beat_id\": \"b42\", \"say\": \"एक तरफ metal coins और gold bullion, यानी weight और purity वाला सोना। दूसरी तरफ rupee notes, bank balance और UPI; UPI रकम भेजने का रास्ता है, अलग रकम नहीं।\", \"relation_guess\": \"more_less\", \"template_guess\": \"upi\"}, {\"beat_id\": \"b43\", \"say\": \"Legal tender कानून में बकाया चुकाता है; trust आगे खर्चने का भरोसा है। छोटे payments और दूरी के लिए divisibility, portability चाहिए। Durability यानी टिकना: commodities generally टिकती हैं; paper खराब होता है, digital technology पर निर्भर है।\", \"relation_guess\": \"promise\", \"template_guess\": \"none\"}, {\"beat_id\": \"b44\", \"say\": \"Commodity prices बदलते हैं; backing gold redemption नहीं। हर coin intrinsic नहीं; access रुकना balance मिटना नहीं।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}, {\"beat_id\": \"b45\", \"say\": \"अपना उपयोग monetary value नहीं; cattle बीमार पड़ते हैं, salt नमी से बिगड़ता है।\", \"relation_guess\": \"place\", \"template_guess\": \"none\"}], \"items\": [{\"item_id\": \"p002-i2\", \"content_type\": \"comparison\", \"content\": \"ASPECT: BASIS OF VALUE | INTRINSIC VALUE OF MONEY: Intrinsic / Natural | EXTRINSIC VALUE OF MONEY: Trust / Legally Enforced\"}, {\"item_id\": \"p002-i3\", \"content_type\": \"comparison\", \"content\": \"ASPECT: SOURCE OF VALUE | INTRINSIC VALUE OF MONEY: Own Material Value | EXTRINSIC VALUE OF MONEY: Government / Authority Backing\"}, {\"item_id\": \"p002-i4\", \"content_type\": \"comparison\", \"content\": \"ASPECT: INHERENT WORTH | INTRINSIC VALUE OF MONEY: Present | EXTRINSIC VALUE OF MONEY: Not Present\"}, {\"item_id\": \"p002-i5\", \"content_type\": \"comparison\", \"content\": \"ASPECT: VALUE IF NOT USED AS MONEY | INTRINSIC VALUE OF MONEY: Retains Value | EXTRINSIC VALUE OF MONEY: Nil Value\"}, {\"item_id\": \"p002-i6\", \"content_type\": \"comparison\", \"content\": \"ASPECT: EXAMPLES | INTRINSIC VALUE OF MONEY: Gold, Silver, Salt, Cattle, Cowrie Shells | EXTRINSIC VALUE OF MONEY: Currency Notes, Bank Deposits, Digital Money\"}, {\"item_id\": \"p002-i7\", \"content_type\": \"comparison\", \"content\": \"ASPECT: ACCEPTABILITY | INTRINSIC VALUE OF MONEY: Limited (by Utility & Availability) | EXTRINSIC VALUE OF MONEY: Wide (by Legal Tender & Trust)\"}, {\"item_id\": \"p002-i8\", \"content_type\": \"comparison\", \"content\": \"ASPECT: DURABILITY | INTRINSIC VALUE OF MONEY: Generally Durable | EXTRINSIC VALUE OF MONEY: Varies (Paper perishable, Digital depends on Technology)\"}, {\"item_id\": \"p002-i9\", \"content_type\": \"comparison\", \"content\": \"ASPECT: DIVISIBILITY | INTRINSIC VALUE OF MONEY: Difficult | EXTRINSIC VALUE OF MONEY: Easy\"}, {\"item_id\": \"p002-i10\", \"content_type\": \"comparison\", \"content\": \"ASPECT: PORTABILITY | INTRINSIC VALUE OF MONEY: Difficult (Bulky / Heavy) | EXTRINSIC VALUE OF MONEY: Easy\"}, {\"item_id\": \"p002-i11\", \"content_type\": \"comparison\", \"content\": \"ASPECT: EXAMPLE IN CONTEXT | INTRINSIC VALUE OF MONEY: Metal Coins, Gold Bullion | EXTRINSIC VALUE OF MONEY: Rupee Notes, Bank Balance, UPI\"}], \"book_pictures\": [{\"item_id\": \"p002-i1\", \"type\": \"table\", \"title\": \"COMPARISON\"}]}\n\nReply with the ideas JSON."
+ },
+ "rounds": [
+  {
+   "round": 0,
+   "started_at": 1793589974.9909346,
+   "mode": "resume",
+   "notes": {
+    "about": "Use the book’s comparison table as the anchor, with concrete demonstrations distinguishing material usefulness from monetary acceptance. Preserve the script’s qualifications so the table’s simplified claims do not become misconceptions.",
+    "key_questions": [
+     "What remains useful when an object stops being accepted as payment?",
+     "How do material value, trust and legal backing differ?",
+     "Why do acceptance, divisibility, portability and durability need qualifications?"
+    ],
+    "decisions": [
+     {
+      "decision": "Highlight the relevant table row while showing objects below it.",
+      "reason": "The comparison must be visible through objects, not repeated as text alone."
+     },
+     {
+      "decision": "Keep material value separate from purchasing power and bank claims.",
+      "reason": "Nil material value does not mean a valid note or bank balance is worthless."
+     },
+     {
+      "decision": "Show UPI as a route between balances, not another stock of money.",
+      "reason": "The narration explicitly distinguishes the payment channel from the amount."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "Use the book’s comparison table as the anchor, with concrete demonstrations distinguishing material usefulness from monetary acceptance. Preserve the script’s qualifications so the table’s simplified claims do not become misconceptions.",
+     "key_questions": [
+      "What remains useful when an object stops being accepted as payment?",
+      "How do material value, trust and legal backing differ?",
+      "Why do acceptance, divisibility, portability and durability need qualifications?"
+     ],
+     "decisions": [
+      {
+       "decision": "Highlight the relevant table row while showing objects below it.",
+       "reason": "The comparison must be visible through objects, not repeated as text alone."
+      },
+      {
+       "decision": "Keep material value separate from purchasing power and bank claims.",
+       "reason": "Nil material value does not mean a valid note or bank balance is worthless."
+      },
+      {
+       "decision": "Show UPI as a route between balances, not another stock of money.",
+       "reason": "The narration explicitly distinguishes the payment channel from the amount."
+      }
+     ],
+     "uncertain": []
+    },
+    "beats": [
+     {
+      "beat_id": "b36",
+      "idea": "Where payment value comes from",
+      "relation": "question",
+      "relation_note": "",
+      "things": [
+       "salt packet",
+       "₹500 note"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Salt ₹20; note ₹500; question marks above.",
+      "on_word": "कीमत",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Appear salt packet and note with question marks; show_text ₹20 on salt at ₹20 and ₹500 on note at ₹500; accept each as payment at its payment clause."
+     },
+     {
+      "beat_id": "b36a",
+      "idea": "Usefulness survives loss of monetary acceptance",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "salt packet",
+       "note paper"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Payment crossed; useful salt remains; paper lacks ₹500.",
+      "on_word": "बंद",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Refuse salt as payment at बंद; retain salt with usefulness and resale ticks. Compare note paper with ₹500 using ≠ at नहीं; cross a redemption-promise tag at नहीं है. Do not cross the valid note’s purchasing power."
+     },
+     {
+      "beat_id": "b37",
+      "idea": "Material versus external backing",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "gold",
+       "currency note",
+       "law scroll",
+       "government authority seal"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Gold itself; note beside trust and stamped law.",
+      "on_word": "Intrinsic",
+      "image_wanted": "",
+      "template": "none",
+      "template_note": ""
+     },
+     {
+      "beat_id": "b38",
+      "idea": "Nonmonetary utility is not purchasing power",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "salt",
+       "cooking pot",
+       "note paper",
+       "valid currency note"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Salt enters cooking; paper differs from valid note.",
+      "on_word": "उपयोग",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Move salt into cooking pot at खाना बनाने; retain a resale tick when monetary use is removed. Compare paper’s negligible material value with the valid note’s intact purchasing-power tick at nil."
+     },
+     {
+      "beat_id": "b39",
+      "idea": "Commodity objects versus monetary claims",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "gold",
+       "silver",
+       "salt",
+       "cattle",
+       "cowrie shells",
+       "currency notes",
+       "bank account balance",
+       "digital money display",
+       "bank"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Commodity objects opposite notes, balances, digital claims.",
+      "on_word": "Gold",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Appear each named example at its spoken cue in the corresponding column. At claim connect the account balance to the bank with a payment-claim tag, not a physical stock of goods."
+     },
+     {
+      "beat_id": "b40",
+      "idea": "Acceptance depends on onward spendability",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "salt",
+       "rupees"
+      ],
+      "people": [
+       "local seller",
+       "outside seller",
+       "next shop seller"
+      ],
+      "places": [
+       "local market",
+       "outside market",
+       "next shop"
+      ],
+      "shows": "Salt refused outside; rupees travel to next shop.",
+      "on_word": "Salt",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Accept salt locally; refuse salt with outside seller at मना. Show outside seller’s thought bubble of onward buyers refusing salt at नहीं लेते. Accept rupees at लेता, then give them from that seller to the next shop seller at दूसरी दुकान."
+     },
+     {
+      "beat_id": "b41",
+      "idea": "Small payments without cutting notes",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "cow",
+       "salt load",
+       "small payment amount",
+       "currency note"
+      ],
+      "people": [
+       "salt carrier"
+      ],
+      "places": [],
+      "shows": "Indivisible cow, heavy salt; small payment, intact note.",
+      "on_word": "Divisibility",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Compare whole cow and carried salt load with a small payment amount. Show a cut-line overlay on the intact note, then refuse that interpretation at नहीं; never depict cutting as monetary divisibility."
+     },
+     {
+      "beat_id": "b42",
+      "idea": "Money examples versus payment route",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "metal coins",
+       "gold bullion",
+       "rupee notes",
+       "bank balance display",
+       "UPI payment route"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Coins, bullion opposite notes, balance; UPI routes amount.",
+      "on_word": "एक",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Appear examples in two groups; attach weight and purity tags to bullion. At भेजने move an unnumbered amount marker from the bank balance along the UPI route; do not create a separate UPI balance."
+     },
+     {
+      "beat_id": "b43",
+      "idea": "Legal backing and practical payment properties",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "law scroll",
+       "legal tender money",
+       "debt record",
+       "small payment amount",
+       "commodities",
+       "paper currency",
+       "digital money display",
+       "technology infrastructure"
+      ],
+      "people": [
+       "payer",
+       "creditor",
+       "shopkeeper"
+      ],
+      "places": [
+       "distant shop"
+      ],
+      "shows": "Stamped tender clears debt; durability differs across forms.",
+      "on_word": "Legal",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Place stamped law beside tender; give tender from payer to creditor and mark debt settled at चुकाता. Connect trusted money to onward shop spending. Move a small payment toward the distant shop. Compare durable commodities, damaged paper and digital display connected to technology at their spoken cues."
+     },
+     {
+      "beat_id": "b44",
+      "idea": "Four limits to simplified money comparisons",
+      "relation": "compare",
+      "relation_note": "",
+      "things": [
+       "commodity price tag",
+       "gold",
+       "authority backing seal",
+       "coin",
+       "account balance display",
+       "account access gate"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Prices fluctuate; redemption crossed; blocked access preserves balance.",
+      "on_word": "बदलते",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Meter commodity price up and down without invented values. Compare authority backing with gold redemption using ≠ at नहीं. Show coin with intrinsic-value question mark at हर coin. Close the account access gate at रुकना while leaving its balance unchanged at मिटना नहीं."
+     },
+     {
+      "beat_id": "b45",
+      "idea": "Utility differs from money; commodities can deteriorate",
+      "relation": "cause_effect",
+      "relation_note": "",
+      "things": [
+       "cattle",
+       "salt",
+       "moisture"
+      ],
+      "people": [],
+      "places": [],
+      "shows": "Utility ≠ monetary value; sick cattle, damp salt.",
+      "on_word": "अपना",
+      "image_wanted": "",
+      "template": "compose",
+      "template_note": "Show utility ≠ monetary value above the named commodities. Transform healthy cattle into visibly sick cattle at बीमार; move moisture into salt and transform it into damp clumped salt at बिगड़ता."
+     }
+    ],
+    "picture_type": "table",
+    "picture_note": "Keep the book’s COMPARISON table at the top. Highlight corresponding rows and add synchronized object demonstrations below; use concise qualification tags beside Nil Value, acceptability, durability and UPI rather than silently endorsing oversimplifications."
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793589974.9913719
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 0.0,
+ "navin_verdict": null
+}

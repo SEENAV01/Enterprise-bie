@@ -1,0 +1,1068 @@
+{
+ "id": "v8_s1",
+ "part_id": "c18.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b1",
+   "say": "₹100 का promise क्या हमेशा उतना सामान दिलाता है? Note दिखे नहीं, तो उसकी value कैसे पहचानोगे?"
+  },
+  {
+   "beat_id": "b2",
+   "say": "छोटे अंक न दिखें तो? Accessibility Features यानी पहचान आसान बनाने वाली बनावट: raised printing और identification marks छूकर पहचानो; larger numerals और distinct note sizes भी मदद करते हैं।"
+  },
+  {
+   "beat_id": "b3",
+   "say": "रोशनी में कौन दिखता है? Watermark में Mahatma Gandhi कागज़ के भीतर दिखते हैं, ऊपर छपा portrait नहीं। Security Thread कागज़ में डाली पतली strip है; उसके भारत, RBI और denomination देखो, सिर्फ dark line नहीं।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "Tilt पर चित्र उभरे? Latent Image देखने का angle बदलकर जाँचते हैं। See-through Register में आगे-पीछे के अधूरे निशान रोशनी में पूरी denomination बनाते हैं; यहाँ दोनों faces का alignment जाँचते हो, भीतर बना portrait नहीं।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "Lens में छोटी line अक्षर बन जाए तो? Micro-lettering यानी बहुत छोटे अक्षरों में RBI और denomination; crude copy में ये धुँधले मिल सकते हैं। Higher denominations की Optically Variable Ink यानी tilt पर रंग बदलने वाली ink, जैसे चमकीला card घुमाओ; छिपा चित्र उभरना अलग check है।"
+  },
+  {
+   "beat_id": "b6",
+   "say": "उँगली से उभार मिले? Intaglio Printing में छपे हिस्से raised होते हैं, पूरा कागज़ नहीं। Number Panels में छोटे से बड़े होते digits trace करो; यह printing-pattern check है, रकम बढ़ना नहीं।"
+  },
+  {
+   "beat_id": "b7",
+   "say": "भीतर की बनावट और बारीक छपाई अलग checks देते हैं; Intaglio touch-based पहचान भी देता है।"
+  },
+  {
+   "beat_id": "b8",
+   "say": "Checks साथ लगाओ; features denomination और design के साथ बदल सकते हैं।"
+  },
+  {
+   "beat_id": "b9",
+   "say": "रास्ता याद रखो: light, tilt, magnify और touch।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "icon",
+   "cell": [
+    0,
+    1,
+    3,
+    2
+   ],
+   "cue": [
+    "b1",
+    "₹100"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "label": "₹100",
+   "size": 36
+  },
+  {
+   "id": "promise_question",
+   "kind": "icon",
+   "cell": [
+    4,
+    1,
+    2,
+    2
+   ],
+   "cue": [
+    "b1",
+    "promise"
+   ],
+   "until_cue": [
+    "b2",
+    "छोटे"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:2753",
+   "label": "उतना सामान?",
+   "size": 32
+  },
+  {
+   "id": "recognition_question",
+   "kind": "icon",
+   "cell": [
+    8,
+    1,
+    3,
+    2
+   ],
+   "cue": [
+    "b1",
+    "पहचानोगे?"
+   ],
+   "until_cue": [
+    "b2",
+    "छोटे"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:2753",
+   "label": "value कैसे पहचानोगे?",
+   "size": 32
+  },
+  {
+   "id": "accessibility",
+   "kind": "action",
+   "cell": [
+    3,
+    0,
+    9,
+    6
+   ],
+   "cue": [
+    "b2",
+    "छोटे"
+   ],
+   "until_cue": [
+    "b3",
+    "रोशनी"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b2",
+      "छोटे"
+     ],
+     "object": "note",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b2",
+      "Accessibility"
+     ],
+     "on": "note",
+     "text": "पहचान आसान बनाने वाली बनावट",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b2",
+      "raised"
+     ],
+     "on": "note",
+     "text": "raised printing और identification marks",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b2",
+      "larger"
+     ],
+     "on": "note",
+     "text": "larger numerals",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b2",
+      "distinct"
+     ],
+     "on": "note",
+     "text": "distinct note sizes",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "embedded_checks",
+   "kind": "action",
+   "cell": [
+    3,
+    0,
+    9,
+    6
+   ],
+   "cue": [
+    "b3",
+    "रोशनी"
+   ],
+   "until_cue": [
+    "b4",
+    "Tilt"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "light",
+     "icon": "fl:light-bulb",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b3",
+      "रोशनी"
+     ],
+     "object": "note",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b3",
+      "रोशनी"
+     ],
+     "object": "light",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b3",
+      "Watermark"
+     ],
+     "to": "light",
+     "object": "note",
+     "reach": 0.6
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b3",
+      "भीतर"
+     ],
+     "on": "note",
+     "text": "Watermark कागज़ के भीतर",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b3",
+      "Security"
+     ],
+     "on": "note",
+     "text": "Security Thread कागज़ में",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b3",
+      "भारत,"
+     ],
+     "on": "note",
+     "text": "भारत, RBI और denomination देखो",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "angle_register",
+   "kind": "action",
+   "cell": [
+    3,
+    0,
+    9,
+    6
+   ],
+   "cue": [
+    "b4",
+    "Tilt"
+   ],
+   "until_cue": [
+    "b5",
+    "Lens"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "light",
+     "icon": "fl:light-bulb",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b4",
+      "Tilt"
+     ],
+     "object": "note",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b4",
+      "Latent"
+     ],
+     "on": "note",
+     "text": "Latent Image",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b4",
+      "angle"
+     ],
+     "on": "note",
+     "text": "angle बदलकर जाँचते हैं",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b4",
+      "See-through"
+     ],
+     "on": "note",
+     "text": "See-through Register",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b4",
+      "रोशनी"
+     ],
+     "object": "light",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b4",
+      "पूरी"
+     ],
+     "to": "light",
+     "object": "note",
+     "reach": 0.6
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b4",
+      "alignment"
+     ],
+     "on": "note",
+     "text": "दोनों faces का alignment",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "fine_print_ink",
+   "kind": "action",
+   "cell": [
+    3,
+    0,
+    9,
+    6
+   ],
+   "cue": [
+    "b5",
+    "Lens"
+   ],
+   "until_cue": [
+    "b6",
+    "उँगली"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "lens",
+     "icon": "asset:a-014201567bbe617d",
+     "label": ""
+    },
+    {
+     "name": "letters",
+     "icon": "tw:2709",
+     "label": ""
+    },
+    {
+     "name": "card",
+     "icon": "tw:1f4b3",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b5",
+      "Lens"
+     ],
+     "object": "note",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b5",
+      "Lens"
+     ],
+     "object": "lens",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b5",
+      "छोटी"
+     ],
+     "to": "note",
+     "object": "lens",
+     "reach": 0.6
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b5",
+      "Micro-lettering"
+     ],
+     "on": "note",
+     "text": "Micro-lettering",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b5",
+      "RBI"
+     ],
+     "object": "letters",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b5",
+      "RBI"
+     ],
+     "on": "letters",
+     "text": "छोटे अक्षरों में RBI और denomination",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b5",
+      "धुँधले"
+     ],
+     "on": "note",
+     "text": "crude copy में धुँधले मिल सकते हैं",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b5",
+      "Optically"
+     ],
+     "on": "note",
+     "text": "Higher denominations की Optically Variable Ink",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b5",
+      "रंग"
+     ],
+     "on": "note",
+     "text": "tilt पर रंग बदलने वाली ink",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b5",
+      "card"
+     ],
+     "object": "card",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b5",
+      "अलग"
+     ],
+     "on": "note",
+     "text": "छिपा चित्र उभरना अलग check",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "raised_number",
+   "kind": "action",
+   "cell": [
+    3,
+    0,
+    9,
+    6
+   ],
+   "cue": [
+    "b6",
+    "उँगली"
+   ],
+   "until_cue": [
+    "b7",
+    "भीतर"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b6",
+      "उँगली"
+     ],
+     "object": "note",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b6",
+      "Intaglio"
+     ],
+     "on": "note",
+     "text": "Intaglio Printing",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b6",
+      "raised"
+     ],
+     "on": "note",
+     "text": "छपे हिस्से raised होते हैं",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b6",
+      "Number"
+     ],
+     "on": "note",
+     "text": "Number Panels",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b6",
+      "digits"
+     ],
+     "on": "note",
+     "text": "छोटे से बड़े होते digits",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b6",
+      "printing-pattern"
+     ],
+     "on": "note",
+     "text": "printing-pattern check है, रकम बढ़ना नहीं",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "complementary",
+   "kind": "picture",
+   "cell": [
+    3,
+    1,
+    9,
+    4
+   ],
+   "cue": [
+    "b7",
+    "भीतर"
+   ],
+   "until_cue": [
+    "b8",
+    "Checks"
+   ],
+   "tone": "accent",
+   "size": 28,
+   "picture": {
+    "type": "gallery",
+    "title": "",
+    "item_id": "",
+    "panels": [
+     {
+      "cue": [
+       "b7",
+       "भीतर"
+      ],
+      "name": "भीतर की बनावट",
+      "icon": "fa:solid/money-bill-1",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b7",
+       "बारीक"
+      ],
+      "name": "बारीक छपाई",
+      "icon": "fa:solid/money-bill-1",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b7",
+       "Intaglio"
+      ],
+      "name": "Intaglio touch-based पहचान",
+      "icon": "fa:solid/money-bill-1",
+      "numbered": false
+     }
+    ],
+    "arrows": false
+   }
+  },
+  {
+   "id": "designs",
+   "kind": "action",
+   "cell": [
+    3,
+    0,
+    9,
+    6
+   ],
+   "cue": [
+    "b8",
+    "Checks"
+   ],
+   "until_cue": [
+    "b9",
+    "light,"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "note_left",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "note_right",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "compare",
+     "cue": [
+      "b8",
+      "Checks"
+     ],
+     "left": "note_left",
+     "right": "note_right"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b8",
+      "बदल"
+     ],
+     "on": "note_left",
+     "text": "features denomination और design से बदल सकते हैं",
+     "style": "tag"
+    }
+   ],
+   "close_up": false
+  },
+  {
+   "id": "recall",
+   "kind": "action",
+   "cell": [
+    3,
+    0,
+    9,
+    6
+   ],
+   "cue": [
+    "b9",
+    "light,"
+   ],
+   "tone": "accent",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "light",
+     "icon": "fl:light-bulb",
+     "label": ""
+    },
+    {
+     "name": "lens",
+     "icon": "asset:a-014201567bbe617d",
+     "label": ""
+    },
+    {
+     "name": "finger",
+     "icon": "asset:a-b6874d08fe13beda",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b9",
+      "light,"
+     ],
+     "object": "note",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b9",
+      "light,"
+     ],
+     "object": "light",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b9",
+      "tilt,"
+     ],
+     "on": "note",
+     "text": "tilt",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b9",
+      "magnify"
+     ],
+     "object": "lens",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b9",
+      "magnify"
+     ],
+     "to": "note",
+     "object": "lens",
+     "reach": 0.6
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b9",
+      "magnify"
+     ],
+     "on": "note",
+     "text": "magnify",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b9",
+      "touch।"
+     ],
+     "object": "finger",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b9",
+      "touch।"
+     ],
+     "to": "note",
+     "object": "finger",
+     "reach": 0.6
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b9",
+      "touch।"
+     ],
+     "on": "note",
+     "text": "touch",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "auto_thing_1",
+   "kind": "icon",
+   "icon": "asset:a-b6874d08fe13beda",
+   "cell": [
+    0,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b2",
+    ""
+   ],
+   "until_cue": [
+    "b3",
+    ""
+   ]
+  },
+  {
+   "id": "auto_thing_2",
+   "kind": "icon",
+   "icon": "asset:a-7f6cd1bd15586322",
+   "cell": [
+    0,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b4",
+    "Latent"
+   ],
+   "until_cue": [
+    "b5",
+    ""
+   ]
+  },
+  {
+   "id": "auto_thing_3",
+   "kind": "icon",
+   "icon": "asset:a-b6874d08fe13beda",
+   "cell": [
+    0,
+    3,
+    2,
+    2
+   ],
+   "cue": [
+    "b6",
+    ""
+   ],
+   "until_cue": [
+    "b7",
+    ""
+   ]
+  },
+  {
+   "id": "auto_thing_4",
+   "kind": "icon",
+   "icon": "asset:a-b6874d08fe13beda",
+   "cell": [
+    0,
+    5,
+    2,
+    2
+   ],
+   "cue": [
+    "b7",
+    ""
+   ],
+   "until_cue": [
+    "b8",
+    ""
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    6
+   ],
+   "cue": [
+    "b1",
+    "₹100"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    6
+   ],
+   "cue": [
+    "b3",
+    "रोशनी"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    6
+   ],
+   "cue": [
+    "b6",
+    "उँगली"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b2",
+    "छोटे"
+   ],
+   "ids": [
+    "anchor",
+    "accessibility"
+   ],
+   "until_cue": [
+    "b3",
+    "रोशनी"
+   ]
+  },
+  {
+   "cue": [
+    "b3",
+    "रोशनी"
+   ],
+   "ids": [
+    "anchor",
+    "embedded_checks"
+   ],
+   "until_cue": [
+    "b4",
+    "Tilt"
+   ]
+  },
+  {
+   "cue": [
+    "b4",
+    "Tilt"
+   ],
+   "ids": [
+    "anchor",
+    "angle_register"
+   ],
+   "until_cue": [
+    "b5",
+    "Lens"
+   ]
+  },
+  {
+   "cue": [
+    "b5",
+    "Lens"
+   ],
+   "ids": [
+    "anchor",
+    "fine_print_ink"
+   ],
+   "until_cue": [
+    "b6",
+    "उँगली"
+   ]
+  },
+  {
+   "cue": [
+    "b6",
+    "उँगली"
+   ],
+   "ids": [
+    "anchor",
+    "raised_number"
+   ],
+   "until_cue": [
+    "b7",
+    "भीतर"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

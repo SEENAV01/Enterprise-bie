@@ -1,0 +1,743 @@
+{
+ "id": "v8_s3b",
+ "part_id": "c19.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b20",
+   "say": "लिखी amount face value है; Promise Clause उस face value की RBI guarantee बताता है। Bearer वह है जिसके पास note है, किसी तय व्यक्ति का नाम जरूरी नहीं; इसीलिए मिला हुआ cash अगले payment में चलता है।"
+  },
+  {
+   "beat_id": "b21",
+   "say": "इसीलिए zero interest, anonymous bearer bond कहते हैं: interest नहीं, holder का नाम नहीं, इस्तेमाल bearer करता है; promise nominal amount का है।"
+  },
+  {
+   "beat_id": "b22",
+   "say": "Negotiable Instruments Act, 1881 के Section 4 extract में promissory note written instrument है, जिसमें unconditional undertaking यानी बिना शर्त वादा हो; ‘not being a bank-note or a currency-note’ इन्हें बाहर रखता है।"
+  },
+  {
+   "beat_id": "b23",
+   "say": "‘फसल अच्छी हुई तो दूँगा’ unconditional नहीं है। Bearer bond यहाँ shorthand है, ordinary investment bond नहीं; anonymous से हर transaction untraceable नहीं बनता।"
+  },
+  {
+   "beat_id": "b24",
+   "say": "Face value, bearer और legal category अलग रखो; यह पूरी statutory definition नहीं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "currency_anchor",
+   "kind": "icon",
+   "cell": [
+    0,
+    0,
+    2,
+    1
+   ],
+   "cue": [
+    "b20",
+    "लिखी"
+   ],
+   "tone": "ink",
+   "align": "center",
+   "icon": "fa:solid/money-bill-1",
+   "size": 32
+  },
+  {
+   "id": "face_anchor",
+   "kind": "text",
+   "cell": [
+    2,
+    0,
+    8,
+    1
+   ],
+   "cue": [
+    "b20",
+    "value"
+   ],
+   "text": "लिखी amount face value है",
+   "style": "tag",
+   "tone": "accent",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "guarantee_and_transfer",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    12,
+    5
+   ],
+   "cue": [
+    "b20",
+    "लिखी"
+   ],
+   "until_cue": [
+    "b21",
+    "zero"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [
+    {
+     "role": "holder",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "recipient",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "guarantee",
+     "icon": "fa:solid/stamp",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b20",
+      "लिखी"
+     ],
+     "actor": "holder",
+     "object": "note"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b20",
+      "guarantee"
+     ],
+     "object": "guarantee",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b20",
+      "Bearer"
+     ],
+     "actor": "holder",
+     "on": "holder",
+     "text": "जिसके पास note है",
+     "style": "bubble"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b20",
+      "मिला"
+     ],
+     "from": "recipient",
+     "to": "holder",
+     "object": "note"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b20",
+      "payment"
+     ],
+     "from": "holder",
+     "to": "recipient",
+     "object": "note"
+    }
+   ]
+  },
+  {
+   "id": "bearer_characteristics",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    12,
+    5
+   ],
+   "cue": [
+    "b21",
+    "zero"
+   ],
+   "until_cue": [
+    "b22",
+    "Negotiable"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [
+    {
+     "role": "holder",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b21",
+      "zero"
+     ],
+     "actor": "holder",
+     "object": "note"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b21",
+      "नहीं,"
+     ],
+     "object": "note",
+     "on": "note",
+     "text": "interest नहीं",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b21",
+      "नाम"
+     ],
+     "actor": "holder",
+     "on": "holder",
+     "text": "holder का नाम नहीं",
+     "style": "bubble"
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b21",
+      "इस्तेमाल"
+     ],
+     "from": "holder",
+     "to": "holder",
+     "object": "note",
+     "spot": "center",
+     "back": true
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b21",
+      "nominal"
+     ],
+     "object": "note",
+     "on": "note",
+     "text": "promise nominal amount का है",
+     "style": "tag"
+    }
+   ]
+  },
+  {
+   "id": "statutory_extract",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    12,
+    5
+   ],
+   "cue": [
+    "b22",
+    "Negotiable"
+   ],
+   "until_cue": [
+    "b23",
+    "‘फसल"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "law",
+     "icon": "tw:1f4dc",
+     "label": ""
+    },
+    {
+     "name": "undertaking",
+     "icon": "tw:1f4c4",
+     "label": ""
+    },
+    {
+     "name": "banknote",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "currency",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b22",
+      "Negotiable"
+     ],
+     "object": "law",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b22",
+      "1881"
+     ],
+     "object": "law",
+     "on": "law",
+     "text": "Negotiable Instruments Act, 1881",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b22",
+      "extract"
+     ],
+     "object": "law",
+     "on": "law",
+     "text": "Section 4 extract",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b22",
+      "written"
+     ],
+     "object": "undertaking",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b22",
+      "वादा"
+     ],
+     "object": "undertaking",
+     "on": "undertaking",
+     "text": "बिना शर्त वादा",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b22",
+      "bank-note"
+     ],
+     "object": "banknote",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b22",
+      "currency-note’"
+     ],
+     "object": "currency",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b22",
+      "इन्हें"
+     ],
+     "object": "banknote"
+    },
+    {
+     "part": "refuse",
+     "cue": [
+      "b22",
+      "बाहर"
+     ],
+     "object": "currency"
+    }
+   ]
+  },
+  {
+   "id": "conditional_promise",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b23",
+    "‘फसल"
+   ],
+   "until_cue": [
+    "b24",
+    "Face"
+   ],
+   "tone": "warm",
+   "icon": "tw:1f91d",
+   "size": 36
+  },
+  {
+   "id": "conditional_words",
+   "kind": "text",
+   "cell": [
+    3,
+    2,
+    9,
+    1
+   ],
+   "cue": [
+    "b23",
+    "दूँगा’"
+   ],
+   "until_cue": [
+    "b24",
+    "Face"
+   ],
+   "text": "फसल अच्छी हुई तो दूँगा",
+   "style": "box",
+   "tone": "warm",
+   "align": "left",
+   "size": 30
+  },
+  {
+   "id": "conditional_rejected",
+   "kind": "mark",
+   "cue": [
+    "b23",
+    "नहीं"
+   ],
+   "until_cue": [
+    "b24",
+    "Face"
+   ],
+   "tone": "danger",
+   "target": "conditional_promise",
+   "mark": "cross",
+   "pos": "c"
+  },
+  {
+   "id": "investment_inference",
+   "kind": "text",
+   "cell": [
+    3,
+    4,
+    9,
+    1
+   ],
+   "cue": [
+    "b23",
+    "bond"
+   ],
+   "until_cue": [
+    "b24",
+    "Face"
+   ],
+   "text": "ordinary investment bond",
+   "style": "box",
+   "tone": "muted",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "investment_rejected",
+   "kind": "mark",
+   "cue": [
+    "b23",
+    "नहीं;"
+   ],
+   "until_cue": [
+    "b24",
+    "Face"
+   ],
+   "tone": "danger",
+   "target": "investment_inference",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "untraceable_inference",
+   "kind": "text",
+   "cell": [
+    3,
+    6,
+    9,
+    1
+   ],
+   "cue": [
+    "b23",
+    "untraceable"
+   ],
+   "until_cue": [
+    "b24",
+    "Face"
+   ],
+   "text": "हर transaction untraceable",
+   "style": "box",
+   "tone": "muted",
+   "align": "left",
+   "size": 28
+  },
+  {
+   "id": "untraceable_rejected",
+   "kind": "mark",
+   "cue": [
+    "b23",
+    "बनता।"
+   ],
+   "until_cue": [
+    "b24",
+    "Face"
+   ],
+   "tone": "danger",
+   "target": "untraceable_inference",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "separate_compartments",
+   "kind": "picture",
+   "cell": [
+    0,
+    2,
+    12,
+    4
+   ],
+   "cue": [
+    "b24",
+    "Face"
+   ],
+   "tone": "accent",
+   "size": 30,
+   "picture": {
+    "type": "gallery",
+    "title": "",
+    "item_id": "",
+    "panels": [
+     {
+      "cue": [
+       "b24",
+       "Face"
+      ],
+      "name": "Face value",
+      "icon": "fa:solid/money-bill-1",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b24",
+       "bearer"
+      ],
+      "name": "bearer",
+      "icon": "fa:solid/user-check",
+      "numbered": false
+     },
+     {
+      "cue": [
+       "b24",
+       "category"
+      ],
+      "name": "legal category",
+      "icon": "tw:1f4c4",
+      "numbered": false
+     }
+    ],
+    "arrows": false
+   }
+  },
+  {
+   "id": "separation_emphasis",
+   "kind": "highlight",
+   "cue": [
+    "b24",
+    "अलग"
+   ],
+   "style": "box",
+   "tone": "accent",
+   "target": "separate_compartments"
+  },
+  {
+   "id": "auto_thing_1",
+   "kind": "icon",
+   "icon": "fa:solid/crop-alt",
+   "cell": [
+    10,
+    0,
+    2,
+    2
+   ],
+   "cue": [
+    "b23",
+    ""
+   ],
+   "until_cue": [
+    "b24",
+    ""
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b20",
+    "लिखी"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b20",
+    "payment"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b21",
+    "zero"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b22",
+    "Negotiable"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b22",
+    "written"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b23",
+    "‘फसल"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b24",
+    "Face"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b20",
+    "Bearer"
+   ],
+   "ids": [
+    "currency_anchor",
+    "guarantee_and_transfer"
+   ],
+   "until_cue": [
+    "b21",
+    "zero"
+   ]
+  },
+  {
+   "cue": [
+    "b22",
+    "written"
+   ],
+   "ids": [
+    "statutory_extract"
+   ],
+   "until_cue": [
+    "b23",
+    "‘फसल"
+   ]
+  },
+  {
+   "cue": [
+    "b24",
+    "अलग"
+   ],
+   "ids": [
+    "separate_compartments_p1",
+    "separate_compartments_p2",
+    "separate_compartments_p3",
+    "separation_emphasis"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

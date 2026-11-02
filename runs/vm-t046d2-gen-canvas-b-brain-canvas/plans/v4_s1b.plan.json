@@ -1,0 +1,458 @@
+{
+ "id": "v4_s1b",
+ "part_id": "c09.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b3",
+   "say": "यह gold-backed paper currency है: माँगने पर तय gold मिले। Intrinsic value यानी material की कीमत; यहाँ value paper से नहीं, redemption promise से है, जैसे सामान की receipt।"
+  },
+  {
+   "beat_id": "b4",
+   "say": "सिर्फ bank के पास gold होना काफी नहीं; note पर gold पाने का claim चाहिए।"
+  },
+  {
+   "beat_id": "b5",
+   "say": "यह redemption promise आगे समझाएगा कि नए notes के लिए backing क्यों चाहिए।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    1,
+    0,
+    10,
+    1
+   ],
+   "cue": [
+    "b3",
+    "gold-backed"
+   ],
+   "text": "gold-backed paper currency",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 32
+  },
+  {
+   "id": "redemption",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    5
+   ],
+   "cue": [
+    "b3",
+    "gold-backed"
+   ],
+   "until_cue": [
+    "b4",
+    "सिर्फ"
+   ],
+   "template": "compose",
+   "actors": [
+    {
+     "role": "holder",
+     "who": "main",
+     "mood": "neutral"
+    },
+    {
+     "role": "issuer",
+     "who": "other",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "gold",
+     "icon": "fa:solid/coins",
+     "label": ""
+    },
+    {
+     "name": "paper_material",
+     "icon": "asset:a-897a0af055982243",
+     "label": ""
+    },
+    {
+     "name": "promise",
+     "icon": "tw:1f91d",
+     "label": ""
+    },
+    {
+     "name": "receipt",
+     "icon": "tw:1f9fe",
+     "label": ""
+    },
+    {
+     "name": "goods",
+     "icon": "fa:solid/basket-shopping",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b3",
+      "gold-backed"
+     ],
+     "actor": "holder",
+     "object": "note"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b3",
+      "माँगने"
+     ],
+     "from": "holder",
+     "to": "issuer",
+     "object": "note"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b3",
+      "मिले।"
+     ],
+     "from": "issuer",
+     "to": "holder",
+     "object": "gold"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b3",
+      "Intrinsic"
+     ],
+     "on": "note",
+     "text": "material की कीमत",
+     "style": "tag"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b3",
+      "material"
+     ],
+     "object": "paper_material"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b3",
+      "redemption"
+     ],
+     "object": "promise"
+    },
+    {
+     "part": "compare",
+     "cue": [
+      "b3",
+      "receipt।"
+     ],
+     "left": "receipt",
+     "right": "goods"
+    }
+   ]
+  },
+  {
+   "id": "bank",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b4",
+    "सिर्फ"
+   ],
+   "until_cue": [
+    "b5",
+    "यह"
+   ],
+   "tone": "muted",
+   "icon": "tw:1f3e6"
+  },
+  {
+   "id": "reserve",
+   "kind": "icon",
+   "cell": [
+    1,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b4",
+    "gold"
+   ],
+   "until_cue": [
+    "b5",
+    "यह"
+   ],
+   "tone": "warm",
+   "icon": "fa:solid/coins"
+  },
+  {
+   "id": "insufficient",
+   "kind": "text",
+   "cell": [
+    0,
+    6,
+    5,
+    1
+   ],
+   "cue": [
+    "b4",
+    "काफी"
+   ],
+   "until_cue": [
+    "b5",
+    "यह"
+   ],
+   "text": "gold होना काफी नहीं",
+   "style": "tag",
+   "tone": "danger",
+   "align": "center",
+   "size": 26
+  },
+  {
+   "id": "claim_note",
+   "kind": "icon",
+   "cell": [
+    7,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b4",
+    "note"
+   ],
+   "until_cue": [
+    "b5",
+    "यह"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/money-bill-1"
+  },
+  {
+   "id": "claim_gold",
+   "kind": "icon",
+   "cell": [
+    7,
+    5,
+    3,
+    1
+   ],
+   "cue": [
+    "b4",
+    "पाने"
+   ],
+   "until_cue": [
+    "b5",
+    "यह"
+   ],
+   "tone": "warm",
+   "icon": "fa:solid/coins"
+  },
+  {
+   "id": "claim_link",
+   "kind": "arrow",
+   "cue": [
+    "b4",
+    "claim"
+   ],
+   "until_cue": [
+    "b5",
+    "यह"
+   ],
+   "tone": "accent",
+   "label": "claim चाहिए",
+   "from": "claim_note",
+   "to": "claim_gold",
+   "from_side": "b",
+   "to_side": "t",
+   "flow": {
+    "icon": "fa:solid/coins",
+    "count": 1,
+    "period": 1800,
+    "size": 24,
+    "cue": [
+     "b4",
+     "claim"
+    ]
+   }
+  },
+  {
+   "id": "promise",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    4,
+    3
+   ],
+   "cue": [
+    "b5",
+    "redemption"
+   ],
+   "tone": "accent",
+   "icon": "tw:1f91d",
+   "label": "redemption promise"
+  },
+  {
+   "id": "new_notes",
+   "kind": "icon",
+   "cell": [
+    7,
+    2,
+    4,
+    3
+   ],
+   "cue": [
+    "b5",
+    "notes"
+   ],
+   "tone": "ink",
+   "icon": "fa:solid/money-bill-1",
+   "label": "नए notes"
+  },
+  {
+   "id": "backing",
+   "kind": "arrow",
+   "cue": [
+    "b5",
+    "backing"
+   ],
+   "tone": "warm",
+   "label": "backing चाहिए",
+   "from": "promise",
+   "to": "new_notes",
+   "from_side": "r",
+   "to_side": "l",
+   "flow": {
+    "icon": "fa:solid/coins",
+    "count": 1,
+    "period": 1800,
+    "size": 24,
+    "cue": [
+     "b5",
+     "backing"
+    ]
+   }
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b3",
+    "gold-backed"
+   ]
+  },
+  {
+   "cells": [
+    1,
+    1,
+    10,
+    6
+   ],
+   "cue": [
+    "b3",
+    "माँगने"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b3",
+    "Intrinsic"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b4",
+    "सिर्फ"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b5",
+    "redemption"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b3",
+    "माँगने"
+   ],
+   "ids": [
+    "redemption"
+   ],
+   "until_cue": [
+    "b4",
+    "सिर्फ"
+   ]
+  },
+  {
+   "cue": [
+    "b4",
+    "note"
+   ],
+   "ids": [
+    "claim_note",
+    "claim_gold",
+    "claim_link"
+   ],
+   "until_cue": [
+    "b5",
+    "यह"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

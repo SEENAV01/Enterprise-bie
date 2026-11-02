@@ -1,0 +1,422 @@
+{
+ "id": "v4_s7a",
+ "part_id": "c11.2",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b40",
+   "say": "क्या हर legal tender fiat ही होगा? सामान्य जोड़ ऐसा है, लेकिन universal ‘must’ गलत होगा; Bitcoin exception इसे तोड़ता है।"
+  },
+  {
+   "beat_id": "b41",
+   "say": "हर याद वाला coin payment में चलेगा? Commemorative coins fiat issues हैं; अधिकांश legal tender हैं, सभी नहीं। Metal और collector value भी अलग हैं।"
+  },
+  {
+   "beat_id": "b42",
+   "say": "Pack वाला coin खर्च क्यों नहीं होता? Government Mint collector commemorative coins proof या UNC sets में बेचती है। Proof खास finish, UNC यानी Uncirculated; condition बचाने के लिए daily payments कम होते हैं।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "question",
+   "kind": "icon",
+   "cell": [
+    1,
+    2,
+    2,
+    3
+   ],
+   "cue": [
+    "b40",
+    "क्या"
+   ],
+   "until_cue": [
+    "b41",
+    "हर"
+   ],
+   "tone": "accent",
+   "align": "center",
+   "icon": "tw:2753",
+   "size": 48
+  },
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    3,
+    0,
+    6,
+    1
+   ],
+   "cue": [
+    "b40",
+    "legal"
+   ],
+   "text": "Legal tender",
+   "style": "title",
+   "tone": "ink",
+   "align": "center",
+   "size": 34
+  },
+  {
+   "id": "universal",
+   "kind": "text",
+   "cell": [
+    4,
+    2,
+    7,
+    2
+   ],
+   "cue": [
+    "b40",
+    "fiat"
+   ],
+   "until_cue": [
+    "b41",
+    "हर"
+   ],
+   "text": "Universal fiat requirement",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "reject-universal",
+   "kind": "mark",
+   "cue": [
+    "b40",
+    "गलत"
+   ],
+   "until_cue": [
+    "b41",
+    "हर"
+   ],
+   "tone": "danger",
+   "target": "universal",
+   "mark": "cross",
+   "pos": "tr"
+  },
+  {
+   "id": "bitcoin",
+   "kind": "text",
+   "cell": [
+    4,
+    5,
+    7,
+    1
+   ],
+   "cue": [
+    "b40",
+    "Bitcoin"
+   ],
+   "until_cue": [
+    "b41",
+    "हर"
+   ],
+   "text": "Bitcoin exception",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 30
+  },
+  {
+   "id": "coin-status",
+   "kind": "icon",
+   "cell": [
+    0,
+    2,
+    3,
+    3
+   ],
+   "cue": [
+    "b41",
+    "coin"
+   ],
+   "until_cue": [
+    "b42",
+    "Pack"
+   ],
+   "tone": "warm",
+   "align": "center",
+   "icon": "tw:1fa99",
+   "size": 40
+  },
+  {
+   "id": "fiat-status",
+   "kind": "text",
+   "cell": [
+    3,
+    2,
+    8,
+    1
+   ],
+   "cue": [
+    "b41",
+    "fiat"
+   ],
+   "until_cue": [
+    "b42",
+    "Pack"
+   ],
+   "text": "Commemorative coins fiat issues हैं",
+   "style": "box",
+   "tone": "accent",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "legal-status",
+   "kind": "text",
+   "cell": [
+    3,
+    4,
+    8,
+    1
+   ],
+   "cue": [
+    "b41",
+    "अधिकांश"
+   ],
+   "until_cue": [
+    "b42",
+    "Pack"
+   ],
+   "text": "अधिकांश legal tender हैं, सभी नहीं",
+   "style": "box",
+   "tone": "ink",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "separate-values",
+   "kind": "icon",
+   "cell": [
+    0,
+    5,
+    3,
+    2
+   ],
+   "cue": [
+    "b41",
+    "Metal"
+   ],
+   "until_cue": [
+    "b42",
+    "Pack"
+   ],
+   "tone": "warm",
+   "icon": "tw:2696",
+   "size": 32
+  },
+  {
+   "id": "values-text",
+   "kind": "text",
+   "cell": [
+    3,
+    6,
+    8,
+    1
+   ],
+   "cue": [
+    "b41",
+    "अलग"
+   ],
+   "until_cue": [
+    "b42",
+    "Pack"
+   ],
+   "text": "Metal और collector value अलग हैं",
+   "style": "box",
+   "tone": "warm",
+   "align": "center",
+   "size": 28
+  },
+  {
+   "id": "collector-process",
+   "kind": "action",
+   "cell": [
+    0,
+    2,
+    12,
+    5
+   ],
+   "cue": [
+    "b42",
+    "Pack"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [
+    {
+     "role": "mint",
+     "who": "other",
+     "mood": "neutral"
+    },
+    {
+     "role": "collector",
+     "who": "main",
+     "mood": "neutral"
+    }
+   ],
+   "objects": [
+    {
+     "name": "coin",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "mint-building",
+     "icon": "tw:1f3ed",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "hold",
+     "cue": [
+      "b42",
+      "Pack"
+     ],
+     "actor": "mint",
+     "object": "coin"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b42",
+      "Government"
+     ],
+     "object": "mint-building"
+    },
+    {
+     "part": "give",
+     "cue": [
+      "b42",
+      "बेचती"
+     ],
+     "from": "mint",
+     "to": "collector",
+     "object": "coin"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b42",
+      "finish,"
+     ],
+     "on": "coin",
+     "text": "Proof खास finish",
+     "style": "tag"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b42",
+      "Uncirculated;"
+     ],
+     "on": "coin",
+     "text": "UNC यानी Uncirculated",
+     "style": "tag"
+    },
+    {
+     "part": "hold",
+     "cue": [
+      "b42",
+      "बचाने"
+     ],
+     "actor": "collector",
+     "object": "coin"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b42",
+      "कम"
+     ],
+     "actor": "collector",
+     "on": "collector",
+     "text": "daily payments कम होते हैं",
+     "style": "tag"
+    }
+   ]
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b40",
+    "क्या"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b41",
+    "coin"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b42",
+    "बेचती"
+   ]
+  }
+ ],
+ "focus": [
+  {
+   "cue": [
+    "b40",
+    "Bitcoin"
+   ],
+   "ids": [
+    "bitcoin",
+    "universal",
+    "reject-universal"
+   ],
+   "until_cue": [
+    "b41",
+    "हर"
+   ]
+  },
+  {
+   "cue": [
+    "b41",
+    "अलग"
+   ],
+   "ids": [
+    "values-text",
+    "separate-values"
+   ],
+   "until_cue": [
+    "b42",
+    "Pack"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}

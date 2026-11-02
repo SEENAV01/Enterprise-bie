@@ -1,0 +1,838 @@
+{
+ "id": "v4_s6b",
+ "part_id": "c11.1",
+ "theme": "paper",
+ "grid": [
+  12,
+  8
+ ],
+ "beats": [
+  {
+   "beat_id": "b35",
+   "say": "Legal tender government से officially recognised money है, जो उसकी territory में debts और transactions चुकाता है। Circulation commemorative coins याद में बने, लेकिन रोज़ ordinary coins जैसे इस्तेमाल होने वाले coins हैं।"
+  },
+  {
+   "beat_id": "b36",
+   "say": "Unlimited Legal Tender यानी genuine, valid notes जोड़ते जाएँ, tender की कुल रकम की ceiling नहीं आती। ₹10, ₹20, ₹50, ₹100, ₹200, ₹500 notes का यह status Reserve Bank of India Act, 1934 से जुड़ा है।"
+  },
+  {
+   "beat_id": "b37",
+   "say": "Limited Legal Tender में तय amount तक लेना ज़रूरी, आगे मर्ज़ी है; coins के लिए Coinage Act, 2011 है। यानी बड़ा coin ढेर लेने की मजबूरी limit पर रुकती है।"
+  },
+  {
+   "beat_id": "b38",
+   "say": "Unlimited हर cash transaction की छूट नहीं। खास design circulation साबित नहीं करता; collector set अलग है। Valid coins की limit पार करना status खोना नहीं।"
+  },
+  {
+   "beat_id": "b39",
+   "say": "Recognition के बाद अगला सवाल denomination और total limit है: notes की ceiling नहीं, coins की तय है।"
+  }
+ ],
+ "touches": true,
+ "nodes": [
+  {
+   "id": "anchor",
+   "kind": "text",
+   "cell": [
+    0,
+    0,
+    12,
+    1
+   ],
+   "cue": [
+    "b35",
+    "Legal"
+   ],
+   "text": "Legal tender",
+   "style": "title",
+   "tone": "ink",
+   "fill": "band",
+   "align": "left",
+   "size": 38
+  },
+  {
+   "id": "recognition",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b35",
+    "government"
+   ],
+   "until_cue": [
+    "b36",
+    "Unlimited"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "money",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "stamp",
+     "icon": "fa:solid/stamp",
+     "label": ""
+    },
+    {
+     "name": "ledger",
+     "icon": "tw:1f4d2",
+     "label": ""
+    },
+    {
+     "name": "receipt",
+     "icon": "tw:1f9fe",
+     "label": ""
+    },
+    {
+     "name": "commemorative",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "ordinary",
+     "icon": "fa:solid/coins",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b35",
+      "government"
+     ],
+     "object": "stamp",
+     "spot": "top",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b35",
+      "money"
+     ],
+     "object": "money",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b35",
+      "territory"
+     ],
+     "on": "money",
+     "text": "territory में",
+     "style": "sign",
+     "spot": "center"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b35",
+      "debts"
+     ],
+     "object": "ledger",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b35",
+      "transactions"
+     ],
+     "object": "receipt",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "move",
+     "cue": [
+      "b35",
+      "चुकाता"
+     ],
+     "from": "money",
+     "to": "ledger",
+     "object": "money",
+     "back": true
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b35",
+      "commemorative"
+     ],
+     "object": "commemorative",
+     "spot": "bottom-left",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b35",
+      "ordinary"
+     ],
+     "object": "ordinary",
+     "spot": "bottom-right",
+     "n": 1
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b35",
+      "इस्तेमाल"
+     ],
+     "object": "commemorative"
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    8,
+    6
+   ],
+   "cue": [
+    "b36",
+    "Unlimited"
+   ],
+   "until_cue": [
+    "b37",
+    "Limited"
+   ],
+   "tone": "accent",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b36",
+      "Unlimited"
+     ],
+     "object": "note",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b36",
+      "valid"
+     ],
+     "object": "note"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b36",
+      "जोड़ते"
+     ],
+     "object": "note",
+     "spot": "center",
+     "n": 6
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b36",
+      "ceiling"
+     ],
+     "on": "note",
+     "text": "कुल रकम की ceiling नहीं",
+     "style": "tag",
+     "spot": "top"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b36",
+      "₹10,"
+     ],
+     "object": "note",
+     "on": "note",
+     "text": "₹10",
+     "style": "tag",
+     "spot": "bottom-left"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b36",
+      "₹20,"
+     ],
+     "object": "note",
+     "on": "note",
+     "text": "₹20",
+     "style": "tag",
+     "spot": "bottom-left"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b36",
+      "₹50,"
+     ],
+     "object": "note",
+     "on": "note",
+     "text": "₹50",
+     "style": "tag",
+     "spot": "bottom-left"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b36",
+      "₹100,"
+     ],
+     "object": "note",
+     "on": "note",
+     "text": "₹100",
+     "style": "tag",
+     "spot": "bottom-left"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b36",
+      "₹200,"
+     ],
+     "object": "note",
+     "on": "note",
+     "text": "₹200",
+     "style": "tag",
+     "spot": "bottom-left"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b36",
+      "₹500"
+     ],
+     "object": "note",
+     "on": "note",
+     "text": "₹500",
+     "style": "tag",
+     "spot": "bottom-left"
+    }
+   ]
+  },
+  {
+   "id": "total-tender-amount-meter",
+   "kind": "icon",
+   "cell": [
+    8,
+    1,
+    4,
+    1
+   ],
+   "cue": [
+    "b36",
+    "रकम"
+   ],
+   "until_cue": [
+    "b37",
+    "Limited"
+   ],
+   "tone": "accent",
+   "icon": "fa:solid/gauge-high"
+  },
+  {
+   "id": "rbi-law",
+   "kind": "icon",
+   "cell": [
+    9,
+    2,
+    3,
+    2
+   ],
+   "cue": [
+    "b36",
+    "Reserve"
+   ],
+   "until_cue": [
+    "b37",
+    "Limited"
+   ],
+   "tone": "muted",
+   "icon": "tw:1f4dc"
+  },
+  {
+   "id": "rbi-law-label",
+   "kind": "text",
+   "cell": [
+    9,
+    4,
+    3,
+    2
+   ],
+   "cue": [
+    "b36",
+    "1934"
+   ],
+   "until_cue": [
+    "b37",
+    "Limited"
+   ],
+   "text": "Reserve Bank of India Act, 1934",
+   "style": "note",
+   "tone": "ink",
+   "align": "center",
+   "size": 24
+  },
+  {
+   "id": "coin-limit",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b37",
+    "Limited"
+   ],
+   "until_cue": [
+    "b38",
+    "Unlimited"
+   ],
+   "tone": "warm",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "coin",
+     "icon": "tw:1fa99",
+     "label": ""
+    },
+    {
+     "name": "law",
+     "icon": "tw:1f4dc",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b37",
+      "Limited"
+     ],
+     "object": "coin",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b37",
+      "amount"
+     ],
+     "to": "coin",
+     "object": "coin",
+     "spot": "center",
+     "limit": "तय amount",
+     "dir": "up",
+     "reach": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b37",
+      "ज़रूरी,"
+     ],
+     "on": "coin",
+     "text": "तय amount तक लेना ज़रूरी",
+     "style": "tag",
+     "spot": "top-left"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b37",
+      "मर्ज़ी"
+     ],
+     "on": "coin",
+     "text": "आगे मर्ज़ी है",
+     "style": "tag",
+     "spot": "top-right"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b37",
+      "Coinage"
+     ],
+     "object": "law",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b37",
+      "2011"
+     ],
+     "on": "law",
+     "text": "Coinage Act, 2011",
+     "style": "tag",
+     "spot": "bottom-right"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b37",
+      "ढेर"
+     ],
+     "object": "coin",
+     "spot": "bottom-left",
+     "n": 8
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b37",
+      "रुकती"
+     ],
+     "to": "coin",
+     "object": "coin",
+     "spot": "center",
+     "limit": "limit",
+     "dir": "up",
+     "reach": 1
+    }
+   ]
+  },
+  {
+   "id": "distinctions",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b38",
+    "Unlimited"
+   ],
+   "until_cue": [
+    "b39",
+    "Recognition"
+   ],
+   "tone": "ink",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "receipt",
+     "icon": "tw:1f9fe",
+     "label": ""
+    },
+    {
+     "name": "coin",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b38",
+      "Unlimited"
+     ],
+     "object": "note",
+     "spot": "top-left",
+     "n": 1
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b38",
+      "transaction"
+     ],
+     "object": "receipt",
+     "spot": "top-right",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b38",
+      "नहीं।"
+     ],
+     "on": "receipt",
+     "text": "हर cash transaction की छूट नहीं",
+     "style": "tag",
+     "spot": "top"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b38",
+      "design"
+     ],
+     "object": "coin",
+     "spot": "center",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b38",
+      "साबित"
+     ],
+     "on": "coin",
+     "text": "design circulation साबित नहीं करता",
+     "style": "tag",
+     "spot": "center-right"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b38",
+      "collector"
+     ],
+     "on": "coin",
+     "text": "collector set अलग है",
+     "style": "tag",
+     "spot": "center-left"
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b38",
+      "पार"
+     ],
+     "to": "coin",
+     "object": "coin",
+     "spot": "bottom-left",
+     "limit": "limit",
+     "dir": "up",
+     "reach": 1.2
+    },
+    {
+     "part": "accept",
+     "cue": [
+      "b38",
+      "खोना"
+     ],
+     "object": "coin"
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b38",
+      "status"
+     ],
+     "on": "coin",
+     "text": "status खोना नहीं",
+     "style": "tag",
+     "spot": "bottom-right"
+    }
+   ]
+  },
+  {
+   "id": "summary",
+   "kind": "action",
+   "cell": [
+    0,
+    1,
+    12,
+    6
+   ],
+   "cue": [
+    "b39",
+    "Recognition"
+   ],
+   "tone": "accent",
+   "template": "compose",
+   "actors": [],
+   "objects": [
+    {
+     "name": "stamp",
+     "icon": "fa:solid/stamp",
+     "label": ""
+    },
+    {
+     "name": "note",
+     "icon": "fa:solid/money-bill-1",
+     "label": ""
+    },
+    {
+     "name": "coin",
+     "icon": "tw:1fa99",
+     "label": ""
+    }
+   ],
+   "amounts": [],
+   "steps": [],
+   "parts": [
+    {
+     "part": "appear",
+     "cue": [
+      "b39",
+      "Recognition"
+     ],
+     "object": "stamp",
+     "spot": "top",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b39",
+      "denomination"
+     ],
+     "on": "stamp",
+     "text": "denomination और total limit",
+     "style": "tag",
+     "spot": "center"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b39",
+      "notes"
+     ],
+     "object": "note",
+     "spot": "left",
+     "n": 1
+    },
+    {
+     "part": "show_text",
+     "cue": [
+      "b39",
+      "नहीं,"
+     ],
+     "on": "note",
+     "text": "notes की ceiling नहीं",
+     "style": "tag",
+     "spot": "bottom-left"
+    },
+    {
+     "part": "appear",
+     "cue": [
+      "b39",
+      "coins"
+     ],
+     "object": "coin",
+     "spot": "right",
+     "n": 1
+    },
+    {
+     "part": "meter",
+     "cue": [
+      "b39",
+      "तय"
+     ],
+     "to": "coin",
+     "object": "coin",
+     "text": "coins की तय limit",
+     "spot": "bottom-right",
+     "limit": "तय limit",
+     "dir": "up",
+     "reach": 1
+    }
+   ],
+   "close_up": false
+  }
+ ],
+ "camera": [
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b35",
+    "Legal"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b36",
+    "Unlimited"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b37",
+    "Limited"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b38",
+    "Unlimited"
+   ]
+  },
+  {
+   "cells": [
+    0,
+    0,
+    12,
+    7
+   ],
+   "cue": [
+    "b39",
+    "Recognition"
+   ]
+  }
+ ],
+ "schema": "bie.brain.canvas-b-plan/1"
+}
