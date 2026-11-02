@@ -1593,3 +1593,61 @@ did the work through the plan in 79 minutes, for ₹0.
 | Passed outputs | — | 0 problems |
 
 Next: BIE's coder on run a's needs, the drawings into the library, then the canvas resumes from run a's answers.
+
+## Entry 38 · BIE's coder on run a's needs: 150 drawings, and a tag is not the thing, 2 November 2026
+
+**Run:** VM job `t046d2-gen-coder-a` (`runs/vm-t046d2-gen-coder-a-brain-coder/`, MADE.md): BIE's coder on run a's
+`needs.json`, after fetch run 41372563621. Codex did the work through the plan in 19 minutes (51 minutes of call time),
+600 k tokens in and 90 k out, for ₹0.
+- 150 of 150 asked were drawn, all on the first try, and every drawing passed BIE's SVG checks.
+- 2 things were already in the library.
+- 263 things were not for the coder:
+  - 90 were over the run's limit of 150;
+  - 83 were names (a place, a brand, a person or a currency's own sign): Navin's decision;
+  - 60 were text or a mark (tag, marker, symbol, counter, label);
+  - 10 were people, who are drawn as generic figures by the blocks;
+  - the rest were descriptions, not things.
+- The fetch workflow (`made_url`, run 41375728068) checked every drawing again and added it to the shared library, which went
+  from 6 to 156 assets.
+
+I looked at all 150 on three contact sheets. They are clean flat icons, recognisable at small size, with no words, numbers,
+emblems or real people. **Taught:**
+- **A tag is not the thing.** The coder tagged its drawings with the words around them: 65 of 150 carry "money", 27
+  "currency", 19 "trade" and "goods", 17 "gold", 12 "bank". The library answered a thing by any equal tag, so on run a's 805
+  beat nouns these would have come back:
+  - "money" → "Money backing link" (an abstract link icon);
+  - "bank" → "Written bank instruction";
+  - "coin" → "Coin-standard lane";
+  - "seller" → "Other trading party";
+  - "loan" → "Fixed-rate commitment".
+
+  That is the near-word fit Navin's addendum forbids, now coming from BIE's own drawings, and it would have spread to every
+  later book.
+- **One thing, several phrasings.** Two people exchanging something was drawn seven times ("exchange participant", "exchange
+  partner", "two exchange partners", "goods exchange partners", "one trading party", "other trading party", "दो
+  विनिमयकर्ता"). Gold and silver bars were drawn about a dozen times.
+- **Abstract things were drawn too** ("monetary link", "trust indicator", "fixed-rate commitment", "issuer lane"). These are
+  metaphors the coder chose, not pictures of an object. Whether they teach is Navin's verdict.
+
+**Changed in BIE** (branch `task046d2-gen-seekh`, IMPLEMENTED):
+- `AssetLibrary.pictures_of` is the one rule by which the needs list (`visual_thinking.resolve_needs`) and the coder
+  (`coder.in_library`) read the library:
+  - a fetched picture counts by a tag that is the whole thing;
+  - a coder drawing counts only by its own thing (the spec in its prompt), its title or a phrase tag, or by their head noun
+    with every word of the thing among its words. A single tag its maker chose never counts.
+- `coder.drawn_as`: one coder run draws a thing once. Another phrasing with the same head noun and no new word ("merchants"
+  after "merchant", "silver piece" after "shaped silver piece") is left to that drawing, and the library finds it by the same
+  rule. Synonyms ("exchange partner", "trading party") are different words, so code cannot merge them; they stay a finding.
+
+| Measure | before | after |
+| --- | --- | --- |
+| Run a's 805 beat nouns with a library picture | 200 | 169 |
+| … of them by a tag only, a picture of something else (all 38 still have an icon-index picture of the thing) | 38 | 0 |
+| … pictures OF the thing the old rule missed ("cowrie shells", "gold bars", "₹100 banknote") | — | 7 gained |
+| First library pick that changed ("coin": "Coin-standard lane" → the 50 paise coin photo; "banknote": the holder → a generic banknote) | — | 12 |
+| Drawings of run a's 150 that are another phrasing of one drawn in the same run (head noun, no new word) | 5 drawn twice | 0 |
+| Tests (Task 04x) | 616 | 619, all pass |
+| Earlier plans recompiled (458) | — | 0 differences |
+| Passed outputs | — | 0 problems |
+
+Next: the canvas resumes from run a's answers with the 156-asset library, then the renders of v2, v4, v6 and v8.

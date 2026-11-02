@@ -542,7 +542,7 @@ def resolve_needs(ideas: dict, library=None, *, index=None, per_noun: int = 3) -
         rows = [r for r in _search(noun, index) if icons.fits(noun, r)][:per_noun]
         if rows:
             found[noun] = [r["id"] for r in rows]
-        hits = library.find([noun]) if library is not None else []
+        hits = library.pictures_of(noun) if library is not None else []     # pictures OF the noun, never by a tag alone
         if hits:
             images[noun] = [a.asset_id for a in hits]
         if not rows and not hits:

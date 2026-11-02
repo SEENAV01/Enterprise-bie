@@ -6,20 +6,26 @@ rounds, most on things code can read itself.
   object, a move without a target, a meter without its value;
 - a canvas node the camera shows under the subtitle strip goes up while the cells above are free;
 - a thing named by a text or mark head noun ("₹ symbol", "₹100 amount") is shown by the words on screen, never asked for as a
-  picture (run a asked for an anger symbol icon).
+  picture (run a asked for an anger symbol icon);
+- a drawing by BIE's coder is a picture of its own thing, never of a tag its maker chose (the coder run tagged 65 of 150
+  drawings "money": "money" found an abstract "money backing link", "bank" a written bank instruction), and another phrasing
+  of a thing drawn in the same run is not drawn again ("merchants", "silver piece").
 """
 from __future__ import annotations
 
 import copy
 import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "tests"))
 
-from bie.brain import canvas, visual_thinking as vt  # noqa: E402
+from bie.brain import canvas, coder, visual_thinking as vt  # noqa: E402
+from bie.brain.assets import AssetLibrary  # noqa: E402
 from bie.brain.video import saanche  # noqa: E402
 
 SAYS = {"b1": "राम ने साइकिल ₹500 में बेची और पैसे ऊपर रख दिए।", "b2": "फिर उसने ₹200 की घंटी खरीदी।"}
@@ -128,6 +134,64 @@ class TextThings(unittest.TestCase):
         self.assertTrue(all(not r["has_picture"] for r in rows.values() if not r["shown"]))
         self.assertEqual(vt.coverage_problems(list(rows.values())), [])                  # nothing asked for as a picture
         self.assertTrue(vt.is_text_thing("₹ symbol") and not vt.is_text_thing("bicycle"))
+
+
+SVG = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect x="96" y="160" width="320" height="200" rx="24" '
+       'fill="#ffd166" stroke="#2d3640" stroke-width="12"/><circle cx="{c}" cy="260" r="48" fill="#2a9d8f"/></svg>')
+
+
+def library(tmp):
+    lib = AssetLibrary(Path(tmp) / "lib")
+    drawn = [("note holder", "Banknote holder", ["note holder", "note", "holder", "money", "cash", "currency"]),
+             ("useful commodity", "Sack of grain", ["useful commodity", "useful", "commodity", "grain", "sack", "money"]),
+             ("sender account", "Sender account", ["sender account", "sender", "account", "bank", "money"]),
+             ("monetary link", "Money backing link", ["monetary link", "monetary", "link", "money", "gold", "bank"])]
+    for i, (thing, title, tags) in enumerate(drawn):
+        spec = json.dumps({"thing": thing, "for": "a video lesson", "shown_in": "1 beat(s)"})
+        lib.add_bytes(SVG.format(c=200 + i).encode(), mime="image/svg+xml", source=coder.SOURCE, title=title, page_url="",
+                      licence=coder.LICENCE, licence_url=coder.LICENCE_URL, author=coder.AUTHOR, credit="", tags=tags,
+                      generated_by="g", prompt=f"Draw this thing.\n\n{spec}\n\nReply.", generated_on="2026-11-02")
+    lib.add_bytes(SVG.format(c=300).encode(), mime="image/svg+xml", source="wikimedia_commons", title="File:50 paise coin.jpg",
+                  page_url="", licence="CC BY 4.0", licence_url="", author="x", credit="", tags=["50", "paise", "coin", "fetched"])
+    return lib
+
+
+class LibraryPictures(unittest.TestCase):
+    def test_a_coder_drawing_is_a_picture_of_its_own_thing_never_of_a_tag_its_maker_chose(self):
+        lib = library(tempfile.mkdtemp())
+        titles = lambda thing: [a.title for a in lib.pictures_of(thing)]          # noqa: E731
+        for broad in ("money", "bank", "gold", "cash", "sender", "grain"):
+            self.assertEqual(titles(broad), [], broad)                                # run a: 65 drawings tagged "money"
+        self.assertEqual(titles("note holder"), ["Banknote holder"])                  # its own thing (the spec in its prompt)
+        self.assertEqual(titles("useful commodity"), ["Sack of grain"])
+        self.assertEqual(titles("grain sack"), ["Sack of grain"])                     # the head noun of its title, every word
+        self.assertEqual(titles("coins"), ["File:50 paise coin.jpg"])                 # a fetched picture by its tag
+        self.assertEqual(titles("indian coin"), [])
+        self.assertEqual([a.title for a in lib.pictures_of("paise coin", every_word=True)], ["File:50 paise coin.jpg"])
+
+    def test_the_needs_list_and_the_coder_read_the_library_the_same_way(self):
+        lib = library(tempfile.mkdtemp())
+        ideas = {"beats": [{"beat_id": "b1", "things": ["money", "note holder", "grain sack", "sender"]}]}
+        images = vt.resolve_needs(ideas, lib)["images"]
+        self.assertEqual(sorted(images), ["grain sack", "note holder"])               # never "money" by a tag
+        self.assertEqual(coder.in_library("money", lib), [])
+        self.assertTrue(coder.in_library("note holder", lib))
+
+    def test_another_phrasing_of_a_thing_drawn_in_the_same_run_is_not_drawn_again(self):
+        import test_task046_canvas_director as T
+        tmp = Path(tempfile.mkdtemp())
+        need = lambda thing, n: {"thing": thing, "beats": [f"b{i}" for i in range(n)], "kind": "icon",  # noqa: E731
+                                 "sources_tried": ["icon-index"], "part": "v1_s1", "video": "v1"}
+        needs = {"schema": "bie.brain.needs/1", "missing_capabilities": [],
+                 "needs": [need("merchant", 3), need("merchants", 1), need("shaped silver piece", 2), need("silver piece", 1),
+                           need("silver mine", 1)]}
+        made = coder.run_coder(needs, T.runner(tmp), tmp)
+        self.assertEqual(sorted(i["thing"] for i in made["items"]), ["merchant", "shaped silver piece", "silver mine"])
+        why = {s["thing"]: s["why"] for s in made["skipped"]}
+        self.assertIn("'merchant'", why["merchants"])
+        self.assertIn("'shaped silver piece'", why["silver piece"])
+        self.assertEqual((made["in_library"], made["quality"]["skipped"]), ([], 2))     # none of them was in the library
+        self.assertEqual(coder.drawn_as("silver", ["shaped silver piece"]), "")        # another head noun: drawn on its own
 
 
 if __name__ == "__main__":

@@ -259,6 +259,11 @@ that beat. No format changes version: the new keys are optional and the readers 
 - **The check** (`canvas_director.check_plan`, both modes): a thing with a picture not on screen in its beat is refused, with the
   thing and its pictures named. A thing named by a text or mark head noun (`visual_verbs.json` `lexicon.text_heads`) is shown by
   the words on screen (its numbers, its currency or per-cent sign, its words) and is never asked for as a picture.
+- **The library's pictures of a thing** (`AssetLibrary.pictures_of`, read by the needs list and by BIE's coder alike): a fetched
+  picture by a tag that is the whole thing (the coder: or every word of it); a drawing by BIE's coder only by its own thing (the
+  spec in its `prompt`), its title or a phrase tag, or by their head noun with every word of the thing among its words, never by
+  a single tag its maker chose. One coder run draws a thing once: another phrasing with the same head noun and no new word
+  ("merchants", "silver piece" after "shaped silver piece") is left to the drawing made for it (`coder.drawn_as`).
 - **Report keys**: each passed part row of `canvas.json` adds `coverage_pct`; each part of the dikhane ki list
   (`visual_ideas/<video>.json`) adds `coverage` {mentioned, shown, coverage_pct, not_shown [{beat_id, thing, has_picture}]}; each
   video's `report` adds `mentioned_things`, `shown_things`, `coverage_pct` and `things_not_shown` [{beat_id, thing, has_picture,
