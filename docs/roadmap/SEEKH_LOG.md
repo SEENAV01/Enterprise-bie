@@ -1693,3 +1693,42 @@ passes.
 | Passed outputs | — | 0 problems |
 
 Next: v8 resumed from run b, the renders of v2, v4, v6 and v8, and the review pages.
+
+## Entry 40 · the addendum proof, rendered: four Money videos, two chosen by code, 2 November 2026
+
+**Runs:** run b (`runs/vm-t046d2-gen-canvas-b-brain-canvas/`, v2, v4, v6) and run c (`runs/vm-t046d2-gen-canvas-c-brain-canvas/`,
+v8). Run c resumed run b on main `d51a5cf3` (PR #124) in 3.7 minutes. v8_s5's last answer from run b passes with the fixed
+check. 61 of 61 parts passed in all. The narration was locked, nothing was added by hand, and Codex did the work through the
+plan for ₹0. v6 and v8 were chosen by code (`tools/task046d2_pick_videos.py`, the most narration words v1, v2 and v4 never say:
+v6 335, v8 286).
+
+| Video | Mentioned things on screen | Render (1080p30, GitHub runner) | Review copy |
+| --- | --- | --- | --- |
+| v2 | 199 of 210 (94.8 %) | 9.94 min, 5.2 min wall clock, list ₹22.73, billed ₹0 (run 41385034540) | `runs/t046d2-gen-v2/` |
+| v4 | 263 of 277 (94.9 %) | 10.64 min, 5.0 min, list ₹24.43, billed ₹0 (run 41385037364) | `runs/t046d2-gen-v4/` |
+| v6 | 246 of 292 (84.2 %) | 12.40 min, 6.5 min, list ₹29.42, billed ₹0 (run 41385039783) | `runs/t046d2-gen-v6/` |
+| v8 | 173 of 235 (73.6 %) | 8.72 min, 4.4 min, list ₹18.90, billed ₹0 (run 41391678815) | `runs/t046d2-gen-v8/` |
+
+The coverage numbers come from code, by beat, over the things the visual-idea step marked "to show". Before the addendum,
+the D2 run c plans scored v2 67.3 % and v4 81.0 % by the same code.
+
+Pages: the overview (all four videos, the code's pick, needs.json by kind, the coder's 150 drawings) and one review page per
+video. They are linked in STATUS. In all, 881 of 1014 mentioned things are on screen (86.9 %).
+
+**What the coder's drawings did on screen:** 74 of the 150 appear in the four videos (v2 30, v4 16, v6 23, v8 5). Some are
+abstract metaphors the coder chose: "Stability shield", "Money backing link", "Monetary link", "Issuer lane", "Three
+shelves". Whether a metaphor drawing teaches, or an abstract thing should be shown only by a diagram or text, is Navin's
+verdict.
+
+**Taught (from looking at the stills; nothing here is fixed yet):**
+- Some frames are sparse or small: v2_s3's icons are tiny in a large empty space, and v2_s8a and several v8 parts too. Some
+  tables carry a lot of text.
+- v8_s5 shows a parcel box for "legal promissory note", which is the wrong picture, and one label is cut off ("legal promissory
+  n").
+- Barter salt is sometimes a salt shaker: the icon index's "salt" is the shaker, while the coder's "salt packet" is found only
+  for its own phrase.
+- `coder.wants` reads "face value" as a person ("₹100 face-value tag", "printed face value"). These are text things.
+- v6's and v8's remaining needs are mostly a strip that divides a whole into parts (₹1 = 16 annas = 64 paise = 192 pies) and
+  banknote security features. The strip is a block BIE does not have.
+
+Nothing is ACCEPTED: the videos wait for Navin's verdict.
