@@ -1651,3 +1651,45 @@ emblems or real people. **Taught:**
 | Passed outputs | — | 0 problems |
 
 Next: the canvas resumes from run a's answers with the 156-asset library, then the renders of v2, v4, v6 and v8.
+
+## Entry 39 · the addendum proof's run b: 60 of 61, and one price that changes, 2 November 2026
+
+**Run:** VM job `t046d2-gen-canvas-b` (`runs/vm-t046d2-gen-canvas-b-brain-canvas/`), the canvas resumed from run a on main
+`4f612f20` (PR #123), with the shared library at 156 assets (BIE's coder's 150 drawings). Codex did the work through the plan in
+22 minutes, for ₹0.
+- 60 of 61 parts passed, 26 of them on the first try, in 37 rounds. Run a had 43 of 61.
+- Mentioned things on screen: 855 of 983 (87.0 %). Run a had 77.3 %.
+
+| Video | Mentioned things on screen | Spec |
+| --- | --- | --- |
+| v2 | 199 of 210 (94.8 %) | written |
+| v4 | 263 of 277 (94.9 %) | written |
+| v6 | 246 of 292 (84.2 %) | written |
+| v8 | 147 of 204 (72.1 %) | one part refused |
+
+- `needs.json` has 246 distinct things:
+  - 74 are names (Navin's decision);
+  - 60 are text or marks;
+  - 10 are people;
+  - of the 83 left for the coder, most are diagrams with numbers ("₹1 strip divided into 64 old paise", "16 anna groups")
+    or banknote security features ("security thread", "micro-lettering"). These are not icons, and the coder draws no
+    numbers. A strip that divides a whole into parts is a block BIE does not have yet, so no second coder run was made for
+    them. This is a finding for the next part; code does not yet send these to the missing-capability list.
+
+**Taught:** v8_s5 was refused after its fourth round only by BIE's own struck-value check. "₹20" struck out for "₹25 per
+kilogram" is the price of rice changing, but the check read "₹" and "₹ per kilogram" as two units. Its three rounds before that
+were overlaps the maker fixed.
+
+**Changed in BIE** (branch `task046d2-gen-seekh-b`, IMPLEMENTED): `visual_thinking.same_quantity`. Two amounts name one quantity
+unless their signs or their units differ, and a sign or a unit said on one side only belongs to the other side too. "₹20" →
+"5 kg" and "₹100" → "$2" are still two quantities. The new rule only refuses less: every pair the old rule let through still
+passes.
+
+| Measure | main `4f612f20` | after |
+| --- | --- | --- |
+| Run b's v8 last answers that pass | 9 of 10 | 10 of 10 |
+| Tests (Task 04x) | 619 | 620, all pass |
+| Earlier plans recompiled (518, run b's 60 included) | — | 0 differences |
+| Passed outputs | — | 0 problems |
+
+Next: v8 resumed from run b, the renders of v2, v4, v6 and v8, and the review pages.

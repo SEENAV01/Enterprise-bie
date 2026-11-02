@@ -1257,6 +1257,25 @@ def _unit(text: str) -> str:
     return "".join(words)
 
 
+def _quantity(text: str) -> tuple:
+    """(sign, unit) of an amount: its currency or per-cent sign (any currency, by its Unicode category) and its unit words."""
+    text = str(text or "")
+    sign = "".join(c for c in text if unicodedata.category(c) == "Sc" or c == "%")
+    return sign, _unit("".join(c for c in text if c not in sign))
+
+
+def same_quantity(a: str, b: str) -> bool:
+    """Two amounts name one quantity unless their signs or their units differ; a sign or a unit said on one side only is the
+    other side's too (seekh -> BIE, the addendum proof's run b: '₹20' → '₹25 per kilogram' is the price of rice changing,
+    refused as two quantities; '₹20' → '5 kg' still is two)."""
+    def covers(small, big):
+        return (not small[0] or small[0] == big[0]) and (not small[1] or small[1] == big[1])
+    qa, qb = _quantity(a), _quantity(b)
+    if not any(qa) or not any(qb):
+        return True
+    return covers(qa, qb) or covers(qb, qa)
+
+
 def struck_problems(plan: dict, mode: str) -> list:
     """D2-E: a struck old value with an up or down arrow shows ONE quantity changing. A value given back is not that quantity
     going down (the D1 v4 render struck the paid amount and showed the change with a down arrow): it travels back in a process
@@ -1276,7 +1295,7 @@ def struck_problems(plan: dict, mode: str) -> list:
                            f"its tag), not '{prev.get('text', '')}' struck out for '{cur.get('text', '')}'")
                 break
             a, b = str(prev.get("text", "")), str(cur.get("text", ""))
-            if re.search(r"\d", a) and re.search(r"\d", b) and _unit(a) and _unit(b) and _unit(a) != _unit(b):
+            if re.search(r"\d", a) and re.search(r"\d", b) and not same_quantity(a, b):
                 out.append(f"{x.get('id')}: '{a}' struck out for '{b}' are two different quantities; a struck value with an arrow is one "
                            "quantity changing: use two elements, or an action")
                 break

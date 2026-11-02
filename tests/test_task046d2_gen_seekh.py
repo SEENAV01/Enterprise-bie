@@ -9,7 +9,8 @@ rounds, most on things code can read itself.
   picture (run a asked for an anger symbol icon);
 - a drawing by BIE's coder is a picture of its own thing, never of a tag its maker chose (the coder run tagged 65 of 150
   drawings "money": "money" found an abstract "money backing link", "bank" a written bank instruction), and another phrasing
-  of a thing drawn in the same run is not drawn again ("merchants", "silver piece").
+  of a thing drawn in the same run is not drawn again ("merchants", "silver piece");
+- a price that changes and names its unit only once ("₹20" → "₹25 per kilogram", run b's v8_s5) is one quantity changing.
 """
 from __future__ import annotations
 
@@ -192,6 +193,22 @@ class LibraryPictures(unittest.TestCase):
         self.assertIn("'shaped silver piece'", why["silver piece"])
         self.assertEqual((made["in_library"], made["quality"]["skipped"]), ([], 2))     # none of them was in the library
         self.assertEqual(coder.drawn_as("silver", ["shaped silver piece"]), "")        # another head noun: drawn on its own
+
+
+class StruckValues(unittest.TestCase):
+    def test_a_unit_said_on_one_side_only_is_one_quantity_changing(self):
+        self.assertTrue(vt.same_quantity("₹20", "₹25 per kilogram"))                   # run b, v8_s5: refused before
+        self.assertTrue(vt.same_quantity("2 metres", "1 metre"))
+        self.assertTrue(vt.same_quantity("10%", "12%"))
+        for a, b in (("₹20", "5 kg"), ("20 kg", "₹25"), ("₹100", "$2"), ("3 bags", "5 goats")):
+            self.assertFalse(vt.same_quantity(a, b), (a, b))
+        beats = [{"beat_id": "b1", "say": "चावल का दाम ₹20 से बढ़कर ₹25 प्रति किलो हो गया।"}]
+        node = {"id": "rice_price", "kind": "value", "cell": [0, 0, 4, 2], "cue": ["b1", ""],
+                "steps": [{"text": "₹20", "cue": ["b1", "₹20"]}, {"text": "₹25 per kilogram", "cue": ["b1", "₹25"]}]}
+        plan = {"id": "x", "grid": [12, 8], "beats": beats, "nodes": [node]}
+        self.assertEqual(vt.struck_problems(plan, "B"), [])
+        node["steps"][1]["text"] = "5 kg"
+        self.assertEqual(len(vt.struck_problems(plan, "B")), 1)
 
 
 if __name__ == "__main__":
