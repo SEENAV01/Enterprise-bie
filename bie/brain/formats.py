@@ -148,6 +148,12 @@ SHOW_SCENE = O({"id": S, "t0": N, "t1": N, "bg": S, "fg": S, "kicker": S, "cam":
 SHOW_SPEC = O({"schema": S, "fps": N, "width": N, "height": N, "duration": N, "subs": A(SHOW_SUB),
                "assets": {"type": "object"}, "scenes": A(SHOW_SCENE)},
               required=["schema", "fps", "width", "height", "duration", "subs", "scenes"])
+SAANCHA_PARAM = O({"type": {"type": "string", "enum": ["number", "int", "text", "bool", "color", "choice"]},
+                   "default": {}, "min": N, "max": N, "choices": A(S), "what": S}, required=["type", "default"])
+SAANCHA = O({"anchor": {"type": "string", "enum": ["bottom", "center"]}, "what": S, "tags": A(S),
+             "params": {"type": "object"}, "since": S}, required=["anchor", "what", "tags", "params", "since"])
+SAANCHA_MANIFEST = O({"schema": S, "licence": S, "provenance": S, "saanche": {"type": "object"}},
+                     required=["schema", "licence", "provenance", "saanche"])
 
 # -- the render checks (Task 048): a canvas run compiled again with today's code, and the texts of a video measured on its frames
 RESPEC_PART = O({"id": S, "mode": S, "status": S, "problem": S}, required=["id", "status"])
@@ -274,6 +280,12 @@ FORMATS = {
                         ("bie/brain/video/engine (the renderer)", "tools/render_spec.py", "the render workflow"),
                         "scenes in seconds with the engine's elements and camera keys; subtitles from the voice timeline; "
                         "the asset name to served path map", "2026-11-03"),
+    "saancha_manifest": Format("bie.saancha-manifest", 1, SAANCHA_MANIFEST, "bie/brain/video/engine/saanche.json",
+                               "a reviewed PR beside its drawing in draw.mjs (Claude, or BIE's coder)",
+                               ("bie/brain/saanche.py (search, parameter checks)", "the scene-plan compiler (part B2)",
+                                "tools/saanche_stills.py (the CI still sheet)"),
+                               "every drawing the showing engine can make: anchor, parameters with types, defaults and "
+                               "limits, Hindi and English words, licence and provenance", "2026-11-03"),
     "respec": Format("bie.respec", 1, RESPEC, "RESPEC.json", "tools/respec_video.py", ("the render workflow", "Navin"),
                      "a canvas run's plans compiled again with today's code: per video its parts compiled or refused with the reason",
                      "2026-11-03"),
