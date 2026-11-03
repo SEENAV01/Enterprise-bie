@@ -139,6 +139,16 @@ MADE_ITEM = O({"thing": S, "slug": S, "status": S, "rounds": N, "file": S, "sha2
 CODER_MADE = O({"schema": S, "version": S, "items": A(MADE_ITEM), "skipped": A(O({"thing": S, "why": S})), "quality": {"type": "object"}},
                required=["schema", "version", "items", "skipped", "quality"])
 
+# -- the showing engine's spec (Phase 1, agreement of 3 November 2026): scenes in seconds with elements and camera keys,
+# subtitles from the voice timeline, and the asset name -> served path map. Elements are the engine's own vocabulary
+# (person, saancha item, text, mark, arrow, bubble, rect, glow, map), checked by the scene-plan compiler, not here.
+SHOW_SUB = O({"t0": N, "t1": N, "text": S}, required=["t0", "t1", "text"])
+SHOW_SCENE = O({"id": S, "t0": N, "t1": N, "bg": S, "fg": S, "kicker": S, "cam": A({"type": "object"}), "els": A({"type": "object"})},
+               required=["id", "t0", "t1", "els"])
+SHOW_SPEC = O({"schema": S, "fps": N, "width": N, "height": N, "duration": N, "subs": A(SHOW_SUB),
+               "assets": {"type": "object"}, "scenes": A(SHOW_SCENE)},
+              required=["schema", "fps", "width", "height", "duration", "subs", "scenes"])
+
 # -- the render checks (Task 048): a canvas run compiled again with today's code, and the texts of a video measured on its frames
 RESPEC_PART = O({"id": S, "mode": S, "status": S, "problem": S}, required=["id", "status"])
 RESPEC = O({"schema": S, "run": S, "videos": A(O({"video_id": S, "status": S, "parts": A(RESPEC_PART), "compiled": N, "refused": N,
@@ -259,6 +269,11 @@ FORMATS = {
     "chapter_review_record": Format("bie.brain.coverage.chapter", 1, CHAPTER_REVIEW_RECORD, "<page>.coverage.json",
                                     "tools/task046c_chapter_page.py (bie/brain/coverage.py chapter_coverage)", ("Navin",),
                                     "every teachable line → the video that teaches it", "2026-10-29"),
+    "show_spec": Format("bie.show-spec", 1, SHOW_SPEC, "video_specs/<video>.json",
+                        "the showing engine's builders (bie/brain/gold/*, the scene-plan compiler of Phase 1)",
+                        ("bie/brain/video/engine (the renderer)", "tools/render_spec.py", "the render workflow"),
+                        "scenes in seconds with the engine's elements and camera keys; subtitles from the voice timeline; "
+                        "the asset name to served path map", "2026-11-03"),
     "respec": Format("bie.respec", 1, RESPEC, "RESPEC.json", "tools/respec_video.py", ("the render workflow", "Navin"),
                      "a canvas run's plans compiled again with today's code: per video its parts compiled or refused with the reason",
                      "2026-11-03"),

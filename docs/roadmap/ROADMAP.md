@@ -454,6 +454,39 @@ or light method; then cost optimisation (batch, caching, locked blocks) and, lat
 **Gate 1:** one BIE run turns the tissue chapter into video, game and notes; Navin judges the whole package;
 the real cost per page is read from the ledger and compared with the dashboard bill.
 
+### Agreed on 3 November 2026 · Phase 1 end to end on the new showing engine
+
+The agreement is `docs/vision/AGREEMENT_2026-11-03.md` (read it before any BIE work). Goal: one button turns a book
+PDF into a review page with videos, notes and a game for its chapters, every section connected and running, on the
+showing system of the Money v2 demo ("yeh huyi na baat"); quality is not final in this phase. Claude works in as many
+PRs as it needs and merges on green itself (Navin, 3 November 2026). Target 22 November. This reshapes how Tasks
+047–052 are built; their goals stand. Parts:
+
+- **A · The showing engine inside BIE** — the v2 demo's engine, characters and drawings rebuilt as BIE's video engine
+  (`bie/brain/video/engine/`), on BIE's existing render path: the same window API as the preview page, the chunked CI
+  render, the text audit. One renderer only; the old canvas/world blocks keep rendering the old specs until the new
+  engine passes part F, then are retired explicitly. The Money v2 gold example as code
+  (`bie/brain/gold/money_v2/`, `tools/gold_money_v2.py`), labelled Claude's demo, never a passed output.
+- **B · The slots** — versioned schemas in `docs/bie/CONTRACTS.md` with validators: **B1** saanche (a parametric
+  drawing function + manifest + CI still + a searchable library; the demo's drawings and Fluent Emoji as first
+  entries), **B2** the scene-plan language (the vocabulary as JSON, a compiler to the engine spec that refuses with
+  the exact error, checks: cue words exist, no overlap, the subtitle strip clear, the text floor, nothing >2 s
+  without the thing being shown, dikhane-ki-list coverage, valid saancha parameters; the v2 plan as the gold
+  example), **B3** the game mechanics (five, a level format, phone-friendly, extending `bie/brain/game*.py`),
+  **B4** the notes pages (one question per page, extending `bie/brain/notes*.py`).
+- **C · BIE's AI writes** — narration rules with the v2 gold script as the example; the director writes scene plans
+  (Codex on the VM) in the plan language; the coder writes new saanche; the AI writes the notes question lists and
+  the game plans and levels.
+- **D · Voice (interim)** — Chatterbox Multilingual (MIT, pinned) with Navin's reference clip, pitch −2 semitones,
+  an STT check per sentence. The clip only from a private VM path or an Actions secret, never the public repo;
+  Navin's yes is needed first; until then, captions only.
+- **E · One button** — one workflow + the operator app button: PDF → understanding → narration → scene plans →
+  voice → render → notes → game → one review page per book; chapter by chapter, resumable, under the cost guard.
+- **F · The decision test** — BIE makes Money v4 by itself end to end on the new system (nothing hand-made); one
+  page: v4 beside Claude's v2, the notes, one game level, and the numbers (said=shown ≥ 95 %, text-only seconds,
+  overlaps 0, broken renders 0, first-try rate, rounds, tokens, ₹ per minute and per page); the report in
+  `docs/roadmap/reports/`; STOP for Navin's verdict.
+
 ## Phase 2 · Every kind of subject
 
 - Chapters from other subject families (history, mathematics, geography, law and more), then full UGC NET

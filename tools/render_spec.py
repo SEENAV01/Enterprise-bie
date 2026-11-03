@@ -52,7 +52,7 @@ def chunk_range(total: int, chunk: int, chunks: int) -> tuple:
 
 
 def total_frames(spec: dict) -> int:
-    return sum(int(s["duration"]) for s in spec["scenes"])
+    return render.total_frames(spec)
 
 
 def timing_row(spec: dict, first: int, last: int, seconds: float, **extra) -> dict:
@@ -66,9 +66,10 @@ def timing_row(spec: dict, first: int, last: int, seconds: float, **extra) -> di
 def cmd_chunk(args) -> int:
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    spec = formats.accept("video_spec", read_json(args.spec), where=args.spec)
+    spec = load_spec(args.spec)
     first, last = chunk_range(total_frames(spec), args.chunk, args.chunks)
-    dist = render.build_preview(Path(args.dist) if args.dist else out / "_dist", toolbox=True)
+    dist = render.build_preview(Path(args.dist) if args.dist else out / "_dist", toolbox=not render.needs_engine(spec),
+                                engine=render.needs_engine(spec))
     assets = Path(args.assets) if args.assets else (out / "assets" if (out / "assets").exists() else None)
     started = time.time()
     render.mp4_range(spec, out / f"part-{args.chunk:02d}.mp4", first, last, dist=dist, assets=assets)
@@ -76,6 +77,14 @@ def cmd_chunk(args) -> int:
     (out / f"part-{args.chunk:02d}.json").write_text(json.dumps(row, indent=1), encoding="utf-8")
     print(json.dumps(row))
     return 0
+
+
+def load_spec(path) -> dict:
+    """The spec at ``path``, validated as a show-spec (bie.show-spec/1) or the old VideoSpec by its schema."""
+    spec = read_json(path)
+    if str(spec.get("schema", "")).startswith("bie.show-spec"):
+        return formats.accept("show_spec", spec, where=str(path))
+    return formats.accept("video_spec", spec, where=str(path))
 
 
 def ffprobe_seconds(path: Path) -> float:
@@ -233,7 +242,7 @@ def cmd_fixture(args) -> int:
 def cmd_bench(args) -> int:
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    spec = formats.accept("video_spec", read_json(args.spec), where=args.spec)
+    spec = load_spec(args.spec)
     dist = render.build_preview(Path(args.dist) if args.dist else out / "_dist", toolbox=True)
     assets = Path(args.assets) if args.assets else None
     row = bench(spec, args.frames, dist=dist, assets=assets, out=out, label=args.label)
