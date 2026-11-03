@@ -102,7 +102,8 @@ const IconEl: React.FC<{ el: El; P: Record<string, string>; W: number; H: number
         background: "radial-gradient(closest-side, rgba(20,30,45,0.28), rgba(20,30,45,0))", transform: `scaleX(${1 - bob / 40})` }} /> : null}
       <img src={assetUrl(el.src)} style={{ width: "100%", height: el.label ? `${(1 - (el.label_share ?? 0.22)) * 100}%` : "100%", objectFit: "contain", display: "block",
         transform: `translateY(${bob - (touches ? 4 : 0)}px)`, willChange: touches ? "transform" : undefined }} />
-      {el.label ? <div style={{ fontFamily: FONT, fontSize: r(el.label_size ?? 22), fontWeight: 700, color: toneOf(P, el.label_tone ?? "muted"),
+      {el.label ? <div style={{ fontFamily: FONT, fontSize: Math.max(el.label_size ?? 22, r(el.label_size ?? 22) / s),    // a dimmed icon shrinks, its label stays readable (CV-17)
+        fontWeight: 700, color: toneOf(P, el.label_tone ?? "muted"),
         textAlign: "center", letterSpacing: 0.5, marginTop: 4, whiteSpace: "nowrap", lineHeight: 1.35 }}>
         {el.label_lines ? el.label_lines.map((t: string, i: number) => <div key={i}>{t}</div>) : el.label}</div> : null}
     </div>
