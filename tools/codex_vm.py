@@ -41,7 +41,8 @@ ROOT = Path(__file__).resolve().parents[1]
 JOB_SCHEMA = "bie.vm-job/1"
 JOBS_BRANCH = "codex-jobs"
 RESULTS_BRANCH = "blindtest-results"
-SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "canvas", "chain", "image", "look", "coder")
+SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "canvas", "chain", "image", "look", "coder",
+            "showplan", "notespages", "gamelevels")   # Phase 1 part C (agreement of 3 November 2026)
 # "coder" (Task 046 Part D2 addendum, Navin 2 November 2026): BIE's coder draws an SVG for each need no source had
 # (run_brain --section coder --from-run <canvas run> --library <shared library>), through the plan like the canvas section.
 # Task 046 one-shot test (Navin, 26 October 2026): "image" makes pictures with Codex's built-in image_gen tool through the
@@ -76,7 +77,7 @@ def validate(job: dict) -> dict:
         raise JobError(f"job: must be a {JOB_SCHEMA} object")
     allowed = {"job", "id", "section", "source", "chapter_map", "from_run", "resume_from", "library", "pages", "videos", "course",
                "maker", "reviewer", "reviewer_model", "models", "routes", "max_inr", "workers", "max_rounds", "language",
-               "with_visual", "with_canvas", "render", "fake", "note", "prompts", "request", "max_images"}
+               "with_visual", "with_canvas", "with_show", "render", "fake", "note", "prompts", "request", "max_images"}
     unknown = sorted(set(job) - allowed)
     if unknown:
         raise JobError("unknown fields: " + ", ".join(unknown))
@@ -101,9 +102,9 @@ def validate(job: dict) -> dict:
             raise JobError(f"{name}: not allowed")
     if out["section"] in ("understand", "chain") and not out.get("source"):
         raise JobError("source: needed for understand and chain")
-    if out["section"] in ("lesson", "notes", "game") and not out.get("chapter_map"):
+    if out["section"] in ("lesson", "notes", "game", "notespages", "gamelevels") and not out.get("chapter_map"):
         raise JobError("chapter_map: needed for lesson, notes and game")
-    if out["section"] in ("director", "visual", "canvas", "coder") and not out.get("from_run"):
+    if out["section"] in ("director", "visual", "canvas", "coder", "showplan") and not out.get("from_run"):
         raise JobError("from_run: needed for director, visual, canvas and coder")
     # max_rounds up to 6 since the Money lesson resume -e (29 October 2026): the checker named new findings each round, and a
     # Codex round costs plan time, not rupees (the rupee cap is max_inr); the default stays 3.
@@ -111,7 +112,7 @@ def validate(job: dict) -> dict:
         value = out[name]
         if isinstance(value, bool) or not isinstance(value, (int, float)) or not low <= value <= high:
             raise JobError(f"{name}: between {low} and {high}")
-    for name in ("with_visual", "with_canvas", "render", "fake"):
+    for name in ("with_visual", "with_canvas", "with_show", "render", "fake"):
         if name in out and not isinstance(out[name], bool):
             raise JobError(f"{name}: true or false")
     if out.get("fake") and os.environ.get("BIE_VM_ALLOW_FAKE") != "1":
@@ -140,7 +141,7 @@ def argv(job: dict, out: Path, python: str = sys.executable) -> list:
     for name, flag in flags.items():
         if job.get(name):
             cmd += [flag, str(job[name])]
-    for name in ("with_visual", "with_canvas", "render", "fake"):
+    for name in ("with_visual", "with_canvas", "with_show", "render", "fake"):
         if job.get(name):
             cmd.append("--" + name.replace("_", "-"))
     return cmd
