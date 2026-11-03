@@ -273,6 +273,26 @@ def ideas_answer(user_text: str):
     return {"notes": NOTES, "beats": rows, "picture_type": pics[0]["type"] if pics else "things", "picture_note": "offline"}
 
 
+def showplan_answer(user_text: str):
+    """A scene plan the compiler accepts: per part one scene, a villager and a sack on screen, one title pill."""
+    data = json.loads(user_text[user_text.index("{"):user_text.rindex("}") + 1])
+    by_part = {}
+    for line in data.get("lines") or []:
+        by_part.setdefault(line.get("scene") or "part", []).append(line["id"])
+    scenes = []
+    for n, (part, lids) in enumerate(by_part.items()):
+        scenes.append({"id": f"s{n + 1}", "lines": lids, "bg": "paper",
+                       "cam": [],
+                       "steps": [
+                           {"op": "person", "id": "p", "look": "villager", "x": 520},
+                           {"op": "item", "thing": {"draw": "sack", "p": {"w": 220}}, "x": 1320, "y": 885},
+                           {"op": "text", "text": data.get("title") or "…", "size": 44, "style": "pill",
+                            "bg": "#2fb463", "fill": "#fff", "x": 960, "y": 220,
+                            "t0": {"line": lids[0], "edge": "start", "plus": 0.1}},
+                       ]})
+    return {"schema": "bie.scene-plan/1", "video": data.get("video_id", ""), "scenes": scenes}
+
+
 def canvas_answer(user_text: str):
     """A plan the canvas compiler accepts: a title tag, then one icon card per beat on its first word (an icon with a short label,
     so every beat shows a thing, D1-01), two columns of two-row cards below the code-placed book picture (the label at the readable
@@ -510,6 +530,8 @@ class BrainFakeClient:
             value = notes_answer(user)
         elif "replace_scenes" in props:
             value = {"notes": NOTES, "replace_scenes": [], "remove_scene_ids": []}
+        elif "scenes" in props and "schema" in props and "video" in props:
+            value = showplan_answer(user)
         elif "nodes" in props and "graph_used" in props:
             value = canvas_answer(user)
         elif "picture_type" in props and "beats" in props:

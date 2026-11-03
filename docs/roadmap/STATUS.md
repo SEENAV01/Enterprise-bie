@@ -79,6 +79,17 @@ like the lesson, same saanche, same people. `deck_of()` feeds the existing phone
 (`bie/brain/notes_render.py`, now with an image visual; print view is the PDF): no parallel renderer. Example pages
 in the tests are Claude's demo data; BIE's AI writes real pages in part C. IMPLEMENTED.
 
+**Part C, first slice: the director writes scene plans** (branch `p1c-ai-writes`, on B4): the gold Timeline moved
+to `bie/brain/video/narration.py` and `script_of()` turns any lesson plan's beats into the same narration shape, so
+BIE's videos and the gold example speak one language. `bie/brain/show_director.py` is the new section
+(`--section showplan` in `tools/run_brain.py`, under the cost guard, maker route only): for every passed video the
+maker writes a `bie.scene-plan/1` with the plan vocabulary, the saancha library and one gold scene in the prompt,
+and THE COMPILER IS THE CHECK — every missed cue word, wrong saancha parameter, small text or text-alone stretch
+comes back named exactly, and the maker patches (replace_scenes). Outputs per video: `plans/<video>.plan.json` and
+the compiled `video_specs/<video>.json`, ready for the chunked render. The brain's fake maker writes a plan that
+passes the real compiler, so the whole loop is proven offline. IMPLEMENTED; the live Codex run on the VM is the
+INTEGRATED proof (part F). Still in part C: the AI writing notes pages, game levels and new saanche.
+
 ## Task 048 · first slice: the render checks and the one-button plumbing (3 November 2026)
 
 Navin, 3 November 2026: "Meanwhile: fix only these general issues ..., then start the render/player and one-button plumbing (Task

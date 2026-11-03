@@ -33,6 +33,7 @@ PER_PAGE_USD = {
     "visual": (0.25, "assumed", "not measured yet; asset choice by sight and layouts reviewed on frames"),
     "canvas": (0.10, "assumed", "not measured yet; one plan per part, code checks only (Task 046 Part C)"),
     "coder": (0.0, "assumed", "no pages: one SVG per need, through the ChatGPT plan (Task 046 Part D2 addendum)"),
+    "showplan": (0.12, "assumed", "not measured yet; one scene plan per video, the compiler is the only check (Phase 1 part C)"),
 }
 SECTIONS_OF_MODE = {
     "understand": ("understand", "connect"),
@@ -43,12 +44,13 @@ SECTIONS_OF_MODE = {
     "visual": ("visual",),
     "canvas": ("canvas",),
     "coder": ("coder",),
+    "showplan": ("showplan",),
     "chain": ("understand", "connect", "notes", "game", "lesson", "director"),
 }
 BASIS_BLEND = 0.3 * 2.00 + 0.7 * 10.00
 MAKER_SHARE = 0.84
 SECTION_NAMES = {"understand": "Section 1 · page reading", "connect": "Section 1 · chapter map", "lesson": "Section 2 · lesson",
-                 "director": "Section 3 · director", "visual": "Section 4 · visual", "canvas": "Section 3c · canvas plans", "coder": "BIE's coder · drawings", "game": "Section 6 · game design",
+                 "director": "Section 3 · director", "visual": "Section 4 · visual", "canvas": "Section 3c · canvas plans", "coder": "BIE's coder · drawings", "showplan": "Phase 1 · scene plans", "game": "Section 6 · game design",
                  "notes": "Section 7 · notes", "preflight": "preflight"}
 
 
