@@ -6,6 +6,7 @@ Read this file first, then:
 2. `docs/vision/VISION_SPEC.md` — what Navin wants to build and why (product vision).
 3. `docs/roadmap/ROADMAP.md` — phases, gates and the task list from Task 037 onward.
 4. `docs/bie/BIE_MASTER_SPEC.md` and `docs/bie/ARCHITECTURE.md` — the original engineering constitution.
+5. `docs/vision/AGREEMENT_2026-11-03.md` — the agreed understanding of 3 November 2026 (after Claude's Money v2 demo): parametric saanche, the three-layer showing system, the teaching book per subject, the plan to 22 November. Newer than the files above where they differ.
 
 ## The owner
 
