@@ -96,10 +96,6 @@ class DirectorStep(unittest.TestCase):
             self.assertIn("v9: passed", (out / "SHOWPLAN.md").read_text(encoding="utf-8"))
 
 
-if __name__ == "__main__":
-    unittest.main()
-
-
 class Writers(unittest.TestCase):
     CHAPTER = {"items": {"i1": {"item_id": "i1", "content": "रामू गेहूँ देता है", "teachable": True,
                                 "kind": "paragraph", "content_type": "story"},
@@ -147,3 +143,24 @@ class Writers(unittest.TestCase):
         self.assertTrue(any("has no page" in p for p in problems))
         problems = check_levels({"levels": []}, self.CHAPTER)
         self.assertIn("at least 2 levels are needed", problems)
+
+
+class VmJobs(unittest.TestCase):
+    def test_the_vm_takes_the_new_sections_and_the_with_show_chain(self):
+        sys.path.insert(0, str(ROOT / "tools"))
+        import codex_vm
+        job = codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "t", "section": "showplan",
+                                 "from_run": "https://raw.example/runs/x", "maker": "codex", "reviewer": "google",
+                                 "max_inr": 50, "workers": 2, "max_rounds": 4})
+        self.assertIn("--section", codex_vm.argv(job, Path("/tmp/o")))
+        chain = codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "t2", "section": "chain", "source": "https://x/b.pdf",
+                                   "maker": "codex", "reviewer": "google", "max_inr": 50, "workers": 2,
+                                   "max_rounds": 4, "with_show": True})
+        self.assertIn("--with-show", codex_vm.argv(chain, Path("/tmp/o")))
+        with self.assertRaises(codex_vm.JobError):
+            codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "t3", "section": "showplan",
+                               "maker": "codex", "reviewer": "google", "max_inr": 50, "workers": 2, "max_rounds": 4})
+
+
+if __name__ == "__main__":
+    unittest.main()
