@@ -95,6 +95,14 @@ engine's language; output `notes/pages/*.json` + the phone deck `NOTES_PAGES.htm
 `GAME.html`), both judged by the part-B3/B4 validators with every problem named, both proven offline through the
 fake maker. Still in part C: the AI writing new saanche (BIE's coder).
 
+**Part E, first slice: one chain and the review page** (branch `p1e-one-button`, on C):
+`run_brain --section chain --with-show` runs the whole road in one job — book PDF → chapter map → lesson →
+scene plans → notes pages → game levels — under one cost-guard estimate (the three new sections priced in).
+`tools/p1_review_page.py` builds the chapter review page from the run folder: every video with its plan numbers
+and its MP4 once the render workflow has run (and an honest "video abhi render nahi hua" until then), the notes
+deck, the playable game, and the numbers table (passed, first-try, rounds) — nothing hand-written. Proven offline
+through the fake chain. Still in part E: the render hand-off workflow and the operator app button.
+
 ## Task 048 · first slice: the render checks and the one-button plumbing (3 November 2026)
 
 Navin, 3 November 2026: "Meanwhile: fix only these general issues ..., then start the render/player and one-button plumbing (Task

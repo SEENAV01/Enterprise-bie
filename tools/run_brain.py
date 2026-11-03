@@ -209,6 +209,8 @@ def main(argv=None):
     parser.add_argument("--videos", default="", help="visual: only these video ids, for example v1,v2; lesson with --resume-from: only these scripts are worked on, the rest are kept as they were")
     parser.add_argument("--render", action="store_true", help="visual, canvas: also render a silent MP4 preview of every video")
     parser.add_argument("--with-visual", action="store_true", help="chain: also run Section 4")
+    parser.add_argument("--with-show", action="store_true", help="chain: also run the Phase 1 slots on what passed - scene plans "
+                        "(showplan), notes pages and game levels (agreement of 3 November 2026, part E)")
     parser.add_argument("--with-canvas", action="store_true", help="chain: also run Section 3c, the canvas director, on the passed "
                                                                   "scripts (--videos: only these; --library: BIE's shared library)")
     parser.add_argument("--pages")
@@ -339,6 +341,7 @@ def main(argv=None):
         estimate = cost_module.estimate(args.section, summary.get("resume", {}).get("pages_to_run", pages), rate=rate,
                                         maker_model=gateway.model_of(args.maker), reviewer_model=gateway.model_of(reviewer),
                                         with_visual=args.with_visual, with_canvas=args.with_canvas and args.section == "chain",
+                                        with_show=args.with_show and args.section == "chain",
                                         maker_subscription=maker_via in SUBSCRIPTION_VIAS,
                                         reviewer_subscription=reviewer_via in SUBSCRIPTION_VIAS)
         summary["estimate"] = estimate
@@ -417,6 +420,19 @@ def main(argv=None):
             planned = run_canvas(chapter, lesson, course, runner, out, videos=wanted or None, workers=args.workers, max_rounds=args.max_rounds,
                                  shared_library=args.library or None, previous=previous)
             summary.update(canvas_quality=planned["quality"])
+            if guard.stopped:
+                summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
+        if summary["status"] == "ok" and args.section == "chain" and args.with_show:
+            # part E: one chain from the book to the new slots (scene plans, notes pages, game levels)
+            from bie.brain.show_director import run_show_director
+            from bie.brain.show_writers import run_game_levels, run_notes_pages
+            planned = run_show_director(lesson, course, runner, out, max_rounds=args.max_rounds)
+            summary.update(showplan_quality={"passed": planned["passed"], "first_try": planned["first_try"],
+                                             "videos": len(planned["videos"])})
+            if not guard.stopped:
+                summary.update(notes_pages=run_notes_pages(chapter, course, runner, out, max_rounds=args.max_rounds))
+            if not guard.stopped:
+                summary.update(game_levels=run_game_levels(chapter, course, runner, out, max_rounds=args.max_rounds))
             if guard.stopped:
                 summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
         if summary["status"] == "ok" and args.section == "notespages":
