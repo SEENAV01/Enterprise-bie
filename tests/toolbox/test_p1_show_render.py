@@ -1,7 +1,8 @@
 """Phase 1, part A: the showing engine draws — render smoke tests.
 
-Not in the offline core lane: these need node, esbuild and Chromium, which the toolbox demos job has (the same job
-that renders the block demos). Run there as its own step, and locally with NODE_PATH pointing at the web packages.
+In tests/toolbox/ like the wrappers, so the canonical gate (which fails a file that runs no test) never sees it:
+these need node, esbuild and Chromium, which the toolbox demos job has. Run there as the 'show' lane, and locally with
+NODE_PATH pointing at the web packages.
 """
 from __future__ import annotations
 
@@ -11,7 +12,7 @@ import unittest
 from pathlib import Path
 import sys
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
 from bie.brain.gold.money_v2 import ASSETS_USED, gold_spec  # noqa: E402
