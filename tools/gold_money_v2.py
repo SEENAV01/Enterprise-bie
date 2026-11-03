@@ -19,7 +19,8 @@ sys.path.insert(0, str(ROOT))
 
 from bie.brain.assets import AssetLibrary  # noqa: E402
 from bie.brain import formats  # noqa: E402
-from bie.brain.gold.money_v2 import ASSETS_USED, build_script, gold_spec  # noqa: E402
+from bie.brain.gold.money_v2 import ASSETS_USED, build_script, gold_plan  # noqa: E402
+from bie.brain.video import showplan  # noqa: E402
 from bie.toolbox import icons  # noqa: E402
 
 FLUENT = {name: "fl:" + name.replace("_", "-") for name in ASSETS_USED}
@@ -42,11 +43,15 @@ def main(argv=None) -> int:
     a = ap.parse_args(argv)
     a.out.mkdir(parents=True, exist_ok=True)
     (a.out / "video_specs").mkdir(exist_ok=True)
+    (a.out / "plans").mkdir(exist_ok=True)
     script = build_script()
     (a.out / "script.json").write_text(json.dumps(script, ensure_ascii=False, indent=1), encoding="utf-8")
     durations = json.loads(a.durations.read_text(encoding="utf-8")) if a.durations else None
     assets = resolve_assets(a.out)
-    spec = gold_spec(durations=durations, width=a.width, height=a.height, assets=assets)
+    plan, T = gold_plan(durations)
+    formats.check("scene_plan", plan, where="plans/v2_gold.plan.json")
+    (a.out / "plans" / "v2_gold.plan.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
+    spec = showplan.compile_plan(plan, T, width=a.width, height=a.height, assets=assets)
     formats.check("show_spec", spec, where="video_specs/v2_gold.json")
     (a.out / "video_specs" / "v2_gold.json").write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
     lines = sum(len(s["lines"]) for s in script)
@@ -56,6 +61,8 @@ def main(argv=None) -> int:
         + (" (real voice durations)" if durations else " (estimated timings: no voice durations given)") + ".\n"
         f"- {len(spec['scenes'])} scenes, {sum(len(s['els']) for s in spec['scenes'])} elements, "
         f"{len(assets)} fetched things (Fluent Emoji, MIT), the rest drawn by the engine's saanche.\n"
+        f"- The plan (`plans/v2_gold.plan.json`, `bie.scene-plan/1`, {sum(len(s['steps']) for s in plan['scenes'])} steps) "
+        "is the gold example of the plan language; the compiler's checks pass it clean.\n"
         "- Render: `python -B tools/render_spec.py chunk --spec video_specs/v2_gold.json --assets assets ...` "
         "or the `BIE Task046c Render` workflow.\n", encoding="utf-8")
     print(f"gold v2: {lines} lines, {len(spec['scenes'])} scenes, {spec['duration']:.1f} s, {len(assets)} assets -> {a.out}")

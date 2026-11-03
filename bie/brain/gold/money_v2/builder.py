@@ -1,152 +1,26 @@
 """The Money v2 scene plan (Claude's demo, not BIE output; the GOLD EXAMPLE of the agreement of 3 November 2026).
 For every narration line: the thing said is on screen and the action said happens, on the word it is said. This is the
-builder the scene-plan language and BIE's director learn from; it emits the showing engine's spec (bie.show-spec/1).
-Ported from asset_intake/money_v2_demo/builder.py; the only changes: wrapped in build_spec(), the map pins come from
-the engine's map_land.json instead of dist/map.json, and the spec is stamped with its schema."""
-import math
+plan the scene-plan language and BIE's director learn from; build_plan() writes it in the plan language
+(bie.scene-plan/1, times as cue words into the narration) and the compiler (bie/brain/video/showplan.py) turns it
+into the showing engine's spec. Ported from asset_intake/money_v2_demo/builder.py."""
+from bie.brain.video.showplan import Recorder, cues, hand, plan_of
 
 ASSETS_USED = ["wrench", "bicycle", "handshake", "hut", "cow", "ox", "goat", "basket", "credit_card",
                "classical_building", "balance_scale", "pot_of_food", "shopping_bags", "leaf_fluttering_in_wind",
                "bucket", "magnifying_glass_tilted_left"]
 
 
-def build_spec(T, map_pins: dict, width: int = 1280, height: int = 720, assets: dict | None = None) -> dict:
-    """The whole v2 plan against a Timeline; returns the engine spec."""
-    C = T.cue
+def build_plan(T, map_pins: dict) -> dict:
+    """The whole v2 plan against a Timeline, in the scene-plan language."""
+    C, LS, LE = cues(T)
     SHOTS = []
     FLOOR = 885
-    POSES = {"stand": (8, 5, 8, 5), "give": (80, 0, 10, 5), "receive": (62, 18, 10, 5), "hold": (20, 85, 10, 5), "holdBoth": (22, 80, 22, 80),
-             "think": (28, 145, 10, 5), "point": (120, 5, 10, 5), "shrug": (40, 110, 40, 110), "wave": (150, 25, 10, 5), "carry": (160, 40, 10, 5),
-             "write": (35, 75, 10, 5), "walk": (10, 5, 10, 5), "refuse": (55, 105, 10, 5)}
 
-
-    def hand(H, s, pose):
-        a1, a2 = POSES.get(pose, POSES["stand"])[:2]
-        r = math.radians
-        sx, sy = 0.12 * H * s, -0.76 * H
-        ex, ey = sx + math.sin(r(a1)) * 0.17 * H * s, sy + math.cos(r(a1)) * 0.17 * H
-        return ex + math.sin(r(a1 + a2)) * 0.16 * H * s, ey + math.cos(r(a1 + a2)) * 0.16 * H
-
-
-    def ease(x):
-        x = max(0.0, min(1.0, x))
-        return x * x * (3 - 2 * x)
-
-
-    def x_at(el, t):
-        st = {"x": el.get("x", 0), "y": el.get("y", 0)}
-        for k in el.get("keys", []):
-            if t <= k["t"]:
-                break
-            p = ease((t - k["t"]) / k.get("d", 0.6))
-            for f in ("x", "y"):
-                if k.get(f) is not None:
-                    st[f] += (k[f] - st[f]) * p
-        return st["x"], st["y"]
-
-
-    def facing_at(el, t):
-        s = el.get("facing", 1)
-        for f in el.get("facings", []):
-            if t >= f["t"]:
-                s = f["s"]
-        return s
-
-
-    SHOTS = []
-
-
-    class Shot:
+    class Shot(Recorder):
         def __init__(self, sid, lines, bg="paper", kicker=None, fg=None):
-            self.id, self.lines, self.bg, self.kicker, self.fg = sid, lines, bg, kicker, fg
+            super().__init__(sid, lines, bg, kicker, fg)
             self.t0 = T.L(lines[0])["t0"] - 0.35
-            self.els, self.cam = [], []
             SHOTS.append(self)
-
-        def add(self, el):
-            el.setdefault("t0", self.t0)
-            self.els.append(el)
-            return el
-
-        # ---- element helpers
-        def person(self, pid, look, x, t0=None, y=FLOOR, h=440, facing=1, pose="stand", expr="smile", z=10, t1=None):
-            return self.add({"id": pid, "kind": "person", "look": look, "x": x, "y": y, "h": h, "facing": facing, "pose": pose, "expr": expr,
-                             "t0": self.t0 if t0 is None else t0, "t1": t1, "z": z, "poses": [], "exprs": [], "holds": [], "facings": [],
-                             "walks": [], "shakes": [], "nods": [], "keys": []})
-
-        def item(self, spec, x, y, t0=None, t1=None, s=1, z=20, keys=None, enter="pop", **kw):
-            el = dict(spec, x=x, y=y, s=s, z=z, t0=self.t0 if t0 is None else t0, t1=t1, enter=enter, keys=keys or [])
-            el.update(kw)
-            return self.add(el)
-
-        def text(self, text, x, y, t0=None, t1=None, size=46, style="tag", w=None, z=40, **kw):
-            el = {"text": text, "size": size, "style": style, "x": x, "y": y, "t0": self.t0 if t0 is None else t0, "t1": t1, "z": z}
-            if w:
-                el["w"] = w
-            el.update(kw)
-            return self.add(el)
-
-        def mark(self, kind, x, y, t0, t1=None, w=120, z=45, **kw):
-            return self.add(dict({"kind": "mark", "mark": kind, "x": x, "y": y, "w": w, "t0": t0, "t1": t1, "z": z, "enter": "none"}, **kw))
-
-        def arrow(self, x1, y1, x2, y2, t0, t1=None, z=30, **kw):
-            return self.add(dict({"kind": "arrow", "x1": x1, "y1": y1, "x2": x2, "y2": y2, "x": 0, "y": 0, "t0": t0, "t1": t1, "z": z, "enter": "none"}, **kw))
-
-        def bubble(self, of, content, t0, t1=None, w=260, kind="think", dx=200, dy=-560, z=48, **kw):
-            return self.add(dict({"kind": "bubble", "of": of["id"] if isinstance(of, dict) else None, "content": content, "w": w, "kind2": kind,
-                                  "t0": t0, "t1": t1, "dx": dx, "dy": dy, "z": z, "tail": -1 if dx > 0 else 1, "x": 0, "y": 0}, **kw))
-
-        def rect(self, x, y, w, h, t0=None, t1=None, z=1, **kw):
-            return self.add(dict({"kind": "rect", "x": x, "y": y, "w": w, "h": h, "t0": self.t0 if t0 is None else t0, "t1": t1, "z": z, "enter": "fade"}, **kw))
-
-        def camera(self, t, x=960, y=540, z=1.0, d=1.0):
-            self.cam.append({"t": t, "d": d, "x": x, "y": y, "z": z})
-
-        # ---- actions
-        def pose(self, p, t, pose):
-            p["poses"].append({"t": t, "pose": pose})
-
-        def expr(self, p, t, e):
-            p["exprs"].append({"t": t, "expr": e})
-
-        def hold(self, p, t, spec):
-            p["holds"].append({"t": t, "item": spec})
-
-        def walk(self, p, t, to_x, d=1.4):
-            x, _ = x_at(p, t)
-            p["facings"].append({"t": t, "s": 1 if to_x > x else -1})
-            p["keys"].append({"t": t, "d": d, "x": to_x})
-            p["walks"].append({"t": t, "d": d})
-            self.pose(p, t, "walk")
-
-        def face(self, p, t, s):
-            p["facings"].append({"t": t, "s": s})
-
-        def give(self, spec, a, b, t, d=0.9, keep=True, z=70, drop_to=None):
-            """A hands the thing to B: A's arm goes out, the thing travels hand to hand, B takes it."""
-            self.pose(a, t - 0.4, "give")
-            sa = facing_at(a, t)
-            ax, ay = x_at(a, t)
-            hx, hy = hand(a["h"], sa, "give")
-            bx, by = x_at(b, t + d)
-            sb = facing_at(b, t + d)
-            rx, ry = hand(b["h"], sb, "receive")
-            a["holds"].append({"t": t, "item": None})
-            end = (bx + rx, by + ry) if drop_to is None else drop_to
-            mv = self.item({"group": [spec]}, ax + hx, ay + hy, t0=t, t1=t + d + (0.05 if keep or drop_to is None else 99), z=z, enter="none",
-                           keys=[{"t": t, "d": d, "x": end[0], "y": end[1]}])
-            self.pose(a, t + 0.55, "stand")
-            if drop_to is None:
-                self.pose(b, t + 0.15, "receive")
-                if keep:
-                    self.pose(b, t + d, "hold")
-                    hb = hand(b["h"], sb, "hold")
-                    b["holds"].append({"t": t + d, "item": spec})
-                else:
-                    self.pose(b, t + d + 0.2, "stand")
-            else:
-                mv["t1"] = None
-            return mv
 
 
     # ----------------------------------------------------------------- things (item specs)
@@ -268,29 +142,28 @@ def build_spec(T, map_pins: dict, width: int = 1280, height: int = 720, assets: 
     s.item({"draw": "__person__", "look": "mohan", "h": 230, "pose": "give", "facing": -1}, cx - 130, cy + 150, t0=t0 + 0.3, z=4)
     s.item(A("handshake", 90), cx - 230, cy - 20, t0=C("l11", "दोनों"), z=5)
     s.text("2 kg = 1 m", cx - 230, cy - 120, t0=C("l11", "तय"), size=40, style="pill", bg="#2fb463", z=6)
-    s.add({"kind": "person", "look": "ramu", "h": 0, "x": -999, "y": -999, "t0": 0, "t1": 0, "poses": [], "exprs": [], "holds": [], "facings": [], "walks": [], "shakes": [], "nods": [], "keys": []})
     cx, cy = CARDS[3]; t0 = T.L("l12")["t0"]
     s.item(A("hut", 120), cx - 340, cy + 20, t0=C("l12", "पुराने"), z=4)
-    s.text("पहले", cx - 340, cy + 115, t0=C("l12", "पुराने"), size=32, style="plain", z=4)
+    s.text("पहले", cx - 340, cy + 115, t0=C("l12", "पुराने"), size=38, style="plain", z=4)
     s.item({"draw": "__person__", "look": "sita", "h": 190, "pose": "give", "facing": 1}, cx - 225, cy + 150, t0=C("l12", "पड़ोसियों"), z=4)
     s.item({"draw": "__person__", "look": "villager", "h": 190, "pose": "give", "facing": -1}, cx - 75, cy + 150, t0=C("l12", "पड़ोसियों") + 0.2, z=4)
     s.item(D_("bowl", 60), cx - 150, cy + 10, t0=C("l12", "छोटे"), z=5)
     s.item(D_("veg", 60), cx - 150, cy - 50, t0=C("l12", "छोटे") + 0.2, z=5)
-    s.text("आज", cx - 150, cy - 130, t0=C("l12", "आज"), size=32, style="pill", bg="#3a7bd5", fill="#fff", z=6)
+    s.text("आज", cx - 150, cy - 130, t0=C("l12", "आज"), size=38, style="pill", bg="#3a7bd5", fill="#fff", z=6)
     s.camera(C("l12", frac=0.85), 960, 520, 1.0, 0.9)
 
     # ---- 5 (l13-l16) double coincidence of wants
     s = Shot("E", ["l13", "l14", "l15", "l16"], "haat", kicker="मुश्किल 1: Double coincidence of wants")
     s.text("Double coincidence of wants", 960, 170, t0=C("l13", "double"), t1=T.L("l14")["t0"] + 0.2, size=76, style="title", z=50)
     s.text("दोनों की ज़रूरत, एक साथ", 960, 275, t0=C("l13", "double") + 0.6, size=46, style="plain", z=50, t1=C("l14", frac=0.0) + 0.5)
-    ramu = s.person("ramu", "ramu", 520, facing=1, t0=C("l14", frac=0.0) - 0.2, z=15)
+    ramu = s.person("ramu", "ramu", 520, facing=1, z=15)
     s.pose(ramu, C("l14", frac=0.0), "hold"); s.hold(ramu, C("l14", frac=0.0), HSACK("गेहूँ", w=110))
     mohan = s.person("mohan", "mohan", 1000, facing=-1, t0=C("l14", frac=0.0) - 0.1, t1=C("l15", frac=0.0) + 0.3)
     s.item(D_("clothStack", 160), 1170, FLOOR, t0=C("l14", frac=0.0), t1=C("l15", frac=0.0) + 0.3)
     s.bubble(mohan, OIL(150), C("l14", "तेल"), t1=C("l15", frac=0.0) + 0.3, w=260, dx=-180, dy=-590)
     s.pose(ramu, C("l14", "तो"), "give")
-    s.add({"kind": "mark", "mark": "cross", "x": 520 + hand(440, 1, "give")[0], "y": FLOOR + hand(440, 1, "give")[1] - 30, "w": 150, "t0": C("l14", "किस"), "t1": C("l15", frac=0.0) + 0.3, "z": 60, "enter": "none"})
-    mohan["shakes"].append({"t": C("l14", "किस"), "d": 1.1}); s.expr(mohan, C("l14", "तेल"), "frown")
+    s.mark("cross", 520 + hand(440, 1, "give")[0], FLOOR + hand(440, 1, "give")[1] - 30, C("l14", "किस"), t1=C("l15", frac=0.0) + 0.3, w=150, z=60)
+    s.shake(mohan, C("l14", "किस"), 1.1); s.expr(mohan, C("l14", "तेल"), "frown")
     s.pose(ramu, C("l15", frac=0.0), "hold")
     kam = s.person("kamla", "kamla", 1250, facing=-1, t0=C("l15", frac=0.0) + 0.3)
     s.item(D_("clothStack", 150), 1400, FLOOR, t0=C("l15", frac=0.0) + 0.3)
@@ -319,7 +192,7 @@ def build_spec(T, map_pins: dict, width: int = 1280, height: int = 720, assets: 
         t0 = C("l17", "एक मीटर") if (i, j) == (0, 1) else C("l17", "मटका") if (i, j) == (0, 2) else C("l17", "हर जोड़ी") + k * 0.12
         s.arrow(x1, y1, x2, y2, t0, width=5, color="#9a9aa6", z=5, dashed=True)
         lab = "1 m = 2 kg" if (i, j) == (0, 1) else "1 मटका = 3 kg" if (i, j) == (0, 2) else "?"
-        s.text(lab, (x1 + x2) / 2, (y1 + y2) / 2, t0=t0 + 0.2, size=36 if lab != "?" else 34, style="pill", bg="#ffffff" if lab != "?" else "#e5484d", fill="#2b2b33" if lab != "?" else "#fff", z=25)
+        s.text(lab, (x1 + x2) / 2, (y1 + y2) / 2, t0=t0 + 0.2, size=36 if lab != "?" else 38, style="pill", bg="#ffffff" if lab != "?" else "#e5484d", fill="#2b2b33" if lab != "?" else "#fff", z=25)
     s.text("No common measure of value", 960, 960 - 60, t0=C("l17", "no common"), size=50, style="pill", bg="#2b2b33", fill="#fff", z=40)
 
     # ---- 7 (l18) indivisibility
@@ -368,8 +241,8 @@ def build_spec(T, map_pins: dict, width: int = 1280, height: int = 720, assets: 
     s.text("पैसे का सफ़र: 6 कदम", 960, 170, t0=tb, t1=T.L("l23")["t0"], size=64, style="title", z=8)
     for i, x in enumerate(XS):
         s.rect(x, 470, 270, 420, t0=tb + 0.3 + i * 0.25, z=1)
-        s.text(LAB[i], x, 625, t0=tb + 0.3 + i * 0.25, size=28, style="pill", bg=COL[i], fill="#fff", w=210, z=4)
-        s.text(str(i + 1), x - 105, 290, t0=tb + 0.3 + i * 0.25, size=30, style="pill", bg="#2b2b33", fill="#fff", z=4)
+        s.text(LAB[i], x, 625, t0=tb + 0.3 + i * 0.25, size=36, style="pill", bg=COL[i], fill="#fff", w=250, z=4)
+        s.text(str(i + 1), x - 105, 290, t0=tb + 0.3 + i * 0.25, size=38, style="pill", bg="#2b2b33", fill="#fff", z=4)
         if i < 5:
             s.arrow(x + 140, 470, x + 160, 470, tb + 0.4 + i * 0.25, width=8, z=6)
     s.item(D_("wheat", 100), XS[0], 470, t0=tb + 0.5, z=3, t1=C("l23", "गेहूँ") + 0.3)
@@ -380,8 +253,8 @@ def build_spec(T, map_pins: dict, width: int = 1280, height: int = 720, assets: 
     s.item(D_("phone", 100, screen="paid", amount="₹"), XS[5], 450, t0=tb + 1.75, z=3, t1=C("l28", "UPI") + 0.3)
     ln = ["l23", "l24", "l25", "l26", "l27", "l28"]
     x = XS[0]; t0 = T.L("l23")["t0"]
-    s.item({"draw": "__person__", "look": "ramu", "h": 190, "pose": "give", "facing": 1}, x - 55, 570, t0=t0, z=4)
-    s.item({"draw": "__person__", "look": "mohan", "h": 190, "pose": "give", "facing": -1}, x + 55, 570, t0=t0 + 0.1, z=4)
+    s.item({"draw": "__person__", "look": "ramu", "h": 190, "pose": "give", "facing": 1}, x - 55, 500, t0=t0, z=4)
+    s.item({"draw": "__person__", "look": "mohan", "h": 190, "pose": "give", "facing": -1}, x + 55, 500, t0=t0 + 0.1, z=4)
     s.item(D_("wheat", 60), x - 50, 360, t0=C("l23", "गेहूँ"), z=5); s.item(CLOTH(70), x + 55, 360, t0=C("l23", "कपड़ा"), z=5)
     x = XS[1]
     s.item(SACK("नमक", "salt", w=110), x - 55, 420, t0=C("l24", "नमक"), z=4)
@@ -473,7 +346,7 @@ def build_spec(T, map_pins: dict, width: int = 1280, height: int = 720, assets: 
     t35 = T.L("l35")["t0"]
     s.text("10 फ़र्क", 960, 520, t0=t35 + 0.2, t1=T.L("l36")["t0"] - 0.2, size=110, style="plain", fill="#7b61ff", z=10)
     for k in range(10):
-        s.add({"kind": "glow", "x": 735 + k * 50, "y": 650, "w": 30, "t0": t35 + 0.5 + k * 0.12, "t1": T.L("l36")["t0"] - 0.2, "z": 10, "fill": "#7b61ff"})
+        s.glow(735 + k * 50, 650, 30, t35 + 0.5 + k * 0.12, t1=T.L("l36")["t0"] - 0.2, z=10, fill="#7b61ff")
     ROWS = [
      ("l36", "1. आधार", [A("leaf_fluttering_in_wind", 150), dict(D_("goldBar", 170), y=40)], "Natural", [A("handshake", 150), A("balance_scale", 150)], "भरोसा + क़ानून"),
      ("l37", "2. क़ीमत का स्रोत", [dict(D_("goldBar", 240), y=60)], "अपना material", [A("classical_building", 220)], "सरकार की backing"),
@@ -516,7 +389,7 @@ def build_spec(T, map_pins: dict, width: int = 1280, height: int = 720, assets: 
     # ---- 16 (l46-l51) commodity money story: salt becomes the bridge
     s = Shot("P", ["l46", "l47", "l48", "l49", "l50", "l51"], "haat", kicker="Commodity money")
     s.text("Commodity money", 960, 170, t0=C("l46", "commodity"), t1=C("l47", frac=0.0) + 1.0, size=80, style="title", z=60)
-    ramu = s.person("ramu", "ramu", 380, facing=1, t0=C("l47", frac=0.0), z=15)
+    ramu = s.person("ramu", "ramu", 380, facing=1, z=15)
     s.pose(ramu, C("l47", frac=0.0), "hold"); s.hold(ramu, C("l47", frac=0.0), HSACK("गेहूँ", w=110))
     saltm = s.person("saltman", "salt", 940, facing=-1, t0=C("l47", "नमक") - 0.3)
     s.item(SACK("नमक", "salt", w=170), 1100, FLOOR, t0=C("l47", "नमक") - 0.3)
@@ -528,7 +401,7 @@ def build_spec(T, map_pins: dict, width: int = 1280, height: int = 720, assets: 
     s.bubble(mohan, SALTP(110), C("l47", "मोहन को नमक"), w=220, dx=-170, dy=-580, t1=C("l48", frac=0.0))
     for k, (look, xx) in enumerate([("villager", 700), ("sita", 1230), ("oil", 1400)]):
         pv = s.person(f"v{k}", look, xx, y=720, h=230, facing=1 if k == 0 else -1, t0=C("l47", "सब लेते") + k * 0.15, t1=C("l48", frac=0.0) + 0.5, z=2)
-        pv["nods"].append({"t": C("l47", "सब लेते") + 0.3, "d": 1.2})
+        s.nod(pv, C("l47", "सब लेते") + 0.3, 1.2)
     t_a = C("l48", "गेहूँ देकर")
     s.give(HSACK("गेहूँ", w=110), ramu, saltm, t_a, keep=False, drop_to=(1040, FLOOR))
     s.pose(saltm, C("l48", "नमक लेता") - 0.7, "hold"); s.hold(saltm, C("l48", "नमक लेता") - 0.6, SALTP(90))
@@ -558,12 +431,12 @@ def build_spec(T, map_pins: dict, width: int = 1280, height: int = 720, assets: 
     # ---- 17 (l52-l56) where things became money: map with pins
     s = Shot("Q", ["l52", "l53", "l54", "l55", "l56"], "parchment", kicker="कहाँ क्या पैसा बना")
     MAP = map_pins
-    s.add({"kind": "map", "x": 0, "y": 0, "t0": s.t0, "z": 1, "enter": "fade"})
+    s.map(z=1)
     def pin(key, label, spec, t0, dx=110, dy=-40):
         x, y = MAP[key]
-        s.add({"kind": "glow", "x": x, "y": y, "w": 70, "t0": t0, "z": 5, "fill": "#e5484d"})
+        s.glow(x, y, 70, t0, z=5, fill="#e5484d")
         s.mark("circle", x, y, t0, w=34, z=6, color="#e5484d")
-        s.text(label, x, y + 45, t0=t0 + 0.2, size=34, style="pill", bg="#2b2b33", fill="#fff", z=8)
+        s.text(label, x, y + 45, t0=t0 + 0.2, size=36, style="pill", bg="#2b2b33", fill="#fff", z=8)
         s.item(spec, x + dx, y + dy, t0=t0 + 0.3, z=7)
     pin("rome", "Ancient Rome", SALTP(70), C("l52", "rome"), dx=-90)
     pin("africa", "Africa", SACK("नमक", "salt", w=90), C("l52", "africa"), dx=110, dy=0)
@@ -578,7 +451,7 @@ def build_spec(T, map_pins: dict, width: int = 1280, height: int = 720, assets: 
     s.text("Early pastoral societies", 960, 330, t0=C("l53", "early"), t1=T.L("l53")["t1"] + 0.3, size=52, style="pill", bg="#2fb463", fill="#fff", z=22)
     pin("india", "India", D_("cowries", 30), C("l54", "भारत"), dx=0, dy=-110)
     pin("china", "China", D_("cowries", 30), C("l54", "चीन"), dx=110, dy=-20)
-    s.text("कौड़ियाँ", MAP["africa"][0], MAP["africa"][1] + 110, t0=C("l54", "Africa"), size=34, style="pill", bg="#f29f05", fill="#fff", z=8)
+    s.text("कौड़ियाँ", MAP["africa"][0], MAP["africa"][1] + 110, t0=C("l54", "Africa"), size=36, style="pill", bg="#f29f05", fill="#fff", z=8)
     s.camera(C("l54", frac=0.0), 1250, 470, 1.5, 0.9)
     pin("central_asia", "Central Asia", D_("teaBrick", 90), C("l55", "central"), dx=-110, dy=-60)
     pin("tibet", "Tibet", D_("teaBrick", 90), C("l55", "tibet"), dx=60, dy=-120)
@@ -662,22 +535,7 @@ def build_spec(T, map_pins: dict, width: int = 1280, height: int = 720, assets: 
     t67 = T.L("l67")["t0"]
     s.rect(960, 540, 1920, 1080, t0=t67, z=80, fill="#2b2b33", shadow=False, alpha=0.92)
     s.item(COIN("gold", 120), 800, 520, t0=C("l67", "धातु"), z=81); s.item(COIN("silver", 120), 1100, 520, t0=C("l67", "धातु") + 0.2, z=81)
-    s.add({"kind": "glow", "x": 950, "y": 520, "w": 520, "t0": C("l67", "धातु"), "z": 80.5, "fill": "#ffd95a"})
+    s.glow(950, 520, 520, C("l67", "धातु"), z=80.5, fill="#ffd95a")
     s.text("अगला: Metallic money", 960, 780, t0=C("l67", "अगले"), size=64, style="pill", bg="#f29f05", fill="#fff", z=82)
 
-    for i, sh in enumerate(SHOTS):
-        sh.t1 = SHOTS[i + 1].t0 if i + 1 < len(SHOTS) else T.duration
-    if SHOTS:
-        SHOTS[0].t0 = 0.0
-    def scene_of(sh):
-        out = {"id": sh.id, "t0": round(sh.t0, 3), "t1": round(sh.t1, 3), "bg": sh.bg, "cam": sh.cam,
-               "els": [e for e in sh.els if e.get("h", 1) != 0]}
-        if sh.fg:
-            out["fg"] = sh.fg
-        if sh.kicker:
-            out["kicker"] = sh.kicker
-        return out
-
-    return {"schema": "bie.show-spec/1", "fps": 30, "width": width, "height": height,
-            "duration": round(T.duration, 3), "subs": T.subs(), "assets": assets or {},
-            "scenes": [scene_of(sh) for sh in SHOTS]}
+    return plan_of(SHOTS, video="money-v2")

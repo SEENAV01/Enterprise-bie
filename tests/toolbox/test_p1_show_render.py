@@ -72,6 +72,32 @@ class EngineRender(unittest.TestCase):
         pngs = render.stills(spec, [60], dist=self.dist, assets=self.tmp / "assets")
         self.assertTrue(pngs[0][:8] == b"\x89PNG\r\n\x1a\n")
 
+    def test_a_notes_picture_page_draws_through_the_same_engine(self):
+        sys.path.insert(0, str(ROOT / "tests"))
+        from test_p1_notes_pages import page
+        from bie.brain import notes_pages
+        spec = notes_pages.still_spec(page("picture"))
+        png = render.stills(spec, [15], dist=self.dist)[0]
+        self.assertEqual(png[:8], b"\x89PNG\r\n\x1a\n")
+        self.assertGreater(len(png), 20000)                      # a drawn page, not an empty frame
+
+    def test_the_saancha_still_sheets_draw_every_entry(self):
+        sys.path.insert(0, str(ROOT / "tools"))
+        import saanche_stills as tool
+        from bie.brain import saanche
+        with tempfile.TemporaryDirectory() as folder:
+            out = Path(folder)
+            self.assertEqual(tool.main(["--out", str(out), "--dist", str(self.dist)]), 0)
+            sheets = sorted(out.glob("saanche-*.png"))
+            self.assertEqual(len(sheets), (len(saanche.names()) + 11) // 12)
+            for sheet in sheets:
+                png = sheet.read_bytes()
+                self.assertEqual(png[:8], b"\x89PNG\r\n\x1a\n")
+                self.assertGreater(len(png), 20000, sheet.name)  # a drawn grid, not an empty page
+            index = (out / "INDEX.md").read_text(encoding="utf-8")
+            for name in saanche.names():
+                self.assertIn(name, index)
+
 
 if __name__ == "__main__":
     unittest.main()

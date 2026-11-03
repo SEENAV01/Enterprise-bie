@@ -16,6 +16,9 @@ on:
       - 'bie/brain/assets.py'
       - 'bie/brain/visual.py'
       - 'bie/brain/game_build.py'
+      - 'tests/test_p1_notes_pages.py'
+      - 'bie/brain/notes_pages.py'
+      - 'bie/brain/notes_render.py'
       - 'bie/scene_ir/asset_contract.py'
       - 'bie/compiler/asset_bundler.py'
       - 'bie/compiler/compiler_asset_common.py'
@@ -36,6 +39,17 @@ on:
       - 'tools/gold_money_v2.py'
       - 'tests/test_p1_show_engine.py'
       - 'tests/toolbox/test_p1_show_render.py'
+      - 'tests/test_p1_saanche.py'
+      - 'tests/test_p1_scene_plan.py'
+      - 'tests/test_p1_game_levels.py'
+      - 'bie/brain/game_levels.py'
+      - 'bie/brain/game_runtime.py'
+      - 'bie/brain/game_build.py'
+      - 'tests/test_p1_notes_pages.py'
+      - 'bie/brain/notes_pages.py'
+      - 'bie/brain/notes_render.py'
+      - 'bie/brain/saanche.py'
+      - 'tools/saanche_stills.py'
       - 'bie/brain/formats.py'
       - 'bie/brain/cost.py'
       - 'tools/codex_vm.py'
@@ -222,6 +236,15 @@ jobs:
       - name: The showing engine draws (Phase 1 part A render smoke)
         if: matrix.batch == 1
         run: python -B tools/run_task046a_tests.py --lane show --output "$RUNNER_TEMP/show.json"
+      - name: The saancha still sheets (Phase 1 part B1)
+        if: matrix.batch == 1
+        run: python -B tools/saanche_stills.py --out "$RUNNER_TEMP/saanche"
+      - name: Saancha sheets as an artifact
+        if: matrix.batch == 1
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bie-saanche-stills
+          path: ${{ runner.temp }}/saanche
       - name: Proof clips (BIE code only), contact sheets and receipts
         run: python -B tools/toolbox_demos.py --batch "${{ matrix.batch }}" --out "$RUNNER_TEMP/demos" --keep-going
       - name: Bridge proof - the same clip rendered by real Remotion
