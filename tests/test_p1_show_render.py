@@ -68,6 +68,15 @@ class EngineRender(unittest.TestCase):
         pngs = render.stills(spec, [60], dist=self.dist, assets=self.tmp / "assets")
         self.assertTrue(pngs[0][:8] == b"\x89PNG\r\n\x1a\n")
 
+    def test_a_notes_picture_page_draws_through_the_same_engine(self):
+        sys.path.insert(0, str(ROOT / "tests"))
+        from test_p1_notes_pages import page
+        from bie.brain import notes_pages
+        spec = notes_pages.still_spec(page("picture"))
+        png = render.stills(spec, [15], dist=self.dist)[0]
+        self.assertEqual(png[:8], b"\x89PNG\r\n\x1a\n")
+        self.assertGreater(len(png), 20000)                      # a drawn page, not an empty frame
+
     def test_the_saancha_still_sheets_draw_every_entry(self):
         sys.path.insert(0, str(ROOT / "tools"))
         import saanche_stills as tool

@@ -148,6 +148,13 @@ SHOW_SCENE = O({"id": S, "t0": N, "t1": N, "bg": S, "fg": S, "kicker": S, "cam":
 SHOW_SPEC = O({"schema": S, "fps": N, "width": N, "height": N, "duration": N, "subs": A(SHOW_SUB),
                "assets": {"type": "object"}, "scenes": A(SHOW_SCENE)},
               required=["schema", "fps", "width", "height", "duration", "subs", "scenes"])
+NOTES_PAGE = O({"schema": S, "page_id": S, "ask": S, "question": S, "essence": S, "answer": S, "deep_dive": S,
+                "visual": O({"kind": {"type": "string", "enum": ["picture", "flow", "compare", "table"]},
+                             "title": S, "caption": S, "bg": S, "els": A({"type": "object"}),
+                             "steps": A({"type": "object"}), "columns": A(S), "rows": A({"type": "object"})},
+                            required=["kind"]),
+                "item_ids": A(S), "basis": S, "not_in_book": S, "pyq_item_ids": A(S)},
+               required=["schema", "page_id", "ask", "question", "essence", "answer", "visual", "item_ids"])
 GAME_PIECE = O({"id": S, "label": S, "fits": S, "right": S, "wrong": S, "decoy": B}, required=["id", "label"])
 GAME_LEVEL = O({"schema": S, "level_id": S, "title": S, "instruction": S,
                 "mechanic": {"type": "string", "enum": ["run_process", "place_right", "build_timeline", "find_partner", "cause_effect"]},
@@ -289,6 +296,13 @@ FORMATS = {
                         ("bie/brain/video/engine (the renderer)", "tools/render_spec.py", "the render workflow"),
                         "scenes in seconds with the engine's elements and camera keys; subtitles from the voice timeline; "
                         "the asset name to served path map", "2026-11-03"),
+    "notes_page": Format("bie.notes-page", 1, NOTES_PAGE, "notes/pages/<page>.json",
+                         "BIE's AI from the chapter's question list (part C)",
+                         ("bie/brain/notes_pages.py (problems, still_spec: a picture page -> a show-spec still the "
+                          "engine draws, deck_of: pages -> the existing notes deck)",
+                          "bie/brain/notes_render.py (render_notes_html; print view is the PDF)", "the review page"),
+                         "one question per page, answered by a picture (the same saanche as the video), a flow, a "
+                         "comparison or a table, with the book items it answers from", "2026-11-03"),
     "game_level": Format("bie.game-level", 1, GAME_LEVEL, "game/levels/<level>.json",
                          "BIE's AI from the chapter's stories (part C; agreement decision 6: a video's story becomes a level)",
                          ("bie/brain/game_levels.py (problems, stage_of: a level -> one stage of the phone runtime)",

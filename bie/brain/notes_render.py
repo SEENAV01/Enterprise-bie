@@ -40,6 +40,7 @@ main{max-width:860px;margin:12px auto 40px;padding:0 16px}
 .chip{font-size:.78rem;border:1px solid var(--line);border-radius:999px;padding:2px 9px;color:var(--muted)}
 .chip.pyq{border-color:var(--accent2);color:var(--accent2)}.chip.basis{border-color:var(--accent);color:var(--accent)}
 .visual{margin:14px 0 4px}.visual h4{margin:0 0 8px;font-size:.95rem}
+.visual img{display:block;max-width:100%;border-radius:12px;border:1px solid var(--line)}.visual .vcap{font-size:.82rem;color:var(--muted);margin-top:4px}
 .flow{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch}
 .step{flex:1 1 140px;border:1px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer;position:relative;background:var(--card)}
 .step b{display:block}.step .d{display:none;font-size:.9rem;color:var(--muted);margin-top:4px}.step.open .d{display:block}
@@ -113,6 +114,9 @@ function visual(v) {
         node.onclick = () => li.classList.toggle("open"); li.appendChild(node); if (kids[n.id]) li.appendChild(build(n.id));
         if (!parent) li.classList.add("open"); ul.appendChild(li); }); return ul; };
     const t = el("div", "tree"); t.appendChild(build("")); box.appendChild(t);
+  } else if (v.type === "image") {
+    const img = el("img"); img.src = v.src; img.alt = v.alt || ""; img.loading = "lazy"; box.appendChild(img);
+    if (v.caption) box.appendChild(el("div", "vcap", v.caption));
   } else if (v.type === "labelled_list") {
     const l = el("div", "labels"); v.nodes.forEach(n => { const d = el("div"); d.appendChild(el("b", null, n.label));
       if (n.detail) d.appendChild(el("div", null, n.detail)); l.appendChild(d); }); box.appendChild(l);
