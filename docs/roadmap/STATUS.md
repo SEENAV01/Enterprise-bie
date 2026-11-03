@@ -75,7 +75,8 @@ Stop for review at the end with the single report file." Answers (2)–(4) wait 
   under 3 rows, a gallery in 1 row). A long book table shows a page at a time (the rows that fit at 36 px), each page on its
   first row's words. Captions are 36 px, in pieces of at most 150 characters (two lines of the strip), cut at sentence ends,
   never inside a word. The blocks draw every small text at least at the floor wherever a camera or a stage scale shrinks it
-  (`MinText`, `TextScale`, `useReadable` in `blocks/index.tsx`; the canvas, the action stage and the world use them).
+  (`MinText`, `TextScale`, `useReadable` in `blocks/index.tsx`; the canvas, the action stage and the world use them; a dimmed icon
+  shrinks but its label keeps the readable size).
 - **No world for a place that is not that world** (`places.json` 2026-11-03.1 "sites", "people", "elsewhere";
   `world.places_named`, `canvas_director.at_place`, `world_split`): a world part keeps only the beats at its kit's place; a beat
   that names another place (a mint, a government or an Act, another kit's place) closes the scene and only the place's own words
@@ -99,12 +100,12 @@ whole videos):
 
 | Video | Texts under 36 px, lasting (before → after) | Texts covering each other, lasting | Smallest lasting text | Parts compiled |
 | --- | --- | --- | --- | --- |
-| v2 | 119 → 0 | 8 → 0 | 13.7 px → none under 36 | 14 of 18 |
-| v4 | 201 → 2 | 16 → 3 | 16.7 → 27.6 px | 14 of 18 |
+| v2 | 119 → 0 | 8 → 0 | 13.7 px → none under 36 | 15 of 18 |
+| v4 | 201 → 0 | 16 → 5 | 16.7 px → none under 36 | 15 of 18 |
 | v6 | 219 → 0 | 29 → 7 | 13.0 px → none under 36 | 10 of 15 |
-| v8 | 104 → 0 | 18 → 2 | 22.5 px → none under 36 | 6 of 10 |
+| v8 | 104 → 0 | 18 → 2 | 22.5 px → none under 36 | 8 of 10 |
 
-The parts the current code refuses (4, 4, 5, 4) carry text that cannot be readable in the maker's cells; they need the director
+The parts the current code refuses (3, 3, 5, 2) carry text that cannot be readable in the maker's cells; they need the director
 again (Codex through the plan, ₹0). Across all 528 earlier canvas plans (12 runs): main refuses 114, this branch 185; the 71
 newly refused are 22 two-row timelines or one-row galleries, 18 icons under 64 px beside a 36 px label, 16 tags wider than their
 cells, 10 texts that do not fit and 5 tables. The passed-output sets (`tests/fixtures/passed_outputs/`) pass unchanged.

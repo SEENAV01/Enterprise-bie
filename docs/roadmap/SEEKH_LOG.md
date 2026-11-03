@@ -1758,9 +1758,9 @@ in the director; one layout pass on the action stage; credits of the assets show
 
 | | v2 | v4 | v6 | v8 |
 | --- | --- | --- | --- | --- |
-| Texts under 36 px for a second or more | 119 → 0 | 201 → 2 | 219 → 0 | 104 → 0 |
-| Texts covering each other for a second or more | 8 → 0 | 16 → 3 | 29 → 7 | 18 → 2 |
-| Parts the current code compiles | 14 of 18 | 14 of 18 | 10 of 15 | 6 of 10 |
+| Texts under 36 px for a second or more | 119 → 0 | 201 → 0 | 219 → 0 | 104 → 0 |
+| Texts covering each other for a second or more | 8 → 0 | 16 → 5 | 29 → 7 | 18 → 2 |
+| Parts the current code compiles | 15 of 18 | 15 of 18 | 10 of 15 | 8 of 10 |
 
 World beats at another place in the four videos: 19 of 55 → 0 of 37. Across all 528 earlier canvas plans, 71 that compiled on
 main are now refused by CV-17, each with its exact reason (22 two-row timelines or one-row galleries, 18 icons under 64 px beside
