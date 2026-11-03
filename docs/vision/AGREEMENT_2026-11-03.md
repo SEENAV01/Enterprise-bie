@@ -1,6 +1,8 @@
 # BIE: the agreed understanding of 3 November 2026
 
-Navin and Claude (planning chat), 3 November 2026. Everything from Navin's message after the Money v2 demo onward is the
+Navin and Claude (planning chat), 3 November 2026. The whole conversation from Navin's verdict on the Money v2 demo
+("yeh huyi na baat, achhi bani hai video") up to his message on the teaching-book deliverables ("yeh do cheejen to tum
+poori karoge ... notes, game ka code, kaun si cheezen, notes kaise dikhenge, scene plan, cheezen banana") is the
 agreed understanding. Read this before any BIE work, in any session. It does not replace `CLAUDE.md`, the Vision Spec
 or the Roadmap; where they differ on the points below, this file is the newer decision.
 
@@ -69,6 +71,25 @@ needs to turn that book into its end output:
 | Notes | question list per chapter for the whole book; a notes-page saancha (one question per page, answered by a picture, flow, comparison or table, built from the same saanche); real pages for 1–2 chapters |
 | Process file | why each decision was made (becomes BIE's rules), time and cost of each step |
 
+What BIE gains from one teaching book: (1) the way to understand that subject's books (how concepts open, where
+there is a process, a comparison, a timeline); (2) the subject's saanche (things, characters, places, actions, all
+parametric); (3) game saanche that suit the subject (economy: running a market; history: building a timeline);
+(4) notes saanche (question pages that cover the whole book in less time); (5) process, code and cost measurements
+(how much AI each step needed and how much code did).
+
+Example of the shared base, from Money v2: the barter story becomes a game level (find a partner who has cloth and
+wants wheat; a wrong partner refuses; then use salt as the bridge to finish the deal), and its questions become notes
+pages ("Barter kya hai?": the exchange picture and the four features as icons; "Intrinsic aur Extrinsic mein farak?":
+the ten differences as a compact comparison). Making one section strong makes the other two strong, so the game and
+notes sections get completed on the same road.
+
+Honest limit: a new book of the same subject will still bring some new things; BIE's AI makes them and they join the
+library, so each new book needs less work.
+
+What Navin sees per teaching book: one page with stills of the saanche, playable game levels, notes pages and sample
+scene plans. Done when: Navin passes the samples, everything is in BIE's slot formats, and BIE run on a new book of
+the same subject shows the difference.
+
 Ranking: things that recur most are built first; a one-off thing is left for BIE's AI to make. Every deliverable is
 in the format of BIE's slots (section 4, phase 1) so it plugs in directly. Proof of generalisation: after the teaching
 book, BIE runs on an unseen book of the same subject; we measure how many new saanche it needed, the quality and the
@@ -78,10 +99,14 @@ cost.
 
 | Phase | Dates (target) | Work |
 | --- | --- | --- |
-| 1. Skeleton | about 4–8 Nov | Claude Code, in one or two big prompts: one button, PDF → book understanding → narration → scene plan on the new engine (ported from the v2 demo) → voice → render → notes → game → one page with all outputs. Slots (formats) for saanche, game mechanics and notes pages. Quality not final; everything connected and running. |
+| 1. Skeleton | about 4–8 Nov | Claude Code, in one or two big prompts (it still opens PRs inside, Navin does not manage them one by one): one button, PDF → book understanding → narration → scene plan on the new engine (ported from the v2 demo) → voice → render → notes → game → one page with all outputs. Slots (formats) for saanche, game mechanics and notes pages. Quality not final; everything connected and running. |
 | 2. Learning | from now, in parallel | Navin gives reference videos per subject (Claude extracts how each idea is shown, the things needed, pace/text/camera rules) and teaching-book PDFs (section 3). Everything lands in BIE's slots. |
 | 3. Two-place runs | about 9–18 Nov | 3–4 books: chapters made by Claude following BIE's workflow and by BIE; compare; every gap becomes code, saanche or examples in BIE; what Navin passes is locked. AI work goes down, code goes up, so cost and time fall. |
 | 4. Whole book | about 19–22 Nov | BIE makes one unseen book end to end; Navin reviews; then official use for his goal. |
+
+Open decisions for Navin: the GPU route and budget for the voice (options with prices to be brought to him); the
+second subject (Polity proposed). Science 3D, and game and notes at the full quality of his vision, come after
+22 November; game and notes join the skeleton in phase 1 and reach his vision through phase 3.
 
 ## 5. Quality target
 
