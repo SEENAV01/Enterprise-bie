@@ -35,6 +35,7 @@ on:
       - 'bie/brain/gold/**'
       - 'tools/gold_money_v2.py'
       - 'tests/test_p1_show_engine.py'
+      - 'tests/test_p1_show_render.py'
       - 'bie/brain/formats.py'
       - 'bie/brain/cost.py'
       - 'tools/codex_vm.py'
@@ -218,6 +219,9 @@ jobs:
       - name: The archive demo's pictures when the restored cache lacks them (Commons, Openverse; asked again on a 500 or a timeout, F-17b)
         if: matrix.batch == 3
         run: python -B tools/toolbox_setup.py --archive-images "$BIE_ASSET_CACHE"
+      - name: The showing engine draws (Phase 1 part A render smoke)
+        if: matrix.batch == 1
+        run: python -B -m unittest -v tests.test_p1_show_render
       - name: Proof clips (BIE code only), contact sheets and receipts
         run: python -B tools/toolbox_demos.py --batch "${{ matrix.batch }}" --out "$RUNNER_TEMP/demos" --keep-going
       - name: Bridge proof - the same clip rendered by real Remotion
