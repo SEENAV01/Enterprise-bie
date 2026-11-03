@@ -20,6 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+from bie.brain import formats  # noqa: E402
 from bie.brain.video import render, text_audit, timing  # noqa: E402
 
 
@@ -47,6 +48,7 @@ def main(argv=None) -> int:
                                   fps=spec.get("fps") or timing.FPS, every=a.every,
                                   captions=text_audit.caption_texts(spec))
     record["spec"] = str(a.spec)
+    formats.check("text_audit", record, where=str(a.out))
     a.out.write_text(json.dumps(record, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{a.spec.name}: {record['frames_sampled']} frames, smallest text {record['min_px']} px, "
           f"{record['small_count']} texts under {record['floor_px']} px ({record['lasting_small_count']} lasting), "

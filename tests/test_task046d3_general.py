@@ -202,7 +202,7 @@ class TextAudit(unittest.TestCase):
         with mock.patch("sys.stdout", new=io.StringIO()):
             tool.main(["--spec", str(tmp / "spec.json"), "--frames", str(tmp / "f.jsonl"), "--out", str(tmp / "audit.json")])
         rec = json.loads((tmp / "audit.json").read_text(encoding="utf-8"))
-        self.assertEqual((rec["schema"], rec["lasting_small_count"]), ("bie.text_audit/1", 1))
+        self.assertEqual((rec["schema"], rec["lasting_small_count"]), ("bie.text-audit/1", 1))
 
 
 class Respec(unittest.TestCase):

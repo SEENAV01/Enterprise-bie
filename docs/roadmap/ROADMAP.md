@@ -431,6 +431,11 @@ word timestamps drive the animation; close the AUDIO reconciliation.
 **048 · Render and interactive player** — real Remotion render through the COMP compiler in the cloud, frame
 checks (Section 16 video QA and a reviewer AI); the same code as an interactive player (pause questions,
 tap-to-explore).
+First slice (3 November 2026, branch `task048-render-checks`; STATUS "Task 048 · first slice"): the text check on every render
+(texts under 36 px and texts on each other, measured on the drawn frames, in the report), respec before a render (the plans
+compiled again with the current code), and one VM chain job from the book to the canvas director's video specs
+(`--with-canvas`). Next slices: the interactive player, the real Remotion render, the Section 16 video QA and a reviewer AI on
+the frames, the coder and the render in the one chain.
 
 **049 · Game** — the Section 15 decision (one engine), the builder, the bot playtest on a phone screen, and the
 book world that joins chapter games as levels.

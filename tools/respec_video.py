@@ -103,6 +103,7 @@ def main(argv=None) -> int:
     if (a.run / "assets").is_dir() and not (a.out / "assets").exists():
         shutil.copytree(a.run / "assets", a.out / "assets")
     record = {"schema": "bie.respec/1", "run": str(a.run), "videos": [respec(a.run, v, a.out) for v in a.video]}
+    formats.check("respec", record, where=str(a.out / "RESPEC.json"))
     (a.out / "RESPEC.json").write_text(json.dumps(record, ensure_ascii=False, indent=1), encoding="utf-8")
     for v in record["videos"]:
         print(f"{v['video_id']}: {v['status']}, {v['compiled']} compiled, {v['refused']} refused, {v['seconds']} s")

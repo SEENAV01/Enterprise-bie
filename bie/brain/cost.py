@@ -67,9 +67,10 @@ def price_scale(maker_model, reviewer_model, env=None, *, maker_subscription=Fal
 
 
 def estimate(mode: str, pages: int, *, rate: float, maker_model=None, reviewer_model=None, with_visual=False, env=None,
-             maker_subscription=False, reviewer_subscription=False) -> dict:
+             maker_subscription=False, reviewer_subscription=False, with_canvas=False) -> dict:
     """Rupees per section for ``pages`` pages. ``scale`` is None when a model has no price (estimate on the basis)."""
-    sections = SECTIONS_OF_MODE[mode] + (("visual",) if mode == "chain" and with_visual else ())
+    sections = (SECTIONS_OF_MODE[mode] + (("visual",) if mode == "chain" and with_visual else ())
+                + (("canvas",) if mode == "chain" and with_canvas else ()))
     scale = (price_scale(maker_model, reviewer_model, env, maker_subscription=maker_subscription,
                          reviewer_subscription=reviewer_subscription)
              if maker_model and reviewer_model else None)

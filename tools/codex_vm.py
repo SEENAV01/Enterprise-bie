@@ -76,7 +76,7 @@ def validate(job: dict) -> dict:
         raise JobError(f"job: must be a {JOB_SCHEMA} object")
     allowed = {"job", "id", "section", "source", "chapter_map", "from_run", "resume_from", "library", "pages", "videos", "course",
                "maker", "reviewer", "reviewer_model", "models", "routes", "max_inr", "workers", "max_rounds", "language",
-               "with_visual", "render", "fake", "note", "prompts", "request", "max_images"}
+               "with_visual", "with_canvas", "render", "fake", "note", "prompts", "request", "max_images"}
     unknown = sorted(set(job) - allowed)
     if unknown:
         raise JobError("unknown fields: " + ", ".join(unknown))
@@ -111,7 +111,7 @@ def validate(job: dict) -> dict:
         value = out[name]
         if isinstance(value, bool) or not isinstance(value, (int, float)) or not low <= value <= high:
             raise JobError(f"{name}: between {low} and {high}")
-    for name in ("with_visual", "render", "fake"):
+    for name in ("with_visual", "with_canvas", "render", "fake"):
         if name in out and not isinstance(out[name], bool):
             raise JobError(f"{name}: true or false")
     if out.get("fake") and os.environ.get("BIE_VM_ALLOW_FAKE") != "1":
@@ -140,7 +140,7 @@ def argv(job: dict, out: Path, python: str = sys.executable) -> list:
     for name, flag in flags.items():
         if job.get(name):
             cmd += [flag, str(job[name])]
-    for name in ("with_visual", "render", "fake"):
+    for name in ("with_visual", "with_canvas", "render", "fake"):
         if job.get(name):
             cmd.append("--" + name.replace("_", "-"))
     return cmd
