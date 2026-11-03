@@ -1,5 +1,7 @@
 // Bundles the preview harness with esbuild; "remotion" resolves to the small compatible shim.
 //   node build.mjs <dist>             core blocks only (bundle.js + index.html), as before
+//   node build.mjs <dist> --engine    also the showing engine (engine.js + engine.html, Phase 1: ../engine/engine.mjs,
+//                                     plain SVG, no React; the same window API, so stills, MP4 and audit work unchanged)
 //   node build.mjs <dist> --toolbox   also the toolbox bundle (toolbox.js + toolbox.css + toolbox.html, Task 046a):
 //                                     the core blocks plus three.js, KaTeX, D3, 3Dmol.js, Mol*, matter.js, cannon-es
 //                                     blocks; "@remotion/three" resolves to three-lite.tsx (ThreeCanvas shim).
@@ -12,6 +14,7 @@ import { fileURLToPath } from "node:url";
 const here = dirname(fileURLToPath(import.meta.url));
 const out = process.argv[2] && !process.argv[2].startsWith("--") ? process.argv[2] : join(here, "dist");
 const toolbox = process.argv.includes("--toolbox");
+const engine = process.argv.includes("--engine");
 const nodePath = process.env.NODE_PATH || execFileSync("npm", ["root", "-g"]).toString().trim();
 const candidates = [process.env.ESBUILD, join(nodePath, "esbuild/bin/esbuild"), "/opt/npm-tools/node_modules/esbuild/bin/esbuild"].filter(Boolean);
 const esbuild = candidates.find((c) => existsSync(c)) || "esbuild";
@@ -30,4 +33,9 @@ if (toolbox) {
     `--outfile=${join(out, "toolbox.js")}`], { stdio: "inherit", env });
   writeFileSync(join(out, "toolbox.html"), page("toolbox.js", existsSync(join(out, "toolbox.css")) ? "toolbox.css" : ""));
 }
-console.log("built " + out + (toolbox ? " (with toolbox)" : ""));
+if (engine) {
+  execFileSync(esbuild, [join(here, "../engine/engine.mjs"), "--bundle", "--format=iife", "--minify", "--log-level=error",
+    `--outfile=${join(out, "engine.js")}`], { stdio: "inherit", env });
+  writeFileSync(join(out, "engine.html"), `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0"><div id="root"></div><script src="engine.js"></script></body></html>`);
+}
+console.log("built " + out + (toolbox ? " (with toolbox)" : "") + (engine ? " (with engine)" : ""));

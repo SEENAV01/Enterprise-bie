@@ -59,8 +59,12 @@ def _same_drawing(a: dict, b: dict) -> bool:
 
 
 def caption_texts(spec: dict) -> set:
-    """The captions of a spec as the audit records them (spaces folded, the first 80 characters)."""
-    return {" ".join(str(c.get("text", "")).split())[:80] for scene in spec.get("scenes") or [] for c in scene.get("captions") or []}
+    """The captions of a spec as the audit records them (spaces folded, the first 80 characters). A show-spec
+    (bie.show-spec/1) carries its subtitles in ``subs``; the old VideoSpec carries them per scene in ``captions``."""
+    out = {" ".join(str(c.get("text", "")).split())[:80] for scene in spec.get("scenes") or [] for c in scene.get("captions") or []}
+    out |= {" ".join(str(c.get("text", "")).split())[:80] for c in spec.get("subs") or []}
+    out.discard("")
+    return out
 
 
 def _close(run: dict, small: list, symbols: list, floor: float) -> None:
