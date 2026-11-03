@@ -407,6 +407,18 @@ and v4 again with the narration locked, rendered, pages and the dikhane ki list,
 boards in world parts, overlaps, relations realised, elements under the subtitle strip, text-only time, distinct icons,
 first-try pass, rounds, tokens, ₹ per page), nothing that passed before broken; then STOP for Navin's verdict.
 
+**Part D3 (Navin's verdict on the D2 addendum proof, 3 November 2026; branch `task046d3-general-fixes`, one PR; STATUS "Task
+046 · Part D3"):** "better than D1 ... but not accepted: frames often nearly empty with small icons and tiny labels; the shop
+world still hosts non-shop scenes (v6 mints, British Act, Mumbai bank); one gold "bank" coin for every coin; salt shaker for
+salt; $ bag for digital money; wrong objects in v8 (envelope, box); long tables (v2 ~2 min, v6 period table twice); overlapping
+labels (v4 3:50)." His answers: no metaphor drawings (abstract ideas through their concrete example or a diagram; the coder draws
+only real objects); a GENERAL "parts of a whole / unit conversion" block for every subject; BIE's notes unlike RBI designs but
+recognisable, a large BIE-drawn note with labelled feature positions allowed as a diagram. Next, in his words: Claude (planning
+chat) makes hand-made DEMO videos of Money v2, v4, v6, v8 with BIE's workflow, labelled "Claude's demo, not BIE output"; what he
+passes becomes BIE's rules and saanche; "Until then do not change the visual process. Meanwhile: fix only these general issues
+(minimum on-screen text size readable on a phone, no world for a place that is not that world, label overlap in every mode),
+then start the render/player and one-button plumbing (Task 048). Stop for review at the end with the single report file."
+
 **Navin's process decisions, 30 October 2026 (also in `CLAUDE.md`):** (1) **Learning track**: from YouTube reference videos
 Claude may make demos, each labelled "Claude's demo, not BIE output"; they never go into `tests/fixtures/passed_outputs/` and
 are not a BIE capability until BIE makes the same kind of video itself. (2) **Fast track to one button**: section by section,

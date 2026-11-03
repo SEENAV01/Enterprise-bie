@@ -1,7 +1,7 @@
 {
  "schema": "bie.brain.places/1",
  "rulebook": "places",
- "version": "2026-11-02.3",
+ "version": "2026-11-03.1",
  "source": "Navin, 27 October 2026: \"a shop and its buyers, a bank and its borrowers, a factory and its workers, a port, a farm\"; the petrol pump for the real-world application. Moved out of world.py on 2 November 2026 (Task 046 Part D2 addendum: no chapter noun is a fixed value in the world code).",
  "how_it_is_used": "bie/brain/video/world.py reads the words that name each place in a part's narration; a place with a kit goes to world mode (C), one without a kit to the canvas (B) and to the missing-capability log. The 'draws' map says which thing each world element kind draws, and 'whole_part' which kinds stand for the whole part; the coverage check reads both.",
  "places": {
@@ -184,6 +184,31 @@
    "price tag",
    "price tags"
   ]
+ },
+ "sites": {
+  "_": "The words that name a place ITSELF (not its people, goods or deals: a farmer can stand in a shop, an import order can be placed in a bank). bie/brain/video/world.places_named reads these and 'elsewhere', as whole words, to say where a beat happens (Navin, 3 November 2026: no world for a place that is not that world).",
+  "shop": ["दुकान", "दुकानों", "दुकानें", "shop", "shops", "बाज़ार", "बाजार", "bazaar", "bazar", "market", "किराना", "mandi", "मंडी", "tea stall", "stall", "stalls", "ठेला", "ठेले"],
+  "bank": ["बैंक", "bank", "banks", "bank branch"],
+  "factory": ["फैक्ट्री", "फ़ैक्ट्री", "factory", "factories", "कारखाना", "कारखाने"],
+  "port": ["बंदरगाह", "port", "ports"],
+  "farm": ["खेत", "खेतों", "farm", "farms"],
+  "petrol_pump": ["petrol pump", "पेट्रोल पंप", "पेट्रोल पम्प", "fuel station"]
+ },
+ "people": {
+  "_": "The people who are AT a place (its own staff and visitors), whose naming opens a world part's scene there (bie/brain/canvas_director.at_place); a place's deals (a loan, a deposit) or another place's people do not.",
+  "shop": ["दुकानदार", "दुकानदारों", "shopkeeper", "shopkeepers", "खरीदार", "खरीदारों", "buyer", "buyers", "ग्राहक", "ग्राहकों", "customer", "customers", "चायवाला", "चायवाले", "seller", "sellers", "merchant", "merchants"],
+  "bank": ["teller", "tellers", "cashier", "cashiers", "depositor", "depositors", "borrower", "borrowers", "bank manager", "bank clerk"],
+  "factory": ["मज़दूर", "मजदूर", "worker", "workers"],
+  "port": ["dock worker", "dock workers", "sailor", "sailors"],
+  "farm": ["किसान", "farmer", "farmers"],
+  "petrol_pump": ["pump attendant"]
+ },
+ "elsewhere": {
+  "_": "Navin's verdict on the addendum proof (3 November 2026): \"the shop world still hosts non-shop scenes (v6 mints, British Act, Mumbai bank)\"; \"no world for a place that is not that world\". The places a beat can name that no world kit draws. A beat of a world part that names one of these, or another kit's site, is not at the kit's place: it goes to the canvas (bie/brain/canvas_director.world_split). Words are whole words.",
+  "mint": ["mint", "mints", "minting", "टकसाल", "टकसालें", "टकसालों"],
+  "government": ["government", "govt", "सरकार", "सरकारी", "parliament", "संसद", "act", "acts", "committee", "commission", "legislature", "ministry", "मंत्रालय"],
+  "mine": ["mine", "mines", "mining", "खदान", "खदानें", "खदानों"],
+  "court": ["court", "courts", "अदालत", "न्यायालय"]
  },
  "whole_part": {
   "_": "World element kinds that stand in the street for the whole part (world.py's layout check and the coverage check both read this): a kit's place and the person who works there.",

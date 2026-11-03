@@ -415,6 +415,22 @@ class AssetLibrary:
                 near.append(a)
         return named + near
 
+    def used_in(self, obj) -> list:
+        """The ids of the library assets that ``obj`` (scenes, a spec, a plan) draws: every ``assets/<path>`` it names, in id
+        order. A video credits what it shows, not the whole library its run gathered (Task 046 Part D3: one library served
+        three videos, and each credit card listed all 249 of its assets)."""
+        by_path = {"assets/" + a.path: i for i, a in self.assets.items()}
+        found, todo = set(), [obj]
+        while todo:
+            x = todo.pop()
+            if isinstance(x, dict):
+                todo.extend(x.values())
+            elif isinstance(x, (list, tuple)):
+                todo.extend(x)
+            elif isinstance(x, str) and x.lstrip("/") in by_path:
+                found.add(by_path[x.lstrip("/")])
+        return sorted(found)
+
     def credits(self, asset_ids) -> list:
         """Credit lines (title · author · licence (licence URL) · source page) for the outside assets among ``asset_ids``."""
         return policy.lesson_credits([self.assets[a] for a in asset_ids if a in self.assets])

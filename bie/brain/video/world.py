@@ -688,6 +688,38 @@ def place_of(text: str) -> str:
     return best if counts[best] else ""
 
 
+ELSEWHERE = {k: tuple(v) for k, v in (_PLACES_DATA.get("elsewhere") or {}).items() if not k.startswith("_")}
+
+
+def _word_rx(words) -> re.Pattern:
+    alts = sorted({w.lower() for w in words if w}, key=len, reverse=True)
+    return re.compile(r"(?<![a-z0-9\u0900-\u097f])(?:" + "|".join(re.escape(w) for w in alts) + r")(?![a-z0-9\u0900-\u097f])")
+
+
+SITES = {k: tuple(v) for k, v in (_PLACES_DATA.get("sites") or {}).items() if not k.startswith("_")}
+_NAMED = {place: _word_rx(words) for place, words in {**SITES, **ELSEWHERE}.items() if words}
+
+
+def places_named(text: str) -> set:
+    """Every place a text names by whole words: the sites of the kits' places and of the places without a kit (places.json
+    "sites": the place itself, not its people or deals, so a farmer in a shop names no farm) and the places no world draws (a
+    mint, a government, a mine, a court; "elsewhere"). "banknote" names no bank. Navin, 3 November 2026: no world for a place
+    that is not that world."""
+    low = str(text or "").lower()
+    return {place for place, rx in _NAMED.items() if rx.search(low)}
+
+
+PEOPLE = {k: tuple(v) for k, v in (_PLACES_DATA.get("people") or {}).items() if not k.startswith("_")}
+_OWN = {place: _word_rx(set(SITES.get(place, ())) | set(PEOPLE.get(place, ()))) for place in SITES if SITES.get(place) or PEOPLE.get(place)}
+
+
+def place_words(place: str):
+    """A test for the words that name a place itself or the people who are at it (places.json "sites" and "people", whole
+    words; never its deals: a loan is not a bank counter): does a text name it?"""
+    rx = _OWN.get(place)
+    return (lambda text: bool(rx.search(str(text or "").lower()))) if rx else (lambda text: False)
+
+
 def kit_for(text: str) -> str:
     """The world kit for a part's place, or "" when the place has no kit yet (or the part has no place)."""
     place = place_of(text)

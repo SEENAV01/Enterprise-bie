@@ -14,6 +14,24 @@ export const C = {
 };
 export const FONT = '"Noto Sans", "Noto Sans Devanagari", Inter, "FreeSans", sans-serif';
 
+// The smallest text on screen (Navin, 3 November 2026: "minimum on-screen text size readable on a phone"; rule CV-17 of
+// bie/brain/rulebook/canvas_profile.json): 36 px tall on a 1920x1080 frame AFTER every camera and block scale, about 13 px on a
+// phone held sideways. A block draws a text at ``readable(px)``: its own size, or larger where the cameras and scales above it
+// would make it smaller than the floor. ``TextScale`` carries the screen pixels per unit of the coordinates a block draws in
+// (the scene camera, a canvas or world camera, an action's stage); ``ScaleText`` multiplies it for the children.
+export const MIN_TEXT_PX = 36;
+export const CAPTION_PX = 36;            // two lines of at most 150 characters (canvas.CAPTION_CHARS) fit the strip
+export const MinText = React.createContext<number>(MIN_TEXT_PX);
+export const TextScale = React.createContext<number>(1);
+export const ScaleText: React.FC<{ by: number; children?: React.ReactNode }> = ({ by, children }) => {
+  const parent = React.useContext(TextScale);
+  return <TextScale.Provider value={parent * by}>{children}</TextScale.Provider>;
+};
+export function useReadable(): (px: number) => number {
+  const min = React.useContext(MinText), scale = React.useContext(TextScale);
+  return (px: number) => Math.max(px, min / Math.max(1e-3, scale));
+}
+
 export type Box = { x: number; y: number; w: number; h: number };      // 0..1 of the world (or of a parent layer)
 export type Pt = { x: number; y: number };
 export type Anchor = { layer: string; point: Pt };                       // a point inside another layer's box
@@ -102,6 +120,7 @@ const Backdrop: React.FC = () => {
 };
 
 const ImageLayer: React.FC<{ l: Extract<Layer, { type: "image" }> }> = ({ l }) => {
+  const r = useReadable();
   const frame = useCurrentFrame();
   const o = appear(frame, l.at, l.until);
   const src = l.src.startsWith("http") || l.src.startsWith("data:") ? l.src : staticFile(l.src);
@@ -109,24 +128,26 @@ const ImageLayer: React.FC<{ l: Extract<Layer, { type: "image" }> }> = ({ l }) =
     <div style={{ position: "absolute", ...px(l.box), opacity: o, transform: `scale(${0.96 + 0.04 * o})`,
       filter: "drop-shadow(0 18px 40px rgba(0,0,0,0.45))" }}>
       <Img src={src} style={{ width: "100%", height: "100%", objectFit: l.fit ?? "contain" }} />
-      {l.credit ? <div style={{ position: "absolute", right: 6, bottom: -26, fontSize: 16, color: C.muted, fontFamily: FONT }}>{l.credit}</div> : null}
+      {l.credit ? <div style={{ position: "absolute", right: 6, bottom: -26, fontSize: r(16), color: C.muted, fontFamily: FONT }}>{l.credit}</div> : null}
     </div>
   );
 };
 
 const TitleLayer: React.FC<{ l: Extract<Layer, { type: "title" }> }> = ({ l }) => {
+  const r = useReadable();
   const frame = useCurrentFrame();
   const o = appear(frame, l.at, l.until);
   return (
     <div style={{ position: "absolute", ...px(l.box), opacity: o, transform: `translateY(${(1 - o) * 30}px)`, fontFamily: FONT,
       color: C.ink, display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <div style={{ fontSize: 76, fontWeight: 800, letterSpacing: -1, lineHeight: 1.05 }}>{l.title}</div>
-      {l.subtitle ? <div style={{ fontSize: 36, color: C.accent, marginTop: 18 }}>{l.subtitle}</div> : null}
+      {l.subtitle ? <div style={{ fontSize: r(36), color: C.accent, marginTop: 18 }}>{l.subtitle}</div> : null}
     </div>
   );
 };
 
 const LabelLayer: React.FC<{ l: Extract<Layer, { type: "label" }>; layers: Layer[] }> = ({ l, layers }) => {
+  const r = useReadable();
   const frame = useCurrentFrame();
   const o = appear(frame, l.at, l.until);
   const color = l.tone === "warm" ? C.warm : C.accent;
@@ -148,7 +169,7 @@ const LabelLayer: React.FC<{ l: Extract<Layer, { type: "label" }>; layers: Layer
     <>
       {line}
       <div style={{ position: "absolute", ...box, opacity: o, display: "flex", alignItems: "center" }}>
-        <div style={{ fontFamily: FONT, fontSize: 34, fontWeight: 700, color: C.ink, background: C.panel, border: `3px solid ${color}`,
+        <div style={{ fontFamily: FONT, fontSize: r(34), fontWeight: 700, color: C.ink, background: C.panel, border: `3px solid ${color}`,
           borderRadius: 14, padding: "10px 18px", boxShadow: "0 10px 30px rgba(0,0,0,0.35)" }}>{l.text}</div>
       </div>
     </>
@@ -212,21 +233,22 @@ const Panel: React.FC<{ box: Box; o: number; children: React.ReactNode }> = ({ b
 );
 
 const StepsLayer: React.FC<{ l: Extract<Layer, { type: "steps" }> }> = ({ l }) => {
+  const r = useReadable();
   const frame = useCurrentFrame();
   const o = appear(frame, l.at, l.until);
   const active = l.steps.filter((s) => frame >= s.at).length - 1;
   return (
     <Panel box={l.box} o={o}>
-      {l.title ? <div style={{ fontSize: 34, fontWeight: 800, color: C.accent, marginBottom: 16 }}>{l.title}</div> : null}
+      {l.title ? <div style={{ fontSize: r(34), fontWeight: 800, color: C.accent, marginBottom: 16 }}>{l.title}</div> : null}
       {l.steps.map((s, i) => {
         const so = appear(frame, s.at);
         return (
           <div key={i} style={{ display: "flex", gap: 18, alignItems: "flex-start", margin: "10px 0", opacity: 0.25 + 0.75 * so }}>
             <div style={{ minWidth: 48, height: 48, borderRadius: 24, background: i === active ? C.accent : "transparent",
               border: `3px solid ${C.accent}`, color: i === active ? C.bg0 : C.accent, display: "flex", alignItems: "center",
-              justifyContent: "center", fontWeight: 800, fontSize: 26 }}>{i + 1}</div>
-            <div><div style={{ fontSize: 32, fontWeight: 700 }}>{s.label}</div>
-              {s.detail ? <div style={{ fontSize: 24, color: C.muted }}>{s.detail}</div> : null}</div>
+              justifyContent: "center", fontWeight: 800, fontSize: r(26) }}>{i + 1}</div>
+            <div><div style={{ fontSize: r(32), fontWeight: 700 }}>{s.label}</div>
+              {s.detail ? <div style={{ fontSize: r(24), color: C.muted }}>{s.detail}</div> : null}</div>
           </div>
         );
       })}
@@ -235,6 +257,7 @@ const StepsLayer: React.FC<{ l: Extract<Layer, { type: "steps" }> }> = ({ l }) =
 };
 
 const TimelineLayer: React.FC<{ l: Extract<Layer, { type: "timeline" }> }> = ({ l }) => {
+  const r = useReadable();
   const frame = useCurrentFrame();
   const o = appear(frame, l.at, l.until);
   return (
@@ -246,9 +269,9 @@ const TimelineLayer: React.FC<{ l: Extract<Layer, { type: "timeline" }> }> = ({ 
           return (
             <div key={i} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between",
               opacity: eo, transform: `translateY(${(1 - eo) * 16}px)`, textAlign: "center", padding: "0 8px" }}>
-              <div style={{ fontSize: 30, fontWeight: 800, color: C.warm, flex: 1, display: "flex", alignItems: "flex-end", paddingBottom: 14 }}>{e.when}</div>
+              <div style={{ fontSize: r(30), fontWeight: 800, color: C.warm, flex: 1, display: "flex", alignItems: "flex-end", paddingBottom: 14 }}>{e.when}</div>
               <div style={{ width: 28, height: 28, borderRadius: 14, background: C.accent, boxShadow: `0 0 18px ${C.accent}`, zIndex: 1 }} />
-              <div style={{ fontSize: 26, flex: 1, paddingTop: 14 }}>{e.label}</div>
+              <div style={{ fontSize: r(26), flex: 1, paddingTop: 14 }}>{e.label}</div>
             </div>
           );
         })}
@@ -258,17 +281,18 @@ const TimelineLayer: React.FC<{ l: Extract<Layer, { type: "timeline" }> }> = ({ 
 };
 
 const ScaleLayer: React.FC<{ l: Extract<Layer, { type: "scale" }> }> = ({ l }) => {
+  const r = useReadable();
   const frame = useCurrentFrame();
   const o = appear(frame, l.at, l.until);
   const max = Math.max(...l.items.map((i) => Math.abs(i.value)), 1);
   return (
     <Panel box={l.box} o={o}>
-      {l.title ? <div style={{ fontSize: 32, fontWeight: 800, color: C.accent, marginBottom: 18 }}>{l.title}</div> : null}
+      {l.title ? <div style={{ fontSize: r(32), fontWeight: 800, color: C.accent, marginBottom: 18 }}>{l.title}</div> : null}
       {l.items.map((it, i) => {
         const g = interpolate(frame, [it.at, it.at + 40], [0, 1], { easing: ease, extrapolateLeft: "clamp", extrapolateRight: "clamp" });
         return (
           <div key={i} style={{ margin: "14px 0" }}>
-            <div style={{ fontSize: 28, display: "flex", justifyContent: "space-between" }}><span>{it.label}</span>
+            <div style={{ fontSize: r(28), display: "flex", justifyContent: "space-between" }}><span>{it.label}</span>
               <span style={{ color: C.warm, fontWeight: 800 }}>{Math.round(it.value * g).toLocaleString("en-IN")}{it.unit ? " " + it.unit : ""}</span></div>
             <div style={{ height: 30, background: "rgba(255,255,255,0.08)", borderRadius: 8, marginTop: 6 }}>
               <div style={{ height: "100%", width: `${(100 * Math.abs(it.value) / max) * g}%`, background: i % 2 ? C.warm : C.accent, borderRadius: 8 }} />
@@ -281,13 +305,14 @@ const ScaleLayer: React.FC<{ l: Extract<Layer, { type: "scale" }> }> = ({ l }) =
 };
 
 const TableLayer: React.FC<{ l: Extract<Layer, { type: "table" }> }> = ({ l }) => {
+  const r = useReadable();
   const frame = useCurrentFrame();
   const o = appear(frame, l.at, l.until);
   const focus = (l.focus ?? []).filter((f) => frame >= f.at).pop();
   const cell = (c: number) => (focus && focus.column === c ? { background: "rgba(56,211,195,0.22)", color: C.ink } : {});
   return (
     <Panel box={l.box} o={o}>
-      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 26 }}>
+      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: r(26) }}>
         <thead><tr><th />{l.columns.map((c, i) => <th key={i} style={{ textAlign: "left", padding: 10, color: C.accent, ...cell(i) }}>{c}</th>)}</tr></thead>
         <tbody>{l.rows.map((r, ri) => (
           <tr key={ri} style={{ borderTop: `2px solid ${C.line}` }}>
@@ -300,6 +325,7 @@ const TableLayer: React.FC<{ l: Extract<Layer, { type: "table" }> }> = ({ l }) =
 };
 
 const ArrowLayer: React.FC<{ l: Extract<Layer, { type: "arrow" }>; layers: Layer[] }> = ({ l, layers }) => {
+  const r = useReadable();
   const frame = useCurrentFrame();
   const o = appear(frame, l.at, l.until);
   const a = anchorPoint(layers, l.from), b = anchorPoint(layers, l.to);
@@ -309,19 +335,20 @@ const ArrowLayer: React.FC<{ l: Extract<Layer, { type: "arrow" }>; layers: Layer
     <svg style={{ position: "absolute", inset: 0, width: W, height: H, opacity: o, overflow: "visible" }}>
       <defs><marker id={`h-${l.id}`} markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill={C.warm} /></marker></defs>
       <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={C.warm} strokeWidth={7} markerEnd={`url(#h-${l.id})`} />
-      {l.label ? <text x={(x1 + x2) / 2} y={(y1 + y2) / 2 - 18} fill={C.ink} fontSize={30} fontFamily={FONT} textAnchor="middle">{l.label}</text> : null}
+      {l.label ? <text x={(x1 + x2) / 2} y={(y1 + y2) / 2 - 18} fill={C.ink} fontSize={r(30)} fontFamily={FONT} textAnchor="middle">{l.label}</text> : null}
     </svg>
   );
 };
 
 const QuestionLayer: React.FC<{ l: Extract<Layer, { type: "question" }> }> = ({ l }) => {
+  const r = useReadable();
   const frame = useCurrentFrame();
   const o = appear(frame, l.at, l.until);
   return (
     <AbsoluteFill style={{ background: `rgba(6,18,28,${0.65 * o})`, alignItems: "center", justifyContent: "center", opacity: o }}>
       <div style={{ fontFamily: FONT, color: C.ink, background: C.panel, border: `4px solid ${C.warm}`, borderRadius: 28, padding: "40px 56px",
         maxWidth: 1300, fontSize: 48, fontWeight: 800, textAlign: "center", transform: `scale(${0.9 + 0.1 * o})` }}>
-        <div style={{ fontSize: 30, color: C.warm, marginBottom: 14 }}>सोचिए!</div>{l.text}
+        <div style={{ fontSize: r(30), color: C.warm, marginBottom: 14 }}>सोचिए!</div>{l.text}
       </div>
     </AbsoluteFill>
   );
@@ -347,8 +374,8 @@ const Captions: React.FC<{ captions: { at: number; until: number; text: string }
   const now = captions.find((c) => frame >= c.at && frame < c.until);
   if (!now) return null;
   return (
-    <div style={{ position: "absolute", left: 0, right: 0, bottom: 34, display: "flex", justifyContent: "center", pointerEvents: "none" }}>
-      <div style={{ maxWidth: W * 0.8, background: "rgba(18,24,34,0.86)", color: "#ffffff", fontFamily: FONT, fontSize: 34, lineHeight: 1.35,
+    <div style={{ position: "absolute", left: 0, right: 0, bottom: 26, display: "flex", justifyContent: "center", pointerEvents: "none" }}>
+      <div className="bie-caption" style={{ maxWidth: W * 0.9, background: "rgba(18,24,34,0.86)", color: "#ffffff", fontFamily: FONT, fontSize: CAPTION_PX, lineHeight: 1.3,
         padding: "10px 26px", borderRadius: 14, textAlign: "center" }}>{now.text}</div>
     </div>
   );
@@ -367,6 +394,7 @@ export const Scene: React.FC<{ spec: SceneSpec; showCaptions?: boolean }> = ({ s
       <Backdrop />
       <div style={{ position: "absolute", left: 0, top: 0, width: W, height: H, transformOrigin: "0 0",
         transform: `translate(${tx}px, ${ty}px) scale(${scale})` }}>
+        <ScaleText by={scale}>
         {world.map((l) => {
           if (frame < l.at - 1 || (l.until !== undefined && frame > l.until + 1)) return null;
           switch (l.type) {
@@ -384,6 +412,7 @@ export const Scene: React.FC<{ spec: SceneSpec; showCaptions?: boolean }> = ({ s
             default: return null;
           }
         })}
+        </ScaleText>
       </div>
       {overlays.map((l) => (l.type === "question" ? <QuestionLayer key={l.id} l={l} /> : null))}
       {showCaptions && spec.captions ? <Captions captions={spec.captions} /> : null}

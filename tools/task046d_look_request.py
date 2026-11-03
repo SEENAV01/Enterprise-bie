@@ -35,7 +35,9 @@ def build_d2(canvas_dir: Path, video_id: str, dest: str, *, reviewer: str = "cod
         sid = str(scene.get("id") or "")
         if not sid or sid.endswith("_credits") or sid not in by_part:
             continue
-        says = {c.get("beat_id"): c.get("text", "") for c in scene.get("captions") or []}
+        says = {}
+        for c in scene.get("captions") or []:                 # a long beat's caption shows in pieces (CV-17): its words joined
+            says[c.get("beat_id")] = f"{says.get(c.get('beat_id'), '')} {c.get('text', '')}".strip()
         beats = [b for b in by_part[sid].get("beats") or [] if b.get("beat_id") in says]
         if len(beats) > look.D2_MAX_BEATS:
             step = len(beats) / look.D2_MAX_BEATS
