@@ -131,7 +131,7 @@ def summarize(frames: list, *, floor: float = FLOOR_PX, fps: int = 30, every: in
     overlaps.sort(key=lambda r: (r["first_s"], r["a"]))
     small_rows = sorted(small, key=lambda r: (r["first_s"], r["t"]))
     return {
-        "schema": "bie.text_audit/1",
+        "schema": "bie.text-audit/1",
         "floor_px": floor,
         "frames_sampled": len(frames),
         "every_frames": every,

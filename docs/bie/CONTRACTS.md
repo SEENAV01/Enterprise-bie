@@ -24,7 +24,7 @@ Per section, the outputs the next section reads:
 | understand (Section 1) | `chapter_map.json` (pages, `items` keyed `p<page>-i<n>` with `unpack` and `unpack.real_world_example`, the map, `quality`), `naksha.json` | `MAP.md`, `PAGES.md` |
 | lesson (Section 2) | `lesson_plan.json` (the plan, every video's beats, notes, `real_world`, `checks`, `record`) | `SCRIPT.md`, `scripts/v<n>.md` |
 | canvas (Section 3c) | `canvas.json` (per part: mode, place, story, rounds, first try, level, seconds), `plans/<part>.plan.json`, `video_specs/v<n>.json`, `assets/` | `CANVAS.md` |
-| render (CI, `BIE Task046c Render`) | `summary.json`, `cost.json`, `join.json`, `video_spec.json`, `review-720p.mp4` (the full MP4 is the run's artifact) | `REPORT.md` |
+| render (CI, `BIE Task046c Render`) | `summary.json` (with the text check and the respec counts, Task 048), `cost.json`, `join.json`, `video_spec.json`, `audit.json` (the text check of every sampled frame), `RESPEC.json` (when the plans were compiled again), `review-720p.mp4` (the full MP4 is the run's artifact) | `REPORT.md` |
 | image (VM) | `SUMMARY.json` with one row per image (status, source `bie_chatgpt_plan`, `generated_by`, `prompt`, `generated_on`), `images/` | `IMAGES.md` |
 
 The job's result (`jobs/<id>.result.json` on `codex-jobs`) names the folder, the minutes, the rupees and the plan usage.
@@ -109,6 +109,8 @@ BIE wrote still reads; the keys named as required and the enums are the lock.
 | visual_ideas | `bie.brain.visual-ideas/1` | `visual_ideas/<video>.json` | Section 3c, the visual-idea step (bie/brain/visual_thinking.py) | the dikhane-ki-list page (tools/task046d_ideas_page.py); the review page; Navin | per part its picture (type; decided by code from the book, by the card type, or by the maker) and per beat the idea, its relation, its nouns, what is seen and on which word; the relations outside the list; the needs | 2026-10-31 |
 | needs | `bie.brain.needs/1` | `needs.json` | Section 3c (bie/brain/canvas_director.py) | the fetch step in GitHub Actions (tools/task046d_fetch_needs.py); Navin | the things no source had (thing, beats, kind, sources tried) and the capabilities BIE lacks (world kits, blocks) with the parts and beats that needed them | 2026-10-31 |
 | coder_made | `bie.brain.coder-made/1` | `made.json` | the coder section (bie/brain/coder.py) | the fetch step in GitHub Actions (tools/task046d_fetch_needs.py --made); Navin | the drawings BIE's coder made for the needs no source had: per thing its file, hash, tags, licence and provenance (who drew it, the spec, the date), and the needs it did not draw with the reason | 2026-11-02 |
+| respec | `bie.respec/1` | `RESPEC.json` | tools/respec_video.py | the render workflow; Navin | a canvas run's plans compiled again with today's code: per video its parts compiled or refused with the reason | 2026-11-03 |
+| text_audit | `bie.text-audit/1` | `audit.json` | tools/text_audit.py (bie/brain/video/text_audit.py) | the render report; Navin | the texts of a rendered video measured on its frames: those whose settled size stays under the readable floor (CV-17) and those that cover each other, with when | 2026-11-03 |
 
 **Reserved for Task 047 (voice).** Every beat of the lesson plan may carry `audio` = `{"file", "duration", "words": [{"w",
 "start", "end"}]}`, written by the voice section. `formats.voice_of(beats)` turns the beats that have it into the `voice`

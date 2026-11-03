@@ -245,12 +245,36 @@ def cmd_bench(args) -> int:
     return 0
 
 
+def report_lines(audit: dict, most: int = 12) -> list:
+    """The text check's lines of REPORT.md: the counts, then the lasting cases with their times (Task 048 frame checks)."""
+    floor = audit["floor_px"]
+    lines = [f"- Text check ({audit['frames_sampled']} frames, one every {audit.get('every_frames', 30)}): "
+             f"{audit['lasting_small_count']} texts under {floor:g} px for a second or more ({audit['small_count']} in all), "
+             f"{audit['lasting_overlap_count']} pairs of texts on each other for a second or more ({audit['overlap_count']} in all), "
+             f"{audit.get('caption_overlap_count', 0)} under the caption strip."]
+    small = [r for r in audit["small"] if r.get("samples", 0) >= 2][:most]
+    lines += [f"  - small: \"{r['t'][:40]}\" {r['px']} px at {r['first_s']}–{r.get('last_s', r['first_s'])} s" for r in small]
+    over = [r for r in audit["overlaps"] if r.get("longest_run", 0) >= 2 and not r.get("caption")][:most]
+    lines += [f"  - on each other: \"{r['a'][:30]}\" and \"{r['b'][:30]}\" at {r['first_s']}–{r.get('last_s', r['first_s'])} s" for r in over]
+    return lines
+
+
 def cmd_summary(args) -> int:
     out = Path(args.out)
     cost = json.loads((out / "cost.json").read_text(encoding="utf-8")) if (out / "cost.json").exists() else {}
     join = json.loads((out / "join.json").read_text(encoding="utf-8")) if (out / "join.json").exists() else {}
     summary = {"schema": "bie.render-spec.summary/1", "run_id": args.run_id, "sha": args.sha, "run_url": args.run_url,
                "cost": {k: v for k, v in cost.items() if k != "rows"}, "join": join}
+    audit = formats.accept("text_audit", json.loads((out / "audit.json").read_text(encoding="utf-8")),
+                           where=str(out / "audit.json")) if (out / "audit.json").exists() else None
+    respec = formats.accept("respec", json.loads((out / "RESPEC.json").read_text(encoding="utf-8")),
+                            where=str(out / "RESPEC.json")) if (out / "RESPEC.json").exists() else None
+    if audit:          # the frame check of Task 048 (tools/text_audit.py): sizes and overlaps on the drawn frames
+        summary["text_check"] = {k: audit.get(k) for k in ("floor_px", "frames_sampled", "every_frames", "min_px", "small_count",
+                                                           "lasting_small_count", "overlap_count", "lasting_overlap_count",
+                                                           "caption_overlap_count")}
+    if respec:         # the plans were compiled again with this commit's code before the render
+        summary["respec"] = [{k: v.get(k) for k in ("video_id", "status", "compiled", "refused", "seconds")} for v in respec["videos"]]
     formats.check("render_summary", summary, where=str(out / "summary.json"))
     (out / "summary.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
     lines = ["# Render", ""]
@@ -260,6 +284,13 @@ def cmd_summary(args) -> int:
                   f"{cost['seconds_per_video_second']} render seconds per video second; ₹{cost['inr_at_list_price']} at the list price (billed ₹0)."]
     if join:
         lines += [f"- video.mp4 {join['video_bytes'] / 1e6:.1f} MB, review-{args.review}p.mp4 {join['review_bytes'] / 1e6:.1f} MB, {join['seconds']} s."]
+    if respec:
+        for v in respec["videos"]:
+            lines += [f"- Compiled again with this commit's code: {v['video_id']} {v['compiled']} parts compiled, {v['refused']} refused "
+                      "(a refused part needs the director again)."]
+            lines += [f"  - {r['id']} {r['status']}: {r.get('problem', '')[:200]}" for r in v["parts"] if r["status"] != "compiled"]
+    if audit:
+        lines += report_lines(audit)
     (out / "REPORT.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("\n".join(lines))
     return 0

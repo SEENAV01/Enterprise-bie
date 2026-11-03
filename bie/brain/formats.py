@@ -139,6 +139,16 @@ MADE_ITEM = O({"thing": S, "slug": S, "status": S, "rounds": N, "file": S, "sha2
 CODER_MADE = O({"schema": S, "version": S, "items": A(MADE_ITEM), "skipped": A(O({"thing": S, "why": S})), "quality": {"type": "object"}},
                required=["schema", "version", "items", "skipped", "quality"])
 
+# -- the render checks (Task 048): a canvas run compiled again with today's code, and the texts of a video measured on its frames
+RESPEC_PART = O({"id": S, "mode": S, "status": S, "problem": S}, required=["id", "status"])
+RESPEC = O({"schema": S, "run": S, "videos": A(O({"video_id": S, "status": S, "parts": A(RESPEC_PART), "compiled": N, "refused": N,
+                                                  "scenes": N, "seconds": N}, required=["video_id", "status", "parts", "compiled", "refused"]))})
+TEXT_AUDIT = O({"schema": S, "floor_px": N, "frames_sampled": N, "every_frames": N, "texts_seen": N, "small": A({"type": "object"}),
+                "small_count": N, "lasting_small_count": N, "symbols": A({"type": "object"}), "overlaps": A({"type": "object"}),
+                "overlap_count": N, "lasting_overlap_count": N, "caption_overlap_count": N},
+               required=["schema", "floor_px", "frames_sampled", "small", "small_count", "lasting_small_count", "overlaps", "overlap_count",
+                         "lasting_overlap_count"])
+
 
 # ---------------------------------------------------------------- the formats
 
@@ -249,6 +259,13 @@ FORMATS = {
     "chapter_review_record": Format("bie.brain.coverage.chapter", 1, CHAPTER_REVIEW_RECORD, "<page>.coverage.json",
                                     "tools/task046c_chapter_page.py (bie/brain/coverage.py chapter_coverage)", ("Navin",),
                                     "every teachable line → the video that teaches it", "2026-10-29"),
+    "respec": Format("bie.respec", 1, RESPEC, "RESPEC.json", "tools/respec_video.py", ("the render workflow", "Navin"),
+                     "a canvas run's plans compiled again with today's code: per video its parts compiled or refused with the reason",
+                     "2026-11-03"),
+    "text_audit": Format("bie.text-audit", 1, TEXT_AUDIT, "audit.json", "tools/text_audit.py (bie/brain/video/text_audit.py)",
+                         ("the render report", "Navin"),
+                         "the texts of a rendered video measured on its frames: those whose settled size stays under the readable floor "
+                         "(CV-17) and those that cover each other, with when", "2026-11-03"),
 }
 
 # The fields the game (Task 049) and the notes (Task 050) read, so the formats are locked for them too.

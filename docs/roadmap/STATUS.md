@@ -7,12 +7,44 @@ Updated: 3 November 2026 · Read this first in every new session, then show Navi
 | Field | Value |
 | --- | --- |
 | Phase | 1 · BIE as one whole system; plan agreed on 22 October 2026 (ROADMAP, "Agreed on 22 October 2026") |
-| Current task | **Task 046 · Part D3: the general fixes from Navin's verdict on the D2 addendum proof (3 November 2026)**: the readable text floor (CV-17), no world for a place that is not that world, label overlap in every mode; then the first slice of **Task 048** (render, player, one button). Section "Task 046 · Part D3" below. Before it: Part D2 and its addendum (sections below). |
-| Branch | `task046d3-general-fixes` |
-| State | **3 November 2026:** Part D3 is built (IMPLEMENTED, offline tests and local renders of the existing Money v2, v4, v6, v8 plans compiled again; not INTEGRATED until the director's next run plans with it). Measured on the same plans, rendered and measured frame by frame (`tools/text_audit.py`): texts that stay under 36 px v2 119 → 0, v4 201 → 0, v6 219 → 0, v8 104 → 0; texts that cover each other for a second or more 8 → 0, 16 → 5, 29 → 7, 18 → 2; world beats at another place 19 → 0 (55 → 37 world beats; the director's split of the same scripts, by code: the renders of the old plans still show the old worlds until the director runs again); the credit card 249 lines in 5 s → only the assets each video shows (31 to 53 lines, seven a page). 71 of the 414 earlier canvas plans that compiled on main are now refused by the 36 px rule, each with its exact reason, and need the director again. Nothing ACCEPTED. |
-| Next task | Task 048 first slice (render frame checks, one-button plumbing), then **STOP for review** with the single report file. Meanwhile Claude (planning chat) makes the hand-made DEMO videos of Money v2, v4, v6, v8, labelled "Claude's demo, not BIE output"; what Navin passes becomes BIE's rules and saanche. Until then the visual process does not change. |
-| Canonical main | `e8bc9968` (PR #125: the addendum proof's docs) on `d51a5cf3` (PR #124) on `4f612f20` (PR #123) on `3be6680f` (PR #121) on `a568edaf` (PR #120) on `866d171d` (PR #119) on `788106ba` (PR #118) on `ef77d816` (PR #117) on `7e06fa1e` (PR #115: Part D2) on `65e87a6e` (PR #114: Part D1 proof run b, the fetch rules, currency icons, the six pin) on `d6174636` (PR #113: F-18, the Section 18 sidecar race) on `18595156` (PR #112: the proof fixes) on `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
+| Current task | **Task 048 · first slice: the render checks and the one-button plumbing** (Navin, 3 November 2026: "then start the render/player and one-button plumbing (Task 048). Stop for review at the end with the single report file."). Section "Task 048 · first slice" below. Before it: Task 046 Part D3, the general fixes (section below). |
+| Branch | `task048-render-checks` |
+| State | **3 November 2026:** Part D3 merged (PR #126). Task 048's first slice is built (IMPLEMENTED): every render measures its own frames (the text check) and can compile the plans again with the current code first (respec); one VM chain job can go from the book to the canvas director's video specs (`--with-canvas`). Nothing ACCEPTED. |
+| Next task | **STOP for review** with the single report file. Meanwhile Claude (planning chat) makes the hand-made DEMO videos of Money v2, v4, v6, v8, labelled "Claude's demo, not BIE output"; what Navin passes becomes BIE's rules and saanche. Until then the visual process does not change. |
+| Canonical main | `a14e732f` (PR #126: Task 046 Part D3, the general fixes) on `e8bc9968` (PR #125: the addendum proof's docs) on `d51a5cf3` (PR #124) on `4f612f20` (PR #123) on `3be6680f` (PR #121) on `a568edaf` (PR #120) on `866d171d` (PR #119) on `788106ba` (PR #118) on `ef77d816` (PR #117) on `7e06fa1e` (PR #115: Part D2) on `65e87a6e` (PR #114: Part D1 proof run b, the fetch rules, currency icons, the six pin) on `d6174636` (PR #113: F-18, the Section 18 sidecar race) on `18595156` (PR #112: the proof fixes) on `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai). On the VM, from 25 October 2026, the checker is Navin's free Google AI Studio key `GEMINI_API_KEY` in `/etc/bie/bie.env` (direct route, `gemini-3.8-flash`); the AICredits key stays there unused (a job can still choose it with `routes google=aicredits`). Since 24 October a free Google AI Studio key is the GitHub secret `GEMINI_API_KEY` (Navin's choice for now, sample content only, never student data); it serves GitHub Actions runs only and wins over AICredits there: `gemini-3.8-flash` answers (smoke run 40114580580), `gemini-4-argon` gives 429 quota and `gemini-3.1-pro` 404, so a run that uses it passes `models=google=gemini-3.8-flash` |
+
+## Task 048 · first slice: the render checks and the one-button plumbing (3 November 2026)
+
+Navin, 3 November 2026: "Meanwhile: fix only these general issues ..., then start the render/player and one-button plumbing (Task
+048). Stop for review at the end with the single report file."
+
+What the render path was (the survey): the preview page (remotion-lite, `window.setFrame`) renders the specs in GitHub Actions in
+parallel chunks (`BIE Task046c Render`, `tools/render_spec.py`); the real Remotion bridge (`bie/brain/video/remotion/`) is a proof
+only, slower (37.5 s per video second with bundling); `@remotion/player` is not installed; the COMP compiler (`bie/compiler`) and
+the Section 16 video QA (`bie/qa/video_v2`) are not wired to the brain's specs; the operator app (`apps/operator`) runs the old
+producers; `run_brain --section chain` stopped at the old director (no canvas, no coder); a VM job runs one section.
+
+**Built (branch `task048-render-checks`, one PR), status IMPLEMENTED:**
+
+- **The text check on every render** (the frame checks of Task 048): `BIE Task046c Render` has an `audit` job beside the chunks.
+  It opens the same page the chunks render, measures every 30th frame (`tools/text_audit.py`: each text's size on screen, the
+  texts on each other, the caption strip apart) and writes `audit.json` (`bie.text-audit/1`). The report (`REPORT.md`,
+  `summary.json` "text_check") lists the texts under 36 px and the pairs on each other that last a second or more, with their
+  times; the run shows them as an annotation (a warning when any is found) and publishes `audit.json` with the review copy. A page
+  that throws while it is measured fails the job (fail closed): the check found two such bugs in Part D3 before they shipped.
+  It reports and does not stop a render for small or covered text yet: the plans made before CV-17 would all stop.
+- **Respec before the render**: the `respec` input compiles the run's plans again with this commit's code
+  (`tools/respec_video.py`, `RESPEC.json`, `bie.respec/1`) before the chunks render, so a fix in the compilers or the blocks shows on
+  the same plans without a new director run; a part today's code refuses is named with its reason in the report and left out.
+- **One chain job from the book to video specs**: `run_brain --section chain --with-canvas` runs Section 3c (the canvas director)
+  on the scripts that passed, in the same job (`--videos`: only these; `--library`: BIE's shared library; `--render`: silent
+  previews); the cost guard's estimate counts the canvas plans; the VM accepts `"with_canvas": true` in a chain job. The rendering
+  stays in GitHub Actions (the VM has no render step).
+
+**Not yet (later slices of Task 048):** the interactive player (`@remotion/player`, pause questions, tap-to-explore), the real
+Remotion render through the COMP compiler, the Section 16 video QA and a reviewer AI on the rendered frames, the coder and the
+render inside the one chain, and a gate that stops a render on small or covered text once the director plans with CV-17.
 
 ## Task 046 · Part D3 · general fixes (Navin's verdict of 3 November 2026)
 

@@ -77,6 +77,26 @@ class FakeChain(unittest.TestCase):
         story_beats = [b for b in topic["beats"] if b["purpose"] == "story"]
         self.assertTrue(story_beats and all("₹50" in b["say"] and "12" in b["say"] for b in story_beats))
 
+    def test_one_chain_job_goes_from_the_book_to_video_specs_with_the_canvas_director(self):
+        # Task 048 one-button plumbing: --with-canvas runs Section 3c on the scripts that passed, in the same job
+        code, _ = t045.run(self.args("canvas") + ["--with-canvas"])
+        self.assertEqual(code, 0)
+        summary = self.read("canvas", "SUMMARY.json")
+        self.assertEqual(summary["status"], "ok")
+        self.assertIn("canvas", summary["estimate"]["sections"])
+        passed = sorted(v["video_id"] for v in self.read("canvas", "lesson_plan.json")["videos"] if v["status"] == "passed")
+        self.assertTrue(passed)
+        canvas_summary = self.read("canvas", "canvas.json")
+        self.assertEqual(sorted(v["video_id"] for v in canvas_summary["videos"]), passed)
+        self.assertGreater(summary["canvas_quality"]["parts_passed"], 0)
+        specs = sorted(p.stem for p in Path(self.tmp.name, "canvas", "video_specs").glob("*.json"))
+        self.assertTrue(specs and set(specs) <= set(passed))
+        # without the flag the chain stays as it was: no canvas plans
+        code, _ = t045.run(self.args("plain"))
+        self.assertEqual(code, 0)
+        self.assertFalse(Path(self.tmp.name, "plain", "canvas.json").exists())
+        self.assertNotIn("canvas", self.read("plain", "SUMMARY.json")["estimate"]["sections"])
+
     def test_check_script_catches_a_term_named_before_its_example_on_the_real_card(self):
         code, _ = t045.run(self.args("econ2"))
         self.assertEqual(code, 0)

@@ -8,7 +8,8 @@
   --section canvas       Section 3c (Task 046 Part C): --from-run (with lesson_plan.json) → plans/, video_specs/, canvas.json, CANVAS.md;
                          one canvas (B) or world (C) plan per script part, written by the maker and checked by code
   --section visual       Section 4: --from-run (with director.json) → assets/, video_specs/, VISUAL.md, stills/; --render adds MP4 previews
-  --section chain        Sections 1, 2, 3, 6 (design) and 7 in one run; --with-visual adds Section 4
+  --section chain        Sections 1, 2, 3, 6 (design) and 7 in one run; --with-visual adds Section 4; --with-canvas adds Section 3c
+                         (the canvas director, Task 048 one-button plumbing: the book to video specs in one job; --render renders them)
   --section coder        BIE's coder (Task 046 Part D2 addendum): --from-run (a canvas run with needs.json) [--library <shared
                          library>] → made/, made.json, MADE.md; an SVG for each need no source had, checked by code
 
@@ -208,6 +209,8 @@ def main(argv=None):
     parser.add_argument("--videos", default="", help="visual: only these video ids, for example v1,v2; lesson with --resume-from: only these scripts are worked on, the rest are kept as they were")
     parser.add_argument("--render", action="store_true", help="visual, canvas: also render a silent MP4 preview of every video")
     parser.add_argument("--with-visual", action="store_true", help="chain: also run Section 4")
+    parser.add_argument("--with-canvas", action="store_true", help="chain: also run Section 3c, the canvas director, on the passed "
+                                                                  "scripts (--videos: only these; --library: BIE's shared library)")
     parser.add_argument("--pages")
     parser.add_argument("--out", required=True)
     parser.add_argument("--title", default="")
@@ -335,7 +338,8 @@ def main(argv=None):
         reviewer_via = getattr(getattr(gateway.routes[reviewer], "client", None), "via", "direct") if reviewer in gateway.routes else "direct"
         estimate = cost_module.estimate(args.section, summary.get("resume", {}).get("pages_to_run", pages), rate=rate,
                                         maker_model=gateway.model_of(args.maker), reviewer_model=gateway.model_of(reviewer),
-                                        with_visual=args.with_visual, maker_subscription=maker_via in SUBSCRIPTION_VIAS,
+                                        with_visual=args.with_visual, with_canvas=args.with_canvas and args.section == "chain",
+                                        maker_subscription=maker_via in SUBSCRIPTION_VIAS,
                                         reviewer_subscription=reviewer_via in SUBSCRIPTION_VIAS)
         summary["estimate"] = estimate
         notice("pahra andaaza", cost_module.estimate_line(estimate, args.max_inr),
@@ -400,10 +404,14 @@ def main(argv=None):
             summary.update(director_quality=director["quality"])
         if guard.stopped and summary["status"] == "ok":
             summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
-        if summary["status"] == "ok" and args.section == "canvas":
+        if summary["status"] == "ok" and (args.section == "canvas" or (args.section == "chain" and args.with_canvas)):
+            # chain --with-canvas (Task 048, one-button plumbing): the scripts that passed in this run go on to the canvas director
             wanted = [v.strip() for v in args.videos.split(",") if v.strip()]
+            if args.section == "chain":
+                passed = {v["video_id"] for v in lesson["videos"] if v.get("status") == "passed"}
+                wanted = [v for v in (wanted or sorted(passed, key=lambda x: (len(x), x))) if v in passed]
             previous = None
-            if args.resume_from:
+            if args.resume_from and args.section == "canvas":
                 from bie.brain.canvas_director import resume_answers
                 previous = resume_answers(read_text, args.resume_from)
             planned = run_canvas(chapter, lesson, course, runner, out, videos=wanted or None, workers=args.workers, max_rounds=args.max_rounds,
@@ -430,7 +438,8 @@ def main(argv=None):
             summary.update(visual_quality=visual["quality"])
             if guard.stopped:
                 summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
-        if summary["status"] == "ok" and args.section in ("visual", "canvas", "chain") and (args.section != "chain" or args.with_visual):
+        if summary["status"] == "ok" and args.section in ("visual", "canvas", "chain") and (args.section != "chain" or args.with_visual
+                                                                                              or args.with_canvas):
             if args.render:
                 from bie.brain.video.render import RenderError, mp4
                 (out / "videos").mkdir(exist_ok=True)
