@@ -1762,7 +1762,8 @@ in the director; one layout pass on the action stage; credits of the assets show
 | Texts covering each other for a second or more | 8 → 0 | 16 → 5 | 29 → 7 | 18 → 2 |
 | Parts the current code compiles | 15 of 18 | 15 of 18 | 10 of 15 | 8 of 10 |
 
-World beats at another place in the four videos: 19 of 55 → 0 of 37. Across all 528 earlier canvas plans, 71 that compiled on
+World beats at another place in the four videos: 19 of 55 → 0 of 37 (the director's split of the same scripts, by code; the
+old plans compiled again keep their old worlds until the director runs again). Across all 528 earlier canvas plans, 71 that compiled on
 main are now refused by CV-17, each with its exact reason (22 two-row timelines or one-row galleries, 18 icons under 64 px beside
 a label, 16 tags, 10 texts, 5 tables); the director plans them again on its next run (₹0). The passed-output sets pass
 unchanged. Tokens and ₹: none, no AI call was made.
