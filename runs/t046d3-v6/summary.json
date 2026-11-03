@@ -1,0 +1,53 @@
+{
+ "schema": "bie.render-spec.summary/1",
+ "run_id": "41642785658",
+ "sha": "3cd3c19e5cf33f2e7f4e080fb58d5ef43d02a050",
+ "run_url": "https://github.com/SEENAV01/Enterprise-bie/actions/runs/41642785658",
+ "cost": {
+  "chunks": 8,
+  "frames": 16490,
+  "video_seconds": 549.64,
+  "video_minutes": 9.16,
+  "render_seconds": 2040.5,
+  "seconds_per_frame": 0.124,
+  "seconds_per_video_second": 3.71,
+  "wall_clock_minutes_parallel": 4.8,
+  "machine_minutes": 34.0,
+  "usd_at_list_price": 0.272,
+  "inr_at_list_price": 22.85,
+  "list_price_usd_per_minute": 0.008,
+  "usd_to_inr": 84.0,
+  "note": "GitHub-hosted ubuntu runner, 2 vCPU, software WebGL (SwiftShader), no GPU; the public repository bills Rs 0",
+  "schema": "bie.render.cost/1"
+ },
+ "join": {
+  "video": "/home/runner/work/_temp/out/video.mp4",
+  "review": "/home/runner/work/_temp/out/review-720p.mp4",
+  "review_bytes": 17381256,
+  "video_bytes": 57810907,
+  "seconds": 549.67,
+  "chunks": 8,
+  "stills": 52,
+  "schema": "bie.render.join/1"
+ },
+ "text_check": {
+  "floor_px": 36,
+  "frames_sampled": 550,
+  "every_frames": 30,
+  "min_px": 35.1,
+  "small_count": 6,
+  "lasting_small_count": 0,
+  "overlap_count": 11,
+  "lasting_overlap_count": 9,
+  "caption_overlap_count": 0
+ },
+ "respec": [
+  {
+   "video_id": "v6",
+   "status": "spec_written",
+   "compiled": 10,
+   "refused": 5,
+   "seconds": 549.7
+  }
+ ]
+}
