@@ -68,5 +68,17 @@ class ReviewPage(unittest.TestCase):
             self.assertIn("abhi nahi bana", page)
 
 
+class OneButtonWorkflow(unittest.TestCase):
+    def test_the_workflow_fans_out_the_existing_render_and_publishes_one_page(self):
+        text = (ROOT / ".github" / "workflows" / "p1-one-button.yml").read_text(encoding="utf-8")
+        self.assertIn("gh workflow run task046c-render.yml", text)       # the existing render path, not a new one
+        self.assertIn("showplan.json", text)
+        self.assertIn("tools/p1_review_page.py", text)
+        self.assertIn("REVIEW.html", text)
+        self.assertIn("actions: write", text)
+        self.assertIn("contents: write", text)
+        self.assertNotIn("video.mp4\n", text)                            # only review copies travel to the branch
+
+
 if __name__ == "__main__":
     unittest.main()

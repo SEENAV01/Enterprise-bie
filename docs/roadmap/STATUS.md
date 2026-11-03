@@ -101,7 +101,11 @@ scene plans → notes pages → game levels — under one cost-guard estimate (t
 `tools/p1_review_page.py` builds the chapter review page from the run folder: every video with its plan numbers
 and its MP4 once the render workflow has run (and an honest "video abhi render nahi hua" until then), the notes
 deck, the playable game, and the numbers table (passed, first-try, rounds) — nothing hand-written. Proven offline
-through the fake chain. Still in part E: the render hand-off workflow and the operator app button.
+through the fake chain. **Second slice:** `.github/workflows/p1-one-button.yml` — THE button: give it a chain run's
+folder on blindtest-results and it dispatches the existing chunked render workflow once per passed video, waits for
+every review copy to land, assembles the chapter folder (videos with audits and posters, notes, game) and publishes
+`runs/<dest>/REVIEW.html`. No new render path, review copies only on the branch. Still in part E: the operator app
+button that submits the VM chain job and then this workflow.
 
 ## Task 048 · first slice: the render checks and the one-button plumbing (3 November 2026)
 
