@@ -17,6 +17,7 @@ import React from "react";
 import { Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { registerBlock, BlockProps } from "../registry";
 import { FONT, assetUrl } from "./common";
+import { MinText, TextScale, useReadable } from "../index";
 import { ActionStage, STAGE_W, STAGE_H } from "./saanche";
 
 export const THEMES: Record<string, Record<string, string>> = {
@@ -86,20 +87,25 @@ function focusLevel(focus: { at: number; until?: number; ids: string[] }[] | und
  *  flowing coins on arrows, flipping price tags, a light sweep and a camera that follows what is being said. */
 const phaseOf = (id: string) => Array.from(id).reduce((a, c) => a + c.charCodeAt(0), 0) % 60;
 
-const IconEl: React.FC<{ el: El; P: Record<string, string>; W: number; H: number; o: number; frame?: number; touches?: boolean }> =
-  ({ el, P, W, H, o, frame = 0, touches }) => {
+type Readable = (px: number) => number;
+const same: Readable = (px) => px;
+
+const IconEl: React.FC<{ el: El; P: Record<string, string>; W: number; H: number; o: number; frame?: number; touches?: boolean; r?: Readable }> =
+  ({ el, P, W, H, o, frame = 0, touches, r = same }) => {
   const b = boxOf(el);
   const s = 0.6 + 0.4 * o;
   const bob = touches ? Math.sin((frame + phaseOf(el.id)) / 16) * 4 : 0;
   return (
     <div style={{ position: "absolute", left: b.x * W, top: b.y * H, width: b.w * W, height: b.h * H, opacity: o,
       transform: `scale(${s})`, transformOrigin: "50% 80%" }}>
-      {touches ? <div style={{ position: "absolute", left: "18%", width: "64%", top: el.label ? "70%" : "90%", height: "10%", borderRadius: "50%",
+      {touches ? <div style={{ position: "absolute", left: "18%", width: "64%", top: el.label ? `${(1 - (el.label_share ?? 0.22)) * 90}%` : "90%", height: "10%", borderRadius: "50%",
         background: "radial-gradient(closest-side, rgba(20,30,45,0.28), rgba(20,30,45,0))", transform: `scaleX(${1 - bob / 40})` }} /> : null}
-      <img src={assetUrl(el.src)} style={{ width: "100%", height: el.label ? "78%" : "100%", objectFit: "contain", display: "block",
+      <img src={assetUrl(el.src)} style={{ width: "100%", height: el.label ? `${(1 - (el.label_share ?? 0.22)) * 100}%` : "100%", objectFit: "contain", display: "block",
         transform: `translateY(${bob - (touches ? 4 : 0)}px)`, willChange: touches ? "transform" : undefined }} />
-      {el.label ? <div style={{ fontFamily: FONT, fontSize: el.label_size ?? 22, fontWeight: 700, color: toneOf(P, el.label_tone ?? "muted"),
-        textAlign: "center", letterSpacing: 0.5, marginTop: 4, whiteSpace: "nowrap" }}>{el.label}</div> : null}
+      {el.label ? <div style={{ fontFamily: FONT, fontSize: Math.max(el.label_size ?? 22, r(el.label_size ?? 22) / s),    // a dimmed icon shrinks, its label stays readable (CV-17)
+        fontWeight: 700, color: toneOf(P, el.label_tone ?? "muted"),
+        textAlign: "center", letterSpacing: 0.5, marginTop: 4, whiteSpace: "nowrap", lineHeight: 1.35 }}>
+        {el.label_lines ? el.label_lines.map((t: string, i: number) => <div key={i}>{t}</div>) : el.label}</div> : null}
     </div>
   );
 };
@@ -146,6 +152,7 @@ const TextEl: React.FC<{ el: El; P: Record<string, string>; W: number; H: number
 
 const ValueEl: React.FC<{ el: El; P: Record<string, string>; W: number; H: number; frame: number; fps: number; touches?: boolean }> =
   ({ el, P, W, H, frame, fps, touches }) => {
+  const readable = useReadable();
   const steps: { text: string; at: number; dir?: "up" | "down" }[] = el.steps;
   let idx = -1;
   steps.forEach((s, i) => { if (frame >= s.at) idx = i; });
@@ -159,7 +166,7 @@ const ValueEl: React.FC<{ el: El; P: Record<string, string>; W: number; H: numbe
   return (
     <div style={{ position: "absolute", left: el.x * W, top: el.y * H, fontFamily: FONT, opacity: o, whiteSpace: "nowrap" }}>
       {prev ? (
-        <div style={{ position: "absolute", left: -size * 0.15, top: -size * 0.62, fontSize: size * 0.55, color: P.muted, fontWeight: 700 }}>
+        <div style={{ position: "absolute", left: -size * 0.15, top: -size * 0.62, fontSize: readable(size * 0.55), color: P.muted, fontWeight: 700 }}>
           {prev.text}
           <div style={{ position: "absolute", left: -4, top: "52%", height: 4, width: `calc(${strike * 100}% + 8px)`, background: P.danger,
             transform: "rotate(-8deg)" }} />
@@ -268,7 +275,7 @@ const TableEl: React.FC<{ el: El; P: Record<string, string>; W: number; H: numbe
 };
 
 const ArrowsAndMarks: React.FC<{ els: El[]; map: Map<string, El>; P: Record<string, string>; W: number; H: number; frame: number; fps: number;
-  focus: any }> = ({ els, map, P, W, H, frame, fps, focus }) => (
+  focus: any; r?: Readable }> = ({ els, map, P, W, H, frame, fps, focus, r = same }) => (
   <svg style={{ position: "absolute", left: 0, top: 0, width: W, height: H, overflow: "visible", pointerEvents: "none" }}>
     <defs>
       {["ink", "line", "accent", "warm", "danger", "ok", "muted", "tag"].map((t) => (
@@ -321,7 +328,7 @@ const ArrowsAndMarks: React.FC<{ els: El[]; map: Map<string, El>; P: Record<stri
               strokeDasharray={el.dashed ? "10 9" : `${len} ${len}`} strokeDashoffset={el.dashed ? 0 : len * (1 - draw)}
               markerEnd={draw > 0.95 && el.head !== false ? `url(#cb-head-${tone})` : undefined} />
             {el.label ? <text x={elbow === "hv" ? (x1 + x2) / 2 : bend ? mx : (x1 + x2) / 2} y={(elbow === "hv" ? y1 : bend ? my : (y1 + y2) / 2) - 12}
-              fill={toneOf(P, el.label_tone ?? "muted")} fontSize={el.label_size ?? 22} fontWeight={700} fontFamily={FONT} textAnchor="middle"
+              fill={toneOf(P, el.label_tone ?? "muted")} fontSize={r(el.label_size ?? 22)} fontWeight={700} fontFamily={FONT} textAnchor="middle"
               opacity={draw}>{el.label}</text> : null}
           </g>
         );
@@ -385,6 +392,9 @@ const CanvasBuild: React.FC<BlockProps> = ({ data, width, height }) => {
   const drift = touches ? 1 + 0.015 * Math.sin(frame / 140) : 1;
   const sc = Math.min(1 / cam.w, 1 / cam.h) * drift;
   const tx = -(cam.x + cam.w / 2) * width * sc + width / 2, ty = -(cam.y + cam.h / 2) * height * sc + height / 2;
+  // the smallest text on screen (CV-17): a label the plan left at its default grows where the cameras above make it too small
+  const minText = React.useContext(MinText), base = React.useContext(TextScale) * sc;
+  const r: Readable = (px) => Math.max(px, minText / Math.max(1e-3, base));
   return (
     <div style={{ position: "absolute", inset: 0, background: touches ? `radial-gradient(ellipse at 50% 35%, #fffdf8 0%, ${P.bg} 55%, #efe8da 100%)` : P.bg,
       overflow: "hidden" }}>
@@ -397,13 +407,13 @@ const CanvasBuild: React.FC<BlockProps> = ({ data, width, height }) => {
       <div style={{ position: "absolute", left: 0, top: 0, width, height, transformOrigin: "0 0", transform: `translate(${tx}px, ${ty}px) scale(${sc})`,
         willChange: "transform" }}>
       <ArrowsAndMarks els={els.filter((e) => e.kind === "arrow" || e.kind === "highlight")} map={map} P={P} W={width} H={height}
-        frame={frame} fps={fps} focus={data.focus} />
+        frame={frame} fps={fps} focus={data.focus} r={r} />
       {els.filter((e) => !svgKinds.has(e.kind)).map((el) => {
         const f = focusLevel(data.focus, el.id, frame);
         const o = presence(frame, fps, el.at ?? (el.steps ? el.steps[0].at : 0), el.until) * f;
         if (o <= 0 && el.kind !== "value" && el.kind !== "crowd" && el.kind !== "table") return null;
         switch (el.kind) {
-          case "icon": return <IconEl key={el.id} el={el} P={P} W={width} H={height} o={o} frame={frame} touches={touches} />;
+          case "icon": return <IconEl key={el.id} el={el} P={P} W={width} H={height} o={o} frame={frame} touches={touches} r={r} />;
           case "text": case "callout": return <TextEl key={el.id} el={{ ...el, style: el.kind === "callout" ? el.style ?? "note" : el.style }} P={P}
             W={width} H={height} o={o} frame={frame} />;
           case "value": return <div key={el.id} style={{ opacity: f }}><ValueEl el={el} P={P} W={width} H={height} frame={frame} fps={fps} touches={touches} /></div>;
@@ -412,11 +422,11 @@ const CanvasBuild: React.FC<BlockProps> = ({ data, width, height }) => {
           // a kriya ka saancha (Task 046 Part D2): the same stage a world plays, fitted into the node's box
           case "action": return <div key={el.id} style={{ position: "absolute", left: el.x * width, top: el.y * height, width: el.w * width,
             height: el.h * height, opacity: f }}><svg viewBox={`0 0 ${STAGE_W} ${STAGE_H}`} width="100%" height="100%" style={{ overflow: "visible" }}>
-            <ActionStage el={el} frame={frame} fps={fps} /></svg></div>;
+            <TextScale.Provider value={base * (el.w * width) / STAGE_W}><ActionStage el={el} frame={frame} fps={fps} /></TextScale.Provider></svg></div>;
           default: return null;
         }
       })}
-      <ArrowsAndMarks els={els.filter((e) => e.kind === "mark")} map={map} P={P} W={width} H={height} frame={frame} fps={fps} focus={data.focus} />
+      <ArrowsAndMarks els={els.filter((e) => e.kind === "mark")} map={map} P={P} W={width} H={height} frame={frame} fps={fps} focus={data.focus} r={r} />
       </div>
       {touches ? <div style={{ position: "absolute", inset: 0, pointerEvents: "none",
         background: "radial-gradient(ellipse at 50% 50%, rgba(80,60,30,0) 60%, rgba(80,60,30,0.16) 100%)" }} /> : null}
@@ -446,6 +456,7 @@ function yAt(points: number[][], x: number) {
 
 const CurveStory: React.FC<BlockProps> = ({ data, width: W, height: H }) => {
   const frame = useCurrentFrame();
+  const r = useReadable();
   const { fps } = useVideoConfig();
   const P = THEMES[data.theme ?? "paper"] ?? THEMES.paper;
   const tone = (t?: string) => (t && P[t]) || t || P.ink;
@@ -481,17 +492,17 @@ const CurveStory: React.FC<BlockProps> = ({ data, width: W, height: H }) => {
               {s.hatch ? Array.from({ length: Math.ceil(Math.abs(xe - xs) / 14) }, (_, i) => (
                 <line key={i} x1={Math.min(xs, xe) + i * 14} y1={y1} x2={Math.min(xs, xe) + i * 14} y2={y0} stroke={tone(s.tone ?? "accent")} strokeWidth={2} opacity={0.35} />
               )) : null}
-              {s.label ? <text x={(xs + xe) / 2} y={y1 + 30} textAnchor="middle" fontSize={24} fontWeight={800} fill={tone(s.tone ?? "accent")}>{s.label}</text> : null}
+              {s.label ? <text x={(xs + xe) / 2} y={y1 + 30} textAnchor="middle" fontSize={r(24)} fontWeight={800} fill={tone(s.tone ?? "accent")}>{s.label}</text> : null}
             </g>
           );
         })}
         <g opacity={axesK}>
           <line x1={x0} y1={y0} x2={x0} y2={y0 + (y1 - 30 - y0) * axesK} stroke={P.line} strokeWidth={4} markerEnd="url(#cs-axis)" />
           <line x1={x0} y1={y0} x2={x0 + (x1 + 30 - x0) * axesK} y2={y0} stroke={P.line} strokeWidth={4} markerEnd="url(#cs-axis)" />
-          <text x={x1 + 10} y={y0 + 46} textAnchor="end" fontSize={28} fontWeight={700} fill={P.muted}>{data.x_label} →</text>
-          <text transform={`translate(${x0 - 26},${y1 + 10}) rotate(-90)`} textAnchor="end" fontSize={28} fontWeight={700} fill={P.muted}>{data.y_label} →</text>
-          {(data.x_ticks ?? []).map((t: any, i: number) => <text key={i} x={px(t.x)} y={y0 + 34} textAnchor="middle" fontSize={22} fill={P.muted}>{t.label}</text>)}
-          {(data.y_ticks ?? []).map((t: any, i: number) => <text key={i} x={x0 - 14} y={py(t.y) + 8} textAnchor="end" fontSize={22} fill={P.muted}>{t.label}</text>)}
+          <text x={x1 + 10} y={y0 + 46} textAnchor="end" fontSize={r(28)} fontWeight={700} fill={P.muted}>{data.x_label} →</text>
+          <text transform={`translate(${x0 - 26},${y1 + 10}) rotate(-90)`} textAnchor="end" fontSize={r(28)} fontWeight={700} fill={P.muted}>{data.y_label} →</text>
+          {(data.x_ticks ?? []).map((t: any, i: number) => <text key={i} x={px(t.x)} y={y0 + 34} textAnchor="middle" fontSize={r(22)} fill={P.muted}>{t.label}</text>)}
+          {(data.y_ticks ?? []).map((t: any, i: number) => <text key={i} x={x0 - 14} y={py(t.y) + 8} textAnchor="end" fontSize={r(22)} fill={P.muted}>{t.label}</text>)}
         </g>
         {(data.guides ?? []).map((g: any) => {
           const o = presence(frame, fps, g.at, g.until);
@@ -501,12 +512,12 @@ const CurveStory: React.FC<BlockProps> = ({ data, width: W, height: H }) => {
           return g.x !== undefined ? (
             <g key={g.id} opacity={o}>
               <line x1={px(g.x)} y1={y0} x2={px(g.x)} y2={y0 + (y1 - y0) * k} stroke={col} strokeWidth={g.width ?? 5} strokeDasharray={g.dashed ? "12 9" : undefined} />
-              {g.label ? <text x={px(g.x)} y={y0 + 60} textAnchor="middle" fontSize={24} fontWeight={800} fill={col}>{g.label}</text> : null}
+              {g.label ? <text x={px(g.x)} y={y0 + 60} textAnchor="middle" fontSize={r(24)} fontWeight={800} fill={col}>{g.label}</text> : null}
             </g>
           ) : (
             <g key={g.id} opacity={o}>
               <line x1={x0} y1={py(g.y)} x2={x0 + (x1 - x0) * k} y2={py(g.y)} stroke={col} strokeWidth={g.width ?? 5} strokeDasharray={g.dashed ? "12 9" : undefined} />
-              {g.label ? <text x={x1} y={py(g.y) - 12} textAnchor="end" fontSize={24} fontWeight={800} fill={col}>{g.label}</text> : null}
+              {g.label ? <text x={x1} y={py(g.y) - 12} textAnchor="end" fontSize={r(24)} fontWeight={800} fill={col}>{g.label}</text> : null}
             </g>
           );
         })}
@@ -522,7 +533,7 @@ const CurveStory: React.FC<BlockProps> = ({ data, width: W, height: H }) => {
             <g key={c.id} opacity={o * (c.faded ? 0.35 : 1)}>
               <path d={d} fill="none" stroke={tone(c.tone ?? "accent")} strokeWidth={c.width ?? 6} strokeLinecap="round" strokeLinejoin="round"
                 strokeDasharray={c.dashed ? "14 10" : `${len} ${len}`} strokeDashoffset={c.dashed ? 0 : len * (1 - k)} />
-              {c.label ? <text x={px(end[0]) + (c.label_dx ?? 12)} y={py(end[1]) + (c.label_dy ?? 8)} fontSize={26} fontWeight={800}
+              {c.label ? <text x={px(end[0]) + (c.label_dx ?? 12)} y={py(end[1]) + (c.label_dy ?? 8)} fontSize={r(26)} fontWeight={800}
                 fill={tone(c.tone ?? "accent")} opacity={k}>{c.label}</text> : null}
             </g>
           );
@@ -547,7 +558,7 @@ const CurveStory: React.FC<BlockProps> = ({ data, width: W, height: H }) => {
               </> : null}
               <circle cx={cx} cy={cy} r={16} fill={col} opacity={0.25} />
               <circle cx={cx} cy={cy} r={10} fill={col} stroke="#ffffff" strokeWidth={3} />
-              {dt.label ? <text x={cx + 20} y={cy - 18} fontSize={24} fontWeight={800} fill={col}>{dt.label}</text> : null}
+              {dt.label ? <text x={cx + 20} y={cy - 18} fontSize={r(24)} fontWeight={800} fill={col}>{dt.label}</text> : null}
             </g>
           );
         })}
@@ -558,7 +569,7 @@ const CurveStory: React.FC<BlockProps> = ({ data, width: W, height: H }) => {
         return (
           <div key={n.id} style={{ position: "absolute", left: n.fx * W, top: n.fy * H, width: (n.fw ?? 0.24) * W, opacity: o,
             transform: `translateY(${(1 - o) * 10}px)`, background: n.box === false ? "transparent" : P.note, borderLeft: n.box === false ? undefined : `6px solid ${tone(n.tone ?? "warm")}`,
-            borderRadius: 8, padding: n.box === false ? 0 : "8px 14px", fontSize: n.size ?? 26, lineHeight: 1.3, color: P.ink, fontWeight: n.bold ? 800 : 500,
+            borderRadius: 8, padding: n.box === false ? 0 : "8px 14px", fontSize: r(n.size ?? 26), lineHeight: 1.3, color: P.ink, fontWeight: n.bold ? 800 : 500,
             boxSizing: "border-box" }}>{n.text}</div>
         );
       })}

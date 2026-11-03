@@ -95,6 +95,10 @@ class SubtitleStrip(unittest.TestCase):
         # the maker's scene camera framed the action while the block camera zoomed in too: each kept it above the strip,
         # together they did not (run a, part v2_s3, refused three times). One camera zooms at a time now.
         plan = json.loads((ROOT / "tests" / "fixtures" / "task046d2" / "run_a_v2_s3.plan.json").read_text(encoding="utf-8"))
+        # The recorded plan's two-row timeline is refused under CV-17 (Navin, 3 November 2026: its icons and labels would be under
+        # the readable size); the cameras under test do not depend on it, so a title takes its cell here.
+        plan["nodes"] = [dict(n, kind="text", style="title", text="Money का इतिहास", picture=None) if n["id"] == "history" else n
+                         for n in plan["nodes"]]
         scene, _ = canvas.compile_plan(copy.deepcopy(plan))
         self.assertEqual(canvas.subtitle_problems(scene), [])
         inner, outer = scene["layers"][0]["data"]["cam"], scene["camera"]

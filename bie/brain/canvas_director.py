@@ -226,9 +226,10 @@ def story_split(stub: dict, full_beats: dict, items) -> list:
             hits.append(n)
     if not hits:
         return [dict(stub, story=False)]
+    story_beats = [stub["beats"][n]["beat_id"] for n in hits]           # the beats that carry the example's numbers
     first, last = hits[0], hits[-1]
     if first == 0 and last == len(stub["beats"]) - 1:
-        return [dict(stub, story=True)]
+        return [dict(stub, story=True, story_beats=story_beats)]
     pieces = []
     for suffix, chunk, story in (("a", stub["beats"][:first], False), ("s", stub["beats"][first:last + 1], True),
                                  ("b", stub["beats"][last + 1:], False)):
@@ -236,7 +237,78 @@ def story_split(stub: dict, full_beats: dict, items) -> list:
             ids = sorted({i for b in chunk for i in (full_beats.get(b["beat_id"], {}).get("covers_item_ids") or [])})
             hints = [full_beats.get(b["beat_id"], {}).get("on_screen") for b in chunk]
             pieces.append(dict(stub, id=f"{stub['id']}{suffix}", beats=chunk, story=story, covers_item_ids=ids or stub.get("covers_item_ids", []),
-                               on_screen_hints=[h for h in hints if h] or stub.get("on_screen_hints") or []))
+                               on_screen_hints=[h for h in hints if h] or stub.get("on_screen_hints") or [],
+                               **({"story_beats": story_beats} if story else {})))
+    return pieces
+
+
+def at_place(beats: list, kit: str, story_beats) -> list:
+    """For each beat of a world part, whether it happens at the kit's place (Navin, 3 November 2026: "the shop world still hosts
+    non-shop scenes (v6 mints, British Act, Mumbai bank)"; no world for a place that is not that world).
+
+    - a beat that names any other place (another kit's or place's site, a mint, a government or an Act, a mine, a court; whole
+      words, places.json "sites" and "elsewhere") is not at the kit's place, and it closes the scene;
+    - a beat that names the kit's place or the people at it ("दुकानदार", a buyer, a teller; places.json "sites" and "people")
+      opens the scene;
+    - the story's first beat (the example's own opening) opens it too;
+    - the other beats go on in the scene while it is open; once closed, only a beat that names the place opens it again."""
+    story = set(story_beats or ())
+    first_story = next((b.get("beat_id") for b in beats if b.get("beat_id") in story), None)
+    own = world.place_words(kit)
+    out, scene = [], False
+    for b in beats:
+        say = b.get("say", "")
+        if world.places_named(say) - {kit}:
+            here = False
+        elif own(say):
+            here = True
+        else:
+            here = scene or b.get("beat_id") == first_story
+        out.append(here)
+        scene = here
+    return out
+
+
+def world_split(stub: dict, full_beats: dict | None = None) -> list:
+    """A world part (mode C) keeps only the beats that happen at its kit's place (``at_place``); every run of other beats becomes
+    its own piece: a story run at another place that has a kit is that kit's world, every other run is a canvas (B), its note
+    naming the places the beats name. Pieces are ``<id>1``, ``<id>2``, ... in order; a part whose beats are all at the place is
+    returned unchanged."""
+    mode = stub.get("mode") or {}
+    if mode.get("mode") != "C" or not mode.get("kit"):
+        return [stub]
+    kit, story_beats = mode["kit"], stub.get("story_beats") or []
+    flags = at_place(stub["beats"], kit, story_beats)
+    if all(flags):
+        return [stub]
+    runs, start = [], 0
+    for n in range(1, len(flags) + 1):
+        if n == len(flags) or flags[n] != flags[start]:
+            runs.append((flags[start], stub["beats"][start:n]))
+            start = n
+    full_beats = full_beats or {}
+    pieces = []
+    for k, (here, chunk) in enumerate(runs, start=1):
+        ids = sorted({i for b in chunk for i in (full_beats.get(b["beat_id"], {}).get("covers_item_ids") or [])})
+        hints = [full_beats.get(b["beat_id"], {}).get("on_screen") for b in chunk]
+        named = set().union(*(world.places_named(b.get("say", "")) for b in chunk))
+        story = any(b["beat_id"] in set(story_beats) for b in chunk)
+        if here:
+            new_mode = dict(mode)
+        else:
+            other = sorted(named - {kit})
+            alone = {frozenset(world.places_named(b.get("say", ""))) for b in chunk}
+            if story and len(alone) == 1 and len(other) == 1 and other[0] in world.KITS and alone == {frozenset(other)}:
+                # every beat names that one other place and nothing else: that kit's own world
+                new_mode = dict(mode, kit=other[0], place=other[0], note=f"the beats happen at a {world.place_label(other[0])}, not at the {kit}")
+            else:
+                why = ", ".join(world.place_label(p) for p in other) if other else "no place of the story"
+                new_mode = dict(mode, mode="B", kit="", missing="",
+                                note=f"the beats name {why}, not the {world.place_label(kit)}: a canvas (no world for a place that is not that world)")
+        pieces.append(dict(stub, id=f"{stub['id']}{k}", beats=chunk, mode=new_mode, story=story,
+                           story_beats=[b for b in story_beats if b in {x["beat_id"] for x in chunk}],
+                           covers_item_ids=ids or stub.get("covers_item_ids", []),
+                           on_screen_hints=[h for h in hints if h] or stub.get("on_screen_hints") or []))
     return pieces
 
 
@@ -777,6 +849,7 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
             own = [full_beats.get(b["beat_id"], b) for b in stub["beats"]]           # the items this piece's own beats cover
             stub["picture"], stub["picture_nodes"] = vt.place_pictures(chapter["items"], own, stub["card_type"])
             stub["mode"] = mode_of(course, stub["beats"], _items_of(chapter, plans[video["video_id"]], stub), story=bool(stub.get("story")))
+        stubs = [piece for stub in stubs for piece in world_split(stub, full_beats)]       # no world for a place that is not that world
         # A world piece does not draw the book's picture: when a canvas piece of the video draws the same pictures the world keeps its
         # story (the canvas piece shows the picture); when none does, the piece goes to the canvas so the picture is drawn (D1-04).
         on_canvas = {p["item_id"] for st in stubs if st["mode"]["mode"] != "C" for p in st["picture"]["pictures"]}
@@ -909,7 +982,7 @@ def run_canvas(chapter: dict, lesson: dict, course: Course, runner, out_dir, *, 
             parts.append(entry)
             idea_parts.append(part_data)
         asset_ids = sorted(library.assets)
-        credits = library.credits(asset_ids)
+        credits = library.credits(library.used_in(scenes))
         if scenes and credits:
             scenes.append(canvas.credits_scene(credits, scene_id=f"{video['video_id']}_credits"))
         ideas_record = vt.dikhane_list(video["video_id"], idea_parts)

@@ -1,18 +1,90 @@
 # BIE Status
 
-Updated: 2 November 2026 · Read this first in every new session, then show Navin the current task card.
+Updated: 3 November 2026 · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
 | Field | Value |
 | --- | --- |
 | Phase | 1 · BIE as one whole system; plan agreed on 22 October 2026 (ROADMAP, "Agreed on 22 October 2026") |
-| Current task | **Task 046 · Part D2: kriya ke saanche (process templates), story goods from the story, stricter layout and meaning checks** (Navin's verdict on the D1 videos, 1 November 2026: "baat ho rahi hai kapda khareedne ki namak khareedne ki aur wo wahi cheeni ko show kar rha hai"; "process show nahi ho rahi hai ... jaise scanner phone scan, tab maja hai"). Section "Task 046 · Part D2" below. Before it: Part D1 (section below), Part C (Economy), the whole Money chapter. |
-| Branch | `task046d2-process-saanche` (PR #115) |
-| State | **2 November 2026:** Navin's addendum to Part D2 is built and merged: PRs #119 (general motion parts, no chapter noun in code), #120 (every mentioned thing on screen, coverage per video), #121 (the general asset path, BIE's coder; the `bie:` drawings retired), #122 (F-19), #123 (seekh from run a and the coder run: code reads the maker's repeated slips; a coder drawing is a picture of its own thing, never of a tag) and #124 (a price that changes and names its unit once is one quantity); main `d51a5cf3` (IMPLEMENTED). **The proof (point 5) is rendered:** Money v2, v4 and the code-chosen v6, v8, narration locked, nothing added by hand, Codex through the plan ₹0, renders billed ₹0. 61 of 61 parts passed; mentioned things on screen v2 94.8 %, v4 94.9 %, v6 84.2 %, v8 73.6 % (881 of 1014, 86.9 %; before the addendum v2 67.3 %, v4 81.0 %). BIE's coder drew 150 drawings (all first try), now in the shared library (6 → 156 assets); 74 of them appear in the four videos. Overview https://claude.ai/artifact/RUvtVCBnoT1xopYC9AB4ys; review pages v2 https://claude.ai/artifact/DJ2o8FQ3scc8cvZQUmsyUD, v4 https://claude.ai/artifact/BnLzPUKorH637Xz89scd5L, v6 https://claude.ai/artifact/W1L5BdpMd8s6mr1Fy6BC3Y, v8 https://claude.ai/artifact/8w7CzUmtrhCT37Dbmd6Gf2; review copies `runs/t046d2-gen-v2`, `-v4`, `-v6`, `-v8` on blindtest-results. Nothing ACCEPTED. |
-| Next task | **STOP for Navin's verdict** on the addendum proof (SEEKH_LOG entry 40). Questions put to him: do the four videos show what is said, and what jars most; keep the coder's metaphor drawings for abstract things ("monetary link", "stability shield") or show abstract things only by a diagram or text; build a "parts of a whole" strip block with numbers (₹1 = 16 annas = 64 paise = 192 pies); the open question on BIE's generic notes (not RBI colours or shapes). |
-| Canonical main | `65e87a6e` (PR #114: Part D1 proof run b, the fetch rules, currency icons, the six pin) on `d6174636` (PR #113: F-18, the Section 18 sidecar race) on `18595156` (PR #112: the proof fixes) on `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
+| Current task | **Task 046 · Part D3: the general fixes from Navin's verdict on the D2 addendum proof (3 November 2026)**: the readable text floor (CV-17), no world for a place that is not that world, label overlap in every mode; then the first slice of **Task 048** (render, player, one button). Section "Task 046 · Part D3" below. Before it: Part D2 and its addendum (sections below). |
+| Branch | `task046d3-general-fixes` |
+| State | **3 November 2026:** Part D3 is built (IMPLEMENTED, offline tests and local renders of the existing Money v2, v4, v6, v8 plans compiled again; not INTEGRATED until the director's next run plans with it). Measured on the same plans, rendered and measured frame by frame (`tools/text_audit.py`): texts that stay under 36 px v2 119 → 0, v4 201 → 0, v6 219 → 0, v8 104 → 0; texts that cover each other for a second or more 8 → 0, 16 → 5, 29 → 7, 18 → 2; world beats at another place 19 → 0 (55 → 37 world beats; the director's split of the same scripts, by code: the renders of the old plans still show the old worlds until the director runs again); the credit card 249 lines in 5 s → only the assets each video shows (31 to 53 lines, seven a page). 71 of the 414 earlier canvas plans that compiled on main are now refused by the 36 px rule, each with its exact reason, and need the director again. Nothing ACCEPTED. |
+| Next task | Task 048 first slice (render frame checks, one-button plumbing), then **STOP for review** with the single report file. Meanwhile Claude (planning chat) makes the hand-made DEMO videos of Money v2, v4, v6, v8, labelled "Claude's demo, not BIE output"; what Navin passes becomes BIE's rules and saanche. Until then the visual process does not change. |
+| Canonical main | `e8bc9968` (PR #125: the addendum proof's docs) on `d51a5cf3` (PR #124) on `4f612f20` (PR #123) on `3be6680f` (PR #121) on `a568edaf` (PR #120) on `866d171d` (PR #119) on `788106ba` (PR #118) on `ef77d816` (PR #117) on `7e06fa1e` (PR #115: Part D2) on `65e87a6e` (PR #114: Part D1 proof run b, the fetch rules, currency icons, the six pin) on `d6174636` (PR #113: F-18, the Section 18 sidecar race) on `18595156` (PR #112: the proof fixes) on `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai). On the VM, from 25 October 2026, the checker is Navin's free Google AI Studio key `GEMINI_API_KEY` in `/etc/bie/bie.env` (direct route, `gemini-3.8-flash`); the AICredits key stays there unused (a job can still choose it with `routes google=aicredits`). Since 24 October a free Google AI Studio key is the GitHub secret `GEMINI_API_KEY` (Navin's choice for now, sample content only, never student data); it serves GitHub Actions runs only and wins over AICredits there: `gemini-3.8-flash` answers (smoke run 40114580580), `gemini-4-argon` gives 429 quota and `gemini-3.1-pro` 404, so a run that uses it passes `models=google=gemini-3.8-flash` |
+
+## Task 046 · Part D3 · general fixes (Navin's verdict of 3 November 2026)
+
+Navin's verdict on the D2 addendum proof (Money v2, v4, v6, v8), 3 November 2026, in his words: "better than D1 (mentioned
+things mostly appear, processes like QR/meter/timelines show), but not accepted: frames often nearly empty with small icons and
+tiny labels; the shop world still hosts non-shop scenes (v6 mints, British Act, Mumbai bank); one gold "bank" coin for every
+coin; salt shaker for salt; $ bag for digital money; wrong objects in v8 (envelope, box); long tables (v2 ~2 min, v6 period
+table twice); overlapping labels (v4 3:50)."
+
+His answers: "(1) concrete things show, abstract ones and note features do not; empty/small frames and wrong icons bother most.
+(2) No metaphor drawings; abstract ideas through their concrete example or a diagram; the coder draws only real objects. (3)
+Yes, as a GENERAL "parts of a whole / unit conversion" block for every subject, not money-only. (4) Yes, BIE's notes stay unlike
+RBI designs, but recognisable (₹ sign, big denomination, size); a large BIE-drawn note with labelled feature positions is allowed
+as a diagram."
+
+Next, in his words: "Claude (planning chat) will make hand-made DEMO videos of Money v2, v4, v6, v8 with BIE's workflow, labelled
+"Claude's demo, not BIE output", for Navin's verdict; what he passes becomes BIE's rules and saanche. Until then do not change
+the visual process. Meanwhile: fix only these general issues (minimum on-screen text size readable on a phone, no world for a
+place that is not that world, label overlap in every mode), then start the render/player and one-button plumbing (Task 048).
+Stop for review at the end with the single report file." Answers (2)–(4) wait for the demos; nothing of them is built here.
+
+**Built (branch `task046d3-general-fixes`, one PR), status IMPLEMENTED:**
+
+- **Readable text, CV-17** (`canvas_profile.json` 2026-11-03.1): no text under 36 px on the 1080p frame (a phone held
+  sideways), measured after every camera and scale. The canvas compiler holds texts, values, tables, trees, icon labels (one
+  line, or two when the icon stays at least 64 px) and the code-placed book pictures at 36 px and refuses, with the reason, a
+  plan whose text cannot fit (a label wider than its cell even on two lines, an icon under 64 px under its label, a timeline in
+  under 3 rows, a gallery in 1 row). A long book table shows a page at a time (the rows that fit at 36 px), each page on its
+  first row's words. Captions are 36 px, in pieces of at most 150 characters (two lines of the strip), cut at sentence ends,
+  never inside a word. The blocks draw every small text at least at the floor wherever a camera or a stage scale shrinks it
+  (`MinText`, `TextScale`, `useReadable` in `blocks/index.tsx`; the canvas, the action stage and the world use them; a dimmed icon
+  shrinks but its label keeps the readable size).
+- **No world for a place that is not that world** (`places.json` 2026-11-03.1 "sites", "people", "elsewhere";
+  `world.places_named`, `canvas_director.at_place`, `world_split`): a world part keeps only the beats at its kit's place; a beat
+  that names another place (a mint, a government or an Act, another kit's place) closes the scene and only the place's own words
+  reopen it; each run of other beats becomes a canvas, or that kit's world when the run is a story at that place alone. Whole
+  words only ("banknote" names no bank). On the four videos' scripts (the director's parts, split by code): 55 world beats, 19 at
+  another place → 37, 0. The split happens when the director makes the parts, so the plans made before it (and their renders,
+  compiled again) still show the old worlds; the next director run shows it.
+- **Labels never on each other** (`saanche.tsx` `ActionStage`, one layout pass): every worded part of a process (meters,
+  number panels, a compare, groups of copies with their count badges, object tags, signs, speech bubbles) takes its box in the
+  order it appears; a later part moves clear (sideways or up), and with no clear place takes the least covered one. A later
+  compare replaces the one before it (two were drawn on each other). In a world, text is sized by the street camera as well.
+- **Credits**: a video credits the assets it shows (`AssetLibrary.used_in`), seven lines a page at 36 px, 5 s a page; before,
+  every video listed all 249 assets of its run's library on one 5 s card.
+- **Measuring tools** (₹0, no AI): `tools/respec_video.py` compiles a canvas run's plans again with the current code into a new
+  spec (a refused part is listed with its reason); `tools/text_audit.py` (`bie/brain/video/preview/audit.mjs`,
+  `bie/brain/video/text_audit.py`) renders a spec in the same preview page and measures every sampled frame: each text's size
+  on screen, and the texts that cover each other; the caption strip apart; a text "small" only when its settled size stays
+  under the floor. The audit also caught two of this branch's own bugs (a variable `r` shadowing the readable-size function in
+  the compare and the count badges); a TypeScript check of the blocks now runs clean (the same four environment errors as main).
+
+**Measured** (the existing plans of runs b and c compiled again; rendered locally in the preview page, one sample a second;
+whole videos):
+
+| Video | Texts under 36 px, lasting (before → after) | Texts covering each other, lasting | Smallest lasting text | Parts compiled |
+| --- | --- | --- | --- | --- |
+| v2 | 119 → 0 | 8 → 0 | 13.7 px → none under 36 | 15 of 18 |
+| v4 | 201 → 0 | 16 → 5 | 16.7 px → none under 36 | 15 of 18 |
+| v6 | 219 → 0 | 29 → 7 | 13.0 px → none under 36 | 10 of 15 |
+| v8 | 104 → 0 | 18 → 2 | 22.5 px → none under 36 | 8 of 10 |
+
+The parts the current code refuses (3, 3, 5, 2) carry text that cannot be readable in the maker's cells; they need the director
+again (Codex through the plan, ₹0). Across all 528 earlier canvas plans (12 runs): main refuses 114, this branch 185; the 71
+newly refused are 22 two-row timelines or one-row galleries, 18 icons under 64 px beside a 36 px label, 16 tags wider than their
+cells, 10 texts that do not fit and 5 tables. The passed-output sets (`tests/fixtures/passed_outputs/`) pass unchanged.
+
+**Left (honest):** most remaining overlaps are inside small action stages on the canvas: an action in 4 rows is drawn at about
+two thirds of its stage size, so its words, held at 36 px, take about one and a half times their designed room and two meters
+plus a compare do not fit. The general fix (more rows for an action with words, or fewer worded parts at a time) changes what
+the director plans and waits for the demos. Icon choice (one coin for every coin, the salt shaker, the $ bag), empty frames and
+long tables are the visual process and wait for the demos too.
 
 ## Task 046 · Part D2 · kriya ke saanche, story goods from the story, stricter layout and meaning checks (Navin's verdict of 1 November 2026)
 

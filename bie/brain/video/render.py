@@ -89,6 +89,32 @@ def stills(spec: dict, frames, *, dist: str | Path, assets: str | Path | None = 
         shutil.rmtree(work, ignore_errors=True)
 
 
+def audit(spec: dict, *, dist: str | Path, assets: str | Path | None = None, every: int = 30, first: int | None = None,
+          last: int | None = None, toolbox: bool | None = None, timeout: int = 3600) -> list:
+    """The text measurements of every ``every``-th frame of ``spec`` (``preview/audit.mjs``; ``text_audit.summarize`` reads them)."""
+    toolbox = needs_toolbox(spec) if toolbox is None else toolbox
+    dist = build_preview(dist, toolbox=toolbox)
+    work = _workdir(dist, assets)
+    try:
+        (work / "spec.json").write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
+        cmd = ["node", str(PREVIEW / "audit.mjs"), "--dist", str(work), "--spec", str(work / "spec.json"),
+               "--out", str(work / "audit.jsonl"), "--every", str(int(every))] + _page(toolbox)
+        if first is not None:
+            cmd += ["--from", str(int(first))]
+        if last is not None:
+            cmd += ["--to", str(int(last))]
+        try:
+            run = subprocess.run(cmd, capture_output=True, text=True, env=_node_env(), timeout=timeout)
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            raise RenderError(f"text audit could not run: {exc}") from None
+        if run.returncode != 0:
+            raise RenderError("text audit failed: " + (run.stderr or run.stdout)[-800:])
+        lines = (work / "audit.jsonl").read_text(encoding="utf-8").splitlines()
+        return [json.loads(line) for line in lines if line.strip()]
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
+
+
 def mp4(spec: dict, out: str | Path, *, dist: str | Path, assets: str | Path | None = None, audio: str | Path | None = None,
         timeout: int = 7200, toolbox: bool | None = None):
     toolbox = needs_toolbox(spec) if toolbox is None else toolbox

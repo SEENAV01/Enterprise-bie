@@ -1732,3 +1732,41 @@ verdict.
   banknote security features. The strip is a block BIE does not have.
 
 Nothing is ACCEPTED: the videos wait for Navin's verdict.
+
+## Entry 41 · readable text, places that are not the world, labels apart: measured on the drawn frame, 3 November 2026
+
+**From:** Navin's verdict on the addendum proof (3 November 2026; STATUS "Task 046 · Part D3"): "frames often nearly empty with
+small icons and tiny labels", "the shop world still hosts non-shop scenes", "overlapping labels (v4 3:50)". Only the general
+issues are fixed; the visual process waits for Claude's demo videos and his verdict on them.
+
+**What the run taught:**
+- Sizes checked in the plan are not the sizes on screen. A 24 px label inside an action stage drawn at two thirds, under a
+  camera that zooms out, was 2 to 16 px on the frame. Only the drawn frame can say how big a text is, so BIE now measures it
+  there (`tools/text_audit.py`): the size after every camera and scale, and the texts that cover each other.
+- A world was chosen per part, and a part's later beats went on in that world whatever place they named. A place has its own
+  words (the site and its people), and other places have theirs. A beat that names another place closes the scene.
+- Labels overlapped because each part of a process placed itself alone: a sign moved clear of meters, but nothing moved clear
+  of a compare, a count badge or a tag, and a second compare was drawn over the first.
+- Every video credited all 249 assets of its run's library on one card, so its credit text was the smallest on screen.
+
+**What changed in BIE:** CV-17 (36 px floor, two-line captions of at most 150 characters, paged book tables, two-line icon
+labels, readable sizes in the blocks under any camera); `places.json` sites, people and elsewhere, `at_place` and `world_split`
+in the director; one layout pass on the action stage; credits of the assets shown; `tools/respec_video.py` and
+`tools/text_audit.py` (₹0, no AI).
+
+**Measured** (the same plans before and after, rendered in the preview page, one sample a second):
+
+| | v2 | v4 | v6 | v8 |
+| --- | --- | --- | --- | --- |
+| Texts under 36 px for a second or more | 119 → 0 | 201 → 0 | 219 → 0 | 104 → 0 |
+| Texts covering each other for a second or more | 8 → 0 | 16 → 5 | 29 → 7 | 18 → 2 |
+| Parts the current code compiles | 15 of 18 | 15 of 18 | 10 of 15 | 8 of 10 |
+
+World beats at another place in the four videos: 19 of 55 → 0 of 37 (the director's split of the same scripts, by code; the
+old plans compiled again keep their old worlds until the director runs again). Across all 528 earlier canvas plans, 71 that compiled on
+main are now refused by CV-17, each with its exact reason (22 two-row timelines or one-row galleries, 18 icons under 64 px beside
+a label, 16 tags, 10 texts, 5 tables); the director plans them again on its next run (₹0). The passed-output sets pass
+unchanged. Tokens and ₹: none, no AI call was made.
+
+**Still open:** the overlaps left are inside canvas action stages drawn at about two thirds of their size (4-row cells). Giving a
+worded action more rows is a director rule, so it waits for the demos.

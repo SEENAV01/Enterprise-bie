@@ -134,10 +134,12 @@ def write_stills(out: Path, review: Path) -> int:
             run = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{mid:.2f}", "-i", str(review), "-frames:v", "1",
                                   "-vf", "scale=640:-2", "-q:v", "4", str(out / "stills" / f"{sid}.jpg")], check=False)
             written += run.returncode == 0
+            done = set()
             for cap in scene.get("captions") or []:
                 bid = str(cap.get("beat_id") or "")
-                if not bid or "at" not in cap or "until" not in cap:
+                if not bid or bid in done or "at" not in cap or "until" not in cap:
                     continue
+                done.add(bid)                        # a long beat's caption shows in pieces: its still is taken in the first
                 (out / "stills" / sid).mkdir(exist_ok=True)
                 t = (at + cap["at"] + BEAT_STILL_AT * (cap["until"] - cap["at"])) / fps
                 run = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{t:.2f}", "-i", str(review), "-frames:v", "1",
@@ -216,7 +218,7 @@ def fixture_spec(out: Path, *, opener=None) -> dict:
     scene_b, _ = canvas.compile_plan(plan, icon_paths=paths)
     scene_c, _ = world.compile_world(json.loads((fixtures / "demand_pull_world.world.json").read_text(encoding="utf-8")))
     library.save()
-    scenes = [scene_b, scene_c, canvas.credits_scene(library.credits(sorted(library.assets)))]
+    scenes = [scene_b, scene_c, canvas.credits_scene(library.credits(library.used_in([scene_b, scene_c])))]
     spec = canvas.video_spec(scenes)
     canvas.write_spec(spec, out / "video_spec.json")
     return spec

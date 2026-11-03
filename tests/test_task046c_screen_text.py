@@ -5,6 +5,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -106,7 +107,9 @@ class TeacherNarration(unittest.TestCase):
     def test_the_rulebook_carries_s2_09_and_the_teacher_example(self):
         book = rulebook.load()
         self.assertIn("vision-2026-10-21@2026-10-21.17", book.version)
-        self.assertIn("canvas_profile@2026-10-29.1", book.version)
+        profile = re.search(r"canvas_profile@(\d{4}-\d{2}-\d{2})\.(\d+)", book.version)      # this version or a later one
+        self.assertIsNotNone(profile)
+        self.assertGreaterEqual((profile.group(1), int(profile.group(2))), ("2026-10-29", 1))
         self.assertIn("teacher_examples@2026-10-29.1", book.version)
         rules = {r.id: r for r in book.rules}
         self.assertIn("S2-09", rules)

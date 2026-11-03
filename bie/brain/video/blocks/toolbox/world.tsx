@@ -14,6 +14,7 @@ import { Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "re
 import { registerBlock, BlockProps } from "../registry";
 import { FONT, assetUrl } from "./common";
 import { ActionStage, STAGE_W, FEET } from "./saanche";
+import { TextScale, useReadable } from "../index";
 
 const ease = Easing.inOut(Easing.cubic);
 const lin = (f: number, a: number, b: number) =>
@@ -126,7 +127,9 @@ const Skyline: React.FC<{ width: number; seed: number; far: boolean }> = ({ widt
 };
 
 const Shop: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, fps }) => {
+  const r = useReadable();
   const x = el.x, w = 760, top = GROUND - 560;
+  const sf = r(52), gf = r(26);
   const packets = (() => { let n = el.packets?.[0]?.n ?? 0; for (const p of el.packets ?? []) if (frame >= p.at) n = p.n; return n; })();
   const sway = Math.sin(frame / 18) * 4;
   return (
@@ -137,7 +140,7 @@ const Shop: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, fp
       {[0, 1, 2].map((i) => <rect key={i} x={x - w / 2 + 40 + i * 250} y={top - 170} width={150} height={110} rx={8} fill="#7d9bb5" stroke="#fff" strokeWidth={8} />)}
       {/* sign: only the words the plan gives (no default name for a place) */}
       {el.sign ? <><rect x={x - 260} y={top - 40} width={520} height={86} rx={14} fill="#c0392b" />
-        <text x={x} y={top + 20} textAnchor="middle" fontSize={52} fontWeight={900} fill="#fff7e0" fontFamily={FONT}>{el.sign}</text></> : null}
+        <text x={x} y={top + 3 + sf * 0.33} textAnchor="middle" fontSize={sf} fontWeight={900} fill="#fff7e0" fontFamily={FONT}>{el.sign}</text></> : null}
       {/* opening and interior */}
       <rect x={x - w / 2} y={top + 70} width={w} height={490} fill="#6b4f3a" />
       <rect x={x - w / 2 + 20} y={top + 90} width={w - 40} height={300} fill="#8a6a4f" />
@@ -149,8 +152,8 @@ const Shop: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, fp
         return <Goods key={i} src={g?.src} x={x - 160 + i * 160} y={top + 270} s={1.45 * k} />;
       })}
       {(el.goods ?? []).filter((g: any) => g.label).slice(0, 1).map((g: any) => <g key="gl">
-        <rect x={x - g.label.length * 9 - 18} y={top + 292} width={g.label.length * 18 + 36} height={38} rx={19} fill="rgba(255,255,255,0.92)" />
-        <text x={x} y={top + 319} textAnchor="middle" fontSize={26} fontWeight={800} fill="#4e3626" fontFamily={FONT}>{g.label}</text>
+        <rect x={x - g.label.length * gf * 0.34 - 18} y={top + 292} width={g.label.length * gf * 0.68 + 36} height={gf * 1.45} rx={gf * 0.72} fill="rgba(255,255,255,0.92)" />
+        <text x={x} y={top + 292 + gf * 1.05} textAnchor="middle" fontSize={gf} fontWeight={800} fill="#4e3626" fontFamily={FONT}>{g.label}</text>
       </g>)}
       {/* awning */}
       {Array.from({ length: 10 }, (_, i) => (
@@ -169,6 +172,7 @@ const Shop: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, fp
  *  (Task 046 Part C, PR 3: the Money chapter's v1 saves ₹500 in an account and pays an EMI). The teller stands behind the
  *  counter, so the counter is drawn after the person. */
 const Bank: React.FC<{ el: any; teller?: any; frame: number }> = ({ el, teller, frame }) => {
+  const r = useReadable();
   const x = el.x, w = 900, top = GROUND - 540;          // the whole front fits a 1080-tall frame at zoom 1 (camera y 540)
   return (
     <g>
@@ -178,7 +182,7 @@ const Bank: React.FC<{ el: any; teller?: any; frame: number }> = ({ el, teller, 
       <rect x={x - w / 2 - 80} y={top - 182} width={w + 160} height={40} fill="#cfc4ad" />
       {/* sign band: only the words the plan gives */}
       {el.sign ? <><rect x={x - 320} y={top - 112} width={640} height={92} rx={14} fill="#1f3a5f" />
-        <text x={x} y={top - 46} textAnchor="middle" fontSize={56} fontWeight={900} fill="#fff7e0" fontFamily={FONT}>{el.sign}</text></> : null}
+        <text x={x} y={top - 46} textAnchor="middle" fontSize={r(56)} fontWeight={900} fill="#fff7e0" fontFamily={FONT}>{el.sign}</text></> : null}
       {/* hall */}
       <rect x={x - w / 2 + 70} y={top + 4} width={w - 140} height={556} fill="#2b3f55" />
       <rect x={x - w / 2 + 90} y={top + 24} width={w - 180} height={300} fill="#3b556f" />
@@ -208,6 +212,7 @@ const Bank: React.FC<{ el: any; teller?: any; frame: number }> = ({ el, teller, 
  *  nothing runs out of the card. The old value is struck out above the new one when it was short (as the price tag does),
  *  and `dir` adds a green up or a red down arrow. */
 const Board: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, fps }) => {
+  const r = useReadable();
   const steps: { text: string; lines?: string[]; at: number; dir?: string }[] = el.steps ?? [];
   if (!steps.length || frame < steps[0].at || (el.until !== undefined && frame > el.until + 15)) return null;
   let idx = 0;
@@ -218,7 +223,7 @@ const Board: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, f
   const shown = flip < 0.5 && prev ? prev : cur;
   const lines = linesOf(shown);
   const longest = Math.max(1, ...lines.map((l) => l.length));
-  const fs = lines.length === 1 && longest <= 8 ? 96 : lines.length === 1 && longest <= 14 ? 72 : longest <= 26 ? 46 : 36;
+  const fs = r(lines.length === 1 && longest <= 8 ? 96 : lines.length === 1 && longest <= 14 ? 72 : longest <= 26 ? 46 : 36), hf = r(34);
   const w = Math.max(440, Math.min(longest > 26 ? 1100 : 960, Math.round(longest * fs * 0.6 + 90)));
   const body = lines.length * fs * 1.22;
   const h = Math.max(310, Math.round(140 + body + 40));
@@ -237,9 +242,9 @@ const Board: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, f
       {glow ? <circle cx={0} cy={50} r={250} fill={cur.dir === "down" ? "#ff9f7a" : "#ffcf5a"} opacity={0.32 * glow} /> : null}
       <rect x={-w / 2} y={-h / 2} width={w} height={h} rx={24} fill="#fffdf6" stroke="#2c3e50" strokeWidth={6} />
       <path d={`M${-w / 2},${-h / 2 + 24} a24,24 0 0 1 24,-24 h${w - 48} a24,24 0 0 1 24,24 v46 h${-w} z`} fill={header} />
-      <text x={0} y={-h / 2 + 48} textAnchor="middle" fontSize={34} fontWeight={800} fill="#fff" fontFamily={FONT}>{el.text ?? ""}</text>
+      <text x={0} y={-h / 2 + 35 + hf * 0.38} textAnchor="middle" fontSize={hf} fontWeight={800} fill="#fff" fontFamily={FONT}>{el.text ?? ""}</text>
       {ghost ? <g opacity={Math.min(1, (flip - 0.5) * 3)}>
-        <text x={0} y={-h / 2 + 104} textAnchor="middle" fontSize={34} fontWeight={800} fill="#8a8a8a" fontFamily={FONT}>{ghost}</text>
+        <text x={0} y={-h / 2 + 104} textAnchor="middle" fontSize={hf} fontWeight={800} fill="#8a8a8a" fontFamily={FONT}>{ghost}</text>
         <line x1={-ghost.length * 11} y1={-h / 2 + 94} x2={ghost.length * 11} y2={-h / 2 + 90} stroke="#d63031" strokeWidth={6} />
       </g> : null}
       <g transform={`translate(0,0) scale(1,${Math.abs(Math.cos((1 - flip) * Math.PI / 2))})`}>
@@ -256,6 +261,7 @@ const Board: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, f
 };
 
 const PriceTag: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, fps }) => {
+  const r = useReadable();
   const steps: { text: string; at: number; dir?: string }[] = el.steps;
   let idx = 0;
   steps.forEach((s, i) => { if (frame >= s.at) idx = i; });
@@ -270,15 +276,19 @@ const PriceTag: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame
     <g transform={`translate(${el.x},${el.y - lift}) rotate(${sway}) scale(${k})`}>
       <line x1={0} y1={-90 - (el.string ?? 60)} x2={0} y2={-40} stroke="#5a4636" strokeWidth={4} />
       {glow ? <circle cx={0} cy={20} r={150} fill="#ffcf5a" opacity={0.35 * glow} /> : null}
-      <g transform={`scale(1,${Math.abs(Math.cos((1 - flip) * Math.PI / 2))})`}>
-        <path d="M-110,-40 L90,-40 L130,20 L90,80 L-110,80 Z" fill="#fff8e1" stroke="#e0a100" strokeWidth={6} />
-        <circle cx={92} cy={20} r={10} fill="#e0a100" />
-        <text x={-10} y={46} textAnchor="middle" fontSize={Math.min(78, Math.floor(200 / (Math.max(1, String(flip < 0.5 && prev ? prev.text : cur.text).length) * 0.6)))}
-          fontWeight={900} fill="#2b2b2b" fontFamily={FONT}>{flip < 0.5 && prev ? prev.text : cur.text}</text>
-      </g>
+      {(() => {
+        const text = String(flip < 0.5 && prev ? prev.text : cur.text);
+        const fs = r(Math.min(78, Math.floor(200 / (Math.max(1, text.length) * 0.6))));
+        const sx = Math.max(1, (text.length * fs * 0.6 + 40) / 240);     // a long price makes the tag wider, never the text smaller
+        return <g transform={`scale(1,${Math.abs(Math.cos((1 - flip) * Math.PI / 2))})`}>
+          <g transform={`scale(${sx},1)`}><path d="M-110,-40 L90,-40 L130,20 L90,80 L-110,80 Z" fill="#fff8e1" stroke="#e0a100" strokeWidth={6 / sx} />
+            <circle cx={92} cy={20} r={10} fill="#e0a100" /></g>
+          <text x={-10 * sx} y={20 + fs * 0.36} textAnchor="middle" fontSize={fs} fontWeight={900} fill="#2b2b2b" fontFamily={FONT}>{text}</text>
+        </g>;
+      })()}
       {cur.dir === "up" && flip > 0.9 ? <path d="M150,40 l30,-48 l30,48 l-18,0 l0,46 l-24,0 l0,-46 z" fill="#27ae60" transform={`translate(0,${(1 - pop(frame, fps, cur.at + 10)) * 30})`} /> : null}
       {prev && flip > 0.5 ? <g opacity={Math.min(1, (flip - 0.5) * 3)}>
-        <text x={-20} y={-60} textAnchor="middle" fontSize={36} fontWeight={800} fill="#8a8a8a" fontFamily={FONT}>{prev.text}</text>
+        <text x={-20} y={-60} textAnchor="middle" fontSize={r(36)} fontWeight={800} fill="#8a8a8a" fontFamily={FONT}>{prev.text}</text>
         <line x1={-80} y1={-70} x2={40} y2={-78} stroke="#d63031" strokeWidth={6} />
       </g> : null}
     </g>
@@ -357,10 +367,12 @@ const Rain: React.FC<{ el: any; frame: number }> = ({ el, frame }) => {
 
 /** A balance: goods on one pan, people on the other; it tips towards the heavier side as the story says so. */
 const Balance: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, fps }) => {
+  const r = useReadable();
   if (frame < el.at || (el.until !== undefined && frame > el.until + 15)) return null;
   const k = pop(frame, fps, el.at) * (el.until !== undefined ? 1 - lin(frame, el.until, el.until + 15) : 1);
   const tilt = lin(frame, el.tilt_at ?? el.at + 20, (el.tilt_at ?? el.at + 20) + 30) * (el.tilt ?? 14);
   const arm = 260;
+  const pf = r(26) / (el.scale ?? 1.25);        // the balance is drawn at its own scale
   const a = (tilt * Math.PI) / 180;
   const lx = -arm * Math.cos(a), ly = -arm * Math.sin(a), rx = arm * Math.cos(a), ry = arm * Math.sin(a);
   const pan = (x: number, y: number, content: React.ReactNode, label: string, col: string) => (
@@ -368,8 +380,8 @@ const Balance: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame,
       <line x1={-70} y1={110} x2={0} y2={0} stroke="#7f8c8d" strokeWidth={3} /><line x1={70} y1={110} x2={0} y2={0} stroke="#7f8c8d" strokeWidth={3} />
       <path d="M-100,110 Q0,150 100,110 Z" fill="#bdc3c7" stroke="#95a5a6" strokeWidth={3} />
       <g transform="translate(0,104)">{content}</g>
-      <rect x={-80} y={150} width={160} height={42} rx={21} fill={col} />
-      <text x={0} y={180} textAnchor="middle" fontSize={26} fontWeight={900} fill="#fff" fontFamily={FONT}>{label}</text>
+      <rect x={-Math.max(80, label.length * pf * 0.34 + 16)} y={150} width={Math.max(160, label.length * pf * 0.68 + 32)} height={pf * 1.6} rx={pf * 0.8} fill={col} />
+      <text x={0} y={150 + pf * 1.15} textAnchor="middle" fontSize={pf} fontWeight={900} fill="#fff" fontFamily={FONT}>{label}</text>
     </g>
   );
   return (
@@ -390,17 +402,20 @@ const Balance: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame,
 const GlassLabel: React.FC<{ el: any; frame: number; fps: number }> = ({ el, frame, fps }) => {
   if (frame < el.at || (el.until !== undefined && frame > el.until + 12)) return null;
   const k = pop(frame, fps, el.at) * (el.until !== undefined ? 1 - lin(frame, el.until, el.until + 12) : 1);
-  const w = el.text.length * (el.size ?? 34) * 0.62 + 56;
+  const r = useReadable();
+  const fs = r(el.size ?? 34);
+  const w = el.text.length * fs * 0.62 + 56, h = Math.max(68, fs * 1.9);
   return (
     <g transform={`translate(${el.x},${el.y - (1 - k) * 30})`} opacity={k}>
       {el.pointer ? <line x1={0} y1={34} x2={0} y2={el.pointer} stroke="rgba(255,255,255,0.9)" strokeWidth={4} strokeDasharray="8 8" /> : null}
-      <rect x={-w / 2} y={-34} width={w} height={68} rx={34} fill={el.fill ?? "rgba(30,40,55,0.82)"} stroke="rgba(255,255,255,0.6)" strokeWidth={2} />
-      <text x={0} y={12} textAnchor="middle" fontSize={el.size ?? 34} fontWeight={800} fill="#fff" fontFamily={FONT}>{el.text}</text>
+      <rect x={-w / 2} y={-h / 2} width={w} height={h} rx={h / 2} fill={el.fill ?? "rgba(30,40,55,0.82)"} stroke="rgba(255,255,255,0.6)" strokeWidth={2} />
+      <text x={0} y={fs * 0.36} textAnchor="middle" fontSize={fs} fontWeight={800} fill="#fff" fontFamily={FONT}>{el.text}</text>
     </g>
   );
 };
 
 const PullArrow: React.FC<{ el: any; frame: number }> = ({ el, frame }) => {
+  const r = useReadable();
   if (frame < el.at) return null;
   const t = lin(frame, el.at, el.at + 30);
   const y = lerp(el.y0, el.y1, t);
@@ -408,7 +423,7 @@ const PullArrow: React.FC<{ el: any; frame: number }> = ({ el, frame }) => {
     <g opacity={Math.min(1, t * 3)}>
       <path d={`M${el.x - 40},${el.y0} L${el.x - 40},${y + 60} L${el.x - 90},${y + 60} L${el.x},${y - 30} L${el.x + 90},${y + 60} L${el.x + 40},${y + 60} L${el.x + 40},${el.y0} Z`}
         fill="#e67e22" stroke="#fff" strokeWidth={6} opacity={0.92} />
-      <text x={el.x} y={(el.y0 + y) / 2 + 60} textAnchor="middle" fontSize={36} fontWeight={900} fill="#fff" fontFamily={FONT}
+      <text x={el.x} y={(el.y0 + y) / 2 + 60} textAnchor="middle" fontSize={r(36)} fontWeight={900} fill="#fff" fontFamily={FONT}
         transform={`rotate(-90 ${el.x} ${(el.y0 + y) / 2 + 60})`}>{el.text ?? "DEMAND"}</text>
     </g>
   );
@@ -481,6 +496,7 @@ const WorldScene: React.FC<BlockProps> = ({ data, width: W, height: H }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const cam = camAt(data.camera, frame);
+  const street = React.useContext(TextScale) * cam.zoom;        // screen pixels per world pixel on the street (CV-17)
   const WW = data.world_width ?? 5200;
   // a layer at depth d (1 = street) follows the camera by d; far layers also zoom less
   const layer = (d: number) => {
@@ -505,7 +521,7 @@ const WorldScene: React.FC<BlockProps> = ({ data, width: W, height: H }) => {
       <Layer W={W} H={H} transform={layer(0.3)} opacity={0.7}><FarSkyline WW={WW} /></Layer>
       <Layer W={W} H={H} transform={layer(0.65)} opacity={0.92}><NearSkyline WW={WW} /></Layer>
       <Layer W={W} H={H} transform={layer(1)}><Road WW={WW} /></Layer>
-      <Layer W={W} H={H} transform={layer(1)}>
+      <Layer W={W} H={H} transform={layer(1)}><TextScale.Provider value={street}>
         {byKind("shop").map((e) => <Shop key={e.id} el={e} frame={frame} fps={fps} />)}
         {byKind("bank").map((e) => <Bank key={e.id} el={e} frame={frame} teller={byKind("teller").find((t) => Math.abs((t.x ?? e.x) - e.x) < 600)} />)}
           {byKind("lamp").map((e) => <g key={e.id}><rect x={e.x - 7} y={GROUND - 420} width={14} height={420} fill="#45535e" /><rect x={e.x - 40} y={GROUND - 440} width={80} height={24} rx={10} fill="#45535e" /><ellipse cx={e.x} cy={GROUND - 412} rx={30} ry={10} fill="#ffe9a8" /></g>)}
@@ -518,7 +534,7 @@ const WorldScene: React.FC<BlockProps> = ({ data, width: W, height: H }) => {
         {byKind("balance").map((e) => <Balance key={e.id} el={e} frame={frame} fps={fps} />)}
         {byKind("board").map((e) => <Board key={e.id} el={e} frame={frame} fps={fps} />)}
         {byKind("label").map((e) => <GlassLabel key={e.id} el={e} frame={frame} fps={fps} />)}
-      </Layer>
+      </TextScale.Provider></Layer>
       {foreground.length ? <Layer W={W} H={H} transform={layer(1.6)}><Foreground els={foreground} /></Layer> : null}
       <div style={{ position: "absolute", inset: 0, pointerEvents: "none",
         background: "linear-gradient(180deg, rgba(255,220,170,0.10), rgba(255,200,140,0.0) 40%, rgba(60,40,20,0.12))" }} />

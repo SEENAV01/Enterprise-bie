@@ -275,8 +275,8 @@ def ideas_answer(user_text: str):
 
 def canvas_answer(user_text: str):
     """A plan the canvas compiler accepts: a title tag, then one icon card per beat on its first word (an icon with a short label,
-    so every beat shows a thing, D1-01), two columns of rows below the code-placed book picture; a later beat reuses a cell after
-    its earlier card leaves (until_cue). Offline only."""
+    so every beat shows a thing, D1-01), two columns of two-row cards below the code-placed book picture (the label at the readable
+    36 px, CV-17); a later beat reuses a cell after its earlier card leaves (until_cue). Offline only."""
     data = _payload(user_text)
     beats = data.get("beats", [])
     part = (data.get("part") or {}).get("part_id") or (data.get("part") or {}).get("id") or "part"
@@ -293,21 +293,22 @@ def canvas_answer(user_text: str):
         nodes.append(dict(empty, id="tag", kind="text", cell=[0, top, 5, 1], cue=[beats[0]["beat_id"], ""], style="tag",
                           text=(re.sub(r"[\d.]+", "", f"Part {part}").strip() or "Part")[:28]))      # a number on screen is one the narration says (CV-16)
     rows_free = 8 - top - tag_rows
-    slots = max(2, 2 * rows_free)
+    card_rows = 2 if rows_free >= 2 else 1               # an icon with a label at the readable size takes two rows (CV-17); one row: no label
+    slots = max(2, 2 * (rows_free // card_rows))
     icons_of = {r["beat_id"]: r for r in data.get("ideas") or []}
     cards = []                                     # (beat, cue word, cue fraction, label): a long beat gets a second card half way
     for beat in beats:
         idea = icons_of.get(beat["beat_id"]) or {}
         things = [t for t in (idea.get("things") or []) if t]
         words = [w for w in beat["say"].replace("।", " ").split() if w not in ("मान", "लीजिए", "लो")]      # never a caution phrase on screen (D1-06)
-        label = (things[0] if things else " ".join(words[:2]))[:24] or "…"
+        label = ((things[0] if things else " ".join(words[:2]))[:24] or "…") if card_rows == 2 else ""
         cards.append((beat, _first_word(beat["say"]), 0.0, label))
         if len(words) > 28:                                                         # about 12 s or more: the picture must change
-            cards.append((beat, "", 0.5, (things[1] if len(things) > 1 else label)[:24]))
+            cards.append((beat, "", 0.5, (things[1] if len(things) > 1 else label)[:24] if card_rows == 2 else ""))
     marks = []
     for n, (beat, word, fraction, label) in enumerate(cards):
         slot = n % slots
-        cell = [(slot % 2) * 6, top + tag_rows + slot // 2, 6, 1]
+        cell = [(slot % 2) * 6, top + tag_rows + (slot // 2) * card_rows, 6, card_rows]
         if n >= slots:
             nodes[tag_rows + n - slots]["until_cue"] = [beat["beat_id"], word]
             nodes[tag_rows + n - slots]["until_fraction"] = fraction

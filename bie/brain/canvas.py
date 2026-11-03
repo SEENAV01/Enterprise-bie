@@ -56,7 +56,8 @@ PROFILE = json.loads(PROFILE_PATH.read_text(encoding="utf-8"))
 LIMITS = PROFILE["limits"]
 
 SAFE = {"left": 0.045, "right": 0.045, "top": 0.06, "bottom": 0.14}   # the bottom strip is kept for the captions
-MIN_FONT = int(LIMITS["min_font_px"])
+MIN_FONT = int(LIMITS["min_font_px"])             # CV-17 (Navin, 3 November 2026): 36 px, readable on a phone held sideways
+MIN_ICON = int(LIMITS.get("min_icon_px", 64))       # an icon with a label is at least this many pixels wide
 MAX_VISIBLE = int(LIMITS["max_visible"])            # CV-10
 MAX_STILL_S = float(LIMITS["max_still_s"])          # CV-03: blocking (the references hold 40-80 s at worst; BIE must not)
 TARGET_STILL_S = float(LIMITS["target_still_s"])    # reported when exceeded
@@ -96,17 +97,55 @@ def cue_frame(tl: dict, scene_id: str, says: dict, cue) -> int:
 
 
 HOLD_CAPTION_S = 1.0     # a caption stays up through a pause shorter than this, until the next line starts (no flicker)
+CAPTION_CHARS = int(LIMITS.get("caption_chars", 150))     # two lines of the 36 px strip (CV-17); a longer beat shows in pieces
+
+
+def caption_pieces(text: str, max_chars: int = CAPTION_CHARS) -> list:
+    """A beat's caption cut into pieces of at most ``max_chars`` (two lines of the strip at the readable size, Navin, 3 November
+    2026): at the ends of sentences first (। . ? !), then at ; and , and last between words; never inside a word."""
+    text = re.sub(r"\s+", " ", str(text or "")).strip()
+    if len(text) <= max_chars:
+        return [text] if text else []
+
+    def split(t: str, marks: str) -> list:
+        parts = re.split(f"(?<=[{marks}])\\s+", t)
+        return [x for x in parts if x]
+
+    out = []
+    for sentence in split(text, "।.?!"):
+        units = [sentence] if len(sentence) <= max_chars else split(sentence, ";,")
+        for unit in units:
+            if len(unit) > max_chars:
+                words, cur = unit.split(), ""
+                for w in words:
+                    if cur and len(cur) + 1 + len(w) > max_chars:
+                        out.append(cur)
+                        cur = w
+                    else:
+                        cur = f"{cur} {w}".strip()
+                if cur:
+                    out.append(cur)
+            elif out and len(out[-1]) + 1 + len(unit) <= max_chars:
+                out[-1] = f"{out[-1]} {unit}"
+            else:
+                out.append(unit)
+    return out
 
 
 def captions_of(tl: dict, scene_id: str, beats: list) -> list:
-    """One caption per beat for the core strip: it appears with the beat and holds through a short pause until the next
-    line starts; only a pause longer than ``HOLD_CAPTION_S`` (and the tail after the last beat) shows no caption. Each caption
-    carries its ``beat_id`` so the review page can say where in the rendered video a beat (and the book line it covers) plays
-    (``coverage.beat_times``)."""
+    """The captions of the core strip: a beat's caption appears with the beat (in pieces of at most two lines, each for a share
+    of the beat's time by its length) and holds through a short pause until the next line starts; only a pause longer than
+    ``HOLD_CAPTION_S`` (and the tail after the last beat) shows no caption. Each caption carries its ``beat_id`` so the review
+    page can say where in the rendered video a beat (and the book line it covers) plays (``coverage.beat_times``)."""
     out = []
     for b in beats:
         start, length = tl[scene_id]["beats"][b["beat_id"]]
-        out.append({"at": start, "until": start + length, "text": b.get("caption", b["say"]), "beat_id": b["beat_id"]})
+        pieces = caption_pieces(b.get("caption", b["say"])) or [""]
+        total, at = sum(len(x) for x in pieces) or 1, start
+        for n, piece in enumerate(pieces):
+            until = start + length if n == len(pieces) - 1 else at + max(1, round(length * len(piece) / total))
+            out.append({"at": at, "until": max(at + 1, until), "text": piece, "beat_id": b["beat_id"]})
+            at = until
     hold = HOLD_CAPTION_S * tl[scene_id]["fps"]
     for cap, following in zip(out, out[1:]):
         if 0 <= following["at"] - cap["until"] <= hold:
@@ -187,12 +226,42 @@ def cell_box(cell, grid):
             "w": cw / cols * W - gx, "h": rh / rows * H - gy}
 
 
-def fit_icon(box, label: bool):
-    """Largest square (on screen) inside the box, centred; room for a label under it."""
-    hh = box["h"] * (0.78 if label else 1.0)
-    side_px = min(box["w"] * 1920, hh * 1080)
-    w, h = side_px / 1920, side_px / 1080 / (0.78 if label else 1.0)
-    return {"x": box["x"] + (box["w"] - w) / 2, "y": box["y"] + (box["h"] - h) / 2, "w": w, "h": h}
+LABEL_LINE = 1.35          # a label's line height as a share of its font size
+
+
+def label_lines(label: str, width_px: float, px: int = MIN_FONT, most: int = 2):
+    """The label's words in lines that fit ``width_px`` at ``px`` (at most ``most`` lines, never inside a word), or None."""
+    per = max(1, int((width_px - 8) / (px * CHAR_W)))
+    lines, cur = [], ""
+    for w in str(label).split():
+        if len(w) > per:
+            return None
+        if cur and len(cur) + 1 + len(w) > per:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = f"{cur} {w}" if cur else w
+    if cur:
+        lines.append(cur)
+    return lines if len(lines) <= most else None
+
+
+def fit_icon(box, label, label_px: int = MIN_FONT, lines: int = 1):
+    """Largest square (on screen) inside the box, centred, with room under it for a label of ``lines`` lines at the readable size
+    (CV-17); the box is as wide as the label when the label is wider than the icon (never wider than the cell). ``label``: the
+    label's text, its lines (a list) or True/False. Returns the element's box with ``label_share``, the share of its height the
+    label takes."""
+    rows = label if isinstance(label, list) else [label] if isinstance(label, str) and label else []
+    lines = max(lines, len(rows))
+    lh = (label_px * LABEL_LINE * lines + 4) if label else 0.0
+    side_px = max(0.0, min(box["w"] * 1920, box["h"] * 1080 - lh))
+    lw = min(box["w"] * 1920, max(len(t) for t in rows) * label_px * CHAR_W + 8) if rows else 0.0
+    w_px, h_px = max(side_px, lw), side_px + lh
+    out = {"x": box["x"] + (box["w"] - w_px / 1920) / 2, "y": box["y"] + (box["h"] - h_px / 1080) / 2, "w": w_px / 1920, "h": h_px / 1080,
+           "side_px": side_px}
+    if label:
+        out["label_share"] = round(lh / max(1.0, h_px), 4)
+    return out
 
 
 def fit_text(text: str, box, size: int, style: str):
@@ -237,7 +306,7 @@ def expand_trees(nodes, grid):
         k = len(kids)
         if k < 1:
             raise PlanError(f"tree {n['id']} has no children")
-        size = n.get("size", 28)
+        size = max(MIN_FONT, n.get("size", 28))
         bh = min(area["h"] * 0.36, size * 2.4 / 1080)
         gap = 0.012
         cw = (area["w"] - gap * (k - 1)) / k
@@ -303,8 +372,13 @@ def expand_pictures(nodes: list, grid, frame_of=None, block_layers=None) -> list
             if len(seq) < 2:
                 raise PlanError(f"{nid}: a {ptype} picture needs at least two {'events' if ptype == 'timeline' else 'panels' if ptype == 'gallery' else 'steps'}")
             per = max(1, w // len(seq))
-            label_chars = max(6, int((per * COL_PX - 16) / (22 * 0.6)))
-            tag_chars = max(4, int((per * COL_PX - 48) / (24 * TAG_CHAR_W)))
+            one = cell_box([col, row, per, 1], grid)["w"] * 1920                        # one item's cell, in pixels
+            label_chars = max(4, int((one - 8) / (MIN_FONT * CHAR_W)))                   # labels and tags at the readable size (CV-17)
+            tag_chars = max(4, int((one - 48) / (MIN_FONT * TAG_CHAR_W)))
+            icon_rows = h - 1 if ptype == "timeline" else h
+            if ptype in ("timeline", "gallery") and icon_rows < 2:
+                raise PlanError(f"{nid}: a {ptype} picture needs at least {3 if ptype == 'timeline' else 2} rows of the grid, so its "
+                                f"icons and their labels are readable ({MIN_FONT}px, CV-17)")
             main = []
             for i, it in enumerate(seq):
                 c0, cue = col + i * per, it.get("cue") or n.get("cue")
@@ -325,7 +399,7 @@ def expand_pictures(nodes: list, grid, frame_of=None, block_layers=None) -> list
                     main.append(f"{nid}_p{i + 1}")
                 else:
                     out.append({"id": f"{nid}_s{i + 1}", "kind": "text", "style": "box", "text": _fit_words(it.get("label", ""), 40),
-                                "size": 24, "cell": [c0, row, per, h], "cue": cue, **group})
+                                "size": MIN_FONT, "cell": [c0, row, per, h], "cue": cue, **group})
                     main.append(f"{nid}_s{i + 1}")
             if pic.get("arrows", True):
                 for i in range(1, len(main)):
@@ -336,19 +410,35 @@ def expand_pictures(nodes: list, grid, frame_of=None, block_layers=None) -> list
             columns, rows = list(pic.get("columns") or []), list(pic.get("rows") or [])
             if not rows or not columns:
                 raise PlanError(f"{nid}: a table picture needs columns and rows")
-            rh = cell_box([col, row, w, h], grid)["h"] * 1080 / (len(rows) + 1)
-            size = max(MIN_FONT, min(30, int(rh * 0.42)))
+            cell_px = cell_box([col, row, w, h], grid)["h"] * 1080
+            per_page = max(1, int(cell_px / (MIN_FONT / 0.42)) - 1)       # rows that fit the cell at the readable size (CV-17)
+            pages = [rows[i:i + per_page] for i in range(0, len(rows), per_page)]
+            size = min(40, int(cell_px / (min(per_page, len(rows)) + 1) * 0.42))
             cw = w * COL_PX / len(columns)
             chars = max(6, int((cw - 28) / (size * 0.62)))
-            fit_rows = [{"cells": [_fit_words(c, chars) for c in r.get("cells") or []], "cue": r.get("cue") or n.get("cue")} for r in rows]
-            highlights = []
-            for i, r in enumerate(fit_rows):
-                h_ = {"row": i, "cue": r["cue"], "tone": "band"}
-                if i + 1 < len(fit_rows) and fit_rows[i + 1]["cue"] != r["cue"]:
-                    h_["until_cue"] = fit_rows[i + 1]["cue"]
-                highlights.append(h_)
-            out.append({"id": nid, "kind": "table", "cell": n["cell"], "cue": n.get("cue"), "size": size,
-                        "columns": [_fit_words(c, chars) for c in columns], "rows": fit_rows, "highlights": highlights, **group})
+            # A book table longer than its cell shows a page at a time (Navin, 3 November 2026: "long tables"; CV-17): each page takes
+            # the cell when its first row is said, the page before it leaves then; pages that start on the same beat share its time.
+            starts = [p[0].get("cue") or n.get("cue") for p in pages]
+            for k in range(1, len(pages)):
+                same = [j for j in range(len(pages)) if (starts[j] or [None])[0] == (starts[k] or [None])[0]]
+                if len(same) > 1 and starts[k] and not (len(starts[k]) > 1 and starts[k][1]):
+                    starts[k] = [starts[k][0], "", round(same.index(k) / len(same), 3)]
+            for k, page in enumerate(pages):
+                fit_rows = [{"cells": [_fit_words(c, chars) for c in r.get("cells") or []], "cue": r.get("cue") or n.get("cue")} for r in page]
+                if k:
+                    fit_rows[0]["cue"] = starts[k]
+                highlights = []
+                for i, r in enumerate(fit_rows):
+                    h_ = {"row": i, "cue": r["cue"], "tone": "band"}
+                    if i + 1 < len(fit_rows) and fit_rows[i + 1]["cue"] != r["cue"]:
+                        h_["until_cue"] = fit_rows[i + 1]["cue"]
+                    highlights.append(h_)
+                part = {"id": nid if len(pages) == 1 else f"{nid}_t{k + 1}", "kind": "table", "cell": n["cell"],
+                        "cue": n.get("cue") if k == 0 else starts[k], "size": size,
+                        "columns": [_fit_words(c, chars) for c in columns], "rows": fit_rows, "highlights": highlights, **group}
+                if k + 1 < len(pages):
+                    part["until_cue"] = starts[k + 1]
+                out.append(part)
         else:
             raise PlanError(f"{nid}: unknown picture type {ptype!r} (timeline, gallery, flow, table)")
     return out
@@ -652,11 +742,26 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
             if "cell" in n:
                 cells_used.append((n["id"], n["cell"]))
             if kind == "icon":
-                box = fit_icon(box, bool(n.get("label")))
+                label = str(n.get("label") or "")
+                rows = [label] if label else []
+                if label and len(label) * MIN_FONT * CHAR_W + 8 > box["w"] * 1920 + 1:
+                    rows = label_lines(label, box["w"] * 1920)          # a long label takes a second line before it is refused
+                    if not rows:
+                        raise PlanError(f"{n['id']}: its label {label!r} is wider than its cell at the readable size ({MIN_FONT}px, CV-17) "
+                                        "even on two lines: shorten the label or give the icon a wider cell")
+                box = fit_icon(box, rows or label)
+                if label and box["side_px"] < MIN_ICON:
+                    raise PlanError(f"{n['id']}: the icon is {box['side_px']:.0f}px with its label at the readable size ({MIN_FONT}px, "
+                                    f"CV-17); give it a taller cell (2 rows) or no label")
+                box.pop("side_px", None)
+                if label:
+                    el.update(label_size=MIN_FONT, label_share=box.pop("label_share"))
+                    if len(rows) > 1:
+                        el["label_lines"] = rows
                 el["src"] = (icon_paths or {}).get(n["icon"], n["icon"])
             elif kind in ("text", "callout"):
                 style = n.get("style", "note" if kind == "callout" else "plain")
-                size, h = fit_text(n["text"], box, n.get("size", 56 if style == "title" else 24 if style == "tag" else 30), style)
+                size, h = fit_text(n["text"], box, max(MIN_FONT, n.get("size", 56 if style == "title" else MIN_FONT)), style)
                 el.update({"text": n["text"], "size": size})
                 if style == "tag":
                     tw = (len(n["text"]) * size * TAG_CHAR_W + 48) / 1920
@@ -678,7 +783,7 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
             elif kind == "value":
                 el["steps"] = [{"text": s["text"], "at": frame_of(s["cue"]), **({"dir": s["dir"]} if "dir" in s else {})}
                                for s in n["steps"]]
-                el["size"] = n.get("size", 52)
+                el["size"] = max(MIN_FONT, n.get("size", 52))
                 arrow = any(s.get("dir") for s in n["steps"])
                 longest = max(len(s["text"]) for s in n["steps"]) * el["size"] * 0.62 + (el["size"] * 0.95 if arrow else 0)
                 if longest > box["w"] * 1920:
@@ -695,9 +800,10 @@ def compile_plan(plan: dict, *, voice: dict | None = None, icon_paths: dict | No
                 if any(len(r["cells"]) != len(n["columns"]) for r in n["rows"]):
                     raise PlanError(f"table {n['id']} has a row whose cell count differs from its columns")
                 rh = box["h"] * 1080 / (len(n["rows"]) + 1)
-                size = n.get("size", min(30, int(rh * 0.42)))
+                size = max(n.get("size") or 0, min(40, int(rh * 0.42)))
                 if size < MIN_FONT:
-                    raise PlanError(f"table {n['id']} is too tall for its cell (text would be {size}px)")
+                    raise PlanError(f"table {n['id']} has too many rows for its cell: its text would be {size}px, under the readable "
+                                    f"{MIN_FONT}px (CV-17); give it more rows of the grid or split it in two")
                 cw = box["w"] * 1920 / len(n["columns"])
                 widest = max(len(str(t)) for r in [n["columns"]] + [r["cells"] for r in n["rows"]] for t in r)
                 if widest * size * 0.62 + 28 > cw:
@@ -894,22 +1000,41 @@ def video_spec(scenes: list, *, audio: str | None = None) -> dict:
     return out
 
 
+CREDITS_PER_PAGE = 7      # two text rows each at the readable size (CV-17) fill a 1080p frame under the title
+CREDITS_GRID = [12, 16]
+
+
 def credits_scene(lines: list, seconds: float = 5.0, *, scene_id: str = "credits", title: str = "Credits · श्रेय") -> dict:
-    """A closing card on the paper canvas that lists every CC BY credit the video used (the licence gate's lines)."""
-    frames = int(round(seconds * timing.FPS))
-    grid = [12, 8]
-    nodes = [{"id": "title", "kind": "text", "style": "title", "text": title, "size": 48, "cell": [0, 0, 12, 1], "cue": None}]
-    for i, line in enumerate(lines[:6]):
-        nodes.append({"id": f"c{i}", "kind": "text", "style": "box", "text": line, "size": 26, "cell": [1, 1 + i, 10, 1], "cue": None})
+    """A closing card on the paper canvas that lists the CC BY credits of the assets the video shows (the licence gate's
+    lines), at the readable size (CV-17): seven credits a page, each in a two-row box, one page after another (``seconds`` a
+    page)."""
+    page_frames = int(round(seconds * timing.FPS))
+    pages = [lines[i:i + CREDITS_PER_PAGE] for i in range(0, len(lines), CREDITS_PER_PAGE)] or [[]]
+    grid = CREDITS_GRID
     els = []
-    for n in nodes:
-        box = cell_box(n["cell"], grid)
-        size, h = fit_text(n["text"], box, n["size"], n["style"])
-        els.append({"id": n["id"], "kind": "text", "style": n["style"], "text": n["text"], "size": size, "at": 6 + 8 * len(els),
-                    "align": "center" if n["style"] == "title" else "left", **{**box, "y": box["y"] + max(0, (box["h"] - h) / 2), "h": h}})
+    title_box = cell_box([0, 0, 12, 2], grid)
+    size, h = fit_text(title, title_box, 48, "title")
+    els.append({"id": "title", "kind": "text", "style": "title", "text": title, "size": size, "at": 6, "align": "center",
+                **{**title_box, "y": title_box["y"] + max(0, (title_box["h"] - h) / 2), "h": h}})
+    for p, page in enumerate(pages):
+        start, end = p * page_frames, (p + 1) * page_frames
+        for i, line in enumerate(page):
+            box = cell_box([1, 2 + 2 * i, 10, 2], grid)
+            text = line
+            while True:
+                try:
+                    size, h = fit_text(text, box, MIN_FONT, "box")
+                    break
+                except PlanError:
+                    text = text[: max(20, int(len(text) * 0.85))].rstrip() + "…"   # a very long credit keeps its start (title, author, licence)
+            el = {"id": f"c{p}_{i}", "kind": "text", "style": "box", "text": text, "size": size, "at": start + 6 + 8 * i, "align": "left",
+                  **{**box, "y": box["y"] + max(0, (box["h"] - h) / 2), "h": h}}
+            if p < len(pages) - 1:
+                el["until"] = end
+            els.append(el)
     layer = {"id": scene_id + "_canvas", "type": "block", "block": "canvas_build", "at": 0, "box": {"x": 0, "y": 0, "w": 1, "h": 1},
              "data": {"theme": "paper", "elements": els}}
-    return {"id": scene_id, "duration": frames, "layers": [layer], "camera": [{"at": 0}], "captions": []}
+    return {"id": scene_id, "duration": page_frames * len(pages), "layers": [layer], "camera": [{"at": 0}], "captions": []}
 
 
 def stubs(video: dict) -> list:

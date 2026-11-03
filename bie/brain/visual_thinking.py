@@ -458,8 +458,12 @@ def picture_cell(picture: dict) -> list:
     flow or gallery the top three rows; the maker builds in the rows below."""
     ptype = picture.get("type")
     if ptype == "table":
+        # the rows the table needs at the readable size (CV-17, Navin 3 November 2026); a longer table shows a page at a time
+        from .canvas import MIN_FONT, SAFE
         rows = len((picture.get("data") or {}).get("rows") or [])
-        return [0, 0, 12, 3 if rows <= 3 else 5 if rows <= 6 else 7]
+        row_px = 1080 * (1 - SAFE["top"] - SAFE["bottom"]) / 8
+        need = -(-((rows + 1) * MIN_FONT / 0.42 + 24) // row_px)
+        return [0, 0, 12, int(min(8, max(3, need)))]
     if ptype in ("flow", "tree"):
         return [0, 0, 12, 4]
     return [0, 0, 12, 3]

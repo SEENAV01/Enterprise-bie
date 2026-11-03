@@ -110,8 +110,11 @@ def beat_times(spec: dict, plans: dict | None = None) -> dict:
             if not bid:
                 continue
             used.add(bid)
-            out[bid] = {"scene": scene.get("id", ""), "start_s": round((offset + cap["at"]) / fps, 1),
-                        "end_s": round((offset + cap["until"]) / fps, 1)}
+            end = round((offset + cap["until"]) / fps, 1)
+            if bid in out and out[bid]["scene"] == scene.get("id", ""):      # a long beat's caption shows in pieces (CV-17)
+                out[bid]["end_s"] = max(out[bid]["end_s"], end)
+                continue
+            out[bid] = {"scene": scene.get("id", ""), "start_s": round((offset + cap["at"]) / fps, 1), "end_s": end}
         offset += int(scene.get("duration") or 0)
     return out
 
