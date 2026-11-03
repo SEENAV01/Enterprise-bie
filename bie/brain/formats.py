@@ -148,6 +148,9 @@ SHOW_SCENE = O({"id": S, "t0": N, "t1": N, "bg": S, "fg": S, "kicker": S, "cam":
 SHOW_SPEC = O({"schema": S, "fps": N, "width": N, "height": N, "duration": N, "subs": A(SHOW_SUB),
                "assets": {"type": "object"}, "scenes": A(SHOW_SCENE)},
               required=["schema", "fps", "width", "height", "duration", "subs", "scenes"])
+PLAN_SCENE = O({"id": S, "lines": A(S), "bg": S, "kicker": S, "fg": S, "cam": A({"type": "object"}),
+                "steps": A({"type": "object"})}, required=["id", "lines", "bg", "steps"])
+SCENE_PLAN = O({"schema": S, "video": S, "scenes": A(PLAN_SCENE)}, required=["schema", "scenes"])
 SAANCHA_PARAM = O({"type": {"type": "string", "enum": ["number", "int", "text", "bool", "color", "choice"]},
                    "default": {}, "min": N, "max": N, "choices": A(S), "what": S}, required=["type", "default"])
 SAANCHA = O({"anchor": {"type": "string", "enum": ["bottom", "center"]}, "what": S, "tags": A(S),
@@ -280,6 +283,12 @@ FORMATS = {
                         ("bie/brain/video/engine (the renderer)", "tools/render_spec.py", "the render workflow"),
                         "scenes in seconds with the engine's elements and camera keys; subtitles from the voice timeline; "
                         "the asset name to served path map", "2026-11-03"),
+    "scene_plan": Format("bie.scene-plan", 1, SCENE_PLAN, "plans/<video>.plan.json",
+                         "BIE's director (part C; the Money v2 gold plan is Claude's demo example)",
+                         ("bie/brain/video/showplan.py (the compiler: plan -> bie.show-spec/1, or a refusal naming "
+                          "every wrong step)", "the review page"),
+                         "scenes over narration lines, each a list of steps in the plan vocabulary "
+                         "(bie/brain/video/engine/plan_vocab.json); times are cue words into the narration", "2026-11-03"),
     "saancha_manifest": Format("bie.saancha-manifest", 1, SAANCHA_MANIFEST, "bie/brain/video/engine/saanche.json",
                                "a reviewed PR beside its drawing in draw.mjs (Claude, or BIE's coder)",
                                ("bie/brain/saanche.py (search, parameter checks)", "the scene-plan compiler (part B2)",

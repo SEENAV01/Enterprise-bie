@@ -45,11 +45,19 @@ class Timeline:
         self.duration = t + 1.0
 
     def L(self, lid: str) -> dict:
+        if lid not in self.lines:
+            raise KeyError(f"no narration line {lid!r}")
         return self.lines[lid]
+
+    def has(self, lid: str) -> bool:
+        return lid in self.lines
+
+    def line_ids(self) -> list:
+        return list(self.lines)
 
     def cue(self, lid: str, word: str | None = None, frac: float = 0.0, nth: int = 1) -> float:
         """Time of a word in a line (its start), found in the subtitle text; ``frac`` moves along the line instead."""
-        line = self.lines[lid]
+        line = self.L(lid)
         if word is None:
             return line["t0"] + (line["t1"] - line["t0"]) * frac
         seen = 0
