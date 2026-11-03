@@ -44,7 +44,7 @@ on:
       - 'bie/brain/gold/**'
       - 'tools/gold_money_v2.py'
       - 'tests/test_p1_show_engine.py'
-      - 'tests/test_p1_show_render.py'
+      - 'tests/toolbox/test_p1_show_render.py'
       - 'tests/test_p1_saanche.py'
       - 'tests/test_p1_scene_plan.py'
       - 'tests/test_p1_game_levels.py'
@@ -250,7 +250,7 @@ jobs:
         run: python -B tools/toolbox_setup.py --archive-images "$BIE_ASSET_CACHE"
       - name: The showing engine draws (Phase 1 part A render smoke)
         if: matrix.batch == 1
-        run: python -B -m unittest -v tests.test_p1_show_render
+        run: python -B tools/run_task046a_tests.py --lane show --output "$RUNNER_TEMP/show.json"
       - name: The saancha still sheets (Phase 1 part B1)
         if: matrix.batch == 1
         run: python -B tools/saanche_stills.py --out "$RUNNER_TEMP/saanche"

@@ -32,6 +32,7 @@ LANES = {"core": ("tests/test_task046a_toolbox.py", "tests/test_task046a_licence
                   "tests/test_p1_game_levels.py", "tests/test_p1_notes_pages.py",
                   "tests/test_p1_show_director.py", "tests/test_p1_one_button.py"),
          "wrappers": ("tests/toolbox/test_wrappers.py",)}
+LANES["show"] = ("tests/toolbox/test_p1_show_render.py",)   # needs node + esbuild + Chromium (the demos job)
 LANES["all"] = LANES["core"] + LANES["wrappers"]
 
 
