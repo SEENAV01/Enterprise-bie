@@ -81,7 +81,9 @@ Stop for review at the end with the single report file." Answers (2)–(4) wait 
   `world.places_named`, `canvas_director.at_place`, `world_split`): a world part keeps only the beats at its kit's place; a beat
   that names another place (a mint, a government or an Act, another kit's place) closes the scene and only the place's own words
   reopen it; each run of other beats becomes a canvas, or that kit's world when the run is a story at that place alone. Whole
-  words only ("banknote" names no bank). On the four videos' plans: 55 world beats, 19 at another place → 37, 0.
+  words only ("banknote" names no bank). On the four videos' scripts (the director's parts, split by code): 55 world beats, 19 at
+  another place → 37, 0. The split happens when the director makes the parts, so the plans made before it (and their renders,
+  compiled again) still show the old worlds; the next director run shows it.
 - **Labels never on each other** (`saanche.tsx` `ActionStage`, one layout pass): every worded part of a process (meters,
   number panels, a compare, groups of copies with their count badges, object tags, signs, speech bubbles) takes its box in the
   order it appears; a later part moves clear (sideways or up), and with no clear place takes the least covered one. A later
