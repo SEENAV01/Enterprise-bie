@@ -148,6 +148,12 @@ SHOW_SCENE = O({"id": S, "t0": N, "t1": N, "bg": S, "fg": S, "kicker": S, "cam":
 SHOW_SPEC = O({"schema": S, "fps": N, "width": N, "height": N, "duration": N, "subs": A(SHOW_SUB),
                "assets": {"type": "object"}, "scenes": A(SHOW_SCENE)},
               required=["schema", "fps", "width", "height", "duration", "subs", "scenes"])
+GAME_PIECE = O({"id": S, "label": S, "fits": S, "right": S, "wrong": S, "decoy": B}, required=["id", "label"])
+GAME_LEVEL = O({"schema": S, "level_id": S, "title": S, "instruction": S,
+                "mechanic": {"type": "string", "enum": ["run_process", "place_right", "build_timeline", "find_partner", "cause_effect"]},
+                "pieces": A(GAME_PIECE), "places": A(O({"id": S, "label": S}, required=["id", "label"])),
+                "order_why": S, "win": S, "item_ids": A(S)},
+               required=["schema", "level_id", "title", "instruction", "mechanic", "pieces", "win", "item_ids"])
 PLAN_SCENE = O({"id": S, "lines": A(S), "bg": S, "kicker": S, "fg": S, "cam": A({"type": "object"}),
                 "steps": A({"type": "object"})}, required=["id", "lines", "bg", "steps"])
 SCENE_PLAN = O({"schema": S, "video": S, "scenes": A(PLAN_SCENE)}, required=["schema", "scenes"])
@@ -283,6 +289,13 @@ FORMATS = {
                         ("bie/brain/video/engine (the renderer)", "tools/render_spec.py", "the render workflow"),
                         "scenes in seconds with the engine's elements and camera keys; subtitles from the voice timeline; "
                         "the asset name to served path map", "2026-11-03"),
+    "game_level": Format("bie.game-level", 1, GAME_LEVEL, "game/levels/<level>.json",
+                         "BIE's AI from the chapter's stories (part C; agreement decision 6: a video's story becomes a level)",
+                         ("bie/brain/game_levels.py (problems, stage_of: a level -> one stage of the phone runtime)",
+                          "bie/brain/game_runtime.py (render_game_html plays it)", "the review page"),
+                         "one of five mechanics (run_process, place_right, build_timeline, find_partner, cause_effect) "
+                         "with pieces, places, what each right move does and each wrong move breaks, and the book items played",
+                         "2026-11-03"),
     "scene_plan": Format("bie.scene-plan", 1, SCENE_PLAN, "plans/<video>.plan.json",
                          "BIE's director (part C; the Money v2 gold plan is Claude's demo example)",
                          ("bie/brain/video/showplan.py (the compiler: plan -> bie.show-spec/1, or a refusal naming "
