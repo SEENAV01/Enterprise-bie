@@ -88,7 +88,12 @@ and THE COMPILER IS THE CHECK — every missed cue word, wrong saancha parameter
 comes back named exactly, and the maker patches (replace_scenes). Outputs per video: `plans/<video>.plan.json` and
 the compiled `video_specs/<video>.json`, ready for the chunked render. The brain's fake maker writes a plan that
 passes the real compiler, so the whole loop is proven offline. IMPLEMENTED; the live Codex run on the VM is the
-INTEGRATED proof (part F). Still in part C: the AI writing notes pages, game levels and new saanche.
+INTEGRATED proof (part F). **Second slice:** `bie/brain/show_writers.py` — the AI writes the notes pages
+(`--section notespages`: one `bie.notes-page/1` per question, at least one per concept, picture pages in the
+engine's language; output `notes/pages/*.json` + the phone deck `NOTES_PAGES.html`) and the game levels
+(`--section gamelevels`: `bie.game-level/1`, at least two mechanics; output `game/levels/*.json` + the playable
+`GAME.html`), both judged by the part-B3/B4 validators with every problem named, both proven offline through the
+fake maker. Still in part C: the AI writing new saanche (BIE's coder).
 
 ## Task 048 · first slice: the render checks and the one-button plumbing (3 November 2026)
 

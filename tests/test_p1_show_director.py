@@ -98,3 +98,52 @@ class DirectorStep(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Writers(unittest.TestCase):
+    CHAPTER = {"items": {"i1": {"item_id": "i1", "content": "रामू गेहूँ देता है", "teachable": True,
+                                "kind": "paragraph", "content_type": "story"},
+                         "i2": {"item_id": "i2", "content": "पैसे का सफ़र", "teachable": True,
+                                "kind": "paragraph", "content_type": "process"}},
+               "map": {"chapter_title": "पैसा", "concepts": [
+                   {"concept_id": "c1", "name": "Barter", "item_ids": ["i1"]},
+                   {"concept_id": "c2", "name": "Money", "item_ids": ["i2"]}]}}
+
+    def test_the_ai_writes_notes_pages_the_slot_accepts_and_the_deck_lands(self):
+        from bie.brain.show_writers import run_notes_pages
+        with tempfile.TemporaryDirectory() as folder:
+            out = Path(folder)
+            summary = run_notes_pages(self.CHAPTER, COURSE, runner_of(), out)
+            self.assertEqual(summary["status"], "passed")
+            self.assertEqual(summary["pages"], 2)
+            self.assertEqual(summary["pictures"], 1)
+            page = json.loads((out / "notes" / "pages" / "pg-c1.json").read_text(encoding="utf-8"))
+            self.assertEqual(formats.problems("notes_page", page), [])
+            html = (out / "notes" / "NOTES_PAGES.html").read_text(encoding="utf-8")
+            self.assertIn("Barter kya hai?", html)
+            self.assertIn("pages/pg-c1.png", html)              # the engine's still slots in at render time
+
+    def test_the_ai_writes_game_levels_the_slot_accepts_and_the_game_lands(self):
+        from bie.brain.show_writers import run_game_levels
+        with tempfile.TemporaryDirectory() as folder:
+            out = Path(folder)
+            summary = run_game_levels(self.CHAPTER, COURSE, runner_of(), out)
+            self.assertEqual(summary["status"], "passed")
+            self.assertEqual(summary["levels"], 2)
+            self.assertEqual(summary["mechanics"], ["find_partner", "run_process"])
+            level = json.loads((out / "game" / "levels" / "lv-process.json").read_text(encoding="utf-8"))
+            self.assertEqual(formats.problems("game_level", level), [])
+            html = (out / "game" / "GAME.html").read_text(encoding="utf-8")
+            self.assertIn("__bot", html)
+            self.assertIn("Sahi saathi se milao.", html)
+
+    def test_a_wrong_write_is_sent_back_with_the_slot_problems(self):
+        from bie.brain.show_writers import check_levels, check_pages
+        bad = {"pages": [{"schema": "bie.notes-page/1", "page_id": "p", "ask": "what", "question": "q",
+                          "essence": "e", "answer": "a", "item_ids": ["nahi"],
+                          "visual": {"kind": "flow", "steps": [{"label": "x"}, {"label": "y"}]}}]}
+        problems = check_pages(bad, self.CHAPTER)
+        self.assertTrue(any("item 'nahi' is not in the chapter" in p for p in problems))
+        self.assertTrue(any("has no page" in p for p in problems))
+        problems = check_levels({"levels": []}, self.CHAPTER)
+        self.assertIn("at least 2 levels are needed", problems)
