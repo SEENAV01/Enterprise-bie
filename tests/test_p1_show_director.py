@@ -149,16 +149,16 @@ class VmJobs(unittest.TestCase):
     def test_the_vm_takes_the_new_sections_and_the_with_show_chain(self):
         sys.path.insert(0, str(ROOT / "tools"))
         import codex_vm
-        job = codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "t", "section": "showplan",
+        job = codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "p1-show-t", "section": "showplan",
                                  "from_run": "https://raw.example/runs/x", "maker": "codex", "reviewer": "google",
                                  "max_inr": 50, "workers": 2, "max_rounds": 4})
         self.assertIn("--section", codex_vm.argv(job, Path("/tmp/o")))
-        chain = codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "t2", "section": "chain", "source": "https://x/b.pdf",
+        chain = codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "p1-chain-t", "section": "chain", "source": "https://x/b.pdf",
                                    "maker": "codex", "reviewer": "google", "max_inr": 50, "workers": 2,
                                    "max_rounds": 4, "with_show": True})
         self.assertIn("--with-show", codex_vm.argv(chain, Path("/tmp/o")))
         with self.assertRaises(codex_vm.JobError):
-            codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "t3", "section": "showplan",
+            codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "p1-bad-t", "section": "showplan",
                                "maker": "codex", "reviewer": "google", "max_inr": 50, "workers": 2, "max_rounds": 4})
 
 
