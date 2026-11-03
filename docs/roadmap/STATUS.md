@@ -55,7 +55,7 @@ a plan into the engine's show-spec or refuses naming every wrong step and field 
 agreement's: cue words must exist, saancha parameters must fit the B1 manifest, texts ≥ 36 px after the camera
 (CV-17), nothing in the subtitle strip, no texts covering each other a second or more (a text behind an opaque
 panel counts as hidden, as on the drawn frame), no 2 s of text alone, every narration line in exactly one scene.
-The Money v2 gold plan is now written in this language (`build_plan`, 20 scenes, ~800 steps, pure JSON, round-trips)
+The Money v2 gold plan is now written in this language (`build_plan`, 20 scenes, 527 steps, pure JSON, round-trips)
 and passes every check clean — getting it clean fixed real look bugs the earlier frame audit saw: 19 texts raised to
 the 36 px floor, the roadmap card and map pin labels unblocked, scenes E and P no longer open on an empty stage.
 `tools/gold_money_v2.py` writes `plans/v2_gold.plan.json` beside the spec. IMPLEMENTED (the director writing plans
