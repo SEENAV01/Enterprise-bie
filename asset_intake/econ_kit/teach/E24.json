@@ -1,0 +1,89 @@
+{
+  "id": "E24",
+  "topic": "Base effect: equal rises in a price index give a falling inflation rate",
+  "book_understanding": {
+    "concepts": [
+      {"name": "base year index = 100", "type": "definition", "t_start": 3.7, "t_end": 18.2, "prereq_recalled": "price index (earlier videos): base year value is set to 100"},
+      {"name": "point-to-point measurement", "type": "process", "t_start": 25.5, "t_end": 63.2, "prereq_recalled": "base year index = 100"},
+      {"name": "index vs inflation reference year", "type": "comparison", "t_start": 63.2, "t_end": 79.5, "prereq_recalled": "price index is worked out against the base year"},
+      {"name": "inflation rate formula", "type": "formula", "t_start": 74.1, "t_end": 96.4, "prereq_recalled": "inflation is measured against the previous year"},
+      {"name": "base effect", "type": "cause_effect", "t_start": 96.4, "t_end": 128.8, "prereq_recalled": "inflation rate formula with the previous year as the divisor"}
+    ],
+    "teaching_order": "A textbook defines base effect first and then gives an example. Here the term is named only after the numbers have already shown the effect: base year = 100, cut to one month, index vs inflation reference years, the formula, equal rises giving a falling %, and only then the name. The puzzle comes before the label.",
+    "breakdown_rule": "Strip the data to one row (January) and add one reference idea at a time until the effect appears in the numbers."
+  },
+  "narration": {
+    "opening": {"move": "agenda", "what": "Names base effect as the topic and moves straight into recalling that a base year index is 100, while a table column builds."},
+    "moves": [
+      {"t": 0, "move": "agenda", "concept": "base year index = 100", "what": "Today: base effect."},
+      {"t": 3.7, "move": "recall_previous", "concept": "base year index = 100", "what": "Already studied: any base year's price index is taken as 100."},
+      {"t": 11.8, "move": "data_fact", "concept": "base year index = 100", "what": "For CPI combined the base year is 2012."},
+      {"t": 18.2, "move": "signpost", "concept": "base year index = 100", "what": "The example will compare 2013, 2014 and 2015."},
+      {"t": 25.5, "move": "recall_previous", "concept": "point-to-point measurement", "what": "Recalls that a price index is measured point to point."},
+      {"t": 31.1, "move": "yaani_unpack", "concept": "point-to-point measurement", "what": "Iska matlab: the same month of the base year is used for the month being calculated."},
+      {"t": 39.5, "move": "cause_chain", "concept": "point-to-point measurement", "what": "Because some items in the basket are seasonal, months must be matched."},
+      {"t": 48.1, "move": "example_numbers", "concept": "point-to-point measurement", "what": "Only January data, and openly hypothetical, to keep the calculation simple and keep focus on base effect."},
+      {"t": 63.2, "move": "contrast", "concept": "index vs inflation reference year", "what": "Price index is against the base year, but inflation rate is against the previous year."},
+      {"t": 74.1, "move": "define_term", "concept": "inflation rate formula", "what": "Reads the formula as a sentence: this year minus last year, divided by last year, times 100."},
+      {"t": 96.4, "move": "contrast", "concept": "base effect", "what": "Even though the index rises by the same 10 every year, lekin the inflation rate keeps falling."},
+      {"t": 108.7, "move": "conclusion_line", "concept": "base effect", "what": "Iska matlab: even with 2012 as base, last year's price level strongly drives the inflation rate."},
+      {"t": 120.2, "move": "define_term", "concept": "base effect", "what": "This is called base effect."}
+    ],
+    "story_before_term": [
+      {"term": "base effect", "t_story": 96.4, "t_term": 121.0}
+    ],
+    "examples": [
+      {"t": 11.8, "kind": "real_case", "what": "CPI combined uses 2012 as its base year.", "carries": "what a base year is"},
+      {"t": 48.1, "kind": "numbers", "what": "January index 100 (2012), 110, 120, 130 in the next three years; inflation comes out 10%, 9%, 8.3% (the % values are on screen only).", "carries": "base effect"}
+    ],
+    "closing": {"move": "define_term", "what": "Names base effect as the promo slides over and the table disappears; no recap, no real-world use."},
+    "density": "About 4 new ideas (base year = 100, point to point, inflation vs previous year, base effect) in about 120 s, about 2 per minute. Slow in the first minute (a static table), rushed at the end (the punchline numbers are never read)."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 2.0, "shown": "empty blue column with a 'Base Year' header", "said_gist": "today we will understand base effect (base year is named about 5 s later)", "naming_word": "", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 2, "t_shown": 4.8, "shown": "twelve month names, each reading 100, in the base-year column", "said_gist": "as we already studied... (the 'index = 100' rule is said at 8-11 s)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 3, "t_shown": 20.2, "shown": "[2012] stamped on the base column; empty 2013 column slides in", "said_gist": "in this example we take 2013, 2014...", "naming_word": "2013", "lead": "together", "relation": "names_the_term"},
+    {"tile": 4, "t_shown": 23.2, "shown": "empty 2015 column slides in", "said_gist": "...and 2015, whose price index we will compare", "naming_word": "2015", "lead": "together", "relation": "names_the_term"},
+    {"tile": 5, "t_shown": 27.8, "shown": "cream band along the January row ending in a 'Price Index' label", "said_gist": "the price index value is measured point to point", "naming_word": "price index", "lead": "together", "relation": "names_the_term"},
+    {"tile": 6, "t_shown": 31.4, "shown": "month rows shift slightly; no new meaning", "said_gist": "it means: the same month of the base year...", "naming_word": "", "lead": "unrelated", "relation": "decoration"},
+    {"tile": 7, "t_shown": 51.2, "shown": "the other eleven month rows fade out, leaving January; 110 and 120 fill in", "said_gist": "for now only the January data of all these years", "naming_word": "January", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 8, "t_shown": 68.4, "shown": "bracket note '[Relative on Base Year]' after the Price Index label", "said_gist": "any year's index is worked out with respect to the base year", "naming_word": "base", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 9, "t_shown": 71.4, "shown": "empty cream 'Inflation %' row slides in", "said_gist": "when we want to calculate the rate of inflation", "naming_word": "inflation", "lead": "together", "relation": "names_the_term"},
+    {"tile": 10, "t_shown": 74.0, "shown": "note '[Relative to Previous Year Index Value]' after the Inflation % label", "said_gist": "we calculate it... ('previous year' said about 1.5 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 11, "t_shown": 77.0, "shown": "pink formula card pops out of the Inflation % row", "said_gist": "with respect to the previous year, and you can see its formula here (then read out for about 17 s)", "naming_word": "formula", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 12, "t_shown": 105.8, "shown": "10% appears under 2013 with an arc from the 100 cell to the 110 cell", "said_gist": "the index rose by 10 each year, but the inflation rate, you can see...", "naming_word": "inflation", "lead": "together", "relation": "adds_new_info"},
+    {"tile": 13, "t_shown": 109.4, "shown": "9% and 8.3% appear; arc hops from the 120 cell to the 130 cell", "said_gist": "...keeps falling; it means... (the % values are never spoken)", "naming_word": "घटते", "lead": "voice_first", "relation": "adds_new_info"},
+    {"tile": 14, "t_shown": 119.4, "shown": "app promo phone slides up over the table", "said_gist": "...strongly impact our rate of inflation", "naming_word": "", "lead": "unrelated", "relation": "navigation"},
+    {"tile": 15, "t_shown": 120.6, "shown": "table area turns blank behind the promo", "said_gist": "and this is called base effect", "naming_word": "base effect", "lead": "unrelated", "relation": "navigation"}
+  ],
+  "talmel_summary": "Labels (column years, Price Index, Inflation %) appear right on their spoken words, and the bracket notes and formula card repeat the speech as English text. The meaning-carrying numbers (10%, 9%, 8.3%) are on screen only while the voice says just 'keeps falling', and the key term is then named over a promo with the table gone, so speech and picture never meet at the punchline.",
+  "voice": {"notes": "About 199 words per minute, flat explaining tone. 'Base year', 'previous year' and 'base effect' get the stress. Few numbers are read aloud ('100', '2012', 'plus 10'); the computed percentages never are. The formula is read as one long sentence. The only short pauses (about 0.5 s) come around the year list at 17-20 s."},
+  "game_ideas": [
+    {"from_t": 96.4, "mechanic": "run_a_process", "player_does": "Sets next January's price index each year by choosing how many points to add.", "process_happens": "A bar for last year's index (the divisor) grows under a smaller bar for the rise; the inflation % is worked out live and written under the year, the way the video's table does.", "win": "Meet missions such as 'keep inflation at exactly 10% for three years' (needs a bigger rise every year) or 'make inflation fall while the index still rises'.", "lose": "Adding a flat 10 points each year when 10% inflation was asked gives 10%, 9%, 8.3%, and the screen labels it: same rise, bigger base, smaller %.", "concept": "base effect"},
+    {"from_t": 63.2, "mechanic": "place_correctly", "player_does": "Drags 'base year' and 'previous year' tags onto the Price Index row and the Inflation % row, then picks which cell is the divisor for each year's inflation.", "process_happens": "A correct pick draws the arc from the right cell, as in the video; a wrong pick computes the % against the base year and shows a much larger number.", "win": "All tags and divisors placed correctly.", "lose": "Using the base year as divisor gives 30% for 2015 instead of 8.3%, showing why the reference year matters.", "concept": "index vs inflation reference year"}
+  ],
+  "notes_questions": [
+    {"q": "Price index kis saal ke respect mein nikalta hai, aur inflation rate kis saal ke respect mein?", "answer_shape": "comparison", "from_t": 63.2},
+    {"q": "Index 100 se 110, 120, 130 hua: har saal inflation % kitna bana? Table banaiye.", "answer_shape": "table", "from_t": 96.4},
+    {"q": "Index har saal barabar badhe, phir bhi inflation % kyun ghatta hai? (base effect)", "answer_shape": "flow", "from_t": 108.7},
+    {"q": "Point-to-point measure mein base year ka wahi mahina kyun lete hain?", "answer_shape": "flow", "from_t": 25.5},
+    {"q": "CPI combined ka base year kaun sa hai?", "answer_shape": "number", "from_t": 11.8}
+  ],
+  "checks_learned": [
+    "Numbers that carry the punchline (here 10%, 9%, 8.3%) must be spoken or pointed at by the voice, not only appear on screen.",
+    "The term being defined must be named while its diagram is still on screen; no promo or end card may start before the term and its conclusion line are finished.",
+    "When a formula is read aloud, highlight each table cell as it is used and substitute real numbers at least once.",
+    "Flag any table that stays unchanged for more than about 20 s while the narration moves on.",
+    "In a cause-effect concept the cause must be said in one plain line (the same rise on a bigger base gives a smaller %), not left for the viewer to work out."
+  ],
+  "teaching_best": [
+    {"t": 48, "why": "Says openly that the data is hypothetical and cut to one month only to keep the calculation simple, which tells the learner what to ignore."},
+    {"t": 63, "why": "The contrast 'index against the base year, inflation against the previous year' sets up the whole effect in two short notes."},
+    {"t": 96, "why": "Surprise framing: the index rises by the same 10 every year, yet inflation falls; the term then names a puzzle the learner has already felt."}
+  ],
+  "teaching_weak": [
+    {"t": 79, "why": "The formula is read as words for about 17 s with no substitution of the table's numbers."},
+    {"t": 105, "why": "10%, 9% and 8.3% are never spoken, and the reason (a bigger divisor each year) is never said in plain words."},
+    {"t": 120, "why": "Base effect is named while the promo covers the table; no recap and no real-world use of the idea."}
+  ]
+}

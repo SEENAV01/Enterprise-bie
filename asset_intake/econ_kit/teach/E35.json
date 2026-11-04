@@ -1,0 +1,125 @@
+{
+  "id": "E35",
+  "topic": "Economic growth vs economic development: a definition broken and repaired twice with a made-up country, then the history and the growth-before-development rule",
+  "book_understanding": {
+    "concepts": [
+      {"name": "national income measures (GDP, NDP, GNP, NNP)", "type": "classification", "t_start": 0, "t_end": 16.6, "prereq_recalled": "national income lessons"},
+      {"name": "first guess: growth = rising GDP", "type": "definition", "t_start": 16.6, "t_end": 32.5, "prereq_recalled": "GDP graph over years"},
+      {"name": "counter-example: GDP up, population up faster, per capita income down", "type": "numbers", "t_start": 32.5, "t_end": 101.8, "prereq_recalled": "per capita income = income divided by population (used, not explained)"},
+      {"name": "growth = sustained rise in per capita income", "type": "definition", "t_start": 101.8, "t_end": 136.0, "prereq_recalled": "the per capita counter-example"},
+      {"name": "growth without benefit: poverty up, literacy down", "type": "numbers", "t_start": 136.0, "t_end": 180.2, "prereq_recalled": "growth as rising per capita income"},
+      {"name": "why: income not spent on health and education", "type": "cause_effect", "t_start": 180.2, "t_end": 206.2, "prereq_recalled": "growth raises national income"},
+      {"name": "economic development = quality of life", "type": "definition", "t_start": 206.2, "t_end": 210.5, "prereq_recalled": "quality of life of people"},
+      {"name": "history: interchangeable terms, trickle-down theory, its failure, the 1970s distinction", "type": "timeline", "t_start": 210.5, "t_end": 271.2, "prereq_recalled": "growth vs development just taught"},
+      {"name": "growth is necessary but not sufficient for development", "type": "comparison", "t_start": 271.2, "t_end": 306.0, "prereq_recalled": "development needs money; money comes from growth"},
+      {"name": "growth has measures; how to measure development is open", "type": "comparison", "t_start": 306.0, "t_end": 326.7, "prereq_recalled": "GDP, GNP, NNP, NDP, per capita income"}
+    ],
+    "teaching_order": "A textbook gives the two definitions side by side and a table of differences. Here the video offers the common definition (rising GDP), breaks it with a made-up country whose population outruns GDP, repairs it (per capita income), breaks it again with a second made-up fact (poverty rises, literacy falls), asks 'why?', answers by following where the money was spent, and only then names development. The history (trickle-down and its failure) comes after the concept, as the story of how economists learned the same lesson; a cliff-hanger on measuring development closes it.",
+    "breakdown_rule": "Each candidate definition is tested on a small made-up country; when its numbers break the definition, the fix becomes the next teachable piece."
+  },
+  "narration": {
+    "opening": {"move": "recall_previous", "what": "Every country has a national income measured as GDP, NDP, GNP or NNP, and GDP is the one used to compare countries; flags sit over an empty national-income band."},
+    "moves": [
+      {"t": 0, "move": "recall_previous", "concept": "national income measures (GDP, NDP, GNP, NNP)", "what": "Recalls the four measures and that GDP is used to compare economies."},
+      {"t": 16.6, "move": "what_if", "concept": "first guess: growth = rising GDP", "what": "If we draw a country's GDP graph and see a stretch where it keeps rising, some economists call it a period of economic growth."},
+      {"t": 28.9, "move": "question_to_viewer", "concept": "first guess: growth = rising GDP", "what": "But is it right to define growth this way?"},
+      {"t": 32.5, "move": "signpost", "concept": "counter-example: GDP up, population up faster, per capita income down", "what": "Chaliye, let us see with an example."},
+      {"t": 34.6, "move": "example_numbers", "concept": "counter-example: GDP up, population up faster, per capita income down", "what": "GDP goes from 10 lakh to 50 lakh, but population goes from 1,000 to 10,000."},
+      {"t": 56.0, "move": "example_numbers", "concept": "counter-example: GDP up, population up faster, per capita income down", "what": "So per capita income falls from 1,000 to 500."},
+      {"t": 71.3, "move": "cause_chain", "concept": "counter-example: GDP up, population up faster, per capita income down", "what": "GDP growth was positive, lekin population grew faster than GDP, so per capita income fell."},
+      {"t": 84.1, "move": "conclusion_line", "concept": "counter-example: GDP up, population up faster, per capita income down", "what": "Most economists say such a period cannot be called economic growth at all."},
+      {"t": 95.9, "move": "conclusion_line", "concept": "growth = sustained rise in per capita income", "what": "So one thing is clear: the graph should be drawn for per capita income."},
+      {"t": 105.8, "move": "define_term", "concept": "growth = sustained rise in per capita income", "what": "On a per capita graph, a stretch where per capita income keeps rising is a period of economic growth, and economists agree."},
+      {"t": 126.5, "move": "example_numbers", "concept": "growth = sustained rise in per capita income", "what": "Gives the period made-up years: it starts in 2020 and peaks in 2024."},
+      {"t": 136.0, "move": "what_if", "concept": "growth without benefit: poverty up, literacy down", "what": "'If I share more information': people below the poverty line went from 10% to 15%, and literacy from 45% to 30%."},
+      {"t": 161.2, "move": "question_to_viewer", "concept": "growth without benefit: poverty up, literacy down", "what": "Did this growth benefit all the people? No. Then the big question: how can a country grow and its people not benefit?"},
+      {"t": 182.0, "move": "cause_chain", "concept": "why: income not spent on health and education", "what": "Growth raises national income, but if none of it goes to healthcare or education and all goes to defence, people's quality of life does not improve."},
+      {"t": 206.2, "move": "define_term", "concept": "economic development = quality of life", "what": "Economists call this quality of life economic development (named after the problem was felt)."},
+      {"t": 210.5, "move": "story", "concept": "history: interchangeable terms, trickle-down theory, its failure, the 1970s distinction", "what": "Before 1960 the two terms were used as one; after the 1960s data showed countries, especially in the Gulf, with fast growth but low quality of life."},
+      {"t": 236.1, "move": "define_term", "concept": "history: interchangeable terms, trickle-down theory, its failure, the 1970s distinction", "what": "The popular trickle-down theory said growth would lift quality of life by itself, so focus only on growth."},
+      {"t": 256.1, "move": "contrast", "concept": "history: interchangeable terms, trickle-down theory, its failure, the 1970s distinction", "what": "But in the 1960s the results showed the theory failing."},
+      {"t": 261.7, "move": "data_fact", "concept": "history: interchangeable terms, trickle-down theory, its failure, the 1970s distinction", "what": "In the 1970s a Pakistani economist, Mahbub ul Haq, first spelled out the difference between growth and development."},
+      {"t": 271.2, "move": "misconception", "concept": "growth is necessary but not sufficient for development", "what": "'But don't forget': guards against swinging too far; a country must first achieve growth to reach development."},
+      {"t": 280.9, "move": "cause_chain", "concept": "growth is necessary but not sufficient for development", "what": "Development (better quality of life) needs money, and money comes from growth."},
+      {"t": 291.9, "move": "conclusion_line", "concept": "growth is necessary but not sufficient for development", "what": "Growth is needed for development, but growth does not bring development automatically."},
+      {"t": 306.0, "move": "question_to_viewer", "concept": "growth has measures; how to measure development is open", "what": "Growth can be measured many ways, but how do we measure quality of life? A hard question economists took 10-15 years to answer."},
+      {"t": 323.9, "move": "signpost", "concept": "growth has measures; how to measure development is open", "what": "You will get the answer in the next video (cliff-hanger)."}
+    ],
+    "story_before_term": [
+      {"term": "economic growth (corrected definition)", "t_story": 34.6, "t_term": 121.0},
+      {"term": "economic development", "t_story": 136.0, "t_term": 206.2}
+    ],
+    "examples": [
+      {"t": 34.6, "kind": "numbers", "what": "GDP 10 lakh to 50 lakh while population goes 1,000 to 10,000, so per capita income falls 1,000 to 500.", "carries": "growth must be measured per head, not by GDP alone"},
+      {"t": 139.7, "kind": "numbers", "what": "From 2020 to 2024 (made-up): below poverty line 10% to 15%, literacy 45% to 30%.", "carries": "rising per capita income can coexist with worse lives"},
+      {"t": 182.0, "kind": "what_if", "what": "The growth money goes entirely to defence, none to health or education.", "carries": "why growth may not improve quality of life (development)"},
+      {"t": 220.6, "kind": "real_case", "what": "Countries, especially in the Gulf, with fast growth but low quality of life (as the video states).", "carries": "why economists separated the two terms"},
+      {"t": 236.1, "kind": "story", "what": "The trickle-down theory's promise and its failure on the evidence.", "carries": "the history of the growth-development distinction"}
+    ],
+    "closing": {"move": "question_to_viewer", "what": "Leaves an open question (how to measure quality of life) under a measuring tape with nothing to measure, and promises the answer next video."},
+    "density": "About eight key terms (national income measures, economic growth, per capita income, below poverty line, literacy rate, quality of life, economic development, trickle-down theory) in about 325 s, about 1.5 per minute. Comfortable: numbers and questions carry most of the time, so the pace suits a first look at the topic."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 2.4, "shown": "four flags over a yellow NATIONAL INCOME band with empty slots", "said_gist": "every country has a national income", "naming_word": "नेशनल", "lead": "together", "relation": "names_the_term"},
+    {"tile": 2, "t_shown": 5.0, "shown": "lines fan down from the band to GDP, NDP, GNP, NNP", "said_gist": "which can be measured in several ways (the names come 3-5 s later)", "naming_word": "तरीकों", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 3, "t_shown": 22.6, "shown": "GDP chart: dots join into a line that dips then climbs; a cream band over the climb with a note that GDP kept rising for a long time", "said_gist": "in a particular period GDP is continuously increasing", "naming_word": "लगातार", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 4, "t_shown": 29.0, "shown": "blue question with an arrow: but is it the right way to define economic growth? (title PERIOD OF ECONOMIC GROWTH already above)", "said_gist": "but is it right to define economic growth like this?", "naming_word": "economic growth", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 5, "t_shown": 52.8, "shown": "value tags 10 lakh and 50 lakh on two points; red drop lines down to 1000 Population and 10,000 Population", "said_gist": "when GDP grew to 50 lakh, population became 10,000", "naming_word": "population", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 6, "t_shown": 70.8, "shown": "grey box laid over the stretch between the two points; PER CAPITA INCOME row reads 1000 and 500", "said_gist": "per capita income had fallen to 500; so we can see that in this period... ", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 7, "t_shown": 81.4, "shown": "green 'Positive GDP Growth' and red 'Per Capita Income Decreased' tags beside the grey box", "said_gist": "because population grew faster, per capita income decreased", "naming_word": "per capita income", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 8, "t_shown": 101.0, "shown": "new empty chart with PER CAPITA INCOME on the y-axis", "said_gist": "if we stress per capita income so much, then actually... (draw the graph per capita, said 2-4 s later)", "naming_word": "per capita income", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 9, "t_shown": 121.0, "shown": "teal band over the steady climb; PERIOD OF ECONOMIC GROWTH title with 'sustained increase in per capita income'", "said_gist": "such a period will be called... (period of economic growth, about 1-2 s later)", "naming_word": "period", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 10, "t_shown": 151.2, "shown": "2020 and 2024 markers; BELOW POVERTY LINE row 10% and 15%; LITERACY RATE row label appears", "said_gist": "15% went below the poverty line; besides, in year... (literacy said 1-2 s later)", "naming_word": "", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 11, "t_shown": 163.4, "shown": "chart shrinks into a framed card; India map appears; banner 'this is just an example and not the reality'", "said_gist": "after sharing this, if I ask you... (the benefit question follows)", "naming_word": "", "lead": "picture_first", "relation": "navigation"},
+    {"tile": 12, "t_shown": 169.2, "shown": "large crowd in front of the map labelled 138 Crores; 'Benefit' arrow from the card toward them (138 crore is never spoken)", "said_gist": "did all the people of our country benefit?", "naming_word": "benefit", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 13, "t_shown": 181.0, "shown": "ECONOMIC GROWTH heading over the card (benefit arrow now crossed, big red WHY? beside it)", "said_gist": "people are not getting its benefit; let us try to understand (economic growth said 2-3 s later)", "naming_word": "", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 14, "t_shown": 189.0, "shown": "green ticked arrow drops from the card to a GOVERNMENT icon", "said_gist": "because of growth, national income will obviously rise (the voice never says 'government')", "naming_word": "national income", "lead": "together", "relation": "adds_new_info"},
+    {"tile": 15, "t_shown": 193.6, "shown": "arrows from the government to Healthcare (red cross) and Education", "said_gist": "if this income is spent neither on healthcare nor...", "naming_word": "healthcare", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 16, "t_shown": 201.2, "shown": "'QUALITY OF' starts writing under the crowd (Defence with three green ticks already in)", "said_gist": "then obviously the people's... (quality of life said about 2 s later)", "naming_word": "", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 17, "t_shown": 207.4, "shown": "'= ECONOMIC DEVELOPMENT' after QUALITY OF LIFE", "said_gist": "quality of life is what economists call economic development", "naming_word": "economic", "lead": "together", "relation": "names_the_term"},
+    {"tile": 18, "t_shown": 212.6, "shown": "dotted timeline with a 1960 tick; arrow back to a note that the two terms were used interchangeably", "said_gist": "though before 1960 economists believed... (interchangeably said about 5 s later)", "naming_word": "1960", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 19, "t_shown": 239.4, "shown": "TRICKLE DOWN THEORY heading under the purple note (presenter and small A/B/C table already right of 1960)", "said_gist": "before the 1960s a theory was quite popular; its name was...", "naming_word": "theory", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 20, "t_shown": 242.8, "shown": "line down to: with the growth of economy, quality of life will automatically increase", "said_gist": "this theory said that if any country... (the claim is spoken over the next 6 s)", "naming_word": "theory", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 21, "t_shown": 261.6, "shown": "curved arrow from the theory to the high-growth/low-quality table cut by a red cross; presenter lights green; a real photo of the economist with a Pakistan flag", "said_gist": "the theory was seen failing; then a Pakistani... (his name 3 s later)", "naming_word": "पाकिस्तानी", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 22, "t_shown": 271.8, "shown": "India map with legs at the foot of a two-step staircase: low step ECONOMIC GROWTH, high step ECONOMIC DEVELOPMENT", "said_gist": "...articulated, yaani defined it; but don't forget... (growth first, then development, follows)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 23, "t_shown": 307.4, "shown": "two columns; a measuring tape over ECONOMIC GROWTH", "said_gist": "you understood the difference, but one thing is still missing (measure said about 3 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 24, "t_shown": 317.0, "shown": "under development: [QUALITY OF LIFE] and a big question mark under its tape; growth lists GDP, GNP, NNP, NDP, per capita income", "said_gist": "how will we measure quality of life? A tough question for economists", "naming_word": "quality of life", "lead": "together", "relation": "shows_the_step"}
+  ],
+  "talmel_summary": "The picture usually runs 1-5 s ahead of the voice: labels, notes and a new axis appear before they are spoken. That works for the counter-examples, because each number sits on the chart where the eye can check it before the voice concludes. The strongest fits show the step: drop lines from GDP points to population, the axis swap to per capita, the crossed benefit arrow with spending branches, the staircase and the empty measuring tape. Weak: notes that copy the speech (interchangeable, trickle-down claim), and information only on screen (government as spender, 138 crore).",
+  "voice": {"notes": "About 190 words per minute, friendly and quick. Uses first-person framing to bring in new facts ('agar main aapse kuch aur information share karoon'), then turns them into questions to the viewer and answers them ('to iska answer hoga: nahi'). Large numbers are read in Indian units (10 lakh, 50 lakh); percentages plainly. The 'but don't forget' line near the end is said more firmly than the rest. No long pauses."},
+  "game_ideas": [
+    {"from_t": 34.6, "mechanic": "run_a_process", "player_does": "Runs a small country year by year with two sliders: GDP growth and population growth.", "process_happens": "Two lines draw: GDP and per capita income; a stretch is labelled PERIOD OF ECONOMIC GROWTH only while per capita income keeps rising.", "win": "Produce five years of sustained per capita growth.", "lose": "Raising GDP while population grows faster makes per capita income fall; the growth title turns pink and gets a red cross, as in the video.", "concept": "growth = sustained rise in per capita income"},
+    {"from_t": 182.0, "mechanic": "allocate", "player_does": "As the government, splits each year's extra national income among healthcare, education and defence.", "process_happens": "The crowd's below-poverty-line and literacy meters respond; the benefit arrow from the growth card reaches the crowd only when health and education get enough.", "win": "Growth years that also show poverty falling and literacy rising: the staircase figure steps up to DEVELOPMENT.", "lose": "Putting it all into defence keeps growth on but crosses the benefit arrow and worsens the meters, showing growth without development.", "concept": "growth vs development (quality of life)"},
+    {"from_t": 210.5, "mechanic": "build_timeline", "player_does": "Orders cards: terms used as one before 1960, trickle-down theory popular, 1960s data of high growth with low quality of life, theory fails, 1970s distinction, the open question of measuring development.", "process_happens": "Each placed card adds its piece to the timeline picture (note, theory line, crossed arrow, staircase, empty tape).", "win": "Timeline complete with the empty measuring tape at the end.", "lose": "Putting the 1970s distinction before the failure shows nothing yet to disprove, with a nudge to place the evidence first.", "concept": "history of the growth-development distinction"}
+  ],
+  "notes_questions": [
+    {"q": "Sirf GDP badhne ko economic growth kyon nahi keh sakte? Video ke numbers se samjhaiye.", "answer_shape": "number", "from_t": 34.6},
+    {"q": "GDP 50 lakh aur population 10,000 ho to per capita income kitni hogi?", "answer_shape": "number", "from_t": 56.0},
+    {"q": "Economic growth ki sahi paribhasha kya hai? Graph par dikhaiye.", "answer_shape": "picture", "from_t": 105.8},
+    {"q": "Economic growth aur economic development mein kya fark hai?", "answer_shape": "comparison", "from_t": 206.2},
+    {"q": "Trickle down theory kya kehti thi aur kyon fail hui?", "answer_shape": "flow", "from_t": 236.1},
+    {"q": "Kya growth ke bina development ho sakta hai? Kya growth hone par development apne aap ho jata hai?", "answer_shape": "picture", "from_t": 271.2},
+    {"q": "Growth ko kin measures se naapte hain, aur development ko naapne mein kya mushkil hai?", "answer_shape": "table", "from_t": 306.0}
+  ],
+  "checks_learned": [
+    "Made-up country figures must carry an on-screen 'example, not reality' note while they are shown (E35 does this; enforce it everywhere).",
+    "Every number shown on screen (138 crore) should be spoken, or dropped.",
+    "An actor the picture adds (the government as spender) must also be named by the voice.",
+    "When the voice rejects a definition, the screen must visibly strike it (the red cross on the growth title worked; enforce it).",
+    "A derived value (per capita = GDP / population) should show its division step on screen, not only the results.",
+    "Notes that repeat the narration should not appear more than about 3 s before the voice reaches them.",
+    "A cliff-hanger close must still recap what was settled before opening the next question."
+  ],
+  "teaching_best": [
+    {"t": 34, "why": "The common definition is broken by four small numbers drawn on the same chart: GDP up fivefold, people up tenfold, per head halved."},
+    {"t": 101, "why": "The fix is shown by swapping only the y-axis to per capita income, so the learner sees exactly what changed in the definition."},
+    {"t": 163, "why": "A benefit arrow crossed before the crowd, then a government node with health and education crossed and defence ticked, answers 'why?' by following the money."},
+    {"t": 271, "why": "The two-step staircase makes 'necessary but not sufficient' a picture, and the empty measuring tape sets up the next lesson."}
+  ],
+  "teaching_weak": [
+    {"t": 0, "why": "Flags over an empty band carry little meaning for the recall."},
+    {"t": 210, "why": "The history runs on small text notes and a tiny country table; the Gulf example is spoken but not shown."},
+    {"t": 261, "why": "A real photo and a note carry the economist; the voice gives no idea of what he proposed beyond 'the difference'."},
+    {"t": 56, "why": "Per capita income values appear without showing how they were worked out (division by population is never stated)."}
+  ]
+}

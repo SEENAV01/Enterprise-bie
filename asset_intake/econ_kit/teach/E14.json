@@ -1,0 +1,96 @@
+{
+  "id": "E14",
+  "topic": "Growth, slower growth, contraction, recession and depression read off one quarterly GDP curve",
+  "book_understanding": {
+    "concepts": [
+      {"name": "quarterly GDP chart", "type": "definition", "t_start": 8.7, "t_end": 29.1, "prereq_recalled": ""},
+      {"name": "economic growth (faster and slower)", "type": "comparison", "t_start": 29.1, "t_end": 69.4, "prereq_recalled": "a quarter is three months; four quarters make a year"},
+      {"name": "contraction", "type": "definition", "t_start": 69.4, "t_end": 86.3, "prereq_recalled": "growth means GDP rising from one quarter to the next"},
+      {"name": "recession", "type": "definition", "t_start": 86.3, "t_end": 97.6, "prereq_recalled": "contraction (one falling quarter)"},
+      {"name": "depression", "type": "definition", "t_start": 97.6, "t_end": 105.4, "prereq_recalled": "recession (two falling quarters in a row)"}
+    ],
+    "teaching_order": "A textbook lists the definitions one by one. Here one hypothetical curve is walked from left to right in time, so the terms come in the order an economy would live them: growth, faster growth, slower growth, contraction, recession, depression. Each later term is built out of the earlier ones (recession = contractions in a row; depression = a long recession), so the time order is also the prerequisite order. The spoken agenda lists the terms in a different order from the one taught.",
+    "breakdown_rule": "One quarter-to-quarter step of the curve is one teachable piece; a new term is introduced only when a longer run of steps forms a new pattern."
+  },
+  "narration": {
+    "opening": {"move": "agenda", "what": "Promises to explain with a chart the difference between recession, depression, contraction and growth; the curve draws itself while the terms are listed."},
+    "moves": [
+      {"t": 0, "move": "agenda", "concept": "quarterly GDP chart", "what": "Lists the four terms and says a chart will show the difference."},
+      {"t": 8.7, "move": "define_term", "concept": "quarterly GDP chart", "what": "Reads the axes: GDP value up the side, quarters along the bottom."},
+      {"t": 16.4, "move": "yaani_unpack", "concept": "quarterly GDP chart", "what": "A quarter equals three months, so a year has four quarters."},
+      {"t": 22.6, "move": "signpost", "concept": "quarterly GDP chart", "what": "Says the graph is hypothetical and covers about two and a quarter years."},
+      {"t": 29.1, "move": "yaani_unpack", "concept": "economic growth (faster and slower)", "what": "Q1 to Q2 GDP rises, yaani the economy is growing."},
+      {"t": 46.8, "move": "example_numbers", "concept": "economic growth (faster and slower)", "what": "Faster growth made concrete: if it grew at 6% before, now it grows at 7 or 8%."},
+      {"t": 60.1, "move": "contrast", "concept": "economic growth (faster and slower)", "what": "GDP still rises, lekin at a slower rate; this is named 'growth at slower rate'."},
+      {"t": 69.4, "move": "define_term", "concept": "contraction", "what": "When GDP declines in a quarter it is called contraction (the lead-in wording says the 'growth rate' is declining)."},
+      {"t": 86.3, "move": "define_term", "concept": "recession", "what": "Contraction in two quarters in a row is called recession."},
+      {"t": 92.8, "move": "yaani_unpack", "concept": "recession", "what": "Restates the rule in English: a continuous period of contraction over two quarters."},
+      {"t": 97.6, "move": "what_if", "concept": "depression", "what": "If this recession goes on for a long time, it is called depression."},
+      {"t": 101.7, "move": "yaani_unpack", "concept": "depression", "what": "Restates in English: a longer period of continuous recession."},
+      {"t": 105.4, "move": "recap", "concept": "depression", "what": "Lists the four terms covered."}
+    ],
+    "story_before_term": [
+      {"term": "growth at slower rate", "t_story": 56.6, "t_term": 65.3},
+      {"term": "contraction", "t_story": 69.4, "t_term": 80.2},
+      {"term": "recession", "t_story": 77.1, "t_term": 91.3},
+      {"term": "depression", "t_story": 97.4, "t_term": 101.0}
+    ],
+    "examples": [
+      {"t": 22.6, "kind": "numbers", "what": "One made-up curve of nine quarters that rises to a peak and then falls.", "carries": "all five ideas on one picture"},
+      {"t": 50.1, "kind": "numbers", "what": "Growth going from 6% to 7 or 8%.", "carries": "faster growth"},
+      {"t": 97.6, "kind": "what_if", "what": "If the recession runs on for long...", "carries": "depression"}
+    ],
+    "closing": {"move": "recap", "what": "One-line list of the terms covered, spoken over the end card; no real-world case."},
+    "density": "Six terms in about 105 s (about 3.5 per minute), but they are cumulative and sit on one chart, so the pace felt right for the level; the first 29 s are slow axis setup."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 2.0, "shown": "black curve drawn through ringed points: rises, peaks, falls", "said_gist": "today we will understand with the help of a chart", "naming_word": "चार्ट", "lead": "together", "relation": "adds_new_info"},
+    {"tile": 2, "t_shown": 4.8, "shown": "last falling piece of the curve finishes drawing", "said_gist": "lists recession, depression...", "naming_word": "", "lead": "unrelated", "relation": "decoration"},
+    {"tile": 3, "t_shown": 6.6, "shown": "quarter labels Y1 Q1 to Y3 Q1 and red dotted drop lines under each point", "said_gist": "contraction and economic growth, what is the difference (quarters are explained about 8 s later)", "naming_word": "", "lead": "picture_first", "relation": "adds_new_info"},
+    {"tile": 4, "t_shown": 18.6, "shown": "quarter labels tinted by year (Y1 blue first)", "said_gist": "a quarter is three months, so each year has four", "naming_word": "quarter", "lead": "voice_first", "relation": "shows_the_step"},
+    {"tile": 5, "t_shown": 34.2, "shown": "grey tilted frame on the Y1 Q1 to Q2 piece with a green GROWING label", "said_gist": "look at Q1 and Q2 GDP; the graph helps us see... (GROWING lands about 2 s before 'grow')", "naming_word": "quarter 2", "lead": "voice_first", "relation": "shows_the_step"},
+    {"tile": 6, "t_shown": 42.8, "shown": "frame steps to the Q2 to Q3 piece, still GROWING", "said_gist": "now look at Q2 to Q3 data", "naming_word": "quarter 3", "lead": "voice_first", "relation": "shows_the_step"},
+    {"tile": 7, "t_shown": 57.0, "shown": "frame steps to the Q3 to Q4 piece, GROWING", "said_gist": "growing at 7 or 8%; the next quarter also...", "naming_word": "quarter", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 8, "t_shown": 71.8, "shown": "frame moves onto the peak piece Y1 Q4 to Y2 Q1, no label yet", "said_gist": "between Y1 Q4 and Y2 Q1...", "naming_word": "quarter 4", "lead": "voice_first", "relation": "shows_the_step"},
+    {"tile": 9, "t_shown": 80.8, "shown": "red DECLINE label on the frame and a CONTRACTION pointer box", "said_gist": "when GDP declines in a quarter it is called contraction", "naming_word": "contraction", "lead": "together", "relation": "names_the_term"},
+    {"tile": 10, "t_shown": 82.8, "shown": "frame removed; the CONTRACTION box stays on the first falling piece", "said_gist": "in the same way, the next quarter...", "naming_word": "", "lead": "together", "relation": "navigation"},
+    {"tile": 11, "t_shown": 85.0, "shown": "second CONTRACTION box on the next falling piece", "said_gist": "the next quarter also shows contraction", "naming_word": "contraction", "lead": "together", "relation": "names_the_term"},
+    {"tile": 12, "t_shown": 90.8, "shown": "red see-through RECESSION band laid over the two contraction pieces", "said_gist": "contraction in quarters in a row is called recession", "naming_word": "recession", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 13, "t_shown": 93.6, "shown": "pointer box with the two-quarter rule in English", "said_gist": "yaani a continuous period of contraction over two quarters", "naming_word": "quarters", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 14, "t_shown": 97.4, "shown": "red band stretches over the rest of the falling tail", "said_gist": "and if this recession goes on long...", "naming_word": "लंबे", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 15, "t_shown": 99.4, "shown": "DEPRESSION label on the long band plus a box: a longer period of continuous recession (the canvas card missed this; it is shown)", "said_gist": "if it lasts long it is called... ('depression' said about 1.5 s later)", "naming_word": "", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 16, "t_shown": 109.6, "shown": "end card (next video / playlist) replaces the chart", "said_gist": "recap: we understood the difference between growth, contraction, depression and recession", "naming_word": "difference", "lead": "unrelated", "relation": "navigation"},
+    {"tile": 17, "t_shown": 113.2, "shown": "loading bar animates on the end card", "said_gist": "channel promo", "naming_word": "", "lead": "unrelated", "relation": "navigation"}
+  ],
+  "talmel_summary": "Voice and picture walk the curve together: the frame steps one quarter at a time about 1-2 s after the voice points to that quarter, and each term label lands within about 1 s of the spoken term. The shaded band is the best fit: 'two in a row' and 'for a long time' become visible lengths on the chart. Weak: the English rule boxes only repeat the speech, and the recap is spoken over the end card instead of the finished chart.",
+  "voice": {"notes": "About 206 words per minute, continuous. Steady explaining tone; each rule is said twice, first in Hinglish and then again in English after 'yaani' (for example, two quarters ke continuous period of contraction). Percentages are read plainly ('6%', '7 ya 8%'); quarters are read as 'year 1 ke quarter 4'. No stress or pause marks the moment a new term is named."},
+  "game_ideas": [
+    {"from_t": 34.2, "mechanic": "run_a_process", "player_does": "Drags each next quarter's GDP point up or down on the chart, quarter by quarter.", "process_happens": "The step frame lands on the new piece and labels it (growing faster, growing slower, contraction); two falling quarters in a row shade a red RECESSION band by themselves; a long red run turns into DEPRESSION.", "win": "Draw the pattern a mission asks for, for example 'slow the economy down without a contraction' or 'a recession that recovers before it becomes a depression'.", "lose": "Pulling a point below the last one when slower growth was asked shows a CONTRACTION label, so the learner feels the line between slower growth and an actual fall.", "concept": "growth vs slower growth vs contraction vs recession vs depression"},
+    {"from_t": 86.3, "mechanic": "sort_into_groups", "player_does": "Gets short runs of quarterly GDP numbers and sorts each run into growth, slower growth, contraction, recession or depression.", "process_happens": "Each sorted run is drawn as a curve with the frame or band the video uses.", "win": "All runs sorted correctly.", "lose": "A single falling quarter put under recession shows only one red piece, with the note that recession needs two in a row.", "concept": "recession as two contractions in a row"}
+  ],
+  "notes_questions": [
+    {"q": "Ek quarter kitne mahine ka hota hai, aur ek saal mein kitne quarter?", "answer_shape": "number", "from_t": 16.4},
+    {"q": "'Growth at slower rate' aur 'contraction' mein kya fark hai?", "answer_shape": "comparison", "from_t": 60.1},
+    {"q": "Recession kab kehte hain? GDP graph par dikhaiye.", "answer_shape": "picture", "from_t": 86.3},
+    {"q": "Recession kab depression ban jaata hai?", "answer_shape": "timeline", "from_t": 97.6},
+    {"q": "Ek GDP curve par growth, slower growth, contraction, recession aur depression kram se label kijiye.", "answer_shape": "picture", "from_t": 34.2}
+  ],
+  "checks_learned": [
+    "A term defined as a pattern of steps (recession = two contractions in a row) must be drawn as one band spanning exactly those steps on the same chart.",
+    "The agenda should list terms in the order they will be taught.",
+    "The recap must be spoken over the finished chart, not over the end card.",
+    "The defining words must match the slope on screen: a GDP fall must not be called a 'declining growth rate' when the same video teaches slower growth as a separate idea.",
+    "Axis and unit setup before the first term should stay under about 20 s or state why it matters.",
+    "A spoken number change (6% to 7-8%) about a chart piece should get a label on that piece."
+  ],
+  "teaching_best": [
+    {"t": 34, "why": "The sliding frame walks the curve one quarter at a time, so each term is a local pattern the eye can check for itself."},
+    {"t": 86, "why": "Recession is built from two contractions already seen, so the new term is defined only with old ones."},
+    {"t": 97, "why": "Depression stretches the same band, so the three 'falling' terms nest inside each other visually."}
+  ],
+  "teaching_weak": [
+    {"t": 69, "why": "The lead-in to contraction speaks of the growth rate declining, which blurs the line the video just drew between slower growth and a real fall in GDP."},
+    {"t": 0, "why": "About 29 s of axes and quarter setup before the first term."},
+    {"t": 105, "why": "Recap spoken over the end card, and no real case (no actual recession period) anchors the terms."}
+  ]
+}

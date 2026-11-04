@@ -1,0 +1,93 @@
+{
+  "id": "E28",
+  "topic": "Credit default swap (CDS): moving a bond holder's default risk to a seller for a premium",
+  "book_understanding": {
+    "concepts": [
+      {"name": "corporate bond default risk", "type": "cause_effect", "t_start": 25.4, "t_end": 50.9, "prereq_recalled": "previous video: corporate bonds and why investing in them is risky"},
+      {"name": "CDS (credit default swap)", "type": "mechanism", "t_start": 50.9, "t_end": 70.5, "prereq_recalled": "the insurance idea: pay to get a guarantee against a loss"},
+      {"name": "risk transfer", "type": "mechanism", "t_start": 70.5, "t_end": 77.9, "prereq_recalled": "the CDS payout rule just stated (if the company defaults, the seller covers the loss)"},
+      {"name": "CDS premium", "type": "mechanism", "t_start": 77.9, "t_end": 90.1, "prereq_recalled": "insurance premium"}
+    ],
+    "teaching_order": "A textbook would define CDS as a credit derivative, then list the parties and the premium. This video starts from a feeling (losing sleep after lending money), recalls why corporate bonds are risky, and only then brings the CDS in as the fix, and last its price: problem, then solution, then the cost of the solution. Each step answers the worry the step before raised.",
+    "breakdown_rule": "Cut the topic along the investor's worry: one piece for the risk, one for the protection that removes it, one for what the protection costs."
+  },
+  "narration": {
+    "opening": {"move": "hook_scene", "what": "Asks the viewer whether they ever lost sleep after lending money, jokes that UPSC aspirants lose sleep too, then names CDS and promises a good night's sleep after the video."},
+    "moves": [
+      {"t": 0, "move": "question_to_viewer", "concept": "corporate bond default risk", "what": "Personal question: have you ever lost sleep because you lent money to someone?"},
+      {"t": 7.8, "move": "exam_link", "concept": "CDS (credit default swap)", "what": "Ties the same sleeplessness to facing the UPSC exam this year, so the video is 'important in both cases'."},
+      {"t": 16.9, "move": "agenda", "concept": "CDS (credit default swap)", "what": "Names the topic as CDS yaani credit default swap."},
+      {"t": 22.0, "move": "human_benefit", "concept": "CDS (credit default swap)", "what": "Promises the viewer can sleep peacefully after learning it."},
+      {"t": 25.4, "move": "recall_previous", "concept": "corporate bond default risk", "what": "Recalls the previous video on corporate bonds and that investing in them is risky."},
+      {"t": 33.8, "move": "cause_chain", "concept": "corporate bond default risk", "what": "The company may default, so bond holders always worry, so they cannot sleep."},
+      {"t": 44.3, "move": "human_benefit", "concept": "corporate bond default risk", "what": "Names the feeling: fear that the company sinks or runs away with the money."},
+      {"t": 50.9, "move": "signpost", "concept": "CDS (credit default swap)", "what": "Turns from problem to solution: some companies sell you a CDS."},
+      {"t": 56.5, "move": "yaani_unpack", "concept": "CDS (credit default swap)", "what": "CDS yaani credit default swap."},
+      {"t": 58.8, "move": "analogy", "concept": "CDS (credit default swap)", "what": "Calls CDS a kind of insurance that gives a guarantee."},
+      {"t": 62.3, "move": "what_if", "concept": "CDS (credit default swap)", "what": "If the borrowing company defaults on your payment, the company you bought the CDS from covers your loss."},
+      {"t": 70.5, "move": "conclusion_line", "concept": "risk transfer", "what": "Yaani by buying a CDS you are actually transferring your risk."},
+      {"t": 75.2, "move": "human_benefit", "concept": "risk transfer", "what": "Pays off the hook: now you can sleep in peace."},
+      {"t": 77.9, "move": "contrast", "concept": "CDS premium", "what": "But this transfer has a price you must pay."},
+      {"t": 81.6, "move": "analogy", "concept": "CDS premium", "what": "The price is a premium, paid regularly, just like an insurance premium."}
+    ],
+    "story_before_term": [
+      {"term": "CDS", "t_story": 0, "t_term": 16.9},
+      {"term": "risk transfer", "t_story": 38.0, "t_term": 72.3},
+      {"term": "premium", "t_story": 77.9, "t_term": 81.6}
+    ],
+    "examples": [
+      {"t": 0, "kind": "story", "what": "You lent money and lie awake worrying about getting it back.", "carries": "why default risk matters to a bond holder"},
+      {"t": 27.0, "kind": "story", "what": "On screen a fixed cast (XYZ Ltd issues the bond, investor A buys it, seller B sells the CDS) while the voice simply speaks to 'you' as the investor.", "carries": "the three parties of a CDS"},
+      {"t": 58.8, "kind": "analogy", "what": "CDS as insurance with a guarantee.", "carries": "what a CDS does"},
+      {"t": 83.1, "kind": "analogy", "what": "CDS premium as an insurance premium paid regularly.", "carries": "the cost of protection"}
+    ],
+    "closing": {"move": "analogy", "what": "Last teaching line is the premium-as-insurance comparison, then straight into the channel promo; no recap and no numbers."},
+    "density": "About 4 new terms (default, CDS, risk transfer, premium) in about 65 s of teaching, roughly 3-4 per minute. Right for a quick UPSC clip because every term rides the same running diagram, but no example numbers (premium size, payout) are ever given."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 5.4, "shown": "cartoon man lying wide awake in bed appears on the black intro screen", "said_gist": "asks if you ever could not sleep because you lent money", "naming_word": "नीन", "lead": "voice_first", "relation": "shows_the_step"},
+    {"tile": 2, "t_shown": 31.8, "shown": "red RISK disc drops over investor A at the end of the corporate-bond strip (XYZ Ltd sends the bond, rupee note goes back)", "said_gist": "recalls that investing in corporate bonds is very risky", "naming_word": "risky", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 3, "t_shown": 38.4, "shown": "dark inset of the same sleepless man pops in at top right, joined to the RISK disc by a callout line", "said_gist": "the company may default, so investors who hold such bonds...", "naming_word": "investors", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 4, "t_shown": 39.8, "shown": "idle animation of the sleepless-man inset (eyes move)", "said_gist": "investors who put money in corporate bonds", "naming_word": "", "lead": "unrelated", "relation": "decoration"},
+    {"tile": 5, "t_shown": 40.8, "shown": "idle animation of the sleepless-man inset", "said_gist": "investors who put money in corporate bonds", "naming_word": "", "lead": "unrelated", "relation": "decoration"},
+    {"tile": 6, "t_shown": 44.2, "shown": "idle animation of the sleepless-man inset", "said_gist": "their sleep is always disturbed", "naming_word": "", "lead": "unrelated", "relation": "decoration"},
+    {"tile": 7, "t_shown": 45.2, "shown": "caption under the inset: investor A worries about XYZ's creditworthiness and a default", "said_gist": "they are always haunted by the fear that...", "naming_word": "डर", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 8, "t_shown": 48.4, "shown": "idle animation of the sleepless-man inset", "said_gist": "fear that the company sinks", "naming_word": "", "lead": "unrelated", "relation": "decoration"},
+    {"tile": 9, "t_shown": 49.6, "shown": "idle animation of the sleepless-man inset", "said_gist": "or runs away with their money", "naming_word": "", "lead": "unrelated", "relation": "decoration"},
+    {"tile": 10, "t_shown": 52.8, "shown": "tall office building (seller B) below A, with a small CDS certificate on an up-arrow to A", "said_gist": "the solution is given by some companies from which you can buy a CDS", "naming_word": "कमपनी", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 11, "t_shown": 57.0, "shown": "dark 'Credit Default Swap' chip plus a rule paragraph (if XYZ defaults, buyer A is compensated by seller B)", "said_gist": "CDS yaani credit default swap; the rule itself is spoken 5-10 s later", "naming_word": "credit default swap", "lead": "together", "relation": "names_the_term"},
+    {"tile": 12, "t_shown": 60.8, "shown": "idle animation of the sleepless-man inset", "said_gist": "it is a kind of insurance that gives you a guarantee (the analogy gets no picture)", "naming_word": "", "lead": "unrelated", "relation": "decoration"},
+    {"tile": 13, "t_shown": 65.2, "shown": "red RISK disc lifts off investor A and slides down onto seller B's building", "said_gist": "if the company defaults on your payment, the company you bought the CDS from... ('risk transfer' is said about 7 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"}
+  ],
+  "talmel_summary": "Where the picture changes with meaning, it leads the voice by 1-8 s and shows the step: the RISK disc sits on A, then slides to B before the voice says 'risk transfer', and the sleepless inset carries the worry. But 6 of 13 changes are idle loops of the inset, the CDS rule arrives as an English paragraph well before it is spoken, and the insurance analogy and the default event itself get no picture.",
+  "voice": {"notes": "About 197 words per minute, continuous, with almost no gaps over 0.5 s in the transcript. Conversational and second person ('aapne', 'aap chain ki neend so sakte hain'); a playful sleep pun runs from the hook to the payoff. Stress falls on 'CDS yaani credit default swap' and on 'risk transfer'. No numbers are read at all."},
+  "game_ideas": [
+    {"from_t": 52.8, "mechanic": "run_a_process", "player_does": "As investor A holding an XYZ bond, each period chooses whether to buy CDS protection from seller B (paying a premium coin) or stay unprotected.", "process_happens": "Buying slides the RISK disc from A to B and the sleep inset turns to Z's; each period a premium coin flows from A to B; at random XYZ may default, which either triggers a payout from B to A (covered) or breaks A's bond (uncovered).", "win": "Finish the bond term with the money safe, a good sleep score and the least premium spent.", "lose": "A default while uncovered breaks the bond and A loses the principal (why protection exists); insuring a very safe bond for every period lets premiums eat the return (protection has a price).", "concept": "CDS risk transfer and premium"},
+    {"from_t": 65.2, "mechanic": "allocate", "player_does": "Switch roles and play seller B: decide how many CDS contracts to sell against B's cash buffer.", "process_happens": "Premiums from all buyers flow in each period; a default by XYZ makes B pay every buyer at once from the buffer.", "win": "Collect premiums and still have enough buffer to pay out if XYZ defaults.", "lose": "Selling too many contracts empties B's buffer on a default, showing that the risk did not vanish; it moved to the seller.", "concept": "risk transfer (who carries the risk after a CDS)"}
+  ],
+  "notes_questions": [
+    {"q": "CDS kya hai, aur ise insurance jaisa kyun kaha gaya?", "answer_shape": "flow", "from_t": 56.5},
+    {"q": "Corporate bond khareedne wale investor ko kis baat ka darr rehta hai?", "answer_shape": "picture", "from_t": 25.4},
+    {"q": "CDS khareedne ke baad default ka risk kiske paas jaata hai? A se B tak dikhaiye.", "answer_shape": "picture", "from_t": 65.2},
+    {"q": "CDS buyer protection ke liye kya keemat chukata hai, aur kitni baar?", "answer_shape": "flow", "from_t": 77.9},
+    {"q": "Bond issuer, CDS buyer aur CDS seller: teeno ki bhumika ek table mein.", "answer_shape": "table", "from_t": 52.8}
+  ],
+  "checks_learned": [
+    "When the narration names a transfer between parties (risk moves from A to B), the scene must move one object from A to B; a text label alone fails.",
+    "A conditional rule (if X defaults, B pays A) needs the trigger event and the payout drawn as steps (a default mark on the bond, a money arrow from B to A), not only a paragraph.",
+    "On-screen rule text must not appear more than about 3 s before the voice starts saying it.",
+    "Idle character loops count as decoration: flag a scene where more than a third of the visual changes carry no meaning.",
+    "A pain named in the hook must be visibly resolved when the concept solves it (awake to asleep), before the end card.",
+    "A 'regular' or 'periodic' payment must be animated as at least two repeated pulses."
+  ],
+  "teaching_best": [
+    {"t": 0, "why": "The hook makes default risk personal (lost sleep after lending) and the same feeling returns as the payoff at 75 s, so the concept has an emotional before and after."},
+    {"t": 65, "why": "The risk disc slides from A to B just before the voice says 'risk transfer', so the conclusion line lands on a picture the learner has already seen."},
+    {"t": 81.6, "why": "The premium is explained in one sentence through the familiar insurance premium."}
+  ],
+  "teaching_weak": [
+    {"t": 62, "why": "What happens when XYZ actually defaults is only told; there is no default scene and no payout."},
+    {"t": 7.8, "why": "Hook time goes to a UPSC sleep pun rather than to the investor's situation."},
+    {"t": 88, "why": "Ends straight into the promo with no recap and no example numbers (no premium amount, no payout size)."}
+  ]
+}

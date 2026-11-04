@@ -1,0 +1,136 @@
+{
+  "id": "E25",
+  "topic": "How India's loan-rate floor evolved: bargained rates under PLR, the BPLR floor that banks undercut, and the base rate that finally held",
+  "book_understanding": {
+    "concepts": [
+      {"name": "bargained loan rates (1970s)", "type": "mechanism", "t_start": 0, "t_end": 63.3, "prereq_recalled": ""},
+      {"name": "PLR system: each bank sets its own benchmark", "type": "definition", "t_start": 63.3, "t_end": 96.0, "prereq_recalled": "the bargaining role-play just watched"},
+      {"name": "PLR's flaws: no transparency, no standardisation", "type": "cause_effect", "t_start": 96.0, "t_end": 115.2, "prereq_recalled": "four borrowers of one bank paying different rates"},
+      {"name": "creditworthy customer", "type": "definition", "t_start": 129.3, "t_end": 144.9, "prereq_recalled": "loan repayment and credit history (used, not explained)"},
+      {"name": "BPLR: the rate for the most creditworthy customer, taken as the minimum", "type": "definition", "t_start": 115.2, "t_end": 179.2, "prereq_recalled": "creditworthy customer"},
+      {"name": "BPLR as RBI's floor and its two goals", "type": "mechanism", "t_start": 179.2, "t_end": 211.0, "prereq_recalled": "transparency and standardisation missing under PLR"},
+      {"name": "2010 review: 77% of lending below BPLR; why the floor failed", "type": "cause_effect", "t_start": 211.0, "t_end": 319.2, "prereq_recalled": "BPLR = minimum rate; competition between banks (the rival-bank threat in the opening role-play)"},
+      {"name": "base rate: a floor below which no loan may be given", "type": "definition", "t_start": 319.2, "t_end": 351.1, "prereq_recalled": "the failed BPLR floor"},
+      {"name": "BPLR vs base rate: who fixes the rate", "type": "comparison", "t_start": 351.1, "t_end": 364.0, "prereq_recalled": "BPLR picture with RBI and four banks"},
+      {"name": "base rate calculation from each bank's costs", "type": "formula", "t_start": 364.0, "t_end": 391.9, "prereq_recalled": "operating expenses differ by bank"},
+      {"name": "outcome: floor holds, transparency and standardisation reached; MCLR teaser", "type": "cause_effect", "t_start": 391.9, "t_end": 427.1, "prereq_recalled": "the two goals set under BPLR"}
+    ],
+    "teaching_order": "A textbook lists PLR, BPLR, base rate and MCLR with definitions and dates. The video starts with the problem as a lived scene (a customer haggling a loan rate down like vegetables at a cart), names the system only after the scene, then tells each later system as a repair of the previous one's failure: each rule is introduced with its goal, tested (a 2010 report, staged as a second role-play between RBI and the banks), shown failing, and replaced. The cause of failure (banks competing for customers) was already planted in the opening scene by the rival bank's lower offer.",
+    "breakdown_rule": "Each system is one piece told as problem -> rule -> goal -> test -> failure or success, with the failure of one system becoming the reason for the next."
+  },
+  "narration": {
+    "opening": {"move": "hook_scene", "what": "'You will be surprised': in the 1970s loan interest was haggled like buying vegetables from a cart; a bank clerk welcomes a customer and the role-play begins."},
+    "moves": [
+      {"t": 0.0, "move": "hook_scene", "concept": "bargained loan rates (1970s)", "what": "A surprise claim plus a vegetable-cart comparison sets up the scene before any term."},
+      {"t": 13.0, "move": "role_play", "concept": "bargained loan rates (1970s)", "what": "Clerk and customer: 10 lakh loan offered at 15%; customer says 15 is too much and offers 5%."},
+      {"t": 30.3, "move": "role_play", "concept": "bargained loan rates (1970s)", "what": "Clerk refuses 5% and drops to 12%; customer raises the loan to 20 lakh but wants a lower rate; clerk says 7% is the lowest."},
+      {"t": 46.9, "move": "role_play", "concept": "bargained loan rates (1970s)", "what": "Customer says the bank across the road offers 6% and gets up to leave; the clerk panics and gives 5%."},
+      {"t": 58.8, "move": "conclusion_line", "concept": "PLR system: each bank sets its own benchmark", "what": "'So you saw': the rate each customer pays was decided by negotiation."},
+      {"t": 66.3, "move": "define_term", "concept": "PLR system: each bank sets its own benchmark", "what": "This was called the PLR system, yaani prime lending rate; banks had the power to decide their own benchmark rate."},
+      {"t": 77.5, "move": "contrast", "concept": "PLR system: each bank sets its own benchmark", "what": "They were supposed to consider cost of funds, but to compete and win customers they negotiated and lent cheaper."},
+      {"t": 96.0, "move": "cause_chain", "concept": "PLR's flaws: no transparency, no standardisation", "what": "So there was no transparency and no standardisation: every bank lent as it pleased."},
+      {"t": 107.9, "move": "data_fact", "concept": "PLR's flaws: no transparency, no standardisation", "what": "PLR ran from 1973 to 2003 (as stated)."},
+      {"t": 115.2, "move": "define_term", "concept": "BPLR: the rate for the most creditworthy customer, taken as the minimum", "what": "To remove PLR's flaws, BPLR came in 2003, yaani benchmark prime lending rate: the rate a bank charges its most creditworthy customer."},
+      {"t": 129.3, "move": "yaani_unpack", "concept": "creditworthy customer", "what": "Creditworthy customers: borrowed before, good credit history, repay on time, yaani low risk for the bank."},
+      {"t": 144.9, "move": "cause_chain", "concept": "BPLR: the rate for the most creditworthy customer, taken as the minimum", "what": "Banks give their best customers the lowest rate, so BPLR was taken to be the bank's minimum rate."},
+      {"t": 179.2, "move": "cause_chain", "concept": "BPLR as RBI's floor and its two goals", "what": "Through BPLR, RBI regulated banks' lending rates; the expectation was that no bank would lend below BPLR."},
+      {"t": 195.0, "move": "conclusion_line", "concept": "BPLR as RBI's floor and its two goals", "what": "So in 2003 RBI not only regulated banking but took a big step toward transparency and standardisation."},
+      {"t": 211.0, "move": "role_play", "concept": "2010 review: 77% of lending below BPLR; why the floor failed", "what": "RBI personified: 'since we tightened the banks, let us check how they improved'; RBI orders a report in 2010."},
+      {"t": 222.6, "move": "data_fact", "concept": "2010 review: 77% of lending below BPLR; why the floor failed", "what": "Reading the report, RBI's own nerves tighten: banks still gave 77% of total lending below BPLR."},
+      {"t": 252.6, "move": "role_play", "concept": "2010 review: 77% of lending below BPLR; why the floor failed", "what": "Banks reply: we must lend cheap or all customers go to other banks, so we keep adjusting rates."},
+      {"t": 261.6, "move": "misconception", "concept": "2010 review: 77% of lending below BPLR; why the floor failed", "what": "RBI voices the obvious objection (you said BPLR is your minimum, so why lend below it?) and the banks answer that 'BPLR = minimum' was RBI's own assumption."},
+      {"t": 297.0, "move": "cause_chain", "concept": "2010 review: 77% of lending below BPLR; why the floor failed", "what": "Banks: to win new customers in a crowded market we must cut rates further, or customers leave."},
+      {"t": 310.6, "move": "conclusion_line", "concept": "2010 review: 77% of lending below BPLR; why the floor failed", "what": "'Ab yeh baat saaf ho gayi': BPLR brought neither transparency nor standardisation."},
+      {"t": 319.2, "move": "define_term", "concept": "base rate: a floor below which no loan may be given", "what": "A new system was needed; in 2010 the base rate came, defined this time 'with full clarity' as the rate below which no bank may lend."},
+      {"t": 342.1, "move": "yaani_unpack", "concept": "base rate: a floor below which no loan may be given", "what": "Banks fix their own base rate and only inform RBI, yaani interest rates were deregulated."},
+      {"t": 351.1, "move": "contrast", "concept": "BPLR vs base rate: who fixes the rate", "what": "Compared with BPLR, where RBI fixed the rate, here banks fix their own (the video earlier also says BPLR was settled with the banks)."},
+      {"t": 364.0, "move": "define_term", "concept": "base rate calculation from each bank's costs", "what": "RBI gave guidelines for calculating the base rate, 'yaani RBI had fully prepared'."},
+      {"t": 374.9, "move": "cause_chain", "concept": "base rate calculation from each bank's costs", "what": "'Observe': operating expenses are part of the calculation and differ by bank, so every bank's base rate differs."},
+      {"t": 391.9, "move": "conclusion_line", "concept": "outcome: floor holds, transparency and standardisation reached; MCLR teaser", "what": "Whatever each bank's base rate, it was enforced so well that no bank could lend below it; RBI breathes easy: transparent and standardised."},
+      {"t": 411.3, "move": "signpost", "concept": "outcome: floor holds, transparency and standardisation reached; MCLR teaser", "what": "In 2015 another mess surfaced that led to MCLR: what was it? Answer in the playlist (cliff-hanger)."}
+    ],
+    "story_before_term": [
+      {"term": "PLR (prime lending rate) system", "t_story": 5.0, "t_term": 66.3},
+      {"term": "base rate", "t_story": 319.2, "t_term": 332.3},
+      {"term": "deregulated interest rates", "t_story": 342.1, "t_term": 347.9}
+    ],
+    "examples": [
+      {"t": 13.0, "kind": "role_play", "what": "A customer haggles a 10 lakh loan: the bank's 15% falls to 12%, then 7% as the loan grows to 20 lakh, then 5% when she threatens to go to the bank across the road offering 6%.", "carries": "rates set by bargaining under PLR, and competition between banks as the force pushing rates down (reused later as the reason BPLR failed)"},
+      {"t": 0.0, "kind": "analogy", "what": "Loan interest haggled like vegetables bought from a cart.", "carries": "no fixed price, only bargaining"},
+      {"t": 63.3, "kind": "numbers", "what": "One bank, four identical borrowers paying 5%, 15%, 12% and 3% (on screen).", "carries": "no standardisation under PLR"},
+      {"t": 129.3, "kind": "everyday_object", "what": "A creditworthy customer pictured as someone who borrowed before and always repaid on time.", "carries": "why the best customer gets the lowest rate, so BPLR looks like a minimum"},
+      {"t": 211.0, "kind": "role_play", "what": "RBI as a stern elder checking on banks; banks answer 'look, big father, the minimum was your assumption'.", "carries": "why BPLR failed: it was never a binding floor and competition pushed rates below it"},
+      {"t": 222.6, "kind": "numbers", "what": "A 2010 report: 77% of all bank lending below BPLR (as stated).", "carries": "the evidence that the floor failed"},
+      {"t": 374.9, "kind": "what_if", "what": "If operating expenses go into the calculation and differ by bank, base rates must differ by bank.", "carries": "why each bank's base rate is different yet still a floor"}
+    ],
+    "closing": {"move": "signpost", "what": "Base rate declared a success, then a 2015 'mess' is teased as the reason for MCLR, with a playlist plug; no recap of the three systems."},
+    "density": "About 14 terms (PLR, benchmark rate, cost of funds, transparency, standardisation, BPLR, creditworthy customer, credit history, regulate, base rate, deregulated, operating expenses, CRR cost on screen, MCLR) in about 7 minutes, about 2 per minute. Comfortable: two role-plays take about 2 of the 7 minutes and carry the reasoning, so the pace suits a first look; the BPLR definition stretch (115-179) is the densest and least clear."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 5.4, "shown": "a 'Loan' arrow from a bank to a person (era strip with 1970s and 2003 already on top)", "said_gist": "in the 1970s when customers went to the bank to take a loan", "naming_word": "लोन", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 2, "t_shown": 44.8, "shown": "the bank's tag rewritten to 7% above struck 15% and 12%; loan amount struck from 10 lakh to 20 lakh; the person's 5% tag stays", "said_gist": "we cut as much as we could; now it cannot go below 7%", "naming_word": "7", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 3, "t_shown": 57.0, "shown": "the bank's ladder tops out at 5%, meeting the borrower's own 5% tag (box on the borrower side)", "said_gist": "we will give you the loan at 5%; no need to go anywhere", "naming_word": "5", "lead": "voice_first", "relation": "shows_the_step"},
+    {"tile": 4, "t_shown": 63.4, "shown": "one bank beside four identical borrowers wearing 5%, 15%, 12% and 3% tags", "said_gist": "negotiations decided which customer gets the loan at how many percent", "naming_word": "customer", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 5, "t_shown": 70.0, "shown": "'Prime Lending rate' pointer label on the PLR heading over a blue band", "said_gist": "this was called the PLR system, yaani prime lending rate system", "naming_word": "Lending", "lead": "together", "relation": "names_the_term"},
+    {"tile": 6, "t_shown": 73.0, "shown": "italic paragraph: under PLR each bank had discretion to set its own benchmark rate based on cost of funds", "said_gist": "in this system banks were given the power to decide their benchmark rate", "naming_word": "power", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 7, "t_shown": 112.0, "shown": "era strip gains a 1973 tick and a 'Prime Lending rate' span to 2003; 'issues: lacking transparency, lacking standardisation' chips in view", "said_gist": "applied in 1973, and till 2003 all banks followed it", "naming_word": "2003", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 8, "t_shown": 118.8, "shown": "dotted drop line from the 2003 tick to a BPLR heading", "said_gist": "to remove its flaws, in 2003 the BPLR system was brought", "naming_word": "BPLR", "lead": "together", "relation": "names_the_term"},
+    {"tile": 9, "t_shown": 123.6, "shown": "the PLR scene clears; a lone bank icon stands below the BPLR heading and its full name", "said_gist": "BPLR yaani benchmark prime lending rate; this is the interest rate...", "naming_word": "", "lead": "together", "relation": "navigation"},
+    {"tile": 10, "t_shown": 125.2, "shown": "definition: the rate a bank would charge its most creditworthy customer", "said_gist": "this is the interest rate which the bank charges its (most creditworthy customers)", "naming_word": "interest rate", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 11, "t_shown": 131.4, "shown": "the phrase 'most creditworthy customer' highlighted, with an arrow carrying it to a person icon", "said_gist": "a bank's creditworthy customers are such customers (who borrowed before and repay on time)", "naming_word": "customers", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 12, "t_shown": 155.2, "shown": "diagonal 'Loan' arrow from the bank to that person with a % marker and a 'Minimum Interest' pointer", "said_gist": "banks give their most creditworthy customer the loan at the least interest", "naming_word": "इंटरेस्ट", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 13, "t_shown": 170.8, "shown": "four bank icons in a pink box with a [FIXED] tag; dotted arrows rise to them from the RBI coin", "said_gist": "no words recognised here (transcript gap); 'RBI regulated the banks' lending rate through BPLR' is heard about 8 s later", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 14, "t_shown": 193.0, "shown": "'BPLR = Minimum Interest' line beside RBI behind a wavy brace", "said_gist": "the expectation was no bank would lend to customers below the BPLR rate", "naming_word": "BPLR", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 15, "t_shown": 213.6, "shown": "a 2010 tick and a ticked report icon drop onto the era strip", "said_gist": "after this, in 2010, RBI had a report prepared", "naming_word": "report", "lead": "together", "relation": "names_the_term"},
+    {"tile": 16, "t_shown": 229.6, "shown": "arrow from the report to 'total bank lending below BPLR rate = 77%'", "said_gist": "because the details that came out of this report were that banks (still lent 77% below BPLR, said several seconds later)", "naming_word": "report", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 17, "t_shown": 246.0, "shown": "'BUT WHY?' answered by 'because banks were competing with each other to acquire more customers'", "said_gist": "no words recognised here (transcript gap); the banks' spoken reason (lend cheap or customers leave) follows about 6 s later", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 18, "t_shown": 284.4, "shown": "'BPLR = Minimum Interest' struck in red with 'PROVED TO BE AN ASSUMPTION'", "said_gist": "banks told RBI: look, big father, it is your assumption that the BPLR rate (is the minimum)", "naming_word": "अजंशन", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 19, "t_shown": 331.8, "shown": "BASE RATE heading drops from the 2010 tick", "said_gist": "so action was taken at once and in 2010 itself the base rate system (was brought)", "naming_word": "base rate", "lead": "together", "relation": "names_the_term"},
+    {"tile": 20, "t_shown": 335.0, "shown": "the bank box and RBI slide under BASE RATE; the [FIXED] tag gives way to a fading-in floor definition", "said_gist": "this time it was defined with full clarity (the floor wording follows about 2 s later)", "naming_word": "clarity", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 21, "t_shown": 342.0, "shown": "a gold ring around one of the four banks", "said_gist": "banks cannot lend to any customer below it; in this system banks (fix their own base rate, said about 1.5 s later)", "naming_word": "banks", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 22, "t_shown": 343.0, "shown": "pointer label 'Banks can fix their own BASE RATE' from the ringed bank", "said_gist": "in this system banks had to fix their own base rate", "naming_word": "base", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 23, "t_shown": 348.4, "shown": "'INTEREST RATES - DE-REGULARISED' under RBI; the dotted arrows now point from the banks down to RBI", "said_gist": "and just inform RBI, yaani interest rates were deregulated", "naming_word": "interest", "lead": "together", "relation": "names_the_term"},
+    {"tile": 24, "t_shown": 366.8, "shown": "BASE RATE CALCULATION list: cost of funds, operating expenses, minimum rate of return, cost of maintaining CRR", "said_gist": "RBI also gave banks some guidelines for calculating the base rate (only operating expenses is ever spoken)", "naming_word": "guidelines", "lead": "together", "relation": "adds_new_info"}
+  ],
+  "talmel_summary": "In the role-play and the BPLR set-up the picture shows the step at the moment of the words: struck rate tags climb as the bargain moves, four identical borrowers wear different tags, the phrase 'most creditworthy customer' turns into a person, and later one bank gets a gold ring while the RBI arrows flip direction. Where the argument gets abstract (the 77% finding, the banks' reason, the base-rate inputs) the screen switches to text lines that appear several seconds before the voice or add parts the voice never says. The best device is planting the two goals (transparency, standardisation) as chips that are later crossed and then ticked on the same objects.",
+  "voice": {"notes": "About 177 words per minute. The opening role-play uses two distinct character voices (a smooth clerk, a firm woman customer addressed as 'devi ji') with natural haggling rhythm: offer, refusal, counter-offer, threat, panic ('arre nahi nahi, ruko ruko'). The narrator is conversational and uses idioms for institutions ('hawa tight', 'bade baapa', 'chain ki saans li'), which makes RBI and the banks feel like characters. Numbers are read plainly ('10 lakh', '15%', '77%'); years in full. Key conclusions are marked with 'to ab yahan par yeh baat saaf ho gayi hai'. Ends on a question-style teaser for MCLR."},
+  "game_ideas": [
+    {"from_t": 13.0, "mechanic": "bargain", "player_does": "Plays the borrower at a 1970s bank counter: asks for a lower rate, raises the loan amount, or points to the rival bank's offer.", "process_happens": "The clerk's rate tag is struck and rewritten lower with each move, keeping the ladder visible; then three other borrowers of the same bank appear with their own bargained rates.", "win": "Get a low rate, then see the side-by-side tags and correctly light the two missing chips: no transparency, no standardisation.", "lose": "Accepting the first offer leaves the learner at 15% while a neighbour pays 3% for the same loan, which is exactly the PLR problem.", "concept": "bargained rates under PLR and why they lacked transparency and standardisation"},
+    {"from_t": 179.2, "mechanic": "run_a_process", "player_does": "Plays RBI: picks the rule (PLR: banks free; BPLR: rate for the best customer taken as the minimum; base rate: each bank's cost-based floor, below which lending is barred) and runs a year of lending by four competing banks.", "process_happens": "100 loan tokens fall from the four banks onto a floor line; under BPLR competition pushes most of them below the line (about 77 of 100), under base rate none can cross it; the transparency and standardisation chips get a cross or a tick.", "win": "End a year with no loans below the floor and both chips ticked (only the base-rate rule does this).", "lose": "Choosing BPLR shows the tokens sliding under the floor and the banks' speech bubble 'minimum was your assumption'.", "concept": "why BPLR failed and the base rate held"},
+    {"from_t": 364.0, "mechanic": "other", "player_does": "Builds a bank's base rate by stacking blocks: cost of funds, operating expenses, minimum return, cost of keeping CRR (mechanic: build a rate from its parts).", "process_happens": "The stack's height becomes that bank's floor line; a second bank with higher operating expenses builds a taller stack; customers' requested rates below the line are refused.", "win": "Set two banks' floors correctly and explain why they differ.", "lose": "Leaving out operating expenses makes the floor too low and the bank lends at a loss, shown as a red cost bar sticking out above the rate.", "concept": "base rate calculation and why base rates differ by bank"},
+    {"from_t": 107.9, "mechanic": "build_timeline", "player_does": "Places cards on the era strip: bargained PLR (1973), BPLR (2003), 2010 report with 77% below BPLR, base rate (2010), new trouble and MCLR (2015).", "process_happens": "Each card drops a heading from its tick with the dotted line, as in the video, and the goal chips change from crossed to ticked at the base rate.", "win": "Strip complete with each system's failure leading to the next.", "lose": "Placing base rate before the 2010 report shows no reason yet for a new system and nudges the learner to place the evidence first.", "concept": "sequence of lending-rate systems"}
+  ],
+  "notes_questions": [
+    {"q": "PLR system mein loan ka interest rate kaise tay hota tha? Isme do kamiyan kya thi?", "answer_shape": "flow", "from_t": 58.8},
+    {"q": "Credit worthy customer kise kehte hain aur bank use sabse kam rate kyon deta hai?", "answer_shape": "picture", "from_t": 129.3},
+    {"q": "BPLR kya tha aur RBI ko usse kya ummeed thi?", "answer_shape": "flow", "from_t": 115.2},
+    {"q": "2010 ki report mein kya mila? BPLR fail kyon hua?", "answer_shape": "flow", "from_t": 211.0},
+    {"q": "BPLR aur base rate mein kya fark hai (rate kaun tay karta hai, floor kitna pakka hai)?", "answer_shape": "comparison", "from_t": 351.1},
+    {"q": "Base rate kin costs se banta hai? Har bank ka base rate alag kyon hota hai?", "answer_shape": "table", "from_t": 364.0},
+    {"q": "1973 se 2015 tak lending rate systems ki timeline banaiye.", "answer_shape": "timeline", "from_t": 107.9}
+  ],
+  "checks_learned": [
+    "In a role-play opening, the term is named only after the scene ends, and the later explanation of failure must point back to a moment of the scene (here the rival-bank offer becomes the competition reason).",
+    "When a number in a running example is revised, the old value stays visible and struck, so the history of the change can be read.",
+    "Every item of an on-screen list must be spoken (three of the four base-rate inputs are never said).",
+    "A text answer must not appear more than about 3 s before the voice gives it (the 'because banks were competing' line leads by about 6 s).",
+    "Key evidence numbers (77% of lending below the floor) must be drawn as a quantity against the floor line, not only written.",
+    "Goals planted as on-screen chips must be resolved on the same chips (cross on failure, tick on success); E25 does this well.",
+    "Statements about who decides (RBI fixed BPLR vs BPLR settled with banks) must stay consistent within one lesson; flag contradictions between narration lines.",
+    "When two successive systems are compared, reuse one scene and change only the parts that differ (tag, ring, arrow direction)."
+  ],
+  "teaching_best": [
+    {"t": 13, "why": "The role-play makes the problem felt before any term: the struck rate ladder and the rival-bank threat carry both 'rates were bargained' and 'competition pushes rates down'."},
+    {"t": 63, "why": "One bank and four identical people with different rate tags makes 'no standardisation' visible without reading."},
+    {"t": 261, "why": "The learner's obvious objection is put in RBI's mouth and answered by the banks, exposing that the 'minimum' was only an assumption."},
+    {"t": 342, "why": "The BPLR picture is reused for base rate; a gold ring on one bank and flipped arrows show that authority moved from RBI to each bank."},
+    {"t": 374, "why": "'Observe' cause chain: operating expenses differ by bank, so base rates must differ, yet each is a floor."}
+  ],
+  "teaching_weak": [
+    {"t": 120, "why": "BPLR is defined by a paragraph before any picture, and the chain best customer -> lowest rate -> floor is spoken fast in one long sentence."},
+    {"t": 229, "why": "The 77% finding and its reason are text lines; the main evidence of the video is never drawn."},
+    {"t": 366, "why": "The base-rate calculation is a four-item list and only one item is spoken."},
+    {"t": 356, "why": "The narration says RBI fixed BPLR, while the role-play says BPLR was settled with the banks; the learner gets two stories of who decided."},
+    {"t": 411, "why": "Ends on a teaser without recapping the three systems side by side."}
+  ]
+}

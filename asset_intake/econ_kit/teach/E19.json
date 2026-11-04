@@ -1,0 +1,138 @@
+{
+  "id": "E19",
+  "topic": "Bretton Woods and the fixed exchange rate: dollar tied to gold, other currencies pegged (hard and crawling), how an importer gets dollars from RBI, India's devaluations, and the 1971 collapse",
+  "book_understanding": {
+    "concepts": [
+      {"name": "recap: depreciation/devaluation -> exports up, imports down -> trade balance, BoP, forex reserves improve", "type": "cause_effect", "t_start": 0, "t_end": 51.8, "prereq_recalled": "previous video (J curve, trade balance)"},
+      {"name": "open questions: depreciation vs devaluation, who does it, how exchange rates are set", "type": "definition", "t_start": 51.8, "t_end": 81.8, "prereq_recalled": "the recap chain"},
+      {"name": "Bretton Woods system (1944): dollar fixed to gold, other currencies pegged to the dollar", "type": "definition", "t_start": 81.8, "t_end": 111.1, "prereq_recalled": ""},
+      {"name": "dollar fixed to gold: gold value moves the dollar value", "type": "mechanism", "t_start": 111.1, "t_end": 133.5, "prereq_recalled": "Bretton Woods definition"},
+      {"name": "pegging: the pegged currency moves with its anchor, the rate stays fixed", "type": "mechanism", "t_start": 133.5, "t_end": 180.2, "prereq_recalled": "dollar value moving with gold"},
+      {"name": "hard (fixed) peg vs crawling (gliding) peg", "type": "comparison", "t_start": 180.2, "t_end": 217.2, "prereq_recalled": "pegging"},
+      {"name": "fixed exchange rate regime; 1948 rate 1$ = Rs 3.30", "type": "definition", "t_start": 217.2, "t_end": 244.2, "prereq_recalled": "all currencies pegged to the dollar"},
+      {"name": "how the fixed regime works: importer -> bank -> RBI -> forex reserves", "type": "process", "t_start": 244.2, "t_end": 308.6, "prereq_recalled": "the importer character from an earlier video"},
+      {"name": "devaluation as the central bank's tool when dollar demand is too high", "type": "cause_effect", "t_start": 308.6, "t_end": 324.9, "prereq_recalled": "limited forex reserves"},
+      {"name": "India's devaluations: 3.30 (1948) -> 4.76 (1949) -> 7.50 (1966)", "type": "timeline", "t_start": 324.9, "t_end": 363.6, "prereq_recalled": "the car import priced at 3.30"},
+      {"name": "1971 collapse: the US suspends dollar-to-gold convertibility", "type": "cause_effect", "t_start": 363.6, "t_end": 418.2, "prereq_recalled": "dollar fixed to gold as the base of the system"},
+      {"name": "peg regime 1971-1992 (teaser)", "type": "timeline", "t_start": 418.2, "t_end": 429.7, "prereq_recalled": "Bretton Woods collapse"}
+    ],
+    "teaching_order": "A textbook would start with Bretton Woods as a dated institution and list fixed vs floating regimes. The video starts from the learner's last lesson (devaluation helps exports), asks the questions that lesson left open, and goes into history to answer them. It then splits the system into two named sub-questions (what 'fixed to gold' means, what 'pegging' means), answers each with a moving picture, names the regime only after showing all currencies tied together, and makes the regime concrete with a running character buying an imported car. Devaluation is then shown as the central bank's lever inside that same money path, and the collapse closes the loop on the gold link stated at the start.",
+    "breakdown_rule": "Break a system statement into its named parts (fixed to gold, pegged to dollar), teach each part with one moving picture and a small number, then run one concrete transaction through the whole system and change one number to show the lever."
+  },
+  "narration": {
+    "opening": {"move": "recall_previous", "what": "Recaps the previous video as a chain: depreciation or devaluation lowers the exchange rate, exports rise and imports fall, trade balance improves in the medium to long term (J curve), then BoP and forex reserves improve."},
+    "moves": [
+      {"t": 0.0, "move": "recall_previous", "concept": "recap: depreciation/devaluation -> exports up, imports down -> trade balance, BoP, forex reserves improve", "what": "Recalls the effect of a weaker currency as a step-by-step chain from the last video."},
+      {"t": 24.8, "move": "recall_previous", "concept": "recap: depreciation/devaluation -> exports up, imports down -> trade balance, BoP, forex reserves improve", "what": "Reminds that the improvement is medium or long term, as seen through the J curve."},
+      {"t": 51.8, "move": "question_to_viewer", "concept": "open questions: depreciation vs devaluation, who does it, how exchange rates are set", "what": "Lists what was not yet discussed: the difference between depreciation and devaluation, how the rate falls, and who does it."},
+      {"t": 64.2, "move": "signpost", "concept": "open questions: depreciation vs devaluation, who does it, how exchange rates are set", "what": "Before that we must understand something first; a 'this is a very long story' humour beat (part of this stretch is missing from the transcript)."},
+      {"t": 81.8, "move": "data_fact", "concept": "Bretton Woods system (1944): dollar fixed to gold, other currencies pegged to the dollar", "what": "The system was called Bretton Woods and began in 1944."},
+      {"t": 87.5, "move": "define_term", "concept": "Bretton Woods system (1944): dollar fixed to gold, other currencies pegged to the dollar", "what": "The dollar's value was fixed against gold and other countries' currencies were pegged to the dollar."},
+      {"t": 95.4, "move": "agenda", "concept": "Bretton Woods system (1944): dollar fixed to gold, other currencies pegged to the dollar", "what": "'Two things here': what fixing the dollar to gold means, and what pegging means (yaani tying one currency to another)."},
+      {"t": 111.1, "move": "yaani_unpack", "concept": "dollar fixed to gold: gold value moves the dollar value", "what": "The dollar was set equal to some grams of gold; 'iska matlab': if gold rises the dollar rises, if gold falls the dollar falls."},
+      {"t": 133.5, "move": "signpost", "concept": "pegging: the pegged currency moves with its anchor, the rate stays fixed", "what": "Chaliye, now pegging."},
+      {"t": 152.7, "move": "what_if", "concept": "pegging: the pegged currency moves with its anchor, the rate stays fixed", "what": "'Just to understand', assume the dollar's value keeps rising in a straight line."},
+      {"t": 158.2, "move": "example_numbers", "concept": "pegging: the pegged currency moves with its anchor, the rate stays fixed", "what": "Rupee pegged to the dollar; maan lijiye the rate is 5; even when the dollar's value rises, the rate stays 5."},
+      {"t": 180.2, "move": "define_term", "concept": "hard (fixed) peg vs crawling (gliding) peg", "what": "A peg where the rate always stays the same with no room for change is a fixed or hard peg."},
+      {"t": 195.2, "move": "contrast", "concept": "hard (fixed) peg vs crawling (gliding) peg", "what": "Another kind lets you move the fixed rate up or down by a few percent: a gliding or crawling peg."},
+      {"t": 217.2, "move": "conclusion_line", "concept": "fixed exchange rate regime; 1948 rate 1$ = Rs 3.30", "what": "Under Bretton Woods every currency was pegged to the dollar, so every rate against every other was almost fixed: hence 'fixed exchange rate regime'."},
+      {"t": 237.3, "move": "data_fact", "concept": "fixed exchange rate regime; 1948 rate 1$ = Rs 3.30", "what": "In this regime in 1948 one dollar equalled Rs 3.30 (as stated)."},
+      {"t": 244.2, "move": "question_to_viewer", "concept": "how the fixed regime works: importer -> bank -> RBI -> forex reserves", "what": "How does this fixed regime actually work? We need to understand that too."},
+      {"t": 250.3, "move": "recall_previous", "concept": "how the fixed regime works: importer -> bank -> RBI -> forex reserves", "what": "Brings back the running importer character from an earlier video who liked an imported car."},
+      {"t": 255.0, "move": "example_numbers", "concept": "how the fixed regime works: importer -> bank -> RBI -> forex reserves", "what": "Car costs 1 lakh dollars; at 3.30 that is Rs 3.30 lakh."},
+      {"t": 270.2, "move": "cause_chain", "concept": "how the fixed regime works: importer -> bank -> RBI -> forex reserves", "what": "He must pay in dollars: gives Rs 3.30 lakh to the bank, the bank to RBI, RBI takes 1 lakh dollars out of its forex reserves, back through the bank to him."},
+      {"t": 292.8, "move": "conclusion_line", "concept": "how the fixed regime works: importer -> bank -> RBI -> forex reserves", "what": "'Gaur karne wali baat': in a fixed regime the foreign currency ultimately comes from your central bank, and its reserves are limited."},
+      {"t": 308.6, "move": "cause_chain", "concept": "devaluation as the central bank's tool when dollar demand is too high", "what": "If the central bank sees too much dollar demand, it can devalue its currency."},
+      {"t": 317.5, "move": "yaani_unpack", "concept": "devaluation as the central bank's tool when dollar demand is too high", "what": "'Iska matlab': in a fixed regime the central bank can devalue (partly answers the opening 'who does it')."},
+      {"t": 324.9, "move": "data_fact", "concept": "India's devaluations: 3.30 (1948) -> 4.76 (1949) -> 7.50 (1966)", "what": "In 1949, for the first time, the rupee was devalued to $1 = Rs 4.76."},
+      {"t": 332.8, "move": "example_numbers", "concept": "India's devaluations: 3.30 (1948) -> 4.76 (1949) -> 7.50 (1966)", "what": "Same car: to take 1 lakh dollars from RBI he must now pay Rs 4.76 lakh, not 3.30 lakh."},
+      {"t": 353.6, "move": "data_fact", "concept": "India's devaluations: 3.30 (1948) -> 4.76 (1949) -> 7.50 (1966)", "what": "Another devaluation in 1966 took one dollar to Rs 7.50."},
+      {"t": 363.6, "move": "data_fact", "concept": "1971 collapse: the US suspends dollar-to-gold convertibility", "what": "Bretton Woods ran 1944-1971 and collapsed in 1971 because the US suspended dollar convertibility."},
+      {"t": 378.4, "move": "cause_chain", "concept": "1971 collapse: the US suspends dollar-to-gold convertibility", "what": "The whole system stood on the dollar being convertible into gold; once the US suspended that, its base was gone and it collapsed."},
+      {"t": 418.2, "move": "signpost", "concept": "peg regime 1971-1992 (teaser)", "what": "After the collapse India followed a peg regime from 1971 to 1992, covered next video."}
+    ],
+    "story_before_term": [
+      {"term": "fixed peg / hard peg", "t_story": 158.2, "t_term": 192.4},
+      {"term": "gliding or crawling peg", "t_story": 198.6, "t_term": 213.9},
+      {"term": "fixed exchange rate regime", "t_story": 217.2, "t_term": 233.3},
+      {"term": "devaluation (as the central bank's lever)", "t_story": 292.8, "t_term": 316.3}
+    ],
+    "examples": [
+      {"t": 152.7, "kind": "what_if", "what": "Assume the dollar's value rises in a straight line over time.", "carries": "how a pegged currency moves with its anchor"},
+      {"t": 158.2, "kind": "numbers", "what": "Rupee pegged to the dollar at 5; the dollar rises, the rate stays 5.", "carries": "pegging (hard peg)"},
+      {"t": 255.0, "kind": "story", "what": "A recurring businessman character wants an imported car worth 1 lakh dollars: Rs 3.30 lakh at the fixed rate.", "carries": "what a fixed rate means for a real purchase"},
+      {"t": 270.2, "kind": "story", "what": "The rupees go to the bank and RBI; RBI pays out dollars from its forex reserves.", "carries": "in a fixed regime the central bank supplies foreign currency from limited reserves"},
+      {"t": 332.8, "kind": "numbers", "what": "After devaluation the same car needs Rs 4.76 lakh instead of 3.30 lakh.", "carries": "what devaluation does to an importer"},
+      {"t": 324.9, "kind": "real_case", "what": "India's devaluations of 1949 and 1966 (as stated: 4.76 and 7.50 rupees per dollar).", "carries": "devaluation history under the fixed regime"}
+    ],
+    "closing": {"move": "signpost", "what": "The collapse of 1971 is explained, then the peg regime of 1971-92 is named and deferred to the next video; channel plug."},
+    "density": "About 15 terms (depreciation, devaluation, exchange rate, trade balance, J curve, BoP, forex reserves, Bretton Woods, gold standard link, pegging, hard peg, crawling peg, fixed exchange rate regime, convertibility, peg regime) in about 7 minutes, about 2 per minute, but six of them are recalled, not new. The pace is right for the level; the 1971 collapse paragraph (378-418) is the one stretch told too fast."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 6.0, "shown": "box 'decreases the exchange rate of the currency' under the depreciation/devaluation pills", "said_gist": "whenever we depreciate or devalue our currency, then (its exchange rate decreases, said about 2 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 2, "t_shown": 18.4, "shown": "arrow to 'trade balance improves' after the green more-exports and red fewer-imports lines", "said_gist": "imports start decreasing, and this has a positive impact (on trade balance, said about 3 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 3, "t_shown": 31.4, "shown": "small J-curve graph labelled 'J curve'; 'in medium / long term' note", "said_gist": "improvement comes in the long term, and we understood this through the J curve", "naming_word": "J curve", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 4, "t_shown": 52.6, "shown": "glowing dashed frame around the depreciation/devaluation box (BoP and forex boxes in the chain)", "said_gist": "covered in the last video, but we have not yet talked in detail about this", "naming_word": "", "lead": "together", "relation": "navigation"},
+    {"tile": 5, "t_shown": 72.6, "shown": "the chain clears; question 'how is the exchange rate determined between currencies?' beside the box; a cartoon caricature with a speech bubble 'this is a very long story'", "said_gist": "no words recognised here (transcript gap)", "naming_word": "", "lead": "unrelated", "relation": "decoration"},
+    {"tile": 6, "t_shown": 80.8, "shown": "a thin timeline with a 'BRETTON WOODS SYSTEM' label and a 1971 tick", "said_gist": "that (system's name was Bretton Woods, said about 2 s later)", "naming_word": "", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 7, "t_shown": 111.2, "shown": "a dollar note alone on a new canvas with the Bretton Woods definition top-left", "said_gist": "let us understand the system in detail: here it says the US (dollar)", "naming_word": "", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 8, "t_shown": 129.6, "shown": "gold bars '= X grams' equal the dollar under FIXED; three brown PEGGED root-arrows run to three banknotes on a green panel", "said_gist": "the dollar's value was fixed with gold, and other countries' currencies (were pegged to the dollar)", "naming_word": "बागी", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 9, "t_shown": 149.6, "shown": "value-vs-time axes with a dollar note (PEGGED heading)", "said_gist": "this means the dollar's value will rise or fall with time", "naming_word": "value", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 10, "t_shown": 168.6, "shown": "the rupee note hangs from the dollar on a rod with a blue '5' pin, riding the rising dotted line", "said_gist": "the exchange rate between dollar and rupee is fixed; assume (it is 5, said about 3 s later)", "naming_word": "एक्सचेंज रेट", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 11, "t_shown": 186.2, "shown": "note 'Fixed Peg / Hard Peg': pegged at a specific rate, central bank committed to keep it", "said_gist": "pegging such that the rate always stays the same (the name 'fixed peg or hard peg' comes about 6 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 12, "t_shown": 207.8, "shown": "a yellow '± 1%' chip at the pin", "said_gist": "you can move the fixed rate plus or minus some percent up or down (the voice never says 1%)", "naming_word": "plus minus", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 13, "t_shown": 225.8, "shown": "'THIS MEANS: each currency's value against the other was constant or fixed' note on the Bretton Woods panel", "said_gist": "hard peg or crawling peg; this means in Bretton Woods (every rate was almost fixed)", "naming_word": "मतलब", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 14, "t_shown": 240.0, "shown": "[FIXED EXCHANGE RATE REGIME] label and a FIXED rate card '1$ = Rs 3.30' with a 1948 calendar", "said_gist": "in this fixed exchange rate regime, in 1948 (one dollar was 3.3 rupees)", "naming_word": "1948", "lead": "together", "relation": "names_the_term"},
+    {"tile": 15, "t_shown": 252.4, "shown": "split screen: the rate card stays left; a round caricature of a real brand founder appears right", "said_gist": "to understand it we will take again the example of (the importer character, named about 2 s later)", "naming_word": "ताउजी", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 16, "t_shown": 266.0, "shown": "a limousine with a '100000 $' tag, '= 100000 x 3.30 Rs = Rs 3.30 lakh' and a rupee note", "said_gist": "a dollar was 3.3 rupees, so this car's value in Indian currency (became 3.3 lakh)", "naming_word": "car", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 17, "t_shown": 277.2, "shown": "a 'Rs 3.30 lakh' note travels on an arrow from the character to a bank icon", "said_gist": "to get these dollars he must go to the bank; he will give 3.3 lakh", "naming_word": "bank", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 18, "t_shown": 283.8, "shown": "a forex reserve stack with a dollar note on top beside the RBI coin; arrow bank -> RBI", "said_gist": "the bank gives the money to RBI, and in return RBI from its forex (reserves takes out 1 lakh dollars)", "naming_word": "फोरेक्स", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 19, "t_shown": 314.6, "shown": "text: if people import more it strains forex reserves and can create a balance of payment crisis; 'SOLUTION:' line", "said_gist": "if very high demand for US dollars comes, then if it wants it can (devalue its currency); 'BoP crisis' is never spoken", "naming_word": "डिमांड", "lead": "together", "relation": "adds_new_info"},
+    {"tile": 20, "t_shown": 319.6, "shown": "pink highlight on [FIXED EXCHANGE RATE REGIME]; a DEVALUATION pill with 'devalue the currency' under SOLUTION", "said_gist": "this means in a fixed exchange rate regime (the central bank can devalue)", "naming_word": "Fixed", "lead": "together", "relation": "names_the_term"},
+    {"tile": 21, "t_shown": 326.4, "shown": "note 'Indian Government devalued its currency in 1949' under the rate card; the RBI coin glows (screen says government, voice says central bank)", "said_gist": "the central bank can devalue, and in 1949 for the first time our currency (was devalued)", "naming_word": "1949", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 22, "t_shown": 333.0, "shown": "a second FIXED card '1$ = Rs 4.76' with a 1949 calendar under the first", "said_gist": "(it was made) equal to 4.76 rupees, and because of this devaluation...", "naming_word": "4 .76", "lead": "voice_first", "relation": "shows_the_step"},
+    {"tile": 23, "t_shown": 350.8, "shown": "cards 1948 (3.30) and 1949 (4.76) joined by a 'CURRENCY DEVALUATION' arrow under a pink DEVALUATION pill", "said_gist": "the first currency devaluation in our country happened in 1949", "naming_word": "devaluation", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 24, "t_shown": 371.4, "shown": "the 1944-1971 timeline with a red cross at 1971 under a box 'Bretton Woods system collapsed'", "said_gist": "it ran till 1971; in 1971 the Bretton Woods system collapsed", "naming_word": "Bretton", "lead": "together", "relation": "shows_the_step"}
+  ],
+  "talmel_summary": "The middle of the video is the strongest fit: gold equals dollar with root-like PEGGED arrows, the rupee hung from the dollar on a rod riding a rising line, a ±1% chip for the crawling peg, then the importer's money visibly travelling to the bank, to RBI and out of the reserve stack, and a new rate card dropping under the old one at the devaluation. The opening recap boxes appear 2-3 s before their words, which works because the chain is familiar. Weak spots: the humour caricature and question fill a gap with no teaching, the BoP crisis exists only on screen, and the collapse is a text box plus a cross while the voice gives a long, fast explanation.",
+  "voice": {"notes": "About 190 words per minute, quick and steady. Uses fixed explaining phrases: 'dekhiye', 'iska matlab yeh hua', 'maan lijiye', 'chaliye', 'gaur karne wali baat yeh hai'. Splits a statement aloud into 'do cheezein hain: pehli..., doosri...'. Numbers in Indian units ('1 lakh dollars', '3.3 lakh rupees'), rates as '1 dollar is equal to 4.76 rupees'. One humour line ('yeh ek bahut lambi kahani hai') in a playful tone. The collapse explanation near the end runs as one long unbroken sentence."},
+  "game_ideas": [
+    {"from_t": 147.5, "mechanic": "run_a_process", "player_does": "Holds the rupee on a rod under the moving dollar: picks a hard peg (rate locked at 5) or a crawling peg (±1% band) and responds as market pushes nudge the rupee up and down while gold drags the dollar along a rising line.", "process_happens": "The rate card shows the live rate; under a hard peg the rod is rigid, under a crawling peg the pin slides inside a yellow band.", "win": "Keep the rate inside the allowed band for ten ticks while the dollar moves.", "lose": "Letting the rupee drift outside the band snaps the rod and the rate card turns red, showing the peg has broken.", "concept": "pegging, hard vs crawling peg"},
+    {"from_t": 270.2, "mechanic": "allocate", "player_does": "Plays RBI at the dollar window under a fixed rate of 3.30: importers (the car buyer, a machine buyer, an oil buyer) queue with rupees asking for dollars, and RBI decides each round whether to pay out or devalue.", "process_happens": "Each payout lifts dollars off the forex reserve stack; a devaluation drops a new rate card (4.76, later 7.50) and every importer must now bring more rupees, so fewer can afford imports.", "win": "Finish ten rounds with reserves above zero and as few devaluations as possible.", "lose": "Paying out every request empties the stack and a 'balance of payment crisis' banner appears.", "concept": "how the fixed regime works and why central banks devalue"},
+    {"from_t": 363.6, "mechanic": "cause_chain", "player_does": "Links cards in order: dollar convertible into gold -> other currencies pegged to the dollar -> the system stands on this link -> US suspends convertibility -> Bretton Woods collapses -> India moves to a peg regime.", "process_happens": "Each correct link lights a segment of the 1944-1971 timeline; the final link drops the red cross at 1971.", "win": "Full chain lit with the cross at 1971.", "lose": "Putting the collapse before the suspension leaves the gold link standing, with a nudge that nothing has broken yet.", "concept": "why Bretton Woods collapsed"},
+    {"from_t": 324.9, "mechanic": "build_timeline", "player_does": "Places rate cards 3.30 (1948), 4.76 (1949), 7.50 (1966) and re-prices the 1-lakh-dollar car at each.", "process_happens": "The car's rupee tag updates (3.30 lakh, 4.76 lakh, 7.50 lakh) as each card is placed.", "win": "All three cards in order with the right car prices.", "lose": "A wrong car price shows the multiplication line with the wrong factor highlighted.", "concept": "India's devaluations and their effect on import prices"}
+  ],
+  "notes_questions": [
+    {"q": "Bretton Woods system kya tha? Dollar, gold aur doosri currencies ka rishta picture se samjhaiye.", "answer_shape": "picture", "from_t": 81.8},
+    {"q": "Pegging ka kya matlab hai? Hard peg aur crawling peg mein kya fark hai?", "answer_shape": "comparison", "from_t": 133.5},
+    {"q": "Fixed exchange rate regime mein importer ko dollar kaise milte hain? Paise ka raasta dikhaiye.", "answer_shape": "flow", "from_t": 270.2},
+    {"q": "1$ = Rs 3.30 ho to 1 lakh dollar ki car kitne rupaye ki hogi? Rate 4.76 hone par?", "answer_shape": "number", "from_t": 255.0},
+    {"q": "Central bank apni currency devalue kab aur kyon karta hai?", "answer_shape": "flow", "from_t": 308.6},
+    {"q": "1948, 1949 aur 1966 ke exchange rates ki timeline banaiye.", "answer_shape": "timeline", "from_t": 324.9},
+    {"q": "Bretton Woods system 1971 mein kyon collapse hua?", "answer_shape": "flow", "from_t": 363.6}
+  ],
+  "checks_learned": [
+    "Questions promised in the agenda (depreciation vs devaluation, who does it) must be answered in the lesson or explicitly deferred; flag open promises at the end.",
+    "Every number on screen must be spoken (±1% is on screen; the voice says 'some percent').",
+    "Every effect named on screen must be spoken (balance of payment crisis is only on screen).",
+    "The agent on screen must match the agent in the voice (screen: government devalued; voice: central bank devalues).",
+    "After a rule change (devaluation), re-run the same running example with the new number (E19 does this with the car; enforce it).",
+    "A definition note should not appear more than about 3 s before its term (the hard-peg note leads by about 6 s).",
+    "No caricatures of real people or brand founders; BIE uses its own recurring characters.",
+    "A humour beat must not replace the bridge question's teaching; the question should still be spoken and pictured."
+  ],
+  "teaching_best": [
+    {"t": 147, "why": "The rupee hangs from the dollar on a rod and rides the rising line: a peg made physical, then a ±1% chip shows the crawling peg as a small allowed band."},
+    {"t": 95, "why": "'Two things here' splits the system statement into two named sub-questions and answers them in that order."},
+    {"t": 255, "why": "A running character's car purchase turns the fixed rate into rupees and then into a money path through the bank, RBI and the reserve stack."},
+    {"t": 332, "why": "The same import is re-priced after devaluation (3.30 lakh to 4.76 lakh) and the rate cards line up as a history strip."},
+    {"t": 0, "why": "The recap is a visible cause chain, so the new question grows out of the learner's last lesson."}
+  ],
+  "teaching_weak": [
+    {"t": 52, "why": "Promises the depreciation vs devaluation difference, which this video never delivers."},
+    {"t": 72, "why": "A caricature and a joke bubble fill the bridge, with a real-person likeness BIE cannot use."},
+    {"t": 314, "why": "The BoP crisis and 'solution' are text only; the reserve stack never visibly runs low."},
+    {"t": 378, "why": "The collapse (convertibility suspended) is one long fast sentence over a text box and a cross; no picture of dollars being turned into gold."},
+    {"t": 111, "why": "'Gold up, dollar up' is said while the screen shows a static equation; nothing moves."}
+  ]
+}

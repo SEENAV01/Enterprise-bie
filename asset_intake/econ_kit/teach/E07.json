@@ -1,0 +1,526 @@
+{
+  "id": "E07",
+  "topic": "NEER and REER: measuring the rupee against a weighted basket of currencies, with and without inflation",
+  "book_understanding": {
+    "concepts": [
+      {
+        "name": "CPI and WPI as the model",
+        "type": "definition",
+        "t_start": 0,
+        "t_end": 51.6,
+        "prereq_recalled": "inflation videos: a basket of goods and a weighted average of price changes"
+      },
+      {
+        "name": "need for a currency index",
+        "type": "cause_effect",
+        "t_start": 51.6,
+        "t_end": 109.0,
+        "prereq_recalled": "two indexes answer 'is inflation rising?'"
+      },
+      {
+        "name": "NEER calculation",
+        "type": "formula",
+        "t_start": 109.0,
+        "t_end": 141.8,
+        "prereq_recalled": "weighted average"
+      },
+      {
+        "name": "reading NEER (appreciation / depreciation)",
+        "type": "cause_effect",
+        "t_start": 141.8,
+        "t_end": 172.2,
+        "prereq_recalled": "NEER as units of the basket per rupee"
+      },
+      {
+        "name": "real exchange rate",
+        "type": "formula",
+        "t_start": 176.5,
+        "t_end": 197.5,
+        "prereq_recalled": "the NEER table and inflation"
+      },
+      {
+        "name": "REER",
+        "type": "process",
+        "t_start": 197.5,
+        "t_end": 207.4,
+        "prereq_recalled": "NEER method with one column changed"
+      },
+      {
+        "name": "NEER vs REER",
+        "type": "comparison",
+        "t_start": 207.4,
+        "t_end": 237.2,
+        "prereq_recalled": "both indexes just built"
+      }
+    ],
+    "teaching_order": "A textbook would define NEER and REER and give their formulas. This video starts from everyday prices moving unequally, recalls how CPI and WPI answer 'is inflation rising?', and mirrors that question for the currency, so NEER and REER arrive as the expected answer. NEER is then built as a worked table, REER as one extra column on the same table, and a comparison with a memory rule closes it.",
+    "breakdown_rule": "Teach the new pair through a known pair (CPI/WPI), then build the first index as a worked table and the second as one change to that table."
+  },
+  "narration": {
+    "opening": {
+      "move": "hook_scene",
+      "what": "A grid of everyday items with price arrows flickering up and down while the voice says prices never all move together; then it asks how you would tell whether inflation is rising."
+    },
+    "moves": [
+      {
+        "t": 0,
+        "move": "hook_scene",
+        "concept": "CPI and WPI as the model",
+        "what": "Prices of different things keep moving; some rise while others fall, and later it may flip."
+      },
+      {
+        "t": 24.2,
+        "move": "question_to_viewer",
+        "concept": "CPI and WPI as the model",
+        "what": "If I asked you whether mahangai is rising or falling, how would you tell?"
+      },
+      {
+        "t": 30.5,
+        "move": "yaani_unpack",
+        "concept": "CPI and WPI as the model",
+        "what": "With two indexes: CPI yaani consumer price index, WPI yaani wholesale price index."
+      },
+      {
+        "t": 40.5,
+        "move": "recall_previous",
+        "concept": "CPI and WPI as the model",
+        "what": "Each uses its own basket; the index is a weighted average of the basket's price changes."
+      },
+      {
+        "t": 51.6,
+        "move": "analogy",
+        "concept": "need for a currency index",
+        "what": "Jis tarah two indexes tell us about inflation, bilkul usi tarah two indexes tell us whether our currency is appreciating or depreciating against others."
+      },
+      {
+        "t": 69.3,
+        "move": "yaani_unpack",
+        "concept": "need for a currency index",
+        "what": "NEER yaani nominal effective exchange rate; REER yaani real effective exchange rate."
+      },
+      {
+        "t": 77.3,
+        "move": "cause_chain",
+        "concept": "need for a currency index",
+        "what": "We trade with many countries, the rupee's rate with each keeps changing, tracking each is impossible, so we need one index."
+      },
+      {
+        "t": 109.0,
+        "move": "signpost",
+        "concept": "NEER calculation",
+        "what": "First, NEER."
+      },
+      {
+        "t": 111.4,
+        "move": "define_term",
+        "concept": "NEER calculation",
+        "what": "Take a basket of the currencies we trade with most, weight each by trade volume, multiply each rupee rate by its weight and add: that total is NEER."
+      },
+      {
+        "t": 141.8,
+        "move": "yaani_unpack",
+        "concept": "reading NEER (appreciation / depreciation)",
+        "what": "Another way to see it: the rupee's rate against the whole basket."
+      },
+      {
+        "t": 148.8,
+        "move": "cause_chain",
+        "concept": "reading NEER (appreciation / depreciation)",
+        "what": "If NEER rises over time the rupee is appreciating against its main partners; if it falls, depreciating."
+      },
+      {
+        "t": 168.1,
+        "move": "conclusion_line",
+        "concept": "reading NEER (appreciation / depreciation)",
+        "what": "So that was NEER, yaani nominal effective exchange rate."
+      },
+      {
+        "t": 176.5,
+        "move": "what_if",
+        "concept": "real exchange rate",
+        "what": "If we make one small change in the same calculation: add a column for the real exchange rate."
+      },
+      {
+        "t": 184.3,
+        "move": "define_term",
+        "concept": "real exchange rate",
+        "what": "A country's exchange rate adjusted for inflation is the real exchange rate; the formula is shown."
+      },
+      {
+        "t": 197.5,
+        "move": "conclusion_line",
+        "concept": "REER",
+        "what": "Use real rates instead of nominal ones in the same sum, and the result is REER."
+      },
+      {
+        "t": 207.4,
+        "move": "recap",
+        "concept": "NEER vs REER",
+        "what": "NEER is the weighted average of the rupee's rates against major partners; adding each country's inflation gives REER."
+      },
+      {
+        "t": 228.3,
+        "move": "exam_link",
+        "concept": "NEER vs REER",
+        "what": "'Yaad rakhiye' rule: if the rupee's REER is above its NEER, India's inflation is higher than its major partners'."
+      }
+    ],
+    "story_before_term": [
+      {
+        "term": "CPI / WPI",
+        "t_story": 0,
+        "t_term": 32.8
+      },
+      {
+        "term": "NEER / REER",
+        "t_story": 58.0,
+        "t_term": 70.5
+      },
+      {
+        "term": "real exchange rate",
+        "t_story": 176.5,
+        "t_term": 183.0
+      }
+    ],
+    "examples": [
+      {
+        "t": 0,
+        "kind": "everyday_object",
+        "what": "Icons of a house, food, a bus, medicine, fuel and more, whose price arrows keep flipping up and down.",
+        "carries": "prices move unequally, so one index is needed"
+      },
+      {
+        "t": 51.6,
+        "kind": "analogy",
+        "what": "The inflation question answered by two indexes, set above the currency question answered by two indexes.",
+        "carries": "why NEER and REER exist"
+      },
+      {
+        "t": 77.3,
+        "kind": "story",
+        "what": "India trades with many countries, so the rupee has many exchange rates at once (globe sending arrows into India).",
+        "carries": "need for one currency index"
+      },
+      {
+        "t": 122.2,
+        "kind": "numbers",
+        "what": "Six currencies weighted 30/20/20/10/10/10, each rupee rate multiplied by its weight and summed to 0.26849 (on screen only, never read aloud).",
+        "carries": "NEER calculation"
+      }
+    ],
+    "closing": {
+      "move": "exam_link",
+      "what": "A 'remember this' rule (REER above NEER means higher inflation at home) on a '<' sign, under a promo; no REER number is ever worked out."
+    },
+    "density": "About 10 terms (CPI, WPI, weighted average, NEER, REER, basket of currencies, weight, nominal and real exchange rate, appreciate / depreciate) in about 235 s, about 2.5 per minute. The analogy keeps it light, but the table numbers go by unspoken."
+  },
+  "talmel": [
+    {
+      "tile": 1,
+      "t_shown": 2.0,
+      "shown": "grid of everyday item icons with up / down price arrows (taken from the canvas card and shot sheet; the tile frame shows the later CPI/WPI panel, likely a capture mismatch)",
+      "said_gist": "in our country the prices of different things keep moving",
+      "naming_word": "चीजों",
+      "lead": "picture_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 2,
+      "t_shown": 59.8,
+      "shown": "mint panel under the inflation panel with the currency question: is our currency appreciating or depreciating against all others?",
+      "said_gist": "exactly in the same way, to know whether our country's currency...",
+      "naming_word": "उसी तरह",
+      "lead": "voice_first",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 3,
+      "t_shown": 69.8,
+      "shown": "'2 INDEXES' arrow splitting into NEER and REER",
+      "said_gist": "these two indexes are NEER and REER",
+      "naming_word": "near",
+      "lead": "picture_first",
+      "relation": "names_the_term"
+    },
+    {
+      "tile": 4,
+      "t_shown": 72.2,
+      "shown": "'Nominal Effective Exchange Rate' written under NEER",
+      "said_gist": "NEER yaani nominal effective exchange rate",
+      "naming_word": "nominal effective",
+      "lead": "picture_first",
+      "relation": "names_the_term"
+    },
+    {
+      "tile": 5,
+      "t_shown": 77.6,
+      "shown": "canvas clears for the trade part: a globe sends about ten curved arrows into India (from the card and shot sheet; the tile frame shows the next statement box)",
+      "said_gist": "actually, the thing is that we trade with many countries",
+      "naming_word": "",
+      "lead": "together",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 6,
+      "t_shown": 95.2,
+      "shown": "statement with an arrow from 'cannot track all these currencies': we need an index that tells if our currency is rising or falling against all others",
+      "said_gist": "this is the reason we need an index",
+      "naming_word": "index",
+      "lead": "picture_first",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 7,
+      "t_shown": 106.0,
+      "shown": "'Index' ringed yellow and split into NEER and REER tags",
+      "said_gist": "as we said, there are two such indexes",
+      "naming_word": "index",
+      "lead": "picture_first",
+      "relation": "names_the_term"
+    },
+    {
+      "tile": 8,
+      "t_shown": 112.0,
+      "shown": "wicker basket of banknotes labelled 'basket of currencies with whom we trade the most'",
+      "said_gist": "first NEER: in NEER we use a basket of currencies",
+      "naming_word": "basket of",
+      "lead": "picture_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 9,
+      "t_shown": 122.2,
+      "shown": "blue column of six currencies with weights 30, 20, 20, 10, 10, 10",
+      "said_gist": "then we give each currency a weight (the actual weights are never spoken)",
+      "naming_word": "weight",
+      "lead": "together",
+      "relation": "adds_new_info"
+    },
+    {
+      "tile": 10,
+      "t_shown": 126.2,
+      "shown": "earlier text clears; the table is re-laid with the basket at top left and empty rate columns",
+      "said_gist": "based on the volume of trade with these countries",
+      "naming_word": "",
+      "lead": "unrelated",
+      "relation": "navigation"
+    },
+    {
+      "tile": 11,
+      "t_shown": 129.0,
+      "shown": "exchange-rate column filled: 1 Rs = 0.012 USD, 1.181 JPY and so on",
+      "said_gist": "we write each currency's exchange rate against INR (rates never read)",
+      "naming_word": "INR",
+      "lead": "together",
+      "relation": "adds_new_info"
+    },
+    {
+      "tile": 12,
+      "t_shown": 131.2,
+      "shown": "'30% of 0.012' written in the first row",
+      "said_gist": "and multiply it by its weight",
+      "naming_word": "multiply",
+      "lead": "picture_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 13,
+      "t_shown": 133.6,
+      "shown": "weight x rate written for the other rows, with arrows to a results column",
+      "said_gist": "the value that comes after multiplying",
+      "naming_word": "value",
+      "lead": "together",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 14,
+      "t_shown": 135.6,
+      "shown": "results column highlighted with a down-arrow to the total 0.26849",
+      "said_gist": "if we add all these values, the final value...",
+      "naming_word": "जोड़ दिया",
+      "lead": "together",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 15,
+      "t_shown": 142.8,
+      "shown": "'0.26849 (NEER) x basket = rupee' in a blue band",
+      "said_gist": "we can also see it this way: against the basket we took...",
+      "naming_word": "basket",
+      "lead": "picture_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 16,
+      "t_shown": 152.6,
+      "shown": "box 'IF NEER INCREASES: the rupee has appreciated against its major trading partners'",
+      "said_gist": "if NEER increases over time, it means...",
+      "naming_word": "increase",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 17,
+      "t_shown": 170.2,
+      "shown": "back to the full NEER table (pieces of the last formula fly into it)",
+      "said_gist": "so that was NEER, yaani nominal effective exchange rate",
+      "naming_word": "nominal effective exchange rate",
+      "lead": "together",
+      "relation": "navigation"
+    },
+    {
+      "tile": 18,
+      "t_shown": 179.6,
+      "shown": "table squeezes and an empty 'REAL Exchange Rate' column appears beside the rate column",
+      "said_gist": "if we make a small change in this same calculation, beside the exchange rate...",
+      "naming_word": "छोटा सा change",
+      "lead": "voice_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 19,
+      "t_shown": 186.8,
+      "shown": "formula box: real rate = nominal rate divided by ((1 + inflation)/100)",
+      "said_gist": "if inflation is adjusted in a country's exchange rate (the voice only says 'see the formula here' about 4 s later)",
+      "naming_word": "inflation",
+      "lead": "together",
+      "relation": "adds_new_info"
+    },
+    {
+      "tile": 20,
+      "t_shown": 189.2,
+      "shown": "yellow ellipse on 'REAL Exchange Rate' with a curved arrow from the nominal column (the column itself is never filled)",
+      "said_gist": "the value that comes out is the real exchange rate",
+      "naming_word": "real exchange rate",
+      "lead": "together",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 21,
+      "t_shown": 208.8,
+      "shown": "'NEER VS REER' card",
+      "said_gist": "now you can see the difference between NEER and REER",
+      "naming_word": "difference",
+      "lead": "together",
+      "relation": "names_the_term"
+    },
+    {
+      "tile": 22,
+      "t_shown": 212.6,
+      "shown": "pink box: NEER is the weighted average of exchange rates against India's major trading partners",
+      "said_gist": "the rupee's rate against the currencies of India's major trading partners",
+      "naming_word": "major trading partners",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 23,
+      "t_shown": 228.2,
+      "shown": "definition box removed; app promo slides in",
+      "said_gist": "REER yaani real effective exchange rate, and remember that...",
+      "naming_word": "",
+      "lead": "unrelated",
+      "relation": "navigation"
+    },
+    {
+      "tile": 24,
+      "t_shown": 233.2,
+      "shown": "'NEER < REER' with a note that inflation in India is higher than in its major trading partners",
+      "said_gist": "if REER is above NEER, it means India's inflation is higher than its partners'",
+      "naming_word": "इंफलेशन",
+      "lead": "picture_first",
+      "relation": "repeats_speech_as_text"
+    }
+  ],
+  "talmel_summary": "In the NEER part the picture walks the calculation step by step on the same words (weight, rate, multiply, add), but the actual numbers are on screen only and never read. The analogy panel (inflation question above the currency question) is the strongest fit of speech and picture. REER gets a column that is never filled, and the closing rule is a '<' sign plus text, so the picture stops showing meaning exactly where the new idea arrives.",
+  "voice": {
+    "notes": "About 210 words per minute, the fastest of this batch; confident and flowing. Every acronym is unpacked with 'yaani'. NEER and REER are said 'neer' / 'reer' (recognised as 'near', 'rear', 'NIR'). Table numbers are not read. Short pauses (about 0.6-0.7 s) only around the CPI / WPI unpacking. Closes with 'yaad rakhiye'."
+  },
+  "game_ideas": [
+    {
+      "from_t": 111.4,
+      "mechanic": "allocate",
+      "player_does": "Sets trade weights for six partner currencies (must total 100%), then sees one month's exchange-rate moves and calls whether the rupee appreciated or depreciated; in level two, switches on each country's inflation.",
+      "process_happens": "The table multiplies and adds live and shows NEER and its change; in level two the REAL column fills, REER appears beside NEER, and the rupee coin grows or shrinks against the basket.",
+      "win": "Correct appreciation / depreciation calls for five months, and a correct prediction of whether REER ends above or below NEER.",
+      "lose": "Weights not adding to 100% lock the sum; calling 'appreciated' when NEER fell shows the rupee coin shrinking against the basket; ignoring inflation shows REER drifting away from NEER.",
+      "concept": "NEER calculation, its reading, and REER"
+    },
+    {
+      "from_t": 51.6,
+      "mechanic": "match_partner",
+      "player_does": "Matches parts of the inflation toolkit to their currency twins: basket of goods to basket of currencies, price change to exchange-rate change, consumption weight to trade weight, CPI/WPI question to NEER/REER question.",
+      "process_happens": "Each correct pair lights up both panels side by side, as in the video's mirrored layout.",
+      "win": "All pairs matched.",
+      "lose": "Pairing 'basket of goods' with 'inflation adjustment' shows the mismatch: the currency basket holds currencies weighted by trade.",
+      "concept": "need for a currency index (analogy with CPI/WPI)"
+    }
+  ],
+  "notes_questions": [
+    {
+      "q": "NEER aur REER mein kya fark hai?",
+      "answer_shape": "comparison",
+      "from_t": 207.4
+    },
+    {
+      "q": "NEER kaise nikalte hain? (basket, weight, rate x weight, jod)",
+      "answer_shape": "flow",
+      "from_t": 111.4
+    },
+    {
+      "q": "NEER badhe ya ghate to rupee ke saath kya hua?",
+      "answer_shape": "picture",
+      "from_t": 148.8
+    },
+    {
+      "q": "Real exchange rate mein inflation kaise jodte hain?",
+      "answer_shape": "flow",
+      "from_t": 184.3
+    },
+    {
+      "q": "Agar REER, NEER se zyada ho, to iska kya matlab hai?",
+      "answer_shape": "comparison",
+      "from_t": 228.3
+    },
+    {
+      "q": "CPI/WPI aur NEER/REER mein kya samanta hai?",
+      "answer_shape": "comparison",
+      "from_t": 51.6
+    }
+  ],
+  "checks_learned": [
+    "When a worked table gains a column for a second method, the column must be filled and the new total shown (here the REAL column stays empty and no REER number appears).",
+    "Numbers in a worked example must be read aloud or pointed at at least once (walk the first row: 30% of 0.012 gives 0.0036).",
+    "A formula shown on screen must be read once, or walked with one substitution.",
+    "A 'remember this' rule (REER above NEER means higher inflation) needs its reason in one spoken line or a picture; a bare '<' sign fails.",
+    "A new concept that mirrors an old one should be shown side by side with it in the same structure; this video's CPI/WPI to NEER/REER panel is the model."
+  ],
+  "teaching_best": [
+    {
+      "t": 51.6,
+      "why": "Analogy bridge: the known inflation question and its two indexes sit above the new currency question, so the learner expects two indexes before they are named."
+    },
+    {
+      "t": 77.3,
+      "why": "The cause chain (many partners, many rates, cannot track each, need one index) gives the reason for the index before its method."
+    },
+    {
+      "t": 176.5,
+      "why": "REER is taught as 'one small change' to the NEER table, so the second method costs only one new idea."
+    }
+  ],
+  "teaching_weak": [
+    {
+      "t": 197,
+      "why": "REER is never computed: the real-rate column stays empty and no REER value appears."
+    },
+    {
+      "t": 228,
+      "why": "The closing rule (REER above NEER) comes with no reason and no example."
+    },
+    {
+      "t": 126,
+      "why": "The worked NEER numbers are on screen only; the voice describes the steps in general words."
+    }
+  ]
+}

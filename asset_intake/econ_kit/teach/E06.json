@@ -1,0 +1,116 @@
+{
+  "id": "E06",
+  "topic": "Stagflation: the normal GDP-unemployment-inflation pattern, the twist that breaks it, and an oil-price shock as the cause",
+  "book_understanding": {
+    "concepts": [
+      {"name": "economy turns resources into GDP; labour includes an unemployed share", "type": "process", "t_start": 4.4, "t_end": 31.2, "prereq_recalled": "GDP as the economy's output"},
+      {"name": "GDP growth leads to lower unemployment and higher inflation (wage-cost chain)", "type": "cause_effect", "t_start": 31.2, "t_end": 101.6, "prereq_recalled": "unemployment rate; inflation as rising prices"},
+      {"name": "normal direction pattern of GDP, inflation and unemployment", "type": "comparison", "t_start": 101.6, "t_end": 126.0, "prereq_recalled": "the wage-cost chain just built"},
+      {"name": "inflation-unemployment pair = Phillips curve", "type": "definition", "t_start": 126.0, "t_end": 163.7, "prereq_recalled": "the Phillips curve video (previous lesson)"},
+      {"name": "GDP and inflation normally move together", "type": "comparison", "t_start": 163.7, "t_end": 177.3, "prereq_recalled": "the direction table"},
+      {"name": "stagflation = stagnation + inflation", "type": "definition", "t_start": 177.3, "t_end": 213.2, "prereq_recalled": "GDP and inflation normally move together"},
+      {"name": "oil-price shock: cost-push raises prices while GDP falls", "type": "cause_effect", "t_start": 213.2, "t_end": 275.1, "prereq_recalled": "the resources -> economy -> GDP flow from the opening"},
+      {"name": "unemployment still follows GDP in stagflation", "type": "cause_effect", "t_start": 275.1, "t_end": 288.7, "prereq_recalled": "GDP down means unemployment up (second table row)"}
+    ],
+    "teaching_order": "A textbook defines stagflation first and then lists its causes. Here the video first builds the normal rule (GDP up, unemployment down, inflation up, and the reverse) as a long cause chain, fixes it in a three-column direction table, ties it to the Phillips curve already taught, and only then introduces stagflation as a 'twist in the story' that breaks one cell of the table. The 'how can this be?' question is answered with a different cause chain (oil prices) on the same economy diagram, so the exception is understood against the rule.",
+    "breakdown_rule": "Build the normal cause chain and freeze it as a direction table; then teach the new term as the one row that breaks the table, and explain that row with a second cause chain on the same diagram."
+  },
+  "narration": {
+    "opening": {"move": "agenda", "what": "One line: today we understand stagflation; then straight into the resources -> economy -> GDP model while the ECONOMY box appears."},
+    "moves": [
+      {"t": 0.1, "move": "agenda", "concept": "stagflation = stagnation + inflation", "what": "Says the video is about stagflation."},
+      {"t": 4.4, "move": "define_term", "concept": "economy turns resources into GDP; labour includes an unemployed share", "what": "An economy uses its available resources (raw material, technology, capital, labour) to produce output called GDP."},
+      {"t": 23.7, "move": "define_term", "concept": "economy turns resources into GDP; labour includes an unemployed share", "what": "At any time some percentage of labourers is unemployed."},
+      {"t": 31.2, "move": "cause_chain", "concept": "GDP growth leads to lower unemployment and higher inflation (wage-cost chain)", "what": "GDP grows, so firms produce more, earn more profit and need more workers, so the unemployed share shrinks."},
+      {"t": 55.8, "move": "yaani_unpack", "concept": "GDP growth leads to lower unemployment and higher inflation (wage-cost chain)", "what": "Yaani the unemployment rate falls."},
+      {"t": 58.3, "move": "cause_chain", "concept": "GDP growth leads to lower unemployment and higher inflation (wage-cost chain)", "what": "Low unemployment raises demand for workers; firms compete to keep and attract staff; wages rise; labour cost rises; firms pass it to customers; prices rise."},
+      {"t": 98.4, "move": "yaani_unpack", "concept": "GDP growth leads to lower unemployment and higher inflation (wage-cost chain)", "what": "Yaani inflation starts rising."},
+      {"t": 101.6, "move": "conclusion_line", "concept": "normal direction pattern of GDP, inflation and unemployment", "what": "Sums up the whole scenario: GDP up, so unemployment down, so inflation up."},
+      {"t": 112.9, "move": "what_if", "concept": "normal direction pattern of GDP, inflation and unemployment", "what": "Runs the same scenario in reverse: GDP down, unemployment up, inflation down."},
+      {"t": 126.0, "move": "recall_previous", "concept": "inflation-unemployment pair = Phillips curve", "what": "If we chart only inflation against unemployment, it is the Phillips curve from the previous video; restates its claim."},
+      {"t": 163.7, "move": "signpost", "concept": "GDP and inflation normally move together", "what": "Now look at GDP and inflation: they rise together and fall together."},
+      {"t": 177.3, "move": "contrast", "concept": "stagflation = stagnation + inflation", "what": "'But there is a twist in the story, and its name is stagflation' (a story-twist framing of the exception)."},
+      {"t": 182.6, "move": "yaani_unpack", "concept": "stagflation = stagnation + inflation", "what": "Splits the word into stagnation and inflation, then stagnation yaani growth has stopped or is very slow."},
+      {"t": 194.5, "move": "define_term", "concept": "stagflation = stagnation + inflation", "what": "If prices rise in spite of stagnant growth, the situation is called stagflation."},
+      {"t": 201.3, "move": "question_to_viewer", "concept": "stagflation = stagnation + inflation", "what": "How can inflation rise if GDP is not growing, when we just learned they fall together?"},
+      {"t": 224.6, "move": "what_if", "concept": "oil-price shock: cost-push raises prices while GDP falls", "what": "Suppose international oil prices rise fast (the screen dates it to the 1970s)."},
+      {"t": 230.0, "move": "cause_chain", "concept": "oil-price shock: cost-push raises prices while GDP falls", "what": "Raw-material cost rises, cost of production rises, prices rise, customers cannot buy at higher prices, demand falls, growth stops, GDP falls."},
+      {"t": 263.2, "move": "conclusion_line", "concept": "oil-price shock: cost-push raises prices while GDP falls", "what": "Here inflation went up while GDP went down: that is stagflation."},
+      {"t": 275.1, "move": "cause_chain", "concept": "unemployment still follows GDP in stagflation", "what": "The GDP-unemployment link stays the same: if GDP falls, joblessness will rise."},
+      {"t": 286.6, "move": "conclusion_line", "concept": "unemployment still follows GDP in stagflation", "what": "Closes with 'these were the details of stagflation'."}
+    ],
+    "story_before_term": [
+      {"term": "Phillips curve (recalled)", "t_story": 126.0, "t_term": 135.0},
+      {"term": "stagflation (defined after the word is split and explained)", "t_story": 187.7, "t_term": 199.2},
+      {"term": "stagflation (named again after the oil story)", "t_story": 224.6, "t_term": 273.1}
+    ],
+    "examples": [
+      {"t": 31.2, "kind": "story", "what": "A growing economy where firms hire, compete for scarce workers, raise wages and pass the cost on in prices.", "carries": "why GDP growth brings lower unemployment and higher inflation"},
+      {"t": 112.9, "kind": "what_if", "what": "The same scenario run backwards: GDP falls, jobs go, prices cool.", "carries": "the second row of the normal pattern"},
+      {"t": 224.6, "kind": "real_case", "what": "International oil prices jump (spoken as 'maan lijiye', dated 1970s only on screen), raising raw-material cost.", "carries": "how prices can rise while GDP falls (stagflation)"}
+    ],
+    "closing": {"move": "conclusion_line", "what": "Adds that unemployment still rises with falling GDP, completes the red stagflation row, and ends with 'these were the details of stagflation'; no spoken recap of the cause."},
+    "density": "About eight terms (resources, GDP, unemployment rate, labour cost, inflation, Phillips curve, stagnation, stagflation) in about 285 s, under 2 per minute. Few terms but long chains: the first 100 s is one long wage-price chain before any new word, which is slow but sets up the twist well."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 4.2, "shown": "a nearly blank frame: an element begins to fade in", "said_gist": "today we will understand stagflation; look...", "naming_word": "", "lead": "unrelated", "relation": "decoration"},
+    {"tile": 2, "t_shown": 5.4, "shown": "yellow ECONOMY box", "said_gist": "any economy has some available resources", "naming_word": "economy", "lead": "together", "relation": "names_the_term"},
+    {"tile": 3, "t_shown": 30.2, "shown": "resources list with Labour ringed; curved arrow from Labour to '% of unemployed workers'; GDP output on the right", "said_gist": "some percentage of labourers is always unemployed", "naming_word": "unemployed", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 4, "t_shown": 46.6, "shown": "green note 'when GDP grows, businesses produce more' with an arrow down to 'Hire more workers'", "said_gist": "more profit means they need more workers", "naming_word": "workers", "lead": "together", "relation": "names_the_term"},
+    {"tile": 5, "t_shown": 56.6, "shown": "'starts decreasing' band and UNEMPLOYMENT with a green down arrow", "said_gist": "yaani the unemployment rate will fall", "naming_word": "unemployment rate", "lead": "together", "relation": "names_the_term"},
+    {"tile": 6, "t_shown": 60.4, "shown": "green sentence box: less labour available, wages may rise as firms compete", "said_gist": "if unemployment falls, it means... (wages and competition are spoken over the next 10-20 s)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 7, "t_shown": 89.6, "shown": "'[Higher Labour Cost]' and red box: businesses pass the higher labour costs to consumers", "said_gist": "if business costs rise they pass this cost to customers", "naming_word": "customers", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 8, "t_shown": 102.4, "shown": "canvas cleared; three column heads GDP / INFLATION / UNEMPLOYMENT", "said_gist": "what we understood from this whole scenario", "naming_word": "सिनेरियो", "lead": "together", "relation": "navigation"},
+    {"tile": 9, "t_shown": 105.8, "shown": "blue columns; INCREASE under GDP", "said_gist": "because GDP increases...", "naming_word": "GDP", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 10, "t_shown": 111.0, "shown": "INCREASE under INFLATION (DECREASE under unemployment already in)", "said_gist": "inflation starts increasing", "naming_word": "inflation", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 11, "t_shown": 114.6, "shown": "second row starts: DECREASE under GDP", "said_gist": "we can see this scenario in reverse too: if GDP...", "naming_word": "GDP", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 12, "t_shown": 124.0, "shown": "DECREASE under INFLATION in the second row", "said_gist": "the effect falls on inflation and inflation decreases", "naming_word": "inflation", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 13, "t_shown": 130.2, "shown": "thick black frame around the inflation and unemployment columns", "said_gist": "if we focus only on inflation and unemployment and draw a chart", "naming_word": "unemployment", "lead": "together", "relation": "navigation"},
+    {"tile": 14, "t_shown": 135.2, "shown": "chevron to a small falling-curve card titled PHILIPS CURVE", "said_gist": "this is the same chart we saw with the Phillips curve", "naming_word": "Phillips Curve", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 15, "t_shown": 180.0, "shown": "word STAGFLATION top-left (frame and green bands now on GDP and inflation columns)", "said_gist": "a twist in the story, and the twist's name is stagflation", "naming_word": "stagflation", "lead": "together", "relation": "names_the_term"},
+    {"tile": 16, "t_shown": 184.0, "shown": "the word split in two colours: STAG and FLATION", "said_gist": "stagflation is made of two words: stagnation...", "naming_word": "stagnation", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 17, "t_shown": 199.2, "shown": "red STAGFLATION row slides under the two green rows: STAGNANT under GDP, INCREASE under inflation", "said_gist": "if prices rise despite stagnant growth, this situation is called stagflation", "naming_word": "stagflation", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 18, "t_shown": 230.2, "shown": "economy flow returns; note 'oil price rise in international market in 1970s' with an oil barrel and rising chart", "said_gist": "suppose oil prices in the international market rise fast (no year is spoken)", "naming_word": "oil prices", "lead": "together", "relation": "adds_new_info"},
+    {"tile": 19, "t_shown": 239.8, "shown": "pink COST INCREASE band on Raw Material and red sentence: higher production cost leads to higher prices", "said_gist": "raw-material cost will rise, and if business costs...", "naming_word": "cost", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 20, "t_shown": 252.2, "shown": "INFLATION with red up arrow and INCREASE", "said_gist": "word timing missing here; the long segment ends on prices rising for customers", "naming_word": "", "lead": "together", "relation": "names_the_term"},
+    {"tile": 21, "t_shown": 255.6, "shown": "arrow to 'reduced demand from consumers'", "said_gist": "customers' demand will fall", "naming_word": "demand", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 22, "t_shown": 264.6, "shown": "'Economic Growth slows down' and DECREASE under GDP Output on the flow", "said_gist": "growth stopping means GDP decreasing", "naming_word": "GDP", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 23, "t_shown": 280.2, "shown": "direction table returns with the red row reading DECREASE / INCREASE; the normal-row GDP DECREASE cell is outlined", "said_gist": "the relation of unemployment with GDP stays...", "naming_word": "GDP", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 24, "t_shown": 282.8, "shown": "arrow from the red row's GDP DECREASE to a new INCREASE under unemployment", "said_gist": "...the same; basically if GDP falls...", "naming_word": "GDP", "lead": "together", "relation": "shows_the_step"}
+  ],
+  "talmel_summary": "Most of the picture is words: text chains and a direction table whose cells fill as the voice says each direction, so the picture often repeats the speech. It works when structure carries the meaning: the red stagflation row under two green normal rows shows the broken pattern at a glance, the STAG|FLATION split shows the word's parts, and the oil shock is worked through the same economy flow. Weak spots: a long sentence box lands 10-20 s before the voice reaches it, and the 1970s date is only on screen while the voice says 'suppose'.",
+  "voice": {"notes": "About 173 words per minute, calm and steady. Long chains are spoken as 'aur agar... to...' links, each step a short clause. The twist is marked by wording ('kahani mein ek twist hai') more than by a pause. Directions are said in English (increase, decrease) inside Hindi sentences, matching the table words. Speech recognition lost about 11 s around 213-224 s, so that stretch is not described here."},
+  "game_ideas": [
+    {"from_t": 101.6, "mechanic": "place_correctly", "player_does": "For each scenario card (boom, slump, oil shock), sets an up or down arrow under GDP, inflation and unemployment before the system plays it.", "process_happens": "The economy flow runs the scenario: factories hire or fire, wages and prices move, and the table row fills with the real directions.", "win": "All three arrows right for every scenario.", "lose": "Using the normal rule on the oil shock (inflation down because GDP is down) turns the row red with a big '?', and the oil barrel's cost band on raw material shows why prices rose anyway.", "concept": "normal pattern vs stagflation"},
+    {"from_t": 230.0, "mechanic": "cause_chain", "player_does": "Builds the oil-shock chain by dragging cards onto the economy flow: oil price up, raw-material cost up, production cost up, prices up, demand down, growth slows, GDP down, unemployment up.", "process_happens": "Each placed card lights its node on the flow and the meter it touches moves (price meter up, GDP meter down).", "win": "The finished chain ends with both the price meter up and the GDP meter down: the STAGFLATION tag lights.", "lose": "A card in the wrong place makes a meter move the wrong way, and the narrator line explains which link was skipped.", "concept": "cost-push cause of stagflation"},
+    {"from_t": 31.2, "mechanic": "market_sim", "player_does": "Runs a factory in a growing economy and decides wages each quarter to keep and attract workers while rivals bid for the same staff.", "process_happens": "Higher wages raise unit cost; the player chooses whether to raise shelf prices; the town's price level and unemployment meters update.", "win": "Stay staffed and profitable through the boom.", "lose": "Keeping wages low loses workers to rivals; raising them without raising prices wipes out profit, showing why boom wages end up as inflation.", "concept": "GDP growth -> low unemployment -> wage-cost inflation"}
+  ],
+  "notes_questions": [
+    {"q": "GDP badhne par unemployment kyon ghat'ta hai aur inflation kyon badhta hai? Chain banaiye.", "answer_shape": "flow", "from_t": 31.2},
+    {"q": "Normal halat mein GDP, inflation aur unemployment kis disha mein chalte hain? Dono situation ki table banaiye.", "answer_shape": "table", "from_t": 101.6},
+    {"q": "Stagflation shabd kin do shabdon se bana hai, aur har hissa kya batata hai?", "answer_shape": "tree", "from_t": 182.6},
+    {"q": "Oil ki keemat badhne se GDP girte hue bhi mehngai kaise badh sakti hai?", "answer_shape": "flow", "from_t": 224.6},
+    {"q": "Stagflation mein unemployment ka kya hota hai, aur kyon?", "answer_shape": "comparison", "from_t": 275.1},
+    {"q": "Phillips curve kya kehta hai? Chhota graph banaiye.", "answer_shape": "picture", "from_t": 126.0}
+  ],
+  "checks_learned": [
+    "A sentence box should not appear more than about 3 s before the voice reaches its content (here a wages box led by 10-20 s).",
+    "If the voice frames an example as hypothetical ('maan lijiye'), the screen must not add a real date the voice never says; either both say it or neither.",
+    "Every cause chain the narration finishes ('yaani inflation rise karega') must end in a drawn node for that last step.",
+    "An exception must be drawn in the same table or diagram as the rule it breaks (the red row under the green rows worked; enforce it).",
+    "After a question to the viewer, the answer must return to the same cell that held the '?' and replace it.",
+    "A term written on screen must be spelled the same in every video of the series (PHILIPS vs Phillips)."
+  ],
+  "teaching_best": [
+    {"t": 177, "why": "The rule is built first, so stagflation lands as a surprise twist: one red row breaking two green ones."},
+    {"t": 182, "why": "The word is split into STAG and FLATION, each half tied to its meaning: an easy memory hook."},
+    {"t": 230, "why": "The oil shock runs on the same resources -> economy -> GDP flow used at the start, so the cause sits where the learner already looks."},
+    {"t": 112, "why": "Running the scenario in reverse fills the second table row without a new explanation."}
+  ],
+  "teaching_weak": [
+    {"t": 31, "why": "About 70 s of a text-only cause chain before any picture changes meaningfully; the profit step is spoken but never drawn."},
+    {"t": 141, "why": "The Phillips curve claim and the GDP-inflation link are restated over a nearly unchanged frame for about 40 s."},
+    {"t": 60, "why": "A wages sentence box appears long before the voice gets there, so the learner reads ahead and stops listening."},
+    {"t": 286, "why": "The closing line only says 'these were the details'; the cause (cost push) is not recapped."}
+  ]
+}

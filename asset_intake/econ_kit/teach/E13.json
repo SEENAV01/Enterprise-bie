@@ -1,0 +1,124 @@
+{
+  "id": "E13",
+  "topic": "Real vs nominal GDP: why India switched to market price, how inflation inflates GDP with no extra output (one laptop), removing inflation back to a base year, the GDP deflator, and the four ways of calculating GDP",
+  "book_understanding": {
+    "concepts": [
+      {"name": "factor cost vs market price as a production indicator (recall)", "type": "comparison", "t_start": 0.0, "t_end": 31.6, "prereq_recalled": "previous video: GDP at factor cost and at market price"},
+      {"name": "why India switched to market price in 2015", "type": "cause_effect", "t_start": 31.6, "t_end": 103.1, "prereq_recalled": "last video's open question to viewers"},
+      {"name": "inflation raises factor-cost GDP with no extra output", "type": "numbers", "t_start": 103.1, "t_end": 188.8, "prereq_recalled": "factor cost as the better indicator"},
+      {"name": "nominal GDP vs real GDP", "type": "definition", "t_start": 188.8, "t_end": 219.7, "prereq_recalled": "inflated GDP from the laptop table"},
+      {"name": "removing inflation back to a base year", "type": "process", "t_start": 219.7, "t_end": 307.2, "prereq_recalled": "the laptop prices 10,000, 11,000, 12,100"},
+      {"name": "GDP deflator and the real GDP formula", "type": "formula", "t_start": 307.2, "t_end": 351.1, "prereq_recalled": "nominal GDP of the latest year; base year"},
+      {"name": "four ways of calculating GDP; India's choice", "type": "classification", "t_start": 351.1, "t_end": 410.0, "prereq_recalled": "factor cost / market price and real / nominal"}
+    ],
+    "teaching_order": "A textbook defines nominal GDP (current prices) and real GDP (constant prices), then gives the deflator formula. Here the video first settles last video's question, re-states that factor cost is the better production indicator, and then breaks that belief: with one laptop a year and 10% inflation, GDP still rises every year. Only after the learner sees GDP rise with no extra output are the names given (inflated, then nominal; remove the inflation, then real). The method follows the same laptop back along a year line to a base year, the deflator is the tool that does it, and the four-way tree comes last as a summary.",
+    "breakdown_rule": "Hold one quantity fixed (one laptop a year) and let only price move, so every new term is the name for what that one change does to GDP."
+  },
+  "narration": {
+    "opening": {"move": "recall_previous", "what": "Recalls last video: which is the better indicator of whether production is rising, factor cost or market price; factor cost, since market price also rises with taxes; India switched to market price in 2015 (question card and a 15K-flat vs rising market-price table)."},
+    "moves": [
+      {"t": 0.0, "move": "recall_previous", "concept": "factor cost vs market price as a production indicator (recall)", "what": "Factor cost is the better production indicator, because market price can rise just from higher taxes; yet India moved to market price in 2015 (gap words recovered by re-transcription)."},
+      {"t": 31.6, "move": "question_to_viewer", "concept": "why India switched to market price in 2015", "what": "Last video I asked you why the change was made; here is the answer."},
+      {"t": 37.9, "move": "cause_chain", "concept": "why India switched to market price in 2015", "what": "To match global practice: major economies measure GDP at market price, so measuring ours the same way makes growth comparable with developed countries."},
+      {"t": 57.9, "move": "data_fact", "concept": "why India switched to market price in 2015", "what": "In 2008 the UN System of National Accounts also recommended market price for India."},
+      {"t": 79.6, "move": "question_to_viewer", "concept": "why India switched to market price in 2015", "what": "Names three viewers who answered last video's question correctly (a viewer shout-out; none of the listed moves fits exactly)."},
+      {"t": 93.3, "move": "recall_previous", "concept": "inflation raises factor-cost GDP with no extra output", "what": "As we said, factor cost is the better indicator of whether production is rising."},
+      {"t": 103.1, "move": "misconception", "concept": "inflation raises factor-cost GDP with no extra output", "what": "But that does not mean factor cost rises only when production rises; the reason is inflation."},
+      {"t": 121.0, "move": "example_numbers", "concept": "inflation raises factor-cost GDP with no extra output", "what": "'Maan lijiye': one laptop a year, 10,000 in 2020; inflation 10%, yaani everything 10% dearer each year, so 11,000 in 2021 and 12,100 in 2022; GDP equals those values."},
+      {"t": 168.5, "move": "conclusion_line", "concept": "inflation raises factor-cost GDP with no extra output", "what": "GDP rose every year though goods and services did not increase at all; yaani this is inflated GDP."},
+      {"t": 188.8, "move": "yaani_unpack", "concept": "nominal GDP vs real GDP", "what": "Yaani inflation is already added inside this GDP."},
+      {"t": 192.4, "move": "define_term", "concept": "nominal GDP vs real GDP", "what": "GDP with inflation added is nominal GDP: current prices times quantities. Take the inflation out and it becomes real GDP."},
+      {"t": 213.2, "move": "question_to_viewer", "concept": "removing inflation back to a base year", "what": "But how is inflation taken out? How is real GDP calculated?"},
+      {"t": 219.7, "move": "example_numbers", "concept": "removing inflation back to a base year", "what": "Back to the example: remove one year's inflation from 12,100 and you get 11,000; remove another and you get 10,000."},
+      {"t": 264.9, "move": "question_to_viewer", "concept": "removing inflation back to a base year", "what": "So how many years of inflation must be removed?"},
+      {"t": 271.5, "move": "define_term", "concept": "removing inflation back to a base year", "what": "Every economy has a base year, and inflation is removed back to it; India's base year is FY 2012."},
+      {"t": 283.7, "move": "example_numbers", "concept": "removing inflation back to a base year", "what": "In FY 2023, valuing all output at market price gives nominal GDP; with one laptop that is 12,100."},
+      {"t": 307.2, "move": "define_term", "concept": "GDP deflator and the real GDP formula", "what": "To get real GDP, remove all inflation since FY 2012; this is done by the GDP deflator."},
+      {"t": 322.5, "move": "example_numbers", "concept": "GDP deflator and the real GDP formula", "what": "Suppose the deflator is 10: real GDP = nominal GDP / deflator = 12,100 / 10 = 1,210."},
+      {"t": 345.9, "move": "analogy", "concept": "GDP deflator and the real GDP formula", "what": "The deflator lets the air out of nominal GDP ('hawa nikal deta hai'); a balloon goes flat on screen."},
+      {"t": 351.1, "move": "recap", "concept": "four ways of calculating GDP; India's choice", "what": "So far: two kinds, real (constant prices, inflation removed) and nominal; each at factor cost or market price, so four ways."},
+      {"t": 384.6, "move": "data_fact", "concept": "four ways of calculating GDP; India's choice", "what": "India calculates nominal GDP at market price; why market price was answered in this video."},
+      {"t": 395.9, "move": "question_to_viewer", "concept": "four ways of calculating GDP; India's choice", "what": "Write in the comments why India uses nominal and not real GDP; answer next video."}
+    ],
+    "story_before_term": [
+      {"term": "nominal GDP", "t_story": 121.0, "t_term": 195.9},
+      {"term": "real GDP", "t_story": 121.0, "t_term": 210.7},
+      {"term": "base year", "t_story": 219.7, "t_term": 271.5},
+      {"term": "GDP deflator", "t_story": 213.2, "t_term": 318.4}
+    ],
+    "examples": [
+      {"t": 0.0, "kind": "numbers", "what": "On screen, factor cost stays 15K for three years while market price goes 18K, 20K, 25K.", "carries": "market price can rise without more production"},
+      {"t": 37.9, "kind": "real_case", "what": "Major economies use market price; the UN accounts system recommended it in 2008 (as the video states).", "carries": "why India switched"},
+      {"t": 121.0, "kind": "numbers", "what": "One laptop a year at 10% inflation: 10,000, 11,000, 12,100.", "carries": "GDP can rise with no extra output (inflated GDP)"},
+      {"t": 219.7, "kind": "numbers", "what": "Peel the inflation back one year at a time: 12,100 to 11,000 to 10,000.", "carries": "removing inflation back to a base year"},
+      {"t": 322.5, "kind": "numbers", "what": "Deflator 10: 12,100 / 10 = 1,210.", "carries": "the real GDP formula (the result does not match the peel-back story)"},
+      {"t": 345.9, "kind": "analogy", "what": "The deflator lets the air out of a balloon.", "carries": "what 'deflating' nominal GDP means"}
+    ],
+    "closing": {"move": "question_to_viewer", "what": "The four-way tree collapses into a list with India's row (nominal at market price) marked and a 'kyun?' tag; asks viewers to comment why, with the answer promised next video."},
+    "density": "About 15 terms (factor cost, market price, indirect taxes, subsidies, global practice, System of National Accounts, inflation, inflated GDP, nominal GDP, current prices, real GDP, base year, GDP deflator, constant prices, four ways) in about 410 s, about 2 per minute. Comfortable: the laptop numbers carry most of the time; the first 100 s (answer to last video plus shout-out) are slow."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 4.2, "shown": "question card: which is the better indicator of whether production is rising or falling; GDP splits into factor cost and market price (with its formula) over a three-year table", "said_gist": "last video: if we want to know whether our economy's production is rising", "naming_word": "जानना", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 2, "t_shown": 16.8, "shown": "market-price column 18K, 20K, 25K turns green; a cartoon pointing hand slides to Factor Cost (15K flat)", "said_gist": "the better indicator is factor cost, because GDP at market price can rise just from higher taxes (market price at about 17.3 s; words from re-transcription)", "naming_word": "", "lead": "together", "relation": "shows_the_step", "said_source": "re-transcribed clip"},
+    {"tile": 3, "t_shown": 31.6, "shown": "a cluster of coloured question bubbles beside the note 'In 2015, India switched to GDP at Market Price'", "said_gist": "last video I asked you why GDP (was switched)", "naming_word": "पूछा", "lead": "together", "relation": "navigation"},
+    {"tile": 4, "t_shown": 39.4, "shown": "text under GDP: the change was made to be in line with global practice", "said_gist": "this change was made so that", "naming_word": "चेंज", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 5, "t_shown": 50.8, "shown": "oval world map with India marked; note that major economies use market price; boxed note that this makes India's growth comparable with developed nations", "said_gist": "major economies calculate GDP at market price; so if we do too (comparison said about 6 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 6, "t_shown": 78.2, "shown": "canvas clears to a question mark, GDP, Market Price and the 2015 note with question bubbles", "said_gist": "since 2015 we calculate at market price; since I asked this last time", "naming_word": "", "lead": "together", "relation": "navigation"},
+    {"tile": 7, "t_shown": 89.0, "shown": "'ANSWERED BY' panel with three viewer avatar cards; third card boxed", "said_gist": "the correct answers came from three viewers, named one by one", "naming_word": "खान", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 8, "t_shown": 92.8, "shown": "the question card and table return; the pointing hand reappears toward Factor Cost", "said_gist": "let us move to today's topic: as we said, factor cost is the better indicator (factor cost at about 94.8 s; re-transcription)", "naming_word": "", "lead": "picture_first", "relation": "names_the_term", "said_source": "re-transcribed clip"},
+    {"tile": 9, "t_shown": 105.6, "shown": "factor-cost column framed green, 'Better indicator' highlighted; note 'GDP at factor cost will only increase if production increases' gets a red cross", "said_gist": "but it does not mean factor cost rises only when production rises", "naming_word": "factor cost", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 10, "t_shown": 115.4, "shown": "new table under a red INFLATION heading: a laptop over Factor Cost, India over GDP, rows 2020-2022", "said_gist": "the reason is inflation; let us see how inflation affects factor cost", "naming_word": "inflation", "lead": "together", "relation": "names_the_term"},
+    {"tile": 11, "t_shown": 162.2, "shown": "'11 K' reaches the GDP column by a dotted arrow from the 2021 factor cost (quantity 1 in every row)", "said_gist": "in 2021 GDP will be 11,000", "naming_word": "11 ,000", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 12, "t_shown": 168.6, "shown": "table tinted, factor-cost column (10K, 11K, 12.1K) framed after 12.1K reaches GDP", "said_gist": "GDP will be 12,100; so we saw in this example", "naming_word": "example", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 13, "t_shown": 196.2, "shown": "label 'Nominal GDP' over a blue GDP block with a yellow INFLATION stripe", "said_gist": "if inflation is already added, that GDP is called (nominal GDP, said 1.7 s later)", "naming_word": "", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 14, "t_shown": 211.6, "shown": "second block with the stripe slid out; 'Nominal' struck in red and 'REAL' written above in green", "said_gist": "take out the inflation and it becomes real GDP", "naming_word": "real GDP", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 15, "t_shown": 233.4, "shown": "a year line; over FY 2023 a laptop priced '12.1 K'", "said_gist": "in that period the laptop's factor cost was 12,100", "naming_word": "12 ,100", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 16, "t_shown": 273.4, "shown": "cream 'BASE YEAR' box at the left end of the line (FY 2021 10K, FY 2022 11K, FY 2023 12.1K, dotted arcs hopping back)", "said_gist": "every economy has a base year", "naming_word": "base year", "lead": "together", "relation": "names_the_term"},
+    {"tile": 17, "t_shown": 296.2, "shown": "pink 'NOMINAL GDP' panel around the FY 2023 laptop at 12.1K; base year now FY 2012", "said_gist": "the value we get will be nominal GDP", "naming_word": "nominal GDP", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 18, "t_shown": 320.6, "shown": "'GDP DEFLATOR' heading with a syringe under the question 'how to remove inflation from base year till date'; pink REAL GDP panel round FY 2012", "said_gist": "this inflation is removed by the GDP deflator", "naming_word": "GDP deflator", "lead": "together", "relation": "names_the_term"},
+    {"tile": 19, "t_shown": 332.2, "shown": "the panels become a formula: REAL GDP = NOMINAL GDP over a fraction bar with GDP DEFLATOR (syringe) below", "said_gist": "the formula is real GDP is equal to nominal GDP (divided by deflator)", "naming_word": "nominal GDP", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 20, "t_shown": 341.0, "shown": "'= 12.1K / (10) = 1210'", "said_gist": "12,100 divided by 10, the value comes out 1,210", "naming_word": "1210", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 21, "t_shown": 349.4, "shown": "a full red balloon floats over nominal GDP; a flat, deflated balloon lies over real GDP", "said_gist": "see how the GDP deflator lets the air out of nominal GDP", "naming_word": "हवा निकाल", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 22, "t_shown": 370.4, "shown": "tree: GDP to real GDP (GDP at constant prices) and nominal GDP; nominal splits into @factor cost and @market price", "said_gist": "nominal GDP can be at factor cost and at market price", "naming_word": "factor cost", "lead": "together", "relation": "names_the_term"},
+    {"tile": 23, "t_shown": 381.8, "shown": "big red '4 Ways of Calculating' heading over the tree (real now split too)", "said_gist": "so GDP can be calculated in four ways", "naming_word": "चार", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 24, "t_shown": 391.2, "shown": "tree collapsed to a four-line list; India marks 'NOMINAL GDP @ Market Price' with a pink band and an orange 'KYUN?' tag", "said_gist": "India uses nominal GDP at market price; why market price we already saw", "naming_word": "क्यों", "lead": "together", "relation": "navigation"}
+  ],
+  "talmel_summary": "Picture and voice are almost always together, and in the core (115-350 s) the picture does the explaining: quantity stuck at 1 while the price climbs, dotted arrows carrying each price into GDP, the inflation stripe sliding out of the GDP block as 'Nominal' is struck and 'REAL' written, arcs hopping back to the base year, panels turning into the terms of the formula, and a balloon going flat for 'hawa nikalna'. The opening 100 s are weaker (text cards, a world map, viewer avatars). Two tiles (2, 8) fell in transcript gaps and were checked against a re-transcription.",
+  "voice": {"notes": "About 161 words per minute, the slowest and most teacherly of this batch. First-person and dialogic: 'maine aapse poocha tha', 'main chahta hoon ki aap comment box mein likh ke bataiye'. Numbers are read in full rupees (dus hazaar, gyarah hazaar, barah hazaar ek sau) and the 10% is unpacked at once ('yaani har saal cheezein 10% mehngi'). Uses questions as pauses ('bat question ye hai...'). Ends on a colloquial image, 'hawa nikal deta hai'."},
+  "game_ideas": [
+    {"from_t": 121.0, "mechanic": "run_a_process", "player_does": "Runs a one-product economy for five years, setting how many laptops are made and the inflation rate each year.", "process_happens": "The table fills (quantity, price, GDP); the GDP block grows with a yellow inflation stripe; a second block shows real GDP at base-year prices.", "win": "Make real GDP grow three years in a row (more laptops), not just nominal GDP.", "lose": "Raising only inflation makes nominal GDP climb while real GDP stays flat; the 'inflated GDP' tag appears and the stripe fills the block.", "concept": "nominal GDP vs real GDP"},
+    {"from_t": 219.7, "mechanic": "spot_the_error", "player_does": "Reads news-style claims ('GDP up 12%, so we made 12% more goods') with the year's inflation given, and taps the error.", "process_happens": "The stripe slides out of the GDP block, showing how much of the rise was inflation and how much was real; arcs hop back to the base year.", "win": "Correctly split each rise into inflation and real growth.", "lose": "Accepting the claim shows the stripe still inside the block and the real growth much smaller than claimed.", "concept": "removing inflation back to a base year"},
+    {"from_t": 351.1, "mechanic": "sort_into_groups", "player_does": "Places cards (real/nominal, factor cost/market price, constant/current prices, includes taxes/excludes) onto the four-leaf GDP tree.", "process_happens": "Each leaf fills; when all four are right, India's leaf (nominal at market price) lights with the 'kyun?' tag.", "win": "All four leaves correctly built and India's choice found.", "lose": "Putting 'constant prices' under nominal flashes the inflation stripe back into the block.", "concept": "four ways of calculating GDP; India's choice"}
+  ],
+  "notes_questions": [
+    {"q": "Production badh raha hai ya nahi, yeh jaanne ke liye factor cost behtar indicator kyon hai?", "answer_shape": "comparison", "from_t": 12.0},
+    {"q": "India ne 2015 mein GDP market price par kyon nikalna shuru kiya?", "answer_shape": "flow", "from_t": 37.9},
+    {"q": "Production na badhe phir bhi GDP kaise badh sakta hai? Laptop wale example se samjhaiye.", "answer_shape": "table", "from_t": 121.0},
+    {"q": "Nominal GDP aur real GDP mein kya fark hai?", "answer_shape": "comparison", "from_t": 192.4},
+    {"q": "Base year kya hota hai aur India ka base year kaunsa hai?", "answer_shape": "timeline", "from_t": 271.5},
+    {"q": "GDP deflator kya karta hai? Real GDP ka formula likhiye.", "answer_shape": "number", "from_t": 307.2},
+    {"q": "GDP ko kitne tarikon se calculate kar sakte hain, aur India kaunsa tarika use karta hai?", "answer_shape": "tree", "from_t": 351.1}
+  ],
+  "checks_learned": [
+    "A worked formula result must agree with the running example it reuses (12,100 / 10 = 1,210 while the peel-back story landed on 10,000); a numeric consistency check should catch it.",
+    "When an index such as a deflator is used, its scale (base = 100) must be stated with the number.",
+    "Every derived cell in a table should be reached by an arrow from its source cell (done here; enforce).",
+    "When a term is transformed into another (nominal into real), strike the old word and write the new one at the moment the voice says it (done here; enforce).",
+    "Reasons given only as text cards for more than about 20 s (the 2015 switch) should be flagged for a picture.",
+    "BIE must not show real organisation emblems (UN flag) or invent viewer names for shout-outs.",
+    "Keep the varying quantity to one: holding output at 1 while price changes isolated the idea cleanly; a check can require one variable changing per numeric example."
+  ],
+  "teaching_best": [
+    {"t": 103, "why": "A claim the learner just accepted (factor cost rises only with production) is shown, then stamped with a red cross: inflation opens the lesson."},
+    {"t": 121, "why": "Quantity stays 1 in every row while the laptop's price climbs 10K, 11K, 12.1K: GDP rises with nothing more made."},
+    {"t": 190, "why": "Inflation is a removable stripe inside the GDP block; it slides out, 'Nominal' is struck and 'REAL' written."},
+    {"t": 219, "why": "Dotted arcs hop back year by year along the line to a base year: 'how far back to remove inflation' is a picture."},
+    {"t": 329, "why": "The formula is built from the panels already on screen, then a balloon goes flat for 'hawa nikal deta hai'."}
+  ],
+  "teaching_weak": [
+    {"t": 37, "why": "About 40 s of text cards, a world map and a UN flag for the reason behind the 2015 switch."},
+    {"t": 79, "why": "About 15 s of viewer shout-out between the answer and the new topic."},
+    {"t": 322, "why": "'Deflator = 10' gives 1,210, which contradicts the peel-back story (10,000) and gives no scale for the deflator."},
+    {"t": 385, "why": "Ends on a typed list and an open question; no recap of what real vs nominal means for the learner."}
+  ]
+}

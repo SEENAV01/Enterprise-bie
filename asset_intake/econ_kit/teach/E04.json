@@ -1,0 +1,120 @@
+{
+  "id": "E04",
+  "topic": "Monetary policy derived backwards from growth: price stability, the root-cause chain of inflation, liquid vs blocked money, the MPC and its two kinds of tools",
+  "book_understanding": {
+    "concepts": [
+      {"name": "price stability as the precondition for long-term growth", "type": "cause_effect", "t_start": 0.1, "t_end": 37.1, "prereq_recalled": ""},
+      {"name": "price stability = low, predictable inflation; RBI must control inflation", "type": "definition", "t_start": 37.1, "t_end": 63.1, "prereq_recalled": "inflation"},
+      {"name": "root-cause chain: inflation <- demand <- purchasing power <- money", "type": "cause_effect", "t_start": 63.1, "t_end": 101.3, "prereq_recalled": "inflation depends on demand (already studied)"},
+      {"name": "blocked money vs liquid money", "type": "comparison", "t_start": 101.3, "t_end": 228.0, "prereq_recalled": "purchasing power depends on money in hand"},
+      {"name": "liquid money is the cause of inflation", "type": "cause_effect", "t_start": 184.8, "t_end": 233.7, "prereq_recalled": "the root-cause chain"},
+      {"name": "monetary policy = RBI control of the supply of liquid money", "type": "definition", "t_start": 233.7, "t_end": 257.3, "prereq_recalled": "liquid money causes inflation"},
+      {"name": "Monetary Policy Committee: six members", "type": "classification", "t_start": 257.3, "t_end": 295.8, "prereq_recalled": "monetary policy"},
+      {"name": "qualitative (indirect) vs quantitative (direct) tools", "type": "classification", "t_start": 295.8, "t_end": 327.1, "prereq_recalled": "supply of liquid money"}
+    ],
+    "teaching_order": "A textbook defines monetary policy first and then lists its objectives, its committee and its instruments. Here the video starts at the goal (growth) and walks backwards, asking each time 'what does this depend on?': growth needs price stability, stability depends on inflation, inflation on demand, demand on purchasing power, purchasing power on money, and only liquid money counts. Monetary policy then arrives as the answer (control the lever you found), followed by who decides (MPC) and the tools, which are left for the next video. The term comes last, as a conclusion.",
+    "breakdown_rule": "Start from the goal and ask 'what does this depend on?' one link at a time until a lever is reached; name the control of that lever as the new term."
+  },
+  "narration": {
+    "opening": {"move": "contrast", "what": "Many factors drive a country's growth, but one is indispensable for stability and long-term growth: price stability; a fan of arrows converges on India while one factor glows."},
+    "moves": [
+      {"t": 0.1, "move": "contrast", "concept": "price stability as the precondition for long-term growth", "what": "Many factors drive growth, lekin one is a must: price stability."},
+      {"t": 13.6, "move": "yaani_unpack", "concept": "price stability as the precondition for long-term growth", "what": "'Kehne ka matlab': if prices keep swinging, growth is almost impossible."},
+      {"t": 23.6, "move": "cause_chain", "concept": "price stability as the precondition for long-term growth", "what": "Because businesses and households put their spending decisions on hold."},
+      {"t": 29.5, "move": "conclusion_line", "concept": "price stability as the precondition for long-term growth", "what": "So it is clear every country must focus on price stability."},
+      {"t": 37.1, "move": "define_term", "concept": "price stability = low, predictable inflation; RBI must control inflation", "what": "Simple meaning: inflation low and predictable, no big swings, so decisions can be made without confusion."},
+      {"t": 52.9, "move": "conclusion_line", "concept": "price stability = low, predictable inflation; RBI must control inflation", "what": "So price stability depends on inflation, and in India that job is given to RBI."},
+      {"t": 63.1, "move": "question_to_viewer", "concept": "root-cause chain: inflation <- demand <- purchasing power <- money", "what": "But how will inflation be controlled? First we need its root cause."},
+      {"t": 69.9, "move": "recall_previous", "concept": "root-cause chain: inflation <- demand <- purchasing power <- money", "what": "We already studied that inflation depends on demand in the market."},
+      {"t": 77.2, "move": "cause_chain", "concept": "root-cause chain: inflation <- demand <- purchasing power <- money", "what": "More demand, more inflation; less demand, lower prices; demand depends on purchasing power, which depends on how much money we have."},
+      {"t": 101.3, "move": "define_term", "concept": "blocked money vs liquid money", "what": "Our money falls into two parts: blocked and liquid; blocked money cannot be turned into cash right away."},
+      {"t": 114.4, "move": "story", "concept": "blocked money vs liquid money", "what": "You own a 5 crore house, so you are rich; someone offers a charter plane for 25 lakh; can you buy it? No: selling the house takes months, and a person with cash takes the plane."},
+      {"t": 142.8, "move": "conclusion_line", "concept": "blocked money vs liquid money", "what": "Plainly: blocked money cannot buy things, even if it is crores."},
+      {"t": 150.4, "move": "misconception", "concept": "blocked money vs liquid money", "what": "Voices the learner's objection ('I can sell the house and buy the plane, what is the problem?') and answers it: the sale money is liquid money, which is exactly the point."},
+      {"t": 166.7, "move": "define_term", "concept": "blocked money vs liquid money", "what": "Liquid money is money available as cash with no restriction."},
+      {"t": 184.8, "move": "cause_chain", "concept": "liquid money is the cause of inflation", "what": "Only money in hand gives purchasing power, creates demand in the market, and that creates inflation."},
+      {"t": 196.1, "move": "example_numbers", "concept": "blocked money vs liquid money", "what": "Lists examples: fixed deposits, PF, PPF are blocked; cash and savings or demand deposits are liquid, since an ATM gives them any time with no penalty (new use: everyday examples rather than numbers)."},
+      {"t": 228.0, "move": "conclusion_line", "concept": "liquid money is the cause of inflation", "what": "Now you can see clearly that liquid money is the cause of inflation."},
+      {"t": 233.7, "move": "question_to_viewer", "concept": "monetary policy = RBI control of the supply of liquid money", "what": "If I ask you: to control inflation, what should RBI do?"},
+      {"t": 239.8, "move": "yaani_unpack", "concept": "monetary policy = RBI control of the supply of liquid money", "what": "Simple: RBI will control the supply of liquid money, yaani the free-flowing money in the economy."},
+      {"t": 248.3, "move": "define_term", "concept": "monetary policy = RBI control of the supply of liquid money", "what": "The policies RBI makes to control that supply are called monetary policy."},
+      {"t": 257.3, "move": "define_term", "concept": "Monetary Policy Committee: six members", "what": "RBI's Monetary Policy Committee (MPC) is responsible for making it."},
+      {"t": 270.4, "move": "data_fact", "concept": "Monetary Policy Committee: six members", "what": "Six members: three from RBI and three from the government side; the RBI Governor chairs; the other two RBI members are a Deputy Governor and a nominated RBI official."},
+      {"t": 295.8, "move": "contrast", "concept": "qualitative (indirect) vs quantitative (direct) tools", "what": "Monetary policy splits into qualitative, which affects liquid money indirectly, jabki quantitative affects it directly."},
+      {"t": 319.1, "move": "signpost", "concept": "qualitative (indirect) vs quantitative (direct) tools", "what": "You can see the names of all the tools here; we will cover them in the next video."}
+    ],
+    "story_before_term": [
+      {"term": "monetary policy", "t_story": 63.1, "t_term": 253.6},
+      {"term": "liquid money (as the house-sale money)", "t_story": 150.4, "t_term": 157.0}
+    ],
+    "examples": [
+      {"t": 114.4, "kind": "story", "what": "A person with a 5 crore house cannot buy a 25 lakh charter plane before someone with cash does.", "carries": "blocked money cannot create demand"},
+      {"t": 150.4, "kind": "what_if", "what": "Sell the house first; the money you get is now liquid.", "carries": "what makes money liquid"},
+      {"t": 196.1, "kind": "everyday_object", "what": "FD, PF, PPF versus cash, savings account, ATM withdrawal, transfer to a friend.", "carries": "sorting real money into blocked and liquid"},
+      {"t": 270.4, "kind": "real_case", "what": "The MPC's six seats: three RBI (Governor in the chair, a Deputy Governor, an official) and three from government.", "carries": "who actually makes monetary policy"}
+    ],
+    "closing": {"move": "signpost", "what": "Splits policy into qualitative and quantitative, shows ten tool names on screen without reading them, and points to the next video; no spoken recap."},
+    "density": "About twelve spoken terms (growth, price stability, inflation, demand, purchasing power, blocked money, liquid money, monetary policy, MPC, Governor/Deputy Governor/official, qualitative, quantitative) in about 325 s, roughly 2.2 per minute; then about ten tool names flash on screen in the last 10 s. Pace right for UPSC; the backwards chain is unhurried."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 2.2, "shown": "India silhouette with an arrow to a rising bar icon labelled Economic Growth", "said_gist": "for any country's economic growth...", "naming_word": "economic growth", "lead": "together", "relation": "names_the_term"},
+    {"tile": 2, "t_shown": 3.8, "shown": "fan of eight arrows converging on India", "said_gist": "many factors are responsible", "naming_word": "factors", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 3, "t_shown": 17.2, "shown": "glowing Price Stability circle (balance scale with goods) joins the row; a definition note above and a 'precondition' note below", "said_gist": "if prices of goods and services keep swinging... (price stability was named about 4 s earlier; the low-and-predictable definition is spoken only at 37 s)", "naming_word": "prices", "lead": "voice_first", "relation": "names_the_term"},
+    {"tile": 4, "t_shown": 56.8, "shown": "compact row on top; 'Inflation' with an up arrow into Price Stability", "said_gist": "price stability depends on inflation", "naming_word": "inflation", "lead": "together", "relation": "names_the_term"},
+    {"tile": 5, "t_shown": 61.6, "shown": "muscular arms gripping the RBI emblem under the word CONTROL", "said_gist": "the responsibility to control inflation is given to RBI", "naming_word": "RBI", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 6, "t_shown": 76.2, "shown": "'Demand' with an arrow, added to the left of Inflation", "said_gist": "how much demand there is in the market", "naming_word": "demand", "lead": "together", "relation": "names_the_term"},
+    {"tile": 7, "t_shown": 100.2, "shown": "'Money' with a long arrow, added left of Purchasing Power", "said_gist": "purchasing power depends on how much money we have", "naming_word": "पैसे", "lead": "together", "relation": "names_the_term"},
+    {"tile": 8, "t_shown": 109.8, "shown": "Money splits into Blocked Money and Liquid Money; a definition box under Blocked", "said_gist": "blocked money is the money which...", "naming_word": "Blocked Money", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 9, "t_shown": 115.8, "shown": "house icon tagged 5 crore with its owner; background dims", "said_gist": "for example, suppose you have a 5 crore house", "naming_word": "5 करोड", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 10, "t_shown": 138.8, "shown": "another figure at the far right (the plane, tagged 25 lakh, and a red cross on the owner's arrow are already in)", "said_gist": "meanwhile anyone who has money...", "naming_word": "इंसान", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 11, "t_shown": 140.8, "shown": "a 25 lakh tag beside that figure (cash in hand)", "said_gist": "...who has the money will take the charter plane", "naming_word": "पैसे", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 12, "t_shown": 160.2, "shown": "definition box under Liquid Money; the house-and-plane picture is cleared", "said_gist": "the money from selling the house will be called liquid money (the cash-without-restriction definition comes about 6-10 s later)", "naming_word": "liquid money", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 13, "t_shown": 206.2, "shown": "bullet lists: FD, PF, PPF under Blocked; cash and demand or savings deposits under Liquid", "said_gist": "besides cash, your money kept in a bank...", "naming_word": "bank", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 14, "t_shown": 241.0, "shown": "blocked branch removed; light-blue band Liquid Money -> Purchasing Power -> Demand -> Inflation; the CONTROL arms move under Liquid Money", "said_gist": "simple: RBI will control liquid money...", "naming_word": "RBI", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 15, "t_shown": 244.0, "shown": "'Supply of' handwritten above Liquid Money", "said_gist": "the supply of liquid money, yaani free-flowing money", "naming_word": "supply", "lead": "together", "relation": "names_the_term"},
+    {"tile": 16, "t_shown": 254.8, "shown": "the chain collapses into an arch badge MONETARY POLICY over 'Supply of Liquid Money', standing on the CONTROL arms", "said_gist": "these policies are called monetary policies of RBI", "naming_word": "monetary policies", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 17, "t_shown": 262.4, "shown": "grey background; dotted elbow to six seated figures behind a Monetary Policy Committee plaque", "said_gist": "the responsibility is given to the monetary policy committee", "naming_word": "monetary policy committee", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 18, "t_shown": 277.0, "shown": "numbers over the six members and a Ministry of Finance label over one group", "said_gist": "three members from RBI and three from the Ministry of Finance", "naming_word": "Ministry", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 19, "t_shown": 281.4, "shown": "[Chairman] tag and 'RBI Gov' pointing at the red member", "said_gist": "the RBI Governor himself chairs the committee", "naming_word": "चेयर", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 20, "t_shown": 290.8, "shown": "labels 'Dy. Gov, RBI' and 'RBI Official [Nominated]' with lines to two members", "said_gist": "the other is a nominated RBI official", "naming_word": "RBI", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 21, "t_shown": 299.2, "shown": "canvas cleared to the MONETARY POLICY badge alone", "said_gist": "RBI's monetary policy can be classified into two parts", "naming_word": "monetary policy", "lead": "together", "relation": "navigation"},
+    {"tile": 22, "t_shown": 306.8, "shown": "Qualitative and Quantitative branches; grey text box on indirect effect; dotted 'Affects Indirectly' arrow into Liquid Money", "said_gist": "through qualitative monetary policy RBI... (indirectly said about 3 s later)", "naming_word": "qualitative monetary policy", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 23, "t_shown": 322.4, "shown": "qualitative tool list: credit ceiling, moral suasion, direct lending, credit guidance", "said_gist": "the names of all the quantitative and qualitative tools you can see here", "naming_word": "quantitative", "lead": "together", "relation": "adds_new_info"},
+    {"tile": 24, "t_shown": 325.0, "shown": "quantitative tool list (CRR, OMO, SLR, repo, reverse repo...) partly covered by an app-promo phone", "said_gist": "...monetary tools' names you can see here; next video", "naming_word": "monetary tools", "lead": "together", "relation": "adds_new_info"}
+  ],
+  "talmel_summary": "Picture and voice build the backwards chain together: each 'depends on' is placed to the left as it is spoken, and one blue band then traces the whole path from liquid money to growth. The CONTROL arms move from inflation to liquid money to show where RBI acts, and the chain collapses into the MONETARY POLICY badge just as the term is said: the picture shows how the term is made. The house-and-plane story is drawn with icons and a red cross. Weak: definition boxes land 6-20 s before the voice defines, the two kinds of tools are grey text boxes, and ten tool names appear without speech under a promo overlay.",
+  "voice": {"notes": "About 180 words per minute, relaxed and conversational. The root-cause hunt is set up as a question ('inflation ko kis tarah control kiya jayega?') and each link is said as 'X depend karti hai Y par'. The story is told in second person ('aapke paas 5 crore ka ghar hai') with a quick 'answer hai no'. Rupee amounts are read in Indian units (5 crore, 25 lakh). Speech recognition lost about 11 s around 174-185 s."},
+  "game_ideas": [
+    {"from_t": 63.1, "mechanic": "cause_chain", "player_does": "Starts at Economic Growth and drags 'depends on' cards to the left one by one: price stability, inflation, demand, purchasing power, money, liquid money.", "process_happens": "Each correct card snaps in with its arrow pointing toward the effect; when liquid money is placed, the RBI CONTROL arms slide under it and the chain folds into the MONETARY POLICY badge.", "win": "Chain complete and the badge formed.", "lose": "A card placed with the arrow the wrong way plays the wrong claim aloud (for example 'inflation creates money') and shows the contradiction on the chain.", "concept": "root cause of inflation and what monetary policy controls"},
+    {"from_t": 114.4, "mechanic": "sort_into_groups", "player_does": "Holds a wallet of assets (5 crore house, FD, PF, PPF, cash, savings account) and must buy a 25 lakh plane offered for one day only; chooses which assets to use.", "process_happens": "Blocked assets show 'months' timers and a rival with cash takes the plane; liquid assets complete the purchase, the demand meter rises and the price meter ticks up.", "win": "Buy in time using only liquid money and sort every asset into blocked or liquid.", "lose": "Choosing the house or FD shows the rival flying off with the plane, with the note 'rich on paper, no purchasing power today'.", "concept": "blocked vs liquid money and why only liquid money makes demand"},
+    {"from_t": 262.4, "mechanic": "place_correctly", "player_does": "Seats six people at the MPC table: the RBI Governor in the chair, a Deputy Governor, a nominated RBI official, and three members from the government side.", "process_happens": "Each correct seat lights a member; when all six are seated, the committee gets a liquid-money tap with a dotted (indirect) and a solid (direct) handle.", "win": "Correct committee, then bring inflation into a target band by turning the right handle.", "lose": "Putting a government member in the chair shows the [Chairman] tag jumping back to the Governor.", "concept": "MPC composition and direct vs indirect tools"}
+  ],
+  "notes_questions": [
+    {"q": "Price stability ka matlab kya hai, aur long-term growth ke liye zaroori kyon hai?", "answer_shape": "flow", "from_t": 13.6},
+    {"q": "Inflation ka root cause chain banaiye: money se inflation tak.", "answer_shape": "flow", "from_t": 77.2},
+    {"q": "Blocked money aur liquid money mein kya fark hai? Do-do udaharan dijiye.", "answer_shape": "comparison", "from_t": 101.3},
+    {"q": "5 crore ka ghar hone par bhi 25 lakh ka plane turant kyon nahi khareed sakte?", "answer_shape": "picture", "from_t": 114.4},
+    {"q": "Monetary policy kise kehte hain, aur RBI asal mein kis cheez ko control karti hai?", "answer_shape": "flow", "from_t": 239.8},
+    {"q": "MPC mein kitne sadasya hote hain aur kaun-kaun?", "answer_shape": "tree", "from_t": 270.4},
+    {"q": "Qualitative aur quantitative monetary tools mein kya fark hai?", "answer_shape": "comparison", "from_t": 295.8}
+  ],
+  "checks_learned": [
+    "A definition box should not land more than about 3 s before the voice reaches that definition (here 20 s early for price stability and 6-10 s for liquid money).",
+    "Names shown only on screen (the tool lists) must be spoken or marked 'next video', and must never be covered by a promo overlay.",
+    "When a term is derived from a chain, the compression of the chain into the term's badge should land within about 1 s of the spoken term (worked well here; enforce it).",
+    "In a backwards chain, each new cause must be placed upstream of the last one with its arrow pointing to the effect.",
+    "Every actor in a story picture should be labelled by role (here the cash-holding rival buyer and the plane seller are not clearly told apart).",
+    "A list of everyday examples spoken one after another should be sorted into its groups on screen as each is said, not shown as two finished bullet lists."
+  ],
+  "teaching_best": [
+    {"t": 63, "why": "The root-cause hunt asks 'what does this depend on?' link by link, so the learner discovers what monetary policy must control before it is named."},
+    {"t": 114, "why": "The rich house owner who cannot buy a 25 lakh plane makes 'blocked money' unforgettable, and the voiced objection (sell the house) defines liquid money for free."},
+    {"t": 241, "why": "The CONTROL arms move to liquid money and the chain folds into the MONETARY POLICY badge exactly as the term is said."}
+  ],
+  "teaching_weak": [
+    {"t": 17, "why": "The price-stability definition box sits on screen about 20 s before the voice gives the definition."},
+    {"t": 196, "why": "Blocked and liquid examples are two bullet lists; the ATM, transfer and no-penalty points are spoken without a picture."},
+    {"t": 299, "why": "Qualitative vs quantitative is carried by grey text boxes; only the dotted vs solid arrow style shows the idea."},
+    {"t": 319, "why": "Ten tool names flash on screen without being read, partly hidden by the app promo."}
+  ]
+}

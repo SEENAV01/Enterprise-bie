@@ -1,0 +1,119 @@
+{
+  "id": "E10",
+  "topic": "NDP and NNP: gross vs net, depreciation of machines, and gross minus depreciation, taught with a seed-and-wheat farm and a ketchup factory",
+  "book_understanding": {
+    "concepts": [
+      {"name": "the four national income measures; GDP and GNP done", "type": "classification", "t_start": 0, "t_end": 9.5, "prereq_recalled": "GDP and GNP from earlier videos"},
+      {"name": "gross value vs net value", "type": "comparison", "t_start": 9.5, "t_end": 32.0, "prereq_recalled": "GDP and GNP measure gross value"},
+      {"name": "seed-and-wheat example: gross produce 100, net produce 90", "type": "numbers", "t_start": 32.0, "t_end": 65.2, "prereq_recalled": "gross = total; net = after deductions"},
+      {"name": "machine as a depreciating asset; rates set by government", "type": "definition", "t_start": 65.2, "t_end": 147.5, "prereq_recalled": ""},
+      {"name": "depreciation counted as an expense, and its tax effect", "type": "cause_effect", "t_start": 147.5, "t_end": 234.1, "prereq_recalled": "company profit and income tax"},
+      {"name": "ketchup example: gross 1 crore, net 70 lakh", "type": "numbers", "t_start": 234.1, "t_end": 265.4, "prereq_recalled": "depreciation of 30 lakh in the year"},
+      {"name": "GDP - depreciation = NDP; GNP - depreciation = NNP", "type": "formula", "t_start": 265.4, "t_end": 288.0, "prereq_recalled": "net = gross - depreciation"},
+      {"name": "only depreciation of assets used for production counts", "type": "classification", "t_start": 288.0, "t_end": 318.4, "prereq_recalled": "the NDP / NNP formula"}
+    ],
+    "teaching_order": "A textbook states NDP = GDP - depreciation and then defines depreciation. Here the video first contrasts the words gross and net in plain language, then works a tiny farm example where the 'deduction' is seed, then switches to a factory where the deduction is machine wear (depreciation), takes a side road into why firms like depreciation (tax), comes back to compute gross and net for the factory, and only then writes the NDP and NNP formulas, closing with a boundary rule (business phone vs personal phone). The formula is the conclusion of two worked examples, not the start.",
+    "breakdown_rule": "Teach the abstract word pair with the smallest possible example, switch to a second example that brings in the real deduction, and only then write the formula and its boundary case."
+  },
+  "narration": {
+    "opening": {"move": "recall_previous", "what": "GDP and GNP were covered in earlier videos; today NDP and NNP. A national-income checklist ticks GDP and GNP and frames NDP and NNP."},
+    "moves": [
+      {"t": 0, "move": "recall_previous", "concept": "the four national income measures; GDP and GNP done", "what": "Says GDP and GNP are already covered."},
+      {"t": 5.4, "move": "agenda", "concept": "the four national income measures; GDP and GNP done", "what": "Today: NDP and NNP."},
+      {"t": 9.5, "move": "contrast", "concept": "gross value vs net value", "what": "Broadly, GDP and GNP give the gross value of national income, jabki NDP and NNP give the net value."},
+      {"t": 25.0, "move": "yaani_unpack", "concept": "gross value vs net value", "what": "Gross means total value; net is what remains after all deductions."},
+      {"t": 32.0, "move": "signpost", "concept": "seed-and-wheat example: gross produce 100, net produce 90", "what": "Chaliye, let us understand with an example."},
+      {"t": 34.6, "move": "example_numbers", "concept": "seed-and-wheat example: gross produce 100, net produce 90", "what": "You sow wheat seed worth 10 rupees and harvest wheat worth 100: gross produce 100, net produce 100 minus 10, because the 10 went in as seed."},
+      {"t": 65.2, "move": "contrast", "concept": "machine as a depreciating asset; rates set by government", "what": "Swap the wheat for tomato ketchup, which needs many machines."},
+      {"t": 74.2, "move": "define_term", "concept": "machine as a depreciating asset; rates set by government", "what": "A machine is a depreciating asset: its value keeps falling over time."},
+      {"t": 82.4, "move": "example_numbers", "concept": "machine as a depreciating asset; rates set by government", "what": "Machines bought in 2022 for 1 crore wear and tear with use until they are scrap and worth about zero."},
+      {"t": 109.9, "move": "example_numbers", "concept": "machine as a depreciating asset; rates set by government", "what": "At an assumed 30% depreciation the machine is scrap in about 20 years (the two numbers do not fit each other)."},
+      {"t": 117.5, "move": "data_fact", "concept": "machine as a depreciating asset; rates set by government", "what": "Rates differ by sector; the government decides them and a ministry announces them each year."},
+      {"t": 147.5, "move": "define_term", "concept": "depreciation counted as an expense, and its tax effect", "what": "In 2022 the machine's value fell by 30 lakh; this depreciation is treated as an expense."},
+      {"t": 155.7, "move": "what_if", "concept": "depreciation counted as an expense, and its tax effect", "what": "Suppose the ketchup company made a 25 lakh profit; normally it pays income tax on it, but the 30 lakh depreciation counts as expense, so even with a 25 lakh profit... (no tax)."},
+      {"t": 194.9, "move": "data_fact", "concept": "depreciation counted as an expense, and its tax effect", "what": "Calls depreciation a weapon for big deductions and claims some big companies pay zero tax despite huge earnings (a real-world claim, not checked here)."},
+      {"t": 222.5, "move": "data_fact", "concept": "depreciation counted as an expense, and its tax effect", "what": "The government gets this information from tax filings where companies list depreciated assets."},
+      {"t": 234.1, "move": "what_if", "concept": "ketchup example: gross 1 crore, net 70 lakh", "what": "For simplicity suppose the country has only this one ketchup company."},
+      {"t": 242.5, "move": "example_numbers", "concept": "ketchup example: gross 1 crore, net 70 lakh", "what": "10 lakh bottles at 10 rupees = 1 crore gross produce; net = 1 crore minus 30 lakh depreciation = 70 lakh."},
+      {"t": 265.4, "move": "conclusion_line", "concept": "GDP - depreciation = NDP; GNP - depreciation = NNP", "what": "So if you have the gross value, subtract depreciation to get the net value."},
+      {"t": 276.8, "move": "define_term", "concept": "GDP - depreciation = NDP; GNP - depreciation = NNP", "what": "GDP minus depreciation gives NDP; GNP minus depreciation gives NNP."},
+      {"t": 288.0, "move": "contrast", "concept": "only depreciation of assets used for production counts", "what": "Note: only the depreciation of things used by businesses in production counts; a phone used for business counts, lekin a phone for personal use does not."},
+      {"t": 318.4, "move": "recap", "concept": "GDP - depreciation = NDP; GNP - depreciation = NNP", "what": "This is how NDP and NNP are calculated; these were the four measures of national income."}
+    ],
+    "story_before_term": [
+      {"term": "gross produce", "t_story": 34.6, "t_term": 44.0},
+      {"term": "NDP / NNP formula", "t_story": 234.1, "t_term": 276.8}
+    ],
+    "examples": [
+      {"t": 34.6, "kind": "numbers", "what": "Seed worth 10 grows wheat worth 100: gross 100, net 90.", "carries": "gross vs net with the smallest numbers"},
+      {"t": 82.4, "kind": "numbers", "what": "A 1 crore ketchup machine losing value every year until it is scrap.", "carries": "depreciation as loss of value"},
+      {"t": 155.7, "kind": "numbers", "what": "25 lakh profit set against 30 lakh depreciation expense.", "carries": "why depreciation matters to firms (tax)"},
+      {"t": 194.9, "kind": "real_case", "what": "Claim that some big companies pay zero tax because of deductions.", "carries": "depreciation as a real-world lever (claim not verified)"},
+      {"t": 242.5, "kind": "numbers", "what": "10 lakh bottles x 10 = 1 crore gross; minus 30 lakh = 70 lakh net.", "carries": "net = gross - depreciation"},
+      {"t": 298.7, "kind": "everyday_object", "what": "A phone used for business vs a phone used personally.", "carries": "which depreciation counts in NDP and NNP"}
+    ],
+    "closing": {"move": "recap", "what": "Says how NDP and NNP are calculated and that the four national income measures are done, while the opening checklist returns as a bookend."},
+    "density": "About ten terms (gross value, net value, gross produce, net produce, depreciating asset, depreciation, depreciation rate, expense, NDP, NNP) in about 330 s, under 2 per minute. Easy pace, but the tax side-road (about 90 s, 147-234 s) adds facts the target terms do not need."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 2.6, "shown": "green frame with ticks round GDP and GNP in a four-row NATIONAL INCOME list", "said_gist": "in the last few videos we covered GDP and GNP", "naming_word": "GDP", "lead": "together", "relation": "navigation"},
+    {"tile": 2, "t_shown": 7.8, "shown": "blue frame round NDP and NNP", "said_gist": "today we will understand NDP and NNP", "naming_word": "NDP", "lead": "together", "relation": "navigation"},
+    {"tile": 3, "t_shown": 15.0, "shown": "rows regroup into two panels; 'GROSS Value' under GDP and GNP", "said_gist": "GDP and GNP calculate the gross value of national income", "naming_word": "Gross Value", "lead": "together", "relation": "names_the_term"},
+    {"tile": 4, "t_shown": 20.0, "shown": "'NET Value' under NDP and NNP", "said_gist": "NDP and NNP calculate the net value", "naming_word": "Net", "lead": "together", "relation": "names_the_term"},
+    {"tile": 5, "t_shown": 29.8, "shown": "pointer boxes: 'Total Value' under gross and 'Value remaining after all the deductions' under net", "said_gist": "net value is found after considering all deductions", "naming_word": "Net Value", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 6, "t_shown": 34.4, "shown": "a farmer sowing", "said_gist": "let us understand with an example: suppose you, 10 rupees of...", "naming_word": "example", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 7, "t_shown": 38.4, "shown": "'Wheat Seeds 10 Rs' with an arrow to a sack 'Wheat 100 Rs'", "said_gist": "you use wheat as seed and as a result... (the 100-rupee harvest is said 3-5 s later)", "naming_word": "गेहूं", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 8, "t_shown": 45.2, "shown": "'Gross Produce' chip beside the farm picture", "said_gist": "in this example the gross produce is 100", "naming_word": "ग्रॉस प्रोड्यूस", "lead": "together", "relation": "names_the_term"},
+    {"tile": 9, "t_shown": 68.2, "shown": "'Net Produce' chip present; a value slot beside the chips empties (no values visible in the sampled frames)", "said_gist": "instead of wheat, let us take tomato ketchup", "naming_word": "", "lead": "together", "relation": "navigation"},
+    {"tile": 10, "t_shown": 71.8, "shown": "MACHINE heading over a factory line feeding a sauce bottle", "said_gist": "to produce ketchup many machines are needed", "naming_word": "machines", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 11, "t_shown": 110.2, "shown": "'[30% DEPRECIATION]' tag after MACHINE ('[Depreciating Asset]' label and a value curve from 1 Cr in 2022 already drawn)", "said_gist": "if we take our machine's depreciating percentage as 30%", "naming_word": "depreciating", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 12, "t_shown": 122.0, "shown": "government card: depreciation rates for asset classes are announced by a ministry (curve now reaches 2042)", "said_gist": "the percentage differs by sector and the government decides it (the ministry is named 3-6 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 13, "t_shown": 148.8, "shown": "curve swapped for a table: 2022 = 1 Cr, 2023 = 70 Lakhs; dotted arrow to a pink 'Depreciation [Expense] 30 Lakhs' card", "said_gist": "you can see that in year 2022 this machine... (value fell 30 lakh, called an expense, over the next 8 s)", "naming_word": "2022", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 14, "t_shown": 187.0, "shown": "green 'Year - Profit: 2022 - 25 Lakhs' card beside the expense card, both inside a grey frame", "said_gist": "...the company made a profit (the 25 lakh profit was first spoken about 25 s earlier)", "naming_word": "profit", "lead": "voice_first", "relation": "shows_the_step"},
+    {"tile": 15, "t_shown": 190.2, "shown": "arrow from the frame to NO TAX", "said_gist": "words not recognised here (185-195 s); the next words call depreciation a weapon for deductions", "naming_word": "", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 16, "t_shown": 243.4, "shown": "'10 Rs' under the bottle and an 'x 10 Lakhs' multiplier; the expense card now sits under the machine, linked to the government card", "said_gist": "the sauce price is 10 rupees and 10 lakh such bottles...", "naming_word": "10 लेक", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 17, "t_shown": 251.4, "shown": "'= 1 Crore' fills the waiting Gross Produce chip", "said_gist": "which is equal to 1 crore", "naming_word": "1 crore", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 18, "t_shown": 268.2, "shown": "back to the gross and net panels; a curved arc from GROSS Value toward NET Value", "said_gist": "if you have the gross value and on its basis want the net value", "naming_word": "gross value", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 19, "t_shown": 274.4, "shown": "'- DEPRECIATION' in red on the arc", "said_gist": "subtract depreciation from the gross value", "naming_word": "depreciation", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 20, "t_shown": 290.4, "shown": "equations GDP - DEPRECIATION = NDP and GNP - DEPRECIATION = NNP sharing one column; pointer box: only things used by businesses for production", "said_gist": "the point to note is that only those things... (the rule finishes about 5 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 21, "t_shown": 299.8, "shown": "a phone labelled 'Used for business purpose'", "said_gist": "this means that if I use a phone... (for business, 1-3 s later)", "naming_word": "phone", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 22, "t_shown": 308.8, "shown": "ticked YES path from the business phone into the depreciation column; a second phone labelled 'Used for Personal purpose'", "said_gist": "it will be considered; but if I use a phone for personal...", "naming_word": "phone", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 23, "t_shown": 315.4, "shown": "crossed NO path from the personal phone, stopping short of the column", "said_gist": "its depreciation is not taken in the NDP or NNP calculation", "naming_word": "", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 24, "t_shown": 334.6, "shown": "the canvas clears toward the end card (white area)", "said_gist": "I hope these topics are now clear", "naming_word": "", "lead": "unrelated", "relation": "decoration"}
+  ],
+  "talmel_summary": "The example objects (farmer, sack, machine line, phone) usually appear 1-5 s before the words, and computed values fill waiting chips as they are spoken. The picture shows the step best in the gross-to-net arc labelled '- depreciation', the machine's falling value curve, the expense card set beside the profit card leading to NO TAX, and the YES/NO paths for the two phones. Weak: the profit card arrives long after the profit is spoken, the government card and rule box copy the speech, and the wheat values are not visible on the chips in the sampled frames.",
+  "voice": {"notes": "About 172 words per minute, patient and plain. Uses 'maan lijiye' for each new example and 'basically' before definitions. Money is read in Indian units (10 rupees, 1 crore, 30 lakh, 70 lakh) and the arithmetic is said aloud ('100 rupees minus 10 rupees', '10 lakh into 10 rupees'). The tax side-road is told in a slightly excited 'insider' tone. Speech recognition lost about 17 s around 130-147 s and about 10 s around 185-195 s."},
+  "game_ideas": [
+    {"from_t": 234.1, "mechanic": "run_a_process", "player_does": "Runs the only ketchup factory in the country for a year: sets how many bottles to make and their price, and watches the machine work.", "process_happens": "The machine's value bar drops by its depreciation as it runs; at year end the player fills the Gross Produce and Net Produce chips and the system checks them (gross = bottles x price, net = gross - depreciation).", "win": "Both chips right, and the NDP equation lights with the player's own numbers.", "lose": "Leaving depreciation out makes net equal gross; the machine's lost value flashes in red beside the chip as the missing deduction.", "concept": "net = gross - depreciation (NDP)"},
+    {"from_t": 288.0, "mechanic": "sort_into_groups", "player_does": "Drags items into 'counts for NDP' or 'does not count': factory machine, delivery van, phone used for business, phone used personally, family car, office laptop.", "process_happens": "Each item travels the YES path into the depreciation column or stops at a crossed NO, as in the video.", "win": "All items sorted.", "lose": "Putting the family car in 'counts' shows its NO path, with the note that only assets used to produce goods and services count.", "concept": "which depreciation counts in NDP and NNP"},
+    {"from_t": 34.6, "mechanic": "allocate", "player_does": "As the farmer, decides how much of the harvest to keep back as seed for next season before selling the rest.", "process_happens": "The sack splits into 'seed kept' and 'available'; the Gross Produce and Net Produce chips fill with the harvest and harvest minus seed.", "win": "Keep enough seed to repeat the harvest and read off the net produce correctly.", "lose": "Keeping no seed shows next season's empty field, which teaches why the input must be deducted to see what was truly produced.", "concept": "gross vs net produce"}
+  ],
+  "notes_questions": [
+    {"q": "Gross value aur net value mein kya fark hai?", "answer_shape": "comparison", "from_t": 9.5},
+    {"q": "10 rupaye ke beej se 100 rupaye ka gehun: gross produce aur net produce kitna?", "answer_shape": "number", "from_t": 34.6},
+    {"q": "Depreciating asset kya hota hai? Machine ka udaharan dekar graph banaiye.", "answer_shape": "picture", "from_t": 74.2},
+    {"q": "10 lakh bottle x 10 rupaye, aur depreciation 30 lakh: gross aur net produce kitna?", "answer_shape": "number", "from_t": 242.5},
+    {"q": "GDP se NDP aur GNP se NNP kaise nikalte hain?", "answer_shape": "flow", "from_t": 276.8},
+    {"q": "Kis cheez ka depreciation NDP mein ginte hain? Business phone aur personal phone ka fark.", "answer_shape": "comparison", "from_t": 288.0}
+  ],
+  "checks_learned": [
+    "Numbers inside one example must agree with each other (a 30% yearly rate does not take 20 years to reach zero); a code check can test rate x years against the stated life.",
+    "Every value the voice computes (net 90, net 70 lakh) must appear on its waiting chip at that moment.",
+    "A card for a spoken quantity must appear within about 2 s of the first time it is spoken (the profit card came about 25 s late).",
+    "Year labels on screen must match the spoken year (the voice puts the 30 lakh drop in 2022, the table shows 70 lakh against 2023).",
+    "Flag an aside longer than about 40 s that the target terms do not need; claims about real companies need a source or must be dropped.",
+    "The opening and closing checklists must tick exactly the items the voice says are covered."
+  ],
+  "teaching_best": [
+    {"t": 34, "why": "Seed in, harvest out: gross vs net with 10 and 100 before any formal word."},
+    {"t": 80, "why": "A machine's value curve falling to zero makes depreciation visible as a loss over time."},
+    {"t": 268, "why": "The formula is drawn as an arc from gross to net labelled '- depreciation' after two worked examples, so it reads as a summary, not a rule to memorise."},
+    {"t": 299, "why": "Two identical phones with YES and NO paths teach the boundary rule with one everyday object."}
+  ],
+  "teaching_weak": [
+    {"t": 110, "why": "30% a year and about 20 years to scrap do not fit each other; a careful learner will be confused."},
+    {"t": 155, "why": "About 90 s on tax and a big-company claim; interesting but off the target terms, and the profit card arrives late."},
+    {"t": 12, "why": "Gross vs net is first given as two text panels with pointer boxes that copy the speech."},
+    {"t": 54, "why": "The wheat example's net value (90) is spoken but not seen on the Net Produce chip in the sampled frames."}
+  ]
+}

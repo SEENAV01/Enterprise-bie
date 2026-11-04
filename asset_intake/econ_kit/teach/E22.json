@@ -1,0 +1,129 @@
+{
+  "id": "E22",
+  "topic": "Balance of payments: why a country needs foreign currency, the forex reserve, the BoP statement and its two accounts, double entry, CAS/CAD and the BoP crisis",
+  "book_understanding": {
+    "concepts": [
+      {"name": "trade moves foreign currency (import pays out, export earns)", "type": "process", "t_start": 4.0, "t_end": 35.6, "prereq_recalled": "everyday knowledge that India imports and exports goods"},
+      {"name": "forex reserve", "type": "mechanism", "t_start": 35.6, "t_end": 57.1, "prereq_recalled": "all dealings with other countries are in foreign currency"},
+      {"name": "foreign-currency dealings beyond goods", "type": "classification", "t_start": 57.1, "t_end": 111.6, "prereq_recalled": "goods trade moves foreign currency"},
+      {"name": "balance of payments = one-year statement", "type": "definition", "t_start": 111.6, "t_end": 135.0, "prereq_recalled": "the list of foreign-currency dealings just built"},
+      {"name": "current account: visibles (BoT) and invisibles", "type": "classification", "t_start": 135.0, "t_end": 194.7, "prereq_recalled": "goods vs services from the list of dealings; NFIA (named, not explained)"},
+      {"name": "capital account: investments and loans (principal vs interest)", "type": "classification", "t_start": 194.7, "t_end": 233.4, "prereq_recalled": "FDI, FPI and external borrowing from the list of dealings"},
+      {"name": "double entry and plus/minus per head", "type": "mechanism", "t_start": 233.4, "t_end": 269.0, "prereq_recalled": "the account tree"},
+      {"name": "account balances, CAS/CAD and overall BoP", "type": "formula", "t_start": 269.0, "t_end": 326.5, "prereq_recalled": "plus/minus of each head"},
+      {"name": "BoP and forex reserve; BoP crisis", "type": "cause_effect", "t_start": 326.5, "t_end": 348.4, "prereq_recalled": "the forex reserve vault from the first minute"}
+    ],
+    "teaching_order": "A textbook opens with the definition of BoP and its format. Here the video starts from the need: buying from abroad costs foreign currency and selling earns it, so a country must keep a reserve, and the reserve rises or falls. Only after a long list of dealings is the umbrella name given (BoP statement). Then the format is built top-down as a tree, and the arithmetic is built bottom-up (each head nets to plus or minus, heads add to account balances, accounts add to BoP). The end returns to the reserve from the first minute, so the whole format is framed as 'what decides whether the vault fills or empties', and the crisis is the vault running dry.",
+    "breakdown_rule": "Follow the foreign currency: first why it moves, then where it is kept, then how every movement is recorded and added up, and finally what the total does to the reserve."
+  },
+  "narration": {
+    "opening": {"move": "agenda", "what": "One line says the video covers balance of payments in detail, then at once a common-knowledge scene: India imports and exports many things (oil barrel in, gears out on screen)."},
+    "moves": [
+      {"t": 0.0, "move": "agenda", "concept": "trade moves foreign currency (import pays out, export earns)", "what": "Announces the topic in one sentence."},
+      {"t": 4.0, "move": "hook_scene", "concept": "trade moves foreign currency (import pays out, export earns)", "what": "'We all know' India imports a lot and exports a lot; the screen gives the scene a concrete pair (oil in, gears out)."},
+      {"t": 13.9, "move": "cause_chain", "concept": "trade moves foreign currency (import pays out, export earns)", "what": "Import, so we pay, and the payment is in foreign currency; export, so we receive payment, also in foreign currency."},
+      {"t": 28.9, "move": "yaani_unpack", "concept": "trade moves foreign currency (import pays out, export earns)", "what": "'Iska matlab': every dealing with other countries happens in foreign currency."},
+      {"t": 35.6, "move": "cause_chain", "concept": "forex reserve", "what": "So a country needs foreign currency in reserve, so every central bank keeps some."},
+      {"t": 44.6, "move": "define_term", "concept": "forex reserve", "what": "Names the reserve only after the need is felt."},
+      {"t": 47.1, "move": "cause_chain", "concept": "forex reserve", "what": "If more foreign currency goes out than comes in, or the reverse, the reserve keeps rising and falling."},
+      {"t": 57.1, "move": "misconception", "concept": "foreign-currency dealings beyond goods", "what": "Widens a narrow idea: this money flow is not limited to goods; services, tourism, NRI remittances, FDI/FPI and foreign loans also move foreign currency."},
+      {"t": 102.9, "move": "conclusion_line", "concept": "foreign-currency dealings beyond goods", "what": "These are only some examples; there are many economic and financial dealings done in foreign currency."},
+      {"t": 111.6, "move": "define_term", "concept": "balance of payments = one-year statement", "what": "Put all such dealings of one year in one statement, and that statement is the BoP (summarise, then name)."},
+      {"t": 120.5, "move": "data_fact", "concept": "balance of payments = one-year statement", "what": "Who makes it (each central bank, RBI in India) and who fixes the common format (IMF)."},
+      {"t": 135.0, "move": "signpost", "concept": "current account: visibles (BoT) and invisibles", "what": "Chaliye, now the format."},
+      {"t": 138.5, "move": "define_term", "concept": "current account: visibles (BoT) and invisibles", "what": "All dealings are classified into two accounts: current and capital."},
+      {"t": 156.1, "move": "yaani_unpack", "concept": "current account: visibles (BoT) and invisibles", "what": "Balance of visibles is also called balance of trade, because it holds only physical goods, things you can see."},
+      {"t": 167.1, "move": "contrast", "concept": "current account: visibles (BoT) and invisibles", "what": "Everything intangible goes to invisibles, split into services, incomes and transfers."},
+      {"t": 178.3, "move": "signpost", "concept": "current account: visibles (BoT) and invisibles", "what": "Let us see examples: software and consultancy for services, NFIA for incomes, gifts, donations and remittances for transfers."},
+      {"t": 194.7, "move": "define_term", "concept": "capital account: investments and loans (principal vs interest)", "what": "Capital account splits into investments (FDI, FPI, government bonds sold abroad) and loans (taken or given)."},
+      {"t": 221.3, "move": "contrast", "concept": "capital account: investments and loans (principal vs interest)", "what": "'Yaad rakhiye': a loan's principal is capital account, but the interest paid on it is current account income. A trap point stated as a rule."},
+      {"t": 233.4, "move": "define_term", "concept": "double entry and plus/minus per head", "what": "RBI records every dealing under each head on both debit and credit sides; this practice is double entry bookkeeping."},
+      {"t": 255.3, "move": "yaani_unpack", "concept": "double entry and plus/minus per head", "what": "Each head ends positive or negative: positive means India earns foreign currency under that head, negative means it spends."},
+      {"t": 269.0, "move": "signpost", "concept": "account balances, CAS/CAD and overall BoP", "what": "That was the single heads; now the heads are added: visibles plus invisibles give the current account balance, and the same for capital."},
+      {"t": 292.3, "move": "define_term", "concept": "account balances, CAS/CAD and overall BoP", "what": "Positive current account = CAS (current account surplus), negative = CAD (current account deficit); short forms are expanded at once."},
+      {"t": 307.5, "move": "cause_chain", "concept": "account balances, CAS/CAD and overall BoP", "what": "Current balance plus capital balance gives the BoP, which can itself be positive or negative."},
+      {"t": 326.5, "move": "cause_chain", "concept": "BoP and forex reserve; BoP crisis", "what": "Positive BoP adds to the forex reserve; negative BoP draws it down (callback to the vault)."},
+      {"t": 337.0, "move": "what_if", "concept": "BoP and forex reserve; BoP crisis", "what": "'Soch ke dekhiye': if a country does not have enough reserves to cover a negative BoP, what then? That situation is named BoP crisis."},
+      {"t": 348.4, "move": "conclusion_line", "concept": "BoP and forex reserve; BoP crisis", "what": "'These were the details of BoP', then a playlist plug; no recap."}
+    ],
+    "story_before_term": [
+      {"term": "forex reserve", "t_story": 4.0, "t_term": 44.6},
+      {"term": "balance of payment (as a statement)", "t_story": 57.1, "t_term": 116.5},
+      {"term": "BoP crisis", "t_story": 337.0, "t_term": 345.4}
+    ],
+    "examples": [
+      {"t": 4.0, "kind": "everyday_object", "what": "Imports and exports in general words; the picture makes them an oil barrel coming in and gears going out, each with a dollar bundle going the other way.", "carries": "trade moves foreign currency in opposite directions"},
+      {"t": 73.6, "kind": "real_case", "what": "Consultancy and IT services, tourism, NRIs sending money home, FDI/FPI, borrowing from World Bank, IMF or other countries.", "carries": "foreign currency moves for far more than goods"},
+      {"t": 180.8, "kind": "real_case", "what": "Software and consultancy (services), NFIA (incomes), gifts, donations and remittances (transfers).", "carries": "what goes inside each invisibles head"},
+      {"t": 205.9, "kind": "real_case", "what": "Bonds issued abroad by the Government of India are counted with investments.", "carries": "capital account investments are not only FDI/FPI"},
+      {"t": 221.3, "kind": "real_case", "what": "One loan, split: its principal sits in the capital account, its interest in current account incomes.", "carries": "the principal vs interest placement rule"},
+      {"t": 337.0, "kind": "what_if", "what": "A country whose reserves cannot cover a negative BoP.", "carries": "what a BoP crisis is"}
+    ],
+    "closing": {"move": "conclusion_line", "what": "A one-line 'these were the details' and a playlist plug while a promo banner slides over the canvas; no recap of the tree or the arithmetic."},
+    "density": "About 25 terms (foreign currency, forex reserve, FDI, FPI, external borrowing, BoP, RBI, IMF format, current and capital account, visibles, balance of trade, invisibles, services, incomes, NFIA, transfers, remittances, investments, loans, external bonds, double entry, debit/credit, CAS, CAD, BoP crisis) in about 350 s, about 4 per minute, but the 137-235 s stretch packs about 15 of them into 100 s. The first two minutes are comfortable (one idea, one reason at a time); the format part is too fast for a first look and fits revision better."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 1.4, "shown": "green handwritten 'Balance' starts writing above a small India map with a pin", "said_gist": "today we will cover in detail balance (of payment)", "naming_word": "बैलन्स", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 2, "t_shown": 2.8, "shown": "'Balance' finishes writing over India", "said_gist": "balance of payment", "naming_word": "बैलन्स", "lead": "together", "relation": "names_the_term"},
+    {"tile": 3, "t_shown": 143.4, "shown": "BoP document icon splits by green elbow arrows into CURRENT ACCOUNT and CAPITAL ACCOUNT chips", "said_gist": "all dealings are classified into two accounts, current and capital", "naming_word": "accounts", "lead": "together", "relation": "names_the_term"},
+    {"tile": 4, "t_shown": 151.0, "shown": "current account splits into Balance of Invisibles and Balance of Visibles", "said_gist": "the current account dealings are put into balance of (invisibles and visibles, said 1-3 s later)", "naming_word": "balance of", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 5, "t_shown": 163.0, "shown": "down-arrow from Balance of Trade (BoT) to a 'Goods' bullet", "said_gist": "only physical goods, visible items, are kept here", "naming_word": "physical goods", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 6, "t_shown": 172.0, "shown": "blue 'Services' bar on a dotted guide under invisibles", "said_gist": "intangible dealings go to balance of invisibles (services said about 3 s later)", "naming_word": "", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 7, "t_shown": 177.0, "shown": "'Transfers' bar joins Services and Incomes", "said_gist": "categorised under services, incomes and transfers", "naming_word": "transfers", "lead": "together", "relation": "names_the_term"},
+    {"tile": 8, "t_shown": 181.0, "shown": "'Software' bullet under Services", "said_gist": "let us see examples; services examples are software", "naming_word": "software", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 9, "t_shown": 183.8, "shown": "'Consultancy, etc' bullet", "said_gist": "software services, consultancy etc.", "naming_word": "consultancy", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 10, "t_shown": 197.2, "shown": "capital account branches into Investments and Loans", "said_gist": "the capital account is also classified (into investments and loans, said about 3 s later)", "naming_word": "capital", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 11, "t_shown": 203.8, "shown": "'FPI (FII/Depository Receipts)' bullet under Investments, after FDI", "said_gist": "investments include FDI and FPI", "naming_word": "FPI", "lead": "together", "relation": "adds_new_info"},
+    {"tile": 12, "t_shown": 212.8, "shown": "'External Lending' and 'External Borrowing' bullets under Loans", "said_gist": "and loans, which we take from or give to other countries", "naming_word": "loans", "lead": "together", "relation": "names_the_term"},
+    {"tile": 13, "t_shown": 230.0, "shown": "'Interest Payment' bullet added under Incomes [NFIA] in the current account", "said_gist": "but interest paid on loans goes to the current account", "naming_word": "interest", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 14, "t_shown": 238.4, "shown": "all bullets vanish; a small chalkboard with a Debit | Credit T-chart (minus | plus) drops under each of the four leaves", "said_gist": "RBI records every dealing under these categories (on debit or credit side, said 2-4 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 15, "t_shown": 248.0, "shown": "'Double entry BOOKKEEPING' label with a curved arrow to the boards", "said_gist": "this practice of keeping records is called double entry bookkeeping", "naming_word": "double entry bookkeeping", "lead": "together", "relation": "names_the_term"},
+    {"tile": 16, "t_shown": 254.2, "shown": "a down-arrow under each board ending in '+ive / -ive'", "said_gist": "after recording, each head has a final calculation (positive or negative)", "naming_word": "calculation", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 17, "t_shown": 281.6, "shown": "black frame closes around the two current-account boards, with one '+ive / -ive' under it", "said_gist": "the two heads are seen together, then we know if the balance of current account is positive", "naming_word": "balance of current account", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 18, "t_shown": 285.4, "shown": "second black frame around the two capital-account boards with its own '+ive / -ive'", "said_gist": "the same way the capital account is calculated", "naming_word": "capital account", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 19, "t_shown": 298.0, "shown": "faded 'Current Account Surplus [CAS]' with a dotted pointer from the plus sign", "said_gist": "written CAS, which means current account surplus", "naming_word": "current account surplus", "lead": "together", "relation": "names_the_term"},
+    {"tile": 20, "t_shown": 306.4, "shown": "'Current Account Deficit [CAD]' with a dotted pointer from the minus sign", "said_gist": "written CAD, which means current account deficit", "naming_word": "current account deficit", "lead": "together", "relation": "names_the_term"},
+    {"tile": 21, "t_shown": 309.2, "shown": "labels fade; one black frame closes around both account chips", "said_gist": "once we have the balance of current account and of capital account (BoP said about 7 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 22, "t_shown": 328.4, "shown": "tree shrinks to the BoP icon with one '+ive / -ive' line over the FOREX RESERVE locker vault (callback to minute one)", "said_gist": "if balance of payment is positive, it means (the forex reserve grows, said about 2 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 23, "t_shown": 334.4, "shown": "red 'Decrease' arrow from the minus side down into the vault (green 'Increase' arrow already in)", "said_gist": "if BoP is negative, the forex reserve depletes", "naming_word": "negative", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 24, "t_shown": 339.6, "shown": "app-promo banner slides over the lower canvas; a BoP-crisis side note already sits at the right", "said_gist": "but think: if a country does not have enough reserves for a negative BoP", "naming_word": "", "lead": "unrelated", "relation": "navigation"}
+  ],
+  "talmel_summary": "The first 140 s (the import/export loop, the vault and the BoP document) produced no tiles because the globe spins non-stop, so the change detector saw one long change; the card says that part fits well (goods and dollars move opposite ways). In the tree part the picture mostly names terms 1-3 s before the voice, as labels and bullets, which is quick to follow but carries no meaning by itself. The strongest fits are in the arithmetic: debit/credit boards under each leaf, arrows down to plus/minus, frames grouping heads into account totals, and the plus/minus wired into the vault; the end is weakened by a promo banner over the crisis moment.",
+  "voice": {"notes": "About 198 words per minute, the fastest of this batch; even, explanatory tone with no long pauses. Builds sentences as chains ('aur isi tarah', 'to', 'isliye'), and expands every short form at once (BoP, BoT, NFIA, CAS, CAD). Stress falls on the rule words 'yaad rakhiye' (principal vs interest) and 'soch ke dekhiye' (crisis). No numbers are read anywhere; positive and negative are said as words."},
+  "game_ideas": [
+    {"from_t": 57.1, "mechanic": "sort_into_groups", "player_does": "Drags transaction cards (oil import, software export, NRI sends money home, foreign tourist stays in Goa, FDI in a factory, loan from World Bank, interest paid on that loan) onto the leaves of the BoP tree.", "process_happens": "Each correct card drops into its leaf's debit or credit board and that board's plus/minus updates; the account totals and the vault level move.", "win": "All cards placed; the tree's totals and the vault match the statement.", "lose": "Putting loan interest under capital-account loans bounces the card back with the principal-vs-interest rule shown on the two leaves.", "concept": "current account: visibles (BoT) and invisibles"},
+    {"from_t": 13.9, "mechanic": "run_a_process", "player_does": "As RBI for one year, approves or delays monthly dealings (big oil import, IT export contract, FPI pulling money out, foreign loan) while watching the forex vault.", "process_happens": "Dollar bundles flow along the globe-India loop; the vault's lockers fill or empty; at year end the four boards, two account totals and the BoP plus/minus are drawn.", "win": "Finish the year with the vault never empty.", "lose": "If a negative BoP is larger than the vault, the lockers empty and the screen names it a BoP crisis.", "concept": "BoP and forex reserve; BoP crisis"},
+    {"from_t": 269.0, "mechanic": "cause_chain", "player_does": "Given four head results (visibles -, invisibles +, investments +, loans -) with small amounts, works out the current balance, the capital balance and the BoP.", "process_happens": "Frames close around the heads as each total is entered; CAS or CAD label lights; the BoP arrow goes green into the vault or red out of it.", "win": "Correct signs and totals at all three levels.", "lose": "A wrong current-account sign makes the CAS/CAD label light wrongly and shows which heads were added.", "concept": "account balances, CAS/CAD and overall BoP"}
+  ],
+  "notes_questions": [
+    {"q": "Import aur export karte waqt foreign currency kis taraf jaati hai? Diagram banaiye.", "answer_shape": "picture", "from_t": 13.9},
+    {"q": "Forex reserve kya hai, kaun rakhta hai, aur yeh kab badhta ya ghatta hai?", "answer_shape": "flow", "from_t": 35.6},
+    {"q": "Goods ke alawa kaun-kaun se lenden foreign currency mein hote hain?", "answer_shape": "table", "from_t": 57.1},
+    {"q": "BoP kya hai, India mein kaun banata hai, aur format kaun deta hai?", "answer_shape": "table", "from_t": 111.6},
+    {"q": "BoP ke current account aur capital account mein kya-kya aata hai? Tree banaiye.", "answer_shape": "tree", "from_t": 138.5},
+    {"q": "Loan ka principal aur us par diya gaya interest BoP mein kahan record hote hain?", "answer_shape": "comparison", "from_t": 221.3},
+    {"q": "CAS aur CAD kya hain, aur BoP positive ya negative hone se forex reserve par kya asar padta hai?", "answer_shape": "flow", "from_t": 292.3},
+    {"q": "BoP crisis kab hota hai?", "answer_shape": "flow", "from_t": 337.0}
+  ],
+  "checks_learned": [
+    "Constant decorative motion (the spinning globe) must stop during teaching beats; it hid two minutes of changes from the change detector and competes with the step being taught.",
+    "A list of dealings that each move money in or out should be drawn as flows into or out of the reserve, with direction, not as a bullet list.",
+    "A 'yaad rakhiye' rule that splits one thing two ways (principal vs interest) must show both halves on screen; only the interest half was drawn.",
+    "A topic built on plus/minus balances needs at least one small worked number example; this video has none.",
+    "Every short form shown on screen (BoT, NFIA, CAS, CAD) must be expanded by the voice at first use (done here; enforce).",
+    "A definition side note (BoP crisis) should not appear more than about 3 s before the voice reaches the term, and promo banners must not cover the canvas while the final definition is spoken.",
+    "More than about 8 new terms per minute in a classification tree should trigger a split into two scenes or a recap."
+  ],
+  "teaching_best": [
+    {"t": 4, "why": "Need before name: goods in, money out; goods out, money in; so every dealing is in foreign currency, so a reserve is needed, and only then 'forex reserve'."},
+    {"t": 105, "why": "Summarise then name: a long list of dealings folds into one umbrella label for one year, which becomes the BoP document."},
+    {"t": 238, "why": "Double entry made concrete: a debit|credit board under every leaf, arrows to plus/minus, then frames adding heads into account totals, bottom-up."},
+    {"t": 326, "why": "The arc closes on the vault from minute one; the crisis is taught as a what-if about that vault running dry."}
+  ],
+  "teaching_weak": [
+    {"t": 57, "why": "The kinds of dealings are listed without saying which way each moves the reserve (remittances in, loan repayment out)."},
+    {"t": 137, "why": "About 15 terms in 100 s as a text tree, with no numbers and no flow direction; the learner gets names, not meaning."},
+    {"t": 292, "why": "Surplus and deficit are given as labels; no picture or number of 'earned more than spent'."},
+    {"t": 339, "why": "A promo banner covers the canvas during the crisis question, and there is no recap of the tree or the arithmetic."}
+  ]
+}

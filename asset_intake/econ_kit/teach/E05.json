@@ -1,0 +1,140 @@
+{
+  "id": "E05",
+  "topic": "India's pegged regime 1971-1992: peg to the pound, then to a weighted basket (NEER) of trading partners, why it was done, why it failed (1991 devaluation), and the road to floating rates via LERMS",
+  "book_understanding": {
+    "concepts": [
+      {"name": "recap: Bretton Woods collapsed in 1971", "type": "timeline", "t_start": 0, "t_end": 13.7, "prereq_recalled": "previous video (Bretton Woods and its collapse)"},
+      {"name": "pegged regime 1971-1992 in two parts", "type": "timeline", "t_start": 13.7, "t_end": 27.2, "prereq_recalled": "pegging"},
+      {"name": "1971-75: rupee pegged to the pound sterling", "type": "timeline", "t_start": 27.2, "t_end": 48.0, "prereq_recalled": "how pegging works (shown graphically in the last video, not repeated)"},
+      {"name": "1975-92: rupee pegged to multiple currencies", "type": "definition", "t_start": 48.0, "t_end": 70.4, "prereq_recalled": "single-currency peg"},
+      {"name": "basket of currencies = major trading partners' currencies", "type": "definition", "t_start": 70.4, "t_end": 110.7, "prereq_recalled": "trading partner (used, not explained)"},
+      {"name": "weights by share of trade", "type": "numbers", "t_start": 110.7, "t_end": 148.4, "prereq_recalled": "percent shares"},
+      {"name": "nominal exchange rate and the per-rupee format", "type": "definition", "t_start": 148.4, "t_end": 196.1, "prereq_recalled": "today's dollar-rupee rate"},
+      {"name": "NEER = weighted sum of nominal rates (0.048)", "type": "formula", "t_start": 196.1, "t_end": 249.1, "prereq_recalled": "weights and nominal rates just tabled"},
+      {"name": "NEER up/down -> rupee appreciates/depreciates -> trade deficit worsens/shrinks", "type": "cause_effect", "t_start": 249.1, "t_end": 287.6, "prereq_recalled": "appreciation hurts the trade balance (earlier videos)"},
+      {"name": "recap: rupee pegged to partners' NEER, so the effective rate is fixed", "type": "definition", "t_start": 287.6, "t_end": 307.2, "prereq_recalled": "NEER"},
+      {"name": "purpose: keep the trade balance with partners stable", "type": "cause_effect", "t_start": 307.2, "t_end": 343.2, "prereq_recalled": "NEER up/down effects"},
+      {"name": "the mistake: misalignment with other currencies, rivals depreciate, exports suffer, BoP crisis", "type": "cause_effect", "t_start": 343.2, "t_end": 392.6, "prereq_recalled": "depreciation raises export competitiveness"},
+      {"name": "1991 two-step devaluation (18-19%), third since independence", "type": "timeline", "t_start": 392.6, "t_end": 410.9, "prereq_recalled": "1949 and 1966 devaluations"},
+      {"name": "summary: fixed 1944-1992, LERMS 1992-93, floating from 1993", "type": "timeline", "t_start": 410.9, "t_end": 464.1, "prereq_recalled": "the whole fixed-rate history"}
+    ],
+    "teaching_order": "A textbook would define NEER as a formula and list India's regimes by date. The video starts from where the last one ended (the 1971 collapse), puts the 1971-92 period on a timeline and cuts it in two, then takes the dense official sentence for 1975-92 and breaks it phrase by phrase ('basket', 'major trading partners', 'weighted average'), working each phrase with assumed numbers in a table until the NEER pops out. Only after the learner has computed it does the video ask what NEER moving up or down means, then asks 'what was the purpose?' and lets the learner infer it, and finally shows the mistake and the 1991 devaluation. It ends by re-zooming the whole timeline and explaining why the next two videos come in the order floating, then LERMS.",
+    "breakdown_rule": "Take one dense definition sentence, cut it into its phrases, and turn each phrase into one step of a worked calculation; then ask what the result does, why it was chosen, and why it failed."
+  },
+  "narration": {
+    "opening": {"move": "recall_previous", "what": "Last video: Bretton Woods collapsed in 1971 and why; now 1971-1992, when India followed a pegged regime, split into two parts."},
+    "moves": [
+      {"t": 0.0, "move": "recall_previous", "concept": "recap: Bretton Woods collapsed in 1971", "what": "Recalls the 1971 collapse and that its reasons were covered."},
+      {"t": 13.7, "move": "agenda", "concept": "pegged regime 1971-1992 in two parts", "what": "1971 to 1992 India followed a pegged regime; we can divide it into two parts."},
+      {"t": 27.2, "move": "data_fact", "concept": "1971-75: rupee pegged to the pound sterling", "what": "First part, 1971-75: the rupee was pegged to the UK pound sterling."},
+      {"t": 35.9, "move": "recall_previous", "concept": "1971-75: rupee pegged to the pound sterling", "what": "How a peg works was covered graphically last video, so it is not repeated."},
+      {"t": 48.0, "move": "signpost", "concept": "1975-92: rupee pegged to multiple currencies", "what": "Chaliye, now 1975-1992."},
+      {"t": 53.6, "move": "contrast", "concept": "1975-92: rupee pegged to multiple currencies", "what": "Not one currency, balki multiple currencies."},
+      {"t": 60.2, "move": "question_to_viewer", "concept": "1975-92: rupee pegged to multiple currencies", "what": "Which currencies, and how does such pegging work? This needs detail."},
+      {"t": 67.2, "move": "yaani_unpack", "concept": "basket of currencies = major trading partners' currencies", "what": "New pattern (statement breakdown): 'let us break down this whole statement' and unpack it phrase by phrase."},
+      {"t": 70.4, "move": "yaani_unpack", "concept": "basket of currencies = major trading partners' currencies", "what": "First phrase: a basket of currencies of India's major trading partners, yaani the countries India trades with most."},
+      {"t": 87.0, "move": "data_fact", "concept": "basket of currencies = major trading partners' currencies", "what": "For 1975-92, five such countries are shown on screen."},
+      {"t": 98.2, "move": "yaani_unpack", "concept": "basket of currencies = major trading partners' currencies", "what": "Back to the statement: the rupee was pegged to the weighted average of these currencies' exchange rates."},
+      {"t": 110.7, "move": "signpost", "concept": "weights by share of trade", "what": "How is this weighted average calculated? Let us see in detail."},
+      {"t": 116.7, "move": "example_numbers", "concept": "weights by share of trade", "what": "Give each partner a weight by how much we trade with it; 'assume' 40% Soviet Union, 20% USA, 20% Japan, 10% Germany, 10% UK."},
+      {"t": 148.4, "move": "define_term", "concept": "nominal exchange rate and the per-rupee format", "what": "Also write each country's nominal exchange rate: the everyday rate we use in plain speech."},
+      {"t": 158.2, "move": "example_numbers", "concept": "nominal exchange rate and the per-rupee format", "what": "Today 1 dollar = 82 rupees, which can also be said as 1 rupee = 0.012 dollars."},
+      {"t": 176.4, "move": "data_fact", "concept": "nominal exchange rate and the per-rupee format", "what": "In the same per-rupee format, 1990: 1 rupee = 0.034 roubles; the other rates for 1989-90 are filled in."},
+      {"t": 196.1, "move": "example_numbers", "concept": "NEER = weighted sum of nominal rates (0.048)", "what": "Multiply each rate by its weight: for the Soviet Union 40% of 0.034 = 0.0136; the same for the others (from a slice re-transcript; batch transcript fails here)."},
+      {"t": 217.5, "move": "conclusion_line", "concept": "NEER = weighted sum of nominal rates (0.048)", "what": "Adding all values gives 0.048: our currency's combined exchange rate with these trading partners."},
+      {"t": 242.5, "move": "define_term", "concept": "NEER = weighted sum of nominal rates (0.048)", "what": "This value is the nominal effective exchange rate, yaani NEER."},
+      {"t": 249.1, "move": "question_to_viewer", "concept": "NEER up/down -> rupee appreciates/depreciates -> trade deficit worsens/shrinks", "what": "'Think with a cool head': if NEER rises, what happens to the rupee?"},
+      {"t": 254.9, "move": "cause_chain", "concept": "NEER up/down -> rupee appreciates/depreciates -> trade deficit worsens/shrinks", "what": "NEER up means the rupee appreciates against partners, which (as learned earlier) hurts the trade deficit."},
+      {"t": 272.4, "move": "contrast", "concept": "NEER up/down -> rupee appreciates/depreciates -> trade deficit worsens/shrinks", "what": "Exactly the opposite if NEER falls: the rupee depreciates and the trade deficit shrinks."},
+      {"t": 287.6, "move": "recap", "concept": "recap: rupee pegged to partners' NEER, so the effective rate is fixed", "what": "So 1975-92 the rupee was pegged to partners' NEER, yaani the effective rate with them was fixed."},
+      {"t": 307.2, "move": "question_to_viewer", "concept": "purpose: keep the trade balance with partners stable", "what": "But what was the purpose? 'I am sure you can work it out yourself.'"},
+      {"t": 315.9, "move": "conclusion_line", "concept": "purpose: keep the trade balance with partners stable", "what": "NEER up hurts the deficit, down helps it; we wanted a stable trade balance with partners, neither rising nor falling, so NEER was fixed."},
+      {"t": 343.2, "move": "misconception", "concept": "the mistake: misalignment with other currencies, rivals depreciate, exports suffer, BoP crisis", "what": "'But very soon we realised our mistake': fixing against partners spoiled the rupee's alignment with everyone else."},
+      {"t": 355.7, "move": "cause_chain", "concept": "the mistake: misalignment with other currencies, rivals depreciate, exports suffer, BoP crisis", "what": "China and Indonesia depreciated against the dollar, so their exports became more competitive; India and China both sold to the US, so India lost and slid into a BoP crisis."},
+      {"t": 392.6, "move": "data_fact", "concept": "1991 two-step devaluation (18-19%), third since independence", "what": "In 1991 the rupee was devalued 18-19% in a two-step downward adjustment, the third devaluation since independence (as stated)."},
+      {"t": 410.9, "move": "conclusion_line", "concept": "summary: fixed 1944-1992, LERMS 1992-93, floating from 1993", "what": "So the pegged regime also fixed our rate with partners; 1944-1992 India followed a fixed exchange rate regime throughout."},
+      {"t": 429.8, "move": "data_fact", "concept": "summary: fixed 1944-1992, LERMS 1992-93, floating from 1993", "what": "Floating rates since 1993; in between, 1992-93, LERMS yaani Liberalized Exchange Rate Management System."},
+      {"t": 450.6, "move": "signpost", "concept": "summary: fixed 1944-1992, LERMS 1992-93, floating from 1993", "what": "Next floating, then LERMS, because LERMS needs floating first (the order of lessons is justified)."}
+    ],
+    "story_before_term": [
+      {"term": "NEER (nominal effective exchange rate)", "t_story": 116.7, "t_term": 245.1},
+      {"term": "basket of currencies", "t_story": 53.6, "t_term": 70.4}
+    ],
+    "examples": [
+      {"t": 116.7, "kind": "numbers", "what": "Assumed trade shares: 40% Soviet Union, 20% USA, 20% Japan, 10% Germany, 10% UK.", "carries": "what a weight in the basket is"},
+      {"t": 158.2, "kind": "numbers", "what": "Today's rate 1 dollar = 82 rupees rewritten as 1 rupee = 0.012 dollars.", "carries": "nominal exchange rate and the per-rupee format used in the table"},
+      {"t": 176.4, "kind": "numbers", "what": "1990: 1 rupee = 0.034 roubles, and similar 1989-90 rates for the other partners (as stated).", "carries": "the inputs to the NEER calculation"},
+      {"t": 196.1, "kind": "numbers", "what": "40% of 0.034 = 0.0136, done the same way for each partner, adding up to 0.048.", "carries": "NEER as a weighted sum"},
+      {"t": 355.7, "kind": "real_case", "what": "China and Indonesia depreciating against the dollar while India and China both export to the US (as stated).", "carries": "why fixing NEER with partners hurt India's exports"},
+      {"t": 392.6, "kind": "real_case", "what": "The 1991 two-step devaluation of 18-19% (as stated).", "carries": "the end of the pegged regime's credibility"}
+    ],
+    "closing": {"move": "signpost", "what": "Summarises 1944-1992 as fixed, names floating (from 1993) and LERMS (1992-93), and explains why the next two lessons come in that order; playlist plug."},
+    "density": "About 14 terms (pegged regime, pound sterling, basket of currencies, major trading partners, weighted average, weight, nominal exchange rate, NEER, appreciation, depreciation, trade deficit, misalignment, export competitiveness, BoP crisis, two-step devaluation, floating regime, LERMS) in about 7.7 minutes, about 2 per minute, several recalled. The pace is right; the table stretch (117-233) is slow but each row is purposeful, and the closing timeline packs three regimes into 40 s."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 5.2, "shown": "box 'Bretton Woods system collapsed' above the 1971 marker with a red cross on the 1944-1971 timeline", "said_gist": "we read about Bretton Woods and saw that in 1971 Bretton Woods (collapsed, said about 2 s later)", "naming_word": "ब्रेटन", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 2, "t_shown": 9.6, "shown": "cause box 'suspension of convertibility of dollar by the United States' stacked above the collapse box", "said_gist": "it collapsed, and why it collapsed, the reasons we understood in detail (the reason itself is not spoken)", "naming_word": "", "lead": "together", "relation": "adds_new_info"},
+    {"tile": 3, "t_shown": 27.6, "shown": "a bracket under 1971-1975 on the grey PEGGED REGIME bar (1971-1992)", "said_gist": "two parts; the first part is from 1971 (to 1975)", "naming_word": "part", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 4, "t_shown": 37.6, "shown": "a pound-sign note tied by a brown PEGGED rope to a rupee note; caption 'pegged to UK pound sterling'", "said_gist": "the rupee was pegged with the pound (said 2-4 s earlier); how one currency is pegged with another (was covered last video)", "naming_word": "pack", "lead": "voice_first", "relation": "shows_the_step"},
+    {"tile": 5, "t_shown": 57.2, "shown": "a long bracket under 1975-1992 with the note 'India pegged its currency with the exchange-rate movements of a weighted basket of currencies of major trading partners'", "said_gist": "India pegged its currency not with one currency but with multiple currencies (the rest of the note is unpacked over the next 50 s)", "naming_word": "बलकि", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 6, "t_shown": 72.2, "shown": "zoom in; a curved arrow from the note reaches a wicker basket full of mixed banknotes", "said_gist": "first, the talk here is of a basket of currencies", "naming_word": "basket", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 7, "t_shown": 108.2, "shown": "a PEGGED rope from the basket to a rupee note (list of five partner countries under the basket)", "said_gist": "the weighted average of their exchange rates, with it our country's currency (was pegged, about 1.5 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 8, "t_shown": 123.6, "shown": "new canvas: a table with the basket as heading, five country rows and an empty 'Weight' column", "said_gist": "all our important trading partners, to all of them we must assign a weight", "naming_word": "weight", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 9, "t_shown": 180.0, "shown": "'NER [Nominal Exchange Rate]' column with '0.034 Ruble = 1 Rs' in the Soviet Union row (weights 40/20/20/10/10 filled)", "said_gist": "using this format, in 1990 the rouble's value (comes out as 1 rupee = 0.034 roubles, 2-5 s later)", "naming_word": "ruble", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 10, "t_shown": 202.2, "shown": "first working cell '40% of 0.034' (the NER column now filled for all five)", "said_gist": "calculate each rate with its weight; for example (for the Soviet Union, 40% of 0.034, said 3-6 s later)", "naming_word": "weight", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 11, "t_shown": 217.0, "shown": "all working rows filled with results (0.0136, 0.0114, 0.011, 0.01, 0.002); the last two rows boxed", "said_gist": "batch transcript fails here; slice re-transcript: 'for the other countries we must calculate the same way'", "naming_word": "", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 12, "t_shown": 233.6, "shown": "new canvas: '0.048' beside the basket and a rupee note", "said_gist": "(0.048 is basically our currency's) combined exchange rate (with these 6 partners: the table shows 5)", "naming_word": "combined", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 13, "t_shown": 244.8, "shown": "'Nominal Effective Exchange Rate' label hung from 0.048 in a light-blue panel reading 0.048 x basket = 1 Rs", "said_gist": "this value we calculated is basically the nominal (effective exchange rate)", "naming_word": "nominal", "lead": "together", "relation": "names_the_term"},
+    {"tile": 14, "t_shown": 248.0, "shown": "'NEER' heading above the full name", "said_gist": "nominal effective exchange rate, yaani NEER", "naming_word": "नीर", "lead": "together", "relation": "names_the_term"},
+    {"tile": 15, "t_shown": 273.6, "shown": "blue dotted box 'IF NEER DECREASES: rupee depreciated against partners; so our trade deficit will reduce' (red 'IF NEER INCREASES' box already in)", "said_gist": "negative impact on the trade deficit, and the exact opposite if NEER (decreases; the box's contents are spoken 2-13 s later)", "naming_word": "उल्टा", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 16, "t_shown": 291.2, "shown": "home base again: pegged-regime strip, basket labelled NEER tied to the rupee; yellow band 'of India's major trading partners' under NEER", "said_gist": "from this discussion you have understood that 1975 (to 1992 we pegged to the NEER of major trading partners, about 8 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 17, "t_shown": 313.4, "shown": "new canvas 'WHAT WAS THE PURPOSE?' over a yellow strip NEER - PEGGED rope - rupee", "said_gist": "(the question was asked about 4 s earlier) I am sure from this discussion you can understand this purpose yourself", "naming_word": "उद्देश्य", "lead": "voice_first", "relation": "repeats_speech_as_text"},
+    {"tile": 18, "t_shown": 321.8, "shown": "the red NEER-up and blue NEER-down boxes slide in on the right as evidence", "said_gist": "negative impact on our trade deficit, and if NEER decreases (the deficit reduces)", "naming_word": "decrease", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 19, "t_shown": 342.6, "shown": "home base again with the right side cleared", "said_gist": "we fixed our NEER with major trading partners; but very (soon we realised our mistake)", "naming_word": "", "lead": "together", "relation": "navigation"},
+    {"tile": 20, "t_shown": 356.0, "shown": "'Situation further aggravated' note with a dotted red connector above 'misalignment of the rupee with currencies of other countries'", "said_gist": "the rupee's alignment with other countries went bad, and this situation got even worse", "naming_word": "situation", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 21, "t_shown": 374.8, "shown": "dark banner 'India's export competitiveness suffered a setback' above the note on China and Indonesia depreciating", "said_gist": "their exports' competitiveness rises, and the direct loss was India's", "naming_word": "नुकसान", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 22, "t_shown": 409.0, "shown": "camera pulls back to the full 1944-1992 timeline with all labels; an app promo overlay bottom-left", "said_gist": "the two earlier devaluations were covered in an earlier video", "naming_word": "", "lead": "together", "relation": "navigation"},
+    {"tile": 23, "t_shown": 428.2, "shown": "new two-colour timeline: green bar 1944-1992 labelled [FIXED EXCHANGE RATE REGIME]", "said_gist": "over this whole period India followed a fixed exchange rate regime", "naming_word": "regime", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 24, "t_shown": 442.4, "shown": "a bracket over 1992-93 with a dotted drop line to a LERMS box (blue floating bar from 1993 already in)", "said_gist": "but between 1992 and 1993 we followed a different exchange (rate system; LERMS named about 3.5 s later)", "naming_word": "1993", "lead": "together", "relation": "names_the_term"}
+  ],
+  "talmel_summary": "The calculation half fits well: the basket of mixed notes tied by a rope to the rupee turns 'pegged to a basket' into a picture, and the table fills row by row as each weight and rate is spoken, ending in a lit answer column and the single number 0.048. The cause half drifts to text: the NEER-up/down boxes, the purpose answer, and the misalignment chain are statements stacked on screen, often several seconds before the voice. A home-base composition (strip, basket, rope, rupee) is returned to three times, which keeps the learner oriented.",
+  "voice": {"notes": "About 187 words per minute, steady and patient. Uses invitation lines that make the learner think ('ab aap zara thande dimaag se socho', 'I am sure aap is uddeshya ko khud hi samajh pa rahe honge') before giving the answer. Phrases 'chaliye is poori statement ko breakdown karte hain' and 'yaani' mark unpacking. Small decimals are read digit by digit ('0.034', '0.048'); percentages plainly. A slight dramatic turn at 'bahut hi jaldi humein apni mistake realize hone lagi'. Ends by justifying the order of the next two videos."},
+  "game_ideas": [
+    {"from_t": 116.7, "mechanic": "allocate", "player_does": "Fills the basket: sets each partner's weight from a trade-share bar (they must add to 100%) and drags in each partner's per-rupee rate.", "process_happens": "Each row computes weight x rate in the answer column; the column sums into the NEER number, which hangs from the basket tied to the rupee note.", "win": "Reach the target NEER for the given year with weights that match the trade shares.", "lose": "Weights that do not add to 100% leave the basket lopsided and the NEER cell blank; a wrong product lights that row red.", "concept": "how NEER is calculated"},
+    {"from_t": 249.1, "mechanic": "cause_chain", "player_does": "Moves a NEER slider up or down and predicts what happens to the rupee and to the trade deficit before the system plays it.", "process_happens": "NEER up: the rupee note rises against the basket, exports shrink, the deficit bar grows; NEER down: the reverse.", "win": "Predict all four links correctly for both directions.", "lose": "A wrong prediction replays the chain with the mismatched link highlighted.", "concept": "NEER, appreciation/depreciation and the trade deficit"},
+    {"from_t": 343.2, "mechanic": "market_sim", "player_does": "Runs India's exports to the US while the rupee stays pegged to the partner basket; rival exporters (China, Indonesia) can depreciate against the dollar.", "process_happens": "When a rival depreciates, its goods get cheaper on the US shelf, India's orders fall, the reserve meter drains toward a BoP crisis; the learner can hold the peg or devalue in steps.", "win": "Keep exports and reserves alive, which needs a timely two-step devaluation.", "lose": "Holding the peg too long shows India's shelf emptying and a BoP crisis banner, as in 1991.", "concept": "why the basket peg failed and led to the 1991 devaluation"},
+    {"from_t": 410.9, "mechanic": "build_timeline", "player_does": "Places regimes on a 1944-today strip: Bretton Woods (to 1971), peg to pound (1971-75), basket/NEER peg (1975-92), LERMS (1992-93), floating (1993-).", "process_happens": "The strip colours green for fixed and blue for floating as cards land, with the 1991 devaluation marker.", "win": "Strip complete and two-coloured correctly.", "lose": "Placing floating before LERMS shows the next-lesson note: LERMS needs floating explained first, but came first in time.", "concept": "India's exchange-rate regimes over time"}
+  ],
+  "notes_questions": [
+    {"q": "1971 se 1992 tak India ne exchange rate ke liye kya kiya? Do hisson mein batayiye.", "answer_shape": "timeline", "from_t": 13.7},
+    {"q": "Basket of currencies kya hai aur ismein kaun si currencies rakhi gayi?", "answer_shape": "picture", "from_t": 70.4},
+    {"q": "Weights 40/20/20/10/10 aur rates diye hon to NEER kaise nikalenge?", "answer_shape": "table", "from_t": 116.7},
+    {"q": "1 dollar = 82 rupaye ho to 1 rupaya kitne dollar ka hoga?", "answer_shape": "number", "from_t": 158.2},
+    {"q": "NEER badhne aur ghatne se rupaye aur trade deficit par kya asar hota hai?", "answer_shape": "comparison", "from_t": 249.1},
+    {"q": "Rupaye ko NEER se peg karne ka uddeshya kya tha aur yeh galti kyon saabit hua?", "answer_shape": "flow", "from_t": 307.2},
+    {"q": "1944 se aaj tak India ke exchange rate regimes ki timeline banaiye (LERMS samet).", "answer_shape": "timeline", "from_t": 410.9}
+  ],
+  "checks_learned": [
+    "Counts said must match counts shown (the voice says 6 partner countries, the table shows 5).",
+    "A dense definition shown as a note should be followed by a phrase-by-phrase unpack, each phrase highlighted as it is explained (E05 does the unpack; the highlight is missing).",
+    "A worked calculation should show every row being computed in step with the voice; rows done 'the same way' may fill together, but the total must be spoken (E05 does this).",
+    "A cause shown only on screen (convertibility suspended, at 9.6 s) must be spoken at least once.",
+    "Long-standing condition boxes (NEER up / down) should not appear more than about 3 s before the voice starts them.",
+    "A promo overlay must never cover a recap view.",
+    "A question to the learner ('what was the purpose?') should leave a short pause before the answer appears on screen."
+  ],
+  "teaching_best": [
+    {"t": 67, "why": "'Let us break down this whole statement': the official one-line definition is unpacked phrase by phrase, each phrase becoming one step of the work."},
+    {"t": 72, "why": "A basket of mixed banknotes tied to the rupee note by a rope makes 'pegged to a basket' literal."},
+    {"t": 117, "why": "The weighted average is built in a table with assumed weights and real-looking rates, so the NEER is computed, not just defined."},
+    {"t": 249, "why": "'Think with a cool head' and 'I am sure you can work out the purpose yourself' make the learner infer before the answer."},
+    {"t": 450, "why": "Justifies the order of the next lessons (floating before LERMS) by prerequisite, not by date."}
+  ],
+  "teaching_weak": [
+    {"t": 343, "why": "The misalignment story (about 66 s) is stacked statements; rivals' cheaper goods and India's falling orders are never pictured."},
+    {"t": 158, "why": "The switch to the per-rupee format (1 rupee = 0.012 dollars) is quick and only spoken; it is the step most learners trip on."},
+    {"t": 9, "why": "The collapse reason appears only as an on-screen box."},
+    {"t": 409, "why": "The full-timeline recap is partly covered by an app promo overlay."},
+    {"t": 273, "why": "Both NEER boxes are long paragraphs that appear before the voice reaches them."}
+  ]
+}

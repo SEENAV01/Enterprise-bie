@@ -35,8 +35,28 @@ and the logo replacement (29%), icons (10%) or engine parts (18%; timeline, tabl
 engine in this kit and are ported in Phase 1); `build_next` (10 things, 3%) is the next economy batch; one-offs (16%)
 are left to BIE's AI; the India map (3%) waits for a decision.
 
-Open for Navin: an India map must follow the official boundary (Survey of India); open map data shows other
-boundaries, so `india_map` (27 segments) waits for his decision on the source.
+Decided by Navin (4 Nov): an India map follows the Survey of India's official boundary; until a licence-checked source
+is in place BIE uses a "भारत" label, not an outline.
+
+### Batch 3b (4 Nov 2026): teaching, talmel and the other sections
+
+Under the addendum of 4 Nov (agreement section 8: the videos teach every section of BIE), every video was also
+transcribed with word timings (faster-whisper large-v3-turbo on CPU; transcripts stay in the workspace, never in the
+repo) and carded for teaching:
+
+| Path | What it is |
+| --- | --- |
+| `teach/E01–E37.json`, `rules/TEACHING_CARD_SCHEMA.md` | Teaching cards in our own words: concepts and teaching order, the cutting rule, narration moves, examples, story-before-term, 24 speech–picture tiles per video (what appeared, what was said, which came first, does the picture show the meaning), voice notes, game ideas, notes questions, checks learned. |
+| `measurements/teaching_summary_37.json` | The aggregate: moves, example kinds, talmel lead/relation and measured lag, game mechanics, notes answer shapes, 262 learned checks, 268 notes questions. |
+| `tools/talmel_sheets.py`, `tools/teach_aggregate.py`, `tools/stt_turbo.py` | Speech–picture tile sheets, the aggregate, the transcription run. |
+
+What the numbers say (848 tiles): a picture lands a median 0.14 s before the word that names it, 73% within 1 s; but
+only 37% of picture changes show the meaning, 46% only write the term or the sentence. The story comes a median 30 s
+before the term. Most common game mechanics proposed: run a process (31), sort into groups (18), allocate (17), cause
+chain (12); notes answer shapes: flow (79), comparison (43), table (42), picture (39).
+
+In BIE: the eight saanche are in the engine (main, PR #138); 23 rules from this learning are in
+`bie/brain/rulebook/econ_videos.json` as **proposed** (PR #139) and reach the makers only when Navin locks them.
 
 Status: IMPLEMENTED (saanche render and pass their test; rules and lexicon written), not INTEGRATED (Phase 1 builds the
 saanche slot and the director that reads the lexicon), not ACCEPTED.

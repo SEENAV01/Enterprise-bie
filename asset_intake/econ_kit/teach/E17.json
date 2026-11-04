@@ -1,0 +1,124 @@
+{
+  "id": "E17",
+  "topic": "Marginal Standing Facility: how a bank that has lent or parked its money meets extra loan demand, first by repo and term repo, then by MSF against its SLR securities, why the MSF rate carries a penalty, and the history of the MSF-repo gap",
+  "book_understanding": {
+    "concepts": [
+      {"name": "CRR vs SLR (where reserves sit, which earns)", "type": "comparison", "t_start": 0.0, "t_end": 45.5, "prereq_recalled": "previous video: NDTL, CRR, SLR and their current values"},
+      {"name": "lendable money: lent vs idle, idle parked in G-secs", "type": "process", "t_start": 45.5, "t_end": 102.6, "prereq_recalled": "CRR and SLR leave a remainder for lending"},
+      {"name": "repo and term repo: pledge G-secs for a short-term loan, with NDTL limits", "type": "mechanism", "t_start": 102.6, "t_end": 161.3, "prereq_recalled": "repo video (repurchase agreement), recalled not re-taught"},
+      {"name": "worked numbers: NDTL 2000 crore gives 5 + 15 = 20 crore", "type": "numbers", "t_start": 161.3, "t_end": 185.2, "prereq_recalled": "repo 0.25% and term repo 0.75% of NDTL"},
+      {"name": "MSF: overnight loan against SLR securities, up to 1% of NDTL", "type": "mechanism", "t_start": 185.2, "t_end": 281.9, "prereq_recalled": "SLR held in government securities; the repo limit just reached"},
+      {"name": "MSF rate = repo rate + penalty", "type": "formula", "t_start": 281.9, "t_end": 311.7, "prereq_recalled": "repo rate"},
+      {"name": "history of the MSF-repo gap", "type": "timeline", "t_start": 311.7, "t_end": 379.1, "prereq_recalled": "MSF rate above repo rate"}
+    ],
+    "teaching_order": "A textbook defines MSF in one line (banks borrow overnight from RBI against SLR securities at a rate above repo) and then lists its limits. Here MSF is the last answer in a chain of problems: reserves are kept, the rest is lent, what cannot be lent sits idle and is parked in G-secs, then a new customer arrives and the money is stuck (objection voiced), repo solves it up to a limit, the worked numbers hit that limit at 20 crore, demand doubles to 40 crore, and only then MSF enters. The rate rule comes after the mechanism, with a reason (penalty for poor liquidity), and real history comes last.",
+    "breakdown_rule": "Each piece is the bank's answer to the problem left by the previous piece, and each answer is followed by its limit, which creates the next problem."
+  },
+  "narration": {
+    "opening": {"move": "recall_previous", "what": "Recalls the last video: every bank must keep part of its NDTL as CRR and SLR, with their ranges and today's values; the screen builds NDTL splitting into a CRR vault and an SLR safe."},
+    "moves": [
+      {"t": 0.0, "move": "recall_previous", "concept": "CRR vs SLR (where reserves sit, which earns)", "what": "NDTL expanded, CRR and SLR recalled from the previous video."},
+      {"t": 20.8, "move": "contrast", "concept": "CRR vs SLR (where reserves sit, which earns)", "what": "CRR is cash with RBI and earns nothing; but SLR can be held as cash, gold or SLR securities, which is a kind of investment and earns income."},
+      {"t": 45.5, "move": "cause_chain", "concept": "lendable money: lent vs idle, idle parked in G-secs", "what": "After CRR and SLR, the rest can be lent; lending is the main income, so banks try to lend all of it."},
+      {"t": 62.7, "move": "contrast", "concept": "lendable money: lent vs idle, idle parked in G-secs", "what": "But that is not always possible: there are not always customers to take loans, so some money lies idle."},
+      {"t": 74.1, "move": "yaani_unpack", "concept": "lendable money: lent vs idle, idle parked in G-secs", "what": "'Iska matlab': lendable money splits into two parts, the part lent and the part idle."},
+      {"t": 89.2, "move": "cause_chain", "concept": "lendable money: lent vs idle, idle parked in G-secs", "what": "To put idle money to work, banks buy government securities, which pay interest; better than letting it lie."},
+      {"t": 102.6, "move": "question_to_viewer", "concept": "repo and term repo: pledge G-secs for a short-term loan, with NDTL limits", "what": "The learner's objection voiced ('aap kahenge'): if idle money is in G-secs, where does the bank find a loan for a new customer?"},
+      {"t": 114.0, "move": "define_term", "concept": "repo and term repo: pledge G-secs for a short-term loan, with NDTL limits", "what": "Answer: the bank gives those G-secs to RBI as collateral and gets a short-term loan at the repo rate (words recovered by re-transcription)."},
+      {"t": 127.7, "move": "recall_previous", "concept": "repo and term repo: pledge G-secs for a short-term loan, with NDTL limits", "what": "Points back to the earlier repo video: a repurchase agreement, called repo for short."},
+      {"t": 139.4, "move": "conclusion_line", "concept": "repo and term repo: pledge G-secs for a short-term loan, with NDTL limits", "what": "This is how banks meet customers' loan needs."},
+      {"t": 141.5, "move": "contrast", "concept": "repo and term repo: pledge G-secs for a short-term loan, with NDTL limits", "what": "'But there is a condition': repo only up to 0.25% of NDTL; more can be raised by term repo, up to 0.75%."},
+      {"t": 161.3, "move": "example_numbers", "concept": "worked numbers: NDTL 2000 crore gives 5 + 15 = 20 crore", "what": "A bank with NDTL 2000 crore can take 5 crore at repo and 15 crore by term repo (rate by auction), so it can meet up to 20 crore of loan demand."},
+      {"t": 185.2, "move": "what_if", "concept": "MSF: overnight loan against SLR securities, up to 1% of NDTL", "what": "What if demand is 40 crore, not 20? Repo and term repo stop at 1% of NDTL; is there any option?"},
+      {"t": 196.8, "move": "define_term", "concept": "MSF: overnight loan against SLR securities, up to 1% of NDTL", "what": "'Picture mein aati hai' MSF: banks give the G-secs held in their SLR to RBI as collateral for a short-term, overnight loan; its rate is the MSF rate."},
+      {"t": 218.7, "move": "misconception", "concept": "MSF: overnight loan against SLR securities, up to 1% of NDTL", "what": "This does not mean a bank can pledge its whole SLR; there are conditions."},
+      {"t": 232.5, "move": "yaani_unpack", "concept": "MSF: overnight loan against SLR securities, up to 1% of NDTL", "what": "Only up to 1% of NDTL; 'kehne ka matlab', only that much of the SLR's securities can go to RBI."},
+      {"t": 257.0, "move": "example_numbers", "concept": "MSF: overnight loan against SLR securities, up to 1% of NDTL", "what": "Same bank: 1% of 2000 crore is 20 crore by MSF; 20 by repo and term repo plus 20 by MSF makes 40 crore."},
+      {"t": 274.2, "move": "conclusion_line", "concept": "MSF: overnight loan against SLR securities, up to 1% of NDTL", "what": "So banks can keep their liquidity and meet customers' loan demand."},
+      {"t": 281.9, "move": "cause_chain", "concept": "MSF rate = repo rate + penalty", "what": "MSF rate is always above repo, because it is a penal rate: repo rate plus a penalty."},
+      {"t": 299.4, "move": "role_play", "concept": "MSF rate = repo rate + penalty", "what": "RBI is made to speak to the bank: you are so careless that you must hand over the securities in your SLR to keep liquidity, so you pay extra (personified scolding)."},
+      {"t": 311.7, "move": "data_fact", "concept": "history of the MSF-repo gap", "what": "On a chart: MSF announced in the 2011-12 policy and above repo ever since; 'and the reason we already know'."},
+      {"t": 328.9, "move": "data_fact", "concept": "history of the MSF-repo gap", "what": "The gap is not fixed: 1% at launch, almost 3% around late 2013, then cut back."},
+      {"t": 364.4, "move": "data_fact", "concept": "history of the MSF-repo gap", "what": "Today's rates: repo 6.5%, MSF 6.75%, gap 0.25% (just after saying the gap went back to 1%)."},
+      {"t": 379.1, "move": "conclusion_line", "concept": "history of the MSF-repo gap", "what": "'These were the details of MSF', then the playlist plug; no recap."}
+    ],
+    "story_before_term": [
+      {"term": "repo (as the answer)", "t_story": 102.6, "t_term": 125.9},
+      {"term": "MSF", "t_story": 185.2, "t_term": 198.4},
+      {"term": "penal rate", "t_story": 281.9, "t_term": 293.8}
+    ],
+    "examples": [
+      {"t": 102.6, "kind": "story", "what": "A new customer walks in needing a loan while the bank's spare money is parked in G-secs.", "carries": "why banks need a way to turn G-secs back into cash (repo)"},
+      {"t": 161.3, "kind": "numbers", "what": "NDTL 2000 crore: 0.25% is 5 crore at repo, 0.75% is 15 crore by term repo, 20 crore in all.", "carries": "repo and term repo limits as amounts"},
+      {"t": 185.2, "kind": "what_if", "what": "Loan demand doubles from 20 crore to 40 crore.", "carries": "the gap that MSF fills"},
+      {"t": 257.0, "kind": "numbers", "what": "1% of 2000 crore = 20 crore by MSF; 20 + 20 = 40 crore.", "carries": "the MSF limit and how it adds to repo"},
+      {"t": 299.4, "kind": "role_play", "what": "RBI scolds the bank for having to dip into its SLR securities.", "carries": "why the MSF rate carries a penalty"},
+      {"t": 311.7, "kind": "real_case", "what": "Chart of RBI's repo, reverse repo and MSF rates since 2009: gaps of 1%, about 3%, 1%, and 0.25% today.", "carries": "MSF stays above repo; the gap is a policy choice"}
+    ],
+    "closing": {"move": "conclusion_line", "what": "One line closing MSF and a playlist plug over the end card; no recap of the chain of problems."},
+    "density": "About 15 terms (NDTL, CRR, SLR, SLR securities, idle money, government securities, collateral, repo rate, repurchase agreement, term repo, auction, MSF, overnight borrowing, MSF rate, penal rate; reverse repo only on the chart) in about 380 s, about 2.5 per minute. Comfortable: most time goes to the chain of problems and one running number example, so the pace suits a first look; the history chart at the end is the busiest part."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 5.0, "shown": "NDTL under a bank icon with 'Net Demand & Time Liabilities' writing on beneath", "said_gist": "every bank must keep part of its NDTL, yaani net demand and time liability", "naming_word": "NDTL", "lead": "together", "relation": "names_the_term"},
+    {"tile": 2, "t_shown": 8.8, "shown": "two red arrows with % marks leave NDTL, one to a CRR vault, one to an SLR safe", "said_gist": "some percentage as CRR and SLR", "naming_word": "परसेंटेज", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 3, "t_shown": 25.0, "shown": "the CRR vault slides into a yellow bar fixed to an RBI coin, with CASH below; 4.5% and 18% now beside the arrows (never spoken)", "said_gist": "for CRR, banks deposit this amount as cash with RBI", "naming_word": "RBI", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 4, "t_shown": 28.2, "shown": "'0% Interest' tag on the CRR bar", "said_gist": "on which banks get no interest of any kind (interest said 1.6 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 5, "t_shown": 42.6, "shown": "note under SLR's 'Cash, Gold, SLR Securities': banks earn income on this investment", "said_gist": "it is a kind of investment, so banks earn income on this money", "naming_word": "investment", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 6, "t_shown": 49.8, "shown": "third branch '77.5% AVAILABLE FOR LENDING' rains down-arrows on a crowd of borrower heads (77.5% never spoken)", "said_gist": "whatever remaining amount is left after CRR and SLR, banks can lend", "naming_word": "remaining amount", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 7, "t_shown": 91.4, "shown": "'% Kept Idle with Banks' leads to 'Invest in: Government Security' with a certificate and emblem", "said_gist": "to put this idle money to work, the bank buys government securities (said 1.5 s later)", "naming_word": "", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 8, "t_shown": 108.0, "shown": "new scene: a person with a yellow 'Need LOAN' bubble, the bank, and a G-sec certificate beside it", "said_gist": "if the bank has put idle money in G-secs, and a new customer comes (said 1.5 s later), where will the loan come from?", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 9, "t_shown": 122.6, "shown": "RBI coin at the top; a 'Short Term Loan' line runs down toward the bank; dotted line from the G-sec up to RBI", "said_gist": "RBI takes these G-secs as collateral and gives the bank a short-term loan (short term loan at about 123.7 s; words from re-transcription, none in the main transcript)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step", "said_source": "re-transcribed clip"},
+    {"tile": 10, "t_shown": 126.4, "shown": "red % with 'Repo rate' on the RBI-to-bank line", "said_gist": "these loans are given at the repo rate (repo rate at about 125.9-126.3 s; re-transcription)", "naming_word": "", "lead": "together", "relation": "names_the_term", "said_source": "re-transcribed clip"},
+    {"tile": 11, "t_shown": 156.8, "shown": "green pills REPO 0.25% of NDTL and TERM REPOS 0.75% of NDTL (term repo pill new); 'Loan' arrow now runs from bank to the person", "said_gist": "if banks need more, they can raise it by term repo, whose limit is 0.75% (term repo at about 156.6 s; re-transcription)", "naming_word": "", "lead": "together", "relation": "names_the_term", "said_source": "re-transcribed clip"},
+    {"tile": 12, "t_shown": 162.6, "shown": "yellow note 'NDTL 2000 Cr' pinned on the bank", "said_gist": "yaani if a bank's NDTL is 2000 crore", "naming_word": "2000 crores", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 13, "t_shown": 168.6, "shown": "'15 Crore' beside the term repo pill ('5 Crore' already beside repo)", "said_gist": "5 crore at repo rate and above it 15 crore by term repo", "naming_word": "15 crore", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 14, "t_shown": 185.2, "shown": "the single borrower becomes a crowd; '20 Crore' labels on the repo line, the G-sec and the loan", "said_gist": "so banks can meet loan demand up to 20 crore; but if the requirement is not 20 but 40 crore", "naming_word": "loan demand", "lead": "voice_first", "relation": "shows_the_step"},
+    {"tile": 15, "t_shown": 196.0, "shown": "title 'MARGINAL STANDING FACILITY - MSF' at top left; under the crowd 20 Crore struck, '40 Crore Loan' written", "said_gist": "repo and term repo give no more than 1% of NDTL; then comes into the picture (Marginal Standing Facility, said 2.4 s later)", "naming_word": "", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 16, "t_shown": 204.0, "shown": "orange dotted loop from the bank down, round to an SLR safe on the right, and up to RBI", "said_gist": "MSF is a facility through which banks give the G-secs in their SLR to RBI as collateral (SLR at about 205.3 s; re-transcription)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step", "said_source": "re-transcribed clip"},
+    {"tile": 17, "t_shown": 218.4, "shown": "'MSF rate' label with a red % on the orange '[Overnight] Loan' arrow from RBI to the bank", "said_gist": "the interest rate at which these loans are taken is called MSF rate", "naming_word": "MSF rate", "lead": "together", "relation": "names_the_term"},
+    {"tile": 18, "t_shown": 238.2, "shown": "the SLR safe swells inside a blue magnifier labelled 'UPTO 1% of Bank's NDTL'", "said_gist": "first condition: under MSF too, banks can borrow only up to 1% of NDTL", "naming_word": "NDTL", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 19, "t_shown": 293.4, "shown": "repo channel, G-sec and NDTL note gone; 'Repo rate + Penalty = MSF rate' written over the orange loop", "said_gist": "because MSF rate is basically a penal rate, yaani repo rate plus a penalty", "naming_word": "penal rate", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 20, "t_shown": 312.2, "shown": "imported chart 'RBI Interest Rates' with repo, reverse repo and MSF step lines since 2009", "said_gist": "now you can see in the chart", "naming_word": "चार्ट", "lead": "together", "relation": "adds_new_info"},
+    {"tile": 21, "t_shown": 321.2, "shown": "red labels 'RBI announced MSF' and 'Repo Rate' with pointers on the chart", "said_gist": "since RBI first announced MSF, MSF has always been above repo rate (repo said 2.4 s later)", "naming_word": "", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 22, "t_shown": 342.0, "shown": "grey bar marked '1%' between the MSF and repo lines at launch", "said_gist": "the difference between repo and MSF was 1%", "naming_word": "1 %", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 23, "t_shown": 360.0, "shown": "after a tall '3%' bar, a second '1%' bar", "said_gist": "it had become 3%, but then this gap was reduced back to 1%", "naming_word": "gap", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 24, "t_shown": 375.0, "shown": "small '0.25%' bar at the right end of the chart", "said_gist": "MSF 6.75%, so today's difference between the two is (0.25%, said 2.5 s later)", "naming_word": "difference", "lead": "picture_first", "relation": "shows_the_step"}
+  ],
+  "talmel_summary": "Picture and voice mostly land together; when the picture leads it is by 1.5-2.5 s, never by much. The fit is strongest where each step of the money loop is drawn as it is spoken (G-sec up to RBI, short-term loan down, loan out to the person), where each number lands on the arrow or actor it belongs to (NDTL 2000 on the bank, 5 and 15 crore on the pills, 20 crore on the loan), and where MSF is a second, orange channel dipping into the SLR safe under a magnifier. Weak: on-screen percentages never spoken (4.5%, 18%, 77.5%), a written formula for the penalty rule, and an imported chart with an unmentioned reverse repo line. Note: about 50 s of speech (114-162 s and 196-213 s) was missing from the main transcript and was re-transcribed for tiles 9, 10, 11 and 16.",
+  "voice": {"notes": "About 171 words per minute, calm and conversational. Problem-solving rhythm: states the situation, then 'bat yeh hamesha possible nahi', 'aap kahenge', 'lekin yahan ek condition hai', so the learner hears each limit as a turn in the story. Numbers are read in crores and as decimals of a percent (point two five, point seven five). One personified, slightly harsh line (RBI calling the bank careless) is said with mock sternness and is memorable. No long pauses."},
+  "game_ideas": [
+    {"from_t": 102.6, "mechanic": "run_a_process", "player_does": "Runs a bank with NDTL 2000 crore for one day. Customers arrive with loan requests (5, 10, 20, 40 crore); when spare cash runs out, the player chooses a source: repo, term repo or MSF, and drags G-secs to RBI as collateral.", "process_happens": "The G-sec moves up to RBI, a loan comes down the matching channel with its rate, and the loan goes out to the customer; limit bars fill (5 crore repo, 15 crore term repo, 20 crore MSF from the SLR safe).", "win": "Serve all customers at the lowest interest cost: repo first, then term repo, MSF only for the last 20 crore.", "lose": "Going to MSF while repo room is left charges the penalty and shows RBI's 'careless bank' stamp; asking past 1% of NDTL under MSF is refused with the limit shown on the magnifier.", "concept": "MSF: overnight loan against SLR securities, up to 1% of NDTL"},
+    {"from_t": 0.0, "mechanic": "allocate", "player_does": "Splits a bank's NDTL into CRR (RBI vault), SLR (cash, gold or securities), loans and idle money, with customers arriving at random.", "process_happens": "An income meter runs: CRR earns 0, SLR securities earn some, loans earn most; idle money earns nothing until moved into G-secs.", "win": "Meet the CRR and SLR rules and keep idle money near zero by lending or buying G-secs.", "lose": "Keeping less than the CRR/SLR rule flashes a penalty; leaving money idle shows the income meter stalled.", "concept": "lendable money: lent vs idle, idle parked in G-secs"},
+    {"from_t": 281.9, "mechanic": "place_correctly", "player_does": "Given the repo rate line on a chart, sets the MSF line for each period by choosing the penalty (0.25%, 1%, 3%).", "process_happens": "The MSF line is drawn above repo and the gap bar appears with its value; trying to set MSF below repo is blocked.", "win": "MSF always above repo, and the chosen gaps match the periods the video shows.", "lose": "An MSF line at or below repo flashes the rule 'MSF = repo + penalty' and asks why a bank would ever use repo then.", "concept": "MSF rate = repo rate + penalty"}
+  ],
+  "notes_questions": [
+    {"q": "CRR aur SLR mein paisa kahan rakha jata hai, aur kis par bank ko income milti hai?", "answer_shape": "comparison", "from_t": 20.8},
+    {"q": "Bank apna idle paisa government securities mein kyon lagata hai?", "answer_shape": "flow", "from_t": 89.2},
+    {"q": "Repo ke zariye bank RBI se short-term loan kaise leta hai? Loop banaiye.", "answer_shape": "flow", "from_t": 114.0},
+    {"q": "NDTL 2000 crore ho to repo, term repo aur MSF se kitna-kitna loan mil sakta hai?", "answer_shape": "table", "from_t": 161.3},
+    {"q": "MSF kya hai, ismein collateral kahan se aata hai, aur iski limit kya hai?", "answer_shape": "picture", "from_t": 196.8},
+    {"q": "MSF rate hamesha repo rate se zyada kyon hota hai?", "answer_shape": "flow", "from_t": 281.9},
+    {"q": "MSF aur repo rate ka gap samay ke saath kaise badla?", "answer_shape": "timeline", "from_t": 328.9}
+  ],
+  "checks_learned": [
+    "Every percentage written on screen (4.5%, 18%, 77.5%) must be spoken, or labelled as 'current value' with its date.",
+    "Two different values for the same quantity in one video (gap 'back to 1%', then 'today 0.25%') must be caught by a consistency check and resolved in the script.",
+    "When a worked number example runs, each derived number must land on the arrow or actor it belongs to (done here; enforce).",
+    "A rule given as a written formula (repo + penalty = MSF) should be followed by the same rule in numbers (6.5 + 0.25 = 6.75) on the same screen.",
+    "Imported real-data charts must be redrawn from data, and any line the voice does not name (reverse repo) removed or named.",
+    "A new mechanism laid over an old one gets its own colour, and the old channel fades when the new rule is explained (worked here).",
+    "BIE's own narration audio should be re-transcribed and matched to the script; a stretch over 10 s with no recognised words flags a dropped or garbled line (this video's transcript lost about 50 s)."
+  ],
+  "teaching_best": [
+    {"t": 102, "why": "The learner's objection is voiced at the right moment (money parked in G-secs, a new customer walks in), so repo arrives as the answer to a felt problem."},
+    {"t": 161, "why": "One running example (NDTL 2000 crore) turns every percentage limit into crores on the picture, and the same numbers carry into MSF (20 + 20 = 40)."},
+    {"t": 185, "why": "MSF enters only when the worked numbers hit the repo limit and demand doubles: the term is the answer to 'is there any option?'."},
+    {"t": 284, "why": "The repo channel fades away when the penalty rule is explained, leaving only the MSF loop, and RBI's personified scolding gives the reason for the penalty."}
+  ],
+  "teaching_weak": [
+    {"t": 25, "why": "CRR 4.5%, SLR 18% and 77.5% for lending appear on screen but are never spoken or dated."},
+    {"t": 293, "why": "The penalty rule is a written formula; the actual numbers (6.5% and 6.75%) come only at the very end and are not tied to it."},
+    {"t": 312, "why": "An imported spreadsheet chart with three lines, one of them (reverse repo) never mentioned; small text."},
+    {"t": 361, "why": "Says the gap went back to 1%, then gives today's gap as 0.25%; the learner is left with two numbers and no explanation."}
+  ]
+}
