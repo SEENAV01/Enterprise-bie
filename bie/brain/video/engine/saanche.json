@@ -364,6 +364,18 @@
                      "season": {"type": "choice", "choices": ["green", "harvest"], "default": "green", "what": "village fields"},
                      "light": {"type": "choice", "choices": ["day", "evening", "night"], "default": "day"},
                      "color": {"type": "color", "default": "", "what": "wall colour of indoor places"}},
+          "since": "2026-11-04"},
+  "flow": {"anchor": "center", "what": "a process world: places or people as nodes (houses, firms, government, banks, the central bank, the world) joined by arrows along which coins, notes or goods keep moving through the video; arrows labelled, lit one by one through steps (circular flow of income, credit creation, policy transmission, money leaving and returning)",
+          "tags": ["प्रवाह", "चक्र", "लेन-देन", "प्रक्रिया", "पैसे का बहाव", "flow", "circular flow", "process", "cycle", "transmission", "chain", "money flow"],
+          "params": {"w": {"type": "number", "default": 1200, "min": 200, "max": 1900},
+                     "nodes": {"type": "text", "default": "", "what": "label:kind;… kinds: office, government, exchange, house, tower, shop, warehouse, hut, court, bank, centralBank, people, globe, box (up to 8)"},
+                     "edges": {"type": "text", "default": "", "what": "from>to:label;… with 1-based node numbers, e.g. 1>2:wages;2>1:goods"},
+                     "layout": {"type": "choice", "choices": ["ring", "row", "hub"], "default": "ring", "what": "hub: node 1 in the middle"},
+                     "token": {"type": "choice", "choices": ["coin", "note", "goods", "dot"], "default": "coin"},
+                     "active": {"type": "text", "default": "", "what": "1-based edges lit (others dashed), e.g. 1 then 1,2 in steps; empty: all"},
+                     "speed": {"type": "number", "default": 0.35, "min": 0, "max": 3, "what": "trips per second along an arrow"},
+                     "bend": {"type": "number", "default": 0.25, "min": -1, "max": 1},
+                     "color": {"type": "color", "default": "#2459a6"}},
           "since": "2026-11-04"}
  }
 }

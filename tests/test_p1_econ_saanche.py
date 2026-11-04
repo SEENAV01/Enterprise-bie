@@ -4,7 +4,8 @@ institutionBadge, paper, disc, vault, crowd, centralBank, committee and moneyBag
 English words, and draw clean SVG (no NaN or undefined, balanced tags) at their defaults and in the variants a scene
 plan will use (every badge kind and paper kind, open and closed vaults, shaded crowds, labels in Hindi). Batch 5 adds
 the worlds (whole places behind the lesson that a scene plan can change in its steps), the same places as plain
-backgrounds, and the last recurring things (coin jar, pillars, briefcase, podium, staircase, desk, chair, rope, court).
+backgrounds, the last recurring things (coin jar, pillars, briefcase, podium, staircase, desk, chair, rope, court) and
+the flow saancha: a process world whose coins, notes or goods keep travelling along its arrows as the video plays.
 A world never counts as the thing being shown: a scene of a world and a text alone is refused like text alone.
 """
 from __future__ import annotations
@@ -27,7 +28,7 @@ from bie.brain.video import showplan as sp  # noqa: E402
 ENGINE = ROOT / "bie" / "brain" / "video" / "engine"
 NEW = ["institutionBadge", "paper", "disc", "vault", "crowd", "centralBank", "committee", "moneyBag",
        "building", "priceTag", "gauge", "foreignNote", "barrier", "segmentedBar", "cart", "piggyBank", "ruler", "hands",
-       "coinJar", "pillars", "briefcase", "podium", "staircase", "desk", "chair", "rope", "world"]
+       "coinJar", "pillars", "briefcase", "podium", "staircase", "desk", "chair", "rope", "world", "flow"]
 WORLDS = ["market", "bankHall", "centralBank", "exchangeFloor", "port", "factory", "village", "office", "court", "city", "assembly"]
 VARIANTS = (
     [("institutionBadge", {"kind": k, "name": n, "sub": "उप"}) for k, n in
@@ -69,6 +70,10 @@ VARIANTS = (
     + [("world", {"kind": k, "label": "नाम", "signs": "जमा;निकासी;कर्ज़", "crowd": True, "open": True, "trend": "down",
                   "smoke": False, "season": "harvest", "light": lt, "color": "#e8e1d3"}) for k in WORLDS for lt in ("day", "night")]
     + [("world", {"kind": k, "w": 400, "count": 12}) for k in WORLDS] + [("world", {"kind": k}) for k in WORLDS]
+    + [("flow", {"nodes": "परिवार:house;कंपनी:warehouse;सरकार:government;बैंक:bank;RBI:centralBank;लोग:people;दुनिया:globe;डिब्बा:box",
+                 "edges": "1>2:खर्च;2>1:मज़दूरी;1>4;4>2:कर्ज़;5>4;8>7;x>y;1>1;1>9", "layout": lay, "token": tok, "active": act, "_t": tt})
+       for lay, tok, act, tt in (("ring", "coin", "", 0), ("row", "note", "1,3", 2.5), ("hub", "goods", "2", 7), ("ring", "dot", "9", None))]
+    + [("flow", {"nodes": "एक:house", "edges": "1>2"}), ("flow", {"nodes": "a:box;b:box", "edges": "1>2:x;2>1:y", "bend": -1, "speed": 0})]
     + [(n, {}) for n in NEW]
 )
 
@@ -97,7 +102,7 @@ class EconSaanche(unittest.TestCase):
         for word, name in [("तिजोरी", "vault"), ("समिति", "committee"), ("कानून", "paper"), ("भीड़", "crowd"), ("थैली", "moneyBag"),
                            ("गोदाम", "building"), ("दाम", "priceTag"), ("मीटर", "gauge"), ("डॉलर", "foreignNote"), ("दीवार", "barrier"), ("बँटवारा", "segmentedBar"), ("ठेला", "cart"), ("गुल्लक", "piggyBank"), ("पैमाना", "ruler"), ("उधार", "hands"),
                            ("जार", "coinJar"), ("स्तंभ", "pillars"), ("अटैची", "briefcase"), ("मंच", "podium"), ("सीढ़ी", "staircase"),
-                           ("मेज़", "desk"), ("कुर्सी", "chair"), ("रस्सी", "rope"), ("बंदरगाह", "world"), ("अदालत", "building")]:
+                           ("मेज़", "desk"), ("कुर्सी", "chair"), ("रस्सी", "rope"), ("बंदरगाह", "world"), ("अदालत", "building"), ("प्रवाह", "flow")]:
             found = [r.get("name") for r in saanche.search(word) if r.get("kind") == "draw"]
             self.assertIn(name, found, word)
 
@@ -167,8 +172,15 @@ class Worlds(unittest.TestCase):
                   "console.log(JSON.stringify([drawSaancha('world', {kind: 'bankHall'}), drawSaancha('world', {kind: 'bankHall', open: true})]));")
         closed, opened = json.loads(subprocess.run(["node", "--input-type=module", "-e", script], capture_output=True, text=True, check=True).stdout)
         self.assertNotEqual(closed, opened)
+        script = (f"import {{drawSaancha}} from '{(ENGINE / 'draw.mjs').as_posix()}';"
+                  "const p = {nodes: 'a:house;b:bank', edges: '1>2:x'};"
+                  "console.log(JSON.stringify([0, 0, 0.7].map((t) => drawSaancha('flow', {...p, _t: t}))));")
+        a, b, c = json.loads(subprocess.run(["node", "--input-type=module", "-e", script], capture_output=True, text=True, check=True).stdout)
+        self.assertEqual(a, b)                                        # a process is a pure function of its time
+        self.assertNotEqual(a, c)                                     # and its tokens travel as the video plays
         engine = (ENGINE / "engine.mjs").read_text(encoding="utf-8")
         self.assertIn("if (t >= s.t && s.p) p = { ...p, ...s.p }", engine)
+        self.assertIn("_t: Math.max(0, t - (el.t0 ?? 0))", engine)
 
 
 if __name__ == "__main__":

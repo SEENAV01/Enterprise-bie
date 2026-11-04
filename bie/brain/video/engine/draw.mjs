@@ -834,6 +834,77 @@ function rope(p) {
   return `<g transform="rotate(${ang})">${body}${lab}</g>`;
 }
 
+// A process world: nodes (buildings, banks, people, the world, boxes) joined by arrows along which coins, notes or
+// goods keep moving (circular flow of income, credit creation, a policy passing through banks to people, money
+// leaving and coming back). The engine passes _t (seconds since the item appeared), so the tokens travel in the video;
+// without it (a still) they sit mid-way. Edges can be lit one by one through the item's steps (active).
+const FLOW_NODE = (kind, s) => {
+  if (BUILDING_KINDS[kind]) return `<g transform="translate(0,${s * 0.5})">${building({ kind, w: s })}</g>`;
+  if (kind === "bank") return `<g transform="translate(0,${s * 0.45})">${bank({ w: s })}</g>`;
+  if (kind === "centralBank") return `<g transform="translate(0,${s * 0.45})">${centralBank({ w: s * 1.1 })}</g>`;
+  if (kind === "people") return `<g transform="translate(0,${s * 0.45})">${crowd({ w: s, n: 9, cols: 3 })}</g>`;
+  if (kind === "globe") return `<circle r="${s * 0.42}" fill="#9fd0f0" stroke="#3a7bd5" stroke-width="${s * 0.03}"/>` +
+    `<ellipse rx="${s * 0.18}" ry="${s * 0.42}" fill="none" stroke="#3a7bd5" stroke-width="${s * 0.02}"/><path d="M${-s * 0.42} 0 L${s * 0.42} 0 M${-s * 0.36} ${-s * 0.2} L${s * 0.36} ${-s * 0.2} M${-s * 0.36} ${s * 0.2} L${s * 0.36} ${s * 0.2}" stroke="#3a7bd5" stroke-width="${s * 0.02}"/>` +
+    `<path d="M${-s * 0.2} ${-s * 0.1} q${s * 0.1} ${-s * 0.15} ${s * 0.22} ${-s * 0.05} q${s * 0.05} ${s * 0.15} ${-s * 0.1} ${s * 0.2} Z" fill="#7cc47a"/>`;
+  return `<rect x="${-s * 0.45}" y="${-s * 0.32}" width="${s * 0.9}" height="${s * 0.64}" rx="${s * 0.1}" fill="#eef3fb" stroke="#5b7fb8" stroke-width="${s * 0.03}"/>`;
+};
+const FLOW_KINDS = new Set([...Object.keys(BUILDING_KINDS), "bank", "centralBank", "people", "globe"]);
+const FLOW_BOXES = { has: (k) => !FLOW_KINDS.has(k) };
+const FLOW_TOKEN = (kind, r) => kind === "note" ? `<rect x="${-r * 1.4}" y="${-r * 0.75}" width="${r * 2.8}" height="${r * 1.5}" rx="${r * 0.2}" fill="#6cbf7f" stroke="#2f7a45" stroke-width="${r * 0.18}"/>`
+  : kind === "goods" ? `<rect x="${-r}" y="${-r}" width="${2 * r}" height="${2 * r}" rx="${r * 0.15}" fill="#c8a06a" stroke="#8a6d3b" stroke-width="${r * 0.18}"/><path d="M${-r} ${-r * 0.2} L${r} ${-r * 0.2}" stroke="#8a6d3b" stroke-width="${r * 0.15}"/>`
+  : kind === "dot" ? `<circle r="${r * 0.8}" fill="#e5484d"/>`
+  : `<circle r="${r}" fill="#f2c14e" stroke="#c99a2e" stroke-width="${r * 0.2}"/>` + tx("₹", 0, 0, r * 1.2, "#8a6a1c", 800);
+
+function flow(p) {
+  const w = p.w || 1200, nodes = parts(p.nodes).filter(Boolean).slice(0, 8).map((t) => { const [l, k] = t.split(":"); return { label: (l || "").trim(), kind: (k || "box").trim() }; });
+  if (!nodes.length) nodes.push({ label: "", kind: "house" }, { label: "", kind: "warehouse" });
+  const n = nodes.length, layout = ["ring", "row", "hub"].includes(p.layout) ? p.layout : "ring";
+  nodes.forEach((nd, i) => {
+    if (layout === "row") { nd.x = n === 1 ? 0 : -w * 0.42 + (i * w * 0.84) / (n - 1); nd.y = 0; }
+    else if (layout === "hub" && i === 0) { nd.x = 0; nd.y = 0; }
+    else { const m = layout === "hub" ? n - 1 : n, k = layout === "hub" ? i - 1 : i, a = -Math.PI / 2 + (2 * Math.PI * k) / Math.max(1, m) + (m === 2 ? Math.PI / 2 : 0);
+      nd.x = Math.cos(a) * w * 0.4; nd.y = Math.sin(a) * w * (layout === "hub" ? 0.3 : 0.27); }
+  });
+  let near = Infinity;
+  for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) near = Math.min(near, Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y));
+  const s = Math.min(w * 0.13, Number.isFinite(near) ? near * 0.42 : w * 0.13);
+  const active = idxSet(p.active), col = p.color || "#2459a6", speed = p.speed == null ? 0.35 : Math.max(0, Number(p.speed) || 0), t = Number(p._t);
+  const bend = p.bend == null ? 0.25 : Math.max(-1, Math.min(1, Number(p.bend) || 0)), r = w * 0.012;
+  let edges = "", tokens = "", labels = "";
+  parts(p.edges).filter(Boolean).forEach((e, j) => {
+    const m = e.match(/^\s*(\d+)\s*>\s*(\d+)\s*(?::(.*))?$/);
+    if (!m) return;
+    const A = nodes[+m[1] - 1], B = nodes[+m[2] - 1];
+    if (!A || !B || A === B) return;
+    const on = !active.size || active.has(j + 1), dx = B.x - A.x, dy = B.y - A.y, L = Math.hypot(dx, dy) || 1, ux = dx / L, uy = dy / L;
+    const gap = s * 0.66, ax = A.x + ux * gap, ay = A.y + uy * gap, bx = B.x - ux * gap, by = B.y - uy * gap;
+    const cx = (ax + bx) / 2 - uy * bend * L * 0.5, cy = (ay + by) / 2 + ux * bend * L * 0.5;
+    const q = (u) => [(1 - u) * (1 - u) * ax + 2 * (1 - u) * u * cx + u * u * bx, (1 - u) * (1 - u) * ay + 2 * (1 - u) * u * cy + u * u * by];
+    const [hx, hy] = q(0.94), ang = (Math.atan2(by - hy, bx - hx) * 180) / Math.PI, c = on ? col : "#b8c0cc";
+    edges += `<path d="M${ax} ${ay} Q${cx} ${cy} ${bx} ${by}" fill="none" stroke="${c}" stroke-width="${w * (on ? 0.008 : 0.005)}" stroke-linecap="round"${on ? "" : ` stroke-dasharray="${w * 0.012} ${w * 0.01}"`}/>` +
+      `<path d="M${-w * 0.022} ${-w * 0.014} L0 0 L${-w * 0.022} ${w * 0.014}" fill="none" stroke="${c}" stroke-width="${w * 0.008}" stroke-linecap="round" stroke-linejoin="round" transform="translate(${bx},${by}) rotate(${ang})"/>`;
+    if (m[3] && m[3].trim()) {
+      const lab = m[3].trim(), fs = fit(lab, w * 0.2, w * 0.028), [mx, my] = q(0.5), off = fs * 1.25;
+      const c1 = [mx - uy * off, my + ux * off], c2 = [mx + uy * off, my - ux * off];      // the label sits outside:
+      const [lx, ly] = layout === "row" ? (c1[1] < c2[1] ? c1 : c2)                         // above a row, away from
+        : Math.hypot(...c1) >= Math.hypot(...c2) ? c1 : c2, bw = lab.length * fs * 0.6 + fs * 0.8; // a ring's centre
+      labels += `<rect x="${lx - bw / 2}" y="${ly - fs * 0.75}" width="${bw}" height="${fs * 1.5}" rx="${fs * 0.3}" fill="#ffffff" stroke="${c}" stroke-width="${Math.max(2, w * 0.002)}"/>` + tx(lab, lx, ly, fs, on ? INK : "#8a94a3", 800);
+    }
+    if (on) for (let k = 0; k < 3; k++) {
+      const u = Number.isFinite(t) ? (((t * speed + k / 3) % 1) + 1) % 1 : 0.2 + k * 0.3, [px, py] = q(u);
+      tokens += `<g transform="translate(${px.toFixed(1)},${py.toFixed(1)})">${FLOW_TOKEN(p.token, r * 1.6)}</g>`;
+    }
+  });
+  const nodeSvg = nodes.map((nd) => `<g transform="translate(${nd.x},${nd.y})">${FLOW_NODE(nd.kind, s)}</g>`).join("");
+  const nodeLabels = nodes.map((nd) => {
+    if (!nd.label) return "";
+    const fs = fit(nd.label, s * 1.6, w * 0.03);
+    return `<g transform="translate(${nd.x},${nd.y})">` + (FLOW_BOXES.has(nd.kind) ? tx(nd.label, 0, 0, fit(nd.label, s * 0.85, w * 0.032), INK, 800)
+      : `<rect x="${-s * 0.85}" y="${s * 0.55}" width="${s * 1.7}" height="${fs * 1.45}" rx="${fs * 0.3}" fill="#ffffff" opacity="0.92"/>` + tx(nd.label, 0, s * 0.55 + fs * 0.72, fs, INK, 800)) + `</g>`;
+  }).join("");
+  return edges + nodeSvg + tokens + labels + nodeLabels;                 // words stay on top of moving tokens
+}
+
 // ---------------------------------------------------------------- registry
 // anchor "bottom": the drawing stands on its origin; "center": centred on it.
 export const DRAWS = {
@@ -893,6 +964,7 @@ export const DRAWS = {
   chair: { fn: chair, anchor: "bottom" },
   rope: { fn: rope, anchor: "center" },
   world: { fn: world, anchor: "center" },
+  flow: { fn: flow, anchor: "center" },
 };
 
 export function drawSaancha(name, p = {}) {
