@@ -1,0 +1,22 @@
+# Render
+
+- 10.87 minutes of video in 8 chunks: 4.1 minutes wall-clock (parallel), 27.8 machine minutes, 0.085 s per frame, 2.56 render seconds per video second; ₹18.68 at the list price (billed ₹0).
+- video.mp4 20.5 MB, review-720p.mp4 7.9 MB, 652.13 s.
+- Text check (653 frames, one every 30): 32 texts under 36 px for a second or more (32 in all), 5 pairs of texts on each other for a second or more (10 in all), 0 under the caption strip.
+  - small: "2 kg" 18.7 px at 17.0–35.0 s
+  - small: "गेहूँ" 34.1 px at 37.0–43.0 s
+  - small: "2 kg" 29.6 px at 49.0–52.0 s
+  - small: "गेहूँ" 18.7 px at 108.0–134.0 s
+  - small: "नमक" 28.6 px at 121.0–123.0 s
+  - small: "नमक" 33.8 px at 159.0–167.0 s
+  - small: "1 महीना" 29 px at 176.0–183.0 s
+  - small: "10 kg" 20.4 px at 195.0–210.0 s
+  - small: "अगला साल" 27.6 px at 195.0–210.0 s
+  - small: "भेजे" 15 px at 213.0–220.0 s
+  - small: "भेजे" 24 px at 241.0–256.0 s
+  - small: "चेक" 17.5 px at 250.0–256.0 s
+  - on each other: "Indivisibility of goods" and "नमक" at 166.0–167.0 s
+  - on each other: "100" and "100" at 264.0–268.0 s
+  - on each other: "Ancient Rome" and "Early pastoral societies" at 526.0–529.0 s
+  - on each other: "Commodity money की मुश्किलें" and "Lack of uniformity" at 617.0–622.0 s
+  - on each other: "Commodity money की मुश्किलें" and "Poor divisibility" at 623.0–631.0 s
