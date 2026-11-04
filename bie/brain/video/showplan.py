@@ -24,6 +24,7 @@ from pathlib import Path
 FLOOR_PX = 36.0            # CV-17: the readable floor on the 1080p frame, measured after the camera
 SUB_TOP = 960.0            # the subtitle strip: texts stay above this line on the 1080 stage
 SHOW_GAP = 2.0             # agreement: no SHOW_GAP seconds without the thing being shown
+BACKDROPS = {"world"}      # a whole place behind the lesson: it never counts as the thing being shown
 VOCAB_PATH = Path(__file__).resolve().parent / "engine" / "plan_vocab.json"
 
 POSES = {"stand": (8, 5, 8, 5), "give": (80, 0, 10, 5), "receive": (62, 18, 10, 5), "hold": (20, 85, 10, 5),
@@ -578,6 +579,10 @@ def check_spec(spec, plan, T) -> list:
             if value.get("draw") and not str(value["draw"]).startswith("__"):
                 for p in saanche.problems(value["draw"], value.get("p") or {}):
                     problems.append(f"{where}: {p}")
+                for st in value.get("steps") or []:                  # a drawn thing's content changes: same law
+                    if isinstance(st, dict) and isinstance(st.get("p"), dict):
+                        for p in saanche.problems(value["draw"], st["p"]):
+                            problems.append(f"{where}: step at {st.get('t')}: {p}")
             for inner in value.values():
                 drawn(inner, where)
         elif isinstance(value, list):
@@ -587,7 +592,8 @@ def check_spec(spec, plan, T) -> list:
     for scene in spec["scenes"]:
         sid = scene["id"]
         texts = [e for e in scene["els"] if e.get("text") is not None]
-        things = [e for e in scene["els"] if e.get("text") is None and e.get("kind") != "rect"]
+        things = [e for e in scene["els"] if e.get("text") is None and e.get("kind") != "rect"
+                  and e.get("draw") not in BACKDROPS]
         panels = [e for e in scene["els"] if e.get("kind") == "rect" and e.get("fill") and e.get("alpha", 1.0) >= 0.85]
         drawn(scene["els"], f"scene {sid}")
 

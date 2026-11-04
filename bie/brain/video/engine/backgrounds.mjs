@@ -1,6 +1,8 @@
 // Backgrounds and foregrounds of the showing engine (stage 1920×1080). Soft, low-contrast scenery so the things of
 // the lesson stay in front; every function is pure SVG.
 
+import { world } from "./worlds.mjs";
+
 const W = 1920, H = 1080;
 // A camera can pan beyond the stage (the v2 plan pans to x=1250 at z=1), so every background paints from X0 to X1.
 const X0 = -960, X1 = 2880;
@@ -35,6 +37,8 @@ const sky = (top = "#cfe8f5", bottom = "#eaf4f9", gy = 700) =>
   `<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${top}"/><stop offset="1" stop-color="${bottom}"/></linearGradient></defs>` +
   `<rect x="${X0}" width="${X1 - X0}" height="${gy}" fill="url(#sky)"/>`;
 
+const worldBg = (kind) => `<g transform="translate(${W / 2},${H / 2})">${world({ kind, w: X1 - X0 })}</g>`;
+
 export const BACKGROUNDS = {
   paper: () => `<rect x="${X0}" width="${X1 - X0}" height="${H}" fill="#f7f1e5"/>` + dots(),
   parchment: () => `<rect x="${X0}" width="${X1 - X0}" height="${H}" fill="#f3e7c9"/>` +
@@ -62,6 +66,18 @@ export const BACKGROUNDS = {
     [0, 1, 2].map((r) => `<rect x="1300" y="${240 + r * 170}" width="520" height="16" fill="#a08c5e"/>` +
       [0, 1, 2].map((i) => `<ellipse cx="${1400 + i * 160}" cy="${228 + r * 170}" rx="52" ry="36" fill="#bfa871" opacity="0.8"/>`).join("")).join("") +
     `<path d="M120 160 L540 160 L540 860 L120 860 Z" fill="#dfd2b2" stroke="#b9a576" stroke-width="6"/><path d="M180 160 L180 860 M300 160 L300 860 M420 160 L420 860" stroke="#cbbb92" stroke-width="5"/>`,
+  // The economy worlds (worlds.mjs) at their defaults, as plain places; a world item in the plan (draw: "world")
+  // is the same place with signs, an open vault, a trend, a crowd or night light that can change in its steps.
+  market: () => worldBg("market"),
+  bankHall: () => worldBg("bankHall"),
+  centralBank: () => worldBg("centralBank"),
+  exchangeFloor: () => worldBg("exchangeFloor"),
+  port: () => worldBg("port"),
+  factory: () => worldBg("factory"),
+  office: () => worldBg("office"),
+  court: () => worldBg("court"),
+  city: () => worldBg("city"),
+  assembly: () => worldBg("assembly"),
 };
 
 export const FOREGROUNDS = {
