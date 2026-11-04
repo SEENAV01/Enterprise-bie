@@ -979,6 +979,115 @@ function gapBars(p) {
         tx(gl, gx + bw + w * 0.2, (gy0 + gy1) / 2, fit(gl, w * 0.34, w * 0.055), "#ffffff", 800) : "") : "");
 }
 
+// ---------------------------------------------------------------- diagrams of the 57-video needs list (4 Nov 2026)
+// The economy videos carry most meaning by diagram (39% of segments): a timeline (62 segment-uses), a table (55) and a
+// graph (35) led the needs list, and the scene-plan engine had none. Each is one parametric saancha whose parts can be
+// revealed through steps (upto) and highlighted (at, glow); a graph's curves draw themselves (drawIn seconds).
+const DIAG = ["#2459a6", "#e5484d", "#2fa35b", "#f29f05", "#7b61ff", "#2a9d8f"];
+const isNum = (v) => v !== "" && v != null && Number.isFinite(Number(v));
+
+function timeline(p) {
+  const w = p.w || 1500, h = w * 0.3, ev = parts(p.events).filter(Boolean).slice(0, 12).map((e) => { const i = e.indexOf(":");
+    return i < 0 ? { year: e.trim(), label: "" } : { year: e.slice(0, i).trim(), label: e.slice(i + 1).trim() }; });
+  const n = ev.length, upto = p.upto ? Math.max(0, Math.round(p.upto)) : n, at = Math.round(p.at || 0), x0 = -w * 0.46, x1 = w * 0.44;
+  const nums = ev.every((e) => isNum(e.year)) && n > 1 && !p.even, lo = nums ? Math.min(...ev.map((e) => +e.year)) : 0, hi = nums ? Math.max(...ev.map((e) => +e.year)) : 1;
+  const X = (y, i) => (nums ? x0 + ((+y - lo) / ((hi - lo) || 1)) * (x1 - x0) : n === 1 ? (x0 + x1) / 2 : x0 + (i * (x1 - x0)) / (n - 1));
+  let out = "";
+  parts(p.zones).filter(Boolean).slice(0, 6).forEach((z, k) => {
+    const m = z.match(/^\s*(-?[\d.]+)\s*-\s*(-?[\d.]+)\s*(?::(.*))?$/);
+    if (!m || !nums) return;
+    const a = Math.max(x0, X(+m[1])), b = Math.min(x1 + w * 0.03, X(+m[2])), c = DIAG[k % DIAG.length];
+    if (b <= a) return;
+    out += `<rect x="${a}" y="${h * 0.2}" width="${b - a}" height="${h * 0.12}" rx="${h * 0.03}" fill="${c}" opacity="0.22"/>` +
+      `<rect x="${a}" y="${h * 0.2}" width="${b - a}" height="${h * 0.025}" fill="${c}"/>` + (m[3] ? tx(m[3].trim(), (a + b) / 2, h * 0.27, fit(m[3].trim(), b - a, h * 0.075), shade(c, 0.7), 800) : "");
+  });
+  out += `<path d="M${x0 - w * 0.02} 0 L${x1 + w * 0.04} 0" stroke="${INK}" stroke-width="${w * 0.004}"/><path d="M${x1 + w * 0.025} ${-h * 0.035} L${x1 + w * 0.045} 0 L${x1 + w * 0.025} ${h * 0.035}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>`;
+  const slot = n > 1 ? Math.min(w * 0.2, ((x1 - x0) / (n - 1)) * 1.8) : w * 0.25;
+  ev.forEach((e, i) => {
+    if (i >= upto) return;
+    const x = X(e.year, i), hot = at === i + 1, c = hot ? "#e5484d" : "#2459a6", tier = i % 2 ? -h * 0.5 : -h * 0.24;
+    out += `<circle cx="${x}" cy="0" r="${hot ? w * 0.011 : w * 0.007}" fill="${c}" stroke="#ffffff" stroke-width="${w * 0.002}"/>` +
+      tx(e.year, x, h * 0.1, fit(e.year, slot * 0.6, h * 0.075), hot ? c : INK, 800);
+    if (e.label) {
+      const fs = fit(e.label, slot * 0.95, h * 0.07), bw = Math.min(slot, e.label.length * fs * 0.6 + fs);
+      out += `<path d="M${x} ${-w * 0.008} L${x} ${tier + fs * 0.75}" stroke="${c}" stroke-width="${w * 0.002}"/>` +
+        `<rect x="${x - bw / 2}" y="${tier - fs * 0.75}" width="${bw}" height="${fs * 1.5}" rx="${fs * 0.3}" fill="${hot ? "#fdecec" : "#ffffff"}" stroke="${c}" stroke-width="${w * 0.002}"/>` +
+        tx(e.label, x, tier, fs, INK, 800);
+    }
+  });
+  return out + (p.title ? tx(p.title, 0, -h * 0.72, fit(p.title, w * 0.8, h * 0.09), INK, 800) : "");
+}
+
+function table(p) {
+  const cols = parts(p.cols).filter((c, i, a) => a.length > 1 || c), rows = parts(p.rows).filter((r, i, a) => a.length > 1 || r);
+  const cells = String(p.cells ?? "").split("|").map((r) => r.split(";").map((c) => c.trim()));
+  const nc = Math.max(1, cols.length, ...cells.map((r) => r.length)), nr = Math.max(1, rows.length, cells.length);
+  const w = p.w || 900, rowW = rows.some(Boolean) ? w * 0.3 : 0, cw = (w - rowW) / nc, rh = Math.min(w * 0.085, (w * 0.62) / (nr + 1));
+  const H = (nr + 1) * rh, x0 = -w / 2, y0 = -H / 2, upto = p.upto ? Math.max(0, Math.round(p.upto)) : nr;
+  const gr = idxSet(p.glowRow), gc = idxSet(p.glowCol), fs = rh * 0.42;
+  let out = `<rect x="${x0}" y="${y0}" width="${w}" height="${rh}" fill="#2d3748" rx="${rh * 0.15}"/>`;
+  cols.forEach((c, j) => { if (c) out += tx(c, x0 + rowW + (j + 0.5) * cw, y0 + rh / 2, fit(c, cw * 0.9, fs), "#ffffff", 800); });
+  if (p.corner) out += tx(p.corner, x0 + rowW / 2, y0 + rh / 2, fit(p.corner, rowW * 0.9, fs), "#ffffff", 800);
+  for (let i = 0; i < nr; i++) {
+    const y = y0 + (i + 1) * rh, shown = i < upto;
+    out += `<rect x="${x0}" y="${y}" width="${w}" height="${rh}" fill="${gr.has(i + 1) ? "#fff3c4" : i % 2 ? "#f1f4f8" : "#ffffff"}" stroke="#d5dbe1" stroke-width="${Math.max(1, w * 0.0015)}"/>`;
+    if (!shown) continue;
+    if (rows[i]) out += tx(rows[i], x0 + rowW / 2, y + rh / 2, fit(rows[i], rowW * 0.92, fs), INK, 800);
+    for (let j = 0; j < nc; j++) {
+      const v = (cells[i] || [])[j] || "", cx = x0 + rowW + (j + 0.5) * cw, cy = y + rh / 2;
+      if (/^(✓|✔|y|yes|tick)$/i.test(v)) out += `<g transform="translate(${cx},${cy})">${markSvg("tick", rh * 0.6, "#2fa35b", 1)}</g>`;
+      else if (/^(✗|✘|x|no|cross)$/i.test(v)) out += `<g transform="translate(${cx},${cy})">${markSvg("cross", rh * 0.55, "#e5484d", 1)}</g>`;
+      else if (v) out += tx(v, cx, cy, fit(v, cw * 0.9, fs), INK, 700);
+    }
+  }
+  gc.forEach((j) => { if (j >= 1 && j <= nc) out += `<rect x="${x0 + rowW + (j - 1) * cw + 2}" y="${y0 + 2}" width="${cw - 4}" height="${H - 4}" fill="none" stroke="#f2c14e" stroke-width="${Math.max(4, w * 0.006)}" rx="${rh * 0.15}"/>`; });
+  return out + `<rect x="${x0}" y="${y0}" width="${w}" height="${H}" fill="none" stroke="#9aa5b1" stroke-width="${Math.max(2, w * 0.003)}" rx="${rh * 0.15}"/>` +
+    (rowW ? `<path d="M${x0 + rowW} ${y0} L${x0 + rowW} ${y0 + H}" stroke="#9aa5b1" stroke-width="${Math.max(2, w * 0.003)}"/>` : "");
+}
+
+function smoothPath(pts) {
+  if (pts.length < 3) return pts.map((q, i) => `${i ? "L" : "M"}${q[0].toFixed(1)} ${q[1].toFixed(1)}`).join(" ");
+  let d = `M${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const a = pts[Math.max(0, i - 1)], b = pts[i], c = pts[i + 1], e = pts[Math.min(pts.length - 1, i + 2)];
+    d += ` C${(b[0] + (c[0] - a[0]) / 6).toFixed(1)} ${(b[1] + (c[1] - a[1]) / 6).toFixed(1)} ${(c[0] - (e[0] - b[0]) / 6).toFixed(1)} ${(c[1] - (e[1] - b[1]) / 6).toFixed(1)} ${c[0].toFixed(1)} ${c[1].toFixed(1)}`;
+  }
+  return d;
+}
+
+function graph(p) {
+  const w = p.w || 900, h = w * 0.62, L = -w / 2 + w * 0.09, R = w / 2 - w * 0.05, T = -h / 2 + h * 0.06, B = h / 2 - h * 0.13;
+  const xmin = isNum(p.xmin) ? +p.xmin : 0, xmax = isNum(p.xmax) && +p.xmax > xmin ? +p.xmax : xmin + 10;
+  const ymin = isNum(p.ymin) ? +p.ymin : 0, ymax = isNum(p.ymax) && +p.ymax > ymin ? +p.ymax : ymin + 10;
+  const X = (v) => L + ((v - xmin) / (xmax - xmin)) * (R - L), Y = (v) => B - ((v - ymin) / (ymax - ymin)) * (B - T);
+  const t = Number(p._t), drawIn = Math.max(0, Number(p.drawIn) || 0), prog = drawIn && Number.isFinite(t) ? Math.min(1, t / drawIn) : 1;
+  const dashed = idxSet(p.dashed), fs = h * 0.055;
+  let out = `<path d="M${L} ${T - h * 0.03} L${L} ${B} L${R + w * 0.02} ${B}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>` +
+    `<path d="M${L - w * 0.012} ${T} L${L} ${T - h * 0.035} L${L + w * 0.012} ${T}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>` +
+    `<path d="M${R + w * 0.005} ${B - h * 0.02} L${R + w * 0.025} ${B} L${R + w * 0.005} ${B + h * 0.02}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>`;
+  if (ymin < 0 && ymax > 0) out += `<path d="M${L} ${Y(0)} L${R} ${Y(0)}" stroke="#9aa5b1" stroke-width="${w * 0.002}" stroke-dasharray="${w * 0.01} ${w * 0.008}"/>`;
+  if (p.xLabel) out += tx(p.xLabel, (L + R) / 2, B + h * 0.08, fit(p.xLabel, w * 0.6, fs), INK, 800);
+  if (p.yLabel) out += `<g transform="translate(${L - w * 0.05},${(T + B) / 2}) rotate(-90)">${tx(p.yLabel, 0, 0, fit(p.yLabel, h * 0.7, fs), INK, 800)}</g>`;
+  if (p.ticks) out += tx(String(xmin), L, B + h * 0.035, fs * 0.7, "#4a5568", 700) + tx(String(xmax), R, B + h * 0.035, fs * 0.7, "#4a5568", 700) +
+    tx(String(ymax), L - w * 0.02, T, fs * 0.7, "#4a5568", 700) + (ymin !== 0 ? tx(String(ymin), L - w * 0.02, B, fs * 0.7, "#4a5568", 700) : "");
+  parts(p.lines).filter(Boolean).slice(0, 6).forEach((ln, k) => {
+    const i = ln.indexOf(":"), lab = i >= 0 ? ln.slice(0, i).trim() : "", pts = (i >= 0 ? ln.slice(i + 1) : ln).trim().split(/\s+/)
+      .map((q) => q.split(",").map(Number)).filter((q) => q.length === 2 && q.every(Number.isFinite)).map(([a, b]) => [X(a), Y(b)]);
+    if (pts.length < 2) return;
+    const c = DIAG[k % DIAG.length], d = p.smooth === false ? pts.map((q, j) => `${j ? "L" : "M"}${q[0].toFixed(1)} ${q[1].toFixed(1)}`).join(" ") : smoothPath(pts);
+    out += `<path d="${d}" fill="none" stroke="${c}" stroke-width="${w * 0.007}" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="${dashed.has(k + 1) ? "0.02 0.015" : `${prog} 1`}"${dashed.has(k + 1) && prog < 1 ? ` opacity="${prog}"` : ""}/>`;
+    if (lab && prog >= 1) { const [ex, ey] = pts[pts.length - 1]; out += tx(lab, Math.min(R, ex + w * 0.03), ey - h * 0.04, fit(lab, w * 0.16, fs), c, 800); }
+  });
+  if (prog >= 1) parts(p.dots).filter(Boolean).slice(0, 6).forEach((dt) => {
+    const i = dt.indexOf(":"), [a, b] = (i >= 0 ? dt.slice(0, i) : dt).split(",").map(Number), lab = i >= 0 ? dt.slice(i + 1).trim() : "";
+    if (![a, b].every(Number.isFinite)) return;
+    const x = X(a), y = Y(b);
+    out += (p.drop === false ? "" : `<path d="M${x} ${y} L${x} ${B} M${x} ${y} L${L} ${y}" stroke="#4a5568" stroke-width="${w * 0.0025}" stroke-dasharray="${w * 0.008} ${w * 0.006}"/>`) +
+      `<circle cx="${x}" cy="${y}" r="${w * 0.009}" fill="${INK}" stroke="#ffffff" stroke-width="${w * 0.002}"/>` + (lab ? tx(lab, x + w * 0.04, y - h * 0.05, fit(lab, w * 0.2, fs), INK, 800) : "");
+  });
+  return out + (p.title ? tx(p.title, 0, T - h * 0.07, fit(p.title, w * 0.8, fs * 1.2), INK, 800) : "");
+}
+
 // ---------------------------------------------------------------- registry
 // anchor "bottom": the drawing stands on its origin; "center": centred on it.
 export const DRAWS = {
@@ -1042,6 +1151,9 @@ export const DRAWS = {
   bands: { fn: bands, anchor: "center" },
   fork: { fn: fork, anchor: "center" },
   gapBars: { fn: gapBars, anchor: "bottom" },
+  timeline: { fn: timeline, anchor: "center" },
+  table: { fn: table, anchor: "center" },
+  graph: { fn: graph, anchor: "center" },
 };
 
 export function drawSaancha(name, p = {}) {
