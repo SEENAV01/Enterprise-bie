@@ -1,4 +1,4 @@
-"""Economy kit, batch 3 (4 Nov 2026): the eight saanche learned from 37 economy reference videos.
+"""Economy kit, batches 3 and 4 (4 Nov 2026): the saanche learned from the economy reference videos.
 
 institutionBadge, paper, disc, vault, crowd, centralBank, committee and moneyBag are in the manifest with Hindi and
 English words, and draw clean SVG (no NaN or undefined, balanced tags) at their defaults and in the variants a scene
@@ -20,7 +20,8 @@ sys.path.insert(0, str(ROOT))
 from bie.brain import saanche  # noqa: E402
 
 ENGINE = ROOT / "bie" / "brain" / "video" / "engine"
-NEW = ["institutionBadge", "paper", "disc", "vault", "crowd", "centralBank", "committee", "moneyBag"]
+NEW = ["institutionBadge", "paper", "disc", "vault", "crowd", "centralBank", "committee", "moneyBag",
+       "building", "priceTag", "gauge", "foreignNote", "barrier", "segmentedBar", "cart", "piggyBank", "ruler", "hands"]
 VARIANTS = (
     [("institutionBadge", {"kind": k, "name": n, "sub": "उप"}) for k, n in
      [("central_bank", "RBI"), ("bank", "SBI"), ("government", "सरकार"), ("regulator", "SEBI"), ("international", "IMF"),
@@ -36,6 +37,19 @@ VARIANTS = (
     + [("moneyBag", {"w": 40, "sign": ""}), ("moneyBag", {"w": 400, "label": "विदेशी मुद्रा"})]
     + [("disc", {"text": "4.5%"}), ("disc", {"text": "FIXED", "color": "#2459a6"})]
     + [("centralBank", {"label": ""}), ("centralBank", {"label": "भारतीय रिज़र्व बैंक"})]
+    + [("building", {"kind": k, "label": "नाम"}) for k in ("office", "government", "exchange", "house", "tower", "shop", "warehouse", "hut")]
+    + [("paper", {"kind": k, "title": "Share", "value": "₹10"}) for k in ("share", "unit")]
+    + [("priceTag", {"value": "₹65", "old": "₹50", "trend": "up"}), ("priceTag", {"value": "₹40", "trend": "down"}), ("priceTag", {"trend": "none"})]
+    + [("gauge", {"value": v, "text": "0.64", "label": "HDI", "reverse": r}) for v, r in ((0, False), (0.5, True), (1, False))]
+    + [("foreignNote", {"sign": s, "value": "50"}) for s in ("$", "€", "£", "¥", "¤")]
+    + [("barrier", {"label": "रोक"}), ("barrier", {"w": 60})]
+    + [("segmentedBar", {"parts": "Food:46;Fuel:7;Core:47", "cross": "1,2", "label": "CPI"}), ("segmentedBar", {"parts": "Food:46;Fuel:7;Core:47", "hide": "1,2", "label": "Core"}),
+       ("segmentedBar", {"parts": "CRR:3;SLR:18;कर्ज़:79", "unit": "", "glow": "1"}), ("segmentedBar", {"parts": "", "shrink": False}), ("segmentedBar", {"parts": "a:0;b:0"})]
+    + [("cart", {"content": c, "label": "म्यूचुअल फंड"}) for c in ("veg", "notes", "goods", "empty")]
+    + [("piggyBank", {"label": "NBFC"}), ("ruler", {"min": 100, "max": 75000, "value": 6590, "text": "$6,590", "minLabel": "$100", "maxLabel": "$75,000"}),
+       ("ruler", {"min": 20, "max": 85, "value": 90}), ("ruler", {"min": 5, "max": 5, "value": 5})]
+    + [("paper", {"kind": k, "title": "IDR"}) for k in ("receipt", "invoice")]
+    + [("hands", {"item": it, "from": "पैसा ज़्यादा", "to": "पैसे की ज़रूरत"}) for it in ("notes", "coin", "paper", "none")]
     + [(n, {}) for n in NEW]
 )
 
@@ -61,7 +75,8 @@ class EconSaanche(unittest.TestCase):
             self.assertTrue(any(t.isascii() for t in entry["tags"]), name)
 
     def test_a_search_in_hindi_finds_them(self):
-        for word, name in [("तिजोरी", "vault"), ("समिति", "committee"), ("कानून", "paper"), ("भीड़", "crowd"), ("थैली", "moneyBag")]:
+        for word, name in [("तिजोरी", "vault"), ("समिति", "committee"), ("कानून", "paper"), ("भीड़", "crowd"), ("थैली", "moneyBag"),
+                           ("गोदाम", "building"), ("दाम", "priceTag"), ("मीटर", "gauge"), ("डॉलर", "foreignNote"), ("दीवार", "barrier"), ("बँटवारा", "segmentedBar"), ("ठेला", "cart"), ("गुल्लक", "piggyBank"), ("पैमाना", "ruler"), ("उधार", "hands")]:
             found = [r.get("name") for r in saanche.search(word) if r.get("kind") == "draw"]
             self.assertIn(name, found, word)
 

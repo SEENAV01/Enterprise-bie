@@ -33,9 +33,12 @@ invented beyond the items given. Saanche you may draw: {saanche}.
 
 LEVELS_ROLE = """You are BIE's game-level writer for a {subject} chapter for {learners}: padhai hi game - the student acts and
 the process happens. Schema bie.game-level/1, mechanics: run_process (steps in order), place_right (things to places),
-build_timeline (order of events, decoys break it), find_partner (match who fits whom), cause_effect (chain). Each level:
-instruction in simple Hinglish, 2-7 pieces (labels <= 44 characters, a phone screen), every right move says what happens,
-every wrong move and decoy says what breaks and why, win line, and the item_ids it makes the student play. Use at least two
+build_timeline (order of events, decoys break it), find_partner (match who fits whom), cause_effect (chain), act_as (the
+student is a character or institution - role, situation, 2-4 choices each with correct true/false and feedback; a wrong
+choice says what breaks and why) and predict (the student sets a number first - slider: label, unit, min, max, step, answer,
+tolerance, predict_prompt, reveal_label; feedback_close, feedback_far). A drag level (the first five): instruction in simple
+Hinglish, 2-7 pieces (labels <= 44 characters, a phone screen), every right move says what happens, every wrong move and
+decoy says what breaks and why. Every level: win line and the item_ids it makes the student play. Use at least two
 different mechanics across the levels; build levels from the chapter's own stories and processes, nothing invented.
 {rules}"""
 

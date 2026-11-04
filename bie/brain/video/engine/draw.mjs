@@ -342,6 +342,8 @@ function institutionBadge(p) {
 const PAPER_KINDS = {
   law: ["#8e2b3a", "#fbf3e6", "scale"], bond: ["#1f8a5b", "#eef8f1", "coin"], licence: ["#2459a6", "#eef3fb", "columns"],
   contract: ["#4a5568", "#f4f5f7", "hands"], bill: ["#d9822b", "#fdf3e7", "factory"], report: ["#7b5cd6", "#f3f0fc", "chart"],
+  share: ["#c0563f", "#fbefe9", "factory"], unit: ["#2a9d8f", "#ecf7f5", "chart"],
+  receipt: ["#3a7bd5", "#eef3fb", "globe"], invoice: ["#d6454f", "#fdeeee", "factory"],
 };
 
 function paper(p) {
@@ -465,6 +467,207 @@ function moneyBag(p) {
     (p.label ? `<rect x="${-w * 0.42}" y="${-h * 0.16}" width="${w * 0.84}" height="${h * 0.14}" rx="${h * 0.05}" fill="#f7efe0"/>` + tx(p.label, 0, -h * 0.09, Math.min(w * 0.13, (w * 0.8) / Math.max(1, String(p.label).length) * 1.8), "#6b4a22", 700) : "");
 }
 
+// ---------------------------------------------------------------- economy kit, batch 4 (4 Nov 2026)
+// The recurring things of the 37-video needs list still missing after batch 3: one parametric building (office,
+// government, exchange, house, tower, shop, warehouse, village branch), a price tag that is struck and replaced, a
+// gauge, a generic foreign note and a barrier wall. Generic shapes only: no real landmark, no real currency design.
+const BUILDING_KINDS = {
+  office: ["#5b7fb8", "#e9eef6"], government: ["#e07b24", "#f6efe6"], exchange: ["#2a9d8f", "#eef6f4"],
+  house: ["#c0563f", "#f4ead9"], tower: ["#6c7a8c", "#e7ecf1"], shop: ["#e5484d", "#f7efe2"],
+  warehouse: ["#8a6d3b", "#efe6d6"], hut: ["#a0703d", "#efe2c8"],
+};
+
+function windows(x0, y0, cols, rows, cw, ch, gx, gy, fill) {
+  let out = "";
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++)
+    out += `<rect x="${x0 + c * (cw + gx)}" y="${y0 + r * (ch + gy)}" width="${cw}" height="${ch}" rx="${cw * 0.12}" fill="${fill}"/>`;
+  return out;
+}
+
+function building(p) {
+  const kind = BUILDING_KINDS[p.kind] ? p.kind : "office", [roof, wall] = BUILDING_KINDS[kind], w = p.w || 220;
+  let body = "", top = 0;
+  if (kind === "office" || kind === "tower") {
+    const h = kind === "tower" ? w * 1.45 : w * 1.05; top = -h;
+    body = `<rect x="${-w * 0.42}" y="${-h}" width="${w * 0.84}" height="${h}" rx="${w * 0.02}" fill="${wall}" stroke="${shade(wall, 0.7)}" stroke-width="${w * 0.012}"/>` +
+      `<rect x="${-w * 0.46}" y="${-h - w * 0.04}" width="${w * 0.92}" height="${w * 0.06}" fill="${roof}"/>` +
+      windows(-w * 0.34, -h + w * 0.1, 4, Math.max(2, Math.floor((h - w * 0.36) / (w * 0.17))), w * 0.12, w * 0.1, w * 0.06, w * 0.07, shade(roof, 1.25)) +
+      `<rect x="${-w * 0.09}" y="${-w * 0.2}" width="${w * 0.18}" height="${w * 0.2}" fill="${shade(roof, 0.8)}"/>`;
+  } else if (kind === "government") {
+    const h = w * 0.78; top = -h - w * 0.42;
+    let cols = "";
+    for (let i = 0; i < 5; i++) cols += `<rect x="${-w * 0.36 + i * w * 0.18 - w * 0.04}" y="${-h * 0.72}" width="${w * 0.08}" height="${h * 0.56}" fill="${wall}" stroke="${shade(wall, 0.75)}" stroke-width="${w * 0.008}"/>`;
+    body = `<rect x="${-w * 0.48}" y="${-h * 0.16}" width="${w * 0.96}" height="${h * 0.16}" fill="${shade(wall, 0.85)}"/>` + cols +
+      `<rect x="${-w * 0.46}" y="${-h * 0.8}" width="${w * 0.92}" height="${h * 0.1}" fill="${shade(wall, 0.9)}" stroke="${shade(wall, 0.75)}" stroke-width="${w * 0.008}"/>` +
+      `<path d="M${-w * 0.22} ${-h * 0.8} A${w * 0.22} ${w * 0.22} 0 0 1 ${w * 0.22} ${-h * 0.8} Z" fill="${roof}"/>` +
+      `<rect x="${-w * 0.015}" y="${-h * 0.8 - w * 0.36}" width="${w * 0.03}" height="${w * 0.16}" fill="${shade(roof, 0.7)}"/>`;
+  } else if (kind === "exchange") {
+    const h = w * 0.9; top = -h - w * 0.1;
+    body = `<rect x="${-w * 0.46}" y="${-h}" width="${w * 0.92}" height="${h}" rx="${w * 0.02}" fill="${wall}" stroke="${shade(wall, 0.7)}" stroke-width="${w * 0.012}"/>` +
+      `<rect x="${-w * 0.46}" y="${-h * 0.82}" width="${w * 0.92}" height="${h * 0.16}" fill="#1f2a33"/>` +
+      `<path d="M${-w * 0.4} ${-h * 0.7} L${-w * 0.2} ${-h * 0.76} L${-w * 0.02} ${-h * 0.71} L${w * 0.18} ${-h * 0.79} L${w * 0.38} ${-h * 0.74}" fill="none" stroke="#2fb463" stroke-width="${w * 0.018}"/>` +
+      windows(-w * 0.36, -h * 0.55, 4, 2, w * 0.14, w * 0.11, w * 0.06, w * 0.07, shade(roof, 1.3)) +
+      `<rect x="${-w * 0.1}" y="${-w * 0.2}" width="${w * 0.2}" height="${w * 0.2}" fill="${shade(roof, 0.8)}"/>` +
+      `<rect x="${-w * 0.5}" y="${-h - w * 0.06}" width="${w}" height="${w * 0.07}" fill="${roof}"/>`;
+  } else if (kind === "house") {
+    const h = w * 0.6; top = -h - w * 0.4;
+    body = `<rect x="${-w * 0.36}" y="${-h}" width="${w * 0.72}" height="${h}" fill="${wall}" stroke="${shade(wall, 0.75)}" stroke-width="${w * 0.012}"/>` +
+      `<path d="M${-w * 0.46} ${-h} L0 ${-h - w * 0.38} L${w * 0.46} ${-h} Z" fill="${roof}" stroke="${shade(roof)}" stroke-width="${w * 0.012}"/>` +
+      `<rect x="${-w * 0.08}" y="${-h * 0.5}" width="${w * 0.16}" height="${h * 0.5}" fill="${shade(roof, 0.8)}"/>` + windows(-w * 0.29, -h * 0.72, 1, 1, w * 0.14, w * 0.12, 0, 0, "#9fc7e8") + windows(w * 0.15, -h * 0.72, 1, 1, w * 0.14, w * 0.12, 0, 0, "#9fc7e8");
+  } else if (kind === "shop") {
+    const h = w * 0.62; top = -h - w * 0.06;
+    let awning = "";
+    for (let i = 0; i < 6; i++) awning += `<path d="M${-w * 0.45 + i * w * 0.15} ${-h * 0.82} L${-w * 0.3 + i * w * 0.15} ${-h * 0.82} L${-w * 0.3 + i * w * 0.15} ${-h * 0.66} Q${-w * 0.375 + i * w * 0.15} ${-h * 0.58} ${-w * 0.45 + i * w * 0.15} ${-h * 0.66} Z" fill="${i % 2 ? "#ffffff" : roof}"/>`;
+    body = `<rect x="${-w * 0.45}" y="${-h}" width="${w * 0.9}" height="${h}" fill="${wall}" stroke="${shade(wall, 0.75)}" stroke-width="${w * 0.012}"/>` + awning +
+      `<rect x="${-w * 0.36}" y="${-h * 0.48}" width="${w * 0.72}" height="${h * 0.3}" fill="#c8a06a" stroke="#8a6d3b" stroke-width="${w * 0.01}"/>`;
+  } else if (kind === "warehouse") {
+    const h = w * 0.6; top = -h - w * 0.2;
+    body = `<path d="M${-w * 0.48} 0 L${-w * 0.48} ${-h} L0 ${-h - w * 0.2} L${w * 0.48} ${-h} L${w * 0.48} 0 Z" fill="${wall}" stroke="${shade(roof)}" stroke-width="${w * 0.012}"/>` +
+      `<rect x="${-w * 0.24}" y="${-h * 0.62}" width="${w * 0.48}" height="${h * 0.62}" fill="${shade(roof, 1.1)}"/>` +
+      [0.1, 0.22, 0.34, 0.46].map((f) => `<path d="M${-w * 0.24} ${-h * 0.62 + h * f * 1.2} L${w * 0.24} ${-h * 0.62 + h * f * 1.2}" stroke="${shade(roof, 0.8)}" stroke-width="${w * 0.01}"/>`).join("");
+  } else {
+    const h = w * 0.5; top = -h - w * 0.32;
+    body = `<rect x="${-w * 0.38}" y="${-h}" width="${w * 0.76}" height="${h}" fill="${wall}" stroke="${shade(wall, 0.7)}" stroke-width="${w * 0.012}"/>` +
+      `<path d="M${-w * 0.48} ${-h} Q0 ${-h - w * 0.42} ${w * 0.48} ${-h} Z" fill="#c9a24b" stroke="#8a6d3b" stroke-width="${w * 0.012}"/>` +
+      `<rect x="${-w * 0.08}" y="${-h * 0.62}" width="${w * 0.16}" height="${h * 0.62}" fill="${shade(roof, 0.8)}"/>`;
+  }
+  const lab = p.label ? `<g transform="translate(0,${top - w * 0.06})"><rect x="${-w * 0.32}" y="${-w * 0.12}" width="${w * 0.64}" height="${w * 0.13}" rx="${w * 0.03}" fill="${INK}"/>` +
+    tx(p.label, 0, -w * 0.055, Math.min(w * 0.09, (w * 0.6) / Math.max(1, String(p.label).length) * 1.8), "#ffffff", 700) + `</g>` : "";
+  return body + lab;
+}
+
+function priceTag(p) {
+  const w = p.w || 170, h = w * 0.56, col = p.color || "#f2c14e", now = String(p.value ?? "₹50"), old = p.old ? String(p.old) : "";
+  const arrow = p.trend === "up" ? `<path d="M${w * 0.36} ${h * 0.14} L${w * 0.46} ${-h * 0.06} L${w * 0.56} ${h * 0.14} Z" fill="#2fa35b"/>`
+    : p.trend === "down" ? `<path d="M${w * 0.36} ${-h * 0.06} L${w * 0.46} ${h * 0.14} L${w * 0.56} ${-h * 0.06} Z" fill="#e5484d"/>` : "";
+  return `<path d="M${-w * 0.5} ${-h * 0.5} L${w * 0.32} ${-h * 0.5} L${w * 0.5} 0 L${w * 0.32} ${h * 0.5} L${-w * 0.5} ${h * 0.5} Z" fill="${col}" stroke="${shade(col)}" stroke-width="${w * 0.02}"/>` +
+    `<circle cx="${w * 0.3}" cy="0" r="${h * 0.08}" fill="#ffffff" stroke="${shade(col)}" stroke-width="${w * 0.01}"/>` +
+    (old ? tx(old, -w * 0.1, -h * 0.2, h * 0.28, "#7a5a00", 700) + `<path d="M${-w * 0.36} ${-h * 0.2} L${w * 0.16} ${-h * 0.2}" stroke="#e5484d" stroke-width="${h * 0.06}"/>` : "") +
+    tx(now, -w * 0.1, old ? h * 0.2 : 0, old ? h * 0.36 : h * 0.44, INK, 800) + arrow;
+}
+
+function gauge(p) {
+  const w = p.w || 220, r = w * 0.42, v = clamp01(p.value == null ? 0.6 : p.value), a = Math.PI * (1 - v), cy = -w * 0.24;
+  const seg = (f0, f1, c) => { const a0 = Math.PI * (1 - f0), a1 = Math.PI * (1 - f1);
+    return `<path d="M${Math.cos(a0) * r} ${cy - Math.sin(a0) * r} A${r} ${r} 0 0 1 ${Math.cos(a1) * r} ${cy - Math.sin(a1) * r}" fill="none" stroke="${c}" stroke-width="${w * 0.09}"/>`; };
+  const t = p.text ? String(p.text) : "";
+  return `<path d="M${-r - w * 0.07} ${cy} A${r + w * 0.07} ${r + w * 0.07} 0 0 1 ${r + w * 0.07} ${cy} Z" fill="#ffffff" stroke="#cfd6de" stroke-width="${w * 0.01}"/>` +
+    seg(0, 0.34, p.reverse ? "#2fa35b" : "#e5484d") + seg(0.34, 0.67, "#f2c14e") + seg(0.67, 1, p.reverse ? "#e5484d" : "#2fa35b") +
+    `<path d="M0 ${cy} L${Math.cos(a) * r * 0.8} ${cy - Math.sin(a) * r * 0.8}" stroke="${INK}" stroke-width="${w * 0.03}" stroke-linecap="round"/><circle cy="${cy}" r="${w * 0.04}" fill="${INK}"/>` +
+    `<rect x="${-r - w * 0.07}" y="${cy + w * 0.02}" width="${2 * r + w * 0.14}" height="${-cy - w * 0.02}" rx="${w * 0.03}" fill="#2d3748"/>` +
+    tx(t || (p.label ? String(p.label) : ""), 0, cy / 2 + w * 0.01, Math.min(w * 0.12, (w * 0.9) / Math.max(1, (t || String(p.label || "")).length) * 1.8), "#ffffff", 800) +
+    (t && p.label ? tx(p.label, 0, cy - r - w * 0.15, Math.min(w * 0.09, (w * 0.9) / Math.max(1, String(p.label).length) * 1.8), INK, 700) : "");
+}
+
+const FX = { "$": "#3d8b5a", "€": "#3a6fb5", "£": "#8e4fa8", "¥": "#c0563f", "¤": "#6b7280" };
+function foreignNote(p) {
+  const w = p.w || 170, h = w * 0.46, sign = FX[p.sign] ? p.sign : "$", col = p.color || FX[sign], v = String(p.value ?? "100");
+  return `<rect x="${-w * 0.5}" y="${-h * 0.5}" width="${w}" height="${h}" rx="${w * 0.03}" fill="${shade(col, 1.6)}" stroke="${col}" stroke-width="${w * 0.02}"/>` +
+    `<rect x="${-w * 0.44}" y="${-h * 0.38}" width="${w * 0.88}" height="${h * 0.76}" rx="${w * 0.02}" fill="none" stroke="${col}" stroke-width="${w * 0.01}" stroke-dasharray="${w * 0.02} ${w * 0.012}"/>` +
+    `<ellipse cx="0" cy="0" rx="${h * 0.32}" ry="${h * 0.3}" fill="${col}" opacity="0.85"/>` + tx(sign, 0, 0, h * 0.42, "#ffffff", 800) +
+    tx(v, -w * 0.32, -h * 0.2, h * 0.24, col, 800) + tx(v, w * 0.32, h * 0.2, h * 0.24, col, 800);
+}
+
+function barrier(p) {
+  const w = p.w || 240, h = w * 0.5, rows = 4, bh = h / rows;
+  let bricks = "";
+  for (let r = 0; r < rows; r++) {
+    const off = r % 2 ? w * 0.08 : 0;
+    for (let x = -w / 2 - off; x < w / 2; x += w * 0.16) {
+      const x0 = Math.max(-w / 2, x), x1 = Math.min(w / 2, x + w * 0.15);
+      if (x1 > x0) bricks += `<rect x="${x0}" y="${-h + r * bh}" width="${x1 - x0}" height="${bh * 0.88}" rx="${w * 0.01}" fill="#c25b3f" stroke="#8a3b27" stroke-width="${w * 0.006}"/>`;
+    }
+  }
+  return bricks + (p.label ? `<rect x="${-w * 0.3}" y="${-h * 0.66}" width="${w * 0.6}" height="${h * 0.32}" rx="${w * 0.03}" fill="#ffffff" stroke="#8a3b27" stroke-width="${w * 0.01}"/>` +
+    tx(p.label, 0, -h * 0.5, Math.min(h * 0.2, (w * 0.56) / Math.max(1, String(p.label).length) * 1.8), "#8a3b27", 800) : "");
+}
+
+const SEG_COLORS = ["#3a7bd5", "#f29f05", "#2fa35b", "#e2558f", "#7b61ff", "#2a9d8f", "#c0563f", "#9b6b43"];
+const idxList = (v) => String(v || "").split(/[,\s]+/).filter(Boolean).map((x) => parseInt(x, 10) - 1).filter((x) => x >= 0);
+function segmentedBar(p) {
+  // parts: "label:value;label:value" (values are shares; widths follow them). cross / hide / glow: 1-based part numbers.
+  const w = p.w || 520, h = p.h || w * 0.16;
+  const parts = String(p.parts || "खाना:46;ईंधन:7;बाकी:47").split(";").map((t) => { const [l, v] = t.split(":"); return { l: (l || "").trim(), v: Math.max(0, Number(v) || 0) }; }).filter((x) => x.l || x.v);
+  const hide = new Set(idxList(p.hide)), cross = new Set(idxList(p.cross)), glow = new Set(idxList(p.glow));
+  const shown = parts.map((x, i) => ({ ...x, i })).filter((x) => !hide.has(x.i));
+  const total = shown.reduce((a, x) => a + x.v, 0) || 1, full = parts.reduce((a, x) => a + x.v, 0) || 1;
+  const bw = p.shrink === false ? w : w * (total / full);
+  let x = -w / 2, out = "", narrow = 0;
+  for (const s of shown) {
+    const sw = (s.v / total) * bw, c = SEG_COLORS[s.i % SEG_COLORS.length], fs = Math.min(h * 0.34, (sw * 0.9) / Math.max(1, s.l.length) * 1.7);
+    out += `<rect x="${x}" y="${-h / 2}" width="${sw}" height="${h}" fill="${c}" stroke="#ffffff" stroke-width="${Math.max(2, w * 0.006)}"/>` +
+      (fs >= h * 0.22 ? tx(s.l, x + sw / 2, -h * 0.12, fs, "#ffffff", 800) + (p.values === false ? "" : tx(String(s.v) + (p.unit ?? "%"), x + sw / 2, h * 0.24, fs * 0.8, "#ffffff", 700))
+        : (() => { const below = (narrow++ % 2) === 0, fo = h * 0.3, yy = below ? h / 2 + fo * 1.1 : -h / 2 - fo * 1.1;
+            const txt = s.l + (p.values === false ? "" : " " + String(s.v) + (p.unit ?? "%"));
+            return `<path d="M${x + sw / 2} ${below ? h / 2 : -h / 2} L${x + sw / 2} ${below ? yy - fo * 0.55 : yy + fo * 0.55}" stroke="${c}" stroke-width="3"/>` + tx(txt, x + sw / 2, yy, fo, c, 800); })()) +
+      (glow.has(s.i) ? `<rect x="${x - 4}" y="${-h / 2 - 4}" width="${sw + 8}" height="${h + 8}" fill="none" stroke="#f2c14e" stroke-width="${Math.max(4, h * 0.08)}"/>` : "") +
+      (cross.has(s.i) ? `<path d="M${x + sw * 0.15} ${-h * 0.4} L${x + sw * 0.85} ${h * 0.4} M${x + sw * 0.85} ${-h * 0.4} L${x + sw * 0.15} ${h * 0.4}" stroke="#e5484d" stroke-width="${Math.max(4, h * 0.1)}" stroke-linecap="round"/>` : "");
+    x += sw;
+  }
+  return `<rect x="${-w / 2 - 3}" y="${-h / 2 - 3}" width="${bw + 6}" height="${h + 6}" rx="${h * 0.12}" fill="none" stroke="#2d3748" stroke-width="3"/>` + out +
+    (p.label ? tx(p.label, -w / 2 + bw / 2, -h / 2 - h * 0.4, Math.min(h * 0.4, (w * 0.8) / Math.max(1, String(p.label).length) * 1.8), INK, 800) : "");
+}
+
+function cart(p) {
+  // a hand cart (thela) or fund cart: a flat bed on two wheels with what it carries and a board.
+  const w = p.w || 260, bh = w * 0.14, bedY = -w * 0.3, content = p.content || "veg", R = w * 0.11;
+  let load = "";
+  if (content === "veg") {
+    const cols = ["#e5484d", "#2fa35b", "#f29f05", "#7b61ff", "#e5484d", "#2fa35b", "#f29f05"];
+    for (let i = 0; i < 7; i++) load += `<circle cx="${-w * 0.36 + i * w * 0.12}" cy="${bedY - w * 0.06 - (i % 2) * w * 0.05}" r="${w * 0.065}" fill="${cols[i]}" stroke="${shade(cols[i])}" stroke-width="${w * 0.008}"/>`;
+  } else if (content === "notes") {
+    for (let i = 0; i < 3; i++) load += `<g transform="translate(${-w * 0.26 + i * w * 0.26},${bedY - w * 0.08})">${noteBundle({ w: w * 0.24, value: 500 })}</g>`;
+  } else if (content === "goods") {
+    for (let i = 0; i < 4; i++) load += `<rect x="${-w * 0.4 + i * w * 0.2}" y="${bedY - w * 0.16 - (i % 2) * w * 0.04}" width="${w * 0.17}" height="${w * 0.16 + (i % 2) * w * 0.04}" rx="${w * 0.01}" fill="#c8a06a" stroke="#8a6d3b" stroke-width="${w * 0.008}"/>`;
+  }
+  const wheel = (x) => `<circle cx="${x}" cy="${-R}" r="${R}" fill="#4a5568" stroke="#2d3748" stroke-width="${w * 0.012}"/><circle cx="${x}" cy="${-R}" r="${R * 0.3}" fill="#cbd5e0"/>`;
+  return load + `<rect x="${-w * 0.46}" y="${bedY}" width="${w * 0.92}" height="${bh}" rx="${w * 0.02}" fill="#a8763f" stroke="#7d5427" stroke-width="${w * 0.01}"/>` +
+    `<path d="M${w * 0.46} ${bedY + bh * 0.4} L${w * 0.62} ${bedY - w * 0.04}" stroke="#7d5427" stroke-width="${w * 0.025}" stroke-linecap="round"/>` +
+    wheel(-w * 0.26) + wheel(w * 0.26) +
+    (p.label ? `<rect x="${-w * 0.25}" y="${bedY + bh * 0.12}" width="${w * 0.5}" height="${bh * 0.76}" rx="${w * 0.015}" fill="#f7efe0"/>` + tx(p.label, 0, bedY + bh * 0.5, Math.min(bh * 0.55, (w * 0.46) / Math.max(1, String(p.label).length) * 1.8), "#6b4a22", 800) : "");
+}
+
+function piggyBank(p) {
+  const w = p.w || 180, h = w * 0.62, c = p.color || "#f08bb0";
+  return `<ellipse cx="0" cy="${-h * 0.55}" rx="${w * 0.42}" ry="${h * 0.42}" fill="${c}" stroke="${shade(c)}" stroke-width="${w * 0.015}"/>` +
+    `<ellipse cx="${w * 0.4}" cy="${-h * 0.55}" rx="${w * 0.09}" ry="${h * 0.14}" fill="${shade(c, 0.9)}" stroke="${shade(c)}" stroke-width="${w * 0.012}"/>` +
+    `<circle cx="${w * 0.38}" cy="${-h * 0.58}" r="${w * 0.015}" fill="${shade(c, 0.5)}"/><circle cx="${w * 0.42}" cy="${-h * 0.52}" r="${w * 0.015}" fill="${shade(c, 0.5)}"/>` +
+    `<circle cx="${w * 0.2}" cy="${-h * 0.75}" r="${w * 0.025}" fill="#2d3748"/>` +
+    `<path d="M${w * 0.08} ${-h * 0.97} L${w * 0.16} ${-h * 1.12} L${w * 0.24} ${-h * 0.92} Z" fill="${shade(c, 0.85)}"/>` +
+    `<rect x="${-w * 0.12}" y="${-h * 0.98}" width="${w * 0.2}" height="${h * 0.05}" rx="${h * 0.02}" fill="${shade(c, 0.5)}"/>` +
+    [-0.26, -0.1, 0.1, 0.24].map((x) => `<rect x="${x * w - w * 0.04}" y="${-h * 0.22}" width="${w * 0.08}" height="${h * 0.22}" rx="${w * 0.02}" fill="${shade(c, 0.85)}"/>`).join("") +
+    (p.label ? tx(p.label, -w * 0.04, -h * 0.5, Math.min(h * 0.24, (w * 0.62) / Math.max(1, String(p.label).length) * 1.8), "#ffffff", 800) : "");
+}
+
+function ruler(p) {
+  // a min-max ruler: where a value sits between a minimum and a maximum (goalposts, normalised index, caps)
+  const w = p.w || 520, h = w * 0.09, lo = Number(p.min ?? 0), hi = Number(p.max ?? 100), v = Number(p.value ?? 60);
+  const f = hi > lo ? Math.max(0, Math.min(1, (v - lo) / (hi - lo))) : 0, capped = v < lo || v > hi, x = -w / 2 + f * w;
+  let ticks = "";
+  for (let i = 0; i <= 10; i++) ticks += `<path d="M${-w / 2 + (i * w) / 10} ${-h / 2} L${-w / 2 + (i * w) / 10} ${-h / 2 + (i % 5 ? h * 0.35 : h * 0.6)}" stroke="#7d5427" stroke-width="${w * 0.004}"/>`;
+  const fs = Math.max(22, h * 0.6);
+  return `<rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="${h * 0.15}" fill="#f2d39b" stroke="#a8763f" stroke-width="${w * 0.005}"/>` + ticks +
+    `<rect x="${-w / 2}" y="${-h / 2}" width="${f * w}" height="${h}" rx="${h * 0.15}" fill="#2fa35b" opacity="0.35"/>` +
+    `<path d="M${x} ${-h / 2 - h * 0.1} L${x - h * 0.45} ${-h / 2 - h * 0.8} L${x + h * 0.45} ${-h / 2 - h * 0.8} Z" fill="${capped ? "#e5484d" : "#2d3748"}"/>` +
+    tx(String(p.text ?? v), x, -h / 2 - h * 0.8 - fs * 0.7, fs, capped ? "#e5484d" : INK, 800) +
+    tx(String(p.minLabel ?? lo), -w / 2, h / 2 + fs * 0.8, fs * 0.85, "#6b4a22", 700) + tx(String(p.maxLabel ?? hi), w / 2, h / 2 + fs * 0.8, fs * 0.85, "#6b4a22", 700);
+}
+
+function hands(p) {
+  // a giving hand above-left and an open receiving hand below-right with the thing passed between them
+  // (lend/borrow, fund surplus to fund need, payment); labels name the two sides.
+  const w = p.w || 420, s = w * 0.22, skin = p.skin || "#d39a6a", cuffL = p.colorFrom || "#3a7bd5", cuffR = p.colorTo || "#e07b24";
+  const hand = (x, y, flip, cuff) => `<g transform="translate(${x},${y}) scale(${flip ? -1 : 1},1)">` +
+    `<rect x="${-s * 1.25}" y="${-s * 0.32}" width="${s * 0.55}" height="${s * 0.64}" rx="${s * 0.1}" fill="${cuff}" stroke="${shade(cuff)}" stroke-width="${s * 0.04}"/>` +
+    `<path d="M${-s * 0.72} ${-s * 0.3} L${s * 0.15} ${-s * 0.3} Q${s * 0.62} ${-s * 0.3} ${s * 0.62} ${-s * 0.12} Q${s * 0.62} ${s * 0.02} ${s * 0.2} ${s * 0.02} L${s * 0.5} ${s * 0.02} Q${s * 0.68} ${s * 0.04} ${s * 0.66} ${s * 0.16} Q${s * 0.64} ${s * 0.3} ${s * 0.44} ${s * 0.3} L${-s * 0.72} ${s * 0.3} Z" fill="${skin}" stroke="${shade(skin)}" stroke-width="${s * 0.04}"/>` +
+    `<path d="M${s * 0.1} ${-s * 0.3} Q${s * 0.3} ${-s * 0.52} ${s * 0.12} ${-s * 0.6} Q${-s * 0.06} ${-s * 0.6} ${-s * 0.12} ${-s * 0.3}" fill="${skin}" stroke="${shade(skin)}" stroke-width="${s * 0.04}"/></g>`;
+  const item = p.item || "notes";
+  const mid = item === "notes" ? noteBundle({ w: s * 1.1, value: 500 }) : item === "coin" ? coin({ r: s * 0.32 }) : item === "paper" ? paper({ w: s * 0.7, kind: "bond", title: "", lines: 2 }) : "";
+  return hand(-w * 0.2, -w * 0.12, false, cuffL) + `<g transform="translate(${w * 0.02},${-w * 0.02})">${mid}</g>` + hand(w * 0.22, w * 0.1, true, cuffR) +
+    (p.from ? tx(p.from, -w * 0.3, -w * 0.3, Math.max(24, s * 0.3), shade(cuffL, 0.8), 800) : "") +
+    (p.to ? tx(p.to, w * 0.3, w * 0.3, Math.max(24, s * 0.3), shade(cuffR, 0.8), 800) : "");
+}
+
 // ---------------------------------------------------------------- marks
 export function markSvg(kind, w, color, k = 1) {
   const r = w / 2;
@@ -526,6 +729,16 @@ export const DRAWS = {
   centralBank: { fn: centralBank, anchor: "bottom" },
   committee: { fn: committee, anchor: "bottom" },
   moneyBag: { fn: moneyBag, anchor: "bottom" },
+  building: { fn: building, anchor: "bottom" },
+  priceTag: { fn: priceTag, anchor: "center" },
+  gauge: { fn: gauge, anchor: "bottom" },
+  foreignNote: { fn: foreignNote, anchor: "center" },
+  barrier: { fn: barrier, anchor: "bottom" },
+  segmentedBar: { fn: segmentedBar, anchor: "center" },
+  cart: { fn: cart, anchor: "bottom" },
+  piggyBank: { fn: piggyBank, anchor: "bottom" },
+  ruler: { fn: ruler, anchor: "center" },
+  hands: { fn: hands, anchor: "center" },
 };
 
 export function drawSaancha(name, p = {}) {

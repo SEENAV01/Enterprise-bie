@@ -72,7 +72,7 @@ class LevelSlot(unittest.TestCase):
         self.assertIn("'pieces' must be a list", " ".join(gl.problems(with_dict_pieces)))
 
     def test_every_mechanic_has_a_valid_level_that_lowers_to_a_playable_stage(self):
-        for mech in gl.MECHANICS:
+        for mech in gl.DRAG:
             lv = level(mech)
             self.assertEqual(formats.problems("game_level", lv), [], mech)
             self.assertEqual(gl.problems(lv), [], mech)
@@ -130,3 +130,49 @@ class LevelSlot(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ActAsAndPredict(unittest.TestCase):
+    """The two mechanics learned from the economy reference videos (4 Nov 2026), on the branch and slider engines."""
+
+    def act_as(self, **extra):
+        lv = {"schema": "bie.game-level/1", "level_id": "repo-act", "title": "RBI", "mechanic": "act_as",
+              "instruction": "Aap RBI ho: mehngai badh rahi hai. Kya karoge?", "role": "RBI",
+              "situation": "Mehngai 7% par, lakshya 4%.", "win": "Mehngai kaabu mein.", "item_ids": ["p004-i1"],
+              "choices": [{"label": "Repo rate badhao", "correct": True, "feedback": "Karz mehnga, maang ghati."},
+                          {"label": "Repo rate ghatao", "correct": False, "feedback": "Karz sasta, maang aur badhi: mehngai badhi."}]}
+        lv.update(extra)
+        return lv
+
+    def predict(self, **extra):
+        lv = {"schema": "bie.game-level/1", "level_id": "crr-predict", "title": "CRR", "mechanic": "predict",
+              "instruction": "Rs 100 jama hue. CRR 3% hai: RBI ki tijori mein kitna jayega?", "win": "Sahi andaaza.",
+              "item_ids": ["p005-i2"], "feedback_close": "Haan: 3% of 100 = 3.", "feedback_far": "CRR jama ka chhota hissa hai.",
+              "slider": {"label": "Tijori mein", "unit": "Rs", "min": 0, "max": 50, "step": 1, "answer": 3, "tolerance": 1,
+                         "predict_prompt": "Andaaza lagao", "reveal_label": "Sahi jawab"}}
+        lv.update(extra)
+        return lv
+
+    def test_valid_levels_have_no_problems_and_lower_to_the_runtime_engines(self):
+        self.assertEqual(gl.problems(self.act_as()), [])
+        self.assertEqual(gl.problems(self.predict()), [])
+        branch, slider = gl.stage_of(self.act_as()), gl.stage_of(self.predict())
+        self.assertEqual((branch["kind"], slider["kind"]), ("branch", "slider"))
+        self.assertTrue(branch["situation"].startswith("RBI: "))
+        self.assertEqual(slider["slider"]["answer"], 3.0)
+        for stage in (branch, slider):
+            self.assertTrue(validate(stage, STAGE_SCHEMA), stage["kind"])
+        for lv in (self.act_as(), self.predict()):
+            self.assertEqual(formats.problems("game_level", lv), [], lv["mechanic"])
+        mission = gl.mission_of([self.act_as(), self.predict(), level("run_process")], title="Paisa")
+        self.assertEqual([s["kind"] for s in mission["stages"]], ["branch", "slider", "drag"])
+
+    def test_wrong_levels_are_named_exactly(self):
+        self.assertIn("at least one choice must be wrong", " ".join(gl.problems(self.act_as(choices=[
+            {"label": "a", "correct": True, "feedback": "x"}, {"label": "b", "correct": True, "feedback": "y"}]))))
+        self.assertIn("'role' is needed", " ".join(gl.problems(self.act_as(role=""))))
+        self.assertIn("choice 2 needs 'feedback'", " ".join(gl.problems(self.act_as(choices=[
+            {"label": "a", "correct": True, "feedback": "x"}, {"label": "b", "correct": False}]))))
+        self.assertIn("answer inside the range", " ".join(gl.problems(self.predict(slider={**self.predict()["slider"], "answer": 99}))))
+        self.assertIn("'feedback_far' is needed", " ".join(gl.problems(self.predict(feedback_far=""))))
+        self.assertIn("'slider' is needed", " ".join(gl.problems(self.predict(slider=None))))

@@ -14,10 +14,19 @@ The five mechanics (from the agreement's list):
 - ``find_partner``: match each seeker with the partner that fits (barter's double coincidence); a wrong match
   names what is missing.
 - ``cause_effect``: build the chain from cause to effect; a wrong link shows why the chain breaks.
+
+Two more, learned from 54 economy reference videos (4 Nov 2026; their game ideas were mostly "be the actor and
+decide" and "set the number and see what happens"), played by the runtime's existing branch and slider stages:
+- ``act_as``: the student is a character or an institution (RBI, a founder, a bank officer, the GDP counter) in a
+  situation and chooses; every wrong choice says what breaks and why.
+- ``predict``: the student sets a number first (how much goes into the CRR vault, the yield at a price, the
+  per-person income), then sees the real value and the relationship; close and far guesses get their own feedback.
 """
 from __future__ import annotations
 
-MECHANICS = ("run_process", "place_right", "build_timeline", "find_partner", "cause_effect")
+MECHANICS = ("run_process", "place_right", "build_timeline", "find_partner", "cause_effect", "act_as", "predict")
+DRAG = ("run_process", "place_right", "build_timeline", "find_partner", "cause_effect")
+MAX_CHOICES = 4
 MAX_PIECES = 7          # a phone screen holds this many tokens or places comfortably
 MAX_LABEL = 44
 
@@ -50,6 +59,16 @@ def problems(level: dict) -> list:
     mech = level.get("mechanic")
     if mech not in MECHANICS:
         out.append(f"level {lid}: no mechanic '{mech}' (mechanics: {', '.join(MECHANICS)})")
+        return out
+    if mech == "act_as":
+        out += _act_as_problems(level, lid)
+    elif mech == "predict":
+        out += _predict_problems(level, lid)
+    if mech not in DRAG:
+        if not level.get("win"):
+            out.append(f"level {lid}: 'win' is needed (what the student made work)")
+        if not _rows(level, "item_ids"):
+            out.append(f"level {lid}: 'item_ids' is needed (the book items this level makes the student play)")
         return out
     pieces = _rows(level, "pieces")
     places = _rows(level, "places") if mech in ("place_right", "find_partner") else []
@@ -111,9 +130,71 @@ def problems(level: dict) -> list:
     return out
 
 
+def _act_as_problems(level: dict, lid: str) -> list:
+    out = []
+    if not str(level.get("role") or "").strip():
+        out.append(f"level {lid}: 'role' is needed (who the student is: RBI, the founder, the bank officer ...)")
+    if not str(level.get("situation") or "").strip():
+        out.append(f"level {lid}: 'situation' is needed (what is happening when the student must decide)")
+    choices = level.get("choices")
+    if not isinstance(choices, list) or not 2 <= len(choices) <= MAX_CHOICES:
+        return out + [f"level {lid}: 2..{MAX_CHOICES} choices are needed (a phone screen)"]
+    if not all(isinstance(c, dict) for c in choices):
+        return out + [f"level {lid}: every choice must be a JSON object"]
+    if not any(c.get("correct") is True for c in choices):
+        out.append(f"level {lid}: at least one choice must be correct")
+    if all(c.get("correct") is True for c in choices):
+        out.append(f"level {lid}: at least one choice must be wrong (a decision needs a wrong way)")
+    for i, c in enumerate(choices, 1):
+        if not str(c.get("label") or "").strip():
+            out.append(f"level {lid}: choice {i} has no label")
+        elif len(str(c["label"])) > MAX_LABEL:
+            out.append(f"level {lid}: choice {i} label is over {MAX_LABEL} characters (a phone button)")
+        if not str(c.get("feedback") or "").strip():
+            out.append(f"level {lid}: choice {i} needs 'feedback' ({'what happens' if c.get('correct') else 'what breaks and why'})")
+    return out
+
+
+def _predict_problems(level: dict, lid: str) -> list:
+    out = []
+    sl = level.get("slider")
+    if not isinstance(sl, dict):
+        return [f"level {lid}: 'slider' is needed (label, unit, min, max, step, answer, tolerance, predict_prompt, reveal_label)"]
+    try:
+        lo, hi, step, ans = (float(sl.get(k)) for k in ("min", "max", "step", "answer"))
+    except (TypeError, ValueError):
+        return [f"level {lid}: slider min, max, step and answer must be numbers"]
+    if not (lo < hi and step > 0 and lo <= ans <= hi):
+        out.append(f"level {lid}: the slider needs min < max, a step above 0 and the answer inside the range")
+    for key in ("label", "predict_prompt", "reveal_label"):
+        if not str(sl.get(key) or "").strip():
+            out.append(f"level {lid}: slider '{key}' is needed")
+    for key in ("feedback_close", "feedback_far"):
+        if not str(level.get(key) or "").strip():
+            out.append(f"level {lid}: '{key}' is needed (what a close / far guess teaches)")
+    return out
+
+
 def stage_of(level: dict) -> dict:
-    """One runtime stage (the drag engine) from a valid level; ``problems()`` must be empty first."""
+    """One runtime stage from a valid level (drag, branch or slider engine); ``problems()`` must be empty first."""
     mech = level["mechanic"]
+    if mech in ("act_as", "predict"):
+        sl = level.get("slider") or {}
+        slider = {"label": str(sl.get("label", "")), "unit": str(sl.get("unit", "")), "min": float(sl.get("min", 0)),
+                  "max": float(sl.get("max", 0)), "step": float(sl.get("step", 0)), "answer": float(sl.get("answer", 0)),
+                  "tolerance": float(sl.get("tolerance") or (float(sl.get("max", 0)) - float(sl.get("min", 0))) * 0.1),
+                  "predict_prompt": str(sl.get("predict_prompt", "")), "reveal_label": str(sl.get("reveal_label", "")),
+                  "data": list(sl.get("data") or [])} if mech == "predict" else \
+            {"label": "", "unit": "", "min": 0, "max": 0, "step": 0, "answer": 0, "tolerance": 0,
+             "predict_prompt": "", "reveal_label": "", "data": []}
+        situation = (f"{level['role']}: " if level.get("role") else "") + str(level.get("situation", ""))
+        return {"stage_id": level["level_id"], "kind": "branch" if mech == "act_as" else "slider",
+                "instruction": str(level["instruction"]), "tokens": [], "targets": [], "rules": [], "ordered": False,
+                "situation": situation if mech == "act_as" else "",
+                "choices": [{"label": str(c["label"]), "correct": c.get("correct") is True, "feedback": str(c["feedback"])}
+                            for c in level.get("choices") or []] if mech == "act_as" else [],
+                "slider": slider, "feedback_close": str(level.get("feedback_close", "")),
+                "feedback_far": str(level.get("feedback_far", "")), "item_ids": list(level.get("item_ids") or [])}
     pieces = _rows(level, "pieces")
     real = [p for p in pieces if not p.get("decoy")]
     tokens = [{"id": p["id"], "label": str(p["label"])} for p in pieces]
