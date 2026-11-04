@@ -99,9 +99,11 @@ jobs:
             python -B tools/render_spec.py fixture --out "$RUNNER_TEMP/in"
           fi
           python - <<'PY'
-          import json, os
+          import json, os, sys
+          sys.path.insert(0, os.getcwd())
+          from bie.brain.video import render
           spec = json.load(open(os.path.join(os.environ["RUNNER_TEMP"], "in", "video_spec.json"), encoding="utf-8"))
-          frames = sum(s["duration"] for s in spec["scenes"])
+          frames = render.total_frames(spec)   # either spec kind: a show-spec carries seconds, a VideoSpec per-scene frames
           print(f"::notice title=task046c render::{frames} frames, {frames / spec['fps']:.1f} s, {len(spec['scenes'])} scenes, {os.environ['CHUNKS']} chunks")
           PY
       - id: matrix

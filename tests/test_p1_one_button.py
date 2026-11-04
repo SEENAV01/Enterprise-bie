@@ -78,6 +78,14 @@ class OneButtonWorkflow(unittest.TestCase):
         self.assertIn("actions: write", text)
         self.assertIn("contents: write", text)
         self.assertNotIn("video.mp4\n", text)                            # only review copies travel to the branch
+        self.assertIn("already rendered", text)                          # a re-run never renders a landed video again
+
+    def test_the_render_workflow_counts_frames_of_either_spec_kind(self):
+        # The first one-button run died in the render's prepare step on KeyError 'duration': the inline frame
+        # count assumed the old per-scene shape, while a show-spec carries seconds. It must use render.total_frames.
+        text = (ROOT / ".github" / "workflows" / "task046c-render.yml").read_text(encoding="utf-8")
+        self.assertIn("render.total_frames(spec)", text)
+        self.assertNotIn('sum(s["duration"] for s in spec["scenes"])', text)
 
 
 class TrimMap(unittest.TestCase):
