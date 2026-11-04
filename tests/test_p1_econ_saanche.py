@@ -28,8 +28,9 @@ from bie.brain.video import showplan as sp  # noqa: E402
 ENGINE = ROOT / "bie" / "brain" / "video" / "engine"
 NEW = ["institutionBadge", "paper", "disc", "vault", "crowd", "centralBank", "committee", "moneyBag",
        "building", "priceTag", "gauge", "foreignNote", "barrier", "segmentedBar", "cart", "piggyBank", "ruler", "hands",
-       "coinJar", "pillars", "briefcase", "podium", "staircase", "desk", "chair", "rope", "world", "flow"]
-WORLDS = ["market", "bankHall", "centralBank", "exchangeFloor", "port", "factory", "village", "office", "court", "city", "assembly"]
+       "coinJar", "pillars", "briefcase", "podium", "staircase", "desk", "chair", "rope", "world", "flow", "bands", "fork", "gapBars"]
+WORLDS = ["market", "bankHall", "centralBank", "exchangeFloor", "port", "factory", "village", "office", "court", "city", "assembly",
+          "twoCountries", "forexCounter"]
 VARIANTS = (
     [("institutionBadge", {"kind": k, "name": n, "sub": "उप"}) for k, n in
      [("central_bank", "RBI"), ("bank", "SBI"), ("government", "सरकार"), ("regulator", "SEBI"), ("international", "IMF"),
@@ -74,6 +75,12 @@ VARIANTS = (
                  "edges": "1>2:खर्च;2>1:मज़दूरी;1>4;4>2:कर्ज़;5>4;8>7;x>y;1>1;1>9", "layout": lay, "token": tok, "active": act, "_t": tt})
        for lay, tok, act, tt in (("ring", "coin", "", 0), ("row", "note", "1,3", 2.5), ("hub", "goods", "2", 7), ("ring", "dot", "9", None))]
     + [("flow", {"nodes": "एक:house", "edges": "1>2"}), ("flow", {"nodes": "a:box;b:box", "edges": "1>2:x;2>1:y", "bend": -1, "speed": 0})]
+    + [("flow", {"nodes": "भारत:box;अमेरिका:globe", "edges": "1>2:माल@goods;2>1:डॉलर@note;1>2:@dot;2>1:x@moon", "layout": "row", "_t": 1.5})]
+    + [("bands", {"zones": "Creeping:0-3;Walking:3-10;Running:10-50;Hyper:50+", "value": v, "unit": "%", "glow": "2", "title": "महँगाई"}) for v in ("7", "0", "75", "-4", "")]
+    + [("bands", {"zones": "कम;मध्यम;ज़्यादा", "reverse": True}), ("bands", {"zones": "a:x-y", "value": "3"})]
+    + [("fork", {"from": "CRR", "up": "कम", "upNote": "बैंक ज़्यादा कर्ज़ दें", "upResult": "महँगाई ↑", "down": "ज़्यादा", "downNote": "कर्ज़ कम",
+                 "downResult": "महँगाई ↓", "glow": g}) for g in ("", "up", "down")]
+    + [("gapBars", {"a": a, "b": b, "gap": "घाटा", "unit": " लाख करोड़"}) for a, b in (("खर्च:45", "कमाई:30"), ("आयात:30", "निर्यात:45"), ("a:0", "b:0"), ("x", ""))]
     + [(n, {}) for n in NEW]
 )
 
@@ -102,7 +109,7 @@ class EconSaanche(unittest.TestCase):
         for word, name in [("तिजोरी", "vault"), ("समिति", "committee"), ("कानून", "paper"), ("भीड़", "crowd"), ("थैली", "moneyBag"),
                            ("गोदाम", "building"), ("दाम", "priceTag"), ("मीटर", "gauge"), ("डॉलर", "foreignNote"), ("दीवार", "barrier"), ("बँटवारा", "segmentedBar"), ("ठेला", "cart"), ("गुल्लक", "piggyBank"), ("पैमाना", "ruler"), ("उधार", "hands"),
                            ("जार", "coinJar"), ("स्तंभ", "pillars"), ("अटैची", "briefcase"), ("मंच", "podium"), ("सीढ़ी", "staircase"),
-                           ("मेज़", "desk"), ("कुर्सी", "chair"), ("रस्सी", "rope"), ("बंदरगाह", "world"), ("अदालत", "building"), ("प्रवाह", "flow")]:
+                           ("मेज़", "desk"), ("कुर्सी", "chair"), ("रस्सी", "rope"), ("बंदरगाह", "world"), ("अदालत", "building"), ("प्रवाह", "flow"), ("घाटा", "gapBars"), ("दोराहा", "fork"), ("दायरा", "bands"), ("सीमा", "world")]:
             found = [r.get("name") for r in saanche.search(word) if r.get("kind") == "draw"]
             self.assertIn(name, found, word)
 

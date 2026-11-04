@@ -223,6 +223,29 @@ const KINDS = {
       rect(-W * 0.09, gy - H * 0.17, W * 0.18, H * 0.17, "#8a5a2b", ' stroke="#5e3b17" stroke-width="4"') + rect(-W * 0.1, gy - H * 0.19, W * 0.2, H * 0.03, "#6b4422") +
       board(p.label, 0, -H * 0.42, W * 0.3, "#e07b24");
   },
+  twoCountries(W, H, p) {
+    const gy = H * 0.08, signs = signsOf(p), k = W / 1920;
+    const houses = (x0, dir, c) => [0, 1, 2, 3].map((i) => { const x = x0 + dir * i * W * 0.08, hh = H * (0.08 + ((i * 7) % 3) * 0.03);
+      return rect(x - W * 0.03, gy - hh, W * 0.06, hh, c, ' stroke="#b9ad90" stroke-width="3"') + `<path d="M${x - W * 0.035} ${gy - hh} L${x} ${gy - hh - H * 0.04} L${x + W * 0.035} ${gy - hh} Z" fill="${shade(c, 0.8)}"/>`; }).join("");
+    let road = rect(-W, gy + H * 0.16, 2 * W, H * 0.07, "#8d8a84");
+    for (let i = -12; i < 12; i++) road += rect(i * W * 0.09, gy + H * 0.192, W * 0.04, 6 * k, "#f2f2f2");
+    const gate = `<g transform="translate(0,${gy + H * 0.16})">${rect(-W * 0.012, -H * 0.12, W * 0.024, H * 0.12, "#6b7280")}<path d="M${W * 0.012} ${-H * 0.1} L${W * 0.11} ${-H * 0.1}" stroke="#e5484d" stroke-width="${10 * k}" stroke-dasharray="${18 * k} ${14 * k}"/></g>`;
+    return rect(-W, -H / 2, 2 * W, gy + H / 2, "#d6e8f3") + cloud(-W * 0.3, -H * 0.36, 1.1 * k) + cloud(W * 0.3, -H * 0.3, 1 * k) +
+      rect(-W, gy, W, H / 2 - gy, "#dcc58f") + rect(0, gy, W, H / 2 - gy, "#bfd79a") + houses(-W * 0.15, -1, "#f1e3c6") + houses(W * 0.15, 1, "#e6eef5") +
+      `<path d="M0 ${-H * 0.2} L0 ${H / 2}" stroke="#4a5568" stroke-width="${8 * k}" stroke-dasharray="${26 * k} ${18 * k}"/>` + road + gate +
+      board(signs[0], -W * 0.25, gy + H * 0.34, W * 0.3, "#8a5a2b") + board(signs[1], W * 0.25, gy + H * 0.34, W * 0.3, "#2459a6") + board(p.label, 0, -H * 0.4, W * 0.4, "#4a5568");
+  },
+  forexCounter(W, H, p) {
+    const gy = H * 0.14, wall = okColor(p.color, "#e6edf2"), rows = signsOf(p).slice(0, 4), k = W / 1920;
+    let boardRows = "";
+    rows.forEach((r, i) => { boardRows += text(r, W * 0.2, -H * 0.3 + i * H * 0.075, Math.min(H * 0.05, (W * 0.3) / Math.max(1, r.length) * 1.7), "#f2c14e", 800); });
+    if (!rows.length) for (let i = 0; i < 3; i++) boardRows += rect(W * 0.07, -H * 0.33 + i * H * 0.075, W * 0.26, H * 0.03, "#f2c14e", ' opacity="0.5"');
+    const stacks = ["#6cbf7f", "#7aa6d8", "#d9a46a", "#b58ad6"].map((c, i) => [0, 1, 2].map((j) =>
+      rect(-W * 0.38 + i * W * 0.08, gy - H * 0.22 - j * H * 0.018, W * 0.06, H * 0.016, c, ` stroke="${shade(c)}" stroke-width="2"`)).join("")).join("");
+    return wallFloor(W, H, wall, "#d5dbe1", gy) + rect(W * 0.05, -H * 0.42, W * 0.3, H * 0.34, "#1f2a33", ` rx="${12 * k}" stroke="#4a5568" stroke-width="${6 * k}"`) + boardRows +
+      rect(-W * 0.46, gy - H * 0.2, W * 0.5, H * 0.2, "#7a8fa3", ' stroke="#55687b" stroke-width="4"') + rect(-W * 0.44, gy - H * 0.46, W * 0.46, H * 0.24, "#dfeef7", ' opacity="0.7" stroke="#8a9bb0" stroke-width="4"') + stacks +
+      (p.crowd ? crowdBand(W * 0.05, W, gy + H * 0.1, H * 0.1, 4) : "") + board(p.label, -W * 0.21, -H * 0.4, W * 0.36, "#2a9d8f");
+  },
 };
 
 const LIGHT = { evening: ["#ff8a3c", 0.16], night: ["#0b1d3a", 0.45] };
@@ -268,8 +291,15 @@ const SPOTS = {
     return o; },
   assembly: (W, H) => { const gy = H * 0.16;
     return { podium: [-W * 0.1, gy - H * 0.19, W * 0.1, gy], seats: [-W * 0.45, gy - H * 0.45, W * 0.45, gy - H * 0.12], floor: [-W / 2, gy + H * 0.05, W / 2, H * 0.45] }; },
+  twoCountries: (W, H) => { const gy = H * 0.08;
+    return { left: [-W / 2, gy + H * 0.02, -W * 0.02, H * 0.45], right: [W * 0.02, gy + H * 0.02, W / 2, H * 0.45], border: [-W * 0.04, -H * 0.2, W * 0.04, H * 0.45],
+      road: [-W / 2, gy + H * 0.15, W / 2, gy + H * 0.24] }; },
+  forexCounter: (W, H) => { const gy = H * 0.14;
+    return { counter: [-W * 0.46, gy - H * 0.46, W * 0.04, gy], board: [W * 0.05, -H * 0.42, W * 0.35, -H * 0.08], queue: [W * 0.06, gy + H * 0.02, W * 0.46, gy + H * 0.24],
+      floor: [-W / 2, gy + H * 0.05, W / 2, H * 0.45] }; },
 };
 const NUMBERED = { market: "stall", bankHall: "counter", office: "desk", factory: "shed", city: "shop" };
+const NAMED = { twoCountries: ["left", "right"] };          // a sign's words reach a fixed spot too (the countries)
 
 export function worldSpots(p = {}) {
   const W = 1920, H = 1080, kind = SPOTS[p.kind] ? p.kind : "market", raw = SPOTS[kind](W, H, p), out = {};
@@ -280,6 +310,7 @@ export function worldSpots(p = {}) {
   }
   const pre = NUMBERED[kind];
   if (pre) signsOf(p).forEach((sg, i) => { if (out[`${pre}${i + 1}`] && !(sg in out)) out[sg] = out[`${pre}${i + 1}`]; });
+  if (NAMED[kind]) signsOf(p).forEach((sg, i) => { if (NAMED[kind][i] && !(sg in out)) out[sg] = out[NAMED[kind][i]]; });
   return out;
 }
 

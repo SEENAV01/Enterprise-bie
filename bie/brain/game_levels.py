@@ -49,9 +49,11 @@ def _rows(level, key):
 _FIXED_SPOTS = {"market": ("floor",), "bankHall": ("vault", "queue", "floor"), "centralBank": ("vault", "floor"),
                 "exchangeFloor": ("board", "desks", "floor"), "port": ("ship", "crane", "dock"), "factory": ("belt", "chimney"),
                 "village": ("field", "hut", "well", "tree"), "office": ("floor",), "court": ("bench", "left", "right", "floor"),
-                "city": ("road",), "assembly": ("podium", "seats", "floor")}
+                "city": ("road",), "assembly": ("podium", "seats", "floor"), "twoCountries": ("left", "right", "border", "road"),
+                "forexCounter": ("counter", "board", "queue", "floor")}
 _NUMBERED = {"market": ("stall", 4, 2, 6), "bankHall": ("counter", 3, 1, 5), "office": ("desk", 5, 1, 6),
              "factory": ("shed", 3, 3, 3), "city": ("shop", 3, 3, 3)}
+_NAMED = {"twoCountries": ("left", "right")}             # the first signs name these fixed spots (the two countries)
 
 
 def world_spot_names(world: dict) -> list:
@@ -68,6 +70,9 @@ def world_spot_names(world: dict) -> list:
         for sg in signs[:n]:
             if sg not in names:
                 names.append(sg)
+    for sg in signs[:len(_NAMED.get(kind, ()))]:
+        if sg not in names:
+            names.append(sg)
     return names
 
 
@@ -78,6 +83,8 @@ def world_spots_text() -> str:
         num = _NUMBERED.get(kind)
         spots = ([f"{num[0]}1..{num[0]}{num[3]} (one per sign; a sign's words work too)"] if num and num[3] > num[2]
                  else [f"{num[0]}1..{num[0]}{num[3]} (a sign's words work too)"] if num else []) + list(fixed)
+        if kind in _NAMED:
+            spots.append(f"(signs name {' and '.join(_NAMED[kind])})")
         rows.append(f"{kind}: {', '.join(spots)}")
     return "; ".join(rows)
 

@@ -883,8 +883,11 @@ function flow(p) {
     const [hx, hy] = q(0.94), ang = (Math.atan2(by - hy, bx - hx) * 180) / Math.PI, c = on ? col : "#b8c0cc";
     edges += `<path d="M${ax} ${ay} Q${cx} ${cy} ${bx} ${by}" fill="none" stroke="${c}" stroke-width="${w * (on ? 0.008 : 0.005)}" stroke-linecap="round"${on ? "" : ` stroke-dasharray="${w * 0.012} ${w * 0.01}"`}/>` +
       `<path d="M${-w * 0.022} ${-w * 0.014} L0 0 L${-w * 0.022} ${w * 0.014}" fill="none" stroke="${c}" stroke-width="${w * 0.008}" stroke-linecap="round" stroke-linejoin="round" transform="translate(${bx},${by}) rotate(${ang})"/>`;
-    if (m[3] && m[3].trim()) {
-      const lab = m[3].trim(), fs = fit(lab, w * 0.2, w * 0.028), [mx, my] = q(0.5), off = fs * 1.25;
+    let lab = (m[3] || "").trim(), tok = p.token;
+    const at = lab.lastIndexOf("@");
+    if (at >= 0 && ["coin", "note", "goods", "dot"].includes(lab.slice(at + 1).trim())) { tok = lab.slice(at + 1).trim(); lab = lab.slice(0, at).trim(); }
+    if (lab) {
+      const fs = fit(lab, w * 0.2, w * 0.028), [mx, my] = q(0.5), off = fs * 1.25;
       const c1 = [mx - uy * off, my + ux * off], c2 = [mx + uy * off, my - ux * off];      // the label sits outside:
       const [lx, ly] = layout === "row" ? (c1[1] < c2[1] ? c1 : c2)                         // above a row, away from
         : Math.hypot(...c1) >= Math.hypot(...c2) ? c1 : c2, bw = lab.length * fs * 0.6 + fs * 0.8; // a ring's centre
@@ -892,7 +895,7 @@ function flow(p) {
     }
     if (on) for (let k = 0; k < 3; k++) {
       const u = Number.isFinite(t) ? (((t * speed + k / 3) % 1) + 1) % 1 : 0.2 + k * 0.3, [px, py] = q(u);
-      tokens += `<g transform="translate(${px.toFixed(1)},${py.toFixed(1)})">${FLOW_TOKEN(p.token, r * 1.6)}</g>`;
+      tokens += `<g transform="translate(${px.toFixed(1)},${py.toFixed(1)})">${FLOW_TOKEN(tok, r * 1.6)}</g>`;
     }
   });
   const nodeSvg = nodes.map((nd) => `<g transform="translate(${nd.x},${nd.y})">${FLOW_NODE(nd.kind, s)}</g>`).join("");
@@ -903,6 +906,77 @@ function flow(p) {
       : `<rect x="${-s * 0.85}" y="${s * 0.55}" width="${s * 1.7}" height="${fs * 1.45}" rx="${fs * 0.3}" fill="#ffffff" opacity="0.92"/>` + tx(nd.label, 0, s * 0.55 + fs * 0.72, fs, INK, 800)) + `</g>`;
   }).join("");
   return edges + nodeSvg + tokens + labels + nodeLabels;                 // words stay on top of moving tokens
+}
+
+// ---------------------------------------------------------------- economy kit, batch 5b (4 Nov 2026)
+// From the batch-5 cards (E58–E69): a zone scale whose bands run from good to bad with a pointer (types of inflation,
+// safe and risky ranges), a fork (one lever, two directions, each with its condition and result) and gap bars (what
+// goes out against what comes in, the hatched gap named: fiscal deficit, trade deficit, a savings gap).
+const RAMP = ["#2fa35b", "#8cc152", "#f2c14e", "#f08a3c", "#e5484d", "#a3273a"];
+const rampAt = (i, n) => RAMP[Math.round((n <= 1 ? 0 : i / (n - 1)) * (RAMP.length - 1))];
+
+function bands(p) {
+  const zones = parts(p.zones).filter(Boolean).slice(0, 8).map((z) => { const [l, r] = z.split(":"); return { label: (l || "").trim(), range: (r || "").trim() }; });
+  if (!zones.length) zones.push({ label: "", range: "" }, { label: "", range: "" }, { label: "", range: "" });
+  const w = p.w || 760, h = w * 0.13, n = zones.length, zw = w / n, glow = idxSet(p.glow), unit = p.unit ?? "";
+  const nums = (z) => { const m = z.range.match(/^(-?[\d.]+)?\s*(?:-|–|to)?\s*(-?[\d.]+)?\s*(\+)?$/); return m ? [m[1] != null ? +m[1] : null, m[2] != null ? +m[2] : null, !!m[3]] : [null, null, false]; };
+  let out = "";
+  zones.forEach((z, i) => {
+    const x = -w / 2 + i * zw, c = p.reverse ? rampAt(n - 1 - i, n) : rampAt(i, n);
+    out += `<rect x="${x}" y="${-h / 2}" width="${zw}" height="${h}" fill="${c}" stroke="#ffffff" stroke-width="${w * 0.004}"/>` +
+      (z.label ? tx(z.label, x + zw / 2, 0, fit(z.label, zw * 0.92, h * 0.42), "#ffffff", 800) : "") +
+      (z.range ? (() => { const r = !unit || /[a-z%]\+?$/i.test(z.range) ? z.range : z.range.endsWith("+") ? z.range.slice(0, -1) + unit + "+" : z.range + unit;
+        return tx(r, x + zw / 2, h * 0.5 + h * 0.36, fit(r, zw * 0.9, h * 0.34), INK, 700); })() : "") +
+      (glow.has(i + 1) ? `<rect x="${x + 3}" y="${-h / 2 - 6}" width="${zw - 6}" height="${h + 12}" fill="none" stroke="#2b2b33" stroke-width="${Math.max(4, w * 0.008)}" rx="${w * 0.008}"/>` : "");
+  });
+  if (p.value != null && p.value !== "") {
+    const v = Number(p.value); let at = null;
+    zones.forEach((z, i) => { const [a, b, plus] = nums(z); if (at != null) return;
+      if (a != null && b != null && v >= a && v <= b) at = -w / 2 + (i + (b > a ? (v - a) / (b - a) : 0.5)) * zw;
+      else if (a != null && (plus || b == null) && v >= a && i === n - 1) at = -w / 2 + (i + 0.5) * zw; });
+    if (at == null) at = v < (nums(zones[0])[0] ?? 0) ? -w / 2 : w / 2;
+    const t = p.text ? String(p.text) : `${v}${unit}`;
+    out += `<path d="M${at} ${-h / 2 - 4} l${-h * 0.22} ${-h * 0.34} l${h * 0.44} 0 Z" fill="${INK}"/>` + tx(t, at, -h / 2 - h * 0.62, fit(t, w * 0.3, h * 0.42), INK, 800);
+  }
+  return out + (p.title ? tx(p.title, 0, -h / 2 - h * (p.value != null && p.value !== "" ? 1.25 : 0.6), fit(p.title, w * 0.9, h * 0.45), INK, 800) : "");
+}
+
+function fork(p) {
+  const w = p.w || 640, h = w * 0.62, c = p.color || "#2459a6", glow = String(p.glow || ""), sx = -w * 0.08;
+  const branch = (dir, lab, note, res) => {
+    const y = dir * h * 0.36, on = !glow || glow === (dir < 0 ? "up" : "down"), col = on ? c : "#b8c0cc", ex = w * 0.3;
+    return `<path d="M${sx} 0 C${sx + w * 0.12} 0 ${sx + w * 0.1} ${y} ${ex - w * 0.02} ${y}" fill="none" stroke="${col}" stroke-width="${w * 0.016}" stroke-linecap="round"/>` +
+      `<path d="M${ex - w * 0.05} ${y - w * 0.03} L${ex} ${y} L${ex - w * 0.05} ${y + w * 0.03}" fill="none" stroke="${col}" stroke-width="${w * 0.016}" stroke-linecap="round" stroke-linejoin="round"/>` +
+      (lab ? `<rect x="${sx + w * 0.05}" y="${y * 0.62 - h * 0.075}" width="${w * 0.2}" height="${h * 0.15}" rx="${h * 0.04}" fill="#ffffff" stroke="${col}" stroke-width="${w * 0.004}"/>` +
+        tx(lab, sx + w * 0.15, y * 0.62, fit(lab, w * 0.18, h * 0.09), on ? INK : "#8a94a3", 800) : "") +
+      (note ? tx(note, sx + w * 0.2, y + (dir < 0 ? -1 : 1) * h * 0.13, fit(note, w * 0.44, h * 0.085), on ? "#4a5568" : "#9aa5b1", 700) : "") +
+      (res ? `<rect x="${ex + w * 0.01}" y="${y - h * 0.09}" width="${w * 0.19}" height="${h * 0.18}" rx="${h * 0.04}" fill="${on ? shade(c, 1.9) : "#eef0f3"}" stroke="${col}" stroke-width="${w * 0.005}"/>` +
+        tx(res, ex + w * 0.105, y, fit(res, w * 0.17, h * 0.085), on ? INK : "#8a94a3", 800) : "");
+  };
+  return `<path d="M${-w * 0.48} 0 L${sx} 0" stroke="${c}" stroke-width="${w * 0.016}" stroke-linecap="round"/>` +
+    (p.from ? `<rect x="${-w * 0.5}" y="${-h * 0.1}" width="${w * 0.3}" height="${h * 0.2}" rx="${h * 0.05}" fill="${c}"/>` + tx(p.from, -w * 0.35, 0, fit(p.from, w * 0.27, h * 0.1), "#ffffff", 800) : "") +
+    `<circle cx="${sx}" cy="0" r="${w * 0.018}" fill="${c}"/>` + branch(-1, p.up, p.upNote, p.upResult) + branch(1, p.down, p.downNote, p.downResult);
+}
+
+function gapBars(p) {
+  const w = p.w || 520, h = w * 0.9, [al, av] = String(p.a ?? "").split(":"), [bl, bv] = String(p.b ?? "").split(":");
+  const A = Math.max(0, Number(av) || 0), B = Math.max(0, Number(bv) || 0), top = Math.max(A, B) || 1, u = p.unit ?? "";
+  const bw = w * 0.3, ha = (A / top) * h * 0.78, hb = (B / top) * h * 0.78, xa = -w * 0.36, xb = w * 0.06, ca = p.colorA || "#e07b24", cb = p.colorB || "#2459a6";
+  const gap = Math.abs(A - B), low = A < B ? "a" : "b", gx = low === "a" ? xa : xb, gy0 = -Math.max(ha, hb), gy1 = -Math.min(ha, hb);
+  let hatch = "";
+  for (let c = gy0 + w * 0.035; gap && c < gy1 + bw * 0.5; c += w * 0.035) {         // parallel lines clipped to the gap
+    let x0 = gx, y0 = c, x1 = gx + bw, y1 = c - bw * 0.5;
+    if (y0 > gy1) { x0 = gx + (c - gy1) / 0.5; y0 = gy1; }
+    if (y1 < gy0) { x1 = gx + (c - gy0) / 0.5; y1 = gy0; }
+    if (x1 > x0) hatch += `<path d="M${x0} ${y0} L${x1} ${y1}" stroke="#e5484d" stroke-width="${w * 0.006}" opacity="0.6"/>`;
+  }
+  const bar = (x, hh, c, l, v) => `<rect x="${x}" y="${-hh}" width="${bw}" height="${hh}" fill="${c}" rx="${w * 0.01}"/>` +
+    (l ? tx(l, x + bw / 2, w * 0.06, fit(l, bw * 1.2, w * 0.06), INK, 800) : "") + (v !== undefined && v !== "" ? tx(`${v}${u}`, x + bw / 2, -hh + w * 0.05, fit(`${v}${u}`, bw * 0.9, w * 0.055), "#ffffff", 800) : "");
+  const gl = p.gap ? `${p.gap}${p.showGap === false ? "" : ` ${+(gap.toFixed(2))}${u}`}` : (p.showGap === false ? "" : `${+(gap.toFixed(2))}${u}`);
+  return `<path d="M${-w * 0.48} 0 L${w * 0.48} 0" stroke="#9aa5b1" stroke-width="${w * 0.006}"/>` + bar(xa, ha, ca, al, av) + bar(xb, hb, cb, bl, bv) +
+    (gap ? `<rect x="${gx}" y="${gy0}" width="${bw}" height="${gy1 - gy0}" fill="#ffffff" stroke="#e5484d" stroke-width="${w * 0.008}" stroke-dasharray="${w * 0.02} ${w * 0.012}"/>` + hatch +
+      (gl ? `<rect x="${gx + bw + w * 0.02}" y="${(gy0 + gy1) / 2 - w * 0.045}" width="${w * 0.36}" height="${w * 0.09}" rx="${w * 0.02}" fill="#e5484d"/>` +
+        tx(gl, gx + bw + w * 0.2, (gy0 + gy1) / 2, fit(gl, w * 0.34, w * 0.055), "#ffffff", 800) : "") : "");
 }
 
 // ---------------------------------------------------------------- registry
@@ -965,6 +1039,9 @@ export const DRAWS = {
   rope: { fn: rope, anchor: "center" },
   world: { fn: world, anchor: "center" },
   flow: { fn: flow, anchor: "center" },
+  bands: { fn: bands, anchor: "center" },
+  fork: { fn: fork, anchor: "center" },
+  gapBars: { fn: gapBars, anchor: "bottom" },
 };
 
 export function drawSaancha(name, p = {}) {

@@ -181,7 +181,8 @@ class WorldLevels(unittest.TestCase):
         worlds = [{"kind": k} for k in gl._FIXED_SPOTS] + [
             {"kind": "bankHall", "signs": "जमा;निकासी;कर्ज़;vault;जमा"}, {"kind": "market", "count": 6}, {"kind": "market", "signs": "a"},
             {"kind": "office", "signs": "a;b;c;d;e;f;g;h"}, {"kind": "factory", "signs": "x;y"}, {"kind": "city", "signs": "दुकान;बैंक;होटल;x"},
-            {"kind": "bankHall", "count": 5, "signs": "a;b"}, {"kind": "nowhere"}]
+            {"kind": "bankHall", "count": 5, "signs": "a;b"}, {"kind": "nowhere"},
+            {"kind": "twoCountries", "signs": "भारत;अमेरिका;x"}, {"kind": "twoCountries", "signs": "left;भारत"}]
         engine = ROOT / "bie" / "brain" / "video" / "engine" / "worlds.mjs"
         script = (f"import {{worldSpots}} from '{engine.as_posix()}';"
                   f"const ws = {json.dumps(worlds, ensure_ascii=False)};"
