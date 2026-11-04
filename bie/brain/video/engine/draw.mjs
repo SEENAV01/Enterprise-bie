@@ -288,6 +288,183 @@ function phone(p) {
     `<rect x="${sx}" y="${sy}" width="${sw}" height="${h * 0.8}" rx="${w * 0.07}" fill="#f4f7fa"/>` + screen;
 }
 
+// ---------------------------------------------------------------- economy kit, batch 3 (4 Nov 2026)
+// Learned from 37 Indian-economy reference videos (asset_intake/econ_kit, rules/show_lexicon.json): the things those
+// videos draw most that the Money v2 set lacked. BIE's own drawings: no logos, emblems, seals or real persons — an
+// institution is shown by institutionBadge (the references showed real logos in 25 of 37 videos).
+const tx = (text, x, cy, size, fill = INK, weight = 700) =>
+  text === "" || text == null ? "" : `<g transform="translate(${x},0)">` + label(String(text), cy + size * 0.35, size, fill, weight) + `</g>`;
+const clamp01 = (v) => Math.max(0, Math.min(1, Number(v) || 0));
+
+const BADGE_KINDS = {
+  central_bank: ["#138a8a", "coin"], bank: ["#3a7bd5", "columns"], government: ["#e07b24", "dome"],
+  regulator: ["#7b5cd6", "scale"], international: ["#2a9d8f", "globe"], cooperative: ["#2fa35b", "hands"],
+  committee: ["#a0703d", "table"], market: ["#d6454f", "chart"], company: ["#4a5568", "factory"],
+};
+
+function badgeGlyph(kind, s) {
+  const w = "#ffffff";
+  switch (kind) {
+    case "coin": return `<circle r="${s * 0.42}" fill="none" stroke="${w}" stroke-width="${s * 0.09}"/>` + tx("₹", 0, 0, s * 0.55, w, 800);
+    case "columns": return `<path d="M${-s * 0.5} ${-s * 0.18} L0 ${-s * 0.5} L${s * 0.5} ${-s * 0.18} Z" fill="${w}"/>` +
+      [-0.34, -0.11, 0.11, 0.34].map((x) => `<rect x="${x * s - s * 0.06}" y="${-s * 0.12}" width="${s * 0.12}" height="${s * 0.46}" fill="${w}"/>`).join("") +
+      `<rect x="${-s * 0.52}" y="${s * 0.36}" width="${s * 1.04}" height="${s * 0.1}" fill="${w}"/>`;
+    case "dome": return `<path d="M${-s * 0.32} ${-s * 0.08} A${s * 0.32} ${s * 0.32} 0 0 1 ${s * 0.32} ${-s * 0.08} Z" fill="${w}"/><rect x="${-s * 0.03}" y="${-s * 0.55}" width="${s * 0.06}" height="${s * 0.18}" fill="${w}"/>` +
+      [-0.36, -0.12, 0.12, 0.36].map((x) => `<rect x="${x * s - s * 0.05}" y="${-s * 0.02}" width="${s * 0.1}" height="${s * 0.36}" fill="${w}"/>`).join("") +
+      `<rect x="${-s * 0.5}" y="${s * 0.36}" width="${s}" height="${s * 0.1}" fill="${w}"/>`;
+    case "scale": return `<rect x="${-s * 0.04}" y="${-s * 0.45}" width="${s * 0.08}" height="${s * 0.8}" fill="${w}"/><rect x="${-s * 0.46}" y="${-s * 0.36}" width="${s * 0.92}" height="${s * 0.07}" fill="${w}"/>` +
+      `<path d="M${-s * 0.54} ${s * 0.02} A${s * 0.14} ${s * 0.1} 0 0 0 ${-s * 0.26} ${s * 0.02} Z M${s * 0.26} ${s * 0.02} A${s * 0.14} ${s * 0.1} 0 0 0 ${s * 0.54} ${s * 0.02} Z" fill="${w}"/>` +
+      `<path d="M${-s * 0.4} ${-s * 0.3} L${-s * 0.52} ${s * 0.02} M${-s * 0.4} ${-s * 0.3} L${-s * 0.28} ${s * 0.02} M${s * 0.4} ${-s * 0.3} L${s * 0.28} ${s * 0.02} M${s * 0.4} ${-s * 0.3} L${s * 0.52} ${s * 0.02}" stroke="${w}" stroke-width="${s * 0.04}"/>` +
+      `<rect x="${-s * 0.22}" y="${s * 0.34}" width="${s * 0.44}" height="${s * 0.08}" fill="${w}"/>`;
+    case "globe": return `<circle r="${s * 0.42}" fill="none" stroke="${w}" stroke-width="${s * 0.07}"/><ellipse rx="${s * 0.18}" ry="${s * 0.42}" fill="none" stroke="${w}" stroke-width="${s * 0.05}"/>` +
+      `<path d="M${-s * 0.42} 0 L${s * 0.42} 0 M${-s * 0.36} ${-s * 0.2} Q0 ${-s * 0.1} ${s * 0.36} ${-s * 0.2} M${-s * 0.36} ${s * 0.2} Q0 ${s * 0.1} ${s * 0.36} ${s * 0.2}" fill="none" stroke="${w}" stroke-width="${s * 0.045}"/>`;
+    case "hands": return [-0.3, 0, 0.3].map((x, i) => `<circle cx="${x * s}" cy="${-s * 0.22 - (i === 1 ? s * 0.06 : 0)}" r="${s * 0.12}" fill="${w}"/>` +
+      `<path d="M${x * s - s * 0.17} ${s * 0.3} Q${x * s - s * 0.17} ${-s * 0.04} ${x * s} ${-s * 0.04} Q${x * s + s * 0.17} ${-s * 0.04} ${x * s + s * 0.17} ${s * 0.3} Z" fill="${w}"/>`).join("") +
+      `<path d="M${-s * 0.48} ${s * 0.1} Q0 ${s * 0.32} ${s * 0.48} ${s * 0.1}" fill="none" stroke="${w}" stroke-width="${s * 0.06}"/>`;
+    case "table": return [-0.32, 0, 0.32].map((x) => `<circle cx="${x * s}" cy="${-s * 0.24}" r="${s * 0.11}" fill="${w}"/><rect x="${x * s - s * 0.13}" y="${-s * 0.11}" width="${s * 0.26}" height="${s * 0.22}" rx="${s * 0.08}" fill="${w}"/>`).join("") +
+      `<rect x="${-s * 0.52}" y="${s * 0.1}" width="${s * 1.04}" height="${s * 0.1}" rx="${s * 0.03}" fill="${w}"/><rect x="${-s * 0.42}" y="${s * 0.2}" width="${s * 0.07}" height="${s * 0.22}" fill="${w}"/><rect x="${s * 0.35}" y="${s * 0.2}" width="${s * 0.07}" height="${s * 0.22}" fill="${w}"/>`;
+    case "chart": return `<path d="M${-s * 0.45} ${s * 0.3} L${-s * 0.15} ${-s * 0.05} L${s * 0.08} ${s * 0.12} L${s * 0.42} ${-s * 0.35}" fill="none" stroke="${w}" stroke-width="${s * 0.09}" stroke-linecap="round" stroke-linejoin="round"/>` +
+      `<path d="M${s * 0.22} ${-s * 0.4} L${s * 0.46} ${-s * 0.4} L${s * 0.46} ${-s * 0.16}" fill="none" stroke="${w}" stroke-width="${s * 0.08}" stroke-linecap="round"/>`;
+    case "factory": return `<path d="M${-s * 0.5} ${s * 0.4} L${-s * 0.5} ${-s * 0.05} L${-s * 0.2} ${s * 0.12} L${-s * 0.2} ${-s * 0.05} L${s * 0.1} ${s * 0.12} L${s * 0.1} ${-s * 0.45} L${s * 0.3} ${-s * 0.45} L${s * 0.3} ${s * 0.12} L${s * 0.5} ${s * 0.12} L${s * 0.5} ${s * 0.4} Z" fill="${w}"/>`;
+    default: return "";
+  }
+}
+
+function institutionBadge(p) {
+  const w = p.w || 160, r = w / 2, [col, g] = BADGE_KINDS[p.kind] || BADGE_KINDS.central_bank, c = p.color || col, name = String(p.name ?? "RBI");
+  const fs = name.length > 5 ? r * 0.3 : name.length > 3 ? r * 0.36 : r * 0.44;
+  return `<circle r="${r}" fill="#ffffff" stroke="${shade(c)}" stroke-width="${w * 0.015}"/><circle r="${r * 0.88}" fill="${c}"/>` +
+    `<circle r="${r * 0.78}" fill="none" stroke="#ffffff" stroke-width="${r * 0.025}" stroke-dasharray="${r * 0.05} ${r * 0.05}" opacity="0.55"/>` +
+    `<g transform="translate(0,${-r * 0.3})">${badgeGlyph(g, r * 0.62)}</g>` + tx(name, 0, r * 0.36, fs, "#ffffff", 800) +
+    (p.sub ? `<rect x="${-r * 1.1}" y="${r * 0.78}" width="${r * 2.2}" height="${r * 0.42}" rx="${r * 0.12}" fill="#ffffff" stroke="${shade(c)}" stroke-width="${r * 0.04}"/>` + tx(p.sub, 0, r * 0.99, r * 0.24, shade(c), 700) : "");
+}
+
+const PAPER_KINDS = {
+  law: ["#8e2b3a", "#fbf3e6", "scale"], bond: ["#1f8a5b", "#eef8f1", "coin"], licence: ["#2459a6", "#eef3fb", "columns"],
+  contract: ["#4a5568", "#f4f5f7", "hands"], bill: ["#d9822b", "#fdf3e7", "factory"], report: ["#7b5cd6", "#f3f0fc", "chart"],
+};
+
+function paper(p) {
+  const w = p.w || 170, h = w * 1.3, fold = w * 0.16, x0 = -w / 2, y0 = -h / 2, [band, tint, icon] = PAPER_KINDS[p.kind] || PAPER_KINDS.law;
+  const title = String(p.title ?? "Act"), year = String(p.year ?? ""), value = String(p.value ?? ""), note = String(p.note ?? "");
+  const lines = Math.max(0, Math.min(8, p.lines == null ? 4 : Math.round(p.lines)));
+  let body = p.kind === "bond" ? `<rect x="${x0 + w * 0.07}" y="${y0 + h * 0.2}" width="${w * 0.86}" height="${h * 0.72}" rx="${w * 0.03}" fill="none" stroke="${band}" stroke-width="${w * 0.012}" stroke-dasharray="${w * 0.03} ${w * 0.015}"/>` : "";
+  const top = y0 + h * 0.27;
+  if (year) body += tx(year, 0, top + h * 0.06, w * 0.17, band, 800);
+  if (value) body += tx(value, 0, top + (year ? h * 0.2 : h * 0.08), w * 0.15, INK, 800);
+  const ly = top + (year || value ? h * (year && value ? 0.31 : 0.19) : h * 0.03);
+  for (let i = 0; i < lines; i++)
+    body += `<rect x="${-w * 0.36}" y="${ly + i * h * 0.075}" width="${w * (i === lines - 1 ? 0.45 : 0.72 - (i % 2) * 0.08)}" height="${h * 0.026}" rx="${h * 0.013}" fill="#c9c6bd"/>`;
+  const sigY = note ? 0.7 : 0.86;
+  if (p.kind === "contract") body += [-1, 1].map((s) => `<path d="M${s * w * 0.22 - w * 0.14} ${y0 + h * sigY} q${w * 0.05} ${-h * 0.05} ${w * 0.09} 0 t${w * 0.1} 0" fill="none" stroke="#2d3748" stroke-width="${w * 0.012}"/>` +
+    `<path d="M${s * w * 0.22 - w * 0.17} ${y0 + h * (sigY + 0.03)} L${s * w * 0.22 + w * 0.17} ${y0 + h * (sigY + 0.03)}" stroke="#8a8f98" stroke-width="${w * 0.008}"/>`).join("");
+  if (note) body += `<rect x="${-w * 0.42}" y="${y0 + h * 0.8}" width="${w * 0.84}" height="${h * 0.12}" rx="${h * 0.04}" fill="${band}"/>` + tx(note, 0, y0 + h * 0.86, Math.min(w * 0.1, (w * 0.8) / Math.max(1, note.length) * 1.8), "#ffffff", 700);
+  const stamp = p.stamp ? `<g transform="translate(${w * 0.12},${h * 0.22}) rotate(-14)" opacity="0.92"><rect x="${-w * 0.36}" y="${-h * 0.07}" width="${w * 0.72}" height="${h * 0.14}" rx="${w * 0.03}" fill="none" stroke="${p.stampColor || "#d6454f"}" stroke-width="${w * 0.025}"/>` +
+    tx(p.stamp, 0, 0, Math.min(w * 0.12, (w * 0.66) / Math.max(1, String(p.stamp).length) * 1.6), p.stampColor || "#d6454f", 800) + `</g>` : "";
+  return `<path d="M${x0} ${y0} L${-x0 - fold} ${y0} L${-x0} ${y0 + fold} L${-x0} ${-y0} L${x0} ${-y0} Z" fill="${tint}" stroke="${shade(tint, 0.8)}" stroke-width="${w * 0.012}"/>` +
+    `<path d="M${-x0 - fold} ${y0} L${-x0 - fold} ${y0 + fold} L${-x0} ${y0 + fold} Z" fill="#d9d3c6"/>` +
+    `<path d="M${x0} ${y0} L${-x0 - fold} ${y0} L${-x0 - fold * 0.35} ${y0 + h * 0.17} L${x0} ${y0 + h * 0.17} Z" fill="${band}"/>` +
+    `<g transform="translate(${x0 + w * 0.13},${y0 + h * 0.085})">${badgeGlyph(icon, w * 0.13)}</g>` +
+    tx(title, w * 0.06, y0 + h * 0.085, Math.min(title.length > 9 ? w * 0.09 : w * 0.11, (w * 0.62) / Math.max(1, title.length) * 1.7), "#ffffff", 800) + body + stamp;
+}
+
+function disc(p) {
+  const w = p.w || 130, r = w / 2, c = p.color || "#d6454f", t = String(p.text ?? "RISK");
+  return `<circle r="${r}" fill="${c}" stroke="${shade(c)}" stroke-width="${w * 0.02}"/><circle r="${r * 0.84}" fill="none" stroke="#ffffff" stroke-width="${r * 0.05}" opacity="0.8"/>` +
+    tx(t, 0, 0, Math.min(t.length > 4 ? r * 0.4 : r * 0.5, (r * 1.5) / Math.max(1, t.length) * 1.7), "#ffffff", 800);
+}
+
+function vault(p) {
+  const w = p.w || 180, h = w * 0.95, x0 = -w / 2, y0 = -h - w * 0.06, inset = w * 0.09;
+  const [c0, c1, c2] = p.metal === "steel" ? ["#c7ccd3", "#8e96a1", "#5a626d"] : ["#f3cf6a", "#c99a2e", "#8a6a1c"];
+  const ix = x0 + inset, iy = y0 + inset, iw = w - inset * 2, ih = h - inset * 2, n = Math.round(clamp01(p.fill == null ? 0.5 : p.fill) * 9);
+  let stack = "";
+  for (let i = 0; i < n; i++) {
+    const row = Math.floor(i / 3), col = i % 3, bw = (iw / 3) * 0.8;
+    stack += `<g transform="translate(${ix + (col + 0.5) * (iw / 3)},${iy + ih - (row + 0.5) * (ih / 3)})">${noteBundle({ w: bw, value: 500 })}</g>`;
+  }
+  const shelves = [1, 2].map((k) => `<rect x="${ix}" y="${iy + (k * ih) / 3 - w * 0.01}" width="${iw}" height="${w * 0.02}" fill="${c2}" opacity="0.5"/>`).join("");
+  const d = clamp01(p.door), dw = w - inset * 0.6, cx = dw * 0.5, cy = y0 + h * 0.5;
+  const spokes = [0, 60, 120].map((a) => { const c = Math.cos((a * Math.PI) / 180) * w * 0.15, s = Math.sin((a * Math.PI) / 180) * w * 0.15;
+    return `<path d="M${cx - c} ${cy - s} L${cx + c} ${cy + s}" stroke="${c2}" stroke-width="${w * 0.025}" stroke-linecap="round"/>`; }).join("");
+  const closed = `<g transform="translate(${x0 + inset * 0.3},0) scale(${1 - d * 1.76},1)"><rect x="0" y="${y0 + inset * 0.3}" width="${dw}" height="${h - inset * 0.6}" rx="${w * 0.04}" fill="${c0}" stroke="${c1}" stroke-width="${w * 0.015}"/>` +
+    `<circle cx="${cx}" cy="${cy}" r="${w * 0.16}" fill="none" stroke="${c2}" stroke-width="${w * 0.03}"/>${spokes}<circle cx="${cx}" cy="${cy}" r="${w * 0.045}" fill="${c2}"/></g>`;
+  const hx = x0 + inset * 0.3;
+  const open = `<path d="M${hx} ${y0 + inset * 0.3} L${hx - w * 0.3 * d} ${y0 - h * 0.04 * d} L${hx - w * 0.3 * d} ${y0 + h + h * 0.04 * d - inset * 0.3} L${hx} ${y0 + h - inset * 0.3} Z" fill="${c0}" stroke="${c2}" stroke-width="${w * 0.01}"/>` +
+    `<ellipse cx="${hx - w * 0.15 * d}" cy="${cy}" rx="${w * 0.05 * d}" ry="${w * 0.15}" fill="none" stroke="${c2}" stroke-width="${w * 0.025}"/>`;
+  const locked = p.locked !== false, sh = locked ? 0 : w * 0.05;
+  const lock = `<g transform="translate(${-x0 - w * 0.02},${y0 + w * 0.02})"><path d="M${-w * 0.07} 0 L${-w * 0.07} ${-w * 0.07 - sh} A${w * 0.07} ${w * 0.07} 0 0 1 ${w * 0.07} ${-w * 0.07 - sh} L${w * 0.07} ${locked ? 0 : -sh}" fill="none" stroke="#4a5568" stroke-width="${w * 0.03}"/>` +
+    `<rect x="${-w * 0.11}" y="0" width="${w * 0.22}" height="${w * 0.17}" rx="${w * 0.03}" fill="${locked ? "#2d3748" : "#2fa35b"}"/><circle cy="${w * 0.08}" r="${w * 0.025}" fill="#ffffff"/></g>`;
+  const tc = p.tagColor || "#d6454f";
+  const tag = p.tag ? `<g transform="translate(${-x0 + w * 0.02},${y0 + h * 0.55})"><path d="M0 0 L${w * 0.12} ${w * 0.08}" stroke="#8a8f98" stroke-width="${w * 0.012}"/><rect x="${w * 0.1}" y="${w * 0.03}" width="${w * 0.52}" height="${w * 0.17}" rx="${w * 0.05}" fill="${tc}"/>` +
+    tx(p.tag, w * 0.36, w * 0.115, Math.min(w * 0.085, (w * 0.48) / Math.max(1, String(p.tag).length) * 1.8), "#ffffff", 800) + `</g>` : "";
+  return `<rect x="${x0 + w * 0.08}" y="${-w * 0.08}" width="${w * 0.12}" height="${w * 0.08}" fill="${c2}"/><rect x="${-x0 - w * 0.2}" y="${-w * 0.08}" width="${w * 0.12}" height="${w * 0.08}" fill="${c2}"/>` +
+    `<rect x="${x0}" y="${y0}" width="${w}" height="${h}" rx="${w * 0.06}" fill="${c1}" stroke="${c2}" stroke-width="${w * 0.015}"/>` +
+    `<rect x="${ix}" y="${iy}" width="${iw}" height="${ih}" rx="${w * 0.03}" fill="#3b3326"/>${shelves}${stack}` +
+    (d < 0.5 ? closed : open) +
+    (p.label ? `<rect x="${-w * 0.3}" y="${y0 - w * 0.2}" width="${w * 0.6}" height="${w * 0.17}" rx="${w * 0.05}" fill="#2d3748"/>` + tx(p.label, 0, y0 - w * 0.115, Math.min(w * 0.11, (w * 0.56) / Math.max(1, String(p.label).length) * 1.8), "#ffffff", 800) : "") +
+    lock + tag;
+}
+
+const SKINS = ["#c68a5c", "#d39a6a", "#b97c50", "#a8714a", "#d8a274", "#c98c5e"];
+const SHIRTS = ["#3a7bd5", "#e5484d", "#2fa35b", "#f29f05", "#7b61ff", "#e2558f", "#2a9d8f", "#9b6b43"];
+function miniPerson(x, y, s, i, dim) {
+  const sk = SKINS[(i * 7) % SKINS.length], sh = SHIRTS[(i * 5 + 3) % SHIRTS.length];
+  return `<g transform="translate(${x},${y})" opacity="${dim ? 0.3 : 1}"><path d="M${-s * 0.3} 0 L${-s * 0.3} ${-s * 0.55} Q${-s * 0.3} ${-s * 0.82} 0 ${-s * 0.82} Q${s * 0.3} ${-s * 0.82} ${s * 0.3} ${-s * 0.55} L${s * 0.3} 0 Z" fill="${sh}" stroke="${shade(sh)}" stroke-width="${s * 0.03}"/>` +
+    `<circle cy="${-s}" r="${s * 0.2}" fill="${sk}" stroke="${shade(sk)}" stroke-width="${s * 0.02}"/><path d="M${-s * 0.2} ${-s * 1.03} Q0 ${-s * 1.3} ${s * 0.2} ${-s * 1.03} Q${s * 0.1} ${-s * 1.12} 0 ${-s * 1.12} Q${-s * 0.1} ${-s * 1.12} ${-s * 0.2} ${-s * 1.03} Z" fill="#1f1a17"/>` +
+    ((i * 11) % 3 === 0 ? `<circle cx="${s * 0.17}" cy="${-s * 1.12}" r="${s * 0.08}" fill="#1f1a17"/>` : "") + `</g>`;
+}
+
+function crowd(p) {
+  const w = p.w || 420, n = Math.max(1, Math.min(200, Math.round(p.n || 24))), cols = Math.max(1, Math.min(n, Math.round(p.cols || 8)));
+  const rows = Math.ceil(n / cols), s = (w / cols) * 0.95, rowH = s * 1.25, H = rows * rowH + s * 0.4, fs = Math.max(26, s * 0.5);
+  const cut = Math.round(clamp01(p.share) * cols);
+  let out = "";
+  if (cut > 0) out += `<rect x="${-w / 2 - s * 0.12}" y="${-H}" width="${(cut * w) / cols + s * 0.24}" height="${H + s * 0.15}" rx="${s * 0.3}" fill="${p.shareColor || "#f2c94c"}" opacity="0.55"/>`;
+  if (p.restColor && cut < cols) out += `<rect x="${-w / 2 + (cut * w) / cols - s * 0.05}" y="${-H}" width="${w - (cut * w) / cols + s * 0.17}" height="${H + s * 0.15}" rx="${s * 0.3}" fill="${p.restColor}" opacity="0.35"/>`;
+  for (let i = 0; i < n; i++) {
+    const r = Math.floor(i / cols), c = i % cols;
+    out += miniPerson(-w / 2 + (c + 0.5) * (w / cols), -(rows - 1 - r) * rowH - s * 0.08, s * 0.78, i, p.dimRest && c >= cut);
+  }
+  if (p.shareLabel && cut > 0) out += tx(p.shareLabel, -w / 2 + (cut * w) / cols / 2, -H - fs * 0.7, fs, "#6b4a00", 700);
+  if (p.restLabel && cut < cols) out += tx(p.restLabel, -w / 2 + (cut * w) / cols + (w - (cut * w) / cols) / 2, -H - fs * 0.7, fs, "#8a1c24", 700);
+  if (p.label) out += tx(p.label, 0, s * 0.3 + fs * 0.8, fs * 1.1, INK, 700);
+  return out;
+}
+
+function centralBank(p) {
+  const w = p.w || 260, h = w * 0.82;
+  let cols = "";
+  for (let i = 0; i < 6; i++) cols += `<rect x="${-w * 0.4 + i * w * 0.15}" y="${-h * 0.6}" width="${w * 0.07}" height="${h * 0.44}" fill="#efe9dc" stroke="#bdb5a4" stroke-width="${w * 0.008}"/>`;
+  return `<rect x="${-w * 0.54}" y="${-h * 0.08}" width="${w * 1.08}" height="${h * 0.08}" fill="#bdb5a4"/><rect x="${-w * 0.5}" y="${-h * 0.16}" width="${w}" height="${h * 0.08}" fill="#cfc8b8"/>` + cols +
+    `<rect x="${-w * 0.47}" y="${-h * 0.67}" width="${w * 0.94}" height="${h * 0.07}" fill="#0f6e6e"/>` +
+    `<path d="M${-w * 0.52} ${-h * 0.67} L0 ${-h * 0.98} L${w * 0.52} ${-h * 0.67} Z" fill="#ece6da" stroke="#bdb5a4" stroke-width="${w * 0.01}"/>` +
+    `<circle cy="${-h * 0.79}" r="${h * 0.09}" fill="#f3cf6a" stroke="#c99a2e" stroke-width="${h * 0.015}"/>` + tx("₹", 0, -h * 0.79, h * 0.11, "#8a6a1c", 800) +
+    `<g transform="translate(0,${-h * 0.31})"><rect x="${-w * 0.1}" y="${-h * 0.14}" width="${w * 0.2}" height="${h * 0.3}" rx="${w * 0.02}" fill="#8e96a1"/><circle r="${w * 0.05}" fill="none" stroke="#4a5568" stroke-width="${w * 0.012}"/><circle r="${w * 0.012}" fill="#4a5568"/></g>` +
+    (p.label ? `<rect x="${-w * 0.2}" y="${-h * 1.13}" width="${w * 0.4}" height="${h * 0.13}" rx="${h * 0.03}" fill="#0f6e6e"/>` + tx(p.label, 0, -h * 1.065, Math.min(h * 0.09, (w * 0.36) / Math.max(1, String(p.label).length) * 1.8), "#ffffff", 700) : "");
+}
+
+function committee(p) {
+  const w = p.w || 420, n = Math.max(1, Math.min(12, Math.round(p.n || 6))), s = Math.min((w / n) * 0.8, w * 0.17), top = -s * 0.85;
+  const fs = Math.max(26, s * 0.3), ph = fs * 1.5, name = String(p.name ?? "समिति"), col = p.color || "#0f6e6e";
+  let ppl = "";
+  for (let i = 0; i < n; i++) ppl += miniPerson(-w / 2 + (i + 0.5) * (w / n), top + s * 0.3, s * 1.05, i + 3, false);
+  const plateW = Math.max(w * 0.4, name.length * fs * 0.62 + fs);
+  return ppl + `<rect x="${-w * 0.54}" y="${top}" width="${w * 1.08}" height="${s * 0.18}" rx="${s * 0.06}" fill="#8a5d2e"/>` +
+    `<rect x="${-w * 0.5}" y="${top + s * 0.16}" width="${w}" height="${-top - s * 0.16}" fill="#a8763f" stroke="#7d5427" stroke-width="${w * 0.006}"/>` +
+    `<rect x="${-plateW / 2}" y="${top + s * 0.16 + (-top - s * 0.16 - ph) / 2}" width="${plateW}" height="${ph}" rx="${ph * 0.25}" fill="${col}"/>` +
+    tx(name, 0, top + s * 0.16 + (-top - s * 0.16) / 2, fs, "#ffffff", 800) + (p.sub ? tx(p.sub, 0, fs * 0.9, fs * 0.9, INK, 700) : "");
+}
+
+function moneyBag(p) {
+  const w = p.w || 160, h = w * 1.1, c = p.color || "#c9965a", sign = p.sign == null ? "₹" : String(p.sign);
+  return `<path d="M${-w * 0.16} ${-h * 0.78} Q${-w * 0.52} ${-h * 0.55} ${-w * 0.48} ${-h * 0.22} Q${-w * 0.44} 0 0 0 Q${w * 0.44} 0 ${w * 0.48} ${-h * 0.22} Q${w * 0.52} ${-h * 0.55} ${w * 0.16} ${-h * 0.78} Z" fill="${c}" stroke="${shade(c)}" stroke-width="${w * 0.02}"/>` +
+    `<path d="M${-w * 0.16} ${-h * 0.78} L${-w * 0.26} ${-h * 0.95} Q0 ${-h * 0.86} ${w * 0.26} ${-h * 0.95} L${w * 0.16} ${-h * 0.78} Z" fill="${shade(c, 0.9)}" stroke="${shade(c)}" stroke-width="${w * 0.015}"/>` +
+    `<rect x="${-w * 0.2}" y="${-h * 0.81}" width="${w * 0.4}" height="${h * 0.06}" rx="${h * 0.03}" fill="#7d5427"/>` +
+    (sign ? tx(sign, 0, -h * 0.36, w * 0.42, "#6b4a22", 800) : "") +
+    (p.label ? `<rect x="${-w * 0.42}" y="${-h * 0.16}" width="${w * 0.84}" height="${h * 0.14}" rx="${h * 0.05}" fill="#f7efe0"/>` + tx(p.label, 0, -h * 0.09, Math.min(w * 0.13, (w * 0.8) / Math.max(1, String(p.label).length) * 1.8), "#6b4a22", 700) : "");
+}
+
 // ---------------------------------------------------------------- marks
 export function markSvg(kind, w, color, k = 1) {
   const r = w / 2;
@@ -341,6 +518,14 @@ export const DRAWS = {
   qrStand: { fn: qrStand, anchor: "bottom" },
   phone: { fn: phone, anchor: "center" },
   mark: { fn: (p) => markSvg(p.kind || "tick", p.w || 100, p.color, 1), anchor: "center" },
+  institutionBadge: { fn: institutionBadge, anchor: "center" },
+  paper: { fn: paper, anchor: "center" },
+  disc: { fn: disc, anchor: "center" },
+  vault: { fn: vault, anchor: "bottom" },
+  crowd: { fn: crowd, anchor: "bottom" },
+  centralBank: { fn: centralBank, anchor: "bottom" },
+  committee: { fn: committee, anchor: "bottom" },
+  moneyBag: { fn: moneyBag, anchor: "bottom" },
 };
 
 export function drawSaancha(name, p = {}) {
