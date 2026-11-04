@@ -74,6 +74,14 @@ PATCH_INSTRUCTION = (
 )
 
 
+def _crash(what: str, exc: Exception) -> str:
+    """A shape-sensitive step function (patch apply, normalizer, code check) crashed on the maker's JSON. The crash
+    becomes a named round problem instead of killing the job — the first live writers' runs died on a list and a
+    str where the format says object — and the record keeps the exception text."""
+    return (f"BIE's {what} crashed on this answer ({type(exc).__name__}: {str(exc)[:200]}); "
+            f"make every field exactly the shape the format says")
+
+
 CONVERGING_MAX = 4           # a code-only rejection with at most this many problems, fewer than the round before, converges
 
 
@@ -236,18 +244,30 @@ class SectionRunner:
                 rounds.append(entry)
                 status = "stopped" if exc.kind in STOP_KINDS else status
                 break
-            value = response.content
+            value, crash = response.content, None
             if patching:
                 entry["patch"] = value
-                value = step.apply_patch(output, value)
-            if step.normalize is not None:
-                value, changes = step.normalize(value)
-                if changes:
-                    entry["normalized"] = changes
+                try:
+                    value = step.apply_patch(output, value)
+                except Exception as exc:                 # noqa: BLE001 — the patch's shape broke the merge
+                    crash, value = _crash("patch apply", exc), output
+            if crash is None and step.normalize is not None:
+                try:
+                    value, changes = step.normalize(value)
+                    if changes:
+                        entry["normalized"] = changes
+                except Exception as exc:                 # noqa: BLE001
+                    crash = _crash("normalizer", exc)
             entry["maker"] = _call_info(response, self.maker)
-            entry["notes"] = value.get("notes")
+            entry["notes"] = value.get("notes") if isinstance(value, dict) else None
             entry["output"] = value
-            problems = [f"[code] {p}" for p in step.check(value)]
+            if crash is None:
+                try:
+                    problems = [f"[code] {p}" for p in step.check(value)]
+                except Exception as exc:                 # noqa: BLE001 — a check names problems, it never dies
+                    crash = _crash("code check", exc)
+            if crash is not None:
+                problems = [f"[code] {crash}"]
             entry["code_problems"] = problems
             converging = (bool(problems) and len(problems) <= CONVERGING_MAX
                           and ((last_code is not None and len(problems) < last_code)     # one round shows no trend

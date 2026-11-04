@@ -144,6 +144,13 @@ class Writers(unittest.TestCase):
         problems = check_levels({"levels": []}, self.CHAPTER)
         self.assertIn("at least 2 levels are needed", problems)
 
+    def test_a_hostile_shape_is_sent_back_as_problems_never_a_crash(self):
+        # The first live writers' runs died on exactly these shapes (a list for a page, a str for a level).
+        from bie.brain.show_writers import check_levels, check_pages
+        self.assertTrue(any("must be a JSON object" in p for p in check_pages({"pages": [["x"]]}, self.CHAPTER)))
+        self.assertTrue(any("must be a JSON object" in p
+                            for p in check_levels({"levels": ["x", {"level_id": "l1"}]}, self.CHAPTER)))
+
 
 class VmJobs(unittest.TestCase):
     def test_the_vm_takes_the_new_sections_and_the_with_show_chain(self):

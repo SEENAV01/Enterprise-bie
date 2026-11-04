@@ -1805,3 +1805,22 @@ local validator still enforces it. Strict schemas keep provider-side structured 
 
 **Measured effect:** showplan-b before: round 1 full answer valid, 3 compile problems; round 2 patch dead on the
 envelope. Writers: dead in round 1. After: proof is the resubmitted -c/-b jobs. Tokens and ₹ of this change: none.
+
+## Entry 44 · the third run: the director passed Money v4; a check must name problems, never die, 4 November 2026
+
+**The runs (showplan-c, notespages-b, gamelevels-b; Codex on the VM, ₹0):** after entry 43's fix, **BIE's director
+passed Money v4** — 12 scenes, 274 things, 14.7 minutes, 2 rounds, every compiler check green (`plans/v4.plan.json`
++ compiled `video_specs/v4.json` on `runs/vm-p1f-money-showplan-c-brain-showplan`). The first BIE-written video of
+the new showing engine. The two writers still died, this time on BIE's own code: the maker put a list where a page
+object belongs and a str where a piece object belongs, and the slot checks crashed (`AttributeError ... .get`)
+instead of naming the problem — the whole job fell, no record written.
+
+**What changed in BIE:** (1) the section runner treats a crash in the code check, the normalizer or the patch apply
+as a named round problem (`BIE's code check crashed on this answer (...)`), recorded like any other problem, so the
+maker fixes its shape and the job never dies on an answer's shape again; (2) `notes_pages.problems`,
+`game_levels.problems` and the writers' `check_pages`/`check_levels` walk only JSON objects and name every wrong
+shape exactly (a page that is a list, a visual that is a list, pieces as a dict, a str piece), so the maker gets a
+real finding instead of a crash line.
+
+**Measured effect:** showplan 0/1 → **1/1 passed** (run b round 1: 3 problems; run c: passed in 2 rounds). Writers:
+dead job with no record → named problems and rounds (proof: the resubmitted -c writers). Tokens and ₹: none.

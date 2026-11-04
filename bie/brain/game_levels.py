@@ -30,7 +30,9 @@ def _rows(level, key):
 
 
 def problems(level: dict) -> list:
-    """Why this level cannot be played, each problem naming the field exactly."""
+    """Why this level cannot be played, each problem naming the field exactly (never a crash, whatever the shape)."""
+    if not isinstance(level, dict):
+        return [f"a game level must be a JSON object, not {type(level).__name__}"]
     out = []
     lid = level.get("level_id") or "?"
 
@@ -51,6 +53,14 @@ def problems(level: dict) -> list:
         return out
     pieces = _rows(level, "pieces")
     places = _rows(level, "places") if mech in ("place_right", "find_partner") else []
+    for kind, rows in (("pieces", pieces), ("places", places)):
+        if not isinstance(rows, list):
+            out.append(f"level {lid}: '{kind}' must be a list of JSON objects, not {type(rows).__name__}")
+        else:
+            out += [f"level {lid}: every one of '{kind}' must be a JSON object, not {type(row).__name__}"
+                    for row in rows if not isinstance(row, dict)]
+    pieces = [p for p in pieces if isinstance(p, dict)] if isinstance(pieces, list) else []
+    places = [p for p in places if isinstance(p, dict)] if isinstance(places, list) else []
     if not 2 <= len(pieces) <= MAX_PIECES:
         out.append(f"level {lid}: 2..{MAX_PIECES} pieces are needed, not {len(pieces)} (a phone screen)")
     if mech in ("place_right", "find_partner") and not 2 <= len(places) <= MAX_PIECES:

@@ -21,7 +21,9 @@ def _rows(page, key):
 
 
 def problems(page: dict) -> list:
-    """Why this page cannot be made, each problem naming the field exactly."""
+    """Why this page cannot be made, each problem naming the field exactly (never a crash, whatever the shape)."""
+    if not isinstance(page, dict):
+        return [f"a notes page must be a JSON object, not {type(page).__name__}"]
     out = []
     pid = page.get("page_id") or "?"
     if str(page.get("schema", "")) != "bie.notes-page/1":
@@ -34,16 +36,25 @@ def problems(page: dict) -> list:
     if not _rows(page, "item_ids"):
         out.append(f"page {pid}: 'item_ids' is needed (the book items this page answers from)")
     visual = page.get("visual") or {}
+    if not isinstance(visual, dict):
+        out.append(f"page {pid}: 'visual' must be a JSON object, not {type(visual).__name__}")
+        return out
     kind = visual.get("kind")
     if kind not in KINDS:
         out.append(f"page {pid}: no visual kind '{kind}' (kinds: {', '.join(KINDS)})")
         return out
     if kind == "picture":
         els = visual.get("els") or []
+        if not isinstance(els, list):
+            out.append(f"page {pid}: 'els' must be a list of JSON objects, not {type(els).__name__}")
+            return out
         if not els:
             out.append(f"page {pid}: a picture needs 'els' (the plan language's things and texts)")
         for i, el in enumerate(els):
             where = f"page {pid} picture el {i + 1}"
+            if not isinstance(el, dict):
+                out.append(f"{where}: an el must be a JSON object, not {type(el).__name__}")
+                continue
             if el.get("draw") and not str(el["draw"]).startswith("__"):
                 for p in saanche.problems(el["draw"], el.get("p") or {}):
                     out.append(f"{where}: {p}")

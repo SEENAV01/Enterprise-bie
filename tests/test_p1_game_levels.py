@@ -62,6 +62,15 @@ def level(mechanic, **extra):
 
 
 class LevelSlot(unittest.TestCase):
+    def test_a_hostile_shape_is_a_named_problem_never_a_crash(self):
+        # The first live writers' run died on a shape like these ("'str' object has no attribute 'get'").
+        self.assertIn("must be a JSON object", gl.problems("not a level")[0])
+        with_str_piece = level("run_process")
+        with_str_piece["pieces"] = list(with_str_piece["pieces"]) + ["a string piece"]
+        self.assertIn("must be a JSON object", " ".join(gl.problems(with_str_piece)))
+        with_dict_pieces = level("run_process") | {"pieces": {"p1": "x"}}
+        self.assertIn("'pieces' must be a list", " ".join(gl.problems(with_dict_pieces)))
+
     def test_every_mechanic_has_a_valid_level_that_lowers_to_a_playable_stage(self):
         for mech in gl.MECHANICS:
             lv = level(mech)
