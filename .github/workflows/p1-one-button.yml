@@ -1,0 +1,174 @@
+# Phase 1, part E (agreement of 3 November 2026): the one button. A chain run on the VM (run_brain --section chain
+# --with-show) has published its folder to blindtest-results with showplan.json, video_specs/, notes/ and game/.
+# This workflow renders every passed video through the existing render workflow (one dispatch per video, the same
+# chunked path as always), waits for their review copies to land, then assembles ONE review page per chapter -
+# videos, notes, game, honest numbers - and publishes it to blindtest-results as runs/<dest>/REVIEW.html.
+name: BIE P1 One Button
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_folder:
+        description: the chain run folder on blindtest-results (for example runs/vm-p1-brain-chain) with showplan.json
+        required: true
+      dest:
+        description: folder under runs/ for the assembled review page; each video renders to <dest>-<video>
+        default: 'p1-review'
+      chunks:
+        description: render chunks per video (one runner each)
+        default: '6'
+      wait_minutes:
+        description: how long to wait for the renders before giving up
+        default: '150'
+      notes_run:
+        description: the run folder holding notes/ when the writers ran as their own VM jobs (empty = run_folder)
+        default: ''
+      game_run:
+        description: the run folder holding game/ when the writers ran as their own VM jobs (empty = run_folder)
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: p1-one-button-${{ inputs.dest }}
+  cancel-in-progress: false
+
+env:
+  RUN_FOLDER: ${{ inputs.run_folder }}
+  DEST: ${{ inputs.dest || 'p1-review' }}
+  CHUNKS: ${{ inputs.chunks || '6' }}
+  WAIT_MINUTES: ${{ inputs.wait_minutes || '150' }}
+  NOTES_RUN: ${{ inputs.notes_run || '' }}
+  GAME_RUN: ${{ inputs.game_run || '' }}
+
+jobs:
+  fanout:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      actions: write   # only to dispatch the existing render workflow, one run per passed video
+    outputs:
+      videos: ${{ steps.plan.outputs.videos }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: The chain run's scene plans (from blindtest-results)
+        run: |
+          set -euo pipefail
+          git init -q "$RUNNER_TEMP/branch" && cd "$RUNNER_TEMP/branch"
+          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          git fetch -q --depth=1 origin blindtest-results
+          git checkout -q FETCH_HEAD -- "$RUN_FOLDER"
+      - id: plan
+        name: The passed videos
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os
+          folder = os.path.join(os.environ["RUNNER_TEMP"], "branch", os.environ["RUN_FOLDER"])
+          rows = json.load(open(os.path.join(folder, "showplan.json"), encoding="utf-8"))["videos"]
+          videos = [r["video_id"] for r in rows if r.get("status") == "passed"]
+          if not videos:
+              raise SystemExit("no passed scene plan in showplan.json")
+          print("videos=" + json.dumps(videos))
+          PY
+      - name: One render per video (the existing chunked render workflow)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          for video in $(echo '${{ steps.plan.outputs.videos }}' | python -c 'import json,sys; print(" ".join(json.load(sys.stdin)))'); do
+            gh workflow run task046c-render.yml --repo "$GITHUB_REPOSITORY" \
+              -f run_folder="$RUN_FOLDER" -f video="$video" -f chunks="$CHUNKS" \
+              -f dest="$DEST-$video" -f publish=true -f respec=false
+            echo "::notice title=p1 one button::render dispatched: $video -> runs/$DEST-$video"
+            sleep 3
+          done
+
+  page:
+    needs: [fanout]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 200
+    permissions:
+      contents: write  # only to push the assembled review page to the blindtest-results branch
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Wait for every render's review copy on blindtest-results
+        run: |
+          set -euo pipefail
+          videos=$(echo '${{ needs.fanout.outputs.videos }}' | python -c 'import json,sys; print(" ".join(json.load(sys.stdin)))')
+          deadline=$(( $(date +%s) + WAIT_MINUTES * 60 ))
+          git init -q "$RUNNER_TEMP/branch" && cd "$RUNNER_TEMP/branch"
+          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          while true; do
+            git fetch -q --depth=1 origin blindtest-results
+            missing=""
+            for video in $videos; do
+              if ! git cat-file -e "FETCH_HEAD:runs/$DEST-$video/summary.json" 2>/dev/null; then missing="$missing $video"; fi
+            done
+            if [ -z "$missing" ]; then echo "every render landed"; break; fi
+            if [ "$(date +%s)" -ge "$deadline" ]; then
+              echo "::error title=p1 one button::renders not landed after $WAIT_MINUTES minutes:$missing"; exit 1
+            fi
+            echo "waiting for:$missing"; sleep 90
+          done
+      - name: Assemble the chapter folder (videos, notes, game) and build REVIEW.html
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP/branch"
+          git checkout -q FETCH_HEAD -- "$RUN_FOLDER"
+          if [ -n "$NOTES_RUN" ]; then git checkout -q FETCH_HEAD -- "$NOTES_RUN"; fi
+          if [ -n "$GAME_RUN" ]; then git checkout -q FETCH_HEAD -- "$GAME_RUN"; fi
+          videos=$(echo '${{ needs.fanout.outputs.videos }}' | python -c 'import json,sys; print(" ".join(json.load(sys.stdin)))')
+          for video in $videos; do git checkout -q FETCH_HEAD -- "runs/$DEST-$video"; done
+          out="$RUNNER_TEMP/page"
+          mkdir -p "$out/videos" "$out/stills"
+          cp "$RUN_FOLDER/showplan.json" "$out/"
+          if [ -d "$RUN_FOLDER/plans" ]; then cp -R "$RUN_FOLDER/plans" "$out/plans"; fi
+          notes_src="${NOTES_RUN:-$RUN_FOLDER}"; game_src="${GAME_RUN:-$RUN_FOLDER}"
+          if [ -d "$notes_src/notes" ]; then cp -R "$notes_src/notes" "$out/notes"; fi
+          if [ -d "$game_src/game" ]; then cp -R "$game_src/game" "$out/game"; fi
+          for video in $videos; do
+            src="runs/$DEST-$video"
+            cp "$src/review-720p.mp4" "$out/videos/$video.mp4"
+            for f in audit.json cost.json; do
+              if [ -f "$src/$f" ]; then cp "$src/$f" "$out/videos/$video.${f%.json}.json"; fi
+            done
+            poster=$(ls "$src"/stills/*.png 2>/dev/null | head -1 || true)
+            if [ -n "$poster" ]; then cp "$poster" "$out/stills/$video.png"; fi
+          done
+          cd "$GITHUB_WORKSPACE"
+          title=$(python -c "import os; print(os.environ['DEST'].replace('-', ' '))")
+          python -B tools/p1_review_page.py --run "$RUNNER_TEMP/page" --title "$title"
+          echo "review page built" >> "$GITHUB_STEP_SUMMARY"
+      - name: Publish the chapter folder to the blindtest-results branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          dest="runs/$DEST"
+          auth="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
+          cd "$RUNNER_TEMP/branch"
+          for attempt in 1 2 3 4 5 6; do
+            git -c http.extraheader="$auth" fetch -q --depth=1 origin blindtest-results
+            git checkout -q -B blindtest-results FETCH_HEAD
+            rm -rf "$dest" && mkdir -p "$dest"
+            cp -R "$RUNNER_TEMP/page/." "$dest/"
+            git add "$dest"
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -q -m "P1 one button ${GITHUB_RUN_ID}: ${DEST}"
+            if git -c http.extraheader="$auth" push -q origin HEAD:blindtest-results; then
+              echo "::notice title=p1 one button::branch blindtest-results, folder ${dest}/REVIEW.html (push attempt ${attempt})"
+              exit 0
+            fi
+            echo "push attempt ${attempt} rejected; fetching the new tip"
+            sleep $((attempt * 7))
+          done
+          echo "::error title=p1 one button::could not publish ${dest} after 6 attempts"
+          exit 1
