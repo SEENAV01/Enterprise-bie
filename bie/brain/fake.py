@@ -273,6 +273,69 @@ def ideas_answer(user_text: str):
     return {"notes": NOTES, "beats": rows, "picture_type": pics[0]["type"] if pics else "things", "picture_note": "offline"}
 
 
+def showplan_answer(user_text: str):
+    """A scene plan the compiler accepts: per part one scene, a villager and a sack on screen, one title pill."""
+    data = json.loads(user_text[user_text.index("{"):user_text.rindex("}") + 1])
+    by_part = {}
+    for line in data.get("lines") or []:
+        by_part.setdefault(line.get("scene") or "part", []).append(line["id"])
+    scenes = []
+    for n, (part, lids) in enumerate(by_part.items()):
+        scenes.append({"id": f"s{n + 1}", "lines": lids, "bg": "paper",
+                       "cam": [],
+                       "steps": [
+                           {"op": "person", "id": "p", "look": "villager", "x": 520},
+                           {"op": "item", "thing": {"draw": "sack", "p": {"w": 220}}, "x": 1320, "y": 885},
+                           {"op": "text", "text": data.get("title") or "…", "size": 44, "style": "pill",
+                            "bg": "#2fb463", "fill": "#fff", "x": 960, "y": 220,
+                            "t0": {"line": lids[0], "edge": "start", "plus": 0.1}},
+                       ]})
+    return {"schema": "bie.scene-plan/1", "video": data.get("video_id", ""), "scenes": scenes}
+
+
+def notes_pages_answer(user_text: str):
+    """Notes pages the part-B4 validator accepts: one page per concept, the first a picture the engine draws."""
+    concepts = json.loads(user_text[user_text.index("Concepts: ") + 10:user_text.index("\nTeachable")])
+    items = json.loads(user_text[user_text.index("Teachable items: ") + 17:user_text.rindex("\n\nReply")])
+    known = [i["item_id"] for i in items] or ["i1"]
+    pages = []
+    for n, c in enumerate(concepts or [{"concept_id": "c1", "name": "Concept", "item_ids": known[:1]}]):
+        ids = [i for i in c["item_ids"] if i in known] or c["item_ids"][:1] or known[:1]
+        page = {"schema": "bie.notes-page/1", "page_id": f"pg-{c['concept_id']}", "ask": "what",
+                "question": f"{c['name']} kya hai?", "essence": "Ek line mein.", "answer": "Chhota jawaab.",
+                "item_ids": ids}
+        if n == 0:
+            page["visual"] = {"kind": "picture", "bg": "paper", "els": [
+                {"draw": "__person__", "look": "villager", "h": 300, "pose": "point", "facing": 1, "x": 760, "y": 700},
+                {"draw": "sack", "p": {"w": 200}, "x": 1160, "y": 860},
+                {"text": c["name"][:30], "size": 44, "style": "pill", "bg": "#2fb463", "fill": "#fff", "x": 960, "y": 200}]}
+        else:
+            page["visual"] = {"kind": "flow", "title": c["name"],
+                              "steps": [{"label": "Pehla kadam", "detail": ""}, {"label": "Doosra kadam", "detail": ""}]}
+        pages.append(page)
+    return {"notes": NOTES, "pages": pages}
+
+
+def game_levels_answer(user_text: str):
+    """Game levels the part-B3 validator accepts: a process and a partner level, two mechanics."""
+    items = json.loads(user_text[user_text.index("Teachable items: ") + 17:user_text.rindex("\n\nReply")])
+    ids = [i["item_id"] for i in items][:1] or ["i1"]
+    return {"notes": NOTES, "levels": [
+        {"schema": "bie.game-level/1", "level_id": "lv-process", "title": "Process", "mechanic": "run_process",
+         "instruction": "Kadam sahi kram mein chalao.", "win": "Process chal pada!", "item_ids": ids,
+         "pieces": [{"id": "a", "label": "Pehla", "right": "Shuru ho gaya."},
+                    {"id": "b", "label": "Doosra", "right": "Aage badha."},
+                    {"id": "c", "label": "Teesra", "right": "Poora hua."}],
+         "order_why": "process isi kram mein chalta hai."},
+        {"schema": "bie.game-level/1", "level_id": "lv-partner", "title": "Partner", "mechanic": "find_partner",
+         "instruction": "Sahi saathi se milao.", "win": "Sauda pakka!", "item_ids": ids,
+         "pieces": [{"id": "x", "label": "Gehu hai, kapda chahiye", "fits": "px", "right": "Dono ki zaroorat mili.",
+                     "wrong": "Ise gehu nahi chahiye."},
+                    {"id": "y", "label": "Matka hai, namak chahiye", "fits": "py", "right": "Sahi jodi.",
+                     "wrong": "Yahan namak nahi milta."}],
+         "places": [{"id": "px", "label": "Kapda hai, gehu chahiye"}, {"id": "py", "label": "Namak hai, matka chahiye"}]}]}
+
+
 def canvas_answer(user_text: str):
     """A plan the canvas compiler accepts: a title tag, then one icon card per beat on its first word (an icon with a short label,
     so every beat shows a thing, D1-01), two columns of two-row cards below the code-placed book picture (the label at the readable
@@ -510,6 +573,16 @@ class BrainFakeClient:
             value = notes_answer(user)
         elif "replace_scenes" in props:
             value = {"notes": NOTES, "replace_scenes": [], "remove_scene_ids": []}
+        elif "scenes" in props and "schema" in props and "video" in props:
+            value = showplan_answer(user)
+        elif "replace_pages" in props:
+            value = {"notes": NOTES, "replace_pages": [], "remove_page_ids": []}
+        elif "pages" in props and "notes" in props and len(props) == 2:
+            value = notes_pages_answer(user)
+        elif "replace_levels" in props:
+            value = {"notes": NOTES, "replace_levels": [], "remove_level_ids": []}
+        elif "levels" in props and "notes" in props and len(props) == 2:
+            value = game_levels_answer(user)
         elif "nodes" in props and "graph_used" in props:
             value = canvas_answer(user)
         elif "picture_type" in props and "beats" in props:

@@ -195,7 +195,7 @@ def plan_usage(gateway) -> dict:
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--section", choices=("understand", "lesson", "director", "notes", "game", "visual", "canvas", "chain", "coder"),
+    parser.add_argument("--section", choices=("understand", "lesson", "director", "notes", "game", "visual", "canvas", "chain", "coder", "showplan", "notespages", "gamelevels"),
                         default="understand")
     parser.add_argument("--source", help="chapter PDF (understand, chain)")
     parser.add_argument("--chapter-map", help="chapter_map.json from an earlier run (lesson; director, visual and canvas when --from-run has none)")
@@ -301,7 +301,7 @@ def main(argv=None):
             except Exception:                                    # a needs file alone is enough; the course only words the spec
                 coder_course = {}
             text = ""
-        elif args.section in ("lesson", "notes", "game"):
+        elif args.section in ("lesson", "notes", "game", "notespages", "gamelevels"):
             if not args.chapter_map:
                 raise SystemExit("CHAPTER_MAP_REQUIRED")
             chapter = formats.accept("chapter_map", json.loads(read_text(args.chapter_map)), where=args.chapter_map)
@@ -346,7 +346,7 @@ def main(argv=None):
                "warning" if estimate["total_inr"] > args.max_inr else "notice")
         # the canvas section has no reviewer round (layout is checked by code), so only the maker's route is checked: a job
         # without a reviewer route must not stop on the VM's default reviewer (28 October 2026: gemini-3.1-pro not found)
-        routes = [args.maker] if args.section in ("canvas", "coder") else None
+        routes = [args.maker] if args.section in ("canvas", "coder", "showplan", "notespages", "gamelevels") else None
         checked = (preflight(gateway, routes=routes, vision=args.section in ("understand", "chain", "visual")) if summary["status"] == "ok"
                    else {"passed": False, "routes": {}, "skipped": summary["status"]})   # a level stop spends nothing
         summary["preflight"] = checked
@@ -417,6 +417,26 @@ def main(argv=None):
             planned = run_canvas(chapter, lesson, course, runner, out, videos=wanted or None, workers=args.workers, max_rounds=args.max_rounds,
                                  shared_library=args.library or None, previous=previous)
             summary.update(canvas_quality=planned["quality"])
+            if guard.stopped:
+                summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
+        if summary["status"] == "ok" and args.section == "notespages":
+            from bie.brain.show_writers import run_notes_pages
+            summary.update(notes_pages=run_notes_pages(chapter, course, runner, out, max_rounds=args.max_rounds))
+            if guard.stopped:
+                summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
+        if summary["status"] == "ok" and args.section == "gamelevels":
+            from bie.brain.show_writers import run_game_levels
+            summary.update(game_levels=run_game_levels(chapter, course, runner, out, max_rounds=args.max_rounds))
+            if guard.stopped:
+                summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
+        if summary["status"] == "ok" and args.section == "showplan":
+            # Phase 1 part C (agreement of 3 November 2026): the director writes scene plans in the plan language;
+            # the compiler is the code check, so no reviewer round
+            from bie.brain.show_director import run_show_director
+            wanted = [v.strip() for v in args.videos.split(",") if v.strip()]
+            planned = run_show_director(lesson, course, runner, out, videos=wanted or None, max_rounds=args.max_rounds)
+            summary.update(showplan_quality={"passed": planned["passed"], "first_try": planned["first_try"],
+                                             "videos": len(planned["videos"])})
             if guard.stopped:
                 summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
         if summary["status"] == "ok" and args.section == "coder":
