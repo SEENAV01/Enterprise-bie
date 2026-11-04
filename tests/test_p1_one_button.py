@@ -80,5 +80,28 @@ class OneButtonWorkflow(unittest.TestCase):
         self.assertNotIn("video.mp4\n", text)                            # only review copies travel to the branch
 
 
+class TrimMap(unittest.TestCase):
+    def test_the_trim_keeps_only_what_the_videos_teach_and_still_validates(self):
+        sys.path.insert(0, str(ROOT / "tools"))
+        import trim_chapter_map as tool
+        from bie.brain import formats
+        chapter = {"schema": "bie.brain.chapter-map/2", "course": {"title": "t", "subject": "s", "learners": "l"},
+                   "source_sha256": "a" * 64, "pages": [{"page": 2}, {"page": 9}],
+                   "items": {"i1": {"item_id": "i1", "content": "a", "teachable": True, "page": 2},
+                             "i2": {"item_id": "i2", "content": "b", "teachable": True, "page": 9}},
+                   "map": {"chapter_title": "t", "concepts": [
+                       {"concept_id": "c1", "name": "one", "item_ids": ["i1"]},
+                       {"concept_id": "c2", "name": "two", "item_ids": ["i2"]}]},
+                   "map_status": "passed"}
+        lesson = {"videos": [{"video_id": "v4", "beats": [{"covers_item_ids": ["i1"]}]},
+                             {"video_id": "v9", "beats": [{"covers_item_ids": ["i2"]}]}]}
+        out = tool.trim(chapter, lesson, ["v4"])
+        self.assertEqual(sorted(out["items"]), ["i1"])
+        self.assertEqual([c["concept_id"] for c in out["map"]["concepts"]], ["c1"])
+        self.assertEqual(formats.problems("chapter_map", out), [])
+        with self.assertRaises(SystemExit):
+            tool.trim(chapter, lesson, ["v99"])
+
+
 if __name__ == "__main__":
     unittest.main()
