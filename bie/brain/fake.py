@@ -296,7 +296,8 @@ def showplan_answer(user_text: str):
 def notes_pages_answer(user_text: str):
     """Notes pages the part-B4 validator accepts: one page per concept, the first a picture the engine draws."""
     concepts = json.loads(user_text[user_text.index("Concepts: ") + 10:user_text.index("\nTeachable")])
-    items = json.loads(user_text[user_text.index("Teachable items: ") + 17:user_text.rindex("\n\nReply")])
+    start = user_text.index("Teachable items: ") + 17
+    items = json.loads(user_text[start:user_text.index("\n", start)])     # the items line alone (the shape text follows)
     known = [i["item_id"] for i in items] or ["i1"]
     pages = []
     for n, c in enumerate(concepts or [{"concept_id": "c1", "name": "Concept", "item_ids": known[:1]}]):

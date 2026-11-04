@@ -1824,3 +1824,21 @@ real finding instead of a crash line.
 
 **Measured effect:** showplan 0/1 → **1/1 passed** (run b round 1: 3 problems; run c: passed in 2 rounds). Writers:
 dead job with no record → named problems and rounds (proof: the resubmitted -c writers). Tokens and ₹: none.
+
+## Entry 45 · the game passed; the notes pages need the shape in front of them, 4 November 2026
+
+**The runs (notespages-c, gamelevels-c; Codex on the VM, ₹0):** the game writer **passed** — 11 levels across 4
+mechanics in 2 rounds (`runs/vm-p1f-money-gamelevels-c-brain-gamelevels`, GAME.html playable); the long silence that
+looked like a dead VM was this one job thinking for 150 minutes. The notes writer failed after 5 rounds: round 1
+lost 19 problems to fields the role prose never named (every page missing `ask` and `visual.kind`), round 2 to one
+more shape crash (a str flow step — caught by entry 44's net, but as a generic line), then it converged 10 → 1 → 1
+and ran out one field short (`deep_dive` must be a string).
+
+**What changed in BIE:** (1) `page_shape_text()` in the notes writer's prompt — the exact `bie.notes-page/1` schema,
+the ask list and each visual kind's rows, built from the real constants so it cannot drift, plus "question, essence,
+answer and deep_dive are plain strings"; (2) `notes_pages.problems` names wrong shapes in flow steps, compare
+columns/rows and table rows exactly (no more generic crash line for those); (3) the offline fake reads the items
+line alone, so the richer prompt parses.
+
+**Measured effect:** notes run c: 19 → crash → 10 → 1 → 1 over 5 rounds, 0 pages. After: run d (resubmitted,
+max_rounds 6). Game: 0 → 11 levels passed. Tokens and ₹: none here; the VM runs stay ₹0 on the plan.

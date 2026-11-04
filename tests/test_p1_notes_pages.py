@@ -56,6 +56,13 @@ class PageSlot(unittest.TestCase):
         bad_el = page()
         bad_el["visual"] = dict(bad_el["visual"], els=["a string el"])
         self.assertIn("must be a JSON object", " ".join(np.problems(bad_el)))
+        # Flow steps, compare columns/rows and table rows the same way (run c's round 2 crashed on a str step).
+        for visual in ({"kind": "flow", "steps": ["x", "y"]},
+                       {"kind": "compare", "columns": "ab", "rows": [{"label": "l", "cells": ["a", "b"]}]},
+                       {"kind": "compare", "columns": ["a", "b"], "rows": ["x"]},
+                       {"kind": "table", "rows": ["x"]}):
+            got = " ".join(np.problems(page() | {"visual": visual}))
+            self.assertIn("must be a list", got, visual["kind"])
 
     def test_every_kind_is_a_valid_page(self):
         for kind in np.KINDS:

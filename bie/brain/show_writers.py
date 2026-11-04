@@ -119,12 +119,27 @@ def _patch(key_replace, key_remove, id_key):
     return apply
 
 
+def page_shape_text() -> str:
+    """The exact page shape in the prompt, built from the real constants so it can never drift: the first live
+    notespages run lost its whole first round to fields the role never named (every page missing ask and
+    visual.kind)."""
+    from bie.brain.notes import ASKS
+    return ("A page's exact shape (bie.notes-page/1), every required key present:\n"
+            + json.dumps(formats.NOTES_PAGE, ensure_ascii=False)
+            + f"\nask is one of: {', '.join(ASKS)}."
+            + "\nvisual by kind: picture needs els (each el a JSON object on the 1920x1080 stage); flow needs steps"
+              " (each a JSON object with label); compare needs columns (strings) and rows (each a JSON object with"
+              " label and cells, one cell per column); table needs rows (each a JSON object with label)."
+            + "\nquestion, essence, answer and deep_dive are plain strings, never objects or lists.")
+
+
 def pages_step(course: Course, chapter: dict, *, rulebook, max_rounds: int = 4, start: dict | None = None) -> Step:
     from bie.brain import saanche
     system = fmt(PAGES_ROLE, course, saanche=", ".join(saanche.names()), rules=rulebook.instructions("notes"))
     user = (f"Chapter: {(chapter.get('map') or {}).get('chapter_title', course.title)}.\n"
             f"Concepts: {json.dumps(_concepts_payload(chapter), ensure_ascii=False)}\n"
             f"Teachable items: {json.dumps(_items_payload(chapter), ensure_ascii=False)}\n\n"
+            f"{page_shape_text()}\n\n"
             "Reply with {\"notes\": ..., \"pages\": [bie.notes-page/1 ...]}.")
     return Step(section="notespages", unit="pages", instructions_version="notes-pages/1", system=system, user=user,
                 schema=PAGES_SCHEMA, check=lambda value: check_pages(value, chapter),
