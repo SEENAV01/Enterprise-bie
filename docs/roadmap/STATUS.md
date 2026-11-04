@@ -107,6 +107,21 @@ every review copy to land, assembles the chapter folder (videos with audits and 
 `runs/<dest>/REVIEW.html`. No new render path, review copies only on the branch. Still in part E: the operator app
 button that submits the VM chain job and then this workflow.
 
+**Part F: the decision test ran end to end on 4 November 2026 — STOPPED for Navin's verdict.** BIE's own Money v4
+through the whole new road, all live on the VM and in Actions, ₹0 AI: the director's scene plan passed the compiler
+(12 scenes, 274 things, 879.94 s, 2 rounds), the notes writer passed first try after the shape-in-prompt fix
+(9 pages, 1 round), the game writer passed (11 levels, 4 mechanics, 2 rounds), the one button rendered v4
+(26,398 frames, 5.5 min wall, ₹24.43 list, ₹0 billed) and published `runs/p1f-money-v4/REVIEW.html`. Claude's v2
+gold demo was rendered through the same road for the same audit (`runs/p1f-money-v2demo/`, labelled Claude's demo,
+not BIE output). Decision page: `runs/p1f-decision/index.html` on blindtest-results; report:
+`docs/roadmap/reports/P1F_DECISION_MONEY_V4.md`. Frame audit, honest both ways — v4: 338 texts, 65 under 36 px,
+28 covering pairs; v2 demo: 320 texts, 32 under, 10 covering. The shared root is saancha-internal labels
+(card headers 16–21 px) the plan compiler does not see — the named next code fix. Five seekh PRs shipped from the
+run's own failures (#135 strict-ready schemas, #136 schema in the prompt, #140 a check never dies, #143 the page
+shape in the writer's prompt, #144 the render counts either spec kind + the one button never re-renders a landed
+video), SEEKH_LOG entries 42–46. Parts A–E are INTEGRATED on a real chapter; nothing is ACCEPTED until Navin's
+verdict. Interim renders stay captions-only (voice waits on his yes).
+
 ## Task 048 · first slice: the render checks and the one-button plumbing (3 November 2026)
 
 Navin, 3 November 2026: "Meanwhile: fix only these general issues ..., then start the render/player and one-button plumbing (Task
