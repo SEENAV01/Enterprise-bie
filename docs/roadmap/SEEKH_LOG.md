@@ -1788,3 +1788,20 @@ normal run. Tests: the strict/free-form split on real schemas, no `--output-sche
 
 **Measured effect:** showplan on Codex, before: 0 of 1 plans, failed in round 1, ₹0 wasted but a dead road. After:
 the same job shape runs (proof is the resubmitted p1f job). Tokens and ₹ of this change: none, no AI call was made.
+
+## Entry 43 · the second showplan run: a schema the provider never sees must ride in the prompt, 4 November 2026
+
+**The runs (p1f-money-showplan-b, notespages-a, gamelevels-a; Codex on the VM, ₹0):** after entry 42's fix the
+maker ran — and the director's first full answer was genuinely good: the whole 14.7-minute v4 plan validated and
+compiled with only 3 overlapping-text problems left, all in one scene (issuePolicy). But the patch round, and both
+writers' first rounds, died on the local validator: `$.notes: missing about`, `missing key_questions`. The strict
+provider schema used to FORCE the full notes envelope; a schema-less request leaves the maker guessing the exact
+envelope from prose, and the local validator (rightly) rejects a guess.
+
+**What changed in BIE:** `schema_text()` in `bie/model_gateway/live/messages.py` — when a free-form schema cannot
+go to the provider, the same provider-filtered schema JSON now goes into the prompt itself (`<bie-output-schema>`
+block for Codex, appended to instructions for OpenAI), so the maker sees every required key, notes included; the
+local validator still enforces it. Strict schemas keep provider-side structured output and get no prompt block.
+
+**Measured effect:** showplan-b before: round 1 full answer valid, 3 compile problems; round 2 patch dead on the
+envelope. Writers: dead in round 1. After: proof is the resubmitted -c/-b jobs. Tokens and ₹ of this change: none.

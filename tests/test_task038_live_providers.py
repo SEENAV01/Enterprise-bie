@@ -175,8 +175,13 @@ class ProviderClients(unittest.TestCase):
             {"type": "message", "content": [{"type": "output_text", "text": '{"schema": "bie.scene-plan/1", "scenes": []}'}]}],
             "usage": {"input_tokens": 9, "output_tokens": 9}})
         out = OpenAIClient(KEY, transport=t).responses_create(model="m", messages=MESSAGES, response_schema=formats.SCENE_PLAN)
-        self.assertNotIn("text", rec.requests[0]["body"])    # strict mode would reject the whole request over the free-form steps
+        body = rec.requests[0]["body"]
+        self.assertNotIn("text", body)    # strict mode would reject the whole request over the free-form steps
         self.assertIn("scene-plan", out["content"])
+        # The schema rides in the instructions instead, after the real system text.
+        self.assertIn("Be exact.", body["instructions"])
+        self.assertIn('"required"', body["instructions"])
+        self.assertIn('"scenes"', body["instructions"])
 
     def test_openai_incomplete_and_refusal(self):
         cases = (({"status": "incomplete", "incomplete_details": {"reason": "max_output_tokens"}}, "truncated"),
