@@ -29,7 +29,7 @@ ENGINE = ROOT / "bie" / "brain" / "video" / "engine"
 NEW = ["institutionBadge", "paper", "disc", "vault", "crowd", "centralBank", "committee", "moneyBag",
        "building", "priceTag", "gauge", "foreignNote", "barrier", "segmentedBar", "cart", "piggyBank", "ruler", "hands",
        "coinJar", "pillars", "briefcase", "podium", "staircase", "desk", "chair", "rope", "world", "flow", "bands", "fork", "gapBars",
-       "timeline", "table", "graph"]
+       "timeline", "table", "graph", "funnel", "roadmap"]
 WORLDS = ["market", "bankHall", "centralBank", "exchangeFloor", "port", "factory", "village", "office", "court", "city", "assembly",
           "twoCountries", "forexCounter"]
 VARIANTS = (
@@ -92,6 +92,8 @@ VARIANTS = (
                   "drawIn": d, "_t": t, "ticks": True, "title": "माँग-पूर्ति"}) for d, t in ((0, None), (2, 0.5), (2, 9))]
     + [("graph", {"lines": "J:0,5 2,3 4,3 10,8", "ymin": -5, "ymax": 10, "smooth": False, "drop": False, "dots": "3,3"}),
        ("graph", {"lines": "a:1,1;b:x", "xmin": 5, "xmax": 5}), ("graph", {"lines": "1,1 2,2"})]
+    + [("funnel", {"label": "40%", "top": "₹1000", "bottom": "₹2500", "flip": f}) for f in (False, True)]
+    + [("roadmap", {"items": "M0;M1;M2;M3;M4", "at": a, "done": d, "title": "आज"}) for a, d in ((0, ""), (3, ""), (5, "5"), (9, "x"))]
     + [(n, {}) for n in NEW]
 )
 
@@ -120,7 +122,7 @@ class EconSaanche(unittest.TestCase):
         for word, name in [("तिजोरी", "vault"), ("समिति", "committee"), ("कानून", "paper"), ("भीड़", "crowd"), ("थैली", "moneyBag"),
                            ("गोदाम", "building"), ("दाम", "priceTag"), ("मीटर", "gauge"), ("डॉलर", "foreignNote"), ("दीवार", "barrier"), ("बँटवारा", "segmentedBar"), ("ठेला", "cart"), ("गुल्लक", "piggyBank"), ("पैमाना", "ruler"), ("उधार", "hands"),
                            ("जार", "coinJar"), ("स्तंभ", "pillars"), ("अटैची", "briefcase"), ("मंच", "podium"), ("सीढ़ी", "staircase"),
-                           ("मेज़", "desk"), ("कुर्सी", "chair"), ("रस्सी", "rope"), ("बंदरगाह", "world"), ("अदालत", "building"), ("प्रवाह", "flow"), ("घाटा", "gapBars"), ("दोराहा", "fork"), ("दायरा", "bands"), ("सीमा", "world"), ("समयरेखा", "timeline"), ("तालिका", "table"), ("ग्राफ़", "graph")]:
+                           ("मेज़", "desk"), ("कुर्सी", "chair"), ("रस्सी", "rope"), ("बंदरगाह", "world"), ("अदालत", "building"), ("प्रवाह", "flow"), ("घाटा", "gapBars"), ("दोराहा", "fork"), ("दायरा", "bands"), ("सीमा", "world"), ("समयरेखा", "timeline"), ("तालिका", "table"), ("ग्राफ़", "graph"), ("कीप", "funnel"), ("एजेंडा", "roadmap")]:
             found = [r.get("name") for r in saanche.search(word) if r.get("kind") == "draw"]
             self.assertIn(name, found, word)
 

@@ -438,6 +438,19 @@
                      "smooth": {"type": "bool", "default": true}, "ticks": {"type": "bool", "default": false, "what": "write the axis ends"},
                      "drop": {"type": "bool", "default": true, "what": "dashed lines from dots to the axes"},
                      "drawIn": {"type": "number", "default": 0, "min": 0, "max": 30, "what": "seconds the lines take to draw (0: at once)"}},
-          "since": "2026-11-04"}
+          "since": "2026-11-04"},
+  "funnel": {"anchor": "bottom", "what": "a funnel: much goes in at the wide top, a part comes out of the neck (reserve money into the multiplier, many inputs into one result); flip turns it so a little grows into much",
+           "tags": ["कीप", "छलनी", "गुणक", "funnel", "multiplier", "filter", "narrow", "pour"],
+           "params": {"w": {"type": "number", "default": 320, "min": 40, "max": 1900}, "label": {"type": "text", "default": "", "what": "on the funnel"},
+                      "top": {"type": "text", "default": "", "what": "what goes in"}, "bottom": {"type": "text", "default": "", "what": "what comes out"},
+                      "flip": {"type": "bool", "default": false}, "color": {"type": "color", "default": "#5b7fb8"}, "dropColor": {"type": "color", "default": "#f2c14e"}},
+           "since": "2026-11-04"},
+  "roadmap": {"anchor": "center", "what": "the lesson's road map: items in order, the current one framed, the ones done ticked (an agenda panel at the side that moves on as the lesson does)",
+            "tags": ["सूची", "क्रम", "आज क्या", "रोडमैप", "एजेंडा", "roadmap", "agenda", "list", "outline", "steps", "progress"],
+            "params": {"w": {"type": "number", "default": 420, "min": 100, "max": 1900}, "items": {"type": "text", "default": "", "what": "items separated by ; (up to 10)"},
+                       "at": {"type": "int", "default": 0, "min": 0, "max": 10, "what": "1-based current item"},
+                       "done": {"type": "text", "default": "", "what": "items done so far (empty: those before at)"},
+                       "title": {"type": "text", "default": ""}, "color": {"type": "color", "default": "#2a9d8f"}},
+            "since": "2026-11-04"}
  }
 }

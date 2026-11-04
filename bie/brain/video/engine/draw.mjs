@@ -1088,6 +1088,37 @@ function graph(p) {
   return out + (p.title ? tx(p.title, 0, T - h * 0.07, fit(p.title, w * 0.8, fs * 1.2), INK, 800) : "");
 }
 
+// A funnel (much goes in, a part comes out: reserve money into the money multiplier, many inputs into one result)
+// and a road map (the lesson's agenda: items in order, the current one framed, the done ones ticked) from E63/E64/E59.
+function funnel(p) {
+  const w = p.w || 320, h = w * 1.1, c = p.color || "#5b7fb8", flip = p.flip === true;
+  const top = -h, mid = -h * 0.38, wTop = w * 0.5, wNeck = w * 0.09;
+  const body = `<path d="M${-wTop} ${top} L${wTop} ${top} L${wNeck} ${mid} L${wNeck} ${-h * 0.08} L${-wNeck} ${-h * 0.08} L${-wNeck} ${mid} Z" fill="${shade(c, 1.5)}" stroke="${c}" stroke-width="${w * 0.02}" stroke-linejoin="round"/>` +
+    `<ellipse cx="0" cy="${top}" rx="${wTop}" ry="${h * 0.05}" fill="${shade(c, 1.25)}" stroke="${c}" stroke-width="${w * 0.02}"/>`;
+  const drops = [0, 1, 2].map((k) => `<circle cx="${(k - 1) * w * 0.012}" cy="${-h * 0.04 + k * h * 0.02}" r="${w * 0.018}" fill="${p.dropColor || "#f2c14e"}"/>`).join("");
+  const labs = (p.top ? tx(p.top, 0, top - h * 0.11, fit(p.top, w * 1.1, w * 0.1), INK, 800) : "") +
+    (p.label ? tx(p.label, 0, (top + mid) / 2, fit(p.label, w * 0.75, w * 0.09), "#ffffff", 800) : "") +
+    (p.bottom ? tx(p.bottom, 0, h * 0.06, fit(p.bottom, w * 1.1, w * 0.09), INK, 800) : "");
+  return flip ? `<g transform="translate(0,${-h * 1.06}) scale(1,-1)">${body}${drops}</g>` + labs : body + drops + labs;
+}
+
+function roadmap(p) {
+  const given = parts(p.items).filter(Boolean).slice(0, 10), items = given.length ? given : ["", "", ""];
+  const w = p.w || 420, n = items.length, rh = Math.min(w * 0.2, 700 / n);
+  const at = Math.round(p.at || 0), done = p.done == null || p.done === "" ? at - 1 : Math.round(p.done), c = p.color || "#2a9d8f";
+  let out = p.title ? tx(p.title, 0, -n * rh / 2 - rh * 0.55, fit(p.title, w, rh * 0.5), INK, 800) : "";
+  items.forEach((it, i) => {
+    const y = -n * rh / 2 + i * rh, cur = i + 1 === at, ok = i + 1 <= done && !cur, fs = fit(it || " ", w * 0.66, rh * 0.36);
+    const cx = -w / 2 + rh * 0.5, cy = y + rh / 2, r = rh * 0.26;
+    out += `<rect x="${-w / 2}" y="${y + rh * 0.08}" width="${w}" height="${rh * 0.84}" rx="${rh * 0.18}" fill="${cur ? "#fff8e1" : "#ffffff"}" stroke="${cur ? c : "#d5dbe1"}" stroke-width="${cur ? w * 0.012 : w * 0.004}"/>` +
+      `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${ok ? "#2fa35b" : cur ? c : "#d5dbe1"}"/>` +
+      (ok ? `<path d="M${cx - r * 0.5} ${cy + r * 0.02} L${cx - r * 0.12} ${cy + r * 0.4} L${cx + r * 0.52} ${cy - r * 0.38}" fill="none" stroke="#ffffff" stroke-width="${r * 0.28}" stroke-linecap="round" stroke-linejoin="round"/>`
+        : tx(String(i + 1), cx, cy, rh * 0.3, cur ? "#ffffff" : "#4a5568", 800)) +
+      `<g transform="translate(${-w / 2 + rh * 0.95 + (w - rh * 1.05) / 2},0)">${tx(it, 0, y + rh / 2, fs, ok ? "#6b7280" : INK, cur ? 800 : 700)}</g>`;
+  });
+  return out;
+}
+
 // ---------------------------------------------------------------- registry
 // anchor "bottom": the drawing stands on its origin; "center": centred on it.
 export const DRAWS = {
@@ -1154,6 +1185,8 @@ export const DRAWS = {
   timeline: { fn: timeline, anchor: "center" },
   table: { fn: table, anchor: "center" },
   graph: { fn: graph, anchor: "center" },
+  funnel: { fn: funnel, anchor: "bottom" },
+  roadmap: { fn: roadmap, anchor: "center" },
 };
 
 export function drawSaancha(name, p = {}) {
