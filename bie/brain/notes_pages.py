@@ -71,23 +71,32 @@ def problems(page: dict) -> list:
                     out.append(f"{where}: ({x}, {y}) is off the {STAGE_W}x{STAGE_H} stage")
     elif kind == "flow":
         steps = visual.get("steps") or []
+        if not isinstance(steps, list) or any(not isinstance(s, dict) for s in steps):
+            out.append(f"page {pid}: 'steps' must be a list of JSON objects")
+            return out
         if len(steps) < 2:
             out.append(f"page {pid}: a flow needs at least 2 steps")
         for s in steps:
             if not s.get("label"):
                 out.append(f"page {pid}: a flow step without a label")
     elif kind == "compare":
-        if len(visual.get("columns") or []) < 2:
+        columns, rows = visual.get("columns") or [], visual.get("rows") or []
+        if not isinstance(columns, list) or not isinstance(rows, list) or any(not isinstance(r, dict) for r in rows):
+            out.append(f"page {pid}: 'columns' must be a list of strings and 'rows' a list of JSON objects")
+            return out
+        if len(columns) < 2:
             out.append(f"page {pid}: a comparison needs at least 2 columns")
-        rows = visual.get("rows") or []
         if not rows:
             out.append(f"page {pid}: a comparison needs rows")
         for r in rows:
-            if len(r.get("cells") or []) != len(visual.get("columns") or []):
+            if len(r.get("cells") or []) != len(columns):
                 out.append(f"page {pid}: row '{r.get('label')}' has {len(r.get('cells') or [])} cells for "
-                           f"{len(visual.get('columns') or [])} columns")
+                           f"{len(columns)} columns")
     else:
         rows = visual.get("rows") or []
+        if not isinstance(rows, list) or any(not isinstance(r, dict) for r in rows):
+            out.append(f"page {pid}: 'rows' must be a list of JSON objects")
+            return out
         if not rows:
             out.append(f"page {pid}: a table needs rows")
         for r in rows:
