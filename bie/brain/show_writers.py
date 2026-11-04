@@ -36,7 +36,9 @@ the process happens. Schema bie.game-level/1, mechanics: run_process (steps in o
 build_timeline (order of events, decoys break it), find_partner (match who fits whom), cause_effect (chain), act_as (the
 student is a character or institution - role, situation, 2-4 choices each with correct true/false and feedback; a wrong
 choice says what breaks and why) and predict (the student sets a number first - slider: label, unit, min, max, step, answer,
-tolerance, predict_prompt, reveal_label; feedback_close, feedback_far). A drag level (the first five): instruction in simple
+tolerance, predict_prompt, reveal_label; feedback_close, feedback_far) and allocate (the student splits a total among 2-5
+boxes - allocate: total, unit, step, boxes each with id, label, min_ok, max_ok, too_low, too_high; feedback_close; the sound
+ranges must allow a right split). A drag level (the first five): instruction in simple
 Hinglish, 2-7 pieces (labels <= 44 characters, a phone screen), every right move says what happens, every wrong move and
 decoy says what breaks and why. Every level: win line and the item_ids it makes the student play. Use at least two
 different mechanics across the levels; build levels from the chapter's own stories and processes, nothing invented.

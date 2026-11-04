@@ -10,6 +10,8 @@ Three mission engines cover the mechanics the game designer chooses:
   reason, a right one moves the story on.
 - slider: the student predicts first by setting the slider, then sees the real answer, the relationship drawn
   from its data points and how far the guess was.
+- allocate: the student splits a total among boxes with sliders (what is left is always shown), then checks; every
+  box outside its sound range glows red with what goes wrong when it is too low or too high.
 Progress and mastery stay on the device; a replay can shuffle the parts. ``window.__bot`` lets BIE's bot play
 a mission step by step (start, one wrong move, the right moves) for the playtest screenshots;
 ``window.__autoplay(missionIndex)`` plays a whole mission.
@@ -69,6 +71,8 @@ header h1{font-size:1.05rem;margin:0;flex:1;min-width:0;white-space:nowrap;overf
 .timeline{display:flex;gap:6px;align-items:center;margin:4px 0 8px}.timeline i{flex:1;height:8px;border-radius:4px;background:var(--line)}
 .timeline i.ok{background:var(--accent)}.timeline i.broken{background:var(--bad);animation:shake .4s}
 .slider{display:grid;gap:10px}.slider input{width:100%}
+.alloc{display:grid;gap:10px}.arow{display:grid;gap:4px;padding:8px 10px;border-radius:12px;border:1px solid var(--line)}.arow input{width:100%}
+.arow .top{display:flex;justify-content:space-between;gap:8px}.arow.broken{border-color:var(--bad);background:rgba(255,107,107,.15)}.arow.ok{border-color:var(--accent);background:rgba(55,210,194,.12)}
 .reveal{font-size:1.05rem;font-weight:800;color:var(--warm)}
 .chart{width:100%;height:auto;background:#0b1d28;border-radius:12px;border:1px solid var(--line)}
 .toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);width:min(92vw,760px);z-index:10;border-radius:14px;padding:12px 16px;
@@ -162,7 +166,8 @@ function renderStage() {
   header(); const s = current.stages[current.stage]; const wrap = el("div"); wrap.id = "stage";
   wrap.appendChild(el("p", "instr", s.instruction)); app.appendChild(wrap);
   current.wrong = current.right = null;
-  if (s.kind === "drag") dragStage(s, wrap); else if (s.kind === "branch") branchStage(s, wrap); else sliderStage(s, wrap);
+  if (s.kind === "drag") dragStage(s, wrap); else if (s.kind === "branch") branchStage(s, wrap);
+  else if (s.kind === "allocate") allocateStage(s, wrap); else sliderStage(s, wrap);
 }
 function effect(node, kind) {
   if (!node) return;
@@ -298,6 +303,55 @@ function sliderStage(s, wrap) {
   check.onclick = reveal;
   current.wrong = () => { input.value = Math.abs(sl.min - truth) > tol ? sl.min : sl.max; label(); if (Math.abs(Number(input.value) - truth) <= tol) return false; reveal(); return true; };
   current.right = () => { if (!revealed) { input.value = truth; label(); reveal(); } go(); };
+}
+function allocateStage(s, wrap) {
+  const al = s.allocate, step = al.step || 1, total = Number(al.total), unit = al.unit ? " " + al.unit : "";
+  if (s.situation) { const c = el("div", "card"); c.appendChild(el("p", null, s.situation)); wrap.appendChild(c); }
+  const vals = al.boxes.map(() => 0), card = el("div", "card alloc"), left = el("div", "pill"); card.appendChild(left);
+  const sum = () => vals.reduce((a, x) => a + x, 0);
+  const rows = al.boxes.map((b, i) => {
+    const row = el("div", "arow"), top = el("div", "top"), out = el("b", null, "0" + unit);
+    top.appendChild(el("span", null, b.label)); top.appendChild(out); row.appendChild(top);
+    const input = el("input"); Object.assign(input, { type: "range", min: 0, max: total, step }); input.value = 0;
+    input.oninput = () => set(i, Number(input.value)); row.appendChild(input); card.appendChild(row);
+    return { row, input, out };
+  });
+  function set(i, v) {
+    const others = sum() - vals[i]; vals[i] = Math.max(0, Math.min(v, total - others));
+    rows[i].input.value = vals[i]; rows[i].out.textContent = fmtNum(vals[i]) + unit;
+    left.textContent = "Baantna baaki: " + fmtNum(total - sum()) + unit + " (kul " + fmtNum(total) + unit + ")";
+  }
+  set(0, 0);
+  const check = el("button", "btn", "Baant pakka"); card.appendChild(check); wrap.appendChild(card);
+  let mistakes = 0, over = false, moved = false;
+  const go = () => { if (!moved) { moved = true; next(mistakes === 0); } };
+  const verdict = () => {
+    if (over) return true;
+    const rest = total - sum();
+    if (Math.abs(rest) > 1e-9) { toast(false, "Poora baanto!", "Abhi " + fmtNum(rest) + unit + " bacha hai."); return false; }
+    rows.forEach(r => r.row.classList.remove("broken", "ok"));
+    const bad = al.boxes.map((b, i) => vals[i] < b.min_ok - 1e-9 ? [i, b.too_low] : vals[i] > b.max_ok + 1e-9 ? [i, b.too_high] : null).filter(Boolean);
+    if (bad.length) { mistakes++; bad.forEach(([i]) => { rows[i].row.classList.add("broken"); effect(rows[i].row, "break"); });
+      toast(false, "Yahan gadbad!", bad.map(([i, why]) => al.boxes[i].label + ": " + why).join(" · ")); return false; }
+    over = true; rows.forEach(r => r.row.classList.add("ok")); toast(true, "Sahi baant!", s.feedback_close);
+    check.remove(); const btn = el("button", "btn", "Aage badho"); btn.onclick = go; card.appendChild(btn); return true;
+  };
+  check.onclick = verdict;
+  const fill = (target) => { vals.fill(0); rows.forEach((_, i) => set(i, 0)); target.forEach((v, i) => set(i, v)); };
+  current.wrong = () => {
+    const all = al.boxes.map((_, i) => i === 0 ? total : 0);
+    if (al.boxes.every((b, i) => all[i] >= b.min_ok - 1e-9 && all[i] <= b.max_ok + 1e-9)) return false;
+    fill(all); verdict(); return true;
+  };
+  current.right = () => {
+    if (!over) {
+      const lo = al.boxes.map(b => Math.ceil(b.min_ok / step - 1e-9) * step), hi = al.boxes.map(b => Math.floor(b.max_ok / step + 1e-9) * step);
+      let rest = total - lo.reduce((a, x) => a + x, 0); const v = lo.slice();
+      for (let i = 0; i < v.length && rest > 1e-9; i++) { const add = Math.min(rest, hi[i] - v[i]); v[i] += add; rest -= add; }
+      fill(v); verdict();
+    }
+    go();
+  };
 }
 function state() {
   if (!current) return null;

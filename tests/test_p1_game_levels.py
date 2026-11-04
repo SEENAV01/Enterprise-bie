@@ -197,6 +197,59 @@ class WorldLevels(unittest.TestCase):
                     self.assertLessEqual(box["y"] + box["h"], 1.0001)
 
 
+def allocate_level(**extra):
+    """allocate: split a deposit of Rs 100 (test data: Claude's demo, not BIE output)."""
+    lv = {"schema": "bie.game-level/1", "level_id": "crr-split", "title": "Bank", "mechanic": "allocate",
+          "instruction": "₹100 जमा हुए: तिजोरी, बॉन्ड और कर्ज़ में बाँटो।", "situation": "तुम बैंक हो।", "win": "बैंक चला।",
+          "item_ids": ["p005-i2"], "feedback_close": "RBI ख़ुश, कर्ज़ भी चला।",
+          "allocate": {"total": 100, "unit": "₹", "step": 1, "boxes": [
+              {"id": "crr", "label": "CRR तिजोरी", "min_ok": 4, "max_ok": 4, "too_low": "RBI जुर्माना लगाएगा।", "too_high": "पैसा बेकार पड़ा।"},
+              {"id": "slr", "label": "SLR बॉन्ड", "min_ok": 18, "max_ok": 25, "too_low": "नियम टूटा।", "too_high": "कमाई कम।"},
+              {"id": "loan", "label": "कर्ज़", "min_ok": 60, "max_ok": 78, "too_low": "कमाई नहीं होगी।", "too_high": "जोखिम बहुत।"}]}}
+    lv.update(extra)
+    return lv
+
+
+class Allocate(unittest.TestCase):
+    """Split a total among boxes: the economy videos' third most common game idea (26 times in 69 videos)."""
+
+    def test_a_valid_split_level_lowers_to_the_allocate_engine(self):
+        lv = allocate_level()
+        self.assertEqual(formats.problems("game_level", lv), [])
+        self.assertEqual(gl.problems(lv), [])
+        stage = gl.stage_of(lv)
+        self.assertEqual(stage["kind"], "allocate")
+        self.assertEqual([b["id"] for b in stage["allocate"]["boxes"]], ["crr", "slr", "loan"])
+        html = render_game_html({"id": "a", "title": "बैंक", "world": "", "missions": [gl.mission_of([lv], title="बैंक बनो")], "credits": []})
+        self.assertIn("function allocateStage", html)
+        self.assertIn("कर्ज़ भी चला", html)
+
+    def test_a_wrong_split_level_is_named_exactly(self):
+        self.assertTrue(any("'allocate' is needed" in p for p in gl.problems(allocate_level(allocate=None))))
+        bad = allocate_level(); bad["allocate"]["boxes"] = bad["allocate"]["boxes"][:1]
+        self.assertTrue(any("2..5 allocate boxes" in p for p in gl.problems(bad)))
+        bad = allocate_level(); bad["allocate"]["boxes"][2]["max_ok"] = 70
+        self.assertTrue(any("no split can be right" in p for p in gl.problems(bad)), gl.problems(bad))
+        bad = allocate_level(); bad["allocate"]["boxes"][1]["too_high"] = ""
+        self.assertTrue(any("'too_high'" in p for p in gl.problems(bad)))
+        bad = allocate_level(); bad["allocate"]["step"] = 10                  # 4 cannot be reached in steps of 10
+        self.assertTrue(any("no split can be right" in p for p in gl.problems(bad)), gl.problems(bad))
+        bad = allocate_level(); bad["allocate"]["total"] = 105; bad["allocate"]["step"] = 10
+        self.assertTrue(any("not a whole number of steps" in p for p in gl.problems(bad)))
+        bad = allocate_level(feedback_close="")
+        self.assertTrue(any("'feedback_close' is needed" in p for p in gl.problems(bad)))
+
+    @unittest.skipUnless(shutil.which("node"), "needs node and Playwright (the toolbox lane has them)")
+    def test_the_bot_plays_a_wrong_split_then_the_right_one(self):
+        from bie.brain.game_build import bot_screenshots
+        mission = gl.mission_of([allocate_level()], title="बैंक बनो")
+        shots, info = bot_screenshots({"id": "a", "title": "बैंक", "world": "", "missions": [mission], "credits": []})
+        if not shots:
+            self.skipTest(f"the bot could not run here: {info[:160]}")
+        result = json.loads(info)
+        self.assertEqual((result["won"], result["wrong_moves"], result["errors"]), (1, 1, []))
+
+
 if __name__ == "__main__":
     unittest.main()
 

@@ -15,6 +15,11 @@ The five mechanics (from the agreement's list):
   names what is missing.
 - ``cause_effect``: build the chain from cause to effect; a wrong link shows why the chain breaks.
 
+One more from 69 economy reference videos (4 Nov 2026; "allocate" was their third most common game idea, 26 times):
+- ``allocate``: the student splits a total among 2-5 boxes (a deposit into the CRR vault, the SLR safe and loans; a
+  budget into heads), then checks; every box outside its sound range says what goes wrong when it is too low or too
+  high. Played by the runtime's allocate stage.
+
 Two more, learned from 54 economy reference videos (4 Nov 2026; their game ideas were mostly "be the actor and
 decide" and "set the number and see what happens"), played by the runtime's existing branch and slider stages:
 - ``act_as``: the student is a character or an institution (RBI, a founder, a bank officer, the GDP counter) in a
@@ -30,9 +35,10 @@ with the same code as the videos (``worlds.mjs``) and puts the drop zones on the
 """
 from __future__ import annotations
 
-MECHANICS = ("run_process", "place_right", "build_timeline", "find_partner", "cause_effect", "act_as", "predict")
+MECHANICS = ("run_process", "place_right", "build_timeline", "find_partner", "cause_effect", "act_as", "predict", "allocate")
 DRAG = ("run_process", "place_right", "build_timeline", "find_partner", "cause_effect")
 MAX_CHOICES = 4
+MAX_BOXES = 5
 MAX_PIECES = 7          # a phone screen holds this many tokens or places comfortably
 MAX_LABEL = 44
 
@@ -132,6 +138,8 @@ def problems(level: dict) -> list:
         out += _act_as_problems(level, lid)
     elif mech == "predict":
         out += _predict_problems(level, lid)
+    elif mech == "allocate":
+        out += _allocate_problems(level, lid)
     out += _world_problems(level, lid)
     if mech not in DRAG:
         if not level.get("win"):
@@ -244,9 +252,73 @@ def _predict_problems(level: dict, lid: str) -> list:
     return out
 
 
+def _num(v):
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def _allocate_problems(level: dict, lid: str) -> list:
+    al = level.get("allocate")
+    if not isinstance(al, dict):
+        return [f"level {lid}: 'allocate' is needed (total, unit, step, boxes)"]
+    out = []
+    total, step = _num(al.get("total")), _num(al.get("step") if al.get("step") is not None else 1)
+    if total is None or total <= 0 or step is None or step <= 0:
+        return [f"level {lid}: allocate total and step must be numbers above 0"]
+    if abs(total / step - round(total / step)) > 1e-9:
+        out.append(f"level {lid}: allocate total {total:g} is not a whole number of steps of {step:g}")
+    boxes = al.get("boxes")
+    if not isinstance(boxes, list) or not 2 <= len(boxes) <= MAX_BOXES:
+        return out + [f"level {lid}: 2..{MAX_BOXES} allocate boxes are needed (a phone screen)"]
+    seen, lo_sum, hi_sum = set(), 0.0, 0.0
+    for b in boxes:
+        if not isinstance(b, dict):
+            out.append(f"level {lid}: every allocate box must be a JSON object, not {type(b).__name__}")
+            continue
+        bid = b.get("id") or "?"
+        if bid in seen:
+            out.append(f"level {lid}: two allocate boxes named '{bid}'")
+        seen.add(bid)
+        if not b.get("id") or not str(b.get("label") or "").strip():
+            out.append(f"level {lid}: allocate box '{bid}' needs an id and a label")
+        elif len(str(b["label"])) > MAX_LABEL:
+            out.append(f"level {lid}: allocate box '{bid}' label is over {MAX_LABEL} characters")
+        lo, hi = _num(b.get("min_ok")), _num(b.get("max_ok"))
+        if lo is None or hi is None or not 0 <= lo <= hi <= total:
+            out.append(f"level {lid}: allocate box '{bid}' needs 0 <= min_ok <= max_ok <= total")
+            continue
+        lo_sum, hi_sum = lo_sum + lo, hi_sum + hi
+        for key, cond in (("too_low", lo > 0), ("too_high", hi < total)):
+            if cond and not str(b.get(key) or "").strip():
+                out.append(f"level {lid}: allocate box '{bid}' needs '{key}' (what goes wrong when it is too {key[4:]})")
+    if not out:                                          # a right split must exist on the step grid
+        import math
+        lo_sum = sum(math.ceil(float(b["min_ok"]) / step - 1e-9) * step for b in boxes)
+        hi_sum = sum(math.floor(float(b["max_ok"]) / step + 1e-9) * step for b in boxes)
+    if not out and not lo_sum - 1e-9 <= total <= hi_sum + 1e-9:
+        out.append(f"level {lid}: no split can be right: the boxes' sound ranges add up to {lo_sum:g}..{hi_sum:g}, "
+                   f"not around the total {total:g}")
+    if not str(level.get("feedback_close") or "").strip():
+        out.append(f"level {lid}: 'feedback_close' is needed (what the sound split makes work)")
+    return out
+
+
 def stage_of(level: dict) -> dict:
     """One runtime stage from a valid level (drag, branch or slider engine); ``problems()`` must be empty first."""
     mech = level["mechanic"]
+    if mech == "allocate":
+        al = level["allocate"]
+        boxes = [{"id": str(b["id"]), "label": str(b["label"]), "min_ok": float(b["min_ok"]), "max_ok": float(b["max_ok"]),
+                  "too_low": str(b.get("too_low") or ""), "too_high": str(b.get("too_high") or "")} for b in al["boxes"]]
+        return {"stage_id": level["level_id"], "kind": "allocate", "instruction": str(level["instruction"]),
+                "tokens": [], "targets": [], "rules": [], "ordered": False, "situation": str(level.get("situation", "")), "choices": [],
+                "slider": {"label": "", "unit": "", "min": 0, "max": 0, "step": 0, "answer": 0, "tolerance": 0,
+                           "predict_prompt": "", "reveal_label": "", "data": []},
+                "allocate": {"total": float(al["total"]), "unit": str(al.get("unit", "")), "step": float(al.get("step") or 1), "boxes": boxes},
+                "feedback_close": str(level.get("feedback_close", "")), "feedback_far": str(level.get("feedback_far", "")),
+                "item_ids": list(level.get("item_ids") or [])}
     if mech in ("act_as", "predict"):
         sl = level.get("slider") or {}
         slider = {"label": str(sl.get("label", "")), "unit": str(sl.get("unit", "")), "min": float(sl.get("min", 0)),
