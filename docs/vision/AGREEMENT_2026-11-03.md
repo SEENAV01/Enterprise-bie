@@ -170,3 +170,16 @@ licence-checked before use; until it is in place BIE does not draw an India outl
 Clean, word-timed transcripts of the reference narration are needed to learn teaching and the teaching-showing fit;
 if getting them costs money, Navin decides first.
 
+**Decided by Navin on 4 November 2026 (standing):** the rules, saanche and examples Claude builds from Navin's reference
+videos and teaching-book PDFs go into BIE locked, without asking him rule by rule, and without separate before/after
+comparison runs. He gave the videos and PDFs so that Claude puts its own workflow and thinking into BIE; he judges the
+result the way he judged the Money v2 demo, by passing BIE's own output on his books. The first 23 rules
+(`bie/brain/rulebook/econ_videos.json`) were locked the same day ("sab lock kar dun"). Security-sensitive changes,
+budget, subjects and his verdict on outputs remain his.
+
+Navin's product picture (4 November 2026): Claude Code turns BIE into a one-button software (Windows and Android app)
+connected to his AI subscription; the planning chat keeps taking his videos and PDFs to make that software fully
+capable. BIE is to AI and books what an operating system is to a machine and its user: it makes AI do exactly the
+needed work, precisely and cheaply. His target: about 10,000 accurate, engaging educational videos (with games and
+notes) from his PDF books for about ₹1–2 lakh, fast; the cost per page and per video is measured as BIE runs.
+
