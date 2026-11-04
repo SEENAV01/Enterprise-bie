@@ -1,0 +1,44 @@
+{
+ "schema": "bie.game-level/1",
+ "level_id": "money-05",
+ "title": "Receipts se fiat era tak",
+ "mechanic": "build_timeline",
+ "item_ids": [
+  "p004-i18",
+  "p004-i19",
+  "p004-i20",
+  "p004-i21"
+ ],
+ "instruction": "Chaar milestones chronological track par rakho. Receipts, state notes aur compulsory stage ko ek event mat bana dena.",
+ "pieces": [
+  {
+   "id": "tang",
+   "label": "7th c. | Tang | Receipts",
+   "position": 1,
+   "right": "Track Tang receipts se shuru hua; later state notes ka milestone alag hai.",
+   "wrong": "7th-century receipts ko 1023 ke baad rakhne se earlier form later ho jaayega."
+  },
+  {
+   "id": "song",
+   "label": "1023 | Song | State notes",
+   "position": 2,
+   "right": "Receipts ke baad Song state notes ka 1023 milestone juda.",
+   "wrong": "Song state notes Tang receipts ke baad aur Yuan compulsory stage se pehle hain."
+  },
+  {
+   "id": "yuan",
+   "label": "1275 | Yuan | Compulsory",
+   "position": 3,
+   "right": "Book ka Yuan compulsory stage juda; yeh sirf receipts wala stage nahi.",
+   "wrong": "1275 ko 1023 se pehle rakhne se stages ka chronological order ulat jaayega."
+  },
+  {
+   "id": "modern",
+   "label": "1971 | Modern | Fiat era",
+   "position": 4,
+   "right": "Modern fiat-era milestone aakhir mein aaya; earlier paper forms ko modern fiat ke barabar nahi maana.",
+   "wrong": "1971 ko medieval milestones ke beech rakhne se centuries ka historical order tootega."
+  }
+ ],
+ "win": "Tang receipts → Song state notes → Yuan compulsory → modern fiat era."
+}

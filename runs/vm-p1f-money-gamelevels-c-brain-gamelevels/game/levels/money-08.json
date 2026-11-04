@@ -1,0 +1,48 @@
+{
+ "schema": "bie.game-level/1",
+ "level_id": "money-08",
+ "title": "Fees payment ka mechanism kholo",
+ "mechanic": "find_partner",
+ "item_ids": [
+  "p005-i3"
+ ],
+ "instruction": "Cheque aur credit card ko actual mechanism se jodo, phir acceptance rule lagao. Payment kar paana apne aap legal tender hona nahi hai.",
+ "places": [
+  {
+   "id": "instruction",
+   "label": "Bank ko payment instruction"
+  },
+  {
+   "id": "credit",
+   "label": "Credit facility se payment"
+  },
+  {
+   "id": "consent",
+   "label": "Payment method accept hona zaroori"
+  }
+ ],
+ "pieces": [
+  {
+   "id": "cheque",
+   "label": "Cheque",
+   "fits": "instruction",
+   "right": "Outside—standard textbook explanation: cheque bank ko account se payment ka instruction deta hai; khud government-issued fiat currency nahi.",
+   "wrong": "Outside explanation: cheque ko credit facility ya currency maanoge toh account-payment instruction wala mechanism galat ho jaayega."
+  },
+  {
+   "id": "card",
+   "label": "Credit card",
+   "fits": "credit",
+   "right": "Outside—standard textbook explanation: card credit facility access karata hai; payment baad mein repay hota hai. Card khud fiat money nahi.",
+   "wrong": "Outside explanation: card ko banknote ya cheque ke barabar rakhne se credit aur repayment ka role chhoot jaayega."
+  },
+  {
+   "id": "accept",
+   "label": "Fees office cheque/card leta hai",
+   "fits": "consent",
+   "right": "Outside—standard textbook explanation: office ka method accept karna use usable banata hai; isse instrument legal tender nahi ban jaata.",
+   "wrong": "Outside explanation: institution ki acceptance ko official legal-tender recognition banaane se voluntary method aur legal status mix honge."
+  }
+ ],
+ "win": "Fees pay hui, par instruments fiat/legal tender nahi bane: woh payment ke tareeqe hain."
+}

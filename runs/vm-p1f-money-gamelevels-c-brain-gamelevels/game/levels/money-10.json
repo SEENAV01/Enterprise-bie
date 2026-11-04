@@ -1,0 +1,50 @@
+{
+ "schema": "bie.game-level/1",
+ "level_id": "money-10",
+ "title": "Coin counter ke limits lagao",
+ "mechanic": "place_right",
+ "item_ids": [
+  "p005-i9",
+  "p005-i10",
+  "p005-i11"
+ ],
+ "instruction": "Har coin group uski limit wale counter par rakho. Limit total offered amount ki hai, coin ke denomination ki nahi.",
+ "places": [
+  {
+   "id": "thousand",
+   "label": "Total amount ₹1,000 tak"
+  },
+  {
+   "id": "ten",
+   "label": "Total amount ₹10 tak"
+  },
+  {
+   "id": "none",
+   "label": "Ab legal tender nahi"
+  }
+ ],
+ "pieces": [
+  {
+   "id": "rupee-coins",
+   "label": "₹1, ₹2, ₹5, ₹10, ₹20 coins",
+   "fits": "thousand",
+   "right": "Book is group ke liye ₹1,000 tak limit deti hai. Har denomination ki alag ₹1,000 allowance mat jodo.",
+   "wrong": "₹10 ceiling se 50-paise rule lag jaayega; no-tender slot valid coin group ko hata dega."
+  },
+  {
+   "id": "half-rupee",
+   "label": "50 paise coin",
+   "fits": "ten",
+   "right": "50-paise coins ke total amount ki legal-tender limit ₹10 tak hai.",
+   "wrong": "₹1,000 ceiling rupee-coin rule hai; 50 paise ko below-50 group mein rakhna bhi galat hai."
+  },
+  {
+   "id": "small-coins",
+   "label": "50 paise se neeche ke coins",
+   "fits": "none",
+   "right": "Book ke mutabik demonetized hain: koi positive legal-tender payment limit nahi.",
+   "wrong": "₹10 ya ₹1,000 counter par rakhne se demonetized coins ko legal-tender status wapas de doge."
+  }
+ ],
+ "win": "Rupee coins: ₹1,000; 50 paise: ₹10; below 50 paise: no longer legal tender."
+}

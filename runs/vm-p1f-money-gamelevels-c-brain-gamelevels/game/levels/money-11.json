@@ -1,0 +1,73 @@
+{
+ "schema": "bie.game-level/1",
+ "level_id": "money-11",
+ "title": "Boundary par payment route karo",
+ "mechanic": "place_right",
+ "item_ids": [
+  "p005-i5",
+  "p005-i6",
+  "p005-i9",
+  "p005-i10",
+  "p005-i11"
+ ],
+ "instruction": "Payment bundles route karo. Boundary included hai; usse upar voluntary lane. Yeh book-rule exercise hai, har retail case ki legal advice nahi.",
+ "places": [
+  {
+   "id": "within",
+   "label": "Book-rule: acceptance limit mein"
+  },
+  {
+   "id": "voluntary",
+   "label": "Limit se upar: acceptance voluntary"
+  },
+  {
+   "id": "invalid",
+   "label": "Legal-tender claim nahi"
+  }
+ ],
+ "pieces": [
+  {
+   "id": "rupees-boundary",
+   "label": "Rupee coins: total ₹1,000",
+   "fits": "within",
+   "right": "Exactly ₹1,000 'up to ₹1,000' ke andar hai; boundary included hai.",
+   "wrong": "Boundary ko above-limit bolne se 'up to' ka meaning tootega; valid coins demonetized bhi nahi hain."
+  },
+  {
+   "id": "rupees-above",
+   "label": "Rupee coins: ₹1,000 se zyada",
+   "fits": "voluntary",
+   "right": "Group valid hai, par amount ceiling cross karta hai: acceptance voluntary hai.",
+   "wrong": "Within-limit lane coin ceiling mita degi; invalid lane validity aur amount-limit mix karegi."
+  },
+  {
+   "id": "paise-boundary",
+   "label": "50-paise coins: total ₹10",
+   "fits": "within",
+   "right": "₹10 exactly limit par hai, isliye book-rule ke andar hai.",
+   "wrong": "50 paise below-50 demonetized group nahi; ₹10 boundary bhi included hai."
+  },
+  {
+   "id": "paise-above",
+   "label": "50-paise coins: ₹10 se zyada",
+   "fits": "voluntary",
+   "right": "₹10 ceiling cross hui; is group ko rupee coins ki ₹1,000 ceiling nahi milti.",
+   "wrong": "₹1,000 tak compulsory kehna wrong group ka limit lagaayega; coin khud demonetized nahi."
+  },
+  {
+   "id": "demonetized",
+   "label": "Below-50-paise coins ka payment",
+   "fits": "invalid",
+   "right": "No-longer-legal-tender group hai; chhota amount bhi legal-tender claim restore nahi karta.",
+   "wrong": "Chhota total dekhkar within-limit bhejne se demonetization ignore ho jaayega."
+  },
+  {
+   "id": "valid-notes",
+   "label": "Valid banknotes: total ₹1,000 se zyada",
+   "fits": "within",
+   "right": "Genuine aur valid banknotes unlimited category mein hain; coin ki ₹1,000 ceiling notes par nahi lagti.",
+   "wrong": "Sirf total dekhkar voluntary lane bhejne se coin rule banknotes par transfer ho jaayega."
+  }
+ ],
+ "win": "Chapter-game complete: value ka base, legal status, instrument aur amount check karke payment route kiya."
+}

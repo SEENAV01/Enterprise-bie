@@ -1,0 +1,44 @@
+{
+ "schema": "bie.game-level/1",
+ "level_id": "money-02",
+ "title": "Gold link ki timeline banao",
+ "mechanic": "build_timeline",
+ "item_ids": [
+  "p004-i4",
+  "p004-i5",
+  "p004-i6",
+  "p004-i7"
+ ],
+ "instruction": "Chaar historical cards earliest se latest lagao. Poora order gold link se modern fiat tak ka track kholega.",
+ "pieces": [
+  {
+   "id": "sweden",
+   "label": "1661 | Sweden | First banknotes",
+   "position": 1,
+   "right": "Book ki is timeline ka pehla milestone Sweden ke first banknotes hain.",
+   "wrong": "1661 ko baad mein rakhne se earlier banknotes milestone later events ke baad pahunch jaayega."
+  },
+  {
+   "id": "britain",
+   "label": "1816 | Britain | Gold Standard",
+   "position": 2,
+   "right": "Sweden ke milestone ke baad Britain ka Gold Standard juda.",
+   "wrong": "1816 ko 1661 se pehle ya 1944 ke baad rakhne se historical order tootega."
+  },
+  {
+   "id": "bretton",
+   "label": "1944 | Bretton Woods | Dollar-gold",
+   "position": 3,
+   "right": "Dollar-gold link wala Bretton Woods milestone jud gaya.",
+   "wrong": "1944 ka dollar-gold milestone 1816 ke baad aur 1971 se pehle aayega."
+  },
+  {
+   "id": "fiat",
+   "label": "1971 | Modern fiat | No gold redemption",
+   "position": 4,
+   "right": "Modern fiat par gold redemption nahi: gold-backed paper se crucial difference saamne aaya.",
+   "wrong": "1971 ko pehle laane se gold-redemption ending uske earlier milestones se pehle aa jaayegi."
+  }
+ ],
+ "win": "1661 → 1816 → 1944 → 1971: milestones aur gold link ka badlav dono clear."
+}

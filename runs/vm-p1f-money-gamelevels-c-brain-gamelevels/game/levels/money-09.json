@@ -1,0 +1,59 @@
+{
+ "schema": "bie.game-level/1",
+ "level_id": "money-09",
+ "title": "India ka tender rule-board",
+ "mechanic": "find_partner",
+ "item_ids": [
+  "p005-i5",
+  "p005-i6"
+ ],
+ "instruction": "Dono categories ke saath rule, instrument group aur Act jodo. Poora board sahi hone par payment counter khulega.",
+ "places": [
+  {
+   "id": "unlimited",
+   "label": "Unlimited legal tender"
+  },
+  {
+   "id": "limited",
+   "label": "Limited legal tender"
+  }
+ ],
+ "pieces": [
+  {
+   "id": "any-amount",
+   "label": "Kisi bhi amount; genuine aur valid",
+   "fits": "unlimited",
+   "right": "Book ke framework mein genuine aur valid notes par denomination-based total acceptance ceiling nahi hai.",
+   "wrong": "Limited mein rakhne se unlimited aur legally capped acceptance ka farq ulat jaayega."
+  },
+  {
+   "id": "notes",
+   "label": "Notes: ₹10, ₹20, ₹50, ₹100, ₹200, ₹500",
+   "fits": "unlimited",
+   "right": "Book in banknotes ko unlimited legal tender mein rakhti hai; genuine aur valid hone ki condition saath hai.",
+   "wrong": "Notes par coins ki prescribed ceiling lagaane se category galat ho jaayegi."
+  },
+  {
+   "id": "rbi-act",
+   "label": "Reserve Bank of India Act, 1934",
+   "fits": "unlimited",
+   "right": "Banknotes ke rule-board par RBI Act, 1934 juda.",
+   "wrong": "Coin-limit board se jodne par book ke legal bases swap ho jaayenge."
+  },
+  {
+   "id": "ceiling",
+   "label": "Limit tak; uske baad voluntary",
+   "fits": "limited",
+   "right": "Prescribed limit tak compulsory acceptance ka rule; beyond-limit acceptance voluntary hai, automatically forbidden nahi.",
+   "wrong": "Unlimited banaane se statutory ceiling ka matlab khatam ho jaayega."
+  },
+  {
+   "id": "coin-act",
+   "label": "Coinage Act, 2011",
+   "fits": "limited",
+   "right": "Coins ke limited legal-tender framework se Coinage Act, 2011 juda.",
+   "wrong": "Banknotes board par rakhne se coin limits ka legal anchor galat ho jaayega."
+  }
+ ],
+ "win": "Unlimited: no prescribed amount ceiling; limited: ceiling ke baad voluntary acceptance."
+}

@@ -1,0 +1,49 @@
+{
+ "schema": "bie.game-level/1",
+ "level_id": "money-01",
+ "title": "Gold-backed note chalao",
+ "mechanic": "run_process",
+ "item_ids": [
+  "p004-i1",
+  "p004-i2"
+ ],
+ "instruction": "Cards ko order mein chalao: gold reserve se note issue karo, phir holder ka note gold mein redeem karo. Aakhir mein extra issue par backing constraint lagao.",
+ "pieces": [
+  {
+   "id": "reserve",
+   "label": "Central bank: gold reserve rakho",
+   "step": 1,
+   "right": "Backing taiyar hai. Note ki value paper se nahi, gold dene ke promise se aayegi.",
+   "wrong": "Reserve ke bina gold dene ke promise ki backing missing rahegi."
+  },
+  {
+   "id": "issue",
+   "label": "Gold-backed paper notes issue karo",
+   "step": 2,
+   "right": "Paper holder ko fixed quantity of gold lene ka claim mila; paper ki apni intrinsic value bahut kam hai.",
+   "wrong": "Backing arrange hone se pehle issue karne par redemption promise support nahi hota."
+  },
+  {
+   "id": "present",
+   "label": "Holder: note redemption ko lao",
+   "step": 3,
+   "right": "Holder demand par exchange maang raha hai; book ke mutabik yeh facility principle mein available thi.",
+   "wrong": "Note issue hi nahi hua toh holder redeem karne ke liye kya laayega?"
+  },
+  {
+   "id": "redeem",
+   "label": "Fixed quantity ka gold do",
+   "step": 4,
+   "right": "Note fixed gold quantity mein badla. Isi redemption promise se note ko value milti hai.",
+   "wrong": "Holder ka note aaye bina redemption adhura hai; arbitrary quantity dena fixed-redemption promise todega."
+  },
+  {
+   "id": "limit",
+   "label": "Extra issue ko gold backing se baandho",
+   "step": 5,
+   "right": "Har note ko gold backing chahiye, isliye excessive printing par constraint laga.",
+   "wrong": "Backing se alag unlimited issue karoge toh sab notes ke redemption promise ko support nahi kar paoge."
+  }
+ ],
+ "win": "Valuable paper nahi, credible gold-redemption promise tha; backing ne excessive issue ko constrain kiya."
+}

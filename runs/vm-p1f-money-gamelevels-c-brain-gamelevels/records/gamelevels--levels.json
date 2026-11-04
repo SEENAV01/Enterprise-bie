@@ -1,0 +1,2251 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "gamelevels",
+ "unit": "levels",
+ "status": "passed",
+ "instructions_version": "game-levels/1",
+ "rulebook_version": "canvas_profile@2026-11-03.1+content_types@2026-10-27.1+econ_videos@2026-11-04.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-03.1+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3",
+ "rulebook_digest": "4583e84b87ca47d801e3e249f087f0ee8d3684d61ab4d02ef8dd99b166d92769",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "824e510ef6326ef886f08f33e601a62b6282cdb0942a839ab0fa1632d8698d25",
+ "card": null,
+ "prefix_sha256": "3101f9c6081f45a1b87c0b748e1fd55bee8882c76e7c1c4c335b6dd9b38ad339",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's game-level writer for a Indian Economy chapter for UPSC / State PCS aspirants: padhai hi game - the student acts and\nthe process happens. Schema bie.game-level/1, mechanics: run_process (steps in order), place_right (things to places),\nbuild_timeline (order of events, decoys break it), find_partner (match who fits whom), cause_effect (chain). Each level:\ninstruction in simple Hinglish, 2-7 pieces (labels <= 44 characters, a phone screen), every right move says what happens,\nevery wrong move and decoy says what breaks and why, win line, and the item_ids it makes the student play. Use at least two\ndifferent mechanics across the levels; build levels from the chapter's own stories and processes, nothing invented.\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-04] Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[S6-01] The learning is the game: the student performs the content (runs the process, makes the historical choice, builds the structure, moves the slider and predicts). A mission that can be won by picking one of four options is a quiz and is not allowed.\n[S6-02] One game per chapter, designed only from that chapter's map; every key item is played in some mission; no story or fact drifts away from the chapter.\n[S6-03] Choose the mission's mechanic from the content type: a process is run step by step and breaks visibly on a wrong step; events become choices as a character of that time, and the timeline breaks on a wrong choice; a structure is built and works only when every part is right; numbers and relations become sliders where the student predicts first and then sees the result; places become a map the student changes; laws and rules become cases the student judges. Every wrong move shows what goes wrong and why, so failing teaches.",
+  "user": "Chapter: 3. Money.\nTeachable items: [{\"item_id\": \"p004-i1\", \"content\": \"Gold-backed paper currency was paper money that could be exchanged for a fixed quantity of gold on demand. The paper itself had little intrinsic value; its value came from the promise that the issuing authority would redeem it in gold.\", \"kind\": \"definition\", \"content_type\": \"definition\"}, {\"item_id\": \"p004-i2\", \"content\": \"How it worked? A central bank held gold reserves. It issued paper notes. Anyone could (in principle) exchange those notes for a fixed amount of gold. This limited excessive money printing because every note required gold backing.\", \"kind\": \"list_point\", \"content_type\": \"cause_effect\"}, {\"item_id\": \"p004-i4\", \"content\": \"1661 | Sweden | First banknotes\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i5\", \"content\": \"1816 | Britain | Gold Standard\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i6\", \"content\": \"1944 | Bretton Woods | Dollar-gold link\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i7\", \"content\": \"1971 | Modern fiat | No gold redemption\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i9\", \"content\": \"It is money whose value comes from government authority and public trust rather than the intrinsic value of material from which it is made.\", \"kind\": \"definition\", \"content_type\": \"definition\"}, {\"item_id\": \"p004-i10\", \"content\": \"Characteristics of Fiat Money: No intrinsic value: Just paper or digital numbers. Not backed by commodities: Value not tied to gold or silver. Govt-issued: Central banks control production. Trust-based: Value relies on public’s faith in govt. Easily printed: Govts can print more in need. Highly regu\", \"kind\": \"list_point\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i12\", \"content\": \"$ | United States Dollar (USD) | The most widely held and traded fiat currency globally.\", \"kind\": \"diagram_label\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i13\", \"content\": \"€ | Euro (EUR) | Adopted by 20 of the 27 European Union member states, the euro is the second-most [caption ends here in the image].\", \"kind\": \"diagram_label\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i14\", \"content\": \"¥ | Japanese Yen (JPY) | Known for its stability, the yen is a major player in global currency markets.\", \"kind\": \"diagram_label\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i15\", \"content\": \"£ | British Pound Sterling (GBP) | The oldest fiat currency still in use, dating back to the 8th century.\", \"kind\": \"diagram_label\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i16\", \"content\": \"¥ | Chinese Yuan Renminbi (CNY) | Increasingly influential in global trade and international reserves.\", \"kind\": \"diagram_label\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i18\", \"content\": \"7th c. | Tang | Receipts\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i19\", \"content\": \"1023 | Song | State notes\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i20\", \"content\": \"1275 | Yuan | Compulsory\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i21\", \"content\": \"1971 | Modern | Fiat era\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i22\", \"content\": \"Legal tender is a form of money that a government officially recognises as acceptable for settling debts and transactions within its territory.\", \"kind\": \"definition\", \"content_type\": \"definition\"}, {\"item_id\": \"p004-i23\", \"content\": \"It must be Fiat Money.\", \"kind\": \"list_point\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i24\", \"content\": \"Bitcoin is not a Fiat money, yet it was legal tender in El-Salvador (till 2024). But it is an exception.\", \"kind\": \"example\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i25\", \"content\": \"Legal to own and use voluntarily, but no longer compulsory legal tender in the practical sense after reforms in 2025.\", \"kind\": \"list_point\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i26\", \"content\": \"Commemorative Coins = Fiat money yes but may or may not be legal tender (Most of them are).\", \"kind\": \"list_point\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i27\", \"content\": \"Circulation commemorative coins: Released into circulation and usable like ordinary coins.\", \"kind\": \"definition\", \"content_type\": \"definition\"}, {\"item_id\": \"p005-i1\", \"content\": \"Collector commemorative coins: Sold in proof or UNC sets by the Government Mint and rarely used in everyday transactions.\", \"kind\": \"list_point\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p005-i2\", \"content\": \"₹100 silver commemorative coin can legally be used to pay ₹100, but collectors may pay several thousand rupees for it.\", \"kind\": \"example\", \"content_type\": \"comparison\"}, {\"item_id\": \"p005-i3\", \"content\": \"We can use cheque / credit card to pay fees. So, why are they not fiat money/legal tender?\", \"kind\": \"question\", \"content_type\": \"comparison\"}, {\"item_id\": \"p005-i5\", \"content\": \"Unlimited Legal Tender:\\nMust be accepted for any amount (subject to the note being genuine and valid).\\nBanknotes are unlimited legal tender in India.\\n₹10, ₹20, ₹50, ₹100, ₹200, ₹500 notes.\\nReserve Bank of India Act, 1934\", \"kind\": \"definition\", \"content_type\": \"definition\"}, {\"item_id\": \"p005-i6\", \"content\": \"Limited Legal Tender:\\nMust be accepted only up to a legally prescribed limit; beyond that, acceptance is voluntary.\\nCoinage Act, 2011\", \"kind\": \"definition\", \"content_type\": \"definition\"}, {\"item_id\": \"p005-i9\", \"content\": \"Coin: ₹1, ₹2, ₹5, ₹10, ₹20 coins | Legal Tender Limit: Up to ₹1,000\", \"kind\": \"table_row\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p005-i10\", \"content\": \"Coin: 50 paise coin | Legal Tender Limit: Up to ₹10\", \"kind\": \"table_row\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p005-i11\", \"content\": \"Coin: Coins below 50 paise | Legal Tender Limit: No longer legal tender (demonetized)\", \"kind\": \"table_row\", \"content_type\": \"facts_numbers\"}]\n\nReply with {\"notes\": ..., \"levels\": [bie.game-level/1 ...]}."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793783363.5202954,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "ebe2a1352544353e431e0a9784979cc8fa291990c7663402be62f48fc08079ee",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 6087,
+    "output_tokens": 7336,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Yeh unit gold-backed paper se fiat money aur legal tender tak ka safar karata hai. Student currency ki backing, historical order, payment instruments aur India ke legal-tender limits khud assemble karta hai.",
+    "key_questions": [
+     "Kam intrinsic value wala paper valuable kaise banta hai: gold redemption se ya authority aur trust se?",
+     "Gold backing money issue ko kaise limit karti thi?",
+     "Paper money aur modern fiat ke historical milestones ka order kya hai?",
+     "Fiat money, legal tender aur payment instrument mein kya farq hai?",
+     "Commemorative coin ki face value, collector price aur legal status kaise alag hain?",
+     "India mein notes aur alag coin groups ki acceptance limits kya hain?"
+    ],
+    "decisions": [
+     {
+      "decision": "Ek chapter-game ko 11 linked levels mein baanta; process, timeline, matching aur placement mechanics use kiye.",
+      "reason": "Har key item student se action karata hai; koi mission single-answer quiz nahi hai."
+     },
+     {
+      "decision": "Fiat aur legal tender ko alag dimensions banaya; book ke Bitcoin exception ko saath khilaya.",
+      "reason": "Book ki 'must be fiat' line ko universal rule banane par usi ka exception chhup jaata."
+     },
+     {
+      "decision": "Incomplete captions ko visibly incomplete rakha aur dated claims ko book-attributed rakha.",
+      "reason": "Missing text invent nahi karna aur historical claims ko current verification nahi dikhana."
+     },
+     {
+      "decision": "Cheque/card ke mechanism ka short outside-textbook clarification diya.",
+      "reason": "Book ka question bina payment instrument aur money ka farq khole solve nahi hota."
+     }
+    ],
+    "uncertain": [
+     "Attached images available nahi hain; supplied teachable-item text hi source hai.",
+     "Fiat characteristics ka final phrase 'Highly regu' truncated hai; iska expansion guess nahi kiya.",
+     "Euro caption 'second-most' ke baad incomplete hai; ranking complete nahi ki.",
+     "Pound ki eighth-century history ko modern fiat status ki starting date nahi maana; book ki wording dono ko mila sakti hai.",
+     "Bitcoin ke 2024/2025 claims book ke historical framing mein diye hain, independently verified current legal advice nahi.",
+     "Legal-tender acceptance ko book ke genuine/valid currency aur prescribed-limit framework mein sikhaya hai; har retail situation ke liye blanket legal advice nahi."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Yeh unit gold-backed paper se fiat money aur legal tender tak ka safar karata hai. Student currency ki backing, historical order, payment instruments aur India ke legal-tender limits khud assemble karta hai.",
+     "key_questions": [
+      "Kam intrinsic value wala paper valuable kaise banta hai: gold redemption se ya authority aur trust se?",
+      "Gold backing money issue ko kaise limit karti thi?",
+      "Paper money aur modern fiat ke historical milestones ka order kya hai?",
+      "Fiat money, legal tender aur payment instrument mein kya farq hai?",
+      "Commemorative coin ki face value, collector price aur legal status kaise alag hain?",
+      "India mein notes aur alag coin groups ki acceptance limits kya hain?"
+     ],
+     "decisions": [
+      {
+       "decision": "Ek chapter-game ko 11 linked levels mein baanta; process, timeline, matching aur placement mechanics use kiye.",
+       "reason": "Har key item student se action karata hai; koi mission single-answer quiz nahi hai."
+      },
+      {
+       "decision": "Fiat aur legal tender ko alag dimensions banaya; book ke Bitcoin exception ko saath khilaya.",
+       "reason": "Book ki 'must be fiat' line ko universal rule banane par usi ka exception chhup jaata."
+      },
+      {
+       "decision": "Incomplete captions ko visibly incomplete rakha aur dated claims ko book-attributed rakha.",
+       "reason": "Missing text invent nahi karna aur historical claims ko current verification nahi dikhana."
+      },
+      {
+       "decision": "Cheque/card ke mechanism ka short outside-textbook clarification diya.",
+       "reason": "Book ka question bina payment instrument aur money ka farq khole solve nahi hota."
+      }
+     ],
+     "uncertain": [
+      "Attached images available nahi hain; supplied teachable-item text hi source hai.",
+      "Fiat characteristics ka final phrase 'Highly regu' truncated hai; iska expansion guess nahi kiya.",
+      "Euro caption 'second-most' ke baad incomplete hai; ranking complete nahi ki.",
+      "Pound ki eighth-century history ko modern fiat status ki starting date nahi maana; book ki wording dono ko mila sakti hai.",
+      "Bitcoin ke 2024/2025 claims book ke historical framing mein diye hain, independently verified current legal advice nahi.",
+      "Legal-tender acceptance ko book ke genuine/valid currency aur prescribed-limit framework mein sikhaya hai; har retail situation ke liye blanket legal advice nahi."
+     ]
+    },
+    "levels": [
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-01",
+      "title": "Gold-backed note chalao",
+      "mechanic": "run_process",
+      "item_ids": [
+       "p004-i1",
+       "p004-i2"
+      ],
+      "instruction": "Cards ko order mein chalao: gold reserve se note issue karo, phir holder ka note gold mein redeem karo. Har agla step pichhle step par depend karega.",
+      "pieces": [
+       {
+        "id": "reserve",
+        "label": "Central bank: gold reserve rakho",
+        "step": 1,
+        "right_feedback": "Backing taiyar hai. Note ki value us paper se nahi, gold dene ke promise se aayegi.",
+        "wrong_feedback": "Reserve ke bina shuru karoge toh gold dene ke promise ki backing hi missing rahegi."
+       },
+       {
+        "id": "issue",
+        "label": "Gold-backed paper notes issue karo",
+        "step": 2,
+        "right_feedback": "Ab paper holder ko fixed quantity of gold lene ka claim deta hai; paper ki apni intrinsic value bahut kam hai.",
+        "wrong_feedback": "Backing arrange hone se pehle notes issue karne par redemption ka promise support nahi hota."
+       },
+       {
+        "id": "present",
+        "label": "Holder: note redemption ko lao",
+        "step": 3,
+        "right_feedback": "Holder demand par exchange maang raha hai; book ke mutabik yeh facility principle mein available thi.",
+        "wrong_feedback": "Note issue hi nahi hua toh holder redeem karne ke liye kya laayega?"
+       },
+       {
+        "id": "redeem",
+        "label": "Fixed quantity ka gold do",
+        "step": 4,
+        "right_feedback": "Promise poora hua: note fixed gold quantity mein badla. Isi convertibility se note ko value milti hai.",
+        "wrong_feedback": "Holder ka note aaye bina redemption adhura hai; arbitrary gold quantity dena fixed-redemption promise bhi tod dega."
+       },
+       {
+        "id": "limit",
+        "label": "Extra issue ko gold backing se baandho",
+        "step": 5,
+        "right_feedback": "Har note ko gold backing chahiye, isliye excessive printing par constraint lagta hai.",
+        "wrong_feedback": "Gold backing se alag unlimited issue karoge toh sab notes ke redemption promise ko support nahi kar paoge."
+       }
+      ],
+      "win": "Gold-backed paper chal gaya: valuable paper nahi, credible gold-redemption promise tha."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-02",
+      "title": "Gold link ki timeline banao",
+      "mechanic": "build_timeline",
+      "item_ids": [
+       "p004-i4",
+       "p004-i5",
+       "p004-i6",
+       "p004-i7"
+      ],
+      "instruction": "Chaar historical cards ko earliest se latest lagao. Poora order sahi hone par gold link se modern fiat tak ka track khulega.",
+      "pieces": [
+       {
+        "id": "sweden",
+        "label": "1661 | Sweden | First banknotes",
+        "position": 1,
+        "right_feedback": "Book ki is timeline ka pehla milestone Sweden ke first banknotes hain.",
+        "wrong_feedback": "1661 ko baad mein rakhoge toh banknotes ka yeh milestone 1816 ya uske baad pahunch jaayega."
+       },
+       {
+        "id": "britain",
+        "label": "1816 | Britain | Gold Standard",
+        "position": 2,
+        "right_feedback": "Sweden ke milestone ke baad Britain ka Gold Standard aaya.",
+        "wrong_feedback": "1816 ko 1661 se pehle ya 1944 ke baad rakhne se historical order tootega."
+       },
+       {
+        "id": "bretton",
+        "label": "1944 | Bretton Woods | Dollar-gold",
+        "position": 3,
+        "right_feedback": "Ab dollar-gold link wala Bretton Woods milestone jud gaya.",
+        "wrong_feedback": "Dollar-gold link ka 1944 milestone 1816 ke baad aur 1971 se pehle aayega."
+       },
+       {
+        "id": "fiat",
+        "label": "1971 | Modern fiat | No gold redemption",
+        "position": 4,
+        "right_feedback": "Track modern fiat par aaya: gold redemption nahi. Yeh gold-backed paper se crucial difference hai.",
+        "wrong_feedback": "1971 ko pehle laane par gold-redemption ending ko uske earlier milestones se pehle dikha doge."
+       }
+      ],
+      "win": "1661 → 1816 → 1944 → 1971: milestones aur gold link ka badlav dono clear."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-03",
+      "title": "Fiat system assemble karo",
+      "mechanic": "place_right",
+      "item_ids": [
+       "p004-i9",
+       "p004-i10"
+      ],
+      "instruction": "Har card ko uske system-slot mein lagao. Sab parts milkar batayenge ki gold backing ke bina fiat ki value kaise chalti hai.",
+      "targets": [
+       {
+        "id": "material",
+        "label": "Material ki apni value"
+       },
+       {
+        "id": "commodity",
+        "label": "Commodity backing"
+       },
+       {
+        "id": "authority",
+        "label": "Issue aur authority"
+       },
+       {
+        "id": "trust",
+        "label": "Public acceptance ka base"
+       },
+       {
+        "id": "supply",
+        "label": "Supply badhaane ki gunjaish"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "paper-digital",
+        "label": "Paper ya digital numbers",
+        "target": "material",
+        "right_feedback": "Fiat ka monetary value uske paper ya digital form ki intrinsic value se nahi aata.",
+        "wrong_feedback": "Material ko authority ya backing bana doge toh paper ki keemat aur money ki value ko ek samajh loge."
+       },
+       {
+        "id": "no-gold",
+        "label": "Gold/silver se value tied nahi",
+        "target": "commodity",
+        "right_feedback": "Fiat commodities se backed nahi; gold redemption iska value-base nahi hai.",
+        "wrong_feedback": "Is card ka kaam commodity link hataana hai, public trust ya issuing authority ko hataana nahi."
+       },
+       {
+        "id": "government",
+        "label": "Govt-issued; central bank control",
+        "target": "authority",
+        "right_feedback": "Government authority fiat ka base hai; book production control central banks se jodti hai.",
+        "wrong_feedback": "Issuer ko material ya gold reserve wale slot mein rakhne se authority ka role gayab ho jaata hai."
+       },
+       {
+        "id": "faith",
+        "label": "Public ka government par trust",
+        "target": "trust",
+        "right_feedback": "Public faith value ko support karta hai. Sirf paper hona fiat ki poori explanation nahi hai.",
+        "wrong_feedback": "Trust koi physical backing ya printing action nahi; yeh public faith wala base hai."
+       },
+       {
+        "id": "printing",
+        "label": "Need par aur money issue ho sakta hai",
+        "target": "supply",
+        "right_feedback": "Book ke mutabik governments need par aur print kar sakti hain; gold-backed system jaisa redemption constraint nahi.",
+        "wrong_feedback": "Printing ki capacity ko value ka akela source bana doge toh authority aur public trust chhoot jaayenge."
+       }
+      ],
+      "win": "Fiat assemble hua: material ki value nahi, government authority aur public trust central hain."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-04",
+      "title": "Currency identities jodo",
+      "mechanic": "find_partner",
+      "item_ids": [
+       "p004-i12",
+       "p004-i13",
+       "p004-i14",
+       "p004-i15",
+       "p004-i16"
+      ],
+      "instruction": "Har currency ko uske description partner se jodo. Sirf symbol mat dekho: Yen aur Yuan dono ke liye ¥ diya hai.",
+      "targets": [
+       {
+        "id": "usd",
+        "label": "Sabse widely held aur traded globally"
+       },
+       {
+        "id": "eur",
+        "label": "Book: EU ke 27 mein se 20 states"
+       },
+       {
+        "id": "jpy",
+        "label": "Stability; global markets mein major"
+       },
+       {
+        "id": "gbp",
+        "label": "Book: oldest; history 8th century"
+       },
+       {
+        "id": "cny",
+        "label": "Trade aur reserves mein badhta role"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "dollar",
+        "label": "$ | United States Dollar | USD",
+        "target": "usd",
+        "right_feedback": "Book USD ko globally sabse widely held aur traded fiat currency batati hai.",
+        "wrong_feedback": "USD ka description global holding aur trading wala hai; doosri currency ki identity jodne se profile badal jaayegi."
+       },
+       {
+        "id": "euro",
+        "label": "€ | Euro | EUR",
+        "target": "eur",
+        "right_feedback": "Book Euro ko 27 EU members mein se 20 se jodti hai. Aage 'second-most' caption incomplete hai; ranking guess nahi karenge.",
+        "wrong_feedback": "EU adoption wala description Euro ka hai; ise kisi national currency se jodna geography aur identity dono bigaadta hai."
+       },
+       {
+        "id": "yen",
+        "label": "¥ | Japanese Yen | JPY",
+        "target": "jpy",
+        "right_feedback": "JPY ke saath stability aur global currency markets mein major role wala description judta hai.",
+        "wrong_feedback": "¥ dekhkar CNY ka partner mat lagao: Japanese Yen ka code JPY hai aur book ka profile stability wala hai."
+       },
+       {
+        "id": "pound",
+        "label": "£ | British Pound Sterling | GBP",
+        "target": "gbp",
+        "right_feedback": "Book pound ko oldest fiat currency still in use kehti hai aur history 8th century se jodti hai. Isse modern fiat regime ki 8th-century start date mat samjho.",
+        "wrong_feedback": "Pound ki historical continuity ko doosri currency se jodoge toh book ka oldest-currency claim galat identity par lag jaayega."
+       },
+       {
+        "id": "yuan",
+        "label": "¥ | Chinese Yuan Renminbi | CNY",
+        "target": "cny",
+        "right_feedback": "CNY ka profile global trade aur international reserves mein badhte influence ka hai.",
+        "wrong_feedback": "¥ shared symbol hai, shared identity nahi. Yen ka stability profile CNY ki jagah rakhne se distinction kho jaayega."
+       }
+      ],
+      "win": "Paanch currencies ki identities aur profiles jud gayin; shared ¥ se confusion nahi hua."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-05",
+      "title": "Receipts se fiat era tak",
+      "mechanic": "build_timeline",
+      "item_ids": [
+       "p004-i18",
+       "p004-i19",
+       "p004-i20",
+       "p004-i21"
+      ],
+      "instruction": "Book ke chaar milestones ko chronological track par rakho. Receipts, state notes aur compulsory stage ko ek hi event mat bana dena.",
+      "pieces": [
+       {
+        "id": "tang",
+        "label": "7th c. | Tang | Receipts",
+        "position": 1,
+        "right_feedback": "Track Tang receipts se shuru hua; yeh state notes wale later milestone se alag hai.",
+        "wrong_feedback": "7th-century receipts ko 1023 ke baad rakhne se earlier form later ho jaayega."
+       },
+       {
+        "id": "song",
+        "label": "1023 | Song | State notes",
+        "position": 2,
+        "right_feedback": "Receipts ke baad book Song state notes ka 1023 milestone deti hai.",
+        "wrong_feedback": "Song state notes Tang receipts ke baad aur Yuan compulsory stage se pehle hain."
+       },
+       {
+        "id": "yuan",
+        "label": "1275 | Yuan | Compulsory",
+        "position": 3,
+        "right_feedback": "Ab book ka Yuan compulsory stage jud gaya; yeh sirf receipts wala stage nahi hai.",
+        "wrong_feedback": "1275 ko 1023 se pehle rakhne se book ke stages ka chronological order ulat jaayega."
+       },
+       {
+        "id": "modern",
+        "label": "1971 | Modern | Fiat era",
+        "position": 4,
+        "right_feedback": "Modern fiat-era milestone sabse aakhir mein aaya; earlier paper forms ko modern fiat ke barabar nahi maana.",
+        "wrong_feedback": "1971 ko medieval milestones ke beech rakhne se centuries ka historical order tootega."
+       }
+      ],
+      "win": "Tang receipts → Song state notes → Yuan compulsory → modern fiat era."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-06",
+      "title": "Fiat aur legal tender alag karo",
+      "mechanic": "place_right",
+      "item_ids": [
+       "p004-i22",
+       "p004-i23",
+       "p004-i24",
+       "p004-i25",
+       "p004-i26"
+      ],
+      "instruction": "Rule-board ke sahi slots bharo. Fiat value ka base batata hai; legal tender official payment status. Bitcoin ke dated cards ko unke alag stages par rakho.",
+      "targets": [
+       {
+        "id": "definition",
+        "label": "Legal tender ki definition"
+       },
+       {
+        "id": "general",
+        "label": "Book ka general rule"
+       },
+       {
+        "id": "exception",
+        "label": "Book: exception, till 2024"
+       },
+       {
+        "id": "reform",
+        "label": "Book: 2025 reforms ke baad"
+       },
+       {
+        "id": "separate",
+        "label": "Status alag se check karo"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "recognition",
+        "label": "Govt-recognised debt/transaction money",
+        "target": "definition",
+        "right_feedback": "Legal tender government-recognised money hai jo territory mein debts aur transactions settle karne ke liye acceptable maana jaata hai.",
+        "wrong_feedback": "Sirf public trust ya voluntary payment ko legal-tender definition bana doge toh official recognition chhoot jaayega."
+       },
+       {
+        "id": "rule",
+        "label": "Book rule: legal tender fiat ho",
+        "target": "general",
+        "right_feedback": "Book 'must be fiat' kehti hai, lekin saath exception bhi deti hai. Isliye ise bina exception ka universal rule nahi bana rahe.",
+        "wrong_feedback": "Is general line ko exception slot mein ya absolute definition bana doge toh book ka Bitcoin example contradict karega."
+       },
+       {
+        "id": "bitcoin-old",
+        "label": "Bitcoin: non-fiat, El Salvador tender",
+        "target": "exception",
+        "right_feedback": "Book ke till-2024 account mein Bitcoin non-fiat hote hue legal tender tha: fiat aur legal tender identical categories nahi.",
+        "wrong_feedback": "Bitcoin ko fiat banaane se exception hi mit jaayega; ise post-reform stage mein rakhne se historical status mix hoga."
+       },
+       {
+        "id": "bitcoin-reform",
+        "label": "2025: voluntary Bitcoin use legal",
+        "target": "reform",
+        "right_feedback": "Book ke mutabik ownership aur voluntary use legal rahe, lekin reforms ke baad practical compulsory legal-tender sense nahi raha.",
+        "wrong_feedback": "Voluntary legal use ko compulsory acceptance maanoge toh 'legal to use' aur 'legal tender' ka farq tootega."
+       },
+       {
+        "id": "commemorative",
+        "label": "Commemorative: fiat yes, tender check",
+        "target": "separate",
+        "right_feedback": "Book ke mutabik commemorative coins fiat hain, par legal tender ho bhi sakte hain aur nahi bhi; most legal tender hain.",
+        "wrong_feedback": "Fiat hote hi har commemorative coin ko automatically legal tender bana doge toh book ka 'may or may not' kho jaayega."
+       }
+      ],
+      "win": "Value ka base, official recognition aur voluntary use—teenon ko alag pehchaan liya."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-07",
+      "title": "Commemorative coin ki do values",
+      "mechanic": "find_partner",
+      "item_ids": [
+       "p004-i27",
+       "p005-i1",
+       "p005-i2"
+      ],
+      "instruction": "Coin cards ko unke use aur value partners se jodo. Roz ki circulation, collector demand aur legal payment value ko mix mat karo.",
+      "targets": [
+       {
+        "id": "daily",
+        "label": "Ordinary coins ki tarah use"
+       },
+       {
+        "id": "sets",
+        "label": "Govt Mint; proof/UNC sets"
+       },
+       {
+        "id": "face",
+        "label": "Legal payment: ₹100"
+       },
+       {
+        "id": "premium",
+        "label": "Collector: several thousand"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "circulation",
+        "label": "Circulation commemorative coins",
+        "target": "daily",
+        "right_feedback": "Yeh circulation mein release hote hain aur ordinary coins ki tarah usable hain.",
+        "wrong_feedback": "Inhe sirf collector sets mein rakhne se circulation mein release hone wala defining feature chhoot jaata hai."
+       },
+       {
+        "id": "collector",
+        "label": "Collector commemorative coins",
+        "target": "sets",
+        "right_feedback": "Government Mint inhe proof ya UNC sets mein bechta hai; everyday transactions mein inka use rare hai.",
+        "wrong_feedback": "Rare everyday use ko routine circulation bana doge toh collector aur circulation categories ka farq mit jaayega."
+       },
+       {
+        "id": "face-value",
+        "label": "₹100 silver coin: payment value",
+        "target": "face",
+        "right_feedback": "Book ke example mein coin legally ₹100 payment kar sakta hai. Silver ya collector interest face value ko automatically nahi badhaata.",
+        "wrong_feedback": "Several thousand ka collector price payment value bana doge toh ₹100 face value ka legal role galat ho jaayega."
+       },
+       {
+        "id": "collector-value",
+        "label": "₹100 silver coin: collector price",
+        "target": "premium",
+        "right_feedback": "Collector isi coin ke liye several thousand rupees de sakta hai; market price aur legal payment value alag hain.",
+        "wrong_feedback": "Collector price ko zaroor ₹100 maanoge toh book ka premium-price example explain nahi hoga."
+       }
+      ],
+      "win": "Ek coin: circulation status alag, legal face value alag, collector price alag."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-08",
+      "title": "Fees payment ka mechanism kholo",
+      "mechanic": "find_partner",
+      "item_ids": [
+       "p005-i3"
+      ],
+      "instruction": "Fees pay karne wale cheque aur credit card ko unke actual mechanism se jodo. Phir acceptance rule lagao: payment kar paana apne aap legal tender hona nahi hai.",
+      "targets": [
+       {
+        "id": "instruction",
+        "label": "Bank ko payment instruction"
+       },
+       {
+        "id": "credit",
+        "label": "Credit facility se payment"
+       },
+       {
+        "id": "consent",
+        "label": "Payment method accept hona zaroori"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "cheque",
+        "label": "Cheque",
+        "target": "instruction",
+        "right_feedback": "Outside—standard textbook explanation: cheque bank ko account se payment ka instruction deta hai; cheque khud government-issued fiat currency nahi.",
+        "wrong_feedback": "Cheque ko credit facility ya currency maanoge toh account se payment instruction wala mechanism galat ho jaayega."
+       },
+       {
+        "id": "card",
+        "label": "Credit card",
+        "target": "credit",
+        "right_feedback": "Outside—standard textbook explanation: card credit facility access karata hai; payment baad mein repay karna hota hai. Card khud fiat money nahi.",
+        "wrong_feedback": "Card ko banknote ya cheque instruction ke barabar rakhne se credit aur repayment ka role chhoot jaata hai."
+       },
+       {
+        "id": "accept",
+        "label": "Fees office cheque/card leta hai",
+        "target": "consent",
+        "right_feedback": "Outside—standard textbook explanation: office ka method accept karna use usable banata hai; isse cheque/card ko legal-tender status nahi mil jaata.",
+        "wrong_feedback": "Ek institution ki acceptance ko government legal-tender recognition bana doge toh voluntary method aur legal status mix ho jaayenge."
+       }
+      ],
+      "win": "Fees pay hui, par instruments fiat/legal tender nahi ban gaye: woh payment karne ke tareeqe hain."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-09",
+      "title": "India ka tender rule-board",
+      "mechanic": "find_partner",
+      "item_ids": [
+       "p005-i5",
+       "p005-i6"
+      ],
+      "instruction": "Dono legal-tender categories ke saath unka rule, instrument group aur Act jodo. Poora board sahi hone par payment counter khulega.",
+      "targets": [
+       {
+        "id": "unlimited",
+        "label": "Unlimited legal tender"
+       },
+       {
+        "id": "limited",
+        "label": "Limited legal tender"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "any-amount",
+        "label": "Kisi bhi amount; genuine aur valid",
+        "target": "unlimited",
+        "right_feedback": "Book ke framework mein genuine aur valid notes ke liye denomination-based total acceptance ceiling nahi hai.",
+        "wrong_feedback": "Is rule ko limited mein rakhoge toh unlimited aur legally capped acceptance ka farq ulat jaayega."
+       },
+       {
+        "id": "notes",
+        "label": "Notes: ₹10, ₹20, ₹50, ₹100, ₹200, ₹500",
+        "target": "unlimited",
+        "right_feedback": "Book in banknotes ko unlimited legal tender ke under rakhti hai; genuine aur valid hone ki condition saath rahegi.",
+        "wrong_feedback": "Notes par coins ki prescribed ceiling lagane se book ki category galat ho jaayegi."
+       },
+       {
+        "id": "rbi-act",
+        "label": "Reserve Bank of India Act, 1934",
+        "target": "unlimited",
+        "right_feedback": "Banknotes wale rule-board par RBI Act, 1934 jud gaya.",
+        "wrong_feedback": "Is Act ko coin-limit board se jodoge toh book mein diye legal bases swap ho jaayenge."
+       },
+       {
+        "id": "ceiling",
+        "label": "Limit tak; uske baad voluntary",
+        "target": "limited",
+        "right_feedback": "Prescribed limit tak compulsory acceptance ka rule hai; uske beyond acceptance voluntary hai, automatically forbidden nahi.",
+        "wrong_feedback": "Is rule ko unlimited bana doge toh statutory ceiling ka matlab hi khatam ho jaayega."
+       },
+       {
+        "id": "coin-act",
+        "label": "Coinage Act, 2011",
+        "target": "limited",
+        "right_feedback": "Coins ke limited legal-tender framework ke saath Coinage Act, 2011 jud gaya.",
+        "wrong_feedback": "Coinage Act ko banknotes wale board par rakhne se coin limits ka legal anchor galat ho jaayega."
+       }
+      ],
+      "win": "Unlimited ka matlab no prescribed amount ceiling; limited ka matlab ceiling ke baad voluntary acceptance."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-10",
+      "title": "Coin counter ke limits lagao",
+      "mechanic": "place_right",
+      "item_ids": [
+       "p005-i9",
+       "p005-i10",
+       "p005-i11"
+      ],
+      "instruction": "Har coin group ko uski legal-tender limit wale counter par rakho. Limit total offered amount ki hai, coin par likhe denomination ki nahi.",
+      "targets": [
+       {
+        "id": "thousand",
+        "label": "Total amount ₹1,000 tak"
+       },
+       {
+        "id": "ten",
+        "label": "Total amount ₹10 tak"
+       },
+       {
+        "id": "none",
+        "label": "Ab legal tender nahi"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "rupee-coins",
+        "label": "₹1, ₹2, ₹5, ₹10, ₹20 coins",
+        "target": "thousand",
+        "right_feedback": "In coin denominations ke liye book ₹1,000 tak legal-tender acceptance limit deti hai. Har denomination ki alag ₹1,000 allowance mat jodo.",
+        "wrong_feedback": "₹10 limit lagane se rupee coins ko 50-paise rule mil jaayega; no-tender slot mein rakhne se valid coin group hata doge."
+       },
+       {
+        "id": "half-rupee",
+        "label": "50 paise coin",
+        "target": "ten",
+        "right_feedback": "50-paise coins ka total amount ₹10 tak legal-tender limit mein hai.",
+        "wrong_feedback": "₹1,000 ceiling dene se 50-paise coins ko rupee-coin rule mil jaayega; below-50 group mein rakhna bhi galat hai."
+       },
+       {
+        "id": "small-coins",
+        "label": "50 paise se neeche ke coins",
+        "target": "none",
+        "right_feedback": "Book ke mutabik yeh demonetized hain: inke liye koi positive legal-tender payment limit nahi.",
+        "wrong_feedback": "Inhe ₹10 ya ₹1,000 counter par rakhne se demonetized coins ko legal-tender status wapas de doge."
+       }
+      ],
+      "win": "Rupee coins: ₹1,000; 50 paise: ₹10; below 50 paise: no longer legal tender."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-11",
+      "title": "Boundary par payment route karo",
+      "mechanic": "place_right",
+      "item_ids": [
+       "p005-i5",
+       "p005-i6",
+       "p005-i9",
+       "p005-i10",
+       "p005-i11"
+      ],
+      "instruction": "Book ke limits se bane payment bundles route karo. Amount boundary par ho toh limit ke andar; usse upar ho toh voluntary lane. Yeh book-rule exercise hai, har retail case ki legal advice nahi.",
+      "targets": [
+       {
+        "id": "within",
+        "label": "Book-rule: acceptance limit mein"
+       },
+       {
+        "id": "voluntary",
+        "label": "Limit se upar: acceptance voluntary"
+       },
+       {
+        "id": "invalid",
+        "label": "Legal-tender claim nahi"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "rupees-boundary",
+        "label": "Rupee coins: total ₹1,000",
+        "target": "within",
+        "right_feedback": "Exactly ₹1,000 'up to ₹1,000' ke andar hai; boundary included hai.",
+        "wrong_feedback": "Boundary amount ko above-limit bolne se 'up to' ka inclusive meaning tootega; valid coins demonetized bhi nahi hain."
+       },
+       {
+        "id": "rupees-above",
+        "label": "Rupee coins: ₹1,000 se zyada",
+        "target": "voluntary",
+        "right_feedback": "Coin group valid hai, par amount ceiling cross karta hai: beyond-limit acceptance voluntary hai.",
+        "wrong_feedback": "Unlimited lane mein bhejne se coin ceiling mit jaayegi; demonetized lane mein bhejne se validity aur amount-limit mix honge."
+       },
+       {
+        "id": "paise-boundary",
+        "label": "50-paise coins: total ₹10",
+        "target": "within",
+        "right_feedback": "₹10 exactly limit par hai, isliye book-rule ke andar aata hai.",
+        "wrong_feedback": "50-paise denomination dekhkar ise below-50 demonetized group mat samjho; ₹10 boundary bhi included hai."
+       },
+       {
+        "id": "paise-above",
+        "label": "50-paise coins: ₹10 se zyada",
+        "target": "voluntary",
+        "right_feedback": "₹10 ceiling cross hui: is group ko rupee coins ki ₹1,000 ceiling nahi milti.",
+        "wrong_feedback": "₹1,000 tak compulsory kehne se wrong denomination-group ka limit lag jaayega; coin khud demonetized nahi."
+       },
+       {
+        "id": "demonetized",
+        "label": "Below-50-paise coins ka payment",
+        "target": "invalid",
+        "right_feedback": "Yeh no-longer-legal-tender group hai; chhota total amount bhi legal-tender claim restore nahi karta.",
+        "wrong_feedback": "Amount chhota dekhkar within-limit lane mein bhejne se demonetization ignore ho jaayega."
+       },
+       {
+        "id": "valid-notes",
+        "label": "Valid banknotes: total ₹1,000 se zyada",
+        "target": "within",
+        "right_feedback": "Genuine aur valid banknotes unlimited category mein hain; rupee coins ki ₹1,000 ceiling notes par nahi lagti.",
+        "wrong_feedback": "Sirf total ₹1,000 se upar dekhkar voluntary lane mein bhejne se coin rule banknotes par transfer ho jaayega."
+       }
+      ],
+      "win": "Chapter-game complete: currency ka base, legal status, instrument aur amount—chaaron check karke payment route kiya."
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] level money-01: piece 'issue' needs 'right' (what happens when it lands right)",
+    "[code] level money-01: piece 'limit' needs 'right' (what happens when it lands right)",
+    "[code] level money-01: piece 'present' needs 'right' (what happens when it lands right)",
+    "[code] level money-01: piece 'redeem' needs 'right' (what happens when it lands right)",
+    "[code] level money-01: piece 'reserve' needs 'right' (what happens when it lands right)",
+    "[code] level money-02: piece 'bretton' needs 'right' (what happens when it lands right)",
+    "[code] level money-02: piece 'britain' needs 'right' (what happens when it lands right)",
+    "[code] level money-02: piece 'fiat' needs 'right' (what happens when it lands right)",
+    "[code] level money-02: piece 'sweden' needs 'right' (what happens when it lands right)",
+    "[code] level money-03: 2..7 places are needed, not 0",
+    "[code] level money-03: piece 'faith' fits 'None', which is no place",
+    "[code] level money-03: piece 'faith' needs 'right'",
+    "[code] level money-03: piece 'faith' needs 'wrong' (what breaks on a wrong place)",
+    "[code] level money-03: piece 'government' fits 'None', which is no place",
+    "[code] level money-03: piece 'government' needs 'right'",
+    "[code] level money-03: piece 'government' needs 'wrong' (what breaks on a wrong place)",
+    "[code] level money-03: piece 'no-gold' fits 'None', which is no place",
+    "[code] level money-03: piece 'no-gold' needs 'right'",
+    "[code] level money-03: piece 'no-gold' needs 'wrong' (what breaks on a wrong place)",
+    "[code] level money-03: piece 'paper-digital' fits 'None', which is no place",
+    "[code] level money-03: piece 'paper-digital' needs 'right'",
+    "[code] level money-03: piece 'paper-digital' needs 'wrong' (what breaks on a wrong place)",
+    "[code] level money-03: piece 'printing' fits 'None', which is no place",
+    "[code] level money-03: piece 'printing' needs 'right'",
+    "[code] level money-03: piece 'printing' needs 'wrong' (what breaks on a wrong place)",
+    "[code] level money-04: 2..7 places are needed, not 0",
+    "[code] level money-04: piece 'dollar' fits 'None', which is no place",
+    "[code] level money-04: piece 'dollar' needs 'right'",
+    "[code] level money-04: piece 'dollar' needs 'wrong' (what breaks on a wrong match)",
+    "[code] level money-04: piece 'euro' fits 'None', which is no place",
+    "[code] level money-04: piece 'euro' needs 'right'",
+    "[code] level money-04: piece 'euro' needs 'wrong' (what breaks on a wrong match)",
+    "[code] level money-04: piece 'pound' fits 'None', which is no place",
+    "[code] level money-04: piece 'pound' needs 'right'",
+    "[code] level money-04: piece 'pound' needs 'wrong' (what breaks on a wrong match)",
+    "[code] level money-04: piece 'yen' fits 'None', which is no place",
+    "[code] level money-04: piece 'yen' needs 'right'",
+    "[code] level money-04: piece 'yen' needs 'wrong' (what breaks on a wrong match)",
+    "[code] level money-04: piece 'yuan' fits 'None', which is no place",
+    "[code] level money-04: piece 'yuan' needs 'right'"
+   ],
+   "passed": false,
+   "finished_at": 1793783530.9597712
+  },
+  {
+   "round": 2,
+   "started_at": 1793783530.9599478,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Yeh unit gold-backed paper, fiat money aur legal tender ko processes, timelines aur payment rules se khilata hai. Patch mein sabhi levels ke field names ek jaise kiye hain.",
+     "key_questions": [
+      "Gold redemption aur authority/public trust money ko value kaise dete hain?",
+      "Fiat, legal tender aur payment instrument kaise alag hain?",
+      "Historical milestones ka order aur India ke acceptance limits kya hain?"
+     ],
+     "decisions": [
+      {
+       "decision": "Sabhi 11 levels mein right_feedback/wrong_feedback ko right/wrong kiya.",
+       "reason": "Reported errors pehle levels mein the, lekin wahi field mismatch aage bhi tha."
+      },
+      {
+       "decision": "Matching aur placement levels mein targets ko places aur target ko fits kiya.",
+       "reason": "Har piece ab kisi declared place se explicitly linked hai."
+      },
+      {
+       "decision": "Level IDs, item coverage, mechanics aur teaching distinctions barkarar rakhe.",
+       "reason": "Correction structural hai; pehle se sahi learning ko hatana nahi hai."
+      }
+     ],
+     "uncertain": [
+      "Images available nahi hain; supplied text hi source hai.",
+      "'Highly regu' aur Euro ka 'second-most' caption incomplete hain; missing words invent nahi kiye.",
+      "Bitcoin dates aur currency profiles book-attributed hain, current verification nahi.",
+      "Pound ki eighth-century history modern fiat regime ki starting date nahi maani gayi."
+     ]
+    },
+    "replace_levels": [
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-01",
+      "title": "Gold-backed note chalao",
+      "mechanic": "run_process",
+      "item_ids": [
+       "p004-i1",
+       "p004-i2"
+      ],
+      "instruction": "Cards ko order mein chalao: gold reserve se note issue karo, phir holder ka note gold mein redeem karo. Aakhir mein extra issue par backing constraint lagao.",
+      "pieces": [
+       {
+        "id": "reserve",
+        "label": "Central bank: gold reserve rakho",
+        "step": 1,
+        "right": "Backing taiyar hai. Note ki value paper se nahi, gold dene ke promise se aayegi.",
+        "wrong": "Reserve ke bina gold dene ke promise ki backing missing rahegi."
+       },
+       {
+        "id": "issue",
+        "label": "Gold-backed paper notes issue karo",
+        "step": 2,
+        "right": "Paper holder ko fixed quantity of gold lene ka claim mila; paper ki apni intrinsic value bahut kam hai.",
+        "wrong": "Backing arrange hone se pehle issue karne par redemption promise support nahi hota."
+       },
+       {
+        "id": "present",
+        "label": "Holder: note redemption ko lao",
+        "step": 3,
+        "right": "Holder demand par exchange maang raha hai; book ke mutabik yeh facility principle mein available thi.",
+        "wrong": "Note issue hi nahi hua toh holder redeem karne ke liye kya laayega?"
+       },
+       {
+        "id": "redeem",
+        "label": "Fixed quantity ka gold do",
+        "step": 4,
+        "right": "Note fixed gold quantity mein badla. Isi redemption promise se note ko value milti hai.",
+        "wrong": "Holder ka note aaye bina redemption adhura hai; arbitrary quantity dena fixed-redemption promise todega."
+       },
+       {
+        "id": "limit",
+        "label": "Extra issue ko gold backing se baandho",
+        "step": 5,
+        "right": "Har note ko gold backing chahiye, isliye excessive printing par constraint laga.",
+        "wrong": "Backing se alag unlimited issue karoge toh sab notes ke redemption promise ko support nahi kar paoge."
+       }
+      ],
+      "win": "Valuable paper nahi, credible gold-redemption promise tha; backing ne excessive issue ko constrain kiya."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-02",
+      "title": "Gold link ki timeline banao",
+      "mechanic": "build_timeline",
+      "item_ids": [
+       "p004-i4",
+       "p004-i5",
+       "p004-i6",
+       "p004-i7"
+      ],
+      "instruction": "Chaar historical cards earliest se latest lagao. Poora order gold link se modern fiat tak ka track kholega.",
+      "pieces": [
+       {
+        "id": "sweden",
+        "label": "1661 | Sweden | First banknotes",
+        "position": 1,
+        "right": "Book ki is timeline ka pehla milestone Sweden ke first banknotes hain.",
+        "wrong": "1661 ko baad mein rakhne se earlier banknotes milestone later events ke baad pahunch jaayega."
+       },
+       {
+        "id": "britain",
+        "label": "1816 | Britain | Gold Standard",
+        "position": 2,
+        "right": "Sweden ke milestone ke baad Britain ka Gold Standard juda.",
+        "wrong": "1816 ko 1661 se pehle ya 1944 ke baad rakhne se historical order tootega."
+       },
+       {
+        "id": "bretton",
+        "label": "1944 | Bretton Woods | Dollar-gold",
+        "position": 3,
+        "right": "Dollar-gold link wala Bretton Woods milestone jud gaya.",
+        "wrong": "1944 ka dollar-gold milestone 1816 ke baad aur 1971 se pehle aayega."
+       },
+       {
+        "id": "fiat",
+        "label": "1971 | Modern fiat | No gold redemption",
+        "position": 4,
+        "right": "Modern fiat par gold redemption nahi: gold-backed paper se crucial difference saamne aaya.",
+        "wrong": "1971 ko pehle laane se gold-redemption ending uske earlier milestones se pehle aa jaayegi."
+       }
+      ],
+      "win": "1661 → 1816 → 1944 → 1971: milestones aur gold link ka badlav dono clear."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-03",
+      "title": "Fiat system assemble karo",
+      "mechanic": "place_right",
+      "item_ids": [
+       "p004-i9",
+       "p004-i10"
+      ],
+      "instruction": "Har card uske system-slot mein lagao. Sab parts milkar batayenge ki gold backing ke bina fiat ki value kaise chalti hai.",
+      "places": [
+       {
+        "id": "material",
+        "label": "Material ki apni value"
+       },
+       {
+        "id": "commodity",
+        "label": "Commodity backing"
+       },
+       {
+        "id": "authority",
+        "label": "Issue aur authority"
+       },
+       {
+        "id": "trust",
+        "label": "Public acceptance ka base"
+       },
+       {
+        "id": "supply",
+        "label": "Supply badhaane ki gunjaish"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "paper-digital",
+        "label": "Paper ya digital numbers",
+        "fits": "material",
+        "right": "Fiat ka monetary value paper ya digital form ki intrinsic value se nahi aata.",
+        "wrong": "Material ko authority ya backing banaane se paper ki keemat aur money ki value ek samajh loge."
+       },
+       {
+        "id": "no-gold",
+        "label": "Gold/silver se value tied nahi",
+        "fits": "commodity",
+        "right": "Fiat commodities se backed nahi; gold redemption iska value-base nahi hai.",
+        "wrong": "Yeh card commodity link hataata hai, public trust ya issuing authority nahi."
+       },
+       {
+        "id": "government",
+        "label": "Govt-issued; central bank control",
+        "fits": "authority",
+        "right": "Government authority fiat ka base hai; book production control central banks se jodti hai.",
+        "wrong": "Issuer ko material ya gold reserve slot mein rakhne se authority ka role gayab ho jaata hai."
+       },
+       {
+        "id": "faith",
+        "label": "Public ka government par trust",
+        "fits": "trust",
+        "right": "Public faith value ko support karta hai. Sirf paper hona fiat ki poori explanation nahi.",
+        "wrong": "Trust physical backing ya printing action nahi; yeh public faith wala base hai."
+       },
+       {
+        "id": "printing",
+        "label": "Need par aur money issue ho sakta hai",
+        "fits": "supply",
+        "right": "Book ke mutabik governments need par aur print kar sakti hain; gold-backed system jaisa redemption constraint nahi.",
+        "wrong": "Printing capacity ko value ka akela source banaane se authority aur trust chhoot jaayenge."
+       }
+      ],
+      "win": "Fiat assemble hua: material ki value nahi, government authority aur public trust central hain."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-04",
+      "title": "Currency identities jodo",
+      "mechanic": "find_partner",
+      "item_ids": [
+       "p004-i12",
+       "p004-i13",
+       "p004-i14",
+       "p004-i15",
+       "p004-i16"
+      ],
+      "instruction": "Har currency ko uske description partner se jodo. Sirf symbol mat dekho: Yen aur Yuan dono ke liye ¥ diya hai.",
+      "places": [
+       {
+        "id": "usd",
+        "label": "Sabse widely held aur traded globally"
+       },
+       {
+        "id": "eur",
+        "label": "Book: EU ke 27 mein se 20 states"
+       },
+       {
+        "id": "jpy",
+        "label": "Stability; global markets mein major"
+       },
+       {
+        "id": "gbp",
+        "label": "Book: oldest; history 8th century"
+       },
+       {
+        "id": "cny",
+        "label": "Trade aur reserves mein badhta role"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "dollar",
+        "label": "$ | United States Dollar | USD",
+        "fits": "usd",
+        "right": "Book USD ko globally sabse widely held aur traded fiat currency batati hai.",
+        "wrong": "USD ka profile global holding aur trading wala hai; doosri identity jodne se currency profile badal jaayegi."
+       },
+       {
+        "id": "euro",
+        "label": "€ | Euro | EUR",
+        "fits": "eur",
+        "right": "Book Euro ko 27 EU members mein se 20 se jodti hai. 'Second-most' ke baad caption incomplete hai; ranking guess nahi karenge.",
+        "wrong": "EU adoption wala description Euro ka hai; national currency se jodne se geography aur identity bigadti hain."
+       },
+       {
+        "id": "yen",
+        "label": "¥ | Japanese Yen | JPY",
+        "fits": "jpy",
+        "right": "JPY ke saath stability aur global currency markets mein major role wala description juda.",
+        "wrong": "¥ dekhkar CNY ka partner mat lagao: Japanese Yen ka code JPY aur book ka profile stability wala hai."
+       },
+       {
+        "id": "pound",
+        "label": "£ | British Pound Sterling | GBP",
+        "fits": "gbp",
+        "right": "Book pound ko oldest fiat currency still in use kehti hai aur history 8th century se jodti hai. Isse modern fiat regime ki starting date mat samjho.",
+        "wrong": "Historical continuity ko doosri currency se jodne se oldest-currency claim galat identity par lag jaayega."
+       },
+       {
+        "id": "yuan",
+        "label": "¥ | Chinese Yuan Renminbi | CNY",
+        "fits": "cny",
+        "right": "CNY ka profile global trade aur international reserves mein badhte influence ka hai.",
+        "wrong": "¥ shared symbol hai, shared identity nahi. Yen ka stability profile lagaane se CNY ka distinction kho jaayega."
+       }
+      ],
+      "win": "Paanch identities aur profiles jud gayin; shared ¥ se confusion nahi hua."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-05",
+      "title": "Receipts se fiat era tak",
+      "mechanic": "build_timeline",
+      "item_ids": [
+       "p004-i18",
+       "p004-i19",
+       "p004-i20",
+       "p004-i21"
+      ],
+      "instruction": "Chaar milestones chronological track par rakho. Receipts, state notes aur compulsory stage ko ek event mat bana dena.",
+      "pieces": [
+       {
+        "id": "tang",
+        "label": "7th c. | Tang | Receipts",
+        "position": 1,
+        "right": "Track Tang receipts se shuru hua; later state notes ka milestone alag hai.",
+        "wrong": "7th-century receipts ko 1023 ke baad rakhne se earlier form later ho jaayega."
+       },
+       {
+        "id": "song",
+        "label": "1023 | Song | State notes",
+        "position": 2,
+        "right": "Receipts ke baad Song state notes ka 1023 milestone juda.",
+        "wrong": "Song state notes Tang receipts ke baad aur Yuan compulsory stage se pehle hain."
+       },
+       {
+        "id": "yuan",
+        "label": "1275 | Yuan | Compulsory",
+        "position": 3,
+        "right": "Book ka Yuan compulsory stage juda; yeh sirf receipts wala stage nahi.",
+        "wrong": "1275 ko 1023 se pehle rakhne se stages ka chronological order ulat jaayega."
+       },
+       {
+        "id": "modern",
+        "label": "1971 | Modern | Fiat era",
+        "position": 4,
+        "right": "Modern fiat-era milestone aakhir mein aaya; earlier paper forms ko modern fiat ke barabar nahi maana.",
+        "wrong": "1971 ko medieval milestones ke beech rakhne se centuries ka historical order tootega."
+       }
+      ],
+      "win": "Tang receipts → Song state notes → Yuan compulsory → modern fiat era."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-06",
+      "title": "Fiat aur legal tender alag karo",
+      "mechanic": "place_right",
+      "item_ids": [
+       "p004-i22",
+       "p004-i23",
+       "p004-i24",
+       "p004-i25",
+       "p004-i26"
+      ],
+      "instruction": "Rule-board bharo. Fiat value ka base batata hai; legal tender official payment status. Bitcoin ke dated cards alag stages par rakho.",
+      "places": [
+       {
+        "id": "definition",
+        "label": "Legal tender ki definition"
+       },
+       {
+        "id": "general",
+        "label": "Book ka general rule"
+       },
+       {
+        "id": "exception",
+        "label": "Book: exception, till 2024"
+       },
+       {
+        "id": "reform",
+        "label": "Book: 2025 reforms ke baad"
+       },
+       {
+        "id": "separate",
+        "label": "Status alag se check karo"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "recognition",
+        "label": "Govt-recognised debt/transaction money",
+        "fits": "definition",
+        "right": "Government is money ko apni territory mein debts aur transactions settle karne ke liye officially acceptable maanta hai.",
+        "wrong": "Sirf trust ya voluntary payment ko definition banaane se official recognition chhoot jaayega."
+       },
+       {
+        "id": "rule",
+        "label": "Book rule: legal tender fiat ho",
+        "fits": "general",
+        "right": "Book 'must be fiat' kehti hai, lekin exception bhi deti hai; ise exception-free universal rule nahi bana rahe.",
+        "wrong": "Is line ko absolute definition banaane se book ka Bitcoin example contradict karega."
+       },
+       {
+        "id": "bitcoin-old",
+        "label": "Bitcoin: non-fiat, El Salvador tender",
+        "fits": "exception",
+        "right": "Book ke till-2024 account mein Bitcoin non-fiat hote hue legal tender tha: dono categories identical nahi.",
+        "wrong": "Bitcoin ko fiat banaane se exception mit jaayega; post-reform slot mein rakhne se historical status mix hoga."
+       },
+       {
+        "id": "bitcoin-reform",
+        "label": "2025: voluntary Bitcoin use legal",
+        "fits": "reform",
+        "right": "Book ke mutabik ownership aur voluntary use legal rahe, lekin reforms ke baad practical compulsory legal-tender sense nahi raha.",
+        "wrong": "Voluntary legal use ko compulsory acceptance maanoge toh legal use aur legal tender ka farq tootega."
+       },
+       {
+        "id": "commemorative",
+        "label": "Commemorative: fiat yes, tender check",
+        "fits": "separate",
+        "right": "Book ke mutabik commemorative coins fiat hain, par legal tender ho bhi sakte hain aur nahi bhi; most legal tender hain.",
+        "wrong": "Fiat hote hi har commemorative coin automatically legal tender maanoge toh 'may or may not' kho jaayega."
+       }
+      ],
+      "win": "Value ka base, official recognition aur voluntary use—teenon alag pehchaane."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-07",
+      "title": "Commemorative coin ki do values",
+      "mechanic": "find_partner",
+      "item_ids": [
+       "p004-i27",
+       "p005-i1",
+       "p005-i2"
+      ],
+      "instruction": "Coin cards ko use aur value partners se jodo. Circulation, collector demand aur legal payment value mix mat karo.",
+      "places": [
+       {
+        "id": "daily",
+        "label": "Ordinary coins ki tarah use"
+       },
+       {
+        "id": "sets",
+        "label": "Govt Mint; proof/UNC sets"
+       },
+       {
+        "id": "face",
+        "label": "Legal payment: ₹100"
+       },
+       {
+        "id": "premium",
+        "label": "Collector: several thousand"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "circulation",
+        "label": "Circulation commemorative coins",
+        "fits": "daily",
+        "right": "Yeh circulation mein release hote hain aur ordinary coins ki tarah usable hain.",
+        "wrong": "Sirf collector sets mein rakhne se circulation mein release hone wala feature chhoot jaayega."
+       },
+       {
+        "id": "collector",
+        "label": "Collector commemorative coins",
+        "fits": "sets",
+        "right": "Government Mint proof ya UNC sets mein bechta hai; everyday transactions mein use rare hai.",
+        "wrong": "Rare everyday use ko routine circulation banaane se dono categories ka farq mit jaayega."
+       },
+       {
+        "id": "face-value",
+        "label": "₹100 silver coin: payment value",
+        "fits": "face",
+        "right": "Book ke example mein coin legally ₹100 payment kar sakta hai. Silver ya collector interest face value automatically nahi badhaata.",
+        "wrong": "Collector price ko payment value banaane se ₹100 face value ka legal role galat ho jaayega."
+       },
+       {
+        "id": "collector-value",
+        "label": "₹100 silver coin: collector price",
+        "fits": "premium",
+        "right": "Collector isi coin ke liye several thousand rupees de sakta hai; market price aur legal payment value alag hain.",
+        "wrong": "Collector price zaroor ₹100 maanoge toh premium-price example explain nahi hoga."
+       }
+      ],
+      "win": "Ek coin: circulation status alag, legal face value alag, collector price alag."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-08",
+      "title": "Fees payment ka mechanism kholo",
+      "mechanic": "find_partner",
+      "item_ids": [
+       "p005-i3"
+      ],
+      "instruction": "Cheque aur credit card ko actual mechanism se jodo, phir acceptance rule lagao. Payment kar paana apne aap legal tender hona nahi hai.",
+      "places": [
+       {
+        "id": "instruction",
+        "label": "Bank ko payment instruction"
+       },
+       {
+        "id": "credit",
+        "label": "Credit facility se payment"
+       },
+       {
+        "id": "consent",
+        "label": "Payment method accept hona zaroori"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "cheque",
+        "label": "Cheque",
+        "fits": "instruction",
+        "right": "Outside—standard textbook explanation: cheque bank ko account se payment ka instruction deta hai; khud government-issued fiat currency nahi.",
+        "wrong": "Outside explanation: cheque ko credit facility ya currency maanoge toh account-payment instruction wala mechanism galat ho jaayega."
+       },
+       {
+        "id": "card",
+        "label": "Credit card",
+        "fits": "credit",
+        "right": "Outside—standard textbook explanation: card credit facility access karata hai; payment baad mein repay hota hai. Card khud fiat money nahi.",
+        "wrong": "Outside explanation: card ko banknote ya cheque ke barabar rakhne se credit aur repayment ka role chhoot jaayega."
+       },
+       {
+        "id": "accept",
+        "label": "Fees office cheque/card leta hai",
+        "fits": "consent",
+        "right": "Outside—standard textbook explanation: office ka method accept karna use usable banata hai; isse instrument legal tender nahi ban jaata.",
+        "wrong": "Outside explanation: institution ki acceptance ko official legal-tender recognition banaane se voluntary method aur legal status mix honge."
+       }
+      ],
+      "win": "Fees pay hui, par instruments fiat/legal tender nahi bane: woh payment ke tareeqe hain."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-09",
+      "title": "India ka tender rule-board",
+      "mechanic": "find_partner",
+      "item_ids": [
+       "p005-i5",
+       "p005-i6"
+      ],
+      "instruction": "Dono categories ke saath rule, instrument group aur Act jodo. Poora board sahi hone par payment counter khulega.",
+      "places": [
+       {
+        "id": "unlimited",
+        "label": "Unlimited legal tender"
+       },
+       {
+        "id": "limited",
+        "label": "Limited legal tender"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "any-amount",
+        "label": "Kisi bhi amount; genuine aur valid",
+        "fits": "unlimited",
+        "right": "Book ke framework mein genuine aur valid notes par denomination-based total acceptance ceiling nahi hai.",
+        "wrong": "Limited mein rakhne se unlimited aur legally capped acceptance ka farq ulat jaayega."
+       },
+       {
+        "id": "notes",
+        "label": "Notes: ₹10, ₹20, ₹50, ₹100, ₹200, ₹500",
+        "fits": "unlimited",
+        "right": "Book in banknotes ko unlimited legal tender mein rakhti hai; genuine aur valid hone ki condition saath hai.",
+        "wrong": "Notes par coins ki prescribed ceiling lagaane se category galat ho jaayegi."
+       },
+       {
+        "id": "rbi-act",
+        "label": "Reserve Bank of India Act, 1934",
+        "fits": "unlimited",
+        "right": "Banknotes ke rule-board par RBI Act, 1934 juda.",
+        "wrong": "Coin-limit board se jodne par book ke legal bases swap ho jaayenge."
+       },
+       {
+        "id": "ceiling",
+        "label": "Limit tak; uske baad voluntary",
+        "fits": "limited",
+        "right": "Prescribed limit tak compulsory acceptance ka rule; beyond-limit acceptance voluntary hai, automatically forbidden nahi.",
+        "wrong": "Unlimited banaane se statutory ceiling ka matlab khatam ho jaayega."
+       },
+       {
+        "id": "coin-act",
+        "label": "Coinage Act, 2011",
+        "fits": "limited",
+        "right": "Coins ke limited legal-tender framework se Coinage Act, 2011 juda.",
+        "wrong": "Banknotes board par rakhne se coin limits ka legal anchor galat ho jaayega."
+       }
+      ],
+      "win": "Unlimited: no prescribed amount ceiling; limited: ceiling ke baad voluntary acceptance."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-10",
+      "title": "Coin counter ke limits lagao",
+      "mechanic": "place_right",
+      "item_ids": [
+       "p005-i9",
+       "p005-i10",
+       "p005-i11"
+      ],
+      "instruction": "Har coin group uski limit wale counter par rakho. Limit total offered amount ki hai, coin ke denomination ki nahi.",
+      "places": [
+       {
+        "id": "thousand",
+        "label": "Total amount ₹1,000 tak"
+       },
+       {
+        "id": "ten",
+        "label": "Total amount ₹10 tak"
+       },
+       {
+        "id": "none",
+        "label": "Ab legal tender nahi"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "rupee-coins",
+        "label": "₹1, ₹2, ₹5, ₹10, ₹20 coins",
+        "fits": "thousand",
+        "right": "Book is group ke liye ₹1,000 tak limit deti hai. Har denomination ki alag ₹1,000 allowance mat jodo.",
+        "wrong": "₹10 ceiling se 50-paise rule lag jaayega; no-tender slot valid coin group ko hata dega."
+       },
+       {
+        "id": "half-rupee",
+        "label": "50 paise coin",
+        "fits": "ten",
+        "right": "50-paise coins ke total amount ki legal-tender limit ₹10 tak hai.",
+        "wrong": "₹1,000 ceiling rupee-coin rule hai; 50 paise ko below-50 group mein rakhna bhi galat hai."
+       },
+       {
+        "id": "small-coins",
+        "label": "50 paise se neeche ke coins",
+        "fits": "none",
+        "right": "Book ke mutabik demonetized hain: koi positive legal-tender payment limit nahi.",
+        "wrong": "₹10 ya ₹1,000 counter par rakhne se demonetized coins ko legal-tender status wapas de doge."
+       }
+      ],
+      "win": "Rupee coins: ₹1,000; 50 paise: ₹10; below 50 paise: no longer legal tender."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-11",
+      "title": "Boundary par payment route karo",
+      "mechanic": "place_right",
+      "item_ids": [
+       "p005-i5",
+       "p005-i6",
+       "p005-i9",
+       "p005-i10",
+       "p005-i11"
+      ],
+      "instruction": "Payment bundles route karo. Boundary included hai; usse upar voluntary lane. Yeh book-rule exercise hai, har retail case ki legal advice nahi.",
+      "places": [
+       {
+        "id": "within",
+        "label": "Book-rule: acceptance limit mein"
+       },
+       {
+        "id": "voluntary",
+        "label": "Limit se upar: acceptance voluntary"
+       },
+       {
+        "id": "invalid",
+        "label": "Legal-tender claim nahi"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "rupees-boundary",
+        "label": "Rupee coins: total ₹1,000",
+        "fits": "within",
+        "right": "Exactly ₹1,000 'up to ₹1,000' ke andar hai; boundary included hai.",
+        "wrong": "Boundary ko above-limit bolne se 'up to' ka meaning tootega; valid coins demonetized bhi nahi hain."
+       },
+       {
+        "id": "rupees-above",
+        "label": "Rupee coins: ₹1,000 se zyada",
+        "fits": "voluntary",
+        "right": "Group valid hai, par amount ceiling cross karta hai: acceptance voluntary hai.",
+        "wrong": "Within-limit lane coin ceiling mita degi; invalid lane validity aur amount-limit mix karegi."
+       },
+       {
+        "id": "paise-boundary",
+        "label": "50-paise coins: total ₹10",
+        "fits": "within",
+        "right": "₹10 exactly limit par hai, isliye book-rule ke andar hai.",
+        "wrong": "50 paise below-50 demonetized group nahi; ₹10 boundary bhi included hai."
+       },
+       {
+        "id": "paise-above",
+        "label": "50-paise coins: ₹10 se zyada",
+        "fits": "voluntary",
+        "right": "₹10 ceiling cross hui; is group ko rupee coins ki ₹1,000 ceiling nahi milti.",
+        "wrong": "₹1,000 tak compulsory kehna wrong group ka limit lagaayega; coin khud demonetized nahi."
+       },
+       {
+        "id": "demonetized",
+        "label": "Below-50-paise coins ka payment",
+        "fits": "invalid",
+        "right": "No-longer-legal-tender group hai; chhota amount bhi legal-tender claim restore nahi karta.",
+        "wrong": "Chhota total dekhkar within-limit bhejne se demonetization ignore ho jaayega."
+       },
+       {
+        "id": "valid-notes",
+        "label": "Valid banknotes: total ₹1,000 se zyada",
+        "fits": "within",
+        "right": "Genuine aur valid banknotes unlimited category mein hain; coin ki ₹1,000 ceiling notes par nahi lagti.",
+        "wrong": "Sirf total dekhkar voluntary lane bhejne se coin rule banknotes par transfer ho jaayega."
+       }
+      ],
+      "win": "Chapter-game complete: value ka base, legal status, instrument aur amount check karke payment route kiya."
+     }
+    ],
+    "remove_level_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "9338b9420366513b3ed12eaaa94a97d024c981ddf8912466bd35a3963af0080f",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 12884,
+    "output_tokens": 6695,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Yeh unit gold-backed paper se fiat money aur legal tender tak ka safar karata hai. Student currency ki backing, historical order, payment instruments aur India ke legal-tender limits khud assemble karta hai.",
+    "key_questions": [
+     "Kam intrinsic value wala paper valuable kaise banta hai: gold redemption se ya authority aur trust se?",
+     "Gold backing money issue ko kaise limit karti thi?",
+     "Paper money aur modern fiat ke historical milestones ka order kya hai?",
+     "Fiat money, legal tender aur payment instrument mein kya farq hai?",
+     "Commemorative coin ki face value, collector price aur legal status kaise alag hain?",
+     "India mein notes aur alag coin groups ki acceptance limits kya hain?"
+    ],
+    "decisions": [
+     {
+      "decision": "Ek chapter-game ko 11 linked levels mein baanta; process, timeline, matching aur placement mechanics use kiye.",
+      "reason": "Har key item student se action karata hai; koi mission single-answer quiz nahi hai."
+     },
+     {
+      "decision": "Fiat aur legal tender ko alag dimensions banaya; book ke Bitcoin exception ko saath khilaya.",
+      "reason": "Book ki 'must be fiat' line ko universal rule banane par usi ka exception chhup jaata."
+     },
+     {
+      "decision": "Incomplete captions ko visibly incomplete rakha aur dated claims ko book-attributed rakha.",
+      "reason": "Missing text invent nahi karna aur historical claims ko current verification nahi dikhana."
+     },
+     {
+      "decision": "Cheque/card ke mechanism ka short outside-textbook clarification diya.",
+      "reason": "Book ka question bina payment instrument aur money ka farq khole solve nahi hota."
+     }
+    ],
+    "uncertain": [
+     "Attached images available nahi hain; supplied teachable-item text hi source hai.",
+     "Fiat characteristics ka final phrase 'Highly regu' truncated hai; iska expansion guess nahi kiya.",
+     "Euro caption 'second-most' ke baad incomplete hai; ranking complete nahi ki.",
+     "Pound ki eighth-century history ko modern fiat status ki starting date nahi maana; book ki wording dono ko mila sakti hai.",
+     "Bitcoin ke 2024/2025 claims book ke historical framing mein diye hain, independently verified current legal advice nahi.",
+     "Legal-tender acceptance ko book ke genuine/valid currency aur prescribed-limit framework mein sikhaya hai; har retail situation ke liye blanket legal advice nahi."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Yeh unit gold-backed paper se fiat money aur legal tender tak ka safar karata hai. Student currency ki backing, historical order, payment instruments aur India ke legal-tender limits khud assemble karta hai.",
+     "key_questions": [
+      "Kam intrinsic value wala paper valuable kaise banta hai: gold redemption se ya authority aur trust se?",
+      "Gold backing money issue ko kaise limit karti thi?",
+      "Paper money aur modern fiat ke historical milestones ka order kya hai?",
+      "Fiat money, legal tender aur payment instrument mein kya farq hai?",
+      "Commemorative coin ki face value, collector price aur legal status kaise alag hain?",
+      "India mein notes aur alag coin groups ki acceptance limits kya hain?"
+     ],
+     "decisions": [
+      {
+       "decision": "Ek chapter-game ko 11 linked levels mein baanta; process, timeline, matching aur placement mechanics use kiye.",
+       "reason": "Har key item student se action karata hai; koi mission single-answer quiz nahi hai."
+      },
+      {
+       "decision": "Fiat aur legal tender ko alag dimensions banaya; book ke Bitcoin exception ko saath khilaya.",
+       "reason": "Book ki 'must be fiat' line ko universal rule banane par usi ka exception chhup jaata."
+      },
+      {
+       "decision": "Incomplete captions ko visibly incomplete rakha aur dated claims ko book-attributed rakha.",
+       "reason": "Missing text invent nahi karna aur historical claims ko current verification nahi dikhana."
+      },
+      {
+       "decision": "Cheque/card ke mechanism ka short outside-textbook clarification diya.",
+       "reason": "Book ka question bina payment instrument aur money ka farq khole solve nahi hota."
+      }
+     ],
+     "uncertain": [
+      "Attached images available nahi hain; supplied teachable-item text hi source hai.",
+      "Fiat characteristics ka final phrase 'Highly regu' truncated hai; iska expansion guess nahi kiya.",
+      "Euro caption 'second-most' ke baad incomplete hai; ranking complete nahi ki.",
+      "Pound ki eighth-century history ko modern fiat status ki starting date nahi maana; book ki wording dono ko mila sakti hai.",
+      "Bitcoin ke 2024/2025 claims book ke historical framing mein diye hain, independently verified current legal advice nahi.",
+      "Legal-tender acceptance ko book ke genuine/valid currency aur prescribed-limit framework mein sikhaya hai; har retail situation ke liye blanket legal advice nahi."
+     ]
+    },
+    "levels": [
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-01",
+      "title": "Gold-backed note chalao",
+      "mechanic": "run_process",
+      "item_ids": [
+       "p004-i1",
+       "p004-i2"
+      ],
+      "instruction": "Cards ko order mein chalao: gold reserve se note issue karo, phir holder ka note gold mein redeem karo. Aakhir mein extra issue par backing constraint lagao.",
+      "pieces": [
+       {
+        "id": "reserve",
+        "label": "Central bank: gold reserve rakho",
+        "step": 1,
+        "right": "Backing taiyar hai. Note ki value paper se nahi, gold dene ke promise se aayegi.",
+        "wrong": "Reserve ke bina gold dene ke promise ki backing missing rahegi."
+       },
+       {
+        "id": "issue",
+        "label": "Gold-backed paper notes issue karo",
+        "step": 2,
+        "right": "Paper holder ko fixed quantity of gold lene ka claim mila; paper ki apni intrinsic value bahut kam hai.",
+        "wrong": "Backing arrange hone se pehle issue karne par redemption promise support nahi hota."
+       },
+       {
+        "id": "present",
+        "label": "Holder: note redemption ko lao",
+        "step": 3,
+        "right": "Holder demand par exchange maang raha hai; book ke mutabik yeh facility principle mein available thi.",
+        "wrong": "Note issue hi nahi hua toh holder redeem karne ke liye kya laayega?"
+       },
+       {
+        "id": "redeem",
+        "label": "Fixed quantity ka gold do",
+        "step": 4,
+        "right": "Note fixed gold quantity mein badla. Isi redemption promise se note ko value milti hai.",
+        "wrong": "Holder ka note aaye bina redemption adhura hai; arbitrary quantity dena fixed-redemption promise todega."
+       },
+       {
+        "id": "limit",
+        "label": "Extra issue ko gold backing se baandho",
+        "step": 5,
+        "right": "Har note ko gold backing chahiye, isliye excessive printing par constraint laga.",
+        "wrong": "Backing se alag unlimited issue karoge toh sab notes ke redemption promise ko support nahi kar paoge."
+       }
+      ],
+      "win": "Valuable paper nahi, credible gold-redemption promise tha; backing ne excessive issue ko constrain kiya."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-02",
+      "title": "Gold link ki timeline banao",
+      "mechanic": "build_timeline",
+      "item_ids": [
+       "p004-i4",
+       "p004-i5",
+       "p004-i6",
+       "p004-i7"
+      ],
+      "instruction": "Chaar historical cards earliest se latest lagao. Poora order gold link se modern fiat tak ka track kholega.",
+      "pieces": [
+       {
+        "id": "sweden",
+        "label": "1661 | Sweden | First banknotes",
+        "position": 1,
+        "right": "Book ki is timeline ka pehla milestone Sweden ke first banknotes hain.",
+        "wrong": "1661 ko baad mein rakhne se earlier banknotes milestone later events ke baad pahunch jaayega."
+       },
+       {
+        "id": "britain",
+        "label": "1816 | Britain | Gold Standard",
+        "position": 2,
+        "right": "Sweden ke milestone ke baad Britain ka Gold Standard juda.",
+        "wrong": "1816 ko 1661 se pehle ya 1944 ke baad rakhne se historical order tootega."
+       },
+       {
+        "id": "bretton",
+        "label": "1944 | Bretton Woods | Dollar-gold",
+        "position": 3,
+        "right": "Dollar-gold link wala Bretton Woods milestone jud gaya.",
+        "wrong": "1944 ka dollar-gold milestone 1816 ke baad aur 1971 se pehle aayega."
+       },
+       {
+        "id": "fiat",
+        "label": "1971 | Modern fiat | No gold redemption",
+        "position": 4,
+        "right": "Modern fiat par gold redemption nahi: gold-backed paper se crucial difference saamne aaya.",
+        "wrong": "1971 ko pehle laane se gold-redemption ending uske earlier milestones se pehle aa jaayegi."
+       }
+      ],
+      "win": "1661 → 1816 → 1944 → 1971: milestones aur gold link ka badlav dono clear."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-03",
+      "title": "Fiat system assemble karo",
+      "mechanic": "place_right",
+      "item_ids": [
+       "p004-i9",
+       "p004-i10"
+      ],
+      "instruction": "Har card uske system-slot mein lagao. Sab parts milkar batayenge ki gold backing ke bina fiat ki value kaise chalti hai.",
+      "places": [
+       {
+        "id": "material",
+        "label": "Material ki apni value"
+       },
+       {
+        "id": "commodity",
+        "label": "Commodity backing"
+       },
+       {
+        "id": "authority",
+        "label": "Issue aur authority"
+       },
+       {
+        "id": "trust",
+        "label": "Public acceptance ka base"
+       },
+       {
+        "id": "supply",
+        "label": "Supply badhaane ki gunjaish"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "paper-digital",
+        "label": "Paper ya digital numbers",
+        "fits": "material",
+        "right": "Fiat ka monetary value paper ya digital form ki intrinsic value se nahi aata.",
+        "wrong": "Material ko authority ya backing banaane se paper ki keemat aur money ki value ek samajh loge."
+       },
+       {
+        "id": "no-gold",
+        "label": "Gold/silver se value tied nahi",
+        "fits": "commodity",
+        "right": "Fiat commodities se backed nahi; gold redemption iska value-base nahi hai.",
+        "wrong": "Yeh card commodity link hataata hai, public trust ya issuing authority nahi."
+       },
+       {
+        "id": "government",
+        "label": "Govt-issued; central bank control",
+        "fits": "authority",
+        "right": "Government authority fiat ka base hai; book production control central banks se jodti hai.",
+        "wrong": "Issuer ko material ya gold reserve slot mein rakhne se authority ka role gayab ho jaata hai."
+       },
+       {
+        "id": "faith",
+        "label": "Public ka government par trust",
+        "fits": "trust",
+        "right": "Public faith value ko support karta hai. Sirf paper hona fiat ki poori explanation nahi.",
+        "wrong": "Trust physical backing ya printing action nahi; yeh public faith wala base hai."
+       },
+       {
+        "id": "printing",
+        "label": "Need par aur money issue ho sakta hai",
+        "fits": "supply",
+        "right": "Book ke mutabik governments need par aur print kar sakti hain; gold-backed system jaisa redemption constraint nahi.",
+        "wrong": "Printing capacity ko value ka akela source banaane se authority aur trust chhoot jaayenge."
+       }
+      ],
+      "win": "Fiat assemble hua: material ki value nahi, government authority aur public trust central hain."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-04",
+      "title": "Currency identities jodo",
+      "mechanic": "find_partner",
+      "item_ids": [
+       "p004-i12",
+       "p004-i13",
+       "p004-i14",
+       "p004-i15",
+       "p004-i16"
+      ],
+      "instruction": "Har currency ko uske description partner se jodo. Sirf symbol mat dekho: Yen aur Yuan dono ke liye ¥ diya hai.",
+      "places": [
+       {
+        "id": "usd",
+        "label": "Sabse widely held aur traded globally"
+       },
+       {
+        "id": "eur",
+        "label": "Book: EU ke 27 mein se 20 states"
+       },
+       {
+        "id": "jpy",
+        "label": "Stability; global markets mein major"
+       },
+       {
+        "id": "gbp",
+        "label": "Book: oldest; history 8th century"
+       },
+       {
+        "id": "cny",
+        "label": "Trade aur reserves mein badhta role"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "dollar",
+        "label": "$ | United States Dollar | USD",
+        "fits": "usd",
+        "right": "Book USD ko globally sabse widely held aur traded fiat currency batati hai.",
+        "wrong": "USD ka profile global holding aur trading wala hai; doosri identity jodne se currency profile badal jaayegi."
+       },
+       {
+        "id": "euro",
+        "label": "€ | Euro | EUR",
+        "fits": "eur",
+        "right": "Book Euro ko 27 EU members mein se 20 se jodti hai. 'Second-most' ke baad caption incomplete hai; ranking guess nahi karenge.",
+        "wrong": "EU adoption wala description Euro ka hai; national currency se jodne se geography aur identity bigadti hain."
+       },
+       {
+        "id": "yen",
+        "label": "¥ | Japanese Yen | JPY",
+        "fits": "jpy",
+        "right": "JPY ke saath stability aur global currency markets mein major role wala description juda.",
+        "wrong": "¥ dekhkar CNY ka partner mat lagao: Japanese Yen ka code JPY aur book ka profile stability wala hai."
+       },
+       {
+        "id": "pound",
+        "label": "£ | British Pound Sterling | GBP",
+        "fits": "gbp",
+        "right": "Book pound ko oldest fiat currency still in use kehti hai aur history 8th century se jodti hai. Isse modern fiat regime ki starting date mat samjho.",
+        "wrong": "Historical continuity ko doosri currency se jodne se oldest-currency claim galat identity par lag jaayega."
+       },
+       {
+        "id": "yuan",
+        "label": "¥ | Chinese Yuan Renminbi | CNY",
+        "fits": "cny",
+        "right": "CNY ka profile global trade aur international reserves mein badhte influence ka hai.",
+        "wrong": "¥ shared symbol hai, shared identity nahi. Yen ka stability profile lagaane se CNY ka distinction kho jaayega."
+       }
+      ],
+      "win": "Paanch identities aur profiles jud gayin; shared ¥ se confusion nahi hua."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-05",
+      "title": "Receipts se fiat era tak",
+      "mechanic": "build_timeline",
+      "item_ids": [
+       "p004-i18",
+       "p004-i19",
+       "p004-i20",
+       "p004-i21"
+      ],
+      "instruction": "Chaar milestones chronological track par rakho. Receipts, state notes aur compulsory stage ko ek event mat bana dena.",
+      "pieces": [
+       {
+        "id": "tang",
+        "label": "7th c. | Tang | Receipts",
+        "position": 1,
+        "right": "Track Tang receipts se shuru hua; later state notes ka milestone alag hai.",
+        "wrong": "7th-century receipts ko 1023 ke baad rakhne se earlier form later ho jaayega."
+       },
+       {
+        "id": "song",
+        "label": "1023 | Song | State notes",
+        "position": 2,
+        "right": "Receipts ke baad Song state notes ka 1023 milestone juda.",
+        "wrong": "Song state notes Tang receipts ke baad aur Yuan compulsory stage se pehle hain."
+       },
+       {
+        "id": "yuan",
+        "label": "1275 | Yuan | Compulsory",
+        "position": 3,
+        "right": "Book ka Yuan compulsory stage juda; yeh sirf receipts wala stage nahi.",
+        "wrong": "1275 ko 1023 se pehle rakhne se stages ka chronological order ulat jaayega."
+       },
+       {
+        "id": "modern",
+        "label": "1971 | Modern | Fiat era",
+        "position": 4,
+        "right": "Modern fiat-era milestone aakhir mein aaya; earlier paper forms ko modern fiat ke barabar nahi maana.",
+        "wrong": "1971 ko medieval milestones ke beech rakhne se centuries ka historical order tootega."
+       }
+      ],
+      "win": "Tang receipts → Song state notes → Yuan compulsory → modern fiat era."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-06",
+      "title": "Fiat aur legal tender alag karo",
+      "mechanic": "place_right",
+      "item_ids": [
+       "p004-i22",
+       "p004-i23",
+       "p004-i24",
+       "p004-i25",
+       "p004-i26"
+      ],
+      "instruction": "Rule-board bharo. Fiat value ka base batata hai; legal tender official payment status. Bitcoin ke dated cards alag stages par rakho.",
+      "places": [
+       {
+        "id": "definition",
+        "label": "Legal tender ki definition"
+       },
+       {
+        "id": "general",
+        "label": "Book ka general rule"
+       },
+       {
+        "id": "exception",
+        "label": "Book: exception, till 2024"
+       },
+       {
+        "id": "reform",
+        "label": "Book: 2025 reforms ke baad"
+       },
+       {
+        "id": "separate",
+        "label": "Status alag se check karo"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "recognition",
+        "label": "Govt-recognised debt/transaction money",
+        "fits": "definition",
+        "right": "Government is money ko apni territory mein debts aur transactions settle karne ke liye officially acceptable maanta hai.",
+        "wrong": "Sirf trust ya voluntary payment ko definition banaane se official recognition chhoot jaayega."
+       },
+       {
+        "id": "rule",
+        "label": "Book rule: legal tender fiat ho",
+        "fits": "general",
+        "right": "Book 'must be fiat' kehti hai, lekin exception bhi deti hai; ise exception-free universal rule nahi bana rahe.",
+        "wrong": "Is line ko absolute definition banaane se book ka Bitcoin example contradict karega."
+       },
+       {
+        "id": "bitcoin-old",
+        "label": "Bitcoin: non-fiat, El Salvador tender",
+        "fits": "exception",
+        "right": "Book ke till-2024 account mein Bitcoin non-fiat hote hue legal tender tha: dono categories identical nahi.",
+        "wrong": "Bitcoin ko fiat banaane se exception mit jaayega; post-reform slot mein rakhne se historical status mix hoga."
+       },
+       {
+        "id": "bitcoin-reform",
+        "label": "2025: voluntary Bitcoin use legal",
+        "fits": "reform",
+        "right": "Book ke mutabik ownership aur voluntary use legal rahe, lekin reforms ke baad practical compulsory legal-tender sense nahi raha.",
+        "wrong": "Voluntary legal use ko compulsory acceptance maanoge toh legal use aur legal tender ka farq tootega."
+       },
+       {
+        "id": "commemorative",
+        "label": "Commemorative: fiat yes, tender check",
+        "fits": "separate",
+        "right": "Book ke mutabik commemorative coins fiat hain, par legal tender ho bhi sakte hain aur nahi bhi; most legal tender hain.",
+        "wrong": "Fiat hote hi har commemorative coin automatically legal tender maanoge toh 'may or may not' kho jaayega."
+       }
+      ],
+      "win": "Value ka base, official recognition aur voluntary use—teenon alag pehchaane."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-07",
+      "title": "Commemorative coin ki do values",
+      "mechanic": "find_partner",
+      "item_ids": [
+       "p004-i27",
+       "p005-i1",
+       "p005-i2"
+      ],
+      "instruction": "Coin cards ko use aur value partners se jodo. Circulation, collector demand aur legal payment value mix mat karo.",
+      "places": [
+       {
+        "id": "daily",
+        "label": "Ordinary coins ki tarah use"
+       },
+       {
+        "id": "sets",
+        "label": "Govt Mint; proof/UNC sets"
+       },
+       {
+        "id": "face",
+        "label": "Legal payment: ₹100"
+       },
+       {
+        "id": "premium",
+        "label": "Collector: several thousand"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "circulation",
+        "label": "Circulation commemorative coins",
+        "fits": "daily",
+        "right": "Yeh circulation mein release hote hain aur ordinary coins ki tarah usable hain.",
+        "wrong": "Sirf collector sets mein rakhne se circulation mein release hone wala feature chhoot jaayega."
+       },
+       {
+        "id": "collector",
+        "label": "Collector commemorative coins",
+        "fits": "sets",
+        "right": "Government Mint proof ya UNC sets mein bechta hai; everyday transactions mein use rare hai.",
+        "wrong": "Rare everyday use ko routine circulation banaane se dono categories ka farq mit jaayega."
+       },
+       {
+        "id": "face-value",
+        "label": "₹100 silver coin: payment value",
+        "fits": "face",
+        "right": "Book ke example mein coin legally ₹100 payment kar sakta hai. Silver ya collector interest face value automatically nahi badhaata.",
+        "wrong": "Collector price ko payment value banaane se ₹100 face value ka legal role galat ho jaayega."
+       },
+       {
+        "id": "collector-value",
+        "label": "₹100 silver coin: collector price",
+        "fits": "premium",
+        "right": "Collector isi coin ke liye several thousand rupees de sakta hai; market price aur legal payment value alag hain.",
+        "wrong": "Collector price zaroor ₹100 maanoge toh premium-price example explain nahi hoga."
+       }
+      ],
+      "win": "Ek coin: circulation status alag, legal face value alag, collector price alag."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-08",
+      "title": "Fees payment ka mechanism kholo",
+      "mechanic": "find_partner",
+      "item_ids": [
+       "p005-i3"
+      ],
+      "instruction": "Cheque aur credit card ko actual mechanism se jodo, phir acceptance rule lagao. Payment kar paana apne aap legal tender hona nahi hai.",
+      "places": [
+       {
+        "id": "instruction",
+        "label": "Bank ko payment instruction"
+       },
+       {
+        "id": "credit",
+        "label": "Credit facility se payment"
+       },
+       {
+        "id": "consent",
+        "label": "Payment method accept hona zaroori"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "cheque",
+        "label": "Cheque",
+        "fits": "instruction",
+        "right": "Outside—standard textbook explanation: cheque bank ko account se payment ka instruction deta hai; khud government-issued fiat currency nahi.",
+        "wrong": "Outside explanation: cheque ko credit facility ya currency maanoge toh account-payment instruction wala mechanism galat ho jaayega."
+       },
+       {
+        "id": "card",
+        "label": "Credit card",
+        "fits": "credit",
+        "right": "Outside—standard textbook explanation: card credit facility access karata hai; payment baad mein repay hota hai. Card khud fiat money nahi.",
+        "wrong": "Outside explanation: card ko banknote ya cheque ke barabar rakhne se credit aur repayment ka role chhoot jaayega."
+       },
+       {
+        "id": "accept",
+        "label": "Fees office cheque/card leta hai",
+        "fits": "consent",
+        "right": "Outside—standard textbook explanation: office ka method accept karna use usable banata hai; isse instrument legal tender nahi ban jaata.",
+        "wrong": "Outside explanation: institution ki acceptance ko official legal-tender recognition banaane se voluntary method aur legal status mix honge."
+       }
+      ],
+      "win": "Fees pay hui, par instruments fiat/legal tender nahi bane: woh payment ke tareeqe hain."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-09",
+      "title": "India ka tender rule-board",
+      "mechanic": "find_partner",
+      "item_ids": [
+       "p005-i5",
+       "p005-i6"
+      ],
+      "instruction": "Dono categories ke saath rule, instrument group aur Act jodo. Poora board sahi hone par payment counter khulega.",
+      "places": [
+       {
+        "id": "unlimited",
+        "label": "Unlimited legal tender"
+       },
+       {
+        "id": "limited",
+        "label": "Limited legal tender"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "any-amount",
+        "label": "Kisi bhi amount; genuine aur valid",
+        "fits": "unlimited",
+        "right": "Book ke framework mein genuine aur valid notes par denomination-based total acceptance ceiling nahi hai.",
+        "wrong": "Limited mein rakhne se unlimited aur legally capped acceptance ka farq ulat jaayega."
+       },
+       {
+        "id": "notes",
+        "label": "Notes: ₹10, ₹20, ₹50, ₹100, ₹200, ₹500",
+        "fits": "unlimited",
+        "right": "Book in banknotes ko unlimited legal tender mein rakhti hai; genuine aur valid hone ki condition saath hai.",
+        "wrong": "Notes par coins ki prescribed ceiling lagaane se category galat ho jaayegi."
+       },
+       {
+        "id": "rbi-act",
+        "label": "Reserve Bank of India Act, 1934",
+        "fits": "unlimited",
+        "right": "Banknotes ke rule-board par RBI Act, 1934 juda.",
+        "wrong": "Coin-limit board se jodne par book ke legal bases swap ho jaayenge."
+       },
+       {
+        "id": "ceiling",
+        "label": "Limit tak; uske baad voluntary",
+        "fits": "limited",
+        "right": "Prescribed limit tak compulsory acceptance ka rule; beyond-limit acceptance voluntary hai, automatically forbidden nahi.",
+        "wrong": "Unlimited banaane se statutory ceiling ka matlab khatam ho jaayega."
+       },
+       {
+        "id": "coin-act",
+        "label": "Coinage Act, 2011",
+        "fits": "limited",
+        "right": "Coins ke limited legal-tender framework se Coinage Act, 2011 juda.",
+        "wrong": "Banknotes board par rakhne se coin limits ka legal anchor galat ho jaayega."
+       }
+      ],
+      "win": "Unlimited: no prescribed amount ceiling; limited: ceiling ke baad voluntary acceptance."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-10",
+      "title": "Coin counter ke limits lagao",
+      "mechanic": "place_right",
+      "item_ids": [
+       "p005-i9",
+       "p005-i10",
+       "p005-i11"
+      ],
+      "instruction": "Har coin group uski limit wale counter par rakho. Limit total offered amount ki hai, coin ke denomination ki nahi.",
+      "places": [
+       {
+        "id": "thousand",
+        "label": "Total amount ₹1,000 tak"
+       },
+       {
+        "id": "ten",
+        "label": "Total amount ₹10 tak"
+       },
+       {
+        "id": "none",
+        "label": "Ab legal tender nahi"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "rupee-coins",
+        "label": "₹1, ₹2, ₹5, ₹10, ₹20 coins",
+        "fits": "thousand",
+        "right": "Book is group ke liye ₹1,000 tak limit deti hai. Har denomination ki alag ₹1,000 allowance mat jodo.",
+        "wrong": "₹10 ceiling se 50-paise rule lag jaayega; no-tender slot valid coin group ko hata dega."
+       },
+       {
+        "id": "half-rupee",
+        "label": "50 paise coin",
+        "fits": "ten",
+        "right": "50-paise coins ke total amount ki legal-tender limit ₹10 tak hai.",
+        "wrong": "₹1,000 ceiling rupee-coin rule hai; 50 paise ko below-50 group mein rakhna bhi galat hai."
+       },
+       {
+        "id": "small-coins",
+        "label": "50 paise se neeche ke coins",
+        "fits": "none",
+        "right": "Book ke mutabik demonetized hain: koi positive legal-tender payment limit nahi.",
+        "wrong": "₹10 ya ₹1,000 counter par rakhne se demonetized coins ko legal-tender status wapas de doge."
+       }
+      ],
+      "win": "Rupee coins: ₹1,000; 50 paise: ₹10; below 50 paise: no longer legal tender."
+     },
+     {
+      "schema": "bie.game-level/1",
+      "level_id": "money-11",
+      "title": "Boundary par payment route karo",
+      "mechanic": "place_right",
+      "item_ids": [
+       "p005-i5",
+       "p005-i6",
+       "p005-i9",
+       "p005-i10",
+       "p005-i11"
+      ],
+      "instruction": "Payment bundles route karo. Boundary included hai; usse upar voluntary lane. Yeh book-rule exercise hai, har retail case ki legal advice nahi.",
+      "places": [
+       {
+        "id": "within",
+        "label": "Book-rule: acceptance limit mein"
+       },
+       {
+        "id": "voluntary",
+        "label": "Limit se upar: acceptance voluntary"
+       },
+       {
+        "id": "invalid",
+        "label": "Legal-tender claim nahi"
+       }
+      ],
+      "pieces": [
+       {
+        "id": "rupees-boundary",
+        "label": "Rupee coins: total ₹1,000",
+        "fits": "within",
+        "right": "Exactly ₹1,000 'up to ₹1,000' ke andar hai; boundary included hai.",
+        "wrong": "Boundary ko above-limit bolne se 'up to' ka meaning tootega; valid coins demonetized bhi nahi hain."
+       },
+       {
+        "id": "rupees-above",
+        "label": "Rupee coins: ₹1,000 se zyada",
+        "fits": "voluntary",
+        "right": "Group valid hai, par amount ceiling cross karta hai: acceptance voluntary hai.",
+        "wrong": "Within-limit lane coin ceiling mita degi; invalid lane validity aur amount-limit mix karegi."
+       },
+       {
+        "id": "paise-boundary",
+        "label": "50-paise coins: total ₹10",
+        "fits": "within",
+        "right": "₹10 exactly limit par hai, isliye book-rule ke andar hai.",
+        "wrong": "50 paise below-50 demonetized group nahi; ₹10 boundary bhi included hai."
+       },
+       {
+        "id": "paise-above",
+        "label": "50-paise coins: ₹10 se zyada",
+        "fits": "voluntary",
+        "right": "₹10 ceiling cross hui; is group ko rupee coins ki ₹1,000 ceiling nahi milti.",
+        "wrong": "₹1,000 tak compulsory kehna wrong group ka limit lagaayega; coin khud demonetized nahi."
+       },
+       {
+        "id": "demonetized",
+        "label": "Below-50-paise coins ka payment",
+        "fits": "invalid",
+        "right": "No-longer-legal-tender group hai; chhota amount bhi legal-tender claim restore nahi karta.",
+        "wrong": "Chhota total dekhkar within-limit bhejne se demonetization ignore ho jaayega."
+       },
+       {
+        "id": "valid-notes",
+        "label": "Valid banknotes: total ₹1,000 se zyada",
+        "fits": "within",
+        "right": "Genuine aur valid banknotes unlimited category mein hain; coin ki ₹1,000 ceiling notes par nahi lagti.",
+        "wrong": "Sirf total dekhkar voluntary lane bhejne se coin rule banknotes par transfer ho jaayega."
+       }
+      ],
+      "win": "Chapter-game complete: value ka base, legal status, instrument aur amount check karke payment route kiya."
+     }
+    ]
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793783670.3725934
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.0,
+ "seconds": 306.9,
+ "navin_verdict": null
+}

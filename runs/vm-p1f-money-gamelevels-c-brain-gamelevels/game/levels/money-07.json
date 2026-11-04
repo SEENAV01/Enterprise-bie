@@ -1,0 +1,61 @@
+{
+ "schema": "bie.game-level/1",
+ "level_id": "money-07",
+ "title": "Commemorative coin ki do values",
+ "mechanic": "find_partner",
+ "item_ids": [
+  "p004-i27",
+  "p005-i1",
+  "p005-i2"
+ ],
+ "instruction": "Coin cards ko use aur value partners se jodo. Circulation, collector demand aur legal payment value mix mat karo.",
+ "places": [
+  {
+   "id": "daily",
+   "label": "Ordinary coins ki tarah use"
+  },
+  {
+   "id": "sets",
+   "label": "Govt Mint; proof/UNC sets"
+  },
+  {
+   "id": "face",
+   "label": "Legal payment: ₹100"
+  },
+  {
+   "id": "premium",
+   "label": "Collector: several thousand"
+  }
+ ],
+ "pieces": [
+  {
+   "id": "circulation",
+   "label": "Circulation commemorative coins",
+   "fits": "daily",
+   "right": "Yeh circulation mein release hote hain aur ordinary coins ki tarah usable hain.",
+   "wrong": "Sirf collector sets mein rakhne se circulation mein release hone wala feature chhoot jaayega."
+  },
+  {
+   "id": "collector",
+   "label": "Collector commemorative coins",
+   "fits": "sets",
+   "right": "Government Mint proof ya UNC sets mein bechta hai; everyday transactions mein use rare hai.",
+   "wrong": "Rare everyday use ko routine circulation banaane se dono categories ka farq mit jaayega."
+  },
+  {
+   "id": "face-value",
+   "label": "₹100 silver coin: payment value",
+   "fits": "face",
+   "right": "Book ke example mein coin legally ₹100 payment kar sakta hai. Silver ya collector interest face value automatically nahi badhaata.",
+   "wrong": "Collector price ko payment value banaane se ₹100 face value ka legal role galat ho jaayega."
+  },
+  {
+   "id": "collector-value",
+   "label": "₹100 silver coin: collector price",
+   "fits": "premium",
+   "right": "Collector isi coin ke liye several thousand rupees de sakta hai; market price aur legal payment value alag hain.",
+   "wrong": "Collector price zaroor ₹100 maanoge toh premium-price example explain nahi hoga."
+  }
+ ],
+ "win": "Ek coin: circulation status alag, legal face value alag, collector price alag."
+}
