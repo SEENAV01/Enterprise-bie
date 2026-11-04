@@ -100,7 +100,7 @@ cost.
 | Phase | Dates (target) | Work |
 | --- | --- | --- |
 | 1. Skeleton | about 4–8 Nov | Claude Code, in one or two big prompts (it still opens PRs inside, Navin does not manage them one by one): one button, PDF → book understanding → narration → scene plan on the new engine (ported from the v2 demo) → voice → render → notes → game → one page with all outputs. Slots (formats) for saanche, game mechanics and notes pages. Quality not final; everything connected and running. |
-| 2. Learning | from now, in parallel | Navin gives reference videos per subject (Claude extracts how each idea is shown, the things needed, pace/text/camera rules) and teaching-book PDFs (section 3). Everything lands in BIE's slots. |
+| 2. Learning | from now, in parallel | Navin gives reference videos per subject and then that subject's teaching-book PDF (section 3). The videos teach every section of BIE, not only showing (section 8). Everything lands in BIE's slots. |
 | 3. Two-place runs | about 9–18 Nov | 3–4 books: chapters made by Claude following BIE's workflow and by BIE; compare; every gap becomes code, saanche or examples in BIE; what Navin passes is locked. AI work goes down, code goes up, so cost and time fall. |
 | 4. Whole book | about 19–22 Nov | BIE makes one unseen book end to end; Navin reviews; then official use for his goal. |
 
@@ -127,3 +127,46 @@ Navin decides budget, security, quality verdicts and subjects.
 Discussion and decisions in the planning chat (plain Hinglish, one point at a time, plan before action); Claude
 writes the prompts; Claude Code builds and merges on green; each task ends with one report file; the planning chat
 does the learning track (videos, teaching books) on branch `asset-intake` in BIE's slot formats.
+
+## 8. Addendum, 4 November 2026: what the videos and the teaching book are for
+
+**Hinglish saar (Navin ke liye):** Videos isliye hain ki Claude unhe dekh kar BIE ke liye jo bhi zaroori ho woh
+kare; PDF isliye hai ki Claude us kitab se BIE ke liye jo bhi zaroori ho woh kare, taaki BIE us vision aur goal par
+khara utre jo humne saath milkar socha hai. Videos BIE ke har section ko sikhati hain, sirf dikhana nahi: padhana,
+padhane-dikhane ka talmel, kitab samajhna, awaaz, jaanch, game aur notes bhi. Asli imtihaan BIE ki pehli PDF book
+hai: in sab ke baad bhi agar BIE wahan khara nahi utra, to BIE banana paise aur samay ki barbaadi hai.
+
+Navin's purpose, in his words: he gives reference videos so that Claude, having watched them, does whatever BIE
+needs; he gives the PDF so that Claude does whatever BIE needs; both serve the vision and goal designed together. If
+after these processes BIE does not meet his vision and goal on its first PDF book, building BIE has wasted his money
+and time. Every learning batch is therefore judged by what it adds to that test.
+
+Why this addendum: section 4 described the video track as "how each idea is shown, the things needed, pace, text and
+camera", and Claude kept narrowing the work to showing. That was too narrow. **The videos teach every section of
+BIE.** Per batch of videos, Claude extracts and builds:
+
+| BIE section | What the videos teach | What lands in BIE |
+| --- | --- | --- |
+| Book understanding | how a topic is broken into concepts, the teaching order (not the page order), which prerequisite is recalled first, where a concept is a process, comparison, timeline or number | concept-breakdown and ordering rules, with examples |
+| Narration (teaching) | how a concept is explained: the scene or story before the term, examples and stories woven through, plain-word unpacking (yaani), cause chains, what-if cases (maan lijiye), small numbers, conclusion lines, recap, the exam link | narration rules and structure; gold lines in our own words |
+| Teaching-showing fit (talmel) | what is being said when each thing appears; whether the picture leads or follows the voice; how one picture carries a whole story | scene-plan cue rules and their code checks |
+| Scene plan (director) | the showing patterns for each kind of idea | the show lexicon, scene structure |
+| Saanche and engine | things, characters, places, actions, camera, pace | parametric saanche and engine parts |
+| Voice | pace, pauses, emphasis | voice rules |
+| Checks | what worked and what was weak | code checks |
+| Game | the processes in a video that can become play | game mechanics and level ideas |
+| Notes | the questions a video answers, its recap pictures | notes-page questions and layouts |
+
+Order per subject: that subject's videos first (Navin keeps adding videos until the subject is covered), then its
+teaching-book PDF (section 3), then the next subject. Economy is the first subject.
+
+**A batch is done only when its outputs are inside BIE's slots and run on a real page,** not when files sit on the
+`asset-intake` branch. On 4 November the economy kit of 27 October and the batch-3 saanche are not yet inside
+`bie/brain/video/engine/`; joining them is part of the economy work.
+
+Decided by Navin on 4 November: an India map follows the official boundary of the Survey of India. The source is
+licence-checked before use; until it is in place BIE does not draw an India outline and uses a "भारत" label instead.
+
+Clean, word-timed transcripts of the reference narration are needed to learn teaching and the teaching-showing fit;
+if getting them costs money, Navin decides first.
+
