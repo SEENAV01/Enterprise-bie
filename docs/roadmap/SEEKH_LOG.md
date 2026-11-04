@@ -1842,3 +1842,19 @@ line alone, so the richer prompt parses.
 
 **Measured effect:** notes run c: 19 → crash → 10 → 1 → 1 over 5 rounds, 0 pages. After: run d (resubmitted,
 max_rounds 6). Game: 0 → 11 levels passed. Tokens and ₹: none here; the VM runs stay ₹0 on the plan.
+
+## Entry 46 · the first one-button press: the render's frame count only knew one spec kind, 4 November 2026
+
+**The run (BIE P1 One Button 41847254572, 14:24Z):** the fanout read showplan-c, found v4 passed and dispatched the
+existing render — and the render died in its prepare step: the workflow's inline frame count
+(`sum(s["duration"] ...)`) assumed the old per-scene VideoSpec shape, while a show-spec carries seconds
+(`KeyError: 'duration'`). The render tools themselves (`render_spec.load_spec`, `render.total_frames`,
+the chunk ranges) already handle both kinds; only this one inline line did not.
+
+**What changed in BIE:** (1) the render workflow's prepare step counts frames with `render.total_frames(spec)` —
+the one function that knows both kinds (v4: 26398 frames, 879.93 s, verified on the real spec); (2) the one-button
+fanout skips a video whose `runs/<dest>-<video>/summary.json` already exists on blindtest-results, so a re-press
+after a partial failure never renders a landed video again; (3) the wiring test pins both.
+
+**Measured effect:** one-button press 1: render dead in prepare, page job waiting for nothing. After: press 2 renders
+v4 once and a later press assembles without re-rendering. Tokens and ₹: none (CI minutes only, public repo ₹0).

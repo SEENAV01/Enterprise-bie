@@ -79,6 +79,10 @@ jobs:
         run: |
           set -euo pipefail
           for video in $(echo '${{ steps.plan.outputs.videos }}' | python -c 'import json,sys; print(" ".join(json.load(sys.stdin)))'); do
+            if git -C "$RUNNER_TEMP/branch" cat-file -e "FETCH_HEAD:runs/$DEST-$video/summary.json" 2>/dev/null; then
+              echo "::notice title=p1 one button::$video already rendered (runs/$DEST-$video/summary.json exists); not dispatched again"
+              continue
+            fi
             gh workflow run task046c-render.yml --repo "$GITHUB_REPOSITORY" \
               -f run_folder="$RUN_FOLDER" -f video="$video" -f chunks="$CHUNKS" \
               -f dest="$DEST-$video" -f publish=true -f respec=false
