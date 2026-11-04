@@ -162,9 +162,9 @@ const KINDS = {
     const gy = H * 0.1, crop = p.season === "harvest" ? "#d9b34a" : "#8fbf5a";
     let rows = "";
     for (let i = 0; i < 9; i++) rows += `<path d="M${-W} ${gy + H * 0.03 + i * H * 0.04} L${W} ${gy + H * 0.03 + i * H * 0.04}" stroke="${shade(crop, 0.85)}" stroke-width="${6 + i}" opacity="0.6"/>`;
-    const hut = (x, s) => `<g transform="translate(${x},${gy}) scale(${s})">${rect(-90, -100, 180, 100, "#e4cf9f", ' stroke="#bfa871" stroke-width="4"')}<path d="M-110 -100 L0 -170 L110 -100 Z" fill="#c98850" stroke="#a5693a" stroke-width="4"/>${rect(-22, -62, 44, 62, "#8a5a2b")}</g>`;
-    const tree = (x, s) => `<g transform="translate(${x},${gy}) scale(${s})">${rect(-10, -70, 20, 70, "#8a5a2b")}<circle cx="0" cy="-100" r="56" fill="#9dbb6e"/><circle cx="-42" cy="-74" r="40" fill="#8fae5f"/><circle cx="42" cy="-74" r="40" fill="#a8c47e"/></g>`;
-    const well = `<g transform="translate(${W * 0.28},${gy + H * 0.02})">${rect(-40, -50, 80, 50, "#b9b2a4", ' stroke="#8a8172" stroke-width="4"')}<path d="M-46 -90 L46 -90" stroke="#8a5a2b" stroke-width="8"/><path d="M-40 -90 L-40 -50 M40 -90 L40 -50" stroke="#8a5a2b" stroke-width="6"/></g>`;
+    const k = W / 1920, hut = (x, s) => `<g transform="translate(${x},${gy}) scale(${s * k})">${rect(-90, -100, 180, 100, "#e4cf9f", ' stroke="#bfa871" stroke-width="4"')}<path d="M-110 -100 L0 -170 L110 -100 Z" fill="#c98850" stroke="#a5693a" stroke-width="4"/>${rect(-22, -62, 44, 62, "#8a5a2b")}</g>`;
+    const tree = (x, s) => `<g transform="translate(${x},${gy}) scale(${s * k})">${rect(-10, -70, 20, 70, "#8a5a2b")}<circle cx="0" cy="-100" r="56" fill="#9dbb6e"/><circle cx="-42" cy="-74" r="40" fill="#8fae5f"/><circle cx="42" cy="-74" r="40" fill="#a8c47e"/></g>`;
+    const well = `<g transform="translate(${W * 0.28},${gy + H * 0.02}) scale(${k})">${rect(-40, -50, 80, 50, "#b9b2a4", ' stroke="#8a8172" stroke-width="4"')}<path d="M-46 -90 L46 -90" stroke="#8a5a2b" stroke-width="8"/><path d="M-40 -90 L-40 -50 M40 -90 L40 -50" stroke="#8a5a2b" stroke-width="6"/></g>`;
     return skyGround(W, H, "#cfe8f5", "#eaf4f9", crop, gy) + `<circle cx="${W * 0.36}" cy="${-H * 0.36}" r="${H * 0.07}" fill="#ffd95a"/>` + cloud(-W * 0.2, -H * 0.34, 1.2) + rows +
       hut(-W * 0.36, 1) + hut(-W * 0.18, 0.72) + hut(-W * 0.8, 0.9) + tree(W * 0.12, 1.1) + tree(W * 0.42, 0.85) + tree(W * 0.75, 1) + well + board(p.label, 0, -H * 0.4, W * 0.4, "#8a5a2b");
   },
@@ -223,6 +223,29 @@ const KINDS = {
       rect(-W * 0.09, gy - H * 0.17, W * 0.18, H * 0.17, "#8a5a2b", ' stroke="#5e3b17" stroke-width="4"') + rect(-W * 0.1, gy - H * 0.19, W * 0.2, H * 0.03, "#6b4422") +
       board(p.label, 0, -H * 0.42, W * 0.3, "#e07b24");
   },
+  twoCountries(W, H, p) {
+    const gy = H * 0.08, signs = signsOf(p), k = W / 1920;
+    const houses = (x0, dir, c) => [0, 1, 2, 3].map((i) => { const x = x0 + dir * i * W * 0.08, hh = H * (0.08 + ((i * 7) % 3) * 0.03);
+      return rect(x - W * 0.03, gy - hh, W * 0.06, hh, c, ' stroke="#b9ad90" stroke-width="3"') + `<path d="M${x - W * 0.035} ${gy - hh} L${x} ${gy - hh - H * 0.04} L${x + W * 0.035} ${gy - hh} Z" fill="${shade(c, 0.8)}"/>`; }).join("");
+    let road = rect(-W, gy + H * 0.16, 2 * W, H * 0.07, "#8d8a84");
+    for (let i = -12; i < 12; i++) road += rect(i * W * 0.09, gy + H * 0.192, W * 0.04, 6 * k, "#f2f2f2");
+    const gate = `<g transform="translate(0,${gy + H * 0.16})">${rect(-W * 0.012, -H * 0.12, W * 0.024, H * 0.12, "#6b7280")}<path d="M${W * 0.012} ${-H * 0.1} L${W * 0.11} ${-H * 0.1}" stroke="#e5484d" stroke-width="${10 * k}" stroke-dasharray="${18 * k} ${14 * k}"/></g>`;
+    return rect(-W, -H / 2, 2 * W, gy + H / 2, "#d6e8f3") + cloud(-W * 0.3, -H * 0.36, 1.1 * k) + cloud(W * 0.3, -H * 0.3, 1 * k) +
+      rect(-W, gy, W, H / 2 - gy, "#dcc58f") + rect(0, gy, W, H / 2 - gy, "#bfd79a") + houses(-W * 0.15, -1, "#f1e3c6") + houses(W * 0.15, 1, "#e6eef5") +
+      `<path d="M0 ${-H * 0.2} L0 ${H / 2}" stroke="#4a5568" stroke-width="${8 * k}" stroke-dasharray="${26 * k} ${18 * k}"/>` + road + gate +
+      board(signs[0], -W * 0.25, gy + H * 0.34, W * 0.3, "#8a5a2b") + board(signs[1], W * 0.25, gy + H * 0.34, W * 0.3, "#2459a6") + board(p.label, 0, -H * 0.4, W * 0.4, "#4a5568");
+  },
+  forexCounter(W, H, p) {
+    const gy = H * 0.14, wall = okColor(p.color, "#e6edf2"), rows = signsOf(p).slice(0, 4), k = W / 1920;
+    let boardRows = "";
+    rows.forEach((r, i) => { boardRows += text(r, W * 0.2, -H * 0.3 + i * H * 0.075, Math.min(H * 0.05, (W * 0.3) / Math.max(1, r.length) * 1.7), "#f2c14e", 800); });
+    if (!rows.length) for (let i = 0; i < 3; i++) boardRows += rect(W * 0.07, -H * 0.33 + i * H * 0.075, W * 0.26, H * 0.03, "#f2c14e", ' opacity="0.5"');
+    const stacks = ["#6cbf7f", "#7aa6d8", "#d9a46a", "#b58ad6"].map((c, i) => [0, 1, 2].map((j) =>
+      rect(-W * 0.38 + i * W * 0.08, gy - H * 0.22 - j * H * 0.018, W * 0.06, H * 0.016, c, ` stroke="${shade(c)}" stroke-width="2"`)).join("")).join("");
+    return wallFloor(W, H, wall, "#d5dbe1", gy) + rect(W * 0.05, -H * 0.42, W * 0.3, H * 0.34, "#1f2a33", ` rx="${12 * k}" stroke="#4a5568" stroke-width="${6 * k}"`) + boardRows +
+      rect(-W * 0.46, gy - H * 0.2, W * 0.5, H * 0.2, "#7a8fa3", ' stroke="#55687b" stroke-width="4"') + rect(-W * 0.44, gy - H * 0.46, W * 0.46, H * 0.24, "#dfeef7", ' opacity="0.7" stroke="#8a9bb0" stroke-width="4"') + stacks +
+      (p.crowd ? crowdBand(W * 0.05, W, gy + H * 0.1, H * 0.1, 4) : "") + board(p.label, -W * 0.21, -H * 0.4, W * 0.36, "#2a9d8f");
+  },
 };
 
 const LIGHT = { evening: ["#ff8a3c", 0.16], night: ["#0b1d3a", 0.45] };
@@ -234,3 +257,60 @@ export function world(p = {}) {
 }
 
 export const WORLD_KINDS = Object.keys(KINDS);
+
+// Where things are in a world, for a game board or a plan that points at a place: named boxes as fractions of the
+// visible stage (the middle half of the drawing, x and y from 0 to 1). Numbered spots (stall2, counter1, desk3, shed1,
+// shop2) are also reachable by their sign's words. bie/brain/game_levels.py names the same spots (a test keeps them equal).
+const SPOTS = {
+  market: (W, H, p) => { const gy = H * 0.12, n = countOf(p, 4, 2, 6), o = { floor: [-W / 2, gy + H * 0.05, W / 2, H * 0.45] };
+    for (let i = 0; i < n; i++) { const x = -W * 0.42 + (i + 0.5) * (W * 0.84 / n), sw = (W * 0.84 / n) * 0.86; o[`stall${i + 1}`] = [x - sw / 2, gy - H * 0.28, x + sw / 2, gy + H * 0.02]; }
+    return o; },
+  bankHall: (W, H, p) => { const gy = H * 0.14, n = countOf(p, 3, 1, 5), cw = W * 0.56 / n, r = H * 0.17, vy = gy - r * 1.25;
+    const o = { vault: [W * 0.33 - r * 1.25, vy - r * 1.3, W * 0.33 + r * 1.25, gy], queue: [-W * 0.32, gy + H * 0.04, -W * 0.04, gy + H * 0.24], floor: [-W / 2, gy + H * 0.05, W / 2, H * 0.45] };
+    for (let i = 0; i < n; i++) { const x = -W * 0.42 + i * cw; o[`counter${i + 1}`] = [x, gy - H * 0.38, x + cw - W * 0.02, gy]; }
+    return o; },
+  centralBank: (W, H) => { const gy = H * 0.16, r = H * 0.2, vy = gy - r * 1.15;
+    return { vault: [-r * 1.4, vy - r * 1.25, r * 1.4, gy], floor: [-W / 2, gy + H * 0.05, W / 2, H * 0.45] }; },
+  exchangeFloor: (W, H) => { const gy = H * 0.16;
+    return { board: [-W * 0.36, -H * 0.42, W * 0.36, -H * 0.04], desks: [-W * 0.45, gy, W * 0.5, gy + H * 0.25], floor: [-W / 2, gy + H * 0.05, W / 2, H * 0.45] }; },
+  port: (W, H) => { const gy = H * 0.1;
+    return { ship: [-W * 0.32, gy - H * 0.24, W * 0.14, gy + H * 0.02], crane: [W * 0.02, -H * 0.3, W * 0.32, gy + H * 0.06], dock: [-W / 2, gy + H * 0.12, W / 2, H * 0.45] }; },
+  factory: (W, H) => { const gy = H * 0.12, o = { belt: [-W * 0.2, gy + H * 0.03, W * 0.3, gy + H * 0.14], chimney: [W * 0.24, -H * 0.45, W * 0.3, gy] };
+    for (let i = 0; i < 3; i++) { const x = -W * 0.42 + i * W * 0.22; o[`shed${i + 1}`] = [x, gy - H * 0.26, x + W * 0.2, gy]; }
+    return o; },
+  village: (W, H) => { const gy = H * 0.1, k = W / 1920;
+    return { field: [-W / 2, gy + H * 0.02, W / 2, H * 0.45], hut: [-W * 0.36 - 110 * k, gy - 170 * k, -W * 0.36 + 110 * k, gy],
+      well: [W * 0.28 - 46 * k, gy + H * 0.02 - 90 * k, W * 0.28 + 46 * k, gy + H * 0.02], tree: [W * 0.12 - 110 * k, gy - 180 * k, W * 0.12 + 110 * k, gy] }; },
+  office: (W, H, p) => { const gy = H * 0.14, n = countOf(p, 5, 1, 6), o = { floor: [-W / 2, gy + H * 0.2, W / 2, H * 0.45] };
+    for (let i = 0; i < n; i++) { const x = (i - (n - 1) / 2) * W * 0.2; o[`desk${i + 1}`] = [x - W * 0.08, gy - H * 0.05, x + W * 0.08, gy + H * 0.15]; }
+    return o; },
+  court: (W, H) => { const gy = H * 0.16;
+    return { bench: [-W * 0.3, gy - H * 0.27, W * 0.3, gy], left: [-W * 0.46, gy - H * 0.12, -W * 0.36, gy], right: [W * 0.36, gy - H * 0.12, W * 0.46, gy], floor: [-W / 2, gy + H * 0.15, W / 2, H * 0.45] }; },
+  city: (W, H) => { const gy = H * 0.18, o = { road: [-W / 2, gy, W / 2, H * 0.45] };
+    [-0.3, 0, 0.3].forEach((f, i) => { o[`shop${i + 1}`] = [f * W - W * 0.05, gy - H * 0.2, f * W + W * 0.05, gy]; });
+    return o; },
+  assembly: (W, H) => { const gy = H * 0.16;
+    return { podium: [-W * 0.1, gy - H * 0.19, W * 0.1, gy], seats: [-W * 0.45, gy - H * 0.45, W * 0.45, gy - H * 0.12], floor: [-W / 2, gy + H * 0.05, W / 2, H * 0.45] }; },
+  twoCountries: (W, H) => { const gy = H * 0.08;
+    return { left: [-W / 2, gy + H * 0.02, -W * 0.02, H * 0.45], right: [W * 0.02, gy + H * 0.02, W / 2, H * 0.45], border: [-W * 0.04, -H * 0.2, W * 0.04, H * 0.45],
+      road: [-W / 2, gy + H * 0.15, W / 2, gy + H * 0.24] }; },
+  forexCounter: (W, H) => { const gy = H * 0.14;
+    return { counter: [-W * 0.46, gy - H * 0.46, W * 0.04, gy], board: [W * 0.05, -H * 0.42, W * 0.35, -H * 0.08], queue: [W * 0.06, gy + H * 0.02, W * 0.46, gy + H * 0.24],
+      floor: [-W / 2, gy + H * 0.05, W / 2, H * 0.45] }; },
+};
+const NUMBERED = { market: "stall", bankHall: "counter", office: "desk", factory: "shed", city: "shop" };
+const NAMED = { twoCountries: ["left", "right"] };          // a sign's words reach a fixed spot too (the countries)
+
+export function worldSpots(p = {}) {
+  const W = 1920, H = 1080, kind = SPOTS[p.kind] ? p.kind : "market", raw = SPOTS[kind](W, H, p), out = {};
+  const f = (v, lo, span) => Math.max(0, Math.min(1, (v - lo) / span));
+  for (const [name, [x0, y0, x1, y1]] of Object.entries(raw)) {
+    const x = f(x0, -W / 2, W), y = f(y0, -H / 2, H);
+    out[name] = { x: +x.toFixed(4), y: +y.toFixed(4), w: +(f(x1, -W / 2, W) - x).toFixed(4), h: +(f(y1, -H / 2, H) - y).toFixed(4) };
+  }
+  const pre = NUMBERED[kind];
+  if (pre) signsOf(p).forEach((sg, i) => { if (out[`${pre}${i + 1}`] && !(sg in out)) out[sg] = out[`${pre}${i + 1}`]; });
+  if (NAMED[kind]) signsOf(p).forEach((sg, i) => { if (NAMED[kind][i] && !(sg in out)) out[sg] = out[NAMED[kind][i]]; });
+  return out;
+}
+

@@ -78,6 +78,8 @@ export const BACKGROUNDS = {
   court: () => worldBg("court"),
   city: () => worldBg("city"),
   assembly: () => worldBg("assembly"),
+  twoCountries: () => worldBg("twoCountries"),
+  forexCounter: () => worldBg("forexCounter"),
 };
 
 export const FOREGROUNDS = {
