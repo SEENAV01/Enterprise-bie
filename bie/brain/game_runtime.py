@@ -18,6 +18,8 @@ from __future__ import annotations
 
 import html
 import json
+import re
+from pathlib import Path
 
 PAGE = r"""<!doctype html>
 <html lang="hi">
@@ -42,6 +44,8 @@ header h1{font-size:1.05rem;margin:0;flex:1;min-width:0;white-space:nowrap;overf
 .board{position:relative;width:100%;height:46vh;min-height:220px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0b1d28;margin:0 auto}
 .board.pic{height:auto;max-height:56vh;background:#fff}
 .board img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}
+.board svg.world{position:absolute;inset:0;width:100%;height:100%}
+.wb .target{align-items:flex-end;font-size:.8rem}.wb .target>span{background:rgba(255,255,255,.88);border-radius:6px;padding:0 5px;margin-bottom:3px}
 .credit{position:absolute;right:6px;bottom:4px;font-size:.62rem;color:#333;background:rgba(255,255,255,.75);padding:1px 5px;border-radius:6px;max-width:70%;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .target{position:absolute;border:2px dashed rgba(55,210,194,.6);border-radius:12px;display:flex;align-items:center;justify-content:center;
@@ -87,6 +91,7 @@ header h1{font-size:1.05rem;margin:0;flex:1;min-width:0;white-space:nowrap;overf
 <div id="app"></div>
 <div id="toast" class="toast" role="status"></div>
 <script id="data" type="application/json">__DATA__</script>
+<script>__WORLDS__</script>
 <script>
 const G = JSON.parse(document.getElementById("data").textContent);
 const KEY = "bie-game-" + G.id;
@@ -170,14 +175,20 @@ function autoBox(i, n) {
   return { x: 0.05 + (i % cols) * w + 0.01, y: 0.07 + Math.floor(i / cols) * h + 0.01, w: w - 0.02, h: h - 0.02 };
 }
 function dragStage(s, wrap) {
-  const board = el("div", "board"), bg = s.background && s.background.src ? s.background : null;
+  const board = el("div", "board"), wd = s.world && window.BIEWorld ? s.world : null;
+  const bg = !wd && s.background && s.background.src ? s.background : null, spots = wd ? BIEWorld.worldSpots(wd) : {};
+  if (wd) { board.classList.add("pic", "wb"); board.style.aspectRatio = "16 / 9"; board.style.maxWidth = "calc(56vh * 16 / 9)";
+    board.insertAdjacentHTML("beforeend", '<svg class="world" viewBox="-960 -540 1920 1080" preserveAspectRatio="none">' +
+      BIEWorld.world(Object.assign({}, wd, { w: 3840 })) + "</svg>"); }
   if (bg) { board.classList.add("pic"); board.style.aspectRatio = bg.width + " / " + bg.height;
     board.style.maxWidth = "calc(56vh * " + (bg.width / bg.height) + ")";
     const img = el("img"); img.src = bg.src; img.alt = bg.alt || ""; board.appendChild(img);
     if (bg.credit) board.appendChild(el("div", "credit", bg.credit)); }
   const targets = {};
   s.targets.forEach((t, i) => {
-    const d = el("div", "target", bg ? null : (t.label || "")); const b = t.box && t.box.w ? t.box : autoBox(i, s.targets.length);
+    const d = el("div", "target", bg || wd ? null : (t.label || ""));
+    const b = (t.spot && spots[t.spot]) || (t.box && t.box.w ? t.box : autoBox(i, s.targets.length));
+    if (wd) d.appendChild(el("span", null, t.label || ""));
     if (bg) { d.appendChild(el("span", "dot", String(i + 1))); if (t.label) d.title = t.label; }
     Object.assign(d.style, { left: b.x * 100 + "%", top: b.y * 100 + "%", width: b.w * 100 + "%", height: b.h * 100 + "%" });
     d.dataset.id = t.id; board.appendChild(d); targets[t.id] = d;
@@ -316,6 +327,19 @@ menu();
 """
 
 
+WORLDS_JS = Path(__file__).resolve().parent / "video" / "engine" / "worlds.mjs"
+
+
+def worlds_script(game: dict) -> str:
+    """The showing engine's worlds code (the same drawing as the videos) for a game whose stages happen in a world;
+    wrapped so its names stay private, and empty when no stage needs it (the page stays small)."""
+    if not any(isinstance(s.get("world"), dict) for m in game.get("missions") or [] for s in m.get("stages") or []):
+        return ""
+    code = re.sub(r"^export ", "", WORLDS_JS.read_text(encoding="utf-8"), flags=re.M).replace("</script", "<\\/script")
+    return "window.BIEWorld = (() => {\n" + code + "\nreturn { world, worldSpots };\n})();"
+
+
 def render_game_html(game: dict) -> str:
     payload = json.dumps(game, ensure_ascii=False).replace("</", "<\\/")
-    return PAGE.replace("__TITLE__", html.escape(game.get("title", "BIE game"))).replace("__DATA__", payload)
+    return (PAGE.replace("__TITLE__", html.escape(game.get("title", "BIE game"))).replace("__WORLDS__", worlds_script(game))
+            .replace("__DATA__", payload))

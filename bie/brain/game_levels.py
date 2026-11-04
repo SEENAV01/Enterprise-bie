@@ -21,6 +21,12 @@ decide" and "set the number and see what happens"), played by the runtime's exis
   situation and chooses; every wrong choice says what breaks and why.
 - ``predict``: the student sets a number first (how much goes into the CRR vault, the yield at a price, the
   per-person income), then sees the real value and the relationship; close and far guesses get their own feedback.
+
+A level can happen in a world (4 Nov 2026): ``world`` names one of the economy worlds of the showing engine (a bank
+hall, a market, a port, ...) with its parameters (the saancha manifest is the law), and each place of
+``place_right`` / ``find_partner`` can sit on a ``spot`` of that world (counter2, the vault, a stall's sign words), so
+the student drops the customer's need on the right counter of a real-looking bank hall. The runtime draws the world
+with the same code as the videos (``worlds.mjs``) and puts the drop zones on the spots.
 """
 from __future__ import annotations
 
@@ -36,6 +42,61 @@ SLOT_WORD = {"run_process": "कदम", "build_timeline": "पहले → ब
 
 def _rows(level, key):
     return level.get(key) or []
+
+
+# The spots of every world, by name (the same names worlds.mjs worldSpots gives; tests/test_p1_game_levels.py keeps
+# them equal). Numbered spots take their count from the world's parameters exactly as the drawing does.
+_FIXED_SPOTS = {"market": ("floor",), "bankHall": ("vault", "queue", "floor"), "centralBank": ("vault", "floor"),
+                "exchangeFloor": ("board", "desks", "floor"), "port": ("ship", "crane", "dock"), "factory": ("belt", "chimney"),
+                "village": ("field", "hut", "well", "tree"), "office": ("floor",), "court": ("bench", "left", "right", "floor"),
+                "city": ("road",), "assembly": ("podium", "seats", "floor")}
+_NUMBERED = {"market": ("stall", 4, 2, 6), "bankHall": ("counter", 3, 1, 5), "office": ("desk", 5, 1, 6),
+             "factory": ("shed", 3, 3, 3), "city": ("shop", 3, 3, 3)}
+
+
+def world_spot_names(world: dict) -> list:
+    """The spot names of a world (fixed spots, numbered spots, then the words of the signs on numbered spots)."""
+    kind = world.get("kind") if world.get("kind") in _FIXED_SPOTS else "market"
+    signs = [t.strip() for t in str(world.get("signs") or "").split(";") if t.strip()]
+    names = list(_FIXED_SPOTS[kind])
+    if kind in _NUMBERED:
+        pre, d, lo, hi = _NUMBERED[kind]
+        c = world.get("count")
+        n = c if isinstance(c, (int, float)) and not isinstance(c, bool) and c > 0 else (len(signs) or d)
+        n = max(lo, min(hi, int(round(n))))
+        names += [f"{pre}{i + 1}" for i in range(n)]
+        for sg in signs[:n]:
+            if sg not in names:
+                names.append(sg)
+    return names
+
+
+def world_spots_text() -> str:
+    """One line per world for the level writer: its spots (numbered ones count by the world's signs or count)."""
+    rows = []
+    for kind, fixed in _FIXED_SPOTS.items():
+        num = _NUMBERED.get(kind)
+        spots = ([f"{num[0]}1..{num[0]}{num[3]} (one per sign; a sign's words work too)"] if num and num[3] > num[2]
+                 else [f"{num[0]}1..{num[0]}{num[3]} (a sign's words work too)"] if num else []) + list(fixed)
+        rows.append(f"{kind}: {', '.join(spots)}")
+    return "; ".join(rows)
+
+
+def _world_problems(level: dict, lid: str) -> list:
+    world = level.get("world")
+    if world is None:
+        return [f"level {lid}: place '{p.get('id')}' has a spot but the level has no world"
+                for p in _rows(level, "places") if isinstance(p, dict) and p.get("spot")]
+    if not isinstance(world, dict):
+        return [f"level {lid}: 'world' must be a JSON object (kind, signs, ...), not {type(world).__name__}"]
+    from bie.brain import saanche
+    out = [f"level {lid}: world: {p}" for p in saanche.problems("world", world)]
+    names = world_spot_names(world)
+    for p in _rows(level, "places"):
+        if isinstance(p, dict) and p.get("spot") and p["spot"] not in names:
+            out.append(f"level {lid}: place '{p.get('id')}' spot '{p['spot']}' is not in the {world.get('kind', 'market')} "
+                       f"world (spots: {', '.join(names)})")
+    return out
 
 
 def problems(level: dict) -> list:
@@ -64,6 +125,7 @@ def problems(level: dict) -> list:
         out += _act_as_problems(level, lid)
     elif mech == "predict":
         out += _predict_problems(level, lid)
+    out += _world_problems(level, lid)
     if mech not in DRAG:
         if not level.get("win"):
             out.append(f"level {lid}: 'win' is needed (what the student made work)")
@@ -218,7 +280,8 @@ def stage_of(level: dict) -> dict:
                                   "feedback": str(p["wrong"]), "effect": "shake"})
     else:
         places = _rows(level, "places")
-        targets = [{"id": p["id"], "label": str(p["label"]), "box": {"x": 0, "y": 0, "w": 0, "h": 0}} for p in places]
+        targets = [dict({"id": p["id"], "label": str(p["label"]), "box": {"x": 0, "y": 0, "w": 0, "h": 0}},
+                        **({"spot": str(p["spot"])} if p.get("spot") else {})) for p in places]
         for p in real:
             for place in places:
                 if place["id"] == p["fits"]:
@@ -232,12 +295,15 @@ def stage_of(level: dict) -> dict:
                 for place in places:
                     rules.append({"token": p["id"], "target": place["id"], "correct": False,
                                   "feedback": str(p["wrong"]), "effect": "shake"})
-    return {"stage_id": level["level_id"], "kind": "drag", "instruction": str(level["instruction"]),
+    stage = {"stage_id": level["level_id"], "kind": "drag", "instruction": str(level["instruction"]),
             "tokens": tokens, "targets": targets, "rules": rules, "ordered": bool(ORDERED[mech]),
             "situation": "", "choices": [],
             "slider": {"label": "", "unit": "", "min": 0, "max": 0, "step": 0, "answer": 0, "tolerance": 0,
                        "predict_prompt": "", "reveal_label": "", "data": []},
             "feedback_close": "", "feedback_far": "", "item_ids": list(level.get("item_ids") or [])}
+    if isinstance(level.get("world"), dict):
+        stage["world"] = dict(level["world"])          # the runtime draws it and puts the places on their spots
+    return stage
 
 
 def mission_of(levels: list, *, title: str, intro: str = "", win_text: str = "") -> dict:

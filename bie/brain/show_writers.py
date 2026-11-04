@@ -40,6 +40,9 @@ tolerance, predict_prompt, reveal_label; feedback_close, feedback_far). A drag l
 Hinglish, 2-7 pieces (labels <= 44 characters, a phone screen), every right move says what happens, every wrong move and
 decoy says what breaks and why. Every level: win line and the item_ids it makes the student play. Use at least two
 different mechanics across the levels; build levels from the chapter's own stories and processes, nothing invented.
+A drag level may happen in a world (the same places the videos use): world = {{"kind": ..., "signs": "a;b;c", ...}} with
+the world saancha's parameters, and in place_right / find_partner each place may sit on a spot of it ("spot": "counter2"
+or a sign's words) - e.g. drop each customer's need on the right counter of the bank hall. Worlds and spots: {worlds}.
 {rules}"""
 
 
@@ -149,7 +152,7 @@ def pages_step(course: Course, chapter: dict, *, rulebook, max_rounds: int = 4, 
 
 
 def levels_step(course: Course, chapter: dict, *, rulebook, max_rounds: int = 4, start: dict | None = None) -> Step:
-    system = fmt(LEVELS_ROLE, course, rules=rulebook.instructions("game"))
+    system = fmt(LEVELS_ROLE, course, rules=rulebook.instructions("game"), worlds=game_levels.world_spots_text())
     user = (f"Chapter: {(chapter.get('map') or {}).get('chapter_title', course.title)}.\n"
             f"Teachable items: {json.dumps(_items_payload(chapter), ensure_ascii=False)}\n\n"
             "Reply with {\"notes\": ..., \"levels\": [bie.game-level/1 ...]}.")
