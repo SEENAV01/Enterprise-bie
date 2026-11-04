@@ -239,15 +239,7 @@ class Allocate(unittest.TestCase):
         bad = allocate_level(feedback_close="")
         self.assertTrue(any("'feedback_close' is needed" in p for p in gl.problems(bad)))
 
-    @unittest.skipUnless(shutil.which("node"), "needs node and Playwright (the toolbox lane has them)")
-    def test_the_bot_plays_a_wrong_split_then_the_right_one(self):
-        from bie.brain.game_build import bot_screenshots
-        mission = gl.mission_of([allocate_level()], title="बैंक बनो")
-        shots, info = bot_screenshots({"id": "a", "title": "बैंक", "world": "", "missions": [mission], "credits": []})
-        if not shots:
-            self.skipTest(f"the bot could not run here: {info[:160]}")
-        result = json.loads(info)
-        self.assertEqual((result["won"], result["wrong_moves"], result["errors"]), (1, 1, []))
+    # BIE's bot plays an allocate level in Chromium: tests/toolbox/test_p1_show_render.py (the show lane has Playwright)
 
 
 if __name__ == "__main__":
