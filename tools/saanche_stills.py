@@ -35,7 +35,9 @@ def sheet_spec(pages: list) -> dict:
             top = (j // COLS) * (H / ROWS)
             base = top + H / ROWS - 64
             y = base if entry["anchor"] == "bottom" else top + (H / ROWS - 64) * 0.55
-            els.append({"draw": name, "p": {}, "x": cx, "y": y, "s": 1, "z": 20,
+            wdef = (entry["params"].get("w") or {}).get("default")
+            s = round(min(1.0, (W / COLS) * 0.92 / wdef), 3) if wdef else 1   # a wide one (a world) fits its cell
+            els.append({"draw": name, "p": {}, "x": cx, "y": y, "s": s, "z": 20,
                         "t0": 0.0, "t1": None, "enter": "none", "keys": []})
             els.append({"text": name, "size": 36, "style": "tag", "x": cx, "y": base + 34,
                         "t0": 0.0, "t1": None, "z": 40})

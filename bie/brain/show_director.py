@@ -31,6 +31,9 @@ happens on the word it is said (W-01: show, never say "the book says").
 
 The plan language (its vocabulary is the JSON below; the compiler refuses anything else, naming the step and field):
 - scenes cover the video's lines in order, each scene a place (bg) and a list of steps;
+- a place is a bg name, or a world item (draw "world", x 960, y 540, z 1) when the place itself must change on a word
+  (the vault opens, the market board turns down, night falls, the stalls get signs); a world is the place, never the
+  thing being taught, so it does not count as showing the thing said;
 - steps are people (person + pose/expr/hold/walk/face/give/shake/nod), things (item: a saancha with parameters, a fetched
   asset, or a mini person), texts (>= 36px on screen after the camera), marks, arrows, bubbles, rects, glows and cameras;
 - every time is a cue into the narration: {{"line": "...", "word": "..."}} or {{"line": "...", "edge": "start"|"end"}},
@@ -53,9 +56,17 @@ GOLD EXAMPLE (one scene of the Money v2 demo's plan - imitate the craft, not the
 {rules}"""
 
 
-def library_text(limit: int = 40) -> str:
+def library_text(limit: int = 120, text: str = "") -> str:
+    """The saanche the director may use, with their parameters. All of them while the manifest fits ``limit``; past
+    that, the ones whose words the narration ``text`` uses come first (a world, a vault, a podium for the lesson that
+    speaks of them), then the rest in manifest order up to ``limit``."""
+    names = saanche.names()
+    if len(names) > limit:
+        hits = [r["name"] for r in saanche.search(text, limit=limit, icons_limit=0)] if text else []
+        chosen = set((hits + [n for n in names if n not in hits])[:limit])
+        names = [n for n in names if n in chosen]
     rows = []
-    for name in saanche.names()[:limit]:
+    for name in names:
         entry = saanche.get(name)
         params = ", ".join(f"{k}:{v['type']}" + (f"[{'|'.join(v['choices'])}]" if v["type"] == "choice" else "")
                            for k, v in entry["params"].items())
@@ -105,7 +116,7 @@ def apply_patch(previous: dict, patch: dict) -> dict:
 def video_step(course: Course, video: dict, T: narration.Timeline, *, rulebook, assets: dict | None = None,
                max_rounds: int = 4, start: dict | None = None) -> Step:
     system = fmt(ROLE, course, vocab=json.dumps(showplan.vocab(), ensure_ascii=False),
-                 saanche=library_text(), example=gold_example(), rules=rulebook.instructions(SECTION))
+                 saanche=library_text(text=" ".join(T.L(lid)["sub"] for lid in T.line_ids())), example=gold_example(), rules=rulebook.instructions(SECTION))
     user = (f"Video {video['video_id']}: {video.get('title', '')}.\n"
             f"The narration (JSON; cue words come from each line's sub):\n"
             f"{json.dumps(payload_of(video, T, assets), ensure_ascii=False)}\n\n"

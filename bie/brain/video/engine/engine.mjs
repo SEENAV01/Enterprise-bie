@@ -122,7 +122,9 @@ function itemSvg(el, t, assets) {
   if (el.draw === "mark") return markSvg(el.p?.kind || "tick", el.p?.w || 100, el.p?.color, 1);
   if (el.draw) {
     const d = DRAWS[el.draw];
-    const svg = drawSaancha(el.draw, el.p || {});
+    let p = el.p || {};
+    for (const s of el.steps || []) if (t >= s.t && s.p) p = { ...p, ...s.p };   // a content change on its cue word
+    const svg = drawSaancha(el.draw, { ...p, _t: Math.max(0, t - (el.t0 ?? 0)) });  // _t: a process (flow) keeps moving
     if (d && d.anchor === "bottom") return svg;      // stands on its origin like a person
     return svg;
   }
