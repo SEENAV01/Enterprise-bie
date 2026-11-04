@@ -3,7 +3,8 @@
   "title_guess": "Stagflation: when GDP falls while inflation rises",
   "segments": [
     {
-      "start": 0, "end": 36.6,
+      "start": 0,
+      "end": 36.6,
       "teaches": "the economy turns available resources (raw material, technology, capital, labour) into output (GDP); labour links to the unemployment rate",
       "canvas": "new",
       "layout": "flow_left_to_right",
@@ -16,10 +17,20 @@
       ],
       "motions": ["write_on", "draw_line", "pop_in"],
       "level": "L2",
-      "notes": "Same economy block as E02 (natural rate); a shared template."
+      "notes": "Same economy block as E02 (natural rate); a shared template.",
+      "idea_type": "process",
+      "idea": "the economy turns resources (raw material, technology, capital, labour) into output (GDP); labour links to the unemployment rate",
+      "shown_as": "Available Resources -> yellow ECONOMY box -> GDP Output with a green up-arrow; Labour in the resource list is ringed yellow and a curved arrow leads to '% of unemployed workers'",
+      "meaning_carrier": "diagram",
+      "things": [],
+      "actions": ["write_on", "draw_line", "pop_in", "flow_along_arrow", "highlight_text"],
+      "on_screen_words": 16,
+      "camera": "cut",
+      "example": ""
     },
     {
-      "start": 36.6, "end": 86,
+      "start": 36.6,
+      "end": 86,
       "teaches": "growing GDP means firms produce more and hire more; unemployment falls, labour gets scarce and wages rise",
       "canvas": "builds_on_previous",
       "layout": "flow_top_down",
@@ -31,10 +42,20 @@
       ],
       "motions": ["write_on", "highlight_text", "pop_in"],
       "level": "L2",
-      "notes": "Two parallel cause chains hang from the same flow diagram."
+      "notes": "Two parallel cause chains hang from the same flow diagram.",
+      "idea_type": "cause_effect",
+      "idea": "growing GDP -> firms produce and hire more -> unemployment falls -> labour gets scarce and wages rise",
+      "shown_as": "two chains hang from the economy flow: on the right growing GDP -> firms produce more -> hire more workers; on the left unemployed share falls -> UNEMPLOYMENT with a green down-arrow -> wages rise; a key phrase is highlighted green",
+      "meaning_carrier": "diagram",
+      "things": [],
+      "actions": ["write_on", "highlight_text", "pop_in", "flow_along_arrow"],
+      "on_screen_words": 46,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 86, "end": 102.4,
+      "start": 86,
+      "end": 102.4,
       "teaches": "higher labour cost is passed on to consumers as higher prices",
       "canvas": "builds_on_previous",
       "layout": "flow_top_down",
@@ -43,10 +64,20 @@
       ],
       "motions": ["write_on", "draw_line"],
       "level": "L2",
-      "notes": "Colour shift green -> red marks the turn from good news to inflation."
+      "notes": "Colour shift green -> red marks the turn from good news to inflation.",
+      "idea_type": "cause_effect",
+      "idea": "higher labour cost is passed on to buyers as higher prices",
+      "shown_as": "the right chain extends in red: higher labour cost -> firms pass costs to consumers; the switch from green to red marks the turn to inflation",
+      "meaning_carrier": "diagram",
+      "things": [],
+      "actions": ["write_on", "draw_line", "flow_along_arrow"],
+      "on_screen_words": 56,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 102.4, "end": 130.2,
+      "start": 102.4,
+      "end": 130.2,
       "teaches": "normal pattern: GDP up means inflation up and unemployment down, and the reverse",
       "canvas": "new",
       "layout": "table",
@@ -55,10 +86,20 @@
       ],
       "motions": ["clear_canvas", "pop_in"],
       "level": "L2",
-      "notes": "This 3-column direction table is the video's home-base composition."
+      "notes": "This 3-column direction table is the video's home-base composition.",
+      "idea_type": "comparison",
+      "idea": "normally GDP up means inflation up and unemployment down, and the reverse",
+      "shown_as": "three light-blue columns GDP / INFLATION / UNEMPLOYMENT fill cell by cell: increase, increase, decrease; then decrease, decrease, increase",
+      "meaning_carrier": "diagram",
+      "things": ["table_grid"],
+      "actions": ["clear_canvas", "pop_in"],
+      "on_screen_words": 9,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 130.2, "end": 163.8,
+      "start": 130.2,
+      "end": 163.8,
       "teaches": "the inflation-unemployment pair is the Phillips curve relationship",
       "canvas": "builds_on_previous",
       "layout": "graph_with_notes",
@@ -69,10 +110,20 @@
       ],
       "motions": ["slide_in", "pop_in", "move_point_on_curve"],
       "level": "L2",
-      "notes": "Cross-reference to the Phillips curve video (E02) as a small inset card."
+      "notes": "Cross-reference to the Phillips curve video (E02) as a small inset card.",
+      "idea_type": "definition",
+      "idea": "the inflation-unemployment pair is the Phillips curve relationship",
+      "shown_as": "a thick black frame boxes the inflation and unemployment columns and a chevron points to a small Phillips curve card with a red dot on the inflation axis and a yellow dot on the unemployment axis",
+      "meaning_carrier": "diagram",
+      "things": ["graph_axes"],
+      "actions": ["slide_in", "pop_in", "move_point_on_curve", "point"],
+      "on_screen_words": 13,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 163.8, "end": 199.2,
+      "start": 163.8,
+      "end": 199.2,
       "teaches": "GDP and inflation normally move together; the word stagflation joins 'stagnant growth' and 'inflation'",
       "canvas": "builds_on_previous",
       "layout": "table",
@@ -83,10 +134,20 @@
       ],
       "motions": ["slide_in", "highlight_text", "pop_in"],
       "level": "L2",
-      "notes": "Etymology trick: split the term into its two halves and point each half at its meaning."
+      "notes": "Etymology trick: split the term into its two halves and point each half at its meaning.",
+      "idea_type": "definition",
+      "idea": "GDP and inflation normally move together; 'stagflation' joins stagnant growth and inflation",
+      "shown_as": "the frame moves to the GDP and inflation columns and both rows get green bands; the word is split in two colours, STAG with a down-arrow to stagnant growth and FLATION with an up-arrow to inflation",
+      "meaning_carrier": "text_only",
+      "things": [],
+      "actions": ["slide_in", "highlight_text", "pop_in", "split", "point"],
+      "on_screen_words": 15,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 199.2, "end": 218.2,
+      "start": 199.2,
+      "end": 218.2,
       "teaches": "stagflation breaks the pattern: growth stagnates while inflation rises",
       "canvas": "builds_on_previous",
       "layout": "table",
@@ -97,10 +158,20 @@
       ],
       "motions": ["slide_in", "pop_in"],
       "level": "L2",
-      "notes": "Anomaly row in red under two normal green rows, with a ? to open the 'how?' question."
+      "notes": "Anomaly row in red under two normal green rows, with a ? to open the 'how?' question.",
+      "idea_type": "comparison",
+      "idea": "stagflation breaks the pattern: growth stalls while inflation rises",
+      "shown_as": "a red STAGFLATION row slides in under the two green rows reading stagnant | increase, with a big ? after the inflation cell",
+      "meaning_carrier": "diagram",
+      "things": ["question_mark", "table_grid"],
+      "actions": ["slide_in", "pop_in"],
+      "on_screen_words": 18,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 218.2, "end": 267,
+      "start": 218.2,
+      "end": 267,
       "teaches": "1970s oil price shock: raw material costs jump, production costs and prices rise, demand falls and growth slows, so GDP falls while inflation rises",
       "canvas": "new",
       "layout": "flow_top_down",
@@ -116,10 +187,20 @@
       ],
       "motions": ["clear_canvas", "pop_in", "draw_line", "write_on", "highlight_text"],
       "level": "L2",
-      "notes": "Historical case worked through on the earlier economy diagram; chain runs down then right."
+      "notes": "Historical case worked through on the earlier economy diagram; chain runs down then right.",
+      "idea_type": "cause_effect",
+      "idea": "1970s oil shock: raw material costs jump -> costs and prices rise -> demand falls -> growth slows, so GDP falls while inflation rises",
+      "shown_as": "the economy flow returns with a red STAGFLATION chip; an oil barrel with a dollar sign and a rising chart pops in by a 1970s note; a pink COST INCREASE band lands on Raw Material; a red chain runs down the left to INFLATION up and slowing growth, and DECREASE appears under GDP",
+      "meaning_carrier": "diagram",
+      "things": ["oil_barrel"],
+      "actions": ["clear_canvas", "pop_in", "draw_line", "write_on", "highlight_text", "flow_along_arrow"],
+      "on_screen_words": 38,
+      "camera": "clear",
+      "example": "1970s oil price shock"
     },
     {
-      "start": 267, "end": 287,
+      "start": 267,
+      "end": 287,
       "teaches": "summary: in stagflation GDP decreases and inflation increases",
       "canvas": "new",
       "layout": "table",
@@ -129,10 +210,20 @@
       ],
       "motions": ["clear_canvas", "swap_element", "pop_in"],
       "level": "L2",
-      "notes": "Home-base table returns; the earlier 'stagnant ... ?' cells are replaced by the answer."
+      "notes": "Home-base table returns; the earlier 'stagnant ... ?' cells are replaced by the answer.",
+      "idea_type": "recap",
+      "idea": "in stagflation GDP falls while inflation rises",
+      "shown_as": "the direction table returns and the red stagflation row's 'stagnant ... ?' cells are replaced by decrease | increase",
+      "meaning_carrier": "diagram",
+      "things": ["table_grid"],
+      "actions": ["clear_canvas", "swap_element", "pop_in"],
+      "on_screen_words": 18,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 287, "end": 298.2,
+      "start": 287,
+      "end": 298.2,
       "teaches": "end card",
       "canvas": "new",
       "layout": "compare_two_sides",
@@ -142,7 +233,33 @@
       ],
       "motions": ["clear_canvas"],
       "level": "L2",
-      "notes": "Channel promotion; ignore for teaching."
+      "notes": "Channel promotion; ignore for teaching.",
+      "idea_type": "end_screen",
+      "idea": "none (channel promotion; no teaching)",
+      "shown_as": "next-video and playlist panels with a phone mock-up and store badges",
+      "meaning_carrier": "text_only",
+      "things": ["end_screen_panel", "mobile_phone", "brand_logo"],
+      "actions": ["clear_canvas"],
+      "on_screen_words": 8,
+      "camera": "clear",
+      "example": ""
     }
-  ]
+  ],
+  "format": "build_up_canvas",
+  "recurring_cast": [
+    "resources -> ECONOMY -> GDP output flow (shared with E02)",
+    "three-column direction table (GDP / inflation / unemployment)",
+    "red STAGFLATION tag"
+  ],
+  "running_examples": [
+    "1970s oil price shock"
+  ],
+  "best_moments": [
+    {"t": 199.2, "why": "a red anomaly row under two green normal rows, with a ?, shows the pattern breaking at a glance"},
+    {"t": 218.2, "why": "the oil shock is worked through the same economy flow: an oil barrel and a cost band on raw material"}
+  ],
+  "weak_moments": [
+    {"t": 36.6, "why": "50 s of two text chains"}
+  ],
+  "upgraded_from": "batch2 card text"
 }

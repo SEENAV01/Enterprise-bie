@@ -3,7 +3,8 @@
   "title_guess": "Skewflation: when a few items in the price basket rise much faster",
   "segments": [
     {
-      "start": 0, "end": 27.55,
+      "start": 0,
+      "end": 27.55,
       "teaches": "the general price level of an economy can fall (deflation) or rise (inflation)",
       "canvas": "new",
       "layout": "tree",
@@ -13,10 +14,20 @@
       ],
       "motions": ["fade_in", "draw_line"],
       "level": "L1",
-      "notes": "plain thin-text tree on white; node text fades from grey to black as it is spoken"
+      "notes": "plain thin-text tree on white; node text fades from grey to black as it is spoken",
+      "idea_type": "classification",
+      "idea": "the general price level can fall (deflation) or rise (inflation)",
+      "shown_as": "a plain thin-text tree: economy -> general price level -> decrease / increase -> deflation / inflation, each node darkening from grey as it is spoken",
+      "meaning_carrier": "diagram",
+      "things": [],
+      "actions": ["fade_in", "draw_line", "split"],
+      "on_screen_words": 8,
+      "camera": "cut",
+      "example": ""
     },
     {
-      "start": 27.55, "end": 41.32,
+      "start": 27.55,
+      "end": 41.32,
       "teaches": "the general price level is measured with a basket of sample commodities from all strata",
       "canvas": "builds_on_previous",
       "layout": "tree",
@@ -27,10 +38,20 @@
       ],
       "motions": ["pop_in", "highlight_text", "write_on"],
       "level": "L2",
-      "notes": "side attachment: a concept node gets a concrete icon and a definition"
+      "notes": "side attachment: a concept node gets a concrete icon and a definition",
+      "idea_type": "definition",
+      "idea": "the general price level is measured with a basket of sample goods from all groups",
+      "shown_as": "a lavender box lights the price-level node and a shopping basket labelled BASKET joins it, with a short definition above",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["basket"],
+      "actions": ["pop_in", "highlight_text", "write_on"],
+      "on_screen_words": 21,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 41.32, "end": 96.41,
+      "start": 41.32,
+      "end": 96.41,
       "teaches": "the basket holds many commodities whose prices rise by different amounts; their average is the overall price",
       "canvas": "new",
       "layout": "tree",
@@ -43,10 +64,20 @@
       ],
       "motions": ["pop_in", "draw_line", "highlight_text"],
       "level": "L2",
-      "notes": "arrow height = size of price rise per item, a light visual metaphor for a weighted average"
+      "notes": "arrow height = size of price rise per item, a light visual metaphor for a weighted average",
+      "idea_type": "definition",
+      "idea": "the basket holds many goods whose prices rise by different amounts; their average is the overall price",
+      "shown_as": "the basket moves to the centre with an 'overall price' chip; a yellow panel holds a row of eight coloured blocks for goods, each topped by an up-arrow of a different height; blue underlines appear under overall price, deflation and inflation",
+      "meaning_carrier": "picture",
+      "things": ["basket", "commodity_block"],
+      "actions": ["pop_in", "draw_line", "highlight_text", "grow"],
+      "on_screen_words": 10,
+      "camera": "cut",
+      "example": "eight goods with price rises of different sizes"
     },
     {
-      "start": 96.41, "end": 151.5,
+      "start": 96.41,
+      "end": 151.5,
       "teaches": "skewflation: a few goods rise much faster than overall inflation",
       "canvas": "builds_on_previous",
       "layout": "tree",
@@ -59,10 +90,20 @@
       ],
       "motions": ["pulse_or_glow", "draw_line", "write_on", "slide_in"],
       "level": "L2",
-      "notes": "the concept is shown by exaggerating 2 arrows inside the existing composition, no new canvas; very short video, only one idea"
+      "notes": "the concept is shown by exaggerating 2 arrows inside the existing composition, no new canvas; very short video, only one idea",
+      "idea_type": "definition",
+      "idea": "skewflation: a few goods rise much faster than overall inflation",
+      "shown_as": "two blocks' arrows grow very tall inside a magenta box; a curved arrow links them to a purple SKEWFLATION label with a one-line definition; an app phone mock-up slides up in the last 15 s",
+      "meaning_carrier": "picture",
+      "things": ["commodity_block", "mobile_phone"],
+      "actions": ["pulse_or_glow", "draw_line", "write_on", "slide_in", "grow"],
+      "on_screen_words": 21,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 151.5, "end": 165.12,
+      "start": 151.5,
+      "end": 165.12,
       "teaches": "channel end card",
       "canvas": "new",
       "layout": "free",
@@ -71,7 +112,33 @@
       ],
       "motions": ["slide_in"],
       "level": "L2",
-      "notes": "promotion only"
+      "notes": "promotion only",
+      "idea_type": "end_screen",
+      "idea": "none (channel promotion; no teaching)",
+      "shown_as": "next-video and playlist panels with a phone mock-up and store badges",
+      "meaning_carrier": "text_only",
+      "things": ["end_screen_panel", "mobile_phone", "brand_logo"],
+      "actions": ["slide_in"],
+      "on_screen_words": 8,
+      "camera": "cut",
+      "example": ""
     }
-  ]
+  ],
+  "format": "build_up_canvas",
+  "recurring_cast": [
+    "basket",
+    "row of commodity blocks with up-arrows",
+    "price-level tree"
+  ],
+  "running_examples": [
+    "eight goods with price rises of different sizes; two shoot up"
+  ],
+  "best_moments": [
+    {"t": 41.32, "why": "arrow height = size of each item's price rise; the average becomes visible"},
+    {"t": 96.41, "why": "two arrows grow very tall and are boxed: skewflation without numbers"}
+  ],
+  "weak_moments": [
+    {"t": 0, "why": "27 s of a plain thin-text tree"}
+  ],
+  "upgraded_from": "batch2 card text"
 }

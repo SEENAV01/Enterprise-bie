@@ -1,0 +1,116 @@
+{
+  "id": "E24",
+  "title_guess": "Base effect: the same index rise gives a falling inflation rate",
+  "duration": 134.8,
+  "format": "build_up_canvas",
+  "recurring_cast": ["table_grid", "highlight_band", "formula_card"],
+  "running_examples": [
+    "January price index: 100 in base year 2012, then 110, 120, 130 in 2013-2015; inflation 10%, 9%, 8.3%"
+  ],
+  "best_moments": [
+    {"t": 110, "why": "10%, 9% and 8.3% sit under three equal 10-point steps, with a curved arc hopping from the 120 cell to the 130 cell: the shrinking percentage from a growing base is visible side by side"},
+    {"t": 52, "why": "the 12-month table collapses to the single January row, so the eye is taken straight to the one comparison that matters"}
+  ],
+  "weak_moments": [
+    {"t": 35, "why": "about 30 s of a static column of twelve 100s with empty year columns; nothing moves"},
+    {"t": 95, "why": "the formula card sits unchanged for about 28 s; 'base' is never drawn as a thing (for example a rising step or a growing denominator), so the base effect is only numbers"}
+  ],
+  "segments": [
+    {
+      "start": 0,
+      "end": 51.2,
+      "teaches": "a price index sets every month of the base year (2012) to 100; later years are read against that 100",
+      "canvas": "new",
+      "layout": "table",
+      "elements": [
+        {"kind": "table", "what": "column of the twelve month names with a blue base-year column that reads 100 in every row", "count": 1},
+        {"kind": "tag", "what": "[2012] stamped above the Base Year header", "count": 1},
+        {"kind": "table", "what": "three empty blue year columns 2013, 2014, 2015 added to the right", "count": 3},
+        {"kind": "highlight", "what": "cream band across the January row ending in a 'Price Index' label", "count": 1}
+      ],
+      "motions": ["pop_in", "slide_in", "highlight_text"],
+      "level": "L2",
+      "notes": "no icons at all; the whole video is one table that is trimmed and annotated",
+      "idea_type": "definition",
+      "idea": "a price index starts at 100 in the base year and later prices are shown as a number against that 100",
+      "shown_as": "a column of twelve months, each reading 100, pops in under a 'base year' header and 2012 is stamped on top; three empty year columns (2013-2015) slide in beside it; a cream band runs along the January row and ends in a 'Price Index' label",
+      "meaning_carrier": "diagram",
+      "things": ["table_grid", "highlight_band"],
+      "actions": ["pop_in", "slide_in", "highlight_text"],
+      "on_screen_words": 40,
+      "camera": "still",
+      "example": "2012 = base year, every month = 100"
+    },
+    {
+      "start": 51.2,
+      "end": 77.0,
+      "teaches": "January's index rises 100 → 110 → 120 → 130; the price index is relative to the base year, while inflation % is relative to the previous year",
+      "canvas": "builds_on_previous",
+      "layout": "table",
+      "elements": [
+        {"kind": "table", "what": "table trimmed to the single January row; 110, 120, 130 fill the year cells", "count": 1},
+        {"kind": "tag", "what": "bracket note 'relative to base year' beside the Price Index label", "count": 1},
+        {"kind": "highlight", "what": "second cream band 'Inflation %' under the row", "count": 1},
+        {"kind": "tag", "what": "bracket note 'relative to previous year's index'", "count": 1}
+      ],
+      "motions": ["swap_element", "pop_in", "write_on", "slide_in"],
+      "level": "L2",
+      "notes": "the two reference points (base year vs previous year) are only stated in bracket notes, not drawn",
+      "idea_type": "comparison",
+      "idea": "an index compares a year with the fixed base year; an inflation rate compares a year with the year just before",
+      "shown_as": "the other eleven month rows vanish, leaving one January row; 110, 120 and 130 fill the 2013-2015 cells; a bracket note 'relative to base year' is written after the Price Index label, then an empty cream 'Inflation %' row slides in underneath with the note 'relative to previous year'",
+      "meaning_carrier": "diagram",
+      "things": ["table_grid", "highlight_band"],
+      "actions": ["shrink", "pop_in", "write_on", "slide_in"],
+      "on_screen_words": 25,
+      "camera": "still",
+      "example": "January index 100 (2012), 110 (2013), 120 (2014), 130 (2015)"
+    },
+    {
+      "start": 77.0,
+      "end": 119.4,
+      "teaches": "inflation % = (this year's index − last year's index) ÷ last year's index × 100; equal 10-point rises give 10%, 9%, 8.3% because the base keeps growing (base effect)",
+      "canvas": "builds_on_previous",
+      "layout": "table",
+      "elements": [
+        {"kind": "formula", "what": "pink card hanging from the Inflation % row: (current-year index − previous-year index) / previous-year index × 100, the year words in dark chips", "count": 1},
+        {"kind": "value_change", "what": "10% under 2013, 9% under 2014, 8.3% under 2015 (last one in a fainter colour)", "count": 3},
+        {"kind": "arrow", "what": "curved arc from the 120 cell to the 130 cell", "count": 1}
+      ],
+      "motions": ["pop_in", "write_on", "draw_line"],
+      "level": "L2",
+      "notes": "formula card appears at 77 s, results only at 106-110 s; the punchline (shrinking %) is carried by three numbers",
+      "idea_type": "numbers",
+      "idea": "when the index climbs by the same amount every year, the inflation rate still falls because each year's rise is divided by a bigger previous value",
+      "shown_as": "a pink formula card pops out of the Inflation % row like a speech bubble (this year minus last year, over last year, × 100); then 10% appears under 2013, 9% under 2014, and a curved arc hops from the 120 cell to the 130 cell as 8.3% appears under 2015: the same 10-point step, a shrinking percentage",
+      "meaning_carrier": "diagram",
+      "things": ["table_grid", "formula_card", "highlight_band"],
+      "actions": ["pop_in", "write_on", "draw_line", "point"],
+      "on_screen_words": 45,
+      "camera": "still",
+      "example": "(110−100)/100 = 10%, (120−110)/110 ≈ 9%, (130−120)/120 ≈ 8.3%"
+    },
+    {
+      "start": 119.4,
+      "end": 134.8,
+      "teaches": "none (channel app promo and next-video card)",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "end_screen", "what": "app promo phone pops up, canvas clears to a next-video / playlist card", "count": 1}
+      ],
+      "motions": ["pop_in", "clear_canvas"],
+      "level": "L2",
+      "notes": "not teaching; ignore",
+      "idea_type": "end_screen",
+      "idea": "none (end screen)",
+      "shown_as": "promo phone slides up over the table, then the canvas is replaced by the channel's next-video card",
+      "meaning_carrier": "text_only",
+      "things": ["brand_logo"],
+      "actions": ["pop_in"],
+      "on_screen_words": 15,
+      "camera": "cut",
+      "example": ""
+    }
+  ]
+}

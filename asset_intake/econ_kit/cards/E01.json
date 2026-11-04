@@ -3,7 +3,8 @@
   "title_guess": "National income: the four GDP variants and why product, income and expenditure totals are equal",
   "segments": [
     {
-      "start": 0, "end": 15.6,
+      "start": 0,
+      "end": 15.6,
       "teaches": "GDP comes in four variants (real or nominal, at factor cost or market price); India's headline figure is nominal GDP at market price, and the video asks why",
       "canvas": "new",
       "layout": "free",
@@ -16,10 +17,20 @@
       ],
       "motions": ["write_on", "pop_in", "highlight_text"],
       "level": "L2",
-      "notes": "List lines appear about 0.8 s apart. The Hindi 'why?' tag opens the question the rest of the video answers."
+      "notes": "List lines appear about 0.8 s apart. The Hindi 'why?' tag opens the question the rest of the video answers.",
+      "idea_type": "intro",
+      "idea": "GDP has four variants; India reports nominal GDP at market price, and the video asks why",
+      "shown_as": "four variant lines type on under a heading with a big red 4; an India silhouette sits beside the list; a pink band lights the nominal-at-market-price line and a 'why?' tag pops next to it",
+      "meaning_carrier": "text_only",
+      "things": ["india_map"],
+      "actions": ["write_on", "pop_in", "highlight_text"],
+      "on_screen_words": 26,
+      "camera": "cut",
+      "example": ""
     },
     {
-      "start": 15.6, "end": 56,
+      "start": 15.6,
+      "end": 56,
       "teaches": "real GDP needs a base year; countries use different base years and India's is FY2012",
       "canvas": "builds_on_previous",
       "layout": "table",
@@ -32,10 +43,20 @@
       ],
       "motions": ["pop_in", "draw_line", "write_on"],
       "level": "L2",
-      "notes": "Flags are used as quick column headers; only one cell gets a value, so the eye goes straight to India."
+      "notes": "Flags are used as quick column headers; only one cell gets a value, so the eye goes straight to India.",
+      "idea_type": "data_status",
+      "idea": "real GDP needs a base year; countries use different ones and India's is FY 2012",
+      "shown_as": "four national flags become column heads over a one-row BASE YEAR strip; only India's cell fills (FY 2012); a box drawn round 'real GDP' is joined up to the base-year chip",
+      "meaning_carrier": "diagram",
+      "things": ["country_flag", "india_flag", "table_grid"],
+      "actions": ["pop_in", "draw_line", "write_on"],
+      "on_screen_words": 32,
+      "camera": "still",
+      "example": "India's base year FY 2012; other countries left blank"
     },
     {
-      "start": 56, "end": 70.8,
+      "start": 56,
+      "end": 70.8,
       "teaches": "national income family: GDP, GNP, NDP, NNP; we start from GDP",
       "canvas": "new",
       "layout": "free",
@@ -47,10 +68,20 @@
       ],
       "motions": ["clear_canvas", "write_on", "pop_in"],
       "level": "L2",
-      "notes": "Abbreviation + dash + expansion is a recurring list style in this channel."
+      "notes": "Abbreviation + dash + expansion is a recurring list style in this channel.",
+      "idea_type": "classification",
+      "idea": "national income has four measures (GDP, GNP, NDP, NNP); we start with GDP",
+      "shown_as": "four abbreviations, each joined by a short red dash to its full form, under a NATIONAL INCOME chip; a green band and a tick pick out GDP",
+      "meaning_carrier": "text_only",
+      "things": ["tick_mark"],
+      "actions": ["clear_canvas", "write_on", "pop_in", "tick", "highlight_text"],
+      "on_screen_words": 18,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 70.8, "end": 95,
+      "start": 70.8,
+      "end": 95,
       "teaches": "national income is about the total of products; begin with one person's income as a building block",
       "canvas": "builds_on_previous",
       "layout": "flow_left_to_right",
@@ -64,10 +95,20 @@
       ],
       "motions": ["swap_element", "draw_line", "pop_in"],
       "level": "L2",
-      "notes": "The other three aggregate rows vanish and GDP slides up. Start of a running numeric example (2000 Rs)."
+      "notes": "The other three aggregate rows vanish and GDP slides up. Start of a running numeric example (2000 Rs).",
+      "idea_type": "definition",
+      "idea": "national income is a total of products; build it up starting from one person's income",
+      "shown_as": "the other rows vanish and GDP slides up; 'Product' is boxed and an arrow leads to a big sigma 'Products'; one person icon appears, tied by a thin line to a MY INCOME panel reading 2000 Rs",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["person"],
+      "actions": ["swap_element", "draw_line", "pop_in", "highlight_text", "point"],
+      "on_screen_words": 14,
+      "camera": "still",
+      "example": "one person's income 2000 Rs"
     },
     {
-      "start": 95, "end": 113,
+      "start": 95,
+      "end": 113,
       "teaches": "adding everyone's income in a family gives family income",
       "canvas": "builds_on_previous",
       "layout": "tree",
@@ -78,10 +119,20 @@
       ],
       "motions": ["multiply", "draw_line", "pop_in"],
       "level": "L2",
-      "notes": "Running example: one income 2000 grows to a family sum of 12100. Person icon multiplies into the family."
+      "notes": "Running example: one income 2000 grows to a family sum of 12100. Person icon multiplies into the family.",
+      "idea_type": "numbers",
+      "idea": "add every member's income and you get the family's income",
+      "shown_as": "the person icon multiplies into a family of five in a pink panel; lines fan from the family to each income (2000, 1000, 100, 4000, 5000) and a red total 12100 Rs appears",
+      "meaning_carrier": "picture",
+      "things": ["person", "family"],
+      "actions": ["multiply", "draw_line", "pop_in", "join"],
+      "on_screen_words": 16,
+      "camera": "still",
+      "example": "2000 + 1000 + 100 + 4000 + 5000 = 12100 Rs family income"
     },
     {
-      "start": 113, "end": 135.4,
+      "start": 113,
+      "end": 135.4,
       "teaches": "national income is the sum of incomes of everyone living within India's geographical boundary",
       "canvas": "builds_on_previous",
       "layout": "free",
@@ -93,10 +144,20 @@
       ],
       "motions": ["swap_element", "multiply", "write_on"],
       "level": "L2",
-      "notes": "Scale-up trick across three segments: one person, then a family, then the whole country as a crowd row."
+      "notes": "Scale-up trick across three segments: one person, then a family, then the whole country as a crowd row.",
+      "idea_type": "definition",
+      "idea": "national income is the total income of everyone living inside India's borders",
+      "shown_as": "the family is swapped for a long band of about 30 identical person icons running out from an India silhouette; a ticked definition line is written under it",
+      "meaning_carrier": "picture",
+      "things": ["india_map", "crowd_people", "tick_mark"],
+      "actions": ["swap_element", "multiply", "write_on", "tick"],
+      "on_screen_words": 18,
+      "camera": "still",
+      "example": "one person -> family -> whole country"
     },
     {
-      "start": 135.4, "end": 150,
+      "start": 135.4,
+      "end": 150,
       "teaches": "sum of incomes equals sum of products equals national income; sum of expenditure is added as the third equal",
       "canvas": "new",
       "layout": "flow_left_to_right",
@@ -106,10 +167,20 @@
       ],
       "motions": ["clear_canvas", "pop_in", "slide_in"],
       "level": "L2",
-      "notes": "Equation grows from the left; this three-way identity stays at the top for the rest of the video."
+      "notes": "Equation grows from the left; this three-way identity stays at the top for the rest of the video.",
+      "idea_type": "formula",
+      "idea": "total income = total product = total spending = national income",
+      "shown_as": "an equation grows from the left: sigma Income = sigma Products = NATIONAL INCOME chip, then sigma Expenditure slides in at the front",
+      "meaning_carrier": "text_only",
+      "things": [],
+      "actions": ["clear_canvas", "pop_in", "slide_in", "join"],
+      "on_screen_words": 8,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 150, "end": 224,
+      "start": 150,
+      "end": 224,
       "teaches": "a product is made by four factors of production, and each factor earns an income: profit, rent, wages and salaries, interest",
       "canvas": "builds_on_previous",
       "layout": "flow_left_to_right",
@@ -122,10 +193,20 @@
       ],
       "motions": ["slide_in", "draw_line", "write_on", "pop_in"],
       "level": "L2",
-      "notes": "The equation slides to the top to make room. Running numeric example continues: factor incomes total 10K."
+      "notes": "The equation slides to the top to make room. Running numeric example continues: factor incomes total 10K.",
+      "idea_type": "process",
+      "idea": "a product is made by four factors of production, and each factor earns an income: profit, rent, wages, interest",
+      "shown_as": "the equation slides to the top; a panel lists entrepreneur, land, labour, capital and blue arrows run from each into a framed laptop; the matching incomes appear one by one on a blue band with values 4K, 2K, 2K, 2K",
+      "meaning_carrier": "diagram",
+      "things": ["laptop"],
+      "actions": ["slide_in", "draw_line", "write_on", "pop_in", "flow_along_arrow", "join"],
+      "on_screen_words": 28,
+      "camera": "still",
+      "example": "laptop: factor incomes 4K + 2K + 2K + 2K = 10K"
     },
     {
-      "start": 224, "end": 288.6,
+      "start": 224,
+      "end": 288.6,
       "teaches": "the same 10,000 appears three ways: incomes paid to factors, value of the product, and what the buyer spends, so all three totals match",
       "canvas": "builds_on_previous",
       "layout": "flow_left_to_right",
@@ -139,10 +220,20 @@
       ],
       "motions": ["pop_in", "draw_line", "pulse_or_glow", "highlight_text"],
       "level": "L2",
-      "notes": "One laptop priced 10,000 proves the three methods agree. Equation terms get value labels one at a time with a glow."
+      "notes": "One laptop priced 10,000 proves the three methods agree. Equation terms get value labels one at a time with a glow.",
+      "idea_type": "numbers",
+      "idea": "the same 10,000 is the factors' income, the product's value and the buyer's spending, so the three totals match",
+      "shown_as": "a customer appears; a 'Paid' arrow goes to the laptop and a 'Sold' arrow comes back, with a 10,000 Rs price bubble; 10,000 labels pop over sigma Income, Products and Expenditure in turn as each term glows",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["person", "laptop", "price_tag"],
+      "actions": ["pop_in", "draw_line", "pulse_or_glow", "highlight_text", "hand_over", "flow_along_arrow"],
+      "on_screen_words": 46,
+      "camera": "still",
+      "example": "one laptop sold for 10,000 Rs = factor incomes 10K = buyer's spending 10,000"
     },
     {
-      "start": 288.6, "end": 300,
+      "start": 288.6,
+      "end": 300,
       "teaches": "end card",
       "canvas": "new",
       "layout": "compare_two_sides",
@@ -151,7 +242,38 @@
       ],
       "motions": ["clear_canvas"],
       "level": "L2",
-      "notes": "Channel promotion; ignore for teaching."
+      "notes": "Channel promotion; ignore for teaching.",
+      "idea_type": "end_screen",
+      "idea": "none (channel promotion; no teaching)",
+      "shown_as": "next-video panel with a loading bar beside a grey playlist panel",
+      "meaning_carrier": "text_only",
+      "things": ["end_screen_panel"],
+      "actions": ["clear_canvas"],
+      "on_screen_words": 6,
+      "camera": "clear",
+      "example": ""
     }
-  ]
+  ],
+  "format": "build_up_canvas",
+  "recurring_cast": [
+    "india_map",
+    "person (grows into a family, then a crowd row)",
+    "laptop as the sample product",
+    "NATIONAL INCOME chip",
+    "three-way sigma equation (income = products = expenditure)"
+  ],
+  "running_examples": [
+    "one income 2000 Rs -> family 12100 Rs -> everyone in India",
+    "laptop worth 10,000 Rs: factor incomes 4K + 2K + 2K + 2K"
+  ],
+  "best_moments": [
+    {"t": 95, "why": "one person icon multiplies into a family and the incomes are summed: 'add everyone up' is seen, not told"},
+    {"t": 113, "why": "a long row of people running out from the India map makes 'everyone inside the border' obvious"},
+    {"t": 224, "why": "one laptop's 10,000 shown as the factors' income, the product's value and the buyer's payment proves the three methods agree"}
+  ],
+  "weak_moments": [
+    {"t": 0, "why": "opening is a typed list of four variants with a map badge; text only"},
+    {"t": 56, "why": "abbreviation list with dashes; text only"}
+  ],
+  "upgraded_from": "batch2 card text"
 }

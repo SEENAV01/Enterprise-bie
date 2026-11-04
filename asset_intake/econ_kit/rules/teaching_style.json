@@ -1,0 +1,180 @@
+{
+ "schema": "bie.rules.teaching-style/1",
+ "subject": "economics",
+ "made": "4 Nov 2026, Claude (planning chat)",
+ "evidence": "Speech-to-text (faster-whisper small, CPU) of the reference narration, read in excerpts, plus voice-activity timing of all 37 videos. The transcripts are rough: Hinglish terms come out misspelt and quiet or music stretches produce repeated words, so marker-word counts were not reliable and are not used; the moves below were read by hand and each one names where it was heard.",
+ "voice_timing": {
+  "speech_share": 0.95,
+  "phrase_median_s": 4.5,
+  "pause_between_phrases_median_s": 0.23,
+  "note": "The references talk almost without pauses. BIE keeps the slower gaps Navin passed in Money v2 (0.28 s between sentences, 0.45 s between lines, 0.9 s between scenes) because the picture needs the time to act."
+ },
+ "moves": [
+  {
+   "id": "TS-01",
+   "move": "Open with a small scene or story before any term",
+   "how": "a short role-play or situation the learner knows (bargaining for a loan like buying vegetables; a trading company that cannot carry cash safely); the term is named only after the scene has shown the problem",
+   "heard_in": [
+    [
+     "E25",
+     0
+    ],
+    [
+     "E23",
+     0
+    ],
+    [
+     "E28",
+     0
+    ]
+   ],
+   "same_as_v2_rule": "story first, name after"
+  },
+  {
+   "id": "TS-02",
+   "move": "Say what today's video covers",
+   "how": "one line at the start: 'आज हम बात करेंगे …', then the road map appears",
+   "heard_in": [
+    [
+     "E34",
+     0
+    ],
+    [
+     "E14",
+     0
+    ]
+   ]
+  },
+  {
+   "id": "TS-03",
+   "move": "Unpack every term in plain words with 'यानी'",
+   "how": "term → यानी → everyday meaning → who uses it (BPLR यानी वह दर जो बैंक अपने सबसे भरोसेमंद ग्राहक से लेता है)",
+   "heard_in": [
+    [
+     "E25",
+     90
+    ],
+    [
+     "E19",
+     104
+    ]
+   ],
+   "same_as_v2_rule": "every English term opened in plain Hindi the first time"
+  },
+  {
+   "id": "TS-04",
+   "move": "Talk to the learner as 'आप' and 'हम'",
+   "how": "puts the learner inside the example: 'आपके और हमारे जैसे लोग जो पैसा बैंक में जमा करते हैं …'",
+   "heard_in": [
+    [
+     "E26",
+     280
+    ],
+    [
+     "E28",
+     68
+    ]
+   ]
+  },
+  {
+   "id": "TS-05",
+   "move": "Walk a cause chain step by step, then name it",
+   "how": "if the loan does not come back → the bank cannot return deposits → the bank closes → this is why it is called credit risk",
+   "heard_in": [
+    [
+     "E26",
+     270
+    ],
+    [
+     "E23",
+     180
+    ]
+   ]
+  },
+  {
+   "id": "TS-06",
+   "move": "'मान लीजिए' scenarios",
+   "how": "a what-if that changes one thing (suddenly a recession comes, shares fall, everyone runs to safe government bonds) and follows its effect",
+   "heard_in": [
+    [
+     "E27",
+     560
+    ],
+    [
+     "E35",
+     106
+    ]
+   ]
+  },
+  {
+   "id": "TS-07",
+   "move": "Small made-up numbers carry the idea",
+   "how": "a hypothetical case with round numbers (₹10 lakh loan at 15%, 12%, 7%; per-person income halves) before any real data",
+   "heard_in": [
+    [
+     "E25",
+     20
+    ],
+    [
+     "E35",
+     110
+    ],
+    [
+     "E30",
+     238
+    ]
+   ],
+   "same_as_v2_rule": "numbers a learner can follow"
+  },
+  {
+   "id": "TS-08",
+   "move": "Close each step with 'तो यहाँ एक बात साफ़ हो गई …'",
+   "how": "after the evidence, one sentence states the conclusion before moving on",
+   "heard_in": [
+    [
+     "E35",
+     100
+    ],
+    [
+     "E23",
+     240
+    ]
+   ]
+  },
+  {
+   "id": "TS-09",
+   "move": "Benefit or harm in human terms",
+   "how": "what the person feels or gets: after buying protection 'आप चैन की नींद सो सकते हैं'; if a bank fails 'बैंक पर ताला लग जाता है'",
+   "heard_in": [
+    [
+     "E28",
+     75
+    ],
+    [
+     "E26",
+     300
+    ]
+   ]
+  },
+  {
+   "id": "TS-10",
+   "move": "Signpost the next part",
+   "how": "'चलिए अब बात करते हैं अगले …' at each branch, while the road map moves",
+   "heard_in": [
+    [
+     "E26",
+     320
+    ],
+    [
+     "E35",
+     106
+    ]
+   ]
+  }
+ ],
+ "do_not_copy": [
+  "Long lists of reasons read out while text boxes fill the screen (E21 293-365 s, E34 55-127 s).",
+  "Facts stated by the references without checking (several were doubtful: the Act under which CRR is kept, who bought the associate banks' stake, 'fully private central bank'). BIE takes facts from the book.",
+  "Channel promotion, app adverts and end screens."
+ ]
+}

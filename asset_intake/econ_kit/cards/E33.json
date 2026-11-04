@@ -1,0 +1,144 @@
+{
+  "id": "E33",
+  "title_guess": "India's forex reserves: what they hold and where they stand (RBI weekly data, July 2024)",
+  "duration": 202.0,
+  "format": "mixed",
+  "recurring_cast": ["vault", "india_map", "brand_logo", "web_page", "table_grid", "money_bag"],
+  "running_examples": [
+    "total reserves about $667.4 bn on 26 Jul 2024, near the all-time high of about $670 bn, enough for about 11 months of imports",
+    "reserves grew from about $1.8 bn (1951-52) to $607 bn (2021-22): 335x since independence, 60x since the 1990s; fourth largest in the world (Nov 2021)"
+  ],
+  "best_moments": [
+    {"t": 20, "why": "India's map carries a vault of lockers, followed by an equals sign and the four parts stacked as a sum: the reserve is literally a vault made of four things"},
+    {"t": 140, "why": "a bracket joins the four shaded component rows up to the total row: parts add up to the whole on the real data table"},
+    {"t": 170, "why": "a tiny money bag at the start of the growth curve and a huge one at the end make the 335x growth felt without reading numbers"}
+  ],
+  "weak_moments": [
+    {"t": 45, "why": "screenshot of a web list of weekly reports in tiny unreadable text"},
+    {"t": 65, "why": "full data table screenshot with many columns before it is cut down"},
+    {"t": 160, "why": "borrowed government factsheet image with official logos instead of an own drawing"}
+  ],
+  "segments": [
+    {
+      "start": 0, "end": 27.8,
+      "teaches": "forex reserves = foreign currency assets + gold + SDRs + reserve tranche position in the IMF",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "map", "what": "India silhouette with a block of locker doors (vault) on it", "count": 1},
+        {"kind": "title_text", "what": "FOREX RESERVE =", "count": 1},
+        {"kind": "text_box", "what": "four components stacked with + signs", "count": 4},
+        {"kind": "icon", "what": "green rising bar chart with a pointer label 'data' (from ~15 s)", "count": 1}
+      ],
+      "motions": ["pop_in", "write_on", "draw_line"],
+      "level": "L2",
+      "notes": "the rising bar icon is a promise of numbers to come; the vault/locker icon is the same forex-reserve icon used in E22",
+      "idea_type": "definition",
+      "idea": "India's forex reserve is a store made of four parts: foreign currency, gold, SDRs and its IMF reserve position",
+      "shown_as": "India's silhouette with a block of vault lockers on it, an equals sign, and four components stacked like a sum (foreign currency + gold + SDRs + reserve tranche); then a green rising bar chart pops above with a pointer saying data",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["india_map", "vault", "bar_chart_icon"],
+      "actions": ["pop_in", "write_on", "point"],
+      "on_screen_words": 20,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 27.8, "end": 76.6,
+      "teaches": "the current figures come from RBI's weekly reports on its website; open the latest one to see the reserves table",
+      "canvas": "new",
+      "layout": "table",
+      "elements": [
+        {"kind": "logo_or_brand", "what": "RBI logo and highlighted web address", "count": 1},
+        {"kind": "photo", "what": "screenshot of a list of dated weekly forex reports", "count": 1},
+        {"kind": "highlight", "what": "green box on the top row with a 'latest report' label", "count": 1},
+        {"kind": "table", "what": "screenshot of the report's table (total and four components, with week / end-March / year change columns)", "count": 1},
+        {"kind": "highlight", "what": "blue wash on the change columns before they are cut away", "count": 1}
+      ],
+      "motions": ["clear_canvas", "pop_in", "highlight_text", "swap_element"],
+      "level": "L1",
+      "notes": "screen capture of a real source page; it teaches the learner where to look the data up",
+      "idea_type": "data_status",
+      "idea": "the RBI publishes the reserve figures every week; the latest report gives the current position",
+      "shown_as": "an RBI logo and web address appear over a screenshot of a long list of dated weekly reports; the top row is boxed in green as the latest report; below it the report's table appears and its change columns are washed in blue before being cut away",
+      "meaning_carrier": "text_only",
+      "things": ["brand_logo", "web_page", "table_grid"],
+      "actions": ["pop_in", "highlight_text", "swap_element"],
+      "on_screen_words": 150,
+      "camera": "clear",
+      "example": "RBI weekly report dated 2 Aug 2024"
+    },
+    {
+      "start": 76.6, "end": 152.2,
+      "teaches": "on 26 July 2024 total reserves were about $667 bn, near the all-time high of about $670 bn and enough for about 11 months of imports; the four components add up to the total",
+      "canvas": "zoom_in",
+      "layout": "table",
+      "elements": [
+        {"kind": "table", "what": "table cut down to the 'as on' columns (₹ crore, US$ million), five rows", "count": 1},
+        {"kind": "highlight", "what": "yellow band on the total-reserves row", "count": 1},
+        {"kind": "tag", "what": "black tag converting the total to about 667 billion USD", "count": 1},
+        {"kind": "text_box", "what": "italic note: all-time high near 670 billion in July", "count": 1},
+        {"kind": "callout", "what": "cloud bubble: covers about 11 months of imports", "count": 1},
+        {"kind": "highlight", "what": "purple band on the four component rows with a bracket up to the total", "count": 1}
+      ],
+      "motions": ["zoom_to_region", "highlight_text", "pop_in", "write_on", "draw_line"],
+      "level": "L2",
+      "notes": "unit conversion (US$ million -> billion) done for the viewer in a tag",
+      "idea_type": "data_status",
+      "idea": "India holds about $667 bn of reserves, close to its record, enough to pay for about 11 months of imports",
+      "shown_as": "the table zooms to just the 'as on' columns; the total row is boxed in yellow, a black tag converts it to about 667 billion dollars, an italic note adds the all-time high near 670 billion, a cloud bubble says it covers about 11 months of imports, and finally a bracket joins the four purple-shaded component rows up to the total",
+      "meaning_carrier": "diagram",
+      "things": ["brand_logo", "web_page", "table_grid"],
+      "actions": ["zoom_to_region", "highlight_text", "point", "join", "write_on"],
+      "on_screen_words": 70,
+      "camera": "zoom_in",
+      "example": "$667.4 bn total on 26 Jul 2024; ~11 months of import cover"
+    },
+    {
+      "start": 152.2, "end": 194,
+      "teaches": "reserves rose from about $1.8 bn in 1951-52 to $607 bn in 2021-22 (335x since independence, 60x since the 1990s); India had the fourth-largest reserves (Nov 2021)",
+      "canvas": "new",
+      "layout": "graph_with_notes",
+      "elements": [
+        {"kind": "logo_or_brand", "what": "government press-bureau factsheet header with official logos", "count": 2},
+        {"kind": "bar_or_chart", "what": "line chart by decade from 1951-52 to 2021-22: flat until 1991-92 then shooting up to 607", "count": 1},
+        {"kind": "icon", "what": "tiny money bag at the start and a large rupee money bag at the end of the line", "count": 2},
+        {"kind": "callout", "what": "yellow tag: 60x rise since the 1990s", "count": 1},
+        {"kind": "icon", "what": "green rising bars icon with a note: fourth largest reserves (Nov 2021)", "count": 1}
+      ],
+      "motions": ["clear_canvas", "pop_in", "write_on", "zoom_to_region"],
+      "level": "L2",
+      "notes": "borrowed official chart; BIE should redraw its own curve and money bags",
+      "idea_type": "data_status",
+      "idea": "India's reserves were tiny for 40 years and have grown hugely since the 1990s",
+      "shown_as": "a factsheet chart: a line of decade dots stays flat from 1951 to 1991 and then shoots up to 607; a tiny money bag at the start and a huge rupee money bag at the end make the growth visible; a yellow tag says 60x since the 1990s, then the view pulls back and a green rising-bars icon carries a note about being fourth largest in the world",
+      "meaning_carrier": "diagram",
+      "things": ["brand_logo", "line_chart", "money_bag", "bar_chart_icon"],
+      "actions": ["pop_in", "write_on", "compare_side_by_side", "zoom_to_region"],
+      "on_screen_words": 60,
+      "camera": "clear",
+      "example": "$1.82 bn (1951-52) -> $607 bn (2021-22); 335x since independence; 60x since the 1990s"
+    },
+    {
+      "start": 194, "end": 202.0,
+      "teaches": "channel end card (next video / playlist), no teaching",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "end_screen", "what": "next video and playlist panels with loading bar", "count": 1}
+      ],
+      "motions": ["clear_canvas"],
+      "level": "L1",
+      "notes": "ignore for teaching",
+      "idea_type": "end_screen",
+      "idea": "none",
+      "shown_as": "canvas replaced by an end card with next-video and playlist panels",
+      "meaning_carrier": "text_only",
+      "things": ["brand_logo"],
+      "actions": ["pop_in"],
+      "on_screen_words": 8,
+      "camera": "cut",
+      "example": ""
+    }
+  ]
+}

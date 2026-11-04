@@ -1,0 +1,1118 @@
+{
+  "id": "E31",
+  "title_guess": "Consumer Price Index: groups, reference periods, segment CPIs, CPI rural/urban/combined, weights and calculation",
+  "duration": 1080.2,
+  "format": "build_up_canvas",
+  "recurring_cast": [
+    "person",
+    "crowd_people",
+    "india_map",
+    "office_worker",
+    "industrial_worker",
+    "farm_labourer",
+    "rural_labourer",
+    "shopping_cart",
+    "basket",
+    "shopping_bag",
+    "database_cylinder",
+    "table_grid",
+    "egg"
+  ],
+  "running_examples": [
+    "supply chain producer → wholesaler → retailer → consumer with producer, wholesale and consumer prices feeding PPI, WPI, CPI",
+    "six consumption groups with recall periods 7 days / 1 month / 1 year (MMRP)",
+    "four worker groups with baskets of about 146-365, 463, 260 and 260 items → CPI-UNME, CPI-IW, CPI-AL, CPI-RL",
+    "group weights: food 36.29 (urban), 54.18 (rural), 45.86 (combined); each column sums to 100",
+    "egg: 10 market price quotes → price relatives → elementary index 150.40 → weight 0.36 in the urban basket → Laspeyres CPI-U"
+  ],
+  "best_moments": [
+    {
+      "t": 92,
+      "why": "the screen floods with about 30 everyday purchases around one consumer, then they snap into six labelled panels: classification shown by sorting real objects"
+    },
+    {
+      "t": 535,
+      "why": "baskets shrink from a loaded trolley to a tiny bag across the four worker groups: different consumption shown by size, before any number"
+    },
+    {
+      "t": 55,
+      "why": "supply chain with a price band at each hand-over and a down-arrow from each price into PPI, WPI and CPI: where each index measures is a place on the chain"
+    },
+    {
+      "t": 1035,
+      "why": "one egg followed from 10 market quotes to its elementary index, to its weight in the basket, into the CPI formula: the whole calculation traced through a single object"
+    },
+    {
+      "t": 670,
+      "why": "CPI-AL and CPI-RL arrows funnel into a handshake-over-cash icon labelled minimum wage: an index's use shown as its outcome"
+    }
+  ],
+  "weak_moments": [
+    {
+      "t": 210,
+      "why": "six short recall periods are typed one every 15-20 s beside a word list for about 115 s; no picture"
+    },
+    {
+      "t": 735,
+      "why": "quote paragraph and recommendation text box laid over a real photo of a public figure (BIE must not use real-person photos)"
+    },
+    {
+      "t": 880,
+      "why": "a weights table of 18 numbers with only boxes and a cross for emphasis; could be bars or basket shares"
+    },
+    {
+      "t": 80,
+      "why": "branded product packs (cooking oil, coffee, snacks) used as food icons"
+    },
+    {
+      "t": 340,
+      "why": "the MMRP rule lives in two text tags; no picture of a short vs long recall window"
+    }
+  ],
+  "segments": [
+    {
+      "start": 0,
+      "end": 63.4,
+      "teaches": "goods are priced at each hand-over from producer to wholesaler to retailer to consumer; the average price level at each point gives PPI, WPI and CPI, and CPI covers goods and services",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {
+          "kind": "title_text",
+          "what": "Consumer Price Index",
+          "count": 1
+        },
+        {
+          "kind": "flow_chain",
+          "what": "smoking factory (producer) → warehouse (wholesaler) → shop (retailer) → person (consumer), arrows labelled goods",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "coloured bands at each hand-over named producer price, wholesale price, consumer price",
+          "count": 3
+        },
+        {
+          "kind": "arrow",
+          "what": "'services' line arching from the factory straight to the consumer",
+          "count": 1
+        },
+        {
+          "kind": "tag",
+          "what": "blue band 'measure average price level' along the bottom",
+          "count": 1
+        },
+        {
+          "kind": "arrow",
+          "what": "down-arrows from each price into PPI, WPI, CPI with full names",
+          "count": 3
+        }
+      ],
+      "motions": [
+        "pop_in",
+        "draw_line",
+        "slide_in",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "channel like-counter overlay in the first 10 s (promo, ignored)",
+      "idea_type": "classification",
+      "idea": "PPI, WPI and CPI measure prices at different points of the same supply chain; CPI is the price the final consumer pays",
+      "shown_as": "a smoking factory, a warehouse, a shop and a person stand in a row joined by 'goods' arrows; a coloured band drops over each hand-over and is named producer, wholesale and consumer price; a 'services' line arches from the factory straight to the person; a blue 'measure average price level' band slides in at the bottom and a down-arrow from each price drops into it as PPI, WPI and CPI",
+      "meaning_carrier": "picture",
+      "things": [
+        "factory",
+        "warehouse",
+        "shop",
+        "person"
+      ],
+      "actions": [
+        "pop_in",
+        "flow_along_arrow",
+        "draw_line",
+        "slide_in",
+        "write_on"
+      ],
+      "on_screen_words": 40,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 63.4,
+      "end": 93.0,
+      "teaches": "CPI follows everything a consumer buys: food, drinks, rent, clothes, fuel, durables and more",
+      "canvas": "new",
+      "layout": "hub_and_spokes",
+      "elements": [
+        {
+          "kind": "icon",
+          "what": "consumer person in the centre",
+          "count": 1
+        },
+        {
+          "kind": "icon",
+          "what": "fruit bowl, grocery bag, milk, cooking-oil can, roast chicken on the left; bottled water, coffee jar, snacks on the right",
+          "count": 8
+        },
+        {
+          "kind": "crowd",
+          "what": "screen floods with about 30 everyday items: house with rent tag, slippers, clothes rack, tobacco tins, gas cylinder, fuel pump, bulbs, firewood, car, washing machine, fridge, necklace, chair",
+          "count": 30
+        },
+        {
+          "kind": "logo_or_brand",
+          "what": "real branded food packs among the items",
+          "count": 3
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "pop_in",
+        "multiply"
+      ],
+      "level": "L2",
+      "notes": "almost no words; the quantity of objects carries 'everything a household buys'",
+      "idea_type": "definition",
+      "idea": "the consumer basket is everything a household spends on, not just food",
+      "shown_as": "the screen clears to a lone consumer; a bowl of fruit appears, then groceries, milk, cooking oil and a roast chicken gather at his left and drinks and snacks at his right; then the whole screen floods with everyday purchases around him: a rented house, clothes, slippers, tobacco tins, a fuel pump, gas cylinder, firewood, bulbs, a car, washing machine, fridge, necklace, chair",
+      "meaning_carrier": "picture",
+      "things": [
+        "person",
+        "fruit_bowl",
+        "grocery_bag",
+        "milk_bottle",
+        "oil_can",
+        "chicken",
+        "drink_bottle",
+        "house",
+        "clothes_rack",
+        "slippers",
+        "tobacco_tin",
+        "fuel_pump",
+        "gas_cylinder",
+        "firewood",
+        "light_bulb",
+        "car",
+        "washing_machine",
+        "refrigerator",
+        "necklace",
+        "chair",
+        "brand_logo"
+      ],
+      "actions": [
+        "pop_in",
+        "multiply",
+        "fill"
+      ],
+      "on_screen_words": 6,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 93.0,
+      "end": 151.6,
+      "teaches": "CPI sorts consumer spending into six groups: food & beverages; pan, tobacco & intoxicants; housing; clothing & footwear; fuel & light; miscellaneous",
+      "canvas": "builds_on_previous",
+      "layout": "hub_and_spokes",
+      "elements": [
+        {
+          "kind": "icon",
+          "what": "consumer in the centre",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "six pale-blue panels each holding its own items",
+          "count": 6
+        },
+        {
+          "kind": "tag",
+          "what": "label strip written under each panel",
+          "count": 6
+        }
+      ],
+      "motions": [
+        "swap_element",
+        "pop_in",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "the sorting itself is the teaching: the same objects from the flood regroup into panels",
+      "idea_type": "classification",
+      "idea": "the many things a consumer buys fall into six spending groups",
+      "shown_as": "the scattered items snap into six pale-blue panels around the consumer: groceries together, tobacco tins together, the rented house alone, clothes with slippers, fuel/gas/firewood/bulbs, and car-fridge-necklace-chair as the catch-all; a label strip is written under each panel one by one",
+      "meaning_carrier": "picture",
+      "things": [
+        "person",
+        "grocery_bag",
+        "oil_can",
+        "tobacco_tin",
+        "house",
+        "clothes_rack",
+        "slippers",
+        "fuel_pump",
+        "gas_cylinder",
+        "firewood",
+        "light_bulb",
+        "car",
+        "washing_machine",
+        "refrigerator",
+        "necklace",
+        "chair"
+      ],
+      "actions": [
+        "join",
+        "pop_in",
+        "write_on"
+      ],
+      "on_screen_words": 20,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 151.6,
+      "end": 267.0,
+      "teaches": "the survey asks about each group over a different recall period: food and tobacco the last 7 days, housing and fuel the last month, clothing and miscellaneous the last year",
+      "canvas": "new",
+      "layout": "table",
+      "elements": [
+        {
+          "kind": "icon",
+          "what": "consumer at the top over a CONSUMPTION PATTERN heading",
+          "count": 1
+        },
+        {
+          "kind": "bullet_chain",
+          "what": "six group names as cream chips in a column with a vertical divider",
+          "count": 6
+        },
+        {
+          "kind": "text_box",
+          "what": "recall period typed beside each group: 7 days, 7 days, 1 month, 1 month, 1 year, 1 year",
+          "count": 6
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "write_on"
+      ],
+      "level": "L1",
+      "notes": "about 115 s for six short entries; slowest stretch of the video",
+      "idea_type": "process",
+      "idea": "how often people buy something decides how far back the survey asks about it",
+      "shown_as": "the pictures vanish; the consumer stands over a 'consumption pattern' heading with the six group names stacked as cream chips; to the right a recall period is written beside each group, one every 15-20 s",
+      "meaning_carrier": "text_only",
+      "things": [
+        "person"
+      ],
+      "actions": [
+        "write_on"
+      ],
+      "on_screen_words": 30,
+      "camera": "still",
+      "example": "7 days / 7 days / 1 month / 1 month / 1 year / 1 year"
+    },
+    {
+      "start": 267.0,
+      "end": 295.0,
+      "teaches": "the answers from the six groups, each over its own period, are pooled as consumption data",
+      "canvas": "builds_on_previous",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {
+          "kind": "icon",
+          "what": "database cylinder labelled consumption data",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "blue boxes grouping the chips in three pairs",
+          "count": 3
+        },
+        {
+          "kind": "arrow",
+          "what": "elbow arrows from each pair into the cylinder labelled 7 days, 1 month, 1 year",
+          "count": 3
+        }
+      ],
+      "motions": [
+        "pop_in",
+        "highlight_text",
+        "draw_line"
+      ],
+      "level": "L2",
+      "notes": "the period labels move from the side column onto the arrows",
+      "idea_type": "process",
+      "idea": "three recall windows feed one data set",
+      "shown_as": "a database cylinder labelled 'consumption data' appears at right; the group chips are boxed in blue pairs and each pair shoots an elbow arrow into the cylinder, its period now written on the arrow",
+      "meaning_carrier": "diagram",
+      "things": [
+        "database_cylinder",
+        "person"
+      ],
+      "actions": [
+        "pop_in",
+        "join",
+        "flow_along_arrow",
+        "draw_line"
+      ],
+      "on_screen_words": 35,
+      "camera": "still",
+      "example": "7 days, 1 month, 1 year"
+    },
+    {
+      "start": 295.0,
+      "end": 370.4,
+      "teaches": "a short recall period for frequent items and a long one for infrequent items is the Modified Mixed Reference Period (MMRP), consistent with international practice",
+      "canvas": "zoom_out",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {
+          "kind": "tag",
+          "what": "two blue tags at the top: food → shorter period; infrequent items → longer period",
+          "count": 2
+        },
+        {
+          "kind": "tag",
+          "what": "purple 'international practice' tag",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "cream panel washed over the pairs-into-database diagram",
+          "count": 1
+        },
+        {
+          "kind": "title_text",
+          "what": "MODIFIED MIXED REFERENCE PERIOD - MMRP under the panel",
+          "count": 1
+        },
+        {
+          "kind": "arrow",
+          "what": "elbow arrow labelled 'consistent' from MMRP up to the international-practice tag",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "pop_in",
+        "highlight_text",
+        "draw_line",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "the rule is in text tags; the diagram only gets a name",
+      "idea_type": "definition",
+      "idea": "the mixed recall method has a name (MMRP) and matches world practice",
+      "shown_as": "the heading drops away and the pairs-into-database diagram shifts down; two blue tags at the top state the rule with an 'international practice' tag under them; a cream panel washes over the diagram and is named MMRP; an elbow arrow labelled 'consistent' climbs from MMRP up to the international-practice tag",
+      "meaning_carrier": "diagram",
+      "things": [
+        "database_cylinder"
+      ],
+      "actions": [
+        "pop_in",
+        "highlight_text",
+        "draw_line",
+        "write_on"
+      ],
+      "on_screen_words": 60,
+      "camera": "zoom_out",
+      "example": ""
+    },
+    {
+      "start": 370.4,
+      "end": 429.4,
+      "teaches": "consumers differ in basket size and items (choice, purchasing power), i.e. socio-economic differences; to handle this, similar consumers are grouped (segmentation)",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {
+          "kind": "icon",
+          "what": "consumption-data cylinder → heap of dark person silhouettes topped by a red India map",
+          "count": 2
+        },
+        {
+          "kind": "callout",
+          "what": "line from the heap to a 'different consumption pattern' box: basket size and items vary",
+          "count": 1
+        },
+        {
+          "kind": "bullet_chain",
+          "what": "choice of consumption, purchasing power",
+          "count": 2
+        },
+        {
+          "kind": "bullet_chain",
+          "what": "socio-economic differentiation ↓ to tackle this ↓ homogeneous groups → SEGMENTATION",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "pop_in",
+        "draw_line",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "the crowd-on-map icon becomes the video's symbol for 'all Indian consumers'",
+      "idea_type": "cause_effect",
+      "idea": "because people buy differently, one basket cannot fit everyone, so consumers are split into similar groups",
+      "shown_as": "the consumption-data cylinder points to a heap of dark person silhouettes topped by a red India map; a callout from the heap opens a 'different consumption pattern' box (basket size and items vary; choice and purchasing power), then a down-arrow chain runs from 'socio-economic differentiation' to 'to tackle this' to 'homogeneous groups' and lights up the word SEGMENTATION",
+      "meaning_carrier": "picture_plus_label",
+      "things": [
+        "database_cylinder",
+        "crowd_people",
+        "india_map"
+      ],
+      "actions": [
+        "flow_along_arrow",
+        "point",
+        "write_on",
+        "pop_in"
+      ],
+      "on_screen_words": 45,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 429.4,
+      "end": 525.6,
+      "teaches": "four consumer segments: urban non-manual employees, industrial workers, agricultural labourers, rural labourers (the last two overlap)",
+      "canvas": "new",
+      "layout": "tree",
+      "elements": [
+        {
+          "kind": "icon",
+          "what": "crowd-on-India-map at the top labelled consumer segmentation",
+          "count": 1
+        },
+        {
+          "kind": "icon",
+          "what": "four black silhouettes: clerk at a desk, worker with a hammer, labourer watering a field, labourer carrying sacks",
+          "count": 4
+        },
+        {
+          "kind": "text_box",
+          "what": "short definition typed under each figure",
+          "count": 4
+        },
+        {
+          "kind": "highlight",
+          "what": "blue box around the two rural figures with a two-way arrow between them",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "pop_in",
+        "write_on",
+        "highlight_text"
+      ],
+      "level": "L2",
+      "notes": "crowd at top fans out into four columns (tree without lines); figures carry the identity, definitions are text",
+      "idea_type": "classification",
+      "idea": "CPI groups people by the kind of work they do, because work shapes spending",
+      "shown_as": "the India crowd moves to the top, labelled consumer segmentation; four black silhouettes pop in beneath (a clerk at a desk, a worker with a hammer, a labourer watering a field, a labourer carrying sacks), each named, then a short definition is typed under each; finally the two rural figures are boxed together in blue with a two-way arrow to show they overlap",
+      "meaning_carrier": "picture_plus_label",
+      "things": [
+        "crowd_people",
+        "india_map",
+        "office_worker",
+        "industrial_worker",
+        "farm_labourer",
+        "rural_labourer"
+      ],
+      "actions": [
+        "pop_in",
+        "write_on",
+        "highlight_text",
+        "compare_side_by_side"
+      ],
+      "on_screen_words": 90,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 525.6,
+      "end": 585.2,
+      "teaches": "each segment has its own basket and so its own CPI (CPI-UNME, CPI-IW, CPI-AL, CPI-RL), compiled by the Labour Bureau; baskets hold different numbers of items",
+      "canvas": "builds_on_previous",
+      "layout": "table",
+      "elements": [
+        {
+          "kind": "icon",
+          "what": "a basket under each figure, shrinking left to right: loaded trolley, hand basket, paper bag, tiny bag",
+          "count": 4
+        },
+        {
+          "kind": "tag",
+          "what": "blue 'measure average price level' band with one CPI tag under each basket",
+          "count": 4
+        },
+        {
+          "kind": "text_box",
+          "what": "green strip naming the compiling ministry bureau",
+          "count": 1
+        },
+        {
+          "kind": "tag",
+          "what": "yellow item-count tags beside each basket (146-365, 463, 260, 260)",
+          "count": 4
+        }
+      ],
+      "motions": [
+        "swap_element",
+        "pop_in",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "basket size is a picture of consumption differences, though sizes do not match the item counts exactly",
+      "idea_type": "comparison",
+      "idea": "different baskets mean different price indices for each group",
+      "shown_as": "definitions disappear and a basket drops under each worker: a loaded trolley for the clerk, a hand basket for the industrial worker, a paper bag and a tiny bag for the farm and rural labourers; the blue price-level band returns with one CPI tag under each basket, a green strip credits the compiling bureau, and yellow tags show how many items each basket holds",
+      "meaning_carrier": "picture",
+      "things": [
+        "office_worker",
+        "industrial_worker",
+        "farm_labourer",
+        "rural_labourer",
+        "shopping_cart",
+        "basket",
+        "shopping_bag",
+        "crowd_people",
+        "india_map"
+      ],
+      "actions": [
+        "pop_in",
+        "compare_side_by_side",
+        "write_on"
+      ],
+      "on_screen_words": 45,
+      "camera": "still",
+      "example": "items per basket about 146-365, 463, 260, 260"
+    },
+    {
+      "start": 585.2,
+      "end": 675.8,
+      "teaches": "segment CPIs are used to set pay: CPI-UNME and CPI-IW fix dearness (cost-of-living) allowances for service-sector, manual and government employees; CPI-AL and CPI-RL help set minimum wages for farm and rural unskilled workers",
+      "canvas": "new",
+      "layout": "flow_top_down",
+      "elements": [
+        {
+          "kind": "question_mark",
+          "what": "? beside a small crowd-on-map icon at top-left",
+          "count": 1
+        },
+        {
+          "kind": "icon",
+          "what": "four worker figures in a row above the CPI band",
+          "count": 4
+        },
+        {
+          "kind": "arrow",
+          "what": "down-arrows from CPI-UNME and CPI-IW to green cash-wallet icons labelled dearness allowance",
+          "count": 2
+        },
+        {
+          "kind": "tag",
+          "what": "green 'cost-of-living adjustment allowance' strip",
+          "count": 1
+        },
+        {
+          "kind": "callout",
+          "what": "whose pay each adjusts: foreign-firm service staff; manual workers and government employees",
+          "count": 2
+        },
+        {
+          "kind": "bullet_chain",
+          "what": "sectors: airlines, banking, communications",
+          "count": 3
+        },
+        {
+          "kind": "arrow",
+          "what": "slanted arrows from CPI-AL and CPI-RL into one handshake-over-cash icon labelled minimum wage",
+          "count": 2
+        }
+      ],
+      "motions": [
+        "swap_element",
+        "pop_in",
+        "draw_line",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "uses of an index shown as money objects at the end of arrows",
+      "idea_type": "cause_effect",
+      "idea": "these indices decide real money: allowances for employees and minimum wages for labourers",
+      "shown_as": "the segmentation scene shrinks to a row with a '?' by the crowd; under CPI-UNME a down-arrow drops a green cash-wallet labelled dearness allowance with a cost-of-living strip, and the same happens under CPI-IW; callouts say whose pay each one adjusts; then CPI-AL and CPI-RL send two slanted arrows into one handshake-over-cash icon labelled minimum wage for farm and rural unskilled workers",
+      "meaning_carrier": "picture_plus_label",
+      "things": [
+        "crowd_people",
+        "india_map",
+        "office_worker",
+        "industrial_worker",
+        "farm_labourer",
+        "rural_labourer",
+        "wallet_cash",
+        "handshake_cash",
+        "question_mark"
+      ],
+      "actions": [
+        "flow_along_arrow",
+        "pop_in",
+        "point",
+        "join",
+        "write_on"
+      ],
+      "on_screen_words": 90,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 675.8,
+      "end": 770.8,
+      "teaches": "a 2001 National Statistical Commission report called segment CPIs partial indices that miss general price behaviour and recommended CPI for rural, urban and national (combined) levels; CPI-UNME was stopped in December 2010; new series base 2011-12",
+      "canvas": "builds_on_previous",
+      "layout": "timeline",
+      "elements": [
+        {
+          "kind": "photo",
+          "what": "real photo of the commission chair at the left edge",
+          "count": 1
+        },
+        {
+          "kind": "icon",
+          "what": "five suited figures at a long desk, one in red (chair), labelled National Statistical Commission",
+          "count": 1
+        },
+        {
+          "kind": "arrow",
+          "what": "'2001' arrow to a report sheet with a tick",
+          "count": 1
+        },
+        {
+          "kind": "tag",
+          "what": "green 'segment specific CPIs' bar lifted by an up-arrow, with a note calling them partial indices",
+          "count": 1
+        },
+        {
+          "kind": "text_box",
+          "what": "large quote mark and criticism paragraph",
+          "count": 1
+        },
+        {
+          "kind": "tree",
+          "what": "recommendation box branching into CPI-R, CPI-U, CPI-C (rural, urban, combined/national)",
+          "count": 1
+        },
+        {
+          "kind": "mark",
+          "what": "red cross on CPI-UNME reached by an arrow labelled Dec 2010; (2011-12) tag",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "slide_in",
+        "pop_in",
+        "draw_line",
+        "write_on",
+        "cross_out"
+      ],
+      "level": "L2",
+      "notes": "real person photo: BIE will not use it; the committee icon is reusable",
+      "idea_type": "timeline",
+      "idea": "an expert commission found the old segment CPIs too narrow and asked for rural, urban and national CPIs",
+      "shown_as": "a real photo of the commission chair slides in at left beside five suited figures at a long desk (one in red) labelled National Statistical Commission; a '2001' arrow hands over a ticked report, and an up-arrow from it lifts a green 'segment specific CPIs' bar with a note calling them partial; a large quote mark brings in the criticism; the report then branches into CPI-R, CPI-U and CPI-C, and an arrow labelled Dec 2010 strikes CPI-UNME with a red cross",
+      "meaning_carrier": "picture_plus_label",
+      "things": [
+        "real_person_photo",
+        "committee_desk",
+        "document",
+        "quote_mark",
+        "crowd_people",
+        "india_map",
+        "office_worker",
+        "industrial_worker",
+        "farm_labourer",
+        "rural_labourer"
+      ],
+      "actions": [
+        "pop_in",
+        "hand_over",
+        "split",
+        "cross_out",
+        "write_on",
+        "point"
+      ],
+      "on_screen_words": 120,
+      "camera": "still",
+      "example": "2001 report; CPI-UNME stopped Dec 2010; base 2011-12"
+    },
+    {
+      "start": 770.8,
+      "end": 808.8,
+      "teaches": "status now: CPI-IW (base 2016), CPI-AL and CPI-RL (base 1986-87) remain as segment CPIs; CPI rural, urban and combined (base 2012) are the headline series, each with its own basket",
+      "canvas": "new",
+      "layout": "table",
+      "elements": [
+        {
+          "kind": "mark",
+          "what": "CPI-UNME with red cross set outside the card",
+          "count": 1
+        },
+        {
+          "kind": "table",
+          "what": "cream card: segment CPIs with base years on top, CPI-R / CPI-U / CPI-C with base 2012 below",
+          "count": 1
+        },
+        {
+          "kind": "tag",
+          "what": "CPI-U, CPI-R, CPI-C chips tumbling into a blue box labelled urban, rural, combined",
+          "count": 3
+        },
+        {
+          "kind": "icon",
+          "what": "a basket dropped under each: trolley, paper bag, bigger trolley",
+          "count": 3
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "pop_in",
+        "swap_element",
+        "draw_line"
+      ],
+      "level": "L2",
+      "notes": "base years are a status table; baskets bridge into the weights table",
+      "idea_type": "data_status",
+      "idea": "which CPIs exist today and their base years; the main CPI comes in rural, urban and combined versions",
+      "shown_as": "a summary card lists surviving segment CPIs with base years and the new rural/urban/combined CPIs (base 2012) while CPI-UNME sits outside with its red cross; the card collapses, the three new CPI chips tumble into a blue box labelled urban, rural, combined, and a down-arrow from each drops a basket",
+      "meaning_carrier": "picture_plus_label",
+      "things": [
+        "shopping_cart",
+        "shopping_bag"
+      ],
+      "actions": [
+        "pop_in",
+        "swap_element",
+        "flow_along_arrow"
+      ],
+      "on_screen_words": 40,
+      "camera": "still",
+      "example": "base years: CPI-IW 2016, CPI-AL/RL 1986-87, CPI-R/U/C 2012"
+    },
+    {
+      "start": 808.8,
+      "end": 914.8,
+      "teaches": "each basket weights the six groups out of 100; food weighs most in rural (54.18) and least in urban (36.29); rural has no housing weight; weights come from the MMRP survey",
+      "canvas": "new",
+      "layout": "table",
+      "elements": [
+        {
+          "kind": "table",
+          "what": "six group rows × urban / rural / combined basket columns with a small weight symbol under each header",
+          "count": 1
+        },
+        {
+          "kind": "value_change",
+          "what": "columns fill with weights one after another, each closing with a red 100",
+          "count": 3
+        },
+        {
+          "kind": "highlight",
+          "what": "blue boxes around the three food weights",
+          "count": 3
+        },
+        {
+          "kind": "mark",
+          "what": "red cross in the empty rural housing cell",
+          "count": 1
+        },
+        {
+          "kind": "text_box",
+          "what": "purple NOTE card: basket and weights prepared using MMRP",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "write_on",
+        "highlight_text",
+        "cross_out",
+        "slide_in"
+      ],
+      "level": "L2",
+      "notes": "the basket icons from the previous segment turn into column headers",
+      "idea_type": "numbers",
+      "idea": "a basket gives each spending group a share of 100, and the shares differ between rural and urban",
+      "shown_as": "the baskets turn into column headers with a small weight symbol; the six group names line up as cream rows and the urban column fills with weights, then rural and combined, each closing with a red 100; the food weights get blue boxes, the empty rural housing cell gets a red cross, and a purple NOTE card slides in to say the weights come from the MMRP survey",
+      "meaning_carrier": "diagram",
+      "things": [
+        "table_grid",
+        "weight_icon"
+      ],
+      "actions": [
+        "write_on",
+        "highlight_text",
+        "cross_out",
+        "pop_in",
+        "compare_side_by_side"
+      ],
+      "on_screen_words": 75,
+      "camera": "still",
+      "example": "food 36.29 urban, 54.18 rural, 45.86 combined; columns sum to 100"
+    },
+    {
+      "start": 914.8,
+      "end": 945.6,
+      "teaches": "each group splits into items with their own weights; for example egg is 0.36 of the urban basket",
+      "canvas": "zoom_in",
+      "layout": "table",
+      "elements": [
+        {
+          "kind": "table",
+          "what": "food & beverages unfolds into a ruled sub-table of twelve items with weights in three columns",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "rural and combined columns fade; egg row lit cream",
+          "count": 1
+        },
+        {
+          "kind": "arrow",
+          "what": "arrow shooting right from the egg row",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "zoom_to_region",
+        "highlight_text",
+        "draw_line"
+      ],
+      "level": "L2",
+      "notes": "sets up the single-item worked example",
+      "idea_type": "numbers",
+      "idea": "group weights are built from many item weights",
+      "shown_as": "the other groups slide away and food & beverages unfolds into a ruled sub-table of twelve items with weights in all three columns; rural and combined fade, leaving urban, and the egg row lights up with an arrow shooting right",
+      "meaning_carrier": "diagram",
+      "things": [
+        "table_grid",
+        "weight_icon"
+      ],
+      "actions": [
+        "split",
+        "zoom_to_region",
+        "highlight_text",
+        "draw_line"
+      ],
+      "on_screen_words": 70,
+      "camera": "zoom_in",
+      "example": "egg weight 0.36 in the urban basket"
+    },
+    {
+      "start": 945.6,
+      "end": 1003.0,
+      "teaches": "an item's elementary price index: for 10 market quotes take current ÷ base price × 100 (price relatives), then their geometric mean (Jevons formula); egg = 150.40",
+      "canvas": "new",
+      "layout": "table",
+      "elements": [
+        {
+          "kind": "icon",
+          "what": "big half-boiled egg above the table",
+          "count": 1
+        },
+        {
+          "kind": "table",
+          "what": "quotation no. 1-10 with base price, current price and price relative columns",
+          "count": 1
+        },
+        {
+          "kind": "formula",
+          "what": "current price ÷ base price × 100, lifted by a curved arrow from the price-relative header",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "price-relative column shaded blue; yellow frames around the formula and the geometric-mean tag",
+          "count": 3
+        },
+        {
+          "kind": "callout",
+          "what": "box 'elementary price index 150.40' with 'geometric mean' tag",
+          "count": 1
+        },
+        {
+          "kind": "tag",
+          "what": "bottom strip naming the Jevons index formula",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "pop_in",
+        "write_on",
+        "draw_line",
+        "highlight_text"
+      ],
+      "level": "L2",
+      "notes": "numbers are a made-up worked example on screen (prices 2-6)",
+      "idea_type": "formula",
+      "idea": "one item's price change is averaged across many shops before it enters the CPI",
+      "shown_as": "a big egg sits over a numbered column of ten price quotes; base-price and current-price columns fill in, then a 'price relative' column, with a curved arrow lifting the formula current ÷ base × 100 above it; the relatives are shaded blue and arrowed into a box 'elementary price index 150.40' tagged geometric mean, and a bottom strip names the Jevons formula",
+      "meaning_carrier": "diagram",
+      "things": [
+        "egg",
+        "table_grid",
+        "formula_card"
+      ],
+      "actions": [
+        "pop_in",
+        "write_on",
+        "highlight_text",
+        "flow_along_arrow"
+      ],
+      "on_screen_words": 60,
+      "camera": "still",
+      "example": "quote base 2 → current 4 = 200; egg elementary index 150.40"
+    },
+    {
+      "start": 1003.0,
+      "end": 1047.0,
+      "teaches": "multiply each item's elementary index by its weight, add up, divide by the total weight",
+      "canvas": "builds_on_previous",
+      "layout": "table",
+      "elements": [
+        {
+          "kind": "icon",
+          "what": "egg and its 150.40 index shrink and slide right",
+          "count": 1
+        },
+        {
+          "kind": "table",
+          "what": "urban food sub-table with the egg row lit",
+          "count": 1
+        },
+        {
+          "kind": "arrow",
+          "what": "egg row → egg icon; index tagged I1; weight cell 0.36 boxed and tagged W",
+          "count": 2
+        },
+        {
+          "kind": "formula",
+          "what": "Σ(I × W) written, then ÷ ΣW added",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "slide_in",
+        "draw_line",
+        "pop_in",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "symbols I and W are attached to real cells before the formula appears",
+      "idea_type": "formula",
+      "idea": "the group index is a weighted average of item indices",
+      "shown_as": "the egg and its 150.40 index shrink and slide beside the urban food sub-table; an arrow joins the egg row to the egg, the index is tagged I and the egg's weight cell 0.36 is boxed and tagged W; then Σ(I × W) is written and ÷ ΣW is added",
+      "meaning_carrier": "diagram",
+      "things": [
+        "egg",
+        "table_grid",
+        "formula_card"
+      ],
+      "actions": [
+        "shrink",
+        "draw_line",
+        "pop_in",
+        "write_on"
+      ],
+      "on_screen_words": 55,
+      "camera": "still",
+      "example": "I = 150.40 (egg), W = 0.36"
+    },
+    {
+      "start": 1047.0,
+      "end": 1070.4,
+      "teaches": "doing the same with the six group weights (Laspeyres formula) gives CPI-Urban; likewise CPI-Rural and CPI-Combined",
+      "canvas": "builds_on_previous",
+      "layout": "table",
+      "elements": [
+        {
+          "kind": "table",
+          "what": "food sub-table folds back into the six-group urban column",
+          "count": 1
+        },
+        {
+          "kind": "tag",
+          "what": "red 'Laspeyres index formula' label under the Σ formula",
+          "count": 1
+        },
+        {
+          "kind": "formula",
+          "what": "'CPI-U =' set in front of the formula, dotted line up to the Urban basket header",
+          "count": 1
+        },
+        {
+          "kind": "table",
+          "what": "closing view: full three-column weight table headed CPI-U, CPI-R, CPI-C",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "swap_element",
+        "write_on",
+        "draw_line",
+        "pop_in"
+      ],
+      "level": "L2",
+      "notes": "app promo phone slides in over the closing table at about 1068 s",
+      "idea_type": "formula",
+      "idea": "the headline CPI is the same weighted average done at group level",
+      "shown_as": "the food sub-table folds back into the six-group urban column; the Σ formula gains a red 'Laspeyres index formula' tag, then 'CPI-U =' is set in front of it and a dotted line runs up to the Urban basket header; the screen ends on the full weight table headed CPI-U, CPI-R, CPI-C",
+      "meaning_carrier": "diagram",
+      "things": [
+        "table_grid",
+        "formula_card",
+        "weight_icon"
+      ],
+      "actions": [
+        "shrink",
+        "write_on",
+        "draw_line",
+        "pop_in"
+      ],
+      "on_screen_words": 50,
+      "camera": "still",
+      "example": "CPI-U = Σ(I × W) / ΣW"
+    },
+    {
+      "start": 1070.4,
+      "end": 1080.2,
+      "teaches": "none (next-video card)",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {
+          "kind": "end_screen",
+          "what": "next-video / playlist loading card",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "clear_canvas"
+      ],
+      "level": "L2",
+      "notes": "not teaching; ignore",
+      "idea_type": "end_screen",
+      "idea": "none (end screen)",
+      "shown_as": "canvas cleared to the channel's next-video card",
+      "meaning_carrier": "text_only",
+      "things": [
+        "brand_logo"
+      ],
+      "actions": [
+        "pop_in"
+      ],
+      "on_screen_words": 8,
+      "camera": "cut",
+      "example": ""
+    }
+  ]
+}

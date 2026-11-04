@@ -3,7 +3,8 @@
   "title_guess": "Corporate bonds: how companies borrow in the securities market, coupon, rating, yield, primary and secondary market",
   "segments": [
     {
-      "start": 0, "end": 20,
+      "start": 0,
+      "end": 20,
       "teaches": "a company needing long-term money for a new project can take a loan or raise funds in the capital market's securities market",
       "canvas": "new",
       "layout": "tree",
@@ -15,10 +16,20 @@
       ],
       "motions": ["pop_in", "draw_line", "fade_in"],
       "level": "L2",
-      "notes": "Opening recap of the previous lesson; the tick-and-scribble mark says 'already covered' and moves on to the other branch."
+      "notes": "Opening recap of the previous lesson; the tick-and-scribble mark says 'already covered' and moves on to the other branch.",
+      "idea_type": "recap",
+      "idea": "a company that needs long-term money can take a loan or raise funds in the securities market",
+      "shown_as": "an orange 'need money' stamp lands on a band where a person starts a new project at a factory; 'raise funds in capital market' splits into a loan branch, ticked with a scribbled 'done', and a securities-market branch leading to corporate securities",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["person", "factory", "tick_mark"],
+      "actions": ["pop_in", "draw_line", "fade_in", "stamp", "tick", "split"],
+      "on_screen_words": 23,
+      "camera": "cut",
+      "example": ""
     },
     {
-      "start": 20, "end": 76,
+      "start": 20,
+      "end": 76,
       "teaches": "a bond is a debt security: the company's promise to repay the loan with interest on a set date",
       "canvas": "new",
       "layout": "compare_two_sides",
@@ -33,10 +44,20 @@
       ],
       "motions": ["slide_in", "draw_line", "pop_in", "write_on", "highlight_text"],
       "level": "L2",
-      "notes": "From here the frame is split: a persistent left sidebar topic-tree (mini-map) shows where the lesson is, with the current node boxed; the right two-thirds is the working canvas. This layout lasts until the end screen."
+      "notes": "From here the frame is split: a persistent left sidebar topic-tree (mini-map) shows where the lesson is, with the current node boxed; the right two-thirds is the working canvas. This layout lasts until the end screen.",
+      "idea_type": "definition",
+      "idea": "a bond is a debt security: the company's promise to repay the loan with interest on a set date",
+      "shown_as": "a left sidebar mini-map tree shows where the lesson is; on the right raise funds -> a ribboned bond certificate -> corporate bonds, a winged businessman with a money bag as the investor, an elbow to 'debt security', a small 'promise' paper image and a definition with the date highlighted",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["bond_certificate", "person", "money_bag", "document"],
+      "actions": ["slide_in", "draw_line", "pop_in", "write_on", "highlight_text"],
+      "on_screen_words": 40,
+      "camera": "cut",
+      "example": ""
     },
     {
-      "start": 76, "end": 125,
+      "start": 76,
+      "end": 125,
       "teaches": "the investor pays the company; the company repays the fixed face value at maturity and pays a fixed coupon at regular intervals",
       "canvas": "builds_on_previous",
       "layout": "flow_top_down",
@@ -49,10 +70,20 @@
       ],
       "motions": ["draw_line", "pop_in", "highlight_text"],
       "level": "L2",
-      "notes": "Money flows up, repayments flow back down by dotted arrows: a two-direction cash-flow loop."
+      "notes": "Money flows up, repayments flow back down by dotted arrows: a two-direction cash-flow loop.",
+      "idea_type": "process",
+      "idea": "the investor pays the company; the company repays the fixed face value at maturity and pays a fixed coupon at regular intervals",
+      "shown_as": "a tall elbow arrow carries a banknote from the investor up to the company; a bar under the project splits into face value (with a calendar) and interest (coupon), both tagged 'fixed'; dotted green arrows return the face value and coupon payments to the investor",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["person", "factory", "banknote", "calendar"],
+      "actions": ["draw_line", "pop_in", "highlight_text", "hand_over", "flow_along_arrow", "split"],
+      "on_screen_words": 54,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 125, "end": 176,
+      "start": 125,
+      "end": 176,
       "teaches": "an investor cannot judge a company's safety alone; credit rating agencies rate bonds on creditworthiness",
       "canvas": "new",
       "layout": "flow_left_to_right",
@@ -67,10 +98,20 @@
       ],
       "motions": ["clear_canvas", "draw_line", "pop_in", "fade_in", "shade_area"],
       "level": "L2",
-      "notes": "Spotlight metaphor: the agency 'shines a light' on the issuer. The light cone first lights a small area then widens over the whole box."
+      "notes": "Spotlight metaphor: the agency 'shines a light' on the issuer. The light cone first lights a small area then widens over the whole box.",
+      "idea_type": "mechanism",
+      "idea": "an investor cannot judge a company's safety alone, so credit rating agencies rate its bonds",
+      "shown_as": "a factory -> bond -> investor flow with a ? over the investor; under a banner naming rating agencies, a ceiling lamp shines a light cone that widens over the factory-bond box, and a speedometer-style gauge is linked to the bond",
+      "meaning_carrier": "picture",
+      "things": ["factory", "bond_certificate", "person", "question_mark", "lamp", "gauge"],
+      "actions": ["clear_canvas", "draw_line", "pop_in", "fade_in", "shade_area", "point"],
+      "on_screen_words": 16,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 176, "end": 211,
+      "start": 176,
+      "end": 211,
       "teaches": "rating scales run from top grade (safest) to junk grades; ratings tell investors the risk of default",
       "canvas": "builds_on_previous",
       "layout": "compare_two_sides",
@@ -82,10 +123,20 @@
       ],
       "motions": ["slide_in", "fade_in", "write_on"],
       "level": "L2",
-      "notes": "Real agency names appear as scale captions (text only, no logos). Colour-graded ladder is a reusable 'risk scale' component; closest kind was table."
+      "notes": "Real agency names appear as scale captions (text only, no logos). Colour-graded ladder is a reusable 'risk scale' component; closest kind was table.",
+      "idea_type": "classification",
+      "idea": "rating scales run from the safest grade down to junk; the grade tells investors the risk of default",
+      "shown_as": "two vertical letter-grade ladders slide in on either side, green at the top through yellow to red at the bottom, around the gauge and the factory -> bond -> investor box",
+      "meaning_carrier": "diagram",
+      "things": ["gauge", "factory", "bond_certificate", "person", "table_grid"],
+      "actions": ["slide_in", "fade_in", "write_on"],
+      "on_screen_words": 50,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 211, "end": 276,
+      "start": 211,
+      "end": 276,
       "teaches": "bonds are resold between investors; the coupon stays fixed and goes to whoever holds the bond, but the bond's price changes with demand and supply",
       "canvas": "new",
       "layout": "flow_left_to_right",
@@ -98,10 +149,20 @@
       ],
       "motions": ["clear_canvas", "pop_in", "draw_line", "swap_element", "write_on"],
       "level": "L2",
-      "notes": "Running chain of holders: the coupon arrow is redrawn to point at whoever holds the bond now, showing the coupon follows the bond."
+      "notes": "Running chain of holders: the coupon arrow is redrawn to point at whoever holds the bond now, showing the coupon follows the bond.",
+      "idea_type": "process",
+      "idea": "bonds are resold; the fixed coupon goes to whoever holds the bond, but the bond's price moves with demand and supply",
+      "shown_as": "a band passes the bond along factory -> investor 1 -> investor 2 -> investor 3; a curved coupon arrow carrying a banknote runs from the factory and its tip moves to the newest holder; 'fixed' sits over the coupon box and a brace notes that the bond's value changes with demand and supply",
+      "meaning_carrier": "picture",
+      "things": ["factory", "person", "bond_certificate", "banknote"],
+      "actions": ["clear_canvas", "pop_in", "draw_line", "swap_element", "write_on", "hand_over", "flow_along_arrow"],
+      "on_screen_words": 20,
+      "camera": "clear",
+      "example": "one bond passed from investor 1 to 2 to 3"
     },
     {
-      "start": 276, "end": 337,
+      "start": 276,
+      "end": 337,
       "teaches": "return for the first buyer equals the coupon rate; later buyers paid a different price, so their yield is above or below it; yield = interest paid / price paid",
       "canvas": "builds_on_previous",
       "layout": "flow_top_down",
@@ -114,10 +175,20 @@
       ],
       "motions": ["draw_line", "fade_in", "highlight_text", "swap_element"],
       "level": "L2",
-      "notes": "Column-per-actor reasoning: each holder gets its own vertical chain, then two columns are grouped by a highlight and renamed."
+      "notes": "Column-per-actor reasoning: each holder gets its own vertical chain, then two columns are grouped by a highlight and renamed.",
+      "idea_type": "formula",
+      "idea": "the first buyer earns the coupon rate; later buyers paid a different price, so their yield differs; yield = interest paid / price paid",
+      "shown_as": "down-arrows under each holder lead to '% return', then to 'coupon rate' for the first and 'more or less than coupon rate' for the later two, which are boxed and renamed bond yield; a pink fraction box gives yield = interest / price paid; a curved arrow ties 'value changes' to 'yield also changes'",
+      "meaning_carrier": "diagram",
+      "things": ["person"],
+      "actions": ["draw_line", "fade_in", "highlight_text", "swap_element"],
+      "on_screen_words": 51,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 337, "end": 352,
+      "start": 337,
+      "end": 352,
       "teaches": "primary market: the company sells new bonds directly to the first investor",
       "canvas": "new",
       "layout": "flow_left_to_right",
@@ -128,10 +199,20 @@
       ],
       "motions": ["clear_canvas", "swap_element", "pop_in"],
       "level": "L2",
-      "notes": "The sidebar mini-map advances its box to the next node each time the subtopic changes."
+      "notes": "The sidebar mini-map advances its box to the next node each time the subtopic changes.",
+      "idea_type": "definition",
+      "idea": "primary market: the company sells new bonds straight to the first investor",
+      "shown_as": "the sidebar box moves to primary market and a cream panel wraps only factory -> bond -> first investor, leaving the later investors outside",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["factory", "bond_certificate", "person"],
+      "actions": ["clear_canvas", "swap_element", "pop_in"],
+      "on_screen_words": 19,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 352, "end": 400,
+      "start": 352,
+      "end": 400,
       "teaches": "secondary market: bonds trade on stock exchanges like shares; to sell, move the bond into a trading account and place an order with a broker",
       "canvas": "builds_on_previous",
       "layout": "flow_top_down",
@@ -144,10 +225,20 @@
       ],
       "motions": ["swap_element", "fade_in", "write_on"],
       "level": "L2",
-      "notes": "Same chain is reused; only the coloured panel shifts right to show which part is the secondary market."
+      "notes": "Same chain is reused; only the coloured panel shifts right to show which part is the secondary market.",
+      "idea_type": "definition",
+      "idea": "secondary market: bonds trade on exchanges like shares; to sell, move the bond to a trading account and order through a broker",
+      "shown_as": "the sidebar box moves to secondary market and the panel shifts to wrap the investor-to-investor part of the chain; a stock-exchange tower appears by the heading, with a line and a paragraph on the selling steps",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["stock_exchange_building", "person", "bond_certificate"],
+      "actions": ["swap_element", "fade_in", "write_on"],
+      "on_screen_words": 52,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 400, "end": 416,
+      "start": 400,
+      "end": 416,
       "teaches": "channel promotion",
       "canvas": "new",
       "layout": "free",
@@ -156,7 +247,36 @@
       ],
       "motions": ["clear_canvas", "slide_in"],
       "level": "L2",
-      "notes": "End screen; ignore for teaching."
+      "notes": "End screen; ignore for teaching.",
+      "idea_type": "end_screen",
+      "idea": "none (channel promotion; no teaching)",
+      "shown_as": "next-video and playlist panels with an app promo",
+      "meaning_carrier": "text_only",
+      "things": ["end_screen_panel", "brand_logo"],
+      "actions": ["clear_canvas", "slide_in"],
+      "on_screen_words": 6,
+      "camera": "clear",
+      "example": ""
     }
-  ]
+  ],
+  "format": "build_up_canvas",
+  "recurring_cast": [
+    "factory (issuing company)",
+    "bond_certificate",
+    "person: investor (winged businessman with a money bag) and later holders",
+    "left sidebar mini-map tree",
+    "banknote on the money arrows"
+  ],
+  "running_examples": [
+    "one bond passed from investor 1 to 2 to 3 while the coupon follows the holder"
+  ],
+  "best_moments": [
+    {"t": 125, "why": "a lamp shines a spotlight on the issuer: 'the agency examines the company' becomes a picture"},
+    {"t": 211, "why": "the coupon arrow moves to whoever holds the bond now: 'the coupon follows the bond'"},
+    {"t": 76, "why": "money up, repayments back by dotted arrows: the bond's cash-flow loop at a glance"}
+  ],
+  "weak_moments": [
+    {"t": 352, "why": "the selling steps are a paragraph of text"}
+  ],
+  "upgraded_from": "batch2 card text"
 }

@@ -1,0 +1,239 @@
+{
+  "id": "E22",
+  "title_guess": "Balance of payments: forex flows, current and capital account, double entry and BoP crisis",
+  "duration": 359.8,
+  "format": "build_up_canvas",
+  "recurring_cast": ["globe", "india_map", "vault", "dollar_note", "document", "chalkboard"],
+  "running_examples": [
+    "oil barrel imported and paid for in dollars vs gears (manufactured goods) exported and paid for in dollars",
+    "list of foreign-currency dealings: goods, services, tourism, NRI remittances, FDI, FPI, external borrowing"
+  ],
+  "best_moments": [
+    {"t": 25, "why": "goods and dollars travel opposite ways around one loop between the globe and India: import = oil in, dollars out; export = gears out, dollars in"},
+    {"t": 270, "why": "double entry made visible: a small debit|credit chalkboard under every account leaf, then black frames group the boards into current and capital totals"},
+    {"t": 340, "why": "BoP plus/minus wired by green and red arrows into the forex vault; crisis = the vault cannot cover the minus"}
+  ],
+  "weak_moments": [
+    {"t": 95, "why": "the kinds of foreign-currency dealings are a plain bullet list under the arrow; each could have been shown flowing into or out of the vault"},
+    {"t": 225, "why": "a full tree of small labels and bullet items (services, incomes, transfers, FDI, FPI, loans); dense, text carries everything"},
+    {"t": 305, "why": "current-account surplus and deficit are introduced as faded text labels with dotted pointers, no picture of what a surplus is"}
+  ],
+  "segments": [
+    {
+      "start": 0, "end": 31,
+      "teaches": "importing means paying foreign currency out; exporting means receiving foreign currency in",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "icon", "what": "slowly spinning globe on the left", "count": 1},
+        {"kind": "map", "what": "India silhouette on the right", "count": 1},
+        {"kind": "arrow", "what": "red elbow arrow from world to India labelled import, with an oil barrel on it", "count": 1},
+        {"kind": "arrow", "what": "red curved arrow from India back to the world with a dollar-note bundle, labelled payments (foreign currency)", "count": 1},
+        {"kind": "arrow", "what": "green elbow arrow from India to the world labelled export, with a gears icon on it", "count": 1},
+        {"kind": "arrow", "what": "green curved arrow from the world to India with a dollar-note bundle, labelled receipts (foreign currency)", "count": 1}
+      ],
+      "motions": ["pop_in", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "the globe keeps rotating for the first ~2 minutes, which is why the events file shows one long 'big' change from 4 to 138 s; the loop closes in four beats: goods in, money out, goods out, money in",
+      "idea_type": "process",
+      "idea": "trade moves money across borders: buying from the world sends foreign currency out, selling to the world brings it in",
+      "shown_as": "a globe on the left and India on the right; a red elbow arrow carries an oil barrel from the world to India (import), then a curved red arrow carries a dollar bundle back from India to the world (payment); a green elbow arrow carries gears from India out to the world (export) and a curved green arrow brings dollars back to India (receipt), closing a loop",
+      "meaning_carrier": "picture",
+      "things": ["globe", "india_map", "oil_barrel", "dollar_note", "gears"],
+      "actions": ["rotate", "draw_line", "pop_in", "flow_along_arrow"],
+      "on_screen_words": 10,
+      "camera": "still",
+      "example": "oil imported and paid in dollars; manufactured goods (gears) exported for dollars"
+    },
+    {
+      "start": 31, "end": 105,
+      "teaches": "every foreign-currency dealing with the world raises or lowers India's forex reserve: goods, services, tourism, NRI remittances, FDI, FPI, external borrowing",
+      "canvas": "builds_on_previous",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "icon", "what": "same spinning globe", "count": 1},
+        {"kind": "map", "what": "India silhouette", "count": 1},
+        {"kind": "text_box", "what": "light-blue box with two dollar notes labelled foreign currency, riding on a two-headed arrow between globe and India", "count": 1},
+        {"kind": "arrow", "what": "line from India up to a block of six locker doors labelled forex reserve", "count": 1},
+        {"kind": "icon", "what": "locker block (vault) for the forex reserve", "count": 1},
+        {"kind": "tag", "what": "green 'increase' and red 'decrease' hooks under the vault", "count": 2},
+        {"kind": "text_box", "what": "bullet list under the arrow growing to seven kinds of dealings", "count": 7}
+      ],
+      "motions": ["pop_in", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "the loop collapses into one two-way exchange box; bullets are added one per narration beat (about every 6-10 s)",
+      "idea_type": "classification",
+      "idea": "many kinds of dealings with other countries move foreign currency and so push the forex reserve up or down",
+      "shown_as": "the import/export loop folds into one two-way arrow between globe and India with a blue box of dollar notes riding on it; a line runs from India up to a block of lockers named forex reserve, which forks into a green 'increase' and a red 'decrease' hook; then a bullet list of dealing types grows under the arrow one item at a time",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["globe", "india_map", "dollar_note", "vault"],
+      "actions": ["transform", "draw_line", "split", "pop_in", "write_on"],
+      "on_screen_words": 30,
+      "camera": "still",
+      "example": "goods, services, tourism, NRI remittances, FDI, FPI, external borrowings"
+    },
+    {
+      "start": 105, "end": 137,
+      "teaches": "the balance of payments is a statement of all economic and financial transactions with the world in one year",
+      "canvas": "builds_on_previous",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "title_text", "what": "'economic & financial transactions' heading over the currency box", "count": 1},
+        {"kind": "text_box", "what": "the bullet list folds away; the heading moves under the box with '[1 year]'", "count": 1},
+        {"kind": "arrow", "what": "short down-arrow", "count": 1},
+        {"kind": "icon", "what": "document icon labelled statement / balance of payment [BoP]", "count": 1}
+      ],
+      "motions": ["swap_element", "draw_line", "pop_in", "write_on"],
+      "level": "L2",
+      "notes": "nice 'summarise then name' move: a long list is replaced by one umbrella label, and the label becomes a document = the definition",
+      "idea_type": "definition",
+      "idea": "put all those dealings for one year in one statement and you have the balance of payments",
+      "shown_as": "the bullet list folds away and one umbrella label (economic and financial transactions, one year) takes its place under the currency box; a down-arrow drops from it to a document icon named the BoP statement",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["globe", "india_map", "dollar_note", "vault", "document"],
+      "actions": ["transform", "draw_line", "pop_in", "write_on"],
+      "on_screen_words": 22,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 137, "end": 197,
+      "teaches": "BoP has a current account and a capital account; the current account = visibles (goods, balance of trade) + invisibles (services, incomes/NFIA, transfers)",
+      "canvas": "new",
+      "layout": "tree",
+      "elements": [
+        {"kind": "icon", "what": "BoP document icon at the top", "count": 1},
+        {"kind": "tree", "what": "green elbow arrows split BoP into dashed chips current account and capital account", "count": 1},
+        {"kind": "tree", "what": "current account splits into balance of invisibles and balance of visibles (= balance of trade, BoT)", "count": 1},
+        {"kind": "bullet_chain", "what": "BoT down-arrow to 'goods'", "count": 1},
+        {"kind": "text_box", "what": "three light-blue bars (services, incomes [NFIA], transfers) on a dotted vertical guide, each with small example bullets", "count": 3}
+      ],
+      "motions": ["clear_canvas", "pop_in", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "canvas clears at ~137 s; examples: software and consultancy for services, remittances for transfers",
+      "idea_type": "classification",
+      "idea": "the BoP has two halves; the current half counts goods traded plus services, incomes and gifts/remittances",
+      "shown_as": "a BoP document icon on top; green elbow arrows branch it into two dashed chips (current account, capital account); the current chip branches again into visibles (balance of trade, then goods) and invisibles, where three blue bars (services, incomes, transfers) appear and each gets small example bullets",
+      "meaning_carrier": "diagram",
+      "things": ["document"],
+      "actions": ["split", "draw_line", "pop_in", "write_on"],
+      "on_screen_words": 35,
+      "camera": "clear",
+      "example": "software and consultancy (services), NFIA (incomes), remittances (transfers)"
+    },
+    {
+      "start": 197, "end": 238.4,
+      "teaches": "the capital account = investments (FDI, FPI incl. depository receipts, external bonds issued by the government) + loans (external lending and borrowing)",
+      "canvas": "builds_on_previous",
+      "layout": "tree",
+      "elements": [
+        {"kind": "tree", "what": "capital account branches into investments and loans", "count": 1},
+        {"kind": "text_box", "what": "green-square bullets: three under investments, two under loans", "count": 5}
+      ],
+      "motions": ["draw_line", "write_on"],
+      "level": "L2",
+      "notes": "the whole tree stays on screen; the narrator fills one branch at a time",
+      "idea_type": "classification",
+      "idea": "the capital half counts money that comes or goes as investment or as loans",
+      "shown_as": "the second chip (capital account) branches into investments and loans; investments gets three small bullets (FDI, FPI, government bonds sold abroad) and loans gets two (lending abroad, borrowing abroad), completing a four-leaf tree",
+      "meaning_carrier": "diagram",
+      "things": ["document"],
+      "actions": ["split", "draw_line", "write_on"],
+      "on_screen_words": 60,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 238.4, "end": 291.2,
+      "teaches": "each sub-account is kept by double-entry bookkeeping (debit minus, credit plus), so each nets to plus or minus; current items add to one total and capital items to another",
+      "canvas": "builds_on_previous",
+      "layout": "tree",
+      "elements": [
+        {"kind": "icon", "what": "four small chalkboards each with a debit|credit T-chart (- / +), one under each leaf", "count": 4},
+        {"kind": "callout", "what": "'double entry bookkeeping' label with a curved arrow to the boards", "count": 1},
+        {"kind": "arrow", "what": "down-arrow under each board ending in '+ive / -ive'", "count": 4},
+        {"kind": "highlight", "what": "black frame around the two current-account boards, another around the two capital-account boards, each with its own +/- result", "count": 2}
+      ],
+      "motions": ["swap_element", "pop_in", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "bullet lists swap for chalkboards at ~238 s; frames at ~279 and ~285 s",
+      "idea_type": "mechanism",
+      "idea": "every account is a two-sided ledger, so each account and each half of the BoP ends up in plus or minus",
+      "shown_as": "the bullet lists vanish and a small chalkboard with a debit|credit T-chart drops under each of the four leaves; a curved arrow names them double-entry bookkeeping; a down-arrow under each board ends in '+ / -'; then one black frame closes around the two current boards and another around the two capital boards, each frame getting its own +/- result",
+      "meaning_carrier": "diagram",
+      "things": ["document", "chalkboard"],
+      "actions": ["swap_element", "pop_in", "draw_line", "join", "write_on"],
+      "on_screen_words": 40,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 291.2, "end": 328.4,
+      "teaches": "the current account ends in surplus (CAS) or deficit (CAD); together with the capital account it makes the overall BoP",
+      "canvas": "builds_on_previous",
+      "layout": "tree",
+      "elements": [
+        {"kind": "tag", "what": "current account and capital account chips, each now with '+ive / -ive' beneath", "count": 2},
+        {"kind": "callout", "what": "green 'current account surplus (CAS)' and red 'current account deficit (CAD)' with dotted pointers from the + and - signs", "count": 2},
+        {"kind": "highlight", "what": "one black frame around both accounts", "count": 1}
+      ],
+      "motions": ["swap_element", "draw_line", "fade_in", "write_on"],
+      "level": "L2",
+      "notes": "the boards fold back into two chips; CAS/CAD labels fade out before the frame joins both accounts",
+      "idea_type": "definition",
+      "idea": "a plus on the current account is a surplus, a minus is a deficit; both accounts together give the BoP",
+      "shown_as": "the four boards fold up into the two account chips, each carrying just '+ / -'; a dotted pointer from the plus names current account surplus and one from the minus names current account deficit; then a black frame closes around both accounts to show they add up to the BoP",
+      "meaning_carrier": "diagram",
+      "things": ["document"],
+      "actions": ["transform", "point", "join", "write_on"],
+      "on_screen_words": 20,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 328.4, "end": 350.2,
+      "teaches": "a positive BoP adds to forex reserves, a negative BoP draws them down; if reserves cannot cover a negative BoP it is a BoP crisis",
+      "canvas": "builds_on_previous",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "icon", "what": "BoP document with '+ive' on a green patch and '-ive' on a red patch", "count": 1},
+        {"kind": "icon", "what": "forex-reserve locker block (vault) below", "count": 1},
+        {"kind": "arrow", "what": "green elbow arrow from + down into the vault labelled increase; red elbow arrow from - labelled decrease", "count": 2},
+        {"kind": "text_box", "what": "side note defining BoP crisis, behind a wavy divider; the term gets a blue underline", "count": 1}
+      ],
+      "motions": ["swap_element", "draw_line", "pop_in", "write_on", "highlight_text"],
+      "level": "L2",
+      "notes": "callback: the vault from the first minutes returns, closing the story arc",
+      "idea_type": "cause_effect",
+      "idea": "BoP plus fills the reserve vault, BoP minus empties it; an empty vault facing a minus is a crisis",
+      "shown_as": "the framed accounts shrink to one '+ / -' line under the BoP icon over the vault of lockers; a green elbow arrow runs from the plus side into the vault labelled increase and a red one from the minus side labelled decrease; a side note says that when the vault cannot cover the minus it is a BoP crisis, and the term gets underlined",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["document", "vault"],
+      "actions": ["shrink", "draw_line", "flow_along_arrow", "write_on", "highlight_text"],
+      "on_screen_words": 35,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 350.2, "end": 359.8,
+      "teaches": "channel end card (next video / playlist), no teaching",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "end_screen", "what": "next video and playlist panels with a loading bar", "count": 1}
+      ],
+      "motions": ["clear_canvas"],
+      "level": "L1",
+      "notes": "ignore for teaching",
+      "idea_type": "end_screen",
+      "idea": "none",
+      "shown_as": "canvas replaced by an end card with next-video and playlist panels",
+      "meaning_carrier": "text_only",
+      "things": ["brand_logo"],
+      "actions": ["pop_in"],
+      "on_screen_words": 6,
+      "camera": "cut",
+      "example": ""
+    }
+  ]
+}

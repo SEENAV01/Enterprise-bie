@@ -3,7 +3,8 @@
   "title_guess": "Inflation, disinflation, deflation and reflation on the price-index curve",
   "segments": [
     {
-      "start": 0, "end": 26,
+      "start": 0,
+      "end": 26,
       "teaches": "prices are tracked at two points of the supply chain: wholesale basket (WPI) and household consumption basket (CPI)",
       "canvas": "new",
       "layout": "flow_left_to_right",
@@ -16,10 +17,20 @@
       ],
       "motions": ["pop_in", "draw_line", "fade_in"],
       "level": "L2",
-      "notes": "Recap of earlier inflation-measurement lessons; colour of each box (blue/yellow) stays tied to its index."
+      "notes": "Recap of earlier inflation-measurement lessons; colour of each box (blue/yellow) stays tied to its index.",
+      "idea_type": "recap",
+      "idea": "prices are tracked at two points of the supply chain: the wholesale basket (WPI) and the household basket (CPI)",
+      "shown_as": "producer factory -> wholesaler warehouse -> retailer shop -> consumer; a cart of boxes rides the wholesaler-to-retailer arrow and a shopping trolley the retailer-to-consumer arrow, each with a box of contents leading to 'price movement measured by' WPI / CPI",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["factory", "warehouse", "shop", "person", "cart", "shopping_cart"],
+      "actions": ["pop_in", "draw_line", "fade_in", "flow_along_arrow"],
+      "on_screen_words": 38,
+      "camera": "cut",
+      "example": ""
     },
     {
-      "start": 26, "end": 95,
+      "start": 26,
+      "end": 95,
       "teaches": "on a price-index-over-time curve: rising stretch = inflation; rising but flattening = disinflation (slower inflation); falling = deflation",
       "canvas": "new",
       "layout": "graph_with_notes",
@@ -32,10 +43,20 @@
       ],
       "motions": ["clear_canvas", "slide_in", "draw_line", "highlight_text", "write_on"],
       "level": "L2",
-      "notes": "Labels are written along the curve's slope. Each phase is coloured by laying a translucent marker stroke over that part of the line."
+      "notes": "Labels are written along the curve's slope. Each phase is coloured by laying a translucent marker stroke over that part of the line.",
+      "idea_type": "definition",
+      "idea": "on a price-index curve: rising = inflation; still rising but flattening = disinflation; falling = deflation",
+      "shown_as": "a dotted price-index-over-time line is drawn and coloured with translucent marker strokes: yellow on the rising parts labelled inflation along the slope, green on the flattening top (disinflation), pink on the fall (deflation), each with a tilted definition card",
+      "meaning_carrier": "diagram",
+      "things": ["graph_axes"],
+      "actions": ["clear_canvas", "slide_in", "draw_line", "highlight_text", "write_on"],
+      "on_screen_words": 40,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 95, "end": 170,
+      "start": 95,
+      "end": 170,
       "teaches": "the same phases spotted on India's real consumer price index from 2018 to 2022",
       "canvas": "new",
       "layout": "graph_with_notes",
@@ -48,10 +69,20 @@
       ],
       "motions": ["swap_element", "highlight_text", "pop_in", "draw_line"],
       "level": "L2",
-      "notes": "Moves from an idealised curve to real data. The chart is a third-party screenshot; BIE should plot its own data. Colour code (yellow/green/purple) carries over from the previous segment."
+      "notes": "Moves from an idealised curve to real data. The chart is a third-party screenshot; BIE should plot its own data. Colour code (yellow/green/purple) carries over from the previous segment.",
+      "idea_type": "data_status",
+      "idea": "the same phases can be spotted on India's real CPI, 2018-2022",
+      "shown_as": "a real CPI line chart (2018-2022) is pasted in; orange strokes mark rising stretches as inflation, a green stroke marks a flat stretch as disinflation, pink strokes over the dips join to one deflation label, and round tick stickers in matching colours land on each",
+      "meaning_carrier": "diagram",
+      "things": ["graph_axes", "tick_mark"],
+      "actions": ["swap_element", "highlight_text", "pop_in", "draw_line", "tick"],
+      "on_screen_words": 24,
+      "camera": "cut",
+      "example": "India's CPI 2018-2022"
     },
     {
-      "start": 170, "end": 252,
+      "start": 170,
+      "end": 252,
       "teaches": "why deflation is a problem: falling prices make people delay buying, demand falls, profits fall, bad loans and unemployment rise",
       "canvas": "new",
       "layout": "flow_left_to_right",
@@ -64,10 +95,20 @@
       ],
       "motions": ["clear_canvas", "pop_in", "draw_line", "write_on"],
       "level": "L2",
-      "notes": "When the chart clears, only the deflation label and its tick sticker stay on the blank canvas; the card is then built around them, so one object carries over between compositions."
+      "notes": "When the chart clears, only the deflation label and its tick sticker stay on the blank canvas; the card is then built around them, so one object carries over between compositions.",
+      "idea_type": "cause_effect",
+      "idea": "deflation hurts: falling prices make buyers wait -> demand falls -> profits fall -> bad loans and unemployment rise",
+      "shown_as": "only the deflation label and its sticker stay as a card is built round them with a big ?; a chain prices falling -> demand decreases -> profits decrease runs on, a speech box says buyers wait for lower prices, and profits split into more NPAs and more unemployment",
+      "meaning_carrier": "diagram",
+      "things": ["question_mark", "tick_mark", "speech_bubble"],
+      "actions": ["clear_canvas", "pop_in", "draw_line", "write_on", "split", "flow_along_arrow"],
+      "on_screen_words": 22,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 252, "end": 283,
+      "start": 252,
+      "end": 283,
       "teaches": "the government responds by raising the price level (reflation): more public spending, tax cuts and interest-rate cuts",
       "canvas": "builds_on_previous",
       "layout": "free",
@@ -76,10 +117,20 @@
       ],
       "motions": ["slide_in"],
       "level": "L2",
-      "notes": "Lower-third caption band used as the conclusion; the diagram above stays visible. The word reflation is not written on screen in the sampled frames."
+      "notes": "Lower-third caption band used as the conclusion; the diagram above stays visible. The word reflation is not written on screen in the sampled frames.",
+      "idea_type": "mechanism",
+      "idea": "the government reflates the economy: more public spending, tax cuts and rate cuts push the price level up",
+      "shown_as": "a dark full-width band slides up from the bottom with one white sentence on the policy response, under the still deflation diagram",
+      "meaning_carrier": "text_only",
+      "things": [],
+      "actions": ["slide_in"],
+      "on_screen_words": 37,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 283, "end": 296,
+      "start": 283,
+      "end": 296,
       "teaches": "channel promotion",
       "canvas": "new",
       "layout": "free",
@@ -88,7 +139,34 @@
       ],
       "motions": ["clear_canvas", "slide_in"],
       "level": "L2",
-      "notes": "End screen; ignore for teaching."
+      "notes": "End screen; ignore for teaching.",
+      "idea_type": "end_screen",
+      "idea": "none (channel promotion; no teaching)",
+      "shown_as": "next-video and playlist panels with an app promo",
+      "meaning_carrier": "text_only",
+      "things": ["end_screen_panel", "brand_logo"],
+      "actions": ["clear_canvas", "slide_in"],
+      "on_screen_words": 6,
+      "camera": "clear",
+      "example": ""
     }
-  ]
+  ],
+  "format": "build_up_canvas",
+  "recurring_cast": [
+    "colour code: yellow inflation, green disinflation, pink/purple deflation",
+    "round tick stickers",
+    "graph_axes (price-index curve)",
+    "deflation label and sticker carried between compositions"
+  ],
+  "running_examples": [
+    "India's CPI 2018-2022 (real data)"
+  ],
+  "best_moments": [
+    {"t": 26, "why": "marker strokes colour the phases of one curve, so the three terms are told apart by slope"},
+    {"t": 95, "why": "the same colours are found again on real CPI data"}
+  ],
+  "weak_moments": [
+    {"t": 252, "why": "31 s of one caption sentence; reflation is never drawn or written"}
+  ],
+  "upgraded_from": "batch2 card text"
 }

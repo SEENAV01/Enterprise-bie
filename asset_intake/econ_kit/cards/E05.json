@@ -3,7 +3,8 @@
   "title_guess": "India's exchange-rate history after Bretton Woods: pegged regime, NEER basket and LERMS",
   "segments": [
     {
-      "start": 0, "end": 31.6,
+      "start": 0,
+      "end": 31.6,
       "teaches": "under Bretton Woods (1944-1971) the dollar was tied to gold and other currencies to the dollar, a fixed exchange rate regime; it collapsed in 1971 when the US ended dollar convertibility, and India entered a pegged regime",
       "canvas": "new",
       "layout": "timeline",
@@ -16,10 +17,20 @@
       ],
       "motions": ["draw_line", "pop_in", "write_on"],
       "level": "L2",
-      "notes": "Cause box stacked above the event marker on a timeline."
+      "notes": "Cause box stacked above the event marker on a timeline.",
+      "idea_type": "timeline",
+      "idea": "Bretton Woods (1944-71) tied the dollar to gold and other currencies to the dollar; it collapsed in 1971 and India moved to a pegged regime",
+      "shown_as": "a blue stretch 1944-1971 for the system and a grey bar 1971-1992 for PEGGED REGIME; a green fixed-regime label with a definition; a red cross at 1971 under a cream cause box (convertibility suspended)",
+      "meaning_carrier": "diagram",
+      "things": ["timeline", "cross_mark"],
+      "actions": ["draw_line", "pop_in", "write_on", "cross_out"],
+      "on_screen_words": 38,
+      "camera": "cut",
+      "example": ""
     },
     {
-      "start": 31.6, "end": 65.8,
+      "start": 31.6,
+      "end": 65.8,
       "teaches": "1971-1975 the rupee was pegged to the pound sterling; from 1975 to 1992 it was pegged to a weighted basket of major trading partners' currencies",
       "canvas": "builds_on_previous",
       "layout": "timeline",
@@ -31,10 +42,20 @@
       ],
       "motions": ["draw_line", "pop_in", "write_on"],
       "level": "L2",
-      "notes": "Brackets under a timeline mark sub-periods."
+      "notes": "Brackets under a timeline mark sub-periods.",
+      "idea_type": "timeline",
+      "idea": "1971-75 the rupee was pegged to the pound; 1975-92 to a weighted basket of partner currencies",
+      "shown_as": "a bracket with a dashed drop line marks 1971-75 with a green pound-sign banknote captioned 'pegged to pound sterling'; a long bracket under the grey bar marks 1975-92 with a basket note",
+      "meaning_carrier": "diagram",
+      "things": ["timeline", "banknote"],
+      "actions": ["draw_line", "pop_in", "write_on"],
+      "on_screen_words": 58,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 65.8, "end": 117,
+      "start": 65.8,
+      "end": 117,
       "teaches": "the basket held currencies of the main trading partners (Soviet Union, US, Japan, Germany, UK), and the rupee was pegged to it",
       "canvas": "zoom_in",
       "layout": "free",
@@ -48,10 +69,20 @@
       ],
       "motions": ["zoom_to_region", "slide_in", "pop_in", "draw_line"],
       "level": "L2",
-      "notes": "Visual metaphor: the rupee note is literally tied to the basket by a rope."
+      "notes": "Visual metaphor: the rupee note is literally tied to the basket by a rope.",
+      "idea_type": "definition",
+      "idea": "the basket held the main trading partners' currencies, and the rupee was pegged to it",
+      "shown_as": "the camera moves in; a curved arrow reaches a wicker basket full of mixed banknotes beside a list of five partner countries; a rope-like PEGGED connector ties the basket to a green rupee note",
+      "meaning_carrier": "picture",
+      "things": ["timeline", "basket", "banknote", "rupee_note", "rope", "table_grid"],
+      "actions": ["zoom_to_region", "slide_in", "pop_in", "draw_line", "join"],
+      "on_screen_words": 26,
+      "camera": "zoom_in",
+      "example": ""
     },
     {
-      "start": 117, "end": 202,
+      "start": 117,
+      "end": 202,
       "teaches": "each partner currency has a weight in the basket (40/20/20/10/10) and a nominal exchange rate against the rupee",
       "canvas": "new",
       "layout": "table",
@@ -61,10 +92,20 @@
       ],
       "motions": ["clear_canvas", "write_on"],
       "level": "L2",
-      "notes": "Running numeric example with real-looking historical rates; values typed in one row at a time."
+      "notes": "Running numeric example with real-looking historical rates; values typed in one row at a time.",
+      "idea_type": "numbers",
+      "idea": "each partner currency has a weight in the basket and a nominal rate against the rupee",
+      "shown_as": "a basket heads a table of country x weight x NER; weights 40/20/20/10/10 and then rates such as 0.034 rouble per rupee are typed in row by row",
+      "meaning_carrier": "diagram",
+      "things": ["basket", "table_grid"],
+      "actions": ["clear_canvas", "write_on"],
+      "on_screen_words": 20,
+      "camera": "clear",
+      "example": "weights 40/20/20/10/10; e.g. 0.034 rouble per rupee"
     },
     {
-      "start": 202, "end": 233.6,
+      "start": 202,
+      "end": 233.6,
       "teaches": "weight times rate for each currency, summed, gives the NEER (0.048 in the example)",
       "canvas": "builds_on_previous",
       "layout": "table",
@@ -75,10 +116,20 @@
       ],
       "motions": ["write_on", "highlight_text", "draw_line"],
       "level": "L2",
-      "notes": "Weighted average computed in full on screen; the highlighted column is a reusable 'answer column' pattern."
+      "notes": "Weighted average computed in full on screen; the highlighted column is a reusable 'answer column' pattern.",
+      "idea_type": "numbers",
+      "idea": "weight x rate for each currency, added up, gives the NEER (0.048)",
+      "shown_as": "a working column ('40% of 0.034' -> result) is added, the results column is lit blue, and a down-arrow leads to the total 0.048",
+      "meaning_carrier": "diagram",
+      "things": ["basket", "table_grid"],
+      "actions": ["write_on", "highlight_text", "draw_line"],
+      "on_screen_words": 51,
+      "camera": "still",
+      "example": "weighted sum of five rates = NEER 0.048"
     },
     {
-      "start": 233.6, "end": 288.4,
+      "start": 233.6,
+      "end": 288.4,
       "teaches": "NEER means 0.048 units of the basket equal one rupee; NEER up means the rupee appreciated and the trade deficit worsens, NEER down means it depreciated and the deficit shrinks",
       "canvas": "new",
       "layout": "compare_two_sides",
@@ -89,10 +140,20 @@
       ],
       "motions": ["clear_canvas", "pop_in", "slide_in"],
       "level": "L2",
-      "notes": "Red/blue paired condition boxes reused later in this video and in E07."
+      "notes": "Red/blue paired condition boxes reused later in this video and in E07.",
+      "idea_type": "cause_effect",
+      "idea": "NEER 0.048 means 0.048 basket units buy one rupee; NEER up = rupee stronger and the trade deficit worsens; NEER down = rupee weaker and the deficit shrinks",
+      "shown_as": "in a light-blue panel 0.048 x basket = rupee note, with NEER and its full name hung from the number; a red rounded box (NEER rises) and a blue dotted box (NEER falls) sit under underlined headings",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["basket", "rupee_note"],
+      "actions": ["clear_canvas", "pop_in", "slide_in", "compare_side_by_side"],
+      "on_screen_words": 42,
+      "camera": "clear",
+      "example": "0.048 units of the basket = 1 rupee"
     },
     {
-      "start": 288.4, "end": 313.4,
+      "start": 288.4,
+      "end": 313.4,
       "teaches": "recap: in 1975-1992 the rupee was pegged to the NEER of its major trading partners",
       "canvas": "new",
       "layout": "free",
@@ -104,10 +165,20 @@
       ],
       "motions": ["clear_canvas", "pop_in", "draw_line"],
       "level": "L2",
-      "notes": "This composition is the video's 'home base' and is returned to three times."
+      "notes": "This composition is the video's 'home base' and is returned to three times.",
+      "idea_type": "recap",
+      "idea": "1975-92 the rupee was pegged to the NEER of its major trading partners",
+      "shown_as": "the pegged-regime strip sits top-left; a curved arrow leads down to the basket labelled NEER, tied by the rope to the rupee note, over a yellow band naming the trading partners",
+      "meaning_carrier": "picture",
+      "things": ["timeline", "basket", "rope", "rupee_note"],
+      "actions": ["clear_canvas", "pop_in", "draw_line", "join"],
+      "on_screen_words": 26,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 313.4, "end": 342.6,
+      "start": 313.4,
+      "end": 342.6,
       "teaches": "why peg to NEER: to stabilise the trade balance with major partners",
       "canvas": "new",
       "layout": "compare_two_sides",
@@ -119,10 +190,20 @@
       ],
       "motions": ["clear_canvas", "slide_in", "pop_in"],
       "level": "L2",
-      "notes": "Question heading then answer; earlier boxes reused as evidence."
+      "notes": "Question heading then answer; earlier boxes reused as evidence.",
+      "idea_type": "cause_effect",
+      "idea": "the peg's purpose was to keep the trade balance with major partners steady",
+      "shown_as": "under a 'what was the purpose?' heading, a yellow strip shows NEER - rope - rupee note; the red and blue NEER-up/down boxes slide in on the right and a blue answer box appears under the strip",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["rope", "rupee_note"],
+      "actions": ["clear_canvas", "slide_in", "pop_in", "compare_side_by_side"],
+      "on_screen_words": 49,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 342.6, "end": 409,
+      "start": 342.6,
+      "end": 409,
       "teaches": "the peg left the rupee misaligned; competitors such as China and Indonesia devalued against the dollar, India's exports lost competitiveness, and in 1991 the rupee was devalued in two steps",
       "canvas": "new",
       "layout": "flow_top_down",
@@ -134,10 +215,20 @@
       ],
       "motions": ["clear_canvas", "write_on", "draw_line", "pop_in"],
       "level": "L2",
-      "notes": "Chain builds bottom-up instead of top-down; returns to the home-base composition first."
+      "notes": "Chain builds bottom-up instead of top-down; returns to the home-base composition first.",
+      "idea_type": "cause_effect",
+      "idea": "the peg left the rupee misaligned; rivals devalued against the dollar, exports lost ground, and India devalued in two steps in 1991",
+      "shown_as": "statements stack upward on the right, joined by dotted red connectors (misalignment -> worse -> rivals devalue), under a dark 'export competitiveness suffered' banner; a blue dotted 1991 box links from the end of the timeline strip; the basket-rope-rupee home base stays on the left",
+      "meaning_carrier": "text_only",
+      "things": ["basket", "rope", "rupee_note", "timeline"],
+      "actions": ["clear_canvas", "write_on", "draw_line", "pop_in", "flow_along_arrow"],
+      "on_screen_words": 59,
+      "camera": "clear",
+      "example": "1991 devaluation in two steps"
     },
     {
-      "start": 409, "end": 421.4,
+      "start": 409,
+      "end": 421.4,
       "teaches": "recap of the full timeline",
       "canvas": "zoom_out",
       "layout": "timeline",
@@ -147,10 +238,20 @@
       ],
       "motions": ["zoom_to_region", "slide_in"],
       "level": "L2",
-      "notes": "Mid-video promo overlay sits on top of the recap."
+      "notes": "Mid-video promo overlay sits on top of the recap.",
+      "idea_type": "recap",
+      "idea": "recap of the whole 1944-1992 timeline",
+      "shown_as": "the camera pulls back to the full 1944-1992 timeline with all labels restored; an app promo overlay sits bottom-left",
+      "meaning_carrier": "diagram",
+      "things": ["timeline", "mobile_phone", "brand_logo"],
+      "actions": ["zoom_to_region", "slide_in"],
+      "on_screen_words": 60,
+      "camera": "zoom_out",
+      "example": ""
     },
     {
-      "start": 421.4, "end": 454,
+      "start": 421.4,
+      "end": 454,
       "teaches": "big picture: fixed regime 1944-1992, floating since 1993, with LERMS (liberalised exchange rate management system) as the bridge in 1992-93",
       "canvas": "new",
       "layout": "timeline",
@@ -162,10 +263,20 @@
       ],
       "motions": ["clear_canvas", "draw_line", "pop_in"],
       "level": "L2",
-      "notes": "Simplified two-colour timeline as a closing summary."
+      "notes": "Simplified two-colour timeline as a closing summary.",
+      "idea_type": "timeline",
+      "idea": "fixed regime 1944-1992, floating since 1993, with LERMS as the 1992-93 bridge",
+      "shown_as": "a two-colour timeline: green bar 1944-1992 (fixed) and blue bar 1993-today (floating); a bracket with a dotted drop line marks 1992-93 and a cream LERMS box gives its full name in red",
+      "meaning_carrier": "diagram",
+      "things": ["timeline"],
+      "actions": ["clear_canvas", "draw_line", "pop_in"],
+      "on_screen_words": 16,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 454, "end": 473,
+      "start": 454,
+      "end": 473,
       "teaches": "end card",
       "canvas": "new",
       "layout": "compare_two_sides",
@@ -174,7 +285,37 @@
       ],
       "motions": ["clear_canvas"],
       "level": "L2",
-      "notes": "Channel promotion; ignore for teaching."
+      "notes": "Channel promotion; ignore for teaching.",
+      "idea_type": "end_screen",
+      "idea": "none (channel promotion; no teaching)",
+      "shown_as": "two next-video / playlist cards with loading bars",
+      "meaning_carrier": "text_only",
+      "things": ["end_screen_panel"],
+      "actions": ["clear_canvas"],
+      "on_screen_words": 6,
+      "camera": "clear",
+      "example": ""
     }
-  ]
+  ],
+  "format": "build_up_canvas",
+  "recurring_cast": [
+    "basket of mixed banknotes (labelled NEER)",
+    "rope (PEGGED connector)",
+    "rupee_note",
+    "timeline 1944-1992",
+    "red NEER-up / blue NEER-down condition boxes"
+  ],
+  "running_examples": [
+    "basket weights 40/20/20/10/10 with rates like 0.034 rouble per rupee -> NEER 0.048"
+  ],
+  "best_moments": [
+    {"t": 65.8, "why": "the rupee note is tied by a rope to a basket of currencies: 'pegged to a basket' becomes literal"},
+    {"t": 288.4, "why": "the basket-rope-rupee home base is returned to, so the learner always knows where they are"},
+    {"t": 202, "why": "a lit answer column turns the weighted average into arithmetic you can follow"}
+  ],
+  "weak_moments": [
+    {"t": 342.6, "why": "66 s of stacked statements for the misalignment story"},
+    {"t": 117, "why": "85 s of a table typed row by row"}
+  ],
+  "upgraded_from": "batch2 card text"
 }

@@ -3,7 +3,8 @@
   "title_guess": "Cost-push vs demand-pull inflation (Keynesian and Monetarist views)",
   "segments": [
     {
-      "start": 0, "end": 14.6,
+      "start": 0,
+      "end": 14.6,
       "teaches": "inflation means the general price level of goods and services rises over time",
       "canvas": "new",
       "layout": "free",
@@ -14,10 +15,20 @@
       ],
       "motions": ["pop_in", "draw_line", "fade_in"],
       "level": "L2",
-      "notes": "white canvas intro; the same intro composition is reused in E20"
+      "notes": "white canvas intro; the same intro composition is reused in E20",
+      "idea_type": "definition",
+      "idea": "inflation means the general price level of goods and services rises over time",
+      "shown_as": "a grocery bag (goods) & a delivery scooter (services) beside price-vs-year axes with a rising line and a curved red 'inflation' arrow, plus a small definition box",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["grocery_bag", "scooter", "graph_axes"],
+      "actions": ["pop_in", "draw_line", "fade_in", "grow"],
+      "on_screen_words": 16,
+      "camera": "cut",
+      "example": ""
     },
     {
-      "start": 14.6, "end": 58.39,
+      "start": 14.6,
+      "end": 58.39,
       "teaches": "price inflation has two causes, cost-push and demand-pull, tied to two schools of thought (pre and post 1970s)",
       "canvas": "new",
       "layout": "tree",
@@ -29,10 +40,20 @@
       ],
       "motions": ["fade_in", "draw_line", "pop_in"],
       "level": "L2",
-      "notes": "canvas switches to cream background from here; school tags placed at left and right corners of the panel"
+      "notes": "canvas switches to cream background from here; school tags placed at left and right corners of the panel",
+      "idea_type": "classification",
+      "idea": "price inflation has two causes, cost-push and demand-pull, tied to two schools of thought (Keynesian before the 1970s, Monetarist after)",
+      "shown_as": "a big ? over a PRICE INFLATION heading that splits into cost-push and demand-pull, with pink Keynesian and blue Monetarist school pills in the corners",
+      "meaning_carrier": "diagram",
+      "things": ["question_mark"],
+      "actions": ["fade_in", "draw_line", "pop_in", "split"],
+      "on_screen_words": 16,
+      "camera": "cut",
+      "example": ""
     },
     {
-      "start": 58.39, "end": 145.97,
+      "start": 58.39,
+      "end": 145.97,
       "teaches": "demand-pull: many buyers chase the same goods, sellers raise price from 50 to 65 and only some can pay",
       "canvas": "new",
       "layout": "flow_left_to_right",
@@ -49,10 +70,20 @@
       ],
       "motions": ["pop_in", "multiply", "strike_and_replace", "cross_out", "slide_in"],
       "level": "L2",
-      "notes": "running numeric example 50 -> 65; crowd grows from 2 to ~15; goods physically travel to the winning buyers"
+      "notes": "running numeric example 50 -> 65; crowd grows from 2 to ~15; goods physically travel to the winning buyers",
+      "idea_type": "cause_effect",
+      "idea": "demand-pull: many buyers chase the same goods, so sellers raise the price from 50 to 65 and only some can pay",
+      "shown_as": "a store with two bottles sits on the supply side of a supply - PRICE - demand line; two buyers 'ready to pay 50' multiply into a row of about 15; the price 50 is struck to 65 with up-arrows on price and demand; red crosses fall under most buyers and the bottles move down to the few who pay",
+      "meaning_carrier": "picture",
+      "things": ["shop", "bottle", "person", "crowd_people", "cross_mark"],
+      "actions": ["pop_in", "multiply", "strike_and_replace", "cross_out", "slide_in", "hand_over"],
+      "on_screen_words": 18,
+      "camera": "cut",
+      "example": "price 50 -> 65 as buyers grow from 2 to about 15"
     },
     {
-      "start": 145.97, "end": 204.35,
+      "start": 145.97,
+      "end": 204.35,
       "teaches": "demand > supply also happens when supply suddenly drops while demand is unchanged; price rises 50 to 60",
       "canvas": "builds_on_previous",
       "layout": "flow_left_to_right",
@@ -65,10 +96,20 @@
       ],
       "motions": ["swap_element", "strike_and_replace", "pop_in"],
       "level": "L2",
-      "notes": "same layout reset to 2 buyers; second running example 50 -> 60"
+      "notes": "same layout reset to 2 buyers; second running example 50 -> 60",
+      "idea_type": "cause_effect",
+      "idea": "demand also beats supply when supply suddenly drops and demand stays; the price goes 50 -> 60",
+      "shown_as": "the layout resets to two buyers; the store now shows one bottle with a red 'suddenly dropped' chip, demand gets a yellow 'not changed' chip, and the price and the buyer's 'ready to pay' both strike from 50 to 60 with a green up-arrow",
+      "meaning_carrier": "picture",
+      "things": ["shop", "bottle", "person"],
+      "actions": ["swap_element", "strike_and_replace", "pop_in", "shrink"],
+      "on_screen_words": 22,
+      "camera": "still",
+      "example": "supply drops to one bottle: price 50 -> 60"
     },
     {
-      "start": 204.35, "end": 233.55,
+      "start": 204.35,
+      "end": 233.55,
       "teaches": "supply-side shortfall inflation is called bottleneck (structural) inflation",
       "canvas": "builds_on_previous",
       "layout": "flow_left_to_right",
@@ -82,10 +123,20 @@
       ],
       "motions": ["pop_in", "highlight_text", "write_on"],
       "level": "L2",
-      "notes": "naming a mechanism after showing it; synonym chip added below"
+      "notes": "naming a mechanism after showing it; synonym chip added below",
+      "idea_type": "definition",
+      "idea": "inflation from a supply shortfall is called bottleneck (structural) inflation",
+      "shown_as": "a funnel of coloured dots narrows into the store; a pink band covers the store-price-demand area under a BOTTLENECK INFLATION label, with a short explanation highlighted blue and a STRUCTURAL INFLATION chip",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["funnel", "shop"],
+      "actions": ["pop_in", "highlight_text", "write_on"],
+      "on_screen_words": 38,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 233.55, "end": 248.14,
+      "start": 233.55,
+      "end": 248.14,
       "teaches": "recap: demand-pull branch is done (demand > supply)",
       "canvas": "new",
       "layout": "tree",
@@ -96,10 +147,20 @@
       ],
       "motions": ["fade_in", "pop_in"],
       "level": "L2",
-      "notes": "progress-map recap: returns to the earlier tree and ticks the finished branch before the next one"
+      "notes": "progress-map recap: returns to the earlier tree and ticks the finished branch before the next one",
+      "idea_type": "recap",
+      "idea": "the demand-pull branch is done (demand > supply)",
+      "shown_as": "the PRICE INFLATION tree returns with a tick on the demand-pull branch and a [DEMAND > SUPPLY] note under it",
+      "meaning_carrier": "diagram",
+      "things": ["tick_mark"],
+      "actions": ["fade_in", "pop_in", "tick"],
+      "on_screen_words": 18,
+      "camera": "cut",
+      "example": ""
     },
     {
-      "start": 248.14, "end": 350.32,
+      "start": 248.14,
+      "end": 350.32,
       "teaches": "cost-push: producer costs rise, price rises 50 to 55, buyers must pay more",
       "canvas": "new",
       "layout": "flow_left_to_right",
@@ -114,10 +175,20 @@
       ],
       "motions": ["pop_in", "strike_and_replace", "slide_in"],
       "level": "L2",
-      "notes": "same store/price/demand template as demand-pull, with a factory prepended; running example 50 -> 55; cross-promo thumbnail pops in at the end (do not reuse)"
+      "notes": "same store/price/demand template as demand-pull, with a factory prepended; running example 50 -> 55; cross-promo thumbnail pops in at the end (do not reuse)",
+      "idea_type": "cause_effect",
+      "idea": "cost-push: the producer's costs rise, so the price rises 50 -> 55 and buyers must pay more",
+      "shown_as": "the same store-price-demand template with a smoking factory joined in front; a yellow COST chip reads 'increase' with an up-arrow, and the price and both buyers' 50s strike to 55 with up-arrows; a cross-promo thumbnail with a real politician pops in at the end",
+      "meaning_carrier": "picture",
+      "things": ["factory", "shop", "bottle", "person", "real_person_photo"],
+      "actions": ["pop_in", "strike_and_replace", "slide_in", "flow_along_arrow"],
+      "on_screen_words": 22,
+      "camera": "cut",
+      "example": "cost rises: price 50 -> 55"
     },
     {
-      "start": 350.32, "end": 437.9,
+      "start": 350.32,
+      "end": 437.9,
       "teaches": "Monetarists: both kinds need extra money with consumers; cost-push alone cannot last, so it is not an independent theory",
       "canvas": "new",
       "layout": "compare_two_sides",
@@ -132,10 +203,20 @@
       ],
       "motions": ["fade_in", "draw_line", "highlight_text", "write_on"],
       "level": "L2",
-      "notes": "two-school synthesis: Keynesian tree on top, Monetarist frame underneath wrapping both; key phrase highlighted in blue"
+      "notes": "two-school synthesis: Keynesian tree on top, Monetarist frame underneath wrapping both; key phrase highlighted in blue",
+      "idea_type": "comparison",
+      "idea": "Monetarists: both kinds need extra money with consumers; cost-push alone cannot last, so it is not a separate theory",
+      "shown_as": "a small ticked PRICE INFLATION tree sits on top with its two notes banded pink; below, a teal panel holds two explanation boxes joined by a dashed arrow, a blue MONETARIST bar along the bottom loops elbows up to both branches, and a conclusion line is written",
+      "meaning_carrier": "text_only",
+      "things": ["tick_mark"],
+      "actions": ["fade_in", "draw_line", "highlight_text", "write_on"],
+      "on_screen_words": 61,
+      "camera": "cut",
+      "example": ""
     },
     {
-      "start": 437.9, "end": 452.3,
+      "start": 437.9,
+      "end": 452.3,
       "teaches": "channel end card",
       "canvas": "new",
       "layout": "free",
@@ -144,7 +225,38 @@
       ],
       "motions": ["slide_in"],
       "level": "L2",
-      "notes": "promotion only; ignore for teaching"
+      "notes": "promotion only; ignore for teaching",
+      "idea_type": "end_screen",
+      "idea": "none (channel promotion; no teaching)",
+      "shown_as": "next-video and playlist panels with a phone mock-up and store badges",
+      "meaning_carrier": "text_only",
+      "things": ["end_screen_panel", "mobile_phone", "brand_logo"],
+      "actions": ["slide_in"],
+      "on_screen_words": 8,
+      "camera": "cut",
+      "example": ""
     }
-  ]
+  ],
+  "format": "build_up_canvas",
+  "recurring_cast": [
+    "shop with bottles (supply)",
+    "person buyers / crowd_people (demand)",
+    "supply - PRICE - demand line",
+    "PRICE INFLATION tree",
+    "Keynesian / Monetarist school pills"
+  ],
+  "running_examples": [
+    "demand-pull: price 50 -> 65 as buyers grow to about 15",
+    "supply drop: 50 -> 60",
+    "cost-push: 50 -> 55"
+  ],
+  "best_moments": [
+    {"t": 58.39, "why": "the crowd grows, the price is struck, crosses fall under buyers who cannot pay and bottles go to the few who can"},
+    {"t": 145.97, "why": "the store shows only one bottle and the price moves to 60: supply shortfall seen"},
+    {"t": 248.14, "why": "a factory joined in front of the same template shows cost-push as one added cause"}
+  ],
+  "weak_moments": [
+    {"t": 350.32, "why": "88 s of two text boxes for the Monetarist view"}
+  ],
+  "upgraded_from": "batch2 card text"
 }

@@ -9,6 +9,38 @@ ACCEPTED (Navin has not judged a video made from a real chapter).
 No footage, frames, audio or text from the reference videos is stored here. The demos are hand-written fixtures that
 test the templates; lesson content is made by BIE only.
 
+## Batch 3 (4 Nov 2026): the economy learning track
+
+Navin uploaded 20 more economy videos; 3 were already in batch 2, so 17 are new (about 2 h 30 min). Under the
+agreement of 3 Nov 2026 (`docs/vision/AGREEMENT_2026-11-03.md`) each subject's videos give BIE four things; for
+economy they are here, from all 37 videos (346 teaching segments):
+
+| Path | What it is |
+| --- | --- |
+| `rules/show_lexicon.json` | **Dikhane ka shabdkosh**: 25 patterns, "when the line says this kind of thing, the picture does this", each with engine parts, economy saanche, our own Hindi example and where the references showed it. The director's dictionary. |
+| `needs_list_v3.json` | **Saanche list**: 165 drawn things ranked by how many segments use them, each with where BIE gets it (`have_v2`, `built_batch3`, `engine`, `have_icon`, `replace`, `build_next`, `decision`, `one_off`). |
+| `rules/econ_canvas_rules.json` | **Pace, text and camera**: measurements re-done on 37 videos, rules CV-13 … CV-18 added (show, do not write; ≤ 25 words on screen; reuse the picture for change; follow one object; no logos; facts only from the book). |
+| `rules/teaching_style.json` | **How the narrator explains**: ten moves (scene before term, यानी unpacking, cause chains, मान लीजिए, small numbers, conclusion lines, human benefit, signposts), each with where it was heard. |
+| `cards/E01–E37.json`, `rules/CARD_SCHEMA_v3.md` | Cards for all 37 videos with the v3 fields (idea type, idea, shown_as, meaning carrier, things, actions, words on screen, camera, example). E01–E20 were upgraded from their batch-2 text; E21–E37 were carded from keyframe sheets. |
+| `saanche/econ_saanche.js`, `saanche/manifest.json`, `saanche/stills/` | Eight new parametric saanche for the v2-demo engine (`window.BIEDraw`): `institutionBadge` (replaces every logo), `paper` (law, bond, licence, contract, bill, report, with stamps), `disc`, `vault`, `crowd` (with a share), `centralBank`, `committee`, `moneyBag`; stills of each and one composed still (`scene_crr.png`, Claude's demo still, not BIE output). |
+| `tests/test_saanche.mjs` | Renders every saancha with defaults, the still variants and animation steps; checks for errors, NaN/undefined and unbalanced SVG tags (`node tests/test_saanche.mjs`). |
+| `tools/keyframes.py`, `tools/aggregate3.py`, `tools/needs3.py`, `tools/stills.mjs`, `tools/scene.mjs` | Keyframe sheets for carding, the 37-card aggregate, the needs list, saanche still sheets and composed scene stills. |
+| `measurements/pace_37_videos.json`, `measurements/cards_summary_37.json` | The numbers behind the rules. |
+
+What the numbers say: the references carry meaning by diagrams in 39% of segments, by a picture with labels in 34%,
+by text alone in 17% and by things acting in only 11%; about 38 words are on screen once a canvas is built (p90 90);
+a logo or emblem appears in 25 of 37 videos. BIE keeps their good pictures as patterns and replaces their text
+stretches with the same patterns. Of all 1,074 thing-uses, 78% are covered by the v2 library (22%), the new saanche
+and the logo replacement (29%), icons (10%) or engine parts (18%; timeline, table, graph and marks exist for the old
+engine in this kit and are ported in Phase 1); `build_next` (10 things, 3%) is the next economy batch; one-offs (16%)
+are left to BIE's AI; the India map (3%) waits for a decision.
+
+Open for Navin: an India map must follow the official boundary (Survey of India); open map data shows other
+boundaries, so `india_map` (27 segments) waits for his decision on the source.
+
+Status: IMPLEMENTED (saanche render and pass their test; rules and lexicon written), not INTEGRATED (Phase 1 builds the
+saanche slot and the director that reads the lexicon), not ACCEPTED.
+
 ## Contents
 
 | Path | What it is |

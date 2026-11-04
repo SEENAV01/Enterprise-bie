@@ -1,0 +1,41 @@
+{
+  "schema": "bie.saanche-manifest/1",
+  "kit": "economy",
+  "file": "econ_saanche.js",
+  "needs": ["draw.js and people.js of the Money v2 demo (asset_intake/money_v2_demo/dist): window.BIEDraw, D.text, D.shadow, D.noteBundle"],
+  "licence": "BIE's own code and drawings (no third-party art); fonts Baloo 2 and Hind (OFL) as in the v2 demo",
+  "status": "IMPLEMENTED (renders, stills checked by eye); not INTEGRATED (Phase 1 engine has no saanche slot yet); not ACCEPTED (Navin has not judged a video that uses them)",
+  "conventions": {
+    "returns": "SVG markup string",
+    "anchor": "buildings, vaults, crowds and committees stand on y = 0 (bottom centre); badges, papers and discs are centred on (0, 0)",
+    "p": "0..1 progress of the saancha's own entry animation (scale/fade/rise); stampP and lockP animate the stamp and the lock",
+    "text": "Hindi or English labels as params; at least 26 px at 1080p where the saancha sets a minimum"
+  },
+  "saanche": [
+    {"name": "institutionBadge", "replaces": "brand_logo (94 reference segments in 25 of 37 videos)", "anchor": "centre",
+     "params": {"w": "number, 200", "name": "short name on the badge (RBI, SBI, सरकार)", "sub": "ribbon text under the badge", "kind": "central_bank | bank | government | regulator | international | cooperative | committee | market | company", "color": "override colour", "p": "entry"},
+     "patterns": ["SL-07", "SL-09", "SL-10", "SL-11", "SL-12", "SL-21"], "still": "stills/badges_papers.png"},
+    {"name": "paper", "replaces": "document, law_document, bond_certificate, licence_certificate, stamp (about 100 segments)", "anchor": "centre",
+     "params": {"w": "number, 240", "kind": "law | bond | licence | contract | bill | report", "title": "header text", "year": "big year", "value": "big amount", "note": "footer ribbon (coupon, term)", "lines": "text lines drawn as bars", "stamp": "rubber-stamp text (AMENDED, FAIL, RBI)", "stampColor": "colour", "p": "entry (rises in)", "stampP": "stamp lands"},
+     "patterns": ["SL-01", "SL-02", "SL-10", "SL-14", "SL-21"], "still": "stills/badges_papers.png"},
+    {"name": "disc", "replaces": "risk_badge, percentage_badge (about 20 segments)", "anchor": "centre",
+     "params": {"w": "number, 130", "text": "RISK, 4%, FIXED", "color": "fill", "ring": "white inner ring", "p": "entry"},
+     "patterns": ["SL-04", "SL-05", "SL-13"], "still": "stills/badges_papers.png"},
+    {"name": "vault", "replaces": "vault, small_safe (25 segments)", "anchor": "bottom",
+     "params": {"w": "number, 260", "label": "plate on top (CRR, SLR, विदेशी मुद्रा)", "fill": "0..1 share of the shelves holding note bundles", "door": "0 closed .. 1 open", "locked": "padlock closed or open", "tag": "hanging tag text (0% ब्याज)", "tagColor": "colour", "metal": "gold | steel", "lockP": "lock entry"},
+     "patterns": ["SL-03", "SL-17"], "still": "stills/vault_crowd.png"},
+    {"name": "crowd", "replaces": "crowd_people (28 segments) and population shares", "anchor": "bottom",
+     "params": {"w": "number, 600", "n": "people", "cols": "per row", "share": "0..1 shaded from the left", "shareColor": "colour", "shareLabel": "text over the share", "restColor": "colour of the rest", "restLabel": "text over the rest", "label": "caption", "dimRest": "fade those outside the share", "p": "share grows with p"},
+     "patterns": ["SL-01", "SL-06", "SL-07", "SL-20"], "still": "stills/vault_crowd.png"},
+    {"name": "centralBank", "replaces": "the RBI drawn as its emblem in every reference (no RBI building is ever drawn there)", "anchor": "bottom",
+     "params": {"w": "number, 420", "label": "plate text"},
+     "patterns": ["SL-02", "SL-03", "SL-12"], "still": "stills/vault_crowd.png"},
+    {"name": "committee", "replaces": "committee_desk (12 segments: MPC, Basel Committee, reform committees)", "anchor": "bottom",
+     "params": {"w": "number, 520", "n": "members", "name": "plate text", "sub": "caption", "color": "plate colour", "p": "members appear one by one"},
+     "patterns": ["SL-11", "SL-12"], "still": "stills/committee_bag.png"},
+    {"name": "moneyBag", "replaces": "money_bag (6 segments; tiny-to-huge growth)", "anchor": "bottom",
+     "params": {"w": "number, 160 (size carries the meaning)", "label": "band text", "sign": "₹ or empty", "color": "cloth colour", "p": "entry"},
+     "patterns": ["SL-17", "SL-18"], "still": "stills/committee_bag.png"}
+  ],
+  "demo_scene": {"file": "demo_scene_crr.json", "still": "stills/scene_crr.png", "renders_with": "tools/scene.mjs", "label": "Claude's demo still, not BIE output", "patterns": ["SL-01", "SL-03"]}
+}

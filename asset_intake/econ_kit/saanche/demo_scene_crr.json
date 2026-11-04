@@ -1,0 +1,153 @@
+{
+ "title": "CRR और SLR: बैंक में जमा ₹100 कहाँ जाते हैं (उदाहरण के अंक)",
+ "footer": "Claude ka demo still · BIE ka output nahi · saanche: crowd, bank, centralBank, vault, paper",
+ "arrows": [
+  {
+   "from": [
+    335,
+    395
+   ],
+   "to": [
+    400,
+    525
+   ],
+   "color": "#3a7bd5",
+   "label": "₹100 जमा",
+   "bend": -0.25,
+   "dx": -150
+  },
+  {
+   "from": [
+    600,
+    560
+   ],
+   "to": [
+    1085,
+    360
+   ],
+   "color": "#d6454f",
+   "label": "₹3 · CRR",
+   "bend": -0.08
+  },
+  {
+   "from": [
+    610,
+    700
+   ],
+   "to": [
+    1225,
+    735
+   ],
+   "color": "#2fa35b",
+   "label": "₹79 · कर्ज़",
+   "bend": -0.05
+  },
+  {
+   "from": [
+    575,
+    850
+   ],
+   "to": [
+    745,
+    945
+   ],
+   "color": "#4a5568",
+   "label": "₹18 · SLR",
+   "bend": 0.2,
+   "dx": -150,
+   "dy": 30
+  }
+ ],
+ "items": [
+  {
+   "draw": "crowd",
+   "x": 300,
+   "y": 330,
+   "params": {
+    "w": 360,
+    "n": 16,
+    "cols": 8,
+    "label": "जमाकर्ता"
+   }
+  },
+  {
+   "draw": "bank",
+   "x": 420,
+   "y": 820,
+   "params": {
+    "w": 330,
+    "label": "बैंक"
+   }
+  },
+  {
+   "draw": "centralBank",
+   "x": 1600,
+   "y": 440,
+   "s": 0.72,
+   "params": {
+    "w": 420,
+    "label": "RBI"
+   }
+  },
+  {
+   "draw": "vault",
+   "x": 1230,
+   "y": 440,
+   "params": {
+    "w": 220,
+    "label": "CRR",
+    "fill": 0.12,
+    "door": 1,
+    "locked": true,
+    "tag": "0% ब्याज"
+   }
+  },
+  {
+   "draw": "crowd",
+   "x": 1500,
+   "y": 820,
+   "params": {
+    "w": 480,
+    "n": 20,
+    "cols": 10,
+    "label": "कर्ज़ लेने वाले"
+   }
+  },
+  {
+   "draw": "vault",
+   "x": 890,
+   "y": 1010,
+   "params": {
+    "w": 190,
+    "label": "SLR",
+    "fill": 0.5,
+    "door": 1,
+    "locked": false,
+    "metal": "steel"
+   }
+  },
+  {
+   "draw": "paper",
+   "x": 1110,
+   "y": 915,
+   "s": 0.62,
+   "params": {
+    "w": 210,
+    "kind": "bond",
+    "title": "G-Sec",
+    "value": "₹18",
+    "lines": 1,
+    "note": "6% ब्याज"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "text": "RBI के पास, ताले में",
+   "x": 1230,
+   "y": 500,
+   "size": 30,
+   "color": "#8a1c24"
+  }
+ ]
+}

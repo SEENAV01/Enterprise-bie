@@ -1,0 +1,10 @@
+[
+ {"draw": "vault", "params": {"w": 250, "label": "CRR", "fill": 0.12, "door": 0, "locked": true, "tag": "0% ब्याज"}, "caption": "vault · closed, locked", "base": 0.82},
+ {"draw": "vault", "params": {"w": 250, "label": "CRR", "fill": 0.12, "door": 1, "locked": true, "tag": "0% ब्याज"}, "caption": "· door open, 4% inside", "base": 0.82},
+ {"draw": "vault", "params": {"w": 250, "label": "SLR", "fill": 0.55, "door": 1, "locked": false, "metal": "steel", "tag": "6% कमाई", "tagColor": "#2fa35b"}, "caption": "· steel, unlocked", "base": 0.82},
+ {"draw": "vault", "params": {"w": 250, "label": "विदेशी मुद्रा", "fill": 1, "door": 0.55, "locked": false}, "caption": "· half open, full", "base": 0.82},
+ {"draw": "centralBank", "params": {"w": 330, "label": "RBI"}, "caption": "centralBank", "base": 0.86},
+ {"draw": "bank", "params": {"w": 300, "label": "बैंक"}, "caption": "bank (v2 demo)", "base": 0.86},
+ {"draw": "crowd", "params": {"w": 400, "n": 30, "cols": 10, "share": 0.6, "shareLabel": "बैंक तक पहुँच", "restColor": "#e5484d", "restLabel": "बाहर", "label": "140 करोड़ लोग"}, "caption": "crowd · share", "base": 0.78},
+ {"draw": "crowd", "params": {"w": 400, "n": 20, "cols": 10, "share": 0.3, "dimRest": true, "label": "ग्राहक"}, "caption": "· dim rest", "base": 0.78}
+]

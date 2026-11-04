@@ -3,7 +3,8 @@
   "title_guess": "Real GDP vs nominal GDP: factor cost, market price, inflation, base year and the GDP deflator",
   "segments": [
     {
-      "start": 0, "end": 37,
+      "start": 0,
+      "end": 37,
       "teaches": "GDP can be measured at factor cost or at market price (factor cost plus indirect taxes minus subsidies); market price can rise even when factor cost stays flat; India moved to market price in 2015",
       "canvas": "new",
       "layout": "table",
@@ -18,10 +19,20 @@
       ],
       "motions": ["pop_in", "slide_in", "highlight_text", "draw_line"],
       "level": "L2",
-      "notes": "Running numeric table (constant 15K vs rising market price). The pointing hand is a recurring 'look here' device. The ? bubble cluster signals 'why did they switch?'."
+      "notes": "Running numeric table (constant 15K vs rising market price). The pointing hand is a recurring 'look here' device. The ? bubble cluster signals 'why did they switch?'.",
+      "idea_type": "comparison",
+      "idea": "GDP at factor cost vs at market price (factor cost + indirect taxes - subsidies); market price can rise while factor cost stays flat; India switched to market price in 2015",
+      "shown_as": "a question card asks which measure shows production better; an India silhouette heads GDP, which splits into factor cost and market price (formula with indirect taxes underlined); a year table keeps factor cost at 15K while market price climbs 18K/20K/25K; a cartoon pointing hand slides toward factor cost; a pointer gives the switch year with a cluster of ? bubbles",
+      "meaning_carrier": "diagram",
+      "things": ["question_mark", "india_map", "pointing_hand", "table_grid"],
+      "actions": ["pop_in", "slide_in", "highlight_text", "draw_line", "point", "split"],
+      "on_screen_words": 45,
+      "camera": "cut",
+      "example": "factor cost flat at 15K vs market price 18K / 20K / 25K"
     },
     {
-      "start": 37, "end": 78,
+      "start": 37,
+      "end": 78,
       "teaches": "the switch matched global practice: major economies use market price, the UN national accounts system recommended it, and it makes India's growth comparable",
       "canvas": "new",
       "layout": "free",
@@ -34,10 +45,20 @@
       ],
       "motions": ["clear_canvas", "fade_in", "slide_in", "write_on"],
       "level": "L2",
-      "notes": "UN emblem must not be reused by BIE."
+      "notes": "UN emblem must not be reused by BIE.",
+      "idea_type": "cause_effect",
+      "idea": "the switch matched global practice (major economies, the UN accounts system) and makes India's growth comparable",
+      "shown_as": "a world map in an oval globe with India marked under a pointer saying major economies use market price; a caption on matching global practice, a UN flag card with its recommendation year, and a box on easier comparison",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["world_map", "globe", "brand_logo"],
+      "actions": ["clear_canvas", "fade_in", "slide_in", "write_on", "point"],
+      "on_screen_words": 26,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 78, "end": 115,
+      "start": 78,
+      "end": 115,
       "teaches": "back to the question: factor cost looks like the better production indicator, but even it can rise without more production",
       "canvas": "builds_on_previous",
       "layout": "table",
@@ -49,10 +70,20 @@
       ],
       "motions": ["swap_element", "highlight_text", "cross_out"],
       "level": "L2",
-      "notes": "Set-up and knock-down: a claim is shown, then crossed out to open the next idea (inflation)."
+      "notes": "Set-up and knock-down: a claim is shown, then crossed out to open the next idea (inflation).",
+      "idea_type": "comparison",
+      "idea": "factor cost looks like the better production indicator, but even it can rise with no extra production",
+      "shown_as": "the question card and table return; 'better indicator' is highlighted and the factor-cost column framed green; a note says factor-cost GDP rises only when production rises, and a red cross is stamped on it",
+      "meaning_carrier": "diagram",
+      "things": ["question_mark", "cross_mark"],
+      "actions": ["swap_element", "highlight_text", "cross_out", "stamp"],
+      "on_screen_words": 55,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 115, "end": 190,
+      "start": 115,
+      "end": 190,
       "teaches": "with 10 percent inflation one laptop's factor cost goes 10K -> 11K -> 12.1K, so GDP rises every year though output stays at one laptop: inflated GDP",
       "canvas": "new",
       "layout": "table",
@@ -68,10 +99,20 @@
       ],
       "motions": ["clear_canvas", "write_on", "draw_line", "fade_in"],
       "level": "L2",
-      "notes": "Running numeric example with compounding (10, 11, 12.1). Quantity column fixed at 1 isolates the price effect."
+      "notes": "Running numeric example with compounding (10, 11, 12.1). Quantity column fixed at 1 isolates the price effect.",
+      "idea_type": "numbers",
+      "idea": "with 10% inflation one laptop's factor cost goes 10K -> 11K -> 12.1K, so GDP rises every year though output stays one laptop: inflated GDP",
+      "shown_as": "under a red 'inflation 10%' heading, a laptop heads the factor-cost column and an India silhouette the GDP column; quantity stays 1 in every year row while factor cost fills 10K, 11K, 12.1K and dotted arrows carry each into GDP; a row is tagged 'inflated GDP' and a line notes no extra production",
+      "meaning_carrier": "diagram",
+      "things": ["laptop", "india_map", "table_grid"],
+      "actions": ["clear_canvas", "write_on", "draw_line", "fade_in", "flow_along_arrow"],
+      "on_screen_words": 28,
+      "camera": "clear",
+      "example": "1 laptop at 10% inflation: 10K -> 11K -> 12.1K"
     },
     {
-      "start": 190, "end": 217,
+      "start": 190,
+      "end": 217,
       "teaches": "nominal GDP contains an inflation layer; remove it and you get real GDP",
       "canvas": "new",
       "layout": "compare_two_sides",
@@ -83,10 +124,20 @@
       ],
       "motions": ["clear_canvas", "pop_in", "slide_in", "strike_and_replace"],
       "level": "L2",
-      "notes": "Physical metaphor: inflation is a removable layer of the bar. Strike-and-replace used on a word, not a number."
+      "notes": "Physical metaphor: inflation is a removable layer of the bar. Strike-and-replace used on a word, not a number.",
+      "idea_type": "definition",
+      "idea": "nominal GDP holds an inflation layer; take it out and you have real GDP",
+      "shown_as": "a blue GDP block has a yellow 'inflation' stripe through it; in a second copy the stripe slides out to the right and the block closes up, while 'nominal' is struck in red and 'real' written above in green",
+      "meaning_carrier": "picture",
+      "things": ["bar_block", "india_map"],
+      "actions": ["clear_canvas", "pop_in", "slide_in", "strike_and_replace", "split", "shrink"],
+      "on_screen_words": 5,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 217, "end": 288,
+      "start": 217,
+      "end": 288,
       "teaches": "real GDP strips out price rises back to a fixed base year (FY 2012 on screen), not just the previous year",
       "canvas": "builds_on_previous",
       "layout": "timeline",
@@ -97,10 +148,20 @@
       ],
       "motions": ["slide_in", "pop_in", "draw_line"],
       "level": "L2",
-      "notes": "Timeline with backward arcs shows 'remove inflation step by step to the base year'. The blocks from the previous segment stay on top."
+      "notes": "Timeline with backward arcs shows 'remove inflation step by step to the base year'. The blocks from the previous segment stay on top.",
+      "idea_type": "process",
+      "idea": "real GDP strips price rises all the way back to a fixed base year (FY 2012), not just to last year",
+      "shown_as": "a thick year line shows three recent years with a laptop and its price over each; dotted arcs hop backwards year to year, then all the way back to a cream-boxed base year",
+      "meaning_carrier": "diagram",
+      "things": ["timeline", "laptop"],
+      "actions": ["slide_in", "pop_in", "draw_line"],
+      "on_screen_words": 15,
+      "camera": "still",
+      "example": "laptop prices traced back to base year FY 2012"
     },
     {
-      "start": 288, "end": 329,
+      "start": 288,
+      "end": 329,
       "teaches": "real GDP = value at base-year prices; nominal GDP = value at current prices; the tool that converts one to the other is the GDP deflator",
       "canvas": "builds_on_previous",
       "layout": "timeline",
@@ -112,10 +173,20 @@
       ],
       "motions": ["clear_canvas", "fade_in", "pop_in", "slide_in"],
       "level": "L2",
-      "notes": "Visual metaphor: the deflator as an injection that 'deflates' the number."
+      "notes": "Visual metaphor: the deflator as an injection that 'deflates' the number.",
+      "idea_type": "definition",
+      "idea": "real GDP = value at base-year prices; nominal GDP = value at today's prices; the GDP deflator converts one to the other",
+      "shown_as": "pink panels frame nominal GDP round the latest year (laptop and price) and real GDP round the base year; a question card asks how to remove the inflation, answered by a 'GDP deflator' heading with a syringe drawn beside it",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["laptop", "syringe", "question_mark"],
+      "actions": ["clear_canvas", "fade_in", "pop_in", "slide_in"],
+      "on_screen_words": 24,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 329, "end": 354,
+      "start": 329,
+      "end": 354,
       "teaches": "real GDP = nominal GDP / GDP deflator, worked with the laptop price",
       "canvas": "new",
       "layout": "flow_left_to_right",
@@ -126,10 +197,20 @@
       ],
       "motions": ["swap_element", "slide_in", "write_on", "fade_in"],
       "level": "L2",
-      "notes": "The panels from the timeline are reused as the terms of the formula, so the equation is built from objects already on screen."
+      "notes": "The panels from the timeline are reused as the terms of the formula, so the equation is built from objects already on screen.",
+      "idea_type": "formula",
+      "idea": "real GDP = nominal GDP / GDP deflator, worked with the laptop price",
+      "shown_as": "the pink panels become the terms: real GDP = nominal GDP over a thick fraction bar with the syringe deflator under it = price over deflator in red = a faded result",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["laptop", "syringe"],
+      "actions": ["swap_element", "slide_in", "write_on", "fade_in"],
+      "on_screen_words": 20,
+      "camera": "cut",
+      "example": "laptop price / deflator"
     },
     {
-      "start": 354, "end": 385,
+      "start": 354,
+      "end": 385,
       "teaches": "GDP splits into real (constant prices) and nominal; each can be at factor cost or market price: four ways",
       "canvas": "new",
       "layout": "tree",
@@ -140,10 +221,20 @@
       ],
       "motions": ["clear_canvas", "draw_line", "pop_in", "write_on"],
       "level": "L2",
-      "notes": ""
+      "notes": "",
+      "idea_type": "classification",
+      "idea": "GDP can be real (constant prices) or nominal, each at factor cost or market price: four ways",
+      "shown_as": "GDP -> real / nominal by blue arrows, each splitting into factor cost / market price, under a big red 4 'ways of calculating' heading, with a pointer 'constant prices' on real",
+      "meaning_carrier": "diagram",
+      "things": [],
+      "actions": ["clear_canvas", "draw_line", "pop_in", "write_on", "split"],
+      "on_screen_words": 16,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 385, "end": 412,
+      "start": 385,
+      "end": 412,
       "teaches": "India headlines nominal GDP at market price; why is the open question for the next video",
       "canvas": "builds_on_previous",
       "layout": "flow_top_down",
@@ -156,10 +247,20 @@
       ],
       "motions": ["swap_element", "highlight_text", "pop_in"],
       "level": "L2",
-      "notes": "Tree collapses into a list; ends on a cliff-hanger question in Hinglish."
+      "notes": "Tree collapses into a list; ends on a cliff-hanger question in Hinglish.",
+      "idea_type": "data_status",
+      "idea": "India headlines nominal GDP at market price; why is left for the next video",
+      "shown_as": "the tree collapses into a four-line list under the heading; an India silhouette marks the last row, which gets a pink band and an orange Hindi 'why?' with a ?",
+      "meaning_carrier": "text_only",
+      "things": ["india_map", "question_mark"],
+      "actions": ["swap_element", "highlight_text", "pop_in"],
+      "on_screen_words": 26,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 412, "end": 421,
+      "start": 412,
+      "end": 421,
       "teaches": "channel promotion",
       "canvas": "new",
       "layout": "free",
@@ -168,7 +269,40 @@
       ],
       "motions": ["clear_canvas", "fade_in"],
       "level": "L2",
-      "notes": "End screen; ignore for teaching."
+      "notes": "End screen; ignore for teaching.",
+      "idea_type": "end_screen",
+      "idea": "none (channel promotion; no teaching)",
+      "shown_as": "next-video and playlist panels",
+      "meaning_carrier": "text_only",
+      "things": ["end_screen_panel"],
+      "actions": ["clear_canvas", "fade_in"],
+      "on_screen_words": 6,
+      "camera": "clear",
+      "example": ""
     }
-  ]
+  ],
+  "format": "build_up_canvas",
+  "recurring_cast": [
+    "india_map over the GDP label/column",
+    "laptop with its price",
+    "question card with ?",
+    "pink nominal / real GDP panels",
+    "syringe (GDP deflator)",
+    "pointing_hand"
+  ],
+  "running_examples": [
+    "factor cost flat at 15K vs market price 18K / 20K / 25K",
+    "one laptop at 10% inflation: 10K -> 11K -> 12.1K"
+  ],
+  "best_moments": [
+    {"t": 190, "why": "the inflation stripe slides out of the GDP block: real vs nominal as a removable layer"},
+    {"t": 115, "why": "quantity fixed at 1 while value climbs shows inflated GDP"},
+    {"t": 217, "why": "arcs hopping back along the year line to the base year"},
+    {"t": 329, "why": "the formula is built from panels already on screen"}
+  ],
+  "weak_moments": [
+    {"t": 37, "why": "41 s of text cards and a UN flag for the reason behind the switch"},
+    {"t": 385, "why": "ends on a typed list"}
+  ],
+  "upgraded_from": "batch2 card text"
 }

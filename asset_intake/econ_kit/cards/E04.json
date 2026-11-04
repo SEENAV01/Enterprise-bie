@@ -3,7 +3,8 @@
   "title_guess": "Monetary policy: price stability, liquid money and the RBI's Monetary Policy Committee",
   "segments": [
     {
-      "start": 0, "end": 53,
+      "start": 0,
+      "end": 53,
       "teaches": "many inputs drive economic growth; price stability (low, predictable inflation) is a key precondition for steady long-term growth",
       "canvas": "new",
       "layout": "flow_left_to_right",
@@ -17,10 +18,20 @@
       ],
       "motions": ["draw_line", "pop_in", "write_on"],
       "level": "L2",
-      "notes": "The arrow fan is a quick 'many factors' device; one factor then pops in with a glow."
+      "notes": "The arrow fan is a quick 'many factors' device; one factor then pops in with a glow.",
+      "idea_type": "cause_effect",
+      "idea": "many inputs drive growth; stable prices are a key condition for steady long-term growth",
+      "shown_as": "a fan of eight arrows converges on an India silhouette, which points on to a rising bar-chart icon for growth; one input, a balance scale with goods in a glowing yellow circle, pops in as Price Stability with a definition and a 'why it matters' box",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["india_map", "bar_chart_icon", "scale_balance"],
+      "actions": ["draw_line", "pop_in", "write_on", "join", "flow_along_arrow"],
+      "on_screen_words": 31,
+      "camera": "cut",
+      "example": ""
     },
     {
-      "start": 53, "end": 106.8,
+      "start": 53,
+      "end": 106.8,
       "teaches": "RBI controls inflation to keep prices stable; inflation comes from demand, demand from purchasing power, purchasing power from money",
       "canvas": "new",
       "layout": "flow_top_down",
@@ -32,10 +43,20 @@
       ],
       "motions": ["clear_canvas", "slide_in", "draw_line", "write_on"],
       "level": "L2",
-      "notes": "Backward chaining: each new cause is added to the LEFT of the previous one, so the chain reads forward once complete."
+      "notes": "Backward chaining: each new cause is added to the LEFT of the previous one, so the chain reads forward once complete.",
+      "idea_type": "cause_effect",
+      "idea": "RBI controls inflation; inflation comes from demand, demand from purchasing power, purchasing power from money",
+      "shown_as": "a compact price stability -> India -> growth row sits on top; muscular arms grip the RBI emblem under the word CONTROL; a chain builds right to left: Inflation <- Demand <- Purchasing Power <- Money",
+      "meaning_carrier": "diagram",
+      "things": ["muscular_arms", "brand_logo", "india_map"],
+      "actions": ["clear_canvas", "slide_in", "draw_line", "write_on", "flow_along_arrow"],
+      "on_screen_words": 12,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 106.8, "end": 162,
+      "start": 106.8,
+      "end": 162,
       "teaches": "only part of money can be spent: blocked money (locked up, cannot be used quickly) does not create demand",
       "canvas": "builds_on_previous",
       "layout": "tree",
@@ -49,10 +70,20 @@
       ],
       "motions": ["pop_in", "draw_line", "cross_out"],
       "level": "L2",
-      "notes": "Running numeric example: rich on paper (5 crore house) but cannot buy a 25 lakh item. Background dims to light grey during the example to focus attention."
+      "notes": "Running numeric example: rich on paper (5 crore house) but cannot buy a 25 lakh item. Background dims to light grey during the example to focus attention.",
+      "idea_type": "definition",
+      "idea": "only spendable money creates demand; blocked money is tied up and cannot buy things quickly",
+      "shown_as": "Money splits into Blocked and Liquid; under Blocked, a 5 crore house stands with its owner, and the arrows from the owner to a 25 lakh airplane held by a seller get red crosses; the background dims during the example",
+      "meaning_carrier": "picture",
+      "things": ["house", "person", "airplane", "price_tag", "cross_mark"],
+      "actions": ["pop_in", "draw_line", "cross_out", "split"],
+      "on_screen_words": 35,
+      "camera": "still",
+      "example": "owner of a 5 crore house cannot buy a 25 lakh airplane"
     },
     {
-      "start": 162, "end": 231.8,
+      "start": 162,
+      "end": 231.8,
       "teaches": "liquid money (cash, demand deposits) drives purchasing power, demand and inflation; fixed deposits, PF and PPF are blocked",
       "canvas": "builds_on_previous",
       "layout": "flow_left_to_right",
@@ -63,10 +94,20 @@
       ],
       "motions": ["highlight_text", "pop_in", "write_on"],
       "level": "L2",
-      "notes": "One continuous highlight band traces the causal path through the whole diagram."
+      "notes": "One continuous highlight band traces the causal path through the whole diagram.",
+      "idea_type": "cause_effect",
+      "idea": "liquid money (cash, demand deposits) drives purchasing power, demand and inflation; FD, PF and PPF are blocked",
+      "shown_as": "one stair-shaped light-blue band lights the path Liquid Money -> Purchasing Power -> Demand -> Inflation up to price stability; a definition box and bullet examples appear under each money type",
+      "meaning_carrier": "diagram",
+      "things": [],
+      "actions": ["highlight_text", "pop_in", "write_on", "flow_along_arrow"],
+      "on_screen_words": 56,
+      "camera": "still",
+      "example": "FD, PF, PPF (blocked) vs cash, demand deposits (liquid)"
     },
     {
-      "start": 231.8, "end": 258,
+      "start": 231.8,
+      "end": 258,
       "teaches": "monetary policy is RBI's control over the supply of liquid money",
       "canvas": "new",
       "layout": "free",
@@ -77,10 +118,20 @@
       ],
       "motions": ["swap_element", "slide_in", "write_on"],
       "level": "L2",
-      "notes": "Concept compression: the whole chain collapses into one reusable badge. Background turns grey."
+      "notes": "Concept compression: the whole chain collapses into one reusable badge. Background turns grey.",
+      "idea_type": "definition",
+      "idea": "monetary policy is the RBI's control over the supply of liquid money",
+      "shown_as": "the chain shrinks to the liquid-money path with 'Supply of' handwritten above; the CONTROL arms move underneath and the chain collapses into an arch badge reading MONETARY POLICY - supply of liquid money, standing on the arms",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["muscular_arms", "brand_logo"],
+      "actions": ["swap_element", "slide_in", "write_on", "transform"],
+      "on_screen_words": 14,
+      "camera": "cut",
+      "example": ""
     },
     {
-      "start": 258, "end": 299.2,
+      "start": 258,
+      "end": 299.2,
       "teaches": "the Monetary Policy Committee has six members: three from RBI (Governor as chair, a Deputy Governor, one RBI official) and three nominated by the government",
       "canvas": "builds_on_previous",
       "layout": "hub_and_spokes",
@@ -94,10 +145,20 @@
       ],
       "motions": ["draw_line", "pop_in", "write_on"],
       "level": "L2",
-      "notes": "Committee as a seated row of identical figures; colour singles out members."
+      "notes": "Committee as a seated row of identical figures; colour singles out members.",
+      "idea_type": "classification",
+      "idea": "the Monetary Policy Committee has six members: three from the RBI (Governor as chair) and three named by the government",
+      "shown_as": "dotted elbows run from the badge to six numbered figures seated behind a table with a committee plaque; role labels (Governor with a red Chairman tag, Deputy Governor, RBI official) point at members and a government emblem labels the rest",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["crowd_people", "committee_desk", "brand_logo"],
+      "actions": ["draw_line", "pop_in", "write_on", "point"],
+      "on_screen_words": 18,
+      "camera": "still",
+      "example": "6 members = 3 RBI + 3 government"
     },
     {
-      "start": 299.2, "end": 325,
+      "start": 299.2,
+      "end": 325,
       "teaches": "RBI uses qualitative tools (affect liquid money indirectly) and quantitative tools (affect it directly)",
       "canvas": "new",
       "layout": "compare_two_sides",
@@ -109,10 +170,20 @@
       ],
       "motions": ["clear_canvas", "draw_line", "pop_in"],
       "level": "L2",
-      "notes": "Symmetric two-sided layout around a central badge."
+      "notes": "Symmetric two-sided layout around a central badge.",
+      "idea_type": "classification",
+      "idea": "RBI's tools are qualitative (act on liquid money indirectly) or quantitative (act directly)",
+      "shown_as": "the policy badge sits in the centre with curved arrows to Qualitative on the left and Quantitative on the right, each with a grey box; dotted elbows run back into the Liquid Money band labelled 'indirectly' and 'directly'",
+      "meaning_carrier": "diagram",
+      "things": [],
+      "actions": ["clear_canvas", "draw_line", "pop_in", "split", "compare_side_by_side"],
+      "on_screen_words": 41,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 325, "end": 332.6,
+      "start": 325,
+      "end": 332.6,
       "teaches": "end card",
       "canvas": "new",
       "layout": "compare_two_sides",
@@ -122,7 +193,35 @@
       ],
       "motions": ["slide_in", "clear_canvas"],
       "level": "L2",
-      "notes": "Channel promotion; ignore for teaching."
+      "notes": "Channel promotion; ignore for teaching.",
+      "idea_type": "end_screen",
+      "idea": "none (channel promotion; no teaching)",
+      "shown_as": "next-video and playlist panels with a phone mock-up and app-store badges",
+      "meaning_carrier": "text_only",
+      "things": ["end_screen_panel", "mobile_phone", "brand_logo"],
+      "actions": ["slide_in", "clear_canvas"],
+      "on_screen_words": 8,
+      "camera": "clear",
+      "example": ""
     }
-  ]
+  ],
+  "format": "build_up_canvas",
+  "recurring_cast": [
+    "india_map",
+    "muscular_arms gripping the RBI emblem (brand_logo) under CONTROL",
+    "MONETARY POLICY arch badge",
+    "money -> purchasing power -> demand -> inflation chain"
+  ],
+  "running_examples": [
+    "owner of a 5 crore house cannot buy a 25 lakh airplane (blocked money)"
+  ],
+  "best_moments": [
+    {"t": 106.8, "why": "a rich house owner crossed out from buying an airplane makes 'blocked money' obvious"},
+    {"t": 162, "why": "one band traces the cause path from liquid money to inflation through the whole diagram"},
+    {"t": 231.8, "why": "the chain collapses into one badge standing on the CONTROL arms: monetary policy = control of liquid money"}
+  ],
+  "weak_moments": [
+    {"t": 299.2, "why": "qualitative vs quantitative tools explained in grey text boxes only"}
+  ],
+  "upgraded_from": "batch2 card text"
 }

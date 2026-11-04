@@ -1,0 +1,145 @@
+{
+  "id": "E28",
+  "title_guess": "Credit default swap: protection for a bond investor against default",
+  "duration": 99.4,
+  "format": "build_up_canvas",
+  "recurring_cast": ["sleepless_investor", "factory", "person_investor", "bond_certificate", "rupee_note", "risk_badge", "office_building", "cds_document"],
+  "running_examples": [
+    "company XYZ Ltd sells a corporate bond to investor A; A buys a CDS from seller B, pays a periodic premium, and B pays A if XYZ defaults"
+  ],
+  "best_moments": [
+    {"t": 70, "why": "the red RISK disc lifts off investor A and slides down onto the CDS seller's building: risk transfer shown as an object physically moving from one party to another"},
+    {"t": 79, "why": "the inset of the wide-awake man in bed turns into floating Z's once protection is bought: the purpose of a CDS shown as a feeling (worry → sleep)"},
+    {"t": 40, "why": "a red RISK disc drops over investor A and a callout line runs to the inset of the same man lying awake: whose risk it is, and why it matters, in one glance"}
+  ],
+  "weak_moments": [
+    {"t": 62, "why": "the core rule (if XYZ defaults, B pays A) arrives as a paragraph; the default event itself is never shown happening (no broken bond, no payout arrow)"},
+    {"t": 88, "why": "the premium is a dotted line with a tiny money icon plus a text box; the 'periodic' part (repeated payments) is not animated"},
+    {"t": 15, "why": "about 27 s of intro with only a character and a title card before the first idea"}
+  ],
+  "segments": [
+    {
+      "start": 0,
+      "end": 27.0,
+      "teaches": "hook: an investor who cannot sleep; topic is the credit default swap",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "character", "what": "cartoon man lying wide-eyed in bed on a black background", "count": 1},
+        {"kind": "icon", "what": "certificate card stamped CDS with the full name written under it", "count": 1}
+      ],
+      "motions": ["fade_in", "pop_in", "clear_canvas"],
+      "level": "L2",
+      "notes": "dark intro; the bed character comes back later as an inset panel that carries the emotional payoff",
+      "idea_type": "intro",
+      "idea": "a bond holder worries about being repaid; CDS is the answer this video explains",
+      "shown_as": "on a black screen a cartoon man lies awake in bed; a certificate card stamped CDS fades in beside him with its full name; then the screen turns white for the diagram",
+      "meaning_carrier": "picture",
+      "things": ["sleepless_investor", "bed", "cds_document"],
+      "actions": ["fade_in", "pop_in"],
+      "on_screen_words": 4,
+      "camera": "cut",
+      "example": ""
+    },
+    {
+      "start": 27.0,
+      "end": 52.8,
+      "teaches": "XYZ Ltd issues a corporate bond to investor A, who pays cash; A now carries the risk that XYZ may not repay",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {"kind": "icon", "what": "blue factory labelled XYZ Ltd", "count": 1},
+        {"kind": "icon", "what": "investor A (person with briefcase)", "count": 1},
+        {"kind": "arrow", "what": "bond certificate travelling from XYZ to A on a cream 'corporate bond' strip", "count": 1},
+        {"kind": "arrow", "what": "dotted line with a rupee note going back from A to XYZ", "count": 1},
+        {"kind": "icon", "what": "red RISK disc dropped over investor A", "count": 1},
+        {"kind": "callout", "what": "line from A to a dark inset of the man awake in bed", "count": 1},
+        {"kind": "text_box", "what": "caption under the inset: A fears XYZ's creditworthiness and a default", "count": 1}
+      ],
+      "motions": ["pop_in", "draw_line", "slide_in", "fade_in", "write_on"],
+      "level": "L2",
+      "notes": "risk is an object (red disc) that sits on a person; the inset reuses the intro character",
+      "idea_type": "mechanism",
+      "idea": "buying a bond means lending to a company, so the buyer bears the risk that the company fails to pay",
+      "shown_as": "a factory labelled XYZ sends a bond certificate along an arrow to investor A on a cream 'corporate bond' strip while a rupee note travels back above on a dotted line; a red RISK disc then drops over A, and a callout line links A to an inset of the same man lying awake, captioned that he fears a default",
+      "meaning_carrier": "picture",
+      "things": ["factory", "bond_certificate", "rupee_note", "person_investor", "risk_badge", "sleepless_investor", "bed"],
+      "actions": ["pop_in", "flow_along_arrow", "draw_line", "point", "write_on"],
+      "on_screen_words": 30,
+      "camera": "still",
+      "example": "XYZ Ltd bond bought by investor A"
+    },
+    {
+      "start": 52.8,
+      "end": 76.6,
+      "teaches": "A buys a credit default swap from seller B; if XYZ defaults, B compensates A, so the default risk moves from A to B",
+      "canvas": "builds_on_previous",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "icon", "what": "tall office building (seller B) below investor A", "count": 1},
+        {"kind": "icon", "what": "small CDS certificate on an up-arrow from B to A", "count": 1},
+        {"kind": "tag", "what": "'Credit Default Swap' dark chip beside the certificate", "count": 1},
+        {"kind": "text_box", "what": "rule: if XYZ misses a payment, buyer A is compensated by seller B", "count": 1},
+        {"kind": "icon", "what": "red RISK disc moves from A down onto B's building", "count": 1}
+      ],
+      "motions": ["pop_in", "draw_line", "write_on", "slide_in"],
+      "level": "L2",
+      "notes": "the risk disc move (about 65-75 s) is the key visual; the payout rule itself is only text",
+      "idea_type": "mechanism",
+      "idea": "a CDS shifts the risk of a bond default from the bond holder to the CDS seller",
+      "shown_as": "a CDS certificate rises on an arrow from a tall office building (seller B) up to investor A, tagged 'Credit Default Swap', with a rule paragraph at the side; then the red RISK disc lifts off A and slides down to sit over B's building, leaving A uncovered",
+      "meaning_carrier": "picture",
+      "things": ["office_building", "cds_document", "person_investor", "risk_badge", "factory", "bond_certificate", "rupee_note", "sleepless_investor"],
+      "actions": ["flow_along_arrow", "pop_in", "write_on", "hand_over"],
+      "on_screen_words": 60,
+      "camera": "still",
+      "example": "if XYZ misses a payment, B pays A"
+    },
+    {
+      "start": 76.6,
+      "end": 89.5,
+      "teaches": "A pays B a periodic fee (premium) for this protection, and can now sleep",
+      "canvas": "builds_on_previous",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "character", "what": "inset swaps from the awake man to a dark panel of floating Z's", "count": 1},
+        {"kind": "arrow", "what": "dotted line from A down the right side to B with a small money icon", "count": 1},
+        {"kind": "text_box", "what": "blue note: A pays a periodic fee to B for protection against XYZ default", "count": 1}
+      ],
+      "motions": ["swap_element", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "emotional before/after (awake → asleep) is the payoff of the whole video",
+      "idea_type": "mechanism",
+      "idea": "the protection is not free: the buyer pays the seller a regular premium",
+      "shown_as": "the inset of the wide-awake man is replaced by a dark panel of floating Z's (he now sleeps); a dotted line runs from A down to B carrying a small money icon, with a blue note that A pays a periodic premium for the protection",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["person_investor", "office_building", "rupee_note", "sleep_zzz", "risk_badge"],
+      "actions": ["swap_element", "draw_line", "flow_along_arrow", "write_on"],
+      "on_screen_words": 85,
+      "camera": "still",
+      "example": "periodic premium from A to B"
+    },
+    {
+      "start": 89.5,
+      "end": 99.4,
+      "teaches": "none (app promo and next-video card)",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "end_screen", "what": "app promo phone over the diagram, then next-video / playlist card", "count": 1}
+      ],
+      "motions": ["pop_in", "clear_canvas"],
+      "level": "L2",
+      "notes": "not teaching; ignore",
+      "idea_type": "end_screen",
+      "idea": "none (end screen)",
+      "shown_as": "promo phone slides up over the diagram, then the channel's next-video card replaces it",
+      "meaning_carrier": "text_only",
+      "things": ["brand_logo"],
+      "actions": ["pop_in"],
+      "on_screen_words": 15,
+      "camera": "cut",
+      "example": ""
+    }
+  ]
+}

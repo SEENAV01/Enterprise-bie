@@ -1,0 +1,850 @@
+{
+  "id": "E34",
+  "title_guess": "Differentiated banks: small finance banks and payments banks",
+  "format": "build_up_canvas",
+  "recurring_cast": [
+    "India map on the corner of a framed crowd box labelled 140 crore",
+    "three existing bank types: cooperative bank badge, commercial bank building, regional rural bank hut",
+    "small bank building icon",
+    "payments bank icon (phone with a card and a little bank)",
+    "long crowd strip reused for each small-bank feature",
+    "numbered 1-2-3 feature sidebar that highlights the current item",
+    "RBI coin emblem and a licence card",
+    "real photo of the then finance minister (corner decoration)"
+  ],
+  "running_examples": [
+    "140 crore people: yellow share reached by banks, red dome unbanked",
+    "RBI 2013 report on micro-finance concerns",
+    "small bank features: targeted, technology driven, flexible (urban + rural)",
+    "digital wallets → RBI licence → payments bank (2014)"
+  ],
+  "best_moments": [
+    {
+      "t": 15,
+      "why": "a yellow shade covers only part of a 140-crore crowd and drops down to the three bank types: 'who the banks reach' with almost no words"
+    },
+    {
+      "t": 45,
+      "why": "the rest of the crowd is capped by a dark-red dome: the unbanked, paired against the yellow share"
+    },
+    {
+      "t": 215,
+      "why": "red circles ring small clusters inside the crowd and small banks drop dotted lines into them: targeting made visible"
+    },
+    {
+      "t": 265,
+      "why": "the same crowd is painted half grey 'urban', half green 'rural' with a small bank reaching both: flexibility in one picture"
+    },
+    {
+      "t": 345,
+      "why": "wallet icons pass through an RBI licence card and come out as a payments bank: licence as a gate that transforms"
+    },
+    {
+      "t": 440,
+      "why": "a dotted arrow from the payments bank to an NBFC piggy bank is blocked by a red X: a forbidden path"
+    }
+  ],
+  "weak_moments": [
+    {
+      "t": 45,
+      "why": "real person photo plus a long quote from a budget speech; BIE will not use real people"
+    },
+    {
+      "t": 110,
+      "why": "about 70 s of three pink reason boxes (why existing banks failed), no pictures"
+    },
+    {
+      "t": 140,
+      "why": "definition of differentiated banks is one sentence in a box"
+    },
+    {
+      "t": 500,
+      "why": "pasted web tables of real bank names and a paragraph; recall material with no picture"
+    }
+  ],
+  "segments": [
+    {
+      "start": 0,
+      "end": 34.4,
+      "teaches": "India has about 140 crore people; existing banks (cooperative banks, commercial banks, regional rural banks) serve only part of them",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {
+          "kind": "map",
+          "what": "India silhouette on the top-left corner of a framed box",
+          "count": 1
+        },
+        {
+          "kind": "crowd",
+          "what": "dense row of people silhouettes labelled 140 crores",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "yellow shade over the left part of the crowd, extending down below the box",
+          "count": 1
+        },
+        {
+          "kind": "icon",
+          "what": "three bank types under the yellow part: cooperative badge, commercial bank building, rural bank hut",
+          "count": 3
+        }
+      ],
+      "motions": [
+        "pop_in",
+        "shade_area"
+      ],
+      "level": "L2",
+      "notes": "Excellent: coverage shown as a shaded share of a crowd connected to the banks that create it. Almost no words. [Events: 4 add, 1 big/reset in 34 s, about one change every 7 s.]",
+      "idea_type": "data_status",
+      "idea": "Only part of India's population is covered by the existing banks.",
+      "shown_as": "an India map tops a framed crowd labelled 140 crore; a yellow shade spreads over the left part of the crowd and drops down like a pocket holding three bank types (cooperative, commercial, rural) - the shaded part is who the banks reach",
+      "meaning_carrier": "picture",
+      "things": [
+        "india_map",
+        "crowd_people",
+        "bank_building",
+        "cooperative_bank_badge",
+        "rural_bank_hut"
+      ],
+      "actions": [
+        "pop_in",
+        "fill"
+      ],
+      "on_screen_words": 5,
+      "camera": "still",
+      "example": "140 crore people"
+    },
+    {
+      "start": 34.4,
+      "end": 55.6,
+      "teaches": "a large part of the people, especially in remote areas, is still outside banking; the 2014-15 budget speech called for a structure to take banking to every household; financial inclusion became the priority",
+      "canvas": "builds_on_previous",
+      "layout": "free",
+      "elements": [
+        {
+          "kind": "highlight",
+          "what": "dark-red dome over the right, unshaded part of the crowd (unbanked)",
+          "count": 1
+        },
+        {
+          "kind": "photo",
+          "what": "real photo of the then finance minister, linked to the dome by a line",
+          "count": 1
+        },
+        {
+          "kind": "callout",
+          "what": "pink quote box with big quote marks, attributed to the 2014-15 budget speech",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "blue underline on the key words of the quote",
+          "count": 1
+        },
+        {
+          "kind": "tag",
+          "what": "PRIORITY heading with a green-grey 'financial inclusion' chip pointing at the map",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "pop_in",
+        "draw_line",
+        "highlight_text",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "Unbanked shown as a red dome over the rest of the crowd, pairing with the yellow banked share. Real person photo and quote: BIE will not use real people; it can cite the speech in text. [Events: 1 add, 1 big/reset in 21 s, about one change every 11 s.]",
+      "idea_type": "cause_effect",
+      "idea": "The unbanked share became a national priority: financial inclusion.",
+      "shown_as": "the unshaded right part of the crowd is capped by a dark-red dome (the unbanked); a line runs from the dome to a photo of the then finance minister with a pink quote box; key words get a blue underline, and a 'priority: financial inclusion' tag points at the map",
+      "meaning_carrier": "picture_plus_label",
+      "things": [
+        "india_map",
+        "crowd_people",
+        "bank_building",
+        "cooperative_bank_badge",
+        "rural_bank_hut",
+        "real_person_photo",
+        "quote_marks"
+      ],
+      "actions": [
+        "pop_in",
+        "draw_line",
+        "highlight_text",
+        "write_on",
+        "point"
+      ],
+      "on_screen_words": 50,
+      "camera": "still",
+      "example": "budget speech 2014-15"
+    },
+    {
+      "start": 55.6,
+      "end": 127.2,
+      "teaches": "the RBI's 2013 report on micro-finance concerns showed why existing banks could not reach this segment: limited reach due to high operating costs and poor infrastructure, high fees deterring poor households and small businesses, and no suitable products",
+      "canvas": "new",
+      "layout": "flow_top_down",
+      "elements": [
+        {
+          "kind": "tag",
+          "what": "yellow report-title chip with the year 2013",
+          "count": 1
+        },
+        {
+          "kind": "icon",
+          "what": "report document icon",
+          "count": 1
+        },
+        {
+          "kind": "logo_or_brand",
+          "what": "RBI coin emblem",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "beige shelf holding the three existing bank types with labels",
+          "count": 1
+        },
+        {
+          "kind": "title_text",
+          "what": "heading: why existing banks cannot reach the micro-finance segment",
+          "count": 1
+        },
+        {
+          "kind": "text_box",
+          "what": "pink reason boxes with bold key words",
+          "count": 3
+        },
+        {
+          "kind": "photo",
+          "what": "finance minister photo kept in the corner",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "pop_in",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "About 70 s of reading. Each reason could be pictured: a bank far from a village (reach), a fee tag scaring off a shopkeeper (cost), a product that does not fit. The photo stays as decoration. [Events: 6 add, 1 big/reset in 72 s, about one change every 10 s.]",
+      "idea_type": "cause_effect",
+      "idea": "Old bank types could not serve the poor: too costly to reach, too expensive to use, wrong products.",
+      "shown_as": "the canvas resets to a yellow report tag with the RBI mark and a document icon over a beige shelf of the three existing bank types; a heading asks why they cannot reach the micro-finance segment and three pink reason boxes stack down one by one",
+      "meaning_carrier": "text_only",
+      "things": [
+        "document",
+        "brand_logo",
+        "bank_building",
+        "cooperative_bank_badge",
+        "rural_bank_hut",
+        "real_person_photo"
+      ],
+      "actions": [
+        "pop_in",
+        "write_on"
+      ],
+      "on_screen_words": 95,
+      "camera": "clear",
+      "example": "RBI report of 2013 on micro-finance concerns"
+    },
+    {
+      "start": 127.2,
+      "end": 149.4,
+      "teaches": "so the RBI proposed differentiated banks: banks with a distinct business model, licensed to give specific kinds of banking services",
+      "canvas": "builds_on_previous",
+      "layout": "free",
+      "elements": [
+        {
+          "kind": "arrow",
+          "what": "curved arrow from the RBI mark to the new title",
+          "count": 1
+        },
+        {
+          "kind": "title_text",
+          "what": "green 'differentiated banks' title",
+          "count": 1
+        },
+        {
+          "kind": "text_box",
+          "what": "blue definition box with a black side bar",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "draw_line",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "Definition is one sentence in a box; no picture of a 'narrow licence' (for example a licence card with only some service icons allowed). [Events: 2 add, 0 big/reset in 22 s, about one change every 11 s.]",
+      "idea_type": "definition",
+      "idea": "Differentiated banks are licensed to do only specific banking jobs.",
+      "shown_as": "a curved arrow from the RBI mark points to a green 'differentiated banks' title and a blue definition box writes on beneath it, beside the reasons",
+      "meaning_carrier": "text_only",
+      "things": [
+        "brand_logo",
+        "document"
+      ],
+      "actions": [
+        "draw_line",
+        "write_on",
+        "point"
+      ],
+      "on_screen_words": 110,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 149.4,
+      "end": 171.2,
+      "teaches": "differentiated banks are of two kinds, small (finance) banks and payments banks; small banks have three features: targeted approach, technology driven, flexibility in operations",
+      "canvas": "new",
+      "layout": "tree",
+      "elements": [
+        {
+          "kind": "text_box",
+          "what": "definition box moved to the left",
+          "count": 1
+        },
+        {
+          "kind": "icon",
+          "what": "small bank building labelled SMALL BANK",
+          "count": 1
+        },
+        {
+          "kind": "icon",
+          "what": "payments bank icon: phone with a card and a little bank",
+          "count": 1
+        },
+        {
+          "kind": "bullet_chain",
+          "what": "numbered circles 1-3 with three feature words under the small bank",
+          "count": 3
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "slide_in",
+        "pop_in",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "Numbered feature list becomes a sidebar 'menu' whose items light up one by one in the next segments: a clear chaptering device. [Events: 3 add, 2 big/reset in 22 s, about one change every 4 s.]",
+      "idea_type": "classification",
+      "idea": "Two new bank types; the small bank's three features are the plan for the next part.",
+      "shown_as": "the definition slides left and two icons pop in side by side - a small bank building and a phone-with-card-and-bank icon for the payments bank; numbered circles 1-3 drop under the small bank, then the rest fades and the small bank moves to a left sidebar",
+      "meaning_carrier": "picture_plus_label",
+      "things": [
+        "bank_building",
+        "mobile_phone",
+        "bank_card"
+      ],
+      "actions": [
+        "slide_in",
+        "pop_in",
+        "write_on",
+        "fade_in"
+      ],
+      "on_screen_words": 45,
+      "camera": "clear",
+      "example": ""
+    },
+    {
+      "start": 171.2,
+      "end": 236.8,
+      "teaches": "targeted approach: small banks serve marginalised groups (farmers, micro and small enterprises, low-income households) in a limited area set by the RBI at licence time, with a focus on unbanked rural and remote regions",
+      "canvas": "pan",
+      "layout": "free",
+      "elements": [
+        {
+          "kind": "highlight",
+          "what": "sidebar item 1 boxed in yellow",
+          "count": 1
+        },
+        {
+          "kind": "crowd",
+          "what": "long strip of people silhouettes",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "red circles ringing small clusters inside the crowd",
+          "count": 4
+        },
+        {
+          "kind": "text_box",
+          "what": "magenta sentence with highlighted words: marginalised sections, limited area",
+          "count": 1
+        },
+        {
+          "kind": "bullet_chain",
+          "what": "three target groups with green squares",
+          "count": 3
+        },
+        {
+          "kind": "icon",
+          "what": "small bank buildings above the crowd with dotted lines down into the circles",
+          "count": 2
+        },
+        {
+          "kind": "arrow",
+          "what": "down arrow to 'area defined by the RBI at licence time'",
+          "count": 1
+        },
+        {
+          "kind": "text_box",
+          "what": "blue note: licences focus on unbanked rural and remote regions",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "slide_in",
+        "highlight_text",
+        "pop_in",
+        "draw_line",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "Targeting drawn as circles inside a crowd linked by dotted lines to a bank: strong. Text then piles up below (list plus two notes). [Events: 5 add, 1 big/reset in 66 s, about one change every 11 s.]",
+      "idea_type": "mechanism",
+      "idea": "Small banks are aimed at specific poor groups within a fixed area.",
+      "shown_as": "a long crowd fills the right panel and four red circles ring small clusters inside it - the marginalised groups; two small bank buildings appear above and drop dotted lines straight into those circles, so each bank serves its own targeted cluster; the 'targeted approach' item glows in the sidebar menu",
+      "meaning_carrier": "picture_plus_label",
+      "things": [
+        "crowd_people",
+        "focus_circle",
+        "bank_building"
+      ],
+      "actions": [
+        "highlight_text",
+        "pop_in",
+        "draw_line",
+        "point",
+        "write_on"
+      ],
+      "on_screen_words": 95,
+      "camera": "pan",
+      "example": "farmers, micro and small enterprises, low-income households"
+    },
+    {
+      "start": 236.8,
+      "end": 251.4,
+      "teaches": "technology driven: small banks are expected to use technology to give cheap, efficient service",
+      "canvas": "builds_on_previous",
+      "layout": "free",
+      "elements": [
+        {
+          "kind": "highlight",
+          "what": "sidebar item 2 boxed in yellow",
+          "count": 1
+        },
+        {
+          "kind": "icon",
+          "what": "dotted ring of small tech icons around each small bank: tools, magnifier, laptop, shield, server, chat",
+          "count": 2
+        },
+        {
+          "kind": "text_box",
+          "what": "one sentence at the top with 'leverage technology' in bold",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "highlight_text",
+        "pop_in",
+        "draw_line"
+      ],
+      "level": "L2",
+      "notes": "Technology as an orbit of icons around the bank: quick and readable, though 'cheap' is only in words. [Events: 5 add, 1 big/reset in 15 s, about one change every 2 s.]",
+      "idea_type": "mechanism",
+      "idea": "Small banks keep costs low by using technology.",
+      "shown_as": "the text below clears; a dotted ring of small tech icons (tools, search, laptop, shield, server, chat) circles each small bank above the crowd, and 'technology driven' lights up in the sidebar",
+      "meaning_carrier": "picture_plus_label",
+      "things": [
+        "bank_building",
+        "crowd_people",
+        "focus_circle",
+        "laptop",
+        "server_rack",
+        "shield",
+        "magnifier",
+        "gear_tools",
+        "chat_bubble"
+      ],
+      "actions": [
+        "highlight_text",
+        "pop_in",
+        "draw_line"
+      ],
+      "on_screen_words": 30,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 251.4,
+      "end": 286.0,
+      "teaches": "flexibility in operations: small banks may work in both urban and rural areas and serve a wide range of customers",
+      "canvas": "builds_on_previous",
+      "layout": "compare_two_sides",
+      "elements": [
+        {
+          "kind": "highlight",
+          "what": "sidebar item 3 boxed in yellow",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "crowd painted in two halves: dark grey URBAN and green RURAL",
+          "count": 2
+        },
+        {
+          "kind": "icon",
+          "what": "small banks above with dotted lines into both halves",
+          "count": 2
+        },
+        {
+          "kind": "text_box",
+          "what": "magenta sentence under the crowd",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "highlight_text",
+        "shade_area",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "Same crowd reused across three features; each feature changes how the crowd is marked (circles, tech ring, urban/rural colour). [Events: 0 add, 1 big/reset in 35 s, about one change every 35 s.]",
+      "idea_type": "mechanism",
+      "idea": "Small banks can serve both town and village customers.",
+      "shown_as": "the tech rings clear and the crowd is painted in two halves - grey 'urban' and green 'rural' - with a small bank's dotted lines reaching into both halves; 'flexibility' lights up in the sidebar",
+      "meaning_carrier": "picture_plus_label",
+      "things": [
+        "bank_building",
+        "crowd_people",
+        "focus_circle",
+        "region_band"
+      ],
+      "actions": [
+        "fill",
+        "split",
+        "highlight_text",
+        "write_on"
+      ],
+      "on_screen_words": 40,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 286.0,
+      "end": 337.4,
+      "teaches": "the second type is the payments bank; before 2013 many digital wallets were already working in India and their use was growing fast",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {
+          "kind": "icon",
+          "what": "small bank beside a framed payments bank icon (topic switch)",
+          "count": 1
+        },
+        {
+          "kind": "title_text",
+          "what": "DIFFERENTIATED BANKS heading at the top-left",
+          "count": 1
+        },
+        {
+          "kind": "map",
+          "what": "India map on the 140-crore crowd box again, titled DIGITAL WALLETS",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "thin yellow slice shading the left edge of the crowd",
+          "count": 1
+        },
+        {
+          "kind": "icon",
+          "what": "four coloured wallet-phone icons under the slice",
+          "count": 4
+        },
+        {
+          "kind": "text_box",
+          "what": "note naming several wallet companies that worked before 2013",
+          "count": 1
+        },
+        {
+          "kind": "bar_or_chart",
+          "what": "small rising bar chart with a red up arrow on top of the box",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "zoom_to_region",
+        "pop_in",
+        "shade_area",
+        "write_on",
+        "fade_in"
+      ],
+      "level": "L2",
+      "notes": "Reuses the opening crowd box so the viewer compares slices (banks' yellow share vs wallets' thin slice). The wallet example names are real brands (counted as brand mentions; BIE would say 'several wallet companies'). [Events: 5 add, 2 big/reset in 51 s, about one change every 7 s.]",
+      "idea_type": "data_status",
+      "idea": "Digital wallets already reached a small but fast-growing slice of people.",
+      "shown_as": "a frame closes around the payments bank icon to switch topic; then the 140-crore crowd box returns with a 'digital wallets' title, a thin yellow slice shades its left edge and four coloured wallet-phone icons hang under it; a small rising bar chart with an up-arrow pops on top of the box",
+      "meaning_carrier": "picture_plus_label",
+      "things": [
+        "bank_building",
+        "mobile_phone",
+        "bank_card",
+        "india_map",
+        "crowd_people",
+        "mobile_wallet",
+        "bar_chart"
+      ],
+      "actions": [
+        "zoom_to_region",
+        "pop_in",
+        "fill",
+        "write_on",
+        "grow"
+      ],
+      "on_screen_words": 35,
+      "camera": "cut",
+      "example": "140-crore crowd box reused; wallet companies named as examples (before 2013)"
+    },
+    {
+      "start": 337.4,
+      "end": 394.2,
+      "teaches": "in 2014 the RBI licensed payments banks (wallet firms could become one): they may accept demand deposits and give payment, remittance and internet banking services, but may not lend",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {
+          "kind": "highlight",
+          "what": "yellow box titled DIGITAL WALLETS holding four wallet icons",
+          "count": 1
+        },
+        {
+          "kind": "arrow",
+          "what": "arrow into a licence card under the RBI mark, and another out to the payments bank",
+          "count": 2
+        },
+        {
+          "kind": "icon",
+          "what": "licence card under the RBI coin",
+          "count": 1
+        },
+        {
+          "kind": "icon",
+          "what": "payments bank icon in a yellow box, 'introduced in 2014'",
+          "count": 1
+        },
+        {
+          "kind": "bullet_chain",
+          "what": "allowed services with green squares",
+          "count": 5
+        },
+        {
+          "kind": "value_change",
+          "what": "'credit lending' added to the list and struck through in red",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "pop_in",
+        "draw_line",
+        "write_on",
+        "cross_out"
+      ],
+      "level": "L2",
+      "notes": "Licence card as a gate between 'before' and 'after' is a strong reusable picture. Striking out one listed service shows a restriction cleanly. [Events: 3 add, 1 big/reset in 57 s, about one change every 14 s.]",
+      "idea_type": "mechanism",
+      "idea": "A wallet firm passes through an RBI licence and comes out as a payments bank that can hold and move money but cannot lend.",
+      "shown_as": "the wallet icons sit in a yellow box; an arrow runs into a licence card under the RBI mark and another arrow out to a phone-and-bank icon labelled 'introduced 2014' - the licence turns a wallet into a bank; a list of allowed services writes on below, then 'credit lending' joins the list and is struck out in red",
+      "meaning_carrier": "diagram",
+      "things": [
+        "mobile_wallet",
+        "licence_certificate",
+        "brand_logo",
+        "mobile_phone",
+        "bank_card",
+        "bank_building"
+      ],
+      "actions": [
+        "flow_along_arrow",
+        "transform",
+        "write_on",
+        "cross_out"
+      ],
+      "on_screen_words": 35,
+      "camera": "cut",
+      "example": ""
+    },
+    {
+      "start": 394.2,
+      "end": 470.6,
+      "teaches": "payments banks cannot lend because lending carries credit risk; they may not set up NBFC subsidiaries; other entities that meet RBI criteria can also apply for the licence",
+      "canvas": "pan",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {
+          "kind": "text_box",
+          "what": "pale-blue reason note beside the struck-out lending line: credit risk",
+          "count": 1
+        },
+        {
+          "kind": "arrow",
+          "what": "dotted elbow arrow from the payments bank up to an NBFC piggy bank",
+          "count": 1
+        },
+        {
+          "kind": "icon",
+          "what": "piggy bank labelled NBFC",
+          "count": 1
+        },
+        {
+          "kind": "mark",
+          "what": "red X on the dotted arrow",
+          "count": 1
+        },
+        {
+          "kind": "text_box",
+          "what": "blue rule note: no NBFC subsidiaries",
+          "count": 1
+        },
+        {
+          "kind": "arrow",
+          "what": "row of thin upward arrows under the rule note",
+          "count": 6
+        },
+        {
+          "kind": "text_box",
+          "what": "'Or, any entity meeting RBI criteria' box with an elbow arrow into the licence card",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "pan",
+        "write_on",
+        "draw_line",
+        "cross_out",
+        "pop_in"
+      ],
+      "level": "L2",
+      "notes": "Blocked path = dotted arrow with a red X on it. The row of up-arrows under the NBFC note has no clear meaning from stills. Second entry route into the same licence card is neat. [Events: 4 add, 1 big/reset in 76 s, about one change every 15 s.]",
+      "idea_type": "mechanism",
+      "idea": "Payments banks are kept away from lending risk, and wallets are not the only ones who can apply.",
+      "shown_as": "the view shifts left; a reason note sits beside the struck-out 'lending'; a dotted arrow from the payments bank climbs to a piggy bank labelled NBFC and is blocked by a red X; a row of thin up-arrows rises under the rule note; finally an 'or any eligible entity' box sends an elbow arrow into the licence card as a second entry route",
+      "meaning_carrier": "diagram",
+      "things": [
+        "mobile_wallet",
+        "licence_certificate",
+        "brand_logo",
+        "mobile_phone",
+        "bank_card",
+        "bank_building",
+        "piggy_bank",
+        "cross_mark"
+      ],
+      "actions": [
+        "pan",
+        "draw_line",
+        "cross_out",
+        "write_on",
+        "pop_in"
+      ],
+      "on_screen_words": 75,
+      "camera": "pan",
+      "example": ""
+    },
+    {
+      "start": 470.6,
+      "end": 521.4,
+      "teaches": "current lists of small finance banks and payments banks; a payments bank must carry the word 'Payments' in its name to set it apart from full banks",
+      "canvas": "new",
+      "layout": "table",
+      "elements": [
+        {
+          "kind": "icon",
+          "what": "small bank and payments bank icons as column headers",
+          "count": 2
+        },
+        {
+          "kind": "table",
+          "what": "pasted web-style table of about 12 small finance bank names",
+          "count": 1
+        },
+        {
+          "kind": "text_box",
+          "what": "numbered list of 6 payments bank names in a beige box",
+          "count": 1
+        },
+        {
+          "kind": "text_box",
+          "what": "paragraph on the required word in the name",
+          "count": 1
+        },
+        {
+          "kind": "logo_or_brand",
+          "what": "channel app promo overlay from about 515 s, ignored",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "pop_in",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "Pasted table with real bank names (brand mentions, not drawn logos); exam-recall material, no picture. Channel promo overlay from about 515 s; ignore. [Events: 0 add, 4 big/reset in 51 s, about one change every 13 s.]",
+      "idea_type": "data_status",
+      "idea": "These are the banks of each type today, and a payments bank can be spotted by its name.",
+      "shown_as": "two lists drop in under their icons - a long table of small finance bank names and a numbered list of payments banks - then a paragraph explains the required word in the name",
+      "meaning_carrier": "text_only",
+      "things": [
+        "bank_building",
+        "mobile_phone",
+        "bank_card",
+        "table_grid"
+      ],
+      "actions": [
+        "pop_in",
+        "write_on"
+      ],
+      "on_screen_words": 110,
+      "camera": "cut",
+      "example": "about 12 small finance banks and 6 payments banks named"
+    },
+    {
+      "start": 521.4,
+      "end": 528.1,
+      "teaches": "channel end screen (no teaching)",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {
+          "kind": "end_screen",
+          "what": "next-video and playlist end card with bird illustrations",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "clear_canvas"
+      ],
+      "level": "L2",
+      "notes": "Non-teaching end screen; ignore. idea_type 'end_screen' matches the other batch-3 cards. [Events: 0 add, 1 big/reset in 7 s, about one change every 7 s.]",
+      "idea_type": "end_screen",
+      "idea": "no teaching content",
+      "shown_as": "canvas is replaced by the channel's next-video / playlist card",
+      "meaning_carrier": "text_only",
+      "things": [
+        "brand_logo"
+      ],
+      "actions": [],
+      "on_screen_words": 6,
+      "camera": "cut",
+      "example": ""
+    }
+  ]
+}

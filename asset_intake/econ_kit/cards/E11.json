@@ -3,7 +3,8 @@
   "title_guess": "Repo rate, reverse repo rate and the Liquidity Adjustment Facility",
   "segments": [
     {
-      "start": 0, "end": 69,
+      "start": 0,
+      "end": 69,
       "teaches": "banks borrow from the RBI long-term at bank rate and short-term at repo rate; that cost passes into the loan rate people pay, so a lower rate means more borrowing",
       "canvas": "new",
       "layout": "flow_top_down",
@@ -18,10 +19,20 @@
       ],
       "motions": ["pop_in", "draw_line", "write_on"],
       "level": "L2",
-      "notes": "Starts from the everyday case (bank lends to a person), then adds the layer above it. The % symbol is the recurring 'rate' token, always red."
+      "notes": "Starts from the everyday case (bank lends to a person), then adds the layer above it. The % symbol is the recurring 'rate' token, always red.",
+      "idea_type": "mechanism",
+      "idea": "banks borrow from the RBI long-term at bank rate and short-term at repo rate; that cost passes into the loan rate people pay, so a lower rate means more borrowing",
+      "shown_as": "a bank lends to a person by a 'loan' arrow; the RBI emblem above, tagged 'banker of the banks', sends long-term and short-term loans down to the bank; two red % signs labelled bank rate and repo rate sit in a strip and a dotted arrow carries the repo % down onto the person's loan, whose % splits into less (more borrowing) and more (less borrowing)",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["bank_building", "person", "brand_logo", "percentage_badge"],
+      "actions": ["pop_in", "draw_line", "write_on", "flow_along_arrow", "split"],
+      "on_screen_words": 26,
+      "camera": "cut",
+      "example": ""
     },
     {
-      "start": 69, "end": 155,
+      "start": 69,
+      "end": 155,
       "teaches": "repo rate: RBI lends short-term to banks; reverse repo: banks lend short-term back to RBI; both are set by the RBI and act on banks' liquidity",
       "canvas": "new",
       "layout": "flow_top_down",
@@ -34,10 +45,20 @@
       ],
       "motions": ["clear_canvas", "draw_line", "pop_in", "write_on"],
       "level": "L2",
-      "notes": "Two opposite-direction flows on one diagram: solid arrow down for repo, dotted loop up for reverse repo."
+      "notes": "Two opposite-direction flows on one diagram: solid arrow down for repo, dotted loop up for reverse repo.",
+      "idea_type": "mechanism",
+      "idea": "repo: RBI lends short-term to banks; reverse repo: banks lend short-term back to RBI; RBI sets both and they act on bank liquidity",
+      "shown_as": "a vertical chain RBI -> short-term loan -> repo % -> bank, and a dotted elbow loop back up from the bank to RBI carrying the reverse repo %; 'determined by RBI' bands over each rate; 'liquidity' under the bank branches to low (red) and high (green) with a definition",
+      "meaning_carrier": "diagram",
+      "things": ["brand_logo", "bank_building", "percentage_badge"],
+      "actions": ["clear_canvas", "draw_line", "pop_in", "write_on", "flow_along_arrow"],
+      "on_screen_words": 30,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 155, "end": 217,
+      "start": 155,
+      "end": 217,
       "teaches": "lowering both rates raises liquidity; raising both rates lowers it",
       "canvas": "builds_on_previous",
       "layout": "flow_top_down",
@@ -47,10 +68,20 @@
       ],
       "motions": ["write_on", "swap_element"],
       "level": "L2",
-      "notes": "State-swap trick: the same labels flip from decreased to increased while the diagram stays still, showing the two policy directions."
+      "notes": "State-swap trick: the same labels flip from decreased to increased while the diagram stays still, showing the two policy directions.",
+      "idea_type": "cause_effect",
+      "idea": "cutting both rates raises liquidity; raising both lowers it",
+      "shown_as": "'decreased' in green is written into both rate bands, then flipped to 'increased' in red while the diagram stays still; small grey notes under low and high liquidity record which way the rates moved",
+      "meaning_carrier": "diagram",
+      "things": [],
+      "actions": ["write_on", "swap_element"],
+      "on_screen_words": 38,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 217, "end": 257,
+      "start": 217,
+      "end": 257,
       "teaches": "together the two rates form the Liquidity Adjustment Facility (from 2000), a key tool of RBI monetary policy",
       "canvas": "builds_on_previous",
       "layout": "free",
@@ -63,10 +94,20 @@
       ],
       "motions": ["swap_element", "slide_in", "write_on"],
       "level": "L2",
-      "notes": "Grouping trick: separate items collapse into one framed box that is then named."
+      "notes": "Grouping trick: separate items collapse into one framed box that is then named.",
+      "idea_type": "definition",
+      "idea": "the two rates together form the Liquidity Adjustment Facility (2000), a key tool of monetary policy",
+      "shown_as": "the two % rates are pulled together into one black-bordered blue box named LAF with its full name, a yellow year chip and a line calling it a key part of the policy framework, with a dotted loop down to liquidity",
+      "meaning_carrier": "diagram",
+      "things": ["percentage_badge"],
+      "actions": ["swap_element", "slide_in", "write_on", "join"],
+      "on_screen_words": 45,
+      "camera": "still",
+      "example": "LAF from 2000"
     },
     {
-      "start": 257, "end": 310,
+      "start": 257,
+      "end": 310,
       "teaches": "repo is a repurchase agreement: the bank gives government securities to the RBI as collateral and promises to buy them back on a set date at a set price",
       "canvas": "new",
       "layout": "flow_top_down",
@@ -81,10 +122,20 @@
       ],
       "motions": ["clear_canvas", "draw_line", "pop_in", "highlight_text", "write_on"],
       "level": "L2",
-      "notes": "Explains the name of the instrument by unpacking the word (repo = repurchase)."
+      "notes": "Explains the name of the instrument by unpacking the word (repo = repurchase).",
+      "idea_type": "mechanism",
+      "idea": "repo is a repurchase agreement: the bank gives government securities to the RBI as collateral and promises to buy them back on a set date at a set price",
+      "shown_as": "the repo chain returns; a bond certificate between bank and RBI links to a government-security label with the national emblem; a dotted loop runs bank -> security -> RBI under a cream band; a checklist agreement document speaks the buy-back promise, with a curved arrow to the bold title 'repurchase agreement'",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["brand_logo", "bank_building", "bond_certificate", "document", "percentage_badge"],
+      "actions": ["clear_canvas", "draw_line", "pop_in", "highlight_text", "write_on", "hand_over", "flow_along_arrow"],
+      "on_screen_words": 25,
+      "camera": "clear",
+      "example": ""
     },
     {
-      "start": 310, "end": 393,
+      "start": 310,
+      "end": 393,
       "teaches": "the RBI buys the security at a discount to its price; the discount is set by the repo rate; the buy-back price is the rate of repurchase",
       "canvas": "builds_on_previous",
       "layout": "flow_top_down",
@@ -95,10 +146,20 @@
       ],
       "motions": ["draw_line", "pop_in", "write_on"],
       "level": "L2",
-      "notes": "Small running numeric example (100 vs 100 minus discount) placed directly on the diagram parts it describes."
+      "notes": "Small running numeric example (100 vs 100 minus discount) placed directly on the diagram parts it describes.",
+      "idea_type": "mechanism",
+      "idea": "the RBI buys the security at a discount set by the repo rate; the buy-back price is the rate of repurchase",
+      "shown_as": "an arrow from the agreement leads to a chain: RBI buys at a discounted price -> worked out from the repo rate -> rate of repurchase; value chips sit on the diagram parts: security worth 100, loan of 100 minus discount",
+      "meaning_carrier": "diagram",
+      "things": ["document", "bond_certificate"],
+      "actions": ["draw_line", "pop_in", "write_on"],
+      "on_screen_words": 43,
+      "camera": "still",
+      "example": "security worth 100 -> loan of 100 minus discount"
     },
     {
-      "start": 393, "end": 480,
+      "start": 393,
+      "end": 480,
       "teaches": "the basic repo is an overnight loan",
       "canvas": "builds_on_previous",
       "layout": "flow_top_down",
@@ -108,10 +169,20 @@
       ],
       "motions": ["swap_element", "slide_in"],
       "level": "L2",
-      "notes": "Canvas then holds still for about 80 seconds while the narrator talks; no visual change in that stretch."
+      "notes": "Canvas then holds still for about 80 seconds while the narrator talks; no visual change in that stretch.",
+      "idea_type": "definition",
+      "idea": "the basic repo is an overnight loan",
+      "shown_as": "the 'repurchase agreement' title moves beside the document and a green dashed ribbon 'repo' appears, led by an 'overnight' label; then the canvas holds still for about 80 s",
+      "meaning_carrier": "text_only",
+      "things": ["document"],
+      "actions": ["swap_element", "slide_in"],
+      "on_screen_words": 45,
+      "camera": "still",
+      "example": ""
     },
     {
-      "start": 480, "end": 533,
+      "start": 480,
+      "end": 533,
       "teaches": "term repos (from 2013) last longer than overnight, usually 7, 14 or 28 days; long-term repos (LTRO, from 2020) run 1 to 3 years",
       "canvas": "builds_on_previous",
       "layout": "flow_top_down",
@@ -122,10 +193,20 @@
       ],
       "motions": ["slide_in", "pop_in", "draw_line", "write_on"],
       "level": "L2",
-      "notes": "Ribbon stack + clipped sticky notes act as a mini timeline of when each repo type arrived."
+      "notes": "Ribbon stack + clipped sticky notes act as a mini timeline of when each repo type arrived.",
+      "idea_type": "timeline",
+      "idea": "term repos (from 2013) run 7, 14 or 28 days; long-term repos (LTRO, from 2020) run 1 to 3 years",
+      "shown_as": "a green 'term repos' ribbon and a pink 'long term repos' ribbon stack under the first; clipped yellow sticky notes add the years and durations, linked by a line to 'longer than overnight'",
+      "meaning_carrier": "text_only",
+      "things": ["sticky_note"],
+      "actions": ["slide_in", "pop_in", "draw_line", "write_on"],
+      "on_screen_words": 65,
+      "camera": "still",
+      "example": "term repo 7/14/28 days (2013); LTRO 1-3 years (2020)"
     },
     {
-      "start": 533, "end": 591,
+      "start": 533,
+      "end": 591,
       "teaches": "how much a bank can borrow: a set share of its deposits (NDTL); with deposits of 2000 crore, 0.25 percent and 0.75 percent give 5 and 15 crore",
       "canvas": "builds_on_previous",
       "layout": "free",
@@ -137,10 +218,20 @@
       ],
       "motions": ["slide_in", "write_on", "pop_in"],
       "level": "L2",
-      "notes": "Running numeric example: one assumed deposit base turned into borrowing limits for each repo type."
+      "notes": "Running numeric example: one assumed deposit base turned into borrowing limits for each repo type.",
+      "idea_type": "numbers",
+      "idea": "a bank can borrow a set share of its deposits (NDTL): on 2000 crore, 0.25% and 0.75% give 5 and 15 crore",
+      "shown_as": "the three ribbons move top-left as a legend; a sticky note on the bank reads NDTL 2000 crore; dash-chains from each ribbon go percent of NDTL -> amount in crore; another note gives the LTRO total",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["sticky_note", "bank_building"],
+      "actions": ["slide_in", "write_on", "pop_in"],
+      "on_screen_words": 27,
+      "camera": "still",
+      "example": "NDTL 2000 crore: 0.25% -> 5 crore, 0.75% -> 15 crore"
     },
     {
-      "start": 591, "end": 662,
+      "start": 591,
+      "end": 662,
       "teaches": "reverse repo: banks park surplus funds with the RBI; the RBI gives securities and promises to buy them back; it is a reverse repurchase agreement",
       "canvas": "new",
       "layout": "flow_top_down",
@@ -154,10 +245,20 @@
       ],
       "motions": ["swap_element", "draw_line", "pop_in", "highlight_text"],
       "level": "L2",
-      "notes": "Mirror of the repo segment with arrows reversed and one key word changed; reuses the same component layout."
+      "notes": "Mirror of the repo segment with arrows reversed and one key word changed; reuses the same component layout.",
+      "idea_type": "mechanism",
+      "idea": "reverse repo: banks park spare funds with the RBI; the RBI gives securities and promises to buy them back (reverse repurchase agreement)",
+      "shown_as": "the repo chain fades and a dotted loop carries the reverse repo % up from the bank to RBI; a tilted paper note on the bank says banks park surplus funds; a second dotted loop runs RBI -> security -> bank, opposite to repo, under a cream band; the agreement box now highlights 'resell' and is titled reverse repurchase agreement",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["bank_building", "brand_logo", "bond_certificate", "sticky_note", "document", "percentage_badge"],
+      "actions": ["swap_element", "draw_line", "pop_in", "highlight_text", "hand_over", "flow_along_arrow"],
+      "on_screen_words": 40,
+      "camera": "cut",
+      "example": ""
     },
     {
-      "start": 662, "end": 681,
+      "start": 662,
+      "end": 681,
       "teaches": "channel promotion",
       "canvas": "new",
       "layout": "free",
@@ -166,7 +267,40 @@
       ],
       "motions": ["clear_canvas", "fade_in"],
       "level": "L2",
-      "notes": "End screen; ignore for teaching."
+      "notes": "End screen; ignore for teaching.",
+      "idea_type": "end_screen",
+      "idea": "none (channel promotion; no teaching)",
+      "shown_as": "next-video and playlist panels with illustrated birds",
+      "meaning_carrier": "text_only",
+      "things": ["end_screen_panel", "bird"],
+      "actions": ["clear_canvas", "fade_in"],
+      "on_screen_words": 6,
+      "camera": "clear",
+      "example": ""
     }
-  ]
+  ],
+  "format": "build_up_canvas",
+  "recurring_cast": [
+    "brand_logo (RBI emblem coin)",
+    "bank_building",
+    "person (borrower)",
+    "percentage_badge: red % rate token",
+    "bond_certificate (government security)",
+    "agreement document with speech box",
+    "repo ribbons and sticky notes"
+  ],
+  "running_examples": [
+    "security worth 100 -> loan of 100 minus discount",
+    "NDTL 2000 crore: 0.25% -> 5 crore, 0.75% -> 15 crore"
+  ],
+  "best_moments": [
+    {"t": 69, "why": "solid arrow down for repo and dotted loop up for reverse repo on one diagram"},
+    {"t": 257, "why": "the security passes from bank to RBI inside the loan loop: collateral is seen"},
+    {"t": 591, "why": "the repo picture mirrored with arrows reversed makes reverse repo obvious"}
+  ],
+  "weak_moments": [
+    {"t": 393, "why": "the canvas holds still for about 80 s while the narrator talks"},
+    {"t": 480, "why": "repo types as ribbons and sticky notes; text only"}
+  ],
+  "upgraded_from": "batch2 card text"
 }

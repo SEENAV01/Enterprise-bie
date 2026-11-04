@@ -1,0 +1,1198 @@
+{
+ "schema": "bie.saanche-needs/1",
+ "subject": "economics",
+ "videos": 37,
+ "segments": 346,
+ "how_counted": "a thing counts once per card segment it appears in; synonyms merged (aggregate3.ALIAS)",
+ "by_status": {
+  "replace": {
+   "things": 6,
+   "segments": 127
+  },
+  "have_v2": {
+   "things": 12,
+   "segments": 233
+  },
+  "engine": {
+   "things": 17,
+   "segments": 192
+  },
+  "built_batch3": {
+   "things": 11,
+   "segments": 180
+  },
+  "decision": {
+   "things": 1,
+   "segments": 27
+  },
+  "have_icon": {
+   "things": 18,
+   "segments": 109
+  },
+  "one_off": {
+   "things": 90,
+   "segments": 172
+  },
+  "build_next": {
+   "things": 10,
+   "segments": 34
+  }
+ },
+ "things": [
+  {
+   "thing": "brand_logo",
+   "segments": 94,
+   "videos": 25,
+   "status": "replace",
+   "how": "institutionBadge (kind + name + sub), never a real logo or emblem"
+  },
+  {
+   "thing": "bank_building",
+   "segments": 61,
+   "videos": 12,
+   "status": "have_v2",
+   "how": "bank(label); centralBank for RBI; variants for cooperative / payments / rural branch = build_next"
+  },
+  {
+   "thing": "timeline",
+   "segments": 51,
+   "videos": 12,
+   "status": "engine",
+   "how": "timeline part: years, era bands, ownership zones, law arcs, hop arrows (v2 engine has none yet)"
+  },
+  {
+   "thing": "person",
+   "segments": 49,
+   "videos": 18,
+   "status": "have_v2",
+   "how": "person rig with 10 looks, poses, expressions"
+  },
+  {
+   "thing": "table_grid",
+   "segments": 37,
+   "videos": 14,
+   "status": "engine",
+   "how": "table with rows on their words, highlighted cells (econ_kit canvas_build)"
+  },
+  {
+   "thing": "rupee_note",
+   "segments": 34,
+   "videos": 10,
+   "status": "have_v2",
+   "how": "note(value) and noteBundle in BIE's own colours (not RBI designs)"
+  },
+  {
+   "thing": "document",
+   "segments": 33,
+   "videos": 14,
+   "status": "built_batch3",
+   "how": "paper(kind=report|contract|...)"
+  },
+  {
+   "thing": "bond_certificate",
+   "segments": 30,
+   "videos": 7,
+   "status": "built_batch3",
+   "how": "paper(kind=bond, value, note)"
+  },
+  {
+   "thing": "crowd_people",
+   "segments": 28,
+   "videos": 12,
+   "status": "built_batch3",
+   "how": "crowd(n, cols, share, labels, dimRest)"
+  },
+  {
+   "thing": "india_map",
+   "segments": 27,
+   "videos": 11,
+   "status": "decision",
+   "how": "India outline must follow the official boundary (Survey of India); open datasets show other boundaries"
+  },
+  {
+   "thing": "graph_axes",
+   "segments": 27,
+   "videos": 12,
+   "status": "engine",
+   "how": "curve_story (econ_kit): axes, walking dot, drop lines, shades, shifts"
+  },
+  {
+   "thing": "tick_mark",
+   "segments": 26,
+   "videos": 8,
+   "status": "have_v2",
+   "how": "mark(kind=tick)"
+  },
+  {
+   "thing": "law_document",
+   "segments": 24,
+   "videos": 6,
+   "status": "built_batch3",
+   "how": "paper(kind=law, title, year, stamp)"
+  },
+  {
+   "thing": "basket",
+   "segments": 21,
+   "videos": 6,
+   "status": "have_icon",
+   "how": "Fluent basket / shopping cart; size by spending = build_next variant"
+  },
+  {
+   "thing": "factory",
+   "segments": 20,
+   "videos": 11,
+   "status": "have_icon",
+   "how": "Fluent factory; a parametric factory with smoke and goods = build_next"
+  },
+  {
+   "thing": "percentage_badge",
+   "segments": 17,
+   "videos": 6,
+   "status": "built_batch3",
+   "how": "disc(text) or institution-free tag"
+  },
+  {
+   "thing": "vault",
+   "segments": 16,
+   "videos": 4,
+   "status": "built_batch3",
+   "how": "vault(label, fill, door, locked, tag, metal)"
+  },
+  {
+   "thing": "question_paper",
+   "segments": 16,
+   "videos": 1,
+   "status": "one_off",
+   "how": "only in the paper-analysis video; notes/assessment will define its own page saancha"
+  },
+  {
+   "thing": "question_mark",
+   "segments": 15,
+   "videos": 12,
+   "status": "have_v2",
+   "how": "mark(kind=question)"
+  },
+  {
+   "thing": "tablet",
+   "segments": 14,
+   "videos": 1,
+   "status": "one_off",
+   "how": "channel cut-aways; not needed"
+  },
+  {
+   "thing": "real_person_photo",
+   "segments": 13,
+   "videos": 6,
+   "status": "replace",
+   "how": "a name card or a generic person; never a real face"
+  },
+  {
+   "thing": "token_square",
+   "segments": 13,
+   "videos": 2,
+   "status": "engine",
+   "how": "coloured unit squares for counting (count/split/join part)"
+  },
+  {
+   "thing": "cross_mark",
+   "segments": 12,
+   "videos": 10,
+   "status": "have_v2",
+   "how": "mark(kind=cross)"
+  },
+  {
+   "thing": "committee_desk",
+   "segments": 12,
+   "videos": 5,
+   "status": "built_batch3",
+   "how": "committee(n, name, sub, color)"
+  },
+  {
+   "thing": "india_flag",
+   "segments": 11,
+   "videos": 4,
+   "status": "one_off",
+   "how": "national flag only where the book needs it, drawn to the Flag Code proportions"
+  },
+  {
+   "thing": "mobile_phone",
+   "segments": 11,
+   "videos": 7,
+   "status": "have_v2",
+   "how": "phone(screen=scan|paid|received)"
+  },
+  {
+   "thing": "road_map_blob",
+   "segments": 10,
+   "videos": 1,
+   "status": "engine",
+   "how": "lesson road map sidebar whose highlight moves (recap part)"
+  },
+  {
+   "thing": "instrument_sidebar",
+   "segments": 10,
+   "videos": 1,
+   "status": "engine",
+   "how": "same as road map sidebar"
+  },
+  {
+   "thing": "globe",
+   "segments": 9,
+   "videos": 5,
+   "status": "have_icon",
+   "how": "Fluent globe; a world-to-India flow layout uses the v2 world land outline"
+  },
+  {
+   "thing": "progress_circles",
+   "segments": 9,
+   "videos": 1,
+   "status": "one_off",
+   "how": "assessment progress tracker (notes/assessment section)"
+  },
+  {
+   "thing": "shop",
+   "segments": 8,
+   "videos": 4,
+   "status": "have_v2",
+   "how": "shop background with counter; a small shop thing = have_icon"
+  },
+  {
+   "thing": "laptop",
+   "segments": 7,
+   "videos": 3,
+   "status": "have_icon",
+   "how": "Fluent laptop"
+  },
+  {
+   "thing": "stamp",
+   "segments": 7,
+   "videos": 1,
+   "status": "built_batch3",
+   "how": "paper(stamp=...) and disc(text)"
+  },
+  {
+   "thing": "live_footage",
+   "segments": 7,
+   "videos": 1,
+   "status": "replace",
+   "how": "never used"
+  },
+  {
+   "thing": "bottle",
+   "segments": 6,
+   "videos": 3,
+   "status": "have_icon",
+   "how": "Fluent bottle / goods"
+  },
+  {
+   "thing": "money_bag",
+   "segments": 6,
+   "videos": 4,
+   "status": "built_batch3",
+   "how": "moneyBag(w, label, sign)"
+  },
+  {
+   "thing": "dollar_note",
+   "segments": 6,
+   "videos": 2,
+   "status": "build_next",
+   "how": "foreign note: note(value, currency) generic, not a real design"
+  },
+  {
+   "thing": "flag_card",
+   "segments": 6,
+   "videos": 1,
+   "status": "one_off",
+   "how": "country name card instead of flags"
+  },
+  {
+   "thing": "goods_boxes",
+   "segments": 6,
+   "videos": 2,
+   "status": "have_icon",
+   "how": "Fluent package / boxes"
+  },
+  {
+   "thing": "landmark_building",
+   "segments": 6,
+   "videos": 2,
+   "status": "replace",
+   "how": "no real landmark buildings; a generic building + place label"
+  },
+  {
+   "thing": "hand",
+   "segments": 6,
+   "videos": 2,
+   "status": "build_next",
+   "how": "hands that give / receive / hold (fund surplus → fund scarce); part of the person rig today"
+  },
+  {
+   "thing": "speech_bubble",
+   "segments": 5,
+   "videos": 4,
+   "status": "have_v2",
+   "how": "bubble kind2 (engine)"
+  },
+  {
+   "thing": "grocery_bag",
+   "segments": 5,
+   "videos": 3,
+   "status": "have_icon",
+   "how": "Fluent shopping bags"
+  },
+  {
+   "thing": "ownership_zone",
+   "segments": 5,
+   "videos": 2,
+   "status": "engine",
+   "how": "timeline zone (coloured band over a period with members inside)"
+  },
+  {
+   "thing": "crown",
+   "segments": 5,
+   "videos": 2,
+   "status": "have_icon",
+   "how": "Fluent crown (for the colonial-era law sheet)"
+  },
+  {
+   "thing": "stacked_bar",
+   "segments": 5,
+   "videos": 2,
+   "status": "engine",
+   "how": "split bar: one sum cut into coloured slices that then travel (split part)"
+  },
+  {
+   "thing": "bank_card",
+   "segments": 5,
+   "videos": 1,
+   "status": "have_v2",
+   "how": "accountCard / debit card = have_icon"
+  },
+  {
+   "thing": "focus_circle",
+   "segments": 5,
+   "videos": 2,
+   "status": "engine",
+   "how": "highlight / zoom part"
+  },
+  {
+   "thing": "growth_title_card",
+   "segments": 5,
+   "videos": 1,
+   "status": "engine",
+   "how": "title card / heading chip"
+  },
+  {
+   "thing": "country_flag",
+   "segments": 4,
+   "videos": 3,
+   "status": "replace",
+   "how": "country name card"
+  },
+  {
+   "thing": "house",
+   "segments": 4,
+   "videos": 3,
+   "status": "have_icon",
+   "how": "Fluent house"
+  },
+  {
+   "thing": "rope",
+   "segments": 4,
+   "videos": 1,
+   "status": "build_next",
+   "how": "rope / rod linking two notes (peg): connector style in the engine"
+  },
+  {
+   "thing": "calendar",
+   "segments": 4,
+   "videos": 2,
+   "status": "have_v2",
+   "how": "calendar"
+  },
+  {
+   "thing": "sticky_note",
+   "segments": 4,
+   "videos": 2,
+   "status": "engine",
+   "how": "note box (canvas_build callout)"
+  },
+  {
+   "thing": "formula_card",
+   "segments": 4,
+   "videos": 2,
+   "status": "engine",
+   "how": "formula part (KaTeX equation steps)"
+  },
+  {
+   "thing": "tier_band",
+   "segments": 4,
+   "videos": 1,
+   "status": "engine",
+   "how": "nested containers / tier bands (hierarchy part)"
+  },
+  {
+   "thing": "licence_paper",
+   "segments": 4,
+   "videos": 2,
+   "status": "built_batch3",
+   "how": "paper(kind=licence)"
+  },
+  {
+   "thing": "price_tag",
+   "segments": 3,
+   "videos": 3,
+   "status": "build_next",
+   "how": "hanging price tag that flips and is struck/replaced (econ_kit world_scene has one in TSX)"
+  },
+  {
+   "thing": "bar_chart_icon",
+   "segments": 3,
+   "videos": 2,
+   "status": "have_icon",
+   "how": "Fluent bar chart"
+  },
+  {
+   "thing": "magnifier",
+   "segments": 3,
+   "videos": 3,
+   "status": "have_icon",
+   "how": "Fluent magnifying glass"
+  },
+  {
+   "thing": "warehouse",
+   "segments": 3,
+   "videos": 3,
+   "status": "have_icon",
+   "how": "Font Awesome warehouse (CC BY) / Fluent"
+  },
+  {
+   "thing": "office_building",
+   "segments": 3,
+   "videos": 2,
+   "status": "build_next",
+   "how": "generic office / company building with a name plate"
+  },
+  {
+   "thing": "car",
+   "segments": 3,
+   "videos": 2,
+   "status": "have_icon",
+   "how": "Fluent car"
+  },
+  {
+   "thing": "armchair",
+   "segments": 3,
+   "videos": 1,
+   "status": "have_icon",
+   "how": "Fluent chair / couch"
+  },
+  {
+   "thing": "checkbox",
+   "segments": 3,
+   "videos": 2,
+   "status": "engine",
+   "how": "tick grid part"
+  },
+  {
+   "thing": "highlight_band",
+   "segments": 3,
+   "videos": 1,
+   "status": "engine",
+   "how": "highlight part"
+  },
+  {
+   "thing": "market_banner",
+   "segments": 3,
+   "videos": 1,
+   "status": "engine",
+   "how": "heading chip"
+  },
+  {
+   "thing": "risk_badge",
+   "segments": 3,
+   "videos": 1,
+   "status": "built_batch3",
+   "how": "disc(text=RISK)"
+  },
+  {
+   "thing": "money_market_band",
+   "segments": 3,
+   "videos": 1,
+   "status": "engine",
+   "how": "labelled ground band that things drop into / rise from"
+  },
+  {
+   "thing": "village_scene",
+   "segments": 3,
+   "videos": 1,
+   "status": "have_v2",
+   "how": "village background"
+  },
+  {
+   "thing": "government_building",
+   "segments": 3,
+   "videos": 1,
+   "status": "build_next",
+   "how": "generic domed government building (institutionBadge kind=government meanwhile)"
+  },
+  {
+   "thing": "database_cylinder",
+   "segments": 3,
+   "videos": 1,
+   "status": "have_icon",
+   "how": "Font Awesome database"
+  },
+  {
+   "thing": "weight_icon",
+   "segments": 3,
+   "videos": 1,
+   "status": "have_icon",
+   "how": "Fluent balance scale"
+  },
+  {
+   "thing": "cooperative_bank_badge",
+   "segments": 3,
+   "videos": 1,
+   "status": "replace",
+   "how": "institutionBadge(kind=cooperative)"
+  },
+  {
+   "thing": "rural_bank_hut",
+   "segments": 3,
+   "videos": 1,
+   "status": "build_next",
+   "how": "village bank branch / PACS hut"
+  },
+  {
+   "thing": "mobile_wallet",
+   "segments": 3,
+   "videos": 1,
+   "status": "have_icon",
+   "how": "Fluent mobile phone + purse"
+  },
+  {
+   "thing": "family",
+   "segments": 2,
+   "videos": 2,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "umbrella",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "muscular_arms",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "oil_barrel",
+   "segments": 2,
+   "videos": 2,
+   "status": "have_icon",
+   "how": "Fluent oil drum"
+  },
+  {
+   "thing": "sack",
+   "segments": 2,
+   "videos": 2,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "line_chart",
+   "segments": 2,
+   "videos": 2,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "gauge",
+   "segments": 2,
+   "videos": 1,
+   "status": "build_next",
+   "how": "rating / risk gauge with a needle"
+  },
+  {
+   "thing": "stock_exchange_building",
+   "segments": 2,
+   "videos": 2,
+   "status": "build_next",
+   "how": "generic exchange building with a ticker band"
+  },
+  {
+   "thing": "world_map",
+   "segments": 2,
+   "videos": 2,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "syringe",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "scooter",
+   "segments": 2,
+   "videos": 2,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "commodity_block",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "server_rack",
+   "segments": 2,
+   "videos": 2,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "barrier_wall",
+   "segments": 2,
+   "videos": 1,
+   "status": "build_next",
+   "how": "wall that blocks a path (arrows loop around it)"
+  },
+  {
+   "thing": "holder_slot",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "bed",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "truck",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "fuel_pump",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "light_bulb",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "refrigerator",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "gas_cylinder",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "firewood",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "slippers",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "washing_machine",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "necklace",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "chair",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "tobacco_tin",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "oil_can",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "clothes_rack",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "egg",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "web_page",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "presenter_at_board",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "cow",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "buffalo",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "budget_briefcase",
+   "segments": 2,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "desk",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "magazine_cover",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "star",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "scale_balance",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "airplane",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "food",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "medicine",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "graduate",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "bus",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "fuel",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "crate",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "lamp",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "seeds",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "farmer",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "pointing_hand",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "bar_block",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "funnel",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "gold_bar",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "rod",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "television",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "sofa",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "megaphone",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "plug_cable",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "gears",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "chalkboard",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "place_banner",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "payment_token",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "sleep_zzz",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "warning_badge",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "coin",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "region_box",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "milk_bottle",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "fruit_bowl",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "chicken",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "drink_bottle",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "wallet_cash",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "handshake_cash",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "quote_mark",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "quote_marks",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "gear_tools",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "chat_bubble",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "shield",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "region_band",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "bar_chart",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "piggy_bank",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "staircase",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "measuring_tape",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "name_chip",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "group_frame",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "yak",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "pig",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "sheep",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "goat",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  },
+  {
+   "thing": "cash_stack",
+   "segments": 1,
+   "videos": 1,
+   "status": "one_off",
+   "how": "left to BIE's AI or an icon when a book needs it"
+  }
+ ]
+}
