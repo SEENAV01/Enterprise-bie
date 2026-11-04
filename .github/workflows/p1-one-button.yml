@@ -20,6 +20,12 @@ on:
       wait_minutes:
         description: how long to wait for the renders before giving up
         default: '150'
+      notes_run:
+        description: the run folder holding notes/ when the writers ran as their own VM jobs (empty = run_folder)
+        default: ''
+      game_run:
+        description: the run folder holding game/ when the writers ran as their own VM jobs (empty = run_folder)
+        default: ''
 
 permissions:
   contents: read
@@ -33,6 +39,8 @@ env:
   DEST: ${{ inputs.dest || 'p1-review' }}
   CHUNKS: ${{ inputs.chunks || '6' }}
   WAIT_MINUTES: ${{ inputs.wait_minutes || '150' }}
+  NOTES_RUN: ${{ inputs.notes_run || '' }}
+  GAME_RUN: ${{ inputs.game_run || '' }}
 
 jobs:
   fanout:
@@ -115,14 +123,17 @@ jobs:
           set -euo pipefail
           cd "$RUNNER_TEMP/branch"
           git checkout -q FETCH_HEAD -- "$RUN_FOLDER"
+          if [ -n "$NOTES_RUN" ]; then git checkout -q FETCH_HEAD -- "$NOTES_RUN"; fi
+          if [ -n "$GAME_RUN" ]; then git checkout -q FETCH_HEAD -- "$GAME_RUN"; fi
           videos=$(echo '${{ needs.fanout.outputs.videos }}' | python -c 'import json,sys; print(" ".join(json.load(sys.stdin)))')
           for video in $videos; do git checkout -q FETCH_HEAD -- "runs/$DEST-$video"; done
           out="$RUNNER_TEMP/page"
           mkdir -p "$out/videos" "$out/stills"
           cp "$RUN_FOLDER/showplan.json" "$out/"
-          for part in notes game plans; do
-            if [ -d "$RUN_FOLDER/$part" ]; then cp -R "$RUN_FOLDER/$part" "$out/$part"; fi
-          done
+          if [ -d "$RUN_FOLDER/plans" ]; then cp -R "$RUN_FOLDER/plans" "$out/plans"; fi
+          notes_src="${NOTES_RUN:-$RUN_FOLDER}"; game_src="${GAME_RUN:-$RUN_FOLDER}"
+          if [ -d "$notes_src/notes" ]; then cp -R "$notes_src/notes" "$out/notes"; fi
+          if [ -d "$game_src/game" ]; then cp -R "$game_src/game" "$out/game"; fi
           for video in $videos; do
             src="runs/$DEST-$video"
             cp "$src/review-720p.mp4" "$out/videos/$video.mp4"
