@@ -476,7 +476,7 @@ function moneyBag(p) {
 const BUILDING_KINDS = {
   office: ["#5b7fb8", "#e9eef6"], government: ["#e07b24", "#f6efe6"], exchange: ["#2a9d8f", "#eef6f4"],
   house: ["#c0563f", "#f4ead9"], tower: ["#6c7a8c", "#e7ecf1"], shop: ["#e5484d", "#f7efe2"],
-  warehouse: ["#8a6d3b", "#efe6d6"], hut: ["#a0703d", "#efe2c8"], court: ["#7a4e22", "#f3ead9"],
+  warehouse: ["#8a6d3b", "#efe6d6"], hut: ["#a0703d", "#efe2c8"], court: ["#7a4e22", "#f3ead9"], factory: ["#9b4a3a", "#e4ded2"],
 };
 
 function windows(x0, y0, cols, rows, cw, ch, gx, gy, fill) {
@@ -527,6 +527,16 @@ function building(p) {
     body = `<path d="M${-w * 0.48} 0 L${-w * 0.48} ${-h} L0 ${-h - w * 0.2} L${w * 0.48} ${-h} L${w * 0.48} 0 Z" fill="${wall}" stroke="${shade(roof)}" stroke-width="${w * 0.012}"/>` +
       `<rect x="${-w * 0.24}" y="${-h * 0.62}" width="${w * 0.48}" height="${h * 0.62}" fill="${shade(roof, 1.1)}"/>` +
       [0.1, 0.22, 0.34, 0.46].map((f) => `<path d="M${-w * 0.24} ${-h * 0.62 + h * f * 1.2} L${w * 0.24} ${-h * 0.62 + h * f * 1.2}" stroke="${shade(roof, 0.8)}" stroke-width="${w * 0.01}"/>`).join("");
+  } else if (kind === "factory") {
+    const h = w * 0.5, sick = p.sick === true; top = -h - w * 0.17;
+    let saw = "";
+    for (let i = 0; i < 3; i++) saw += `<path d="M${-w * 0.46 + i * w * 0.2} ${-h} L${-w * 0.34 + i * w * 0.2} ${-h - w * 0.13} L${-w * 0.26 + i * w * 0.2} ${-h} Z" fill="${shade(wall, 0.8)}" stroke="${shade(wall, 0.65)}" stroke-width="${w * 0.008}"/>`;
+    const smoke = sick ? "" : [0, 1, 2].map((k) => `<circle cx="${w * 0.33 + k * w * 0.05}" cy="${-h - w * 0.5 - k * w * 0.07}" r="${w * (0.05 + k * 0.02)}" fill="#c7ccd3" opacity="${0.85 - k * 0.2}"/>`).join("");
+    body = `<rect x="${-w * 0.46}" y="${-h}" width="${w * 0.66}" height="${h}" fill="${sick ? "#e8d6d6" : wall}" stroke="${shade(wall, 0.65)}" stroke-width="${w * 0.01}"/>` + saw +
+      `<rect x="${w * 0.27}" y="${-h - w * 0.42}" width="${w * 0.1}" height="${h + w * 0.42}" fill="${sick ? "#9a8f8f" : roof}"/>` + smoke +
+      windows(-w * 0.4, -h * 0.75, 3, 1, w * 0.13, w * 0.1, w * 0.06, 0, sick ? "#8a8f98" : "#9fc7e8") +
+      `<rect x="${-w * 0.2}" y="${-h * 0.42}" width="${w * 0.18}" height="${h * 0.42}" fill="${shade(roof, 0.8)}"/>` +
+      (sick ? `<path d="M${-w * 0.4} ${-h * 0.72} L${-w * 0.3} ${-h * 0.58} M${-w * 0.3} ${-h * 0.72} L${-w * 0.4} ${-h * 0.58}" stroke="#5a4636" stroke-width="${w * 0.012}"/>` : "");
   } else if (kind === "court") {
     const h = w * 0.72; top = -h - w * 0.3;
     let cols = "";
@@ -1119,6 +1129,23 @@ function roadmap(p) {
   return out;
 }
 
+// A plant that grows from a seed to a tree, coins or notes as its fruit (venture and seed funding, growth, compounding).
+function plant(p) {
+  const w = p.w || 240, g = clamp01(p.stage == null ? 0.6 : p.stage), h = w * (0.25 + g * 1.1), fruit = p.fruit || "coin";
+  const pot = `<path d="M${-w * 0.2} ${-w * 0.22} L${w * 0.2} ${-w * 0.22} L${w * 0.15} 0 L${-w * 0.15} 0 Z" fill="#c0563f" stroke="#8a3b2a" stroke-width="${w * 0.015}"/>` +
+    `<rect x="${-w * 0.23}" y="${-w * 0.27}" width="${w * 0.46}" height="${w * 0.07}" rx="${w * 0.02}" fill="#d9734f"/>`;
+  if (g < 0.08) return pot + `<ellipse cx="0" cy="${-w * 0.28}" rx="${w * 0.05}" ry="${w * 0.035}" fill="#8a5a2b"/>` + (p.label ? tx(p.label, 0, w * 0.1, fit(p.label, w, w * 0.12), INK, 800) : "");
+  const stem = `<path d="M0 ${-w * 0.27} C${w * 0.03} ${-w * 0.27 - h * 0.4} ${-w * 0.03} ${-w * 0.27 - h * 0.7} 0 ${-w * 0.27 - h}" fill="none" stroke="${g > 0.6 ? "#8a5a2b" : "#4f9a4a"}" stroke-width="${w * (0.02 + g * 0.05)}" stroke-linecap="round"/>`;
+  const top = -w * 0.27 - h, leaves = g < 0.45
+    ? [-1, 1].map((d) => `<ellipse cx="${d * w * 0.09}" cy="${top + w * 0.04}" rx="${w * 0.1}" ry="${w * 0.045}" fill="#7cc47a" transform="rotate(${d * -25} ${d * w * 0.09} ${top + w * 0.04})"/>`).join("")
+    : `<circle cx="0" cy="${top}" r="${w * (0.18 + g * 0.22)}" fill="#8fbf5a"/><circle cx="${-w * 0.16 * g}" cy="${top + w * 0.08}" r="${w * (0.12 + g * 0.14)}" fill="#7cb24f"/><circle cx="${w * 0.17 * g}" cy="${top + w * 0.06}" r="${w * (0.12 + g * 0.15)}" fill="#9dca6b"/>`;
+  const n = fruit === "none" || g < 0.45 ? 0 : Math.round(2 + g * 5), r = w * 0.045;
+  const fr = [...Array(n).keys()].map((k) => { const a = (k / n) * Math.PI * 2 + 0.4, x = Math.cos(a) * w * 0.2 * g, y = top + Math.sin(a) * w * 0.17 * g;
+    return fruit === "note" ? `<rect x="${x - r * 1.3}" y="${y - r * 0.7}" width="${r * 2.6}" height="${r * 1.4}" rx="${r * 0.2}" fill="#6cbf7f" stroke="#2f7a45" stroke-width="${r * 0.18}"/>`
+      : `<circle cx="${x}" cy="${y}" r="${r}" fill="#f2c14e" stroke="#c99a2e" stroke-width="${r * 0.2}"/>`; }).join("");
+  return stem + leaves + fr + pot + (p.label ? tx(p.label, 0, w * 0.1, fit(p.label, w, w * 0.12), INK, 800) : "");
+}
+
 // ---------------------------------------------------------------- registry
 // anchor "bottom": the drawing stands on its origin; "center": centred on it.
 export const DRAWS = {
@@ -1187,6 +1214,7 @@ export const DRAWS = {
   graph: { fn: graph, anchor: "center" },
   funnel: { fn: funnel, anchor: "bottom" },
   roadmap: { fn: roadmap, anchor: "center" },
+  plant: { fn: plant, anchor: "bottom" },
 };
 
 export function drawSaancha(name, p = {}) {

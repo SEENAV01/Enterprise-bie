@@ -211,10 +211,11 @@
                         "sign": {"type": "text", "default": "₹", "what": "symbol on the bag, empty for none"},
                         "color": {"type": "color", "default": "#c9965a"}},
              "since": "2026-11-04"},
-  "building": {"anchor": "bottom", "what": "a generic building by kind: office, government (domed), exchange (ticker band), house, tower (real estate), shop, warehouse, village branch hut, court (columns, pediment, scales); optional name plate; no real landmark",
-             "tags": ["इमारत", "दफ़्तर", "सरकार", "शेयर बाज़ार", "घर", "मकान", "दुकान", "गोदाम", "शाखा", "अदालत", "न्यायालय", "building", "office", "government", "exchange", "house", "real estate", "shop", "warehouse", "branch", "court", "tribunal"],
+  "building": {"anchor": "bottom", "what": "a generic building by kind: office, government (domed), exchange (ticker band), house, tower (real estate), shop, warehouse, village branch hut, court (columns, pediment, scales), factory (smoke; sick: a closed unit); optional name plate; no real landmark",
+             "tags": ["इमारत", "दफ़्तर", "सरकार", "शेयर बाज़ार", "घर", "मकान", "दुकान", "गोदाम", "शाखा", "अदालत", "न्यायालय", "कारख़ाना", "उद्योग", "building", "office", "government", "exchange", "house", "real estate", "shop", "warehouse", "branch", "court", "tribunal", "factory", "industry", "sick unit"],
              "params": {"w": {"type": "number", "default": 220, "min": 10, "max": 1900},
-                        "kind": {"type": "choice", "choices": ["office", "government", "exchange", "house", "tower", "shop", "warehouse", "hut", "court"], "default": "office"},
+                        "kind": {"type": "choice", "choices": ["office", "government", "exchange", "house", "tower", "shop", "warehouse", "hut", "court", "factory"], "default": "office"},
+                        "sick": {"type": "bool", "default": false, "what": "factory: a sick unit (no smoke, dim, broken window)"},
                         "label": {"type": "text", "default": "", "what": "name plate above"}},
              "since": "2026-11-04"},
   "priceTag": {"anchor": "center", "what": "a price tag; the old value can be struck and the new one written, with an up or down arrow",
@@ -451,6 +452,11 @@
                        "at": {"type": "int", "default": 0, "min": 0, "max": 10, "what": "1-based current item"},
                        "done": {"type": "text", "default": "", "what": "items done so far (empty: those before at)"},
                        "title": {"type": "text", "default": ""}, "color": {"type": "color", "default": "#2a9d8f"}},
-            "since": "2026-11-04"}
+            "since": "2026-11-04"},
+  "plant": {"anchor": "bottom", "what": "a plant in a pot that grows from a seed to a tree (stage 0 to 1), coins or notes as its fruit (venture and seed funding, growth, compounding, an investment maturing)",
+          "tags": ["पौधा", "बीज", "पेड़", "बढ़ना", "निवेश", "plant", "seed", "sapling", "tree", "growth", "venture", "invest", "grow"],
+          "params": {"w": {"type": "number", "default": 240, "min": 30, "max": 1900}, "stage": {"type": "number", "default": 0.6, "min": 0, "max": 1},
+                     "fruit": {"type": "choice", "choices": ["coin", "note", "none"], "default": "coin"}, "label": {"type": "text", "default": ""}},
+          "since": "2026-11-04"}
  }
 }
