@@ -1,0 +1,74 @@
+{
+ "schema": "bie.game-level/1",
+ "level_id": "money-04",
+ "title": "Currency identities jodo",
+ "mechanic": "find_partner",
+ "item_ids": [
+  "p004-i12",
+  "p004-i13",
+  "p004-i14",
+  "p004-i15",
+  "p004-i16"
+ ],
+ "instruction": "Har currency ko uske description partner se jodo. Sirf symbol mat dekho: Yen aur Yuan dono ke liye ¥ diya hai.",
+ "places": [
+  {
+   "id": "usd",
+   "label": "Sabse widely held aur traded globally"
+  },
+  {
+   "id": "eur",
+   "label": "Book: EU ke 27 mein se 20 states"
+  },
+  {
+   "id": "jpy",
+   "label": "Stability; global markets mein major"
+  },
+  {
+   "id": "gbp",
+   "label": "Book: oldest; history 8th century"
+  },
+  {
+   "id": "cny",
+   "label": "Trade aur reserves mein badhta role"
+  }
+ ],
+ "pieces": [
+  {
+   "id": "dollar",
+   "label": "$ | United States Dollar | USD",
+   "fits": "usd",
+   "right": "Book USD ko globally sabse widely held aur traded fiat currency batati hai.",
+   "wrong": "USD ka profile global holding aur trading wala hai; doosri identity jodne se currency profile badal jaayegi."
+  },
+  {
+   "id": "euro",
+   "label": "€ | Euro | EUR",
+   "fits": "eur",
+   "right": "Book Euro ko 27 EU members mein se 20 se jodti hai. 'Second-most' ke baad caption incomplete hai; ranking guess nahi karenge.",
+   "wrong": "EU adoption wala description Euro ka hai; national currency se jodne se geography aur identity bigadti hain."
+  },
+  {
+   "id": "yen",
+   "label": "¥ | Japanese Yen | JPY",
+   "fits": "jpy",
+   "right": "JPY ke saath stability aur global currency markets mein major role wala description juda.",
+   "wrong": "¥ dekhkar CNY ka partner mat lagao: Japanese Yen ka code JPY aur book ka profile stability wala hai."
+  },
+  {
+   "id": "pound",
+   "label": "£ | British Pound Sterling | GBP",
+   "fits": "gbp",
+   "right": "Book pound ko oldest fiat currency still in use kehti hai aur history 8th century se jodti hai. Isse modern fiat regime ki starting date mat samjho.",
+   "wrong": "Historical continuity ko doosri currency se jodne se oldest-currency claim galat identity par lag jaayega."
+  },
+  {
+   "id": "yuan",
+   "label": "¥ | Chinese Yuan Renminbi | CNY",
+   "fits": "cny",
+   "right": "CNY ka profile global trade aur international reserves mein badhte influence ka hai.",
+   "wrong": "¥ shared symbol hai, shared identity nahi. Yen ka stability profile lagaane se CNY ka distinction kho jaayega."
+  }
+ ],
+ "win": "Paanch identities aur profiles jud gayin; shared ¥ se confusion nahi hua."
+}

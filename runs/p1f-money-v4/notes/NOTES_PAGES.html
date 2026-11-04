@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3. Money · Notes</title>
+<style>
+:root{--bg:#f7f6f2;--card:#ffffff;--ink:#1d2433;--muted:#5d6676;--line:#dfe2e8;--accent:#0f6e68;--accent2:#b4532a;--soft:#e8f3f1;--warn:#fff4e5}
+@media (prefers-color-scheme:dark){:root{--bg:#12161d;--card:#1b212b;--ink:#e9ecf1;--muted:#a3abb8;--line:#2c3441;--accent:#4fc1b6;--accent2:#f0965f;--soft:#1f3532;--warn:#3a2d1a}}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Noto Sans","Noto Sans Devanagari",system-ui,sans-serif}
+header{padding:16px 16px 8px;max-width:860px;margin:auto}header h1{font-size:1.25rem;margin:0}header p{margin:2px 0 0;color:var(--muted);font-size:.9rem}
+nav{max-width:860px;margin:auto;padding:0 16px;display:flex;gap:8px;align-items:center}
+nav select{flex:1;min-width:0;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+nav button,.depth button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:8px 12px;font:inherit;cursor:pointer}
+nav button:disabled{opacity:.4}
+main{max-width:860px;margin:12px auto 40px;padding:0 16px}
+.slide{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:none}
+.slide.on{display:block}
+.concept{font-size:.8rem;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+.slide h2{font-size:1.25rem;margin:6px 0 10px}
+.essence{font-size:1.05rem;background:var(--soft);border-radius:10px;padding:10px 12px;margin:0 0 12px}
+.depth{display:flex;gap:8px;margin:10px 0}
+.depth button[aria-pressed=true]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.more{display:none;margin:8px 0}.more.on{display:block}
+.more h3{font-size:.85rem;margin:0 0 4px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.notbook{background:var(--warn);border-radius:10px;padding:8px 12px;margin:10px 0;font-size:.95rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chip{font-size:.78rem;border:1px solid var(--line);border-radius:999px;padding:2px 9px;color:var(--muted)}
+.chip.pyq{border-color:var(--accent2);color:var(--accent2)}.chip.basis{border-color:var(--accent);color:var(--accent)}
+.visual{margin:14px 0 4px}.visual h4{margin:0 0 8px;font-size:.95rem}
+.visual img{display:block;max-width:100%;border-radius:12px;border:1px solid var(--line)}.visual .vcap{font-size:.82rem;color:var(--muted);margin-top:4px}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch}
+.step{flex:1 1 140px;border:1px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer;position:relative;background:var(--card)}
+.step b{display:block}.step .d{display:none;font-size:.9rem;color:var(--muted);margin-top:4px}.step.open .d{display:block}
+.step .n{font-size:.75rem;color:var(--accent);font-weight:700}
+.timeline{border-left:3px solid var(--accent);margin-left:8px;padding-left:14px}
+.event{margin:0 0 10px;position:relative}.event:before{content:"";position:absolute;left:-21px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--accent)}
+.event .w{font-weight:700;color:var(--accent)}
+.scroll{overflow-x:auto}table.diff{border-collapse:collapse;width:100%;font-size:.92rem}
+table.diff th,table.diff td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+table.diff th{background:var(--soft);cursor:pointer}table.diff td.hl,table.diff th.hl{background:var(--accent);color:#fff}
+.bars .bar{display:flex;align-items:center;gap:8px;margin:4px 0}.bars .bar span:first-child{width:38%;font-size:.9rem}
+.bars .fill{height:18px;background:var(--accent);border-radius:4px}
+.tree ul{list-style:none;margin:0;padding-left:18px;border-left:1px dashed var(--line)}.tree>ul{padding-left:0;border:0}
+.tree li{margin:4px 0}.tree .node{cursor:pointer}.tree .node b:before{content:"▸ ";color:var(--accent)}.tree li.open>.node b:before{content:"▾ "}
+.tree li>ul{display:none}.tree li.open>ul{display:block}.tree .d{color:var(--muted);font-size:.9rem}
+.rel{display:grid;gap:6px}.rel div{border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.labels{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px}
+.labels div{border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+footer{max-width:860px;margin:auto;padding:0 16px 30px;color:var(--muted);font-size:.8rem}
+@media print{nav,.depth{display:none}.slide{display:block!important;break-inside:avoid;margin:0 0 14px}.more{display:block!important}
+.step .d{display:block}.tree li>ul{display:block}body{background:#fff}}
+</style>
+</head>
+<body>
+<header><h1>3. Money · Notes</h1><p>Indian Economy · UPSC / State PCS aspirants · Hinglish</p></header>
+<nav><button id="prev" aria-label="Pichhla">‹</button><select id="jump" aria-label="Slide chunein"></select><button id="next" aria-label="Agla">›</button></nav>
+<main id="deck"></main>
+<footer>BIE notes · canvas_profile@2026-11-03.1+content_types@2026-10-27.1+econ_videos@2026-11-04.3+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-03.1+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3 · Kitaab ke page har baat ke saath diye gaye hain.</footer>
+<script id="data" type="application/json">{"concepts": [{"name": "3. Money", "slides": [{"slide_id": "c09-01", "ask": "how", "question": "Gold-backed paper money kaam kaise karta tha?", "essence": "Paper ki value uske material se nahi, fixed quantity of gold mein redemption ke promise se aati thi.", "answer": "Central bank gold reserves rakhta aur paper notes issue karta tha. Note-holder, principle mein, note dekar fixed amount of gold le sakta tha. Isliye note sirf kagaz nahi, gold redemption ka claim tha. Har note ko gold backing chahiye thi, isliye excessive printing par constraint tha. [p004]", "deep_dive": "Intrinsic value ka matlab material ki apni value hai; paper ki yeh value bahut kam thi. Note ki monetary value issuing authority ke gold dene ke promise par tikti thi. 'In principle' ko dhyan mein rakhein: supplied text practical restrictions ka detail nahi deta. [p004]", "visual": {"type": "flow", "title": "Gold reserve → note → gold redemption", "steps": [{"label": "Central bank gold reserves rakhta hai", "detail": ""}, {"label": "Gold backing ke saath paper notes issue hote hain", "detail": ""}, {"label": "Holder note redemption ke liye deta hai", "detail": ""}, {"label": "Fixed quantity of gold milti hai — principle mein", "detail": ""}, {"label": "Gold backing ki zaroorat → excessive printing par constraint", "detail": ""}]}, "source_item_ids": ["p004-i1", "p004-i2"], "basis": "book", "not_in_book": "", "pyq_item_ids": []}, {"slide_id": "c09-02", "ask": "when_where", "question": "Gold-linked paper se modern fiat tak book kaun-se milestones deti hai?", "essence": "1661, 1816, 1944 aur 1971 book ki selected milestones hain, complete history nahi.", "answer": "Book Sweden ke 1661 milestone ko 'First banknotes', Britain ke 1816 milestone ko Gold Standard, aur 1944 Bretton Woods ko dollar–gold link ke roop mein dikhati hai. 1971 modern fiat ka milestone hai: gold redemption nahi. [p004]", "deep_dive": "1661 ka 'first' label universal first ke roop mein na padhein: isi page ki doosri timeline earlier Chinese receipts aur state notes bhi deti hai. Book is label ka precise geographical ya institutional scope nahi batati. [p004]", "visual": {"type": "labelled_list", "title": "Selected milestones [p004]", "nodes": [{"id": "1661 | Sweden | 'First banknotes' — source label; scope unclear", "label": "1661 | Sweden | 'First banknotes' — source label; scope unclear", "parent_id": "", "detail": ""}, {"id": "1816 | Britain | Gold Standard", "label": "1816 | Britain | Gold Standard", "parent_id": "", "detail": ""}, {"id": "1944 | Bretton Woods | Dollar–gold link", "label": "1944 | Bretton Woods | Dollar–gold link", "parent_id": "", "detail": ""}, {"id": "1971 | Modern fiat | No gold redemption", "label": "1971 | Modern fiat | No gold redemption", "parent_id": "", "detail": ""}]}, "source_item_ids": ["p004-i4", "p004-i5", "p004-i6", "p004-i7"], "basis": "book", "not_in_book": "", "pyq_item_ids": []}, {"slide_id": "c09-03", "ask": "when_where", "question": "Chinese paper-money milestones se fiat era tak kya sequence diya hai?", "essence": "Receipts → state notes → compulsory use → modern fiat: book yeh selected sequence dikhati hai.", "answer": "7th century mein Tang ke saath receipts, 1023 mein Song ke saath state notes, aur 1275 mein Yuan ke saath 'Compulsory' label diya hai. 1971 ko modern fiat era dikhaya gaya hai. In labels se aage institutional details book ke supplied text mein nahi hain. [p004]", "deep_dive": "", "visual": {"type": "labelled_list", "title": "Paper-money timeline [p004]", "nodes": [{"id": "7th century | Tang | Receipts", "label": "7th century | Tang | Receipts", "parent_id": "", "detail": ""}, {"id": "1023 | Song | State notes", "label": "1023 | Song | State notes", "parent_id": "", "detail": ""}, {"id": "1275 | Yuan | Compulsory", "label": "1275 | Yuan | Compulsory", "parent_id": "", "detail": ""}, {"id": "1971 | Modern | Fiat era", "label": "1971 | Modern | Fiat era", "parent_id": "", "detail": ""}]}, "source_item_ids": ["p004-i18", "p004-i19", "p004-i20", "p004-i21"], "basis": "book", "not_in_book": "", "pyq_item_ids": []}, {"slide_id": "c10-01", "ask": "what", "question": "Fiat money ki value kahan se aati hai?", "essence": "Fiat money government authority aur public trust par tikta hai, gold backing ya material value par nahi.", "answer": "Fiat money paper ya digital numbers ho sakta hai; uski monetary value material ki intrinsic value se nahi aati. Yeh gold ya silver jaise commodities se backed nahi hota. Government-issued system mein central banks production control karte hain; public ka government par faith iski value ka base hai. Zaroorat par aur money issue kiya ja sakta hai. [p004]", "deep_dive": "'Easily printed' ko gold-backed system ke contrast mein samjhein: extra issuance ke liye gold backing ki condition nahi hai. Iska matlab yeh nahi ki paper khud valuable commodity ban gaya. Source ki final characteristic 'Highly regu' par cut hai; uska complete statement available nahi. [p004]", "visual": {"type": "difference_table", "title": "Value ka base kya hai? [p004]", "columns": ["Gold-backed paper", "Fiat money"], "rows": [{"label": "Value ka anchor", "cells": ["Fixed gold redemption ka promise", "Government authority + public trust"]}, {"label": "Gold/silver backing", "cells": ["Gold backing required", "Commodity backing nahi"]}, {"label": "Paper ka material", "cells": ["Apni value bahut kam", "Monetary value ka base nahi"]}, {"label": "Issuance", "cells": ["Gold backing constraint", "Central-bank control; need par aur issue ho sakta hai"]}]}, "source_item_ids": ["p004-i9", "p004-i10", "p004-i1", "p004-i2"], "basis": "book", "not_in_book": "", "pyq_item_ids": []}, {"slide_id": "c10-02", "ask": "what", "question": "Book international fiat currencies ke kaun-se examples deti hai?", "essence": "USD, EUR, JPY, GBP aur CNY examples hain; symbol ke saath currency code bhi padhein.", "answer": "Book USD ko globally most widely held aur traded fiat currency batati hai; EUR ke liye 27 EU members mein se 20 ka adoption deti hai. JPY stability aur global currency markets mein role ke liye, GBP apni purani lineage ke liye, aur CNY global trade aur international reserves mein badhte influence ke liye diya hai. Yeh supplied book ke claims hain, live update nahi. [p004]", "deep_dive": "EUR ka 'second-most' caption incomplete hai, isliye ranking complete nahi ki gayi. GBP ko book oldest fiat currency still in use kehti hai aur lineage 8th century tak le jaati hai; lineage ko 8th century se fiat status ka proof na samjhein. ¥ symbol JPY aur CNY dono ke liye diya hai, isliye codes distinction saaf karte hain. [p004]", "visual": {"type": "labelled_list", "title": "International examples — book ke mutabik [p004]", "nodes": [{"id": "$ | USD | United States Dollar — globally most widely held aur traded fiat currency", "label": "$ | USD | United States Dollar — globally most widely held aur traded fiat currency", "parent_id": "", "detail": ""}, {"id": "€ | EUR | Euro — 20 of 27 EU members; remaining ranking caption incomplete", "label": "€ | EUR | Euro — 20 of 27 EU members; remaining ranking caption incomplete", "parent_id": "", "detail": ""}, {"id": "¥ | JPY | Japanese Yen — stability; global currency markets mein major role", "label": "¥ | JPY | Japanese Yen — stability; global currency markets mein major role", "parent_id": "", "detail": ""}, {"id": "£ | GBP | British Pound Sterling — book: oldest fiat still in use; currency lineage 8th century", "label": "£ | GBP | British Pound Sterling — book: oldest fiat still in use; currency lineage 8th century", "parent_id": "", "detail": ""}, {"id": "¥ | CNY | Chinese Yuan Renminbi — global trade aur reserves mein growing influence", "label": "¥ | CNY | Chinese Yuan Renminbi — global trade aur reserves mein growing influence", "parent_id": "", "detail": ""}]}, "source_item_ids": ["p004-i12", "p004-i13", "p004-i14", "p004-i15", "p004-i16"], "basis": "book", "not_in_book": "", "pyq_item_ids": []}, {"slide_id": "c11-01", "ask": "difference", "question": "Fiat money aur legal tender kya ek hi cheez hain?", "essence": "Fiat value ka basis batata hai; legal tender official acceptance status batata hai.", "answer": "Legal tender woh money hai jise government apne territory mein debts aur transactions settle karne ke liye officially recognise karti hai. Fiat money ki definition government authority aur public trust par based hai. Book legal tender ke liye 'must be Fiat Money' likhti hai, lekin Bitcoin exception bhi deti hai; isliye is line ko exception-free universal rule na banayein. [p004]", "deep_dive": "Book ke mutabik Bitcoin fiat nahi tha, phir bhi El Salvador mein 2024 tak legal tender tha. Supplied text 2025 reforms ke baad ownership aur voluntary use ko legal batata hai, lekin practical sense mein compulsory legal tender nahi. Yeh dated book account hai; independently checked current update nahi. [p004]", "visual": {"type": "difference_table", "title": "Definition aur exception ko saath padhein [p004]", "columns": ["Fiat money", "Legal tender"], "rows": [{"label": "Sawal", "cells": ["Value kis basis par hai?", "Officially settlement ke liye recognised hai?"]}, {"label": "Core idea", "cells": ["Government authority + public trust", "Territory ke andar legal recognition"]}, {"label": "Bitcoin: book account, till 2024", "cells": ["Fiat nahi", "El Salvador mein exception"]}, {"label": "2025 reforms: book account", "cells": ["Non-fiat classification", "Voluntary use legal; practical compulsory status nahi"]}]}, "source_item_ids": ["p004-i9", "p004-i22", "p004-i23", "p004-i24", "p004-i25"], "basis": "book", "not_in_book": "", "pyq_item_ids": []}, {"slide_id": "c11-02", "ask": "difference", "question": "Circulation aur collector commemorative coins mein kya farq hai?", "essence": "Commemorative coin ka everyday use, legal-tender status aur collector price alag baatein hain.", "answer": "Book commemorative coins ko fiat money batati hai, lekin legal tender hona coin par depend karta hai; book ke mutabik most legal tender hote hain. Circulation commemorative coins ordinary coins ki tarah use ke liye circulation mein release hote hain. Collector coins Government Mint ke proof ya UNC sets mein bikte hain aur everyday transactions mein rarely use hote hain. [p004–p005]", "deep_dive": "Book ka ₹100 silver commemorative coin example: legally ₹100 payment ki ja sakti hai, par collectors several thousand rupees de sakte hain. Payment ke liye denomination aur collectible ke liye market price ko mix na karein. Yeh example har commemorative coin ke legal-tender status ki guarantee nahi hai. [p005]", "visual": {"type": "difference_table", "title": "Commemorative coins [p004–p005]", "columns": ["Circulation", "Collector"], "rows": [{"label": "Release / sale", "cells": ["Circulation mein release", "Government Mint: proof ya UNC sets"]}, {"label": "Everyday use", "cells": ["Ordinary coins ki tarah usable", "Rarely everyday transactions mein"]}, {"label": "Legal-tender status", "cells": ["Specific coin ka status dekhein", "Collector label se status decide nahi hota"]}, {"label": "Book ka ₹100 silver example", "cells": ["Legal payment value: ₹100", "Collector several thousand rupees de sakta hai"]}]}, "source_item_ids": ["p004-i26", "p004-i27", "p005-i1", "p005-i2"], "basis": "book", "not_in_book": "", "pyq_item_ids": []}, {"slide_id": "c11-03", "ask": "why", "question": "Fees cheque ya credit card se pay kar sakte hain, phir yeh fiat money/legal tender kyun nahi?", "essence": "Payment karne ka instrument hona aur khud legal-tender money hona alag hai.", "answer": "Book yeh question poochti hai, lekin supplied text iska answer nahi deta. Outside textbook clarification: cheque bank ko payment ka instruction hai; credit card credit ke through payment karne ka instrument hai. Inse payment ho sakta hai, par yeh khud government-issued fiat currency nahi ban jaate, aur recipient ko in instruments ko accept karne ki general legal-tender compulsion nahi hoti. [Question: p005; definitions: p004]", "deep_dive": "", "visual": {"type": "difference_table", "title": "Outside clarification: instrument ≠ money", "columns": ["Cheque", "Credit card"], "rows": [{"label": "Kya karta hai?", "cells": ["Bank ko payment instruction", "Credit ke through payment enable"]}, {"label": "Khud fiat currency?", "cells": ["Nahi", "Nahi"]}, {"label": "Acceptance", "cells": ["Payment arrangement par depend", "Payment arrangement par depend"]}, {"label": "Concept", "cells": ["Payment instrument", "Payment instrument"]}]}, "source_item_ids": ["p005-i3", "p004-i9", "p004-i22"], "basis": "book", "not_in_book": "Cheque as payment instruction aur credit card as credit-based payment instrument ka explanatory answer supplied items mein nahi hai; outside textbook clarification ke roop mein diya hai.", "pyq_item_ids": []}, {"slide_id": "c11-04", "ask": "difference", "question": "India mein unlimited aur limited legal tender mein kya farq hai?", "essence": "Valid banknotes ki amount limit nahi; coins ke liye legally prescribed acceptance limits hain.", "answer": "Unlimited legal tender kisi bhi amount ke liye accept kiya jana chahiye, provided note genuine aur valid ho. Book ₹10, ₹20, ₹50, ₹100, ₹200 aur ₹500 banknotes list karti hai aur RBI Act, 1934 ka reference deti hai. Limited legal tender mein prescribed limit tak acceptance compulsory hai; uske beyond voluntary. Coins ke liye book Coinage Act, 2011 ka reference deti hai. [p005]", "deep_dive": "₹1, ₹2, ₹5, ₹10 aur ₹20 coins ki tender limit ₹1,000 hai; 50 paise coins ki ₹10. Yeh payment/tender ki amount limits hain, coin rakhne ki limits nahi. Limit ke beyond voluntary acceptance aur demonetized coin ka no-legal-tender status ek baat nahi: 50 paise se neeche ke coins ab legal tender nahi hain. [p005]", "visual": {"type": "labelled_list", "title": "India: book ki legal-tender limits [p005]", "nodes": [{"id": "Banknotes: ₹10, ₹20, ₹50, ₹100, ₹200, ₹500 | Unlimited amount; genuine aur valid | RBI Act, 1934", "label": "Banknotes: ₹10, ₹20, ₹50, ₹100, ₹200, ₹500 | Unlimited amount; genuine aur valid | RBI Act, 1934", "parent_id": "", "detail": ""}, {"id": "Coins: ₹1, ₹2, ₹5, ₹10, ₹20 | Up to ₹1,000 | Coinage Act, 2011", "label": "Coins: ₹1, ₹2, ₹5, ₹10, ₹20 | Up to ₹1,000 | Coinage Act, 2011", "parent_id": "", "detail": ""}, {"id": "50 paise coins | Up to ₹10 | Coinage Act, 2011", "label": "50 paise coins | Up to ₹10 | Coinage Act, 2011", "parent_id": "", "detail": ""}, {"id": "Limited-tender amount se beyond | Acceptance voluntary", "label": "Limited-tender amount se beyond | Acceptance voluntary", "parent_id": "", "detail": ""}, {"id": "Coins below 50 paise | Demonetized; no longer legal tender", "label": "Coins below 50 paise | Demonetized; no longer legal tender", "parent_id": "", "detail": ""}]}, "source_item_ids": ["p005-i5", "p005-i6", "p005-i9", "p005-i10", "p005-i11"], "basis": "book", "not_in_book": "", "pyq_item_ids": []}]}], "items": {"p004-i1": {"page": 4}, "p004-i2": {"page": 4}, "p004-i4": {"page": 4}, "p004-i5": {"page": 4}, "p004-i6": {"page": 4}, "p004-i7": {"page": 4}, "p004-i9": {"page": 4}, "p004-i10": {"page": 4}, "p004-i12": {"page": 4}, "p004-i13": {"page": 4}, "p004-i14": {"page": 4}, "p004-i15": {"page": 4}, "p004-i16": {"page": 4}, "p004-i18": {"page": 4}, "p004-i19": {"page": 4}, "p004-i20": {"page": 4}, "p004-i21": {"page": 4}, "p004-i22": {"page": 4}, "p004-i23": {"page": 4}, "p004-i24": {"page": 4}, "p004-i25": {"page": 4}, "p004-i26": {"page": 4}, "p004-i27": {"page": 4}, "p005-i1": {"page": 5}, "p005-i2": {"page": 5}, "p005-i3": {"page": 5}, "p005-i5": {"page": 5}, "p005-i6": {"page": 5}, "p005-i9": {"page": 5}, "p005-i10": {"page": 5}, "p005-i11": {"page": 5}}}</script>
+<script>
+const D = JSON.parse(document.getElementById("data").textContent);
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+function visual(v) {
+  const box = el("div", "visual");
+  if (!v || v.type === "none") return box;
+  if (v.title) box.appendChild(el("h4", null, v.title));
+  if (v.type === "flow") {
+    const f = el("div", "flow");
+    v.steps.forEach((s, i) => { const d = el("div", "step"); d.appendChild(el("span", "n", String(i + 1))); d.appendChild(el("b", null, s.label));
+      d.appendChild(el("div", "d", s.detail)); d.onclick = () => d.classList.toggle("open"); f.appendChild(d); });
+    box.appendChild(f);
+  } else if (v.type === "timeline") {
+    const t = el("div", "timeline");
+    v.events.forEach(e => { const d = el("div", "event"); d.appendChild(el("div", "w", e.when)); d.appendChild(el("b", null, e.label));
+      if (e.detail) d.appendChild(el("div", "d", e.detail)); t.appendChild(d); });
+    box.appendChild(t);
+  } else if (v.type === "difference_table") {
+    const t = el("table", "diff"), head = el("tr");
+    head.appendChild(el("th", null, ""));
+    v.columns.forEach((c, i) => { const th = el("th", null, c); th.onclick = () => {
+        t.querySelectorAll(".hl").forEach(x => x.classList.remove("hl"));
+        t.querySelectorAll("tr").forEach(r => { const cell = r.children[i + 1]; if (cell) cell.classList.add("hl"); }); };
+      head.appendChild(th); });
+    t.appendChild(head);
+    v.rows.forEach(r => { const tr = el("tr"); tr.appendChild(el("th", null, r.label)); r.cells.forEach(c => tr.appendChild(el("td", null, c))); t.appendChild(tr); });
+    const wrap = el("div", "scroll"); wrap.appendChild(t); box.appendChild(wrap);
+  } else if (v.type === "chart") {
+    const b = el("div", "bars"), max = Math.max(...v.series.map(s => Math.abs(s.value)), 1);
+    v.series.forEach(s => { const r = el("div", "bar"); r.appendChild(el("span", null, s.label));
+      const f = el("span", "fill"); f.style.width = (60 * Math.abs(s.value) / max) + "%"; r.appendChild(f);
+      r.appendChild(el("span", null, s.value + (s.unit ? " " + s.unit : ""))); b.appendChild(r); });
+    box.appendChild(b);
+  } else if (v.type === "relationship") {
+    const r = el("div", "rel"), names = Object.fromEntries(v.nodes.map(n => [n.id, n.label]));
+    v.edges.forEach(e => r.appendChild(el("div", null, names[e.from_id] + "  →  " + e.label + "  →  " + names[e.to_id])));
+    box.appendChild(r);
+  } else if (v.type === "concept_map" || v.type === "tree") {
+    const kids = {}; v.nodes.forEach(n => (kids[n.parent_id || ""] = kids[n.parent_id || ""] || []).push(n));
+    const build = parent => { const ul = el("ul"); (kids[parent] || []).forEach(n => { const li = el("li", (kids[n.id] ? "" : "leaf")),
+        node = el("div", "node"); node.appendChild(el("b", null, n.label)); if (n.detail) node.appendChild(el("div", "d", n.detail));
+        node.onclick = () => li.classList.toggle("open"); li.appendChild(node); if (kids[n.id]) li.appendChild(build(n.id));
+        if (!parent) li.classList.add("open"); ul.appendChild(li); }); return ul; };
+    const t = el("div", "tree"); t.appendChild(build("")); box.appendChild(t);
+  } else if (v.type === "image") {
+    const img = el("img"); img.src = v.src; img.alt = v.alt || ""; img.loading = "lazy"; box.appendChild(img);
+    if (v.caption) box.appendChild(el("div", "vcap", v.caption));
+  } else if (v.type === "labelled_list") {
+    const l = el("div", "labels"); v.nodes.forEach(n => { const d = el("div"); d.appendChild(el("b", null, n.label));
+      if (n.detail) d.appendChild(el("div", null, n.detail)); l.appendChild(d); }); box.appendChild(l);
+  }
+  return box;
+}
+const deck = document.getElementById("deck"), jump = document.getElementById("jump"), slides = [];
+D.concepts.forEach(c => c.slides.forEach(s => {
+  const card = el("section", "slide"); card.appendChild(el("div", "concept", c.name));
+  card.appendChild(el("h2", null, s.question)); card.appendChild(el("p", "essence", s.essence));
+  const depth = el("div", "depth"), more1 = el("div", "more"), more2 = el("div", "more");
+  more1.appendChild(el("h3", null, "Samjho")); more1.appendChild(el("p", null, s.answer));
+  more2.appendChild(el("h3", null, "Gehraai")); more2.appendChild(el("p", null, s.deep_dive));
+  [["Samjho", more1], ["Gehraai", more2]].forEach(([label, part]) => { const b = el("button", null, label); b.setAttribute("aria-pressed", "false");
+    b.onclick = () => { const on = part.classList.toggle("on"); b.setAttribute("aria-pressed", String(on)); }; depth.appendChild(b); });
+  card.appendChild(depth); card.appendChild(visual(s.visual)); card.appendChild(more1); card.appendChild(more2);
+  if (s.not_in_book) card.appendChild(el("div", "notbook", "Kitaab mein nahi: " + s.not_in_book));
+  const chips = el("div", "chips");
+  chips.appendChild(el("span", "chip basis", s.basis === "book" ? "Kitaab se" : s.basis === "outside" ? "Kitaab ke bahar se" : "Kitaab + bahar"));
+  [...new Set(s.source_item_ids.map(i => (D.items[i] || {}).page).filter(Boolean))].sort((a, b) => a - b)
+    .forEach(p => chips.appendChild(el("span", "chip", "Page " + p)));
+  s.pyq_item_ids.forEach(q => chips.appendChild(el("span", "chip pyq", "PYQ")));
+  card.appendChild(chips); deck.appendChild(card); slides.push(card);
+  const o = el("option", null, (slides.length) + ". " + s.question); o.value = slides.length - 1; jump.appendChild(o);
+}));
+let at = 0;
+function show(i) { at = Math.max(0, Math.min(slides.length - 1, i)); slides.forEach((s, k) => s.classList.toggle("on", k === at));
+  jump.value = at; document.getElementById("prev").disabled = at === 0; document.getElementById("next").disabled = at === slides.length - 1; }
+document.getElementById("prev").onclick = () => show(at - 1); document.getElementById("next").onclick = () => show(at + 1);
+jump.onchange = () => show(Number(jump.value));
+document.addEventListener("keydown", e => { if (e.key === "ArrowRight") show(at + 1); if (e.key === "ArrowLeft") show(at - 1); });
+let x0 = null; deck.addEventListener("touchstart", e => x0 = e.touches[0].clientX, {passive: true});
+deck.addEventListener("touchend", e => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 60) show(at + (dx < 0 ? 1 : -1)); x0 = null; });
+if (slides.length) show(0); else deck.appendChild(el("p", null, "Koi slide nahi bani."));
+</script>
+</body>
+</html>

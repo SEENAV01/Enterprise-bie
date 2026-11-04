@@ -1,0 +1,71 @@
+{
+ "schema": "bie.game-level/1",
+ "level_id": "money-03",
+ "title": "Fiat system assemble karo",
+ "mechanic": "place_right",
+ "item_ids": [
+  "p004-i9",
+  "p004-i10"
+ ],
+ "instruction": "Har card uske system-slot mein lagao. Sab parts milkar batayenge ki gold backing ke bina fiat ki value kaise chalti hai.",
+ "places": [
+  {
+   "id": "material",
+   "label": "Material ki apni value"
+  },
+  {
+   "id": "commodity",
+   "label": "Commodity backing"
+  },
+  {
+   "id": "authority",
+   "label": "Issue aur authority"
+  },
+  {
+   "id": "trust",
+   "label": "Public acceptance ka base"
+  },
+  {
+   "id": "supply",
+   "label": "Supply badhaane ki gunjaish"
+  }
+ ],
+ "pieces": [
+  {
+   "id": "paper-digital",
+   "label": "Paper ya digital numbers",
+   "fits": "material",
+   "right": "Fiat ka monetary value paper ya digital form ki intrinsic value se nahi aata.",
+   "wrong": "Material ko authority ya backing banaane se paper ki keemat aur money ki value ek samajh loge."
+  },
+  {
+   "id": "no-gold",
+   "label": "Gold/silver se value tied nahi",
+   "fits": "commodity",
+   "right": "Fiat commodities se backed nahi; gold redemption iska value-base nahi hai.",
+   "wrong": "Yeh card commodity link hataata hai, public trust ya issuing authority nahi."
+  },
+  {
+   "id": "government",
+   "label": "Govt-issued; central bank control",
+   "fits": "authority",
+   "right": "Government authority fiat ka base hai; book production control central banks se jodti hai.",
+   "wrong": "Issuer ko material ya gold reserve slot mein rakhne se authority ka role gayab ho jaata hai."
+  },
+  {
+   "id": "faith",
+   "label": "Public ka government par trust",
+   "fits": "trust",
+   "right": "Public faith value ko support karta hai. Sirf paper hona fiat ki poori explanation nahi.",
+   "wrong": "Trust physical backing ya printing action nahi; yeh public faith wala base hai."
+  },
+  {
+   "id": "printing",
+   "label": "Need par aur money issue ho sakta hai",
+   "fits": "supply",
+   "right": "Book ke mutabik governments need par aur print kar sakti hain; gold-backed system jaisa redemption constraint nahi.",
+   "wrong": "Printing capacity ko value ka akela source banaane se authority aur trust chhoot jaayenge."
+  }
+ ],
+ "win": "Fiat assemble hua: material ki value nahi, government authority aur public trust central hain."
+}

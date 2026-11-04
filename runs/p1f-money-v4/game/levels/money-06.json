@@ -1,0 +1,74 @@
+{
+ "schema": "bie.game-level/1",
+ "level_id": "money-06",
+ "title": "Fiat aur legal tender alag karo",
+ "mechanic": "place_right",
+ "item_ids": [
+  "p004-i22",
+  "p004-i23",
+  "p004-i24",
+  "p004-i25",
+  "p004-i26"
+ ],
+ "instruction": "Rule-board bharo. Fiat value ka base batata hai; legal tender official payment status. Bitcoin ke dated cards alag stages par rakho.",
+ "places": [
+  {
+   "id": "definition",
+   "label": "Legal tender ki definition"
+  },
+  {
+   "id": "general",
+   "label": "Book ka general rule"
+  },
+  {
+   "id": "exception",
+   "label": "Book: exception, till 2024"
+  },
+  {
+   "id": "reform",
+   "label": "Book: 2025 reforms ke baad"
+  },
+  {
+   "id": "separate",
+   "label": "Status alag se check karo"
+  }
+ ],
+ "pieces": [
+  {
+   "id": "recognition",
+   "label": "Govt-recognised debt/transaction money",
+   "fits": "definition",
+   "right": "Government is money ko apni territory mein debts aur transactions settle karne ke liye officially acceptable maanta hai.",
+   "wrong": "Sirf trust ya voluntary payment ko definition banaane se official recognition chhoot jaayega."
+  },
+  {
+   "id": "rule",
+   "label": "Book rule: legal tender fiat ho",
+   "fits": "general",
+   "right": "Book 'must be fiat' kehti hai, lekin exception bhi deti hai; ise exception-free universal rule nahi bana rahe.",
+   "wrong": "Is line ko absolute definition banaane se book ka Bitcoin example contradict karega."
+  },
+  {
+   "id": "bitcoin-old",
+   "label": "Bitcoin: non-fiat, El Salvador tender",
+   "fits": "exception",
+   "right": "Book ke till-2024 account mein Bitcoin non-fiat hote hue legal tender tha: dono categories identical nahi.",
+   "wrong": "Bitcoin ko fiat banaane se exception mit jaayega; post-reform slot mein rakhne se historical status mix hoga."
+  },
+  {
+   "id": "bitcoin-reform",
+   "label": "2025: voluntary Bitcoin use legal",
+   "fits": "reform",
+   "right": "Book ke mutabik ownership aur voluntary use legal rahe, lekin reforms ke baad practical compulsory legal-tender sense nahi raha.",
+   "wrong": "Voluntary legal use ko compulsory acceptance maanoge toh legal use aur legal tender ka farq tootega."
+  },
+  {
+   "id": "commemorative",
+   "label": "Commemorative: fiat yes, tender check",
+   "fits": "separate",
+   "right": "Book ke mutabik commemorative coins fiat hain, par legal tender ho bhi sakte hain aur nahi bhi; most legal tender hain.",
+   "wrong": "Fiat hote hi har commemorative coin automatically legal tender maanoge toh 'may or may not' kho jaayega."
+  }
+ ],
+ "win": "Value ka base, official recognition aur voluntary use—teenon alag pehchaane."
+}
