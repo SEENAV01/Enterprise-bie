@@ -1,0 +1,125 @@
+{
+  "id": "E38",
+  "topic": "ETFs vs mutual funds (passive vs active, live exchange price vs end-of-day NAV, diversification), and the ETF family: gold ETFs, REITs and InvITs, all regulated by SEBI",
+  "book_understanding": {
+    "concepts": [
+      {"name": "mutual fund recap: pooling, professional management, expenses", "type": "mechanism", "t_start": 0.0, "t_end": 43.8, "prereq_recalled": "previous video on mutual funds"},
+      {"name": "index is hard to beat, so why pay a manager?", "type": "cause_effect", "t_start": 43.8, "t_end": 66.8, "prereq_recalled": "market index; the expense taken by a mutual fund"},
+      {"name": "ETF: a fund that tracks an index with the same stocks and weights", "type": "definition", "t_start": 66.8, "t_end": 108.8, "prereq_recalled": "Nifty 50 as an index of 50 stocks"},
+      {"name": "ETF vs MF: passive vs active, team size, expense", "type": "comparison", "t_start": 108.8, "t_end": 142.7, "prereq_recalled": "MF needs a manager and team (from the recap)"},
+      {"name": "ETF vs MF: exchange trading through the day vs end-of-day NAV", "type": "comparison", "t_start": 142.7, "t_end": 182.8, "prereq_recalled": "open-ended and closed-ended funds; NAV"},
+      {"name": "ETF vs MF: diversification vs one index or asset class", "type": "comparison", "t_start": 182.8, "t_end": 212.4, "prereq_recalled": ""},
+      {"name": "gold ETF: holds physical gold; units on the exchange; price stays near gold's", "type": "mechanism", "t_start": 212.4, "t_end": 299.9, "prereq_recalled": "ETF units trade on the exchange"},
+      {"name": "REITs and InvITs: pooled money in real estate or infrastructure, income paid as dividends", "type": "classification", "t_start": 299.9, "t_end": 340.3, "prereq_recalled": "the gold ETF pipe (investor, exchange, fund, asset)"},
+      {"name": "SEBI regulates ETFs, REITs and InvITs", "type": "definition", "t_start": 340.3, "t_end": 347.6, "prereq_recalled": ""}
+    ],
+    "teaching_order": "A textbook would define ETFs, list differences from mutual funds, then define REITs and InvITs as separate instruments. Here the ETF is introduced as the answer to a doubt about the known product: experts say the index is hard to beat, so why pay a manager rather than buy the index? The ETF arrives as that fix; its differences follow from it (passive, so a small team, so low cost; exchange traded, so a live price); then the family grows by changing only what the fund holds (index, gold, real estate, infrastructure) while the investor-exchange-fund pipe stays the same.",
+    "breakdown_rule": "Start from the known product, raise its weakness, bring in the new product as the fix, list the differences that follow from the fix, then extend the new product by swapping only the asset it holds."
+  },
+  "narration": {
+    "opening": {"move": "recall_previous", "what": "Recalls the mutual fund video: investors pool money and a professional team invests it; the middle of this recap is lost in a transcript gap (13-30 s)."},
+    "moves": [
+      {"t": 0.0, "move": "recall_previous", "concept": "mutual fund recap: pooling, professional management, expenses", "what": "Mutual funds pool investors' money under a professional management team."},
+      {"t": 30.0, "move": "cause_chain", "concept": "mutual fund recap: pooling, professional management, expenses", "what": "A professional manager and team are needed, so a percentage of what you invest goes on expenses and only the rest is invested."},
+      {"t": 43.8, "move": "data_fact", "concept": "index is hard to beat, so why pay a manager?", "what": "An expert's view (Warren Buffett and others) that beating the market index in the long run is very hard; a quote, not a figure."},
+      {"t": 53.0, "move": "question_to_viewer", "concept": "index is hard to beat, so why pay a manager?", "what": "If most funds perform below or around the index, why pay a manager at all; why not put the money straight into the index?"},
+      {"t": 65.2, "move": "conclusion_line", "concept": "index is hard to beat, so why pay a manager?", "what": "'Baat to bilkul sahi hai': the doubt is accepted, and that is why ETFs come in."},
+      {"t": 66.8, "move": "define_term", "concept": "ETF: a fund that tracks an index with the same stocks and weights", "what": "ETFs, yaani exchange traded funds, closely track an index, a commodity or a basket of assets."},
+      {"t": 76.9, "move": "what_if", "concept": "ETF: a fund that tracks an index with the same stocks and weights", "what": "'Maan lijiye' an ETF tracks Nifty 50: money goes only into those 50 stocks, each by its weight, so the fund grows as Nifty 50 grows."},
+      {"t": 99.3, "move": "misconception", "concept": "ETF: a fund that tracks an index with the same stocks and weights", "what": "ETFs are not only for indices; they are also made for commodities (promised later in the video)."},
+      {"t": 108.8, "move": "contrast", "concept": "ETF vs MF: passive vs active, team size, expense", "what": "ETF needs no heavy research, just split money as the index does, so it is passive and needs no big team; MF is actively managed with a big team of experts."},
+      {"t": 136.4, "move": "conclusion_line", "concept": "ETF vs MF: passive vs active, team size, expense", "what": "That is why MFs charge a high expense and ETFs a low one."},
+      {"t": 147.3, "move": "yaani_unpack", "concept": "ETF vs MF: exchange trading through the day vs end-of-day NAV", "what": "As the name says, exchange traded: traded on the exchange like stocks, so the price moves all day and units can be bought on any trading day."},
+      {"t": 164.1, "move": "contrast", "concept": "ETF vs MF: exchange trading through the day vs end-of-day NAV", "what": "Open-ended MFs are not traded on the exchange; their NAV is computed after the market closes (speech adds that units can be bought only after the close, which is doubtful)."},
+      {"t": 182.8, "move": "contrast", "concept": "ETF vs MF: diversification vs one index or asset class", "what": "MF money is spread over many securities and asset classes, 'jabki' ETF money sits in one index or asset class."},
+      {"t": 208.1, "move": "signpost", "concept": "gold ETF: holds physical gold; units on the exchange; price stays near gold's", "what": "Differences done; now the kinds of ETFs."},
+      {"t": 215.7, "move": "define_term", "concept": "gold ETF: holds physical gold; units on the exchange; price stays near gold's", "what": "If an ETF tracks the gold price and invests in physical gold, it is a gold ETF (yaani gold exchange traded fund)."},
+      {"t": 227.0, "move": "yaani_unpack", "concept": "gold ETF: holds physical gold; units on the exchange; price stays near gold's", "what": "'Iska matlab' when you buy through the stock exchange ... (gap) the fund manager buys and holds physical gold, and as gold rises your investment grows."},
+      {"t": 252.6, "move": "question_to_viewer", "concept": "gold ETF: holds physical gold; units on the exchange; price stays near gold's", "what": "You may wonder how gold's price and the ETF unit price stay in step if units trade fast on the exchange."},
+      {"t": 265.7, "move": "cause_chain", "concept": "gold ETF: holds physical gold; units on the exchange; price stays near gold's", "what": "'Soch ke dekho': if the unit price runs far above gold, nobody buys such dear units, so the price comes down; this keeps it near the gold price."},
+      {"t": 299.9, "move": "define_term", "concept": "REITs and InvITs: pooled money in real estate or infrastructure, income paid as dividends", "what": "If the money goes into real-estate properties (offices, apartments, shopping centres, hotels) it is a REIT; rent or capital gains reach investors as dividends."},
+      {"t": 323.5, "move": "contrast", "concept": "REITs and InvITs: pooled money in real estate or infrastructure, income paid as dividends", "what": "InvITs work the same way, but the money goes into infrastructure projects like highways, bridges and power transmission."},
+      {"t": 340.3, "move": "conclusion_line", "concept": "SEBI regulates ETFs, REITs and InvITs", "what": "'Yaad rakhna': InvITs, REITs and ETFs are all regulated by SEBI."}
+    ],
+    "story_before_term": [
+      {"term": "ETF", "t_story": 43.8, "t_term": 68.5},
+      {"term": "REITs", "t_story": 299.9, "t_term": 312.8}
+    ],
+    "examples": [
+      {"t": 43.8, "kind": "real_case", "what": "A famous investor's view that the index is hard to beat over the long run.", "carries": "why passive index funds make sense"},
+      {"t": 76.9, "kind": "what_if", "what": "An ETF that tracks Nifty 50 buys the same 50 stocks in the same weights.", "carries": "what 'tracking an index' means"},
+      {"t": 215.7, "kind": "real_case", "what": "A gold ETF whose manager buys and holds physical gold.", "carries": "commodity ETFs and owning a claim instead of bars"},
+      {"t": 265.7, "kind": "what_if", "what": "If an ETF unit cost far more than the gold behind it, would anyone buy it?", "carries": "why ETF price stays near the asset's price"},
+      {"t": 305.9, "kind": "everyday_object", "what": "Office buildings, apartments, malls, hotels vs highways, bridges, power lines.", "carries": "the difference between REITs and InvITs"}
+    ],
+    "closing": {"move": "conclusion_line", "what": "The SEBI fact to remember, then a playlist plug; no recap of the ETF vs MF differences."},
+    "density": "About 23 terms (mutual fund, pooling, professional management, expense, index, ETF, exchange traded, Nifty 50, weightage, passive and active management, NAV, open-ended, trading day, diversification, asset class, gold ETF, physical gold, claim on assets, REIT, capital gain, dividend, InvIT, SEBI) in about 345 s, about 4 per minute. Brisk: fine for UPSC revision, too fast for a first look, and REITs plus InvITs get only about 40 s together."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 4.4, "shown": "row of six INVESTOR icons across the top, each with a banknote under it", "said_gist": "we read about mutual funds; we saw that a mutual fund is a fund where ... (investors named about 3 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 2, "t_shown": 6.8, "shown": "the banknotes leave the investors and stack on the MUTUAL FUND wagon", "said_gist": "a fund where investors pool their money in one place (money said 1.3 s later, 'pool' about 2 s later)", "naming_word": "पैसो", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 3, "t_shown": 13.8, "shown": "'professional management' paragraph beside the seated manager", "said_gist": "this money is handled by a professional management team (then the transcript drops out until 30 s)", "naming_word": "प्रोफेशनल", "lead": "voice_first", "relation": "repeats_speech_as_text"},
+    {"tile": 4, "t_shown": 24.6, "shown": "PURPOSE box: get the maximum return for investors", "said_gist": "no words recognised here (transcript gap 13.3-30.0 s); 'purpose' is never heard in the recognised speech", "naming_word": "", "lead": "unrelated", "relation": "adds_new_info"},
+    {"tile": 5, "t_shown": 39.0, "shown": "pale blue EXPENSE band wrapping the management paragraph", "said_gist": "a percentage of the amount you invest goes into expenses (expenses said 1.1 s later)", "naming_word": "expenses", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 6, "t_shown": 52.6, "shown": "big ? above the EXPENSE band (expert quote card already up)", "said_gist": "beating the index is itself very hard; so now the question is ... (question 1.1 s later)", "naming_word": "question", "lead": "picture_first", "relation": "navigation"},
+    {"tile": 7, "t_shown": 64.6, "shown": "the banknotes fly back from the MF wagon to the investors; texts clear", "said_gist": "why pay the team; why not put the money straight into the index?", "naming_word": "पैसा", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 8, "t_shown": 66.8, "shown": "a second wagon (FUND, pushed by one standing person) rolls in beside the MF wagon", "said_gist": "that is quite right, and so into the picture come ... (ETFs said 1.7 s later, after this tile's words)", "naming_word": "", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 9, "t_shown": 70.0, "shown": "'Exchange Traded Fund' label under the ETF wagon", "said_gist": "ETFs, yaani exchange traded funds", "naming_word": "traded", "lead": "together", "relation": "names_the_term"},
+    {"tile": 10, "t_shown": 80.2, "shown": "line chart labelled NIFTY 50 at the left (MF wagon gone)", "said_gist": "for example, suppose an ETF tracks Nifty 50", "naming_word": "nifty", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 11, "t_shown": 110.2, "shown": "the MF wagon returns at the left with a wavy divider before the ETF wagon", "said_gist": "on the basis of this discussion you can see the difference between ETF and mutual funds (mutual funds said 2 s later)", "naming_word": "", "lead": "picture_first", "relation": "navigation"},
+    {"tile": 12, "t_shown": 126.0, "shown": "ETF bullet 'few professionals can manage it' under 'passive management of funds'", "said_gist": "funds can be passively managed, needing neither a big team nor much expertise", "naming_word": "team", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 13, "t_shown": 133.6, "shown": "MF bullet 'large team of experts and professionals is required' under 'active management'", "said_gist": "mutual funds are actively managed, so a big team and experts are needed", "naming_word": "team", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 14, "t_shown": 145.6, "shown": "new layout: both wagons move to the top, tall wavy divider, text cleared", "said_gist": "there are some more differences between mutual funds and ETFs (differences said 1.3 s before)", "naming_word": "differences", "lead": "voice_first", "relation": "navigation"},
+    {"tile": 15, "t_shown": 159.4, "shown": "ETF line: can be bought or sold at any time during the trading day", "said_gist": "the price keeps moving all day; you can buy its units on any trading day", "naming_word": "trading day", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 16, "t_shown": 171.2, "shown": "MF line: open-ended units only bought or redeemed at end of trading day at NAV", "said_gist": "open-ended funds are not traded, so their NAV ... (NAV said 1.1 s later; speech then says units can be bought only after the close, which the screen does not say)", "naming_word": "NAV", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 17, "t_shown": 191.0, "shown": "MF line: mutual funds typically offer diversification across multiple securities", "said_gist": "in mutual funds your investment is very diversified (1.1 s later)", "naming_word": "diversified", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 18, "t_shown": 213.2, "shown": "canvas clears to a pile of GOLD bars and a FUND wagon", "said_gist": "now let us see what kinds of ETFs there are (gold named about 3 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 19, "t_shown": 227.4, "shown": "INVESTOR at top with an 'invest' arrow down into a stock exchange building and on to the wagon", "said_gist": "gold exchange traded fund; this means that whenever you ... (stock exchange said 1.8 s later, then the transcript drops out)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 20, "t_shown": 232.4, "shown": "text top-right: buying an ETF share is buying a claim on part of the assets the fund holds", "said_gist": "no words recognised here (transcript gap 230.4-243.8 s)", "naming_word": "", "lead": "unrelated", "relation": "adds_new_info"},
+    {"tile": 21, "t_shown": 254.4, "shown": "big ? beside the stock exchange building", "said_gist": "a question must be coming to your mind", "naming_word": "question", "lead": "together", "relation": "navigation"},
+    {"tile": 22, "t_shown": 312.6, "shown": "title 'REITs - Real Estate Investment Trust' over the real-estate list", "said_gist": "it will be called REITs, yaani real estate investment trust", "naming_word": "REITS", "lead": "together", "relation": "names_the_term"},
+    {"tile": 23, "t_shown": 319.6, "shown": "elbow 'Dividend' arrow from the wagon back up to the investor", "said_gist": "whatever rent or capital gain comes is given to investors as dividend (0.9 s later)", "naming_word": "dividend", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 24, "t_shown": 341.0, "shown": "one FUND wagon above InvITs, REITs, ETFs with 'regulated by SEBI' and logo; app-promo phone at bottom-left", "said_gist": "remember that whether InvITs, REITs or ETFs ... (InvITs said 1.1 s later; SEBI about 4 s later)", "naming_word": "invits", "lead": "picture_first", "relation": "repeats_speech_as_text"}
+  ],
+  "talmel_summary": "The picture usually leads the voice by about 0.5-2 s, and the best parts show money moving: notes leave the investors for the fund wagon, then fly back when the learner asks why pay a manager, and one investor-exchange-wagon pipe is reused while the asset at the end changes from gold to buildings to infrastructure. The ETF vs MF differences (110-213 s) are bullet sentences under two unchanged wagons, and the gold-ETF price argument (255-300 s) is spoken over a frozen canvas with only a question mark, so the picture adds least where the reasoning is hardest. Two transcript gaps (13-30 s, 230-244 s) leave three tiles without words.",
+  "voice": {"notes": "Brisk, conversational Hinglish; finance terms read in English (exchange traded funds, net asset value, passively and actively managed). Accepts the learner's doubt warmly ('baat to bilkul sahi hai') before answering; 'maan lijiye' opens examples and 'soch ke dekho' opens the price reasoning; 'yaad rakhna' marks the fact to memorise. Three stretches (13-30, 230-244, 278-291 s) were not recognised, so pace there cannot be judged. No numbers are read anywhere, not even an expense ratio."},
+  "game_ideas": [
+    {"from_t": 53.0, "mechanic": "market_sim", "player_does": "puts ₹10,000 into either an active MF wagon (manager on a chair, higher yearly expense) or an index ETF wagon (one pusher, tiny expense) and runs 5 simulated years", "process_happens": "each year the index road rises or falls; the active wagon ends near the index, sometimes above, sometimes below, and drops an expense coin every year; the ETF wagon follows the road exactly minus a tiny coin", "win": "player picks the wagon with the higher final value across several random runs and can say why (expense coins add up)", "lose": "choosing the active wagon in runs where it trails shows the pile of expense coins as the gap", "concept": "index is hard to beat; passive vs active and expense"},
+    {"from_t": 147.3, "mechanic": "run_a_process", "player_does": "places buy orders at 11 am, 2 pm and 5 pm for an ETF and for an open-ended MF on a trading-day clock", "process_happens": "ETF orders fill at the live ticker price at that minute; MF orders are stamped 'priced at today's NAV after close' and fill at one end-of-day price", "win": "player predicts the price each order will get", "lose": "expecting the 11 am price for an MF order shows the NAV stamp at close instead, teaching that an MF order can be placed any time but is priced once", "concept": "exchange trading vs end-of-day NAV"},
+    {"from_t": 265.7, "mechanic": "bargain", "player_does": "sets the selling price of gold-ETF units while the price of the gold behind each unit is shown", "process_happens": "if the price is well above the gold value, buyers walk away; if it is well below, traders rush in and buy units cheaply until the price rises", "win": "units keep selling with the price near the gold value", "lose": "an overpriced unit gets no buyers and the price is forced down, showing why ETF prices track their asset", "concept": "why a gold ETF's price stays near gold's"},
+    {"from_t": 299.9, "mechanic": "match_partner", "player_does": "connects the same investor-exchange-fund pipe to different assets: gold bars, an office tower, a mall, a highway, a power line", "process_happens": "each connection relabels the wagon (gold ETF, REIT, InvIT) and the income loop shows its source (gold price, rent, toll or transmission charges)", "win": "every asset matched to the right product and income type", "lose": "plugging a highway into a REIT shows a mismatch tag and no rent coming back", "concept": "REITs vs InvITs vs commodity ETFs"}
+  ],
+  "notes_questions": [
+    {"q": "Agar zyada-tar mutual funds index ke aas-paas hi perform karte hain, to ETF kyon behtar ho sakta hai?", "answer_shape": "flow", "from_t": 53.0},
+    {"q": "Nifty 50 track karne wala ETF paisa kaise lagata hai?", "answer_shape": "picture", "from_t": 76.9},
+    {"q": "ETF aur mutual fund ke teen farak (management, trading/NAV, diversification) table mein likhiye.", "answer_shape": "table", "from_t": 108.8},
+    {"q": "Gold ETF mein aap asal mein kya kharidte ho, aur unit price gold price ke paas kyon rehta hai?", "answer_shape": "flow", "from_t": 215.7},
+    {"q": "REIT aur InvIT mein kya farak hai, aur kamaai investor tak kaise aati hai?", "answer_shape": "comparison", "from_t": 299.9},
+    {"q": "ETF, REIT aur InvIT ko kaun regulate karta hai?", "answer_shape": "tree", "from_t": 340.3}
+  ],
+  "checks_learned": [
+    "When the narration voices a learner's doubt and reasons it out (the gold-ETF price argument), the canvas must show at least one step of the reasoning; flag 'question mark only' stretches longer than 20 s.",
+    "A comparison of two products should show each difference as an action (a live ticker vs a once-a-day stamp, a big team vs one person), not only bullets; flag compare_two_sides segments with more than 60 on-screen words and no motion.",
+    "Flag spoken statements that contradict on-screen text (spoken 'MF units only after market close' vs screen 'priced at end-of-day NAV').",
+    "Category claims must be checked: 'X is a kind of Y' (REIT described as an ETF in real estate) should be flagged for verification.",
+    "Real-person photos and quotes must be replaced by a generic expert figure and a paraphrase.",
+    "A claim about cost (MF charges more) should come with one number or a visible cost token; flag cost comparisons with no number.",
+    "When sibling products share one mechanism, prefer reusing the same scene template and swapping only the changed part.",
+    "Transcript gaps over 10 s inside teaching must be re-transcribed before talmel scoring (13-30 s, 230-244 s, 278-291 s here)."
+  ],
+  "teaching_best": [
+    {"t": 53.0, "why": "doubt first: if the index is hard to beat, why pay a manager? The ETF then arrives as the answer, not as a definition"},
+    {"t": 64.6, "why": "the doubt is acted out by money flying back from the fund to the investors"},
+    {"t": 136.4, "why": "differences follow from one cause (passive, so small team, so low expense), which is easy to reason"},
+    {"t": 265.7, "why": "price tracking explained by a what-if the learner can answer ('would you buy units dearer than the gold behind them?')"},
+    {"t": 299.9, "why": "REITs and InvITs taught as the same pipe with a different asset, income coming back as dividend"}
+  ],
+  "teaching_weak": [
+    {"t": 145.6, "why": "about 67 s of differences delivered as text columns"},
+    {"t": 164.1, "why": "the spoken claim that MF units can be bought only after the market closes is doubtful (orders are priced at end-of-day NAV)"},
+    {"t": 299.9, "why": "REITs framed as a kind of ETF; describe, verify"},
+    {"t": 323.5, "why": "InvITs get about 15 s with no example of where their income comes from"},
+    {"t": 30.0, "why": "no numbers anywhere: no expense ratio, no index return, no unit price"},
+    {"t": 340.3, "why": "no recap of the ETF vs MF differences"}
+  ]
+}

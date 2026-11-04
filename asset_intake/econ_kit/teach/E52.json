@@ -1,0 +1,746 @@
+{
+  "id": "E52",
+  "topic": "Derivatives and futures taught through a temple shoe token and a deal with a worried buyer, then hedging a falling share by selling futures, with the word hedging named at the end (options deferred to the next video)",
+  "book_understanding": {
+    "concepts": [
+      {
+        "name": "derivative: a token whose value follows the thing it stands for",
+        "type": "definition",
+        "t_start": 23.4,
+        "t_end": 75.3,
+        "prereq_recalled": ""
+      },
+      {
+        "name": "underlying assets and derivatives as financial instruments",
+        "type": "classification",
+        "t_start": 75.3,
+        "t_end": 105.8,
+        "prereq_recalled": "the token-and-shoes pair just built"
+      },
+      {
+        "name": "two main types: futures and options",
+        "type": "classification",
+        "t_start": 105.8,
+        "t_end": 118.6,
+        "prereq_recalled": "derivative"
+      },
+      {
+        "name": "futures agreement: price and date fixed today, both sides bound",
+        "type": "mechanism",
+        "t_start": 118.6,
+        "t_end": 227.0,
+        "prereq_recalled": "the token as a claim on the shoes"
+      },
+      {
+        "name": "why the buyer signs: removing price risk (mental peace), not profit",
+        "type": "cause_effect",
+        "t_start": 227.0,
+        "t_end": 270.4,
+        "prereq_recalled": "the unknown price after 30 days"
+      },
+      {
+        "name": "settlement: 5500 paid, market 6000, who gains and when the buyer would lose",
+        "type": "numbers",
+        "t_start": 270.4,
+        "t_end": 317.6,
+        "prereq_recalled": "the 5500 contract"
+      },
+      {
+        "name": "hedging a share with a futures sell: falling case",
+        "type": "numbers",
+        "t_start": 317.6,
+        "t_end": 436.0,
+        "prereq_recalled": "futures fixes a selling price for a later date"
+      },
+      {
+        "name": "hedging a share with a futures sell: rising case and closing the futures early",
+        "type": "numbers",
+        "t_start": 436.0,
+        "t_end": 533.8,
+        "prereq_recalled": "falling-case numbers"
+      },
+      {
+        "name": "hedging: the name and its literal meaning (fence)",
+        "type": "definition",
+        "t_start": 533.8,
+        "t_end": 550.5,
+        "prereq_recalled": "risk mitigated in both stock cases"
+      }
+    ],
+    "teaching_order": "A textbook starts with 'a derivative is a contract whose value depends on an underlying asset', lists forwards, futures, options and swaps, and treats hedging as one use. Here the narrator starts with his own new shoes and a temple token, lets the learner feel that the token's value moves with the shoes (5000, then 15000) and only then says 'derivative' and 'underlying asset'. Futures arrive as the answer to a felt problem (a crying man who can only buy after 30 days while a banner says prices will rise), the obligation and the buyer's motive come after the deal, and the hedging use is acted out on a real share before the word 'hedging' is said in the last minute. Story and term order is right for beginners; the cost is that options, promised in the title, are left out, and the private one-to-one deal is called a futures contract without saying how exchange futures differ.",
+    "breakdown_rule": "Each idea is first lived as a small scene with numbers (my shoes, my token, his salary, my shares), then named, then given its general form; the abstract word always comes after the learner has seen it happen."
+  },
+  "narration": {
+    "opening": {
+      "move": "hook_scene",
+      "what": "The narrator shows his new shoes and says the whole topic (derivatives, futures, options, then the stock market and hedging) will be learned from these shoes; promises an eye-opening video."
+    },
+    "moves": [
+      {
+        "t": 0.0,
+        "move": "hook_scene",
+        "concept": "derivative: a token whose value follows the thing it stands for",
+        "what": "Personal object as the hook: 'these are my new shoes'."
+      },
+      {
+        "t": 3.0,
+        "move": "agenda",
+        "concept": "derivative: a token whose value follows the thing it stands for",
+        "what": "Derivatives, futures and options through the shoes, then applied to the stock market to see how risk is hedged."
+      },
+      {
+        "t": 23.4,
+        "move": "story",
+        "concept": "derivative: a token whose value follows the thing it stands for",
+        "what": "Bought for 5000, went straight to a temple, left the shoes in the rack and got a token."
+      },
+      {
+        "t": 42.6,
+        "move": "human_benefit",
+        "concept": "derivative: a token whose value follows the thing it stands for",
+        "what": "The token is worth 5000 to me: if it falls from my hand or is lost, I lose 5000."
+      },
+      {
+        "t": 56.7,
+        "move": "what_if",
+        "concept": "derivative: a token whose value follows the thing it stands for",
+        "what": "If the shoes had cost 15000, the same token would be worth 15000."
+      },
+      {
+        "t": 64.0,
+        "move": "yaani_unpack",
+        "concept": "derivative: a token whose value follows the thing it stands for",
+        "what": "'Iska matlab': the token's value depends on the price of what is kept in the rack."
+      },
+      {
+        "t": 69.7,
+        "move": "define_term",
+        "concept": "derivative: a token whose value follows the thing it stands for",
+        "what": "'Yaani' the token is a derivative, deriving its value from the rack item; the rack item is the underlying asset."
+      },
+      {
+        "t": 79.0,
+        "move": "define_term",
+        "concept": "underlying assets and derivatives as financial instruments",
+        "what": "Underlying assets can be bonds, stocks, gold, commodities or foreign exchange; so derivatives are called financial instruments."
+      },
+      {
+        "t": 92.4,
+        "move": "cause_chain",
+        "concept": "underlying assets and derivatives as financial instruments",
+        "what": "Asset prices keep moving up and down, so derivative prices also change."
+      },
+      {
+        "t": 102.9,
+        "move": "conclusion_line",
+        "concept": "underlying assets and derivatives as financial instruments",
+        "what": "We have understood what derivatives are; now their types."
+      },
+      {
+        "t": 109.1,
+        "move": "define_term",
+        "concept": "two main types: futures and options",
+        "what": "Many kinds, but mainly two: futures and options."
+      },
+      {
+        "t": 115.3,
+        "move": "signpost",
+        "concept": "two main types: futures and options",
+        "what": "First futures, by continuing the same story."
+      },
+      {
+        "t": 129.6,
+        "move": "story",
+        "concept": "futures agreement: price and date fixed today, both sides bound",
+        "what": "Coming out of the temple: a big banner says these shoes get costlier from tomorrow, and a man sits under it crying."
+      },
+      {
+        "t": 145.3,
+        "move": "role_play",
+        "concept": "futures agreement: price and date fixed today, both sides bound",
+        "what": "Dialogue: 'what's the problem, buy today' / 'my salary comes after 30 days'."
+      },
+      {
+        "t": 166.4,
+        "move": "cause_chain",
+        "concept": "futures agreement: price and date fixed today, both sides bound",
+        "what": "Nobody knows the price after 30 days; if it becomes 6000-7000 he cannot buy."
+      },
+      {
+        "t": 180.7,
+        "move": "role_play",
+        "concept": "futures agreement: price and date fixed today, both sides bound",
+        "what": "Offer: if after 30 days you can have them for 5500, will you buy? He agrees; more than that he could not pay."
+      },
+      {
+        "t": 202.8,
+        "move": "story",
+        "concept": "futures agreement: price and date fixed today, both sides bound",
+        "what": "They sign a contract: pay 5500 after 30 days, get the token, collect the shoes from this temple."
+      },
+      {
+        "t": 213.9,
+        "move": "define_term",
+        "concept": "futures agreement: price and date fixed today, both sides bound",
+        "what": "This is a futures agreement."
+      },
+      {
+        "t": 217.6,
+        "move": "define_term",
+        "concept": "futures agreement: price and date fixed today, both sides bound",
+        "what": "It carries a contractual obligation: neither party can go back on it after signing."
+      },
+      {
+        "t": 227.0,
+        "move": "question_to_viewer",
+        "concept": "why the buyer signs: removing price risk (mental peace), not profit",
+        "what": "The learner's objection voiced ('aap kahoge'): my gain is clear (bought 5000, sell 5500), but what does this man gain?"
+      },
+      {
+        "t": 241.8,
+        "move": "cause_chain",
+        "concept": "why the buyer signs: removing price risk (mental peace), not profit",
+        "what": "He wants to cut his risk: the price could become 10000 or rise by only 50-60; the contract lets him buy without worrying about swings."
+      },
+      {
+        "t": 263.1,
+        "move": "human_benefit",
+        "concept": "why the buyer signs: removing price risk (mental peace), not profit",
+        "what": "He gets mental peace; price swings no longer matter to him."
+      },
+      {
+        "t": 270.4,
+        "move": "signpost",
+        "concept": "settlement: 5500 paid, market 6000, who gains and when the buyer would lose",
+        "what": "'Chaliye aage badhte hain': 30 days later."
+      },
+      {
+        "t": 272.3,
+        "move": "story",
+        "concept": "settlement: 5500 paid, market 6000, who gains and when the buyer would lose",
+        "what": "As agreed he pays 5500 and gets the token."
+      },
+      {
+        "t": 279.4,
+        "move": "example_numbers",
+        "concept": "settlement: 5500 paid, market 6000, who gains and when the buyer would lose",
+        "what": "Suppose the market price is now 6000: he got the shoes for 5500 and gained; I bought at 5000 and sold at 5500, so I gained too."
+      },
+      {
+        "t": 298.0,
+        "move": "what_if",
+        "concept": "settlement: 5500 paid, market 6000, who gains and when the buyer would lose",
+        "what": "If the price had risen only to 5100, he would have made a loss."
+      },
+      {
+        "t": 304.4,
+        "move": "conclusion_line",
+        "concept": "settlement: 5500 paid, market 6000, who gains and when the buyer would lose",
+        "what": "The big point: he signed not for profit but to escape price swings."
+      },
+      {
+        "t": 317.6,
+        "move": "signpost",
+        "concept": "hedging a share with a futures sell: falling case",
+        "what": "Now a more practical example."
+      },
+      {
+        "t": 321.9,
+        "move": "data_fact",
+        "concept": "hedging a share with a futures sell: falling case",
+        "what": "Real case: I hold shares of a named listed company; on 10 Feb the price is 584; a research report has caused turmoil and experts say it may fall further."
+      },
+      {
+        "t": 344.4,
+        "move": "contrast",
+        "concept": "hedging a share with a futures sell: falling case",
+        "what": "'Lekin' nothing is guaranteed in the stock market; I do not want to sell, only to reduce my risk."
+      },
+      {
+        "t": 358.9,
+        "move": "example_numbers",
+        "concept": "hedging a share with a futures sell: falling case",
+        "what": "On a broker app the March futures is at 589.95; I place a sell order, which means I can sell at 589.95 whatever the price at March end."
+      },
+      {
+        "t": 384.3,
+        "move": "what_if",
+        "concept": "hedging a share with a futures sell: falling case",
+        "what": "If the share falls to 300 by March end: loss of 284 per share on the shares."
+      },
+      {
+        "t": 398.0,
+        "move": "example_numbers",
+        "concept": "hedging a share with a futures sell: falling case",
+        "what": "Futures sold at 589.95 and now at 300; to square off I buy at 300, a profit of 289.95; net profit 5.95."
+      },
+      {
+        "t": 418.7,
+        "move": "conclusion_line",
+        "concept": "hedging a share with a futures sell: falling case",
+        "what": "Not much profit, but without the agreement I would lose 284 on every share."
+      },
+      {
+        "t": 427.8,
+        "move": "what_if",
+        "concept": "hedging a share with a futures sell: rising case and closing the futures early",
+        "what": "Now the opposite: the price keeps rising and reaches 984, 400 above your position."
+      },
+      {
+        "t": 452.9,
+        "move": "cause_chain",
+        "concept": "hedging a share with a futures sell: rising case and closing the futures early",
+        "what": "You hedged because of negative news; if the price is rising, that news has gone and positive news (an imagined press conference) has come, and money is flowing in."
+      },
+      {
+        "t": 498.0,
+        "move": "example_numbers",
+        "concept": "hedging a share with a futures sell: rising case and closing the futures early",
+        "what": "After a 22 s gap in the transcript: you bought the futures back at 700 having sold at about 590 (said as 598.95), a loss of about 110, but the shares gained 400; net 290 per share."
+      },
+      {
+        "t": 519.1,
+        "move": "conclusion_line",
+        "concept": "hedging a share with a futures sell: rising case and closing the futures early",
+        "what": "Whether the share fell or rose you earned a profit, and the risk from negative news was fully removed (doubtful as a general claim; see checks)."
+      },
+      {
+        "t": 540.1,
+        "move": "define_term",
+        "concept": "hedging: the name and its literal meaning (fence)",
+        "what": "This is called hedging."
+      },
+      {
+        "t": 542.5,
+        "move": "analogy",
+        "concept": "hedging: the name and its literal meaning (fence)",
+        "what": "Literal meaning: building a fence or boundary round your house or field to protect it."
+      },
+      {
+        "t": 550.5,
+        "move": "signpost",
+        "concept": "hedging: the name and its literal meaning (fence)",
+        "what": "Options in the next video, then a playlist plug."
+      }
+    ],
+    "story_before_term": [
+      {
+        "term": "derivative",
+        "t_story": 23.4,
+        "t_term": 71.2
+      },
+      {
+        "term": "underlying asset",
+        "t_story": 37.2,
+        "t_term": 77.6
+      },
+      {
+        "term": "futures agreement",
+        "t_story": 129.6,
+        "t_term": 215.9
+      },
+      {
+        "term": "contractual obligation",
+        "t_story": 202.8,
+        "t_term": 218.5
+      },
+      {
+        "term": "hedging",
+        "t_story": 321.9,
+        "t_term": 541.4
+      }
+    ],
+    "examples": [
+      {
+        "t": 23.4,
+        "kind": "everyday_object",
+        "what": "A temple shoe token is worth whatever the shoes are worth: 5000, or 15000 if the shoes cost that.",
+        "carries": "derivative and underlying asset"
+      },
+      {
+        "t": 129.6,
+        "kind": "story",
+        "what": "A man who gets his salary in 30 days cries under a 'price up from tomorrow' banner.",
+        "carries": "why someone wants a price fixed today for a later purchase (price risk)"
+      },
+      {
+        "t": 180.7,
+        "kind": "numbers",
+        "what": "Deal at 5500 after 30 days; market then 6000, so both gain; at 5100 the buyer would have lost.",
+        "carries": "futures settlement and that the buyer pays for certainty, not profit"
+      },
+      {
+        "t": 321.9,
+        "kind": "real_case",
+        "what": "Shares of a named real company at 584 during a real controversy; March futures quoted at 589.95.",
+        "carries": "hedging an asset you want to keep"
+      },
+      {
+        "t": 384.3,
+        "kind": "what_if",
+        "what": "Share falls to 300: -284 on the shares, +289.95 on the futures, net +5.95.",
+        "carries": "a hedge gains what the asset loses"
+      },
+      {
+        "t": 427.8,
+        "kind": "what_if",
+        "what": "Share rises to 984 (+400); futures closed at 700 (-110); net +290.",
+        "carries": "the futures leg loses when the price rises (and an early exit, not named as a choice)"
+      },
+      {
+        "t": 542.5,
+        "kind": "analogy",
+        "what": "A hedge is a fence round your house or field.",
+        "carries": "the meaning of hedging as protection"
+      }
+    ],
+    "closing": {
+      "move": "analogy",
+      "what": "Names hedging and gives its fence meaning, says options come next time, then a playlist plug; no recap of the two stock cases or of the shoe story."
+    },
+    "density": "About 14 terms (derivative, underlying asset, bonds, stocks, gold, commodity, forex, financial instrument, futures, options, futures agreement, contractual obligation, sell order, square off, net profit, hedging) in about 9 minutes, about 1.5 per minute. Light on terms but fast in speech (about 210 words per minute); five of the nine minutes go to the shoe story, so the stock-hedging numbers come quickly and the rising case is the hardest stretch."
+  },
+  "talmel": [
+    {
+      "tile": 1,
+      "t_shown": 6.6,
+      "shown": "three-word title chip (derivatives, futures, options; first word misspelt) over the shoe",
+      "said_gist": "we will understand derivatives, futures and options from these shoes",
+      "naming_word": "फ्यूचर्स",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 2,
+      "t_shown": 27.0,
+      "shown": "'5000 Rs' under the shoe",
+      "said_gist": "I bought these shoes today for 5000 rupees",
+      "naming_word": "रुपीज",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 3,
+      "t_shown": 35.6,
+      "shown": "real photo of a temple shoe rack beside a temple and a person",
+      "said_gist": "you cannot enter a temple in shoes; you have to take them off outside",
+      "naming_word": "जूते",
+      "lead": "together",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 4,
+      "t_shown": 53.0,
+      "shown": "canvas cleared to a framed shoe (5000) and a token (5000) joined by a dotted line",
+      "said_gist": "I would lose 5000, because my shoes cost 5000",
+      "naming_word": "5000",
+      "lead": "voice_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 5,
+      "t_shown": 70.6,
+      "shown": "DERIVATIVE label at the end of a leader line from the token",
+      "said_gist": "yaani this token is a derivative",
+      "naming_word": "derivative",
+      "lead": "together",
+      "relation": "names_the_term"
+    },
+    {
+      "tile": 6,
+      "t_shown": 78.4,
+      "shown": "ASSET heading over the shoe box",
+      "said_gist": "we will call the things in the rack the underlying asset",
+      "naming_word": "asset",
+      "lead": "together",
+      "relation": "names_the_term"
+    },
+    {
+      "tile": 7,
+      "t_shown": 90.0,
+      "shown": "small 'Financial Instrument' tag over DERIVATIVE",
+      "said_gist": "so derivatives are basically called financial instruments",
+      "naming_word": "financial",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 8,
+      "t_shown": 108.2,
+      "shown": "list and definition wiped; token becomes a contract document labelled DERIVATIVE",
+      "said_gist": "now let us see how many types of derivatives there are",
+      "naming_word": "",
+      "lead": "together",
+      "relation": "navigation"
+    },
+    {
+      "tile": 9,
+      "t_shown": 132.0,
+      "shown": "banner board 'prices to go up from tomorrow' with a shoe",
+      "said_gist": "as I came out of the temple I saw that the same shoes...",
+      "naming_word": "",
+      "lead": "picture_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 10,
+      "t_shown": 161.0,
+      "shown": "'After 30 Days' under the sitting man",
+      "said_gist": "the problem is I was going to buy these shoes after 30 days",
+      "naming_word": "30",
+      "lead": "picture_first",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 11,
+      "t_shown": 206.4,
+      "shown": "Futures contract document between the two people, lines from the token to the buyer, 'after 30 days, 5500'",
+      "said_gist": "I signed a contract with him: when after 30 days you give me 5500...",
+      "naming_word": "contract",
+      "lead": "voice_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 12,
+      "t_shown": 272.6,
+      "shown": "'After 30 Days' heading; cash 5500 now under the narrator, token with the buyer, rack faded",
+      "said_gist": "30 days are over and, as per the futures agreement...",
+      "naming_word": "दिन",
+      "lead": "together",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 13,
+      "t_shown": 281.0,
+      "shown": "'6000 Rs' under the shoes",
+      "said_gist": "suppose at this time the market price of the shoes is (6000, said 2.2 s later)",
+      "naming_word": "",
+      "lead": "picture_first",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 14,
+      "t_shown": 308.2,
+      "shown": "asset -> derivative tree with Futures and Options branches",
+      "said_gist": "the big point: he signed the futures agreement not for profit but to escape price swings",
+      "naming_word": "",
+      "lead": "unrelated",
+      "relation": "navigation"
+    },
+    {
+      "tile": 15,
+      "t_shown": 320.6,
+      "shown": "person holding a share certificate as ASSET with a dotted arrow to DERIVATIVE",
+      "said_gist": "let us understand futures with a more practical example (the company is named 2 s later)",
+      "naming_word": "",
+      "lead": "picture_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 16,
+      "t_shown": 332.2,
+      "shown": "news collage: research firm logo, company logo, real person photo, red falling arrow",
+      "said_gist": "the price is 584; you know that for the last few days (the report is named 1.6 s later)",
+      "naming_word": "",
+      "lead": "picture_first",
+      "relation": "adds_new_info"
+    },
+    {
+      "tile": 17,
+      "t_shown": 358.6,
+      "shown": "timeline line with the person at '584.00, 10 Feb'",
+      "said_gist": "how I will use a futures agreement; see, today is 10 February",
+      "naming_word": "10 February",
+      "lead": "picture_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 18,
+      "t_shown": 375.4,
+      "shown": "Futures document in a blue 'March END 589.95' box on the timeline",
+      "said_gist": "a sell order means that at March end, whatever the price...",
+      "naming_word": "March",
+      "lead": "together",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 19,
+      "t_shown": 394.2,
+      "shown": "price path falling to 300 in a red region with a red 284 bar",
+      "said_gist": "if it falls to 300, on the stocks I own I will lose (284, said 2 s later)",
+      "naming_word": "300",
+      "lead": "voice_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 20,
+      "t_shown": 415.6,
+      "shown": "green PROFIT tag '+5.95 Rs' over the holder (the callout beside it reads +289.85)",
+      "said_gist": "this means my net profit is 5.95",
+      "naming_word": "net",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 21,
+      "t_shown": 449.2,
+      "shown": "green '400' bar beside the rising region",
+      "said_gist": "the value reaches 984, yaani 400 above your current position (400 said 2.3 s later)",
+      "naming_word": "",
+      "lead": "picture_first",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 22,
+      "t_shown": 512.8,
+      "shown": "green PROFIT tag over the holder (beside '984 - 584 = +400')",
+      "said_gist": "on your existing stocks you are making a 400 profit",
+      "naming_word": "profit",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 23,
+      "t_shown": 539.8,
+      "shown": "line under the futures definition: used by businesses to hedge against price swings",
+      "said_gist": "this is how you mitigate risk with futures; this phenomenon is called (hedging, said 1.6 s later)",
+      "naming_word": "",
+      "lead": "picture_first",
+      "relation": "names_the_term"
+    },
+    {
+      "tile": 24,
+      "t_shown": 547.8,
+      "shown": "app promo overlay (phone, store badges, link note) over the recap",
+      "said_gist": "a fence or boundary round your house or field to protect that area",
+      "naming_word": "",
+      "lead": "unrelated",
+      "relation": "navigation"
+    }
+  ],
+  "talmel_summary": "In the shoe story the picture does what the voice says: the shoes go into the rack and a token comes back, the token's value is struck and rewritten with the shoe's price, cash and token cross the deal band and both people get ticks; terms land within half a second of their words. In the stock part each number is drawn on the price path or the actor it belongs to, though the picture often runs 1-2 s ahead of the number being said and one written number (+289.85) differs from the spoken 289.95. Weak: about 57 s (215-272) of new ideas over a still band, a 22 s stretch (476-498) with no recognised speech exactly where the futures are closed at 700 (the picture alone shows that step; no tile falls inside the gap), and the fence meaning of hedging only as a caption under a promo overlay.",
+  "voice": {
+    "notes": "Fast and chatty, about 210 words per minute, first-person storyteller ('maine', 'mujhe'); dialogue lines are acted with short replies ('nahi nahi', 'mujhe koi problem nahi'). Numbers are read in full rupees, decimals as 'point nine five'; a few numbers are slurred into odd forms in the transcript (5000-500 for 5500). Stress falls on 'derivative', 'contractual obligation', 'mental peace' and 'profit ke liye nahi'. 'Aap kahoge' voices the learner. One speech slip or recognition error: the futures sell price is said as 598.95 in the rising case. No long pauses except the 22 s stretch at 476 s that the recogniser could not read."
+  },
+  "game_ideas": [
+    {
+      "from_t": 129.6,
+      "mechanic": "run_a_process",
+      "player_does": "Plays the buyer whose salary comes in 30 days. A banner warns prices may rise. The player either waits or signs a contract with the shoe owner at a chosen price (5200, 5500, 6000), then the 30-day price is drawn (5100, 6000, 8000 or 10000).",
+      "process_happens": "The contract document drops between the two, cash and token cross the band on day 30, and a meter shows what the player paid against the market price; a 'peace' meter stays full for the contract holder while it swings for the waiter.",
+      "win": "Can always buy the shoes on day 30 and the price paid never exceeds the budget.",
+      "lose": "Waiting and drawing 8000 or 10000 leaves the player unable to buy (the crying scene returns); signing and drawing 5100 shows the 400 paid for certainty, so the learner sees a hedge has a cost.",
+      "concept": "futures agreement: price and date fixed today, both sides bound"
+    },
+    {
+      "from_t": 358.9,
+      "mechanic": "market_sim",
+      "player_does": "Holds 100 shares bought at 584 of a generic company with bad news on the ticker; decides whether to sell month-end futures at 590, then watches the price path play to the expiry date; may also choose to close the futures early.",
+      "process_happens": "Two bars move together: share profit/loss and futures profit/loss, with a net bar between them; on the expiry date the futures price meets the share price and the position is squared off.",
+      "win": "Hedged to expiry, the net bar stays near the locked value whether the path ends at 300 or 984.",
+      "lose": "Unhedged, the falling path shows a 284-per-share loss; closing the futures early and then seeing the price fall back shows that lifting a hedge is a bet, not hedging.",
+      "concept": "hedging a share with a futures sell: rising case and closing the futures early"
+    },
+    {
+      "from_t": 69.7,
+      "mechanic": "match_partner",
+      "player_does": "Matches each derivative card (temple token, gold futures, a currency contract, a share futures) to its underlying asset (shoes, gold, dollars, shares) and then changes the asset's price with a slider.",
+      "process_happens": "The matched card's value moves with the asset's price, struck and rewritten like the token.",
+      "win": "All pairs matched so every derivative's value follows its slider.",
+      "lose": "A wrong pair shows a derivative whose value does not move when 'its' asset moves, which breaks the definition.",
+      "concept": "underlying assets and derivatives as financial instruments"
+    }
+  ],
+  "notes_questions": [
+    {
+      "q": "Mandir ke joote wale token se samjhaiye: derivative kya hota hai aur underlying asset kya?",
+      "answer_shape": "picture",
+      "from_t": 23.4
+    },
+    {
+      "q": "Underlying asset kaun-kaun se ho sakte hain? Derivative ko financial instrument kyon kehte hain?",
+      "answer_shape": "tree",
+      "from_t": 79.0
+    },
+    {
+      "q": "Futures agreement mein kya pehle se tay hota hai, aur contractual obligation ka kya matlab hai?",
+      "answer_shape": "flow",
+      "from_t": 202.8
+    },
+    {
+      "q": "Kharidne wala futures contract kyon karta hai jab profit pakka nahi? 5100 aur 6000 dono cases mein hisaab lagaiye.",
+      "answer_shape": "table",
+      "from_t": 241.8
+    },
+    {
+      "q": "Share 584 par hai, March futures 589.95 par becha. Price 300 ho jaye to shares, futures aur net par kitna profit/loss?",
+      "answer_shape": "number",
+      "from_t": 384.3
+    },
+    {
+      "q": "Hedging ka shabdik matlab kya hai, aur futures se hedging kaise hoti hai?",
+      "answer_shape": "comparison",
+      "from_t": 540.1
+    },
+    {
+      "q": "Video ki mandir wali private deal ko forward contract kyon kehna zyada sahi hai? Futures se kya farak hai?",
+      "answer_shape": "comparison",
+      "from_t": 213.9
+    }
+  ],
+  "checks_learned": [
+    "Every number written on screen must equal the spoken number (screen +289.85 vs spoken 289.95; spoken 598.95 vs screen 589.95), and every written sum must add up (-284 + 289.85 is not 5.95).",
+    "A narration stretch over 10 s with no recognised words must be flagged; if a step happens on screen inside it (futures closed at 700), its reason must be re-recorded or written into the script.",
+    "A claim like 'profit in both cases' must be checked against the mechanism: a held hedge locks the price, so any gain beyond that must come from a named choice (closing early) that carries its own risk.",
+    "A private one-to-one deal used to explain futures must be labelled a forward, with one line on what makes futures different (exchange, standard lots, daily settlement).",
+    "Titles and tree branches that promise a topic (options) must either be taught or marked 'next video' on screen.",
+    "Spell-check every on-screen title and label (DERIVATES).",
+    "No canvas may stay still for more than about 45 s while the narration introduces new ideas (215-272 s here).",
+    "A spoken what-if with its own numbers (price only 5100, buyer loses) gets its own picture, not only a sentence.",
+    "Real companies, real people, real controversies and broker app screens are replaced with generic ones before BIE uses an example."
+  ],
+  "teaching_best": [
+    {
+      "t": 23,
+      "why": "A temple shoe token is a thing every Indian learner has held; its value moving with the shoes (5000, 15000) teaches 'derivative' and 'underlying asset' before either word is said."
+    },
+    {
+      "t": 145,
+      "why": "The futures contract enters as the fix for a felt problem: a crying man, a banner, a salary 30 days away; the dialogue keeps it human."
+    },
+    {
+      "t": 227,
+      "why": "The learner's objection is voiced ('my gain is clear, what does he gain?') and answered with risk and mental peace, so the buyer's motive is learned, not only the mechanics."
+    },
+    {
+      "t": 298,
+      "why": "The loss case (price only 5100) is admitted, which teaches that a hedge is bought for certainty, not profit."
+    },
+    {
+      "t": 384,
+      "why": "Both legs of the hedge are worked with numbers and closed with the comparison that matters: +5.95 with the hedge against -284 without it."
+    }
+  ],
+  "teaching_weak": [
+    {
+      "t": 476,
+      "why": "The futures are closed at 700 in a stretch the recogniser could not read, and the rising case then claims profit in both cases; as taught, an early exit on a news guess looks like a property of hedging."
+    },
+    {
+      "t": 213,
+      "why": "A private deal between two people at a temple is called a futures agreement; it is a forward contract, and exchange futures are never contrasted."
+    },
+    {
+      "t": 109,
+      "why": "Options are named and promised in the title but never taught; the learner is left with half the classification."
+    },
+    {
+      "t": 321,
+      "why": "The practical example uses a real company, a real person and a live controversy, which dates the lesson and is not neutral; BIE uses a generic company."
+    },
+    {
+      "t": 550,
+      "why": "No recap: the shoe story, the two stock cases and the hedging name are not tied together at the end."
+    }
+  ]
+}

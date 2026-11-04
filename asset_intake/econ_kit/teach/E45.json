@@ -1,0 +1,737 @@
+{
+  "id": "E45",
+  "topic": "National income and GDP: from a person's yearly income to a country's, what a product is (goods and services), GDP as the value of a year's final goods and services made inside the country, and six GDP rules taught one by one with small examples",
+  "book_understanding": {
+    "concepts": [
+      {
+        "name": "income over a year and national income",
+        "type": "definition",
+        "t_start": 0.0,
+        "t_end": 33.0,
+        "prereq_recalled": ""
+      },
+      {
+        "name": "four measures: GDP, NDP, GNP, NNP",
+        "type": "classification",
+        "t_start": 33.0,
+        "t_end": 71.5,
+        "prereq_recalled": "national income"
+      },
+      {
+        "name": "product = goods (physical, software) and services",
+        "type": "classification",
+        "t_start": 71.5,
+        "t_end": 165.3,
+        "prereq_recalled": "'product' is the word common to all four measures"
+      },
+      {
+        "name": "GDP: value of a year's goods and services inside the boundary",
+        "type": "formula",
+        "t_start": 165.3,
+        "t_end": 217.7,
+        "prereq_recalled": "goods and services as products; every product has a price"
+      },
+      {
+        "name": "rules 1-2: Indian or foreign company producing in India counts",
+        "type": "definition",
+        "t_start": 217.7,
+        "t_end": 260.0,
+        "prereq_recalled": "domestic = inside the geographical boundary"
+      },
+      {
+        "name": "rule 3 (as taught): only goods exchanged for money count",
+        "type": "numbers",
+        "t_start": 260.0,
+        "t_end": 331.8,
+        "prereq_recalled": "monetary value of goods"
+      },
+      {
+        "name": "rule 4: final goods count, intermediate goods do not",
+        "type": "classification",
+        "t_start": 331.8,
+        "t_end": 400.4,
+        "prereq_recalled": "raw material from the ketchup example"
+      },
+      {
+        "name": "why: double counting (steel inside the tool's price)",
+        "type": "numbers",
+        "t_start": 400.4,
+        "t_end": 501.9,
+        "prereq_recalled": "final vs intermediate goods"
+      },
+      {
+        "name": "rule 5: resale of old goods adds nothing",
+        "type": "cause_effect",
+        "t_start": 501.9,
+        "t_end": 542.9,
+        "prereq_recalled": "GDP counts goods produced in this financial year"
+      },
+      {
+        "name": "rule 6 (open question): shopkeeper's resale at a margin",
+        "type": "cause_effect",
+        "t_start": 542.9,
+        "t_end": 568.4,
+        "prereq_recalled": "rule 5 and rule 4"
+      },
+      {
+        "name": "who computes GDP: the statistics office",
+        "type": "definition",
+        "t_start": 568.4,
+        "t_end": 591.0,
+        "prereq_recalled": "GDP"
+      }
+    ],
+    "teaching_order": "A textbook opens with the circular flow, defines national income, gives GDP's definition in one sentence ('market value of all final goods and services produced within the domestic territory in a year') and then explains each word. Here each word of that sentence is built separately from small things first: income over a year (two people), then 'product' (ketchup, flat, sofa, software, an insurer's plans), then 'value' (price tags), then 'domestic' (India's map), and only then the sentence; the remaining words become numbered rules, each with its own tiny case (spice packets for 'market', steel for 'final', an old laptop for 'produced this year'). The cost is that the most quoted phrase, final goods, appears in a caption before it is taught, one rule is taught in a doubtful form (unsold and self-used goods), and NDP, GNP, NNP are named but left for later.",
+    "breakdown_rule": "Take the standard GDP definition apart word by word; teach each word as a separate numbered rule with one everyday case and a yes/no picture of whether it reaches GDP."
+  },
+  "narration": {
+    "opening": {
+      "move": "question_to_viewer",
+      "what": "Two people, Ram and Shyam, with monthly incomes on screen; who earns more in a financial year? The answer (Shyam) starts, then about 12 s are not recognised, and the narration resumes at 'this income is called national income'."
+    },
+    "moves": [
+      {
+        "t": 0.0,
+        "move": "hook_scene",
+        "concept": "income over a year and national income",
+        "what": "Two people, Ram and Shyam, with different monthly incomes."
+      },
+      {
+        "t": 9.2,
+        "move": "question_to_viewer",
+        "concept": "income over a year and national income",
+        "what": "If I ask you whose earning is more in a financial year...; the answer is Shyam (the rest is lost in a 12 s gap)."
+      },
+      {
+        "t": 28.3,
+        "move": "define_term",
+        "concept": "income over a year and national income",
+        "what": "(A country) also has an income; this is called national income."
+      },
+      {
+        "t": 33.0,
+        "move": "define_term",
+        "concept": "four measures: GDP, NDP, GNP, NNP",
+        "what": "There are many ways to measure national income; four of them are GDP, NDP, GNP and NNP."
+      },
+      {
+        "t": 43.6,
+        "move": "signpost",
+        "concept": "four measures: GDP, NDP, GNP, NNP",
+        "what": "GDP is considered the most stable measure; why, in a later video, after we know what the four are."
+      },
+      {
+        "t": 57.3,
+        "move": "yaani_unpack",
+        "concept": "four measures: GDP, NDP, GNP, NNP",
+        "what": "Full forms, 'yaani' Gross Domestic Product, Net Domestic Product, Gross National Product, Net National Product."
+      },
+      {
+        "t": 68.5,
+        "move": "signpost",
+        "concept": "product = goods (physical, software) and services",
+        "what": "The one thing common to all is 'product'; so first understand product."
+      },
+      {
+        "t": 74.6,
+        "move": "define_term",
+        "concept": "product = goods (physical, software) and services",
+        "what": "A product is something a company has produced: the ketchup at home, the flat we live in, the sofa we bought."
+      },
+      {
+        "t": 94.1,
+        "move": "contrast",
+        "concept": "product = goods (physical, software) and services",
+        "what": "These are physical products, 'but' there are also software products (two real brands named), and cars, cooking oil and more."
+      },
+      {
+        "t": 115.7,
+        "move": "story",
+        "concept": "product = goods (physical, software) and services",
+        "what": "How ketchup is made: tomatoes are the raw material, processed in the production unit into a finished good."
+      },
+      {
+        "t": 132.0,
+        "move": "conclusion_line",
+        "concept": "product = goods (physical, software) and services",
+        "what": "So all finished goods can be called products."
+      },
+      {
+        "t": 136.7,
+        "move": "contrast",
+        "concept": "product = goods (physical, software) and services",
+        "what": "'But' services are also products: a real insurer lists its insurance, pension and unit-linked plans as products on its website."
+      },
+      {
+        "t": 151.6,
+        "move": "conclusion_line",
+        "concept": "product = goods (physical, software) and services",
+        "what": "So banking, insurance and shipping are products too; goods and services together are called products."
+      },
+      {
+        "t": 165.3,
+        "move": "cause_chain",
+        "concept": "GDP: value of a year's goods and services inside the boundary",
+        "what": "Every good and service has a money value: to have ketchup or a service you must pay."
+      },
+      {
+        "t": 178.2,
+        "move": "define_term",
+        "concept": "GDP: value of a year's goods and services inside the boundary",
+        "what": "Add the total value of all goods and of all services produced in a financial year inside the country's boundary: that is GDP."
+      },
+      {
+        "t": 200.2,
+        "move": "yaani_unpack",
+        "concept": "GDP: value of a year's goods and services inside the boundary",
+        "what": "'Yaani' gross domestic product: gross means total; domestic because only things produced inside the geographical boundary count."
+      },
+      {
+        "t": 217.7,
+        "move": "yaani_unpack",
+        "concept": "rules 1-2: Indian or foreign company producing in India counts",
+        "what": "'Iska matlab': Indian companies producing in India count, and a foreign company that set up a plant in India also counts."
+      },
+      {
+        "t": 239.6,
+        "move": "recap",
+        "concept": "rules 1-2: Indian or foreign company producing in India counts",
+        "what": "Two points already covered: Indian or foreign, if it produces in India it is part of GDP."
+      },
+      {
+        "t": 255.8,
+        "move": "signpost",
+        "concept": "rule 3 (as taught): only goods exchanged for money count",
+        "what": "Now the third concept (its setup falls in a 17 s transcript gap, 260-277 s)."
+      },
+      {
+        "t": 277.2,
+        "move": "example_numbers",
+        "concept": "rule 3 (as taught): only goods exchanged for money count",
+        "what": "A spice maker made 100 packets at 5 rupees; only 80 were sold, 12 stayed in the godown and the owner sent 8 home for his own use."
+      },
+      {
+        "t": 304.9,
+        "move": "cause_chain",
+        "concept": "rule 3 (as taught): only goods exchanged for money count",
+        "what": "The 80 sold contributed 400; the 12 unsold are not added because nobody bought them; the 8 self-used are not added because only goods with a money transaction count (doubtful)."
+      },
+      {
+        "t": 331.8,
+        "move": "signpost",
+        "concept": "rule 4: final goods count, intermediate goods do not",
+        "what": "Now the fourth concept."
+      },
+      {
+        "t": 334.5,
+        "move": "story",
+        "concept": "rule 4: final goods count, intermediate goods do not",
+        "what": "A steel company (real brand) makes steel, the raw material of automobile and tool makers; the cars and tools sold are counted (part of this falls in a 7 s gap)."
+      },
+      {
+        "t": 369.3,
+        "move": "define_term",
+        "concept": "rule 4: final goods count, intermediate goods do not",
+        "what": "The steel is not counted because it is an intermediate good, used as input for other products; only final goods' market value counts."
+      },
+      {
+        "t": 388.0,
+        "move": "define_term",
+        "concept": "rule 4: final goods count, intermediate goods do not",
+        "what": "Final goods: goods on which no further value addition can be done."
+      },
+      {
+        "t": 394.3,
+        "move": "question_to_viewer",
+        "concept": "why: double counting (steel inside the tool's price)",
+        "what": "'Samajhne wali baat': why are intermediate goods not counted? Let us see in detail."
+      },
+      {
+        "t": 402.8,
+        "move": "example_numbers",
+        "concept": "why: double counting (steel inside the tool's price)",
+        "what": "1 kg steel sold for 5 rupees to a tool maker who makes one 1 kg tool; he adds labour, machinery, overhead, transport and profit, assumed 10 rupees (the tool's 15 falls in a 14 s gap)."
+      },
+      {
+        "t": 472.2,
+        "move": "cause_chain",
+        "concept": "why: double counting (steel inside the tool's price)",
+        "what": "Every company includes its raw material cost in its price, so the tool's market value goes into GDP."
+      },
+      {
+        "t": 484.0,
+        "move": "conclusion_line",
+        "concept": "why: double counting (steel inside the tool's price)",
+        "what": "Adding both the tool and the steel would be double counting and give a wrong GDP; that is why only final goods are added."
+      },
+      {
+        "t": 504.7,
+        "move": "what_if",
+        "concept": "rule 5: resale of old goods adds nothing",
+        "what": "Suppose you sold your old laptop, bought for 10,000, on a resale site for 5,000: any effect on GDP?"
+      },
+      {
+        "t": 517.8,
+        "move": "cause_chain",
+        "concept": "rule 5: resale of old goods adds nothing",
+        "what": "No: nothing was produced; its price entered GDP in the year it was first bought; GDP counts only this year's production."
+      },
+      {
+        "t": 542.9,
+        "move": "question_to_viewer",
+        "concept": "rule 6 (open question): shopkeeper's resale at a margin",
+        "what": "A shopkeeper buys a laptop for 10,000 and sells it to you for 15,000: does it affect GDP? Answer in the comments; the answer comes next video."
+      },
+      {
+        "t": 560.3,
+        "move": "define_term",
+        "concept": "rule 6 (open question): shopkeeper's resale at a margin",
+        "what": "Discussing like this is how we digest knowledge, called consolidation."
+      },
+      {
+        "t": 573.2,
+        "move": "question_to_viewer",
+        "concept": "who computes GDP: the statistics office",
+        "what": "Which organisation calculates the data of everything produced in the country?"
+      },
+      {
+        "t": 581.6,
+        "move": "data_fact",
+        "concept": "who computes GDP: the statistics office",
+        "what": "Answer: CSO, the Central Statistical Office, said to be under a 'Ministry of Planning and Development' headed by the Prime Minister (doubtful and dated)."
+      },
+      {
+        "t": 591.0,
+        "move": "signpost",
+        "concept": "who computes GDP: the statistics office",
+        "what": "GDP is not finished; more depth next video; playlist and PDF plug."
+      }
+    ],
+    "story_before_term": [
+      {
+        "term": "national income",
+        "t_story": 0.0,
+        "t_term": 31.1
+      },
+      {
+        "term": "GDP (as a definition)",
+        "t_story": 165.3,
+        "t_term": 199.9
+      },
+      {
+        "term": "intermediate good",
+        "t_story": 334.5,
+        "t_term": 376.1
+      },
+      {
+        "term": "double counting",
+        "t_story": 402.8,
+        "t_term": 493.1
+      }
+    ],
+    "examples": [
+      {
+        "t": 0.0,
+        "kind": "numbers",
+        "what": "Ram earns 10K a month and Shyam 2 lakh a month (screen; transcript reads 2,000): whose yearly earning is more?",
+        "carries": "income measured over a year, then a country's national income"
+      },
+      {
+        "t": 74.6,
+        "kind": "everyday_object",
+        "what": "Ketchup, a flat, a sofa, software, a car, cooking oil: each made by some company.",
+        "carries": "what a product is"
+      },
+      {
+        "t": 115.7,
+        "kind": "everyday_object",
+        "what": "Tomatoes processed into ketchup in a production unit.",
+        "carries": "raw material vs finished good"
+      },
+      {
+        "t": 139.9,
+        "kind": "real_case",
+        "what": "A real insurer's website lists its insurance and pension plans as 'products'.",
+        "carries": "services are products too"
+      },
+      {
+        "t": 277.2,
+        "kind": "numbers",
+        "what": "100 spice packets at 5 rupees: 80 sold (400 counted), 12 unsold, 8 taken home.",
+        "carries": "rule 3 as taught (market transactions only)"
+      },
+      {
+        "t": 334.5,
+        "kind": "real_case",
+        "what": "Steel from a named steel company goes into cars and tools.",
+        "carries": "final vs intermediate goods"
+      },
+      {
+        "t": 402.8,
+        "kind": "numbers",
+        "what": "1 kg steel at 5 rupees becomes a 1 kg tool sold at 15 (5 + 10).",
+        "carries": "double counting"
+      },
+      {
+        "t": 504.7,
+        "kind": "what_if",
+        "what": "An old laptop bought for 10,000 resold for 5,000 online.",
+        "carries": "only this year's production counts"
+      },
+      {
+        "t": 542.9,
+        "kind": "what_if",
+        "what": "A shopkeeper buys a laptop for 10,000 and sells it for 15,000.",
+        "carries": "trade margins as a service (left open)"
+      }
+    ],
+    "closing": {
+      "move": "signpost",
+      "what": "Says the learner now has a basic idea of GDP, asks who computes it and answers with the statistics office, then says GDP continues next video; playlist and PDF plug; no recap of the six rules."
+    },
+    "density": "About 22 terms (income, financial year, national income, GDP, NDP, GNP, NNP, product, goods, services, physical and software products, raw material, finished goods, monetary value, gross, domestic, geographical boundary, self consumption, final goods, intermediate goods, value addition, double counting, consolidation, CSO) in about 10 minutes, a little over 2 per minute, at about 195 words per minute. Each rule gets its own case, so the pace suits class 9-12; the opening minute (four measures and 'most stable') front-loads names that are not taught here."
+  },
+  "talmel": [
+    {
+      "tile": 1,
+      "t_shown": 4.0,
+      "shown": "INCOME band with '10K / Month' under Ram",
+      "said_gist": "these are two people, Ram and Shyam; Ram's income is 10,000 per (month)",
+      "naming_word": "इंकम",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 2,
+      "t_shown": 19.4,
+      "shown": "box round Shyam's '2 Lakhs / Month' with a '<' sign between the two",
+      "said_gist": "transcript gap (16.5-28.3 s): one word stretched over 12 s; just before (15.3 s) 'the answer is Shyam's earning'; the transcript had read his income as 2,000 a month",
+      "naming_word": "",
+      "lead": "voice_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 3,
+      "t_shown": 47.6,
+      "shown": "green tick on GDP and a red handwritten 'why?'",
+      "said_gist": "GDP is considered the most stable method; why that is, we will see later",
+      "naming_word": "क्यों",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 4,
+      "t_shown": 61.2,
+      "shown": "'Net Domestic Product' written beside NDP",
+      "said_gist": "GDP means gross domestic product, NDP is net domestic product",
+      "naming_word": "Net",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 5,
+      "t_shown": 72.4,
+      "shown": "canvas cleared to the 'Product' heading",
+      "said_gist": "the one thing common is product; so let us first understand product",
+      "naming_word": "प्रड़क्ट",
+      "lead": "voice_first",
+      "relation": "names_the_term"
+    },
+    {
+      "tile": 6,
+      "t_shown": 97.8,
+      "shown": "a real software brand logo at the right of the product row",
+      "said_gist": "these are physical products, but there are also software products (brand named 1.8 s later)",
+      "naming_word": "products",
+      "lead": "together",
+      "relation": "adds_new_info"
+    },
+    {
+      "tile": 7,
+      "t_shown": 113.6,
+      "shown": "cooking oil bottle added to the product row (car already there)",
+      "said_gist": "many more examples of products, like car, cooking oil, etc.",
+      "naming_word": "Cooking",
+      "lead": "together",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 8,
+      "t_shown": 139.4,
+      "shown": "boxed ketchup labelled GOODS beside a real insurer's web page whose plan list is boxed as SERVICES",
+      "said_gist": "services are also called product; for example you can see here",
+      "naming_word": "Services",
+      "lead": "together",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 9,
+      "t_shown": 166.2,
+      "shown": "₹10 price tag swinging onto the ketchup box",
+      "said_gist": "every goods and service has a monetary value (the ₹10 itself is never spoken)",
+      "naming_word": "monetary",
+      "lead": "picture_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 10,
+      "t_shown": 180.2,
+      "shown": "caption under the band: many final goods and services are produced within India's geographical boundary",
+      "said_gist": "within our country's geographical boundary many such goods and services are produced",
+      "naming_word": "boundary",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 11,
+      "t_shown": 212.4,
+      "shown": "India map pulsing at top right",
+      "said_gist": "yaani GDP considers only those goods and services which (are produced inside the country, said 2.7 s later)",
+      "naming_word": "",
+      "lead": "picture_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 12,
+      "t_shown": 228.8,
+      "shown": "second cyan row: foreign company producing goods in India",
+      "said_gist": "will be considered in GDP; and also any foreign company that has set up a plant in India",
+      "naming_word": "foreign",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 13,
+      "t_shown": 247.4,
+      "shown": "both cyan rule rows boxed, with the six-step tracker at the bottom",
+      "said_gist": "two points we have already covered, where we said Indian company or foreign company...",
+      "naming_word": "इंडियन",
+      "lead": "together",
+      "relation": "navigation"
+    },
+    {
+      "tile": 14,
+      "t_shown": 278.8,
+      "shown": "'[80 packets] sold in market' branch from the 100 packets",
+      "said_gist": "just after a 17 s transcript gap (260-277 s): '...5 rupees, and in this financial year the spice maker made 100 (packets)'; 80 said 4.9 s later",
+      "naming_word": "",
+      "lead": "picture_first",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 15,
+      "t_shown": 310.6,
+      "shown": "red cross on the line from the godown branch to GDP",
+      "said_gist": "the 12 packets left in the godown, their price will not be added to GDP",
+      "naming_word": "नहीं",
+      "lead": "picture_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 16,
+      "t_shown": 335.2,
+      "shown": "steel factory icon with a steel brand's name, tracker on 4",
+      "said_gist": "now the fourth concept; here we are talking about a (steel company, said 1.5 s later)",
+      "naming_word": "",
+      "lead": "picture_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 17,
+      "t_shown": 356.8,
+      "shown": "'10 cars sold' with a car at the automotive factory's output",
+      "said_gist": "if we consider that the automobile company (then a 6.7 s transcript gap, 357.8-364.5 s; the 10 cars are never spoken)",
+      "naming_word": "",
+      "lead": "picture_first",
+      "relation": "adds_new_info"
+    },
+    {
+      "tile": 18,
+      "t_shown": 372.2,
+      "shown": "'not considered in GDP calculation' under STEEL",
+      "said_gist": "but the steel the steel company produced, it (will not be considered) in GDP calculation",
+      "naming_word": "calculation",
+      "lead": "picture_first",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 19,
+      "t_shown": 415.0,
+      "shown": "'1 tools sold' beside the 1 kg tool",
+      "said_gist": "bought the steel as raw material and made one tool from it, which is also 1 kg",
+      "naming_word": "tool",
+      "lead": "together",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 20,
+      "t_shown": 465.2,
+      "shown": "'already included' bracket from the steel's ₹5 to the tool's ₹15",
+      "said_gist": "transcript gap (455.4-469.6 s): one word stretched over 14 s; before it 'assume all these costs are 10 rupees'; the idea that raw material is inside the price is spoken at 472-480 s",
+      "naming_word": "",
+      "lead": "picture_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 21,
+      "t_shown": 506.2,
+      "shown": "laptop with '10 K ₹' beside the first person",
+      "said_gist": "suppose you sold your old laptop on a resale site",
+      "naming_word": "laptop",
+      "lead": "together",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 22,
+      "t_shown": 521.6,
+      "shown": "note: no goods or services produced; already counted when it was made",
+      "said_gist": "this transaction will have no effect on GDP, because no goods or services were produced",
+      "naming_word": "",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 23,
+      "t_shown": 549.8,
+      "shown": "'15 K ₹' under the buyer",
+      "said_gist": "a shopkeeper bought a laptop for 10,000 and sold it to you for 15,000",
+      "naming_word": "15",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 24,
+      "t_shown": 571.0,
+      "shown": "box round the GDP row in the national income list",
+      "said_gist": "by now you must have a basic idea of GDP",
+      "naming_word": "GDP",
+      "lead": "together",
+      "relation": "navigation"
+    }
+  ],
+  "talmel_summary": "Objects and numbers mostly land on their words: each product pops in as it is named, the cyan rule rows write on with their sentences, and the laptop figures appear as they are said. The picture is strongest where a line to the GDP map is ticked or crossed (sold packets, final goods, resale) and where the steel's ₹5 is bracketed into the tool's ₹15. Four transcript gaps (16.5-28.3, 260-277, 291.7-304.9, 455.4-469.6 s) fall on exactly the numbers that matter (Shyam's answer, the 100-packet setup, the ₹400 total, the tool's ₹15), so there the picture is the only record; tiles 2 and 20 sit inside gaps. Some numbers are shown but never spoken (₹10 and ₹5 tags, 10 cars, 5 tools).",
+  "voice": {
+    "notes": "About 195 words per minute, friendly classroom tone; each rule is announced as 'chaliye ab dekhte hain GDP ka third/fourth concept', which pairs with the on-screen tracker. Numbers are small and read plainly (5 rupees, 10 rupees, 10,000, 15,000). Questions are put to the viewer and the answer follows at once, except the shopkeeper question, which is handed to the comments. Recognition loses about 56 s across four stretches, which may be music, fast speech or long held words."
+  },
+  "game_ideas": [
+    {
+      "from_t": 260.0,
+      "mechanic": "sort_into_groups",
+      "player_does": "Stands at India's border as the GDP counter. Cards arrive: a car made by a foreign firm's Indian plant, an Indian firm's factory abroad, steel sold to a car maker, the finished car, a haircut, an insurance policy, an old laptop resold, a new laptop from a shop, a farmer's own grain. The player drops each into the GDP basket or the 'not this year / not final / not here' bin.",
+      "process_happens": "Each accepted card adds its value to the GDP bar and draws a ticked line to the map; rejected cards show their reason (outside the border, already inside another price, made in an earlier year).",
+      "win": "The GDP bar ends at the correct total with no double counting.",
+      "lose": "Accepting the steel and the car shows the steel's value counted twice and the bar overshoots; accepting the old laptop shows a past year's production being counted again.",
+      "concept": "rule 4: final goods count, intermediate goods do not"
+    },
+    {
+      "from_t": 402.8,
+      "mechanic": "run_a_process",
+      "player_does": "Runs a value chain: a steel maker sells 1 kg steel, a tool maker adds labour, machinery, transport and profit, a shop sells the tool; the player sets each stage's price and decides what to enter in the GDP ledger.",
+      "process_happens": "Each stage's price builds on the last (5, then 15, then a shop margin), and the ledger shows either the final price or the sum of value added at each stage; both reach the same total.",
+      "win": "Ledger equals the final price (or the sum of value added) at every stage.",
+      "lose": "Entering every stage's full price makes the ledger bar grow past the tool's price and an 'already included' bracket flashes over the repeated ₹5.",
+      "concept": "why: double counting (steel inside the tool's price)"
+    },
+    {
+      "from_t": 217.7,
+      "mechanic": "place_correctly",
+      "player_does": "Places factories on a map, each with its owner's flag (Indian or foreign), some inside India's border and some abroad, then runs one year of production.",
+      "process_happens": "Goods from factories inside the border flow into India's GDP bar, whoever owns them; goods from an Indian-owned factory abroad flow to the other country's bar.",
+      "win": "Predict which bar each factory feeds.",
+      "lose": "Putting an Indian firm's foreign plant into India's GDP shows its output arriving at the other country's map instead, which sets up GNP for the next lesson.",
+      "concept": "rules 1-2: Indian or foreign company producing in India counts"
+    }
+  ],
+  "notes_questions": [
+    {
+      "q": "National income kya hota hai? Ram aur Shyam ki saal bhar ki kamai se samjhaiye.",
+      "answer_shape": "comparison",
+      "from_t": 0.0
+    },
+    {
+      "q": "GDP, NDP, GNP aur NNP ke full forms likhiye. Inme common shabd kaun sa hai?",
+      "answer_shape": "tree",
+      "from_t": 33.0
+    },
+    {
+      "q": "Product mein goods aur services dono kyon aate hain? Do-do udaharan dijiye.",
+      "answer_shape": "tree",
+      "from_t": 72.4
+    },
+    {
+      "q": "GDP ki paribhasha likhiye; 'gross' aur 'domestic' ka kya matlab hai?",
+      "answer_shape": "picture",
+      "from_t": 178.2
+    },
+    {
+      "q": "India mein plant lagane wali foreign company ka utpadan India ke GDP mein judta hai ya nahi? Kyon?",
+      "answer_shape": "comparison",
+      "from_t": 217.7
+    },
+    {
+      "q": "Final goods aur intermediate goods mein kya farak hai? 1 kg steel se bane tool ke example se double counting samjhaiye.",
+      "answer_shape": "flow",
+      "from_t": 402.8
+    },
+    {
+      "q": "Purana laptop 5,000 mein bechne par GDP par asar kyon nahi hota? Dukaandaar ke 10,000 se 15,000 wale sauda mein kya judega?",
+      "answer_shape": "number",
+      "from_t": 504.7
+    }
+  ],
+  "checks_learned": [
+    "Every rule stated as fact must be checked against national-accounts conventions before reuse: unsold stock (change in inventories) and own-account production of goods are part of GDP, unlike what rule 3 says here.",
+    "Institution facts need a date and a source: the CSO was merged into the National Statistical Office in 2019 under the statistics ministry; ministry names and office-holders said aloud must be verified or left out.",
+    "Numbers on screen and in the transcript must agree (Shyam 2 lakh vs 2,000); a mismatch is either a recognition error to recheck or a script error.",
+    "A term must not appear on screen before it is taught (final goods in a caption at 180 s, taught at 364 s).",
+    "Transcript gaps over 10 s that cover a number on screen (packets, ₹400, ₹15) must be flagged and the line re-recorded or re-transcribed.",
+    "A question handed to the viewer (shopkeeper's margin) must be answered somewhere in the course; BIE should schedule the answer in the next lesson's recall or in the notes.",
+    "Lessons with several rules should show a visible step tracker and a growing rule list, as here; a check can require one for any lesson with more than three numbered points.",
+    "Measures named in the opening (NDP, GNP, NNP) but not taught should be marked 'next lesson' on screen, not left as live branches.",
+    "Real brands (spice maker, steel maker, software firms, insurer's website, resale site) are replaced with generic ones."
+  ],
+  "teaching_best": [
+    {
+      "t": 0,
+      "why": "A person's yearly income is the bridge to a country's national income; the same band simply swaps people for flags."
+    },
+    {
+      "t": 115,
+      "why": "'Product' is built from objects at home, then a ketchup line from tomatoes, then an insurer's own 'products' page for services, so goods and services both feel like products before the definition."
+    },
+    {
+      "t": 241,
+      "why": "The GDP definition is cut into numbered rules with a visible tracker and a growing rule list, so the learner always knows which rule of six is being taught."
+    },
+    {
+      "t": 402,
+      "why": "Double counting is shown with tiny numbers (₹5 steel inside a ₹15 tool) and an 'already included' bracket, which makes the reason for 'final goods only' concrete."
+    },
+    {
+      "t": 504,
+      "why": "An old laptop resale gives a clean 'no new production' case, and the shopkeeper variant is set as a thinking question (consolidation)."
+    }
+  ],
+  "teaching_weak": [
+    {
+      "t": 304,
+      "why": "Rule 3 is taught in a doubtful form: unsold godown stock and goods taken home are said to be outside GDP."
+    },
+    {
+      "t": 581,
+      "why": "The office that computes GDP is named with an outdated office, a wrong ministry name and an office-holder; this dates the lesson and may be wrong."
+    },
+    {
+      "t": 43,
+      "why": "'GDP is the most stable measure' is asserted and deferred, and NDP, GNP, NNP are only spelled out."
+    },
+    {
+      "t": 542,
+      "why": "The shopkeeper question, which would teach that trade margins count, is left to the comments with no answer in the lesson."
+    },
+    {
+      "t": 260,
+      "why": "About 56 s across four stretches are not recognised, and they hold the key numbers; the spoken lesson alone would be hard to follow there."
+    }
+  ]
+}

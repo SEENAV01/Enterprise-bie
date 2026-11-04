@@ -1,0 +1,136 @@
+{
+  "id": "E50",
+  "topic": "HDI calculation: three dimensions and their indicators, goalposts (min and max), normalising each indicator to 0-1, combining with a geometric mean, a made-up worked example, India's real values, its HDI group and rank",
+  "book_understanding": {
+    "concepts": [
+      {"name": "HDI structure: 3 dimensions, indicators, min and max, 0-1 scale", "type": "classification", "t_start": 0.0, "t_end": 46.5, "prereq_recalled": "previous video: growth vs development, HDI formulated as a development measure with three dimensions"},
+      {"name": "geometric mean gives HDI (worked with 0.7, 0.8, 0.9)", "type": "formula", "t_start": 46.5, "t_end": 99.7, "prereq_recalled": "the three normalised values just introduced"},
+      {"name": "goalposts: indicators with their min and max, clamping to 0 and 1", "type": "numbers", "t_start": 99.7, "t_end": 206.3, "prereq_recalled": "nominal 0 and 1 from the opening tree"},
+      {"name": "indicator meanings: life expectancy, expected and mean years of schooling", "type": "definition", "t_start": 206.3, "t_end": 262.5, "prereq_recalled": "GNP per capita in PPP dollars, said to be covered in an earlier video"},
+      {"name": "dimension index = (actual - min) / (max - min), India health and education", "type": "formula", "t_start": 262.5, "t_end": 344.7, "prereq_recalled": "goalpost table"},
+      {"name": "income index uses logs; three indices -> HDI 0.633", "type": "formula", "t_start": 344.7, "t_end": 393.5, "prereq_recalled": "the linear formula just used; geometric mean from the first example"},
+      {"name": "HDI groups and India's rank", "type": "classification", "t_start": 393.5, "t_end": 431.1, "prereq_recalled": "India's HDI value"}
+    ],
+    "teaching_order": "A textbook would list the dimensions, indicators and goalposts, give the index formula, then aggregate. Here the whole pipeline is shown first at a 'bird's eye view' with made-up finished indices (0.7, 0.8, 0.9 -> 0.795), so the learner knows the destination before any detail; then the two skipped parts are marked with '?' and filled in (goalposts, meanings), and finally the full pipeline is rerun on India's real numbers, row by row, ending on the same geometric mean. The order works: answer first, then 'how did we get those three numbers'. It loses force at the end because two of the three India indices are never actually computed.",
+    "breakdown_rule": "Show the full calculation once with ready-made numbers, then open each black box in the order the calculation needs it (indicator, goalposts, meaning, index formula), and rerun the whole thing on real data."
+  },
+  "narration": {
+    "opening": {"move": "recall_previous", "what": "Recalls the last video: development needed its own measure, economists formulated HDI, it has three dimensions measured by indicators; promises the indicators in detail."},
+    "moves": [
+      {"t": 0.0, "move": "recall_previous", "concept": "HDI structure: 3 dimensions, indicators, min and max, 0-1 scale", "what": "Previous video: HDI made to measure development; three dimensions (standard of living, health, education)."},
+      {"t": 18.3, "move": "agenda", "concept": "HDI structure: 3 dimensions, indicators, min and max, 0-1 scale", "what": "Each dimension is measured by indicators, 'which we will cover in detail in this video'."},
+      {"t": 27.3, "move": "define_term", "concept": "HDI structure: 3 dimensions, indicators, min and max, 0-1 scale", "what": "Each indicator has a minimum and maximum; each country's value is normalised to between 0 and 1."},
+      {"t": 38.9, "move": "yaani_unpack", "concept": "HDI structure: 3 dimensions, indicators, min and max, 0-1 scale", "what": "'Yaani' for any country an indicator's value can be at least 0 and at most 1."},
+      {"t": 46.5, "move": "what_if", "concept": "geometric mean gives HDI (worked with 0.7, 0.8, 0.9)", "what": "'Maan lijiye' a country (named Bulgaria) gets 0.7 for standard of living, 0.8 for health, 0.9 for education."},
+      {"t": 66.3, "move": "signpost", "concept": "geometric mean gives HDI (worked with 0.7, 0.8, 0.9)", "what": "How these values come out will be covered shortly; for now a bird's eye view of the calculation."},
+      {"t": 75.6, "move": "define_term", "concept": "geometric mean gives HDI (worked with 0.7, 0.8, 0.9)", "what": "The geometric mean of the three values is calculated, and that geometric mean is called HDI."},
+      {"t": 82.5, "move": "example_numbers", "concept": "geometric mean gives HDI (worked with 0.7, 0.8, 0.9)", "what": "Simple formula: multiply the three and take the cube root; the result is 0.795."},
+      {"t": 94.2, "move": "conclusion_line", "concept": "geometric mean gives HDI (worked with 0.7, 0.8, 0.9)", "what": "'Iska matlab' this country's HDI is 0.795."},
+      {"t": 99.7, "move": "contrast", "concept": "goalposts: indicators with their min and max, clamping to 0 and 1", "what": "'But the topic is not over': we still need each dimension's indicators and their real min and max; the 0 and 1 seen are only nominal values."},
+      {"t": 120.8, "move": "define_term", "concept": "goalposts: indicators with their min and max, clamping to 0 and 1", "what": "Standard of living indicator: GNP per capita in purchasing power parity, in dollars; minimum $100, maximum $75,000."},
+      {"t": 137.1, "move": "cause_chain", "concept": "goalposts: indicators with their min and max, clamping to 0 and 1", "what": "Spells out the three cases: below $100 -> 0; $75,000 or more -> 1; in between -> calculated to a value between 0 and 1."},
+      {"t": 169.7, "move": "conclusion_line", "concept": "goalposts: indicators with their min and max, clamping to 0 and 1", "what": "So no indicator value can be below 0 or above 1 for any country."},
+      {"t": 175.4, "move": "data_fact", "concept": "goalposts: indicators with their min and max, clamping to 0 and 1", "what": "Health: life expectancy, 20 to 85 years; education: expected years of schooling 0 to 18 and mean years of schooling 0 to 15."},
+      {"t": 206.3, "move": "signpost", "concept": "indicator meanings: life expectancy, expected and mean years of schooling", "what": "Now the meaning of the indicators; GNP per capita PPP was covered earlier, so the rest."},
+      {"t": 219.1, "move": "yaani_unpack", "concept": "indicator meanings: life expectancy, expected and mean years of schooling", "what": "Life expectancy: if a child is born today, how many years it can live at the country's current mortality rate; 'yaani' its lifespan in years."},
+      {"t": 239.7, "move": "yaani_unpack", "concept": "indicator meanings: life expectancy, expected and mean years of schooling", "what": "Expected years of schooling: how many years of education a child can get under the country's prevailing conditions."},
+      {"t": 251.0, "move": "yaani_unpack", "concept": "indicator meanings: life expectancy, expected and mean years of schooling", "what": "Mean years of schooling: how many years of formal education people over 25 have actually received."},
+      {"t": 262.5, "move": "signpost", "concept": "dimension index = (actual - min) / (max - min), India health and education", "what": "To understand better, put India's actual values; health first."},
+      {"t": 269.9, "move": "data_fact", "concept": "dimension index = (actual - min) / (max - min), India health and education", "what": "India's life expectancy is 67.2 years."},
+      {"t": 277.9, "move": "define_term", "concept": "dimension index = (actual - min) / (max - min), India health and education", "what": "Index formula read out: actual minus minimum, divided by maximum minus minimum."},
+      {"t": 285.2, "move": "example_numbers", "concept": "dimension index = (actual - min) / (max - min), India health and education", "what": "67.2 minus 20 over 85 minus 20 gives 0.726; 'iska matlab' India's health index is 0.726."},
+      {"t": 303.0, "move": "data_fact", "concept": "dimension index = (actual - min) / (max - min), India health and education", "what": "India: expected years of schooling 11.9, mean years 6.7."},
+      {"t": 313.8, "move": "what_if", "concept": "dimension index = (actual - min) / (max - min), India health and education", "what": "Same formula applies; 'maan lete hain' the results are x and y (numbers not worked)."},
+      {"t": 328.7, "move": "contrast", "concept": "dimension index = (actual - min) / (max - min), India health and education", "what": "'But' education needs only one index value, so take the average (x + y) / 2, 'basically' an arithmetic mean."},
+      {"t": 344.7, "move": "data_fact", "concept": "income index uses logs; three indices -> HDI 0.633", "what": "India's GNP per capita in PPP dollars is $6,590."},
+      {"t": 356.2, "move": "contrast", "concept": "income index uses logs; three indices -> HDI 0.633", "what": "'But the problem is' the formula used for health and education will not work here, so logs of all the values are taken (no reason given)."},
+      {"t": 368.5, "move": "example_numbers", "concept": "income index uses logs; three indices -> HDI 0.633", "what": "Reads out log 6590 minus log 100 over log 75000 minus log 100 as the standard of living index (result not given)."},
+      {"t": 383.1, "move": "recall_previous", "concept": "income index uses logs; three indices -> HDI 0.633", "what": "The geometric mean of the three values is HDI; 'we already saw how' a little earlier."},
+      {"t": 393.5, "move": "data_fact", "concept": "HDI groups and India's rank", "what": "Per the current Human Development Report, India's HDI is 0.633."},
+      {"t": 399.6, "move": "data_fact", "concept": "HDI groups and India's rank", "what": "UNDP divides countries into 4 groups by HDI; India is in the medium human development list."},
+      {"t": 417.3, "move": "data_fact", "concept": "HDI groups and India's rank", "what": "India's rank is 132 out of 191 countries (latest UNDP report)."},
+      {"t": 425.4, "move": "conclusion_line", "concept": "HDI groups and India's rank", "what": "'You can see how far behind our country is in human development', then the playlist plug."}
+    ],
+    "story_before_term": [
+      {"term": "geometric mean (as HDI)", "t_story": 46.5, "t_term": 77.7},
+      {"term": "index value formula", "t_story": 269.9, "t_term": 279.8}
+    ],
+    "examples": [
+      {"t": 46.5, "kind": "numbers", "what": "Assumed indices 0.7, 0.8, 0.9 for a named country; HDI = cube root of their product = 0.795.", "carries": "geometric mean gives HDI (worked with 0.7, 0.8, 0.9)"},
+      {"t": 137.1, "kind": "what_if", "what": "A country below $100, above $75,000, or in between: 0, 1, or calculated.", "carries": "goalposts: indicators with their min and max, clamping to 0 and 1"},
+      {"t": 219.1, "kind": "everyday_object", "what": "A child born today and how long it can expect to live at today's death rates.", "carries": "indicator meanings: life expectancy, expected and mean years of schooling"},
+      {"t": 269.9, "kind": "real_case", "what": "India: life expectancy 67.2 -> (67.2 - 20) / (85 - 20) = 0.726.", "carries": "dimension index = (actual - min) / (max - min), India health and education"},
+      {"t": 303.0, "kind": "real_case", "what": "India: expected schooling 11.9 and mean schooling 6.7 years -> x and y -> (x + y) / 2.", "carries": "dimension index = (actual - min) / (max - min), India health and education"},
+      {"t": 346.9, "kind": "real_case", "what": "India: GNP per capita $6,590 put into the log formula with 100 and 75,000.", "carries": "income index uses logs; three indices -> HDI 0.633"},
+      {"t": 393.5, "kind": "real_case", "what": "India HDI 0.633, medium group, rank 132 of 191.", "carries": "HDI groups and India's rank"}
+    ],
+    "closing": {"move": "conclusion_line", "what": "One line on how far behind India is, then the playlist plug; no recap of the calculation steps."},
+    "density": "About 16 terms (HDI, dimension, indicator, normalise, minimum/maximum value, nominal value, geometric mean, cube root, GNP per capita, PPP, life expectancy, mortality rate, expected years of schooling, mean years of schooling, index value, arithmetic mean, logarithm, UNDP, human development groups) in about 430 s, about 2.3 per minute; but the voice is fast (about 187 words a minute, no pauses over 1.2 s) and formula-heavy. Fine for UPSC/class 11+, too fast for school learners, especially the log step."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 10.8, "shown": "canvas clears from the growth/development split to a lone 'HDI' title", "said_gist": "the measure was named Human Development Index", "naming_word": "Human Development Index", "lead": "together", "relation": "names_the_term"},
+    {"tile": 2, "t_shown": 16.2, "shown": "pink '3 Dimensions' tag beside HDI", "said_gist": "HDI has three dimensions", "naming_word": "Dimensions", "lead": "together", "relation": "names_the_term"},
+    {"tile": 3, "t_shown": 23.0, "shown": "three 'Indicator' labels hanging from the three dimension chips", "said_gist": "these dimensions are measured by some indicators", "naming_word": "indicators", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 4, "t_shown": 36.2, "shown": "first 0-to-1 bar under the first indicator's Min and Max", "said_gist": "each indicator value is normalised to between 0 and 1", "naming_word": "0 से लेकर 1", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 5, "t_shown": 38.6, "shown": "third 0-to-1 bar (one per indicator, popping in about every 1.2 s)", "said_gist": "to some value between 0 and 1; yaani for any country", "naming_word": "0 से लेकर 1", "lead": "voice_first", "relation": "shows_the_step"},
+    {"tile": 6, "t_shown": 77.4, "shown": "'GEOMETRIC MEAN' label with three arrows from 0.7, 0.8, 0.9", "said_gist": "the geometric mean of these three values is calculated", "naming_word": "geometric mean", "lead": "together", "relation": "names_the_term"},
+    {"tile": 7, "t_shown": 83.0, "shown": "'HDI =' replaces the geometric-mean label", "said_gist": "the geometric mean itself is called HDI (said 1.7 s earlier); there is a simple formula", "naming_word": "hdi", "lead": "voice_first", "relation": "shows_the_step"},
+    {"tile": 8, "t_shown": 86.8, "shown": "'0.7 x 0.8 x 0.9' written after 'HDI ='", "said_gist": "we have to multiply these three values", "naming_word": "multiply", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 9, "t_shown": 89.2, "shown": "cube-root sign drawn over the product", "said_gist": "and take its cube root", "naming_word": "cube root", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 10, "t_shown": 106.6, "shown": "yellow band with '?' over the Min/Max row (indicator row already banded)", "said_gist": "we still need these indicators' maximum and minimum values", "naming_word": "maximum और minimum", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 11, "t_shown": 124.8, "shown": "table form: 'GNP per Capita in PPP dollars' in the standard-of-living row, with column lines", "said_gist": "standard of living's indicator is GNP per capita in purchasing power parity", "naming_word": "GNP", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 12, "t_shown": 178.4, "shown": "'Life Expectancy (Years)' in the health row", "said_gist": "the health indicator is life expectancy in years", "naming_word": "life expectancy", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 13, "t_shown": 192.6, "shown": "'Mean Year of Schooling' row under 'Expected Years of Schooling'", "said_gist": "two education indicators: expected years of schooling and mean years (mean said 1.2 s later)", "naming_word": "mean year", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 14, "t_shown": 220.4, "shown": "canvas dims; life-expectancy cell lit blue with an English definition box (newborn, current mortality rate)", "said_gist": "life expectancy means: if a child is born today...", "naming_word": "Life Expectancy का मतलब", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 15, "t_shown": 241.2, "shown": "definition box for expected years of schooling (child of school-entry age, prevailing conditions)", "said_gist": "here we see, by the country's prevailing conditions, how many years of education a child can get", "naming_word": "prevailing conditions", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 16, "t_shown": 252.0, "shown": "definition box for mean years of schooling (people aged 25 and older)", "said_gist": "mean years of schooling: here it is seen... (term said 1.4 s before; '25 years' said 3.3 s after the box)", "naming_word": "mean years of schooling", "lead": "voice_first", "relation": "repeats_speech_as_text"},
+    {"tile": 17, "t_shown": 267.6, "shown": "canvas brightens; India flag and 'Actual Value' header; green frame on the health row", "said_gist": "let us put India's actual values, and first health's data", "naming_word": "health", "lead": "together", "relation": "navigation"},
+    {"tile": 18, "t_shown": 275.8, "shown": "'Index Value' column header (67.2 Years already beside health)", "said_gist": "if we want to calculate health's index value", "naming_word": "index value", "lead": "together", "relation": "names_the_term"},
+    {"tile": 19, "t_shown": 315.0, "shown": "dark frame drawn around the formula box (11.9 and 6.7 already written)", "said_gist": "here too we apply the same formula", "naming_word": "same formula", "lead": "together", "relation": "navigation"},
+    {"tile": 20, "t_shown": 330.4, "shown": "curly brace joining x and y", "said_gist": "but for education we need only one index value", "naming_word": "एक index value", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 21, "t_shown": 361.4, "shown": "red cross on the linear formula box", "said_gist": "the formula used for health and education will not work here", "naming_word": "नहीं चल पाएगा", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 22, "t_shown": 374.4, "shown": "denominator 'log 75000 - log 100' written in the log formula (numerator just above)", "said_gist": "log 6590 minus log 100 divided by... (log 75000 said 2.2 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 23, "t_shown": 400.6, "shown": "canvas clears to an India card 'HDI 0.633' beside a four-band HDI table with cut-offs", "said_gist": "India's HDI is 0.633 (said 2 s before); and if we look at the UNDP report (4 groups said 5-8 s later)", "naming_word": "0 .633", "lead": "voice_first", "relation": "adds_new_info"},
+    {"tile": 24, "t_shown": 421.2, "shown": "'Out of total 191 countries' under 'HDI RANK - 132'", "said_gist": "India's HDI rank is 132 (out of 191 said 3 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"}
+  ],
+  "talmel_summary": "Tight sync for a formula video: 17 of 24 changes land within 0.8 s of their word, and the calculation is written piece by piece on its own words (multiply, then cube root; numerator, then denominator; a red cross on 'will not work'). The picture mostly writes what is said (labels, table cells, English definition boxes) rather than showing what it means; the strongest visual moves are the converging arrows into one geometric mean, the curly brace folding two education values into one, and the green row frame that walks the worked example. Weak: band cut-offs never spoken, the long clamping rule reduced to a small cap, and two of three India indices never shown as numbers.",
+  "voice": {"notes": "Fast (about 187 words a minute) and even, no pauses longer than 1.2 s; a teacher reading through a worked sheet. Formulas are read in full English words ('actual value minus minimum value divided by maximum value minus minimum value') and numbers digit-wise in English ('zero point seven nine five', '67.2 minus 20'). Signposts are short Hindi phrases ('chaliye', 'bat abhi ye topic khatam nahin hua'). Stress falls on 'geometric mean', 'normalize' and the problem line before the log formula. The long clamping rule (about 30 s, one run-on sentence) is the least clear stretch."},
+  "game_ideas": [
+    {"from_t": 262.5, "mechanic": "run_a_process", "player_does": "Is the 'HDI calculator' for a country: drags each actual value (life expectancy, schooling years, income) onto its goalpost ruler, then slides a marker to where it sits between min and max.", "process_happens": "The ruler shows the fraction filling (67.2 years on the 20-85 ruler fills 72.6%); for income the ruler is drawn in log steps ($100, $1,000, $10,000) so $6,590 sits at about 63%; the three fills become three bars that merge into one HDI bar by geometric mean.", "win": "All three index values and the HDI land within 0.01 of the true value, and the country drops into the right band (very high, high, medium, low).", "lose": "Using the linear ruler for income puts $6,590 at only 9% and HDI crashes; the game shows the log ruler beside it and asks why a rich country's extra dollar should count less. Putting a value below the minimum is clamped to 0 with a small 'floor' animation.", "concept": "dimension index = (actual - min) / (max - min), India health and education"},
+    {"from_t": 75.6, "mechanic": "allocate", "player_does": "Has a fixed budget of 'improvement points' to raise a country's health, education or income index, starting from a lopsided country (0.9, 0.9, 0.3).", "process_happens": "HDI is recomputed live as a geometric mean beside an arithmetic mean; points spent on the weakest dimension lift the geometric HDI most.", "win": "Reach a target HDI with the fewest points by fixing the weakest dimension first.", "lose": "Pouring points into an already-high dimension barely moves the geometric HDI while the arithmetic mean rises; the game shows the two means side by side so the learner sees why HDI punishes imbalance.", "concept": "geometric mean gives HDI (worked with 0.7, 0.8, 0.9)"},
+    {"from_t": 399.6, "mechanic": "place_correctly", "player_does": "Places five country cards (made-up names with HDI values like 0.82, 0.633, 0.71, 0.49, 0.55) into the four UNDP bands.", "process_happens": "Each card snaps into its band and the band edges (0.550, 0.700, 0.800) light up.", "win": "All cards in the right band, including the edge cases at exactly 0.550 and 0.700.", "lose": "A card in the wrong band bounces back with the cut-off it crossed shown on a number line.", "concept": "HDI groups and India's rank"}
+  ],
+  "notes_questions": [
+    {"q": "HDI ke teen dimensions kaun se hain aur har ek ko kis indicator se naapte hain?", "answer_shape": "tree", "from_t": 15.3},
+    {"q": "Har indicator ki minimum aur maximum value (goalposts) kya hai?", "answer_shape": "table", "from_t": 120.8},
+    {"q": "Index value ka formula kya hai? India ki life expectancy 67.2 ho to health index nikaaliye.", "answer_shape": "number", "from_t": 277.9},
+    {"q": "Education index do indicators se ek kaise banta hai? 11.9/18 aur 6.7/15 se nikaaliye.", "answer_shape": "flow", "from_t": 303.0},
+    {"q": "Income index mein log kyon lete hain?", "answer_shape": "picture", "from_t": 356.2},
+    {"q": "HDI geometric mean se kyon nikalta hai, simple average se kyon nahin? 0.7, 0.8, 0.9 se samjhaiye.", "answer_shape": "number", "from_t": 75.6},
+    {"q": "UNDP ke chaar HDI groups aur unki cut-off values kya hain? India kis group mein hai?", "answer_shape": "table", "from_t": 399.6}
+  ],
+  "checks_learned": [
+    "A worked example that sets up a formula for several inputs must compute every one of them on screen; leaving x and y (or a tick) where a number belongs fails the check.",
+    "When a formula changes for one case (log for income), the script must say why in one plain line; 'the formula will not work here' without a reason fails.",
+    "Every number on screen (band cut-offs 0.800, 0.700, 0.550) must be spoken, or the voice must point to the table and name the band in use.",
+    "A made-up example ('maan lijiye') must not carry a real country's name or flag; use a fictional country or real data, not both.",
+    "Real statistics (HDI 0.633, rank 132 of 191, 67.2 years, $6,590) must carry the report year on screen.",
+    "Term check against the source: the voice and screen say 'GNP per capita' where the UNDP method uses GNI per capita; a glossary check should flag such near-miss terms.",
+    "A spoken rule with three cases (below min, above max, in between) should be shown as three cases (a value clamped at the floor, at the ceiling, and placed between), not as one small icon.",
+    "Speech rate above about 180 words a minute with no pause over 1.2 s through formulas should flag a pacing warning for school-level learners."
+  ],
+  "teaching_best": [
+    {"t": 46, "why": "Bird's eye view first: a full calculation with ready numbers (0.7, 0.8, 0.9 -> 0.795) before any detail, so every later piece has a place to go."},
+    {"t": 100, "why": "'But the topic is not over': the skipped parts are named as open questions and marked with '?' on the existing picture."},
+    {"t": 137, "why": "The goalpost rule is spelled out as three cases (below min, above max, in between), with the conclusion that no value leaves 0-1."},
+    {"t": 269, "why": "The same formula is rerun on India's real numbers, row by row, so the abstract method becomes a worked sheet ending in 0.726."},
+    {"t": 328, "why": "Two education indicators become one index by an explicit 'we need only one value, so average them' step."}
+  ],
+  "teaching_weak": [
+    {"t": 318, "why": "Education results are left as x and y; the learner never sees 11.9/18 = 0.661 or 6.7/15 = 0.447 or their average."},
+    {"t": 356, "why": "Logs are introduced with 'the formula will not work here' and no reason (diminishing value of extra income); the income index (about 0.63) is never stated."},
+    {"t": 47, "why": "Made-up indices are attached to a real country (Bulgaria), which can be remembered as fact."},
+    {"t": 140, "why": "A 30-second run-on sentence for the clamping rule, read fast with no pause."},
+    {"t": 425, "why": "Ends on a judgement ('how far behind') with no recap of the five-step method."}
+  ]
+}

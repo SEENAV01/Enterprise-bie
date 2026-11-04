@@ -1,0 +1,845 @@
+{
+  "id": "E55",
+  "topic": "External debt as a way of financing the fiscal deficit: who lends and who borrows, reading RBI's end-March 2024 external debt release, what each indicator means (debt to GDP, debt service ratio, currency denomination, short-term debt ratios, concessional share), tied loans, and what happens when a country cannot repay (default, credit rating, spread, restructuring)",
+  "book_understanding": {
+    "concepts": [
+      {
+        "name": "budget gap, fiscal deficit and the ways of deficit financing",
+        "type": "classification",
+        "t_start": 0.0,
+        "t_end": 51.5,
+        "prereq_recalled": "earlier video 3.05 on printing money (inflation tax and inflation gap)"
+      },
+      {
+        "name": "external debt and the kinds of foreign lenders",
+        "type": "definition",
+        "t_start": 51.5,
+        "t_end": 80.7,
+        "prereq_recalled": "deficit financing methods"
+      },
+      {
+        "name": "who in India borrows abroad",
+        "type": "classification",
+        "t_start": 80.7,
+        "t_end": 133.1,
+        "prereq_recalled": "RBI, banks and companies as economic actors"
+      },
+      {
+        "name": "where the data comes from and what RBI's Table 1 shows",
+        "type": "numbers",
+        "t_start": 133.1,
+        "t_end": 291.1,
+        "prereq_recalled": "lenders and borrowers just listed"
+      },
+      {
+        "name": "seven indicators and their latest values",
+        "type": "numbers",
+        "t_start": 291.1,
+        "t_end": 395.9,
+        "prereq_recalled": "Table 1 figures"
+      },
+      {
+        "name": "external debt trend and external debt to GDP ratio",
+        "type": "comparison",
+        "t_start": 395.9,
+        "t_end": 472.3,
+        "prereq_recalled": "GDP"
+      },
+      {
+        "name": "debt service ratio",
+        "type": "definition",
+        "t_start": 472.3,
+        "t_end": 523.5,
+        "prereq_recalled": "interest and principal on a loan"
+      },
+      {
+        "name": "denomination of debt",
+        "type": "mechanism",
+        "t_start": 523.5,
+        "t_end": 582.3,
+        "prereq_recalled": "currencies, SDR"
+      },
+      {
+        "name": "loan types and short-term debt ratios",
+        "type": "classification",
+        "t_start": 582.3,
+        "t_end": 679.5,
+        "prereq_recalled": "forex reserves"
+      },
+      {
+        "name": "concessional debt",
+        "type": "definition",
+        "t_start": 679.5,
+        "t_end": 733.0,
+        "prereq_recalled": "market interest rates"
+      },
+      {
+        "name": "tied loans",
+        "type": "definition",
+        "t_start": 733.0,
+        "t_end": 774.7,
+        "prereq_recalled": "loan types box"
+      },
+      {
+        "name": "default: debt crisis, credit rating, currency collapse",
+        "type": "cause_effect",
+        "t_start": 774.7,
+        "t_end": 811.0,
+        "prereq_recalled": "repayment in the borrowed currency"
+      },
+      {
+        "name": "interest = benchmark + spread",
+        "type": "formula",
+        "t_start": 811.0,
+        "t_end": 867.6,
+        "prereq_recalled": "credit rating"
+      },
+      {
+        "name": "debt restructuring",
+        "type": "process",
+        "t_start": 867.6,
+        "t_end": 898.3,
+        "prereq_recalled": "default and its effects"
+      }
+    ],
+    "teaching_order": "A textbook chapter on external debt usually defines it, lists its components (multilateral, bilateral, commercial borrowing, NRI deposits, short-term credit), gives the latest figures and ends with sustainability indicators. Here the order starts from the budget gap (why a government borrows at all), then who lends and who borrows, then goes straight to the official RBI release and reads its figures before any indicator is explained. Only after all seven numbers are on the table does the narrator ask whether they are good or bad, and each indicator is then taught as an answer to one of those questions, with its trend and a 'safe or not' verdict. The risky ending (what if a country cannot repay) is kept for last as a separate question. The release-first order trains reading of real data but puts about 3 minutes of numbers before meaning.",
+    "breakdown_rule": "Show all the official indicators first as an index of questions, then take one indicator per piece, each answering 'what is it, what is India's value, and is it safe?', and end with the failure case."
+  },
+  "narration": {
+    "opening": {
+      "move": "hook_scene",
+      "what": "Opens on the government's yearly budget: planned spending, expected income, and a gap; the ways of filling the gap are deficit financing, of which printing money was an earlier video and external borrowing is today's."
+    },
+    "moves": [
+      {
+        "t": 0.0,
+        "move": "hook_scene",
+        "concept": "budget gap, fiscal deficit and the ways of deficit financing",
+        "what": "Each year the budget decides spending on schemes and estimates income; when spending is more, there is a gap (about 13 s of this is lost in a hidden transcript gap)."
+      },
+      {
+        "t": 27.6,
+        "move": "define_term",
+        "concept": "budget gap, fiscal deficit and the ways of deficit financing",
+        "what": "The ways the government fills the gap are called deficit financing: external aid, external borrowing, internal borrowing and printing money."
+      },
+      {
+        "t": 40.9,
+        "move": "recall_previous",
+        "concept": "budget gap, fiscal deficit and the ways of deficit financing",
+        "what": "Printing money was covered in the earlier video on inflation tax and the inflation gap."
+      },
+      {
+        "t": 51.5,
+        "move": "agenda",
+        "concept": "external debt and the kinds of foreign lenders",
+        "what": "Today: another method, external borrowing."
+      },
+      {
+        "t": 58.6,
+        "move": "define_term",
+        "concept": "external debt and the kinds of foreign lenders",
+        "what": "Borrowing from foreign lenders is external borrowing, also called external debt; lenders are international institutions (IMF, World Bank, ADB), foreign commercial banks and foreign governments."
+      },
+      {
+        "t": 80.7,
+        "move": "misconception",
+        "concept": "who in India borrows abroad",
+        "what": "'Ab yahan samajhne ki zaroorat hai': it is not only the Government of India that borrows abroad; RBI does too."
+      },
+      {
+        "t": 89.5,
+        "move": "define_term",
+        "concept": "who in India borrows abroad",
+        "what": "Corporations also borrow: deposit-taking (HDFC, SBI), other financial (insurers, housing finance companies, DFIs) and non-financial (Reliance, Tata, Adani); all of it counts as India's external debt."
+      },
+      {
+        "t": 114.5,
+        "move": "yaani_unpack",
+        "concept": "who in India borrows abroad",
+        "what": "Not only that: inter-company lending under direct investment also counts; 'kehne ka matlab', if IBM opens an Indian branch and puts money in, that counts too (the voice says 'invests', the screen says 'lends'; equity investment is not debt)."
+      },
+      {
+        "t": 133.1,
+        "move": "data_fact",
+        "concept": "where the data comes from and what RBI's Table 1 shows",
+        "what": "IMF and World Bank watch every country's foreign borrowing and publish quarterly; India's latest is 663.8 billion US dollars."
+      },
+      {
+        "t": 150.4,
+        "move": "data_fact",
+        "concept": "where the data comes from and what RBI's Table 1 shows",
+        "what": "Walkthrough of RBI's website: the June 2024 release on external debt at end-March 2024, with a table and highlights."
+      },
+      {
+        "t": 183.2,
+        "move": "data_fact",
+        "concept": "where the data comes from and what RBI's Table 1 shows",
+        "what": "Reads the table: ignore the variation columns, focus on 2024; total 663.8 bn, of which the central government only 148.7 bn; the rest from RBI, corporations and inter-company lending."
+      },
+      {
+        "t": 247.0,
+        "move": "yaani_unpack",
+        "concept": "where the data comes from and what RBI's Table 1 shows",
+        "what": "The largest part comes from non-financial corporations, 'kehne ka matlab' big companies such as Reliance, Tata and Adani, at 37.4% of the total."
+      },
+      {
+        "t": 267.4,
+        "move": "data_fact",
+        "concept": "where the data comes from and what RBI's Table 1 shows",
+        "what": "The table also splits long-term and short-term debt; short-term is 18.5% of the total."
+      },
+      {
+        "t": 279.4,
+        "move": "conclusion_line",
+        "concept": "where the data comes from and what RBI's Table 1 shows",
+        "what": "So the table gave two facts: how big our external debt is and how much of it is short-term."
+      },
+      {
+        "t": 291.1,
+        "move": "data_fact",
+        "concept": "seven indicators and their latest values",
+        "what": "The highlights add more: debt to GDP 18.7%, debt service ratio 6.7%, currency mix (USD 53.8, rupee 31.5, yen 5.8, SDR 5.4, euro 2.8), short-term to total 18.5%, short-term to forex reserves 19%, concessional 7.5%."
+      },
+      {
+        "t": 354.4,
+        "move": "question_to_viewer",
+        "concept": "seven indicators and their latest values",
+        "what": "'But' knowing the values is not enough: is the debt high or low? Is the ratio in a safe limit? What is the debt service ratio, why does currency matter, why focus on short-term debt, what is concessional debt, and what happens if a country cannot repay?"
+      },
+      {
+        "t": 392.7,
+        "move": "signpost",
+        "concept": "external debt trend and external debt to GDP ratio",
+        "what": "Let's understand all these in detail, starting with external debt."
+      },
+      {
+        "t": 395.9,
+        "move": "data_fact",
+        "concept": "external debt trend and external debt to GDP ratio",
+        "what": "Over ten years India's external debt has kept rising, to 663.8 bn."
+      },
+      {
+        "t": 411.6,
+        "move": "question_to_viewer",
+        "concept": "external debt trend and external debt to GDP ratio",
+        "what": "Should we panic? Is it a danger sign for the economy?"
+      },
+      {
+        "t": 417.1,
+        "move": "cause_chain",
+        "concept": "external debt trend and external debt to GDP ratio",
+        "what": "Look at debt to GDP: debt is rising but GDP is rising too, so the ratio has fallen from about 24% in 2013 to 18.7%."
+      },
+      {
+        "t": 444.0,
+        "move": "conclusion_line",
+        "concept": "external debt trend and external debt to GDP ratio",
+        "what": "'Iska matlab': relative to the size of the economy, the debt burden is slowly falling."
+      },
+      {
+        "t": 454.1,
+        "move": "contrast",
+        "concept": "external debt trend and external debt to GDP ratio",
+        "what": "Other countries carry external debt above their GDP while India has 18.7%, so India is safe (the comparison with rich economies is not qualified)."
+      },
+      {
+        "t": 472.3,
+        "move": "define_term",
+        "concept": "debt service ratio",
+        "what": "When we take a foreign loan, some money leaves the economy each year as interest and principal; that is debt servicing; the share of GDP that goes to it is called the debt service ratio (RBI uses current receipts, not GDP)."
+      },
+      {
+        "t": 497.9,
+        "move": "example_numbers",
+        "concept": "debt service ratio",
+        "what": "India's ratio is 6.7%: if India earns 100 rupees a year, 6.7 go to repaying external loans."
+      },
+      {
+        "t": 509.6,
+        "move": "conclusion_line",
+        "concept": "debt service ratio",
+        "what": "So there is no big repayment load; over ten years the ratio has stayed between 5 and 9."
+      },
+      {
+        "t": 523.5,
+        "move": "yaani_unpack",
+        "concept": "denomination of debt",
+        "what": "Denomination, yaani in which currency India borrows."
+      },
+      {
+        "t": 530.9,
+        "move": "cause_chain",
+        "concept": "denomination of debt",
+        "what": "A loan must be paid back in the currency it was taken in: a dollar loan is repaid in dollars; the rupee-loan half of the point falls in a hidden transcript gap (548-559 s)."
+      },
+      {
+        "t": 561.8,
+        "move": "data_fact",
+        "concept": "denomination of debt",
+        "what": "The latest report: 53.8% in dollars, 31.5% in rupees, 5.8% yen, 5.4% SDR, 2.8% euro."
+      },
+      {
+        "t": 588.6,
+        "move": "define_term",
+        "concept": "loan types and short-term debt ratios",
+        "what": "Foreign loans fall into 3-4 kinds: long-term (over a year), short-term (under a year), concessional and tied."
+      },
+      {
+        "t": 610.6,
+        "move": "cause_chain",
+        "concept": "loan types and short-term debt ratios",
+        "what": "Repaying within a year is hard, so a country with a lot of short-term debt may not withstand economic shocks; so short-term debt must stay under a limit, tracked by two ratios."
+      },
+      {
+        "t": 639.3,
+        "move": "data_fact",
+        "concept": "loan types and short-term debt ratios",
+        "what": "Short-term to total 18.5%, short-term to forex reserves 19%; the two are close because total debt is about equal to the reserves."
+      },
+      {
+        "t": 655.6,
+        "move": "conclusion_line",
+        "concept": "loan types and short-term debt ratios",
+        "what": "So short-term debt is within the safety limit: with only 19% of its reserves India could clear all of it right now; no need to worry."
+      },
+      {
+        "t": 679.5,
+        "move": "define_term",
+        "concept": "concessional debt",
+        "what": "Concessional debt: loans and aid below market interest or interest-free, usually for humanitarian or disaster needs, mostly to very poor countries."
+      },
+      {
+        "t": 700.6,
+        "move": "data_fact",
+        "concept": "concessional debt",
+        "what": "India's concessional share fell from 23% in 2008 to 7.5% today."
+      },
+      {
+        "t": 721.4,
+        "move": "conclusion_line",
+        "concept": "concessional debt",
+        "what": "So other countries now understand India is no longer a country that needs humanitarian aid."
+      },
+      {
+        "t": 733.0,
+        "move": "define_term",
+        "concept": "tied loans",
+        "what": "Tied loans come with a predefined purpose (only food procurement, or energy infrastructure), sometimes with the condition that resources be bought from the lender."
+      },
+      {
+        "t": 768.0,
+        "move": "conclusion_line",
+        "concept": "tied loans",
+        "what": "Obviously a country takes such loans only out of compulsion."
+      },
+      {
+        "t": 774.7,
+        "move": "what_if",
+        "concept": "default: debt crisis, credit rating, currency collapse",
+        "what": "What happens if a country cannot pay back its external debt?"
+      },
+      {
+        "t": 780.5,
+        "move": "cause_chain",
+        "concept": "default: debt crisis, credit rating, currency collapse",
+        "what": "It faces a debt crisis ('sovereign debt' in the video): its credit rating falls, future loans become hard to get, its currency may collapse and its whole economy may stall."
+      },
+      {
+        "t": 811.0,
+        "move": "define_term",
+        "concept": "interest = benchmark + spread",
+        "what": "Interest on a foreign loan = benchmark rate (SOFR, EURIBOR, SONIA; common to all) + an applicable spread set by the country's credit rating."
+      },
+      {
+        "t": 840.8,
+        "move": "cause_chain",
+        "concept": "interest = benchmark + spread",
+        "what": "A defaulting country's rating is very bad, so lenders charge it very high interest; even one or two defaults hurt the rating, and in a full crisis loans are hard to get at all."
+      },
+      {
+        "t": 867.6,
+        "move": "define_term",
+        "concept": "debt restructuring",
+        "what": "The only way out is restructuring: negotiate with foreign creditors how to repay; sometimes countries have to hand over foreign assets."
+      },
+      {
+        "t": 890.7,
+        "move": "conclusion_line",
+        "concept": "debt restructuring",
+        "what": "If the country gets out of the crisis somehow, it can borrow again; the video ends calling itself a '360 degree analysis'."
+      }
+    ],
+    "story_before_term": [
+      {
+        "term": "deficit financing",
+        "t_story": 0.0,
+        "t_term": 31.6
+      },
+      {
+        "term": "external debt to GDP ratio",
+        "t_story": 411.6,
+        "t_term": 417.1
+      },
+      {
+        "term": "debt servicing / debt service ratio",
+        "t_story": 474.8,
+        "t_term": 488.2
+      },
+      {
+        "term": "sovereign default (called 'sovereign debt')",
+        "t_story": 780.5,
+        "t_term": 791.7
+      },
+      {
+        "term": "debt restructuring",
+        "t_story": 867.6,
+        "t_term": 874.3
+      }
+    ],
+    "examples": [
+      {
+        "t": 0.0,
+        "kind": "story",
+        "what": "The yearly budget: planned spending larger than expected income, leaving a gap.",
+        "carries": "why governments borrow (fiscal deficit, deficit financing)"
+      },
+      {
+        "t": 114.5,
+        "kind": "real_case",
+        "what": "IBM opening an Indian branch and putting money into it (voice) / a parent lending to its subsidiary (screen).",
+        "carries": "inter-company lending as external debt (voice version doubtful)"
+      },
+      {
+        "t": 183.2,
+        "kind": "real_case",
+        "what": "RBI's end-March 2024 release: 663.8 bn total, government 148.7 bn, non-financial corporations 37.4%, short-term 18.5%.",
+        "carries": "the size and make-up of India's external debt"
+      },
+      {
+        "t": 454.1,
+        "kind": "real_case",
+        "what": "Rich countries with external debt above their GDP (USA, UK, France, Germany, Japan) in an on-screen table.",
+        "carries": "India's debt burden is low by comparison (comparison not qualified)"
+      },
+      {
+        "t": 497.9,
+        "kind": "numbers",
+        "what": "If India earns 100 rupees, 6.7 go to repaying external loans.",
+        "carries": "what a 6.7% debt service ratio means"
+      },
+      {
+        "t": 539.8,
+        "kind": "what_if",
+        "what": "If we borrow in dollars, we must repay in dollars.",
+        "carries": "why currency denomination matters"
+      },
+      {
+        "t": 664.7,
+        "kind": "numbers",
+        "what": "19% of forex reserves would pay off all short-term debt today.",
+        "carries": "short-term debt is safe"
+      },
+      {
+        "t": 751.9,
+        "kind": "real_case",
+        "what": "A loan usable only for food procurement or energy infrastructure, to be spent with the lender's suppliers.",
+        "carries": "tied loans"
+      },
+      {
+        "t": 774.7,
+        "kind": "what_if",
+        "what": "A country that cannot repay its foreign loans.",
+        "carries": "default, credit ratings, higher spreads, restructuring"
+      }
+    ],
+    "closing": {
+      "move": "conclusion_line",
+      "what": "Ends on restructuring ('you can get loans again') and calls the video a 360-degree analysis, then a playlist plug; no recap of the seven indicators (though the left index with all rows stays on screen) and no exam link."
+    },
+    "density": "About 35 terms (budget, estimated expenditure and receipts, fiscal deficit, deficit financing, external aid, external and internal borrowing, printing money, external debt, foreign lenders, IFIs, IMF, World Bank, ADB, foreign commercial banks, deposit-taking, other financial and non-financial corporations, DFIs, inter-company lending, long- and short-term debt, debt to GDP, debt servicing, debt service ratio, denomination, SDR, forex reserves, two short-term ratios, concessional debt, tied loans, debt crisis, credit rating, benchmark rate, spread, SOFR/EURIBOR/SONIA, restructuring) and about 25 figures in about 900 s, roughly 2.3 terms a minute plus a figure every 35 s. Heavy, especially 290-354 s where seven values are read before any is explained; the second half (one indicator per piece with a verdict) is well paced for UPSC."
+  },
+  "talmel": [
+    {
+      "tile": 1,
+      "t_shown": 2.4,
+      "shown": "budget paper with a stamp and a rupee briefcase beside the photo",
+      "said_gist": "in our country the government presents a budget every year",
+      "naming_word": "बजट",
+      "lead": "together",
+      "relation": "names_the_term"
+    },
+    {
+      "tile": 2,
+      "t_shown": 22.2,
+      "shown": "hatched 'GAP' block at the end of the receipts bar, labelled 'FISCAL DEFICIT'",
+      "said_gist": "falls in a hidden transcript gap (one syllable stretched over 14.5-27.6 s): no words recognised; the next clear words (27.6 s) say the ways the government uses to fill it are called deficit financing",
+      "naming_word": "",
+      "lead": "picture_first",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 3,
+      "t_shown": 52.8,
+      "shown": "blue underline slides from 'Printing Money' to 'External Borrowings' in the deficit-financing tree",
+      "said_gist": "and in today's video we will talk about one more method of deficit financing (external borrowings named about 4.3 s later)",
+      "naming_word": "",
+      "lead": "picture_first",
+      "relation": "navigation"
+    },
+    {
+      "tile": 4,
+      "t_shown": 71.8,
+      "shown": "arrows from 'International Financial Institutions' to IMF, World Bank, ADB",
+      "said_gist": "for example international financial institutions such as IMF, World Bank and ADB",
+      "naming_word": "IMF,",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 5,
+      "t_shown": 91.4,
+      "shown": "bullet 'Deposit taking corporations (HDFC, SBI etc)' under corporations",
+      "said_gist": "besides this corporations, whether deposit-taking ones (deposit said 0.9 s later)",
+      "naming_word": "deposit",
+      "lead": "picture_first",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 6,
+      "t_shown": 103.8,
+      "shown": "bullet 'Non-financial corporations (RIL, Tata, Adani etc)'",
+      "said_gist": "DFIs are included, and non-financial corporations like Reliance, Tata and Adani",
+      "naming_word": "Reliance,",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 7,
+      "t_shown": 144.8,
+      "shown": "'663.8 Billion USD' on a curved bracket at India's external-debt badge",
+      "said_gist": "they publish every quarter; according to the latest report India's external borrowings (663.8 said 2.5 s later)",
+      "naming_word": "",
+      "lead": "picture_first",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 8,
+      "t_shown": 189.0,
+      "shown": "grey band over the 2022, 2023, 2024 outstanding columns of the RBI table",
+      "said_gist": "this table can be divided into two parts; in the first part you see 2022...",
+      "naming_word": "पहले",
+      "lead": "together",
+      "relation": "navigation"
+    },
+    {
+      "tile": 9,
+      "t_shown": 235.0,
+      "shown": "box round 148.7 in the general government row",
+      "said_gist": "of 663.8 billion US dollars, only 148.7 was borrowed by the central government",
+      "naming_word": "148",
+      "lead": "together",
+      "relation": "navigation"
+    },
+    {
+      "tile": 10,
+      "t_shown": 277.6,
+      "shown": "'18.50% - Short-term debt to total debt' label beside the table",
+      "said_gist": "short-term debt is 18.5% of total debt",
+      "naming_word": "18",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 11,
+      "t_shown": 308.4,
+      "shown": "seventh indicator label 'Concessional debt to total debt' with a line into the highlights page",
+      "said_gist": "denomination of the debt, short-term debt to forex reserve and concessional debt to total debt ratio",
+      "naming_word": "concessional",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 12,
+      "t_shown": 344.0,
+      "shown": "'18.50%' filled into the short-term to total row of the summary table",
+      "said_gist": "short-term debt to total debt is 18.5% (18 said 1.0 s later)",
+      "naming_word": "18",
+      "lead": "picture_first",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 13,
+      "t_shown": 397.2,
+      "shown": "'External Debt' row in the new left index turns purple",
+      "said_gist": "first let us talk about external debt",
+      "naming_word": "external",
+      "lead": "together",
+      "relation": "navigation"
+    },
+    {
+      "tile": 14,
+      "t_shown": 440.6,
+      "shown": "'18.7%' on a pointer line at the end of the debt-to-GDP chart (the chart's own label says 18.6%)",
+      "said_gist": "it used to be around 24% and has fallen to 18.7% today (18 said 1.1 s later)",
+      "naming_word": "18",
+      "lead": "picture_first",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 15,
+      "t_shown": 475.4,
+      "shown": "canvas clears; grey definition box of the debt service ratio (as a share of GDP) at the top",
+      "said_gist": "now let's talk about the debt service ratio; basically whenever we take an external loan (named 1.6 s before; the definition is spoken 15-20 s after the box)",
+      "naming_word": "service",
+      "lead": "voice_first",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 16,
+      "t_shown": 541.2,
+      "shown": "'$' sign above the money bundles on the debt arrow to India",
+      "said_gist": "for example, if we take the debt in US dollars",
+      "naming_word": "dollar",
+      "lead": "together",
+      "relation": "shows_the_step"
+    },
+    {
+      "tile": 17,
+      "t_shown": 591.6,
+      "shown": "box hanging from 'Debt/Loan' listing long-term, short-term, concessional debt and tied loans",
+      "said_gist": "loans taken from abroad can be divided into 3-4 categories",
+      "naming_word": "categories",
+      "lead": "together",
+      "relation": "names_the_term"
+    },
+    {
+      "tile": 18,
+      "t_shown": 632.4,
+      "shown": "'So, it is important to track that short-term debt are under control' with a 'RATIO' bracket to the ratio names",
+      "said_gist": "it should not exceed a limit; this is tracked by two ratios",
+      "naming_word": "track",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 19,
+      "t_shown": 647.0,
+      "shown": "'19%' on a line from the short-term to forex reserve row",
+      "said_gist": "18.5%, and short-term debt to forex reserve ratio is 19% (19 said 1.0 s later)",
+      "naming_word": "19",
+      "lead": "picture_first",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 20,
+      "t_shown": 719.0,
+      "shown": "'7.50%' on a line from the concessional row (the chart beside ends in 2018 near 9%)",
+      "said_gist": "but today this value has fallen to 7.5%",
+      "naming_word": "7",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 21,
+      "t_shown": 766.0,
+      "shown": "pink box: sometimes an additional condition, buy resources from the nation providing the tied loan",
+      "said_gist": "a condition is set that whatever resources you want to buy with this money, you will buy from us",
+      "naming_word": "खरीदना",
+      "lead": "together",
+      "relation": "repeats_speech_as_text"
+    },
+    {
+      "tile": 22,
+      "t_shown": 791.6,
+      "shown": "wrecking-ball image labelled 'Sovereign debt' lands on India",
+      "said_gist": "it has to face a debt crisis, and this situation is called sovereign debt",
+      "naming_word": "sovereign",
+      "lead": "together",
+      "relation": "names_the_term"
+    },
+    {
+      "tile": 23,
+      "t_shown": 813.4,
+      "shown": "the payback arrow and consequence notes clear from the lower half (the interest formula follows at 814.8 s)",
+      "said_gist": "actually, whenever a country takes a loan from another country (loan said 1.2 s later)",
+      "naming_word": "loan",
+      "lead": "picture_first",
+      "relation": "navigation"
+    },
+    {
+      "tile": 24,
+      "t_shown": 868.6,
+      "shown": "everything clears and the default image moves to the centre, enlarged",
+      "said_gist": "so to get out of this kind of situation, any country has only one option",
+      "naming_word": "स्तिती",
+      "lead": "together",
+      "relation": "navigation"
+    }
+  ],
+  "talmel_summary": "Most changes land on their words (15 of 24 together; 8 picture first, mostly by about 1 s; 1 voice first), and each value cell, label or bullet appears as it is read. But in 19 of 24 tiles the picture only writes, boxes or points to the number or term being spoken (13 repeat speech as text, 6 navigate, mostly boxes on an imported table), because a long middle stretch is a walkthrough of RBI's release. The picture shows meaning where actions are drawn: the GAP block that fills the budget's shortfall, money flowing from the globe of lenders to India, the '$' on both the loan and the payback leg, and the red crosses on payback and then on new loans when a country defaults. A hidden gap hides the naming of 'fiscal deficit' (14.5-27.6 s) and the rupee half of the currency point (548.5-559.2 s).",
+  "voice": {
+    "notes": "About 198 words per minute, the fastest of this batch, steady and explanatory. Many 'kehne ka matlab', 'iska matlab', 'actually baat ye hai' unpackings. Figures are read as digits with 'point' (663 point 8 billion US dollars, 18 point 5 percent) and are not slowed or stressed even when seven come in a row. Questions are used as section openers ('kya hamein ghabrane ki zaroorat hai?', 'tab kya hota hai?') and most sections end on a verdict ('India bahut safely chal raha hai', 'chinta karne ki koi zaroorat nahi'). Two hidden gaps (14.5-27.6 s and 548.5-559.2 s) where a single syllable is stretched."
+  },
+  "game_ideas": [
+    {
+      "from_t": 610.6,
+      "mechanic": "run_a_process",
+      "player_does": "Runs India's foreign-borrowing desk for ten years: picks loans from lender cards (long-term World Bank loan, short-term commercial credit, concessional aid, tied loan, dollar or rupee denominated) to fund a budget gap each year.",
+      "process_happens": "Meters move live: debt to GDP, debt service ratio, short-term debt to forex reserves; a shock card (oil price jump, rupee fall, capital outflow) arrives at random and the repayment bill for dollar and short-term loans rises.",
+      "win": "Finish ten years with all ratios in the safe zone and no missed payment.",
+      "lose": "Too much short-term or dollar debt: a shock makes payments exceed reserves, the payback arrow gets a red cross, the credit rating drops, the spread on new loans jumps, and the country must restructure.",
+      "concept": "loan types and short-term debt ratios"
+    },
+    {
+      "from_t": 811.0,
+      "mechanic": "cause_chain",
+      "player_does": "Is a country deciding whether to repay or skip a foreign loan instalment, then tries to borrow again.",
+      "process_happens": "Skipping lowers the credit rating badge; the next loan's interest is built live as benchmark (same for all) + spread (grows as the rating falls); the currency meter wobbles.",
+      "win": "Keep the rating and borrow at benchmark plus a small spread.",
+      "lose": "Two skips push the spread so high no lender offers a loan; only the 'restructure' door stays open, and some foreign assets have to be handed to creditors.",
+      "concept": "interest = benchmark + spread"
+    },
+    {
+      "from_t": 80.7,
+      "mechanic": "sort_into_groups",
+      "player_does": "Drags borrowing events into 'counts as India's external debt' or 'does not': government loan from World Bank, RBI borrowing abroad, an Indian bank's dollar bond, an Indian company's foreign loan, a foreign parent lending to its Indian subsidiary, a foreign company buying shares in its Indian unit, a loan from an Indian bank.",
+      "process_happens": "Correct items add their amount to the external-debt total and to the right slice of a borrower pie (government, RBI, banks, companies, inter-company lending).",
+      "win": "The pie matches the official make-up: companies the largest slice, government about a fifth.",
+      "lose": "Counting equity investment or domestic loans inflates the total and the check shows why only debt owed abroad counts.",
+      "concept": "who in India borrows abroad"
+    },
+    {
+      "from_t": 523.5,
+      "mechanic": "run_a_process",
+      "player_does": "Chooses the currency for a 100-unit loan (dollars or rupees) and then watches the exchange rate move.",
+      "process_happens": "If the rupee weakens, the rupee cost of the dollar repayment grows on the payback arrow; the rupee loan's repayment stays the same.",
+      "win": "Keeps enough loans in rupees, or enough dollar reserves, that a rupee fall does not swamp repayments.",
+      "lose": "All-dollar borrowing plus a sharp rupee fall makes the repayment balloon past the budget.",
+      "concept": "denomination of debt"
+    }
+  ],
+  "notes_questions": [
+    {
+      "q": "Fiscal deficit kya hai aur sarkar use kin tareekon se bharti hai?",
+      "answer_shape": "tree",
+      "from_t": 0.0
+    },
+    {
+      "q": "External debt mein kaun-kaun lender hote hain aur India mein kaun-kaun borrow karta hai?",
+      "answer_shape": "tree",
+      "from_t": 58.6
+    },
+    {
+      "q": "India ka external debt kitna hai aur usmein sabse bada hissa kiska hai?",
+      "answer_shape": "number",
+      "from_t": 183.2
+    },
+    {
+      "q": "External debt badh raha hai, phir bhi debt-to-GDP ratio kyon gir raha hai?",
+      "answer_shape": "flow",
+      "from_t": 417.1
+    },
+    {
+      "q": "Debt service ratio kya batata hai? 6.7% ka matlab 100 rupaye ke example se.",
+      "answer_shape": "number",
+      "from_t": 472.3
+    },
+    {
+      "q": "Loan kis currency mein liya gaya hai, ye kyon important hai?",
+      "answer_shape": "flow",
+      "from_t": 530.9
+    },
+    {
+      "q": "Short-term debt zyada ho to desh kyon kamzor hota hai, aur India ki sthiti kya hai?",
+      "answer_shape": "flow",
+      "from_t": 610.6
+    },
+    {
+      "q": "Long-term, short-term, concessional aur tied loan mein kya fark hai?",
+      "answer_shape": "table",
+      "from_t": 588.6
+    },
+    {
+      "q": "Agar koi desh external debt chuka na paaye to kya hota hai?",
+      "answer_shape": "flow",
+      "from_t": 780.5
+    },
+    {
+      "q": "Foreign loan ki interest rate kaise tay hoti hai (benchmark + spread)?",
+      "answer_shape": "comparison",
+      "from_t": 811.0
+    }
+  ],
+  "checks_learned": [
+    "A ratio must be defined with its real denominator from the source (RBI's debt service ratio is over current receipts, not GDP); BIE should store each indicator's official definition and check the script against it.",
+    "When a figure is read from a chart, the spoken value must match the chart's own label (18.7% spoken vs 18.6% on the chart) or the difference must be explained (different date or source).",
+    "A chart shown with 'today's value' must reach today (a 2008-2018 chart under a 7.5% 'today' label).",
+    "Do not show a run of more than three figures before the first is explained; teach each indicator where its number first appears.",
+    "Cross-country comparisons need a like-for-like note (rich economies borrowing in their own currency) or should be left out.",
+    "Voice and screen must say the same thing (the voice says equity 'invested' by a foreign company counts as debt; the screen says 'lends'); a check should compare spoken claims with on-screen text in the same shot.",
+    "Illustrations must not put the learner's own country into a failure scene the narration says does not apply (India on the default wrecking-ball image).",
+    "A spoken 'why' with no picture (currency risk, why total debt and reserves make the two ratios close) should get a drawn cause chain; an exchange-rate change shown on the payback arrow would carry denomination risk.",
+    "Hidden gaps (one syllable stretched over 10 s or more) must be flagged in BIE's narration QA; here they hid the naming of 'fiscal deficit' and the rupee-loan case."
+  ],
+  "teaching_best": [
+    {
+      "t": 0.0,
+      "why": "Starts from the budget gap, so external borrowing arrives as one answer to a felt need rather than a definition."
+    },
+    {
+      "t": 80.7,
+      "why": "Corrects the likely misconception that only the government borrows abroad, then shows that companies hold the largest share (37.4%) against the government's 148.7 bn."
+    },
+    {
+      "t": 354.4,
+      "why": "After the values, the narrator voices the learner's real question (is this high or low? is it safe?) and turns it into the plan for the rest of the video."
+    },
+    {
+      "t": 417.1,
+      "why": "Rising debt vs falling debt-to-GDP is resolved with one cause (GDP grows too), the core idea of debt sustainability."
+    },
+    {
+      "t": 497.9,
+      "why": "The ratio is read as '6.7 of every 100 rupees earned', a number a learner can picture (definition to be corrected to current receipts)."
+    },
+    {
+      "t": 655.6,
+      "why": "Short-term debt is judged against reserves with a concrete reading: 19% of reserves would clear all of it today."
+    },
+    {
+      "t": 811.0,
+      "why": "Default is linked to cost through the interest formula (benchmark + spread set by rating), so 'credit rating falls' gets a mechanism."
+    }
+  ],
+  "teaching_weak": [
+    {
+      "t": 158.6,
+      "why": "About 2.5 minutes of website and table walkthrough: useful for source literacy but slow, and it front-loads numbers."
+    },
+    {
+      "t": 291.1,
+      "why": "Seven figures are read in about a minute before any is explained."
+    },
+    {
+      "t": 472.3,
+      "why": "The debt service ratio is defined against GDP; the official measure uses current receipts."
+    },
+    {
+      "t": 114.5,
+      "why": "The IBM example says a branch's invested money counts as debt; only inter-company lending does."
+    },
+    {
+      "t": 454.1,
+      "why": "India is called safe by comparison with rich countries' debt-to-GDP without any caveat on the difference."
+    },
+    {
+      "t": 780.5,
+      "why": "'Sovereign debt' is used for the default itself; the usual terms are sovereign default or sovereign debt crisis."
+    },
+    {
+      "t": 898.5,
+      "why": "No recap of the indicators and their safe ranges and no exam link at the end."
+    }
+  ]
+}

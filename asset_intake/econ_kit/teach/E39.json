@@ -1,0 +1,141 @@
+{
+  "id": "E39",
+  "topic": "NBFCs: why they register with RBI and which companies are exempt; classification by liability structure (deposit-taking vs non-deposit-taking) and by activity (ten types, with factoring and account aggregation explained by stories)",
+  "book_understanding": {
+    "concepts": [
+      {"name": "registration with RBI", "type": "mechanism", "t_start": 0.0, "t_end": 18.7, "prereq_recalled": "previous video: what an NBFC is and how it differs from a bank"},
+      {"name": "exemptions: already-regulated companies, avoiding dual registration", "type": "classification", "t_start": 18.7, "t_end": 104.8, "prereq_recalled": "sector regulators NHB, IRDA, SEBI (assumed known: 'aapko pata hai')"},
+      {"name": "two bases of classification", "type": "classification", "t_start": 104.8, "t_end": 113.8, "prereq_recalled": ""},
+      {"name": "NBFC-D vs NBFC-ND and where ND gets funds", "type": "comparison", "t_start": 113.8, "t_end": 170.8, "prereq_recalled": "lending is an NBFC's main business"},
+      {"name": "ten types by activity: ICC, IFC, IDF", "type": "classification", "t_start": 170.8, "t_end": 237.4, "prereq_recalled": ""},
+      {"name": "MFI, HFC, MGC, CIC-SI", "type": "classification", "t_start": 237.4, "t_end": 314.0, "prereq_recalled": "housing finance companies from the exemption list"},
+      {"name": "factoring (NBFC-Factor)", "type": "process", "t_start": 314.0, "t_end": 389.5, "prereq_recalled": ""},
+      {"name": "platform NBFCs: P2P and account aggregator", "type": "mechanism", "t_start": 389.5, "t_end": 461.6, "prereq_recalled": ""}
+    ],
+    "teaching_order": "Follows a textbook order (rule, exceptions, classification bases, each class) but inserts small 'why' turns that a textbook leaves out: the reason for exemptions (no double regulator), the learner's objection about non-deposit NBFCs (then where does the money come from?), and why a housing lender serves businesses (small firms work from home). The activity types are a flat run of ten in a fixed rail order, each with the same 'next is NBFC X, yaani...' formula; only factoring and account aggregation get a story, placed at the point where the abstract label would fail.",
+    "breakdown_rule": "Cut by the questions a regulator asks (must it register? does it take public deposits? what does it do?), then give each answer-class one short definition, and add a story only where the definition alone is not understood."
+  },
+  "narration": {
+    "opening": {"move": "recall_previous", "what": "Recalls the previous video (what an NBFC is and how it differs from banks), then moves straight to registration: RBI regulates NBFCs, so each must register with RBI."},
+    "moves": [
+      {"t": 0.0, "move": "recall_previous", "concept": "registration with RBI", "what": "Previous video: what an NBFC is and its difference from banks."},
+      {"t": 7.5, "move": "signpost", "concept": "registration with RBI", "what": "'Ab baat karte hain' their registration."},
+      {"t": 9.4, "move": "cause_chain", "concept": "registration with RBI", "what": "RBI regulates NBFCs, so every NBFC must register itself with RBI."},
+      {"t": 18.7, "move": "contrast", "concept": "exemptions: already-regulated companies, avoiding dual registration", "what": "'Halanki' there are some exceptions."},
+      {"t": 21.4, "move": "define_term", "concept": "exemptions: already-regulated companies, avoiding dual registration", "what": "A company entering the NBFC business for which a regulator already exists need not register with RBI."},
+      {"t": 32.9, "move": "cause_chain", "concept": "exemptions: already-regulated companies, avoiding dual registration", "what": "Housing finance companies are regulated by the National Housing Bank, so one entering NBFC business need not register with RBI."},
+      {"t": 51.0, "move": "cause_chain", "concept": "exemptions: already-regulated companies, avoiding dual registration", "what": "Same rule for insurance companies (regulated by IRDA, full form unpacked) and stock brokers (regulated by SEBI); speech then lost for about 14 s."},
+      {"t": 90.0, "move": "conclusion_line", "concept": "exemptions: already-regulated companies, avoiding dual registration", "what": "The aim of the provision is to avoid dual registration: if a regulator already exists, why add another?"},
+      {"t": 101.5, "move": "signpost", "concept": "two bases of classification", "what": "Now the types of NBFC."},
+      {"t": 104.8, "move": "define_term", "concept": "two bases of classification", "what": "NBFCs are classified on two bases: their activities and their asset-liability structure."},
+      {"t": 113.8, "move": "define_term", "concept": "NBFC-D vs NBFC-ND and where ND gets funds", "what": "By asset-liability structure: NBFC-D and NBFC-ND, 'yaani' deposit-taking and non-deposit-taking."},
+      {"t": 129.0, "move": "contrast", "concept": "NBFC-D vs NBFC-ND and where ND gets funds", "what": "With D, the general public can deposit money; with ND, the public cannot."},
+      {"t": 143.8, "move": "question_to_viewer", "concept": "NBFC-D vs NBFC-ND and where ND gets funds", "what": "Learner's objection voiced ('aap poochhoge'): if ND cannot take deposits, where do its funds come from, and how does it lend, when lending is the main business?"},
+      {"t": 159.2, "move": "conclusion_line", "concept": "NBFC-D vs NBFC-ND and where ND gets funds", "what": "Answer: such NBFCs source funding from the market and from banks."},
+      {"t": 165.6, "move": "signpost", "concept": "ten types by activity: ICC, IFC, IDF", "what": "That was the liability-based classification; now by activities."},
+      {"t": 176.1, "move": "agenda", "concept": "ten types by activity: ICC, IFC, IDF", "what": "By activity there are 10 types; 'you can see their names here' (all ten on the rail at once)."},
+      {"t": 187.0, "move": "define_term", "concept": "ten types by activity: ICC, IFC, IDF", "what": "NBFC-ICC, investment and credit companies: a wide range of products such as loans, hire purchase and other credit."},
+      {"t": 204.1, "move": "define_term", "concept": "ten types by activity: ICC, IFC, IDF", "what": "NBFC-IFC, infrastructure finance company: long-term loans for infrastructure projects."},
+      {"t": 215.9, "move": "contrast", "concept": "ten types by activity: ICC, IFC, IDF", "what": "NBFC-IDF: both IFC and IDF fund infrastructure, 'but' differently; IFC gives money directly, IDF buys the projects' debt securities."},
+      {"t": 237.4, "move": "yaani_unpack", "concept": "MFI, HFC, MGC, CIC-SI", "what": "NBFC-MFI, micro finance institution: 'as the name says', very small loans to low-income businesses and people in rural and semi-urban areas."},
+      {"t": 255.3, "move": "human_benefit", "concept": "MFI, HFC, MGC, CIC-SI", "what": "The aim of these loans is to create self-employment in those areas."},
+      {"t": 261.5, "move": "define_term", "concept": "MFI, HFC, MGC, CIC-SI", "what": "NBFC-HFC: loans to individuals and businesses to buy, build or renovate homes."},
+      {"t": 276.6, "move": "question_to_viewer", "concept": "MFI, HFC, MGC, CIC-SI", "what": "Objection voiced: why give housing loans to businesses? Because small businesses generally work from home."},
+      {"t": 283.6, "move": "define_term", "concept": "MFI, HFC, MGC, CIC-SI", "what": "NBFC-MGC: mortgage guarantee services to banks, HFCs and other NBFCs."},
+      {"t": 298.1, "move": "define_term", "concept": "MFI, HFC, MGC, CIC-SI", "what": "NBFC-CIC-SI: described as long-term investment for core sectors (infrastructure, manufacturing, services); doubtful, see teaching_weak."},
+      {"t": 314.0, "move": "define_term", "concept": "factoring (NBFC-Factor)", "what": "NBFC-Factor provides factoring services to businesses; 'let us understand by an example'."},
+      {"t": 327.3, "move": "what_if", "concept": "factoring (NBFC-Factor)", "what": "'Maan lijiye' company A sold goods to company B, gives a bill (invoice), and B will pay against it."},
+      {"t": 342.7, "move": "contrast", "concept": "factoring (NBFC-Factor)", "what": "'But' business payments are not immediate; sometimes they hang for two months."},
+      {"t": 349.0, "move": "cause_chain", "concept": "factoring (NBFC-Factor)", "what": "A, having already sold the goods, faces a cash crunch, takes its outstanding bills to an NBFC factor, the NBFC pays A on B's behalf, and collecting from B becomes the NBFC's job."},
+      {"t": 373.1, "move": "conclusion_line", "concept": "factoring (NBFC-Factor)", "what": "Such a service is called factoring."},
+      {"t": 376.8, "move": "human_benefit", "concept": "factoring (NBFC-Factor)", "what": "The seller gets its money at once."},
+      {"t": 383.1, "move": "contrast", "concept": "factoring (NBFC-Factor)", "what": "'Halanki' A pays the NBFC a fee, adjusted in the bill amount as a discount."},
+      {"t": 389.5, "move": "misconception", "concept": "platform NBFCs: P2P and account aggregator", "what": "NBFC-P2P neither takes deposits nor lends itself (against the idea that every NBFC lends); it runs a platform where people and companies lend to each other, for a commission."},
+      {"t": 412.0, "move": "signpost", "concept": "platform NBFCs: P2P and account aggregator", "what": "Last type: NBFC-AA, account aggregator."},
+      {"t": 419.9, "move": "define_term", "concept": "platform NBFCs: P2P and account aggregator", "what": "An account aggregator gives you all your financial information in one dashboard."},
+      {"t": 427.2, "move": "story", "concept": "platform NBFCs: P2P and account aggregator", "what": "'Maan lijiye' you have FDs in one bank, mutual funds and stocks on two broking platforms and a home loan from another bank (real brand names used)."},
+      {"t": 441.2, "move": "human_benefit", "concept": "platform NBFCs: P2P and account aggregator", "what": "With an aggregator you need not open each account separately; you see everything on one dashboard, for a small fee."},
+      {"t": 461.6, "move": "conclusion_line", "concept": "platform NBFCs: P2P and account aggregator", "what": "'With this we have fully covered NBFC registration and classification', then the playlist plug."}
+    ],
+    "story_before_term": [
+      {"term": "factoring service (defining line)", "t_story": 327.3, "t_term": 373.1},
+      {"term": "dual registration (the reason for exemptions)", "t_story": 32.9, "t_term": 91.5}
+    ],
+    "examples": [
+      {"t": 32.9, "kind": "real_case", "what": "A housing finance company already regulated by NHB enters NBFC business without RBI registration.", "carries": "exemptions: already-regulated companies, avoiding dual registration"},
+      {"t": 51.0, "kind": "real_case", "what": "Insurance companies (IRDA) and stock brokers (SEBI) follow the same rule.", "carries": "exemptions: already-regulated companies, avoiding dual registration"},
+      {"t": 279.5, "kind": "real_case", "what": "Small businesses usually run from the owner's home, so a housing loan also serves a business.", "carries": "MFI, HFC, MGC, CIC-SI"},
+      {"t": 327.3, "kind": "story", "what": "Company A sells to company B on a bill; payment hangs for two months; A takes the bill to an NBFC factor, gets cash now minus a fee, and the NBFC collects from B.", "carries": "factoring (NBFC-Factor)"},
+      {"t": 427.2, "kind": "story", "what": "FDs, mutual funds, stocks and a home loan spread over four institutions, seen together on one dashboard.", "carries": "platform NBFCs: P2P and account aggregator"}
+    ],
+    "closing": {"move": "conclusion_line", "what": "One line saying registration and classification are fully covered, then the playlist plug; no recap of the ten types or the two bases."},
+    "density": "About 28 terms (registration, regulatory body, NHB, IRDA, SEBI, dual registration, classification, asset-liability structure, NBFC-D, NBFC-ND, ICC, hire purchase, IFC, IDF, debt securities, MFI, self-employment, HFC, MGC, mortgage guarantee, CIC-SI, core sectors, factoring, invoice, discount, P2P, commission, account aggregator) in about 460 s, about 3.6 per minute. The ten-type run (about 4.5 minutes, ten codes plus full forms) is too dense to remember from labels alone; the two stories slow it at the right places. Pace of voice (about 158 words a minute) is comfortable."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 3.4, "shown": "bank building and NBFC piggy bank with a big 'VS' between them", "said_gist": "in the last video we understood what an NBFC is and how it differs from banks", "naming_word": "NBFC", "lead": "together", "relation": "names_the_term"},
+    {"tile": 2, "t_shown": 6.4, "shown": "bank and VS drop away; the NBFC piggy moves to the top", "said_gist": "...what the difference is; now let us talk about registration (registration said 2 s later)", "naming_word": "", "lead": "together", "relation": "navigation"},
+    {"tile": 3, "t_shown": 19.0, "shown": "yellow 'Exceptions' pill with an info icon under the Register arrow", "said_gist": "must register with RBI; however there are some exceptions (said 1.1 s later)", "naming_word": "exceptions", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 4, "t_shown": 22.2, "shown": "heading 'financial companies not requiring NBFC licence' and a nine-row list with regulators", "said_gist": "the exception is: if a company wants to enter NBFC business...", "naming_word": "exception", "lead": "together", "relation": "adds_new_info"},
+    {"tile": 5, "t_shown": 105.0, "shown": "new canvas: 'Different types of NBFCs' title; 'CLASSIFICATION' label", "said_gist": "basically NBFCs' classification (said 1.1 s later)", "naming_word": "classification", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 6, "t_shown": 108.2, "shown": "green brackets fork CLASSIFICATION into 'activities they undertake' and 'asset/liability structure'", "said_gist": "is done on two bases; first their activities", "naming_word": "दो आधारों", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 7, "t_shown": 132.4, "shown": "line under NBFC-D: these NBFCs accept and hold public deposits", "said_gist": "deposit-taking NBFCs are those with whom the general public can deposit money", "naming_word": "general public", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 8, "t_shown": 144.0, "shown": "big '?' beside NBFC-ND", "said_gist": "then you will ask: if non-deposit NBFCs cannot take deposits...", "naming_word": "आप पूछोगे", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 9, "t_shown": 174.6, "shown": "canvas clears to subheading 'activities they undertake' and a blue rail drawing across", "said_gist": "now NBFC classification based on activities they undertake", "naming_word": "activities", "lead": "together", "relation": "navigation"},
+    {"tile": 10, "t_shown": 178.6, "shown": "ten dots and codes ICC to AA appear along the rail, alternating above and below", "said_gist": "what kind of activities an NBFC performs; on that basis 10 types (said 3.4 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 11, "t_shown": 194.8, "shown": "yellow ICC description box (loans, leasing, hire purchase, other credit)", "said_gist": "NBFC-ICC offers a very wide range of financial products", "naming_word": "ICC", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 12, "t_shown": 204.2, "shown": "pointer slides to IFC with 'Infrastructure Finance Company'", "said_gist": "...credit facilities; next is NBFC-IFC (IFC said 2 s later)", "naming_word": "", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 13, "t_shown": 218.6, "shown": "pointer at IDF with 'Infrastructure Debt Fund' (full form never spoken)", "said_gist": "after this comes NBFC-IDF; these two types...", "naming_word": "IDF", "lead": "together", "relation": "names_the_term"},
+    {"tile": 14, "t_shown": 239.0, "shown": "pointer at MFI with 'Micro Finance Institution'", "said_gist": "after this comes NBFC-MFI, yaani micro finance institution", "naming_word": "NBFC -MFI", "lead": "together", "relation": "names_the_term"},
+    {"tile": 15, "t_shown": 244.2, "shown": "MFI description box (small-ticket loans, low-income, rural and semi-urban, self-employment)", "said_gist": "as the name itself tells... (very small loans said 2.5 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 16, "t_shown": 266.0, "shown": "HFC description box (housing finance to individuals and businesses to buy, build, renovate)", "said_gist": "NBFC-HFC yaani housing finance company; these give loans to individuals and businesses", "naming_word": "Housing Finance Company", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 17, "t_shown": 284.4, "shown": "pointer at MGC with 'Mortgage Guarantee Company'", "said_gist": "after this the next NBFC is mortgage guarantee company (said 1 s later)", "naming_word": "Mortgage", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 18, "t_shown": 298.0, "shown": "pointer at CIC-SI with 'Systemically Important Core Investment Company'", "said_gist": "next is NBFC CIC-SI (code said 1.5 s later)", "naming_word": "CICSI", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 19, "t_shown": 305.6, "shown": "CIC-SI description box (long-term investment in core sectors)", "said_gist": "this NBFC basically gives the economy's core sectors... (said 1.7 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 20, "t_shown": 319.8, "shown": "Factor description box (factoring services to businesses, cash flow)", "said_gist": "NBFC factor; these NBFCs give businesses factoring services (said 1.6 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 21, "t_shown": 355.8, "shown": "dotted curved arrow starts from 'factoring services' up the right edge toward a definition callout", "said_gist": "mid-story: in such a situation company A goes to an NBFC factor (bills-for-cash said 4-7 s later)", "naming_word": "", "lead": "picture_first", "relation": "adds_new_info"},
+    {"tile": 22, "t_shown": 390.0, "shown": "factoring callout clears; pointer slides to P2P", "said_gist": "...adjusted as discount; now next is NBFC P2P (P2P said 1.2 s later)", "naming_word": "NBFC P2P", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 23, "t_shown": 393.8, "shown": "P2P description box (platform for individuals and businesses to borrow and lend directly)", "said_gist": "yaani NBFC peer-to-peer; NBFC peer-to-peer basically...", "naming_word": "peer -to -peer", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 24, "t_shown": 420.2, "shown": "AA description box (view financial information from many sources in one place)", "said_gist": "yaani NBFC account aggregator; account aggregators give you all your financial information", "naming_word": "Account Aggregator", "lead": "together", "relation": "repeats_speech_as_text"}
+  ],
+  "talmel_summary": "The picture is a labelled index of the talk: almost every change is a name or a definition box that appears with, or 1-2 s before, the spoken name, so sync is good (13 together, 11 picture first, none late) but the relation is mostly 'writes the word' (9 name labels, 8 text boxes repeating speech). The picture carries meaning only twice: the 'Register' arrow from NBFC to RBI with its 'Exceptions' pill, and the '?' that sits on NBFC-ND while the learner's question is open. The two best spoken passages, the factoring story and the multi-account dashboard, get no drawing at all; the screen holds still for 35-40 s while actors and money move only in the voice.",
+  "voice": {"notes": "About 158 words a minute, calm, steady, conversational. Each type follows one formula ('next hai NBFC X, yaani <full form>; ye NBFCs ... provide karati hain'), which helps recall but becomes monotonous over ten items. Objections are voiced with 'aap poochhoge' (twice) and stories begin with 'maan lijiye'; full forms are read in English. Stresses 'exception', 'dual registration', 'factoring'. About 14.5 s of speech (75.5-90 s) was not recognised by the transcript."},
+  "game_ideas": [
+    {"from_t": 323.2, "mechanic": "run_a_process", "player_does": "Runs company A, a small maker who has just delivered goods worth ₹1,00,000 to company B on a 60-day bill; wages of ₹60,000 are due in 10 days. Each day the player chooses: wait, or take the bill to an NBFC factor.", "process_happens": "The bill card travels to the NBFC, which pays A ₹97,000 at once (₹3,000 kept as discount); a calendar runs to day 60, when B pays the NBFC, not A. A's cash meter, wage due date and the NBFC's collection are all visible.", "win": "Wages paid on time, production keeps running, and the fee paid is the smallest needed (factor only the bills you must).", "lose": "Waiting: cash hits zero on day 10, workers stop, the next order is lost. Factoring every small bill: fees pile up and profit shrinks, shown as a growing fee stack.", "concept": "factoring (NBFC-Factor)"},
+    {"from_t": 18.7, "mechanic": "sort_into_groups", "player_does": "Drags company cards (insurer, stock broker, mutual fund, merchant banker, nidhi company, chit fund, microfinance lender, P2P platform, consumer-loan company) to the regulator buildings that already watch them (RBI, IRDAI, SEBI, MCA, state government).", "process_happens": "Cards that land with a regulator other than RBI get an 'exempt from RBI registration' stamp; RBI-regulated cards get a 'Register' arrow to the RBI building.", "win": "Every card with the right regulator, and no card registered twice.", "lose": "Sending an insurer to RBI as well as IRDAI makes two inspectors arrive with two forms; the game names this 'dual registration' and asks which one to remove.", "concept": "exemptions: already-regulated companies, avoiding dual registration"},
+    {"from_t": 176.1, "mechanic": "match_partner", "player_does": "Customers walk in with needs ('₹20,000 to start tailoring in my village', 'turn my unpaid bill into cash', 'a 15-year loan for a toll road', 'see all my accounts in one place', 'lend my savings to other people myself', 'a bank wants its home loans guaranteed') and the player sends each to a stop on the ten-type rail.", "process_happens": "The chosen NBFC acts: MFI gives a small loan, Factor buys the bill, IFC lends long-term, AA opens one dashboard, P2P matches a lender to a borrower, MGC stamps a guarantee.", "win": "All customers served by the right type within a time limit.", "lose": "A wrong match shows what that NBFC really does (P2P refuses to lend its own money; AA shows data but gives no cash), then the customer walks to the right stop.", "concept": "platform NBFCs: P2P and account aggregator"}
+  ],
+  "notes_questions": [
+    {"q": "Har NBFC ko RBI ke paas register kyon karna padta hai, aur kaun si companies exempt hain? Kyon?", "answer_shape": "flow", "from_t": 9.4},
+    {"q": "NBFCs ka classification kin do aadharon par hota hai?", "answer_shape": "tree", "from_t": 104.8},
+    {"q": "NBFC-D aur NBFC-ND mein kya fark hai? NBFC-ND lending ke liye paisa kahan se laati hai?", "answer_shape": "comparison", "from_t": 129.0},
+    {"q": "Activity ke aadhar par NBFC ke types kaun se hain? Har ek ka kaam ek line mein likhiye.", "answer_shape": "table", "from_t": 176.1},
+    {"q": "NBFC-IFC aur NBFC-IDF dono infrastructure ko fund karti hain; dono ka tarika kaise alag hai?", "answer_shape": "comparison", "from_t": 218.9},
+    {"q": "Factoring kya hai? Company A, company B aur NBFC factor ke beech paisa aur bill kaise chalte hain?", "answer_shape": "flow", "from_t": 327.3},
+    {"q": "NBFC-P2P aur NBFC-AA baaki NBFCs se kaise alag hain?", "answer_shape": "comparison", "from_t": 389.5}
+  ],
+  "checks_learned": [
+    "A spoken story longer than about 20 s with two or more actors and a transfer (A sells to B, NBFC pays A, NBFC collects from B) must have those actors and transfers drawn; a still canvas during such a story fails.",
+    "An on-screen list of N items where the voice covers fewer (nine exempt types, three spoken) must be cut to what is spoken, or every item must be spoken.",
+    "Real brand names (banks, broking apps) in examples are replaced by generic names before rendering.",
+    "Internal consistency: an entity shown as exempt from a regulator (housing finance companies) must not also appear as one of that regulator's categories without a line explaining the change.",
+    "Regulatory facts that changed over time (who regulates HFCs; the current list of NBFC types) need a dated source check before use.",
+    "A full form shown on screen (Infrastructure Debt Fund) must be spoken, or the code alone shown.",
+    "Definitions are checked against an authoritative glossary; a description that contradicts the usual definition (CIC-SI as 'investment in core sectors') blocks the scene.",
+    "When the voice asks the learner's question, a '?' is placed on the item in question and replaced by the answer when it is given (worked here at 144-163 s); enforce this pattern for every voiced objection.",
+    "A transcript gap over 10 s inside a run flags a dropped or garbled narration line (here about 75.5-90 s)."
+  ],
+  "teaching_best": [
+    {"t": 143.8, "why": "The learner's objection is voiced at the right moment (if ND cannot take deposits, how does it lend?), pinned with a '?' on the diagram, and answered in one line."},
+    {"t": 90.0, "why": "The exemption rule gets its reason (no point in a second regulator), which turns a list into a principle."},
+    {"t": 218.9, "why": "IFC and IDF are taught as one goal, two methods (lend directly vs buy the debt), which separates two look-alike codes."},
+    {"t": 276.6, "why": "A second voiced objection (why would a housing lender serve businesses?) is answered with an everyday fact (small firms work from home)."},
+    {"t": 327.3, "why": "Factoring is taught as a small business story with a time delay, a cash crunch and a fee, which is what makes the term make sense."}
+  ],
+  "teaching_weak": [
+    {"t": 22.2, "why": "A nine-row English list of exempt companies stays on screen for about 80 s while only three are explained."},
+    {"t": 298.1, "why": "CIC-SI is described as investing in core sectors of the economy, which looks wrong; it is usually defined by holding investments in its own group companies."},
+    {"t": 36.5, "why": "HFCs are presented as NHB-regulated and exempt, then listed as an RBI NBFC type; likely dated and left unexplained."},
+    {"t": 427.2, "why": "The account aggregator example uses real bank and broker names."},
+    {"t": 461.6, "why": "No recap: ten types and two classification bases end with a one-line 'covered fully'."}
+  ]
+}

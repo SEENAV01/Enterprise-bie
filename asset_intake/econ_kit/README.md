@@ -55,8 +55,30 @@ only 37% of picture changes show the meaning, 46% only write the term or the sen
 before the term. Most common game mechanics proposed: run a process (31), sort into groups (18), allocate (17), cause
 chain (12); notes answer shapes: flow (79), comparison (43), table (42), picture (39).
 
-In BIE: the eight saanche are in the engine (main, PR #138); 23 rules from this learning are in
-`bie/brain/rulebook/econ_videos.json` as **proposed** (PR #139) and reach the makers only when Navin locks them.
+In BIE: the eight saanche are in the engine (main, PR #138); the 23 rules (PR #139) were locked by Navin on 4 Nov
+(PR #141), with his standing approval that what is learned from his videos and PDFs goes in locked.
+
+### Batch 4 (4 Nov 2026): 20 more videos, E38–E57
+
+Funds (ETF, REIT, InvIT), NBFCs, Mudra, the unorganised money market, floating exchange rates, food and housing price
+indices, start-up funding, the GDP family, HDI, core inflation, derivatives, depositories, external debt, Basel II and
+the IBC. Same method as batch 3b, with one agent writing both cards per video (`rules/AGENT_BRIEF_BATCH4.md`) and
+transcription that detects the narration language and keeps quiet speech (`tools/stt_v3.py`).
+
+| Path | What it is |
+| --- | --- |
+| `cards/E38–E57.json`, `teach/E38–E57.json` | Canvas and teaching cards. |
+| `needs_list_v4.json` | The needs list over all 57 videos (1,872 thing-uses). 83% are now covered by the v2 set, the batch-3 and batch-4 saanche, icons, engine parts or a replacement; 3% are left for the next batch; the India map (66 uses) waits for a licence-clear official outline. |
+| `measurements/teaching_summary_57.json`, `measurements/cards_summary_57.json`, `measurements/pace_batch4.json` | The aggregates (1,307 speech-picture tiles; 418 notes questions; 428 learned checks). |
+| `saanche/stills/batch4_in_bie_engine.png` | The batch-4 saanche drawn by BIE's own engine. |
+
+What changed in BIE (PR #142): saanche `building` (8 kinds), `priceTag`, `gauge`, `foreignNote`, `barrier`,
+`segmentedBar`, `cart`, `piggyBank`, `ruler`, `hands`, paper kinds `share`, `unit`, `receipt`, `invoice`; the game
+section's two new mechanics `act_as` and `predict` (the videos' game ideas were mostly "be the one who decides" and
+"set the number first"); six more locked rules (EV-U04, EV-L09, EV-L10, EV-S08, EV-S09, EV-G02).
+
+The numbers held over 57 videos: a picture lands a median 0.26 s before its naming word (74% within 1 s); only 36% of
+picture changes show the meaning while 46% only write words; the story comes about 28 s before the term.
 
 Status: IMPLEMENTED (saanche render and pass their test; rules and lexicon written), not INTEGRATED (Phase 1 builds the
 saanche slot and the director that reads the lexicon), not ACCEPTED.

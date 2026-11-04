@@ -1,0 +1,178 @@
+{
+  "id": "E51",
+  "title_guess": "Headline inflation vs core inflation: the index basket with and without food and fuel, why 'headline', and India's headline measure",
+  "duration": 156.9,
+  "format": "build_up_canvas",
+  "recurring_cast": [
+    "segmented_bar (the inflation index drawn as one horizontal strip cut into seven pastel blocks, each a component of the basket)",
+    "two 'INFLATION' row labels, one per bar",
+    "FOOD and FUEL blocks inside both bars",
+    "HEADLINE chip (blue) and CORE chip (purple)",
+    "red cross_mark on removed blocks"
+  ],
+  "running_examples": [
+    "no number example: the whole video works on the shape of one basket bar, full (headline) vs trimmed of food and fuel (core)",
+    "on screen and spoken: WPI was India's headline measure till 2014; CPI-Combined since February 2015"
+  ],
+  "best_moments": [
+    {"t": 69, "why": "red crosses land on the FUEL and FOOD blocks of the lower bar, then the crossed blocks drop out and the bar closes up shorter: core inflation defined by subtraction, with no sentence on screen"},
+    {"t": 22, "why": "two black frames span both stacked bars around the same two blocks, with one 'highly volatile & transitory' note under them: the same components are picked out in both copies before they are named"},
+    {"t": 89, "why": "after the cut, the full bar gets a blue HEADLINE chip and the short bar a purple CORE chip, so the two terms are two visible lengths of the same basket"},
+    {"t": 122, "why": "two newspaper front pages with 'inflation' circled send arrows down to the word HEADLINE: the name explained by where the number is printed (BIE must redraw as generic papers)"}
+  ],
+  "weak_moments": [
+    {"t": 31, "why": "the canvas stays still for about 34 s (31-65 s) while the narrator gives the causes of food and fuel swings (transitory factors, the season's rain) and the economists' worry; no price line jumps, no rain cloud"},
+    {"t": 90, "why": "the key comparison (headline = total inflation, core = long-run trend) is spoken over an unchanged canvas for about 23 s; a jumpy headline line against a smooth core line would show it"},
+    {"t": 24, "why": "the 'highly volatile & transitory in nature' label appears about 12 s before 'transitory' and 35 s before 'highly volatile' are spoken"},
+    {"t": 122, "why": "real newspaper mastheads are used as photos; BIE must not reuse branded pages"},
+    {"t": 130, "why": "verify before reuse: the table dates the switch to CPI-Combined at February 2015; RBI is usually said to have adopted CPI-Combined as its key inflation measure in April 2014, with the February 2015 monetary policy agreement formalising it"}
+  ],
+  "segments": [
+    {
+      "start": 0,
+      "end": 10,
+      "teaches": "title: the video compares headline inflation and core inflation",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "title_text", "what": "two words 'INFLATION' side by side", "count": 2},
+        {"kind": "mark", "what": "bold black 'vs' between them", "count": 1},
+        {"kind": "tag", "what": "blue HEADLINE chip and purple CORE chip, each with a wavy underline, over the two words", "count": 2}
+      ],
+      "motions": ["pop_in", "write_on"],
+      "level": "L2",
+      "notes": "2 change events. Title card built in two beats: 'vs' on 'compare' (2.0 s), chips on 'headline inflation aur' (3.6 s).",
+      "idea_type": "intro",
+      "idea": "there are two kinds of inflation figure and this video compares them",
+      "shown_as": "two identical INFLATION words face each other; a bold 'vs' pops between them, then a blue HEADLINE chip and a purple CORE chip with wavy underlines drop above each word",
+      "meaning_carrier": "text_only",
+      "things": [],
+      "actions": ["pop_in", "write_on", "compare_side_by_side"],
+      "on_screen_words": 5,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 10,
+      "end": 65,
+      "teaches": "an inflation index is built from many components; two of them, food and fuel, have prices that swing a lot for short-lived (transitory) reasons such as the season's rain",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "title_text", "what": "'INFLATION' label slides to the left edge as a row label; a second copy appears for the lower row", "count": 2},
+        {"kind": "segmented_bar", "what": "new kind (nothing fits): one horizontal strip, first plain yellow, then cut into seven pastel blocks of different widths, each block a component of the index basket; then duplicated as a second identical bar below", "count": 2},
+        {"kind": "tag", "what": "'INDEX' heading above the bar", "count": 1},
+        {"kind": "highlight", "what": "two tall black frames, each spanning both bars around the same block", "count": 2},
+        {"kind": "callout", "what": "two pointer lines from the frames to a note: highly volatile and transitory in nature", "count": 1},
+        {"kind": "tag", "what": "FOOD written in the right framed block and FUEL in the left, in both bars", "count": 4}
+      ],
+      "motions": ["slide_in", "fade_in", "pop_in", "highlight_text", "draw_line", "write_on"],
+      "level": "L2",
+      "notes": "8 change events, all in 10-31 s; then the canvas is still for about 34 s. 'segmented_bar' is a new element kind (an index basket drawn as a strip of blocks; not data). Transcript has no words from 12.6 to 24.4 s, so the bar, its copy and the frames are built over a pause or over lost speech. A further transcript gap at 41.3-46.6 s probably held a cause for fuel prices; not recovered.",
+      "idea_type": "classification",
+      "idea": "the inflation index is a basket of parts; food and fuel are the parts whose prices jump around for temporary reasons",
+      "shown_as": "a yellow strip draws beside INFLATION, gets an INDEX heading and breaks into seven pastel blocks; the strip is copied into a second row; two black frames drop over the same two blocks in both rows, a forked pointer hangs a 'highly volatile & transitory' note under them, and the framed blocks are labelled FOOD and FUEL as each word is spoken; then nothing moves while the causes are told",
+      "meaning_carrier": "diagram",
+      "things": ["segmented_bar"],
+      "actions": ["draw_line", "split", "pop_in", "highlight_text", "write_on", "compare_side_by_side"],
+      "on_screen_words": 14,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 65,
+      "end": 113,
+      "teaches": "taking food and fuel out of the basket gives the core inflation index; the index that still includes them is the headline index; headline measures total inflation, core shows the long-run trend",
+      "canvas": "builds_on_previous",
+      "layout": "compare_two_sides",
+      "elements": [
+        {"kind": "highlight", "what": "black frames and the volatile note removed", "count": 1},
+        {"kind": "mark", "what": "red crosses under FUEL and FOOD in the lower bar only", "count": 2},
+        {"kind": "segmented_bar", "what": "lower bar loses the two crossed blocks and closes up into a visibly shorter bar; upper bar stays full", "count": 2},
+        {"kind": "tag", "what": "purple CORE chip under the lower INFLATION label", "count": 1},
+        {"kind": "tag", "what": "blue HEADLINE chip over the upper INFLATION label", "count": 1}
+      ],
+      "motions": ["cross_out", "swap_element", "slide_in", "pop_in"],
+      "level": "L2",
+      "notes": "5 change events in 65-89 s, each on its word (crosses on 'food aur fuel', shrink on 'bina food aur fuel', chips on 'core' and 'headline'); then about 23 s still while the difference is explained. Narration says 'food and energy' at 100 s while the screen says FUEL.",
+      "idea_type": "definition",
+      "idea": "core inflation is the same basket with food and fuel removed; headline keeps everything",
+      "shown_as": "the frames lift; red crosses land under FUEL and FOOD in the lower bar as removal is spoken; the crossed blocks vanish and the remaining blocks slide together into a shorter bar; a purple CORE chip clips under the short bar's label and a blue HEADLINE chip over the full bar, leaving full vs trimmed basket stacked for comparison",
+      "meaning_carrier": "diagram",
+      "things": ["segmented_bar", "cross_mark"],
+      "actions": ["cross_out", "shrink", "pop_in", "compare_side_by_side"],
+      "on_screen_words": 12,
+      "camera": "still",
+      "example": "basket with 7 blocks vs basket with 5 blocks (food and fuel removed); no figures"
+    },
+    {
+      "start": 113,
+      "end": 130,
+      "teaches": "headline inflation is called 'headline' because it is the inflation rate most commonly reported in the media and newspaper headlines",
+      "canvas": "new",
+      "layout": "flow_top_down",
+      "elements": [
+        {"kind": "segmented_bar", "what": "core row cleared; the HEADLINE bar slides down to the lower middle", "count": 1},
+        {"kind": "text_box", "what": "three-line definition under HEADLINE INFLATION: the rate most commonly reported in media and headlines", "count": 1},
+        {"kind": "photo", "what": "two real newspaper front pages, an 'INFLATION' headline circled in yellow on each", "count": 2},
+        {"kind": "arrow", "what": "two arrows from the papers converge on the word HEADLINE, then a curved arrow down to the HEADLINE chip", "count": 3}
+      ],
+      "motions": ["clear_canvas", "slide_in", "write_on", "pop_in", "draw_line"],
+      "level": "L2",
+      "notes": "3 change events. The definition text appears at 119.8 s while the question 'why is it called headline?' is still being asked; the spoken answer starts at 122.5 s. Newspaper mastheads are real brands: BIE must use generic papers.",
+      "idea_type": "definition",
+      "idea": "'headline' inflation is simply the number newspapers print",
+      "shown_as": "the core row disappears and the full HEADLINE bar slides down; a definition line writes on under it; above, two newspaper front pages appear with the inflation headline circled, and arrows run from both papers into the word HEADLINE and on down to the bar's HEADLINE chip",
+      "meaning_carrier": "picture_plus_label",
+      "things": ["segmented_bar", "newspaper", "brand_logo"],
+      "actions": ["slide_in", "write_on", "highlight_text", "flow_along_arrow"],
+      "on_screen_words": 30,
+      "camera": "clear",
+      "example": ""
+    },
+    {
+      "start": 130,
+      "end": 146,
+      "teaches": "India used WPI as its headline inflation measure till 2014 and CPI-Combined from February 2015",
+      "canvas": "builds_on_previous",
+      "layout": "table",
+      "elements": [
+        {"kind": "table", "what": "two-row strip at right: 'Till 2014 | WPI | Wholesale Price Index' and 'Since Feb 2015 | CPI-C | Consumer Price Index - Combined', both rows at once", "count": 1}
+      ],
+      "motions": ["pop_in"],
+      "level": "L2",
+      "notes": "1 change event; both rows pop in together at 129.8 s, so the CPI-C row is on screen about 7 s before it is spoken. An app-promo phone overlay slides over the lower left at 144.2 s, covering the bar and definition. Verify the switch date before reuse.",
+      "idea_type": "timeline",
+      "idea": "India's headline measure moved from wholesale prices to consumer prices",
+      "shown_as": "a small two-row table appears beside the newspapers: the WPI row dated 'till 2014' and the CPI-C row dated 'since Feb 2015', each with its full name; nothing points from it to the bar",
+      "meaning_carrier": "text_only",
+      "things": ["table_grid", "newspaper", "segmented_bar"],
+      "actions": ["pop_in"],
+      "on_screen_words": 45,
+      "camera": "still",
+      "example": "WPI till 2014; CPI-Combined since February 2015"
+    },
+    {
+      "start": 146,
+      "end": 156.9,
+      "teaches": "channel end card (next video / playlist); not teaching",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {"kind": "end_screen", "what": "next-video and playlist panels with loading bars and an app promo", "count": 1}
+      ],
+      "motions": ["clear_canvas"],
+      "level": "L2",
+      "notes": "ignore for teaching",
+      "idea_type": "end_screen",
+      "idea": "none (end screen)",
+      "shown_as": "canvas cuts to a two-panel channel end card",
+      "meaning_carrier": "text_only",
+      "things": ["brand_logo", "mobile_phone"],
+      "actions": ["pop_in"],
+      "on_screen_words": 20,
+      "camera": "cut",
+      "example": ""
+    }
+  ]
+}

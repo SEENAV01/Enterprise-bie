@@ -1,0 +1,142 @@
+{
+  "id": "E54",
+  "topic": "Depositories: from paper share certificates to electronic records (dematerialisation), NSDL and CDSL, depository participants and demat accounts, and depository receipts for investing abroad (IDR, ADR, GDR)",
+  "book_understanding": {
+    "concepts": [
+      {"name": "stock exchange and the paper era", "type": "process", "t_start": 0.0, "t_end": 34.9, "prereq_recalled": "earlier video: the stock market is where shares and bonds are bought and sold"},
+      {"name": "depository and dematerialisation", "type": "mechanism", "t_start": 34.9, "t_end": 70.2, "prereq_recalled": "shares were paper documents returned to the exchange"},
+      {"name": "benefits of demat", "type": "cause_effect", "t_start": 70.2, "t_end": 94.5, "prereq_recalled": ""},
+      {"name": "NSDL and CDSL: who, regulator, law", "type": "classification", "t_start": 94.5, "t_end": 122.0, "prereq_recalled": "SEBI as market regulator (assumed known)"},
+      {"name": "NSDL vs CDSL: share of securities and settlement cycle", "type": "comparison", "t_start": 122.0, "t_end": 172.1, "prereq_recalled": ""},
+      {"name": "depository participants and the demat account", "type": "process", "t_start": 172.1, "t_end": 242.5, "prereq_recalled": "exchange and depository roles, taught separately just before"},
+      {"name": "investing in a company abroad: the IDR flow", "type": "mechanism", "t_start": 243.0, "t_end": 332.1, "prereq_recalled": "the Indian chain: investor, DP, demat, exchange, depository"},
+      {"name": "depository receipt (general)", "type": "definition", "t_start": 332.1, "t_end": 394.4, "prereq_recalled": "the IDR flow just shown"},
+      {"name": "types of depository receipt: IDR, ADR, GDR", "type": "comparison", "t_start": 394.4, "t_end": 522.4, "prereq_recalled": "the IDR example ('the case we covered a little earlier')"}
+    ],
+    "teaching_order": "A textbook would define a depository, list NSDL and CDSL, then define DRs and their types. Here the depository arrives as the answer to the paper era (certificates handed back to the exchange), the exchange-depository pair is first taught separately and then joined through the investor's own path (broker, demat account), and depository receipts are not defined until the learner has watched one being created in a what-if (an Indian buying a company listed only abroad). Only after the flow is the general definition given, and the three types come last as a table cut by where the investor is and which currency is used. Each new idea is built on the previous picture, so the canvas grows from one exchange to two countries to many.",
+    "breakdown_rule": "Follow the path of one investor's share (paper -> electronic record -> through a broker and demat account -> across a border), and introduce each institution at the point on that path where it is needed; classify only after the path is clear."
+  },
+  "narration": {
+    "opening": {"move": "recall_previous", "what": "Recalls that the stock market is where securities like shares and bonds are bought and sold: shareholders sell through the exchange and new investors buy through it."},
+    "moves": [
+      {"t": 0.0, "move": "recall_previous", "concept": "stock exchange and the paper era", "what": "Already studied: the stock market is where shares and bonds change hands between shareholders and new investors."},
+      {"t": 21.4, "move": "story", "concept": "stock exchange and the paper era", "what": "'Kuch samay pehle tak': shares came as paper documents, and to sell you had to return the document to the exchange."},
+      {"t": 34.9, "move": "contrast", "concept": "depository and dematerialisation", "what": "'But now' the process is computerised: ownership is recorded electronically, so trading is paperless."},
+      {"t": 48.1, "move": "define_term", "concept": "depository and dematerialisation", "what": "This whole setup, where ownership is recorded electronically, is called a depository (or securities depository)."},
+      {"t": 60.8, "move": "define_term", "concept": "depository and dematerialisation", "what": "Making a physical thing digital is called dematerialisation."},
+      {"t": 70.2, "move": "cause_chain", "concept": "benefits of demat", "what": "Benefits: no loss of certificates or fraud; settlement between buyer and seller is faster and more effective; paperless means lower administrative cost."},
+      {"t": 94.5, "move": "data_fact", "concept": "NSDL and CDSL: who, regulator, law", "what": "India has only two securities depositories, NSDL and CDSL; full forms unpacked with 'yaani'."},
+      {"t": 113.7, "move": "data_fact", "concept": "NSDL and CDSL: who, regulator, law", "what": "Both are regulated by SEBI and were set up in 1996 under the Depositories Act 1996 (CDSL's year doubtful)."},
+      {"t": 122.0, "move": "data_fact", "concept": "NSDL vs CDSL: share of securities and settlement cycle", "what": "By volume NSDL holds 80% of securities and CDSL the other 20% (undated)."},
+      {"t": 137.0, "move": "conclusion_line", "concept": "NSDL vs CDSL: share of securities and settlement cycle", "what": "'Iska matlab' NSDL is the country's largest securities depository."},
+      {"t": 142.6, "move": "data_fact", "concept": "NSDL vs CDSL: share of securities and settlement cycle", "what": "NSDL's settlement cycle is said to be T+2 days (doubtful)."},
+      {"t": 147.5, "move": "yaani_unpack", "concept": "NSDL vs CDSL: share of securities and settlement cycle", "what": "Settlement cycle means the time the depository takes to move shares out of the seller's account into the buyer's."},
+      {"t": 158.3, "move": "contrast", "concept": "NSDL vs CDSL: share of securities and settlement cycle", "what": "'Jabki' CDSL is said to be T+1; T is the transaction date, T+1 is one more day."},
+      {"t": 172.1, "move": "signpost", "concept": "depository participants and the demat account", "what": "So far exchange and depository separately; now how they work together."},
+      {"t": 185.0, "move": "question_to_viewer", "concept": "depository participants and the demat account", "what": "'Ek baat bataiye': have you heard of a well-known brokerage (real brand named)?"},
+      {"t": 189.6, "move": "define_term", "concept": "depository participants and the demat account", "what": "A brokerage firm is a mediator between us and the market; such firms are called depository participants."},
+      {"t": 211.0, "move": "cause_chain", "concept": "depository participants and the demat account", "what": "A bank or broker registers with the exchange and the depository to become a DP; an individual registers with a DP, which opens a demat account; through it shares and bonds are bought and sold electronically."},
+      {"t": 243.0, "move": "signpost", "concept": "investing in a company abroad: the IDR flow", "what": "That was buying and selling inside India."},
+      {"t": 246.7, "move": "what_if", "concept": "investing in a company abroad: the IDR flow", "what": "'Soch ke dekhiye': you want to invest in a company of another country that is not listed in India, only on its own exchange (about 13 s of speech then lost)."},
+      {"t": 271.6, "move": "cause_chain", "concept": "investing in a company abroad: the IDR flow", "what": "An order is placed on that country's exchange; our money goes through our exchange to theirs and reaches the company; the shares come through our exchange to our central securities depository."},
+      {"t": 296.9, "move": "define_term", "concept": "investing in a company abroad: the IDR flow", "what": "The depository does not issue the share itself but a receipt for it, the Indian Depository Receipt (IDR)."},
+      {"t": 312.0, "move": "conclusion_line", "concept": "investing in a company abroad: the IDR flow", "what": "So through an IDR you can invest in another country's company."},
+      {"t": 318.7, "move": "question_to_viewer", "concept": "investing in a company abroad: the IDR flow", "what": "'Observe': our money leaves the country in this process; comment whether this is good for the country, and why (never answered)."},
+      {"t": 332.1, "move": "signpost", "concept": "depository receipt (general)", "what": "'Now a very important concept'."},
+      {"t": 335.4, "move": "recap", "concept": "depository receipt (general)", "what": "Restates the flow: money goes out through our exchange, the foreign companies' shares come to India and stay with our depositories, which issue depository receipts to us."},
+      {"t": 371.4, "move": "human_benefit", "concept": "depository receipt (general)", "what": "Whatever benefits come from owning the shares, the receipt holder gets the same."},
+      {"t": 380.4, "move": "define_term", "concept": "depository receipt (general)", "what": "'If you are asked what DRs are': instruments that let investors buy foreign companies' shares through a domestic exchange."},
+      {"t": 394.4, "move": "define_term", "concept": "types of depository receipt: IDR, ADR, GDR", "what": "By the investor's location and the company's location, DRs fall into 3 types."},
+      {"t": 401.3, "move": "recall_previous", "concept": "types of depository receipt: IDR, ADR, GDR", "what": "First the case already covered: investor in India, company anywhere not listed in India; paid in Indian rupees (part of the speech lost)."},
+      {"t": 432.2, "move": "what_if", "concept": "types of depository receipt: IDR, ADR, GDR", "what": "Second case: an investor in the US investing in a company outside the US gets an ADR from a US depository, in US dollars."},
+      {"t": 454.9, "move": "what_if", "concept": "types of depository receipt: IDR, ADR, GDR", "what": "Third: a citizen of any country investing in another country's company gets a GDR from their own country's central depository (doubtful)."},
+      {"t": 472.3, "move": "yaani_unpack", "concept": "types of depository receipt: IDR, ADR, GDR", "what": "'Iska matlab' someone in India can invest through an IDR or a GDR; a GDR can be in US dollars or many other currencies."},
+      {"t": 511.1, "move": "recap", "concept": "types of depository receipt: IDR, ADR, GDR", "what": "Today: what a depository is, NSDL vs CDSL, and IDR, ADR, GDR."}
+    ],
+    "story_before_term": [
+      {"term": "depository", "t_story": 21.4, "t_term": 56.1},
+      {"term": "dematerialisation", "t_story": 34.9, "t_term": 67.2},
+      {"term": "depository participant", "t_story": 185.0, "t_term": 208.7},
+      {"term": "Indian Depository Receipt (IDR)", "t_story": 246.7, "t_term": 307.4}
+    ],
+    "examples": [
+      {"t": 21.4, "kind": "story", "what": "Paper certificates handed out on purchase and handed back to the exchange on sale.", "carries": "depository and dematerialisation"},
+      {"t": 122.0, "kind": "real_case", "what": "NSDL 80% and CDSL 20% of securities; T+2 vs T+1 (doubtful).", "carries": "NSDL vs CDSL: share of securities and settlement cycle"},
+      {"t": 185.0, "kind": "real_case", "what": "A well-known online broker (named) as the example of a depository participant.", "carries": "depository participants and the demat account"},
+      {"t": 246.7, "kind": "what_if", "what": "An Indian wants shares of a company listed only on a foreign exchange.", "carries": "investing in a company abroad: the IDR flow"},
+      {"t": 432.2, "kind": "what_if", "what": "A US investor buying a non-US company gets an ADR in dollars.", "carries": "types of depository receipt: IDR, ADR, GDR"},
+      {"t": 454.9, "kind": "what_if", "what": "An investor anywhere buying abroad gets a GDR in one of many currencies.", "carries": "types of depository receipt: IDR, ADR, GDR"}
+    ],
+    "closing": {"move": "recap", "what": "Names the three parts covered (depository, NSDL vs CDSL, IDR/ADR/GDR) over the finished table, then the playlist plug; an app-promotion overlay covers part of the table."},
+    "density": "About 22 terms (stock exchange, securities, shareholders, depository, securities depository, dematerialisation, settlement, administrative cost, NSDL, CDSL, SEBI, Depositories Act, settlement cycle, T+1/T+2, transaction date, brokerage, depository participant, demat account, central securities depository, IDR, ADR, GDR) in about 520 s, about 2.5 per minute. The first half is quick and list-like (benefits, NSDL/CDSL tags); the second half slows down around one long worked flow, which suits the harder idea. Voice about 165 words a minute."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 3.2, "shown": "label line from the exchange tower: 'facilitates the trading of securities'", "said_gist": "the stock market is a place where shares and bonds are bought and sold", "naming_word": "स्टॉक मार्केट", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 2, "t_shown": 11.4, "shown": "share certificate on the 'sell stocks' arrow from the shareholders crowd", "said_gist": "shareholders, who hold shares, can sell their shares to new investors", "naming_word": "shares", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 3, "t_shown": 40.4, "shown": "brace note beside the server: ownership recorded electronically on a computer system", "said_gist": "with a computer system, share ownership is recorded electronically", "naming_word": "ownership", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 4, "t_shown": 54.8, "shown": "'DEPOSITORY' label under the server", "said_gist": "this is called a depository (said 1.3 s later)", "naming_word": "depository", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 5, "t_shown": 74.6, "shown": "first benefit bullet: reduces risk of fraud or loss of certificates", "said_gist": "for example, now... (loss of certificates and fraud said 2-4 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 6, "t_shown": 96.0, "shown": "benefits list clears; the depository panel moves up to make room for branches", "said_gist": "now if we talk about securities depositories", "naming_word": "Securities Depositories", "lead": "together", "relation": "navigation"},
+    {"tile": 7, "t_shown": 106.2, "shown": "'National Securities Depository Limited' under NSDL", "said_gist": "NSDL yaani National Securities Depositories Limited", "naming_word": "National Securities", "lead": "together", "relation": "names_the_term"},
+    {"tile": 8, "t_shown": 122.6, "shown": "canvas clears to the bare depository box with NSDL and CDSL branches, centred", "said_gist": "now if we talk about volume of securities", "naming_word": "", "lead": "together", "relation": "navigation"},
+    {"tile": 9, "t_shown": 140.0, "shown": "'[Largest]' tag before NSDL (80% and 20% already shown)", "said_gist": "so NSDL is our country's largest securities depository", "naming_word": "largest", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 10, "t_shown": 161.2, "shown": "'[T+1 settlement cycle]' under CDSL", "said_gist": "whereas for CDSL the settlement cycle is T plus one", "naming_word": "settlement cycle", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 11, "t_shown": 185.2, "shown": "a real brokerage logo on a white card at left", "said_gist": "but before this, tell me one thing... (the firm's name asked 2.6 s later)", "naming_word": "", "lead": "picture_first", "relation": "adds_new_info"},
+    {"tile": 12, "t_shown": 192.0, "shown": "person's arrow into the card and an elbow arrow from the card up to the exchange", "said_gist": "it is a stock brokerage firm which works between us and the stock market (said 1.5-3 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 13, "t_shown": 231.8, "shown": "purple square on the person's arrow (demat account)", "said_gist": "you must register; and the participant (heard as 'deposit department') will open an account for you (account said 2.7 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 14, "t_shown": 242.6, "shown": "the whole Indian chain shrinks into a yellow panel; India flag appears 1.6 s later", "said_gist": "so that was about buying and selling securities in India (India said 1.5 s later)", "naming_word": "इंडिया", "lead": "picture_first", "relation": "navigation"},
+    {"tile": 15, "t_shown": 250.2, "shown": "blue panel at right with a factory (foreign company)", "said_gist": "if you want to invest in a company that is another country's company", "naming_word": "कंपनी", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 16, "t_shown": 280.4, "shown": "gold coin beside the investor", "said_gist": "in this process we send our money through our exchange to that country's exchange", "naming_word": "अपना पैसा", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 17, "t_shown": 306.2, "shown": "green line from NSDL back to the demat account carrying an IDR slip", "said_gist": "it will issue a receipt corresponding to this share", "naming_word": "receipt", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 18, "t_shown": 321.8, "shown": "the coin on the foreign factory pulses", "said_gist": "observe that in this process we send our country's money out of the country", "naming_word": "पैसा", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 19, "t_shown": 336.8, "shown": "second foreign company tile (Germany, black) under France; USA follows", "said_gist": "so far we understood that if you have money... (another country's company said 3-4 s later; countries never named)", "naming_word": "", "lead": "picture_first", "relation": "adds_new_info"},
+    {"tile": 20, "t_shown": 343.0, "shown": "local exchange building beside the investor in the green box", "said_gist": "you can do this... through our country's stock exchange (said 1.3-2.4 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 21, "t_shown": 352.4, "shown": "dotted arcs fan out from the local exchange to the three companies; coins land; three coloured certificates stack at the exchange", "said_gist": "and this way we invest our money in companies of foreign countries", "naming_word": "बाहर के देश की companies", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 22, "t_shown": 383.4, "shown": "one-line definition under 'DEPOSITORY RECEIPT'", "said_gist": "if you are asked what depository receipts are...", "naming_word": "depository receipts", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 23, "t_shown": 396.4, "shown": "table frame: icon heads person (investor location), factory (company location), coin (currency), three empty coloured rows", "said_gist": "on the basis of the investors' location and the company's location", "naming_word": "location", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 24, "t_shown": 511.4, "shown": "app-promotion overlay slides over the bottom of the table", "said_gist": "so in today's video we understood...", "naming_word": "", "lead": "unrelated", "relation": "decoration"}
+  ],
+  "talmel_summary": "The second half is a strong model: objects move on the words that describe them (the coin's trip from investor through two exchanges to the foreign factory runs during 'our money goes through our exchange to theirs and reaches the company'; the receipt line draws on 'receipt'; one coin fans out to three companies on 'foreign companies'), and colour links each company to its certificate, receipt and table row. The first half mostly writes labels and tags as they are said. When the picture leads it is by 1.3-3 s, sometimes spoiling a question (the broker logo before 'have you heard of...?'). Three transcript gaps (about 257.7-270.9, 413.3-428.9 and 477.0-490.6 s) fall where the foreign exchange, the IDR row and the GDR row are drawn.",
+  "voice": {"notes": "About 165 words a minute, friendly and direct, with viewer address ('ek baat bataiye', 'soch ke dekhiye', 'observe kijiye', 'comment karke bataiye'). Full forms read in English after 'yaani'; numbers read as '80%', 'T plus two days'. Stress on 'paperless', 'largest', 'receipt' and the 'very important concept' signpost. Speech recognition garbles some terms (depository participant heard as 'deposit department', IDR as 'EDR'); BIE's own audio checks should catch such slips in its narration."},
+  "game_ideas": [
+    {"from_t": 21.4, "mechanic": "run_a_process", "player_does": "Sells 100 shares twice: first in the paper era (carry the certificate to the exchange, wait for the buyer's payment and the transfer), then in demat mode (place a sell order from a demat account).", "process_happens": "Paper mode: the certificate travels slowly, random events strike (certificate lost, forged signature, a fee for courier and stamping); demat mode: the depository moves 100 shares from the seller's account to the buyer's on a T+1 calendar.", "win": "Complete both sales and compare: time, cost and risk meters show why demat replaced paper.", "lose": "In paper mode, losing the certificate freezes the sale until a duplicate is issued; the game then shows the same sale finishing in demat in one day.", "concept": "depository and dematerialisation"},
+    {"from_t": 189.6, "mechanic": "build_timeline", "player_does": "Builds the path from a new investor to owning a share by placing the pieces in order: person, depository participant (generic broker or bank), demat account, exchange, clearing and settlement, depository record.", "process_happens": "Once the path is complete, an order runs along it: money goes up to the exchange, and the share appears as an entry in the investor's demat account at the depository.", "win": "The order completes and the share appears in the demat account.", "lose": "Skipping the DP or the demat account blocks the order at the exchange gate with 'no account'; putting the depository before the exchange shows a record with no trade behind it.", "concept": "depository participants and the demat account"},
+    {"from_t": 394.4, "mechanic": "sort_into_groups", "player_does": "Gets investor cards (a buyer in Mumbai paying rupees, a buyer in New York paying dollars, a fund in London paying euros or dollars) and drops each on the receipt it would use: IDR, ADR or GDR.", "process_happens": "The receipt slip forms in the right colour, with the currency coin and the market where it trades.", "win": "Every investor gets the right receipt and currency.", "lose": "A wrong drop shows the mismatch (an ADR asked for in rupees bounces off the dollar coin). The game must be built on a checked description of each receipt, not on this video's GDR and IDR wording.", "concept": "types of depository receipt: IDR, ADR, GDR"}
+  ],
+  "notes_questions": [
+    {"q": "Depository kya hai, aur dematerialisation se share ki trading mein kya badla?", "answer_shape": "flow", "from_t": 34.9},
+    {"q": "Demat ke teen fayde kaun se hain?", "answer_shape": "tree", "from_t": 70.2},
+    {"q": "NSDL aur CDSL: poora naam, regulator, kaanoon aur hissa (share) likhiye.", "answer_shape": "comparison", "from_t": 94.5},
+    {"q": "Settlement cycle T+1 ka matlab kya hai? Seller se buyer tak share kab pahunchta hai?", "answer_shape": "timeline", "from_t": 147.5},
+    {"q": "Ek aam investor share kaise khareedta hai? Investor, DP, demat account, exchange aur depository ka flow banaiye.", "answer_shape": "flow", "from_t": 189.6},
+    {"q": "Depository receipt kya hota hai? Videshi company ka share Indian investor tak kis roop mein pahunchta hai?", "answer_shape": "flow", "from_t": 296.9},
+    {"q": "IDR, ADR aur GDR mein kya fark hai (investor kahan hai, currency kaun si hai)?", "answer_shape": "table", "from_t": 394.4}
+  ],
+  "checks_learned": [
+    "Market-wide rules must not be assigned to one institution: a claim that two depositories in one market have different settlement cycles should flag, and the settlement cycle must be checked against the current rule and dated.",
+    "Founding years and laws are checked per entity (NSDL and CDSL separately), not shared in one line.",
+    "How a financial instrument works (who issues an IDR or GDR, where the underlying shares sit, which currency) needs a source check before a scene shows money and shares moving.",
+    "A percentage split (80/20) must say 'of what' (value held or number of accounts) and give the date.",
+    "A question put to the viewer ('is money going abroad good? comment') must be answered in the video or in the notes; an open question with no answer fails.",
+    "Generic roles come first: a real brand logo must not stand for a role (depository participant); use a generic broker card.",
+    "No promotional overlay may cover teaching content while it is being recapped.",
+    "Colour identity: an object that reappears across scenes (company, its certificate, its receipt, its table row) keeps one colour; worked well here, enforce it.",
+    "When the voice describes a transfer ('our money goes ... and reaches the company'), the moving object must travel during those words and land as the destination is named (done at 283-288 s)."
+  ],
+  "teaching_best": [
+    {"t": 21.4, "why": "The paper era is told before the depository, so the depository arrives as the fix to a felt problem (carrying certificates back to the exchange)."},
+    {"t": 246.7, "why": "'Soch ke dekhiye': a concrete what-if (a company listed only abroad) makes the depository receipt the answer to a question the learner now has."},
+    {"t": 271.6, "why": "One cause chain follows the money out and the share back in, ending in the receipt, while the coin and the receipt move on the picture."},
+    {"t": 371.4, "why": "The benefit of a receipt is stated in human terms: you get what a shareholder gets."},
+    {"t": 394.4, "why": "The basis of the classification (investor location, company location) is said before the table, and the first row reuses the example already worked."},
+    {"t": 511.1, "why": "A real recap of the three parts at the end."}
+  ],
+  "teaching_weak": [
+    {"t": 142.6, "why": "NSDL T+2 vs CDSL T+1 is presented as a difference between depositories; settlement cycles are set market-wide (India moved to T+1 by early 2023), so this is likely wrong as well as dated."},
+    {"t": 296.9, "why": "The IDR is taught as the way an Indian buys any foreign-listed company, with the share coming to NSDL; IDRs are usually issued by a foreign company raising money in India, with the shares held by an overseas custodian. Doubtful."},
+    {"t": 454.9, "why": "GDR is described as issued by the investor's own country's depository; GDRs are generally issued by depository banks and listed on markets outside the company's home country. Doubtful."},
+    {"t": 318.7, "why": "A good thinking question (is sending money abroad good for the country?) is left to the comments with no answer."},
+    {"t": 70.2, "why": "The three benefits of demat are a spoken and written list; none is shown happening."},
+    {"t": 185.0, "why": "A real broker is named and its logo used as the example of a depository participant."}
+  ]
+}

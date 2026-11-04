@@ -1,0 +1,133 @@
+{
+  "id": "E46",
+  "topic": "GDP at factor cost vs GDP at market price: one laptop sold through one shop, tax added at each step, factor cost built from a factory's monthly factor payments, market price = factor cost + indirect taxes - subsidies, and why factor cost tracks production better",
+  "book_understanding": {
+    "concepts": [
+      {"name": "last video's puzzle: laptop bought at 10,000, sold at 15,000", "type": "numbers", "t_start": 0.0, "t_end": 14.7, "prereq_recalled": "previous video: GDP counts final goods and services produced in India in a financial year, exchanged for money"},
+      {"name": "GDP from one good and one service = 15,000", "type": "numbers", "t_start": 14.7, "t_end": 56.5, "prereq_recalled": "GDP = goods + services produced in a year"},
+      {"name": "tax at each step: customer pays 18,000", "type": "cause_effect", "t_start": 56.5, "t_end": 104.9, "prereq_recalled": "indirect taxes are passed on to the customer (stated as known)"},
+      {"name": "two values of GDP: factor cost and market price", "type": "comparison", "t_start": 104.9, "t_end": 127.2, "prereq_recalled": "the 15,000 and 18,000 just computed"},
+      {"name": "factors of production and their payments", "type": "classification", "t_start": 127.2, "t_end": 183.4, "prereq_recalled": ""},
+      {"name": "factor cost of one laptop: 100K for 10 laptops = 10K", "type": "numbers", "t_start": 183.4, "t_end": 230.8, "prereq_recalled": "rent, wages, interest, profit"},
+      {"name": "shop's factor cost 5K, GDP at factor cost 15K", "type": "numbers", "t_start": 230.8, "t_end": 251.5, "prereq_recalled": "laptop factor cost 10K"},
+      {"name": "market price = factor cost + indirect taxes - subsidies", "type": "formula", "t_start": 251.5, "t_end": 274.1, "prereq_recalled": "the taxed sale (18,000)"},
+      {"name": "3-year what-if: taxes raise GDP at market price, production flat", "type": "cause_effect", "t_start": 274.1, "t_end": 350.2, "prereq_recalled": "GDP at factor cost 15,000 and at market price 18,000"},
+      {"name": "better indicator of production; India's 2015 switch", "type": "comparison", "t_start": 350.2, "t_end": 391.1, "prereq_recalled": "the 3-year table"}
+    ],
+    "teaching_order": "A textbook defines factor cost (sum of factor incomes), defines market price as factor cost plus net indirect taxes, and then gives an example. Here the example comes first and breaks twice: the previous video's laptop sale gives GDP 15,000; the narrator points out that tax was ignored, adds 20% at each step and gets 18,000; 'so is GDP 15,000 or 18,000?' forces the two terms, which arrive as names for two numbers the learner already holds. Only then is factor cost built from a factory's bills and market price written as a formula, and a 3-year what-if shows why the choice matters. The order works because each term answers a contradiction the learner has just seen.",
+    "breakdown_rule": "Each new piece is forced by a gap in the previous example (no tax, then two answers, then what each answer is made of, then what happens over time), and every piece reuses the same laptop numbers."
+  },
+  "narration": {
+    "opening": {"move": "recall_previous", "what": "Recalls the question left at the end of the last video (a shopkeeper buys a 10,000 laptop and sells it for 15,000: effect on GDP?) and sets out to answer it."},
+    "moves": [
+      {"t": 0.0, "move": "recall_previous", "concept": "last video's puzzle: laptop bought at 10,000, sold at 15,000", "what": "The previous video's closing question is replayed over its last canvas."},
+      {"t": 12.3, "move": "signpost", "concept": "last video's puzzle: laptop bought at 10,000, sold at 15,000", "what": "'Chaliye ise samajhne ki koshish karte hain'."},
+      {"t": 29.2, "move": "example_numbers", "concept": "GDP from one good and one service = 15,000", "what": "The shopkeeper pays rent and bills, so he adds 5,000 to the price; that service is also counted in GDP (part of this is lost in a transcript gap)."},
+      {"t": 37.6, "move": "what_if", "concept": "GDP from one good and one service = 15,000", "what": "For simple maths, assume India made only one laptop in a year and one shop sold it: GDP is 15,000."},
+      {"t": 56.5, "move": "question_to_viewer", "concept": "tax at each step: customer pays 18,000", "what": "'Kya aapne notice kiya': we never talked about tax, which is unrealistic. The example's own gap is named."},
+      {"t": 68.4, "move": "what_if", "concept": "tax at each step: customer pays 18,000", "what": "Assume 20% tax on every transaction."},
+      {"t": 72.4, "move": "example_numbers", "concept": "tax at each step: customer pays 18,000", "what": "The shopkeeper pays 2,000 tax, so the laptop costs him 12,000; tax on his 5,000 service is 1,000."},
+      {"t": 89.5, "move": "cause_chain", "concept": "tax at each step: customer pays 18,000", "what": "All indirect taxes from maker to shop are paid by the customer, so the customer pays 18,000, not 15,000."},
+      {"t": 104.9, "move": "question_to_viewer", "concept": "two values of GDP: factor cost and market price", "what": "If one laptop and one service were produced, is GDP 15,000 or 18,000?"},
+      {"t": 116.2, "move": "agenda", "concept": "two values of GDP: factor cost and market price", "what": "You can answer only with the concepts of factor cost and market price; GDP can be measured at both."},
+      {"t": 130.7, "move": "story", "concept": "factors of production and their payments", "what": "'As an entrepreneur' you need land for the factory, labour, and capital to buy raw material, set up machines, market and transport."},
+      {"t": 156.4, "move": "cause_chain", "concept": "factors of production and their payments", "what": "Not everyone has that much capital, so it is borrowed from a bank on interest."},
+      {"t": 163.9, "move": "define_term", "concept": "factors of production and their payments", "what": "The entrepreneur also wants profit; land earns rent, labour wages and salaries, and borrowed money interest; these are the costs."},
+      {"t": 183.4, "move": "example_numbers", "concept": "factor cost of one laptop: 100K for 10 laptops = 10K", "what": "Per month: rent 20,000, wages 20,000, interest 20,000, desired profit 40,000; running the factory costs 1 lakh."},
+      {"t": 210.5, "move": "example_numbers", "concept": "factor cost of one laptop: 100K for 10 laptops = 10K", "what": "10 laptops a month, so one laptop costs 10,000 to make."},
+      {"t": 220.1, "move": "define_term", "concept": "factor cost of one laptop: 100K for 10 laptops = 10K", "what": "This is called factor cost because it counts every factor of production."},
+      {"t": 230.8, "move": "example_numbers", "concept": "shop's factor cost 5K, GDP at factor cost 15K", "what": "The shop's factor cost (rent, AC or electricity, machine upkeep, salaries) comes to 5,000 (electricity and upkeep are doubtful as factor payments)."},
+      {"t": 246.3, "move": "conclusion_line", "concept": "shop's factor cost 5K, GDP at factor cost 15K", "what": "So in our example GDP at factor cost is 15,000."},
+      {"t": 251.5, "move": "define_term", "concept": "market price = factor cost + indirect taxes - subsidies", "what": "Market price = factor cost + indirect taxes - subsidies."},
+      {"t": 258.5, "move": "yaani_unpack", "concept": "market price = factor cost + indirect taxes - subsidies", "what": "'Iska matlab': add all taxes the government put on the 15,000 and subtract any subsidy given for making the laptop; that is GDP at market price."},
+      {"t": 274.1, "move": "signpost", "concept": "3-year what-if: taxes raise GDP at market price, production flat", "what": "Now an example with three years of data."},
+      {"t": 286.8, "move": "example_numbers", "concept": "3-year what-if: taxes raise GDP at market price, production flat", "what": "Same one laptop and one service each year, so factor cost stays 15,000."},
+      {"t": 313.1, "move": "what_if", "concept": "3-year what-if: taxes raise GDP at market price, production flat", "what": "Assume the government raises indirect taxes in 2021 (market price 18,000 to 20,000) and again in 2022 (25,000)."},
+      {"t": 335.5, "move": "conclusion_line", "concept": "3-year what-if: taxes raise GDP at market price, production flat", "what": "Production did not rise at all, yet GDP at market price kept rising, only because taxes rose."},
+      {"t": 350.2, "move": "question_to_viewer", "concept": "better indicator of production; India's 2015 switch", "what": "Which is the better indicator of whether production is rising? Answer given at once: GDP at factor cost."},
+      {"t": 366.6, "move": "data_fact", "concept": "better indicator of production; India's 2015 switch", "what": "India also calculated GDP at factor cost, but from 2015 it moved to market price."},
+      {"t": 378.5, "move": "question_to_viewer", "concept": "better indicator of production; India's 2015 switch", "what": "Asks viewers to write in the comments why this was done; answer promised in the next video."},
+      {"t": 384.5, "move": "exam_link", "concept": "better indicator of production; India's 2015 switch", "what": "Such questions build analytical thinking and prepare you for Mains."}
+    ],
+    "story_before_term": [
+      {"term": "factor cost / market price", "t_story": 0.0, "t_term": 118.6},
+      {"term": "factor cost (as the sum of factor payments)", "t_story": 130.7, "t_term": 220.1},
+      {"term": "market price formula", "t_story": 66.3, "t_term": 251.5}
+    ],
+    "examples": [
+      {"t": 0.0, "kind": "numbers", "what": "A shopkeeper buys a laptop at 10,000 and sells it at 15,000; only one laptop is made in India that year.", "carries": "GDP as a good plus a service (15,000)"},
+      {"t": 68.4, "kind": "what_if", "what": "20% tax on each transaction: 2,000 + 1,000 more, the customer pays 18,000.", "carries": "why GDP has a second, taxed value (market price)"},
+      {"t": 130.7, "kind": "story", "what": "The learner is addressed as an entrepreneur setting up a factory with land, labour and borrowed capital.", "carries": "factors of production and what each is paid"},
+      {"t": 183.4, "kind": "numbers", "what": "Rent 20K, wages 20K, interest 20K, profit 40K = 1 lakh a month for 10 laptops, so 10K each.", "carries": "factor cost per unit"},
+      {"t": 313.1, "kind": "what_if", "what": "Three years of the same output; only indirect taxes rise, market price goes 18K, 20K, 25K.", "carries": "why factor cost tracks production and market price can mislead"},
+      {"t": 366.6, "kind": "real_case", "what": "India moved its GDP measure from factor cost to market price in 2015.", "carries": "the concept's real-world status (reason left open)"}
+    ],
+    "closing": {"move": "question_to_viewer", "what": "Leaves the 2015 switch as a comment-box question with the answer promised next video, links it to Mains, then the playlist plug; no recap of the formula or the table."},
+    "density": "About 20 terms (GDP, goods, services, financial year, transaction, tax, indirect tax, factor cost, market price, entrepreneur, land, labour, capital, raw material, rent, wages and salaries, interest, profit, factors of production, subsidies, indicator) in about 390 s, about 3 per minute. Comfortable: almost every term rides on the same laptop numbers, and the new words cluster in the factory part (127-230 s), which slows down for them."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 3.2, "shown": "shopkeeper at a counter pops in under the recalled GDP canvas", "said_gist": "last video I asked: if a shopkeeper (sells a laptop)", "naming_word": "शॉपकीपर", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 2, "t_shown": 4.4, "shown": "laptop with '10K ₹' and an arrow toward the shopkeeper", "said_gist": "a 10,000 laptop", "naming_word": "10", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 3, "t_shown": 7.6, "shown": "'15K ₹' under the customer figure", "said_gist": "sells it to a customer for 15,000", "naming_word": "15", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 4, "t_shown": 11.0, "shown": "cluster of coloured question marks under the GDP map", "said_gist": "what will be the effect of this transaction on GDP?", "naming_word": "असर", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 5, "t_shown": 14.0, "shown": "rule panel and step counter drop away; view closes on the goods/services boxes and the sale", "said_gist": "let's try to understand it (the next 12 s of speech are missing from the transcript)", "naming_word": "", "lead": "picture_first", "relation": "navigation"},
+    {"tile": 6, "t_shown": 34.8, "shown": "pink band from the shopkeeper up into the SERVICES box with a tick and '+5K ₹'", "said_gist": "the shopkeeper has added Rs 5,000 to the laptop's price", "naming_word": "5000", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 7, "t_shown": 66.6, "shown": "red TAX badges on both arrows of the framed sale", "said_gist": "that is unrealistic, so let's add tax here", "naming_word": "tax", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 8, "t_shown": 113.0, "shown": "GDP grows two branches ending in '15K' and '18K'", "said_gist": "then will GDP be 15,000 (or 18,000)?", "naming_word": "15", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 9, "t_shown": 119.4, "shown": "'Market Price' label at the end of the right branch ('Factor Cost' already on the left)", "said_gist": "you can answer only if you know the concepts of factor cost and market price", "naming_word": "market", "lead": "together", "relation": "names_the_term"},
+    {"tile": 10, "t_shown": 132.0, "shown": "line under 'Factor Cost': cost of producing this good/service", "said_gist": "let's see what factor cost is; if you have to produce any kind of goods", "naming_word": "goods", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 11, "t_shown": 157.6, "shown": "'MONEY' label on the panel of things capital buys", "said_gist": "but not everyone has that much capital", "naming_word": "capital", "lead": "together", "relation": "names_the_term"},
+    {"tile": 12, "t_shown": 159.2, "shown": "bank icon (real bank name, 'funds for startups') with an arrow to MONEY", "said_gist": "so you can take this money from a bank on interest", "naming_word": "बैंक", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 13, "t_shown": 173.6, "shown": "'Wages & Salaries' written opposite Labour in the factor table", "said_gist": "for the land you pay rent; labourers and workers get wages and salaries", "naming_word": "wages", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 14, "t_shown": 217.2, "shown": "pink tag 'price of 1 laptop 10K ₹' on the laptop box (under 'number of laptops = 10')", "said_gist": "so the cost of making one laptop for you (is 10,000)", "naming_word": "laptop", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 15, "t_shown": 223.6, "shown": "the framed taxed sale and the GDP branches return", "said_gist": "it is called factor cost because all factors of production are counted", "naming_word": "", "lead": "picture_first", "relation": "navigation"},
+    {"tile": 16, "t_shown": 227.6, "shown": "red frame flashes on the laptop's '10K ₹'", "said_gist": "so the laptop's factor cost is 10,000", "naming_word": "laptop", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 17, "t_shown": 244.2, "shown": "red frame flashes on the shop's '+5K ₹'", "said_gist": "taking all these, the shop's factor cost comes to 5,000", "naming_word": "factor cost", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 18, "t_shown": 279.4, "shown": "first row 'Year 2020' of a table under the GDP branches", "said_gist": "let's see an example; here we will look at 3 years of data (2020 itself is never said)", "naming_word": "3", "lead": "picture_first", "relation": "adds_new_info"},
+    {"tile": 19, "t_shown": 280.4, "shown": "second row 'Year 2021'", "said_gist": "we will look at 3 years of data", "naming_word": "3", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 20, "t_shown": 351.4, "shown": "question card with a big '?': which is the better indicator of production?", "said_gist": "after this understanding, if I ask you (which is the better indicator)", "naming_word": "पूछूं", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 21, "t_shown": 369.2, "shown": "green box moves from Factor Cost to Market Price; the 2015 callout starts to fade in", "said_gist": "in our country too GDP used to be calculated at factor cost (market price is said about 6.5 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 22, "t_shown": 372.4, "shown": "callout: in 2015 India switched to GDP at market price", "said_gist": "but in the year 2015 (India's GDP began to be calculated at market price)", "naming_word": "2015", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 23, "t_shown": 379.2, "shown": "coloured question marks above the 2015 callout", "said_gist": "I want you to write in the comment box (why this was done)", "naming_word": "", "lead": "picture_first", "relation": "decoration"},
+    {"tile": 24, "t_shown": 398.0, "shown": "loading bar on the end card's playlist panel advances", "said_gist": "thank you for watching", "naming_word": "", "lead": "unrelated", "relation": "navigation"}
+  ],
+  "talmel_summary": "In the number parts the fit is tight: each actor and number lands on its spoken word (shopkeeper, 10,000, 15,000, +5,000, tax, 15K or 18K), and the two GDP branches first carry the two numbers and are then renamed with the two terms as they are said. The factory part shows the step as a table that fills with its amounts; terms there tend to appear about 1 s before they are said. Weak points: a 12 s transcript gap at 14.7-26.9 s, a label that says 'price' where the speech says cost, 'Year 2020' and the 20% rate never said or never shown, and a green highlight that jumps to Market Price while the voice still describes the old factor cost practice.",
+  "voice": {"notes": "About 186 words per minute, quick and friendly, teacher-to-student ('dekhiye', 'kya aapne notice kiya', 'maan ke chalte hain'). Numbers are read in full ('das hazaar', 'pandrah hazaar', '1 lakh') and every result is restated with 'to iska matlab yah hua ki'. The learner is addressed as 'you as an entrepreneur', which turns the factor list into the listener's own bills. Ends on an open question rather than a summary."},
+  "game_ideas": [
+    {"from_t": 56.5, "mechanic": "run_a_process", "player_does": "Moves one laptop from the factory to the shop to the customer; at each arrow the government sets a tax rate and maybe a subsidy, and the player must add the right amount to the price tag before passing it on.", "process_happens": "TAX badges drop on the arrows, the price tag grows (10K, +2K, +5K, +1K = 18K), and two meters at the India map fill separately: factor cost (10K + 5K) and market price (18K). A subsidy chip lowers only the market price meter.", "win": "Both meters correct: GDP at factor cost 15,000, at market price 18,000 (or the subsidy-adjusted value).", "lose": "Putting tax into the factor cost meter makes it flash and shows a factory worker asking 'who earned this 2,000?' (nobody: it went to the government).", "concept": "market price = factor cost + indirect taxes - subsidies"},
+    {"from_t": 163.9, "mechanic": "allocate", "player_does": "Runs the laptop factory for a month: pays rent for the land, wages to workers, interest to the bank and sets the owner's profit, then chooses how many laptops to make.", "process_happens": "Each payment flies to its owner (landlord, workers, bank, entrepreneur) and stacks into a 'factor payments' column; dividing by the laptops made gives the factor cost tag on each laptop.", "win": "Matches a target factor cost (for example 10K per laptop) with all four factors paid.", "lose": "Dragging the electricity bill or raw material into the factor column is rejected with 'this was bought from another firm, not paid to a factor' (the game follows the textbook rule, not the video's mixed list).", "concept": "factors of production and their payments"},
+    {"from_t": 274.1, "mechanic": "spot_the_error", "player_does": "Reads three years of headlines claiming 'GDP up!' and must check each against the factory's output and the tax rate.", "process_happens": "The factory shows the same single laptop each year while the tax slider rises; the market price bar climbs 18K, 20K, 25K and the factor cost bar stays at 15K.", "win": "Flags every headline that used market price and rewrites it with factor cost ('production flat').", "lose": "Accepting a headline makes a crowd celebrate while the factory still turns out one laptop; the tax arrow lights up as the real cause.", "concept": "3-year what-if: taxes raise GDP at market price, production flat"}
+  ],
+  "notes_questions": [
+    {"q": "Factor cost kya hota hai? Kaun-kaun se factor payments isme gine jaate hain?", "answer_shape": "table", "from_t": 163.9},
+    {"q": "Laptop example mein GDP at factor cost 15,000 aur market price 18,000 kaise bana?", "answer_shape": "flow", "from_t": 68.4},
+    {"q": "GDP at market price ka formula likhiye aur har hissa samjhaiye.", "answer_shape": "flow", "from_t": 251.5},
+    {"q": "Ek factory mahine mein 1 lakh kharch karke 10 laptop banati hai to ek laptop ki factor cost kitni?", "answer_shape": "number", "from_t": 183.4},
+    {"q": "Agar sirf indirect tax badhe to GDP at factor cost aur GDP at market price par kya asar hoga?", "answer_shape": "table", "from_t": 313.1},
+    {"q": "Production badh raha hai ya nahi, yeh jaanne ke liye kaun sa GDP behtar hai aur kyon?", "answer_shape": "comparison", "from_t": 350.2},
+    {"q": "Subsidy milne par market price factor cost se kam kab ho sakta hai?", "answer_shape": "number", "from_t": 258.5}
+  ],
+  "checks_learned": [
+    "Every term in a formula (here subsidies) must get a number in the worked example at least once, or the script must say why it is zero.",
+    "Every number the narration computes (the shopkeeper's 12,000) should appear on the picture where it belongs.",
+    "On-screen labels must use the word being taught: a factor cost result must not be labelled 'price'.",
+    "A highlight must not jump to the opposite answer while the voice is still on the old one (Market Price lit while 'factor cost' is being said).",
+    "A single transcript word stretched over more than 5 s hides a gap (14.7-26.9 s here) and must be flagged like a missing stretch.",
+    "Real brand names on generic icons (a bank) must be replaced with a generic bank.",
+    "When the narration lists factor payments, a classification check should flag intermediate inputs (electricity, maintenance, raw material) put in the factor column.",
+    "The most exam-relevant point should not be left as a comment-box question; if the answer is deferred, the script must link it."
+  ],
+  "teaching_best": [
+    {"t": 56, "why": "The narrator breaks his own example ('we never counted tax, that is unrealistic'), so the next idea grows out of a visible gap."},
+    {"t": 105, "why": "'Is GDP 15,000 or 18,000?' makes the learner hold two numbers before the two terms are named; the terms then feel necessary."},
+    {"t": 131, "why": "Addressing the learner as an entrepreneur paying rent, wages and interest turns factor payments into bills the learner can picture."},
+    {"t": 313, "why": "The 3-year what-if holds production fixed and moves only taxes, so the reason to prefer factor cost is seen, not asserted."}
+  ],
+  "teaching_weak": [
+    {"t": 14, "why": "About 12 s of the answer (the shop's costs) is missing from the transcript, right where the first idea is built."},
+    {"t": 146, "why": "Capital is shown buying raw material, machines, marketing and transport, which mixes factor payments with input purchases."},
+    {"t": 235, "why": "The shop's factor cost includes electricity and maintenance, which are intermediate costs; doubtful."},
+    {"t": 252, "why": "Subsidies are in the formula but never in the numbers."},
+    {"t": 378, "why": "The reason for India's 2015 switch is left as homework, so the video ends without a recap or the real-world answer."}
+  ]
+}

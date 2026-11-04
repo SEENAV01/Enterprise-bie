@@ -1,0 +1,852 @@
+{
+  "id": "E45",
+  "title_guess": "National income and GDP: what a product is (goods and services), GDP as the year's value of final goods and services made inside the country, and six GDP rules with small examples",
+  "duration": 612.5,
+  "format": "build_up_canvas",
+  "recurring_cast": [
+    "person icons (Ram in blue, Shyam in purple; later a seller and a buyer)",
+    "country_flag row (four countries) over an INCOME / NATIONAL INCOME band",
+    "NATIONAL INCOME tag with the GDP, NDP, GNP, NNP list",
+    "bottle (ketchup bottle, the running product)",
+    "price_tag with ₹ (₹10 on goods, ₹5 on services)",
+    "two yellow boxes 'aggregate of all goods / services produced in a financial year' feeding ₹ + ₹ = GDP",
+    "india_map with GDP written on it, fed by an arrow from the boxes",
+    "cyan rule list on the left (Indian company in India, foreign company in India, exchanged for money, final goods) that grows one row per rule",
+    "step_tracker: six numbered blocks at the bottom, the current rule's block raised",
+    "factory icons (spice maker with smoke, steel maker, automotive, tools fabricator)",
+    "laptop with a 10K price, passed between people"
+  ],
+  "running_examples": [
+    "Ram earns 10K a month, Shyam 2 lakh a month (transcript reads 2,000)",
+    "ketchup: tomatoes -> factory -> bottle; goods ₹10, services ₹5",
+    "spice maker: 100 packets at ₹5; 80 sold (₹400 counted), 12 left in the godown, 8 taken home",
+    "steel -> automotive (10 cars sold) and tools fabricator (5 tools sold); steel is intermediate",
+    "1 kg steel sold at ₹5; fabricator adds ₹10; tool sells at ₹15; the ₹5 is already inside the ₹15",
+    "old laptop bought for 10K sold on a resale site for 5K: no GDP effect",
+    "shopkeeper buys a laptop for 10K and sells it for 15K: GDP effect? (left to the comments)"
+  ],
+  "best_moments": [
+    {
+      "t": 25,
+      "why": "the person-income band (Ram, Shyam) turns into a band of country flags and the label becomes NATIONAL INCOME: a country's income is shown as the same idea as a person's, scaled up"
+    },
+    {
+      "t": 120,
+      "why": "a three-step strip (pile of tomatoes as raw materials -> machine line -> ketchup bottle) and the bottle is boxed as GOODS: 'finished good' is seen being made"
+    },
+    {
+      "t": 187,
+      "why": "goods and services boxes each drop a ₹ through a down arrow into one sum bar '₹ + ₹ = GDP', with India's map standing beside: GDP as the money value of two piles added"
+    },
+    {
+      "t": 241,
+      "why": "a numbered step tracker (1-6) appears at the bottom and a cyan rule list grows on the left as each rule is done: the learner always sees which rule of six is on"
+    },
+    {
+      "t": 300,
+      "why": "100 spice packets split into three branches; only the 'sold in market' branch climbs to the GDP map with a tick, the godown and self-use branches are crossed: inclusion shown as which line reaches GDP (the rule itself is doubtful)"
+    },
+    {
+      "t": 459,
+      "why": "1 kg steel at ₹5 goes to the tools fabricator, '₹5 + ₹10' is written over it, the tool sells at ₹15, and an 'already included' bracket runs from the steel's ₹5 to the ₹15: double counting made visible in numbers"
+    },
+    {
+      "t": 514,
+      "why": "a resale loop (seller -> laptop 10K -> resale site -> buyer, 5K back) inside a band whose line to GDP is crossed: 'no new production, no GDP' as a blocked path"
+    }
+  ],
+  "weak_moments": [
+    {
+      "t": 300,
+      "why": "doubtful rule drawn as fact: unsold stock left in the godown and goods taken home for own use are crossed out of GDP, while national accounts count stock added to inventories and own-account production of goods"
+    },
+    {
+      "t": 583,
+      "why": "the statistics office logo is linked to GDP with a ministry name around it; the office named was merged into a new national statistics office in 2019, the ministry name and the office-holder said aloud need checking"
+    },
+    {
+      "t": 97,
+      "why": "real software brand logos (and later a real insurer's web page, a spice brand, a steel brand and a resale website) carry the examples; BIE uses generic ones"
+    },
+    {
+      "t": 180,
+      "why": "the caption says 'final goods and services' about 3 minutes before final goods are taught"
+    },
+    {
+      "t": 278,
+      "why": "the spice-packet scene starts right after a 17 s stretch with no recognised speech (260-277 s) and the ₹400 sum falls in another 13 s gap; the picture carries 100, 80, 12, 8 and ₹5 while the voice is lost"
+    },
+    {
+      "t": 19,
+      "why": "screen shows Shyam at 2 lakh a month while the transcript reads 2,000; probably a recognition error, but a check should catch it"
+    },
+    {
+      "t": 37,
+      "why": "four measures (GDP, NDP, GNP, NNP) are named and spelled out but only GDP is taught; the other three hang as branches"
+    }
+  ],
+  "segments": [
+    {
+      "start": 0,
+      "end": 25.4,
+      "teaches": "two people earn different monthly incomes; who earns more in a financial year? (Shyam)",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {
+          "kind": "icon",
+          "what": "two standing persons, Ram (blue) and Shyam (purple)",
+          "count": 2
+        },
+        {
+          "kind": "table",
+          "what": "INCOME band: Ram 10K/month, Shyam 2 lakhs/month",
+          "count": 1
+        },
+        {
+          "kind": "question_mark",
+          "what": "question text above: in one financial year who earned more?",
+          "count": 1
+        },
+        {
+          "kind": "mark",
+          "what": "'<' sign between them; box round Shyam's income",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "pop_in",
+        "write_on",
+        "highlight_text"
+      ],
+      "level": "L2",
+      "notes": "5 change events. Screen 2 lakhs/month vs transcript 2,000 per month (likely recognition error). The answer and the bridge to countries fall in a 12 s transcript gap (16.5-28.3 s).",
+      "idea_type": "intro",
+      "idea": "income is measured over a period; compare two people's yearly earnings",
+      "shown_as": "two person icons stand on an income band with their monthly figures; a question asks who earned more in a year, then a '<' sign pops between them and Shyam's figure is boxed",
+      "meaning_carrier": "picture_plus_label",
+      "things": [
+        "person",
+        "question_mark"
+      ],
+      "actions": [
+        "pop_in",
+        "compare_side_by_side",
+        "highlight_text"
+      ],
+      "on_screen_words": 15,
+      "camera": "still",
+      "example": "Ram 10K/month vs Shyam 2 lakh/month"
+    },
+    {
+      "start": 25.4,
+      "end": 53.2,
+      "teaches": "every country also has an income in a year, its national income; it is measured in several ways, four of them GDP, NDP, GNP, NNP; GDP is the most stable (why: later)",
+      "canvas": "builds_on_previous",
+      "layout": "tree",
+      "elements": [
+        {
+          "kind": "icon",
+          "what": "four country flags replacing the two persons, dashes in their income cells",
+          "count": 4
+        },
+        {
+          "kind": "tag",
+          "what": "band label changes from INCOME to NATIONAL INCOME",
+          "count": 1
+        },
+        {
+          "kind": "tree",
+          "what": "four lines from the label to GDP, NDP, GNP, NNP",
+          "count": 1
+        },
+        {
+          "kind": "mark",
+          "what": "green tick on GDP and a red handwritten 'why?'",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "swap_element",
+        "draw_line",
+        "pop_in",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "4 change events. The country cells hold only dashes: no figures.",
+      "idea_type": "classification",
+      "idea": "a country's yearly income is national income, and it has four main measures",
+      "shown_as": "the two people give way to four country flags on the same band, whose label becomes NATIONAL INCOME; four lines branch down to GDP, NDP, GNP, NNP; GDP gets a tick and a scribbled 'why?'",
+      "meaning_carrier": "diagram",
+      "things": [
+        "country_flag",
+        "tick_mark",
+        "question_mark"
+      ],
+      "actions": [
+        "swap_element",
+        "split",
+        "tick",
+        "write_on"
+      ],
+      "on_screen_words": 10,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 53.2,
+      "end": 72.4,
+      "teaches": "full forms: gross domestic product, net domestic product, gross national product, net national product; the common word is product",
+      "canvas": "new",
+      "layout": "flow_top_down",
+      "elements": [
+        {
+          "kind": "tag",
+          "what": "NATIONAL INCOME tag at top left",
+          "count": 1
+        },
+        {
+          "kind": "bullet_chain",
+          "what": "four rows: abbreviation, dash, full form writing on one by one",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "write_on"
+      ],
+      "level": "L1",
+      "notes": "5 change events, each full form on its spoken word.",
+      "idea_type": "definition",
+      "idea": "all four measures end in 'product'",
+      "shown_as": "the canvas clears to a list; each measure's full form writes on as it is said",
+      "meaning_carrier": "text_only",
+      "things": [],
+      "actions": [
+        "write_on",
+        "clear_canvas"
+      ],
+      "on_screen_words": 20,
+      "camera": "clear",
+      "example": ""
+    },
+    {
+      "start": 72.4,
+      "end": 119.2,
+      "teaches": "a product is anything a company produces: ketchup, a flat, a sofa, software, a car, cooking oil",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {
+          "kind": "title_text",
+          "what": "'Product' heading",
+          "count": 1
+        },
+        {
+          "kind": "icon",
+          "what": "ketchup bottle, apartment block, sofa, car, cooking oil bottle",
+          "count": 5
+        },
+        {
+          "kind": "logo_or_brand",
+          "what": "two real software brand logos",
+          "count": 2
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "pop_in",
+        "fade_in"
+      ],
+      "level": "L2",
+      "notes": "8 change events, each object on its word. Brand logos are named products of real firms.",
+      "idea_type": "classification",
+      "idea": "products are physical things and also software, all made by someone",
+      "shown_as": "under a 'Product' heading a ketchup bottle appears, then a flat building and a sofa, then two software logos, then a car and an oil bottle in the same row; the row fades",
+      "meaning_carrier": "picture",
+      "things": [
+        "bottle",
+        "house",
+        "sofa",
+        "car",
+        "brand_logo"
+      ],
+      "actions": [
+        "pop_in",
+        "fade_in"
+      ],
+      "on_screen_words": 8,
+      "camera": "clear",
+      "example": "ketchup, flat, sofa, software, car, cooking oil"
+    },
+    {
+      "start": 119.2,
+      "end": 139.4,
+      "teaches": "a ketchup company turns raw tomatoes into a finished good in its production unit; finished goods are products",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {
+          "kind": "flow_chain",
+          "what": "pile of tomatoes (raw materials) -> machine line with red arrows -> ketchup bottle",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "black box round the bottle labelled GOODS",
+          "count": 1
+        },
+        {
+          "kind": "text_box",
+          "what": "caption: raw material is converted into finished goods",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "draw_line",
+        "highlight_text",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "3 change events.",
+      "idea_type": "process",
+      "idea": "a good is a finished thing made from raw materials",
+      "shown_as": "a strip runs from a heap of tomatoes through a machine line to a ketchup bottle; the bottle is boxed and labelled GOODS and a caption writes on under the strip",
+      "meaning_carrier": "picture",
+      "things": [
+        "tomatoes",
+        "factory",
+        "bottle"
+      ],
+      "actions": [
+        "transform",
+        "flow_along_arrow",
+        "highlight_text"
+      ],
+      "on_screen_words": 15,
+      "camera": "clear",
+      "example": "tomatoes -> ketchup"
+    },
+    {
+      "start": 139.4,
+      "end": 178.6,
+      "teaches": "services (banking, insurance, shipping) are products too; goods and services together are products, and each has a money value",
+      "canvas": "new",
+      "layout": "compare_two_sides",
+      "elements": [
+        {
+          "kind": "photo",
+          "what": "screenshot of a real insurer's web page listing its plans under 'Products', the list boxed and labelled SERVICES",
+          "count": 1
+        },
+        {
+          "kind": "icon",
+          "what": "GOODS box with the ketchup bottle and SERVICES box with 'banking, insurance, shipping'",
+          "count": 2
+        },
+        {
+          "kind": "tag",
+          "what": "price tags ₹10 on goods and ₹5 on services",
+          "count": 2
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "pop_in",
+        "slide_in"
+      ],
+      "level": "L2",
+      "notes": "5 change events. The ₹10 and ₹5 tags are never spoken; the voice says only that you must pay.",
+      "idea_type": "classification",
+      "idea": "a product is a good or a service, and anything you pay for has a money value",
+      "shown_as": "the boxed ketchup sits beside a real insurer's 'Products' page whose plan list is boxed as SERVICES; it settles into two boxes, GOODS and SERVICES, and a price tag swings onto each",
+      "meaning_carrier": "picture_plus_label",
+      "things": [
+        "bottle",
+        "document",
+        "brand_logo",
+        "price_tag"
+      ],
+      "actions": [
+        "pop_in",
+        "compare_side_by_side",
+        "slide_in"
+      ],
+      "on_screen_words": 20,
+      "camera": "clear",
+      "example": "goods ₹10, services ₹5 (shown only)"
+    },
+    {
+      "start": 178.6,
+      "end": 237.6,
+      "teaches": "GDP is the total value of all goods plus all services produced in a financial year inside the country's geographical boundary; gross = total, domestic = inside the boundary; Indian and foreign companies producing in India both count",
+      "canvas": "builds_on_previous",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {
+          "kind": "map",
+          "what": "India map at top right, pulsing when 'country' is said",
+          "count": 1
+        },
+        {
+          "kind": "text_box",
+          "what": "the two boxes become 'aggregate of all goods / services produced in a financial year'",
+          "count": 2
+        },
+        {
+          "kind": "formula",
+          "what": "₹ from each box down into a bar: ₹ + ₹ = GDP",
+          "count": 1
+        },
+        {
+          "kind": "text_box",
+          "what": "caption: many final goods and services are produced within India's geographical boundary; 'Domestic' handwritten under the highlighted boundary words",
+          "count": 1
+        },
+        {
+          "kind": "text_box",
+          "what": "two cyan rows: Indian company producing goods in India; foreign company producing goods in India",
+          "count": 2
+        }
+      ],
+      "motions": [
+        "pop_in",
+        "write_on",
+        "draw_line",
+        "highlight_text",
+        "pulse_or_glow"
+      ],
+      "level": "L2",
+      "notes": "11 change events. The caption says 'final goods' before final goods are taught (364 s).",
+      "idea_type": "formula",
+      "idea": "GDP adds up the money value of a year's goods and services made inside the country, whoever owns the firm",
+      "shown_as": "India's map appears beside the goods and services boxes, which turn into yearly aggregates; each drops a ₹ through an arrow into a sum bar that ends '= GDP'; the boundary words are highlighted and 'Domestic' is scribbled under them; the map pulses and two cyan rows (Indian firm, foreign firm, both in India) slide in at left",
+      "meaning_carrier": "diagram",
+      "things": [
+        "india_map",
+        "price_tag",
+        "bottle"
+      ],
+      "actions": [
+        "join",
+        "flow_along_arrow",
+        "write_on",
+        "highlight_text",
+        "pulse_or_glow"
+      ],
+      "on_screen_words": 60,
+      "camera": "still",
+      "example": ""
+    },
+    {
+      "start": 237.6,
+      "end": 261.8,
+      "teaches": "recap: rules 1 and 2 (Indian or foreign company producing in India counts); a six-step tracker appears",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {
+          "kind": "flow_chain",
+          "what": "cyan rule rows -> aggregate boxes -> arrow -> GDP written on the India map",
+          "count": 1
+        },
+        {
+          "kind": "tag",
+          "what": "step tracker: six numbered blocks at the bottom; blocks 1 and 2 raised, then 3",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "red box round the two cyan rows",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "slide_in",
+        "pop_in",
+        "highlight_text"
+      ],
+      "level": "L2",
+      "notes": "5 change events. The tracker stays for the next five minutes.",
+      "idea_type": "recap",
+      "idea": "two rules done out of six",
+      "shown_as": "the board recomposes into one line: rule rows, the two aggregate boxes and an arrow into a GDP-labelled India map; six numbered blocks rise at the bottom with the first two up, and the two rule rows are boxed",
+      "meaning_carrier": "diagram",
+      "things": [
+        "india_map",
+        "step_tracker"
+      ],
+      "actions": [
+        "slide_in",
+        "pop_in",
+        "highlight_text"
+      ],
+      "on_screen_words": 45,
+      "camera": "clear",
+      "example": ""
+    },
+    {
+      "start": 261.8,
+      "end": 331.8,
+      "teaches": "rule 3 (as taught): only goods exchanged for money count: of 100 spice packets at ₹5, the 80 sold add ₹400; 12 left in the godown and 8 taken home are not counted",
+      "canvas": "builds_on_previous",
+      "layout": "tree",
+      "elements": [
+        {
+          "kind": "icon",
+          "what": "factory with smoke and a spice brand's letters, arrow to a spice packet marked 5₹",
+          "count": 1
+        },
+        {
+          "kind": "tree",
+          "what": "'[100 packets]' splitting into three branches: 80 sold in market, 12 still in the godown, 8 used for self consumption",
+          "count": 1
+        },
+        {
+          "kind": "arrow",
+          "what": "line from the 80 branch up to the GDP map with a green tick",
+          "count": 1
+        },
+        {
+          "kind": "mark",
+          "what": "red crosses on the lines from the 12 and 8 branches",
+          "count": 2
+        },
+        {
+          "kind": "text_box",
+          "what": "'goods/services exchanged for money' over the 80 branch, then added as row 3 of the rule list",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "pop_in",
+        "draw_line",
+        "cross_out",
+        "write_on",
+        "slide_in"
+      ],
+      "level": "L2",
+      "notes": "9 change events. Transcript gaps at 260-277 s and 291.7-304.9 s, so 100 packets, ₹5 and the ₹400 total are mostly carried by the picture. Doubtful: change in inventories and own-account production of goods are counted in GDP.",
+      "idea_type": "numbers",
+      "idea": "as taught: a good enters GDP only if it is sold for money",
+      "shown_as": "a smoking factory sends out a ₹5 spice packet; '100 packets' splits into three branches (sold, godown, home); the sold branch draws a line up into the GDP map with a tick, the other two draw lines that are crossed in red; a 'exchanged for money' label joins the rule list",
+      "meaning_carrier": "diagram",
+      "things": [
+        "factory",
+        "goods_boxes",
+        "india_map",
+        "tick_mark",
+        "cross_mark",
+        "step_tracker",
+        "brand_logo"
+      ],
+      "actions": [
+        "split",
+        "flow_along_arrow",
+        "tick",
+        "cross_out",
+        "write_on"
+      ],
+      "on_screen_words": 70,
+      "camera": "still",
+      "example": "100 packets x ₹5; 80 sold = ₹400 counted; 12 unsold, 8 self-used not counted (as taught)"
+    },
+    {
+      "start": 331.8,
+      "end": 403.8,
+      "teaches": "rule 4: only final goods count; steel bought by car and tool makers is an intermediate good (an input to other goods) and is left out; the cars and tools sold are counted",
+      "canvas": "builds_on_previous",
+      "layout": "tree",
+      "elements": [
+        {
+          "kind": "icon",
+          "what": "steel factory with a steel brand's name, arrow to STEEL",
+          "count": 1
+        },
+        {
+          "kind": "tree",
+          "what": "STEEL splitting to an automotive factory and a tools fabricator; outputs '10 cars sold' and '5 tools sold'",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "blue 'Final Goods' box round the cars and tools with a ticked arrow up to GDP",
+          "count": 1
+        },
+        {
+          "kind": "text_box",
+          "what": "grey box over STEEL: intermediate goods [inputs for other goods]; 'not considered in GDP calculation' below",
+          "count": 1
+        },
+        {
+          "kind": "text_box",
+          "what": "row 4 'Final Goods' added to the rule list",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "pop_in",
+        "draw_line",
+        "highlight_text",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "10 change events. '10 cars sold' appears inside a 6.7 s transcript gap (357.8-364.5 s); the 10 and 5 counts are never spoken.",
+      "idea_type": "classification",
+      "idea": "a good used up to make another good is intermediate and is not counted separately",
+      "shown_as": "a steel factory feeds STEEL, which branches to a car maker and a tool maker; '10 cars sold' and '5 tools sold' come out and are boxed in blue as Final Goods with a ticked arrow into GDP, while STEEL is boxed grey as an intermediate input and marked not counted",
+      "meaning_carrier": "diagram",
+      "things": [
+        "factory",
+        "car",
+        "spanner",
+        "india_map",
+        "tick_mark",
+        "step_tracker",
+        "brand_logo"
+      ],
+      "actions": [
+        "split",
+        "flow_along_arrow",
+        "highlight_text",
+        "tick",
+        "write_on"
+      ],
+      "on_screen_words": 70,
+      "camera": "clear",
+      "example": "10 cars and 5 tools counted; steel not counted"
+    },
+    {
+      "start": 403.8,
+      "end": 501.6,
+      "teaches": "why intermediate goods are left out: 1 kg steel sold for ₹5 becomes a 1 kg tool; the maker adds ₹10 of costs and profit and sells it for ₹15; counting the steel's ₹5 as well would count it twice",
+      "canvas": "builds_on_previous",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {
+          "kind": "flow_chain",
+          "what": "steel factory -> '1kg STEEL' -> tools fabricator -> '1kg' tool, '1 tools sold'",
+          "count": 1
+        },
+        {
+          "kind": "value_change",
+          "what": "₹5 under the steel; '₹5 +' then '+ ₹10' over the fabricator; ₹15 beside the tool, boxed blue",
+          "count": 3
+        },
+        {
+          "kind": "arrow",
+          "what": "bracket from the steel's ₹5 to the tool's ₹15 labelled 'already included'",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "pop_in",
+        "write_on",
+        "draw_line",
+        "count_up"
+      ],
+      "level": "L2",
+      "notes": "5 change events. The ₹15 and the 'already included' bracket appear inside a 14 s transcript gap (455.4-469.6 s); the spoken list of costs (labour, machinery, overheads, transport, profit) is not drawn.",
+      "idea_type": "numbers",
+      "idea": "a final price already contains the value of its inputs",
+      "shown_as": "1 kg steel at ₹5 flows to the tool maker, who writes '₹5 + ₹10' over himself; a 1 kg tool sells for a boxed ₹15, and a bracket runs from the steel's ₹5 to that ₹15 marked 'already included'",
+      "meaning_carrier": "diagram",
+      "things": [
+        "factory",
+        "spanner",
+        "price_tag",
+        "step_tracker"
+      ],
+      "actions": [
+        "flow_along_arrow",
+        "write_on",
+        "join",
+        "draw_line"
+      ],
+      "on_screen_words": 35,
+      "camera": "clear",
+      "example": "steel ₹5 + ₹10 added = tool ₹15; count ₹15 only"
+    },
+    {
+      "start": 501.6,
+      "end": 544.0,
+      "teaches": "rule 5: selling an old laptop (bought for 10K) for 5K on a resale site adds nothing to GDP, because nothing new is produced; it was counted in the year it was made",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {
+          "kind": "flow_chain",
+          "what": "seller -> laptop 10K -> resale site logo -> buyer; 5K arrow back to the seller",
+          "count": 1
+        },
+        {
+          "kind": "mark",
+          "what": "red cross on the line from the blue band up to GDP",
+          "count": 1
+        },
+        {
+          "kind": "text_box",
+          "what": "note: no goods or services produced here; already counted when produced",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "pop_in",
+        "draw_line",
+        "cross_out",
+        "write_on"
+      ],
+      "level": "L2",
+      "notes": "7 change events.",
+      "idea_type": "cause_effect",
+      "idea": "GDP counts this year's production, not resale of old goods",
+      "shown_as": "a seller hands a 10K laptop through a resale site to a buyer and 5K comes back along the bottom; the band's line up to GDP is crossed in red and a note explains",
+      "meaning_carrier": "picture_plus_label",
+      "things": [
+        "person",
+        "laptop",
+        "brand_logo",
+        "cross_mark",
+        "india_map",
+        "step_tracker"
+      ],
+      "actions": [
+        "hand_over",
+        "flow_along_arrow",
+        "cross_out",
+        "write_on"
+      ],
+      "on_screen_words": 40,
+      "camera": "clear",
+      "example": "bought 10K, resold 5K: GDP unchanged"
+    },
+    {
+      "start": 544.0,
+      "end": 567.4,
+      "teaches": "rule 6, left as a question: a shopkeeper buys a laptop from a company for 10K and sells it to you for 15K; does this affect GDP? (answer in the comments, to come next video)",
+      "canvas": "new",
+      "layout": "flow_left_to_right",
+      "elements": [
+        {
+          "kind": "flow_chain",
+          "what": "laptop 10K -> shopkeeper at a counter -> buyer 15K",
+          "count": 1
+        },
+        {
+          "kind": "question_mark",
+          "what": "cluster of coloured question marks by the GDP map",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "pop_in",
+        "draw_line"
+      ],
+      "level": "L2",
+      "notes": "5 change events. No answer given; the trade margin is the point the learner must find.",
+      "idea_type": "cause_effect",
+      "idea": "does a shop's resale margin count in GDP? (open question)",
+      "shown_as": "a 10K laptop goes to a shopkeeper at a counter and on to a buyer with '15K' under him; coloured question marks pop beside the GDP map",
+      "meaning_carrier": "picture_plus_label",
+      "things": [
+        "laptop",
+        "shop",
+        "person",
+        "question_mark",
+        "india_map",
+        "step_tracker"
+      ],
+      "actions": [
+        "hand_over",
+        "flow_along_arrow",
+        "pop_in"
+      ],
+      "on_screen_words": 30,
+      "camera": "clear",
+      "example": "bought 10K, sold 15K"
+    },
+    {
+      "start": 567.4,
+      "end": 592.0,
+      "teaches": "back to the four measures (GDP picked out); the national statistics office computes GDP",
+      "canvas": "new",
+      "layout": "flow_top_down",
+      "elements": [
+        {
+          "kind": "bullet_chain",
+          "what": "NATIONAL INCOME list (GDP, GNP, NDP, NNP) with 'Product' underlined in each",
+          "count": 1
+        },
+        {
+          "kind": "highlight",
+          "what": "box round the GDP row",
+          "count": 1
+        },
+        {
+          "kind": "logo_or_brand",
+          "what": "statistics office logo with a ministry name round it, linked to the GDP box",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "clear_canvas",
+        "highlight_text",
+        "draw_line",
+        "pop_in"
+      ],
+      "level": "L1",
+      "notes": "4 change events. The list order differs from the opening (GNP before NDP). Doubtful: office and ministry name (see weak moments).",
+      "idea_type": "recap",
+      "idea": "GDP is one of four measures, and an official office calculates it",
+      "shown_as": "the opening list returns with 'Product' underlined in each row; the GDP row is boxed and a line runs to a statistics office logo",
+      "meaning_carrier": "text_only",
+      "things": [
+        "brand_logo"
+      ],
+      "actions": [
+        "highlight_text",
+        "draw_line",
+        "pop_in"
+      ],
+      "on_screen_words": 20,
+      "camera": "clear",
+      "example": ""
+    },
+    {
+      "start": 592.0,
+      "end": 612.5,
+      "teaches": "end screen",
+      "canvas": "new",
+      "layout": "free",
+      "elements": [
+        {
+          "kind": "end_screen",
+          "what": "Next Video and Playlist panels with loading bars",
+          "count": 1
+        }
+      ],
+      "motions": [
+        "clear_canvas"
+      ],
+      "level": "L2",
+      "notes": "Voice: GDP continues next video; PDF on a messaging channel.",
+      "idea_type": "end_screen",
+      "idea": "",
+      "shown_as": "two-panel end card",
+      "meaning_carrier": "text_only",
+      "things": [],
+      "actions": [
+        "clear_canvas"
+      ],
+      "on_screen_words": 10,
+      "camera": "cut",
+      "example": ""
+    }
+  ]
+}
