@@ -139,6 +139,18 @@ def provider_schema(schema, provider: str):
     return strip(schema)
 
 
+def schema_text(schema, provider: str) -> str:
+    """The output schema written into the prompt itself, for a request sent without provider-side structured
+    output (a free-form schema that strict mode cannot carry). Without it the maker does not know the exact
+    envelope — the first live showplan run lost its patch round to ``$.notes: missing about`` — and the local
+    validator still enforces every key, so the prompt must say them all."""
+    import json
+    return ("Your reply must be exactly one JSON object that matches this JSON schema: every key a \"required\" "
+            "list names must be present at that level (the notes object and all its required keys too), and where "
+            "\"additionalProperties\" is false no other keys are allowed there.\n"
+            + json.dumps(provider_schema(schema, provider), ensure_ascii=False))
+
+
 def strict_ready(schema) -> bool:
     """True when OpenAI strict mode accepts ``schema``: every object node is closed (``additionalProperties``
     false, every property required) down to the leaves. A free-form object — one without ``properties``, like the

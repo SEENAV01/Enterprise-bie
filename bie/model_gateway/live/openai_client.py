@@ -9,7 +9,7 @@ the section's code check carry the shape), because strict mode would reject the 
 from __future__ import annotations
 
 from .errors import ProviderError, classify
-from .messages import openai_responses_parts, provider_schema, split_messages, strict_ready
+from .messages import openai_responses_parts, provider_schema, schema_text, split_messages, strict_ready
 from .transport import HttpTransport
 
 BASE_URL = "https://api.openai.com/v1"
@@ -44,6 +44,11 @@ class OpenAIClient:
         if response_schema is not None and strict_ready(response_schema):
             body["text"] = {"format": {"type": "json_schema", "name": "bie_output", "strict": True,
                                        "schema": provider_schema(response_schema, self.provider)}}
+        elif response_schema is not None:
+            # A free-form schema cannot go through strict mode; it rides in the instructions instead, and the
+            # local validator still enforces it.
+            note = schema_text(response_schema, self.provider)
+            body["instructions"] = (body["instructions"] + "\n\n" + note) if body.get("instructions") else note
         if self.stream:
             body["stream"] = True
             raw = None

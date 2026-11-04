@@ -38,7 +38,7 @@ import time
 from pathlib import Path
 
 from .errors import ProviderError, redact
-from .messages import provider_schema, split_messages, strict_ready, text_of
+from .messages import provider_schema, schema_text, split_messages, strict_ready, text_of
 
 DEFAULT_MODEL = "gpt-6.1-sol"     # the maker that passed Section 1 pages in Task 039; override with BIE_CODEX_MODEL
 DEFAULT_TIMEOUT = 1800.0
@@ -250,6 +250,11 @@ class CodexExecClient:
 
     def chat(self, *, model, messages, schema=None):
         prompt, images = build_prompt(messages)
+        strict = schema is not None and strict_ready(schema)
+        if schema is not None and not strict:
+            # The schema is free-form, so it cannot go to the provider (strict mode would 400 the whole request);
+            # it goes into the prompt instead, and the local validator still enforces it.
+            prompt += "\n\n<bie-output-schema>\n" + schema_text(schema, "openai") + "\n</bie-output-schema>"
         with tempfile.TemporaryDirectory(prefix="bie-codex-") as folder:
             folder = Path(folder)
             work = folder / "work"
@@ -267,9 +272,7 @@ class CodexExecClient:
                     cmd += ["-c", setting]
                 for feature in LEAN_FEATURES_OFF:
                     cmd += ["--disable", feature]
-            if schema is not None and strict_ready(schema):
-                # --output-schema runs OpenAI strict mode, which rejects the whole request over a schema with a
-                # free-form object (no properties, like scene-plan steps): such a schema is not sent at all.
+            if strict:
                 schema_path = folder / "schema.json"
                 schema_path.write_text(json.dumps(provider_schema(schema, "openai"), ensure_ascii=False), encoding="utf-8")
                 cmd += ["--output-schema", str(schema_path)]

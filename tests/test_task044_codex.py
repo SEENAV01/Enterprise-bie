@@ -138,12 +138,23 @@ class Client(FakeCodex):
 
         def run(cmd, **kwargs):
             seen["args"] = list(cmd)
+            seen["prompt"] = kwargs.get("input") or ""
             Path(cmd[cmd.index("-o") + 1]).write_text('{"schema": "bie.scene-plan/1", "scenes": []}')
             return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps({"type": "turn.completed", "usage": {}}), stderr="")
         raw = CodexExecClient(executable="codex", run=run).responses_create(
             model="m", messages=request().messages, response_schema=formats.SCENE_PLAN)
         self.assertNotIn("--output-schema", seen["args"])
         self.assertEqual(json.loads(raw["content"])["schema"], "bie.scene-plan/1")
+        # The schema rides in the prompt instead, so the maker knows the whole envelope (notes included):
+        # the first live showplan run lost its patch round to "$.notes: missing about".
+        self.assertIn("<bie-output-schema>", seen["prompt"])
+        self.assertIn('"scenes"', seen["prompt"])
+        self.assertIn('"required"', seen["prompt"])
+        # A strict schema keeps provider-side structured output and gets no prompt block.
+        CodexExecClient(executable="codex", run=run).responses_create(
+            model="m", messages=request().messages, response_schema=SCHEMA)
+        self.assertIn("--output-schema", seen["args"])
+        self.assertNotIn("<bie-output-schema>", seen["prompt"])
 
     def test_plan_limit_auth_missing_and_no_cli(self):
         with self.assertRaises(ProviderError) as caught:
