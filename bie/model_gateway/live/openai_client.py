@@ -2,12 +2,14 @@
 
 Structured output uses ``text.format`` with ``type: json_schema`` and ``strict: true``. Strict
 mode needs every object to list all its properties as required and set
-``additionalProperties: false``; BIE schemas are written that way.
+``additionalProperties: false``; most BIE schemas are written that way, and one that is not — a
+free-form object, like the scene plan's steps — is sent without structured output (the prompt and
+the section's code check carry the shape), because strict mode would reject the whole request.
 """
 from __future__ import annotations
 
 from .errors import ProviderError, classify
-from .messages import openai_responses_parts, provider_schema, split_messages
+from .messages import openai_responses_parts, provider_schema, split_messages, strict_ready
 from .transport import HttpTransport
 
 BASE_URL = "https://api.openai.com/v1"
@@ -39,7 +41,7 @@ class OpenAIClient:
             body["instructions"] = system
         if self.reasoning_effort:
             body["reasoning"] = {"effort": self.reasoning_effort}
-        if response_schema is not None:
+        if response_schema is not None and strict_ready(response_schema):
             body["text"] = {"format": {"type": "json_schema", "name": "bie_output", "strict": True,
                                        "schema": provider_schema(response_schema, self.provider)}}
         if self.stream:

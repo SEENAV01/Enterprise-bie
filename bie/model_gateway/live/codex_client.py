@@ -38,7 +38,7 @@ import time
 from pathlib import Path
 
 from .errors import ProviderError, redact
-from .messages import provider_schema, split_messages, text_of
+from .messages import provider_schema, split_messages, strict_ready, text_of
 
 DEFAULT_MODEL = "gpt-6.1-sol"     # the maker that passed Section 1 pages in Task 039; override with BIE_CODEX_MODEL
 DEFAULT_TIMEOUT = 1800.0
@@ -267,7 +267,9 @@ class CodexExecClient:
                     cmd += ["-c", setting]
                 for feature in LEAN_FEATURES_OFF:
                     cmd += ["--disable", feature]
-            if schema is not None:
+            if schema is not None and strict_ready(schema):
+                # --output-schema runs OpenAI strict mode, which rejects the whole request over a schema with a
+                # free-form object (no properties, like scene-plan steps): such a schema is not sent at all.
                 schema_path = folder / "schema.json"
                 schema_path.write_text(json.dumps(provider_schema(schema, "openai"), ensure_ascii=False), encoding="utf-8")
                 cmd += ["--output-schema", str(schema_path)]

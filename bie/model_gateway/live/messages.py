@@ -137,3 +137,24 @@ def provider_schema(schema, provider: str):
         return node
 
     return strip(schema)
+
+
+def strict_ready(schema) -> bool:
+    """True when OpenAI strict mode accepts ``schema``: every object node is closed (``additionalProperties``
+    false, every property required) down to the leaves. A free-form object — one without ``properties``, like the
+    scene plan's steps or the writers' pages and levels, whose shape the section's own code check judges — can
+    never be strict, so a client offering strict structured output must send such a schema's request without it
+    and let the prompt and the check loop carry the shape."""
+    def closed(node) -> bool:
+        if not isinstance(node, dict):
+            return True
+        if node.get("type") == "object":
+            properties = node.get("properties")
+            return (isinstance(properties, dict) and node.get("additionalProperties") is False
+                    and set(node.get("required") or []) == set(properties)
+                    and all(closed(child) for child in properties.values()))
+        if node.get("type") == "array":
+            return closed(node.get("items"))
+        return True
+
+    return closed(schema)
