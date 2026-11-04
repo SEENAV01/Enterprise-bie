@@ -1,0 +1,29 @@
+# Render
+
+- 14.67 minutes of video in 8 chunks: 5.5 minutes wall-clock (parallel), 36.4 machine minutes, 0.083 s per frame, 2.48 render seconds per video second; ₹24.43 at the list price (billed ₹0).
+- video.mp4 17.3 MB, review-720p.mp4 7.2 MB, 879.93 s.
+- Text check (880 frames, one every 30): 65 texts under 36 px for a second or more (65 in all), 27 pairs of texts on each other for a second or more (28 in all), 0 under the caption strip.
+  - small: "चावल" 32.3 px at 3.0–21.0 s
+  - small: "24K" 20.2 px at 6.0–11.0 s
+  - small: "24K" 21 px at 30.0–68.0 s
+  - small: "Redemption promise" 18.2 px at 40.0–68.0 s
+  - small: "Paper material" 16.6 px at 44.0–68.0 s
+  - small: "Receipt" 26.4 px at 53.0–68.0 s
+  - small: "500" 12 px at 56.0–68.0 s
+  - small: "Gold" 25.3 px at 56.0–68.0 s
+  - small: "500" 16.2 px at 70.0–131.0 s
+  - small: "Central bank" 22.1 px at 70.0–131.0 s
+  - small: "Gold reserves" 24 px at 70.0–131.0 s
+  - small: "24K" 21 px at 84.0–131.0 s
+  - on each other: "PAYMENT METHOD" and "दुकान" at 15.0–21.0 s
+  - on each other: "?" and "₹" at 20.0–21.0 s
+  - on each other: "?" and "USD" at 20.0–21.0 s
+  - on each other: "New note" and "₹" at 65.0–68.0 s
+  - on each other: "10 notes" and "₹" at 75.0–131.0 s
+  - on each other: "24K" and "Gold reserves" at 84.0–131.0 s
+  - on each other: "10 notes" and "Claim" at 97.0–98.0 s
+  - on each other: "10 notes" and "24K" at 101.0–131.0 s
+  - on each other: "24K" and "Reduced reserves" at 113.0–131.0 s
+  - on each other: "Gold reserves" and "Reduced reserves" at 113.0–131.0 s
+  - on each other: "Printed notes" and "₹" at 273.0–333.0 s
+  - on each other: "Issued" and "₹" at 305.0–333.0 s
