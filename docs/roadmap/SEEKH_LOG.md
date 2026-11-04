@@ -1770,3 +1770,21 @@ unchanged. Tokens and ₹: none, no AI call was made.
 
 **Still open:** the overlaps left are inside canvas action stages drawn at about two thirds of their size (4-row cells). Giving a
 worded action more rows is a director rule, so it waits for the demos.
+
+## Entry 42 · the first showplan job: a strict schema cannot hold a free-form plan, 4 November 2026
+
+**The run (p1f-money-showplan-a, Codex on the VM, ₹0):** BIE's first scene-plan job for Money v4 failed in round 1
+before the maker wrote a word. Codex's `--output-schema` runs OpenAI strict mode, which rejects the whole request
+(`invalid_json_schema`, 400) unless every object in the schema is closed: `additionalProperties: false` and every
+property required. The scene plan's steps — and the writers' pages and levels — are free-form objects by design
+(the compiler, not the JSON schema, judges their shape), so no strict schema can ever carry them.
+
+**What changed in BIE:** `strict_ready()` in `bie/model_gateway/live/messages.py` tells a closed schema from a
+free-form one; the Codex and OpenAI clients now send structured output only for a closed schema and otherwise send
+the request without it, letting the prompt and the section's own check loop carry the shape. Every section that
+worked before still sends its schema (all closed); only the three new show sections change, from a certain 400 to a
+normal run. Tests: the strict/free-form split on real schemas, no `--output-schema` in the Codex command, no
+`text.format` in the OpenAI body.
+
+**Measured effect:** showplan on Codex, before: 0 of 1 plans, failed in round 1, ₹0 wasted but a dead road. After:
+the same job shape runs (proof is the resubmitted p1f job). Tokens and ₹ of this change: none, no AI call was made.

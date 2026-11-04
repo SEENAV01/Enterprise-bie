@@ -127,6 +127,24 @@ class Client(FakeCodex):
         CodexExecClient(executable="codex", run=run).responses_create(model="m", messages=request().messages, response_schema=SCHEMA)
         self.assertNotIn("minLength", json.dumps(seen["schema"]))
 
+    def test_a_free_form_schema_is_never_sent_so_codex_cannot_reject_it(self):
+        # --output-schema runs OpenAI strict mode, which 400s the whole request over a schema holding a free-form
+        # object (the scene plan's steps, the writers' pages and levels). Such a schema stays out of the command;
+        # the prompt and the section's own code check carry the shape (the p1f-money-showplan-a failure).
+        from bie.brain import formats
+        from bie.model_gateway.live.messages import strict_ready
+        self.assertFalse(strict_ready(formats.SCENE_PLAN))
+        seen = {}
+
+        def run(cmd, **kwargs):
+            seen["args"] = list(cmd)
+            Path(cmd[cmd.index("-o") + 1]).write_text('{"schema": "bie.scene-plan/1", "scenes": []}')
+            return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps({"type": "turn.completed", "usage": {}}), stderr="")
+        raw = CodexExecClient(executable="codex", run=run).responses_create(
+            model="m", messages=request().messages, response_schema=formats.SCENE_PLAN)
+        self.assertNotIn("--output-schema", seen["args"])
+        self.assertEqual(json.loads(raw["content"])["schema"], "bie.scene-plan/1")
+
     def test_plan_limit_auth_missing_and_no_cli(self):
         with self.assertRaises(ProviderError) as caught:
             self.client("plan_limit_after=0").responses_create(model="m", messages=request().messages, response_schema=SCHEMA)

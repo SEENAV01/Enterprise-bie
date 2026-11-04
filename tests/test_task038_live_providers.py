@@ -20,7 +20,7 @@ from bie.model_gateway.live.compat_client import OpenAICompatChatClient
 from bie.model_gateway.live.config import DEFAULT_MODELS, DEFAULT_MODELS_VIA, all_keys, build_routes, key_for, model_for, route_for
 from bie.model_gateway.live.errors import ProviderError, kind_for_status, redact
 from bie.model_gateway.live.gemini_client import GeminiClient
-from bie.model_gateway.live.messages import provider_schema, split_messages
+from bie.model_gateway.live.messages import provider_schema, split_messages, strict_ready
 from bie.model_gateway.live.openai_client import OpenAIClient
 from bie.model_gateway.live.pricing import estimate_cost, normalize
 from bie.model_gateway.live.transport import HttpTransport
@@ -168,6 +168,15 @@ class ProviderClients(unittest.TestCase):
         self.assertNotIn("maxItems", json.dumps(fmt))
         self.assertEqual(out["usage"]["reasoning_tokens"], 200)
         self.assertEqual(out["content"], '{"items": [1, 2, 3], "name": "y"}')
+
+    def test_openai_sends_no_structured_output_for_a_free_form_schema(self):
+        from bie.brain import formats
+        t, rec = transport({"model": "m", "status": "completed", "output": [
+            {"type": "message", "content": [{"type": "output_text", "text": '{"schema": "bie.scene-plan/1", "scenes": []}'}]}],
+            "usage": {"input_tokens": 9, "output_tokens": 9}})
+        out = OpenAIClient(KEY, transport=t).responses_create(model="m", messages=MESSAGES, response_schema=formats.SCENE_PLAN)
+        self.assertNotIn("text", rec.requests[0]["body"])    # strict mode would reject the whole request over the free-form steps
+        self.assertIn("scene-plan", out["content"])
 
     def test_openai_incomplete_and_refusal(self):
         cases = (({"status": "incomplete", "incomplete_details": {"reason": "max_output_tokens"}}, "truncated"),
@@ -342,6 +351,20 @@ class SchemaKeywords(unittest.TestCase):
         self.assertNotIn("additionalProperties", json.dumps(provider_schema(SCHEMA, "google")))
         self.assertEqual(provider_schema(SCHEMA, "fake"), SCHEMA)
         self.assertIn("minItems", json.dumps(SCHEMA))  # the original is not modified
+
+    def test_strict_ready_tells_closed_schemas_from_free_form_ones(self):
+        from bie.brain import formats
+        from bie.brain.common import obj
+        self.assertTrue(strict_ready(SCHEMA))
+        self.assertTrue(strict_ready(obj({"notes": {"type": "string"}})))
+        # A free-form object (no properties) can never be strict — the scene plan's steps, the writers' pages/levels.
+        self.assertFalse(strict_ready({"type": "object", "additionalProperties": False, "required": ["scenes"],
+                                       "properties": {"scenes": {"type": "array", "items": {"type": "object"}}}}))
+        self.assertFalse(strict_ready(formats.SCENE_PLAN))
+        # Partial required or an open top level is not strict either.
+        self.assertFalse(strict_ready({"type": "object", "additionalProperties": False, "required": ["a"],
+                                       "properties": {"a": SCHEMA["properties"]["name"], "b": SCHEMA["properties"]["name"]}}))
+        self.assertFalse(strict_ready({"type": "object", "required": ["a"], "properties": {"a": {"type": "string"}}}))
 
 
 class RouteConfig(unittest.TestCase):
