@@ -48,6 +48,15 @@ def page(kind="picture", **extra):
 
 
 class PageSlot(unittest.TestCase):
+    def test_a_hostile_shape_is_a_named_problem_never_a_crash(self):
+        # The first live writers' run died on a shape like these ("'list' object has no attribute 'get'").
+        self.assertIn("must be a JSON object", np.problems(["not", "a", "page"])[0])
+        self.assertIn("'visual' must be a JSON object", " ".join(np.problems(page() | {"visual": ["x"]})))
+        self.assertIn("'els' must be a list", " ".join(np.problems(page() | {"visual": {"kind": "picture", "els": "x"}})))
+        bad_el = page()
+        bad_el["visual"] = dict(bad_el["visual"], els=["a string el"])
+        self.assertIn("must be a JSON object", " ".join(np.problems(bad_el)))
+
     def test_every_kind_is_a_valid_page(self):
         for kind in np.KINDS:
             pg = page(kind)

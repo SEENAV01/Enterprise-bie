@@ -205,6 +205,19 @@ class Runner(unittest.TestCase):
         record = json.loads(Path(result.record_path).read_text(encoding="utf-8"))
         self.assertEqual(record["avoid_rounds"], [1])
 
+    def test_a_crashing_check_is_a_named_round_problem_not_a_dead_job(self):
+        # The first live writers' runs died on an AttributeError inside the check; a crash in the check, the
+        # normalizer or the patch apply is now a round problem the maker is asked to fix, and the record keeps it.
+        reviewer = BrainFakeClient("openai")
+        runner = SectionRunner(gateway(None, reviewer), maker="anthropic", reviewer="openai", rulebook=self.book)
+        result = runner.run(self.step(page_with(), check=lambda value: [][0]))
+        self.assertEqual(result.status, "failed")
+        self.assertTrue(result.rounds)
+        for r in result.rounds:
+            self.assertIn("crashed", r["code_problems"][0])
+            self.assertIn("IndexError", r["code_problems"][0])
+        self.assertEqual(reviewer.calls, [])
+
     def test_code_problems_skip_the_reviewer_and_fail_after_max_rounds(self):
         reviewer = BrainFakeClient("openai")
         runner = SectionRunner(gateway(None, reviewer), maker="anthropic", reviewer="openai", rulebook=self.book)

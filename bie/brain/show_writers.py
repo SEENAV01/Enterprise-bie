@@ -57,6 +57,9 @@ def check_pages(value: dict, chapter: dict) -> list:
     known = {iid for iid, item in (chapter.get("items") or {}).items()}
     seen = set()
     for page in pages:
+        if not isinstance(page, dict):
+            problems.append(f"every page must be a JSON object, not {type(page).__name__}")
+            continue
         problems += [p for p in formats.problems("notes_page", page)]
         problems += notes_pages.problems(page)
         pid = page.get("page_id")
@@ -66,7 +69,7 @@ def check_pages(value: dict, chapter: dict) -> list:
         for iid in page.get("item_ids") or []:
             if iid not in known:
                 problems.append(f"page {pid}: item '{iid}' is not in the chapter")
-    covered = {iid for page in pages for iid in page.get("item_ids") or []}
+    covered = {iid for page in pages if isinstance(page, dict) for iid in page.get("item_ids") or []}
     for c in _concepts_payload(chapter):
         if not any(iid in covered for iid in c["item_ids"]):
             problems.append(f"concept '{c['name']}' ({c['concept_id']}) has no page")
@@ -81,6 +84,9 @@ def check_levels(value: dict, chapter: dict) -> list:
     known = set((chapter.get("items") or {}))
     seen = set()
     for level in levels:
+        if not isinstance(level, dict):
+            problems.append(f"every level must be a JSON object, not {type(level).__name__}")
+            continue
         problems += [p for p in formats.problems("game_level", level)]
         problems += game_levels.problems(level)
         lid = level.get("level_id")
@@ -92,7 +98,7 @@ def check_levels(value: dict, chapter: dict) -> list:
                 problems.append(f"level {lid}: item '{iid}' is not in the chapter")
     if len(levels) < 2:
         problems.append("at least 2 levels are needed")
-    elif len({l.get("mechanic") for l in levels}) < 2:
+    elif len({l.get("mechanic") for l in levels if isinstance(l, dict)}) < 2:
         problems.append("use at least two different mechanics across the levels")
     return sorted(set(problems))[:40]
 
