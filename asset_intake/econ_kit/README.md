@@ -83,6 +83,31 @@ picture changes show the meaning while 46% only write words; the story comes abo
 Status: IMPLEMENTED (saanche render and pass their test; rules and lexicon written), not INTEGRATED (Phase 1 builds the
 saanche slot and the director that reads the lexicon), not ACCEPTED.
 
+### Batch 5 (4 Nov 2026): 12 more videos, E58–E69, and the worlds
+
+Development finance institutions, the Narasimham committee and bank reforms, mutual funds, monetary policy levers,
+MCLR, M0–M4, high-powered money and the multiplier, LERMS, the J-curve, inflation and the exchange rate, inflation
+tax and inflation explained. Same method (`rules/AGENT_BRIEF_BATCH5.md`), and every canvas segment now names its
+`place` (which world it happens in) and any `place_change`.
+
+| Path | What it is |
+| --- | --- |
+| `cards/E58–E69.json`, `teach/E58–E69.json` | Canvas and teaching cards. |
+| `needs_list_v5.json` | The needs list over all 69 videos (2406 thing-uses): 88% covered by BIE's saanche, icons, engine parts or a replacement; the rest is one-offs left to BIE's AI, the India map decision and 0.4% still to build. |
+| `measurements/cards_summary_69.json`, `measurements/teaching_summary_69.json` | The aggregates over 69 videos (702 canvas segments, 1,595 speech-picture tiles, 524 notes questions, 529 learned checks). |
+| `saanche/stills/batch5_*.png` | Drawn by BIE's own engine: the worlds, the flow process, the diagrams, the other batch-5 saanche, and a game level played inside the bank-hall and market worlds on a phone. |
+
+What changed in BIE: PR #145 (11 worlds, `flow`, 8 saanche, content steps for drawn things, the director now sees every
+saancha — before, only the first 40 reached it) and PR #146 (games inside worlds with drop zones on the world's spots,
+`timeline` / `table` / `graph` — the top diagrams of the needs list that the scene-plan engine lacked — `bands`, `fork`,
+`gapBars`, `funnel`, `roadmap`, `plant`, factory, worlds `twoCountries` and `forexCounter`, 11 more locked rules).
+
+Honest finding: 104 of 111 batch-5 segments were a plain canvas, not a place. The references teach mostly with
+diagrams; BIE's worlds are for stories and processes that happen somewhere (rule EV-S13). The numbers held over 69
+videos: a picture lands a median 0.26 s before its naming word (75% within 1 s).
+
+Status: IMPLEMENTED, not INTEGRATED (BIE's director and game writer must use them on a real book), not ACCEPTED.
+
 ## Contents
 
 | Path | What it is |

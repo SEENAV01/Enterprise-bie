@@ -33,6 +33,10 @@ ALIAS = {
     "shopping_cart": "basket", "shopping_bag": "basket", "cart": "basket", "banknote": "rupee_note",
     "licence_certificate": "licence_paper", "cds_document": "document", "stamp_seal": "stamp",
     "real_person_caricature": "real_person_photo", "real_hand_footage": "live_footage",
+    "office_building": "office_building", "stock_exchange": "stock_exchange_building", "exchange_building": "stock_exchange_building",
+    "share": "share_certificate", "shares": "share_certificate", "segmented_bar": "stacked_bar", "range_bar": "stacked_bar",
+    "piggy": "piggy_bank", "measuring_tape": "ruler", "national_flag": "india_flag", "line_chart_icon": "bar_chart_icon",
+    "sign_badge": "percentage_badge", "tax_badge": "percentage_badge", "currency_symbol": "dollar_note",
     "percent": "percentage_badge", "percentage": "percentage_badge", "percent_sign": "percentage_badge",
 }
 
@@ -50,6 +54,7 @@ def main(cards_dir, out):
     actions, actions_v = collections.Counter(), collections.defaultdict(set)
     carrier, camera, formats = collections.Counter(), collections.Counter(), collections.Counter()
     words, best, weak = [], [], []
+    places, place_changes = collections.Counter(), []
     n_vid = n_seg = 0
     for f in sorted(os.listdir(cards_dir)):
         if not f.endswith(".json"):
@@ -78,6 +83,10 @@ def main(cards_dir, out):
             camera[s.get("camera", "?")] += 1
             if isinstance(s.get("on_screen_words"), (int, float)):
                 words.append(s["on_screen_words"])
+            if s.get("place"):                                   # batch 5 on: the world a segment happens in
+                places[str(s["place"]).strip().lower()] += 1
+                if str(s.get("place_change", "")).strip():
+                    place_changes.append({"video": vid, "t": s.get("start"), "place": s["place"], "change": s["place_change"]})
             seg_things = {norm(t) for t in s.get("things", [])}
             for t in seg_things:
                 things[t] += 1
@@ -104,12 +113,15 @@ def main(cards_dir, out):
         "things": [{"thing": t, "segments": n, "videos": len(things_v[t])} for t, n in things.most_common()],
         "actions": [{"action": a, "segments": n, "videos": len(actions_v[a])} for a, n in actions.most_common()],
         "best_moments": best, "weak_moments": weak,
+        "places": dict(places.most_common()), "place_changes": place_changes,
     }
     json.dump(res, open(out, "w"), indent=1, ensure_ascii=False)
     print(f"videos {n_vid} segments {n_seg} carrier {dict(carrier.most_common())}")
     for k, v in res["idea_types"].items():
         print(f"  {k:14s} seg {v['segments']:3d} min {v['minutes']:5.1f} {v['meaning_carrier']}")
     print("things:", ", ".join(f"{r['thing']} {r['segments']}/{r['videos']}" for r in res["things"][:45]))
+    if places:
+        print("places:", dict(places.most_common()), "changes:", len(place_changes))
     print("actions:", ", ".join(f"{r['action']} {r['segments']}" for r in res["actions"][:25]))
 
 

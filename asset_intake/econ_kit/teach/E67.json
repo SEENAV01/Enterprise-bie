@@ -1,0 +1,131 @@
+{
+  "id": "E67",
+  "topic": "Inflation and exchange rate: one chocolate priced in two countries shows how price gaps move currencies (law of one price), the inflation-differential rule, frictions, and the PPP exchange rate",
+  "book_understanding": {
+    "concepts": [
+      {"name": "exchange rate from forex supply and demand; same good, same price", "type": "numbers", "t_start": 0.0, "t_end": 29.6, "prereq_recalled": "previous video: supply and demand of two currencies in the forex market set the rate"},
+      {"name": "case 1: home prices rise -> imports -> dollar demand -> rupee depreciates", "type": "cause_effect", "t_start": 29.6, "t_end": 94.9, "prereq_recalled": "forex supply and demand"},
+      {"name": "case 2: foreign prices rise -> exports to the US -> rupee demand -> dollar depreciates", "type": "cause_effect", "t_start": 94.9, "t_end": 128.4, "prereq_recalled": "case 1 (same scene, its end state as the start)"},
+      {"name": "the payment currency does not matter", "type": "mechanism", "t_start": 128.4, "t_end": 155.4, "prereq_recalled": "case 2 payment loop"},
+      {"name": "general rule: inflation -> depreciation", "type": "cause_effect", "t_start": 155.4, "t_end": 192.4, "prereq_recalled": "the two cases"},
+      {"name": "inflation differential and the exchange rate (>, <, =); devaluation -> inflation", "type": "comparison", "t_start": 192.4, "t_end": 235.9, "prereq_recalled": "general rule"},
+      {"name": "frictions: the law of one price fails in reality", "type": "definition", "t_start": 235.9, "t_end": 292.1, "prereq_recalled": "the chocolate example at 1$ = ₹80"},
+      {"name": "PPP exchange rate from a standard basket", "type": "formula", "t_start": 292.1, "t_end": 347.0, "prereq_recalled": "computing a rate from two prices, as with the chocolate"},
+      {"name": "market rate vs PPP rate", "type": "comparison", "t_start": 347.0, "t_end": 366.2, "prereq_recalled": "PPP rate and the forex market rate"}
+    ],
+    "teaching_order": "A textbook starts from purchasing power parity (absolute PPP, then relative PPP: the inflation differential predicts depreciation) and then mentions the law of one price and its frictions. The video goes the other way: it runs one good through two concrete what-if cases on one scene (price gap -> trade -> currency demand -> new rate), answers the learner's doubt about the payment currency, generalises the two cases into the inflation rule, turns the rule into an exam-style table, only then admits the frictions with a real-life price (₹110, not ₹160), and finally widens the one good into a basket to compute the PPP rate. The term PPP comes last, as the name for something already calculated.",
+    "breakdown_rule": "One object, many cases: each piece changes one price on the same two-country scene and follows the money until the rate settles; the cases are then generalised into a rule, and the single object is widened into a basket to define the formal measure."
+  },
+  "narration": {
+    "opening": {"move": "recall_previous", "what": "Recalls that the supply and demand of two currencies in the forex market decide their exchange rate; the two-country scene with the market counter builds as he speaks."},
+    "moves": [
+      {"t": 0.0, "move": "recall_previous", "concept": "exchange rate from forex supply and demand; same good, same price", "what": "Forex supply and demand of two currencies decide their exchange rate (previous video)."},
+      {"t": 13.0, "move": "example_numbers", "concept": "exchange rate from forex supply and demand; same good, same price", "what": "'Maan lete hain' 1$ = ₹40, so a chocolate costing $2 in the US should by rights cost ₹80 in India."},
+      {"t": 29.6, "move": "what_if", "concept": "case 1: home prices rise -> imports -> dollar demand -> rupee depreciates", "what": "'Soch ke dekhiye': what if the chocolate costs ₹160 in India instead of ₹80?"},
+      {"t": 36.0, "move": "cause_chain", "concept": "case 1: home prices rise -> imports -> dollar demand -> rupee depreciates", "what": "Obviously many businesses start importing it: cheaper abroad, sold here at a good profit."},
+      {"t": 48.5, "move": "cause_chain", "concept": "case 1: home prices rise -> imports -> dollar demand -> rupee depreciates", "what": "Imports are paid in dollars, so we give rupees for dollars in the forex market; dollar demand rises; the rupee starts to depreciate."},
+      {"t": 70.8, "move": "example_numbers", "concept": "case 1: home prices rise -> imports -> dollar demand -> rupee depreciates", "what": "The depreciation goes on until 1$ = ₹80, because any price gap keeps the chocolate moving between countries."},
+      {"t": 85.9, "move": "conclusion_line", "concept": "case 1: home prices rise -> imports -> dollar demand -> rupee depreciates", "what": "So as soon as chocolates became dearer in India than in the US, our currency depreciated."},
+      {"t": 94.9, "move": "what_if", "concept": "case 2: foreign prices rise -> exports to the US -> rupee demand -> dollar depreciates", "what": "Now the reverse: what if the chocolate cost $8 in the US instead of $2? (the numbers start from case 1's end, 1$ = ₹80 and ₹160, without saying so)"},
+      {"t": 103.1, "move": "cause_chain", "concept": "case 2: foreign prices rise -> exports to the US -> rupee demand -> dollar depreciates", "what": "The US imports from India and pays in rupees, so rupee demand rises, the dollar depreciates, and at some point 1$ = ₹20."},
+      {"t": 128.4, "move": "question_to_viewer", "concept": "the payment currency does not matter", "what": "The learner's objection voiced ('aap kahoge'): the US pays in dollars, not rupees."},
+      {"t": 133.1, "move": "cause_chain", "concept": "the payment currency does not matter", "what": "Nothing changes: dollars are of no use inside India, you sell them in the forex market for rupees, so rupee demand still rises and 1$ = ₹20 either way."},
+      {"t": 155.4, "move": "recap", "concept": "general rule: inflation -> depreciation", "what": "Two cases so far: Indian goods dearer -> rupee depreciated; American goods dearer -> dollar depreciated."},
+      {"t": 169.8, "move": "conclusion_line", "concept": "general rule: inflation -> depreciation", "what": "In general, if a country's overall prices rise, its currency depreciates (said as certain)."},
+      {"t": 180.0, "move": "define_term", "concept": "general rule: inflation -> depreciation", "what": "A general rise in prices is called inflation; so rising inflation makes a currency depreciate."},
+      {"t": 192.4, "move": "exam_link", "concept": "inflation differential and the exchange rate (>, <, =); devaluation -> inflation", "what": "If you are asked what happens to the rate when US inflation exceeds India's, answer simply: the dollar depreciates against the rupee."},
+      {"t": 204.9, "move": "contrast", "concept": "inflation differential and the exchange rate (>, <, =); devaluation -> inflation", "what": "The reverse case: India's inflation higher -> rupee depreciates; nearly equal -> the rate stays stable."},
+      {"t": 223.1, "move": "cause_chain", "concept": "inflation differential and the exchange rate (>, <, =); devaluation -> inflation", "what": "Also the other way: if a country devalues or lets its currency depreciate, its inflation rises."},
+      {"t": 235.9, "move": "signpost", "concept": "frictions: the law of one price fails in reality", "what": "One more important concept; back to the same chocolate example."},
+      {"t": 242.0, "move": "recall_previous", "concept": "frictions: the law of one price fails in reality", "what": "At 1$ = ₹80 the $2 chocolate should sell for ₹160 in India (the next 14 s, the list of factors, are missing from the transcript)."},
+      {"t": 268.3, "move": "contrast", "concept": "frictions: the law of one price fails in reality", "what": "In reality all these factors play a role, so the same thing sells at different prices: it may sell for ₹110 though the rate is 80."},
+      {"t": 292.1, "move": "human_benefit", "concept": "PPP exchange rate from a standard basket", "what": "So what matters is how many rupees a common person spends on all goods and services in India, and what the same costs in the US."},
+      {"t": 305.0, "move": "example_numbers", "concept": "PPP exchange rate from a standard basket", "what": "Suppose the basket costs $100 in the US and only ₹4000 in India."},
+      {"t": 316.7, "move": "what_if", "concept": "PPP exchange rate from a standard basket", "what": "Forget the market's rate for a while and compute the rate from the basket values, as with the chocolate."},
+      {"t": 329.4, "move": "example_numbers", "concept": "PPP exchange rate from a standard basket", "what": "4000 divided by 100 = 40, so 1$ = ₹40."},
+      {"t": 341.5, "move": "define_term", "concept": "PPP exchange rate from a standard basket", "what": "This is the PPP exchange rate; PPP means purchasing power parity."},
+      {"t": 347.0, "move": "contrast", "concept": "market rate vs PPP rate", "what": "Now there are two rates, PPP and market; they are linked: if the PPP rate rises the market rate is likely to rise even more (doubtful as stated)."},
+      {"t": 366.2, "move": "conclusion_line", "concept": "market rate vs PPP rate", "what": "Sign-off naming the topic: the relations between exchange rate and inflation."}
+    ],
+    "story_before_term": [
+      {"term": "depreciation (of the rupee)", "t_story": 29.6, "t_term": 69.0},
+      {"term": "inflation", "t_story": 29.6, "t_term": 184.4},
+      {"term": "PPP exchange rate", "t_story": 292.1, "t_term": 342.4}
+    ],
+    "examples": [
+      {"t": 13.0, "kind": "everyday_object", "what": "a chocolate bar priced $2 in the US and ₹80 in India at 1$ = ₹40", "carries": "exchange rate from forex supply and demand; same good, same price"},
+      {"t": 29.6, "kind": "what_if", "what": "India's price jumps to ₹160 -> imports -> rate goes to 1$ = ₹80", "carries": "case 1: home prices rise -> imports -> dollar demand -> rupee depreciates"},
+      {"t": 94.9, "kind": "what_if", "what": "the US price jumps to $8 -> US imports from India -> rate goes to 1$ = ₹20", "carries": "case 2: foreign prices rise -> exports to the US -> rupee demand -> dollar depreciates"},
+      {"t": 284.6, "kind": "numbers", "what": "the chocolate may sell for ₹110 in India though the rate implies ₹160", "carries": "frictions: the law of one price fails in reality"},
+      {"t": 305.0, "kind": "numbers", "what": "a standard basket costs $100 in the US and ₹4000 in India -> 4000/100 = 40", "carries": "PPP exchange rate from a standard basket"}
+    ],
+    "closing": {"move": "conclusion_line", "what": "Sign-off naming the topic (exchange rate and inflation relations), then channel promotion; no recap of PPP vs market rate and no exam link at the end (the exam framing came at 192 s)."},
+    "density": "About 9 new ideas in 6 minutes (depreciation to equilibrium, payment-currency neutrality, inflation, inflation differential, devaluation -> inflation, frictions, standard basket, PPP rate, market vs PPP), about 1.5 per minute at about 193 words per minute. The two long cases (2 minutes) give the core mechanism room; the devaluation-inflation link and the PPP-market link at the end are rushed."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 2.6, "shown": "two country panels (green US with flag and $, blue India with flag and ₹) around the forex market counter", "said_gist": "we have already seen that the forex market...; 'two countries' is heard about 2.5 s later, outside the tile text", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 2, "t_shown": 14.4, "shown": "rate pill '1$ = 40 Rs' hanging over the counter", "said_gist": "for example, suppose 1 dollar is 40 rupees", "naming_word": "1 डॉलर 40", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 3, "t_shown": 21.8, "shown": "the same chocolate in the India panel, '80 Rs' writing on above it", "said_gist": "the chocolate that costs $2 in the US should cost ₹80 in India", "naming_word": "इंडिया", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 4, "t_shown": 52.4, "shown": "$ payment loop from India back to the US under the import truck's route", "said_gist": "if lots of chocolate is imported, we must also pay for it (in dollars)", "naming_word": "payment", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 5, "t_shown": 69.8, "shown": "'1$ = 80 Rs' written over the struck '1$ = 40 Rs'", "said_gist": "our currency will start to depreciate against the dollar; '80' itself is spoken about 5 s later", "naming_word": "depreciate", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 6, "t_shown": 81.0, "shown": "import route, payment loop, demand tag and note are wiped; the settled scene at 1$ = 80 remains", "said_gist": "if there is any difference in the chocolate's value, it will keep being traded between the countries", "naming_word": "", "lead": "unrelated", "relation": "navigation"},
+    {"tile": 7, "t_shown": 118.8, "shown": "green 'Rs Demand Increases' tag on the US DEMAND arrow", "said_gist": "the US must give dollars and demand rupees, so rupee demand rises in the forex market", "naming_word": "रूपीज की डिमांड", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 8, "t_shown": 131.4, "shown": "the ₹ payment loop dissolves into particles", "said_gist": "you will say the US pays not in rupees but in dollars", "naming_word": "rupees में नहीं", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 9, "t_shown": 144.6, "shown": "green 'Rs Demand Increases' on India's side after a dotted $ path runs into India and up to the counter", "said_gist": "you take rupees from the forex market, so in this transaction too rupee demand rises", "naming_word": "रूपी की", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 10, "t_shown": 160.2, "shown": "yellow card under the case 1 thumbnail: Indian goods' price rose, so the Indian currency depreciated", "said_gist": "in the first case we saw that the price of Indian goods rose, so...", "naming_word": "price", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 11, "t_shown": 172.0, "shown": "rule line under both cards: if the general price of goods in a country rises, its currency depreciates", "said_gist": "in a general sense it can be said that if a country's...", "naming_word": "अगर किसी देश", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 12, "t_shown": 184.2, "shown": "blue 'Inflation' with a curved arrow to the highlighted 'general price ... increase'", "said_gist": "a general price rise of goods and services is called inflation", "naming_word": "inflation", "lead": "together", "relation": "names_the_term"},
+    {"tile": 13, "t_shown": 195.0, "shown": "table starts: US and India flags, 'Inflation[USA] > Inflation[IND]'", "said_gist": "if you are asked: US inflation is higher than India's...", "naming_word": "अमेरिका", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 14, "t_shown": 200.2, "shown": "'Exchange Rate of $ depreciates with respect to Rs' in the right column", "said_gist": "what impact on the exchange rate? you can answer in simple words that...; the answer is spoken about 2 s later", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 15, "t_shown": 210.4, "shown": "'Exchange Rate of Rs depreciates with respect to $' on the second row", "said_gist": "if India's inflation is much higher than the US's, the rupee depreciates against the dollar", "naming_word": "रूपी डॉलर", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 16, "t_shown": 225.4, "shown": "blue box: the reverse also holds, a devaluation or depreciation leads to inflation", "said_gist": "note also that if a country...; 'devalue' and 'inflation increase' are heard 3-10 s later", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 17, "t_shown": 286.4, "shown": "India's '160 Rs' struck, '110 Rs' written above", "said_gist": "it may be that this chocolate sells for 110 rupees in India", "naming_word": "110", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 18, "t_shown": 291.0, "shown": "the friction paragraph is removed; scene shows 110 Rs and the rate with its new 'Exchange Rate' heading", "said_gist": "while the exchange rate is 1$ = 80", "naming_word": "", "lead": "unrelated", "relation": "navigation"},
+    {"tile": 19, "t_shown": 306.6, "shown": "baskets of goods in both panels, '100 $' appearing over the US basket", "said_gist": "suppose all these goods and services (cost $100 in the US)", "naming_word": "goods", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 20, "t_shown": 320.2, "shown": "the forex counter, its arrows and the rate pill vanish from the middle", "said_gist": "if we forget for a while the rate given by the forex market", "naming_word": "भूल जाए", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 21, "t_shown": 327.0, "shown": "'Exchange Rate' label under the blue comparison band", "said_gist": "calculate the exchange rate from the basket values, as we did with the chocolate", "naming_word": "exchange rate", "lead": "voice_first", "relation": "repeats_speech_as_text"},
+    {"tile": 22, "t_shown": 344.2, "shown": "'PPP' added before the formula and a hooked arrow from '1$ = 40 Rs' to 'Purchasing power Parity'", "said_gist": "this is called the PPP exchange rate; PPP means purchasing power parity", "naming_word": "PPP", "lead": "together", "relation": "names_the_term"},
+    {"tile": 23, "t_shown": 353.8, "shown": "the forex counter with 'Exchange Rate 1$ = 80 Rs' back in the middle, 'PPP Exchange Rate 1$ = 40 Rs' below it", "said_gist": "one is the PPP rate, the other the rate we see in the foreign exchange market", "naming_word": "foreign exchange market", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 24, "t_shown": 366.0, "shown": "canvas clears before the end card", "said_gist": "the market rate will likely rise more; in today's video we (sign-off)", "naming_word": "", "lead": "together", "relation": "navigation"}
+  ],
+  "talmel_summary": "Strong fit: most tiles land together (16 of 24), and in the two cases every spoken step has its own drawn step (price struck, truck route, payment loop, demand tag, rate struck), including the learner's objection, where the rupee loop dissolves on 'rupees mein nahi'. The best single sync is the forex counter vanishing on 'bhool jaayein'. Weak: the new rates (80, 20) appear on 'depreciate' about 5 s before their numbers are spoken; the inflation-differential rule and the frictions are text the voice reads out; and 14 s of speech (254.5-268.1 s) is missing from the transcript.",
+  "voice": {"notes": "About 193 words per minute, quick but clear, with 'soch ke dekhiye' and 'abvious si baat hai' marking each turn of a case. Numbers are read in mixed Hindi-English ('1 dollar is equal to 80 rupees', '4000 divided by 100'); the recogniser sometimes writes '$80' for '80 rupees'. The objection is voiced in a natural second-person tone ('aap kahoge'), and the exam question is put to the listener directly. Little pausing between ideas in the last two minutes."},
+  "game_ideas": [
+    {"from_t": 29.6, "mechanic": "market_sim", "player_does": "Sets the chocolate's price in India and in the US with two sliders, predicts where the rupee-dollar rate will settle, then releases the traders.", "process_happens": "Trucks start running from the cheaper country to the dearer one; each delivery sends a payment to the forex counter, the demand tag for the paying currency grows and the rate pill ticks until the two prices match at the new rate; then the trucks stop.", "win": "The predicted rate is within 5% of where the trucks stop (for example ₹160 / $2 -> 80; ₹160 / $8 -> 20).", "lose": "A wrong prediction leaves trucks running and the profit gap visible on both price tags, showing the rate has not yet settled.", "concept": "case 1: home prices rise -> imports -> dollar demand -> rupee depreciates"},
+    {"from_t": 192.4, "mechanic": "place_correctly", "player_does": "Gets a pair of countries with yearly inflation rates (for example US 3%, India 6%) and drags an arrow on the rate pill to say which currency weakens, or marks it stable.", "process_happens": "A year passes: price tags in each panel rise by their inflation, trucks run toward the dearer country's buyers, and the rate pill moves accordingly.", "win": "The right direction for the >, < and = cases, three rounds in a row.", "lose": "A wrong direction makes the trucks run against the player's arrow and the price tags show the gap that drives them.", "concept": "inflation differential and the exchange rate (>, <, =); devaluation -> inflation"},
+    {"from_t": 292.1, "mechanic": "run_a_process", "player_does": "Fills the same basket in both countries (rice, bus fare, haircut, mobile recharge) from a dollar price list and a rupee price list, then divides to get the PPP rate and compares it with the market rate pill.", "process_happens": "Basket totals appear over each basket, the forex counter fades out while a band joins the baskets, the division animates and a PPP pill appears beside the market pill.", "win": "The correct PPP rate and the correct statement of which currency buys more at home than its market rate suggests.", "lose": "Putting different items in the two baskets gives a wrong rate and the band flashes 'not the same basket'.", "concept": "PPP exchange rate from a standard basket"}
+  ],
+  "notes_questions": [
+    {"q": "India mein chocolate mehngi ho jaye to rupee kyon kamzor hota hai? Chain banaiye.", "answer_shape": "flow", "from_t": 29.6},
+    {"q": "America dollar mein payment kare ya rupee mein, rupee ki demand phir bhi kyon badhti hai?", "answer_shape": "flow", "from_t": 128.4},
+    {"q": "Inflation aur exchange rate ka sambandh: USA > India, USA < India aur barabar inflation par kya hoga?", "answer_shape": "table", "from_t": 192.4},
+    {"q": "Devaluation se inflation kyon badhta hai?", "answer_shape": "flow", "from_t": 223.1},
+    {"q": "Ek hi cheez do deshon mein alag daam par kyon bikti hai? (frictions)", "answer_shape": "tree", "from_t": 268.3},
+    {"q": "PPP exchange rate kaise nikalte hain? $100 aur ₹4000 wali basket se hisaab lagaiye.", "answer_shape": "number", "from_t": 305.0},
+    {"q": "Market exchange rate aur PPP exchange rate mein kya antar hai?", "answer_shape": "comparison", "from_t": 347.0}
+  ],
+  "checks_learned": [
+    "When a rate or price changes, the new number should land on its spoken number, not on the general verb ('depreciate'); here 80 and 20 appear about 5 s early.",
+    "A mirrored case that starts from the previous case's end state must say so ('ab rate 80 hai'); otherwise a learner computes from the original state and gets the wrong rate.",
+    "Every number set in a worked case must satisfy the rule it shows: home price / foreign price = new rate (160/2 = 80, 160/8 = 20, 4000/100 = 40 all pass here); this can be a code check.",
+    "An objection voiced by the narrator ('aap kahoge') should change the picture (erase the old path, draw the new one); it worked here and can be required.",
+    "A rule given as a text table (>, <, =) should be followed by one animated case per row, reusing the scene already built.",
+    "Market rules stated as certain ('tay hai') need a qualifier (relative to the partner country, other things equal) or a flag.",
+    "No branded product as a running object; draw a generic one.",
+    "Transcript gaps over 10 s (254.5-268.1 s here) must be re-transcribed; the spoken list of frictions was lost."
+  ],
+  "teaching_best": [
+    {"t": 29, "why": "a what-if on a single price drives a full cause chain on one scene, each link drawn as it is said"},
+    {"t": 128, "why": "the learner's objection about the payment currency is voiced and answered on the picture, removing a doubt most learners would have"},
+    {"t": 155, "why": "two worked cases are generalised into a rule, and the term inflation is attached only after the learner has seen it work twice"},
+    {"t": 192, "why": "the rule is turned into an exam-style question with a short model answer"},
+    {"t": 316, "why": "'forget the market rate for a moment': PPP is computed with the market removed, then named"}
+  ],
+  "teaching_weak": [
+    {"t": 94, "why": "says 'the reverse' but starts from case 1's end numbers (1$ = 80, ₹160) without saying so"},
+    {"t": 223, "why": "devaluation -> inflation is added in one sentence with no case or numbers"},
+    {"t": 242, "why": "the list of frictions is lost from the transcript and lives on screen as a paragraph"},
+    {"t": 356, "why": "the claimed link between the PPP rate and the market rate is unexplained and doubtful as stated"},
+    {"t": 169, "why": "the rule is stated as certain for any rise in prices; it holds for inflation relative to the partner country"}
+  ]
+}

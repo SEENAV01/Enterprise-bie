@@ -98,6 +98,45 @@ STATUS = {
     "barrier_wall": ("build_next", "wall that blocks a path (arrows loop around it)"),
 }
 
+STATUS.update({
+    "stacked_bar": ("built_batch4", "segmentedBar(parts, cross, hide, glow)"),
+    "price_tag": ("built_batch4", "priceTag(value, old, trend)"),
+    "office_building": ("built_batch4", "building(kind=office)"), "government_building": ("built_batch4", "building(kind=government)"),
+    "stock_exchange_building": ("built_batch4", "building(kind=exchange)"), "rural_bank_hut": ("built_batch4", "building(kind=hut)"),
+    "house": ("built_batch4", "building(kind=house)"), "warehouse": ("built_batch4", "building(kind=warehouse)"),
+    "dollar_note": ("built_batch4", "foreignNote(sign, value)"), "gauge": ("built_batch4", "gauge(value, text, label)"),
+    "barrier_wall": ("built_batch4", "barrier(label)"), "hand": ("built_batch4", "hands(item, from, to)"),
+    "piggy_bank": ("built_batch4", "piggyBank(label)"), "ruler": ("built_batch4", "ruler(min, max, value)"),
+    "share_certificate": ("built_batch4", "paper(kind=share)"), "receipt_slip": ("built_batch4", "paper(kind=receipt)"),
+    "server_rack": ("have_icon", "Font Awesome server / database"), "country_flag": ("replace", "country name card (no flags drawn by default)"),
+    "india_map": ("decision", "Navin: Survey of India boundary; the official outline's licence is not clear yet (DataMeet conversion, 2018), so BIE shows a 'भारत' label"),
+    "round_number_card": ("engine", "numbered step card"), "step_tracker": ("engine", "step counter"), "stage_with_spotlight": ("engine", "stage background"),
+    "token_coin": ("have_v2", "coin"), "trading_desk": ("one_off", "person at screens"), "shoe": ("have_icon", "Fluent shoe"),
+    "list_rail": ("engine", "list part"), "instrument_sidebar": ("engine", "road map sidebar"),
+})
+STATUS["committee_desk"] = ("built_batch3", "committee(n, name, sub, color)")
+STATUS.update({   # batch 5 (4 Nov 2026): worlds, flow and the last recurring things
+    "coin_jar": ("built_batch5", "coinJar(fill, label)"), "pillar": ("built_batch5", "pillars(labels, broken, glow, title)"),
+    "briefcase": ("built_batch5", "briefcase(label, open)"), "budget_briefcase": ("built_batch5", "briefcase(label, open)"),
+    "podium_steps": ("built_batch5", "podium(labels)"), "staircase": ("built_batch5", "staircase(labels, at, dir)"),
+    "lender_desk": ("built_batch5", "desk(label, chair)"), "chair": ("built_batch5", "chair(kind, label)"), "armchair": ("built_batch5", "chair(kind=big)"),
+    "rope": ("built_batch5", "rope(kind=rope|rod|chain, sag, angle, label)"), "court_building": ("built_batch5", "building(kind=court)"),
+    "village_scene": ("built_batch5", "world(kind=village) or bg village"), "street_vendor": ("have_v2", "person + cart (batch 4)"),
+    "factory": ("built_batch5", "world(kind=factory); a small factory icon = have_icon"),
+    "coin": ("have_v2", "coin / coinStack"), "line_chart": ("engine", "graph part (curve_story)"),
+    "shoe_rack": ("one_off", "one analogy video"), "title_sash": ("one_off", "one video"), "country_map": ("decision", "maps follow the official boundary decision"),
+    "money_flow_diagram": ("built_batch5", "flow(nodes, edges, token, active)"), "circular_flow": ("built_batch5", "flow(layout=ring)"),
+    "timeline": ("built_batch5", "timeline(events, zones, at, upto)"), "ownership_zone": ("built_batch5", "timeline(zones)"),
+    "table_grid": ("built_batch5", "table(cols, rows, cells, glowRow, glowCol, upto)"), "graph_axes": ("built_batch5", "graph(lines, dots, drawIn)"),
+    "line_chart": ("built_batch5", "graph(lines)"), "instrument_sidebar": ("built_batch5", "roadmap(items, at)"), "road_map_blob": ("built_batch5", "roadmap(items, at)"),
+    "funnel": ("built_batch5", "funnel(label, top, bottom, flip)"), "cash_stack": ("have_v2", "noteBundle"), "cash_box": ("built_batch5", "coinJar / moneyBag"),
+    "country_box": ("built_batch5", "world(kind=twoCountries) or a box node in flow"), "trading_desk": ("built_batch5", "world(kind=exchangeFloor)"),
+    "budget_briefcase": ("built_batch5", "briefcase(label)"), "shield": ("have_icon", "Fluent shield"), "equals_sign": ("engine", "text"),
+    "chocolate_bar": ("one_off", "a generic goods item"), "crown": ("have_icon", "Fluent crown (apex body)"), "truck": ("have_icon", "Fluent truck; flow token goods"),
+    "percentage_badge": ("built_batch3", "disc(text)"), "rank_badge": ("built_batch5", "podium(labels)"), "scale_balance": ("have_icon", "Fluent balance scale"),
+})
+STATUS["india_map"] = ("decision", "Navin: Survey of India boundary; the official outline's licence is not clear yet (DataMeet conversion, 2018), so BIE shows a 'भारत' label")
+
 
 def main(agg, out):
     a = json.load(open(agg))
@@ -113,7 +152,7 @@ def main(agg, out):
         by[r["status"]]["things"] += 1
         by[r["status"]]["segments"] += r["segments"]
     res = {"schema": "bie.saanche-needs/1", "subject": "economics", "videos": a["videos"], "segments": a["segments"],
-           "how_counted": "a thing counts once per card segment it appears in; synonyms merged (aggregate3.ALIAS)",
+           "how_counted": "a thing counts once per card segment it appears in; synonyms merged (aggregate3.ALIAS); built_batch3, built_batch4 and built_batch5 are all in BIE\u2019s engine",
            "by_status": by, "things": rows}
     json.dump(res, open(out, "w"), indent=1, ensure_ascii=False)
     tot = sum(v["segments"] for v in by.values())

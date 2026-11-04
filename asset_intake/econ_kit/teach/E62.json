@@ -1,0 +1,140 @@
+{
+  "id": "E62",
+  "topic": "How India's lending-rate system changed from PLR to BPLR, base rate and MCLR: the problem each reform tried to fix, how base rate and MCLR are calculated, and why monetary policy transmission stayed weak",
+  "book_understanding": {
+    "concepts": [
+      {"name": "PLR and its problems", "type": "mechanism", "t_start": 0.0, "t_end": 28.1, "prereq_recalled": "previous video: banks followed PLR from 1973 to 2003"},
+      {"name": "BPLR: best-customer rate taken as a floor", "type": "mechanism", "t_start": 28.1, "t_end": 97.0, "prereq_recalled": "PLR lacked transparency and standardisation"},
+      {"name": "BPLR fails: the 77% report", "type": "cause_effect", "t_start": 97.0, "t_end": 118.8, "prereq_recalled": "BPLR assumed to be the minimum rate"},
+      {"name": "base rate: each bank's own floor, deregulated", "type": "mechanism", "t_start": 118.8, "t_end": 168.2, "prereq_recalled": "lending below BPLR"},
+      {"name": "monetary policy transmission and why it was weak", "type": "cause_effect", "t_start": 168.2, "t_end": 263.7, "prereq_recalled": "repo rate as RBI's key policy tool"},
+      {"name": "where a bank's funds come from and their cost", "type": "process", "t_start": 263.7, "t_end": 327.4, "prereq_recalled": "deposit accounts; banks borrowing from RBI"},
+      {"name": "base rate vs MCLR calculation", "type": "comparison", "t_start": 327.4, "t_end": 448.5, "prereq_recalled": "repo, term repo and long-term operations have different rates; the three other criteria from the previous video"},
+      {"name": "MCLR + spread, and the transmission test", "type": "mechanism", "t_start": 448.5, "t_end": 528.3, "prereq_recalled": "weak transmission under base rate"}
+    ],
+    "teaching_order": "A textbook gives a table of regimes (PLR 1994, BPLR 2003, base rate 2010, MCLR 2016, EBLR 2019) with a definition each. Here the history is a chain of problems: each reform is introduced as RBI's answer to the flaw of the previous one, and each ends with the evidence that it fell short (77% lending below BPLR; a 1.25% repo cut giving a 0.6% fall). Before the two calculations are compared, the learner is asked where a bank gets its money, so 'cost to bank' is understood first. It ends on an open question (not much improvement, but why?) instead of a summary. It works because every new term arrives as the answer to a felt problem, and a growing timeline keeps the sequence in view.",
+    "breakdown_rule": "Cut the history at each reform; each piece is the problem left by the previous system, the new rule, and the evidence that it fell short."
+  },
+  "narration": {
+    "opening": {"move": "recall_previous", "what": "Recalls the last video: banks followed the prime lending rate system from 1973 to 2003 and could set any rate by negotiation, so there was no standardisation or transparency."},
+    "moves": [
+      {"t": 0.0, "move": "recall_previous", "concept": "PLR and its problems", "what": "PLR era from the previous video, 1973-2003."},
+      {"t": 9.4, "move": "yaani_unpack", "concept": "PLR and its problems", "what": "PLR 'yaani' a system where banks had the flexibility to lend at any interest by negotiation with each customer."},
+      {"t": 20.4, "move": "cause_chain", "concept": "PLR and its problems", "what": "So there was neither standardisation nor transparency."},
+      {"t": 28.1, "move": "define_term", "concept": "BPLR: best-customer rate taken as a floor", "what": "To remove these problems RBI brought BPLR in 2003, 'yaani' benchmark prime lending rate."},
+      {"t": 37.1, "move": "role_play", "concept": "BPLR: best-customer rate taken as a floor", "what": "RBI's question to banks is voiced in second person: tell us at what percent you lend to your most creditworthy customers; that rate became BPLR."},
+      {"t": 49.6, "move": "cause_chain", "concept": "BPLR: best-customer rate taken as a floor", "what": "Following this criterion RBI fixed all banks' BPLRs, 'yaani' regularised lending rates."},
+      {"t": 63.5, "move": "cause_chain", "concept": "BPLR: best-customer rate taken as a floor", "what": "Because BPLR was the best customers' rate, RBI assumed it was the minimum and that no bank would lend below it."},
+      {"t": 83.2, "move": "conclusion_line", "concept": "BPLR: best-customer rate taken as a floor", "what": "An important step to make banking transparent and standardised."},
+      {"t": 91.0, "move": "contrast", "concept": "BPLR: best-customer rate taken as a floor", "what": "'But' the system became neither transparent nor standardised."},
+      {"t": 97.0, "move": "misconception", "concept": "BPLR fails: the 77% report", "what": "Taking BPLR as banks' minimum rate was RBI's assumption, and it was wrong."},
+      {"t": 103.2, "move": "data_fact", "concept": "BPLR fails: the 77% report", "what": "A 2010 RBI report found almost all banks lent over 77% of their loans below BPLR."},
+      {"t": 118.8, "move": "define_term", "concept": "base rate: each bank's own floor, deregulated", "what": "RBI at once changed policy and brought the base rate in 2010: the rate below which no customer can get a loan."},
+      {"t": 132.0, "move": "yaani_unpack", "concept": "base rate: each bank's own floor, deregulated", "what": "'Yaani' any loan is at or above base rate, never below."},
+      {"t": 144.0, "move": "contrast", "concept": "base rate: each bank's own floor, deregulated", "what": "Each bank decides its own base rate and informs RBI; RBI no longer fixes rates, so rates are deregulated."},
+      {"t": 158.3, "move": "conclusion_line", "concept": "base rate: each bank's own floor, deregulated", "what": "This time RBI's effort at transparency and standardisation succeeded."},
+      {"t": 168.2, "move": "contrast", "concept": "monetary policy transmission and why it was weak", "what": "'But' in 2015 a new problem: RBI found its monetary policy transmission weak."},
+      {"t": 176.5, "move": "yaani_unpack", "concept": "monetary policy transmission and why it was weak", "what": "Transmission means a central bank's policy-rate change should show in banks' lending rates; if a repo change shows in all banks' rates, transmission is strong."},
+      {"t": 199.1, "move": "data_fact", "concept": "monetary policy transmission and why it was weak", "what": "Jan 2015 to April 2016: repo cut by 1.25%, lending rates down only 0.6%."},
+      {"t": 217.7, "move": "conclusion_line", "concept": "monetary policy transmission and why it was weak", "what": "So it was clear policy changes were not reaching lending rates; transmission was weak."},
+      {"t": 227.6, "move": "question_to_viewer", "concept": "monetary policy transmission and why it was weak", "what": "'But the question is why', and the answer is called simple."},
+      {"t": 233.1, "move": "cause_chain", "concept": "monetary policy transmission and why it was weak", "what": "Repo was not in the base rate calculation, so repo changes did not move base rate, and lending rates depended on base rate."},
+      {"t": 247.4, "move": "define_term", "concept": "monetary policy transmission and why it was weak", "what": "To fix this, RBI introduced MCLR in 2016, whose calculation also considers repo."},
+      {"t": 263.7, "move": "signpost", "concept": "where a bank's funds come from and their cost", "what": "'Chaliye' let us see the difference between the MCLR and base rate calculations."},
+      {"t": 268.2, "move": "question_to_viewer", "concept": "where a bank's funds come from and their cost", "what": "'First answer my question': when a bank lends, where does it bring the funds from?"},
+      {"t": 279.9, "move": "cause_chain", "concept": "where a bank's funds come from and their cost", "what": "Two sources: customers' deposits in savings, current or term accounts, and borrowing from other banks or RBI."},
+      {"t": 297.2, "move": "cause_chain", "concept": "where a bank's funds come from and their cost", "what": "Both cost interest (the bank pays you on your deposit, and pays RBI on borrowing), so funds are not free: there is a cost to bank."},
+      {"t": 320.2, "move": "conclusion_line", "concept": "where a bank's funds come from and their cost", "what": "No doubt left: higher cost to bank means higher lending rates."},
+      {"t": 327.4, "move": "contrast", "concept": "base rate vs MCLR calculation", "what": "Base rate counts only the cost of deposits (what the bank pays us); MCLR counts the cost of both deposits and borrowings, since funds come from both."},
+      {"t": 361.2, "move": "define_term", "concept": "base rate vs MCLR calculation", "what": "Deposits only = cost of funds; deposits and borrowings = marginal cost of funds; hence MCLR, marginal cost of funds based lending rate (unpacking of 'marginal' is doubtful)."},
+      {"t": 385.8, "move": "cause_chain", "concept": "base rate vs MCLR calculation", "what": "MCLR includes borrowing cost, which depends on repo, that is on RBI's policy, so transmission was expected to improve."},
+      {"t": 406.6, "move": "recall_previous", "concept": "base rate vs MCLR calculation", "what": "'Dhyan dijiye': borrowing rates depend on tenure, as seen earlier with repo, term repo and long-term operations; so a tenure premium was added."},
+      {"t": 430.6, "move": "recall_previous", "concept": "base rate vs MCLR calculation", "what": "The other three criteria are the same as for base rate and were covered in the previous video; not repeated (comment box offered)."},
+      {"t": 448.5, "move": "conclusion_line", "concept": "MCLR + spread, and the transmission test", "what": "So in 2016 RBI implemented MCLR, whose calculation depended on repo."},
+      {"t": 456.6, "move": "define_term", "concept": "MCLR + spread, and the transmission test", "what": "MCLR is each bank's minimum lending rate; a loan's rate is MCLR plus a spread the bank decides by tenure, credit risk and so on, never below MCLR."},
+      {"t": 482.9, "move": "what_if", "concept": "MCLR + spread, and the transmission test", "what": "The test: if repo is cut, do lending rates fall; if repo rises, do they rise?"},
+      {"t": 509.1, "move": "conclusion_line", "concept": "MCLR + spread, and the transmission test", "what": "Result: some improvement, but not enough; strong transmission still not achieved."},
+      {"t": 522.0, "move": "question_to_viewer", "concept": "MCLR + spread, and the transmission test", "what": "Why did this happen and what was RBI's next step? Left open, with a pointer to the playlist."}
+    ],
+    "story_before_term": [
+      {"term": "BPLR", "t_story": 20.4, "t_term": 32.0},
+      {"term": "base rate", "t_story": 103.2, "t_term": 123.3},
+      {"term": "MCLR", "t_story": 168.2, "t_term": 255.4},
+      {"term": "marginal cost of funds", "t_story": 268.2, "t_term": 373.3}
+    ],
+    "examples": [
+      {"t": 37.1, "kind": "role_play", "what": "RBI asks each bank what it charges its most creditworthy customers.", "carries": "what BPLR measured"},
+      {"t": 103.2, "kind": "real_case", "what": "2010 report: over 77% of loans given below BPLR.", "carries": "why BPLR as a floor was only an assumption"},
+      {"t": 199.1, "kind": "real_case", "what": "Repo cut 1.25% between Jan 2015 and April 2016, lending rates down only 0.6%.", "carries": "what weak monetary policy transmission looks like"},
+      {"t": 268.2, "kind": "everyday_object", "what": "Your own savings, current or term deposit account, on which the bank pays you interest.", "carries": "why funds have a cost to the bank"},
+      {"t": 482.9, "kind": "what_if", "what": "If repo is cut, do loan rates fall; if raised, do they rise?", "carries": "how transmission is tested"}
+    ],
+    "closing": {"move": "question_to_viewer", "what": "Says MCLR improved transmission only a little, asks why and what RBI did next, and sends the viewer to the playlist; the next system is not named."},
+    "density": "About 25 terms (PLR, negotiation, standardisation, transparency, BPLR, most creditworthy customer, regularise, base rate, deregulate, monetary policy transmission, policy rate, repo, lending rate, deposit accounts, borrowing, cost to bank, cost of funds, marginal cost of funds, MCLR, tenure premium, term repo, long-term operations, minimum rate of return, CRR cost, operating expenses, spread, credit risk) in about 8.8 minutes, about 2.9 per minute, at a quick 188 words a minute. The reform chain keeps it followable; the 330-450 s calculation stretch is the densest and leans on the previous video."
+  },
+  "talmel": [
+    {"tile": 1, "t_shown": 3.6, "shown": "timeline header with a blue 1973-2003 bar labelled prime lending rate, and a bank icon", "said_gist": "in the last video we saw that from 1973 to 2003 banks followed the prime lending rate system", "naming_word": "2003", "lead": "together", "relation": "repeats_speech_as_text"},
+    {"tile": 2, "t_shown": 22.2, "shown": "red 'issues with this system' heading under the PLR panel of one bank and four customers with % tags", "said_gist": "in this kind of banking system there was no standardisation of any kind", "naming_word": "system", "lead": "together", "relation": "navigation"},
+    {"tile": 3, "t_shown": 37.6, "shown": "PLR panel clears; one bank and one customer holding a 5% tag", "said_gist": "in this system banks were asked (most creditworthy customers named about 4 s later; the 5% is never spoken)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 4, "t_shown": 44.2, "shown": "'interest rate' label linked by a line to the circled 5% on the customer", "said_gist": "at what percent of interest do you lend to your most creditworthy customers", "naming_word": "percent", "lead": "together", "relation": "names_the_term"},
+    {"tile": 5, "t_shown": 53.0, "shown": "four banks in a pink box headed BPLR (FIXED), RBI coin appearing below", "said_gist": "following this criterion RBI fixed the BPLR of all banks", "naming_word": "सभी banks", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 6, "t_shown": 86.2, "shown": "transparency and standardisation tags beside 'BPLR = minimum interest'", "said_gist": "an important step through which RBI tried to make banking transparent and standardised ('transparent' 1.6 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 7, "t_shown": 109.6, "shown": "report icon at the new 2010 tick with 'total bank lending below BPLR rate = 77%'", "said_gist": "RBI got a report made which found that even now (77% spoken 4 s later)", "naming_word": "रिपोर्ट", "lead": "voice_first", "relation": "repeats_speech_as_text"},
+    {"tile": 8, "t_shown": 122.0, "shown": "'BASE RATE' label under the 2010 tick", "said_gist": "RBI immediately changed its policy and in 2010 brought the base rate", "naming_word": "base", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 9, "t_shown": 131.4, "shown": "gold ring around one bank in the base-rate box", "said_gist": "the rate below which banks cannot lend to any customer; 'whenever a bank lends...' follows about 2 s later", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 10, "t_shown": 144.4, "shown": "second bank ringed; 'banks can fix their own base rate' line follows", "said_gist": "and this base rate all banks had to decide for themselves", "naming_word": "सभी banks", "lead": "together", "relation": "shows_the_step"},
+    {"tile": 11, "t_shown": 159.2, "shown": "transparency and standardisation tags beside the base-rate box (ticks come at 167 s)", "said_gist": "in this way RBI once again tried to make our banking sector transparent ('transparent' 2.8 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 12, "t_shown": 178.4, "shown": "lower canvas clears to RBI coin (monetary policy) and a bank (lending rates)", "said_gist": "monetary policy transmission means that whenever a country's central bank changes its policy rates...", "naming_word": "monetary policy transmission", "lead": "voice_first", "relation": "shows_the_step"},
+    {"tile": 13, "t_shown": 223.6, "shown": "'weak monetary policy transmission' with a blue line under the 1.25% → 0.6% band", "said_gist": "the effect is not showing on banks' lending rates, 'yaani' RBI's monetary policy transmission is weak", "naming_word": "monetary", "lead": "picture_first", "relation": "repeats_speech_as_text"},
+    {"tile": 14, "t_shown": 233.2, "shown": "'[calculation]' tag under base rate on the timeline", "said_gist": "the answer is simple: in the base rate calculation (said 1.3-1.9 s later)...", "naming_word": "base", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 15, "t_shown": 257.6, "shown": "'[calculation]' tag under MCLR at the 2016 tick", "said_gist": "RBI introduced the MCLR methodology; in MCLR's calculation...", "naming_word": "MCLR की calculation", "lead": "together", "relation": "names_the_term"},
+    {"tile": 16, "t_shown": 272.4, "shown": "'loan' arrow from the bank to a customer", "said_gist": "tell me: whenever a bank gives a loan to a customer (loan said 1.9 s later)", "naming_word": "Customer", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 17, "t_shown": 292.0, "shown": "'other banks / RBI' label with the start of a 'borrow' arrow", "said_gist": "besides that, if banks need, they can borrow from other banks or RBI (named 1.7-2.7 s later)", "naming_word": "", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 18, "t_shown": 314.0, "shown": "red 'cost to bank' label over the % loop back to other banks/RBI", "said_gist": "these funds do not come free to banks ('cost' said 5 s later)", "naming_word": "free में", "lead": "picture_first", "relation": "names_the_term"},
+    {"tile": 19, "t_shown": 328.6, "shown": "blue underline under base rate [calculation]", "said_gist": "with this understanding, first let us see the base rate calculation", "naming_word": "base", "lead": "picture_first", "relation": "navigation"},
+    {"tile": 20, "t_shown": 346.0, "shown": "blue underline under MCLR [calculation]", "said_gist": "but in the MCLR calculation...", "naming_word": "MCLR", "lead": "together", "relation": "navigation"},
+    {"tile": 21, "t_shown": 379.2, "shown": "MCLR tag widens into a blue box with 'marginal cost of funds based lending rates'", "said_gist": "since the lending rate is calculated on the basis of marginal cost of funds (full name 2.4 s later)", "naming_word": "marginal cost of funds", "lead": "voice_first", "relation": "names_the_term"},
+    {"tile": 22, "t_shown": 433.4, "shown": "green three-item lists under base rate and MCLR: minimum rate of return, cost of maintaining CRR, operating expenses", "said_gist": "the other three criteria used in MCLR are the same as in base rate (never named)", "naming_word": "बाकी तीनों criteria's", "lead": "together", "relation": "adds_new_info"},
+    {"tile": 23, "t_shown": 485.2, "shown": "RBI coin with 'monetary policy' and an arrow toward the bank's 'MCLR + spread'", "said_gist": "now we had to see whether after MCLR, RBI's policy changes show in lending rates", "naming_word": "RBI", "lead": "picture_first", "relation": "shows_the_step"},
+    {"tile": 24, "t_shown": 503.4, "shown": "blue frame round RBI and bank, with 'monetary policy transmission improved?' under a line", "said_gist": "whether after MCLR, transmission really improved (said 1.7-2.9 s later)", "naming_word": "", "lead": "picture_first", "relation": "repeats_speech_as_text"}
+  ],
+  "talmel_summary": "The picture usually runs 1-3 s ahead of the words: a customer, a report figure or a 'cost to bank' label is on screen before it is named, and only a third of tiles land together. Where it works, the picture shows the process, not the sentence: which way the RBI-bank arrows run, one number shrinking along a dotted arrow, deposits and borrowings flowing in while % loops flow out. Labels repeat speech for the goal tags and questions, and some items are shown but never spoken (customer % tags, the three green criteria).",
+  "voice": {"notes": "Judged from the transcript only: about 188 words a minute, steady storytelling of reforms with frequent 'yaani' unpacking and turns marked by 'but' or 'lekin' at each failure. Speaks to the viewer directly ('aap mere ek question ka answer dijiye') before the funds picture, uses 'dhyan dijiye' before the tenure caveat. Years and figures are read plainly (2003, 2010, 77%, 1.25%, 0.6%). Ends on a question rather than a recap; pauses and stress could not be judged."},
+  "game_ideas": [
+    {"from_t": 0.0, "mechanic": "build_timeline", "player_does": "Places PLR, BPLR, base rate and MCLR on the reform timeline; for each, picks from cards the problem it was meant to fix and the evidence that it fell short.", "process_happens": "Each correct placement plays its picture: negotiated % tags for PLR, RBI arrows rising into a FIXED box for BPLR, arrows reversing down to RBI for base rate, a repo-linked borrow line for MCLR; the evidence card (77% report, 1.25 vs 0.6) stamps the reform as fallen short.", "win": "A full chain where every reform answers the previous flaw.", "lose": "Putting base rate before BPLR leaves the 77% evidence with nothing to disprove; choosing 'RBI fixes rates' for base rate turns the arrows the wrong way and shows the deregulation it actually brought.", "concept": "base rate: each bank's own floor, deregulated"},
+    {"from_t": 168.2, "mechanic": "market_sim", "player_does": "Plays RBI: cuts or raises repo in quarter-point steps over a year, and switches banks between a base-rate rule (deposit cost only) and an MCLR rule (deposits plus repo-linked borrowings with a tenure premium).", "process_happens": "Each bank's funding cost is recalculated from its mix of old deposits and new borrowings, its lending rate moves, and a pass-through meter shows how much of the repo change reached borrowers.", "win": "Reach a target pass-through and see which rule lets more of the repo cut through.", "lose": "Under the base-rate rule a 1.25-point cut moves lending rates only about half as much, the meter stamps 'weak transmission', and the deposit-only formula lights up as the blockage.", "concept": "monetary policy transmission and why it was weak"},
+    {"from_t": 268.2, "mechanic": "allocate", "player_does": "Runs a bank: raises funds from depositors and from other banks/RBI, builds its MCLR from the cost parts (deposit cost, borrowing cost with tenure premium, CRR cost, operating cost, return), then quotes each customer MCLR + a spread by tenure and credit risk.", "process_happens": "Interest flows back to depositors and lenders as 'cost to bank'; each quoted loan shows profit or loss and whether the customer accepts.", "win": "Lend profitably to most customers without breaking the floor.", "lose": "Quoting below MCLR is blocked by the floor; ignoring borrowing cost makes loans lose money; too high a spread sends customers away.", "concept": "where a bank's funds come from and their cost"}
+  ],
+  "notes_questions": [
+    {"q": "PLR se MCLR tak lending rate systems ka timeline banaiye: har system kab aaya aur kyon?", "answer_shape": "timeline", "from_t": 0.0},
+    {"q": "BPLR kya tha, RBI ne ise minimum rate kyon maana, aur yeh assumption galat kaise sabit hui?", "answer_shape": "flow", "from_t": 28.1},
+    {"q": "BPLR aur base rate mein rate kaun tay karta tha? Fark batao.", "answer_shape": "comparison", "from_t": 118.8},
+    {"q": "Monetary policy transmission kya hai, aur 2015 mein ise weak kyon kaha gaya?", "answer_shape": "flow", "from_t": 168.2},
+    {"q": "Bank loan dene ke liye paisa kahan se laata hai, aur us paise ki cost kya hai?", "answer_shape": "picture", "from_t": 268.2},
+    {"q": "Base rate aur MCLR ki calculation mein kya fark hai? Repo rate kahan judta hai?", "answer_shape": "comparison", "from_t": 327.4},
+    {"q": "Loan ka interest rate MCLR aur spread se kaise banta hai?", "answer_shape": "flow", "from_t": 456.6}
+  ],
+  "checks_learned": [
+    "Arrow direction must match who acts: RBI→banks when RBI sets a rate, banks→RBI when banks report (done well here); a check can compare each spoken subject-verb-object with the arrow it draws.",
+    "Illustrative numbers on screen (customer tags 5%, 15%, 12%, 3%) must be spoken or marked 'example'; otherwise learners read them as real data.",
+    "A term's unpacking must match the glossary meaning: flag a 'yaani' line whose explanation differs from the stored definition (here 'marginal' explained as deposits plus borrowings).",
+    "Real figures tied to a date window (repo cut 1.25%, Jan 2015 - Apr 2016; 77% in a 2010 report) need a source and date check before reuse; flag figure-window mismatches.",
+    "List items shown but not spoken ('three criteria from the previous video') need at least a one-line spoken recall or a link card.",
+    "When the picture leads the naming word by more than about 2 s (77%, cost to bank), shift the visual or the line so they meet.",
+    "An open-question ending should name the next concept (the next system is not named here) so the notes chain does not stop mid-way."
+  ],
+  "teaching_best": [
+    {"t": 20.4, "why": "Each reform enters as the answer to the previous system's problem, and each exits with evidence that it fell short: the history becomes a chain of reasons, not a list of dates."},
+    {"t": 97.0, "why": "BPLR's core idea is named as an assumption and then disproved by one real number (77% lending below it)."},
+    {"t": 199.1, "why": "One pair of real numbers (repo -1.25%, lending -0.6%) defines weak transmission better than the definition does."},
+    {"t": 268.2, "why": "A direct question to the viewer (where does a bank get the money it lends?) builds 'cost to bank' from the viewer's own deposit account before the two calculations are compared."},
+    {"t": 509.1, "why": "An honest verdict (some improvement, not enough) followed by an open question keeps the chain going instead of pretending the problem was solved."}
+  ],
+  "teaching_weak": [
+    {"t": 361.2, "why": "'Marginal' is unpacked as adding borrowings to deposits; the usual meaning (cost of new funds versus an average) is not given. Describe, do not copy."},
+    {"t": 49.6, "why": "Says RBI fixed every bank's BPLR; usually each bank set its own BPLR under RBI guidance. Verify before reuse."},
+    {"t": 430.6, "why": "The three other cost criteria are skipped in speech ('seen in the previous video') while they sit on screen as green lists."},
+    {"t": 0.0, "why": "Starts the PLR era in 1973; the 2015-2016 repo figure and the report year also need checking."},
+    {"t": 522.0, "why": "Ends with 'why, and what next?' but names neither the reason nor the next system; the viewer is sent to the playlist."}
+  ]
+}
