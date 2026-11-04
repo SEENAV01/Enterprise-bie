@@ -1,0 +1,520 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "notespages",
+ "unit": "pages",
+ "status": "passed",
+ "instructions_version": "notes-pages/1",
+ "rulebook_version": "canvas_profile@2026-11-03.1+content_types@2026-10-27.1+econ_videos@2026-11-04.3+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-03.1+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3",
+ "rulebook_digest": "3765a033740d3a844a99b8c8d4ccbd45e53d6b7b862aecd9d58c069969f8e266",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "1a8301b6b281fd3ea390d680652a80dfbc6657f5ce9ae5ed69343a057a1d8699",
+ "card": null,
+ "prefix_sha256": "3e9405e57679cb46aacb750d580a37b5232182e6398e69d82164eb027223bba0",
+ "review_prefix_sha256": null,
+ "inputs": {
+  "system": "You are BIE's notes-page writer for a Indian Economy chapter for UPSC / State PCS aspirants. One question per page, the way Navin\ndesigned revision: question, essence (one line), answer (short), deep_dive (optional), and ONE visual that answers it —\n\"picture\" (the showing engine draws it: els = saanche/mini-people/texts on the 1920x1080 stage, texts >= 36px; the same\ndrawings as the lesson video), \"flow\" (steps), \"compare\" (columns + rows) or \"table\" (rows). Schema bie.notes-page/1.\nEvery page names the item_ids it answers from; every teachable concept of the chapter gets at least one page; nothing\ninvented beyond the items given. Saanche you may draw: accountCard, bank, barrier, bowl, bugs, building, calendar, cart, centralBank, charpai, cheque, clothRoll, clothStack, coin, coinStack, committee, cowries, crowd, disc, foreignNote, gauge, goldBar, hands, heap, institutionBadge, mark, matka, moneyBag, note, noteBundle, oilTin, paper, phone, piggyBank, priceTag, qrStand, ruler, sack, saltPacket, saw, segmentedBar, sweat, teaBrick, tobacco, vault, veg, wheat.\n[EV-S07] Institutions are shown by institutionBadge or a generic building with a name plate (centralBank for the RBI); never a real logo, emblem, seal, real landmark or real person.\n[EV-N01] One question per concept, answered by the shape that fits it: a flow for a process or cause (most common), a comparison or table for differences, a picture for a mechanism, a timeline for history, a tree for classes, a number for a calculation; the answer reuses the lesson's picture and running example.\n[EV-N02] Exam practice: each statement is checked against the one concept that decides it; a false statement is crossed and every option containing it is crossed too (elimination shown, not told).\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-04] Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[S7-01] Notes are question-based: what, why, how, who/whom, when/where, evidence, reasoning, insights, differences, limitations and exceptions, conclusion, chosen by the content. Three depths: quick essence, understand, deep dive. 'The book does not say' where the book is silent. Every statement links to its source page. What the book says and what is new now are kept apart; an update carries its source link and checked date.\n[S7-02] Visuals in notes are drawn by code from the content type: process as a flow, dates as a timeline, comparison as a difference table, numbers as a chart, cause and effect as a relationship diagram, main idea and branches as a concept map.",
+  "user": "Chapter: 3. Money.\nConcepts: [{\"concept_id\": \"c09\", \"name\": \"Gold-backed paper and selected paper-money milestones\", \"item_ids\": [\"p004-i1\", \"p004-i2\", \"p004-i4\", \"p004-i5\", \"p004-i6\", \"p004-i7\", \"p004-i18\", \"p004-i19\", \"p004-i20\", \"p004-i21\"]}, {\"concept_id\": \"c10\", \"name\": \"Fiat money and international currency examples\", \"item_ids\": [\"p004-i9\", \"p004-i10\", \"p004-i12\", \"p004-i13\", \"p004-i14\", \"p004-i15\", \"p004-i16\"]}, {\"concept_id\": \"c11\", \"name\": \"Legal tender, commemorative coins and acceptance limits\", \"item_ids\": [\"p004-i22\", \"p004-i23\", \"p004-i24\", \"p004-i25\", \"p004-i26\", \"p004-i27\", \"p005-i1\", \"p005-i2\", \"p005-i3\", \"p005-i5\", \"p005-i6\", \"p005-i9\", \"p005-i10\", \"p005-i11\"]}]\nTeachable items: [{\"item_id\": \"p004-i1\", \"content\": \"Gold-backed paper currency was paper money that could be exchanged for a fixed quantity of gold on demand. The paper itself had little intrinsic value; its value came from the promise that the issuing authority would redeem it in gold.\", \"kind\": \"definition\", \"content_type\": \"definition\"}, {\"item_id\": \"p004-i2\", \"content\": \"How it worked? A central bank held gold reserves. It issued paper notes. Anyone could (in principle) exchange those notes for a fixed amount of gold. This limited excessive money printing because every note required gold backing.\", \"kind\": \"list_point\", \"content_type\": \"cause_effect\"}, {\"item_id\": \"p004-i4\", \"content\": \"1661 | Sweden | First banknotes\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i5\", \"content\": \"1816 | Britain | Gold Standard\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i6\", \"content\": \"1944 | Bretton Woods | Dollar-gold link\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i7\", \"content\": \"1971 | Modern fiat | No gold redemption\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i9\", \"content\": \"It is money whose value comes from government authority and public trust rather than the intrinsic value of material from which it is made.\", \"kind\": \"definition\", \"content_type\": \"definition\"}, {\"item_id\": \"p004-i10\", \"content\": \"Characteristics of Fiat Money: No intrinsic value: Just paper or digital numbers. Not backed by commodities: Value not tied to gold or silver. Govt-issued: Central banks control production. Trust-based: Value relies on public’s faith in govt. Easily printed: Govts can print more in need. Highly regu\", \"kind\": \"list_point\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i12\", \"content\": \"$ | United States Dollar (USD) | The most widely held and traded fiat currency globally.\", \"kind\": \"diagram_label\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i13\", \"content\": \"€ | Euro (EUR) | Adopted by 20 of the 27 European Union member states, the euro is the second-most [caption ends here in the image].\", \"kind\": \"diagram_label\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i14\", \"content\": \"¥ | Japanese Yen (JPY) | Known for its stability, the yen is a major player in global currency markets.\", \"kind\": \"diagram_label\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i15\", \"content\": \"£ | British Pound Sterling (GBP) | The oldest fiat currency still in use, dating back to the 8th century.\", \"kind\": \"diagram_label\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i16\", \"content\": \"¥ | Chinese Yuan Renminbi (CNY) | Increasingly influential in global trade and international reserves.\", \"kind\": \"diagram_label\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i18\", \"content\": \"7th c. | Tang | Receipts\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i19\", \"content\": \"1023 | Song | State notes\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i20\", \"content\": \"1275 | Yuan | Compulsory\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i21\", \"content\": \"1971 | Modern | Fiat era\", \"kind\": \"diagram_label\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i22\", \"content\": \"Legal tender is a form of money that a government officially recognises as acceptable for settling debts and transactions within its territory.\", \"kind\": \"definition\", \"content_type\": \"definition\"}, {\"item_id\": \"p004-i23\", \"content\": \"It must be Fiat Money.\", \"kind\": \"list_point\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i24\", \"content\": \"Bitcoin is not a Fiat money, yet it was legal tender in El-Salvador (till 2024). But it is an exception.\", \"kind\": \"example\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i25\", \"content\": \"Legal to own and use voluntarily, but no longer compulsory legal tender in the practical sense after reforms in 2025.\", \"kind\": \"list_point\", \"content_type\": \"timeline\"}, {\"item_id\": \"p004-i26\", \"content\": \"Commemorative Coins = Fiat money yes but may or may not be legal tender (Most of them are).\", \"kind\": \"list_point\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p004-i27\", \"content\": \"Circulation commemorative coins: Released into circulation and usable like ordinary coins.\", \"kind\": \"definition\", \"content_type\": \"definition\"}, {\"item_id\": \"p005-i1\", \"content\": \"Collector commemorative coins: Sold in proof or UNC sets by the Government Mint and rarely used in everyday transactions.\", \"kind\": \"list_point\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p005-i2\", \"content\": \"₹100 silver commemorative coin can legally be used to pay ₹100, but collectors may pay several thousand rupees for it.\", \"kind\": \"example\", \"content_type\": \"comparison\"}, {\"item_id\": \"p005-i3\", \"content\": \"We can use cheque / credit card to pay fees. So, why are they not fiat money/legal tender?\", \"kind\": \"question\", \"content_type\": \"comparison\"}, {\"item_id\": \"p005-i5\", \"content\": \"Unlimited Legal Tender:\\nMust be accepted for any amount (subject to the note being genuine and valid).\\nBanknotes are unlimited legal tender in India.\\n₹10, ₹20, ₹50, ₹100, ₹200, ₹500 notes.\\nReserve Bank of India Act, 1934\", \"kind\": \"definition\", \"content_type\": \"definition\"}, {\"item_id\": \"p005-i6\", \"content\": \"Limited Legal Tender:\\nMust be accepted only up to a legally prescribed limit; beyond that, acceptance is voluntary.\\nCoinage Act, 2011\", \"kind\": \"definition\", \"content_type\": \"definition\"}, {\"item_id\": \"p005-i9\", \"content\": \"Coin: ₹1, ₹2, ₹5, ₹10, ₹20 coins | Legal Tender Limit: Up to ₹1,000\", \"kind\": \"table_row\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p005-i10\", \"content\": \"Coin: 50 paise coin | Legal Tender Limit: Up to ₹10\", \"kind\": \"table_row\", \"content_type\": \"facts_numbers\"}, {\"item_id\": \"p005-i11\", \"content\": \"Coin: Coins below 50 paise | Legal Tender Limit: No longer legal tender (demonetized)\", \"kind\": \"table_row\", \"content_type\": \"facts_numbers\"}]\n\nA page's exact shape (bie.notes-page/1), every required key present:\n{\"type\": \"object\", \"required\": [\"schema\", \"page_id\", \"ask\", \"question\", \"essence\", \"answer\", \"visual\", \"item_ids\"], \"properties\": {\"schema\": {\"type\": \"string\"}, \"page_id\": {\"type\": \"string\"}, \"ask\": {\"type\": \"string\"}, \"question\": {\"type\": \"string\"}, \"essence\": {\"type\": \"string\"}, \"answer\": {\"type\": \"string\"}, \"deep_dive\": {\"type\": \"string\"}, \"visual\": {\"type\": \"object\", \"required\": [\"kind\"], \"properties\": {\"kind\": {\"type\": \"string\", \"enum\": [\"picture\", \"flow\", \"compare\", \"table\"]}, \"title\": {\"type\": \"string\"}, \"caption\": {\"type\": \"string\"}, \"bg\": {\"type\": \"string\"}, \"els\": {\"type\": \"array\", \"items\": {\"type\": \"object\"}}, \"steps\": {\"type\": \"array\", \"items\": {\"type\": \"object\"}}, \"columns\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}, \"rows\": {\"type\": \"array\", \"items\": {\"type\": \"object\"}}}}, \"item_ids\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}, \"basis\": {\"type\": \"string\"}, \"not_in_book\": {\"type\": \"string\"}, \"pyq_item_ids\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}}}\nask is one of: what, why, how, who_whom, when_where, evidence, reasoning, insight, difference, limitation, conclusion.\nvisual by kind: picture needs els (each el a JSON object on the 1920x1080 stage); flow needs steps (each a JSON object with label); compare needs columns (strings) and rows (each a JSON object with label and cells, one cell per column); table needs rows (each a JSON object with label).\nquestion, essence, answer and deep_dive are plain strings, never objects or lists.\n\nReply with {\"notes\": ..., \"pages\": [bie.notes-page/1 ...]}."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1793800105.2785301,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "5b5c4ee875c0fac98cf1726b37e4175866951c01d15679104d6061559dfefe96",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 7025,
+    "output_tokens": 4126,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "Unit gold-backed paper se fiat money aur legal tender tak ka sambandh samjhata hai. Currency history, commemorative coins aur India ki acceptance limits alag revision questions mein rakhe hain.",
+    "key_questions": [
+     "Gold redemption paper ko value aur issuance ko constraint kaise deta tha?",
+     "Fiat value aur legal-tender status mein kya antar hai?",
+     "Paper-money milestones ko kaise padhein bina alag timelines ko milaye?",
+     "Commemorative coins aur payment instruments ko kaise classify karein?",
+     "India mein notes aur coins ki acceptance limits kya hain?"
+    ],
+    "decisions": [
+     {
+      "decision": "History ko chronological tables mein dikhaya.",
+      "reason": "Allowed visual schema mein timeline kind nahi hai; dated rows sequence saaf rakhte hain."
+     },
+     {
+      "decision": "Fiat aur legal tender ke absolute sambandh ko exception ke saath samjhaya.",
+      "reason": "Source ka 'must' claim uske Bitcoin exception ke bina misleading hoga."
+     },
+     {
+      "decision": "Har page par source-page references aur item_ids diye.",
+      "reason": "Learner-facing claims aur source mapping dono traceable rahen."
+     },
+     {
+      "decision": "Cheque/credit-card explanation ko outside clarification label diya.",
+      "reason": "Source question deta hai, uska explanatory answer nahi."
+     }
+    ],
+    "uncertain": [
+     "p004-i10 ka last characteristic 'Highly regu' par truncated hai; missing text reconstruct nahi kiya.",
+     "Euro caption 'second-most' ke baad incomplete hai; ranking complete nahi ki.",
+     "1661 'First banknotes' label ka scope unclear hai, kyunki source earlier Chinese notes bhi deta hai.",
+     "GBP ki 8th-century lineage ko us samay se fiat status nahi maana.",
+     "Euro membership aur El Salvador ke dated claims supplied text ke hain; independent current verification nahi hua."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Unit gold-backed paper se fiat money aur legal tender tak ka sambandh samjhata hai. Currency history, commemorative coins aur India ki acceptance limits alag revision questions mein rakhe hain.",
+     "key_questions": [
+      "Gold redemption paper ko value aur issuance ko constraint kaise deta tha?",
+      "Fiat value aur legal-tender status mein kya antar hai?",
+      "Paper-money milestones ko kaise padhein bina alag timelines ko milaye?",
+      "Commemorative coins aur payment instruments ko kaise classify karein?",
+      "India mein notes aur coins ki acceptance limits kya hain?"
+     ],
+     "decisions": [
+      {
+       "decision": "History ko chronological tables mein dikhaya.",
+       "reason": "Allowed visual schema mein timeline kind nahi hai; dated rows sequence saaf rakhte hain."
+      },
+      {
+       "decision": "Fiat aur legal tender ke absolute sambandh ko exception ke saath samjhaya.",
+       "reason": "Source ka 'must' claim uske Bitcoin exception ke bina misleading hoga."
+      },
+      {
+       "decision": "Har page par source-page references aur item_ids diye.",
+       "reason": "Learner-facing claims aur source mapping dono traceable rahen."
+      },
+      {
+       "decision": "Cheque/credit-card explanation ko outside clarification label diya.",
+       "reason": "Source question deta hai, uska explanatory answer nahi."
+      }
+     ],
+     "uncertain": [
+      "p004-i10 ka last characteristic 'Highly regu' par truncated hai; missing text reconstruct nahi kiya.",
+      "Euro caption 'second-most' ke baad incomplete hai; ranking complete nahi ki.",
+      "1661 'First banknotes' label ka scope unclear hai, kyunki source earlier Chinese notes bhi deta hai.",
+      "GBP ki 8th-century lineage ko us samay se fiat status nahi maana.",
+      "Euro membership aur El Salvador ke dated claims supplied text ke hain; independent current verification nahi hua."
+     ]
+    },
+    "pages": [
+     {
+      "schema": "bie.notes-page/1",
+      "page_id": "c09-01",
+      "ask": "how",
+      "question": "Gold-backed paper money kaam kaise karta tha?",
+      "essence": "Paper ki value uske material se nahi, fixed quantity of gold mein redemption ke promise se aati thi.",
+      "answer": "Central bank gold reserves rakhta aur paper notes issue karta tha. Note-holder, principle mein, note dekar fixed amount of gold le sakta tha. Isliye note sirf kagaz nahi, gold redemption ka claim tha. Har note ko gold backing chahiye thi, isliye excessive printing par constraint tha. [p004]",
+      "deep_dive": "Intrinsic value ka matlab material ki apni value hai; paper ki yeh value bahut kam thi. Note ki monetary value issuing authority ke gold dene ke promise par tikti thi. 'In principle' ko dhyan mein rakhein: supplied text practical restrictions ka detail nahi deta. [p004]",
+      "visual": {
+       "kind": "flow",
+       "title": "Gold reserve → note → gold redemption",
+       "steps": [
+        {
+         "label": "Central bank gold reserves rakhta hai"
+        },
+        {
+         "label": "Gold backing ke saath paper notes issue hote hain"
+        },
+        {
+         "label": "Holder note redemption ke liye deta hai"
+        },
+        {
+         "label": "Fixed quantity of gold milti hai — principle mein"
+        },
+        {
+         "label": "Gold backing ki zaroorat → excessive printing par constraint"
+        }
+       ],
+       "caption": "Value ka base: redemption promise, paper ka material nahi. [p004]"
+      },
+      "item_ids": [
+       "p004-i1",
+       "p004-i2"
+      ]
+     },
+     {
+      "schema": "bie.notes-page/1",
+      "page_id": "c09-02",
+      "ask": "when_where",
+      "question": "Gold-linked paper se modern fiat tak book kaun-se milestones deti hai?",
+      "essence": "1661, 1816, 1944 aur 1971 book ki selected milestones hain, complete history nahi.",
+      "answer": "Book Sweden ke 1661 milestone ko 'First banknotes', Britain ke 1816 milestone ko Gold Standard, aur 1944 Bretton Woods ko dollar–gold link ke roop mein dikhati hai. 1971 modern fiat ka milestone hai: gold redemption nahi. [p004]",
+      "deep_dive": "1661 ka 'first' label universal first ke roop mein na padhein: isi page ki doosri timeline earlier Chinese receipts aur state notes bhi deti hai. Book is label ka precise geographical ya institutional scope nahi batati. [p004]",
+      "visual": {
+       "kind": "table",
+       "title": "Selected milestones [p004]",
+       "rows": [
+        {
+         "label": "1661 | Sweden | 'First banknotes' — source label; scope unclear"
+        },
+        {
+         "label": "1816 | Britain | Gold Standard"
+        },
+        {
+         "label": "1944 | Bretton Woods | Dollar–gold link"
+        },
+        {
+         "label": "1971 | Modern fiat | No gold redemption"
+        }
+       ]
+      },
+      "item_ids": [
+       "p004-i4",
+       "p004-i5",
+       "p004-i6",
+       "p004-i7"
+      ]
+     },
+     {
+      "schema": "bie.notes-page/1",
+      "page_id": "c09-03",
+      "ask": "when_where",
+      "question": "Chinese paper-money milestones se fiat era tak kya sequence diya hai?",
+      "essence": "Receipts → state notes → compulsory use → modern fiat: book yeh selected sequence dikhati hai.",
+      "answer": "7th century mein Tang ke saath receipts, 1023 mein Song ke saath state notes, aur 1275 mein Yuan ke saath 'Compulsory' label diya hai. 1971 ko modern fiat era dikhaya gaya hai. In labels se aage institutional details book ke supplied text mein nahi hain. [p004]",
+      "visual": {
+       "kind": "table",
+       "title": "Paper-money timeline [p004]",
+       "rows": [
+        {
+         "label": "7th century | Tang | Receipts"
+        },
+        {
+         "label": "1023 | Song | State notes"
+        },
+        {
+         "label": "1275 | Yuan | Compulsory"
+        },
+        {
+         "label": "1971 | Modern | Fiat era"
+        }
+       ]
+      },
+      "item_ids": [
+       "p004-i18",
+       "p004-i19",
+       "p004-i20",
+       "p004-i21"
+      ]
+     },
+     {
+      "schema": "bie.notes-page/1",
+      "page_id": "c10-01",
+      "ask": "what",
+      "question": "Fiat money ki value kahan se aati hai?",
+      "essence": "Fiat money government authority aur public trust par tikta hai, gold backing ya material value par nahi.",
+      "answer": "Fiat money paper ya digital numbers ho sakta hai; uski monetary value material ki intrinsic value se nahi aati. Yeh gold ya silver jaise commodities se backed nahi hota. Government-issued system mein central banks production control karte hain; public ka government par faith iski value ka base hai. Zaroorat par aur money issue kiya ja sakta hai. [p004]",
+      "deep_dive": "'Easily printed' ko gold-backed system ke contrast mein samjhein: extra issuance ke liye gold backing ki condition nahi hai. Iska matlab yeh nahi ki paper khud valuable commodity ban gaya. Source ki final characteristic 'Highly regu' par cut hai; uska complete statement available nahi. [p004]",
+      "visual": {
+       "kind": "compare",
+       "title": "Value ka base kya hai? [p004]",
+       "columns": [
+        "Gold-backed paper",
+        "Fiat money"
+       ],
+       "rows": [
+        {
+         "label": "Value ka anchor",
+         "cells": [
+          "Fixed gold redemption ka promise",
+          "Government authority + public trust"
+         ]
+        },
+        {
+         "label": "Gold/silver backing",
+         "cells": [
+          "Gold backing required",
+          "Commodity backing nahi"
+         ]
+        },
+        {
+         "label": "Paper ka material",
+         "cells": [
+          "Apni value bahut kam",
+          "Monetary value ka base nahi"
+         ]
+        },
+        {
+         "label": "Issuance",
+         "cells": [
+          "Gold backing constraint",
+          "Central-bank control; need par aur issue ho sakta hai"
+         ]
+        }
+       ]
+      },
+      "item_ids": [
+       "p004-i9",
+       "p004-i10",
+       "p004-i1",
+       "p004-i2"
+      ]
+     },
+     {
+      "schema": "bie.notes-page/1",
+      "page_id": "c10-02",
+      "ask": "what",
+      "question": "Book international fiat currencies ke kaun-se examples deti hai?",
+      "essence": "USD, EUR, JPY, GBP aur CNY examples hain; symbol ke saath currency code bhi padhein.",
+      "answer": "Book USD ko globally most widely held aur traded fiat currency batati hai; EUR ke liye 27 EU members mein se 20 ka adoption deti hai. JPY stability aur global currency markets mein role ke liye, GBP apni purani lineage ke liye, aur CNY global trade aur international reserves mein badhte influence ke liye diya hai. Yeh supplied book ke claims hain, live update nahi. [p004]",
+      "deep_dive": "EUR ka 'second-most' caption incomplete hai, isliye ranking complete nahi ki gayi. GBP ko book oldest fiat currency still in use kehti hai aur lineage 8th century tak le jaati hai; lineage ko 8th century se fiat status ka proof na samjhein. ¥ symbol JPY aur CNY dono ke liye diya hai, isliye codes distinction saaf karte hain. [p004]",
+      "visual": {
+       "kind": "table",
+       "title": "International examples — book ke mutabik [p004]",
+       "rows": [
+        {
+         "label": "$ | USD | United States Dollar — globally most widely held aur traded fiat currency"
+        },
+        {
+         "label": "€ | EUR | Euro — 20 of 27 EU members; remaining ranking caption incomplete"
+        },
+        {
+         "label": "¥ | JPY | Japanese Yen — stability; global currency markets mein major role"
+        },
+        {
+         "label": "£ | GBP | British Pound Sterling — book: oldest fiat still in use; currency lineage 8th century"
+        },
+        {
+         "label": "¥ | CNY | Chinese Yuan Renminbi — global trade aur reserves mein growing influence"
+        }
+       ]
+      },
+      "item_ids": [
+       "p004-i12",
+       "p004-i13",
+       "p004-i14",
+       "p004-i15",
+       "p004-i16"
+      ]
+     },
+     {
+      "schema": "bie.notes-page/1",
+      "page_id": "c11-01",
+      "ask": "difference",
+      "question": "Fiat money aur legal tender kya ek hi cheez hain?",
+      "essence": "Fiat value ka basis batata hai; legal tender official acceptance status batata hai.",
+      "answer": "Legal tender woh money hai jise government apne territory mein debts aur transactions settle karne ke liye officially recognise karti hai. Fiat money ki definition government authority aur public trust par based hai. Book legal tender ke liye 'must be Fiat Money' likhti hai, lekin Bitcoin exception bhi deti hai; isliye is line ko exception-free universal rule na banayein. [p004]",
+      "deep_dive": "Book ke mutabik Bitcoin fiat nahi tha, phir bhi El Salvador mein 2024 tak legal tender tha. Supplied text 2025 reforms ke baad ownership aur voluntary use ko legal batata hai, lekin practical sense mein compulsory legal tender nahi. Yeh dated book account hai; independently checked current update nahi. [p004]",
+      "visual": {
+       "kind": "compare",
+       "title": "Definition aur exception ko saath padhein [p004]",
+       "columns": [
+        "Fiat money",
+        "Legal tender"
+       ],
+       "rows": [
+        {
+         "label": "Sawal",
+         "cells": [
+          "Value kis basis par hai?",
+          "Officially settlement ke liye recognised hai?"
+         ]
+        },
+        {
+         "label": "Core idea",
+         "cells": [
+          "Government authority + public trust",
+          "Territory ke andar legal recognition"
+         ]
+        },
+        {
+         "label": "Bitcoin: book account, till 2024",
+         "cells": [
+          "Fiat nahi",
+          "El Salvador mein exception"
+         ]
+        },
+        {
+         "label": "2025 reforms: book account",
+         "cells": [
+          "Non-fiat classification",
+          "Voluntary use legal; practical compulsory status nahi"
+         ]
+        }
+       ]
+      },
+      "item_ids": [
+       "p004-i9",
+       "p004-i22",
+       "p004-i23",
+       "p004-i24",
+       "p004-i25"
+      ]
+     },
+     {
+      "schema": "bie.notes-page/1",
+      "page_id": "c11-02",
+      "ask": "difference",
+      "question": "Circulation aur collector commemorative coins mein kya farq hai?",
+      "essence": "Commemorative coin ka everyday use, legal-tender status aur collector price alag baatein hain.",
+      "answer": "Book commemorative coins ko fiat money batati hai, lekin legal tender hona coin par depend karta hai; book ke mutabik most legal tender hote hain. Circulation commemorative coins ordinary coins ki tarah use ke liye circulation mein release hote hain. Collector coins Government Mint ke proof ya UNC sets mein bikte hain aur everyday transactions mein rarely use hote hain. [p004–p005]",
+      "deep_dive": "Book ka ₹100 silver commemorative coin example: legally ₹100 payment ki ja sakti hai, par collectors several thousand rupees de sakte hain. Payment ke liye denomination aur collectible ke liye market price ko mix na karein. Yeh example har commemorative coin ke legal-tender status ki guarantee nahi hai. [p005]",
+      "visual": {
+       "kind": "compare",
+       "title": "Commemorative coins [p004–p005]",
+       "columns": [
+        "Circulation",
+        "Collector"
+       ],
+       "rows": [
+        {
+         "label": "Release / sale",
+         "cells": [
+          "Circulation mein release",
+          "Government Mint: proof ya UNC sets"
+         ]
+        },
+        {
+         "label": "Everyday use",
+         "cells": [
+          "Ordinary coins ki tarah usable",
+          "Rarely everyday transactions mein"
+         ]
+        },
+        {
+         "label": "Legal-tender status",
+         "cells": [
+          "Specific coin ka status dekhein",
+          "Collector label se status decide nahi hota"
+         ]
+        },
+        {
+         "label": "Book ka ₹100 silver example",
+         "cells": [
+          "Legal payment value: ₹100",
+          "Collector several thousand rupees de sakta hai"
+         ]
+        }
+       ],
+       "caption": "Book: commemoratives fiat hain; legal tender ho bhi sakte hain, nahi bhi — most hote hain."
+      },
+      "item_ids": [
+       "p004-i26",
+       "p004-i27",
+       "p005-i1",
+       "p005-i2"
+      ]
+     },
+     {
+      "schema": "bie.notes-page/1",
+      "page_id": "c11-03",
+      "ask": "why",
+      "question": "Fees cheque ya credit card se pay kar sakte hain, phir yeh fiat money/legal tender kyun nahi?",
+      "essence": "Payment karne ka instrument hona aur khud legal-tender money hona alag hai.",
+      "answer": "Book yeh question poochti hai, lekin supplied text iska answer nahi deta. Outside textbook clarification: cheque bank ko payment ka instruction hai; credit card credit ke through payment karne ka instrument hai. Inse payment ho sakta hai, par yeh khud government-issued fiat currency nahi ban jaate, aur recipient ko in instruments ko accept karne ki general legal-tender compulsion nahi hoti. [Question: p005; definitions: p004]",
+      "visual": {
+       "kind": "compare",
+       "title": "Outside clarification: instrument ≠ money",
+       "columns": [
+        "Cheque",
+        "Credit card"
+       ],
+       "rows": [
+        {
+         "label": "Kya karta hai?",
+         "cells": [
+          "Bank ko payment instruction",
+          "Credit ke through payment enable"
+         ]
+        },
+        {
+         "label": "Khud fiat currency?",
+         "cells": [
+          "Nahi",
+          "Nahi"
+         ]
+        },
+        {
+         "label": "Acceptance",
+         "cells": [
+          "Payment arrangement par depend",
+          "Payment arrangement par depend"
+         ]
+        },
+        {
+         "label": "Concept",
+         "cells": [
+          "Payment instrument",
+          "Payment instrument"
+         ]
+        }
+       ],
+       "caption": "Book question deta hai; explanation standard textbook-level outside clarification hai."
+      },
+      "item_ids": [
+       "p005-i3",
+       "p004-i9",
+       "p004-i22"
+      ],
+      "not_in_book": "Cheque as payment instruction aur credit card as credit-based payment instrument ka explanatory answer supplied items mein nahi hai; outside textbook clarification ke roop mein diya hai."
+     },
+     {
+      "schema": "bie.notes-page/1",
+      "page_id": "c11-04",
+      "ask": "difference",
+      "question": "India mein unlimited aur limited legal tender mein kya farq hai?",
+      "essence": "Valid banknotes ki amount limit nahi; coins ke liye legally prescribed acceptance limits hain.",
+      "answer": "Unlimited legal tender kisi bhi amount ke liye accept kiya jana chahiye, provided note genuine aur valid ho. Book ₹10, ₹20, ₹50, ₹100, ₹200 aur ₹500 banknotes list karti hai aur RBI Act, 1934 ka reference deti hai. Limited legal tender mein prescribed limit tak acceptance compulsory hai; uske beyond voluntary. Coins ke liye book Coinage Act, 2011 ka reference deti hai. [p005]",
+      "deep_dive": "₹1, ₹2, ₹5, ₹10 aur ₹20 coins ki tender limit ₹1,000 hai; 50 paise coins ki ₹10. Yeh payment/tender ki amount limits hain, coin rakhne ki limits nahi. Limit ke beyond voluntary acceptance aur demonetized coin ka no-legal-tender status ek baat nahi: 50 paise se neeche ke coins ab legal tender nahi hain. [p005]",
+      "visual": {
+       "kind": "table",
+       "title": "India: book ki legal-tender limits [p005]",
+       "rows": [
+        {
+         "label": "Banknotes: ₹10, ₹20, ₹50, ₹100, ₹200, ₹500 | Unlimited amount; genuine aur valid | RBI Act, 1934"
+        },
+        {
+         "label": "Coins: ₹1, ₹2, ₹5, ₹10, ₹20 | Up to ₹1,000 | Coinage Act, 2011"
+        },
+        {
+         "label": "50 paise coins | Up to ₹10 | Coinage Act, 2011"
+        },
+        {
+         "label": "Limited-tender amount se beyond | Acceptance voluntary"
+        },
+        {
+         "label": "Coins below 50 paise | Demonetized; no longer legal tender"
+        }
+       ],
+       "caption": "Unlimited ka matlab invalid ya non-genuine note accept karna nahi."
+      },
+      "item_ids": [
+       "p005-i5",
+       "p005-i6",
+       "p005-i9",
+       "p005-i10",
+       "p005-i11"
+      ]
+     }
+    ]
+   },
+   "code_problems": [],
+   "passed": true,
+   "finished_at": 1793800206.6723938
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.0,
+ "seconds": 101.4,
+ "navin_verdict": null
+}
