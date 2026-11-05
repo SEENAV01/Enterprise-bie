@@ -58,6 +58,18 @@ class Narration(unittest.TestCase):
         self.assertIs(GoldTimeline, narration.Timeline)
 
 
+    def test_the_spoken_order_is_never_changed(self):
+        """A part that comes back later is a new scene at its own place (Sloman chapter 18: a closing recap with part
+        "" played right after the hook)."""
+        beat = lambda b, p: {"beat_id": b, "part_id": p, "say": f"यह {b} है।"}  # noqa: E731
+        video = {"beats": [beat("b1", ""), beat("b2", "p1"), beat("b3", "p2"), beat("b4", "p1"), beat("b5", "")]}
+        script = narration.script_of(video)
+        self.assertEqual([sc["id"] for sc in script], ["part", "p1", "p2", "p1-2", "part-2"])
+        self.assertEqual([l["id"] for sc in script for l in sc["lines"]], ["b1", "b2", "b3", "b4", "b5"])
+        T = narration.Timeline(script)
+        self.assertLess(T.L("b4")["t0"], T.L("b5")["t0"])
+
+
 class DirectorStep(unittest.TestCase):
     def test_the_step_carries_the_vocabulary_the_saanche_and_the_gold_example(self):
         video = LESSON["videos"][0]
