@@ -52,6 +52,7 @@ refuses, naming both things, the second and the way out):
 - everything stays inside the 1920x1080 frame after the camera (words always whole; a thing may be cropped only while
   the camera is zoomed in), and the kicker pill at the top left (x 46.., y 41-107) stays clear;
 - the words inside a thing are at least 36px on screen: each saancha below says the scale s its words need;
+- every text stays on screen at least 1.5 s (never a text that appears just before its scene ends);
 - never a caution or fact-check word on screen (hypothetical, illustrative, imagined, maan lijiye, data not given...);
 - {language_rule}
 DIKHAYA-BOLA (Navin: "jo bola, woh dikhe"; the compiler checks it): every thing a line names is ON SCREEN while that line
