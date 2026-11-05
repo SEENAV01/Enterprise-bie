@@ -123,7 +123,15 @@ function itemSvg(el, t, assets) {
   if (el.draw) {
     const d = DRAWS[el.draw];
     let p = el.p || {}, last = el.t0 ?? 0;
-    for (const s of el.steps || []) if (t >= s.t && s.p) { p = { ...p, ...s.p }; last = s.t; }   // a content change on its cue word
+    for (const s of el.steps || []) if (t >= s.t && s.p) {                          // a content change on its cue word
+      const prev = p;
+      p = { ...p, ...s.p }; last = s.t;
+      const d = Number(s.d) || 0;                                                     // d: numbers glide over d seconds
+      if (d > 0 && t < s.t + d) {
+        const u = (t - s.t) / d, e = u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+        for (const k of Object.keys(s.p)) if (typeof s.p[k] === "number" && typeof prev[k] === "number") p[k] = prev[k] + (s.p[k] - prev[k]) * e;
+      }
+    }
     // _t: seconds since the thing appeared (a process keeps moving); _s: since its last step (a graph line drawn on the word)
     const svg = drawSaancha(el.draw, { ...p, _t: Math.max(0, t - (el.t0 ?? 0)), _s: Math.max(0, t - last) });
     if (d && d.anchor === "bottom") return svg;      // stands on its origin like a person

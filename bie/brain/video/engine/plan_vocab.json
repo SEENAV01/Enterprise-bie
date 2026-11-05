@@ -16,7 +16,7 @@
              "expr": "one of exprs (default smile)", "t0": "time (default scene start)", "t1": "time or null", "z": "layer (default 10)"},
   "item": {"thing": "a thing (below)", "x": "x", "y": "y", "s": "scale (default 1)", "z": "layer (default 20)",
            "t0": "time", "t1": "time or null", "enter": "pop | fade | none",
-           "keys": "moves [{t, d, x?, y?, s?}]", "steps": "content changes [{t, p}]: from t on, a drawn thing takes these changed parameters (a vault opens, a jar fills, a world turns to night)"},
+           "keys": "moves [{t, d, x?, y?, s?}]", "steps": "content changes [{t, p, d?}]: from t on, a drawn thing takes these changed parameters (a vault opens, a jar fills, a world turns to night); with d the numbers glide from their old values over d seconds (a bar grows, a level rises)"},
   "text": {"text": "the words", "x": "centre x", "y": "centre y", "size": "px on the 1080 stage (>= 36 after the camera)",
            "style": "tag | pill | plain | title", "w": "wrap width px", "bg": "pill/tag colour", "fill": "text colour",
            "t0": "time", "t1": "time or null", "z": "layer (default 40)", "steps": "text changes [{t, text}]"},

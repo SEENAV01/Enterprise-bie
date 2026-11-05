@@ -210,8 +210,25 @@ class Worlds(unittest.TestCase):
         self.assertEqual(a, b)                                        # a process is a pure function of its time
         self.assertNotEqual(a, c)                                     # and its tokens travel as the video plays
         engine = (ENGINE / "engine.mjs").read_text(encoding="utf-8")
-        self.assertIn("if (t >= s.t && s.p) { p = { ...p, ...s.p }; last = s.t; }", engine)
+        self.assertIn("p = { ...p, ...s.p }; last = s.t;", engine)
         self.assertIn("_t: Math.max(0, t - (el.t0 ?? 0)), _s: Math.max(0, t - last)", engine)
+
+    def test_a_step_may_glide_its_numbers(self):
+        """A step with d makes the numbers glide from their old values over d seconds (a bar grows, a level rises)."""
+        engine = (ENGINE / "engine.mjs").read_text(encoding="utf-8")
+        self.assertIn("const d = Number(s.d) || 0;", engine)
+        self.assertIn("p[k] = prev[k] + (s.p[k] - prev[k]) * e;", engine)
+        from bie.brain.video import narration, showplan
+        from bie.brain.video.showplan import Recorder, plan_of
+        T = narration.Timeline([{"id": "A", "lines": [{"id": "l01", "sub": "जार भरता है।", "say_parts": ["जार भरता है।"]}]}])
+        def plan(d):
+            s = Recorder("A", ["l01"], "paper")
+            s.item({"draw": "coinJar", "p": {"w": 300}}, 960, 700, t0=0.2, steps=[{"t": 0.5, "p": {"w": 400}, "d": d}])
+            return plan_of([s])
+        showplan.compile_plan(plan(1.5), T, width=1920, height=1080)
+        with self.assertRaises(showplan.PlanProblems) as bad:
+            showplan.compile_plan(plan(99), T, width=1920, height=1080)
+        self.assertIn("d must be 0-30 seconds", "\n".join(bad.exception.problems))
 
     @unittest.skipUnless(shutil.which("node"), "needs node (the toolbox lane has it)")
     def test_the_graph_is_built_at_the_voice_speed(self):
