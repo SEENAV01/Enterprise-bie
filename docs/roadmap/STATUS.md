@@ -122,6 +122,14 @@ shape in the writer's prompt, #144 the render counts either spec kind + the one 
 video), SEEKH_LOG entries 42–46. Parts A–E are INTEGRATED on a real chapter; nothing is ACCEPTED until Navin's
 verdict. Interim renders stay captions-only (voice waits on his yes).
 
+## Navin's rule of 5 November 2026: decision cards
+
+Recorded in CLAUDE.md ("How work is done", Decision cards), in his words: a decision that is his comes to him as an
+AskUserQuestion card with 2–4 options, the recommended one first; work that does not wait on it is done first; a
+reversible decision he does not answer proceeds on the recommended option and the report says so; money, security and
+quality verdicts never without him; a message he sends mid-task joins the running task and stops it only when he says
+"ruko".
+
 ## Navin's verdict on Money v4 and the box rule (5 November 2026)
 
 Navin, 5 November 2026: "Verdict: v4 abhi ACCEPT nahi. Takraav v2 se ~13 guna (audit overlap seconds ~470 vs 36; kuch

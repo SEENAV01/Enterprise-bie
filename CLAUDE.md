@@ -48,6 +48,15 @@ Book → LLM → Remotion shortcut.
   not a BIE capability until BIE makes the same kind of video itself, through its own sections.
 - **Fast track to one button (Navin, 30 Oct 2026).** Section by section: before building a section, ask Navin what he expects
   from it (in his words), then build it to that.
+- **Decision cards (Navin, 5 Nov 2026).** In his words: "kaam ke beech mera faisla chahiye ho to AskUserQuestion se 2–4
+  options wala card bhejo, sujhaya option pehle "(Recommended)" ke saath, taaki main tap karke chun sakun. Jo kaam faisle
+  par nirbhar nahi, woh pehle poora karo; card uske baad. Badla ja sakne wala faisla ho aur main jawab na doon, to sujhaya
+  option lekar aage badho aur report mein likho. Paise, security aur quality verdict mere bina kabhi nahi. Kaam ke beech
+  mera bheja message naya kaam nahi hai: use chal rahe kaam ke saath padho aur kaam mat roko, jab tak main "ruko" na kahun."
+  So: a decision that is his goes to him as a tappable card (2–4 options, the recommended one first); work that does not
+  wait on it is finished first; a reversible decision left unanswered proceeds on the recommended option and the report
+  says so; money (budget, paid routes), security-sensitive changes and quality verdicts always wait for his answer; a
+  message he sends mid-task is read into the running task, and only "ruko" stops it.
 - **Caution lines stay off the screen (Navin, 30 Oct 2026).** Caution and fact-check lines ("मान लीजिए", "illustrative",
   "the source does not say") are background checks: they live in the records and the review pages, never on the learner's
   screen (rule D1-06 in `bie/brain/rulebook/visual_verbs.json`).
