@@ -7,22 +7,22 @@ import { world } from "./worlds.mjs";
 import { FAMILY_DRAWS } from "./families/index.mjs";
 import { svgBounds } from "./boxes.mjs";
 
-const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const FONT = "'Noto Sans', 'Noto Sans Devanagari', sans-serif";
-const INK = "#2b2b33";
+export const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+export const FONT = "'Noto Sans', 'Noto Sans Devanagari', sans-serif";
+export const INK = "#2b2b33";
 
-function shade(hex, f = 0.72) {
+export function shade(hex, f = 0.72) {
   const n = parseInt(hex.slice(1), 16);
   const c = (v) => Math.max(0, Math.min(255, Math.round(v * f)));
   return `#${((c(n >> 16) << 16) | (c((n >> 8) & 255) << 8) | c(n & 255)).toString(16).padStart(6, "0")}`;
 }
 
-function rnd(seed) {
+export function rnd(seed) {
   let x = seed >>> 0 || 1;
   return () => ((x = (x * 1103515245 + 12345) >>> 0), x / 4294967296);
 }
 
-const label = (text, y, size, fill = INK, weight = 700) =>
+export const label = (text, y, size, fill = INK, weight = 700) =>
   text ? `<text x="0" y="${y}" font-family=${JSON.stringify(FONT)} font-size="${size}" font-weight="${weight}" fill="${fill}" text-anchor="middle">${esc(text)}</text>` : "";
 
 // ---------------------------------------------------------------- things
@@ -296,9 +296,9 @@ function phone(p) {
 // Learned from 37 Indian-economy reference videos (asset_intake/econ_kit, rules/show_lexicon.json): the things those
 // videos draw most that the Money v2 set lacked. BIE's own drawings: no logos, emblems, seals or real persons — an
 // institution is shown by institutionBadge (the references showed real logos in 25 of 37 videos).
-const tx = (text, x, cy, size, fill = INK, weight = 700) =>
+export const tx = (text, x, cy, size, fill = INK, weight = 700) =>
   text === "" || text == null ? "" : `<g transform="translate(${x},0)">` + label(String(text), cy + size * 0.35, size, fill, weight) + `</g>`;
-const clamp01 = (v) => Math.max(0, Math.min(1, Number(v) || 0));
+export const clamp01 = (v) => Math.max(0, Math.min(1, Number(v) || 0));
 
 const BADGE_KINDS = {
   central_bank: ["#138a8a", "coin"], bank: ["#3a7bd5", "columns"], government: ["#e07b24", "dome"],
@@ -717,9 +717,9 @@ export function markSvg(kind, w, color, k = 1) {
 // The rest of the 57-video needs list: a coin jar that fills, pillars that hold a roof (one can crack), a briefcase,
 // a winners' podium, a staircase of steps, a desk with its chair, a chair, and a rope / rod / chain that ties two
 // things. Whole places behind the lesson (market, bank hall, port, ...) are the world saancha (worlds.mjs).
-const parts = (s) => String(s ?? "").split(";").map((t) => t.trim());
-const idxSet = (s) => new Set(String(s ?? "").split(",").map((t) => parseInt(t, 10)).filter((v) => v > 0));
-const fit = (t, maxW, cap) => Math.min(cap, (maxW * 0.92) / Math.max(1, String(t).length) * 1.75);
+export const parts = (s) => String(s ?? "").split(";").map((t) => t.trim());
+export const idxSet = (s) => new Set(String(s ?? "").split(",").map((t) => parseInt(t, 10)).filter((v) => v > 0));
+export const fit = (t, maxW, cap) => Math.min(cap, (maxW * 0.92) / Math.max(1, String(t).length) * 1.75);
 
 function coinJar(p) {
   const w = p.w || 160, h = w * 1.25, f = clamp01(p.fill == null ? 0.5 : p.fill), lid = p.color || "#c0563f";
@@ -995,8 +995,8 @@ function gapBars(p) {
 // The economy videos carry most meaning by diagram (39% of segments): a timeline (62 segment-uses), a table (55) and a
 // graph (35) led the needs list, and the scene-plan engine had none. Each is one parametric saancha whose parts can be
 // revealed through steps (upto) and highlighted (at, glow); a graph's curves draw themselves (drawIn seconds).
-const DIAG = ["#2459a6", "#e5484d", "#2fa35b", "#f29f05", "#7b61ff", "#2a9d8f"];
-const isNum = (v) => v !== "" && v != null && Number.isFinite(Number(v));
+export const DIAG = ["#2459a6", "#e5484d", "#2fa35b", "#f29f05", "#7b61ff", "#2a9d8f"];
+export const isNum = (v) => v !== "" && v != null && Number.isFinite(Number(v));
 
 function timeline(p) {
   const w = p.w || 1500, h = w * 0.3, ev = parts(p.events).filter(Boolean).slice(0, 12).map((e) => { const i = e.indexOf(":");
@@ -1057,7 +1057,7 @@ function table(p) {
     (rowW ? `<path d="M${x0 + rowW} ${y0} L${x0 + rowW} ${y0 + H}" stroke="#9aa5b1" stroke-width="${Math.max(2, w * 0.003)}"/>` : "");
 }
 
-function smoothPath(pts) {
+export function smoothPath(pts) {
   if (pts.length < 3) return pts.map((q, i) => `${i ? "L" : "M"}${q[0].toFixed(1)} ${q[1].toFixed(1)}`).join(" ");
   let d = `M${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
   for (let i = 0; i < pts.length - 1; i++) {
@@ -1160,7 +1160,7 @@ function graph(p) {
   });
   return out + (p.title ? tx(p.title, 0, T - h * 0.07, fit(p.title, w * 0.8, fs * 1.2), INK, 800) : "");
 }
-const easeIO = (x) => (x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2);
+export const easeIO = (x) => (x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2);
 const AREA = ["#f4a261", "#2a9d8f", "#e76f51", "#8ecae6", "#b5838d", "#90be6d"];
 
 // A funnel (much goes in, a part comes out: reserve money into the money multiplier, many inputs into one result)
