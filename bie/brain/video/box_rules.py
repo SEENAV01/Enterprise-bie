@@ -12,7 +12,8 @@ more while both are on screen:
 4. anything is cut by the frame edge after the camera, or sits under the kicker;
 5. a word inside a thing is under the 36 px floor on screen (its saancha label, after the thing's scale and the camera);
 6. a caution or fact-check line reaches the screen (D1-06; never on screen, a background check);
-7. in a Hindi video, a screen label is English (it is written in Devanagari; an English term may follow in brackets).
+7. in a Hindi video, a screen label is English (it is written in Devanagari; an English term may follow in brackets);
+8. a text is on screen for less than 1.5 s (it flashes before a cut and cannot be read).
 
 Each problem names the scene, the two things, the second and the way out, for the director to patch. Marks, arrows and
 glows point at things on purpose and never count as things here (they still keep to the frame and the zones).
@@ -34,6 +35,7 @@ ZONE_SHARE = 0.15
 EDGE = 8.0                  # px a box may graze the frame edge
 ZOOMED = 1.05               # above this camera zoom a cropped thing is the camera's framing (words never are)
 FLOOR_PX = 36.0
+MIN_TEXT_S = 1.5            # a text on screen for less cannot be read (Money v5, 5 Nov: two texts 0.7 s before a cut)
 KICKER = (46.0, 41.0, 36.0)  # left, top and size of the kicker pill in screen space (engine.mjs)
 DEVANAGARI = re.compile(r"[ऀ-ॿ]")
 LATIN_WORD = re.compile(r"[A-Za-z]+")
@@ -408,6 +410,17 @@ def problems(spec, language=None) -> list:
         if scene.get("kicker"):
             kw = text_width(scene["kicker"], KICKER[2]) + 52
             kicker_box = (KICKER[0], KICKER[1], KICKER[0] + kw, KICKER[1] + 66)
+        # 8. a text is on screen long enough to be read (a text that flashes before a cut is caught mid pop-in by the audit)
+        for el in els:
+            if el.get("text") is None or el.get("draw") or el.get("asset") or el.get("group") or el.get("kind") not in (None, "text"):
+                continue
+            t0 = float(el.get("t0") if el.get("t0") is not None else scene["t0"])
+            t1 = min(float(el.get("t1") if el.get("t1") is not None else scene["t1"]), float(scene["t1"]))
+            if 0 < t1 - t0 < MIN_TEXT_S:
+                out.append(f"scene {sid}: text '{str(el['text'])[:40]}' is on screen for only {t1 - t0:.1f}s (from {t0:.1f}s, "
+                           f"{'the scene ends' if t1 >= float(scene['t1']) - 1e-6 else 'it leaves'} at {t1:.1f}s): a text needs at "
+                           f"least {MIN_TEXT_S:.1f}s to be read - start it earlier, keep it longer, or show it in the next scene "
+                           "(box rule)")
         seen_words = set()
         floor = {}
         runs = {}

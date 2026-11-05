@@ -1932,3 +1932,18 @@ names (दुकान in the shop background). A text alone never shows a thing
 things), v5 73.2% (41), Claude's v2 demo 76.7%; the v4 misses include the Euro, Dollar, Yen and Pound lines at
 5:30–6:50, the v5 misses the oil lines of the 1973 scenes. Target 95% (agreement, section 5). Tests:
 `tests/test_p1_shown_said.py` (12); 326 tests across the affected suites green.
+
+## Entry 50 · the gate caught a text that flashed before a cut: a text stays on screen at least 1.5 s, 5 November 2026
+
+**The run:** Money v4 and v5 again through the director after dikhaya-bola (VM jobs `p1h-money-showplan-v4-a`,
+`-v5-a`, Codex, ₹0): both passed with said = shown 100% of the lines that name things (v4 68.3% and v5 73.2% before),
+v4 in 5 rounds (176 → 29 → 2 → 1 → 0 problems), v5 in 4 (108 → 17 → 1 → 0). The frame audit of the new plans: no
+overlap at all in either (0 s; v4 had 472 s on 4 November); v4's gate passes, v5's fails on two plan texts measured at
+15.4 and 26.8 px — "दावा बाकी" and "भुगतान अटकें" appear 0.7 s before their scene ends, and the audit caught them in their
+pop-in. The gate did its job (no review copy for v5); the plan should never have had them.
+
+**What changed in BIE:** the box rule refuses a text on screen for less than 1.5 s (`box_rules.MIN_TEXT_S`, rule 8,
+named with the text, the second and the scene end); the director's prompt says so. Texts under 1.5 s before: v4 new
+4, v5 new 5, v4 of 4 November 3, v5 of 5 November 2 — none had been visible to the compiler.
+
+**Measured effect:** after this change v5 (and v4) go through the director once more; numbers in the report.
