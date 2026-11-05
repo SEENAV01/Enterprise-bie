@@ -136,6 +136,18 @@ bubble, labelled, or the place the scene stands in), refused by `showplan.compil
 director's payload, reported per video. Before the live runs: v4 68.3%, v5 73.2%, Claude's v2 demo 76.7% of the lines
 that name things show them. Next: v4 and v5 again through the director (box rule + dikhaya-bola), render, numbers.
 
+## Voice clip: the one-time upload page (5 November 2026, branch `p1v-voice-upload`)
+
+Built for Navin's answer "Ek-baar ka upload page" (`docs/roadmap/VOICE_CLIP_METHOD.md`): `tools/vm_voice.py upload`
+and `deployment/codex-vm/bie-voice-upload`. One line in the Hostinger browser terminal prints a secret HTTPS link
+(port 8443, a certificate made by the VM for that run; the secret is the password and lives only in his terminal);
+the page takes one audio file, stores it as `/etc/bie/voice/navin_ref.<ext>` (mode 600) and closes; it also closes
+after 20 minutes. Tests: `tests/test_task046_vm_voice.py` (8: only the secret address answers, wrong or big files
+refused, one clip kept with mode 600 and the page closes, closes on time, never overwrites without `--replace`, HTTPS
+with the run's own certificate, audio kinds by first bytes, the wrapper). IMPLEMENTED; it is switched on only by
+Navin, after he has seen it. Next in voice: measure the clone voice on the VM's CPU (₹0), then Google Drive access
+with him.
+
 ## Navin's decisions of 5 November 2026 (decision cards, after Money v5)
 
 - **Money v5:** "Theek, aage dikhaya-bola" — the box rule's result on v5 is passed (3 overlap seconds against v2's 36,
