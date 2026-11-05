@@ -7,7 +7,8 @@ writes the record of ``bie.brain.video.text_audit``. At ₹0: no AI call.
     python -B tools/text_audit.py --spec video_spec.json [--assets assets/] [--dist <preview build>] [--every 30] --out audit.json
 
 also writes the measurements themselves next to the record (``audit.frames.jsonl``), so the record can be read again with
-``--frames`` (no render) when the rules of the record change.
+``--frames`` (no render) when the rules of the record change. The record carries ``gate`` (``text_audit.gate``, the box
+rule's last check, Navin 5 November 2026): the render workflow publishes no review copy for a video that fails it.
 """
 from __future__ import annotations
 
@@ -48,12 +49,18 @@ def main(argv=None) -> int:
                                   fps=spec.get("fps") or timing.FPS, every=a.every,
                                   captions=text_audit.caption_texts(spec))
     record["spec"] = str(a.spec)
+    # the box rule's last check: a show-spec's frames mark the plan's own words (the show engine), an older VideoSpec's do not
+    record["gate"] = text_audit.gate(record, plan_marks=str(spec.get("schema", "")).startswith("bie.show-spec"))
     formats.check("text_audit", record, where=str(a.out))
     a.out.write_text(json.dumps(record, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{a.spec.name}: {record['frames_sampled']} frames, smallest text {record['min_px']} px, "
           f"{record['small_count']} texts under {record['floor_px']} px ({record['lasting_small_count']} lasting), "
           f"{record['overlap_count']} overlapping pairs "
-          f"({record['lasting_overlap_count']} lasting), {record['caption_overlap_count']} under the caption")
+          f"({record['lasting_overlap_count']} lasting), {record['caption_overlap_count']} under the caption; "
+          f"overlaps {record['overlap_seconds']} s in all, longest {record['longest_overlap_s']} s; gate "
+          + ("passed" if record["gate"]["passed"] else
+             f"FAILED ({record['gate']['long_overlaps']} overlaps over {record['gate']['long_s']:.0f} s, "
+             f"{record['gate']['small_plan_texts']} plan texts under {record['floor_px']} px)"))
     return 0
 
 

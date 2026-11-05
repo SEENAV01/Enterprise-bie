@@ -66,6 +66,12 @@ class EngineRender(unittest.TestCase):
         self.assertGreaterEqual(rec["frames_sampled"], 4)
         self.assertGreater(rec["texts_seen"], 2)
         self.assertEqual(rec["caption_overlap_count"], 0)
+        # the plan's own words carry the engine's bie-plan mark (the text-audit gate), a saancha's label does not
+        marked = {t["t"] for f in frames for t in f["texts"] if t.get("plan")}
+        self.assertIn("Barter system", marked)
+        self.assertIn("Barter", marked)                              # the kicker
+        self.assertNotIn("गेहूँ", marked)                             # the sack's label
+        self.assertTrue(rec["plan_marked"])
 
     def test_the_gold_spec_first_frames_render(self):
         spec = gold_spec(width=1280, height=720, assets={n: f"assets/{n}.png" for n in ASSETS_USED})

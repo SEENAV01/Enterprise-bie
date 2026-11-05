@@ -182,7 +182,8 @@ RESPEC = O({"schema": S, "run": S, "videos": A(O({"video_id": S, "status": S, "p
                                                   "scenes": N, "seconds": N}, required=["video_id", "status", "parts", "compiled", "refused"]))})
 TEXT_AUDIT = O({"schema": S, "floor_px": N, "frames_sampled": N, "every_frames": N, "texts_seen": N, "small": A({"type": "object"}),
                 "small_count": N, "lasting_small_count": N, "symbols": A({"type": "object"}), "overlaps": A({"type": "object"}),
-                "overlap_count": N, "lasting_overlap_count": N, "caption_overlap_count": N},
+                "overlap_count": N, "lasting_overlap_count": N, "caption_overlap_count": N, "overlap_seconds": N,
+                "longest_overlap_s": N, "gate": O({"passed": {"type": "boolean"}, "problems": A(S)})},
                required=["schema", "floor_px", "frames_sampled", "small", "small_count", "lasting_small_count", "overlaps", "overlap_count",
                          "lasting_overlap_count"])
 
@@ -331,9 +332,11 @@ FORMATS = {
                      "a canvas run's plans compiled again with today's code: per video its parts compiled or refused with the reason",
                      "2026-11-03"),
     "text_audit": Format("bie.text-audit", 1, TEXT_AUDIT, "audit.json", "tools/text_audit.py (bie/brain/video/text_audit.py)",
-                         ("the render report", "Navin"),
+                         ("the render report", "the render workflow's gate", "Navin"),
                          "the texts of a rendered video measured on its frames: those whose settled size stays under the readable floor "
-                         "(CV-17) and those that cover each other, with when", "2026-11-03"),
+                         "(CV-17) and those that cover each other, with when; since 5 November 2026 also (optional fields, same "
+                         "version) `overlap_seconds`, `longest_overlap_s`, `plan_marked`, a small text's `plan` flag and the `gate` "
+                         "(box rule: no overlap held over 2 s, no plan text under 36 px)", "2026-11-05"),
 }
 
 # The fields the game (Task 049) and the notes (Task 050) read, so the formats are locked for them too.

@@ -274,8 +274,11 @@ def ideas_answer(user_text: str):
 
 
 def showplan_answer(user_text: str):
-    """A scene plan the compiler accepts: per part one scene, a villager and a sack on screen, one title pill."""
+    """A scene plan the compiler accepts: per part one scene, a villager and a sack on screen, one title pill (in the
+    narration's own words, so a Hindi video's screen stays Hindi under the box rule)."""
     data = json.loads(user_text[user_text.index("{"):user_text.rindex("}") + 1])
+    first = (data.get("lines") or [{}])[0].get("sub") or ""
+    title = " ".join(first.replace("।", " ").split()[:3])[:24] or data.get("title") or "…"
     by_part = {}
     for line in data.get("lines") or []:
         by_part.setdefault(line.get("scene") or "part", []).append(line["id"])
@@ -286,7 +289,7 @@ def showplan_answer(user_text: str):
                        "steps": [
                            {"op": "person", "id": "p", "look": "villager", "x": 520},
                            {"op": "item", "thing": {"draw": "sack", "p": {"w": 220}}, "x": 1320, "y": 885},
-                           {"op": "text", "text": data.get("title") or "…", "size": 44, "style": "pill",
+                           {"op": "text", "text": title, "size": 44, "style": "pill",
                             "bg": "#2fb463", "fill": "#fff", "x": 960, "y": 220,
                             "t0": {"line": lids[0], "edge": "start", "plus": 0.1}},
                        ]})

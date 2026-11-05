@@ -251,6 +251,26 @@ jobs:
                     f"{s['lasting_overlap_count']} pairs on each other for a second or more ({s['frames_sampled']} frames)")
           PY
           rm -rf "$RUNNER_TEMP/out/assets" "$RUNNER_TEMP/out/parts.txt" "$RUNNER_TEMP/out/video_silent.mp4"
+      - name: The text-audit gate (the box rule's last check, Navin 5 November 2026; a failed video is never shown)
+        id: gate
+        run: |
+          python - <<'PY'
+          import json, os, time
+          out = os.path.join(os.environ["RUNNER_TEMP"], "out")
+          path = os.path.join(out, "audit.json")
+          record = json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
+          gate = record.get("gate") or {"passed": False, "problems": ["the text audit wrote no gate (no audit.json, or one from an older BIE)"]}
+          gate.update(at=int(time.time()), run_id=os.environ["GITHUB_RUN_ID"], sha=os.environ["GITHUB_SHA"])   # the one button skips a stale one
+          json.dump(gate, open(os.path.join(out, "gate.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+          for problem in gate["problems"][:20]:
+              print(f"::error title=text-audit gate::{problem}")
+          level = "notice" if gate["passed"] else "error"
+          print(f"::{level} title=text-audit gate::{'passed' if gate['passed'] else 'FAILED'}: overlaps {gate.get('overlap_seconds')} s in all, "
+                f"longest {gate.get('longest_overlap_s')} s, {gate.get('long_overlaps', 0)} over {gate.get('long_s', 2):.0f} s, "
+                f"{gate.get('small_plan_texts', 0)} plan texts under 36 px")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
+              fh.write(f"passed={'true' if gate['passed'] else 'false'}\n")
+          PY
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: t046c-video
@@ -263,12 +283,14 @@ jobs:
             ${{ runner.temp }}/out/REPORT.md
             ${{ runner.temp }}/out/video_spec.json
             ${{ runner.temp }}/out/audit.json
+            ${{ runner.temp }}/out/gate.json
             ${{ runner.temp }}/out/RESPEC.json
           retention-days: 30
       - name: Publish the review copy and the report to the blindtest-results branch (never the full MP4)
         if: env.PUBLISH == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
+          GATE: ${{ steps.gate.outputs.passed }}
         run: |
           set -euo pipefail
           dest="runs/$DEST"
@@ -281,9 +303,16 @@ jobs:
             git -c http.extraheader="$auth" fetch -q --depth=1 origin blindtest-results
             git checkout -q -B blindtest-results FETCH_HEAD
             rm -rf "$dest" && mkdir -p "$dest"
-            for f in review-720p.mp4 cost.json join.json summary.json REPORT.md video_spec.json; do cp "$RUNNER_TEMP/out/$f" "$dest/"; done
-            for f in audit.json RESPEC.json; do if [ -f "$RUNNER_TEMP/out/$f" ]; then cp "$RUNNER_TEMP/out/$f" "$dest/"; fi; done     # Task 048 checks
-            if [ -d "$RUNNER_TEMP/out/stills" ]; then cp -r "$RUNNER_TEMP/out/stills" "$dest/"; fi     # one still per scene (Task 046 Part D1)
+            if [ "$GATE" = "true" ]; then
+              for f in review-720p.mp4 cost.json join.json summary.json REPORT.md video_spec.json; do cp "$RUNNER_TEMP/out/$f" "$dest/"; done
+              if [ -d "$RUNNER_TEMP/out/stills" ]; then cp -r "$RUNNER_TEMP/out/stills" "$dest/"; fi     # one still per scene (Task 046 Part D1)
+            else
+              # the gate failed: no review copy, no summary (the one button reads GATE_FAILED.json), only the records to fix it from
+              cp "$RUNNER_TEMP/out/gate.json" "$dest/GATE_FAILED.json"
+              cp "$RUNNER_TEMP/out/video_spec.json" "$dest/"
+              if [ -f "$RUNNER_TEMP/out/audit.frames.jsonl" ]; then cp "$RUNNER_TEMP/out/audit.frames.jsonl" "$dest/"; fi   # re-read with --frames
+            fi
+            for f in audit.json gate.json RESPEC.json; do if [ -f "$RUNNER_TEMP/out/$f" ]; then cp "$RUNNER_TEMP/out/$f" "$dest/"; fi; done     # Task 048 checks
             git add "$dest"
             git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
               commit -q -m "Task046c render ${GITHUB_RUN_ID} from ${GITHUB_SHA}: ${DEST}"
@@ -295,4 +324,9 @@ jobs:
             sleep $((attempt * 7))
           done
           echo "::error title=task046c render::could not publish ${dest} after 6 attempts"
+          exit 1
+      - name: The run fails when the text-audit gate failed (nothing was shown)
+        if: steps.gate.outputs.passed != 'true'
+        run: |
+          echo "::error title=text-audit gate::the video failed the text-audit gate (see gate.json); no review copy was published"
           exit 1

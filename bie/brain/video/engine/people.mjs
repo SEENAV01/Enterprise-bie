@@ -5,6 +5,8 @@
 
 // Pose = [a1, a2, b1, b2]: front-arm shoulder and elbow angles, back-arm shoulder and elbow angles, in degrees,
 // measured from straight down, rotating toward the facing side. Identical numbers to the v2 demo's builder.py.
+import { svgBounds } from "./boxes.mjs";
+
 export const POSES = {
   stand: [8, 5, 8, 5], give: [80, 0, 10, 5], receive: [62, 18, 10, 5], hold: [20, 85, 10, 5], holdBoth: [22, 80, 22, 80],
   think: [28, 145, 10, 5], point: [120, 5, 10, 5], shrug: [40, 110, 40, 110], wave: [150, 25, 10, 5], carry: [160, 40, 10, 5],
@@ -129,6 +131,17 @@ export function frontHand(opts) {
   const wp = opts.walkPhase;
   const bob = wp == null ? 0 : -Math.abs(Math.sin(wp * Math.PI * 2)) * 0.018 * H;
   return [x * s, y + bob];
+}
+
+/** The box rule (Navin, 5 November 2026): a person's whole box and face box, feet at the origin, facing right, at
+ *  height H — measured from the very drawing (the arms in their resting pose). The compiler keeps things and texts
+ *  off a face; facing left mirrors both boxes. */
+export function personBoxes(opts = {}) {
+  const L = typeof opts.look === "string" ? (LOOKS[opts.look] || LOOKS.villager) : (opts.look || LOOKS.villager);
+  const H = opts.h || 440;
+  const whole = svgBounds(drawPerson({ ...opts, facing: 1, arms: opts.arms || "stand" })).box;
+  const head = svgBounds(face(H, "smile", L.skin || "#c98850") + headwear(H, L.headwear, L.hw || "#e7d9b8", L.hair || "#241b12", !!L.female)).box;
+  return { box: whole, face: head };
 }
 
 export const _test = { shade, esc };

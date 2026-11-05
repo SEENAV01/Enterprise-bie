@@ -1858,3 +1858,39 @@ after a partial failure never renders a landed video again; (3) the wiring test 
 
 **Measured effect:** one-button press 1: render dead in prepare, page job waiting for nothing. After: press 2 renders
 v4 once and a later press assembles without re-rendering. Tokens and ₹: none (CI minutes only, public repo ₹0).
+
+## Entry 47 · the box rule (dabba-niyam): v4's collisions were never visible to the compiler, 5 November 2026
+
+**The run it learns from:** Navin's verdict on Money v4 (5 November 2026): "v4 abhi ACCEPT nahi. Takraav v2 se ~13 guna
+(audit overlap seconds ~470 vs 36; kuch 60 s lagatar)." The frame audit of the decision test: v4 472 overlap seconds
+(23 overlaps held longer than 2 s, the longest 61 s), Claude's v2 demo 36 s (4 longer than 2 s, the longest 9 s). The
+root: the plan compiler knew where a plan's own texts were, but not the box of a drawn thing, a person's face, the words
+inside a saancha or the painted parts of a background (the shop's board, the store's almari) — so it could not refuse a
+text on a sack, a coin on a face or a label of 16 px inside a card.
+
+**What changed in BIE:** (1) every drawing measures its own box and the boxes of its words from the very SVG it draws
+(`bie/brain/video/engine/boxes.mjs`: `svgBounds`; `draw.mjs boxOf`, `people.mjs personBoxes` with the face,
+`backgrounds.mjs zonesOf/worldZones` with each reserved zone "all" or "text"), read by Python through one Node call
+per plan (`tools/saancha_boxes.mjs`, `bie/brain/video/boxes.py`; no Node → the rule fails closed); (2) the compiler
+refuses, naming both things, the second and the way out (`bie/brain/video/box_rules.py`, on by default in
+`showplan.compile_plan`): a text on a thing; a thing on a face or on another thing's words; anything on a reserved zone;
+anything cut by the frame after the camera or under the kicker; a saancha's words under 36 px on screen (with the
+scale it needs); a caution or fact-check line on screen (D1-06, by code); an English label on a Hindi video's screen
+(Devanagari, an English term may follow in brackets); (3) the director's prompt carries the rule, every saancha's size
+and the scale its words need, every background's zones and the language rule, and a long problem list reaches it from
+every scene in turn (40 a round, the rest counted per scene); (4) after the render, the text-audit gate
+(`text_audit.gate`): any overlap held longer than 2 s, or any text the plan wrote under 36 px (the engine marks the
+plan's own words `bie-plan`), fails the run — the render workflow then publishes no review copy and no summary, only
+`GATE_FAILED.json` with the records, and the one button stops with the failed videos named; (5) two engine bugs the
+box rule found: the bank saancha's label was drawn at font size 0 (never visible) and the vault's miniature notes
+carried 9 px values (now bare). The Money v2 gold plan stays frozen as the benchmark (compiled with the box rule off);
+its scene B, the director's example, was rebuilt to pass the rule (the sack's label changes on the cue word instead of a
+pill laid over it; the title in Hindi with the English term in brackets).
+
+**Measured effect (before the next live run):** the v4 spec that passed the old compiler now has 346 box-rule problems
+(171 English labels, 78 saancha words under 36 px, 46 on reserved zones, 21 on another thing's words, 16 on faces,
+11 texts on things, 3 caution lines) — all invisible before; the gold demo 156 (frozen), its scene B 0. The gate on the
+recorded audits: v4 fails (23 long overlaps, 65 small texts), the v2 demo fails too (4 long overlaps) — the gate is
+stricter than the demo Navin passed; the kit fixture passes (0 and 0). Director prompt +4.5k characters (31,253 →
+35,773 on the test lesson), ₹0 on Codex. Tests: `tests/test_p1_box_rule.py` (24), the show lane checks the plan marks
+on real Chromium frames; every earlier suite green.
