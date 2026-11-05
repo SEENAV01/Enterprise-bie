@@ -5,6 +5,9 @@ part C), never passed outputs.
 """
 from __future__ import annotations
 
+import json
+import shutil
+import subprocess
 import sys
 import unittest
 from pathlib import Path
@@ -126,6 +129,117 @@ class LevelSlot(unittest.TestCase):
         with self.assertRaises(ValueError) as ctx:
             gl.mission_of([level("run_process", win="")], title="x")
         self.assertIn("'win' is needed", str(ctx.exception))
+
+
+def bank_level(**extra):
+    """place_right in the bank hall: each need goes to its counter (test data: Claude's demo, not BIE output)."""
+    lv = level("place_right", instruction="हर ग्राहक की ज़रूरत सही काउंटर पर ले जाओ।",
+               world={"kind": "bankHall", "signs": "जमा;निकासी;कर्ज़", "label": "बैंक"},
+               pieces=[{"id": "save", "label": "₹5,000 बचाने हैं", "fits": "dep", "right": "जमा काउंटर: खाता बढ़ा।",
+                        "wrong": "यहाँ पैसा जमा नहीं होता।"},
+                       {"id": "cash", "label": "₹2,000 चाहिए अभी", "fits": "wd", "right": "निकासी: खाते से पैसा मिला।",
+                        "wrong": "यहाँ से पैसा नहीं निकलता।"},
+                       {"id": "loan", "label": "दुकान के लिए ₹1 लाख", "fits": "ln", "right": "कर्ज़ काउंटर: ब्याज पर पैसा।",
+                        "wrong": "कर्ज़ यहाँ नहीं मिलता।"}],
+               places=[{"id": "dep", "label": "जमा", "spot": "जमा"}, {"id": "wd", "label": "निकासी", "spot": "counter2"},
+                       {"id": "ln", "label": "कर्ज़", "spot": "कर्ज़"}])
+    lv.update(extra)
+    return lv
+
+
+class WorldLevels(unittest.TestCase):
+    def test_a_level_in_a_world_puts_its_places_on_the_world_spots(self):
+        lv = bank_level()
+        self.assertEqual(formats.problems("game_level", lv), [])
+        self.assertEqual(gl.problems(lv), [])
+        stage = gl.stage_of(lv)
+        self.assertEqual(stage["world"]["kind"], "bankHall")
+        self.assertEqual([t.get("spot") for t in stage["targets"]], ["जमा", "counter2", "कर्ज़"])
+        plain = dict(stage, targets=[{k: v for k, v in t.items() if k != "spot"} for t in stage["targets"]])
+        plain.pop("world")
+        validate(plain, STAGE_SCHEMA)                       # beyond world and spot, the runtime's stage shape exactly
+        html = render_game_html({"id": "bank", "title": "बैंक", "world": "", "missions": [gl.mission_of([lv], title="बैंक")], "credits": []})
+        self.assertIn("window.BIEWorld = (", html)         # the videos' world drawing, inside the phone page
+        self.assertIn("worldSpots", html)
+        plain_html = render_game_html({"id": "m", "title": "m", "world": "", "missions": [gl.mission_of([level("place_right")], title="m")], "credits": []})
+        self.assertFalse("window.BIEWorld = (" in plain_html, "a page without a world stays small")
+
+    def test_a_wrong_world_or_spot_is_named_exactly(self):
+        bad = bank_level()
+        bad["places"][1]["spot"] = "counter9"
+        self.assertTrue(any("spot 'counter9' is not in the bankHall world" in p for p in gl.problems(bad)), gl.problems(bad))
+        bad = bank_level(world={"kind": "moon"})
+        self.assertTrue(any("world: world.kind" in p for p in gl.problems(bad)), gl.problems(bad))
+        bad = bank_level()
+        bad.pop("world")
+        self.assertTrue(any("has a spot but the level has no world" in p for p in gl.problems(bad)))
+        bad = bank_level(world="bank")
+        self.assertTrue(any("'world' must be a JSON object" in p for p in gl.problems(bad)))
+
+    @unittest.skipUnless(shutil.which("node"), "needs node (the toolbox lane has it)")
+    def test_python_and_the_drawing_name_the_same_spots(self):
+        worlds = [{"kind": k} for k in gl._FIXED_SPOTS] + [
+            {"kind": "bankHall", "signs": "जमा;निकासी;कर्ज़;vault;जमा"}, {"kind": "market", "count": 6}, {"kind": "market", "signs": "a"},
+            {"kind": "office", "signs": "a;b;c;d;e;f;g;h"}, {"kind": "factory", "signs": "x;y"}, {"kind": "city", "signs": "दुकान;बैंक;होटल;x"},
+            {"kind": "bankHall", "count": 5, "signs": "a;b"}, {"kind": "nowhere"},
+            {"kind": "twoCountries", "signs": "भारत;अमेरिका;x"}, {"kind": "twoCountries", "signs": "left;भारत"}]
+        engine = ROOT / "bie" / "brain" / "video" / "engine" / "worlds.mjs"
+        script = (f"import {{worldSpots}} from '{engine.as_posix()}';"
+                  f"const ws = {json.dumps(worlds, ensure_ascii=False)};"
+                  "console.log(JSON.stringify(ws.map((w) => worldSpots(w))));")
+        out = json.loads(subprocess.run(["node", "--input-type=module", "-e", script], capture_output=True, text=True, check=True).stdout)
+        for w, spots in zip(worlds, out):
+            with self.subTest(world=w):
+                self.assertEqual(list(spots), gl.world_spot_names(w))
+                for box in spots.values():
+                    self.assertTrue(0 <= box["x"] <= 1 and 0 <= box["y"] <= 1 and box["w"] > 0 and box["h"] > 0, box)
+                    self.assertLessEqual(box["x"] + box["w"], 1.0001)
+                    self.assertLessEqual(box["y"] + box["h"], 1.0001)
+
+
+def allocate_level(**extra):
+    """allocate: split a deposit of Rs 100 (test data: Claude's demo, not BIE output)."""
+    lv = {"schema": "bie.game-level/1", "level_id": "crr-split", "title": "Bank", "mechanic": "allocate",
+          "instruction": "₹100 जमा हुए: तिजोरी, बॉन्ड और कर्ज़ में बाँटो।", "situation": "तुम बैंक हो।", "win": "बैंक चला।",
+          "item_ids": ["p005-i2"], "feedback_close": "RBI ख़ुश, कर्ज़ भी चला।",
+          "allocate": {"total": 100, "unit": "₹", "step": 1, "boxes": [
+              {"id": "crr", "label": "CRR तिजोरी", "min_ok": 4, "max_ok": 4, "too_low": "RBI जुर्माना लगाएगा।", "too_high": "पैसा बेकार पड़ा।"},
+              {"id": "slr", "label": "SLR बॉन्ड", "min_ok": 18, "max_ok": 25, "too_low": "नियम टूटा।", "too_high": "कमाई कम।"},
+              {"id": "loan", "label": "कर्ज़", "min_ok": 60, "max_ok": 78, "too_low": "कमाई नहीं होगी।", "too_high": "जोखिम बहुत।"}]}}
+    lv.update(extra)
+    return lv
+
+
+class Allocate(unittest.TestCase):
+    """Split a total among boxes: the economy videos' third most common game idea (26 times in 69 videos)."""
+
+    def test_a_valid_split_level_lowers_to_the_allocate_engine(self):
+        lv = allocate_level()
+        self.assertEqual(formats.problems("game_level", lv), [])
+        self.assertEqual(gl.problems(lv), [])
+        stage = gl.stage_of(lv)
+        self.assertEqual(stage["kind"], "allocate")
+        self.assertEqual([b["id"] for b in stage["allocate"]["boxes"]], ["crr", "slr", "loan"])
+        html = render_game_html({"id": "a", "title": "बैंक", "world": "", "missions": [gl.mission_of([lv], title="बैंक बनो")], "credits": []})
+        self.assertIn("function allocateStage", html)
+        self.assertIn("कर्ज़ भी चला", html)
+
+    def test_a_wrong_split_level_is_named_exactly(self):
+        self.assertTrue(any("'allocate' is needed" in p for p in gl.problems(allocate_level(allocate=None))))
+        bad = allocate_level(); bad["allocate"]["boxes"] = bad["allocate"]["boxes"][:1]
+        self.assertTrue(any("2..5 allocate boxes" in p for p in gl.problems(bad)))
+        bad = allocate_level(); bad["allocate"]["boxes"][2]["max_ok"] = 70
+        self.assertTrue(any("no split can be right" in p for p in gl.problems(bad)), gl.problems(bad))
+        bad = allocate_level(); bad["allocate"]["boxes"][1]["too_high"] = ""
+        self.assertTrue(any("'too_high'" in p for p in gl.problems(bad)))
+        bad = allocate_level(); bad["allocate"]["step"] = 10                  # 4 cannot be reached in steps of 10
+        self.assertTrue(any("no split can be right" in p for p in gl.problems(bad)), gl.problems(bad))
+        bad = allocate_level(); bad["allocate"]["total"] = 105; bad["allocate"]["step"] = 10
+        self.assertTrue(any("not a whole number of steps" in p for p in gl.problems(bad)))
+        bad = allocate_level(feedback_close="")
+        self.assertTrue(any("'feedback_close' is needed" in p for p in gl.problems(bad)))
+
+    # BIE's bot plays an allocate level in Chromium: tests/toolbox/test_p1_show_render.py (the show lane has Playwright)
 
 
 if __name__ == "__main__":

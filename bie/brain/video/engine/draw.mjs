@@ -476,7 +476,7 @@ function moneyBag(p) {
 const BUILDING_KINDS = {
   office: ["#5b7fb8", "#e9eef6"], government: ["#e07b24", "#f6efe6"], exchange: ["#2a9d8f", "#eef6f4"],
   house: ["#c0563f", "#f4ead9"], tower: ["#6c7a8c", "#e7ecf1"], shop: ["#e5484d", "#f7efe2"],
-  warehouse: ["#8a6d3b", "#efe6d6"], hut: ["#a0703d", "#efe2c8"], court: ["#7a4e22", "#f3ead9"],
+  warehouse: ["#8a6d3b", "#efe6d6"], hut: ["#a0703d", "#efe2c8"], court: ["#7a4e22", "#f3ead9"], factory: ["#9b4a3a", "#e4ded2"],
 };
 
 function windows(x0, y0, cols, rows, cw, ch, gx, gy, fill) {
@@ -527,6 +527,16 @@ function building(p) {
     body = `<path d="M${-w * 0.48} 0 L${-w * 0.48} ${-h} L0 ${-h - w * 0.2} L${w * 0.48} ${-h} L${w * 0.48} 0 Z" fill="${wall}" stroke="${shade(roof)}" stroke-width="${w * 0.012}"/>` +
       `<rect x="${-w * 0.24}" y="${-h * 0.62}" width="${w * 0.48}" height="${h * 0.62}" fill="${shade(roof, 1.1)}"/>` +
       [0.1, 0.22, 0.34, 0.46].map((f) => `<path d="M${-w * 0.24} ${-h * 0.62 + h * f * 1.2} L${w * 0.24} ${-h * 0.62 + h * f * 1.2}" stroke="${shade(roof, 0.8)}" stroke-width="${w * 0.01}"/>`).join("");
+  } else if (kind === "factory") {
+    const h = w * 0.5, sick = p.sick === true; top = -h - w * 0.17;
+    let saw = "";
+    for (let i = 0; i < 3; i++) saw += `<path d="M${-w * 0.46 + i * w * 0.2} ${-h} L${-w * 0.34 + i * w * 0.2} ${-h - w * 0.13} L${-w * 0.26 + i * w * 0.2} ${-h} Z" fill="${shade(wall, 0.8)}" stroke="${shade(wall, 0.65)}" stroke-width="${w * 0.008}"/>`;
+    const smoke = sick ? "" : [0, 1, 2].map((k) => `<circle cx="${w * 0.33 + k * w * 0.05}" cy="${-h - w * 0.5 - k * w * 0.07}" r="${w * (0.05 + k * 0.02)}" fill="#c7ccd3" opacity="${0.85 - k * 0.2}"/>`).join("");
+    body = `<rect x="${-w * 0.46}" y="${-h}" width="${w * 0.66}" height="${h}" fill="${sick ? "#e8d6d6" : wall}" stroke="${shade(wall, 0.65)}" stroke-width="${w * 0.01}"/>` + saw +
+      `<rect x="${w * 0.27}" y="${-h - w * 0.42}" width="${w * 0.1}" height="${h + w * 0.42}" fill="${sick ? "#9a8f8f" : roof}"/>` + smoke +
+      windows(-w * 0.4, -h * 0.75, 3, 1, w * 0.13, w * 0.1, w * 0.06, 0, sick ? "#8a8f98" : "#9fc7e8") +
+      `<rect x="${-w * 0.2}" y="${-h * 0.42}" width="${w * 0.18}" height="${h * 0.42}" fill="${shade(roof, 0.8)}"/>` +
+      (sick ? `<path d="M${-w * 0.4} ${-h * 0.72} L${-w * 0.3} ${-h * 0.58} M${-w * 0.3} ${-h * 0.72} L${-w * 0.4} ${-h * 0.58}" stroke="#5a4636" stroke-width="${w * 0.012}"/>` : "");
   } else if (kind === "court") {
     const h = w * 0.72; top = -h - w * 0.3;
     let cols = "";
@@ -883,8 +893,11 @@ function flow(p) {
     const [hx, hy] = q(0.94), ang = (Math.atan2(by - hy, bx - hx) * 180) / Math.PI, c = on ? col : "#b8c0cc";
     edges += `<path d="M${ax} ${ay} Q${cx} ${cy} ${bx} ${by}" fill="none" stroke="${c}" stroke-width="${w * (on ? 0.008 : 0.005)}" stroke-linecap="round"${on ? "" : ` stroke-dasharray="${w * 0.012} ${w * 0.01}"`}/>` +
       `<path d="M${-w * 0.022} ${-w * 0.014} L0 0 L${-w * 0.022} ${w * 0.014}" fill="none" stroke="${c}" stroke-width="${w * 0.008}" stroke-linecap="round" stroke-linejoin="round" transform="translate(${bx},${by}) rotate(${ang})"/>`;
-    if (m[3] && m[3].trim()) {
-      const lab = m[3].trim(), fs = fit(lab, w * 0.2, w * 0.028), [mx, my] = q(0.5), off = fs * 1.25;
+    let lab = (m[3] || "").trim(), tok = p.token;
+    const at = lab.lastIndexOf("@");
+    if (at >= 0 && ["coin", "note", "goods", "dot"].includes(lab.slice(at + 1).trim())) { tok = lab.slice(at + 1).trim(); lab = lab.slice(0, at).trim(); }
+    if (lab) {
+      const fs = fit(lab, w * 0.2, w * 0.028), [mx, my] = q(0.5), off = fs * 1.25;
       const c1 = [mx - uy * off, my + ux * off], c2 = [mx + uy * off, my - ux * off];      // the label sits outside:
       const [lx, ly] = layout === "row" ? (c1[1] < c2[1] ? c1 : c2)                         // above a row, away from
         : Math.hypot(...c1) >= Math.hypot(...c2) ? c1 : c2, bw = lab.length * fs * 0.6 + fs * 0.8; // a ring's centre
@@ -892,7 +905,7 @@ function flow(p) {
     }
     if (on) for (let k = 0; k < 3; k++) {
       const u = Number.isFinite(t) ? (((t * speed + k / 3) % 1) + 1) % 1 : 0.2 + k * 0.3, [px, py] = q(u);
-      tokens += `<g transform="translate(${px.toFixed(1)},${py.toFixed(1)})">${FLOW_TOKEN(p.token, r * 1.6)}</g>`;
+      tokens += `<g transform="translate(${px.toFixed(1)},${py.toFixed(1)})">${FLOW_TOKEN(tok, r * 1.6)}</g>`;
     }
   });
   const nodeSvg = nodes.map((nd) => `<g transform="translate(${nd.x},${nd.y})">${FLOW_NODE(nd.kind, s)}</g>`).join("");
@@ -903,6 +916,234 @@ function flow(p) {
       : `<rect x="${-s * 0.85}" y="${s * 0.55}" width="${s * 1.7}" height="${fs * 1.45}" rx="${fs * 0.3}" fill="#ffffff" opacity="0.92"/>` + tx(nd.label, 0, s * 0.55 + fs * 0.72, fs, INK, 800)) + `</g>`;
   }).join("");
   return edges + nodeSvg + tokens + labels + nodeLabels;                 // words stay on top of moving tokens
+}
+
+// ---------------------------------------------------------------- economy kit, batch 5b (4 Nov 2026)
+// From the batch-5 cards (E58–E69): a zone scale whose bands run from good to bad with a pointer (types of inflation,
+// safe and risky ranges), a fork (one lever, two directions, each with its condition and result) and gap bars (what
+// goes out against what comes in, the hatched gap named: fiscal deficit, trade deficit, a savings gap).
+const RAMP = ["#2fa35b", "#8cc152", "#f2c14e", "#f08a3c", "#e5484d", "#a3273a"];
+const rampAt = (i, n) => RAMP[Math.round((n <= 1 ? 0 : i / (n - 1)) * (RAMP.length - 1))];
+
+function bands(p) {
+  const zones = parts(p.zones).filter(Boolean).slice(0, 8).map((z) => { const [l, r] = z.split(":"); return { label: (l || "").trim(), range: (r || "").trim() }; });
+  if (!zones.length) zones.push({ label: "", range: "" }, { label: "", range: "" }, { label: "", range: "" });
+  const w = p.w || 760, h = w * 0.13, n = zones.length, zw = w / n, glow = idxSet(p.glow), unit = p.unit ?? "";
+  const nums = (z) => { const m = z.range.match(/^(-?[\d.]+)?\s*(?:-|–|to)?\s*(-?[\d.]+)?\s*(\+)?$/); return m ? [m[1] != null ? +m[1] : null, m[2] != null ? +m[2] : null, !!m[3]] : [null, null, false]; };
+  let out = "";
+  zones.forEach((z, i) => {
+    const x = -w / 2 + i * zw, c = p.reverse ? rampAt(n - 1 - i, n) : rampAt(i, n);
+    out += `<rect x="${x}" y="${-h / 2}" width="${zw}" height="${h}" fill="${c}" stroke="#ffffff" stroke-width="${w * 0.004}"/>` +
+      (z.label ? tx(z.label, x + zw / 2, 0, fit(z.label, zw * 0.92, h * 0.42), "#ffffff", 800) : "") +
+      (z.range ? (() => { const r = !unit || /[a-z%]\+?$/i.test(z.range) ? z.range : z.range.endsWith("+") ? z.range.slice(0, -1) + unit + "+" : z.range + unit;
+        return tx(r, x + zw / 2, h * 0.5 + h * 0.36, fit(r, zw * 0.9, h * 0.34), INK, 700); })() : "") +
+      (glow.has(i + 1) ? `<rect x="${x + 3}" y="${-h / 2 - 6}" width="${zw - 6}" height="${h + 12}" fill="none" stroke="#2b2b33" stroke-width="${Math.max(4, w * 0.008)}" rx="${w * 0.008}"/>` : "");
+  });
+  if (p.value != null && p.value !== "") {
+    const v = Number(p.value); let at = null;
+    zones.forEach((z, i) => { const [a, b, plus] = nums(z); if (at != null) return;
+      if (a != null && b != null && v >= a && v <= b) at = -w / 2 + (i + (b > a ? (v - a) / (b - a) : 0.5)) * zw;
+      else if (a != null && (plus || b == null) && v >= a && i === n - 1) at = -w / 2 + (i + 0.5) * zw; });
+    if (at == null) at = v < (nums(zones[0])[0] ?? 0) ? -w / 2 : w / 2;
+    const t = p.text ? String(p.text) : `${v}${unit}`;
+    out += `<path d="M${at} ${-h / 2 - 4} l${-h * 0.22} ${-h * 0.34} l${h * 0.44} 0 Z" fill="${INK}"/>` + tx(t, at, -h / 2 - h * 0.62, fit(t, w * 0.3, h * 0.42), INK, 800);
+  }
+  return out + (p.title ? tx(p.title, 0, -h / 2 - h * (p.value != null && p.value !== "" ? 1.25 : 0.6), fit(p.title, w * 0.9, h * 0.45), INK, 800) : "");
+}
+
+function fork(p) {
+  const w = p.w || 640, h = w * 0.62, c = p.color || "#2459a6", glow = String(p.glow || ""), sx = -w * 0.08;
+  const branch = (dir, lab, note, res) => {
+    const y = dir * h * 0.36, on = !glow || glow === (dir < 0 ? "up" : "down"), col = on ? c : "#b8c0cc", ex = w * 0.3;
+    return `<path d="M${sx} 0 C${sx + w * 0.12} 0 ${sx + w * 0.1} ${y} ${ex - w * 0.02} ${y}" fill="none" stroke="${col}" stroke-width="${w * 0.016}" stroke-linecap="round"/>` +
+      `<path d="M${ex - w * 0.05} ${y - w * 0.03} L${ex} ${y} L${ex - w * 0.05} ${y + w * 0.03}" fill="none" stroke="${col}" stroke-width="${w * 0.016}" stroke-linecap="round" stroke-linejoin="round"/>` +
+      (lab ? `<rect x="${sx + w * 0.05}" y="${y * 0.62 - h * 0.075}" width="${w * 0.2}" height="${h * 0.15}" rx="${h * 0.04}" fill="#ffffff" stroke="${col}" stroke-width="${w * 0.004}"/>` +
+        tx(lab, sx + w * 0.15, y * 0.62, fit(lab, w * 0.18, h * 0.09), on ? INK : "#8a94a3", 800) : "") +
+      (note ? tx(note, sx + w * 0.2, y + (dir < 0 ? -1 : 1) * h * 0.13, fit(note, w * 0.44, h * 0.085), on ? "#4a5568" : "#9aa5b1", 700) : "") +
+      (res ? `<rect x="${ex + w * 0.01}" y="${y - h * 0.09}" width="${w * 0.19}" height="${h * 0.18}" rx="${h * 0.04}" fill="${on ? shade(c, 1.9) : "#eef0f3"}" stroke="${col}" stroke-width="${w * 0.005}"/>` +
+        tx(res, ex + w * 0.105, y, fit(res, w * 0.17, h * 0.085), on ? INK : "#8a94a3", 800) : "");
+  };
+  return `<path d="M${-w * 0.48} 0 L${sx} 0" stroke="${c}" stroke-width="${w * 0.016}" stroke-linecap="round"/>` +
+    (p.from ? `<rect x="${-w * 0.5}" y="${-h * 0.1}" width="${w * 0.3}" height="${h * 0.2}" rx="${h * 0.05}" fill="${c}"/>` + tx(p.from, -w * 0.35, 0, fit(p.from, w * 0.27, h * 0.1), "#ffffff", 800) : "") +
+    `<circle cx="${sx}" cy="0" r="${w * 0.018}" fill="${c}"/>` + branch(-1, p.up, p.upNote, p.upResult) + branch(1, p.down, p.downNote, p.downResult);
+}
+
+function gapBars(p) {
+  const w = p.w || 520, h = w * 0.9, [al, av] = String(p.a ?? "").split(":"), [bl, bv] = String(p.b ?? "").split(":");
+  const A = Math.max(0, Number(av) || 0), B = Math.max(0, Number(bv) || 0), top = Math.max(A, B) || 1, u = p.unit ?? "";
+  const bw = w * 0.3, ha = (A / top) * h * 0.78, hb = (B / top) * h * 0.78, xa = -w * 0.36, xb = w * 0.06, ca = p.colorA || "#e07b24", cb = p.colorB || "#2459a6";
+  const gap = Math.abs(A - B), low = A < B ? "a" : "b", gx = low === "a" ? xa : xb, gy0 = -Math.max(ha, hb), gy1 = -Math.min(ha, hb);
+  let hatch = "";
+  for (let c = gy0 + w * 0.035; gap && c < gy1 + bw * 0.5; c += w * 0.035) {         // parallel lines clipped to the gap
+    let x0 = gx, y0 = c, x1 = gx + bw, y1 = c - bw * 0.5;
+    if (y0 > gy1) { x0 = gx + (c - gy1) / 0.5; y0 = gy1; }
+    if (y1 < gy0) { x1 = gx + (c - gy0) / 0.5; y1 = gy0; }
+    if (x1 > x0) hatch += `<path d="M${x0} ${y0} L${x1} ${y1}" stroke="#e5484d" stroke-width="${w * 0.006}" opacity="0.6"/>`;
+  }
+  const bar = (x, hh, c, l, v) => `<rect x="${x}" y="${-hh}" width="${bw}" height="${hh}" fill="${c}" rx="${w * 0.01}"/>` +
+    (l ? tx(l, x + bw / 2, w * 0.06, fit(l, bw * 1.2, w * 0.06), INK, 800) : "") + (v !== undefined && v !== "" ? tx(`${v}${u}`, x + bw / 2, -hh + w * 0.05, fit(`${v}${u}`, bw * 0.9, w * 0.055), "#ffffff", 800) : "");
+  const gl = p.gap ? `${p.gap}${p.showGap === false ? "" : ` ${+(gap.toFixed(2))}${u}`}` : (p.showGap === false ? "" : `${+(gap.toFixed(2))}${u}`);
+  return `<path d="M${-w * 0.48} 0 L${w * 0.48} 0" stroke="#9aa5b1" stroke-width="${w * 0.006}"/>` + bar(xa, ha, ca, al, av) + bar(xb, hb, cb, bl, bv) +
+    (gap ? `<rect x="${gx}" y="${gy0}" width="${bw}" height="${gy1 - gy0}" fill="#ffffff" stroke="#e5484d" stroke-width="${w * 0.008}" stroke-dasharray="${w * 0.02} ${w * 0.012}"/>` + hatch +
+      (gl ? `<rect x="${gx + bw + w * 0.02}" y="${(gy0 + gy1) / 2 - w * 0.045}" width="${w * 0.36}" height="${w * 0.09}" rx="${w * 0.02}" fill="#e5484d"/>` +
+        tx(gl, gx + bw + w * 0.2, (gy0 + gy1) / 2, fit(gl, w * 0.34, w * 0.055), "#ffffff", 800) : "") : "");
+}
+
+// ---------------------------------------------------------------- diagrams of the 57-video needs list (4 Nov 2026)
+// The economy videos carry most meaning by diagram (39% of segments): a timeline (62 segment-uses), a table (55) and a
+// graph (35) led the needs list, and the scene-plan engine had none. Each is one parametric saancha whose parts can be
+// revealed through steps (upto) and highlighted (at, glow); a graph's curves draw themselves (drawIn seconds).
+const DIAG = ["#2459a6", "#e5484d", "#2fa35b", "#f29f05", "#7b61ff", "#2a9d8f"];
+const isNum = (v) => v !== "" && v != null && Number.isFinite(Number(v));
+
+function timeline(p) {
+  const w = p.w || 1500, h = w * 0.3, ev = parts(p.events).filter(Boolean).slice(0, 12).map((e) => { const i = e.indexOf(":");
+    return i < 0 ? { year: e.trim(), label: "" } : { year: e.slice(0, i).trim(), label: e.slice(i + 1).trim() }; });
+  const n = ev.length, upto = p.upto ? Math.max(0, Math.round(p.upto)) : n, at = Math.round(p.at || 0), x0 = -w * 0.46, x1 = w * 0.44;
+  const nums = ev.every((e) => isNum(e.year)) && n > 1 && !p.even, lo = nums ? Math.min(...ev.map((e) => +e.year)) : 0, hi = nums ? Math.max(...ev.map((e) => +e.year)) : 1;
+  const X = (y, i) => (nums ? x0 + ((+y - lo) / ((hi - lo) || 1)) * (x1 - x0) : n === 1 ? (x0 + x1) / 2 : x0 + (i * (x1 - x0)) / (n - 1));
+  let out = "";
+  parts(p.zones).filter(Boolean).slice(0, 6).forEach((z, k) => {
+    const m = z.match(/^\s*(-?[\d.]+)\s*-\s*(-?[\d.]+)\s*(?::(.*))?$/);
+    if (!m || !nums) return;
+    const a = Math.max(x0, X(+m[1])), b = Math.min(x1 + w * 0.03, X(+m[2])), c = DIAG[k % DIAG.length];
+    if (b <= a) return;
+    out += `<rect x="${a}" y="${h * 0.2}" width="${b - a}" height="${h * 0.12}" rx="${h * 0.03}" fill="${c}" opacity="0.22"/>` +
+      `<rect x="${a}" y="${h * 0.2}" width="${b - a}" height="${h * 0.025}" fill="${c}"/>` + (m[3] ? tx(m[3].trim(), (a + b) / 2, h * 0.27, fit(m[3].trim(), b - a, h * 0.075), shade(c, 0.7), 800) : "");
+  });
+  out += `<path d="M${x0 - w * 0.02} 0 L${x1 + w * 0.04} 0" stroke="${INK}" stroke-width="${w * 0.004}"/><path d="M${x1 + w * 0.025} ${-h * 0.035} L${x1 + w * 0.045} 0 L${x1 + w * 0.025} ${h * 0.035}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>`;
+  const slot = n > 1 ? Math.min(w * 0.2, ((x1 - x0) / (n - 1)) * 1.8) : w * 0.25;
+  ev.forEach((e, i) => {
+    if (i >= upto) return;
+    const x = X(e.year, i), hot = at === i + 1, c = hot ? "#e5484d" : "#2459a6", tier = i % 2 ? -h * 0.5 : -h * 0.24;
+    out += `<circle cx="${x}" cy="0" r="${hot ? w * 0.011 : w * 0.007}" fill="${c}" stroke="#ffffff" stroke-width="${w * 0.002}"/>` +
+      tx(e.year, x, h * 0.1, fit(e.year, slot * 0.6, h * 0.075), hot ? c : INK, 800);
+    if (e.label) {
+      const fs = fit(e.label, slot * 0.95, h * 0.07), bw = Math.min(slot, e.label.length * fs * 0.6 + fs);
+      out += `<path d="M${x} ${-w * 0.008} L${x} ${tier + fs * 0.75}" stroke="${c}" stroke-width="${w * 0.002}"/>` +
+        `<rect x="${x - bw / 2}" y="${tier - fs * 0.75}" width="${bw}" height="${fs * 1.5}" rx="${fs * 0.3}" fill="${hot ? "#fdecec" : "#ffffff"}" stroke="${c}" stroke-width="${w * 0.002}"/>` +
+        tx(e.label, x, tier, fs, INK, 800);
+    }
+  });
+  return out + (p.title ? tx(p.title, 0, -h * 0.72, fit(p.title, w * 0.8, h * 0.09), INK, 800) : "");
+}
+
+function table(p) {
+  const cols = parts(p.cols).filter((c, i, a) => a.length > 1 || c), rows = parts(p.rows).filter((r, i, a) => a.length > 1 || r);
+  const cells = String(p.cells ?? "").split("|").map((r) => r.split(";").map((c) => c.trim()));
+  const nc = Math.max(1, cols.length, ...cells.map((r) => r.length)), nr = Math.max(1, rows.length, cells.length);
+  const w = p.w || 900, rowW = rows.some(Boolean) ? w * 0.3 : 0, cw = (w - rowW) / nc, rh = Math.min(w * 0.085, (w * 0.62) / (nr + 1));
+  const H = (nr + 1) * rh, x0 = -w / 2, y0 = -H / 2, upto = p.upto ? Math.max(0, Math.round(p.upto)) : nr;
+  const gr = idxSet(p.glowRow), gc = idxSet(p.glowCol), fs = rh * 0.42;
+  let out = `<rect x="${x0}" y="${y0}" width="${w}" height="${rh}" fill="#2d3748" rx="${rh * 0.15}"/>`;
+  cols.forEach((c, j) => { if (c) out += tx(c, x0 + rowW + (j + 0.5) * cw, y0 + rh / 2, fit(c, cw * 0.9, fs), "#ffffff", 800); });
+  if (p.corner) out += tx(p.corner, x0 + rowW / 2, y0 + rh / 2, fit(p.corner, rowW * 0.9, fs), "#ffffff", 800);
+  for (let i = 0; i < nr; i++) {
+    const y = y0 + (i + 1) * rh, shown = i < upto;
+    out += `<rect x="${x0}" y="${y}" width="${w}" height="${rh}" fill="${gr.has(i + 1) ? "#fff3c4" : i % 2 ? "#f1f4f8" : "#ffffff"}" stroke="#d5dbe1" stroke-width="${Math.max(1, w * 0.0015)}"/>`;
+    if (!shown) continue;
+    if (rows[i]) out += tx(rows[i], x0 + rowW / 2, y + rh / 2, fit(rows[i], rowW * 0.92, fs), INK, 800);
+    for (let j = 0; j < nc; j++) {
+      const v = (cells[i] || [])[j] || "", cx = x0 + rowW + (j + 0.5) * cw, cy = y + rh / 2;
+      if (/^(✓|✔|y|yes|tick)$/i.test(v)) out += `<g transform="translate(${cx},${cy})">${markSvg("tick", rh * 0.6, "#2fa35b", 1)}</g>`;
+      else if (/^(✗|✘|x|no|cross)$/i.test(v)) out += `<g transform="translate(${cx},${cy})">${markSvg("cross", rh * 0.55, "#e5484d", 1)}</g>`;
+      else if (v) out += tx(v, cx, cy, fit(v, cw * 0.9, fs), INK, 700);
+    }
+  }
+  gc.forEach((j) => { if (j >= 1 && j <= nc) out += `<rect x="${x0 + rowW + (j - 1) * cw + 2}" y="${y0 + 2}" width="${cw - 4}" height="${H - 4}" fill="none" stroke="#f2c14e" stroke-width="${Math.max(4, w * 0.006)}" rx="${rh * 0.15}"/>`; });
+  return out + `<rect x="${x0}" y="${y0}" width="${w}" height="${H}" fill="none" stroke="#9aa5b1" stroke-width="${Math.max(2, w * 0.003)}" rx="${rh * 0.15}"/>` +
+    (rowW ? `<path d="M${x0 + rowW} ${y0} L${x0 + rowW} ${y0 + H}" stroke="#9aa5b1" stroke-width="${Math.max(2, w * 0.003)}"/>` : "");
+}
+
+function smoothPath(pts) {
+  if (pts.length < 3) return pts.map((q, i) => `${i ? "L" : "M"}${q[0].toFixed(1)} ${q[1].toFixed(1)}`).join(" ");
+  let d = `M${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const a = pts[Math.max(0, i - 1)], b = pts[i], c = pts[i + 1], e = pts[Math.min(pts.length - 1, i + 2)];
+    d += ` C${(b[0] + (c[0] - a[0]) / 6).toFixed(1)} ${(b[1] + (c[1] - a[1]) / 6).toFixed(1)} ${(c[0] - (e[0] - b[0]) / 6).toFixed(1)} ${(c[1] - (e[1] - b[1]) / 6).toFixed(1)} ${c[0].toFixed(1)} ${c[1].toFixed(1)}`;
+  }
+  return d;
+}
+
+function graph(p) {
+  const w = p.w || 900, h = w * 0.62, L = -w / 2 + w * 0.09, R = w / 2 - w * 0.05, T = -h / 2 + h * 0.06, B = h / 2 - h * 0.13;
+  const xmin = isNum(p.xmin) ? +p.xmin : 0, xmax = isNum(p.xmax) && +p.xmax > xmin ? +p.xmax : xmin + 10;
+  const ymin = isNum(p.ymin) ? +p.ymin : 0, ymax = isNum(p.ymax) && +p.ymax > ymin ? +p.ymax : ymin + 10;
+  const X = (v) => L + ((v - xmin) / (xmax - xmin)) * (R - L), Y = (v) => B - ((v - ymin) / (ymax - ymin)) * (B - T);
+  const t = Number(p._t), drawIn = Math.max(0, Number(p.drawIn) || 0), prog = drawIn && Number.isFinite(t) ? Math.min(1, t / drawIn) : 1;
+  const dashed = idxSet(p.dashed), fs = h * 0.055;
+  let out = `<path d="M${L} ${T - h * 0.03} L${L} ${B} L${R + w * 0.02} ${B}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>` +
+    `<path d="M${L - w * 0.012} ${T} L${L} ${T - h * 0.035} L${L + w * 0.012} ${T}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>` +
+    `<path d="M${R + w * 0.005} ${B - h * 0.02} L${R + w * 0.025} ${B} L${R + w * 0.005} ${B + h * 0.02}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>`;
+  if (ymin < 0 && ymax > 0) out += `<path d="M${L} ${Y(0)} L${R} ${Y(0)}" stroke="#9aa5b1" stroke-width="${w * 0.002}" stroke-dasharray="${w * 0.01} ${w * 0.008}"/>`;
+  if (p.xLabel) out += tx(p.xLabel, (L + R) / 2, B + h * 0.08, fit(p.xLabel, w * 0.6, fs), INK, 800);
+  if (p.yLabel) out += `<g transform="translate(${L - w * 0.05},${(T + B) / 2}) rotate(-90)">${tx(p.yLabel, 0, 0, fit(p.yLabel, h * 0.7, fs), INK, 800)}</g>`;
+  if (p.ticks) out += tx(String(xmin), L, B + h * 0.035, fs * 0.7, "#4a5568", 700) + tx(String(xmax), R, B + h * 0.035, fs * 0.7, "#4a5568", 700) +
+    tx(String(ymax), L - w * 0.02, T, fs * 0.7, "#4a5568", 700) + (ymin !== 0 ? tx(String(ymin), L - w * 0.02, B, fs * 0.7, "#4a5568", 700) : "");
+  parts(p.lines).filter(Boolean).slice(0, 6).forEach((ln, k) => {
+    const i = ln.indexOf(":"), lab = i >= 0 ? ln.slice(0, i).trim() : "", pts = (i >= 0 ? ln.slice(i + 1) : ln).trim().split(/\s+/)
+      .map((q) => q.split(",").map(Number)).filter((q) => q.length === 2 && q.every(Number.isFinite)).map(([a, b]) => [X(a), Y(b)]);
+    if (pts.length < 2) return;
+    const c = DIAG[k % DIAG.length], d = p.smooth === false ? pts.map((q, j) => `${j ? "L" : "M"}${q[0].toFixed(1)} ${q[1].toFixed(1)}`).join(" ") : smoothPath(pts);
+    out += `<path d="${d}" fill="none" stroke="${c}" stroke-width="${w * 0.007}" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="${dashed.has(k + 1) ? "0.02 0.015" : `${prog} 1`}"${dashed.has(k + 1) && prog < 1 ? ` opacity="${prog}"` : ""}/>`;
+    if (lab && prog >= 1) { const [ex, ey] = pts[pts.length - 1]; out += tx(lab, Math.min(R, ex + w * 0.03), ey - h * 0.04, fit(lab, w * 0.16, fs), c, 800); }
+  });
+  if (prog >= 1) parts(p.dots).filter(Boolean).slice(0, 6).forEach((dt) => {
+    const i = dt.indexOf(":"), [a, b] = (i >= 0 ? dt.slice(0, i) : dt).split(",").map(Number), lab = i >= 0 ? dt.slice(i + 1).trim() : "";
+    if (![a, b].every(Number.isFinite)) return;
+    const x = X(a), y = Y(b);
+    out += (p.drop === false ? "" : `<path d="M${x} ${y} L${x} ${B} M${x} ${y} L${L} ${y}" stroke="#4a5568" stroke-width="${w * 0.0025}" stroke-dasharray="${w * 0.008} ${w * 0.006}"/>`) +
+      `<circle cx="${x}" cy="${y}" r="${w * 0.009}" fill="${INK}" stroke="#ffffff" stroke-width="${w * 0.002}"/>` + (lab ? tx(lab, x + w * 0.04, y - h * 0.05, fit(lab, w * 0.2, fs), INK, 800) : "");
+  });
+  return out + (p.title ? tx(p.title, 0, T - h * 0.07, fit(p.title, w * 0.8, fs * 1.2), INK, 800) : "");
+}
+
+// A funnel (much goes in, a part comes out: reserve money into the money multiplier, many inputs into one result)
+// and a road map (the lesson's agenda: items in order, the current one framed, the done ones ticked) from E63/E64/E59.
+function funnel(p) {
+  const w = p.w || 320, h = w * 1.1, c = p.color || "#5b7fb8", flip = p.flip === true;
+  const top = -h, mid = -h * 0.38, wTop = w * 0.5, wNeck = w * 0.09;
+  const body = `<path d="M${-wTop} ${top} L${wTop} ${top} L${wNeck} ${mid} L${wNeck} ${-h * 0.08} L${-wNeck} ${-h * 0.08} L${-wNeck} ${mid} Z" fill="${shade(c, 1.5)}" stroke="${c}" stroke-width="${w * 0.02}" stroke-linejoin="round"/>` +
+    `<ellipse cx="0" cy="${top}" rx="${wTop}" ry="${h * 0.05}" fill="${shade(c, 1.25)}" stroke="${c}" stroke-width="${w * 0.02}"/>`;
+  const drops = [0, 1, 2].map((k) => `<circle cx="${(k - 1) * w * 0.012}" cy="${-h * 0.04 + k * h * 0.02}" r="${w * 0.018}" fill="${p.dropColor || "#f2c14e"}"/>`).join("");
+  const labs = (p.top ? tx(p.top, 0, top - h * 0.11, fit(p.top, w * 1.1, w * 0.1), INK, 800) : "") +
+    (p.label ? tx(p.label, 0, (top + mid) / 2, fit(p.label, w * 0.75, w * 0.09), "#ffffff", 800) : "") +
+    (p.bottom ? tx(p.bottom, 0, h * 0.06, fit(p.bottom, w * 1.1, w * 0.09), INK, 800) : "");
+  return flip ? `<g transform="translate(0,${-h * 1.06}) scale(1,-1)">${body}${drops}</g>` + labs : body + drops + labs;
+}
+
+function roadmap(p) {
+  const given = parts(p.items).filter(Boolean).slice(0, 10), items = given.length ? given : ["", "", ""];
+  const w = p.w || 420, n = items.length, rh = Math.min(w * 0.2, 700 / n);
+  const at = Math.round(p.at || 0), done = p.done == null || p.done === "" ? at - 1 : Math.round(p.done), c = p.color || "#2a9d8f";
+  let out = p.title ? tx(p.title, 0, -n * rh / 2 - rh * 0.55, fit(p.title, w, rh * 0.5), INK, 800) : "";
+  items.forEach((it, i) => {
+    const y = -n * rh / 2 + i * rh, cur = i + 1 === at, ok = i + 1 <= done && !cur, fs = fit(it || " ", w * 0.66, rh * 0.36);
+    const cx = -w / 2 + rh * 0.5, cy = y + rh / 2, r = rh * 0.26;
+    out += `<rect x="${-w / 2}" y="${y + rh * 0.08}" width="${w}" height="${rh * 0.84}" rx="${rh * 0.18}" fill="${cur ? "#fff8e1" : "#ffffff"}" stroke="${cur ? c : "#d5dbe1"}" stroke-width="${cur ? w * 0.012 : w * 0.004}"/>` +
+      `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${ok ? "#2fa35b" : cur ? c : "#d5dbe1"}"/>` +
+      (ok ? `<path d="M${cx - r * 0.5} ${cy + r * 0.02} L${cx - r * 0.12} ${cy + r * 0.4} L${cx + r * 0.52} ${cy - r * 0.38}" fill="none" stroke="#ffffff" stroke-width="${r * 0.28}" stroke-linecap="round" stroke-linejoin="round"/>`
+        : tx(String(i + 1), cx, cy, rh * 0.3, cur ? "#ffffff" : "#4a5568", 800)) +
+      `<g transform="translate(${-w / 2 + rh * 0.95 + (w - rh * 1.05) / 2},0)">${tx(it, 0, y + rh / 2, fs, ok ? "#6b7280" : INK, cur ? 800 : 700)}</g>`;
+  });
+  return out;
+}
+
+// A plant that grows from a seed to a tree, coins or notes as its fruit (venture and seed funding, growth, compounding).
+function plant(p) {
+  const w = p.w || 240, g = clamp01(p.stage == null ? 0.6 : p.stage), h = w * (0.25 + g * 1.1), fruit = p.fruit || "coin";
+  const pot = `<path d="M${-w * 0.2} ${-w * 0.22} L${w * 0.2} ${-w * 0.22} L${w * 0.15} 0 L${-w * 0.15} 0 Z" fill="#c0563f" stroke="#8a3b2a" stroke-width="${w * 0.015}"/>` +
+    `<rect x="${-w * 0.23}" y="${-w * 0.27}" width="${w * 0.46}" height="${w * 0.07}" rx="${w * 0.02}" fill="#d9734f"/>`;
+  if (g < 0.08) return pot + `<ellipse cx="0" cy="${-w * 0.28}" rx="${w * 0.05}" ry="${w * 0.035}" fill="#8a5a2b"/>` + (p.label ? tx(p.label, 0, w * 0.1, fit(p.label, w, w * 0.12), INK, 800) : "");
+  const stem = `<path d="M0 ${-w * 0.27} C${w * 0.03} ${-w * 0.27 - h * 0.4} ${-w * 0.03} ${-w * 0.27 - h * 0.7} 0 ${-w * 0.27 - h}" fill="none" stroke="${g > 0.6 ? "#8a5a2b" : "#4f9a4a"}" stroke-width="${w * (0.02 + g * 0.05)}" stroke-linecap="round"/>`;
+  const top = -w * 0.27 - h, leaves = g < 0.45
+    ? [-1, 1].map((d) => `<ellipse cx="${d * w * 0.09}" cy="${top + w * 0.04}" rx="${w * 0.1}" ry="${w * 0.045}" fill="#7cc47a" transform="rotate(${d * -25} ${d * w * 0.09} ${top + w * 0.04})"/>`).join("")
+    : `<circle cx="0" cy="${top}" r="${w * (0.18 + g * 0.22)}" fill="#8fbf5a"/><circle cx="${-w * 0.16 * g}" cy="${top + w * 0.08}" r="${w * (0.12 + g * 0.14)}" fill="#7cb24f"/><circle cx="${w * 0.17 * g}" cy="${top + w * 0.06}" r="${w * (0.12 + g * 0.15)}" fill="#9dca6b"/>`;
+  const n = fruit === "none" || g < 0.45 ? 0 : Math.round(2 + g * 5), r = w * 0.045;
+  const fr = [...Array(n).keys()].map((k) => { const a = (k / n) * Math.PI * 2 + 0.4, x = Math.cos(a) * w * 0.2 * g, y = top + Math.sin(a) * w * 0.17 * g;
+    return fruit === "note" ? `<rect x="${x - r * 1.3}" y="${y - r * 0.7}" width="${r * 2.6}" height="${r * 1.4}" rx="${r * 0.2}" fill="#6cbf7f" stroke="#2f7a45" stroke-width="${r * 0.18}"/>`
+      : `<circle cx="${x}" cy="${y}" r="${r}" fill="#f2c14e" stroke="#c99a2e" stroke-width="${r * 0.2}"/>`; }).join("");
+  return stem + leaves + fr + pot + (p.label ? tx(p.label, 0, w * 0.1, fit(p.label, w, w * 0.12), INK, 800) : "");
 }
 
 // ---------------------------------------------------------------- registry
@@ -965,6 +1206,15 @@ export const DRAWS = {
   rope: { fn: rope, anchor: "center" },
   world: { fn: world, anchor: "center" },
   flow: { fn: flow, anchor: "center" },
+  bands: { fn: bands, anchor: "center" },
+  fork: { fn: fork, anchor: "center" },
+  gapBars: { fn: gapBars, anchor: "bottom" },
+  timeline: { fn: timeline, anchor: "center" },
+  table: { fn: table, anchor: "center" },
+  graph: { fn: graph, anchor: "center" },
+  funnel: { fn: funnel, anchor: "bottom" },
+  roadmap: { fn: roadmap, anchor: "center" },
+  plant: { fn: plant, anchor: "bottom" },
 };
 
 export function drawSaancha(name, p = {}) {

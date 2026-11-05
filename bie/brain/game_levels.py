@@ -15,18 +15,30 @@ The five mechanics (from the agreement's list):
   names what is missing.
 - ``cause_effect``: build the chain from cause to effect; a wrong link shows why the chain breaks.
 
+One more from 69 economy reference videos (4 Nov 2026; "allocate" was their third most common game idea, 26 times):
+- ``allocate``: the student splits a total among 2-5 boxes (a deposit into the CRR vault, the SLR safe and loans; a
+  budget into heads), then checks; every box outside its sound range says what goes wrong when it is too low or too
+  high. Played by the runtime's allocate stage.
+
 Two more, learned from 54 economy reference videos (4 Nov 2026; their game ideas were mostly "be the actor and
 decide" and "set the number and see what happens"), played by the runtime's existing branch and slider stages:
 - ``act_as``: the student is a character or an institution (RBI, a founder, a bank officer, the GDP counter) in a
   situation and chooses; every wrong choice says what breaks and why.
 - ``predict``: the student sets a number first (how much goes into the CRR vault, the yield at a price, the
   per-person income), then sees the real value and the relationship; close and far guesses get their own feedback.
+
+A level can happen in a world (4 Nov 2026): ``world`` names one of the economy worlds of the showing engine (a bank
+hall, a market, a port, ...) with its parameters (the saancha manifest is the law), and each place of
+``place_right`` / ``find_partner`` can sit on a ``spot`` of that world (counter2, the vault, a stall's sign words), so
+the student drops the customer's need on the right counter of a real-looking bank hall. The runtime draws the world
+with the same code as the videos (``worlds.mjs``) and puts the drop zones on the spots.
 """
 from __future__ import annotations
 
-MECHANICS = ("run_process", "place_right", "build_timeline", "find_partner", "cause_effect", "act_as", "predict")
+MECHANICS = ("run_process", "place_right", "build_timeline", "find_partner", "cause_effect", "act_as", "predict", "allocate")
 DRAG = ("run_process", "place_right", "build_timeline", "find_partner", "cause_effect")
 MAX_CHOICES = 4
+MAX_BOXES = 5
 MAX_PIECES = 7          # a phone screen holds this many tokens or places comfortably
 MAX_LABEL = 44
 
@@ -36,6 +48,68 @@ SLOT_WORD = {"run_process": "कदम", "build_timeline": "पहले → ब
 
 def _rows(level, key):
     return level.get(key) or []
+
+
+# The spots of every world, by name (the same names worlds.mjs worldSpots gives; tests/test_p1_game_levels.py keeps
+# them equal). Numbered spots take their count from the world's parameters exactly as the drawing does.
+_FIXED_SPOTS = {"market": ("floor",), "bankHall": ("vault", "queue", "floor"), "centralBank": ("vault", "floor"),
+                "exchangeFloor": ("board", "desks", "floor"), "port": ("ship", "crane", "dock"), "factory": ("belt", "chimney"),
+                "village": ("field", "hut", "well", "tree"), "office": ("floor",), "court": ("bench", "left", "right", "floor"),
+                "city": ("road",), "assembly": ("podium", "seats", "floor"), "twoCountries": ("left", "right", "border", "road"),
+                "forexCounter": ("counter", "board", "queue", "floor")}
+_NUMBERED = {"market": ("stall", 4, 2, 6), "bankHall": ("counter", 3, 1, 5), "office": ("desk", 5, 1, 6),
+             "factory": ("shed", 3, 3, 3), "city": ("shop", 3, 3, 3)}
+_NAMED = {"twoCountries": ("left", "right")}             # the first signs name these fixed spots (the two countries)
+
+
+def world_spot_names(world: dict) -> list:
+    """The spot names of a world (fixed spots, numbered spots, then the words of the signs on numbered spots)."""
+    kind = world.get("kind") if world.get("kind") in _FIXED_SPOTS else "market"
+    signs = [t.strip() for t in str(world.get("signs") or "").split(";") if t.strip()]
+    names = list(_FIXED_SPOTS[kind])
+    if kind in _NUMBERED:
+        pre, d, lo, hi = _NUMBERED[kind]
+        c = world.get("count")
+        n = c if isinstance(c, (int, float)) and not isinstance(c, bool) and c > 0 else (len(signs) or d)
+        n = max(lo, min(hi, int(round(n))))
+        names += [f"{pre}{i + 1}" for i in range(n)]
+        for sg in signs[:n]:
+            if sg not in names:
+                names.append(sg)
+    for sg in signs[:len(_NAMED.get(kind, ()))]:
+        if sg not in names:
+            names.append(sg)
+    return names
+
+
+def world_spots_text() -> str:
+    """One line per world for the level writer: its spots (numbered ones count by the world's signs or count)."""
+    rows = []
+    for kind, fixed in _FIXED_SPOTS.items():
+        num = _NUMBERED.get(kind)
+        spots = ([f"{num[0]}1..{num[0]}{num[3]} (one per sign; a sign's words work too)"] if num and num[3] > num[2]
+                 else [f"{num[0]}1..{num[0]}{num[3]} (a sign's words work too)"] if num else []) + list(fixed)
+        if kind in _NAMED:
+            spots.append(f"(signs name {' and '.join(_NAMED[kind])})")
+        rows.append(f"{kind}: {', '.join(spots)}")
+    return "; ".join(rows)
+
+
+def _world_problems(level: dict, lid: str) -> list:
+    world = level.get("world")
+    if world is None:
+        return [f"level {lid}: place '{p.get('id')}' has a spot but the level has no world"
+                for p in _rows(level, "places") if isinstance(p, dict) and p.get("spot")]
+    if not isinstance(world, dict):
+        return [f"level {lid}: 'world' must be a JSON object (kind, signs, ...), not {type(world).__name__}"]
+    from bie.brain import saanche
+    out = [f"level {lid}: world: {p}" for p in saanche.problems("world", world)]
+    names = world_spot_names(world)
+    for p in _rows(level, "places"):
+        if isinstance(p, dict) and p.get("spot") and p["spot"] not in names:
+            out.append(f"level {lid}: place '{p.get('id')}' spot '{p['spot']}' is not in the {world.get('kind', 'market')} "
+                       f"world (spots: {', '.join(names)})")
+    return out
 
 
 def problems(level: dict) -> list:
@@ -64,6 +138,9 @@ def problems(level: dict) -> list:
         out += _act_as_problems(level, lid)
     elif mech == "predict":
         out += _predict_problems(level, lid)
+    elif mech == "allocate":
+        out += _allocate_problems(level, lid)
+    out += _world_problems(level, lid)
     if mech not in DRAG:
         if not level.get("win"):
             out.append(f"level {lid}: 'win' is needed (what the student made work)")
@@ -175,9 +252,73 @@ def _predict_problems(level: dict, lid: str) -> list:
     return out
 
 
+def _num(v):
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def _allocate_problems(level: dict, lid: str) -> list:
+    al = level.get("allocate")
+    if not isinstance(al, dict):
+        return [f"level {lid}: 'allocate' is needed (total, unit, step, boxes)"]
+    out = []
+    total, step = _num(al.get("total")), _num(al.get("step") if al.get("step") is not None else 1)
+    if total is None or total <= 0 or step is None or step <= 0:
+        return [f"level {lid}: allocate total and step must be numbers above 0"]
+    if abs(total / step - round(total / step)) > 1e-9:
+        out.append(f"level {lid}: allocate total {total:g} is not a whole number of steps of {step:g}")
+    boxes = al.get("boxes")
+    if not isinstance(boxes, list) or not 2 <= len(boxes) <= MAX_BOXES:
+        return out + [f"level {lid}: 2..{MAX_BOXES} allocate boxes are needed (a phone screen)"]
+    seen, lo_sum, hi_sum = set(), 0.0, 0.0
+    for b in boxes:
+        if not isinstance(b, dict):
+            out.append(f"level {lid}: every allocate box must be a JSON object, not {type(b).__name__}")
+            continue
+        bid = b.get("id") or "?"
+        if bid in seen:
+            out.append(f"level {lid}: two allocate boxes named '{bid}'")
+        seen.add(bid)
+        if not b.get("id") or not str(b.get("label") or "").strip():
+            out.append(f"level {lid}: allocate box '{bid}' needs an id and a label")
+        elif len(str(b["label"])) > MAX_LABEL:
+            out.append(f"level {lid}: allocate box '{bid}' label is over {MAX_LABEL} characters")
+        lo, hi = _num(b.get("min_ok")), _num(b.get("max_ok"))
+        if lo is None or hi is None or not 0 <= lo <= hi <= total:
+            out.append(f"level {lid}: allocate box '{bid}' needs 0 <= min_ok <= max_ok <= total")
+            continue
+        lo_sum, hi_sum = lo_sum + lo, hi_sum + hi
+        for key, cond in (("too_low", lo > 0), ("too_high", hi < total)):
+            if cond and not str(b.get(key) or "").strip():
+                out.append(f"level {lid}: allocate box '{bid}' needs '{key}' (what goes wrong when it is too {key[4:]})")
+    if not out:                                          # a right split must exist on the step grid
+        import math
+        lo_sum = sum(math.ceil(float(b["min_ok"]) / step - 1e-9) * step for b in boxes)
+        hi_sum = sum(math.floor(float(b["max_ok"]) / step + 1e-9) * step for b in boxes)
+    if not out and not lo_sum - 1e-9 <= total <= hi_sum + 1e-9:
+        out.append(f"level {lid}: no split can be right: the boxes' sound ranges add up to {lo_sum:g}..{hi_sum:g}, "
+                   f"not around the total {total:g}")
+    if not str(level.get("feedback_close") or "").strip():
+        out.append(f"level {lid}: 'feedback_close' is needed (what the sound split makes work)")
+    return out
+
+
 def stage_of(level: dict) -> dict:
     """One runtime stage from a valid level (drag, branch or slider engine); ``problems()`` must be empty first."""
     mech = level["mechanic"]
+    if mech == "allocate":
+        al = level["allocate"]
+        boxes = [{"id": str(b["id"]), "label": str(b["label"]), "min_ok": float(b["min_ok"]), "max_ok": float(b["max_ok"]),
+                  "too_low": str(b.get("too_low") or ""), "too_high": str(b.get("too_high") or "")} for b in al["boxes"]]
+        return {"stage_id": level["level_id"], "kind": "allocate", "instruction": str(level["instruction"]),
+                "tokens": [], "targets": [], "rules": [], "ordered": False, "situation": str(level.get("situation", "")), "choices": [],
+                "slider": {"label": "", "unit": "", "min": 0, "max": 0, "step": 0, "answer": 0, "tolerance": 0,
+                           "predict_prompt": "", "reveal_label": "", "data": []},
+                "allocate": {"total": float(al["total"]), "unit": str(al.get("unit", "")), "step": float(al.get("step") or 1), "boxes": boxes},
+                "feedback_close": str(level.get("feedback_close", "")), "feedback_far": str(level.get("feedback_far", "")),
+                "item_ids": list(level.get("item_ids") or [])}
     if mech in ("act_as", "predict"):
         sl = level.get("slider") or {}
         slider = {"label": str(sl.get("label", "")), "unit": str(sl.get("unit", "")), "min": float(sl.get("min", 0)),
@@ -218,7 +359,8 @@ def stage_of(level: dict) -> dict:
                                   "feedback": str(p["wrong"]), "effect": "shake"})
     else:
         places = _rows(level, "places")
-        targets = [{"id": p["id"], "label": str(p["label"]), "box": {"x": 0, "y": 0, "w": 0, "h": 0}} for p in places]
+        targets = [dict({"id": p["id"], "label": str(p["label"]), "box": {"x": 0, "y": 0, "w": 0, "h": 0}},
+                        **({"spot": str(p["spot"])} if p.get("spot") else {})) for p in places]
         for p in real:
             for place in places:
                 if place["id"] == p["fits"]:
@@ -232,12 +374,15 @@ def stage_of(level: dict) -> dict:
                 for place in places:
                     rules.append({"token": p["id"], "target": place["id"], "correct": False,
                                   "feedback": str(p["wrong"]), "effect": "shake"})
-    return {"stage_id": level["level_id"], "kind": "drag", "instruction": str(level["instruction"]),
+    stage = {"stage_id": level["level_id"], "kind": "drag", "instruction": str(level["instruction"]),
             "tokens": tokens, "targets": targets, "rules": rules, "ordered": bool(ORDERED[mech]),
             "situation": "", "choices": [],
             "slider": {"label": "", "unit": "", "min": 0, "max": 0, "step": 0, "answer": 0, "tolerance": 0,
                        "predict_prompt": "", "reveal_label": "", "data": []},
             "feedback_close": "", "feedback_far": "", "item_ids": list(level.get("item_ids") or [])}
+    if isinstance(level.get("world"), dict):
+        stage["world"] = dict(level["world"])          # the runtime draws it and puts the places on their spots
+    return stage
 
 
 def mission_of(levels: list, *, title: str, intro: str = "", win_text: str = "") -> dict:

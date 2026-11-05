@@ -99,5 +99,23 @@ class EngineRender(unittest.TestCase):
                 self.assertIn(name, index)
 
 
+@unittest.skipUnless(shutil.which("node"), "needs node (the toolbox demos job has it)")
+class GameBotPlays(unittest.TestCase):
+    """BIE's bot plays the allocate engine on a phone in Chromium: one wrong split (every box out of range reddens with
+    its reason), then the right one (4 Nov 2026)."""
+
+    def test_the_bot_plays_a_wrong_split_then_the_right_one(self):
+        import json
+        sys.path.insert(0, str(ROOT / "tests"))
+        from test_p1_game_levels import allocate_level
+        from bie.brain import game_levels as gl
+        from bie.brain.game_build import bot_screenshots
+        mission = gl.mission_of([allocate_level()], title="बैंक बनो")
+        shots, info = bot_screenshots({"id": "a", "title": "बैंक", "world": "", "missions": [mission], "credits": []})
+        self.assertTrue(shots, info)
+        result = json.loads(info)
+        self.assertEqual((result["won"], result["wrong_moves"], result["errors"]), (1, 1, []))
+
+
 if __name__ == "__main__":
     unittest.main()

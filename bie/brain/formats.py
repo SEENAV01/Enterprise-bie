@@ -158,11 +158,12 @@ NOTES_PAGE = O({"schema": S, "page_id": S, "ask": S, "question": S, "essence": S
 GAME_PIECE = O({"id": S, "label": S, "fits": S, "right": S, "wrong": S, "decoy": B}, required=["id", "label"])
 GAME_LEVEL = O({"schema": S, "level_id": S, "title": S, "instruction": S,
                 "mechanic": {"type": "string", "enum": ["run_process", "place_right", "build_timeline", "find_partner", "cause_effect",
-                                                        "act_as", "predict"]},
-                "pieces": A(GAME_PIECE), "places": A(O({"id": S, "label": S}, required=["id", "label"])),
+                                                        "act_as", "predict", "allocate"]},
+                "pieces": A(GAME_PIECE), "places": A(O({"id": S, "label": S, "spot": S}, required=["id", "label"])),
+                "world": {"type": "object"},
                 "role": S, "situation": S,
                 "choices": A(O({"label": S, "correct": {"type": "boolean"}, "feedback": S}, required=["label", "correct", "feedback"])),
-                "slider": {"type": "object"}, "feedback_close": S, "feedback_far": S,
+                "slider": {"type": "object"}, "allocate": {"type": "object"}, "feedback_close": S, "feedback_far": S,
                 "order_why": S, "win": S, "item_ids": A(S)},
                required=["schema", "level_id", "title", "instruction", "mechanic", "win", "item_ids"])   # pieces: drag mechanics (game_levels.problems)
 PLAN_SCENE = O({"id": S, "lines": A(S), "bg": S, "kicker": S, "fg": S, "cam": A({"type": "object"}),

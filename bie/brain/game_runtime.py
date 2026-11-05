@@ -10,6 +10,8 @@ Three mission engines cover the mechanics the game designer chooses:
   reason, a right one moves the story on.
 - slider: the student predicts first by setting the slider, then sees the real answer, the relationship drawn
   from its data points and how far the guess was.
+- allocate: the student splits a total among boxes with sliders (what is left is always shown), then checks; every
+  box outside its sound range glows red with what goes wrong when it is too low or too high.
 Progress and mastery stay on the device; a replay can shuffle the parts. ``window.__bot`` lets BIE's bot play
 a mission step by step (start, one wrong move, the right moves) for the playtest screenshots;
 ``window.__autoplay(missionIndex)`` plays a whole mission.
@@ -18,6 +20,8 @@ from __future__ import annotations
 
 import html
 import json
+import re
+from pathlib import Path
 
 PAGE = r"""<!doctype html>
 <html lang="hi">
@@ -42,6 +46,8 @@ header h1{font-size:1.05rem;margin:0;flex:1;min-width:0;white-space:nowrap;overf
 .board{position:relative;width:100%;height:46vh;min-height:220px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0b1d28;margin:0 auto}
 .board.pic{height:auto;max-height:56vh;background:#fff}
 .board img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}
+.board svg.world{position:absolute;inset:0;width:100%;height:100%}
+.wb .target{align-items:flex-end;font-size:.8rem}.wb .target>span{background:rgba(255,255,255,.88);border-radius:6px;padding:0 5px;margin-bottom:3px}
 .credit{position:absolute;right:6px;bottom:4px;font-size:.62rem;color:#333;background:rgba(255,255,255,.75);padding:1px 5px;border-radius:6px;max-width:70%;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .target{position:absolute;border:2px dashed rgba(55,210,194,.6);border-radius:12px;display:flex;align-items:center;justify-content:center;
@@ -65,6 +71,8 @@ header h1{font-size:1.05rem;margin:0;flex:1;min-width:0;white-space:nowrap;overf
 .timeline{display:flex;gap:6px;align-items:center;margin:4px 0 8px}.timeline i{flex:1;height:8px;border-radius:4px;background:var(--line)}
 .timeline i.ok{background:var(--accent)}.timeline i.broken{background:var(--bad);animation:shake .4s}
 .slider{display:grid;gap:10px}.slider input{width:100%}
+.alloc{display:grid;gap:10px}.arow{display:grid;gap:4px;padding:8px 10px;border-radius:12px;border:1px solid var(--line)}.arow input{width:100%}
+.arow .top{display:flex;justify-content:space-between;gap:8px}.arow.broken{border-color:var(--bad);background:rgba(255,107,107,.15)}.arow.ok{border-color:var(--accent);background:rgba(55,210,194,.12)}
 .reveal{font-size:1.05rem;font-weight:800;color:var(--warm)}
 .chart{width:100%;height:auto;background:#0b1d28;border-radius:12px;border:1px solid var(--line)}
 .toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);width:min(92vw,760px);z-index:10;border-radius:14px;padding:12px 16px;
@@ -87,6 +95,7 @@ header h1{font-size:1.05rem;margin:0;flex:1;min-width:0;white-space:nowrap;overf
 <div id="app"></div>
 <div id="toast" class="toast" role="status"></div>
 <script id="data" type="application/json">__DATA__</script>
+<script>__WORLDS__</script>
 <script>
 const G = JSON.parse(document.getElementById("data").textContent);
 const KEY = "bie-game-" + G.id;
@@ -157,7 +166,8 @@ function renderStage() {
   header(); const s = current.stages[current.stage]; const wrap = el("div"); wrap.id = "stage";
   wrap.appendChild(el("p", "instr", s.instruction)); app.appendChild(wrap);
   current.wrong = current.right = null;
-  if (s.kind === "drag") dragStage(s, wrap); else if (s.kind === "branch") branchStage(s, wrap); else sliderStage(s, wrap);
+  if (s.kind === "drag") dragStage(s, wrap); else if (s.kind === "branch") branchStage(s, wrap);
+  else if (s.kind === "allocate") allocateStage(s, wrap); else sliderStage(s, wrap);
 }
 function effect(node, kind) {
   if (!node) return;
@@ -170,14 +180,20 @@ function autoBox(i, n) {
   return { x: 0.05 + (i % cols) * w + 0.01, y: 0.07 + Math.floor(i / cols) * h + 0.01, w: w - 0.02, h: h - 0.02 };
 }
 function dragStage(s, wrap) {
-  const board = el("div", "board"), bg = s.background && s.background.src ? s.background : null;
+  const board = el("div", "board"), wd = s.world && window.BIEWorld ? s.world : null;
+  const bg = !wd && s.background && s.background.src ? s.background : null, spots = wd ? BIEWorld.worldSpots(wd) : {};
+  if (wd) { board.classList.add("pic", "wb"); board.style.aspectRatio = "16 / 9"; board.style.maxWidth = "calc(56vh * 16 / 9)";
+    board.insertAdjacentHTML("beforeend", '<svg class="world" viewBox="-960 -540 1920 1080" preserveAspectRatio="none">' +
+      BIEWorld.world(Object.assign({}, wd, { w: 3840 })) + "</svg>"); }
   if (bg) { board.classList.add("pic"); board.style.aspectRatio = bg.width + " / " + bg.height;
     board.style.maxWidth = "calc(56vh * " + (bg.width / bg.height) + ")";
     const img = el("img"); img.src = bg.src; img.alt = bg.alt || ""; board.appendChild(img);
     if (bg.credit) board.appendChild(el("div", "credit", bg.credit)); }
   const targets = {};
   s.targets.forEach((t, i) => {
-    const d = el("div", "target", bg ? null : (t.label || "")); const b = t.box && t.box.w ? t.box : autoBox(i, s.targets.length);
+    const d = el("div", "target", bg || wd ? null : (t.label || ""));
+    const b = (t.spot && spots[t.spot]) || (t.box && t.box.w ? t.box : autoBox(i, s.targets.length));
+    if (wd) d.appendChild(el("span", null, t.label || ""));
     if (bg) { d.appendChild(el("span", "dot", String(i + 1))); if (t.label) d.title = t.label; }
     Object.assign(d.style, { left: b.x * 100 + "%", top: b.y * 100 + "%", width: b.w * 100 + "%", height: b.h * 100 + "%" });
     d.dataset.id = t.id; board.appendChild(d); targets[t.id] = d;
@@ -288,6 +304,55 @@ function sliderStage(s, wrap) {
   current.wrong = () => { input.value = Math.abs(sl.min - truth) > tol ? sl.min : sl.max; label(); if (Math.abs(Number(input.value) - truth) <= tol) return false; reveal(); return true; };
   current.right = () => { if (!revealed) { input.value = truth; label(); reveal(); } go(); };
 }
+function allocateStage(s, wrap) {
+  const al = s.allocate, step = al.step || 1, total = Number(al.total), unit = al.unit ? " " + al.unit : "";
+  if (s.situation) { const c = el("div", "card"); c.appendChild(el("p", null, s.situation)); wrap.appendChild(c); }
+  const vals = al.boxes.map(() => 0), card = el("div", "card alloc"), left = el("div", "pill"); card.appendChild(left);
+  const sum = () => vals.reduce((a, x) => a + x, 0);
+  const rows = al.boxes.map((b, i) => {
+    const row = el("div", "arow"), top = el("div", "top"), out = el("b", null, "0" + unit);
+    top.appendChild(el("span", null, b.label)); top.appendChild(out); row.appendChild(top);
+    const input = el("input"); Object.assign(input, { type: "range", min: 0, max: total, step }); input.value = 0;
+    input.oninput = () => set(i, Number(input.value)); row.appendChild(input); card.appendChild(row);
+    return { row, input, out };
+  });
+  function set(i, v) {
+    const others = sum() - vals[i]; vals[i] = Math.max(0, Math.min(v, total - others));
+    rows[i].input.value = vals[i]; rows[i].out.textContent = fmtNum(vals[i]) + unit;
+    left.textContent = "Baantna baaki: " + fmtNum(total - sum()) + unit + " (kul " + fmtNum(total) + unit + ")";
+  }
+  set(0, 0);
+  const check = el("button", "btn", "Baant pakka"); card.appendChild(check); wrap.appendChild(card);
+  let mistakes = 0, over = false, moved = false;
+  const go = () => { if (!moved) { moved = true; next(mistakes === 0); } };
+  const verdict = () => {
+    if (over) return true;
+    const rest = total - sum();
+    if (Math.abs(rest) > 1e-9) { toast(false, "Poora baanto!", "Abhi " + fmtNum(rest) + unit + " bacha hai."); return false; }
+    rows.forEach(r => r.row.classList.remove("broken", "ok"));
+    const bad = al.boxes.map((b, i) => vals[i] < b.min_ok - 1e-9 ? [i, b.too_low] : vals[i] > b.max_ok + 1e-9 ? [i, b.too_high] : null).filter(Boolean);
+    if (bad.length) { mistakes++; bad.forEach(([i]) => { rows[i].row.classList.add("broken"); effect(rows[i].row, "break"); });
+      toast(false, "Yahan gadbad!", bad.map(([i, why]) => al.boxes[i].label + ": " + why).join(" · ")); return false; }
+    over = true; rows.forEach(r => r.row.classList.add("ok")); toast(true, "Sahi baant!", s.feedback_close);
+    check.remove(); const btn = el("button", "btn", "Aage badho"); btn.onclick = go; card.appendChild(btn); return true;
+  };
+  check.onclick = verdict;
+  const fill = (target) => { vals.fill(0); rows.forEach((_, i) => set(i, 0)); target.forEach((v, i) => set(i, v)); };
+  current.wrong = () => {
+    const all = al.boxes.map((_, i) => i === 0 ? total : 0);
+    if (al.boxes.every((b, i) => all[i] >= b.min_ok - 1e-9 && all[i] <= b.max_ok + 1e-9)) return false;
+    fill(all); verdict(); return true;
+  };
+  current.right = () => {
+    if (!over) {
+      const lo = al.boxes.map(b => Math.ceil(b.min_ok / step - 1e-9) * step), hi = al.boxes.map(b => Math.floor(b.max_ok / step + 1e-9) * step);
+      let rest = total - lo.reduce((a, x) => a + x, 0); const v = lo.slice();
+      for (let i = 0; i < v.length && rest > 1e-9; i++) { const add = Math.min(rest, hi[i] - v[i]); v[i] += add; rest -= add; }
+      fill(v); verdict();
+    }
+    go();
+  };
+}
 function state() {
   if (!current) return null;
   return { mission: current.m.mission_id, stage: current.stage, total: current.stages.length, finished: !!current.finished,
@@ -316,6 +381,19 @@ menu();
 """
 
 
+WORLDS_JS = Path(__file__).resolve().parent / "video" / "engine" / "worlds.mjs"
+
+
+def worlds_script(game: dict) -> str:
+    """The showing engine's worlds code (the same drawing as the videos) for a game whose stages happen in a world;
+    wrapped so its names stay private, and empty when no stage needs it (the page stays small)."""
+    if not any(isinstance(s.get("world"), dict) for m in game.get("missions") or [] for s in m.get("stages") or []):
+        return ""
+    code = re.sub(r"^export ", "", WORLDS_JS.read_text(encoding="utf-8"), flags=re.M).replace("</script", "<\\/script")
+    return "window.BIEWorld = (() => {\n" + code + "\nreturn { world, worldSpots };\n})();"
+
+
 def render_game_html(game: dict) -> str:
     payload = json.dumps(game, ensure_ascii=False).replace("</", "<\\/")
-    return PAGE.replace("__TITLE__", html.escape(game.get("title", "BIE game"))).replace("__DATA__", payload)
+    return (PAGE.replace("__TITLE__", html.escape(game.get("title", "BIE game"))).replace("__WORLDS__", worlds_script(game))
+            .replace("__DATA__", payload))
