@@ -102,9 +102,11 @@ saancha — before, only the first 40 reached it) and PR #146 (games inside worl
 `timeline` / `table` / `graph` — the top diagrams of the needs list that the scene-plan engine lacked — `bands`, `fork`,
 `gapBars`, `funnel`, `roadmap`, `plant`, factory, worlds `twoCountries` and `forexCounter`, 11 more locked rules).
 
-Honest finding: 104 of 111 batch-5 segments were a plain canvas, not a place. The references teach mostly with
-diagrams; BIE's worlds are for stories and processes that happen somewhere (rule EV-S13). The numbers held over 69
-videos: a picture lands a median 0.26 s before its naming word (75% within 1 s).
+The benchmark is the Money v2 demo, not the references (Navin, 5 Nov 2026): the videos must be engaging, and what
+the eye sees and the ear hears together must join into one clear idea. The batch-5 references showed a place in 6% of
+their time and people in 33%; the v2 demo had people acting in 56% and a place in 32%. The references' shares are no
+ceiling: BIE acts every idea that can be acted, in as many segments as the scene plan needs (rule EV-S13, rewritten,
+PR #148). The numbers held over 69 videos: a picture lands a median 0.26 s before its naming word (75% within 1 s).
 
 Status: IMPLEMENTED, not INTEGRATED (BIE's director and game writer must use them on a real book), not ACCEPTED.
 
