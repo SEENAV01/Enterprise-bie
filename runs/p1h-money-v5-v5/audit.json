@@ -1,0 +1,114 @@
+{
+ "schema": "bie.text-audit/1",
+ "floor_px": 36,
+ "frames_sampled": 541,
+ "every_frames": 30,
+ "texts_seen": 184,
+ "min_px": 5.7,
+ "small": [
+  {
+   "t": "दावा बाकी",
+   "px": 15.4,
+   "first_s": 205.0,
+   "samples": 1,
+   "plan": true,
+   "last_s": 205.0
+  },
+  {
+   "t": "भुगतान अटकें",
+   "px": 26.8,
+   "first_s": 254.0,
+   "samples": 1,
+   "plan": true,
+   "last_s": 254.0
+  }
+ ],
+ "small_count": 2,
+ "lasting_small_count": 0,
+ "symbols": [
+  {
+   "t": "₹",
+   "px": 31.6,
+   "first_s": 91.0,
+   "samples": 5,
+   "last_s": 95.0
+  },
+  {
+   "t": "¤",
+   "px": 19.3,
+   "first_s": 104.0,
+   "samples": 1,
+   "last_s": 104.0
+  },
+  {
+   "t": "$",
+   "px": 23.2,
+   "first_s": 160.0,
+   "samples": 1,
+   "last_s": 160.0
+  },
+  {
+   "t": "₹",
+   "px": 5.7,
+   "first_s": 394.0,
+   "samples": 1,
+   "last_s": 394.0
+  },
+  {
+   "t": "₹",
+   "px": 24.3,
+   "first_s": 406.0,
+   "samples": 9,
+   "last_s": 414.0
+  },
+  {
+   "t": "₹",
+   "px": 24.3,
+   "first_s": 442.0,
+   "samples": 8,
+   "last_s": 449.0
+  },
+  {
+   "t": "$",
+   "px": 19.3,
+   "first_s": 446.0,
+   "samples": 1,
+   "last_s": 446.0
+  },
+  {
+   "t": "$",
+   "px": 19.3,
+   "first_s": 448.0,
+   "samples": 1,
+   "last_s": 448.0
+  },
+  {
+   "t": "$",
+   "px": 34.3,
+   "first_s": 472.0,
+   "samples": 2,
+   "last_s": 473.0
+  }
+ ],
+ "overlaps": [],
+ "overlap_count": 0,
+ "lasting_overlap_count": 0,
+ "caption_overlap_count": 0,
+ "sample_s": 1.0,
+ "overlap_seconds": 0.0,
+ "longest_overlap_s": 0.0,
+ "plan_marked": true,
+ "spec": "/home/runner/work/_temp/in/video_spec.json",
+ "gate": {
+  "passed": false,
+  "long_s": 2.0,
+  "long_overlaps": 0,
+  "small_plan_texts": 2,
+  "overlap_seconds": 0.0,
+  "longest_overlap_s": 0.0,
+  "problems": [
+   "'दावा बाकी' is 15.4 px on screen from 205.0 s (the floor is 36 px)",
+   "'भुगतान अटकें' is 26.8 px on screen from 254.0 s (the floor is 36 px)"
+  ]
+ }
+}
