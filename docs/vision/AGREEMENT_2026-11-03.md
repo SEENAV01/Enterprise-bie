@@ -183,3 +183,8 @@ capable. BIE is to AI and books what an operating system is to a machine and its
 needed work, precisely and cheaply. His target: about 10,000 accurate, engaging educational videos (with games and
 notes) from his PDF books for about ₹1–2 lakh, fast; the cost per page and per video is measured as BIE runs.
 
+**Navin, 5 November 2026 (standing):** the videos must be engaging and must make the concept clear: what the student's
+eyes see and ears hear at the same moment join into one clear idea in the mind. The benchmark stays the Money v2 demo,
+not the reference videos: what the references do rarely (a place, people acting, things moving) is no ceiling for BIE;
+when the scene plan needs it, people, moving things, processes and worlds work in as many segments as it needs (rule
+EV-S13 of `bie/brain/rulebook/econ_videos.json`, rewritten that day).
