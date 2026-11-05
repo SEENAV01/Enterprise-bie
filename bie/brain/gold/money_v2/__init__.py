@@ -25,4 +25,4 @@ def gold_spec(durations: dict | None = None, width: int = 1280, height: int = 72
     2026), so it compiles without it; its scene B — the director's example — is rebuilt to the rule and a test holds it
     there (tests/test_p1_box_rule.py)."""
     plan, T = gold_plan(durations)
-    return showplan.compile_plan(plan, T, width=width, height=height, assets=assets, box_rule=False)
+    return showplan.compile_plan(plan, T, width=width, height=height, assets=assets, box_rule=False, said_shown=False)

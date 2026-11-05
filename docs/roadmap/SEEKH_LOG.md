@@ -1911,3 +1911,24 @@ worth a rule yet.
 **Measured effect:** overlap seconds 472 (v4) → 3 (v5); per minute 32.2 → 0.3 (v2 demo 3.3); longest 61 s → 1 s;
 overlaps over 2 s 23 → 0; texts under 36 px 65 → 0. Director rounds 2 (v4, old rules) → 5 (v5, box rule); AI ₹0 both.
 No code change from this run; STOPPED for Navin's verdict.
+
+## Entry 49 · dikhaya-bola: a line that names a thing shows it, checked by code, 5 November 2026
+
+**What taught it:** the decision test (Part F): at 6:40 of Money v4 the narration speaks of the Euro while the screen
+shows an empty bag. Navin's choice on the decision card (5 November 2026): "Boli cheez usi line mein" — a thing a line
+names is on screen during that line, or the compiler returns the plan naming the line and the word; proof on v4 and v5.
+
+**What changed in BIE:** `bie/brain/video/shown_said.py`: the saancha library's own Hindi and English tags give the
+words that name concrete things (diagrams, marks and abstract words such as दाम, माँग, पैसा, payment give none), matched
+with Hindi plural and oblique endings and English plurals (नोटों, रुपये, Dollars; जारी is not जार); a named word is shown
+when, for at least 1 s of its line (half of a shorter line), a thing carrying it is on screen — drawn, in a group, held
+by a person, in a thought bubble, or a thing whose own label carries the word — or the scene stands in the place it
+names (दुकान in the shop background). A text alone never shows a thing. `showplan.compile_plan` refuses every miss
+(`said_shown=True` by default; the frozen v2 demo compiles with it off); the director's payload gives each line its
+"names" (the word and the saanche that show it) and its prompt carries the rule; each run reports said = shown per video
+(`showplan.json`, `SHOWPLAN.md`). The fake director shows what each line names.
+
+**Measured effect (before the live runs):** lines that show every thing they name — Money v4 68.3% (41 lines name
+things), v5 73.2% (41), Claude's v2 demo 76.7%; the v4 misses include the Euro, Dollar, Yen and Pound lines at
+5:30–6:50, the v5 misses the oil lines of the 1973 scenes. Target 95% (agreement, section 5). Tests:
+`tests/test_p1_shown_said.py` (12); 326 tests across the affected suites green.
