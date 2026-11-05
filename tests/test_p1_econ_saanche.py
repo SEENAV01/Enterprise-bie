@@ -97,6 +97,10 @@ VARIANTS = (
                   "hlines": "3:अधिकतम मूल्य;x:bad", "vlines": "4:कोटा", "arrows": "5,6>6.5,6:माँग बढ़ी;1,1>bad", "gaps": "3,7@3:कमी;x@1",
                   "xTicks": "5:Q1;x:Q9", "yTicks": "5:P1", "dots": "6,6<5,5:E2;5,5:E;bad<1,1", "glide": 1.5})
        for sh, gr, t, s in (("", "", 3, 3), ("1", "", 1, 1), ("1,2", "2", 4, 0.5), ("1,2,3", "3,a1", 9, None))]
+    + [("graph", {"lines": "D:1,9 9,1;S:1,1 9,9;D2:3,9 10,3.4", "slide": "3:-2,0;x:1;9:1,1", "morph": "2:1,5 9,5;3:bad",
+                  "along": "1@0.5<1@0.1:P={y};9@0.5;1@x", "segs": "3,6.6>7,3.4:स्पर्श;bad", "path": "5,5:a;6,6:b;bad:c;7,5.5:c",
+                  "pathUpto": u, "glide": 2, "_t": t, "_s": s})
+       for u, t, s in ((0, 1, 0.1), (2, 3, 1), (99, 9, None))]
     + [("funnel", {"label": "40%", "top": "₹1000", "bottom": "₹2500", "flip": f}) for f in (False, True)]
     + [("roadmap", {"items": "M0;M1;M2;M3;M4", "at": a, "done": d, "title": "आज"}) for a, d in ((0, ""), (3, ""), (5, "5"), (9, "x"))]
     + [("plant", {"stage": g, "fruit": f, "label": "वेंचर फंड"}) for g in (0, 0.3, 0.7, 1) for f in ("coin", "note", "none")]

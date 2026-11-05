@@ -77,6 +77,20 @@ class EconGraphTest(unittest.TestCase):
         self.assertIn("2.5,7.5@3:कमी", later["gaps"])
         self.assertEqual(g.item()["draw"], "graph")
 
+    def test_a_curve_moves_on_the_word(self):
+        g, D, S = market()
+        D2 = g.shift(D, dx=2, name="D2")
+        k = g.tangent(D, 5)
+        self.assertAlmostEqual(k, -0.8, places=4)                      # the tangent of a line is the line's slope
+        g.path_points([(5, 5, "a"), (6, 6, "b")])
+        p = g.params(slide={D2: (-2, 0)}, morph_from={S: D}, along=[(D, 0.5, "P={y}", 0.1)], path_upto=1, glide=1.5)
+        self.assertEqual(saanche.problems("graph", p), [])
+        self.assertEqual(p["slide"], "3:-2,0")
+        self.assertTrue(p["morph"].startswith("2:0,9 "))
+        self.assertEqual(p["along"], "1@0.5<1@0.1:P={y}")
+        self.assertEqual(p["path"], "5,5:a;6,6:b")
+        self.assertEqual(p["pathUpto"], 1)
+
     def test_limits_are_named(self):
         g = EconGraph()
         for k in range(6):

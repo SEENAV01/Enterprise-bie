@@ -21,7 +21,7 @@ import math
 from dataclasses import dataclass, field
 
 
-@dataclass
+@dataclass(eq=False)
 class Line:
     name: str
     f: object                       # P = f(Q): a callable over the x range
@@ -63,6 +63,8 @@ class EconGraph:
     gaps: list = field(default_factory=list)
     xticks: list = field(default_factory=list)
     yticks: list = field(default_factory=list)
+    segs: list = field(default_factory=list)
+    path: list = field(default_factory=list)
 
     # ------------------------------------------------------------------ curves
     def curve(self, name: str, f, *, color: str = "", dashed: bool = False, domain: tuple = ()) -> Line:
@@ -157,6 +159,22 @@ class EconGraph:
         """A shift arrow from curve a to curve b at one price."""
         self.arrows.append(((self.at_price(a, at_y), at_y), (self.at_price(b, at_y), at_y), label))
 
+    def seg(self, p1: tuple, p2: tuple, label: str = ""):
+        """A dashed segment: a chord, a tangent, a reading line."""
+        self.segs.append((p1, p2, label))
+
+    def tangent(self, line: Line, q: float, *, half: float = 1.5, label: str = "") -> float:
+        """The tangent of a curve at q (its slope by a small difference), drawn as a dashed segment; returns the slope."""
+        e = 1e-4 * max(1.0, abs(self.xmax - self.xmin))
+        k = (float(line.f(q + e)) - float(line.f(q - e))) / (2 * e)
+        y = float(line.f(q))
+        self.seg((q - half, y - k * half), (q + half, y + k * half), label)
+        return k
+
+    def path_points(self, points: list):
+        """A lettered adjustment path: [(x, y, "a"), (x, y, "b"), …]."""
+        self.path = list(points)
+
     def gap(self, x1: float, x2: float, at_y: float, label: str = ""):
         self.gaps.append((x1, x2, at_y, label))
 
@@ -207,11 +225,17 @@ class EconGraph:
         return " ".join(rows)
 
     def params(self, *, show: list | None = None, grow: list | None = None, bold: list | None = None, areas: list | None = None,
-               dots: list | None = None, draw_in: float = 0.0, extras=True) -> dict:
+               dots: list | None = None, draw_in: float = 0.0, extras=True, slide: dict | None = None,
+               morph_from: dict | None = None, along: list | None = None, path_upto: int | None = None,
+               glide: float | None = None) -> dict:
         """The graph saancha's parameters for one state. show: the lines visible (all by default); grow: the lines (and
         area numbers as "a<n>") that draw over draw_in seconds after the step that sets this state; areas: which area
         numbers are visible (all by default); dots: which points are visible (all by default); extras: True for every
-        mark, False for none, or the kinds to show ("hlines", "vlines", "arrows", "gaps", "xTicks", "yTicks")."""
+        mark, False for none, or the kinds to show ("hlines", "vlines", "arrows", "gaps", "xTicks", "yTicks", "segs",
+        "path"); slide {line: (dx, dy)}: the line slides in from that offset after the step; morph_from {line: old_line}:
+        the line reshapes from the old line's points; along [(line, f, label), (line, f, label, f0)]: a point on the
+        curve at fraction f of its points, gliding from f0 ({x} {y} in the label read its values); path_upto: how many
+        points of the lettered path are shown; glide: seconds those moves take."""
         p = {"w": self.w, "xmin": self.xmin, "xmax": self.xmax, "ymin": self.ymin, "ymax": self.ymax,
              "lines": ";".join(f"{l.name}:{self._pts(l)}" for l in self.lines)}
         if self.x_label:
@@ -242,7 +266,16 @@ class EconGraph:
             p["dots"] = ";".join(
                 f"{_fmt(d.x)},{_fmt(d.y)}" + (f"<{_fmt(d.glide_from.x)},{_fmt(d.glide_from.y)}" if getattr(d, "glide_from", None) else "")
                 + (f":{d.name}" if d.name else "") for d in shown_dots)
-        kinds = {"hlines", "vlines", "arrows", "gaps", "xTicks", "yTicks"} if extras is True else set(extras or ())
+        if slide:
+            p["slide"] = ";".join(f"{l.index}:{_fmt(d[0])},{_fmt(d[1])}" for l, d in slide.items())
+        if morph_from:
+            p["morph"] = ";".join(f"{l.index}:{self._pts(old)}" for l, old in morph_from.items())
+        if along:
+            p["along"] = ";".join(f"{a[0].index}@{_fmt(a[1])}" + (f"<{a[0].index}@{_fmt(a[3])}" if len(a) > 3 else "")
+                                  + (f":{a[2]}" if len(a) > 2 and a[2] else "") for a in along)
+        if glide:
+            p["glide"] = glide
+        kinds = {"hlines", "vlines", "arrows", "gaps", "xTicks", "yTicks", "segs", "path"} if extras is True else set(extras or ())
         if kinds:
             if self.hlines and "hlines" in kinds:
                 p["hlines"] = ";".join(f"{_fmt(y)}:{lab}" for y, lab in self.hlines)
@@ -257,6 +290,13 @@ class EconGraph:
                 p["xTicks"] = ";".join(f"{_fmt(x)}:{lab}" for x, lab in self.xticks)
             if self.yticks and "yTicks" in kinds:
                 p["yTicks"] = ";".join(f"{_fmt(y)}:{lab}" for y, lab in self.yticks)
+            if self.segs and "segs" in kinds:
+                p["segs"] = ";".join(f"{_fmt(a[0])},{_fmt(a[1])}>{_fmt(b[0])},{_fmt(b[1])}" + (f":{lab}" if lab else "")
+                                     for a, b, lab in self.segs)
+            if self.path and "path" in kinds:
+                p["path"] = ";".join(f"{_fmt(x)},{_fmt(y)}" + (f":{n}" if n else "") for x, y, n in self.path)
+                if path_upto is not None:
+                    p["pathUpto"] = path_upto
         return p
 
     def item(self, **state) -> dict:

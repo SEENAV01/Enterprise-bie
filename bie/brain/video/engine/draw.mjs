@@ -1124,11 +1124,29 @@ function graph(p) {
   parts(p.vlines).filter(Boolean).slice(0, 4).forEach((vl) => { const [v, n] = lab(vl); if (!isNum(v)) return;
     out += `<path d="M${X(+v)} ${T} L${X(+v)} ${B}" stroke="#7b61ff" stroke-width="${w * 0.004}" stroke-dasharray="${w * 0.014} ${w * 0.008}"/>` +
       (n ? tx(n, X(+v), T + h * 0.02, fit(n, w * 0.2, fs * 0.85), "#7b61ff", 800) : ""); });
+  // a curve that moves on the cue word: "2:-2,0" slides line 2 from 2 units left into place; morph "2:1,9 9,1" reshapes
+  // line 2 from those points into its own (a pivot, a new slope); both over glide seconds after the step (_s)
+  const gl = Math.max(0.1, Number(p.glide) || 1.2);
+  const moveE = Number.isFinite(sinceStep) ? easeIO(Math.min(1, Math.max(0, sinceStep) / gl)) : 1;
+  const slide = {}, morph = {};
+  parts(p.slide).forEach((sl) => { const [k, v] = lab(sl); const d = xy(v || ""); if (k && ok(d)) slide[k] = d; });
+  parts(p.morph).forEach((mo) => { const [k, v] = lab(mo); const q = (v || "").trim().split(/\s+/).map(xy).filter(ok); if (k && q.length >= 2) morph[k] = q; });
+  const resample = (q, n) => Array.from({ length: n }, (_, j) => { const f = (j / (n - 1)) * (q.length - 1), a = Math.floor(f), b2 = Math.min(q.length - 1, a + 1), u = f - a;
+    return [q[a][0] + (q[b2][0] - q[a][0]) * u, q[a][1] + (q[b2][1] - q[a][1]) * u]; });
+  const linePts = {};                          // data points of each drawn line (after slide and morph), for "along"
   parts(p.lines).filter(Boolean).slice(0, 6).forEach((ln, k) => {
     if (shown && !shown.has(k + 1)) return;
-    const i = ln.indexOf(":"), name = i >= 0 ? ln.slice(0, i).trim() : "", pts = (i >= 0 ? ln.slice(i + 1) : ln).trim().split(/\s+/)
-      .map(xy).filter(ok).map(([a, b]) => [X(a), Y(b)]);
-    if (pts.length < 2) return;
+    const i = ln.indexOf(":"), name = i >= 0 ? ln.slice(0, i).trim() : "";
+    let dpts = (i >= 0 ? ln.slice(i + 1) : ln).trim().split(/\s+/).map(xy).filter(ok);
+    if (dpts.length < 2) return;
+    const key = String(k + 1);
+    if (morph[key] && moveE < 1) {
+      const n = Math.max(dpts.length, morph[key].length, 12), A = resample(morph[key], n), Bq = resample(dpts, n);
+      dpts = A.map((q, j) => [q[0] + (Bq[j][0] - q[0]) * moveE, q[1] + (Bq[j][1] - q[1]) * moveE]);
+    }
+    if (slide[key] && moveE < 1) dpts = dpts.map(([a, b2]) => [a + slide[key][0] * (1 - moveE), b2 + slide[key][1] * (1 - moveE)]);
+    linePts[key] = dpts;
+    const pts = dpts.map(([a, b2]) => [X(a), Y(b2)]);
     const prog = progOf(String(k + 1));
     const c = colors[String(k + 1)] || DIAG[k % DIAG.length], d = p.smooth === false ? pts.map((q, j) => `${j ? "L" : "M"}${q[0].toFixed(1)} ${q[1].toFixed(1)}`).join(" ") : smoothPath(pts);
     const sw = w * (bold.has(k + 1) ? 0.012 : 0.007);
@@ -1148,6 +1166,33 @@ function graph(p) {
     const x1 = X(Math.min(a, b2)), x2 = X(Math.max(a, b2)), y = Y(+yv), tk = h * 0.025;
     out += `<path d="M${x1} ${y - tk} L${x1} ${y + tk} M${x1} ${y} L${x2} ${y} M${x2} ${y - tk} L${x2} ${y + tk}" stroke="#d62828" stroke-width="${w * 0.006}" stroke-linecap="round"/>` +
       (n ? tx(n, (x1 + x2) / 2, y + h * 0.055, fit(n, Math.max(w * 0.12, x2 - x1), fs * 0.85), "#d62828", 800) : ""); });
+  // plain dashed segments: a chord, a tangent, a reading line "x1,y1>x2,y2:label"
+  parts(p.segs).filter(Boolean).slice(0, 6).forEach((sg) => { const [body, n] = lab(sg), [a, b2] = body.split(">");
+    if (!a || !b2) return; const p1 = xy(a), p2 = xy(b2); if (!ok(p1) || !ok(p2)) return;
+    out += `<path d="M${X(p1[0])} ${Y(p1[1])} L${X(p2[0])} ${Y(p2[1])}" stroke="#5c677d" stroke-width="${w * 0.004}" stroke-dasharray="${w * 0.012} ${w * 0.008}"/>` +
+      (n ? tx(n, (X(p1[0]) + X(p2[0])) / 2, (Y(p1[1]) + Y(p2[1])) / 2 - h * 0.04, fit(n, w * 0.22, fs * 0.8), "#5c677d", 800) : ""); });
+  // a lettered adjustment path "x,y:a;x,y:b;x,y:c": points joined by arrows, pathUpto reveals the first n points
+  const pathPts = parts(p.path).filter(Boolean).slice(0, 8).map((pp) => { const [body, n] = lab(pp); const q = xy(body); return ok(q) ? [X(q[0]), Y(q[1]), n] : null; }).filter(Boolean);
+  const upto = isNum(p.pathUpto) ? Math.max(0, Math.min(pathPts.length, Math.round(+p.pathUpto))) : pathPts.length;
+  pathPts.slice(0, upto).forEach(([x, y, n], j) => {
+    if (j > 0) { const [x0, y0] = pathPts[j - 1], ang = Math.atan2(y - y0, x - x0), hl = w * 0.022, ex = x - Math.cos(ang) * w * 0.012, ey = y - Math.sin(ang) * w * 0.012;
+      out += `<path d="M${x0} ${y0} L${ex} ${ey}" stroke="#7b2cbf" stroke-width="${w * 0.006}" stroke-linecap="round"/>` +
+        `<path d="M${ex - hl * Math.cos(ang - 0.45)} ${ey - hl * Math.sin(ang - 0.45)} L${ex} ${ey} L${ex - hl * Math.cos(ang + 0.45)} ${ey - hl * Math.sin(ang + 0.45)}" fill="none" stroke="#7b2cbf" stroke-width="${w * 0.006}" stroke-linecap="round" stroke-linejoin="round"/>`; }
+    out += `<circle cx="${x}" cy="${y}" r="${w * 0.011}" fill="#7b2cbf"/>` + (n ? tx(n, x - w * 0.03, y - h * 0.045, fit(n, w * 0.08, fs), "#7b2cbf", 800) : "");
+  });
+  // a point on a curve "2@0.4:E" (a fraction along line 2's points), gliding along the curve from "2@0.1" after the step;
+  // {x} and {y} in its label read the point's values live
+  parts(p.along).filter(Boolean).slice(0, 3).forEach((al) => {
+    const [body, n] = lab(al), [to, from] = body.split("<"), [k, f] = (to || "").split("@");
+    const q = linePts[(k || "").trim()]; if (!q || !isNum(f)) return;
+    const f0 = from && isNum(from.split("@")[1]) ? +from.split("@")[1] : +f, ff = f0 + (+f - f0) * moveE;
+    const at = (fr) => { const g = Math.max(0, Math.min(1, fr)) * (q.length - 1), a = Math.floor(g), b2 = Math.min(q.length - 1, a + 1), u = g - a;
+      return [q[a][0] + (q[b2][0] - q[a][0]) * u, q[a][1] + (q[b2][1] - q[a][1]) * u]; };
+    const [dx, dy] = at(ff), x = X(dx), y = Y(dy);
+    const nm = (n || "").replace("{x}", _num(dx)).replace("{y}", _num(dy));
+    out += (p.drop === false ? "" : `<path d="M${x} ${y} L${x} ${B} M${x} ${y} L${L} ${y}" stroke="#4a5568" stroke-width="${w * 0.0025}" stroke-dasharray="${w * 0.008} ${w * 0.006}"/>`) +
+      `<circle cx="${x}" cy="${y}" r="${w * 0.012}" fill="#e63946" stroke="#ffffff" stroke-width="${w * 0.003}"/>` + (nm ? tx(nm, x + w * 0.05, y - h * 0.055, fit(nm, w * 0.24, fs), "#e63946", 800) : "");
+  });
   if (progAll >= 1 || grow.size) parts(p.dots).filter(Boolean).slice(0, 6).forEach((dt) => {
     const [body, n] = lab(dt), [to, from] = body.split("<"), q = xy(to);
     if (!ok(q)) return;
@@ -1160,6 +1205,7 @@ function graph(p) {
   });
   return out + (p.title ? tx(p.title, 0, T - h * 0.07, fit(p.title, w * 0.8, fs * 1.2), INK, 800) : "");
 }
+const _num = (v) => (Math.abs(v - Math.round(v)) < 0.05 ? String(Math.round(v)) : v.toFixed(1));
 export const easeIO = (x) => (x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2);
 const AREA = ["#f4a261", "#2a9d8f", "#e76f51", "#8ecae6", "#b5838d", "#90be6d"];
 
