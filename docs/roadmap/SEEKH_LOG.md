@@ -1894,3 +1894,20 @@ recorded audits: v4 fails (23 long overlaps, 65 small texts), the v2 demo fails 
 stricter than the demo Navin passed; the kit fixture passes (0 and 0). Director prompt +4.5k characters (31,253 →
 35,773 on the test lesson), ₹0 on Codex. Tests: `tests/test_p1_box_rule.py` (24), the show lane checks the plan marks
 on real Chromium frames; every earlier suite green.
+
+## Entry 48 · Money v5 through the box rule: 3 overlap seconds against v2's 36, 5 November 2026
+
+**The run:** VM job `p1g-money-showplan-v5-a` (after PR #149; Codex maker, ₹0, max_rounds 6) wrote Money v5's scene plan
+under the box rule; the one button rendered it (16,206 frames, 4.5 min wall, ₹17.11 list, ₹0 billed) and the
+text-audit gate passed. Report: `docs/roadmap/reports/P1G_MONEY_V5.md`.
+
+**What it taught:** (1) a long first plan meets many box-rule problems at once (75); spreading the 40 shown over every
+scene, with the rest counted per scene, let the first patch fix every scene (75 → 5); the later rounds were single
+leftovers (5 → 1 → 3 → 0), so 6 rounds is a sane cap for the showplan section; (2) the compiler's boxes and the
+rendered frames agree: the local audit before the render and the CI audit gave the same numbers (3 s, longest 1 s,
+0 small texts); (3) what the audit still sees are entrance and exit moments (a pop-in over a fade) of one sample — not
+worth a rule yet.
+
+**Measured effect:** overlap seconds 472 (v4) → 3 (v5); per minute 32.2 → 0.3 (v2 demo 3.3); longest 61 s → 1 s;
+overlaps over 2 s 23 → 0; texts under 36 px 65 → 0. Director rounds 2 (v4, old rules) → 5 (v5, box rule); AI ₹0 both.
+No code change from this run; STOPPED for Navin's verdict.
