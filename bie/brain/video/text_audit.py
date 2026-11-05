@@ -12,6 +12,11 @@ after every camera and scale, and where it really lands. ``preview/audit.mjs`` m
 - ``overlaps``: each pair of different texts whose line boxes cover each other by more than ``OVERLAP_SHARE`` of the smaller
   line, with when and how much. ``lasting`` is the overlaps seen on at least two samples in a row (a fade between two
   scenes crosses one sample at most). An overlap with the caption strip is marked ``caption``.
+- ``plan``: a small text the scene plan itself wrote (the show engine marks those, ``bie-plan``), as against the words inside
+  a saancha; ``overlap_seconds`` sums the seconds of every overlap, ``longest_overlap_s`` is the longest one held.
+
+``gate`` is the box rule's last check (dabba-niyam, Navin 5 November 2026): "2 s se lamba overlap ya 36 px se chhota
+plan-text mile to run fail, Navin ko nahi dikhana". The render workflow publishes no review copy for a video that fails it.
 """
 from __future__ import annotations
 
@@ -91,12 +96,14 @@ def summarize(frames: list, *, floor: float = FLOOR_PX, fps: int = 30, every: in
     seen, sizes, showing = set(), [], {}
     for f in frames:
         texts = f.get("texts") or []
-        now = {}
+        now, plan = {}, set()
         for t in texts:
             seen.add(t["t"])
             if t.get("caption"):
                 continue
             now[t["t"]] = min(now.get(t["t"], t["px"]), t["px"])
+            if t.get("plan"):
+                plan.add(t["t"])
         for text, px in now.items():
             run = showing.get(text)
             if run is None or run["_last"] != f["frame"] - every:
@@ -104,6 +111,8 @@ def summarize(frames: list, *, floor: float = FLOOR_PX, fps: int = 30, every: in
                     _close(run, small, symbols, floor)
                 run = showing[text] = {"t": text, "px": px, "first_s": round(f["frame"] / fps, 1), "samples": 0}
             run["px"] = max(run["px"], px)
+            if text in plan:
+                run["plan"] = True
             run["samples"] += 1
             run["_last"] = f["frame"]
             run["last_s"] = round(f["frame"] / fps, 1)
@@ -149,7 +158,32 @@ def summarize(frames: list, *, floor: float = FLOOR_PX, fps: int = 30, every: in
         "overlap_count": sum(1 for r in overlaps if not r["caption"]),
         "lasting_overlap_count": sum(1 for r in overlaps if not r["caption"] and r["longest_run"] >= 2),
         "caption_overlap_count": sum(1 for r in overlaps if r["caption"]),
+        "sample_s": round(every / fps, 3),
+        "overlap_seconds": round(sum(r["samples"] for r in overlaps) * every / fps, 1),
+        "longest_overlap_s": round(max((r["longest_run"] for r in overlaps), default=0) * every / fps, 1),
+        "plan_marked": any(t.get("plan") for f in frames for t in f.get("texts") or []),
     }
+
+
+LONG_S = 2.0                # Navin: "2 s se lamba overlap" fails the run
+
+
+def gate(record: dict, *, long_s: float = LONG_S, plan_marks: bool | None = None) -> dict:
+    """The text-audit gate of a rendered video: it fails on any overlap held longer than ``long_s`` seconds (the caption
+    strip included) and on any text of the plan whose settled size stays under the floor. ``plan_marks`` says the frames
+    mark the plan's own words (a show-spec drawn by the show engine); without the marks every small text counts (the older
+    VideoSpec pages draw only the plan's words)."""
+    step = record.get("sample_s") or 1.0
+    marked = record.get("plan_marked") if plan_marks is None else plan_marks
+    long_rows = [r for r in record.get("overlaps") or [] if r["longest_run"] * step > long_s + 1e-6]
+    small = [r for r in record.get("small") or [] if (r.get("plan") if marked else True)]
+    problems = [f"'{r['a'][:40]}' and '{r['b'][:40]}' cover each other for {r['longest_run'] * step:.0f} s from {r['first_s']} s"
+                + (" (the caption strip)" if r.get("caption") else "") for r in long_rows]
+    problems += [f"'{r['t'][:40]}' is {r['px']} px on screen from {r['first_s']} s (the floor is {record.get('floor_px')} px)"
+                 for r in small]
+    return {"passed": not problems, "long_s": long_s, "long_overlaps": len(long_rows), "small_plan_texts": len(small),
+            "overlap_seconds": record.get("overlap_seconds"), "longest_overlap_s": record.get("longest_overlap_s"),
+            "problems": problems}
 
 
 def read_jsonl(path) -> list:

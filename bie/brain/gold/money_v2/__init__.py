@@ -20,6 +20,9 @@ def gold_plan(durations: dict | None = None):
 
 
 def gold_spec(durations: dict | None = None, width: int = 1280, height: int = 720, assets: dict | None = None) -> dict:
-    """The whole v2 show-spec: the gold plan compiled (estimated timings when no voice durations are given)."""
+    """The whole v2 show-spec: the gold plan compiled (estimated timings when no voice durations are given). The v2 demo
+    is Navin's frozen benchmark (rendered 4 November 2026: 36 s of covering texts) and predates the box rule (5 November
+    2026), so it compiles without it; its scene B — the director's example — is rebuilt to the rule and a test holds it
+    there (tests/test_p1_box_rule.py)."""
     plan, T = gold_plan(durations)
-    return showplan.compile_plan(plan, T, width=width, height=height, assets=assets)
+    return showplan.compile_plan(plan, T, width=width, height=height, assets=assets, box_rule=False)

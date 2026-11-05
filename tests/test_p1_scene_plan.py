@@ -39,7 +39,7 @@ class GoldPlan(unittest.TestCase):
         plan, T = gold_plan()
         self.assertEqual(formats.problems("scene_plan", plan), [])
         self.assertEqual(json.loads(json.dumps(plan)), plan)                 # pure JSON: what the director will write
-        spec = sp.compile_plan(plan, T, width=1920, height=1080)
+        spec = sp.compile_plan(plan, T, width=1920, height=1080, box_rule=False)   # frozen v2 demo (predates the box rule)
         self.assertEqual(formats.problems("show_spec", spec), [])
         self.assertEqual(len(spec["scenes"]), 20)
         self.assertEqual(sum(len(s["els"]) for s in spec["scenes"]), 477)
@@ -50,7 +50,7 @@ class GoldPlan(unittest.TestCase):
     def test_the_gold_plan_round_trips_and_times_are_cues_not_seconds_mostly(self):
         plan, T = gold_plan()
         again = json.loads(json.dumps(plan))
-        a = sp.compile_plan(copy.deepcopy(again), T, width=1920, height=1080)
+        a = sp.compile_plan(copy.deepcopy(again), T, width=1920, height=1080, box_rule=False)
         b = gold_spec(width=1920, height=1080)
         self.assertEqual(json.dumps(a, sort_keys=True), json.dumps(b, sort_keys=True))
         times = {"cue": 0, "number": 0}

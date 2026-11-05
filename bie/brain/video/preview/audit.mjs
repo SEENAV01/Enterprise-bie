@@ -4,7 +4,8 @@
 // count the texts under the floor and the texts that cover each other.
 //   node audit.mjs --dist <dir> --spec video_spec.json --out audit.jsonl [--every 30] [--from f --to g] [--page toolbox.html]
 // One JSON line per sampled frame: {"frame", "texts": [{"t", "px", "box": [x, y, w, h], "boxes": [[x, y, w, h], ...], "caption"?}]}
-// ("caption": the text is the caption strip under the scene, index.tsx Captions).
+// ("caption": the text is the caption strip under the scene, index.tsx Captions; "plan": words the scene plan wrote, the
+// show engine's texts and kicker, as against the words inside a saancha).
 import { createRequire } from "node:module";
 import { execFileSync } from "node:child_process";
 import { createServer } from "node:http";
@@ -66,6 +67,7 @@ function measure() {
     const x1 = Math.max(...boxes.map((b) => b[0] + b[2])), y1 = Math.max(...boxes.map((b) => b[1] + b[3]));
     const row = { t: text.slice(0, 80), px: Math.round(fs * scale * 10) / 10, box: [Math.min(...xs), Math.min(...ys), x1 - Math.min(...xs), y1 - Math.min(...ys)], boxes };
     if (el.closest(".bie-caption")) row.caption = true;
+    if (el.closest(".bie-plan")) row.plan = true;           // words the scene plan wrote (engine textSvg, the kicker)
     out.push(row);
   }
   return out;

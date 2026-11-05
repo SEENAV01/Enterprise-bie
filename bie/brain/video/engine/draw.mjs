@@ -4,6 +4,7 @@
 // centred on it. No real currency designs (notes carry ₹ and a value in BIE's own colours), no real persons.
 
 import { world } from "./worlds.mjs";
+import { svgBounds } from "./boxes.mjs";
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const FONT = "'Noto Sans', 'Noto Sans Devanagari', sans-serif";
@@ -65,8 +66,8 @@ function note(p) {
   return `<rect x="${-w * 0.5}" y="${-h * 0.5}" width="${w}" height="${h}" rx="${w * 0.03}" fill="${col}" stroke="${shade(col)}" stroke-width="${w * 0.02}"/>` +
     `<rect x="${-w * 0.46}" y="${-h * 0.42}" width="${w * 0.92}" height="${h * 0.84}" rx="${w * 0.02}" fill="none" stroke="#f7f1e5" stroke-width="${w * 0.012}" opacity="0.85"/>` +
     `<circle cx="${-w * 0.28}" cy="0" r="${h * 0.3}" fill="#f7f1e5" opacity="0.9"/>` +
-    `<text x="${-w * 0.28}" y="${h * 0.12}" font-family=${JSON.stringify(FONT)} font-size="${h * 0.42}" font-weight="800" fill="${col}" text-anchor="middle">₹</text>` +
-    `<text x="${w * 0.14}" y="${h * 0.18}" font-family=${JSON.stringify(FONT)} font-size="${h * 0.52}" font-weight="800" fill="#f7f1e5" text-anchor="middle">${vs}</text>` +
+    (p.bare ? "" : `<text x="${-w * 0.28}" y="${h * 0.12}" font-family=${JSON.stringify(FONT)} font-size="${h * 0.42}" font-weight="800" fill="${col}" text-anchor="middle">₹</text>` +
+    `<text x="${w * 0.14}" y="${h * 0.18}" font-family=${JSON.stringify(FONT)} font-size="${h * 0.52}" font-weight="800" fill="#f7f1e5" text-anchor="middle">${vs}</text>`) +
     `<rect x="${w * 0.38}" y="${-h * 0.42}" width="${w * 0.05}" height="${h * 0.84}" fill="#f7f1e5" opacity="0.5"/>`;
 }
 
@@ -74,7 +75,7 @@ function noteBundle(p) {
   const w = p.w || 190, v = p.value == null ? 500 : p.value, h = w * 0.46;
   const col = NOTE_COLORS[v] || "#1f8a70";
   const blank = (dy) => `<rect x="${-w * 0.5}" y="${-h * 0.5 + dy}" width="${w}" height="${h}" rx="${w * 0.03}" fill="${shade(col, 0.88)}" stroke="${shade(col, 0.7)}" stroke-width="${w * 0.015}"/>`;
-  return blank(w * 0.1) + blank(w * 0.05) + note({ w, value: v }) +
+  return blank(w * 0.1) + blank(w * 0.05) + note({ w, value: v, bare: p.bare }) +
     `<rect x="${-w * 0.09}" y="${-w * 0.26}" width="${w * 0.18}" height="${w * 0.42}" fill="#e8d9b0" stroke="#c9b683" stroke-width="${w * 0.015}"/>`;
 }
 
@@ -250,7 +251,7 @@ function bank(p) {
     `<rect x="${-w * 0.48}" y="${-h * 0.7}" width="${w * 0.96}" height="${h * 0.09}" fill="#d9cfb2" stroke="#b9ad90" stroke-width="${w * 0.014}"/>` +
     `<path d="M${-w * 0.5} ${-h * 0.7} L0 ${-h} L${w * 0.5} ${-h * 0.7} Z" fill="#e8e0cc" stroke="#b9ad90" stroke-width="${w * 0.016}"/>` +
     `<circle cx="0" cy="${-h * 0.82}" r="${w * 0.055}" fill="#c9a400"/>` +
-    (p.label ? `<g transform="translate(0,${h * 0.12})"><rect x="${-w * 0.36}" y="${-h * 0.1}" width="${w * 0.72}" height="${h * 0.14}" rx="${h * 0.04}" fill="${INK}"/>` + label(p.label, 0, 0, "#ffffff", 700) + `</g>` : "");
+    (p.label ? `<g transform="translate(0,${h * 0.12})"><rect x="${-w * 0.36}" y="${-h * 0.1}" width="${w * 0.72}" height="${h * 0.14}" rx="${h * 0.04}" fill="${INK}"/>` + label(p.label, h * 0.015, Math.min(h * 0.11, (w * 0.68) / Math.max(1, String(p.label).length * 0.6)), "#ffffff", 700) + `</g>` : "");   // was font-size 0: the label never showed (found by the box rule)
 }
 
 function qrModules(w, seed = 11) {
@@ -385,7 +386,7 @@ function vault(p) {
   let stack = "";
   for (let i = 0; i < n; i++) {
     const row = Math.floor(i / 3), col = i % 3, bw = (iw / 3) * 0.8;
-    stack += `<g transform="translate(${ix + (col + 0.5) * (iw / 3)},${iy + ih - (row + 0.5) * (ih / 3)})">${noteBundle({ w: bw, value: 500 })}</g>`;
+    stack += `<g transform="translate(${ix + (col + 0.5) * (iw / 3)},${iy + ih - (row + 0.5) * (ih / 3)})">${noteBundle({ w: bw, value: 500, bare: true })}</g>`;   // miniature notes carry no words (the box rule's floor)
   }
   const shelves = [1, 2].map((k) => `<rect x="${ix}" y="${iy + (k * ih) / 3 - w * 0.01}" width="${iw}" height="${w * 0.02}" fill="${c2}" opacity="0.5"/>`).join("");
   const d = clamp01(p.door), dw = w - inset * 0.6, cx = dw * 0.5, cy = y0 + h * 0.5;
@@ -1221,6 +1222,13 @@ export function drawSaancha(name, p = {}) {
   const d = DRAWS[name];
   if (!d) return `<g><rect x="-40" y="-40" width="80" height="80" fill="none" stroke="#e5484d" stroke-width="4"/><text y="8" text-anchor="middle" font-size="22" fill="#e5484d">${esc(name)}</text></g>`;
   return d.fn(p);
+}
+
+/** The box rule (Navin, 5 November 2026): a saancha's own box and the boxes of the words inside it, with each word's font
+ *  px, in the saancha's coordinates (origin as drawn: "bottom" ones stand on it, "center" ones are centred on it) —
+ *  measured from the very SVG drawSaancha returns, so every saancha, old or new, gives its box the same way. */
+export function boxOf(name, p = {}) {
+  return svgBounds(drawSaancha(name, p));
 }
 
 export const _test = { shade, rnd, qrModules };

@@ -107,15 +107,22 @@ jobs:
         run: |
           set -euo pipefail
           videos=$(echo '${{ needs.fanout.outputs.videos }}' | python -c 'import json,sys; print(" ".join(json.load(sys.stdin)))')
-          deadline=$(( $(date +%s) + WAIT_MINUTES * 60 ))
+          start=$(date +%s)
+          deadline=$(( start + WAIT_MINUTES * 60 ))
           git init -q "$RUNNER_TEMP/branch" && cd "$RUNNER_TEMP/branch"
           git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
           while true; do
             git fetch -q --depth=1 origin blindtest-results
-            missing=""
+            missing=""; failed=""
             for video in $videos; do
-              if ! git cat-file -e "FETCH_HEAD:runs/$DEST-$video/summary.json" 2>/dev/null; then missing="$missing $video"; fi
+              at=$(git show "FETCH_HEAD:runs/$DEST-$video/GATE_FAILED.json" 2>/dev/null | python -c 'import json,sys; print(json.load(sys.stdin).get("at", 0))' 2>/dev/null || echo 0)
+              if [ "$at" -ge $(( start - 120 )) ]; then failed="$failed $video"     # a gate failure of this press (an older one is being rendered again)
+              elif ! git cat-file -e "FETCH_HEAD:runs/$DEST-$video/summary.json" 2>/dev/null; then missing="$missing $video"; fi
             done
+            if [ -n "$failed" ] && [ -z "$missing" ]; then
+              # the box rule's last check (Navin, 5 November 2026): a video that fails the text-audit gate is never shown
+              echo "::error title=p1 one button::failed the text-audit gate (no review page):$failed (runs/$DEST-<video>/GATE_FAILED.json)"; exit 1
+            fi
             if [ -z "$missing" ]; then echo "every render landed"; break; fi
             if [ "$(date +%s)" -ge "$deadline" ]; then
               echo "::error title=p1 one button::renders not landed after $WAIT_MINUTES minutes:$missing"; exit 1

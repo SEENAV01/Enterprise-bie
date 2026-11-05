@@ -92,7 +92,7 @@ class RenderWorkflow(unittest.TestCase):
         self.assertIn("tools/text_audit.py", self.jobs["audit"])
         self.assertIn("set -euo pipefail", self.jobs["audit"])              # a failed check is never hidden by the tee
         self.assertIn("name: t046c-audit", self.jobs["finish"])
-        self.assertIn("for f in audit.json RESPEC.json", self.jobs["finish"])
+        self.assertIn("for f in audit.json gate.json RESPEC.json", self.jobs["finish"])
 
     def test_respec_is_an_input_and_compiles_the_plans_again_before_the_render(self):
         inputs = self.text.split("pull_request:", 1)[0]

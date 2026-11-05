@@ -102,7 +102,7 @@ function textSvg(el, t) {
   });
   const popK = stepT != null ? Math.min(1, (t - stepT) / 0.25) : 1;
   const ps = 1 + 0.16 * Math.sin(popK * Math.PI);
-  return `<g transform="scale(${ps.toFixed(3)})">${out}</g>`;
+  return `<g class="bie-plan" transform="scale(${ps.toFixed(3)})">${out}</g>`;   // bie-plan: words the plan wrote (the text audit gate)
 }
 
 // ---------------------------------------------------------------- items (saanche, assets, groups, mini persons)
@@ -286,7 +286,7 @@ function renderFrame(spec, t) {
   let hud = "";
   if (sc.kicker) {
     const kw = measure(sc.kicker, 36, 800) + 52;             // 36 px: the readable floor on the 1080p frame (CV-17)
-    hud += `<g transform="translate(${46 + kw / 2},74)"><rect x="${-kw / 2}" y="-33" width="${kw}" height="66" rx="33" fill="${INK}" opacity="0.88"/>` +
+    hud += `<g class="bie-plan" transform="translate(${46 + kw / 2},74)"><rect x="${-kw / 2}" y="-33" width="${kw}" height="66" rx="33" fill="${INK}" opacity="0.88"/>` +
       `<text y="13" font-family=${JSON.stringify(FONT)} font-size="36" font-weight="800" fill="#ffffff" text-anchor="middle">${esc(sc.kicker)}</text></g>`;
   }
   const sub = (spec.subs || []).find((s) => t >= s.t0 && t < s.t1);

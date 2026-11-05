@@ -1,17 +1,17 @@
 # BIE Status
 
-Updated: 3 November 2026 · Read this first in every new session, then show Navin the current task card.
+Updated: 5 November 2026 · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
 | Field | Value |
 | --- | --- |
 | Phase | 1 · BIE end to end on the new showing engine; agreement of 3 November 2026 (`docs/vision/AGREEMENT_2026-11-03.md`; ROADMAP, "Agreed on 3 November 2026"). Target 22 November. |
-| Current task | **Phase 1 · part A: the showing engine inside BIE** (section below). Navin approved working in as many PRs as needed, merged on green by Claude. |
-| Branch | `p1a-show-engine` |
-| State | **3 November 2026:** Part D3 (PR #126) and Task 048's first slice (PR #127) merged; four renders with the text check green, billed ₹0 (review copies `runs/t046d3-v2/-v4/-v6/-v8`); the report and the agreement docs merged (PRs #128–#130). Navin passed the Money v2 demo ("yeh huyi na baat") and agreed Phase 1 end to end on its showing system. **Part A built** on `p1a-show-engine`: the demo's engine rebuilt inside `bie/` (`bie/brain/video/engine/`: people, saanche, backgrounds, renderer, the public-domain land map) on the same window API as the preview page, `bie.show-spec/1` registered and in CONTRACTS.md, the render path takes both spec kinds, and the Money v2 gold example as code (`bie/brain/gold/money_v2/`: 67 lines, 20 scenes, 477 elements, ~652 s estimated; `tools/gold_money_v2.py` writes script/spec/assets through the asset library). Toolbox core lane 373 tests green incl. `tests/test_p1_show_engine.py` (engine render smoke + gold determinism). IMPLEMENTED, not INTEGRATED (no AI writes plans yet; part B2's compiler comes next). Nothing ACCEPTED. |
-| Next task | Parts A and B1–B4 merged on green, then **C (BIE's AI writes: narration, scene plans, saanche, notes, game)**. Part D (voice) waits on Navin's yes for the reference clip; until then captions only. |
-| Canonical main | `3cd3c19e` (PR #127: Task 048 first slice) on `a14e732f` (PR #126: Task 046 Part D3, the general fixes) on `e8bc9968` (PR #125: the addendum proof's docs) on `d51a5cf3` (PR #124) on `4f612f20` (PR #123) on `3be6680f` (PR #121) on `a568edaf` (PR #120) on `866d171d` (PR #119) on `788106ba` (PR #118) on `ef77d816` (PR #117) on `7e06fa1e` (PR #115: Part D2) on `65e87a6e` (PR #114: Part D1 proof run b, the fetch rules, currency icons, the six pin) on `d6174636` (PR #113: F-18, the Section 18 sidecar race) on `18595156` (PR #112: the proof fixes) on `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
+| Current task | **Phase 1 · the box rule (dabba-niyam), Navin's verdict of 5 November 2026** (section "Navin's verdict on Money v4" below): boxes for every drawing, the compiler refuses collisions, the text-audit gate after the render, then Money v5 through the boxed road with the numbers next to v2. |
+| Branch | `p1g-box-rules` |
+| State | **5 November 2026:** Part F's decision test done (PR #147 merged): Navin did not accept v4 (overlaps ~13 times v2's: 472 vs 36 audit seconds, one held 61 s). The box rule is built on `p1g-box-rules` (G1 boxes, G2 compiler rules, G3 the text-audit gate; SEEKH_LOG entry 47): IMPLEMENTED, tested offline and on real Chromium frames; INTEGRATED only after Money v5 runs through it. Nothing ACCEPTED. |
+| Next task | Merge the box rule on green, then **G4: Money v5** (the director on the Money chapter's v5 through the boxed road, render, audit, numbers next to v2's 36 s; target under 36 s in all and no overlap over 2 s), then STOP for Navin. After that (his order): the shown-said check. Voice still waits on his yes; captions only. |
+| Canonical main | `a76003bd` (PR #147: Part F decision report) on `cec89b9d` (PR #146) … PRs #131–#145 (Phase 1 parts B–F) … on `3cd3c19e` (PR #127: Task 048 first slice) on `a14e732f` (PR #126: Task 046 Part D3, the general fixes) on `e8bc9968` (PR #125: the addendum proof's docs) on `d51a5cf3` (PR #124) on `4f612f20` (PR #123) on `3be6680f` (PR #121) on `a568edaf` (PR #120) on `866d171d` (PR #119) on `788106ba` (PR #118) on `ef77d816` (PR #117) on `7e06fa1e` (PR #115: Part D2) on `65e87a6e` (PR #114: Part D1 proof run b, the fetch rules, currency icons, the six pin) on `d6174636` (PR #113: F-18, the Section 18 sidecar race) on `18595156` (PR #112: the proof fixes) on `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai). On the VM, from 25 October 2026, the checker is Navin's free Google AI Studio key `GEMINI_API_KEY` in `/etc/bie/bie.env` (direct route, `gemini-3.8-flash`); the AICredits key stays there unused (a job can still choose it with `routes google=aicredits`). Since 24 October a free Google AI Studio key is the GitHub secret `GEMINI_API_KEY` (Navin's choice for now, sample content only, never student data); it serves GitHub Actions runs only and wins over AICredits there: `gemini-3.8-flash` answers (smoke run 40114580580), `gemini-4-argon` gives 429 quota and `gemini-3.1-pro` 404, so a run that uses it passes `models=google=gemini-3.8-flash` |
 
 ## Phase 1 · part A: the showing engine inside BIE (3 November 2026)
@@ -121,6 +121,37 @@ run's own failures (#135 strict-ready schemas, #136 schema in the prompt, #140 a
 shape in the writer's prompt, #144 the render counts either spec kind + the one button never re-renders a landed
 video), SEEKH_LOG entries 42–46. Parts A–E are INTEGRATED on a real chapter; nothing is ACCEPTED until Navin's
 verdict. Interim renders stay captions-only (voice waits on his yes).
+
+## Navin's verdict on Money v4 and the box rule (5 November 2026)
+
+Navin, 5 November 2026: "Verdict: v4 abhi ACCEPT nahi. Takraav v2 se ~13 guna (audit overlap seconds ~470 vs 36; kuch
+60 s lagatar). Tumhare 3 sawaal: (1) raasta sahi, par aage se pehle takraav theek ho; (2) saancha-label ka chhota text isi
+kaam mein; (3) dikhaya-bola check iske baad. Agla kaam, dabba-niyam (seekh -> BIE): 1. draw.mjs ka har saancha apna box aur
+andar ke text ke box de; backgrounds.mjs har background ke reserved zone de (dukaan board, almari). 2. showplan compiler
+mana kare: text kisi thing par; thing kisi chehre ya doosre text par; kuch bhi background zone par; frame se bahar.
+Problem naam ke saath director ko. 3. Render ke baad text-audit gate: 2 s se lamba overlap ya 36 px se chhota plan-text
+mile to run fail, Navin ko nahi dikhana. 4. Savdhaani-line screen par code se roko (D1-06); Hindi video mein screen ke
+label Hindi mein. 5. Isi chapter ka Money v5; lakshya overlap 36 s se kam, lamba wala 0; v2 ke saath numbers."
+
+Built on `p1g-box-rules` (SEEKH_LOG entry 47):
+
+- **G1, boxes from the drawings themselves.** `bie/brain/video/engine/boxes.mjs` measures any SVG the engine draws (its
+  box and every word's box); `draw.mjs boxOf`, `people.mjs personBoxes` (body and face), `backgrounds.mjs zonesOf` /
+  `worldZones` (shop board and shelf, store almari and shelves, haat bunting: keep everything off; huts, stalls, counters:
+  no words). Python asks Node once per plan (`tools/saancha_boxes.mjs`, `bie/brain/video/boxes.py`); without Node the
+  rule fails closed. Two engine bugs it found: the bank label (font size 0) and the vault's 9 px miniature notes.
+- **G2, the compiler refuses** (`bie/brain/video/box_rules.py`, in `showplan.compile_plan` by default): text on a thing,
+  a thing on a face or on another thing's words, anything on a reserved zone, outside the frame after the camera or under
+  the kicker, a saancha's words under 36 px on screen, a caution line on screen (D1-06), an English label in a Hindi
+  video. Every problem names the scene, both things, the second and the way out. The director's prompt carries the rule,
+  each saancha's size and the scale its words need, the zones and the language rule; long lists reach it from every
+  scene. The v4 spec that passed before has 346 such problems. The Money v2 gold plan stays frozen as the benchmark (box
+  rule off); its scene B, the director's example, passes the rule.
+- **G3, the gate after the render** (`text_audit.gate`): an overlap held over 2 s or a plan text under 36 px fails the
+  run; the render workflow then publishes no review copy and no summary, only `GATE_FAILED.json` with the records, and
+  the one button stops naming the failed videos. On the recorded audits it fails v4 (23 long overlaps) and also Claude's
+  v2 demo (4), so it is stricter than the demo Navin passed; the kit fixture passes.
+- **G4, next:** Money v5 through the boxed road, numbers next to v2's.
 
 ## Task 048 · first slice: the render checks and the one-button plumbing (3 November 2026)
 

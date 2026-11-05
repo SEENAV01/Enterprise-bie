@@ -475,7 +475,7 @@ class _Executor:
 # ---------------------------------------------------------------- the compiler
 
 
-def compile_plan(plan, T, *, width=1280, height=720, assets=None, checks=True) -> dict:
+def compile_plan(plan, T, *, width=1280, height=720, assets=None, checks=True, language=None, box_rule=True) -> dict:
     """A scene plan + a Timeline -> the engine's show-spec, or ``PlanProblems`` naming every wrong step."""
     problems = []
     shots = []
@@ -512,7 +512,7 @@ def compile_plan(plan, T, *, width=1280, height=720, assets=None, checks=True) -
     spec = {"schema": "bie.show-spec/1", "fps": 30, "width": width, "height": height,
             "duration": round(T.duration, 3), "subs": T.subs(), "assets": assets or {}, "scenes": scenes}
     if checks:
-        problems += check_spec(spec, plan, T)
+        problems += check_spec(spec, plan, T, language=language, box_rule=box_rule)
     if problems:
         raise PlanProblems(problems)
     return spec
@@ -568,7 +568,7 @@ def _covers(a, b):
     return ox * oy > 0.25 * min(aw * ah, bw * bh)
 
 
-def check_spec(spec, plan, T) -> list:
+def check_spec(spec, plan, T, language=None, box_rule=True) -> list:
     """The plan checks on the compiled spec; each problem names the scene, the text and the second."""
     from bie.brain import saanche
 
@@ -655,4 +655,9 @@ def check_spec(spec, plan, T) -> list:
     missing = [l for l in T.line_ids() if l not in seen]
     if missing:
         problems.append(f"lines not in any scene: {', '.join(missing)}")
+    # the box rule (Navin, 5 November 2026): texts off things, things off faces and words, the background's reserved
+    # zones and the frame kept clear, words inside things readable, no caution line, Hindi labels in a Hindi video
+    if box_rule:
+        from bie.brain.video import box_rules
+        problems += box_rules.problems(spec, language=language)
     return sorted(set(problems))
