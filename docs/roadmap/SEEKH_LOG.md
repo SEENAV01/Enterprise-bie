@@ -1892,5 +1892,5 @@ pill laid over it; the title in Hindi with the English term in brackets).
 11 texts on things, 3 caution lines) — all invisible before; the gold demo 156 (frozen), its scene B 0. The gate on the
 recorded audits: v4 fails (23 long overlaps, 65 small texts), the v2 demo fails too (4 long overlaps) — the gate is
 stricter than the demo Navin passed; the kit fixture passes (0 and 0). Director prompt +4.5k characters (31,253 →
-35,773 on the test lesson), ₹0 on Codex. Tests: `tests/test_p1_box_rule.py` (22), the show lane checks the plan marks
+35,773 on the test lesson), ₹0 on Codex. Tests: `tests/test_p1_box_rule.py` (24), the show lane checks the plan marks
 on real Chromium frames; every earlier suite green.
