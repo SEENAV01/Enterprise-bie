@@ -7,10 +7,10 @@ Updated: 5 November 2026 · Read this first in every new session, then show Navi
 | Field | Value |
 | --- | --- |
 | Phase | 1 · BIE end to end on the new showing engine; agreement of 3 November 2026 (`docs/vision/AGREEMENT_2026-11-03.md`; ROADMAP, "Agreed on 3 November 2026"). Target 22 November. |
-| Current task | **Phase 1 · the box rule (dabba-niyam), Navin's verdict of 5 November 2026** (section "Navin's verdict on Money v4" below): boxes for every drawing, the compiler refuses collisions, the text-audit gate after the render, then Money v5 through the boxed road with the numbers next to v2. |
-| Branch | `p1g-money-v5-report` (docs); code merged on main |
-| State | **5 November 2026:** the box rule merged (PR #149; G1 boxes, G2 compiler rules, G3 the text-audit gate) and Money v5 ran through it (G4): overlap seconds 3 against the v2 demo's 36 and v4's 472, longest 1 s, none over 2 s, no text under 36 px, gate passed, ₹0 AI. STOPPED for Navin's verdict on v5 (decision page https://claude.ai/artifact/FLK6Nd7iF856J1UERffcPA). INTEGRATED on a real chapter video; nothing ACCEPTED. |
-| Next task | After Navin's verdict on v5: (his order of 5 November) the shown-said check (dikhaya-bola), then the rest of the chapter through the boxed road. Voice still waits on his yes; captions only. |
+| Current task | **Phase 1 · the shown-said check (dikhaya-bola)**, Navin's order of 5 November 2026, after he passed Money v5's box-rule result. First his expectation (decision card), then build. In parallel: the private voice method (`docs/roadmap/VOICE_CLIP_METHOD.md`), waiting on his choices. |
+| Branch | `navin-v5-verdict-voice` (docs) |
+| State | **5 November 2026:** the box rule merged (PR #149) and Money v5 ran through it: 3 overlap seconds against the v2 demo's 36 and v4's 472, longest 1 s, gate passed, ₹0 AI. Navin passed v5's result ("Theek, aage dikhaya-bola") and said yes to keeping his voice clip on the VM only. |
+| Next task | The shown-said check to Navin's expectation; then the rest of the Money chapter through the boxed road; the voice once he picks how the clip reaches the VM. |
 | Canonical main | `a76003bd` (PR #147: Part F decision report) on `cec89b9d` (PR #146) … PRs #131–#145 (Phase 1 parts B–F) … on `3cd3c19e` (PR #127: Task 048 first slice) on `a14e732f` (PR #126: Task 046 Part D3, the general fixes) on `e8bc9968` (PR #125: the addendum proof's docs) on `d51a5cf3` (PR #124) on `4f612f20` (PR #123) on `3be6680f` (PR #121) on `a568edaf` (PR #120) on `866d171d` (PR #119) on `788106ba` (PR #118) on `ef77d816` (PR #117) on `7e06fa1e` (PR #115: Part D2) on `65e87a6e` (PR #114: Part D1 proof run b, the fetch rules, currency icons, the six pin) on `d6174636` (PR #113: F-18, the Section 18 sidecar race) on `18595156` (PR #112: the proof fixes) on `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai). On the VM, from 25 October 2026, the checker is Navin's free Google AI Studio key `GEMINI_API_KEY` in `/etc/bie/bie.env` (direct route, `gemini-3.8-flash`); the AICredits key stays there unused (a job can still choose it with `routes google=aicredits`). Since 24 October a free Google AI Studio key is the GitHub secret `GEMINI_API_KEY` (Navin's choice for now, sample content only, never student data); it serves GitHub Actions runs only and wins over AICredits there: `gemini-3.8-flash` answers (smoke run 40114580580), `gemini-4-argon` gives 429 quota and `gemini-3.1-pro` 404, so a run that uses it passes `models=google=gemini-3.8-flash` |
 
@@ -121,6 +121,15 @@ run's own failures (#135 strict-ready schemas, #136 schema in the prompt, #140 a
 shape in the writer's prompt, #144 the render counts either spec kind + the one button never re-renders a landed
 video), SEEKH_LOG entries 42–46. Parts A–E are INTEGRATED on a real chapter; nothing is ACCEPTED until Navin's
 verdict. Interim renders stay captions-only (voice waits on his yes).
+
+## Navin's decisions of 5 November 2026 (decision cards, after Money v5)
+
+- **Money v5:** "Theek, aage dikhaya-bola" — the box rule's result on v5 is passed (3 overlap seconds against v2's 36,
+  longest 1 s); the next task is the shown-said check (dikhaya-bola). Before building it, his expectation is asked
+  (fast track rule).
+- **Voice clip:** "Haan, sirf VM par private" — his reference clip may be kept on his VM only, never in the public
+  repository. The method is `docs/roadmap/VOICE_CLIP_METHOD.md`; how the clip reaches the VM, where voiced videos are
+  watched privately, and any GPU spend are still his to choose. Until then, captions only.
 
 ## Navin's rule of 5 November 2026: decision cards
 
