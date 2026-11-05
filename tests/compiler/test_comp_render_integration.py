@@ -73,9 +73,12 @@ class TestRenderIntegration(unittest.TestCase):
               'Path("child.pid").write_text(str(p.pid));print("child started",flush=True);time.sleep(30)')
         result=run_bounded_process((sys.executable,'-S','-c',code),cwd=self.root,timeout_s=.8)
         self.assertEqual(result.outcome,'TIMED_OUT');self.assertTrue((self.root/'child.pid').exists())
-        pid=int((self.root/'child.pid').read_text());proc=Path(f'/proc/{pid}/stat')
-        # A killed child can briefly be a zombie awaiting the host init's reap.
-        self.assertTrue(not proc.exists() or proc.read_text().split()[2]=='Z')
+        pid=int((self.root/'child.pid').read_text())
+        # A killed child can briefly be a zombie awaiting the host init's reap. If the reap lands between opening
+        # /proc/<pid>/stat and reading it, the read fails with ESRCH (ProcessLookupError): gone, the same as absent (F-10).
+        try:state=Path(f'/proc/{pid}/stat').read_text().split()[2]
+        except (FileNotFoundError,ProcessLookupError):state=None
+        self.assertIn(state,(None,'Z'))
     def test_probe_cannot_change_artifact_and_still_publish(self):
         fixture=FixtureRunner()
         def runner(command,**kwargs):
