@@ -13,7 +13,7 @@ more while both are on screen:
 5. a word inside a thing is under the 36 px floor on screen (its saancha label, after the thing's scale and the camera);
 6. a caution or fact-check line reaches the screen (D1-06; never on screen, a background check);
 7. in a Hindi video, a screen label is English (it is written in Devanagari; an English term may follow in brackets);
-8. a text is on screen for less than 1.5 s (it flashes before a cut and cannot be read).
+8. a text, or any value a text changes to, is on screen for less than 1.5 s (it flashes and cannot be read).
 
 Each problem names the scene, the two things, the second and the way out, for the director to patch. Marks, arrows and
 glows point at things on purpose and never count as things here (they still keep to the frame and the zones).
@@ -421,6 +421,17 @@ def problems(spec, language=None) -> list:
                            f"{'the scene ends' if t1 >= float(scene['t1']) - 1e-6 else 'it leaves'} at {t1:.1f}s): a text needs at "
                            f"least {MIN_TEXT_S:.1f}s to be read - start it earlier, keep it longer, or show it in the next scene "
                            "(box rule)")
+                continue
+            # each value a text shows (its first words and every step that changes them) stays long enough to be read too:
+            # Money v4, 5 Nov, run b: one text ran ₹10 -> ₹20 -> ₹50 -> ₹100 every 0.5 s and the audit caught ₹10 mid pop-in
+            values = [(t0, str(el["text"]))] + sorted((float(st["t"]), str(st["text"])) for st in el.get("steps") or []
+                                                      if st.get("t") is not None and st.get("text") is not None and t0 < float(st["t"]) < t1)
+            for (a, words), (b, _) in zip(values, values[1:] + [(t1, "")]):
+                if 0 < b - a < MIN_TEXT_S:
+                    out.append(f"scene {sid}: text '{words[:40]}' shows for only {b - a:.1f}s (from {a:.1f}s) before it changes "
+                               f"or leaves: each value needs at least {MIN_TEXT_S:.1f}s to be read - show the values side by side, "
+                               "or give each its own longer moment (box rule)")
+                    break
         seen_words = set()
         floor = {}
         runs = {}
