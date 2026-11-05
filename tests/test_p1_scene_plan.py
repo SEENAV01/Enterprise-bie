@@ -29,6 +29,7 @@ def tiny_plan(**scene_extra):
                  {"op": "text", "text": "Barter", "x": 960, "y": 200, "size": 64, "style": "title",
                   "t0": {"line": "l01", "word": "गेहूँ"}},
                  {"op": "pose", "who": "ramu", "t": {"line": "l01", "word": "गेहूँ", "plus": 0.2}, "pose": "point"},
+                 {"op": "item", "thing": {"draw": "clothRoll", "p": {}}, "x": 1560, "y": 820},   # l01 names कपड़ा: shown (dikhaya-bola)
              ]}
     scene.update(scene_extra)
     return {"schema": "bie.scene-plan/1", "scenes": [scene]}
@@ -39,7 +40,7 @@ class GoldPlan(unittest.TestCase):
         plan, T = gold_plan()
         self.assertEqual(formats.problems("scene_plan", plan), [])
         self.assertEqual(json.loads(json.dumps(plan)), plan)                 # pure JSON: what the director will write
-        spec = sp.compile_plan(plan, T, width=1920, height=1080, box_rule=False)   # frozen v2 demo (predates the box rule)
+        spec = sp.compile_plan(plan, T, width=1920, height=1080, box_rule=False, said_shown=False)   # frozen v2 demo (predates the box rule)
         self.assertEqual(formats.problems("show_spec", spec), [])
         self.assertEqual(len(spec["scenes"]), 20)
         self.assertEqual(sum(len(s["els"]) for s in spec["scenes"]), 477)
@@ -50,7 +51,7 @@ class GoldPlan(unittest.TestCase):
     def test_the_gold_plan_round_trips_and_times_are_cues_not_seconds_mostly(self):
         plan, T = gold_plan()
         again = json.loads(json.dumps(plan))
-        a = sp.compile_plan(copy.deepcopy(again), T, width=1920, height=1080, box_rule=False)
+        a = sp.compile_plan(copy.deepcopy(again), T, width=1920, height=1080, box_rule=False, said_shown=False)
         b = gold_spec(width=1920, height=1080)
         self.assertEqual(json.dumps(a, sort_keys=True), json.dumps(b, sort_keys=True))
         times = {"cue": 0, "number": 0}

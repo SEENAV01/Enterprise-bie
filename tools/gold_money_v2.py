@@ -51,7 +51,7 @@ def main(argv=None) -> int:
     plan, T = gold_plan(durations)
     formats.check("scene_plan", plan, where="plans/v2_gold.plan.json")
     (a.out / "plans" / "v2_gold.plan.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
-    spec = showplan.compile_plan(plan, T, width=a.width, height=a.height, assets=assets, box_rule=False)   # the frozen v2 benchmark predates the box rule
+    spec = showplan.compile_plan(plan, T, width=a.width, height=a.height, assets=assets, box_rule=False, said_shown=False)   # the frozen v2 benchmark predates the box rule
     formats.check("show_spec", spec, where="video_specs/v2_gold.json")
     (a.out / "video_specs" / "v2_gold.json").write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
     lines = sum(len(s["lines"]) for s in script)

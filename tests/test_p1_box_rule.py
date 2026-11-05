@@ -152,7 +152,8 @@ class CompilerRefuses(unittest.TestCase):
 
     def test_the_check_switch_freezes_only_the_demo(self):
         plan = plan_of(SACK, {"op": "text", "text": "दस किलो", "x": 1300, "y": 780, "size": 48, "style": "pill"})
-        spec = showplan.compile_plan(json.loads(json.dumps(plan)), timeline(), width=1920, height=1080, box_rule=False)
+        spec = showplan.compile_plan(json.loads(json.dumps(plan)), timeline(), width=1920, height=1080, box_rule=False,
+                                     said_shown=False)
         self.assertTrue(spec["scenes"])
 
 
