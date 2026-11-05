@@ -21,11 +21,26 @@ TYPES = ("number", "int", "text", "bool", "color", "choice")
 _COLOR = re.compile(r"^#[0-9a-fA-F]{3}(?:[0-9a-fA-F]{3})?$")
 
 
+FAMILIES_DIR = MANIFEST_PATH.parent / "saanche.d"       # one manifest file per family of saanche (families/<name>.mjs)
+
+
 @lru_cache(maxsize=4)
 def manifest(path: str | Path = MANIFEST_PATH) -> dict:
+    """The manifest; the main file also takes in every family file of ``saanche.d/`` (a family of drawings built
+    together, e.g. for one book, ships its own manifest beside its own ``families/<name>.mjs`` so families never edit
+    the same lines). A name defined twice is refused."""
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     from bie.brain import formats
     formats.check("saancha_manifest", data, where=str(path))
+    if Path(path) == MANIFEST_PATH and FAMILIES_DIR.is_dir():
+        data = dict(data, saanche=dict(data["saanche"]))
+        for fam in sorted(FAMILIES_DIR.glob("*.json")):
+            extra = json.loads(fam.read_text(encoding="utf-8"))
+            formats.check("saancha_manifest", extra, where=str(fam))
+            for name, entry in extra["saanche"].items():
+                if name in data["saanche"]:
+                    raise formats.FormatError(f"{fam}: saancha '{name}' is already defined")
+                data["saanche"][name] = entry
     for name, entry in data["saanche"].items():                 # the schema leaves nested objects loose; check them here
         for key in ("anchor", "what", "tags", "params", "since"):
             if key not in entry:

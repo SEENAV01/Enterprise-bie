@@ -4,6 +4,7 @@
 // centred on it. No real currency designs (notes carry ₹ and a value in BIE's own colours), no real persons.
 
 import { world } from "./worlds.mjs";
+import { FAMILY_DRAWS } from "./families/index.mjs";
 import { svgBounds } from "./boxes.mjs";
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -1279,6 +1280,7 @@ export const DRAWS = {
   funnel: { fn: funnel, anchor: "bottom" },
   roadmap: { fn: roadmap, anchor: "center" },
   plant: { fn: plant, anchor: "bottom" },
+  ...FAMILY_DRAWS,                       // the families of saanche (families/index.mjs, manifests in saanche.d/)
 };
 
 export function drawSaancha(name, p = {}) {
