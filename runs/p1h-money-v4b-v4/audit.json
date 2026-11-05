@@ -1,0 +1,70 @@
+{
+ "schema": "bie.text-audit/1",
+ "floor_px": 36,
+ "frames_sampled": 880,
+ "every_frames": 30,
+ "texts_seen": 262,
+ "min_px": 25.1,
+ "small": [
+  {
+   "t": "₹10",
+   "px": 25.1,
+   "first_s": 512.0,
+   "samples": 1,
+   "plan": true,
+   "last_s": 512.0
+  }
+ ],
+ "small_count": 1,
+ "lasting_small_count": 0,
+ "symbols": [
+  {
+   "t": "₹",
+   "px": 32.8,
+   "first_s": 26.0,
+   "samples": 43,
+   "last_s": 68.0
+  },
+  {
+   "t": "₹",
+   "px": 32.8,
+   "first_s": 234.0,
+   "samples": 1,
+   "last_s": 234.0
+  },
+  {
+   "t": "₹",
+   "px": 32.8,
+   "first_s": 241.0,
+   "samples": 13,
+   "last_s": 253.0
+  },
+  {
+   "t": "₹",
+   "px": 32.8,
+   "first_s": 444.0,
+   "samples": 13,
+   "last_s": 456.0
+  }
+ ],
+ "overlaps": [],
+ "overlap_count": 0,
+ "lasting_overlap_count": 0,
+ "caption_overlap_count": 0,
+ "sample_s": 1.0,
+ "overlap_seconds": 0.0,
+ "longest_overlap_s": 0.0,
+ "plan_marked": true,
+ "spec": "/home/runner/work/_temp/in/video_spec.json",
+ "gate": {
+  "passed": false,
+  "long_s": 2.0,
+  "long_overlaps": 0,
+  "small_plan_texts": 1,
+  "overlap_seconds": 0.0,
+  "longest_overlap_s": 0.0,
+  "problems": [
+   "'₹10' is 25.1 px on screen from 512.0 s (the floor is 36 px)"
+  ]
+ }
+}
