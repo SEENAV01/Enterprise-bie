@@ -584,6 +584,8 @@ def check_spec(spec, plan, T, language=None, box_rule=True, said_shown=True) -> 
                     if isinstance(st, dict) and isinstance(st.get("p"), dict):
                         for p in saanche.problems(value["draw"], st["p"]):
                             problems.append(f"{where}: step at {st.get('t')}: {p}")
+                    if isinstance(st, dict) and "d" in st and not (isinstance(st["d"], (int, float)) and 0 <= st["d"] <= 30):
+                        problems.append(f"{where}: step at {st.get('t')}: d must be 0-30 seconds (numbers glide over d)")
             for inner in value.values():
                 drawn(inner, where)
         elif isinstance(value, list):

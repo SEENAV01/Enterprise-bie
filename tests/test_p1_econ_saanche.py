@@ -92,6 +92,15 @@ VARIANTS = (
                   "drawIn": d, "_t": t, "ticks": True, "title": "माँग-पूर्ति"}) for d, t in ((0, None), (2, 0.5), (2, 9))]
     + [("graph", {"lines": "J:0,5 2,3 4,3 10,8", "ymin": -5, "ymax": 10, "smooth": False, "drop": False, "dots": "3,3"}),
        ("graph", {"lines": "a:1,1;b:x", "xmin": 5, "xmax": 5}), ("graph", {"lines": "1,1 2,2"})]
+    + [("graph", {"lines": "D:1,9 9,1;S:1,1 9,9;D2:3,9 10,3", "show": sh, "grow": gr, "drawIn": 2, "_t": t, "_s": s,
+                  "colors": "3:#e76f51;x:bad", "bold": "2", "areas": "बचत:0,9 5,5 0,5@#f4a261;bad:1,1;राजस्व:0,5 4,5 4,3 0,3",
+                  "hlines": "3:अधिकतम मूल्य;x:bad", "vlines": "4:कोटा", "arrows": "5,6>6.5,6:माँग बढ़ी;1,1>bad", "gaps": "3,7@3:कमी;x@1",
+                  "xTicks": "5:Q1;x:Q9", "yTicks": "5:P1", "dots": "6,6<5,5:E2;5,5:E;bad<1,1", "glide": 1.5})
+       for sh, gr, t, s in (("", "", 3, 3), ("1", "", 1, 1), ("1,2", "2", 4, 0.5), ("1,2,3", "3,a1", 9, None))]
+    + [("graph", {"lines": "D:1,9 9,1;S:1,1 9,9;D2:3,9 10,3.4", "slide": "3:-2,0;x:1;9:1,1", "morph": "2:1,5 9,5;3:bad",
+                  "along": "1@0.5<1@0.1:P={y};9@0.5;1@x", "segs": "3,6.6>7,3.4:स्पर्श;bad", "path": "5,5:a;6,6:b;bad:c;7,5.5:c",
+                  "pathUpto": u, "glide": 2, "_t": t, "_s": s})
+       for u, t, s in ((0, 1, 0.1), (2, 3, 1), (99, 9, None))]
     + [("funnel", {"label": "40%", "top": "₹1000", "bottom": "₹2500", "flip": f}) for f in (False, True)]
     + [("roadmap", {"items": "M0;M1;M2;M3;M4", "at": a, "done": d, "title": "आज"}) for a, d in ((0, ""), (3, ""), (5, "5"), (9, "x"))]
     + [("plant", {"stage": g, "fruit": f, "label": "वेंचर फंड"}) for g in (0, 0.3, 0.7, 1) for f in ("coin", "note", "none")]
@@ -202,8 +211,49 @@ class Worlds(unittest.TestCase):
         self.assertEqual(a, b)                                        # a process is a pure function of its time
         self.assertNotEqual(a, c)                                     # and its tokens travel as the video plays
         engine = (ENGINE / "engine.mjs").read_text(encoding="utf-8")
-        self.assertIn("if (t >= s.t && s.p) p = { ...p, ...s.p }", engine)
-        self.assertIn("_t: Math.max(0, t - (el.t0 ?? 0))", engine)
+        self.assertIn("p = { ...p, ...s.p }; last = s.t;", engine)
+        self.assertIn("_t: Math.max(0, t - (el.t0 ?? 0)), _s: Math.max(0, t - last)", engine)
+
+    def test_a_step_may_glide_its_numbers(self):
+        """A step with d makes the numbers glide from their old values over d seconds (a bar grows, a level rises)."""
+        engine = (ENGINE / "engine.mjs").read_text(encoding="utf-8")
+        self.assertIn("const d = Number(s.d) || 0;", engine)
+        self.assertIn("p[k] = prev[k] + (s.p[k] - prev[k]) * e;", engine)
+        from bie.brain.video import narration, showplan
+        from bie.brain.video.showplan import Recorder, plan_of
+        T = narration.Timeline([{"id": "A", "lines": [{"id": "l01", "sub": "जार भरता है।", "say_parts": ["जार भरता है।"]}]}])
+        def plan(d):
+            s = Recorder("A", ["l01"], "paper")
+            s.item({"draw": "coinJar", "p": {"w": 300}}, 960, 700, t0=0.2, steps=[{"t": 0.5, "p": {"w": 400}, "d": d}])
+            return plan_of([s])
+        showplan.compile_plan(plan(1.5), T, width=1920, height=1080)
+        with self.assertRaises(showplan.PlanProblems) as bad:
+            showplan.compile_plan(plan(99), T, width=1920, height=1080)
+        self.assertIn("d must be 0-30 seconds", "\n".join(bad.exception.problems))
+
+    @unittest.skipUnless(shutil.which("node"), "needs node (the toolbox lane has it)")
+    def test_the_graph_is_built_at_the_voice_speed(self):
+        """A line shown on a step draws over drawIn seconds after that step (_s), a dot glides to its new place, and the
+        whole drawing is a pure function of its times (the Sloman book's graphs, 5 November 2026)."""
+        script = (f"import {{drawSaancha}} from '{(ENGINE / 'draw.mjs').as_posix()}';"
+                  "const p = {lines: 'D:1,9 9,1;S:1,1 9,9', show: '1,2', grow: '2', drawIn: 2, dots: '6,6<5,5:E2', glide: 1};"
+                  "console.log(JSON.stringify([[0.2, 0.2], [0.2, 0.2], [5, 1], [9, 3], [9, null]].map(([t, s]) => drawSaancha('graph', {...p, _t: t, _s: s}))));")
+        a, b, c, d, e = json.loads(subprocess.run(["node", "--input-type=module", "-e", script], capture_output=True, text=True,
+                                                  check=True).stdout)
+        self.assertEqual(a, b)                                        # pure
+        self.assertNotEqual(a, c)                                     # line 2 grows and the dot glides after the step
+        self.assertIn('stroke-dasharray="0.1 1"', a)                  # line 2 is a tenth drawn 0.2 s after its step
+        self.assertIn('stroke-dasharray="1 1"', d)                    # and whole once drawIn has passed
+        self.assertEqual(d, e)                                        # a measurement without times sees the end state
+        hidden = subprocess.run(["node", "--input-type=module", "-e",
+                                 f"import {{drawSaancha}} from '{(ENGINE / 'draw.mjs').as_posix()}';"
+                                 "console.log(drawSaancha('graph', {lines: 'D:1,9 9,1;S:1,1 9,9', show: '1'}).split('<path').length);"],
+                                capture_output=True, text=True, check=True).stdout
+        both = subprocess.run(["node", "--input-type=module", "-e",
+                               f"import {{drawSaancha}} from '{(ENGINE / 'draw.mjs').as_posix()}';"
+                               "console.log(drawSaancha('graph', {lines: 'D:1,9 9,1;S:1,1 9,9'}).split('<path').length);"],
+                              capture_output=True, text=True, check=True).stdout
+        self.assertEqual(int(both) - int(hidden), 1)                  # show hides the lines not yet spoken of
 
 
 if __name__ == "__main__":
