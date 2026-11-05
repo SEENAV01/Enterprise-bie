@@ -19,7 +19,8 @@ from run_task039_tests import NEW as TASK039  # noqa: E402
 from run_task043_tests import NEW as TASK043  # noqa: E402
 
 # the VM runner's image and look sections (Task 046 one-shot; PR #77 added the file but no lane ran it)
-NEW = ("tests/test_task044_codex.py", "tests/test_task046_vm_image.py")
+# and the one-time voice upload page (P1-D voice, Navin 5 November 2026)
+NEW = ("tests/test_task044_codex.py", "tests/test_task046_vm_image.py", "tests/test_task046_vm_voice.py")
 
 
 def main(argv=None):
