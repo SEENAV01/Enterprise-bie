@@ -60,6 +60,9 @@ ChatGPT Pro plan itself is Navin's existing subscription.
   machine in `/etc/bie/voice/` (mode 700, owner `bie`). It arrives through a one-time upload page that Navin starts
   himself: `sudo bash /var/lib/bie/repo/deployment/codex-vm/bie-voice-upload` prints a secret HTTPS link (port 8443,
   a certificate made for that run), takes one audio file and closes (after one file, 20 minutes, or Ctrl+C).
+- The clone voice (`"section": "voice"`, `tools/vm_voice.py speak`): the first voice job makes
+  `/var/lib/bie/voice-venv` (pinned torch CPU, Chatterbox Multilingual) and downloads the model into
+  `/var/lib/bie/voice-models`; the audio stays in `/var/lib/bie/private/voice/<job id>/` and only numbers are published.
 - Security notes for Navin's approval: the deploy key can write to the whole repository (GitHub deploy keys
   cannot be limited to one branch); the runner itself pushes only to `blindtest-results` and `codex-jobs`.
   Branch protection for `main` comes with Phase 4. If the machine is ever lost: delete the deploy key on GitHub,

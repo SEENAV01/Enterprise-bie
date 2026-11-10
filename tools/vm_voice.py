@@ -22,13 +22,20 @@ What the page does and does not do:
 - It closes by itself after 20 minutes if nothing came. It never overwrites a clip already there unless run with
   ``--replace``.
 - It sends nothing anywhere: no copy to GitHub, no log line with the audio, no outside resource in the page.
+
+``speak`` (the VM job section "voice", tools/codex_vm.py) speaks a video's narration sentences with Chatterbox
+Multilingual on this machine's CPU (Rs 0): the built-in voice, or Navin's clip with pitch -2 semitones (agreement of
+3 November 2026, section 5). The first run makes the voice environment ``$BIE_HOME/voice-venv`` with the pinned
+versions below; ``tools/vm_voice_worker.py`` runs inside it. The audio goes only to the private folder
+(``$BIE_HOME/private/voice/<job id>/``, mode 700); the public run folder gets numbers only: seconds of audio and of
+compute per sentence, the totals and ``durations.json`` (sentence key -> seconds, the shape ``narration.Timeline`` takes).
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
-import html
 import ipaddress
+import json
 import os
 import secrets
 import shutil
@@ -41,6 +48,8 @@ import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
 
 PORT = 8443
 MAX_BYTES = 25 * 1024 * 1024
@@ -337,12 +346,172 @@ def upload(argv=None) -> int:
     return 1
 
 
+# The voice environment (licences checked 5 November 2026; every one allows BIE's use on its own machine):
+# chatterbox-tts 0.1.7 (MIT, Resemble AI), its model ResembleAI/chatterbox at a fixed revision (MIT), torch and torchaudio
+# 2.6.0 CPU builds (BSD-3), av 18.0.0 (PyAV, BSD-3, its wheel carries LGPL FFmpeg libraries) to read an m4a clip. Their
+# own dependencies (transformers, diffusers, librosa, s3tokenizer, resemble-perth ...) are Apache-2.0, MIT, BSD or ISC;
+# pykakasi (GPL-3.0, Japanese only) is installed with chatterbox but never shipped in apps/. Move a pin only in a PR.
+PINS = ("torch==2.6.0+cpu", "torchaudio==2.6.0+cpu", "chatterbox-tts==0.1.7", "av==18.0.0")
+TORCH_INDEX = "https://download.pytorch.org/whl/cpu"
+MODEL_REVISION = "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18"     # ResembleAI/chatterbox on Hugging Face, 10 June 2026
+NAVIN_PITCH = -2.0                                               # agreement of 3 November 2026, section 5
+WORKER_TIMEOUT = 4 * 3600
+
+
+def bie_home() -> Path:
+    return Path(os.environ.get("BIE_HOME") or "/var/lib/bie")
+
+
+def read(source: str) -> str:
+    if source.startswith("https://"):
+        import urllib.request
+        with urllib.request.urlopen(urllib.request.Request(source, headers={"user-agent": "bie-voice/1"}), timeout=120) as r:
+            return r.read(50 * 1024 * 1024).decode("utf-8")
+    return Path(source).read_text(encoding="utf-8")
+
+
+def sentences_of(from_run: str, video_id: str) -> tuple[list, int]:
+    """The video's spoken sentences in narration order, keyed "<line>_<i>" as ``narration.Timeline`` keys real
+    durations, each as the voice says it (``hinglish.voice_text``: "सतह (surface)" is said "सतह, यानी surface"); and the
+    characters of the whole video."""
+    sys.path.insert(0, str(ROOT))
+    from bie.brain import formats, hinglish
+    from bie.brain.video import narration
+    base = from_run.rstrip("/") + "/"
+    lesson = formats.accept("lesson_plan", json.loads(read(base + "lesson_plan.json")), where=base + "lesson_plan.json")
+    videos = [v for v in lesson.get("videos") or [] if v.get("video_id") == video_id]
+    if not videos:
+        raise SystemExit(f"VIDEO_NOT_IN_LESSON: {video_id}")
+    out = []
+    for scene in narration.script_of(videos[0]):
+        for line in scene["lines"]:
+            for i, part in enumerate(line["say_parts"]):
+                out.append({"key": f"{line['id']}_{i}", "text": hinglish.voice_text(part)})
+    return out, sum(len(x["text"]) for x in out)
+
+
+def ensure_venv(venv: Path, run=subprocess.run) -> dict:
+    """The voice environment with exactly ``PINS``; made once (several minutes), then reused while the pins stay."""
+    marker = venv / ".bie-pins"
+    want = json.dumps({"pins": PINS, "index": TORCH_INDEX})
+    if marker.exists() and marker.read_text(encoding="utf-8") == want and (venv / "bin" / "python").exists():
+        return {"installed": False, "install_s": 0.0}
+    t0 = time.monotonic()
+    shutil.rmtree(venv, ignore_errors=True)
+    py = str(venv / "bin" / "python")
+    for cmd in ([sys.executable, "-m", "venv", str(venv)],
+                [py, "-m", "pip", "install", "-q", "--upgrade", "pip"],
+                [py, "-m", "pip", "install", "-q", "--extra-index-url", TORCH_INDEX, *PINS[:2]],
+                [py, "-m", "pip", "install", "-q", *PINS[2:]]):
+        run(cmd, check=True, timeout=3600)
+    marker.write_text(want, encoding="utf-8")
+    return {"installed": True, "install_s": round(time.monotonic() - t0, 1)}
+
+
+def machine() -> dict:
+    ram = None
+    try:
+        for row in Path("/proc/meminfo").read_text().splitlines():
+            if row.startswith("MemTotal:"):
+                ram = round(int(row.split()[1]) / 1024 / 1024, 1)
+    except OSError:
+        pass
+    return {"cpus": os.cpu_count(), "ram_gb": ram}
+
+
+def summarize(result: dict, *, video: str, reference: str, sentences: list, video_chars: int, setup: dict) -> dict:
+    rows = result.get("sentences") or []
+    audio = sum(r["audio_s"] for r in rows)
+    compute = sum(r["compute_s"] for r in rows)
+    chars = sum(r["chars"] for r in rows)
+    totals = {"sentences_asked": len(sentences), "sentences_made": len(rows), "audio_s": round(audio, 1),
+              "compute_s": round(compute, 1), "rtf": round(compute / audio, 2) if audio else None,
+              "chars_per_audio_s": round(chars / audio, 1) if audio else None}
+    if audio and chars:
+        # the whole video at the same speed: its characters at the measured speaking rate, times the compute factor
+        whole_audio = video_chars / (chars / audio)
+        totals.update(video_chars=video_chars, video_audio_min_est=round(whole_audio / 60, 1),
+                      video_compute_min_est=round(whole_audio * compute / audio / 60, 1))
+    return {"section": "voice", "status": "ok" if result.get("status") == "ok" and rows else "failed",
+            "video": video, "reference": reference, "error": result.get("error"),
+            "engine": {"pins": list(PINS), "model": "ResembleAI/chatterbox", "model_revision": MODEL_REVISION,
+                       "torch": result.get("torch"), "threads": result.get("threads"), "sample_rate": result.get("sample_rate"),
+                       "watermark": "Perth (Chatterbox's own, inaudible)"},
+            "machine": machine(), "setup": setup,
+            "timing_s": {k: result.get(k) for k in ("download_s", "load_s", "reference_s")},
+            "peak_ram_mb": result.get("peak_ram_mb"), "totals": totals, "sentences": rows,
+            "cost": {"total_inr": 0, "note": "CPU of Navin's own machine"},
+            "audio": "kept on the machine only (private folder); never published"}
+
+
+def speak(argv=None) -> int:
+    p = argparse.ArgumentParser(prog="vm_voice.py speak")
+    p.add_argument("--from-run", required=True, help="a lesson run folder (its lesson_plan.json)")
+    p.add_argument("--video", required=True)
+    p.add_argument("--out", type=Path, required=True, help="the public run folder: numbers only")
+    p.add_argument("--private", type=Path, required=True, help="where the audio is kept (never published)")
+    p.add_argument("--max-lines", type=int, default=8, help="speak the first N sentences")
+    p.add_argument("--reference", choices=("default", "navin"), default="default")
+    p.add_argument("--voice-folder", type=Path, default=Path("/etc/bie/voice"))
+    p.add_argument("--venv", type=Path, default=None)
+    p.add_argument("--worker", type=Path, default=ROOT / "tools" / "vm_voice_worker.py")
+    args = p.parse_args(argv)
+    args.out.mkdir(parents=True, exist_ok=True)
+    if args.private.resolve().is_relative_to(args.out.resolve()):
+        raise SystemExit("PRIVATE_INSIDE_PUBLIC: the audio folder must not be inside the published run folder")
+    args.private.mkdir(mode=0o700, parents=True, exist_ok=True)
+    os.chmod(args.private, 0o700)
+    sentences, video_chars = sentences_of(args.from_run, args.video)
+    chosen = sentences[:args.max_lines]
+    reference, pitch, kind = None, 0.0, "Chatterbox built-in voice"
+    if args.reference == "navin":
+        clips = existing(args.voice_folder)
+        if not clips:
+            summary = {"section": "voice", "status": "failed", "video": args.video, "reference": "Navin's clip",
+                       "error": "NO_CLIP: the voice folder holds no clip yet (the one-time upload page puts it there)",
+                       "cost": {"total_inr": 0}}
+            (args.out / "SUMMARY.json").write_text(json.dumps(summary, indent=1) + "\n", encoding="utf-8")
+            return 1
+        reference, pitch, kind = str(clips[0]), NAVIN_PITCH, "Navin's clip, pitch -2 semitones"
+    venv = args.venv or bie_home() / "voice-venv"
+    setup = ensure_venv(venv)
+    request = {"sentences": chosen, "language": "hi", "reference": reference, "pitch_semitones": pitch,
+               "audio_dir": str(args.private / "audio"), "model_revision": MODEL_REVISION, "threads": os.cpu_count(), "seed": 7}
+    req_path, res_path = args.private / "request.json", args.private / "result.json"
+    req_path.write_text(json.dumps(request, ensure_ascii=False, indent=1), encoding="utf-8")
+    env = dict(os.environ, HF_HOME=str(bie_home() / "voice-models"), HF_HUB_DISABLE_TELEMETRY="1")
+    try:
+        subprocess.run([str(venv / "bin" / "python"), "-B", str(args.worker), "--request", str(req_path),
+                        "--result", str(res_path)], env=env, timeout=WORKER_TIMEOUT, check=False)
+    except subprocess.TimeoutExpired:
+        pass
+    result = json.loads(res_path.read_text(encoding="utf-8")) if res_path.exists() else {"error": "the worker wrote no result"}
+    summary = summarize(result, video=args.video, reference=kind, sentences=chosen, video_chars=video_chars, setup=setup)
+    (args.out / "SUMMARY.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    (args.out / "durations.json").write_text(json.dumps({r["key"]: r["audio_s"] for r in summary["sentences"]}, indent=1)
+                                             + "\n", encoding="utf-8")
+    lines = [f"# Voice measure: {args.video} ({kind})", "",
+             f"- {summary['totals']['sentences_made']} of {len(chosen)} sentences, {summary['totals']['audio_s']} s of audio "
+             f"in {summary['totals']['compute_s']} s of CPU (real-time factor {summary['totals']['rtf']}).",
+             f"- Machine: {summary['machine']['cpus']} CPUs, {summary['machine']['ram_gb']} GB; peak RAM "
+             f"{summary.get('peak_ram_mb')} MB; model load {summary['timing_s']['load_s']} s.",
+             "- The audio stays on the machine; this folder holds numbers only.", "",
+             "| sentence | characters | audio s | compute s | factor |", "| --- | --- | --- | --- | --- |"]
+    lines += [f"| {r['key']} | {r['chars']} | {r['audio_s']} | {r['compute_s']} | {r['rtf']} |" for r in summary["sentences"]]
+    (args.out / "VOICE.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(json.dumps({"status": summary["status"], **summary["totals"]}))
+    return 0 if summary["status"] == "ok" else 1
+
+
 def main(argv=None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
-    if not argv or argv[0] != "upload":
-        print("usage: vm_voice.py upload [--folder DIR] [--port N] [--minutes N] [--replace]")
-        return 2
-    return upload(argv[1:])
+    if argv and argv[0] == "upload":
+        return upload(argv[1:])
+    if argv and argv[0] == "speak":
+        return speak(argv[1:])
+    print("usage: vm_voice.py upload [--folder DIR] [--port N] [--minutes N] [--replace]\n"
+          "       vm_voice.py speak --from-run URL --video ID --out DIR --private DIR [--max-lines N] [--reference default|navin]")
+    return 2
 
 
 if __name__ == "__main__":

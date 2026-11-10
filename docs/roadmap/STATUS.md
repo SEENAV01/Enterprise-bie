@@ -145,7 +145,13 @@ the page takes one audio file, stores it as `/etc/bie/voice/navin_ref.<ext>` (mo
 after 20 minutes. Tests: `tests/test_task046_vm_voice.py` (8: only the secret address answers, wrong or big files
 refused, one clip kept with mode 600 and the page closes, closes on time, never overwrites without `--replace`, HTTPS
 with the run's own certificate, audio kinds by first bytes, the wrapper). IMPLEMENTED; it is switched on only by
-Navin, after he has seen it. Next in voice: measure the clone voice on the VM's CPU (₹0), then Google Drive access
+Navin, after he has seen it.
+
+The CPU measure (branch `p1v-voice-measure`): the VM job section `voice` (`tools/vm_voice.py speak` and
+`tools/vm_voice_worker.py`) speaks a video's first sentences with Chatterbox Multilingual on the VM's CPU (₹0), with
+the built-in voice or, once it is there, Navin's clip at −2 semitones. Pinned voice environment on the VM, audio kept
+in a private folder, numbers only in the run folder (real-time factor, whole-video estimate, `durations.json`). Tests:
+7 more in `tests/test_task046_vm_voice.py` (fake worker). Next: the measure job on Money v4, then Google Drive access
 with him.
 
 ## Navin's decisions of 5 November 2026 (decision cards, after Money v5)
