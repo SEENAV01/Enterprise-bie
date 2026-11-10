@@ -1,0 +1,1846 @@
+{
+ "schema": "bie.saancha-manifest/1",
+ "licence": "MIT (BIE)",
+ "provenance": "econ_charts family for the Sloman economics book (31 needs from the chapter workers), drawn by code in families/econ_charts.mjs, 5 November 2026",
+ "saanche": {
+  "barChart": {
+   "anchor": "center",
+   "what": "a bar chart that draws itself on the voice: ranking or grouped bars (label:v1:v2), horizontal or vertical, revealed one by one (upto), the spoken bars glowing, a reference line (OECD average), a split into two groups with captions, and a morph from earlier values (from: 1990 to 2014, before and after tax)",
+   "tags": [
+    "बार चार्ट",
+    "स्तंभ",
+    "पट्टियाँ",
+    "रैंकिंग",
+    "तुलना",
+    "देश",
+    "हिस्सा",
+    "गिनी",
+    "संकेंद्रण",
+    "bar chart",
+    "bars",
+    "ranking",
+    "grouped bars",
+    "compare",
+    "countries",
+    "concentration ratio",
+    "gini",
+    "chart",
+    "morph"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1100,
+     "min": 200,
+     "max": 1900
+    },
+    "bars": {
+     "type": "text",
+     "default": "क:40;ख:65;ग:25",
+     "what": "label:value;… or label:v1:v2 for two series (grouped)"
+    },
+    "dir": {
+     "type": "choice",
+     "default": "horizontal",
+     "choices": [
+      "horizontal",
+      "vertical"
+     ]
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 60,
+     "what": "bars shown so far (0: all); the newest grows after the step"
+    },
+    "glow": {
+     "type": "text",
+     "default": "",
+     "what": "bar numbers (in the order given) highlighted, e.g. 3 or 3,5"
+    },
+    "dim": {
+     "type": "bool",
+     "default": false,
+     "what": "fade the bars that do not glow"
+    },
+    "refLine": {
+     "type": "text",
+     "default": "",
+     "what": "value:label of a reference line, e.g. 0.333:OECD औसत"
+    },
+    "group": {
+     "type": "text",
+     "default": "",
+     "what": "k:caption1:caption2 - a split after bar k with a caption for each group"
+    },
+    "groupGlow": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 2,
+     "what": "group 1 or 2 highlighted"
+    },
+    "names": {
+     "type": "text",
+     "default": "",
+     "what": "names of the two series for the legend, e.g. 1990;2014"
+    },
+    "sort": {
+     "type": "choice",
+     "default": "none",
+     "choices": [
+      "none",
+      "desc",
+      "asc"
+     ]
+    },
+    "max": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000000000000.0,
+     "what": "axis maximum (0: from the data)"
+    },
+    "unit": {
+     "type": "text",
+     "default": "",
+     "what": "unit: a currency sign goes before (₹, ₹ करोड़ → ₹40 करोड़), anything else after (%, ' घंटे')"
+    },
+    "decimals": {
+     "type": "int",
+     "default": -1,
+     "min": -1,
+     "max": 4,
+     "what": "decimals of the values (-1: as written)"
+    },
+    "values": {
+     "type": "bool",
+     "default": true,
+     "what": "write the values"
+    },
+    "from": {
+     "type": "text",
+     "default": "",
+     "what": "earlier values in the order given (v or v:v2;…): the bars glide from them after the step"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.2,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds a glide from the old values takes after the step"
+    },
+    "grow": {
+     "type": "number",
+     "default": 0.8,
+     "min": 0,
+     "max": 10,
+     "what": "seconds the newest revealed part takes to grow after its step (0: at once); set 0 in a later step that keeps upto"
+    },
+    "color": {
+     "type": "color",
+     "default": "#2459a6"
+    },
+    "color2": {
+     "type": "color",
+     "default": "#f29f05"
+    },
+    "colors": {
+     "type": "text",
+     "default": "",
+     "what": "per bar colours, 3:#e5484d;5:#2fa35b"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "marginalBars": {
+   "anchor": "bottom",
+   "what": "one bar per extra unit (marginal utility, MRP, MB) arriving on its word, a price or wage line across that can slide (lineFrom), a tick above and a cross below the line, a stop line where it stops paying, the part above the line shaded as surplus and gathered into one block, or the bars stacked into a total tower (TU) that a negative unit shortens; costs make pairs of benefit against cost",
+   "tags": [
+    "सीमांत",
+    "इकाई",
+    "उपयोगिता",
+    "मज़दूरी",
+    "कीमत रेखा",
+    "अधिशेष",
+    "उपभोक्ता बचत",
+    "कुल उपयोगिता",
+    "रुको",
+    "marginal",
+    "marginal utility",
+    "marginal benefit",
+    "marginal cost",
+    "mrp",
+    "wage line",
+    "price line",
+    "consumer surplus",
+    "total utility",
+    "tower",
+    "stop rule",
+    "mb mc"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1100,
+     "min": 200,
+     "max": 1900
+    },
+    "values": {
+     "type": "text",
+     "default": "7;4;2;1;0;-1",
+     "what": "bar value per unit, in order"
+    },
+    "costs": {
+     "type": "text",
+     "default": "",
+     "what": "a second value per unit (cost): pairs benefit against cost"
+    },
+    "labels": {
+     "type": "text",
+     "default": "",
+     "what": "unit names under the bars (default 1,2,3…)"
+    },
+    "line": {
+     "type": "text",
+     "default": "",
+     "what": "level:label of the price or wage line, e.g. 400:मज़दूरी ₹400"
+    },
+    "lineFrom": {
+     "type": "text",
+     "default": "",
+     "what": "a level the line glides from after the step (wage ₹400 → ₹600)"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 60,
+     "what": "units shown so far (0: all)"
+    },
+    "marks": {
+     "type": "bool",
+     "default": true,
+     "what": "tick the units that pay, cross the ones that do not"
+    },
+    "shade": {
+     "type": "bool",
+     "default": true,
+     "what": "shade the part above the line as surplus"
+    },
+    "stop": {
+     "type": "bool",
+     "default": false,
+     "what": "a stop line before the first unit that does not pay"
+    },
+    "stopLabel": {
+     "type": "text",
+     "default": "",
+     "what": "words on the stop line"
+    },
+    "tower": {
+     "type": "choice",
+     "default": "off",
+     "choices": [
+      "off",
+      "beside",
+      "only"
+     ],
+     "what": "stack the units into a total tower beside the bars, or show only the tower"
+    },
+    "towerLabel": {
+     "type": "text",
+     "default": "",
+     "what": "words before the tower's total"
+    },
+    "gather": {
+     "type": "bool",
+     "default": false,
+     "what": "the shaded surplus parts slide together into one block (glide seconds)"
+    },
+    "gatherLabel": {
+     "type": "text",
+     "default": "",
+     "what": "words before the gathered total"
+    },
+    "names": {
+     "type": "text",
+     "default": "",
+     "what": "legend for pairs, e.g. लाभ;लागत"
+    },
+    "max": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000000000000.0,
+     "what": "axis maximum (0: from the data)"
+    },
+    "unit": {
+     "type": "text",
+     "default": "",
+     "what": "unit: a currency sign goes before (₹, ₹ करोड़ → ₹40 करोड़), anything else after (%, ' घंटे')"
+    },
+    "decimals": {
+     "type": "int",
+     "default": -1,
+     "min": -1,
+     "max": 4,
+     "what": "decimals of the values (-1: as written)"
+    },
+    "numbers": {
+     "type": "bool",
+     "default": true,
+     "what": "write the values"
+    },
+    "grow": {
+     "type": "number",
+     "default": 0.7,
+     "min": 0,
+     "max": 10,
+     "what": "seconds the newest revealed part takes to grow after its step (0: at once); set 0 in a later step that keeps upto"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.2,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds a glide from the old values takes after the step"
+    },
+    "color": {
+     "type": "color",
+     "default": "#2459a6"
+    },
+    "color2": {
+     "type": "color",
+     "default": "#e07b24"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "waterfall": {
+   "anchor": "center",
+   "what": "a waterfall (bridge) of signed contributions: each part steps up (green) or down (red) from the running level on its word, the level line and its tag follow, and the total bar rises last (flow of funds, M4 from its counterparts, a budget bridge)",
+   "tags": [
+    "वॉटरफॉल",
+    "पुल",
+    "योगदान",
+    "जोड़-घटाव",
+    "बदलाव",
+    "कुल",
+    "waterfall",
+    "bridge chart",
+    "contributions",
+    "signed",
+    "flow of funds",
+    "counterparts",
+    "change",
+    "build up"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1100,
+     "min": 200,
+     "max": 1900
+    },
+    "parts": {
+     "type": "text",
+     "default": "क:+100;ख:-40;ग:+150;घ:-10",
+     "what": "label:signed value;…"
+    },
+    "total": {
+     "type": "text",
+     "default": "",
+     "what": "label of the end bar (empty: no total bar)"
+    },
+    "start": {
+     "type": "text",
+     "default": "",
+     "what": "label:value of a starting bar (empty: from zero)"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 60,
+     "what": "parts shown so far (0: all and the total); the total shows after the last part"
+    },
+    "glow": {
+     "type": "text",
+     "default": "",
+     "what": "part numbers highlighted"
+    },
+    "running": {
+     "type": "bool",
+     "default": true,
+     "what": "the running level line and its tag"
+    },
+    "unit": {
+     "type": "text",
+     "default": "",
+     "what": "unit: a currency sign goes before (₹, ₹ करोड़ → ₹40 करोड़), anything else after (%, ' घंटे')"
+    },
+    "decimals": {
+     "type": "int",
+     "default": -1,
+     "min": -1,
+     "max": 4,
+     "what": "decimals of the values (-1: as written)"
+    },
+    "grow": {
+     "type": "number",
+     "default": 0.7,
+     "min": 0,
+     "max": 10,
+     "what": "seconds the newest revealed part takes to grow after its step (0: at once); set 0 in a later step that keeps upto"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "pieChart": {
+   "anchor": "center",
+   "what": "a pie (roti) of shares whose slices sweep in one by one on their numbers, morph to other values (from: before and after tax), the spoken slice stands out, a spike rises from one slice (the top 1%), names in a legend; a donut with words in the middle",
+   "tags": [
+    "पाई चार्ट",
+    "रोटी",
+    "हिस्सा",
+    "बँटवारा",
+    "आय",
+    "प्रतिशत",
+    "डोनट",
+    "pie chart",
+    "pie",
+    "shares",
+    "slices",
+    "distribution",
+    "quintiles",
+    "donut",
+    "percentage"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1000,
+     "min": 200,
+     "max": 1900
+    },
+    "slices": {
+     "type": "text",
+     "default": "क:50;ख:30;ग:20",
+     "what": "label:value;… (label:value:#colour sets a colour)"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 60,
+     "what": "slices drawn so far (0: all)"
+    },
+    "glow": {
+     "type": "text",
+     "default": "",
+     "what": "slice numbers that stand out"
+    },
+    "tower": {
+     "type": "text",
+     "default": "",
+     "what": "k:label - a spike rising from slice k"
+    },
+    "towerSize": {
+     "type": "number",
+     "default": 0.35,
+     "min": 0.1,
+     "max": 1,
+     "what": "spike height, share of the radius"
+    },
+    "from": {
+     "type": "text",
+     "default": "",
+     "what": "earlier values v;v;… the slices morph from after the step"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.2,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds a glide from the old values takes after the step"
+    },
+    "values": {
+     "type": "bool",
+     "default": true,
+     "what": "values in the slices"
+    },
+    "legend": {
+     "type": "bool",
+     "default": true,
+     "what": "names beside the pie"
+    },
+    "donut": {
+     "type": "bool",
+     "default": false
+    },
+    "center": {
+     "type": "text",
+     "default": "",
+     "what": "words in the donut hole"
+    },
+    "unit": {
+     "type": "text",
+     "default": "%",
+     "what": "unit: a currency sign goes before (₹, ₹ करोड़ → ₹40 करोड़), anything else after (%, ' घंटे')"
+    },
+    "decimals": {
+     "type": "int",
+     "default": -1,
+     "min": -1,
+     "max": 4,
+     "what": "decimals of the values (-1: as written)"
+    },
+    "grow": {
+     "type": "number",
+     "default": 0.8,
+     "min": 0,
+     "max": 10,
+     "what": "seconds the newest revealed part takes to grow after its step (0: at once); set 0 in a later step that keeps upto"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "shareBar": {
+   "anchor": "center",
+   "what": "a bar of parts added to a whole one at a time with a running total tag; with overflow the parts may pass the whole (100%) and the excess turns red (a rupee of extra pay split into tax, insurance, lost benefit and what is kept); several bars (parts a|b with bars names) make stacked shares over years",
+   "tags": [
+    "हिस्से",
+    "पट्टी",
+    "जोड़",
+    "कुल",
+    "100 प्रतिशत",
+    "कर",
+    "साल दर साल",
+    "share bar",
+    "stacked bar",
+    "running total",
+    "cumulative",
+    "overflow",
+    "marginal tax",
+    "shares over years",
+    "composition"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1200,
+     "min": 200,
+     "max": 1900
+    },
+    "parts": {
+     "type": "text",
+     "default": "क:20;ख:12;ग:41;घ:27",
+     "what": "label:value;… ; several bars separated by |"
+    },
+    "bars": {
+     "type": "text",
+     "default": "",
+     "what": "names of the bars (years), e.g. 1990;2000;2010"
+    },
+    "whole": {
+     "type": "number",
+     "default": 100,
+     "min": 0.001,
+     "max": 1000000000000.0,
+     "what": "the whole (100%)"
+    },
+    "wholeLabel": {
+     "type": "text",
+     "default": "",
+     "what": "words at the whole's mark (default its value)"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 60,
+     "what": "parts (or bars) shown so far (0: all)"
+    },
+    "running": {
+     "type": "bool",
+     "default": false,
+     "what": "a running total tag at the end of the filled part"
+    },
+    "runningLabel": {
+     "type": "text",
+     "default": "",
+     "what": "the tag's words, {v} is the total, e.g. कुल {v}"
+    },
+    "overflow": {
+     "type": "bool",
+     "default": false,
+     "what": "allow the parts to pass the whole; the excess is red"
+    },
+    "glow": {
+     "type": "text",
+     "default": "",
+     "what": "part numbers highlighted"
+    },
+    "from": {
+     "type": "text",
+     "default": "",
+     "what": "earlier values v;v;… the parts glide from (one bar)"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.2,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds a glide from the old values takes after the step"
+    },
+    "values": {
+     "type": "bool",
+     "default": true
+    },
+    "unit": {
+     "type": "text",
+     "default": "%",
+     "what": "unit: a currency sign goes before (₹, ₹ करोड़ → ₹40 करोड़), anything else after (%, ' घंटे')"
+    },
+    "decimals": {
+     "type": "int",
+     "default": -1,
+     "min": -1,
+     "max": 4,
+     "what": "decimals of the values (-1: as written)"
+    },
+    "grow": {
+     "type": "number",
+     "default": 0.7,
+     "min": 0,
+     "max": 10,
+     "what": "seconds the newest revealed part takes to grow after its step (0: at once); set 0 in a later step that keeps upto"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "title above the bar"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "pictogram": {
+   "anchor": "center",
+   "what": "countable things in a row or grid (cups, tea glasses, scooters, sacks, bus seats, people, packets, shares, oil barrels, blocks of hours, coins, notes, houses, cars, plates) of which on are lit; a step from `from` turns them off or pops them in one after another on the number word; row labels make a week of hours; count writes the live number",
+   "tags": [
+    "गिनती",
+    "चित्र",
+    "कप",
+    "चाय",
+    "स्कूटर",
+    "बोरी",
+    "सीट",
+    "लोग",
+    "पैकेट",
+    "बैरल",
+    "तेल",
+    "घंटे",
+    "हफ़्ता",
+    "सिक्के",
+    "pictogram",
+    "icons",
+    "count",
+    "cups",
+    "scooters",
+    "sacks",
+    "seats",
+    "passengers",
+    "barrels",
+    "crude oil",
+    "hours grid",
+    "week",
+    "isotype"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 900,
+     "min": 100,
+     "max": 1900
+    },
+    "icon": {
+     "type": "choice",
+     "default": "cup",
+     "choices": [
+      "cup",
+      "tea",
+      "scooter",
+      "sack",
+      "seat",
+      "person",
+      "packet",
+      "share",
+      "barrel",
+      "block",
+      "coin",
+      "note",
+      "house",
+      "car",
+      "plate"
+     ]
+    },
+    "n": {
+     "type": "int",
+     "default": 6,
+     "min": 1,
+     "max": 120,
+     "what": "how many things"
+    },
+    "on": {
+     "type": "int",
+     "default": -1,
+     "min": -1,
+     "max": 120,
+     "what": "how many are lit (-1: all)"
+    },
+    "from": {
+     "type": "int",
+     "default": -1,
+     "min": -1,
+     "max": 120,
+     "what": "the lit count before this step: the change runs one thing after another (-1: no change)"
+    },
+    "each": {
+     "type": "number",
+     "default": 0.22,
+     "min": 0,
+     "max": 3,
+     "what": "seconds between one thing and the next"
+    },
+    "cols": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 60,
+     "what": "per row (0: auto)"
+    },
+    "off": {
+     "type": "choice",
+     "default": "fade",
+     "choices": [
+      "fade",
+      "hide",
+      "cross"
+     ],
+     "what": "how unlit things look"
+    },
+    "order": {
+     "type": "choice",
+     "default": "end",
+     "choices": [
+      "end",
+      "start"
+     ],
+     "what": "which side goes dark first"
+    },
+    "rowLabels": {
+     "type": "text",
+     "default": "",
+     "what": "names of the rows, e.g. सोम;मंगल;बुध"
+    },
+    "count": {
+     "type": "text",
+     "default": "",
+     "what": "a live count above, {n} is the lit number, {total} all, e.g. {n} कप"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "caption under the things"
+    },
+    "color": {
+     "type": "color",
+     "default": "",
+     "what": "colour of the things (empty: their own)"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "iconArray": {
+   "anchor": "center",
+   "what": "a frequency grid of small people for base rates: coloured by group with their real counts, then a second split marks some of each group (tested positive, claims), and on gather the marked ones come together so their split is seen",
+   "tags": [
+    "आवृत्ति",
+    "लोग",
+    "जाँच",
+    "पॉज़िटिव",
+    "आधार दर",
+    "संभावना",
+    "समूह",
+    "icon array",
+    "frequency grid",
+    "base rate",
+    "false positive",
+    "probability",
+    "population",
+    "groups",
+    "split"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1000,
+     "min": 100,
+     "max": 1900
+    },
+    "n": {
+     "type": "int",
+     "default": 100,
+     "min": 1,
+     "max": 1000,
+     "what": "icons drawn (the real counts are scaled to them)"
+    },
+    "cols": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 80,
+     "what": "columns (0: auto)"
+    },
+    "shape": {
+     "type": "choice",
+     "default": "person",
+     "choices": [
+      "person",
+      "dot",
+      "square"
+     ]
+    },
+    "groups": {
+     "type": "text",
+     "default": "क:10;ख:90",
+     "what": "label:count;… or label:count:#colour"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 60,
+     "what": "groups coloured so far (0: all)"
+    },
+    "split": {
+     "type": "text",
+     "default": "",
+     "what": "how many of each group carry the second mark, in group order, e.g. 99;99"
+    },
+    "marks": {
+     "type": "bool",
+     "default": false,
+     "what": "show the second split"
+    },
+    "mark": {
+     "type": "choice",
+     "default": "ring",
+     "choices": [
+      "ring",
+      "dot",
+      "tick",
+      "cross"
+     ]
+    },
+    "splitLabel": {
+     "type": "text",
+     "default": "",
+     "what": "name of the second split, e.g. पॉज़िटिव"
+    },
+    "gather": {
+     "type": "bool",
+     "default": false,
+     "what": "the marked ones gather first (glide seconds)"
+    },
+    "gatherLabel": {
+     "type": "text",
+     "default": "",
+     "what": "words after gathering: {n} marked in all, {1} {2} per group, {p1} {p2} their %"
+    },
+    "highlight": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 8,
+     "what": "group number glowing, the rest dim"
+    },
+    "counts": {
+     "type": "bool",
+     "default": true,
+     "what": "write each group's count"
+    },
+    "per": {
+     "type": "text",
+     "default": "",
+     "what": "what one icon stands for, e.g. 1 चित्र = 50 लोग"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.4,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds a glide from the old values takes after the step"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "timeSeries": {
+   "anchor": "center",
+   "what": "a year-axis chart of real series (name:1990=3.1 2.4 … yearly, or name:1990,3.1 1991,2.4; name@2: on a second y-axis) that draw left to right, eras as shaded bands, a glow window sliding from era to era, event flags, marked points (highest, lowest, a year) and a pointer travelling along a series with a live readout",
+   "tags": [
+    "समय श्रृंखला",
+    "साल",
+    "रुझान",
+    "दौर",
+    "महामंदी",
+    "बेरोज़गारी",
+    "महँगाई",
+    "विकास दर",
+    "चरम",
+    "time series",
+    "years",
+    "trend",
+    "era",
+    "bands",
+    "second axis",
+    "events",
+    "peak",
+    "extremes",
+    "unemployment",
+    "inflation",
+    "growth rate",
+    "data"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1300,
+     "min": 300,
+     "max": 1900
+    },
+    "series": {
+     "type": "text",
+     "default": "क:2000=3 4 6 5 7 9 8 6 4 5 7",
+     "what": "name:start=v v v… or name:x,y x,y…; name@2: uses the right axis; ; between series (up to 6)"
+    },
+    "show": {
+     "type": "text",
+     "default": "",
+     "what": "series numbers shown (empty: all)"
+    },
+    "grow": {
+     "type": "text",
+     "default": "",
+     "what": "series that draw after the step that set this (empty: all draw from the start)"
+    },
+    "drawIn": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 30,
+     "what": "seconds a series takes to draw left to right (0: at once)"
+    },
+    "bands": {
+     "type": "text",
+     "default": "",
+     "what": "from-to:label;… eras, e.g. 1929-1938:महामंदी"
+    },
+    "window": {
+     "type": "text",
+     "default": "",
+     "what": "from-to of the glow window"
+    },
+    "windowFrom": {
+     "type": "text",
+     "default": "",
+     "what": "from-to the window glides from after the step"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.2,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds a glide from the old values takes after the step"
+    },
+    "events": {
+     "type": "text",
+     "default": "",
+     "what": "year:label;… event lines with flags"
+    },
+    "marks": {
+     "type": "text",
+     "default": "",
+     "what": "series@year|max|min:words;… {x} year, {y} value with unit, e.g. 1@max:{y}"
+    },
+    "pointer": {
+     "type": "text",
+     "default": "",
+     "what": "series@year, or series@year<series@year to travel"
+    },
+    "pointerLabel": {
+     "type": "text",
+     "default": "",
+     "what": "readout words, default {x}: {y}"
+    },
+    "xmin": {
+     "type": "number",
+     "default": 0,
+     "min": -1000000000.0,
+     "max": 1000000000.0,
+     "what": "0,0: from the data"
+    },
+    "xmax": {
+     "type": "number",
+     "default": 0,
+     "min": -1000000000.0,
+     "max": 1000000000.0
+    },
+    "ymin": {
+     "type": "number",
+     "default": 0,
+     "min": -1000000000000.0,
+     "max": 1000000000000.0,
+     "what": "0,0: from the data"
+    },
+    "ymax": {
+     "type": "number",
+     "default": 0,
+     "min": -1000000000000.0,
+     "max": 1000000000000.0
+    },
+    "y2min": {
+     "type": "number",
+     "default": 0,
+     "min": -1000000000000.0,
+     "max": 1000000000000.0
+    },
+    "y2max": {
+     "type": "number",
+     "default": 0,
+     "min": -1000000000000.0,
+     "max": 1000000000000.0
+    },
+    "step": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000,
+     "what": "year tick step (0: auto)"
+    },
+    "zero": {
+     "type": "bool",
+     "default": true,
+     "what": "start the axes at 0 and draw the 0 line strongly"
+    },
+    "legend": {
+     "type": "bool",
+     "default": true
+    },
+    "unit": {
+     "type": "text",
+     "default": "",
+     "what": "unit of the left axis values, e.g. %"
+    },
+    "unit2": {
+     "type": "text",
+     "default": "",
+     "what": "unit of the right axis"
+    },
+    "colors": {
+     "type": "text",
+     "default": "",
+     "what": "1:#hex;2:#hex"
+    },
+    "dashed": {
+     "type": "text",
+     "default": "",
+     "what": "series numbers drawn dashed"
+    },
+    "xLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "yLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "y2Label": {
+     "type": "text",
+     "default": ""
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "scatterFit": {
+   "anchor": "center",
+   "what": "data as dots, the fitted regression line settling through them, each point's gap to the fit (the residual) and an R² bar; a step to model 2 (fitted values per point, e.g. with TIME added) glides the fit, the gaps shrink and the R² rises",
+   "tags": [
+    "प्रतिगमन",
+    "बिंदु",
+    "रेखा",
+    "अनुमान",
+    "त्रुटि",
+    "आँकड़े",
+    "सहसंबंध",
+    "regression",
+    "scatter",
+    "fitted line",
+    "residuals",
+    "r squared",
+    "goodness of fit",
+    "econometrics",
+    "correlation",
+    "data"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1100,
+     "min": 300,
+     "max": 1900
+    },
+    "points": {
+     "type": "text",
+     "default": "1,2 2,3.1 3,3.4 4,5.2 5,4.8 6,6.5 7,6.9 8,8.4",
+     "what": "x,y x,y …"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 60,
+     "what": "points shown so far (0: all)"
+    },
+    "fit": {
+     "type": "text",
+     "default": "auto",
+     "what": "auto (least squares), a,b (intercept, slope) or none"
+    },
+    "fit2": {
+     "type": "text",
+     "default": "",
+     "what": "model 2's fitted value per point, in order"
+    },
+    "model": {
+     "type": "int",
+     "default": 1,
+     "min": 1,
+     "max": 2,
+     "what": "which model's fit is shown"
+    },
+    "modelFrom": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 2,
+     "what": "glide from this model's fit after the step (0: none)"
+    },
+    "settle": {
+     "type": "bool",
+     "default": false,
+     "what": "the line settles from flat into its fit after the step"
+    },
+    "line": {
+     "type": "bool",
+     "default": true,
+     "what": "draw the fitted line"
+    },
+    "residuals": {
+     "type": "bool",
+     "default": false,
+     "what": "gaps from the points to the fit"
+    },
+    "r2": {
+     "type": "number",
+     "default": -1,
+     "min": -1,
+     "max": 1,
+     "what": "R² of model 1 (-1: computed)"
+    },
+    "r2b": {
+     "type": "number",
+     "default": -1,
+     "min": -1,
+     "max": 1,
+     "what": "R² of model 2 (-1: computed)"
+    },
+    "gauge": {
+     "type": "bool",
+     "default": true,
+     "what": "the R² bar"
+    },
+    "r2Label": {
+     "type": "text",
+     "default": "R²"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.4,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds a glide from the old values takes after the step"
+    },
+    "xmin": {
+     "type": "number",
+     "default": 0,
+     "min": -1000000000000.0,
+     "max": 1000000000000.0,
+     "what": "0,0: from the data"
+    },
+    "xmax": {
+     "type": "number",
+     "default": 0,
+     "min": -1000000000000.0,
+     "max": 1000000000000.0
+    },
+    "ymin": {
+     "type": "number",
+     "default": 0,
+     "min": -1000000000000.0,
+     "max": 1000000000000.0,
+     "what": "0,0: from the data"
+    },
+    "ymax": {
+     "type": "number",
+     "default": 0,
+     "min": -1000000000000.0,
+     "max": 1000000000000.0
+    },
+    "color": {
+     "type": "color",
+     "default": "#2459a6"
+    },
+    "xLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "yLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "cycleWave": {
+   "anchor": "center",
+   "what": "the business cycle: output as a wave around a rising trend (potential output), its phases as named bands (upturn, expansion, peaking out, recession), a full-employment ceiling and a floor; a dot rides the wave as the video plays and the band under it glows (or at names the phase)",
+   "tags": [
+    "व्यापार चक्र",
+    "तेज़ी",
+    "मंदी",
+    "उछाल",
+    "चरण",
+    "संभावित उत्पादन",
+    "छत",
+    "फ़र्श",
+    "business cycle",
+    "trade cycle",
+    "boom",
+    "recession",
+    "expansion",
+    "upturn",
+    "phases",
+    "potential output",
+    "ceiling",
+    "floor",
+    "wave"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1200,
+     "min": 300,
+     "max": 1900
+    },
+    "phases": {
+     "type": "text",
+     "default": "उठान;विस्तार;शिखर;मंदी",
+     "what": "names of the phases (4 use the book's proportions; 2-6)"
+    },
+    "at": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 6,
+     "what": "phase glowing (0: the one under the dot)"
+    },
+    "cycles": {
+     "type": "int",
+     "default": 2,
+     "min": 1,
+     "max": 4
+    },
+    "amp": {
+     "type": "number",
+     "default": 0.22,
+     "min": 0.05,
+     "max": 0.45,
+     "what": "wave height, share of the plot"
+    },
+    "trend": {
+     "type": "bool",
+     "default": true,
+     "what": "the potential-output trend line"
+    },
+    "trendLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "ceiling": {
+     "type": "text",
+     "default": "",
+     "what": "label of the ceiling line (empty: none)"
+    },
+    "floor": {
+     "type": "text",
+     "default": "",
+     "what": "label of the floor line (empty: none)"
+    },
+    "dot": {
+     "type": "bool",
+     "default": true,
+     "what": "a dot on the wave"
+    },
+    "ride": {
+     "type": "number",
+     "default": 6,
+     "min": 0,
+     "max": 60,
+     "what": "seconds per cycle for the riding dot (0: it stands at pos)"
+    },
+    "pos": {
+     "type": "number",
+     "default": 0.3,
+     "min": 0,
+     "max": 1,
+     "what": "where the dot stands when it does not ride"
+    },
+    "xLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "yLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "dayHours": {
+   "anchor": "center",
+   "what": "a day of hours split between work and leisure: a bar with a divider that is dragged (from) and an earnings counter that follows (wage, a tax above a threshold changes its slope), or a clock dial whose hours fill; one hour can pulse",
+   "tags": [
+    "घंटे",
+    "दिन",
+    "काम",
+    "आराम",
+    "फ़ुर्सत",
+    "मज़दूरी",
+    "घड़ी",
+    "कमाई",
+    "hours",
+    "day",
+    "work",
+    "leisure",
+    "labour supply",
+    "wage",
+    "clock",
+    "dial",
+    "earnings",
+    "income tax"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1000,
+     "min": 200,
+     "max": 1900
+    },
+    "shape": {
+     "type": "choice",
+     "default": "bar",
+     "choices": [
+      "bar",
+      "dial"
+     ]
+    },
+    "hours": {
+     "type": "int",
+     "default": 16,
+     "min": 1,
+     "max": 24,
+     "what": "hours in the day shown"
+    },
+    "work": {
+     "type": "number",
+     "default": 8,
+     "min": 0,
+     "max": 24,
+     "what": "hours of work"
+    },
+    "from": {
+     "type": "number",
+     "default": -1,
+     "min": -1,
+     "max": 24,
+     "what": "hours of work before this step: the divider glides (-1: none)"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds a glide from the old values takes after the step"
+    },
+    "labels": {
+     "type": "text",
+     "default": "काम;आराम",
+     "what": "names of work;leisure"
+    },
+    "unitH": {
+     "type": "text",
+     "default": "",
+     "what": "word after an hour count, e.g. ' घंटे'"
+    },
+    "wage": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000000000.0,
+     "what": "₹ per hour (0: no earnings counter)"
+    },
+    "tax": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "tax rate on earnings above taxAbove"
+    },
+    "taxAbove": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000000000000.0,
+     "what": "₹ earnings free of tax"
+    },
+    "earn": {
+     "type": "text",
+     "default": "",
+     "what": "counter words, {v} the take-home pay, default ₹{v}"
+    },
+    "highlight": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 24,
+     "what": "hour that pulses (0: none)"
+    },
+    "colorWork": {
+     "type": "color",
+     "default": "#e07b24"
+    },
+    "colorRest": {
+     "type": "color",
+     "default": "#2a9d8f"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "roundBars": {
+   "anchor": "bottom",
+   "what": "the multiplier as rounds: round 1 spends the injection, each next round re-spends the kept share; every bar's top slice leaks (saving, tax, imports) into its jar and the cumulative bar climbs toward its limit; dir down runs the rounds downward (the paradox of thrift)",
+   "tags": [
+    "गुणक",
+    "दौर",
+    "खर्च",
+    "रिसाव",
+    "बचत",
+    "कर",
+    "आयात",
+    "मितव्ययिता का विरोधाभास",
+    "multiplier",
+    "rounds",
+    "spending",
+    "leakage",
+    "withdrawals",
+    "injection",
+    "paradox of thrift",
+    "mpc",
+    "geometric series"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1200,
+     "min": 300,
+     "max": 1900
+    },
+    "first": {
+     "type": "number",
+     "default": 100,
+     "min": 0,
+     "max": 1000000000000.0,
+     "what": "the injection"
+    },
+    "keep": {
+     "type": "number",
+     "default": 0.8,
+     "min": 0,
+     "max": 0.99,
+     "what": "share re-spent each round (MPC)"
+    },
+    "rounds": {
+     "type": "int",
+     "default": 6,
+     "min": 1,
+     "max": 12,
+     "what": "rounds shown; the newest pops on its step"
+    },
+    "leaks": {
+     "type": "text",
+     "default": "बचत;कर;आयात",
+     "what": "names of the leak jars"
+    },
+    "leakShares": {
+     "type": "text",
+     "default": "",
+     "what": "shares of the leak per jar, e.g. 0.5;0.3;0.2 (default equal)"
+    },
+    "jars": {
+     "type": "bool",
+     "default": true
+    },
+    "total": {
+     "type": "bool",
+     "default": true,
+     "what": "the cumulative bar"
+    },
+    "limit": {
+     "type": "bool",
+     "default": true,
+     "what": "the limit line first/(1-keep)"
+    },
+    "dir": {
+     "type": "choice",
+     "default": "up",
+     "choices": [
+      "up",
+      "down"
+     ]
+    },
+    "roundLabel": {
+     "type": "text",
+     "default": "",
+     "what": "words under each bar, {k} the round, default {k}"
+    },
+    "totalLabel": {
+     "type": "text",
+     "default": "",
+     "what": "words before the cumulative total"
+    },
+    "unit": {
+     "type": "text",
+     "default": "₹",
+     "what": "unit: a currency sign goes before (₹, ₹ करोड़ → ₹40 करोड़), anything else after (%, ' घंटे')"
+    },
+    "decimals": {
+     "type": "int",
+     "default": -1,
+     "min": -1,
+     "max": 4,
+     "what": "decimals of the values (-1: as written)"
+    },
+    "grow": {
+     "type": "number",
+     "default": 0.6,
+     "min": 0,
+     "max": 10,
+     "what": "seconds the newest revealed part takes to grow after its step (0: at once); set 0 in a later step that keeps upto"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "weightBars": {
+   "anchor": "center",
+   "what": "risk-weighted assets: each asset a bar that shrinks to its risk weight when the weight is applied (cash to nothing, home loans to 35%), the weighted bars stack into RWA, and capital over that stack is the ratio on a ruler against its threshold; a what-if step glides the amounts (from) and the pointer follows; unweighted gives the leverage ratio",
+   "tags": [
+    "जोखिम भार",
+    "पूँजी पर्याप्तता",
+    "बैंक",
+    "संपत्ति",
+    "अनुपात",
+    "बासेल",
+    "risk weighted assets",
+    "rwa",
+    "capital adequacy",
+    "car",
+    "basel",
+    "leverage ratio",
+    "bank capital",
+    "weights"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1200,
+     "min": 300,
+     "max": 1900
+    },
+    "assets": {
+     "type": "text",
+     "default": "नकद:100:0;बॉन्ड:200:0.2;होम लोन:400:0.35;कर्ज़:300:1",
+     "what": "label:amount:weight;…"
+    },
+    "applied": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 12,
+     "what": "weights applied so far; the newest shrinks over glide seconds"
+    },
+    "stack": {
+     "type": "bool",
+     "default": false,
+     "what": "stack the weighted bars into RWA"
+    },
+    "capital": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000000000000.0,
+     "what": "capital (0: no ratio ruler)"
+    },
+    "threshold": {
+     "type": "number",
+     "default": 10.5,
+     "min": 0,
+     "max": 100,
+     "what": "the required ratio in %"
+    },
+    "ratio": {
+     "type": "bool",
+     "default": true,
+     "what": "the ratio ruler"
+    },
+    "unweighted": {
+     "type": "bool",
+     "default": false,
+     "what": "use the full amounts (leverage ratio)"
+    },
+    "ratioLabel": {
+     "type": "text",
+     "default": "",
+     "what": "name of the ratio (default CAR)"
+    },
+    "rwaLabel": {
+     "type": "text",
+     "default": "",
+     "what": "name of the stack (default RWA)"
+    },
+    "tags": {
+     "type": "bool",
+     "default": true,
+     "what": "the ×weight tags"
+    },
+    "from": {
+     "type": "text",
+     "default": "",
+     "what": "earlier amounts a;a;… the bars glide from (a what-if)"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.2,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds a glide from the old values takes after the step"
+    },
+    "unit": {
+     "type": "text",
+     "default": "₹",
+     "what": "unit: a currency sign goes before (₹, ₹ करोड़ → ₹40 करोड़), anything else after (%, ' घंटे')"
+    },
+    "decimals": {
+     "type": "int",
+     "default": -1,
+     "min": -1,
+     "max": 4,
+     "what": "decimals of the values (-1: as written)"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "pumpJack": {
+   "anchor": "bottom",
+   "what": "a nodding-donkey pump for crude oil (shale): still, or running - the beam nods and the crank turns as the video plays",
+   "tags": [
+    "तेल",
+    "कुआँ",
+    "पंप",
+    "शेल",
+    "कच्चा तेल",
+    "उत्पादन",
+    "pump jack",
+    "oil well",
+    "shale",
+    "crude oil",
+    "oil production",
+    "nodding donkey"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 420,
+     "min": 60,
+     "max": 1900
+    },
+    "running": {
+     "type": "bool",
+     "default": false
+    },
+    "rate": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0,
+     "max": 3,
+     "what": "strokes per second"
+    },
+    "label": {
+     "type": "text",
+     "default": ""
+    },
+    "color": {
+     "type": "color",
+     "default": "#e07b24"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "bargainTable": {
+   "anchor": "center",
+   "what": "a bargaining table seen from above: one side (union) and the other (management) with their people, offer and threat cards that slide across on their words, a card torn (rejected) or stamped (agreed), a mediator who can join, and the tension between them",
+   "tags": [
+    "मोलभाव",
+    "बातचीत",
+    "यूनियन",
+    "प्रबंधन",
+    "हड़ताल",
+    "समझौता",
+    "मध्यस्थ",
+    "bargaining",
+    "collective bargaining",
+    "negotiation",
+    "union",
+    "management",
+    "strike",
+    "offer",
+    "threat",
+    "mediator",
+    "arbitration"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1300,
+     "min": 300,
+     "max": 1900
+    },
+    "left": {
+     "type": "text",
+     "default": "",
+     "what": "name of the left side"
+    },
+    "right": {
+     "type": "text",
+     "default": "",
+     "what": "name of the right side"
+    },
+    "cards": {
+     "type": "text",
+     "default": "L:हड़ताल;R:बोनस",
+     "what": "side:words[:torn|agreed];… L cards slide to the right half, R cards to the left (up to 8)"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 60,
+     "what": "cards sent so far (0: all); the newest slides over glide seconds"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds a glide from the old values takes after the step"
+    },
+    "mediator": {
+     "type": "bool",
+     "default": false
+    },
+    "mediatorLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "mood": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "tension between the sides"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  }
+ }
+}
