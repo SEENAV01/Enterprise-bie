@@ -140,6 +140,17 @@ class CompilerRefuses(unittest.TestCase):
         held = plan_of({"op": "text", "text": "दावा बाकी", "x": 960, "y": 300, "size": 56, "t0": {"line": "l2", "edge": "start"}})
         self.assertFalse(any("on screen for only" in p for p in refusal(held)))
 
+    def test_a_text_whose_values_flip_every_half_second_is_refused(self):
+        start = {"line": "l1", "edge": "start"}
+        ticker = plan_of({"op": "text", "text": "₹10", "x": 960, "y": 300, "size": 56, "t0": start,
+                          "steps": [{"t": {"line": "l1", "edge": "start", "plus": 0.5}, "text": "₹20"},
+                                    {"t": {"line": "l1", "edge": "start", "plus": 1.0}, "text": "₹50"}]})
+        problems = refusal(ticker)
+        self.assertTrue(any("'₹10' shows for only 0.5s" in p and "side by side" in p for p in problems), problems)
+        calm = plan_of({"op": "text", "text": "₹10", "x": 960, "y": 300, "size": 56, "t0": start,
+                        "steps": [{"t": {"line": "l2", "edge": "start"}, "text": "₹20"}]})
+        self.assertFalse(any("shows for only" in p for p in refusal(calm)))
+
     def test_a_caution_line_never_reaches_the_screen(self):
         plan = plan_of({"op": "text", "text": "मान लीजिए दाम", "x": 960, "y": 300, "size": 56})
         problems = refusal(plan)
