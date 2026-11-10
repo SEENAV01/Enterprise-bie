@@ -1,0 +1,153 @@
+{
+  "cost": {
+    "cap": {
+      "by_section_inr": {
+        "preflight": 0.0,
+        "showplan": 0.0
+      },
+      "calls_allowed": 3,
+      "calls_refused": 0,
+      "cap_inr": 5.0,
+      "spent_inr": 0.0,
+      "spent_usd": 0.0,
+      "stop_reason": null,
+      "stopped": false,
+      "usd_inr": 94.59
+    },
+    "inr_per_page": 0.0,
+    "note": "Ledger cost is an estimate: exact token counts times the dated price table in bie/model_gateway/live/pricing.py (plus the AICredits 10% markup), converted at usd_inr. It is not the bill. Write the provider dashboard amount for this run into real_bill_inr (and docs/roadmap/COST_LOG.md) to compare.",
+    "pages": 20,
+    "real_bill_inr": null,
+    "sections": {
+      "preflight": {
+        "calls": 1,
+        "inr": 0.0,
+        "inr_per_page": 0.0,
+        "name": "preflight",
+        "usd": 0.0
+      },
+      "showplan": {
+        "calls": 2,
+        "inr": 0.0,
+        "inr_per_page": 0.0,
+        "name": "Phase 1 · scene plans",
+        "usd": 0.0
+      }
+    },
+    "subscription": {
+      "calls": 3,
+      "failed_calls": 2,
+      "input_tokens": 53625,
+      "minutes": 9.4,
+      "note": "paid by the ChatGPT plan, no rupees; time is the sum of call times",
+      "output_tokens": 27249,
+      "reasoning_tokens": 178
+    },
+    "total_inr": 0.0,
+    "total_usd": 0.0,
+    "usd_inr": 94.59
+  },
+  "estimate": {
+    "maker_billing": "subscription",
+    "measured_share_inr": 0,
+    "pages": 20,
+    "price_scale": 0.0,
+    "reviewer_billing": "subscription",
+    "sections": {
+      "showplan": {
+        "basis": "assumed",
+        "inr": 0.0,
+        "inr_per_page": 0.0,
+        "source": "not measured yet; one scene plan per video, the compiler is the only check (Phase 1 part C)"
+      }
+    },
+    "total_inr": 0.0,
+    "usd_inr": 94.59
+  },
+  "fake": false,
+  "ledger_calls": 3,
+  "ledger_cost_usd": 0.0,
+  "level": {
+    "band": "senior_secondary",
+    "disagreement": null,
+    "evidence": {
+      "long_share": 0.078,
+      "marker": "intermediate",
+      "reason": "the text says 'intermediate'",
+      "sentence_words": 13.2,
+      "setting": "course.level = upsc_pcs",
+      "very_long_share": 0.0145,
+      "words": 6678
+    },
+    "profile": "upsc_pcs",
+    "source": "course"
+  },
+  "maker": "codex",
+  "models": {
+    "codex": "gpt-6.1-sol",
+    "codex-checker": "gpt-6.1-sol"
+  },
+  "plan_usage_after": {
+    "codex": {
+      "rateLimitResetCredits.availableCount": 2,
+      "rateLimits.planType": "prolite",
+      "rateLimits.primary.resetsAt": 1794521363,
+      "rateLimits.primary.usedPercent": 33,
+      "rateLimits.primary.windowDurationMins": 10080,
+      "rateLimitsByLimitId.codex.planType": "prolite",
+      "rateLimitsByLimitId.codex.primary.resetsAt": 1794521363,
+      "rateLimitsByLimitId.codex.primary.usedPercent": 33,
+      "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+    },
+    "codex-checker": {
+      "rateLimitResetCredits.availableCount": 2,
+      "rateLimits.planType": "prolite",
+      "rateLimits.primary.resetsAt": 1794521362,
+      "rateLimits.primary.usedPercent": 33,
+      "rateLimits.primary.windowDurationMins": 10080,
+      "rateLimitsByLimitId.codex.planType": "prolite",
+      "rateLimitsByLimitId.codex.primary.resetsAt": 1794521362,
+      "rateLimitsByLimitId.codex.primary.usedPercent": 33,
+      "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+    }
+  },
+  "preflight": {
+    "passed": true,
+    "routes": {
+      "codex": {
+        "input_tokens": 3343,
+        "login": {
+          "logged_in": true,
+          "mode": "Logged in using ChatGPT"
+        },
+        "model": "gpt-6.1-sol",
+        "output_tokens": 15,
+        "plan_usage_before": {
+          "rateLimitResetCredits.availableCount": 2,
+          "rateLimits.planType": "prolite",
+          "rateLimits.primary.resetsAt": 1794521362,
+          "rateLimits.primary.usedPercent": 32,
+          "rateLimits.primary.windowDurationMins": 10080,
+          "rateLimitsByLimitId.codex.planType": "prolite",
+          "rateLimitsByLimitId.codex.primary.resetsAt": 1794521362,
+          "rateLimitsByLimitId.codex.primary.usedPercent": 32,
+          "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080
+        },
+        "returned_model": "gpt-6.1-sol",
+        "status": "ok",
+        "via": "codex"
+      }
+    }
+  },
+  "reviewer": "codex",
+  "reviewer_independence": "same_model_temporary",
+  "reviewer_route": "codex-checker",
+  "rulebook": "canvas_profile@2026-11-03.1+content_types@2026-10-27.1+econ_videos@2026-11-05.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-03.1+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.17+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3",
+  "section": "showplan",
+  "showplan_quality": {
+    "first_try": 0,
+    "passed": 0,
+    "videos": 1
+  },
+  "status": "ok"
+}
