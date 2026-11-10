@@ -76,6 +76,9 @@ class PageSlot(unittest.TestCase):
         self.assertTrue(render.needs_engine(spec))              # the same engine as the video draws the page
         self.assertEqual(render.total_frames(spec), 30)
         self.assertEqual(spec["scenes"][0]["bg"], "village")
+        for el in spec["scenes"][0]["els"]:                     # the finished picture: nothing pops in at frame 0
+            self.assertEqual(el["enter"], "none")
+            self.assertLess(el["t0"], -1)
 
     def test_a_wrong_page_is_named_exactly(self):
         pg = page("picture")
