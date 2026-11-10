@@ -1947,3 +1947,16 @@ named with the text, the second and the scene end); the director's prompt says s
 4, v5 new 5, v4 of 4 November 3, v5 of 5 November 2 — none had been visible to the compiler.
 
 **Measured effect:** after this change v5 (and v4) go through the director once more; numbers in the report.
+
+## Entry 51 · each value a text shows stays 1.5 s too, 5 November 2026
+
+**The run:** run b of Money v4 and v5 (after entry 50; VM jobs `p1h-money-showplan-v4-b`, `-v5-b`, Codex, ₹0): both
+passed in 4 rounds with said = shown 100% (v4 40 → 20 → 3 → 0 problems, v5 40 → 32 → 5 → 0). Frame audit: v5 2 overlap
+seconds in all, longest 1 s, no small text, gate passed; v4 no overlap at all, but the gate failed on one text, "₹10",
+measured at 25.1 px: the plan showed the notes as one text that changed every 0.5 s (₹10 → ₹20 → ₹50 → ₹100 → ₹200 →
+₹500), and the audit caught ₹10 in its pop-in. Rule 8 (entry 50) measured the element, not each value it shows.
+
+**What changed in BIE:** rule 8 now also measures each value a text shows (its first words and every step that changes
+them): each stays at least 1.5 s, or the compiler names the value and asks for the values side by side or a longer
+moment each; the director's prompt says so. Under it, v4 run b (₹10, 0.5 s) and v5 run b ("उधार", 1.1 s) each break it
+once, so both go through the director again (run c).
