@@ -4,6 +4,9 @@
 // smoothPath, easeIO, DIAG, rnd, label) - used inside its functions only, never at load time (draw.mjs loads the
 // families first). Add one import and one spread below.
 import { DRAWS as ECON_CHARTS } from "./econ_charts.mjs";
+import { DRAWS as ECON_TOOLS } from "./econ_tools.mjs";
+
 export const FAMILY_DRAWS = {
   ...ECON_CHARTS,
+  ...ECON_TOOLS,
 };
