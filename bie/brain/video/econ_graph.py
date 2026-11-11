@@ -94,14 +94,32 @@ class EconGraph:
         """A straight line through two (Q, P) points."""
         (x1, y1), (x2, y2) = p1, p2
         if x1 == x2:
-            raise ValueError("a vertical line: use vline() (a fixed quantity)")
+            raise ValueError("a vertical line: use vertical() (perfectly inelastic supply) or vline() (a dashed marker)")
         slope = (y2 - y1) / (x2 - x1)
         return self.linear(name, intercept=y1 - slope * x1, slope=slope, **kw)
+
+    def vertical(self, name: str, x: float, *, y0: float | None = None, y1: float | None = None, color: str = "",
+                 dashed: bool = False) -> Line:
+        """A vertical curve Q = x (perfectly inelastic supply, a fixed stock, the long-run Phillips curve): one of the
+        graph's lines, drawn solid from y0 to y1 (the whole height by default). cross() and at_price() know it."""
+        if not self.xmin <= x <= self.xmax:
+            raise ValueError(f"the vertical line Q = {x:g} lies outside the frame")
+        lo = self.ymin if y0 is None else y0
+        hi = self.ymax if y1 is None else y1
+
+        def f(q, x=x):
+            raise ValueError("a vertical line has no single price at a quantity; use cross() or at_price()")
+        line = self.curve(name, f, color=color, dashed=dashed)
+        line.meta["vertical"] = (float(x), float(lo), float(hi))
+        return line
 
     def shift(self, line: Line, *, dx: float = 0.0, dy: float = 0.0, name: str = "", dashed: bool = True,
               color: str = "") -> Line:
         """The same curve moved: dx > 0 moves it right (more is bought or sold at every price), dy > 0 up (a tax on
         the sellers lifts supply by the tax)."""
+        if "vertical" in line.meta:
+            x, lo, hi = line.meta["vertical"]
+            return self.vertical(name or line.name + "2", x + dx, y0=lo + dy, y1=hi + dy, color=color, dashed=dashed)
         return self.curve(name or line.name + "2", lambda q, f=line.f: f(q - dx) + dy, dashed=dashed, color=color,
                           domain=tuple(v + dx for v in line.domain) if line.domain else (),
                           xs=tuple(v + dx for v in line.xs))
@@ -112,6 +130,15 @@ class EconGraph:
 
     def cross(self, a: Line, b: Line, name: str = "", *, dot: bool = True) -> Point:
         """Where two curves meet (bisection on the difference over the x range): the equilibrium, MC = MR, AD = AS."""
+        if "vertical" in a.meta or "vertical" in b.meta:
+            v, o = (a, b) if "vertical" in a.meta else (b, a)
+            if "vertical" in o.meta:
+                raise ValueError(f"{a.name} and {b.name} are both vertical")
+            x = v.meta["vertical"][0]
+            p = Point(round(x, 4), round(float(o.f(x)), 4), name)
+            if dot:
+                self.dots.append(p)
+            return p
         g = lambda q: a.f(q) - b.f(q)  # noqa: E731
         lo, hi = self.xmin, self.xmax
         n = 400
@@ -142,6 +169,8 @@ class EconGraph:
 
     def at_price(self, line: Line, price: float) -> float:
         """The quantity on a curve at a price (demand or supply at a ceiling or a floor)."""
+        if "vertical" in line.meta:
+            return line.meta["vertical"][0]
         flat = Line("", lambda q, c=price: c)
         return self.cross(line, flat, dot=False).x
 
@@ -378,6 +407,9 @@ class EconGraph:
 
     # ------------------------------------------------------------------ out: the saancha's parameters
     def _pts(self, line: Line) -> str:
+        if "vertical" in line.meta:
+            x, lo, hi = line.meta["vertical"]
+            return f"{_fmt(x)},{_fmt(lo)} {_fmt(x)},{_fmt(hi)}"
         x0, x1 = line.domain or (self.xmin, self.xmax)
         n = max(2, self.samples)
         rows = []

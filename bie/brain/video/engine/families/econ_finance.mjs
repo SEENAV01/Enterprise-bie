@@ -492,6 +492,13 @@ function timeValue(p) {
       const v = a.v * factor(dist, moving), neg = v < 0, txt = [a.lab, money(v, unit)].filter(Boolean).join(" ");
       let rad = Math.max(w * 0.008, Math.sqrt(Math.abs(v) / top) * laneH * 0.26), y = coinY;
       if (moving >= 1) arrived += v;
+      // the amount that left stays as a faded ghost at its own slot (ch12: "₹100 in 30 years" vanished once it travelled,
+      // so the picture showed only ₹41 / ₹6 with nothing to compare them to); ghost: false turns it off
+      if (moving > 0 && dist > 1 && p.ghost !== false && li === 0 && amts.length === 1) {   // one amount: its ghost has room
+        const g0 = a.v, gt = [a.lab, money(g0, unit)].filter(Boolean).join(" "), gr = Math.max(w * 0.008, Math.min(Math.sqrt(Math.abs(g0) / top) * laneH * 0.26, fs * 0.8));
+        out += `<g opacity="0.5"><circle cx="${r1(X(a.at))}" cy="${r1(coinY)}" r="${r1(gr)}" fill="none" stroke="#c99a2e" stroke-width="${r1(w * 0.003)}" stroke-dasharray="${r1(w * 0.006)} ${r1(w * 0.004)}"/>` +
+          pill(gt, X(a.at), coinY - gr - fs * 0.95, fs, { stroke: "#c99a2e", color: INK }) + `</g>`;
+      }
       if (moving >= 1 && nl === 1 && travel > 1) {           // arrived amounts stack up at their end slot, one row each
         rad = Math.min(rad, fs * 0.7); y = coinY - row * fs * 1.65; row++;
         out += `<circle cx="${r1(x)}" cy="${r1(y)}" r="${r1(rad)}" fill="${neg ? "#f6b5b7" : "#f2c14e"}" stroke="${neg ? C.red : "#c99a2e"}" stroke-width="${r1(w * 0.003)}"/>` +
@@ -1094,7 +1101,8 @@ function road(p) {
 // bubbles carrying the belief (price up, prices down, a growing factory, a rupee) pop up across a growing share of the
 // crowd over spread seconds. mode "herd": people walk towards a stall and its price tag rises as the crowd there grows.
 function agents(p) {
-  const w = num(p.w, 1400), h = w * 0.55, fs = w * 0.028, s = since(p), t = tnum(p._t), n = clampInt(num(p.n, 24), 1, 60), mode = ["belief", "herd"].includes(p.mode) ? p.mode : "merge";
+  // fs: the words keep the readable floor (36 px at s 1): on a notes picture the crowd came out with 28 px labels (ch20)
+  const w = num(p.w, 1400), h = w * 0.55, fs = Math.max(36, w * 0.028), s = since(p), t = tnum(p._t), n = clampInt(num(p.n, 24), 1, 60), mode = ["belief", "herd"].includes(p.mode) ? p.mode : "merge";
   const cols = Math.ceil(Math.sqrt(n * 2)), rows = Math.ceil(n / cols), cell = Math.min((w * 0.8) / cols, (h * 0.75) / rows), ps = cell * 0.8, firms = p.kinds === "firms";
   let out = "";
   const grid = (i) => [-((cols - 1) * cell) / 2 + (i % cols) * cell, -((rows - 1) * cell) / 2 + Math.floor(i / cols) * cell + cell * 0.45];

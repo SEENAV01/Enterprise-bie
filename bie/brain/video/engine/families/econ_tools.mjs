@@ -591,12 +591,15 @@ function scaleBalance(p) {
   const mk = p.mark === "auto" ? (target < -0.02 ? "left" : target > 0.02 ? "right" : "") : p.mark;
   ends.forEach((e) => { if (mk === (e.d < 0 ? "left" : "right")) out += `<g transform="translate(${f1(e.x)},${f1(e.top - w * 0.05)})">${mark("tick", w * 0.07, "#2fa35b", ph(s, glide * 0.6, 0.4) || (s > 50 ? 1 : 0))}</g>`; });
   let tagY = (seesaw ? Math.min(...ends.map((e) => e.top)) - w * 0.06 : pivY - w * 0.085);
-  if (p.levelTag && level) { const f = fitT(p.levelTag, w * 0.3, w * 0.04), cw = tw(p.levelTag, f) + f * 1.2, kk = backOut(ph(s, glide * 0.8, 0.4));
-    out += `<g transform="translate(0,${f1(tagY)}) scale(${kk.toFixed(3)})">${chipBox(0, 0, cw, f * 1.55, "#e6f6ea", "#2fa35b", w * 0.004)}${T(p.levelTag, 0, 0, f, "#1f7a43", 800)}</g>`; tagY -= f * 2; }
-  if (p.gapLabel) { const f = fitT(p.gapLabel, w * 0.3, w * 0.04), cw = tw(p.gapLabel, f) + f * 1.2, kk = backOut(ph(s, glide * 0.7, 0.45));
-    out += `<g transform="translate(0,${f1(tagY)}) scale(${kk.toFixed(3)})">${chipBox(0, 0, cw, f * 1.55, "#e5484d", "#a3273a", w * 0.004)}${T(p.gapLabel, 0, 0, f, "#ffffff", 800)}</g>`; tagY -= f * 2; }
-  const highest = Math.min(tagY + w * 0.03, ...ends.map((e) => e.top - (mk ? w * 0.1 : 0)), seesaw ? 0 : pivY - w * 0.12);
-  if (p.title) out += T(p.title, 0, highest - w * 0.045, fitT(p.title, w * 0.9, w * 0.046), INK, 800);
+  // the chips and the title keep the readable floor (36 px); the title sits just above the highest thing, not a band
+  // higher, so it no longer runs into a pill placed over the scale (ch12)
+  let chipTop = Infinity;
+  if (p.levelTag && level) { const f = fitT(p.levelTag, w * 0.5, Math.max(36, w * 0.04)), cw = tw(p.levelTag, f) + f * 1.2, kk = backOut(ph(s, glide * 0.8, 0.4));
+    out += `<g transform="translate(0,${f1(tagY)}) scale(${kk.toFixed(3)})">${chipBox(0, 0, cw, f * 1.55, "#e6f6ea", "#2fa35b", w * 0.004)}${T(p.levelTag, 0, 0, f, "#1f7a43", 800)}</g>`; chipTop = tagY - f * 0.78; tagY -= f * 2; }
+  if (p.gapLabel) { const f = fitT(p.gapLabel, w * 0.5, Math.max(36, w * 0.04)), cw = tw(p.gapLabel, f) + f * 1.2, kk = backOut(ph(s, glide * 0.7, 0.45));
+    out += `<g transform="translate(0,${f1(tagY)}) scale(${kk.toFixed(3)})">${chipBox(0, 0, cw, f * 1.55, "#e5484d", "#a3273a", w * 0.004)}${T(p.gapLabel, 0, 0, f, "#ffffff", 800)}</g>`; chipTop = tagY - f * 0.78; tagY -= f * 2; }
+  const highest = Math.min(chipTop, ...ends.map((e) => e.top - (mk ? w * 0.1 : 0)), seesaw ? 0 : pivY - w * 0.05);
+  if (p.title) { const f = fitT(p.title, w * 0.9, Math.max(36, w * 0.046)); out += T(p.title, 0, highest - w * 0.015 - f * 0.5, f, INK, 800); }
   return out;
 }
 

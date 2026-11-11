@@ -209,7 +209,10 @@ function marginalBars(p) {
   const w = Math.max(200, num(p.w, 1100)), vals = listN(p.values ?? "7;4;2;1;0;-1").map((v) => (Number.isFinite(v) ? v : 0));
   if (!vals.length) vals.push(0);
   const costs = listN(p.costs), paired = costs.some(Number.isFinite), n = vals.length;
-  const labs = parts(p.labels).filter((x, i, a) => a.length > 1 || x);
+  // labels are ;-separated; a ,-separated list with one name per bar is read the same way (ch12: "a,b,c" put every
+  // name under bar 1)
+  const labS = String(p.labels ?? ""), labC = labS.split(",").map((t) => t.trim());
+  const labs = (!labS.includes(";") && n > 1 && labC.length === n ? labC : parts(p.labels)).filter((x, i, a) => a.length > 1 || x);
   const unit = p.unit ?? "", dec = p.decimals, c1 = okColor(p.color, "#2459a6"), c2 = okColor(p.color2, "#e07b24");
   const lineS = String(p.line ?? ""), li = lineS.indexOf(":"), lineV0 = tnum(li >= 0 ? lineS.slice(0, li) : lineS), lineL = li >= 0 ? lineS.slice(li + 1).trim() : "";
   const glk = easeIO(prog(sinceStep(p), num(p.glide, 1.2)));

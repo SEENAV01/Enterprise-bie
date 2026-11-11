@@ -157,6 +157,8 @@
                      "year": {"type": "text", "default": "", "what": "big year"},
                      "value": {"type": "text", "default": "", "what": "big amount"},
                      "note": {"type": "text", "default": "", "what": "footer ribbon, e.g. the coupon or the term"},
+                     "amount": {"type": "text", "default": "", "what": "the same as value (the big amount)"},
+                     "footer": {"type": "text", "default": "", "what": "the same as note (the footer ribbon)"},
                      "lines": {"type": "int", "default": 4, "min": 0, "max": 8, "what": "text lines drawn as bars"},
                      "stamp": {"type": "text", "default": "", "what": "rubber-stamp word, e.g. AMENDED, FAIL"},
                      "stampColor": {"type": "color", "default": "#d6454f"}},

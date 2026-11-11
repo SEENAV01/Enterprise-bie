@@ -73,9 +73,57 @@ STOP = {"बस", "बीच", "दिन", "काम", "कमाई", "गि
         "साल", "महीना", "महीने", "हफ़्ता", "हफ़्ते", "घंटे", "दौर", "असर", "प्रभाव", "हिस्सा", "हिस्से", "हिसाब", "छूट",
         "शर्त", "विकल्प", "लोग", "तुलना", "स्थिति", "पहचान", "सूची", "स्तर", "बदलाव", "योगदान", "चरण", "मान",
         "effect", "income", "table", "mechanism", "count", "time", "day", "days", "year", "years", "month", "hours", "work",
-        "model", "trend", "threshold", "level", "flow", "rounds", "choice", "options", "risk", "chance"}
+        "model", "trend", "threshold", "level", "flow", "rounds", "choice", "options", "risk", "chance",
+        # too vague to demand a drawing (Sloman workers, Nov 2026): फल is also "result", stock a stock of anything,
+        # उत्पादन "production", board any board, जोखिम "risk"; खाते is mostly "(they) eat"
+        "फल", "stock", "उत्पादन", "board", "जोखिम", "खाते", "सूखा"}
 # Said forms that look like a tag plus an ending but are other words: आगे (ahead) is not आग (fire) + े.
-NOT_FORMS = {"आगे", "बसे", "बसा", "बसी", "बसें", "दिना", "तेली", "नोटा"}
+NOT_FORMS = {"आगे", "बसे", "बसा", "बसी", "बसें", "दिना", "तेली", "नोटा",
+             # verb forms that look like a thing word plus an ending (Sloman workers, Nov 2026): करो/करें/करते are "do",
+             # not कर "tax"; खाती is "eats", not खाता "account"
+             "करो", "करें", "करे", "करते", "करता", "करती", "करेंगे", "करेगा", "करेगी", "करना", "करने", "करनी", "करके",
+             "करवाते", "कराते", "खाती"}
+# A thing word that is also a verb (कर "tax" / कर "do", खाता "account" / खाता "eats"): read as the verb when the next
+# word is a helper verb (कर लें, कर दिया, कर सकते; खाते हैं, खाता है). Real uses (कर बढ़ा, बैंक खाते में) still count.
+VERB_TAGS = {
+    "कर": {"लें", "लो", "ले", "लेते", "लेता", "लेना", "लिया", "ली", "लिए", "दें", "दो", "दे", "देते", "देता", "देना", "दिया", "दी",
+           "सकते", "सकता", "सकती", "सकें", "सके", "रहे", "रहा", "रही", "चुके", "चुका", "चुकी", "पाते", "पाता", "पाए", "डालो", "डाले",
+           "गया", "गए", "गई", "बैठे", "जाते", "जाता"},
+    "खाता": {"है", "हैं", "था", "थे", "थी", "हो", "हूँ", "रहा", "रहे", "रही", "जाता", "जाते"},
+}
+# Hindi names of English thing words (and back): a Hindi label shows an English word said in the narration, and an
+# English label a Hindi one (डीज़ल = diesel, कारख़ाना = factory, कर = tax).
+ALIAS_GROUPS = (
+    ("diesel", "डीज़ल", "डीजल"), ("petrol", "पेट्रोल"), ("factory", "फ़ैक्टरी", "फैक्टरी", "फ़ैक्ट्री", "फैक्ट्री", "कारख़ाना", "कारखाना"),
+    ("tax", "कर", "टैक्स"), ("pound", "पाउंड", "पौंड"), ("dollar", "डॉलर"), ("euro", "यूरो"), ("rupee", "रुपया", "रुपये"),
+    ("bank", "बैंक"), ("shop", "दुकान"), ("market", "बाज़ार", "बाजार", "मंडी"), ("farmer", "किसान"), ("worker", "मज़दूर", "मजदूर"),
+    ("car", "कार", "गाड़ी"), ("house", "घर", "मकान"), ("coin", "सिक्का"), ("note", "नोट"), ("loan", "क़र्ज़", "कर्ज", "ऋण"),
+    ("oil", "तेल"), ("wheat", "गेहूँ", "गेहूं"), ("rice", "चावल"), ("phone", "फ़ोन", "फोन"), ("train", "ट्रेन", "रेल"),
+    ("plane", "हवाई जहाज़", "विमान"), ("ship", "जहाज़", "जहाज"), ("government", "सरकार"), ("company", "कंपनी"),
+    ("ticket", "टिकट"), ("salary", "वेतन", "तनख़्वाह"), ("price", "कीमत", "क़ीमत", "दाम"), ("gold", "सोना"), ("electricity", "बिजली"),
+)
+_ALIAS: dict = {}
+for _g in ALIAS_GROUPS:
+    for _w in _g:
+        _ALIAS.setdefault(_w, set()).update(x for x in _g if x != _w)
+
+
+def aliases(tag: str) -> set:
+    """Other-language names of a thing word (lower case), for matching a label against what was said."""
+    return set(_ALIAS.get(str(tag or "").strip().lower(), ()))
+
+
+# Ideas a drawing shows without spelling them: a shortage is a gap (gapBars, a graph's gaps), rationing a ration card.
+SHOWN_BY = {"shortage": lambda d, p: d == "gapBars" or (d == "graph" and bool(str(p.get("gaps") or "").strip())),
+            "rationing": lambda d, p: d == "slip" and p.get("kind") == "rationCard"}
+for _w, _k in (("कमी", "shortage"), ("अभाव", "shortage"), ("राशनिंग", "rationing"), ("राशन", "rationing")):
+    SHOWN_BY[_w] = SHOWN_BY[_k]
+
+
+def _verb_at(toks: list, i: int, tag: str) -> bool:
+    """Token ``i`` (a match of ``tag``) is the verb that shares the thing word's spelling: the next word is a helper."""
+    helpers = VERB_TAGS.get(tag)
+    return bool(helpers) and i + 1 < len(toks) and toks[i + 1] in helpers
 SUFFIXES = ("ों", "ो", "ें", "े", "ियों", "ियाँ", "यों", "एँ", "ाओं", "ाएँ")   # plural and oblique endings only: जार + ी is जारी
 STEM_ENDINGS = ("ा", "े", "ों", "ें", "ी", "ियाँ", "ियों")                             # रुपया -> रुपये, सिक्का -> सिक्कों
 TOKEN = re.compile(r"[\wऀ-ॿ][\wऀ-ॿ़ँ-ःा-्'-]*")
@@ -113,7 +161,7 @@ def has_word(text: str, tag: str) -> bool:
     toks, words = tokens(text), tokens(tag)
     if not words:
         return False
-    return any(_phrase_at(toks, i, words) for i in range(len(toks)))
+    return any(_phrase_at(toks, i, words) and not (len(words) == 1 and _verb_at(toks, i, words[0])) for i in range(len(toks)))
 
 
 def _stem_match(token: str, word: str) -> bool:
@@ -151,7 +199,7 @@ def named_things(text: str, lex: dict | None = None) -> list:
         if i in used:
             continue
         for tag, names in lex.items():
-            if " " not in tag and _stem_match(token, tag):
+            if " " not in tag and _stem_match(token, tag) and not _verb_at(toks, i, tag):
                 found.append((str(text)[a:b], tag, sorted(names)))
                 break
     seen, out = set(), []
@@ -230,9 +278,11 @@ def _shown_seconds(spec: dict, t0: float, t1: float, tag: str, names: list) -> f
         for scene in spec.get("scenes") or []:
             if not (scene["t0"] <= t < scene["t1"]):
                 continue
-            if tag in _places(scene, t) or any(name in names or has_word(label, tag)
-                                               for el in scene.get("els") or [] if _visible(el, t, scene)
-                                               for name, label in _things(el, t)):
+            alt, by = aliases(tag), SHOWN_BY.get(tag)
+            vis = [el for el in scene.get("els") or [] if _visible(el, t, scene)]
+            if tag in _places(scene, t) or any(name in names or has_word(label, tag) or any(has_word(label, a) for a in alt)
+                                               for el in vis for name, label in _things(el, t)) \
+                    or (by and any(by(el.get("draw"), _p_at(el, t)) for el in vis if el.get("draw"))):
                 hits += 1
                 break
         t += STEP

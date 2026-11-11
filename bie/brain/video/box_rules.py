@@ -68,10 +68,22 @@ def english_label(text: str) -> bool:
     if DEVANAGARI.search(text):
         return False
     for word in LATIN_WORD.findall(text):
-        if (word.isupper() and len(word) <= 4) or word.lower() in UNITS:
+        if (word.isupper() and len(word) <= 4) or word.lower() in UNITS or maths_token(word):
             continue
         return True
     return False
+
+
+# two-letter English words: never read as maths symbols
+ENGLISH_2 = {"is", "of", "to", "in", "on", "at", "an", "be", "by", "or", "if", "it", "no", "so", "up", "we", "he", "me", "my",
+             "do", "go", "as", "us", "am", "ok", "hi", "oh"}
+
+
+def maths_token(word: str) -> bool:
+    """A Latin token used as maths, not English (Sloman scene plans: a, b, Qd, Ps, Pe, d/dQ in formula, table and graph
+    labels): one letter, or two letters that are not an English word (Qd, Pe, dQ, MC)."""
+    w = str(word)
+    return w.isalpha() and (len(w) == 1 or (len(w) == 2 and w.lower() not in ENGLISH_2))
 
 
 def letter_width(ch: str) -> float:
@@ -331,10 +343,28 @@ def min_readable_w(draw: str, p: dict | None = None, scale: float = 1.0, floor: 
 class Geo:
     """One element at one moment, on the stage: its box, its words, its faces, what it is."""
 
-    __slots__ = ("el", "kind", "box", "words", "faces", "name", "scale")
+    __slots__ = ("el", "kind", "box", "words", "faces", "name", "scale", "loose")
 
-    def __init__(self, el, kind, box, words=(), faces=(), name="", scale=1.0):
+    def __init__(self, el, kind, box, words=(), faces=(), name="", scale=1.0, loose=()):
         self.el, self.kind, self.box, self.words, self.faces, self.name, self.scale = el, kind, box, list(words), list(faces), name, scale
+        self.loose = list(loose)         # words drawn outside the thing's own body (a crowd's caption, a label under a board)
+
+
+def loose_local(spec, t) -> list:
+    """The words of a drawn saancha that lie mostly outside its body (the shapes without the words), at its origin."""
+    if not spec.get("draw") or spec.get("group") or spec.get("draw") in BACKDROPS:
+        return []
+    p = {k: v for k, v in item_p(spec, t).items() if not str(k).startswith("_")}
+    got = boxes.item(spec["draw"], p)
+    body = got.get("body")
+    if not body:
+        return []
+    out = []
+    for w in got.get("texts") or []:
+        wb = tuple(w["box"])
+        if area(wb) > 0 and cover(tuple(body), wb) < area(wb) * 0.5:
+            out.append((w["t"], float(w["px"]), wb))
+    return out
 
 
 def person_pos(el, t):
@@ -406,7 +436,8 @@ def geo_of(el, t, persons):
     kind = "mark" if el.get("draw") == "mark" else "thing"
     return Geo(el, kind, place(b, pos["x"], pos["y"], pos["s"], pos["r"]),
                [(tx, px * pos["s"], place(wb, pos["x"], pos["y"], pos["s"], pos["r"])) for tx, px, wb in ws],
-               [place(f, pos["x"], pos["y"], pos["s"], pos["r"]) for f in fs], name, pos["s"])
+               [place(f, pos["x"], pos["y"], pos["s"], pos["r"]) for f in fs], name, pos["s"],
+               [(tx, px * pos["s"], place(wb, pos["x"], pos["y"], pos["s"], pos["r"])) for tx, px, wb in loose_local(el, t)])
 
 
 def held_words(person, t):
@@ -503,8 +534,8 @@ def problems(spec, language=None) -> list:
         for el in els:
             if el.get("draw") == "world":
                 pos = prop_at(el, scene["t0"])
-                for z in boxes.world_zones(el.get("p") or {}):
-                    zones.append({**z, "box": list(place(tuple(z["box"]), pos["x"], pos["y"], pos["s"]))})
+                for z in boxes.world_zones(el.get("p") or {}):      # held only while the world is on screen
+                    zones.append({**z, "box": list(place(tuple(z["box"]), pos["x"], pos["y"], pos["s"])), "_el": el})
         panels = [el for el in els if el.get("kind") == "rect" and el.get("fill") and (el.get("alpha") if el.get("alpha") is not None else 1.0) >= 0.85]
         if scene.get("kicker"):
             word_rules(sid, str(scene["kicker"]), "the kicker")
@@ -566,7 +597,9 @@ def problems(spec, language=None) -> list:
                         continue
                 on.append(g)
             now = set()
-            zones_now = list(zones)
+            # a world's zones count only during the world's own time (a world that arrives mid-scene does not block the
+            # lines before it)
+            zones_now = [z for z in zones if "_el" not in z or visible(z["_el"], t, scene)]
             for el in els:                       # a 3D world's parts move with its camera: its zones at this second
                 if el.get("kind") == "model3d" and el.get("place") and visible(el, t, scene):
                     from bie.brain.video import models3d
@@ -624,6 +657,14 @@ def problems(spec, language=None) -> list:
                             now.add(key)
                             hit(key, t, f"scene {sid}: {a.name} sits on the words '{tx[:30]}' of {b.name} from §Fs for "
                                         "§Ds (box rule: nothing on another thing's words)")
+                    # 2b. words a thing draws outside its own body (a crowd's caption, a tag under a sign) that land on
+                    # another thing: the whole-box test above lets them through when the other thing is drawn first
+                    for tx, _, wb in a.loose:
+                        if b.box and cover(b.box, wb) > area(wb) * WORD_SHARE and (a.el.get("z") or 20) >= (b.el.get("z") or 20):
+                            key = ("loose-words", a.name, b.name, tx)
+                            now.add(key)
+                            hit(key, t, f"scene {sid}: the words '{tx[:30]}' of {a.name} sit on {b.name} from §Fs for §Ds "
+                                        "(box rule: a thing's caption never sits on another thing; move one of them)")
             # 3. reserved zones of the background
             for g in on:
                 if g.kind in ("glow", "map", "backdrop") or not g.box:
