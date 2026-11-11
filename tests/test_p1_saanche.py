@@ -38,7 +38,7 @@ class Manifest(unittest.TestCase):
         data = saanche.manifest()
         self.assertEqual(formats.problems("saancha_manifest", data), [])
         self.assertIn("BIE original", data["licence"])
-        draw = (ENGINE / "draw.mjs").read_text(encoding="utf-8")
+        draw = "".join(f.read_text(encoding="utf-8") for f in [ENGINE / "draw.mjs", *sorted((ENGINE / "families").glob("*.mjs"))])
         for name in saanche.names():
             self.assertIn(f"{name}:", draw, name)              # registered in DRAWS (the node test proves it draws)
             entry = saanche.get(name)
