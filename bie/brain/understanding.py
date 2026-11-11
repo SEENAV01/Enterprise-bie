@@ -42,9 +42,9 @@ from .runner import NOTES_SCHEMA, SectionRunner, Step, merge_notes
 
 SECTION = "understand"
 CONNECT = "connect"
-PAGE_VERSION = "understand-page/4"
+PAGE_VERSION = "understand-page/5"
 CONNECT_VERSION = "understand-connect/3"
-PAGE_SCHEMA_ID = "bie.brain.understand-page/4"
+PAGE_SCHEMA_ID = "bie.brain.understand-page/5"
 CONNECT_SCHEMA_ID = "bie.brain.chapter-connect/3"
 DEFAULT_OUTPUT_TOKENS = 32000
 
@@ -68,6 +68,7 @@ class Course:
     exam: str
     language: str
     level: str = ""         # a level profile id (level_profiles.json); "" = from the setting's words and the book's text
+    length_rule: str = "pages"   # "pages": S2-01, 6-8 minutes per book page; "content": S2-11, minutes from the items' depth
 
     def profile(self):
         """The level profile this course teaches at (the setting's, never the book's: that is chosen in the run)."""
@@ -76,6 +77,12 @@ class Course:
 
 
 _obj, _arr, S = obj, arr, S
+# How deep a teachable item is taught (S2-11, Navin, 5 November 2026, the "Mix" choice for a dense book: "gehra tarika sirf
+# graph maths wale hisse par nahi ... jahan galatfahmi bane, students galtiyan karte ho, kisi concept ka application ... wo
+# bhi"): "deep" gets the full treatment for one of the reasons in DEEP_WHYS; everything else is "normal" (opened like a
+# teacher in two or three spoken sentences); a question item or a pure heading is "normal" with deep_why "".
+TEACH_DEPTHS = ["normal", "deep"]
+DEEP_WHYS = ["", "graph", "numerical", "misconception", "application", "story", "subtle"]
 QA_SCHEMA = _obj({
     "depth": {"type": "integer", "description": "1 for a first question; 2, 3 ... for a deeper why/how on an earlier answer"},
     "ask": {"type": "string", "enum": ASKS},
@@ -100,6 +107,8 @@ ITEM_SCHEMA = _obj({
     "exam_note": S,
     "tests_item_ids": _arr(S),
     "unpack": soul.UNPACK_SCHEMA,
+    "teach_depth": {"type": "string", "enum": TEACH_DEPTHS},
+    "deep_why": {"type": "string", "enum": DEEP_WHYS},
 })
 PAGE_SCHEMA = _obj({
     "notes": NOTES_SCHEMA,
@@ -208,6 +217,10 @@ How to fill the JSON:
   - prerequisites: concrete concepts a student must understand first.
   - exam_importance and exam_note: for this exam.
   - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).
+  - teach_depth and deep_why (S2-11): "deep" when the video must give this item the full treatment, with deep_why = graph (a diagram
+    built step by step), numerical (a sum worked through), misconception (students get it wrong: named and corrected), application (the
+    concept run on a real example), story (a box or case told as a story) or subtle (a fine point that needs slow opening); otherwise
+    "normal" with deep_why "". Usually a quarter to two fifths of a page's teachable items are deep; a question item is "normal".
   - unpack: how a teacher opens this book line for the learner (S1-15; BIE is the link between the learner and the book, never a
     reader of the line). For every teachable item, at the depth of the level profile below:
     terms = the words of the line the learner must own: [{term (as the book spells it), plain_meaning (everyday spoken Hindi in Devanagari
@@ -439,6 +452,12 @@ def check_page(value: dict, page, *, proposals: dict | None = None, card: dict |
         kind = item.get("content_type")
         if item.get("teachable") and kind == ct.NONE and item["kind"] not in ct.ROLE_KINDS:
             problems.append(f"item {iid}: a teachable item needs one of BIE's nine content types, not 'none' (S1-08)")
+        depth, why = item.get("teach_depth", "normal"), item.get("deep_why", "")
+        if depth == "deep" and not why:
+            problems.append(f"item {iid}: a deep item says why it is deep (deep_why: graph, numerical, misconception, application, "
+                            "story or subtle; S2-11)")
+        elif depth != "deep" and why:
+            problems.append(f"item {iid}: deep_why {why!r} is given but teach_depth is not \"deep\" (S2-11)")
         if item.get("teachable"):
             qa = item.get("teacher_understanding") or []
             asks = {q["ask"] for q in qa}
@@ -815,6 +834,8 @@ def passed_pages(previous_chapter: dict) -> dict:
                         tests_item_ids=[local(t) for t in item.get("tests_item_ids") or []],
                         content_type=naksha_module.item_type(item, concept_type.get(iid), types))
             item.setdefault("type_note", "")
+            item.setdefault("teach_depth", "normal")        # a page read before S2-11: every item normal until read again
+            item.setdefault("deep_why", "")
             item["unpack"] = dict(item.get("unpack") or soul.empty_unpack())
             item["unpack"].setdefault("real_world_example", soul.empty_unpack()["real_world_example"])
             items.append(item)

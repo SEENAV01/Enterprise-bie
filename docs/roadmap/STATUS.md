@@ -122,6 +122,15 @@ shape in the writer's prompt, #144 the render counts either spec kind + the one 
 video), SEEKH_LOG entries 42–46. Parts A–E are INTEGRATED on a real chapter; nothing is ACCEPTED until Navin's
 verdict. Interim renders stay captions-only (voice waits on his yes).
 
+## S2-11, the content length rule (11 November 2026, branch `p1s-depth-length`)
+
+Navin's "Mix" choice of 5 November 2026 for the Sloman economics book, taught to BIE: with the course's `length_rule`
+"content" (`tools/run_brain.py --length-rule content`) a topic video's minutes come from its items' depth — Section 1 marks
+every item's `teach_depth` ("deep" with `deep_why`: graph, numerical, misconception, application, story, subtle) and the
+lesson plan gives a normal item 0.25 minutes, a deep one 0.75, a practice question 0.10, a video 0.8-1.4 times that (split
+above ~18, merged below ~3.6). S2-01 (6-8 minutes per page) stays the default. Rulebook vision 2026-10-21.18,
+understand-page/5, lesson-plan/5. IMPLEMENTED; the passed outputs still pass. SEEKH_LOG has the entry.
+
 ## Dikhaya-bola: the shown-said check (5 November 2026, branch `p1h-shown-said`)
 
 Navin's answers on the decision cards of 5 November 2026: dikhaya-bola **"Boli cheez usi line mein"** (a thing a line

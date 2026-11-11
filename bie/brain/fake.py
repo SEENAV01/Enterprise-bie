@@ -75,7 +75,7 @@ def _item(iid, text, *, source="text", block_ids=(), kind="paragraph", parent=""
     return {"item_id": iid, "kind": kind, "parent_item_id": parent, "source": source, "block_ids": list(block_ids),
             "where_on_page": "offline", "content": text, "content_type": content_type, "type_note": "", "teachable": True,
             "teacher_understanding": [dict(q, basis="book") for q in _qa(text, asks)], "prerequisites": [],
-            "exam_importance": "medium", "exam_note": "", "tests_item_ids": [],
+            "exam_importance": "medium", "exam_note": "", "tests_item_ids": [], "teach_depth": "normal", "deep_why": "",
             "unpack": _unpack(text, with_terms=with_terms, real_world=types.needs_real_world(family, content_type))}
 
 

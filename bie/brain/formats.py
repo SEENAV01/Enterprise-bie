@@ -43,7 +43,8 @@ def O(properties: dict, required=None) -> dict:
     return {"type": "object", "required": list(properties) if required is None else list(required), "properties": properties}
 
 
-COURSE = O({"title": S, "subject": S, "learners": S, "language": S, "level": S}, required=["title", "subject", "learners"])
+COURSE = O({"title": S, "subject": S, "learners": S, "language": S, "level": S, "length_rule": S},
+           required=["title", "subject", "learners"])
 
 # -- the chapter map (Section 1)
 TEACHER_QUESTION = O({"depth": N, "ask": S, "question": S, "answer": S, "basis": S}, required=["question", "answer", "basis"])
