@@ -17,7 +17,7 @@ sys.path.insert(0, str(ROOT))
 from bie.brain import formats, rulebook  # noqa: E402
 from bie.brain.fake import BrainFakeClient, showplan_answer  # noqa: E402
 from bie.brain.runner import SectionRunner  # noqa: E402
-from bie.brain.show_director import check_plan, gold_example, run_show_director, video_step  # noqa: E402
+from bie.brain.show_director import check_plan, gold_example, payload_of, run_show_director, video_step  # noqa: E402
 from bie.brain.understanding import Course  # noqa: E402
 from bie.brain.video import narration, showplan  # noqa: E402
 from bie.model_gateway.claude_adapter import ClaudeAdapter  # noqa: E402
@@ -85,8 +85,7 @@ class DirectorStep(unittest.TestCase):
     def test_the_check_is_the_compiler_and_names_problems_exactly(self):
         video = LESSON["videos"][0]
         T = narration.Timeline(narration.script_of(video))
-        plan = showplan_answer(json.dumps({"video_id": "v9", "title": "Barter",
-                                           "lines": [{"id": l, "scene": "p1" if l != "l3" else "p2"} for l in ("l1", "l2", "l3")]}))
+        plan = showplan_answer(json.dumps(payload_of(video, T, None), ensure_ascii=False))
         self.assertEqual(check_plan(plan, T), [])
         broken = json.loads(json.dumps(plan))
         broken["scenes"][0]["steps"][2]["t0"] = {"line": "l1", "word": "सोना"}

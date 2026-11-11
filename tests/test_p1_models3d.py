@@ -43,7 +43,9 @@ def scene(*steps, world3d=None, lines=("l1", "l2", "l3")):
 
 
 def compiled(plan):
-    return showplan.compile_plan(json.loads(json.dumps(plan)), timeline(), width=1280, height=720)
+    # these plans test the 3D layer on the Money v2 lines without drawing the wheat and cloth those lines name, so the
+    # dikhaya-bola check (tests/test_p1_shown_said.py) is left out here
+    return showplan.compile_plan(json.loads(json.dumps(plan)), timeline(), width=1280, height=720, said_shown=False)
 
 
 def refusal(plan):
@@ -224,7 +226,7 @@ class Compiler(unittest.TestCase):
         plan = showplan.plan_of([r])
         self.assertEqual(plan["scenes"][0]["world3d"]["model"], "port")
         self.assertEqual(plan["scenes"][0]["world3d"]["steps"][0]["t"], {"line": "l2", "word": "कपड़ा"})
-        spec = showplan.compile_plan(plan, T, width=1280, height=720)
+        spec = showplan.compile_plan(plan, T, width=1280, height=720, said_shown=False)
         kinds = [(e["id"], e["place"]) for e in spec["scenes"][0]["els"] if e.get("kind") == "model3d"]
         self.assertEqual(kinds, [("world3d", True), ("cube", False)])
 

@@ -52,8 +52,15 @@ refuses, naming both things, the second and the way out):
 - everything stays inside the 1920x1080 frame after the camera (words always whole; a thing may be cropped only while
   the camera is zoomed in), and the kicker pill at the top left (x 46.., y 41-107) stays clear;
 - the words inside a thing are at least 36px on screen: each saancha below says the scale s its words need;
+- every text, and every value a text changes to, stays on screen at least 1.5 s (never a text that appears just
+  before its scene ends, never a counter that flips every half second - show such values side by side);
 - never a caution or fact-check word on screen (hypothetical, illustrative, imagined, maan lijiye, data not given...);
 - {language_rule}
+DIKHAYA-BOLA (Navin: "jo bola, woh dikhe"; the compiler checks it): every thing a line names is ON SCREEN while that line
+is spoken (at least 1 s of it). Each line of the narration below carries "names": the words it says that name a thing
+BIE can draw, each with the saanche that show it; put one of them on screen during that line - drawn, in a group, held
+by a person, inside a thought bubble, or as a thing whose own label carries the word (a sack labelled "नमक" shows
+salt). A text with the word alone is not the thing, and the place (a world backdrop) is never the thing.
 Style, from the gold example below: few words on screen, things and people act out the story, give/walk/hold on the spoken
 word, a camera move only when it helps, marks (cross/tick) for judgements, bubbles for thoughts.
 
@@ -146,11 +153,14 @@ def gold_example() -> str:
 
 
 def payload_of(video: dict, T: narration.Timeline, assets: dict | None) -> dict:
+    from bie.brain.video import shown_said
+    lex = shown_said.lexicon()
     lines = []
     for lid in T.line_ids():
         line = T.L(lid)
+        names = [{"word": said, "show_one_of": shows} for said, _, shows in shown_said.named_things(line["sub"], lex)]
         lines.append({"id": lid, "scene": line["scene"], "sub": line["sub"], "covers": line.get("covers") or [],
-                      "t0": round(line["t0"], 2), "t1": round(line["t1"], 2)})
+                      "t0": round(line["t0"], 2), "t1": round(line["t1"], 2), "names": names})
     return {"video_id": video["video_id"], "title": video.get("title", ""), "lines": lines,
             "assets": sorted(assets or {}), "parts": [sc["id"] for sc in T.script]}
 
@@ -252,8 +262,11 @@ def run_show_director(lesson: dict, course: Course, runner, out_dir, *, videos: 
                 json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
             (out / "video_specs" / f"{video['video_id']}.json").write_text(
                 json.dumps(spec, ensure_ascii=False), encoding="utf-8")
+            from bie.brain.video import shown_said
+            said = shown_said.summary(shown_said.rows(spec, T2))
             row.update(scenes=len(spec["scenes"]), els=sum(len(s["els"]) for s in spec["scenes"]),
-                       seconds=spec["duration"])
+                       seconds=spec["duration"], said_shown_pct=said["said_shown_pct"],
+                       lines_naming_things=said["lines_naming_things"])
         rows.append(row)
     summary = {"schema": f"bie.brain.{SECTION}/1", "videos": rows,
                "passed": sum(1 for r in rows if r["status"] == "passed"),
@@ -263,6 +276,8 @@ def run_show_director(lesson: dict, course: Course, runner, out_dir, *, videos: 
     for r in rows:
         lines.append(f"- {r['video_id']}: {r['status']}, {r.get('rounds', 0)} round(s)"
                      + (f", {r['scenes']} scenes, {r['els']} elements, {r['seconds']:.0f} s" if r.get("scenes") else "")
+                     + (f", said = shown {r['said_shown_pct']}% of {r['lines_naming_things']} lines naming a thing"
+                        if r.get("said_shown_pct") is not None else "")
                      + (f" — {r['problem']}" if r.get("problem") else ""))
     (out / "SHOWPLAN.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     return summary

@@ -279,20 +279,24 @@ def showplan_answer(user_text: str):
     data = json.loads(user_text[user_text.index("{"):user_text.rindex("}") + 1])
     first = (data.get("lines") or [{}])[0].get("sub") or ""
     title = " ".join(first.replace("।", " ").split()[:3])[:24] or data.get("title") or "…"
-    by_part = {}
+    by_part, names = {}, {}
     for line in data.get("lines") or []:
         by_part.setdefault(line.get("scene") or "part", []).append(line["id"])
+        names[line["id"]] = [n["show_one_of"][0] for n in line.get("names") or [] if n.get("show_one_of")]
     scenes = []
     for n, (part, lids) in enumerate(by_part.items()):
-        scenes.append({"id": f"s{n + 1}", "lines": lids, "bg": "paper",
-                       "cam": [],
-                       "steps": [
-                           {"op": "person", "id": "p", "look": "villager", "x": 520},
-                           {"op": "item", "thing": {"draw": "sack", "p": {"w": 220}}, "x": 1320, "y": 885},
-                           {"op": "text", "text": title, "size": 44, "style": "pill",
-                            "bg": "#2fb463", "fill": "#fff", "x": 960, "y": 220,
-                            "t0": {"line": lids[0], "edge": "start", "plus": 0.1}},
-                       ]})
+        steps = [
+            {"op": "person", "id": "p", "look": "villager", "x": 520},
+            {"op": "item", "thing": {"draw": "sack", "p": {"w": 220}}, "x": 1320, "y": 885},
+            {"op": "text", "text": title, "size": 44, "style": "pill",
+             "bg": "#2fb463", "fill": "#fff", "x": 960, "y": 220,
+             "t0": {"line": lids[0], "edge": "start", "plus": 0.1}},
+        ]
+        for lid in lids:                                   # dikhaya-bola: each thing a line names, on screen during it
+            for k, draw in enumerate(d for d in dict.fromkeys(names.get(lid) or []) if d != "sack"):
+                steps.append({"op": "item", "thing": {"draw": draw, "p": {}}, "x": 900 + 160 * k, "y": 620, "s": 0.8,
+                              "t0": {"line": lid, "edge": "start"}, "t1": {"line": lid, "edge": "end"}})
+        scenes.append({"id": f"s{n + 1}", "lines": lids, "bg": "paper", "cam": [], "steps": steps})
     return {"schema": "bie.scene-plan/1", "video": data.get("video_id", ""), "scenes": scenes}
 
 

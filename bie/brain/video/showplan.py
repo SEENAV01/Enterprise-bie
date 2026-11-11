@@ -608,7 +608,8 @@ class _Executor:
 # ---------------------------------------------------------------- the compiler
 
 
-def compile_plan(plan, T, *, width=1280, height=720, assets=None, checks=True, language=None, box_rule=True) -> dict:
+def compile_plan(plan, T, *, width=1280, height=720, assets=None, checks=True, language=None, box_rule=True,
+                 said_shown=True) -> dict:
     """A scene plan + a Timeline -> the engine's show-spec, or ``PlanProblems`` naming every wrong step."""
     problems = []
     shots = []
@@ -645,7 +646,7 @@ def compile_plan(plan, T, *, width=1280, height=720, assets=None, checks=True, l
     spec = {"schema": "bie.show-spec/1", "fps": 30, "width": width, "height": height,
             "duration": round(T.duration, 3), "subs": T.subs(), "assets": assets or {}, "scenes": scenes}
     if checks:
-        problems += check_spec(spec, plan, T, language=language, box_rule=box_rule)
+        problems += check_spec(spec, plan, T, language=language, box_rule=box_rule, said_shown=said_shown)
     if problems:
         raise PlanProblems(problems)
     return spec
@@ -709,7 +710,7 @@ def _nested_model(value) -> bool:
     return False
 
 
-def check_spec(spec, plan, T, language=None, box_rule=True) -> list:
+def check_spec(spec, plan, T, language=None, box_rule=True, said_shown=True) -> list:
     """The plan checks on the compiled spec; each problem names the scene, the text and the second."""
     from bie.brain import saanche
 
@@ -811,4 +812,8 @@ def check_spec(spec, plan, T, language=None, box_rule=True) -> list:
     if box_rule:
         from bie.brain.video import box_rules
         problems += box_rules.problems(spec, language=language)
+    # dikhaya-bola (Navin, 5 November 2026: "boli cheez usi line mein"): every thing a line names is on screen during it
+    if said_shown:
+        from bie.brain.video import shown_said
+        problems += shown_said.problems(spec, T, only=set(seen))   # a line in no scene is already named above
     return sorted(set(problems))

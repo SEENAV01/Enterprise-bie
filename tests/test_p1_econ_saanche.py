@@ -186,7 +186,8 @@ class Worlds(unittest.TestCase):
             sp.compile_plan(self._plan([world, words], T), T, width=1920, height=1080)
         self.assertTrue(any("only text on screen" in p for p in ctx.exception.problems), ctx.exception.problems)
         sack = {"op": "item", "thing": {"draw": "sack", "p": {"w": 220}}, "x": 1200, "y": 885}
-        spec = sp.compile_plan(self._plan([world, sack, words], T), T, width=1920, height=1080)
+        spec = sp.compile_plan(self._plan([world, sack, words], T), T, width=1920, height=1080,
+                               said_shown=False)          # the world's mechanics; dikhaya-bola has its own tests
         els = spec["scenes"][0]["els"]
         self.assertEqual(els[0]["draw"], "world")
         self.assertEqual(spec["scenes"][0]["bg"], "bankHall")

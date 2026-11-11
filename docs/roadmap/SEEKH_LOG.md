@@ -1911,3 +1911,52 @@ worth a rule yet.
 **Measured effect:** overlap seconds 472 (v4) → 3 (v5); per minute 32.2 → 0.3 (v2 demo 3.3); longest 61 s → 1 s;
 overlaps over 2 s 23 → 0; texts under 36 px 65 → 0. Director rounds 2 (v4, old rules) → 5 (v5, box rule); AI ₹0 both.
 No code change from this run; STOPPED for Navin's verdict.
+
+## Entry 49 · dikhaya-bola: a line that names a thing shows it, checked by code, 5 November 2026
+
+**What taught it:** the decision test (Part F): at 6:40 of Money v4 the narration speaks of the Euro while the screen
+shows an empty bag. Navin's choice on the decision card (5 November 2026): "Boli cheez usi line mein" — a thing a line
+names is on screen during that line, or the compiler returns the plan naming the line and the word; proof on v4 and v5.
+
+**What changed in BIE:** `bie/brain/video/shown_said.py`: the saancha library's own Hindi and English tags give the
+words that name concrete things (diagrams, marks and abstract words such as दाम, माँग, पैसा, payment give none), matched
+with Hindi plural and oblique endings and English plurals (नोटों, रुपये, Dollars; जारी is not जार); a named word is shown
+when, for at least 1 s of its line (half of a shorter line), a thing carrying it is on screen — drawn, in a group, held
+by a person, in a thought bubble, or a thing whose own label carries the word — or the scene stands in the place it
+names (दुकान in the shop background). A text alone never shows a thing. `showplan.compile_plan` refuses every miss
+(`said_shown=True` by default; the frozen v2 demo compiles with it off); the director's payload gives each line its
+"names" (the word and the saanche that show it) and its prompt carries the rule; each run reports said = shown per video
+(`showplan.json`, `SHOWPLAN.md`). The fake director shows what each line names.
+
+**Measured effect (before the live runs):** lines that show every thing they name — Money v4 68.3% (41 lines name
+things), v5 73.2% (41), Claude's v2 demo 76.7%; the v4 misses include the Euro, Dollar, Yen and Pound lines at
+5:30–6:50, the v5 misses the oil lines of the 1973 scenes. Target 95% (agreement, section 5). Tests:
+`tests/test_p1_shown_said.py` (12); 326 tests across the affected suites green.
+
+## Entry 50 · the gate caught a text that flashed before a cut: a text stays on screen at least 1.5 s, 5 November 2026
+
+**The run:** Money v4 and v5 again through the director after dikhaya-bola (VM jobs `p1h-money-showplan-v4-a`,
+`-v5-a`, Codex, ₹0): both passed with said = shown 100% of the lines that name things (v4 68.3% and v5 73.2% before),
+v4 in 5 rounds (176 → 29 → 2 → 1 → 0 problems), v5 in 4 (108 → 17 → 1 → 0). The frame audit of the new plans: no
+overlap at all in either (0 s; v4 had 472 s on 4 November); v4's gate passes, v5's fails on two plan texts measured at
+15.4 and 26.8 px — "दावा बाकी" and "भुगतान अटकें" appear 0.7 s before their scene ends, and the audit caught them in their
+pop-in. The gate did its job (no review copy for v5); the plan should never have had them.
+
+**What changed in BIE:** the box rule refuses a text on screen for less than 1.5 s (`box_rules.MIN_TEXT_S`, rule 8,
+named with the text, the second and the scene end); the director's prompt says so. Texts under 1.5 s before: v4 new
+4, v5 new 5, v4 of 4 November 3, v5 of 5 November 2 — none had been visible to the compiler.
+
+**Measured effect:** after this change v5 (and v4) go through the director once more; numbers in the report.
+
+## Entry 51 · each value a text shows stays 1.5 s too, 5 November 2026
+
+**The run:** run b of Money v4 and v5 (after entry 50; VM jobs `p1h-money-showplan-v4-b`, `-v5-b`, Codex, ₹0): both
+passed in 4 rounds with said = shown 100% (v4 40 → 20 → 3 → 0 problems, v5 40 → 32 → 5 → 0). Frame audit: v5 2 overlap
+seconds in all, longest 1 s, no small text, gate passed; v4 no overlap at all, but the gate failed on one text, "₹10",
+measured at 25.1 px: the plan showed the notes as one text that changed every 0.5 s (₹10 → ₹20 → ₹50 → ₹100 → ₹200 →
+₹500), and the audit caught ₹10 in its pop-in. Rule 8 (entry 50) measured the element, not each value it shows.
+
+**What changed in BIE:** rule 8 now also measures each value a text shows (its first words and every step that changes
+them): each stays at least 1.5 s, or the compiler names the value and asks for the values side by side or a longer
+moment each; the director's prompt says so. Under it, v4 run b (₹10, 0.5 s) and v5 run b ("उधार", 1.1 s) each break it
+once, so both go through the director again (run c).

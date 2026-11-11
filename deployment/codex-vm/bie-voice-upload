@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Navin's voice clip, one time (decision card, 5 November 2026: "Ek-baar ka upload page"; method in
+# docs/roadmap/VOICE_CLIP_METHOD.md). Navin runs it himself in the Hostinger browser terminal:
+#
+#   sudo bash /var/lib/bie/repo/deployment/codex-vm/bie-voice-upload
+#
+# It makes the private voice folder (/etc/bie/voice, mode 700, owner bie), opens port 8443 in ufw only if ufw is on
+# (and closes it again afterwards), and runs the one-time page tools/vm_voice.py as the bie user. The page prints its
+# secret link here, takes one audio file and closes itself (after one file, after 20 minutes, or on Ctrl+C).
+# Extra words are passed on, e.g. --replace to put a new clip in place of the old one.
+set -euo pipefail
+BIE_HOME=/var/lib/bie
+VOICE=/etc/bie/voice
+PORT=8443
+
+if [ "$(id -u)" != "0" ]; then echo "Aise chalaiye: sudo bash $0"; exit 1; fi
+install -d -o bie -g bie -m 700 "$VOICE"
+
+opened=""
+if command -v ufw >/dev/null 2>&1 && ufw status 2>/dev/null | grep -q "Status: active"; then
+  ufw allow "$PORT/tcp" >/dev/null && opened=1
+fi
+close_port() { if [ -n "$opened" ]; then ufw delete allow "$PORT/tcp" >/dev/null || true; fi; }
+trap close_port EXIT
+
+runuser -u bie -- "$BIE_HOME/venv/bin/python" -B "$BIE_HOME/repo/tools/vm_voice.py" upload --folder "$VOICE" --port "$PORT" "$@"

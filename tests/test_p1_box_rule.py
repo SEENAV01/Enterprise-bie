@@ -130,6 +130,27 @@ class CompilerRefuses(unittest.TestCase):
         self.assertTrue(any("'गेहूँ' inside 'sack'" in p and "36px floor" in p and "s at least" in p for p in problems),
                         problems)
 
+    def test_a_text_that_flashes_before_the_cut_is_refused(self):
+        spec = showplan.compile_plan(json.loads(json.dumps(plan_of())), timeline(), width=1920, height=1080, box_rule=False,
+                                     said_shown=False)
+        end = spec["scenes"][0]["t1"]                     # the scene's own end (its last line plus the tail)
+        flash = plan_of({"op": "text", "text": "दावा बाकी", "x": 960, "y": 300, "size": 56, "t0": round(end - 0.7, 2)})
+        problems = refusal(flash)
+        self.assertTrue(any("on screen for only 0.7s" in p and "the scene ends" in p for p in problems), problems)
+        held = plan_of({"op": "text", "text": "दावा बाकी", "x": 960, "y": 300, "size": 56, "t0": {"line": "l2", "edge": "start"}})
+        self.assertFalse(any("on screen for only" in p for p in refusal(held)))
+
+    def test_a_text_whose_values_flip_every_half_second_is_refused(self):
+        start = {"line": "l1", "edge": "start"}
+        ticker = plan_of({"op": "text", "text": "₹10", "x": 960, "y": 300, "size": 56, "t0": start,
+                          "steps": [{"t": {"line": "l1", "edge": "start", "plus": 0.5}, "text": "₹20"},
+                                    {"t": {"line": "l1", "edge": "start", "plus": 1.0}, "text": "₹50"}]})
+        problems = refusal(ticker)
+        self.assertTrue(any("'₹10' shows for only 0.5s" in p and "side by side" in p for p in problems), problems)
+        calm = plan_of({"op": "text", "text": "₹10", "x": 960, "y": 300, "size": 56, "t0": start,
+                        "steps": [{"t": {"line": "l2", "edge": "start"}, "text": "₹20"}]})
+        self.assertFalse(any("shows for only" in p for p in refusal(calm)))
+
     def test_a_caution_line_never_reaches_the_screen(self):
         plan = plan_of({"op": "text", "text": "मान लीजिए दाम", "x": 960, "y": 300, "size": 56})
         problems = refusal(plan)
@@ -152,7 +173,8 @@ class CompilerRefuses(unittest.TestCase):
 
     def test_the_check_switch_freezes_only_the_demo(self):
         plan = plan_of(SACK, {"op": "text", "text": "दस किलो", "x": 1300, "y": 780, "size": 48, "style": "pill"})
-        spec = showplan.compile_plan(json.loads(json.dumps(plan)), timeline(), width=1920, height=1080, box_rule=False)
+        spec = showplan.compile_plan(json.loads(json.dumps(plan)), timeline(), width=1920, height=1080, box_rule=False,
+                                     said_shown=False)
         self.assertTrue(spec["scenes"])
 
 
