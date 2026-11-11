@@ -52,6 +52,9 @@ on:
       - 'tests/test_p1_scene_plan.py'
       - 'tests/test_p1_box_rule.py'
       - 'tools/saancha_boxes.mjs'
+      - 'tools/model3d_measure.mjs'
+      - 'tools/models3d_stills.py'
+      - 'tests/test_p1_models3d.py'
       - 'tests/test_p1_game_levels.py'
       - 'bie/brain/game_levels.py'
       - 'bie/brain/game_runtime.py'
@@ -269,6 +272,15 @@ jobs:
         with:
           name: bie-saanche-stills
           path: ${{ runner.temp }}/saanche
+      - name: The 3D model still sheets (every model in its states, three.js on SwiftShader)
+        if: matrix.batch == 1
+        run: python -B tools/models3d_stills.py --out "$RUNNER_TEMP/models3d"
+      - name: 3D model sheets as an artifact
+        if: matrix.batch == 1
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bie-models3d-stills
+          path: ${{ runner.temp }}/models3d
       - name: Proof clips (BIE code only), contact sheets and receipts
         run: python -B tools/toolbox_demos.py --batch "${{ matrix.batch }}" --out "$RUNNER_TEMP/demos" --keep-going
       - name: Bridge proof - the same clip rendered by real Remotion
