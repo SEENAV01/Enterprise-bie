@@ -222,6 +222,9 @@ def main(argv=None):
     parser.add_argument("--language", default="Hinglish")
     parser.add_argument("--level", default="", help="level profile id (bie/brain/rulebook/level_profiles.json: school, neet_11_12, "
                         "upsc_pcs, revision); default: from the course words and the book's text")
+    parser.add_argument("--length-rule", default="", choices=["", "pages", "content"],
+                        help="narration length: pages = S2-01, 6-8 minutes per book page (the default); content = S2-11, minutes "
+                        "from the items' depth (Navin, 5 November 2026, for a dense book)")
     parser.add_argument("--trust-level", action="store_true",
                         help="Navin's answer: teach at the setting's level even where the book reads as another band")
     parser.add_argument("--maker", choices=PROVIDERS + ("codex",), default="openai",
@@ -278,7 +281,7 @@ def main(argv=None):
         summary.update(reviewer_route=reviewer, reviewer_independence=runner.independence)
         course = Course(title=args.title or "Chapter", subject=args.subject or "as in the chapter",
                         learners=args.learners or "learners of this book", exam=args.exam or "their exam", language=args.language,
-                        level=args.level)
+                        level=args.level, length_rule=args.length_rule or "pages")
         summary.update(status="ok", rulebook=book.version)
         # Inputs first, so the estimate knows the page count.
         if args.section in ("understand", "chain"):
@@ -307,6 +310,8 @@ def main(argv=None):
             if not args.chapter_map:
                 raise SystemExit("CHAPTER_MAP_REQUIRED")
             chapter = formats.accept("chapter_map", json.loads(read_text(args.chapter_map)), where=args.chapter_map)
+            if args.length_rule:                     # the lesson's budgets read the rule from the map's course
+                chapter["course"] = dict(chapter["course"], length_rule=args.length_rule)
             if args.section == "lesson" and args.resume_from:
                 previous_lesson = formats.accept("lesson_plan", json.loads(read_text(args.resume_from.rstrip("/") + "/lesson_plan.json")),
                                                  where="lesson_plan.json (resume_from)")

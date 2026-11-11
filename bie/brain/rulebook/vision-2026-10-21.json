@@ -1,6 +1,6 @@
 {
  "rulebook": "bie-vision",
- "version": "2026-10-21.17",
+ "version": "2026-10-21.18",
  "source": "Navin's vision, agreed point by point on 21 October 2026 (docs/vision/VISION_SPEC.md, section 'Agreed on 21 October 2026')",
  "notes": "Each rule is an instruction for the section that makes the work (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
  "changes": [
@@ -13,7 +13,8 @@
   "2026-10-21.9 (Task 045b, 23 October 2026, Navin's teaching decision): S2-04 is mixed script: Hindi in Devanagari, English terms in Roman, a difficult Hindi word (not in rulebook/simple_hindi.json) followed by its English word in brackets; subtitles show the bracket, the voice says it with 'यानी'.",
   "2026-10-21.8 (Task 045, 22 October 2026, from Navin's Task 045 brief): S1-08 names BIE's nine content types (content_types.json) instead of the old list and says BIE's code proposes a type first; new S2-06: every part of a lesson answers the universal frame and is taught through the teaching pattern of its content type.",
   "2026-10-21.16 (Task 046 Part C, Navin's verdict work C, 29 October 2026, from the five scripts the Money lesson resume -d could not pass): S2-08 also refuses a term named by a teaching beat of the same concept before its example runs (v11, v12); W-01 also refuses saying what the source lacks, on screen too (v2, v4); new S2-10: a competitive-exam fact from outside the book carries its dated source in the beat's `source` field (v10).",
-  "2026-10-21.17 (Task 046 Part C, Navin's verdict work C, 29 October 2026, from the Money lesson resume -e: 12 of 18 scripts failed in the checker's round after every code check had passed): S2-09 also refuses the verb-less and होती-है state reports (code pattern widened; 67 hits on resume -d's 886 beats instead of 40, 0 on the passed outputs); S2-10 and S2-08 say that BIE's code decides where a source is due and in what order the term comes, so a checker's wider demand is minor by code (lesson.script_finding_minor: 'source', 'example-first'; a fix that asks the script to say what the source lacks is minor as 'w01')."
+  "2026-10-21.17 (Task 046 Part C, Navin's verdict work C, 29 October 2026, from the Money lesson resume -e: 12 of 18 scripts failed in the checker's round after every code check had passed): S2-09 also refuses the verb-less and होती-है state reports (code pattern widened; 67 hits on resume -d's 886 beats instead of 40, 0 on the passed outputs); S2-10 and S2-08 say that BIE's code decides where a source is due and in what order the term comes, so a checker's wider demand is minor by code (lesson.script_finding_minor: 'source', 'example-first'; a fix that asks the script to say what the source lacks is minor as 'w01').",
+  "2026-10-21.18 (the Sloman economics book, Navin's Mix choice of 5 November 2026): new S2-11, the content rule: with the course's length_rule \"content\" a topic video's minutes come from its items' teach_depth (normal 0.25, deep 0.75, question 0.10 minutes; 0.8-1.4 times that), not from 6-8 minutes per page; Section 1 marks teach_depth and deep_why on every item (understand-page/5). S2-01 stays the default."
  ],
  "rules": [
   {
@@ -464,6 +465,16 @@
    "status": "locked",
    "rule": "Outside facts carry their dated source (the Money lesson resume -d, 29 October 2026, v10: operational descriptions of UPI, NEFT, RTGS and IMPS added real Indian banking knowledge beyond the book without a dated source): for a competitive-exam learner (level upsc_pcs), a teaching beat whose basis is outside the book, or mixed and naming an institution or system that none of its book lines names, carries its source with its year in `source` ('RBI, NEFT FAQ, 2023'); a story, example, hook, analogy or question needs none; a beat whose facts the book line says has basis 'book'. BIE's code sends such a beat back; the review page lists the outside beats with their sources. The source lives in `source`, never spoken or on screen, and BIE's code decides where one is due: a checker's demand for a dated source on any other outside fact, or for a visible outside label, is minor by code (the resume -e: the checker asked for dated sources in 10 of the 12 scripts it failed, after the code's S2-10 had passed every beat).",
    "check": "Does every outside fact a competitive-exam learner may be examined on name a dated source?"
+  },
+  {
+   "id": "S2-11",
+   "sections": [
+    "lesson",
+    "understand"
+   ],
+   "status": "locked",
+   "rule": "The content rule for a dense book (Navin, 5 November 2026, his \"Mix\" choice for the Sloman economics book: \"gehra tarika sirf graph maths wale hisse par nahi ho sakta ... kisi page ka subsection ka concept bhi samjhana pade jahan galatfahmi bane, students galtiyan karte ho, kisi concept ka application ... sab thoroughly cover bhi ho jaaye\"). When the course's length_rule is \"content\", narration time comes from what the items need, not from the page count (S2-01 stays the default): Section 1 marks every teachable item's teach_depth, \"deep\" with its deep_why when the video must give it the full treatment (a graph built step by step, a sum worked through, a misconception named and corrected, an application run on a real example, a box told as a story, a subtle point opened slowly), otherwise \"normal\"; a normal item needs about 0.25 spoken minutes, a deep item 0.75, a practice question 0.10. A topic video gets 0.8-1.4 times its items' minutes (at least 4.8-6), a video whose items need more than about 18 minutes is split and one under about 3.6 merged; the prerequisite video stays 5-8 minutes. Nothing the book teaches is dropped to fit (G-05).",
+   "check": "Under the content rule: does every deep item say why, and does every topic video's length fit its items' minutes?"
   }
  ]
 }
