@@ -98,6 +98,19 @@ class EngineBoxes(unittest.TestCase):
         self.assertEqual(hall["vault"]["keep"], "all")
 
 
+    def test_a_long_note_value_fits_beside_its_rupee_sign_and_short_values_keep_their_size(self):
+        """Money v4 run c (10 November 2026): a note valued "11वाँ नोट" ran its words over its own ₹ sign for 62 s."""
+        got = boxes.item("note", {"w": 280, "value": "11वाँ नोट"})
+        sign = [w for w in got["texts"] if w["t"] == "₹"][0]
+        value = [w for w in got["texts"] if w["t"] == "11वाँ नोट"][0]
+        self.assertLessEqual(sign["box"][2], value["box"][0])                    # side by side, never on each other
+        self.assertGreaterEqual(value["px"], 36)                                 # still readable at s 1
+        for v in (10, 500, 2000):                                                # the gold example's notes do not change
+            w = 170
+            short = [x for x in boxes.item("note", {"w": w, "value": v})["texts"] if x["t"] == str(v)][0]
+            self.assertAlmostEqual(short["px"], w * 0.46 * 0.52, places=1)
+
+
 class CompilerRefuses(unittest.TestCase):
     def test_a_clean_plan_passes(self):
         plan = plan_of(SACK, {"op": "text", "text": "रामू का गेहूँ", "x": 960, "y": 300, "size": 56, "style": "pill"})
@@ -150,6 +163,25 @@ class CompilerRefuses(unittest.TestCase):
         calm = plan_of({"op": "text", "text": "₹10", "x": 960, "y": 300, "size": 56, "t0": start,
                         "steps": [{"t": {"line": "l2", "edge": "start"}, "text": "₹20"}]})
         self.assertFalse(any("shows for only" in p for p in refusal(calm)))
+
+    def test_two_words_inside_one_thing_that_cover_each_other_are_refused(self):
+        """Rule 9: a thing's own words must fit it. The drawing is measured as Node measures it; here a sack whose two
+        labels are measured on top of each other stands in for any saancha with a label too long for it."""
+        thing = {"draw": "sack", "p": {"w": 230, "label": "गेहूँ दो"}}
+        key = boxes._key(thing)
+        before = boxes._items.get(key)
+        boxes._items[key] = {"box": [-115, -250, 115, 0], "faces": [],
+                             "texts": [{"t": "गेहूँ", "px": 50, "box": [-60, -150, 40, -100]},
+                                       {"t": "दो", "px": 50, "box": [-20, -150, 60, -100]}]}
+        try:
+            problems = refusal(plan_of({"op": "item", "thing": thing, "x": 1300, "y": 885}))
+        finally:
+            if before is None:
+                boxes._items.pop(key, None)
+            else:
+                boxes._items[key] = before
+        self.assertTrue(any("the words 'गेहूँ' and 'दो' inside 'sack'" in p and "cover each other" in p
+                            and "shorter label" in p for p in problems), problems)
 
     def test_a_caution_line_never_reaches_the_screen(self):
         plan = plan_of({"op": "text", "text": "मान लीजिए दाम", "x": 960, "y": 300, "size": 56})

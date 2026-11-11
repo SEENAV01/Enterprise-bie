@@ -13,7 +13,9 @@ more while both are on screen:
 5. a word inside a thing is under the 36 px floor on screen (its saancha label, after the thing's scale and the camera);
 6. a caution or fact-check line reaches the screen (D1-06; never on screen, a background check);
 7. in a Hindi video, a screen label is English (it is written in Devanagari; an English term may follow in brackets);
-8. a text, or any value a text changes to, is on screen for less than 1.5 s (it flashes and cannot be read).
+8. a text, or any value a text changes to, is on screen for less than 1.5 s (it flashes and cannot be read);
+9. two words inside one thing cover each other (its label or value is too long for the drawing; Money v4 run c,
+   10 November 2026: a note's "11वाँ नोट" ran over its ₹ sign for 62 s, and nothing between two things was wrong).
 
 Each problem names the scene, the two things, the second and the way out, for the director to patch. Marks, arrows and
 glows point at things on purpose and never count as things here (they still keep to the frame and the zones).
@@ -548,6 +550,18 @@ def problems(spec, language=None) -> list:
                             now.add(key)
                             hit(key, t, f"scene {sid}: {a.name} sits on the words '{tx[:30]}' of {b.name} from §Fs for "
                                         "§Ds (box rule: nothing on another thing's words)")
+            # 9. a thing's own words never cover each other (a label too long for its drawing)
+            for g in on:
+                if g.kind not in ("thing", "person", "bubble"):
+                    continue
+                for i, (ta, _, wa) in enumerate(g.words):
+                    for tb, _, wb in g.words[i + 1:]:
+                        if wa and wb and cover(wa, wb) > WORD_SHARE * min(area(wa), area(wb)):
+                            key = ("own-words", g.name, ta, tb)
+                            now.add(key)
+                            hit(key, t, f"scene {sid}: the words '{ta[:24]}' and '{tb[:24]}' inside {g.name} cover each "
+                                        "other from §Fs for §Ds (box rule: a thing's own words must fit it; give it a "
+                                        "shorter label or value, or a wider thing)")
             # 3. reserved zones of the background
             for g in on:
                 if g.kind in ("glow", "map", "backdrop") or not g.box:

@@ -1961,6 +1961,25 @@ them): each stays at least 1.5 s, or the compiler names the value and asks for t
 moment each; the director's prompt says so. Under it, v4 run b (₹10, 0.5 s) and v5 run b ("उधार", 1.1 s) each break it
 once, so both go through the director again (run c).
 
+## Entry 52 · an unreadable answer gets another round, and the record keeps its start and end, 10 November 2026
+
+**The run:** run c of Money v4 and v5 (after entry 51; VM jobs `p1h-money-showplan-v4-c`, `-v5-c`, Codex, ₹0, plan
+usage 32% → 33%). v5 passed in 4 rounds with said = shown 100% (41 lines name things). v4 never reached the compiler:
+Codex's first answer (13,367 output tokens) and the gateway's repair turn (13,867) were both "not a JSON object", and the
+section runner ended the video in round 1 of 6. The record said only "unable to repair", so why the answer could not be
+read (cut off, prose around the JSON, two objects) cannot be told. The scene-plan schema is free-form, so it goes in the
+prompt, not to Codex's `--output-schema`.
+
+**What changed in BIE:** an answer that comes back but cannot be read (`schema_invalid`, `malformed`) is now a slip, not
+a verdict: the runner asks again from the same messages in the next round, up to the step's round limit
+(`bie/brain/runner.py`, `UNREADABLE_KINDS`). A truncated answer is not asked again (the same request would hit the same
+cap and cost the same), nor are refusals, auth, budget or plan limits. The gateway's `schema_invalid` error now carries
+the reply's length and its first and last 600 characters (keys redacted), and the round record keeps them as
+`maker_error.excerpt`. Tests: a garbled answer then a good one passes in round 2 with the excerpt recorded; an answer
+that never reads stops at the round limit. Passed-output sets: 0 problems.
+
+**Measured effect:** v4 run c goes again on the VM after this merges (run c2).
+
 ## Entry · the Sloman economics book, the content length rule (S2-11), 11 November 2026
 
 - **Run:** Claude's whole-book run of the Sloman *Economics* (10th ed., 26 chapters) in the scratch workspace, from
@@ -1979,3 +1998,18 @@ once, so both go through the director again (run c).
 - **Measured:** offline: the passed outputs (tissue understand and lesson sets) still pass, 0 problems; the 833 brain and
   Phase 1 tests pass. Live (first-try pass rate of plans under S2-11, ₹ per page) comes from the first BIE run with
   `--length-rule content`.
+
+## Entry 53 · a thing's own words never cover each other, 11 November 2026
+
+**The run:** v4 run c2 (VM job `p1h-money-showplan-v4-c2`, Codex, ₹0, 19.5 min): passed in 6 rounds, said = shown 100%
+(41 lines name things). Its render (one-button, run 42939283502) stopped at the gate: "'11वाँ नोट' and '₹' cover each
+other for 62 s from 70.0 s". Both words belong to one note: the plan gave a note the value "11वाँ नोट", and the note
+drawing put a long value, centred, over its own ₹ sign. The box rule looked only between things, so the compiler passed it.
+A scan of all 134 drawings (every saancha at its defaults and its examples) found the note the only one.
+
+**What changed in BIE:** the note's value now shrinks to stay clear of its ₹ sign (short values, ₹10 to ₹2000, keep their
+size, so the gold example does not change; "11वाँ नोट" at w 280 is drawn at about 51 px instead of 67). Box rule 9: two
+words inside one thing that cover each other are refused, naming both words and the thing ("give it a shorter label or
+value, or a wider thing"); the director's prompt says so. On v4 run c2's own spec: the new rule names the same 62 s with
+the old note, and 0 problems with the fixed note (v5 run c: 0 too), so the same plan is rendered again, without a new
+director run.

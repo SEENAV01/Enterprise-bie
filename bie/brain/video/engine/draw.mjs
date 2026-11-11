@@ -5,7 +5,7 @@
 
 import { world } from "./worlds.mjs";
 import { FAMILY_DRAWS } from "./families/index.mjs";
-import { svgBounds } from "./boxes.mjs";
+import { svgBounds, textWidth } from "./boxes.mjs";
 
 export const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 export const FONT = "'Noto Sans', 'Noto Sans Devanagari', sans-serif";
@@ -64,11 +64,14 @@ function note(p) {
   const w = p.w || 170, v = p.value == null ? 500 : p.value, h = w * 0.46;
   const col = NOTE_COLORS[v] || "#1f8a70";
   const vs = typeof v === "number" ? String(v) : esc(v);
+  // the value is centred at 0.14w; its left edge stays clear of the ₹ sign (Money v4 run c, 10 November 2026: "11वाँ नोट"
+  // ran over the ₹ for 62 s). Short values (₹10 to ₹2000) keep their size; a long one shrinks to fit.
+  const vsize = Math.min(h * 0.52, (w * 0.684) / Math.max(textWidth(String(v), 1), 0.01));
   return `<rect x="${-w * 0.5}" y="${-h * 0.5}" width="${w}" height="${h}" rx="${w * 0.03}" fill="${col}" stroke="${shade(col)}" stroke-width="${w * 0.02}"/>` +
     `<rect x="${-w * 0.46}" y="${-h * 0.42}" width="${w * 0.92}" height="${h * 0.84}" rx="${w * 0.02}" fill="none" stroke="#f7f1e5" stroke-width="${w * 0.012}" opacity="0.85"/>` +
     `<circle cx="${-w * 0.28}" cy="0" r="${h * 0.3}" fill="#f7f1e5" opacity="0.9"/>` +
     (p.bare ? "" : `<text x="${-w * 0.28}" y="${h * 0.12}" font-family=${JSON.stringify(FONT)} font-size="${h * 0.42}" font-weight="800" fill="${col}" text-anchor="middle">₹</text>` +
-    `<text x="${w * 0.14}" y="${h * 0.18}" font-family=${JSON.stringify(FONT)} font-size="${h * 0.52}" font-weight="800" fill="#f7f1e5" text-anchor="middle">${vs}</text>`) +
+    `<text x="${w * 0.14}" y="${h * 0.18}" font-family=${JSON.stringify(FONT)} font-size="${vsize}" font-weight="800" fill="#f7f1e5" text-anchor="middle">${vs}</text>`) +
     `<rect x="${w * 0.38}" y="${-h * 0.42}" width="${w * 0.05}" height="${h * 0.84}" fill="#f7f1e5" opacity="0.5"/>`;
 }
 
