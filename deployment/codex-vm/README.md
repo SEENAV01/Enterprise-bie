@@ -56,6 +56,10 @@ ChatGPT Pro plan itself is Navin's existing subscription.
   Reference frames that are not ours to publish (a benchmark video's frames) stay on this machine only: a folder
   `/var/lib/bie/private/refs/<name>/` with up to 3 PNG or JPEG files; the request names the set, the result records only
   file names and SHA-256. Without that folder the reviewer compares against a written description and says so.
+- Navin's voice clip (decision cards of 5 November 2026, `docs/roadmap/VOICE_CLIP_METHOD.md`): kept only on this
+  machine in `/etc/bie/voice/` (mode 700, owner `bie`). It arrives through a one-time upload page that Navin starts
+  himself: `sudo bash /var/lib/bie/repo/deployment/codex-vm/bie-voice-upload` prints a secret HTTPS link (port 8443,
+  a certificate made for that run), takes one audio file and closes (after one file, 20 minutes, or Ctrl+C).
 - Security notes for Navin's approval: the deploy key can write to the whole repository (GitHub deploy keys
   cannot be limited to one branch); the runner itself pushes only to `blindtest-results` and `codex-jobs`.
   Branch protection for `main` comes with Phase 4. If the machine is ever lost: delete the deploy key on GitHub,
