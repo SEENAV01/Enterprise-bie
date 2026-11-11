@@ -3,5 +3,8 @@
 // import the drawing helpers from "../draw.mjs" (tx, fit, shade, INK, FONT, esc, clamp01, parts, idxSet, isNum,
 // smoothPath, easeIO, DIAG, rnd, label) - used inside its functions only, never at load time (draw.mjs loads the
 // families first). Add one import and one spread below.
+import { DRAWS as ECON_TOOLS } from "./econ_tools.mjs";
+
 export const FAMILY_DRAWS = {
+  ...ECON_TOOLS,
 };
