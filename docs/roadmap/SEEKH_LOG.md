@@ -1960,3 +1960,27 @@ measured at 25.1 px: the plan showed the notes as one text that changed every 0.
 them): each stays at least 1.5 s, or the compiler names the value and asks for the values side by side or a longer
 moment each; the director's prompt says so. Under it, v4 run b (₹10, 0.5 s) and v5 run b ("उधार", 1.1 s) each break it
 once, so both go through the director again (run c).
+
+## Entry 52 · the scene-plan compiler after the Sloman pilot: every problem in one run, fairer dikhaya-bola, readable widths, 11 November 2026
+
+**The run:** the first Sloman scene-plan pilot (ch02 v1, 53 lines, 14.4 min, one worker): 2.6 h of work and 13 compile
+rounds (104 → 20 → 89 → 20 → 1 → 0 → 2 → 0 problems; 3 rounds were crashes). The top causes: ~70 under-36px hits with no
+way to know each saancha's readable width; 82 said-not-shown hits, ~60% false positives of the word match (बस "only" →
+bus, आगे → आग, बीच → spectrum, दिन/काम → dayHours, income → incomeLine, table → desk); labels changed by a step on the
+cue word (the Money v2 craft) not read; an unknown cue word stopping the build at the first miss; a map's `t1` crashing
+the checks.
+
+**What changed in BIE:** (1) `cues()` never raises: a missing cue word stands at its line's start and the compiler names
+every one with its scene, step and the line's words; a bad step is a named problem, never a crash; every time an op
+passes through is resolved (the map `t1` crash); each problem is listed once. (2) dikhaya-bola matches whole words only
+(phrases too), drops a STOP list of ordinary and idea words, and a tag that only diagram saanche carry (causeChain,
+pieChart, formula, scatterFit, …) obliges nothing; it reads the label, title and every string a thing has *at that
+second*, item steps included (a label or a graph title changed on the cue word counts). On the pilot narration the
+obligations fell from 102 named words to 43, every one a real thing (आलू, coffee, दुकान, बोरी, laptop, …). (3)
+`box_rules.min_readable_w(draw, p, scale)` measures the smallest `w` at which all of a thing's words reach 36 px; the
+under-36px message names it ("give it w 1490 (now 1200) …"); `engine/min_readable_w.json` (`tools/saancha_min_w.py`)
+holds it for every saancha and the director's library shows it. (4) table `fill` ("c:n", a column fills cell by cell on
+steps) and pieChart `legendSize` (a small pie's names reach 36 px; values move into the legend).
+
+**Measured effect:** the pilot plan still compiles with 0 problems under the stricter checks (no plan change needed);
+the core lane 563 → 577 tests, all green. The next video worker's rounds and hours are the real measure.

@@ -160,5 +160,55 @@ class Cues(unittest.TestCase):
         self.assertIn("here", problems[0])
 
 
+
+class AllProblemsInOneRun(unittest.TestCase):
+    """Pilot ch02 v1: 13 compile rounds, 3 of them crashes (an unknown cue word stopped the build at the first miss; a
+    map's t1 crashed the checks). Every problem is now collected and named in one run."""
+
+    def setUp(self):
+        self.T = Timeline(build_script())
+
+    def problems(self, plan):
+        with self.assertRaises(sp.PlanProblems) as ctx:
+            sp.compile_plan(json.loads(json.dumps(plan)), self.T, width=1920, height=1080)
+        return ctx.exception.problems
+
+    def test_the_cue_pen_never_raises_and_the_compiler_names_every_missing_word(self):
+        C, start, end = sp.cues(self.T)
+        bad1, bad2 = C("l01", "no-such-word"), C("l01", "nor-this") + 0.5
+        self.assertAlmostEqual(float(bad1), self.T.L("l01")["t0"], places=6)     # stands at its line's start
+        self.assertEqual(float(C("l99", "x")), 0.0)                              # a missing line too
+        plan = tiny_plan()
+        steps = plan["scenes"][0]["steps"]
+        steps[2]["t0"] = bad1.to_json()
+        steps[3]["t"] = bad2.to_json()
+        steps[0]["op"] = "persn"                                                 # and a bad step in the same run
+        got = self.problems(plan)
+        self.assertTrue(any("no-such-word" in p and "step 3" in p for p in got), got)
+        self.assertTrue(any("nor-this" in p and "step 4" in p for p in got), got)
+        self.assertTrue(any("no step 'persn'" in p for p in got), got)
+        self.assertTrue(any("the line says" in p for p in got if "no-such-word" in p))
+
+    def test_a_map_with_a_cue_t1_compiles_and_a_bad_field_is_a_problem_not_a_crash(self):
+        plan = tiny_plan()
+        plan["scenes"][0]["steps"].append({"op": "map", "t0": {"line": "l01", "edge": "start"},
+                                           "t1": {"line": "l01", "frac": 0.5}})
+        got = self.problems(plan)
+        self.assertFalse(any("TypeError" in p for p in got), got)
+        self.assertEqual(len(got), 1, got)                                       # only the uncovered lines
+        plan = tiny_plan()
+        plan["scenes"][0]["steps"].append({"op": "walk", "who": "ramu", "t": {"line": "l01", "frac": 0.5}, "to_x": "far"})
+        plan["scenes"][0]["steps"].append("not a step")
+        got = self.problems(plan)
+        self.assertTrue(any("step 6 (walk)" in p and "could not be read" in p for p in got), got)
+        self.assertTrue(any("step 7" in p and "is an object" in p for p in got), got)
+
+    def test_steps_of_a_mark_with_cue_times_are_resolved(self):
+        plan = tiny_plan()
+        plan["scenes"][0]["steps"].append({"op": "mark", "kind": "tick", "x": 300, "y": 300,
+                                           "t1": {"line": "l01", "frac": 0.9}})
+        spec_problems = self.problems(plan)
+        self.assertEqual(len(spec_problems), 1, spec_problems)
+
 if __name__ == "__main__":
     unittest.main()

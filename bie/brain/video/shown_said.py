@@ -9,11 +9,14 @@ section 5: every line "said = shown").
 Which words count: the Hindi and English words of the saancha library (``saanche.json`` tags) that name concrete things
 — a sack, a note, a coin, a dollar, a bank, a vault, a phone. Diagrams and marks (a timeline, a graph, a tick, a fork,
 a gauge) and abstract words (price, demand, savings, payment) are ways of showing, not things said, so they create no
-obligation. A word is matched with its common Hindi endings (नोट → नोटों, रुपया → रुपये) and English plurals.
+obligation; nor do ordinary words that a tag happens to spell (STOP: बस "only", बीच, दिन, समय, income, table) or a tag
+that only a diagram saancha carries (DIAGRAMS: causeChain, pieChart, formula). A word is matched as a whole word with
+its common Hindi endings (नोट → नोटों, रुपया → रुपये) and English plurals: बस is not in "bus", आग is not in आगे.
 
 What shows a word: during the line (at least 1 s of it, or half of a shorter line), an element on screen that is one
 of the saanche carrying that word — drawn alone, in a group, held by a person or inside a thought bubble — or a drawn
-thing whose own label carries the word (a sack labelled "नमक" shows salt). A word that names a place is also shown by the
+thing whose own label carries the word (a sack labelled "नमक" shows salt) at that second, its steps included: a label
+or a graph title that a step changes on the cue word shows the word from then on (the Money v2 craft). A word that names a place is also shown by the
 place the scene stands in (its background or a world item of that kind: दुकान in the shop). A text alone is not the
 thing, and a world never shows an object (a bank hall shows "बैंक" the place, not a coin).
 """
@@ -54,6 +57,25 @@ PLACES = {"village": {"गाँव", "village"}, "haat": {"हाट", "बा�
           "court": {"अदालत", "न्यायालय", "court"}, "city": {"शहर", "city"}, "assembly": {"संसद", "सभा", "parliament",
           "assembly"}, "twoCountries": {"दो देश", "border"}, "forexCounter": {"विदेशी मुद्रा", "मुद्रा विनिमय", "forex",
           "foreign currency", "काउंटर", "counter"}}
+# Saanche that draw an idea, a process or a chart (a cause chain, a pie, a formula, a poverty line): their tags name the
+# idea, so a tag that only such a saancha carries creates no obligation (pilot ch02 v1: income -> incomeLine, effect ->
+# causeChain, बिंदु -> scatterFit, बीच -> spectrum, गिनी -> barChart). They still show a thing through their labels, and
+# a tag that a concrete thing also carries (घड़ी: dayHours and clock) still obliges it.
+DIAGRAMS = {"accountBar", "agents", "balanceSheet", "barChart", "causeChain", "chainRounds", "choicePaths", "circularFlow",
+            "contagion", "cycleWave", "dayHours", "doorway", "formula", "gambleTree", "iconArray", "incomeLine",
+            "insurancePool", "layers", "marginalBars", "moneySplit", "oneVsAll", "padlocks", "pieChart", "pricePath",
+            "rateCorridor", "riskDial", "roundBars", "scatterFit", "securitisation", "shareBar", "sorter", "spectrum",
+            "tAccount", "timeSeries", "timeValue", "tradeLedger", "tugOfWar", "waterfall", "weightBars"}
+# Ordinary words that some tag spells but that name no thing when said: Hindi function and time words, and the
+# lesson's abstract words (pilot ch02 v1: बस "only" -> bus, दिन/काम/कमाई -> dayHours, चित्र -> pictogram, समय -> clock,
+# साल -> timeSeries, table "a data table" -> desk). The English "bus" still names a bus.
+STOP = {"बस", "बीच", "दिन", "काम", "कमाई", "गिनी", "गिने", "गिनती", "चित्र", "चित्रों", "बिंदु", "रेखा", "कुल", "जोड़", "समय",
+        "साल", "महीना", "महीने", "हफ़्ता", "हफ़्ते", "घंटे", "दौर", "असर", "प्रभाव", "हिस्सा", "हिस्से", "हिसाब", "छूट",
+        "शर्त", "विकल्प", "लोग", "तुलना", "स्थिति", "पहचान", "सूची", "स्तर", "बदलाव", "योगदान", "चरण", "मान",
+        "effect", "income", "table", "mechanism", "count", "time", "day", "days", "year", "years", "month", "hours", "work",
+        "model", "trend", "threshold", "level", "flow", "rounds", "choice", "options", "risk", "chance"}
+# Said forms that look like a tag plus an ending but are other words: आगे (ahead) is not आग (fire) + े.
+NOT_FORMS = {"आगे", "बसे", "बसा", "बसी", "बसें", "दिना", "तेली", "नोटा"}
 SUFFIXES = ("ों", "ो", "ें", "े", "ियों", "ियाँ", "यों", "एँ", "ाओं", "ाएँ")   # plural and oblique endings only: जार + ी is जारी
 STEM_ENDINGS = ("ा", "े", "ों", "ें", "ी", "ियाँ", "ियों")                             # रुपया -> रुपये, सिक्का -> सिक्कों
 TOKEN = re.compile(r"[\wऀ-ॿ][\wऀ-ॿ़ँ-ःा-्'-]*")
@@ -67,15 +89,38 @@ def lexicon() -> dict:
             continue
         for tag in entry.get("tags") or []:
             word = tag.strip().lower()
-            if not word or word in ABSTRACT or len(word) < 2:
+            if not word or word in ABSTRACT or word in STOP or len(word) < 2:
                 continue
             out.setdefault(word, set()).add(name)
-    return out
+    # a word only diagrams carry names their idea, not a thing (they still show it, by name, where a thing carries it too)
+    return {w: names for w, names in out.items() if names - DIAGRAMS}
+
+
+def tokens(text: str) -> list:
+    """The whole words of a text (Devanagari with its signs, or Roman), lower case: the units every match is made on."""
+    return [m.group(0).strip("'-") for m in TOKEN.finditer(str(text or "").lower())]
+
+
+def _phrase_at(toks: list, i: int, words: list) -> bool:
+    """The tag ``words`` (a phrase split into words) is said at token ``i``: whole words, the last with its endings."""
+    if i + len(words) > len(toks):
+        return False
+    return all(toks[i + k] == words[k] for k in range(len(words) - 1)) and _stem_match(toks[i + len(words) - 1], words[-1])
+
+
+def has_word(text: str, tag: str) -> bool:
+    """``tag`` is said or written in ``text`` as whole words (with the tag's endings): बस is not in "bus", आग not in आगे."""
+    toks, words = tokens(text), tokens(tag)
+    if not words:
+        return False
+    return any(_phrase_at(toks, i, words) for i in range(len(toks)))
 
 
 def _stem_match(token: str, word: str) -> bool:
     if token == word:
         return True
+    if token in NOT_FORMS or token in STOP:
+        return False
     if re.fullmatch(r"[a-z][a-z .-]*", word):
         return token in (word + "s", word + "es")
     if len(word) >= 2 and token.startswith(word) and token[len(word):] in SUFFIXES:
@@ -90,19 +135,24 @@ def named_things(text: str, lex: dict | None = None) -> list:
     """The thing-words a line names, in order: [(word as said, tag, saanche)]; phrases before single words."""
     lex = lex if lex is not None else lexicon()
     low = str(text or "").lower()
-    found, used = [], set()
+    spans = [(m.start(), m.end(), m.group(0).strip("'-")) for m in TOKEN.finditer(low)]
+    toks = [t for _, _, t in spans]
+    found, used = [], set()                      # used: token indexes already taken by a phrase
     for tag in sorted((t for t in lex if " " in t), key=len, reverse=True):
-        at = low.find(tag)
-        if at >= 0 and not any(at <= u < at + len(tag) for u in used):
-            found.append((text[at:at + len(tag)], tag, sorted(lex[tag])))
-            used.update(range(at, at + len(tag)))
-    for m in TOKEN.finditer(low):
-        if any(m.start() <= u < m.end() for u in used):
+        words = tokens(tag)
+        for i in range(len(toks)):
+            if any(i + k in used for k in range(len(words))) or not _phrase_at(toks, i, words):
+                continue
+            a, b = spans[i][0], spans[i + len(words) - 1][1]
+            found.append((str(text)[a:b], tag, sorted(lex[tag])))
+            used.update(range(i, i + len(words)))
+            break
+    for i, (a, b, token) in enumerate(spans):
+        if i in used:
             continue
-        token = m.group(0).strip("'-")
         for tag, names in lex.items():
             if " " not in tag and _stem_match(token, tag):
-                found.append((text[m.start():m.end()], tag, sorted(names)))
+                found.append((str(text)[a:b], tag, sorted(names)))
                 break
     seen, out = set(), []
     for said, tag, names in found:
@@ -112,16 +162,37 @@ def named_things(text: str, lex: dict | None = None) -> list:
     return out
 
 
-def _labels(item: dict) -> str:
-    p = item.get("p") or {}
-    return " ".join(str(v) for k, v in p.items() if isinstance(v, str)).lower()
+def _p_at(item: dict, t) -> dict:
+    """An item's parameters at ``t``: its first p with every step up to ``t`` laid over it (the Money v2 craft: a
+    thing's label changes on the cue word, so the word is shown from that word on)."""
+    p = dict(item.get("p") or {}) if isinstance(item.get("p"), dict) else {}
+    if t is not None:
+        for st in item.get("steps") or []:
+            if isinstance(st, dict) and isinstance(st.get("p"), dict) and st.get("t") is not None and float(st["t"]) <= t:
+                p.update(st["p"])
+    return p
+
+
+def _strings(v) -> list:
+    if isinstance(v, str):
+        return [v]
+    if isinstance(v, dict):
+        return [s for x in v.values() for s in _strings(x)]
+    if isinstance(v, (list, tuple)):
+        return [s for x in v for s in _strings(x)]
+    return []
+
+
+def _labels(item: dict, t=None) -> str:
+    """Every word written on the thing at ``t``: labels, titles, values, axis names, a graph's line and dot labels."""
+    return " ".join(_strings(_p_at(item, t))).lower()
 
 
 def _things(el: dict, t: float) -> list:
     """(draw name, label words) of every drawn thing an element shows at ``t`` (groups, holds, bubble content)."""
     out = []
     if el.get("draw") and el["draw"] not in ("world", "__person__"):
-        out.append((el["draw"], _labels(el)))
+        out.append((el["draw"], _labels(el, t)))
     for m in el.get("group") or []:
         if isinstance(m, dict):
             out += _things(m, t)
@@ -159,7 +230,7 @@ def _shown_seconds(spec: dict, t0: float, t1: float, tag: str, names: list) -> f
         for scene in spec.get("scenes") or []:
             if not (scene["t0"] <= t < scene["t1"]):
                 continue
-            if tag in _places(scene, t) or any(name in names or tag in label
+            if tag in _places(scene, t) or any(name in names or has_word(label, tag)
                                                for el in scene.get("els") or [] if _visible(el, t, scene)
                                                for name, label in _things(el, t)):
                 hits += 1

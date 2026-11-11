@@ -395,8 +395,11 @@ function pieChart(p) {
   const n = sl.length, upto = Math.max(0, Math.round(num(p.upto, 0))), shown = upto > 0 ? Math.min(n, upto) : n, grow = num(p.grow, 0.8);
   const total = sl.reduce((a, s) => a + s.cv, 0) || 1, glow = idxSet(p.glow), legend = p.legend !== false && sl.some((s) => s.l);
   const fsT = w * 0.044, head = p.title ? fsT * 1.7 : 0;
-  const R = legend ? w * 0.24 : w * 0.36;
-  const legFs = Math.min(w * 0.036, Math.min((2 * R) / sl.length, w * 0.08) * 0.5), legW = legend ? Math.min(w - R * 2.5, Math.max(...sl.map((s) => tw(s.l + "  00.0" + unit, legFs))) + legFs * 1.6) : 0;
+  // legendSize: the legend's letters as a share of w (default 0.036); a small pie (two pies side by side) takes up to
+  // 0.09 so its names stay readable, and the pie gives the legend the room
+  const ls = Math.min(0.09, Math.max(0.02, num(p.legendSize, 0.036))), rowCap = Math.max(0.08, ls * 2.2);
+  const R = legend ? w * Math.max(0.15, 0.24 - Math.max(0, ls - 0.036) * 1.6) : w * 0.36;
+  const legFs = Math.min(w * ls, Math.min((2 * R) / sl.length, w * rowCap) * 0.5), legW = legend ? Math.min(w - R * 2.5, Math.max(...sl.map((s) => tw(s.l + "  00.0" + unit, legFs))) + legFs * 1.6) : 0;
   const cx = legend ? -(R * 2.25 + legW) / 2 + R : 0;
   const hole = p.donut === true ? R * 0.52 : 0;
   const [tk, tlab] = (() => { const s = String(p.tower ?? ""), i = s.indexOf(":"); return [Math.round(num(i >= 0 ? s.slice(0, i) : s, 0)), i >= 0 ? s.slice(i + 1).trim() : ""]; })();
@@ -421,7 +424,7 @@ function pieChart(p) {
         const vs = withUnit(fmt(s.cv, s.v, dec), unit), rr = hole ? (R + hole) / 2 : R * 0.64, f = fitT(vs, R * 0.5, fsV);
         const room = (a1 - a0) * rr;
         if (p.values !== false) {
-          if (room > tw(vs, f) * 1.1 && f >= fsV * 0.8 && k >= 1) out += txa(vs, ox + Math.cos(mid) * rr, oy + Math.sin(mid) * rr, f, "#ffffff", 800);
+          if (ls <= 0.05 && room > tw(vs, f) * 1.1 && f >= fsV * 0.8 && k >= 1) out += txa(vs, ox + Math.cos(mid) * rr, oy + Math.sin(mid) * rr, f, "#ffffff", 800);
           else small.add(j);
         }
         if (tk === s.i + 1 && k >= 1) {                   // the spike rises straight up from the slice's highest point
@@ -437,7 +440,7 @@ function pieChart(p) {
   });
   if (hole) out += `<circle cx="${r1(cx)}" cy="${r1(cy)}" r="${r1(hole)}" fill="#ffffff"/>` + (p.center ? tx(p.center, cx, cy, fitT(p.center, hole * 1.6, w * 0.04), INK, 800) : "");
   if (legend) {
-    const lx = cx + R * 1.25, lw = w / 2 - lx, rh = Math.min((2 * R) / n, w * 0.08), fs = Math.min(w * 0.036, rh * 0.5);
+    const lx = cx + R * 1.25, lw = w / 2 - lx, rh = Math.min((2 * R) / n, w * rowCap), fs = Math.min(w * ls, rh * 0.5);
     sl.forEach((s, j) => {
       const y = cy - (n * rh) / 2 + (j + 0.5) * rh, on = j < shown, g = glow.has(s.i + 1);
       const t = s.l + (small.has(j) ? "  " + withUnit(fmt(s.cv, s.v, dec), unit) : "");
