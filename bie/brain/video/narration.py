@@ -87,12 +87,15 @@ class Timeline:
 
 
 def script_of(video: dict) -> list:
-    """A lesson-plan video's beats as the narration script: one scene per card part, one line per beat.
+    """A lesson-plan video's beats as the narration script: one scene per run of beats of one card part, one line
+    per beat, in the beats' own order.
 
     ``sub`` is the beat's subtitle (what the strip shows); when its sentences do not match the spoken sentences,
-    the spoken text is the subtitle too, so every spoken sentence has its strip text.
+    the spoken text is the subtitle too, so every spoken sentence has its strip text. A part that comes back later
+    (a closing recap with part "" after the hook's "", or p1 again after p2) is a new scene "<part>-2" at its own
+    place: the spoken order is never changed (Sloman chapter 18: the closing recap played right after the hook).
     """
-    scenes, by_part = [], {}
+    scenes, seen, prev = [], {}, None
     for beat in video.get("beats") or []:
         say = (beat.get("say") or "").strip()
         if not say:
@@ -104,8 +107,9 @@ def script_of(video: dict) -> list:
         line = {"id": beat["beat_id"], "sub": sub, "say_parts": say_parts,
                 "covers": list(beat.get("covers_item_ids") or [])}
         pid = beat.get("part_id") or "part"
-        if pid not in by_part:
-            by_part[pid] = {"id": pid, "lines": []}
-            scenes.append(by_part[pid])
-        by_part[pid]["lines"].append(line)
+        if pid != prev:
+            seen[pid] = seen.get(pid, 0) + 1
+            scenes.append({"id": pid if seen[pid] == 1 else f"{pid}-{seen[pid]}", "lines": []})
+            prev = pid
+        scenes[-1]["lines"].append(line)
     return scenes

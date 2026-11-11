@@ -1,0 +1,2132 @@
+{
+ "schema": "bie.saancha-manifest/1",
+ "licence": "MIT (BIE)",
+ "provenance": "family econ_things: BIE's own drawings by code (families/econ_things.mjs), built for the needs the chapter workers listed for the Sloman economics book, 5 November 2026; no logos, emblems, real landmarks or real persons",
+ "saanche": {
+  "produce": {
+   "anchor": "bottom",
+   "what": "goods in a sack, heap, basket, crate, packet or bag: what is inside (potato, onion, rice, wheat, sugar, atta, fruit...) and how full; a sack sags as it empties, a heap or basket holds a count of pieces (two goods together), a bag shows its fill level",
+   "tags": [
+    "बोरी",
+    "बोरा",
+    "ढेर",
+    "टोकरी",
+    "पेटी",
+    "थैला",
+    "आलू",
+    "प्याज़",
+    "चावल",
+    "गेहूँ",
+    "चीनी",
+    "आटा",
+    "फल",
+    "sack",
+    "heap",
+    "basket",
+    "crate",
+    "packet",
+    "bag",
+    "potato",
+    "onion",
+    "rice",
+    "wheat",
+    "sugar",
+    "atta",
+    "fruit",
+    "fill",
+    "stock"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 300,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "kind": {
+     "type": "choice",
+     "choices": [
+      "sack",
+      "heap",
+      "basket",
+      "crate",
+      "packet",
+      "bag"
+     ],
+     "default": "sack"
+    },
+    "content": {
+     "type": "choice",
+     "choices": [
+      "potato",
+      "onion",
+      "tomato",
+      "apple",
+      "orange",
+      "pear",
+      "mango",
+      "maize",
+      "flower",
+      "coal",
+      "cotton",
+      "rice",
+      "coarseRice",
+      "wheat",
+      "sugar",
+      "atta",
+      "dal",
+      "salt",
+      "tea",
+      "fertiliser",
+      "seed"
+     ],
+     "default": "potato"
+    },
+    "fill": {
+     "type": "number",
+     "default": 1,
+     "min": 0,
+     "max": 1,
+     "what": "0 empty .. 1 full (a step changes it on the word)"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "the word on its plate or tag"
+    },
+    "n": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 80,
+     "what": "heap, basket, crate: pieces of the first good (0: by fill)"
+    },
+    "content2": {
+     "type": "choice",
+     "choices": [
+      "",
+      "potato",
+      "onion",
+      "tomato",
+      "apple",
+      "orange",
+      "pear",
+      "mango",
+      "maize",
+      "flower",
+      "coal",
+      "cotton",
+      "rice",
+      "coarseRice",
+      "wheat",
+      "sugar",
+      "atta",
+      "dal",
+      "salt",
+      "tea",
+      "fertiliser",
+      "seed"
+     ],
+     "default": "",
+     "what": "a second good in the same heap or basket"
+    },
+    "n2": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 80,
+     "what": "pieces of the second good"
+    },
+    "stack": {
+     "type": "int",
+     "default": 1,
+     "min": 1,
+     "max": 5,
+     "what": "crates stacked"
+    },
+    "color": {
+     "type": "color",
+     "default": "",
+     "what": "packet or bag colour"
+    },
+    "jute": {
+     "type": "bool",
+     "default": false,
+     "what": "a jute sack even for sugar, atta, rice"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "vehicle": {
+   "anchor": "bottom",
+   "what": "a vehicle by kind (car, scooter, bike, cycle, bus, metro, train, auto-rickshaw, e-rickshaw, truck, tanker, van, tractor, plane) with class, fuel badge, damage state, riders, exhaust smoke, speed lines and turning wheels, a plate or route board, a windscreen sticker and a price tag; brake and accelerator tilt it",
+   "tags": [
+    "गाड़ी",
+    "कार",
+    "स्कूटर",
+    "बस",
+    "मेट्रो",
+    "ऑटो",
+    "ई-रिक्शा",
+    "ट्रक",
+    "ट्रैक्टर",
+    "टैंकर",
+    "वाहन",
+    "विमान",
+    "vehicle",
+    "car",
+    "scooter",
+    "bike",
+    "cycle",
+    "bus",
+    "metro",
+    "train",
+    "auto",
+    "rickshaw",
+    "truck",
+    "lorry",
+    "tanker",
+    "van",
+    "tractor",
+    "plane",
+    "aircraft",
+    "CNG",
+    "electric",
+    "crash",
+    "insurance"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1900,
+     "what": "width px (0: the kind's usual size)"
+    },
+    "kind": {
+     "type": "choice",
+     "choices": [
+      "car",
+      "scooter",
+      "bike",
+      "cycle",
+      "bus",
+      "metro",
+      "train",
+      "auto",
+      "erickshaw",
+      "truck",
+      "tanker",
+      "van",
+      "tractor",
+      "plane"
+     ],
+     "default": "car"
+    },
+    "class": {
+     "type": "choice",
+     "choices": [
+      "small",
+      "mid",
+      "luxury"
+     ],
+     "default": "mid",
+     "what": "car: status by size and finish"
+    },
+    "fuel": {
+     "type": "choice",
+     "choices": [
+      "none",
+      "petrol",
+      "diesel",
+      "cng",
+      "electric"
+     ],
+     "default": "none",
+     "what": "a fuel badge"
+    },
+    "state": {
+     "type": "choice",
+     "choices": [
+      "new",
+      "scratched",
+      "crashed",
+      "writeoff"
+     ],
+     "default": "new",
+     "what": "damage (a step turns new to writeoff)"
+    },
+    "color": {
+     "type": "color",
+     "default": "",
+     "what": "body colour"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "number plate, route board or the word on the cargo side"
+    },
+    "sticker": {
+     "type": "text",
+     "default": "",
+     "what": "a windscreen sticker"
+    },
+    "tag": {
+     "type": "text",
+     "default": "",
+     "what": "a price or permit tag above"
+    },
+    "old": {
+     "type": "text",
+     "default": "",
+     "what": "the struck old value on the tag"
+    },
+    "riders": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 60,
+     "what": "people seen inside or riding"
+    },
+    "seats": {
+     "type": "int",
+     "default": 6,
+     "min": 2,
+     "max": 12,
+     "what": "bus, metro, train: windows"
+    },
+    "smoke": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "exhaust level"
+    },
+    "speed": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "motion lines and turning wheels"
+    },
+    "box": {
+     "type": "bool",
+     "default": false,
+     "what": "scooter, bike: a delivery box"
+    },
+    "boxColor": {
+     "type": "color",
+     "default": ""
+    },
+    "tankColor": {
+     "type": "color",
+     "default": ""
+    },
+    "load": {
+     "type": "number",
+     "default": 0.6,
+     "min": 0,
+     "max": 1,
+     "what": "truck: cargo on the bed; tanker: level"
+    },
+    "pedal": {
+     "type": "choice",
+     "choices": [
+      "none",
+      "brake",
+      "accelerator"
+     ],
+     "default": "none",
+     "what": "brake dips the nose and lights the tail lamp, accelerator lifts it"
+    },
+    "facing": {
+     "type": "choice",
+     "choices": [
+      "right",
+      "left"
+     ],
+     "default": "right"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "houses": {
+   "anchor": "bottom",
+   "what": "a house or a lane of houses by grade (hut, small, mid, big, flats) with a value tag and a loan tag (the value turns red under the loan: negative equity), a struck old price, boards on posts (for sale, seized), buyers queuing, fire that spreads house to house in a lane, and flood water",
+   "tags": [
+    "घर",
+    "मकान",
+    "गली",
+    "बिकाऊ",
+    "ज़ब्त",
+    "कर्ज़",
+    "होम लोन",
+    "आग",
+    "बाढ़",
+    "house",
+    "home",
+    "street",
+    "mortgage",
+    "negative equity",
+    "for sale",
+    "repossessed",
+    "fire",
+    "flood",
+    "housing"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 300,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "n": {
+     "type": "int",
+     "default": 1,
+     "min": 1,
+     "max": 8,
+     "what": "houses in the row"
+    },
+    "grade": {
+     "type": "choice",
+     "choices": [
+      "hut",
+      "small",
+      "mid",
+      "big",
+      "flat"
+     ],
+     "default": "mid"
+    },
+    "grades": {
+     "type": "text",
+     "default": "",
+     "what": "a grade per house, e.g. hut,small,mid,big"
+    },
+    "layout": {
+     "type": "choice",
+     "choices": [
+      "lane",
+      "scattered"
+     ],
+     "default": "lane",
+     "what": "lane: close together (fire spreads); scattered: apart"
+    },
+    "board": {
+     "type": "text",
+     "default": "",
+     "what": "the word on the boards, e.g. बिकाऊ"
+    },
+    "boards": {
+     "type": "text",
+     "default": "",
+     "what": "1-based houses with a board (empty: all)"
+    },
+    "boardColor": {
+     "type": "color",
+     "default": ""
+    },
+    "value": {
+     "type": "text",
+     "default": "",
+     "what": "value tag"
+    },
+    "loan": {
+     "type": "text",
+     "default": "",
+     "what": "loan tag under it"
+    },
+    "old": {
+     "type": "text",
+     "default": "",
+     "what": "struck old value"
+    },
+    "tagAt": {
+     "type": "int",
+     "default": 1,
+     "min": 1,
+     "max": 8,
+     "what": "the house the tags hang over"
+    },
+    "fire": {
+     "type": "text",
+     "default": "",
+     "what": "1-based houses on fire, e.g. 2"
+    },
+    "spread": {
+     "type": "bool",
+     "default": false,
+     "what": "lane: fire jumps one house a second after the step"
+    },
+    "flood": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "water level"
+    },
+    "buyers": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 12,
+     "what": "buyers queuing at the left"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "campus": {
+   "anchor": "bottom",
+   "what": "a public building by kind: school, college, hospital, clinic, police station, ration shop, its name on the sign band, people queuing at the door, the door open or shut; no emblem or real landmark",
+   "tags": [
+    "स्कूल",
+    "कॉलेज",
+    "अस्पताल",
+    "क्लिनिक",
+    "थाना",
+    "राशन दुकान",
+    "school",
+    "college",
+    "hospital",
+    "clinic",
+    "police station",
+    "ration shop",
+    "public service"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 600,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "kind": {
+     "type": "choice",
+     "choices": [
+      "school",
+      "college",
+      "hospital",
+      "clinic",
+      "police",
+      "rationShop"
+     ],
+     "default": "school"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "name on the sign band"
+    },
+    "queue": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 12,
+     "what": "people at the door"
+    },
+    "open": {
+     "type": "bool",
+     "default": true,
+     "what": "door open (false: shuttered)"
+    },
+    "color": {
+     "type": "color",
+     "default": "",
+     "what": "band colour"
+    },
+    "flag": {
+     "type": "color",
+     "default": "",
+     "what": "school pennant colour"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "pump": {
+   "anchor": "bottom",
+   "what": "a petrol pump: price board (fuel name, price, a bar of the price with its tax slice, the slice split between buyer and seller, a litre counter that counts up), a canopy with nozzles busy or idle, cars queuing, closed, coins flying to a government badge",
+   "tags": [
+    "पेट्रोल पंप",
+    "डीज़ल",
+    "ईंधन",
+    "टैक्स",
+    "कर",
+    "दाम",
+    "लीटर",
+    "petrol pump",
+    "fuel",
+    "diesel",
+    "price board",
+    "tax",
+    "excise",
+    "incidence",
+    "litres",
+    "queue"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 820,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "price": {
+     "type": "number",
+     "default": 100,
+     "min": 0,
+     "max": 100000,
+     "what": "price per litre on the board"
+    },
+    "unit": {
+     "type": "text",
+     "default": "₹",
+     "what": "currency sign before the price"
+    },
+    "fuel": {
+     "type": "text",
+     "default": "",
+     "what": "fuel name on the board"
+    },
+    "tax": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 100000,
+     "what": "tax per litre: its slice of the price bar (0: no bar)"
+    },
+    "taxLabel": {
+     "type": "text",
+     "default": "",
+     "what": "words under the bar"
+    },
+    "split": {
+     "type": "number",
+     "default": -1,
+     "min": -1,
+     "max": 1,
+     "what": "buyer's share of the tax slice 0..1 (-1: not split)"
+    },
+    "litres": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 100000000,
+     "what": "litres sold on the counter (0: no counter)"
+    },
+    "litreUnit": {
+     "type": "text",
+     "default": " L",
+     "what": "unit after the litres"
+    },
+    "count": {
+     "type": "bool",
+     "default": false,
+     "what": "the counter counts up over glide seconds after the step"
+    },
+    "glide": {
+     "type": "number",
+     "default": 3,
+     "min": 0.1,
+     "max": 30
+    },
+    "nozzles": {
+     "type": "int",
+     "default": 2,
+     "min": 1,
+     "max": 6
+    },
+    "busy": {
+     "type": "text",
+     "default": "",
+     "what": "1-based nozzles in use, e.g. 1,3"
+    },
+    "queue": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 10,
+     "what": "cars waiting"
+    },
+    "closed": {
+     "type": "bool",
+     "default": false
+    },
+    "closedLabel": {
+     "type": "text",
+     "default": "",
+     "what": "the word on the closed board"
+    },
+    "coins": {
+     "type": "bool",
+     "default": false,
+     "what": "coins fly to a government badge"
+    },
+    "govt": {
+     "type": "text",
+     "default": "",
+     "what": "the word over the badge"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "name on the canopy"
+    },
+    "color": {
+     "type": "color",
+     "default": "",
+     "what": "canopy colour"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "godown": {
+   "anchor": "bottom",
+   "what": "a godown (or a shop shelf) whose stock fills to a level in sacks, boxes or crates, with things flowing in and out along labelled arrows, the shutter open or down (buffer stock, inventory, just-in-time)",
+   "tags": [
+    "गोदाम",
+    "भंडार",
+    "स्टॉक",
+    "आवक",
+    "जावक",
+    "दुकान की शेल्फ़",
+    "godown",
+    "warehouse",
+    "store",
+    "stock",
+    "inventory",
+    "inflow",
+    "outflow",
+    "buffer stock",
+    "shelf"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 640,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "kind": {
+     "type": "choice",
+     "choices": [
+      "godown",
+      "shelf"
+     ],
+     "default": "godown"
+    },
+    "content": {
+     "type": "choice",
+     "choices": [
+      "sack",
+      "box",
+      "crate"
+     ],
+     "default": "sack"
+    },
+    "fill": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0,
+     "max": 1,
+     "what": "stock level"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "name plate"
+    },
+    "inflow": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 5,
+     "what": "things arriving per second (0: none)"
+    },
+    "outflow": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 5,
+     "what": "things leaving per second"
+    },
+    "inLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "outLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "open": {
+     "type": "bool",
+     "default": true,
+     "what": "shutter up"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "headlines": {
+   "anchor": "center",
+   "what": "news: a newspaper, a TV, a phone or a billboard with headline cards that slide in one per step, the one being told enlarged, a mark per headline, a TV ticker, a billboard that lights up",
+   "tags": [
+    "अख़बार",
+    "ख़बर",
+    "सुर्खी",
+    "टीवी",
+    "समाचार",
+    "विज्ञापन",
+    "होर्डिंग",
+    "newspaper",
+    "headline",
+    "news",
+    "TV",
+    "phone",
+    "billboard",
+    "advert",
+    "ticker"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 960,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "medium": {
+     "type": "choice",
+     "choices": [
+      "newspaper",
+      "tv",
+      "phone",
+      "billboard"
+     ],
+     "default": "newspaper"
+    },
+    "title": {
+     "type": "text",
+     "default": "",
+     "what": "masthead, channel or brand"
+    },
+    "items": {
+     "type": "text",
+     "default": "",
+     "what": "headlines separated by ; (billboard: the slogan)"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 8,
+     "what": "headlines shown so far (0: all); the newest slides in"
+    },
+    "at": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 8,
+     "what": "1-based headline enlarged"
+    },
+    "marks": {
+     "type": "text",
+     "default": "",
+     "what": "a mark per headline: up;down;!;₹;? (empty: none)"
+    },
+    "ticker": {
+     "type": "text",
+     "default": "",
+     "what": "TV: words moving along the bottom band"
+    },
+    "lit": {
+     "type": "bool",
+     "default": false,
+     "what": "billboard lamps on"
+    },
+    "color": {
+     "type": "color",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "slip": {
+   "anchor": "center",
+   "what": "a paper by kind: insurance policy, form, pay slip, ration card with weekly stamps, ticket with face value, seat and a written resale price, fine slip, permit that changes owner, sealed envelope that opens to show a bid, certificate; rows revealed or lit, a rubber stamp, a stack of copies",
+   "tags": [
+    "पर्ची",
+    "काग़ज़",
+    "बीमा पॉलिसी",
+    "फ़ॉर्म",
+    "वेतन पर्ची",
+    "राशन कार्ड",
+    "टिकट",
+    "चालान",
+    "परमिट",
+    "लिफ़ाफ़ा",
+    "टेंडर",
+    "प्रमाणपत्र",
+    "policy",
+    "form",
+    "pay slip",
+    "ration card",
+    "ticket",
+    "fine",
+    "permit",
+    "envelope",
+    "tender",
+    "certificate",
+    "resale",
+    "tout"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 440,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "kind": {
+     "type": "choice",
+     "choices": [
+      "form",
+      "policy",
+      "payslip",
+      "rationCard",
+      "ticket",
+      "fine",
+      "permit",
+      "envelope",
+      "certificate"
+     ],
+     "default": "form"
+    },
+    "title": {
+     "type": "text",
+     "default": "",
+     "what": "header"
+    },
+    "rows": {
+     "type": "text",
+     "default": "",
+     "what": "label:value;… rows"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 8,
+     "what": "rows written so far (0: all)"
+    },
+    "glow": {
+     "type": "text",
+     "default": "",
+     "what": "1-based rows lit, e.g. 2"
+    },
+    "count": {
+     "type": "int",
+     "default": 1,
+     "min": 1,
+     "max": 6,
+     "what": "copies in the stack"
+    },
+    "face": {
+     "type": "text",
+     "default": "",
+     "what": "ticket: printed price"
+    },
+    "resale": {
+     "type": "text",
+     "default": "",
+     "what": "ticket: resale price written on it (the face price is struck)"
+    },
+    "seat": {
+     "type": "text",
+     "default": "",
+     "what": "ticket: seat"
+    },
+    "paperless": {
+     "type": "bool",
+     "default": false,
+     "what": "ticket: a phone and ID instead of the barcode"
+    },
+    "sealed": {
+     "type": "bool",
+     "default": true,
+     "what": "envelope: sealed (false: opens and the amount comes out)"
+    },
+    "amount": {
+     "type": "text",
+     "default": "",
+     "what": "envelope: the bid inside"
+    },
+    "stamp": {
+     "type": "text",
+     "default": "",
+     "what": "rubber-stamp word"
+    },
+    "stampColor": {
+     "type": "color",
+     "default": ""
+    },
+    "stamps": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 12,
+     "what": "ration card: weeks stamped"
+    },
+    "weeks": {
+     "type": "int",
+     "default": 8,
+     "min": 1,
+     "max": 12,
+     "what": "ration card: week boxes"
+    },
+    "owner": {
+     "type": "text",
+     "default": "",
+     "what": "owner strip at the foot"
+    },
+    "color": {
+     "type": "color",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "clock": {
+   "anchor": "center",
+   "what": "a wall clock: hands at a time, sweeping to another time on a step, running or stopped (pause badge), charge bands on the rim whose current band lights with its charge, a digital readout",
+   "tags": [
+    "घड़ी",
+    "समय",
+    "रुकी घड़ी",
+    "शुल्क",
+    "clock",
+    "time",
+    "hours",
+    "stopped",
+    "time-of-day charge",
+    "peak"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 340,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "hour": {
+     "type": "int",
+     "default": 3,
+     "min": 0,
+     "max": 23
+    },
+    "minute": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 59
+    },
+    "to": {
+     "type": "text",
+     "default": "",
+     "what": "hh:mm the hands sweep to over glide seconds after the step"
+    },
+    "glide": {
+     "type": "number",
+     "default": 2,
+     "min": 0.1,
+     "max": 30
+    },
+    "running": {
+     "type": "bool",
+     "default": false,
+     "what": "the hands run on after the step"
+    },
+    "speed": {
+     "type": "number",
+     "default": 1,
+     "min": 0,
+     "max": 600,
+     "what": "minutes per second while running"
+    },
+    "stopped": {
+     "type": "bool",
+     "default": false,
+     "what": "greyed, with a pause badge"
+    },
+    "bands": {
+     "type": "text",
+     "default": "",
+     "what": "from-to:label;… e.g. 7-9:₹3;17-20:₹4"
+    },
+    "dial": {
+     "type": "choice",
+     "choices": [
+      "12",
+      "24"
+     ],
+     "default": "12"
+    },
+    "digital": {
+     "type": "bool",
+     "default": false
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "plate under the clock"
+    },
+    "color": {
+     "type": "color",
+     "default": "",
+     "what": "rim colour"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "chance": {
+   "anchor": "center",
+   "what": "chance: a coin that flips and lands on a face with a row of past tosses, a spinner with weighted sectors that spins to one, a scratch card whose panel scratches off, a dice, a ballot box with slips going in and drawn out",
+   "tags": [
+    "टॉस",
+    "चित",
+    "पट",
+    "चकरी",
+    "स्क्रैच कार्ड",
+    "लॉटरी",
+    "पासा",
+    "जोखिम",
+    "मतपेटी",
+    "coin toss",
+    "heads",
+    "tails",
+    "spinner",
+    "scratch card",
+    "lottery",
+    "dice",
+    "ballot",
+    "risk",
+    "probability",
+    "gamble"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 340,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "kind": {
+     "type": "choice",
+     "choices": [
+      "coin",
+      "spinner",
+      "scratch",
+      "dice",
+      "ballot"
+     ],
+     "default": "coin"
+    },
+    "face": {
+     "type": "choice",
+     "choices": [
+      "heads",
+      "tails"
+     ],
+     "default": "heads",
+     "what": "coin: the face it shows or lands on"
+    },
+    "heads": {
+     "type": "text",
+     "default": "",
+     "what": "word on heads, e.g. चित (empty: ₹)"
+    },
+    "tails": {
+     "type": "text",
+     "default": "",
+     "what": "word on tails, e.g. पट (empty: 1)"
+    },
+    "flip": {
+     "type": "bool",
+     "default": false,
+     "what": "coin: tossed on the step, lands after glide seconds"
+    },
+    "history": {
+     "type": "text",
+     "default": "",
+     "what": "coin: past tosses, e.g. H,T,H"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.2,
+     "min": 0.1,
+     "max": 10
+    },
+    "sectors": {
+     "type": "text",
+     "default": "",
+     "what": "spinner: label:weight;… e.g. जीत:1;हार:3"
+    },
+    "land": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 8,
+     "what": "spinner: 1-based sector under the pointer"
+    },
+    "spin": {
+     "type": "bool",
+     "default": false,
+     "what": "spinner: spins on the step"
+    },
+    "prize": {
+     "type": "text",
+     "default": "",
+     "what": "scratch card: header"
+    },
+    "price": {
+     "type": "text",
+     "default": "",
+     "what": "scratch card: price badge"
+    },
+    "result": {
+     "type": "text",
+     "default": "",
+     "what": "scratch card: what is under the panel"
+    },
+    "win": {
+     "type": "bool",
+     "default": false
+    },
+    "scratch": {
+     "type": "bool",
+     "default": false,
+     "what": "the panel scratches off after the step"
+    },
+    "scratched": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "share already scratched"
+    },
+    "pips": {
+     "type": "int",
+     "default": 6,
+     "min": 1,
+     "max": 6,
+     "what": "dice face"
+    },
+    "roll": {
+     "type": "bool",
+     "default": false,
+     "what": "dice: rolls on the step"
+    },
+    "slips": {
+     "type": "int",
+     "default": 6,
+     "min": 0,
+     "max": 40,
+     "what": "ballot: slips going in"
+    },
+    "drawn": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 12,
+     "what": "ballot: slips drawn out, ticked"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "ballot: plate on the box"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "press": {
+   "anchor": "bottom",
+   "what": "a printing press whose plate stamps and whose note heap grows while it runs, or a screen where a typed amount counts up (printing money, electronic money)",
+   "tags": [
+    "छपाई",
+    "नोट छापना",
+    "प्रेस",
+    "मुद्रा",
+    "printing press",
+    "print money",
+    "notes",
+    "electronic money",
+    "screen",
+    "quantitative easing"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 620,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "mode": {
+     "type": "choice",
+     "choices": [
+      "press",
+      "screen"
+     ],
+     "default": "press"
+    },
+    "running": {
+     "type": "bool",
+     "default": false
+    },
+    "rate": {
+     "type": "number",
+     "default": 2,
+     "min": 0,
+     "max": 20,
+     "what": "bundles per second while running"
+    },
+    "notes": {
+     "type": "int",
+     "default": 3,
+     "min": 0,
+     "max": 60,
+     "what": "bundles in the heap at the start"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "plate"
+    },
+    "amount": {
+     "type": "text",
+     "default": "",
+     "what": "tag over the heap, or the number on the screen"
+    },
+    "count": {
+     "type": "bool",
+     "default": false,
+     "what": "screen: the number counts up after the step"
+    },
+    "glide": {
+     "type": "number",
+     "default": 2,
+     "min": 0.1,
+     "max": 30
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "chimney": {
+   "anchor": "bottom",
+   "what": "a factory chimney: smoke by emission level, a filter that thins it, a labelled emission cloud whose size carries the tonnes",
+   "tags": [
+    "चिमनी",
+    "धुआँ",
+    "प्रदूषण",
+    "उत्सर्जन",
+    "फ़िल्टर",
+    "chimney",
+    "smoke",
+    "pollution",
+    "emission",
+    "filter",
+    "CO2",
+    "externality"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 360,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "smoke": {
+     "type": "number",
+     "default": 0.6,
+     "min": 0,
+     "max": 1,
+     "what": "emission level"
+    },
+    "filter": {
+     "type": "bool",
+     "default": false
+    },
+    "base": {
+     "type": "bool",
+     "default": true,
+     "what": "the shed beside it"
+    },
+    "cloud": {
+     "type": "text",
+     "default": "",
+     "what": "words in the emission cloud, e.g. CO₂ 50 t"
+    },
+    "cloudSize": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0,
+     "max": 1
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "plate on the shed"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "food": {
+   "anchor": "bottom",
+   "what": "Indian food and drink: samosa, pani puri, thali, kulhad chai, chai glass, coffee, lassi, jalebi, laddoo tray, momo, chutney, bread, ice cream, paneer, tiffin tiers, a plate portion, ghee jar, toffee jar, biscuit packet, milk packet, sweet box; pieces by count (one eaten on a step), level, steam, a price tag",
+   "tags": [
+    "समोसा",
+    "पानी पूरी",
+    "थाली",
+    "कुल्हड़",
+    "चाय",
+    "कॉफ़ी",
+    "लस्सी",
+    "जलेबी",
+    "लड्डू",
+    "मोमो",
+    "टिफ़िन",
+    "घी",
+    "बिस्कुट",
+    "दूध",
+    "मिठाई",
+    "आइसक्रीम",
+    "samosa",
+    "pani puri",
+    "thali",
+    "kulhad",
+    "chai",
+    "coffee",
+    "lassi",
+    "jalebi",
+    "laddoo",
+    "momo",
+    "tiffin",
+    "ghee",
+    "biscuit",
+    "milk",
+    "sweets",
+    "ice cream",
+    "food",
+    "snack"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 300,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "kind": {
+     "type": "choice",
+     "choices": [
+      "samosa",
+      "paniPuri",
+      "thali",
+      "kulhad",
+      "chaiGlass",
+      "coffeeCup",
+      "lassi",
+      "jalebi",
+      "laddoo",
+      "momo",
+      "chutney",
+      "bread",
+      "iceCream",
+      "iceCup",
+      "paneer",
+      "tiffin",
+      "plate",
+      "ghee",
+      "toffeeJar",
+      "biscuit",
+      "milkPacket",
+      "sweetBox"
+     ],
+     "default": "samosa"
+    },
+    "n": {
+     "type": "int",
+     "default": -1,
+     "min": -1,
+     "max": 30,
+     "what": "pieces (-1: the kind's usual count)"
+    },
+    "level": {
+     "type": "number",
+     "default": 1,
+     "min": 0,
+     "max": 1,
+     "what": "how full a glass or cup is"
+    },
+    "steam": {
+     "type": "bool",
+     "default": false
+    },
+    "stack": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 8,
+     "what": "tiffin tiers, packets or boxes stacked (0: usual)"
+    },
+    "portion": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0,
+     "max": 1,
+     "what": "plate: portion size"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "name on the packet, jar or a plate below"
+    },
+    "price": {
+     "type": "text",
+     "default": "",
+     "what": "price tag"
+    },
+    "old": {
+     "type": "text",
+     "default": "",
+     "what": "struck old price"
+    },
+    "color": {
+     "type": "color",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "machine": {
+   "anchor": "bottom",
+   "what": "appliances and work machines with states: laptop, phone and TV screens (text, loading, frozen, cracked, off), LPG cylinder with level, pressure cooker whistling, fan turning, shop fridge with brand rows, washing machine, sewing machine and loom working, tandoor, bhatti, oven and kadhai lit, cash till, card terminal (tap, approved), prepayment meter, in-vehicle unit, printer, games console, number-plate camera",
+   "tags": [
+    "लैपटॉप",
+    "फ़ोन",
+    "टीवी",
+    "गैस सिलेंडर",
+    "प्रेशर कुकर",
+    "पंखा",
+    "फ़्रिज",
+    "वॉशिंग मशीन",
+    "सिलाई मशीन",
+    "करघा",
+    "तंदूर",
+    "भट्ठी",
+    "कड़ाही",
+    "गल्ला",
+    "मीटर",
+    "laptop",
+    "phone",
+    "TV",
+    "LPG cylinder",
+    "pressure cooker",
+    "fan",
+    "fridge",
+    "washing machine",
+    "sewing machine",
+    "loom",
+    "tandoor",
+    "oven",
+    "kadhai",
+    "cash till",
+    "card terminal",
+    "POS",
+    "meter",
+    "printer",
+    "console",
+    "camera",
+    "screen"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 360,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "kind": {
+     "type": "choice",
+     "choices": [
+      "laptop",
+      "phone",
+      "tv",
+      "cylinder",
+      "cooker",
+      "fan",
+      "fridge",
+      "washer",
+      "sewing",
+      "loom",
+      "tandoor",
+      "bhatti",
+      "oven",
+      "kadhai",
+      "till",
+      "pos",
+      "meter",
+      "iu",
+      "printer",
+      "console",
+      "camera"
+     ],
+     "default": "laptop"
+    },
+    "on": {
+     "type": "bool",
+     "default": false,
+     "what": "running or lit"
+    },
+    "screen": {
+     "type": "choice",
+     "choices": [
+      "normal",
+      "loading",
+      "frozen",
+      "cracked",
+      "off"
+     ],
+     "default": "normal"
+    },
+    "text": {
+     "type": "text",
+     "default": "",
+     "what": "screen or display words"
+    },
+    "title": {
+     "type": "text",
+     "default": "",
+     "what": "screen title bar"
+    },
+    "old": {
+     "type": "text",
+     "default": "",
+     "what": "struck old value on the screen"
+    },
+    "level": {
+     "type": "number",
+     "default": 1,
+     "min": 0,
+     "max": 1,
+     "what": "gas, credit, stock, oil or ink level; loom: cloth woven"
+    },
+    "rows": {
+     "type": "text",
+     "default": "",
+     "what": "fridge: brand per shelf, top first, separated by ;"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "plate"
+    },
+    "price": {
+     "type": "text",
+     "default": "",
+     "what": "price tag"
+    },
+    "oldPrice": {
+     "type": "text",
+     "default": "",
+     "what": "struck old price"
+    },
+    "size": {
+     "type": "choice",
+     "choices": [
+      "small",
+      "big"
+     ],
+     "default": "small",
+     "what": "kadhai size"
+    },
+    "shield": {
+     "type": "bool",
+     "default": false,
+     "what": "an insured badge"
+    },
+    "state": {
+     "type": "choice",
+     "choices": [
+      "idle",
+      "tap",
+      "approved"
+     ],
+     "default": "idle",
+     "what": "card terminal"
+    },
+    "color": {
+     "type": "color",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "goods": {
+   "anchor": "bottom",
+   "what": "small things: mug, pen, razor, padlock (open or locked), matchbox, tissue pile, shirt, seed packet, medicine strip, plain cigarette pack with its warning share, chip, bottle, can, toolbox whose tools pop out, handcuffs, jail bars that drop, tin with opener, stool, notice board, placard, magnifier, tree, golf flag, oil derrick, hammock, toy bricks, bulb, container, box with an origin band, traffic light, giant wheel; a label and a price tag that is struck and rewritten",
+   "tags": [
+    "मग",
+    "कलम",
+    "ताला",
+    "माचिस",
+    "कमीज़",
+    "दवा",
+    "सिगरेट",
+    "बोतल",
+    "औज़ार",
+    "हथकड़ी",
+    "जेल",
+    "डिब्बा",
+    "सूचना पट",
+    "तख़्ती",
+    "बत्ती",
+    "झूला",
+    "कंटेनर",
+    "mug",
+    "pen",
+    "razor",
+    "padlock",
+    "matchbox",
+    "tissue",
+    "shirt",
+    "seed packet",
+    "medicine",
+    "cigarettes",
+    "chip",
+    "bottle",
+    "can",
+    "toolbox",
+    "handcuffs",
+    "jail",
+    "tin",
+    "stool",
+    "notice board",
+    "placard",
+    "magnifier",
+    "tree",
+    "golf",
+    "oil derrick",
+    "hammock",
+    "bricks",
+    "bulb",
+    "container",
+    "box",
+    "traffic light",
+    "giant wheel"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 300,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "kind": {
+     "type": "choice",
+     "choices": [
+      "mug",
+      "pen",
+      "razor",
+      "padlock",
+      "matchbox",
+      "tissue",
+      "shirt",
+      "seedPacket",
+      "medicine",
+      "cigarettes",
+      "chip",
+      "bottle",
+      "can",
+      "toolbox",
+      "handcuffs",
+      "jail",
+      "tin",
+      "stool",
+      "noticeBoard",
+      "placard",
+      "magnifier",
+      "tree",
+      "golfFlag",
+      "derrick",
+      "hammock",
+      "bricks",
+      "bulb",
+      "container",
+      "box",
+      "signal",
+      "wheel"
+     ],
+     "default": "mug"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "the word on it"
+    },
+    "price": {
+     "type": "text",
+     "default": "",
+     "what": "price tag"
+    },
+    "old": {
+     "type": "text",
+     "default": "",
+     "what": "struck old price"
+    },
+    "color": {
+     "type": "color",
+     "default": ""
+    },
+    "count": {
+     "type": "int",
+     "default": 1,
+     "min": 1,
+     "max": 8,
+     "what": "how many or how high the stack"
+    },
+    "open": {
+     "type": "bool",
+     "default": false,
+     "what": "padlock, tin: open"
+    },
+    "opener": {
+     "type": "bool",
+     "default": false,
+     "what": "tin: a can opener beside it"
+    },
+    "warning": {
+     "type": "number",
+     "default": 0.3,
+     "min": 0,
+     "max": 1,
+     "what": "cigarette pack: share covered by the warning"
+    },
+    "tools": {
+     "type": "text",
+     "default": "",
+     "what": "toolbox: tool names separated by ;"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 8,
+     "what": "toolbox: tools out so far (0: all)"
+    },
+    "band": {
+     "type": "color",
+     "default": "",
+     "what": "box: an origin colour band"
+    },
+    "lit": {
+     "type": "choice",
+     "choices": [
+      "red",
+      "amber",
+      "green",
+      "none"
+     ],
+     "default": "red",
+     "what": "traffic light"
+    },
+    "on": {
+     "type": "bool",
+     "default": false,
+     "what": "bulb lit; wheel turning"
+    },
+    "angle": {
+     "type": "number",
+     "default": 0,
+     "min": -360,
+     "max": 360,
+     "what": "wheel: turn in degrees"
+    },
+    "at": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 8,
+     "what": "wheel: 1-based cabin marked"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "stall": {
+   "anchor": "bottom",
+   "what": "a street stall by kind: tea stall, samosa or momo stall with its kadhai, sweet shop, dhaba, ice-cream cart (shutter), brick kiln; wares on the counter by count, people queuing, and a menu board whose price is struck and repainted with a repaint-cost tag",
+   "tags": [
+    "ठेला",
+    "टपरी",
+    "चाय की दुकान",
+    "समोसा",
+    "हलवाई",
+    "ढाबा",
+    "मेनू",
+    "ईंट भट्ठा",
+    "stall",
+    "tea stall",
+    "tapri",
+    "samosa stall",
+    "sweet shop",
+    "halwai",
+    "dhaba",
+    "ice cream cart",
+    "menu board",
+    "menu cost",
+    "brick kiln"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 800,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "kind": {
+     "type": "choice",
+     "choices": [
+      "tea",
+      "samosa",
+      "momo",
+      "sweets",
+      "dhaba",
+      "icecream",
+      "kiln"
+     ],
+     "default": "tea"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "name board"
+    },
+    "items": {
+     "type": "text",
+     "default": "",
+     "what": "menu: name:price;…"
+    },
+    "strike": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 6,
+     "what": "1-based menu price struck"
+    },
+    "new": {
+     "type": "text",
+     "default": "",
+     "what": "the new price written beside it"
+    },
+    "cost": {
+     "type": "text",
+     "default": "",
+     "what": "a repaint-cost tag over the board"
+    },
+    "count": {
+     "type": "int",
+     "default": 3,
+     "min": 0,
+     "max": 12,
+     "what": "cups, plates or trays on the counter"
+    },
+    "size": {
+     "type": "choice",
+     "choices": [
+      "small",
+      "big"
+     ],
+     "default": "small",
+     "what": "kadhai size"
+    },
+    "open": {
+     "type": "bool",
+     "default": true,
+     "what": "ice-cream cart: shutter up"
+    },
+    "smoke": {
+     "type": "bool",
+     "default": true,
+     "what": "kiln smoke"
+    },
+    "queue": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 10
+    },
+    "color": {
+     "type": "color",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "natureSign": {
+   "anchor": "center",
+   "what": "a weather or farm sign that pops beside a map pin or a curve: sun, rain, cloud, storm, frost, drought, healthy crop, flood, fire, sheep, buffalo, heart (health), the ozone layer thinning, and a shock bolt with + or − that flashes on its step",
+   "tags": [
+    "धूप",
+    "बारिश",
+    "बादल",
+    "तूफ़ान",
+    "पाला",
+    "सूखा",
+    "फ़सल",
+    "बाढ़",
+    "आग",
+    "भेड़",
+    "भैंस",
+    "सेहत",
+    "झटका",
+    "ओज़ोन",
+    "sun",
+    "rain",
+    "cloud",
+    "storm",
+    "frost",
+    "drought",
+    "crop",
+    "flood",
+    "fire",
+    "sheep",
+    "buffalo",
+    "heart",
+    "health",
+    "shock",
+    "bolt",
+    "ozone",
+    "monsoon",
+    "weather"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 300,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "kind": {
+     "type": "choice",
+     "choices": [
+      "sun",
+      "rain",
+      "cloud",
+      "storm",
+      "frost",
+      "drought",
+      "crop",
+      "flood",
+      "fire",
+      "bolt",
+      "sheep",
+      "buffalo",
+      "heart",
+      "ozone"
+     ],
+     "default": "sun"
+    },
+    "on": {
+     "type": "bool",
+     "default": true,
+     "what": "rain falling"
+    },
+    "sign": {
+     "type": "choice",
+     "choices": [
+      "",
+      "+",
+      "−",
+      "-"
+     ],
+     "default": "",
+     "what": "bolt: a good or a bad shock"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "plate below"
+    },
+    "color": {
+     "type": "color",
+     "default": ""
+    },
+    "level": {
+     "type": "number",
+     "default": 1,
+     "min": 0,
+     "max": 1,
+     "what": "ozone: thickness"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "cityMap": {
+   "anchor": "center",
+   "what": "one city as a map: a detailed street map whose streets, blocks and river fade out by detail until only the simple metro map is left (a model keeps what matters)",
+   "tags": [
+    "नक़्शा",
+    "शहर",
+    "मेट्रो नक़्शा",
+    "मॉडल",
+    "map",
+    "city",
+    "street map",
+    "metro map",
+    "model",
+    "simplify",
+    "abstraction"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 760,
+     "min": 10,
+     "max": 1900,
+     "what": "width px"
+    },
+    "detail": {
+     "type": "number",
+     "default": 1,
+     "min": 0,
+     "max": 1,
+     "what": "1: every street .. 0: metro lines only"
+    },
+    "stations": {
+     "type": "text",
+     "default": "",
+     "what": "station names in order, separated by ;"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "plate above"
+    }
+   },
+   "since": "2026-11-05"
+  }
+ }
+}

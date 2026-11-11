@@ -1,0 +1,2469 @@
+{
+ "schema": "bie.saancha-manifest/1",
+ "licence": "MIT (BIE)",
+ "provenance": "BIE's own drawings (families/econ_finance.mjs), built 5 November 2026 for the finance and macro needs of the Sloman Economics chapter workers (58 needs, 488 beats); no logos, real landmarks or real persons; words only through parameters",
+ "saanche": {
+  "circularFlow": {
+   "anchor": "center",
+   "what": "the circular flow: households and firms with an outer money loop and an inner real loop (goods, labour) running opposite ways, goods market on top and factor market below (mode goods), or the money ring with withdrawals S, T, M leaving for their sectors and injections I, G, X joining the firms, each as thick as its amount, W and J totals, income counting up (mode income); an enclosing environment ring with resources in and wastes out",
+   "tags": [
+    "चक्रीय प्रवाह",
+    "आय का प्रवाह",
+    "रिसाव",
+    "निवेश",
+    "बचत",
+    "परिवार और कंपनियाँ",
+    "पर्यावरण",
+    "circular flow",
+    "two loops",
+    "withdrawals",
+    "injections",
+    "leakages",
+    "W = J",
+    "households firms",
+    "national income"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1500,
+     "min": 500,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "mode": {
+     "type": "choice",
+     "default": "goods",
+     "choices": [
+      "goods",
+      "income"
+     ]
+    },
+    "households": {
+     "type": "text",
+     "default": "",
+     "what": "households' name plate"
+    },
+    "firms": {
+     "type": "text",
+     "default": "",
+     "what": "firms' name plate"
+    },
+    "top": {
+     "type": "text",
+     "default": "",
+     "what": "goods: the market named on top"
+    },
+    "bottom": {
+     "type": "text",
+     "default": "",
+     "what": "goods: the market named below"
+    },
+    "arrows": {
+     "type": "text",
+     "default": "",
+     "what": "goods: money top;real top;money bottom;real bottom labels (spending;goods;wages;labour); income: top;bottom (Cd;Y)"
+    },
+    "moneyToken": {
+     "type": "choice",
+     "default": "coin",
+     "choices": [
+      "coin",
+      "note"
+     ]
+    },
+    "realToken": {
+     "type": "choice",
+     "default": "goods",
+     "choices": [
+      "goods",
+      "labour"
+     ],
+     "what": "what the inner bottom loop carries"
+    },
+    "active": {
+     "type": "choice",
+     "default": "all",
+     "choices": [
+      "all",
+      "money",
+      "real",
+      "top",
+      "bottom",
+      "none"
+     ],
+     "what": "which loops run (the rest dashed)"
+    },
+    "size": {
+     "type": "number",
+     "default": 1,
+     "min": 0.2,
+     "max": 3,
+     "what": "thickness of the whole flow (expansion, contraction)"
+    },
+    "speed": {
+     "type": "number",
+     "default": 0.25,
+     "min": 0,
+     "max": 3,
+     "what": "trips per second"
+    },
+    "leaks": {
+     "type": "text",
+     "default": "",
+     "what": "income: S:20;T:30;M:10"
+    },
+    "injections": {
+     "type": "text",
+     "default": "",
+     "what": "income: I:25;G:30;X:15"
+    },
+    "sectors": {
+     "type": "text",
+     "default": "",
+     "what": "income: the sector boxes, e.g. बैंक;सरकार;विदेश"
+    },
+    "lit": {
+     "type": "text",
+     "default": "",
+     "what": "income: names of the lit branches, e.g. S,I (empty: all)"
+    },
+    "income": {
+     "type": "text",
+     "default": "",
+     "what": "income: the ring amount Y (top shows Y − W)"
+    },
+    "incomeFrom": {
+     "type": "text",
+     "default": "",
+     "what": "income: Y counts from this to income after the step"
+    },
+    "brackets": {
+     "type": "bool",
+     "default": false,
+     "what": "income: W and J totals (green when equal)"
+    },
+    "wLabel": {
+     "type": "text",
+     "default": "W"
+    },
+    "jLabel": {
+     "type": "text",
+     "default": "J"
+    },
+    "unit": {
+     "type": "text",
+     "default": "",
+     "what": "unit: ₹, $, % or a word (₹ करोड़ puts ₹ before and करोड़ after)"
+    },
+    "glide": {
+     "type": "number",
+     "default": 2,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds the change after a step takes"
+    },
+    "outer": {
+     "type": "text",
+     "default": "",
+     "what": "the enclosing ring's name (the environment)"
+    },
+    "inputs": {
+     "type": "text",
+     "default": "",
+     "what": "arrow from the ring into firms"
+    },
+    "outputs": {
+     "type": "text",
+     "default": "",
+     "what": "arrow from households to the ring"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "chainRounds": {
+   "anchor": "center",
+   "what": "a round-by-round chain process the drawing computes: one amount travels through stops (banks, shops, people); at each a share is kept (reserves) and a share leaks (cash held, saving), the rest moves on; round n lights on its step (the note travels, slices drop, the total bar adds its block) and the total climbs to its limit start/(keep+leak); view bars draws the rounds as shrinking bars (multiplier tower)",
+   "tags": [
+    "गुणक",
+    "साख सृजन",
+    "ऋण सृजन",
+    "रिज़र्व",
+    "नकद रिसाव",
+    "दौर",
+    "multiplier",
+    "credit creation",
+    "money multiplier",
+    "rounds",
+    "cash leakage",
+    "reserve ratio",
+    "chain",
+    "deposit multiplier"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1600,
+     "min": 600,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "start": {
+     "type": "number",
+     "default": 100,
+     "min": 0,
+     "max": 1000000000.0,
+     "what": "first amount"
+    },
+    "keep": {
+     "type": "number",
+     "default": 0.1,
+     "min": 0,
+     "max": 1,
+     "what": "share kept at each stop"
+    },
+    "leak": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "share leaving the chain at each stop"
+    },
+    "rounds": {
+     "type": "int",
+     "default": 4,
+     "min": 1,
+     "max": 6,
+     "what": "stops drawn before the dots"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 6,
+     "what": "rounds lit so far (0: all); the newest plays over glide"
+    },
+    "final": {
+     "type": "bool",
+     "default": false,
+     "what": "jump the total to its limit"
+    },
+    "view": {
+     "type": "choice",
+     "default": "row",
+     "choices": [
+      "row",
+      "bars"
+     ]
+    },
+    "node": {
+     "type": "choice",
+     "default": "bank",
+     "choices": [
+      "house",
+      "firm",
+      "factory",
+      "government",
+      "office",
+      "shop",
+      "warehouse",
+      "tower",
+      "exchange",
+      "bank",
+      "centralBank",
+      "people",
+      "person",
+      "globe",
+      "box"
+     ],
+     "what": "picture of a stop"
+    },
+    "names": {
+     "type": "text",
+     "default": "",
+     "what": "names of the stops, ;-separated"
+    },
+    "keepLabel": {
+     "type": "text",
+     "default": "",
+     "what": "legend for the kept slice"
+    },
+    "leakLabel": {
+     "type": "text",
+     "default": "",
+     "what": "legend for the leaked slice"
+    },
+    "passLabel": {
+     "type": "text",
+     "default": "",
+     "what": "bars: legend for the share passed on"
+    },
+    "total": {
+     "type": "bool",
+     "default": true,
+     "what": "the running total bar"
+    },
+    "limit": {
+     "type": "bool",
+     "default": true,
+     "what": "write the limit above the bar"
+    },
+    "totalLabel": {
+     "type": "text",
+     "default": "",
+     "what": "under the total bar"
+    },
+    "unit": {
+     "type": "text",
+     "default": "",
+     "what": "unit: ₹, $, % or a word (₹ करोड़ puts ₹ before and करोड़ after)"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.6,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds the change after a step takes"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "tank": {
+   "anchor": "bottom",
+   "what": "a stock-flow tank: water level is the stock, taps pour flows in and spouts let flows out, each as wide as its rate; the level glides from where it was to where it goes after the step, or settles like a leaky tank whose outflow grows with the level (W = J); level marks, a stand plate, a stopped or running clock (stock vs flow)",
+   "tags": [
+    "टंकी",
+    "स्टॉक",
+    "प्रवाह",
+    "नल",
+    "रिसाव",
+    "स्तर",
+    "tank",
+    "stock and flow",
+    "inflow outflow",
+    "leaky bucket",
+    "water tank",
+    "level",
+    "bathtub"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 800,
+     "min": 200,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "level": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0,
+     "max": 1,
+     "what": "where the water goes (0..1)"
+    },
+    "from": {
+     "type": "number",
+     "default": -1,
+     "min": -1,
+     "max": 1,
+     "what": "where it was at the step (-1: no motion)"
+    },
+    "settle": {
+     "type": "bool",
+     "default": false,
+     "what": "approach the level like a leaky tank (outflow grows with the level)"
+    },
+    "grows": {
+     "type": "bool",
+     "default": false,
+     "what": "spout jets grow with the level"
+    },
+    "ins": {
+     "type": "text",
+     "default": "",
+     "what": "taps in: label:rate;… rate 0..1 (up to 3), e.g. निवेश (J):0.6"
+    },
+    "outs": {
+     "type": "text",
+     "default": "",
+     "what": "spouts out: label:rate;… (up to 3)"
+    },
+    "marks": {
+     "type": "text",
+     "default": "",
+     "what": "level marks: 0.3:Y₁;0.7:Y₂"
+    },
+    "value": {
+     "type": "text",
+     "default": "",
+     "what": "text on the water"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "plate on the stand"
+    },
+    "clock": {
+     "type": "choice",
+     "default": "none",
+     "choices": [
+      "none",
+      "stock",
+      "flow"
+     ]
+    },
+    "color": {
+     "type": "color",
+     "default": "",
+     "what": "water colour"
+    },
+    "glide": {
+     "type": "number",
+     "default": 2.5,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds the change after a step takes"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "balanceSheet": {
+   "anchor": "center",
+   "what": "a two-sided balance sheet (T-account): assets left, liabilities and capital right, rows entering on cue, a value gliding from its old amount, totals that balance (tick) or not (cross), the capital row a cushion; view blocks stacks both sides by size and a loss eats the top asset and the capital cushion (insolvent when it is gone)",
+   "tags": [
+    "बैलेंस शीट",
+    "तुलन पत्र",
+    "संपत्ति",
+    "देनदारी",
+    "पूंजी",
+    "टी खाता",
+    "balance sheet",
+    "T-account",
+    "assets",
+    "liabilities",
+    "capital",
+    "equity cushion",
+    "solvency",
+    "bank balance sheet"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1200,
+     "min": 400,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "view": {
+     "type": "choice",
+     "default": "table",
+     "choices": [
+      "table",
+      "blocks"
+     ]
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    },
+    "leftHead": {
+     "type": "text",
+     "default": "",
+     "what": "assets head"
+    },
+    "rightHead": {
+     "type": "text",
+     "default": "",
+     "what": "liabilities head"
+    },
+    "assets": {
+     "type": "text",
+     "default": "",
+     "what": "label:value;… (value may glide: कर्ज़:70<80)"
+    },
+    "liabilities": {
+     "type": "text",
+     "default": "",
+     "what": "label:value;…"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 6,
+     "what": "rows shown on each side (0: all)"
+    },
+    "glow": {
+     "type": "text",
+     "default": "",
+     "what": "rows to frame, e.g. a2,l1"
+    },
+    "capital": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 6,
+     "what": "which liabilities row is the capital cushion (0: the last)"
+    },
+    "cushion": {
+     "type": "bool",
+     "default": true
+    },
+    "totals": {
+     "type": "bool",
+     "default": true
+    },
+    "totalLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "loss": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000000000.0,
+     "what": "blocks: a loss eating assets and capital"
+    },
+    "lossLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "brokeLabel": {
+     "type": "text",
+     "default": "",
+     "what": "blocks: shown when capital is gone"
+    },
+    "unit": {
+     "type": "text",
+     "default": "",
+     "what": "unit: ₹, $, % or a word (₹ करोड़ puts ₹ before and करोड़ after)"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.5,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds the change after a step takes"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "timeValue": {
+   "anchor": "center",
+   "what": "value through time: amounts on a time axis (years, months or hours of a day) travel to now shrinking by the discount factor each period and by the present-bias factor if not immediate (dir back), or grow to the last year by (1+r) (dir forward); they stack and sum at the end beside a cost judged by a tick or cross; several rates draw one lane each; now can move",
+   "tags": [
+    "वर्तमान मूल्य",
+    "छूट",
+    "चक्रवृद्धि",
+    "समय",
+    "ब्याज",
+    "भविष्य मूल्य",
+    "present value",
+    "discounting",
+    "compounding",
+    "future value",
+    "time preference",
+    "present bias",
+    "net present value",
+    "discount rate"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1500,
+     "min": 500,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "periods": {
+     "type": "int",
+     "default": 3,
+     "min": 1,
+     "max": 60,
+     "what": "periods on the axis"
+    },
+    "slots": {
+     "type": "text",
+     "default": "",
+     "what": "names of the slots from now: आज;1 साल;2 साल"
+    },
+    "amounts": {
+     "type": "text",
+     "default": "",
+     "what": "value@slot;… or label:value@slot (negative for costs)"
+    },
+    "rate": {
+     "type": "text",
+     "default": "0.1",
+     "what": "rate per period, or several rates ;-separated (one lane each)"
+    },
+    "d": {
+     "type": "text",
+     "default": "",
+     "what": "discount factor per period instead of rate"
+    },
+    "b": {
+     "type": "number",
+     "default": 1,
+     "min": 0,
+     "max": 1,
+     "what": "present-bias factor on anything later than now"
+    },
+    "dir": {
+     "type": "choice",
+     "default": "back",
+     "choices": [
+      "back",
+      "forward"
+     ]
+    },
+    "now": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 60,
+     "what": "the vantage slot"
+    },
+    "travel": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 6,
+     "what": "amounts that have travelled; the newest moves over glide"
+    },
+    "sum": {
+     "type": "bool",
+     "default": false,
+     "what": "sum the arrived values"
+    },
+    "net": {
+     "type": "bool",
+     "default": false,
+     "what": "the sum minus the cost"
+    },
+    "sumLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "cost": {
+     "type": "text",
+     "default": "",
+     "what": "cost paid today"
+    },
+    "costLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "judge": {
+     "type": "bool",
+     "default": true
+    },
+    "showFactor": {
+     "type": "choice",
+     "default": "none",
+     "choices": [
+      "none",
+      "number",
+      "symbol"
+     ],
+     "what": "×0.909 (or ×d) between slots"
+    },
+    "laneLabels": {
+     "type": "text",
+     "default": "",
+     "what": "names of the lanes (default: the rates)"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    },
+    "unit": {
+     "type": "text",
+     "default": "",
+     "what": "unit: ₹, $, % or a word (₹ करोड़ puts ₹ before and करोड़ after)"
+    },
+    "glide": {
+     "type": "number",
+     "default": 2,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds the change after a step takes"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "gambleTree": {
+   "anchor": "center",
+   "what": "a gamble tree: branches from a chance point, each with its probability and outcome; p × outcome terms at the ends that fly into one expected-value pill on the step; a sure path beside it; a step that changes a probability recomputes the terms",
+   "tags": [
+    "जुआ",
+    "संभावना",
+    "अपेक्षित मूल्य",
+    "जोखिम",
+    "लॉटरी",
+    "gamble",
+    "probability",
+    "expected value",
+    "risk",
+    "decision tree",
+    "lottery",
+    "sure thing"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1400,
+     "min": 500,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "branches": {
+     "type": "text",
+     "default": "",
+     "what": "label:p:outcome;… (2 to 4), p as 0.1, 1/10 or 10%"
+    },
+    "sure": {
+     "type": "text",
+     "default": "",
+     "what": "label:value of a sure path"
+    },
+    "terms": {
+     "type": "bool",
+     "default": true
+    },
+    "ev": {
+     "type": "bool",
+     "default": true
+    },
+    "fly": {
+     "type": "bool",
+     "default": false,
+     "what": "terms slide into the EV pill over glide after the step"
+    },
+    "evLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "glow": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 4,
+     "what": "the lit branch (0: all)"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    },
+    "unit": {
+     "type": "text",
+     "default": "",
+     "what": "unit: ₹, $, % or a word (₹ करोड़ puts ₹ before and करोड़ after)"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.5,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds the change after a step takes"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "insurancePool": {
+   "anchor": "center",
+   "what": "an insurance pool: many members pay a premium into one pot (coins fly in on phase premium), each year a share of them has an accident and is paid a claim (notes fly out on phase claim); two risk groups, one of which can walk out (adverse selection); a ledger computes premiums in, claims out, admin and the margin",
+   "tags": [
+    "बीमा",
+    "प्रीमियम",
+    "दावा",
+    "जोखिम समूह",
+    "प्रतिकूल चयन",
+    "insurance",
+    "premium",
+    "claims",
+    "risk pooling",
+    "adverse selection",
+    "law of large numbers",
+    "pool"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1500,
+     "min": 500,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "n": {
+     "type": "int",
+     "default": 40,
+     "min": 1,
+     "max": 100,
+     "what": "members drawn"
+    },
+    "premium": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000000000.0
+    },
+    "claim": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000000000.0
+    },
+    "share": {
+     "type": "number",
+     "default": 0.05,
+     "min": 0,
+     "max": 1,
+     "what": "share hit per year"
+    },
+    "admin": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000000000.0,
+     "what": "cost per policy"
+    },
+    "types": {
+     "type": "text",
+     "default": "",
+     "what": "two groups label:share;label:share (e.g. कम जोखिम:0.01;ज़्यादा जोखिम:0.09)"
+    },
+    "leave": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 2,
+     "what": "the group that walks out (0: none)"
+    },
+    "phase": {
+     "type": "choice",
+     "default": "none",
+     "choices": [
+      "none",
+      "premium",
+      "claim"
+     ]
+    },
+    "year": {
+     "type": "int",
+     "default": 1,
+     "min": 0,
+     "max": 9999,
+     "what": "the year (which members are hit)"
+    },
+    "labels": {
+     "type": "text",
+     "default": "",
+     "what": "ledger rows: premiums;claims;admin;margin"
+    },
+    "totals": {
+     "type": "bool",
+     "default": true
+    },
+    "countLabel": {
+     "type": "text",
+     "default": "",
+     "what": "writes how many were hit out of how many"
+    },
+    "pot": {
+     "type": "text",
+     "default": "",
+     "what": "plate under the pot"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    },
+    "unit": {
+     "type": "text",
+     "default": "",
+     "what": "unit: ₹, $, % or a word (₹ करोड़ puts ₹ before and करोड़ after)"
+    },
+    "glide": {
+     "type": "number",
+     "default": 2,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds the change after a step takes"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "queueLine": {
+   "anchor": "bottom",
+   "what": "a queue served while stock lasts: people (or trucks) before a counter, gate, ticket window, operation theatre or bank counter; the counter serves rate per second from the step, the stock falls, at stock 0 a bar drops and the rest turn away or join a waiting list; urgent ones jump ahead, more join at the back, a bank counter's vault drains (a run on the bank)",
+   "tags": [
+    "कतार",
+    "लाइन",
+    "राशन",
+    "टिकट",
+    "प्रतीक्षा सूची",
+    "बैंक रन",
+    "queue",
+    "waiting list",
+    "first come first served",
+    "rationing",
+    "shortage",
+    "bank run",
+    "tatkal"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1600,
+     "min": 500,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "n": {
+     "type": "int",
+     "default": 10,
+     "min": 0,
+     "max": 40,
+     "what": "people in line"
+    },
+    "stock": {
+     "type": "number",
+     "default": 5,
+     "min": 0,
+     "max": 1000000.0,
+     "what": "units left at the counter"
+    },
+    "served": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000000.0,
+     "what": "already served before the step"
+    },
+    "rate": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 20,
+     "what": "served per second after the step"
+    },
+    "joinRate": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 20,
+     "what": "people joining per second"
+    },
+    "urgent": {
+     "type": "text",
+     "default": "",
+     "what": "line places that jump ahead, e.g. 3,7"
+    },
+    "place": {
+     "type": "choice",
+     "default": "counter",
+     "choices": [
+      "counter",
+      "gate",
+      "theatre",
+      "bank",
+      "office",
+      "ration"
+     ]
+    },
+    "who": {
+     "type": "choice",
+     "default": "people",
+     "choices": [
+      "people",
+      "trucks"
+     ]
+    },
+    "cut": {
+     "type": "bool",
+     "default": true,
+     "what": "the bar that drops at stock 0"
+    },
+    "cutLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "turnAway": {
+     "type": "choice",
+     "default": "leave",
+     "choices": [
+      "leave",
+      "wait"
+     ]
+    },
+    "waiting": {
+     "type": "text",
+     "default": "",
+     "what": "waiting list count before"
+    },
+    "waitLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "plate over the counter"
+    },
+    "stockLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "showStock": {
+     "type": "bool",
+     "default": true
+    },
+    "unit": {
+     "type": "text",
+     "default": "",
+     "what": "unit: ₹, $, % or a word (₹ करोड़ puts ₹ before and करोड़ after)"
+    },
+    "vault": {
+     "type": "bool",
+     "default": true
+    },
+    "vaultFull": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000000000.0,
+     "what": "bank: stock that fills the vault (0: the starting stock)"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "contagion": {
+   "anchor": "center",
+   "what": "contagion between institutions: banks, domino tiles or named discs in a row or ring joined by lending links with money moving; fail gives the order of the falls, upto = n makes the n-th fall over glide (cracks and tilts, tips onto the next); links of a fallen one freeze; a firewall or capital buffer stops it (shakes and stands); a rescuer's lifeline holds the rescued",
+   "tags": [
+    "संक्रमण",
+    "बैंक संकट",
+    "डोमिनो",
+    "बचाव",
+    "जाल",
+    "contagion",
+    "domino",
+    "bank failure",
+    "systemic risk",
+    "interbank",
+    "bail-out",
+    "firewall",
+    "financial crisis",
+    "network"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1500,
+     "min": 500,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "n": {
+     "type": "int",
+     "default": 5,
+     "min": 2,
+     "max": 8
+    },
+    "names": {
+     "type": "text",
+     "default": "",
+     "what": ";-separated"
+    },
+    "sizes": {
+     "type": "text",
+     "default": "",
+     "what": "size per institution, e.g. 1,2,1 (2: big)"
+    },
+    "layout": {
+     "type": "choice",
+     "default": "row",
+     "choices": [
+      "row",
+      "ring"
+     ]
+    },
+    "style": {
+     "type": "choice",
+     "default": "bank",
+     "choices": [
+      "bank",
+      "domino",
+      "disc"
+     ]
+    },
+    "links": {
+     "type": "text",
+     "default": "",
+     "what": "1>2;2>3 (default: neighbours)"
+    },
+    "fail": {
+     "type": "text",
+     "default": "",
+     "what": "order of the falls, e.g. 2,3,4"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 8,
+     "what": "falls so far"
+    },
+    "stop": {
+     "type": "text",
+     "default": "",
+     "what": "ones that hold (a wall or buffer)"
+    },
+    "stopLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "rescued": {
+     "type": "text",
+     "default": "",
+     "what": "ones held by a lifeline"
+    },
+    "rescuer": {
+     "type": "text",
+     "default": "",
+     "what": "the rescuer's plate"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.2,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds the change after a step takes"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "securitisation": {
+   "anchor": "center",
+   "what": "a securitisation chain: loans travel from the lender into a pool owned by an SPV, the pool is cut into tranches (CDOs) that go to the noteholders, cash comes back (stage 0..4, each playing over glide); defaults turn loans red, losses fill the tranches from equity up and the holders of a hit tranche turn red; a RISK tag travels with the loans",
+   "tags": [
+    "प्रतिभूतिकरण",
+    "सबप्राइम",
+    "ऋण पूल",
+    "CDO",
+    "जोखिम",
+    "securitisation",
+    "securitization",
+    "CDO",
+    "SPV",
+    "tranches",
+    "subprime",
+    "mortgage-backed",
+    "risk transfer"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1600,
+     "min": 600,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "stage": {
+     "type": "int",
+     "default": 4,
+     "min": 0,
+     "max": 4,
+     "what": "0 loans at the lender, 1 into the pool, 2 cut into tranches, 3 to the holders, 4 cash back"
+    },
+    "loans": {
+     "type": "int",
+     "default": 16,
+     "min": 4,
+     "max": 24
+    },
+    "default": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "share of loans in default"
+    },
+    "originator": {
+     "type": "text",
+     "default": ""
+    },
+    "spv": {
+     "type": "text",
+     "default": ""
+    },
+    "tranches": {
+     "type": "text",
+     "default": "",
+     "what": "label:size;… top first (Senior:70;Mezzanine:20;Equity:10)"
+    },
+    "holders": {
+     "type": "text",
+     "default": "",
+     "what": "up to 3 noteholders"
+    },
+    "risk": {
+     "type": "bool",
+     "default": false
+    },
+    "riskLabel": {
+     "type": "text",
+     "default": "RISK"
+    },
+    "cashLabel": {
+     "type": "text",
+     "default": "",
+     "what": "on the cash line"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.6,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds the change after a step takes"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "layers": {
+   "anchor": "bottom",
+   "what": "a layer stack on a % axis (Basel III capital: Tier 2, AT1, CET1, buffers) built one layer per step with cumulative marks and a buffer that fills or empties (mode stack), or a liquidity ladder from cash (top) to the least liquid asset with growing return tags and a cut line (mode ladder)",
+   "tags": [
+    "पूंजी पर्याप्तता",
+    "बफ़र",
+    "तरलता सीढ़ी",
+    "बेसल",
+    "परतें",
+    "Basel III",
+    "capital stack",
+    "capital buffers",
+    "liquidity ladder",
+    "liquidity",
+    "CET1",
+    "layers"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 900,
+     "min": 300,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "mode": {
+     "type": "choice",
+     "default": "stack",
+     "choices": [
+      "stack",
+      "ladder"
+     ]
+    },
+    "layers": {
+     "type": "text",
+     "default": "",
+     "what": "label:value;… stack: bottom first; ladder: top first (value = return)"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 8,
+     "what": "layers built so far (0: all)"
+    },
+    "marks": {
+     "type": "text",
+     "default": "",
+     "what": "stack: cumulative marks 8;10.5 or 8:label"
+    },
+    "fillLayer": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 8,
+     "what": "stack: the buffer that fills"
+    },
+    "fill": {
+     "type": "number",
+     "default": 1,
+     "min": 0,
+     "max": 1
+    },
+    "max": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000,
+     "what": "stack: axis top (0: the total)"
+    },
+    "at": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 8,
+     "what": "the layer or rung framed"
+    },
+    "cut": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 8,
+     "what": "ladder: cut after this rung"
+    },
+    "cutLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "cutBelow": {
+     "type": "text",
+     "default": ""
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    },
+    "unit": {
+     "type": "text",
+     "default": "%"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.2,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds the change after a step takes"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "pricePath": {
+   "anchor": "center",
+   "what": "a price over time drawn by the graph saancha: given points or a seeded random walk with a drift, a bubble and a burst; it draws itself at the voice's speed, shades above and below a reference price (futures, short selling), shades the bubble gap over a fundamental value line, marks events and rides a dot with its live value",
+   "tags": [
+    "कीमत",
+    "शेयर बाज़ार",
+    "बुलबुला",
+    "वायदा",
+    "शॉर्ट सेलिंग",
+    "price path",
+    "share price",
+    "bubble",
+    "futures",
+    "short selling",
+    "random walk",
+    "house prices",
+    "stock market"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1400,
+     "min": 1100,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "points": {
+     "type": "text",
+     "default": "",
+     "what": "x,y x,y … (empty: a random walk)"
+    },
+    "seed": {
+     "type": "int",
+     "default": 7,
+     "min": 1,
+     "max": 99999
+    },
+    "steps": {
+     "type": "int",
+     "default": 40,
+     "min": 4,
+     "max": 200
+    },
+    "start": {
+     "type": "number",
+     "default": 50,
+     "min": -1000000.0,
+     "max": 1000000.0
+    },
+    "drift": {
+     "type": "number",
+     "default": 0,
+     "min": -100,
+     "max": 100
+    },
+    "vol": {
+     "type": "number",
+     "default": 1,
+     "min": 0,
+     "max": 1000
+    },
+    "bubble": {
+     "type": "text",
+     "default": "",
+     "what": "walk: steps of the boom, e.g. 15,30"
+    },
+    "boom": {
+     "type": "number",
+     "default": 2,
+     "min": -100,
+     "max": 100,
+     "what": "rise per boom step"
+    },
+    "burst": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 200,
+     "what": "step of the crash (0: none)"
+    },
+    "ref": {
+     "type": "text",
+     "default": "",
+     "what": "a reference price (agreed futures price)"
+    },
+    "refLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "aboveLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "belowLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "shade": {
+     "type": "bool",
+     "default": true
+    },
+    "base": {
+     "type": "text",
+     "default": "",
+     "what": "fundamental value points x,y …"
+    },
+    "baseName": {
+     "type": "text",
+     "default": ""
+    },
+    "gap": {
+     "type": "bool",
+     "default": true
+    },
+    "gapLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "events": {
+     "type": "text",
+     "default": "",
+     "what": "x:label;…"
+    },
+    "drawIn": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 30,
+     "what": "seconds to draw the path"
+    },
+    "fromStep": {
+     "type": "bool",
+     "default": false,
+     "what": "draw from the last step instead of the start"
+    },
+    "upto": {
+     "type": "text",
+     "default": "",
+     "what": "draw only up to this x"
+    },
+    "dot": {
+     "type": "bool",
+     "default": true
+    },
+    "dotLabel": {
+     "type": "text",
+     "default": "",
+     "what": "{y} is the live value"
+    },
+    "name": {
+     "type": "text",
+     "default": ""
+    },
+    "smooth": {
+     "type": "bool",
+     "default": false
+    },
+    "ymin": {
+     "type": "text",
+     "default": ""
+    },
+    "ymax": {
+     "type": "text",
+     "default": ""
+    },
+    "xLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "yLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "xTicks": {
+     "type": "text",
+     "default": ""
+    },
+    "yTicks": {
+     "type": "text",
+     "default": ""
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "rateCorridor": {
+   "anchor": "center",
+   "what": "the interest-rate corridor drawn by the graph saancha: ceiling (lending facility), policy rate and floor (deposit facility) over time, the band shaded, the overnight market rate as a dot wandering inside and drawing its trail; floor mode fades the ceiling, a given path can break out of the band, omo pushes the dot back",
+   "tags": [
+    "ब्याज दर गलियारा",
+    "रेपो",
+    "रिवर्स रेपो",
+    "नीतिगत दर",
+    "बाज़ार दर",
+    "interest rate corridor",
+    "floor system",
+    "policy rate",
+    "overnight rate",
+    "repo",
+    "standing facility",
+    "open market operations"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1400,
+     "min": 1100,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "ceiling": {
+     "type": "number",
+     "default": 6,
+     "min": -10,
+     "max": 100
+    },
+    "policy": {
+     "type": "number",
+     "default": 5,
+     "min": -10,
+     "max": 100
+    },
+    "floor": {
+     "type": "number",
+     "default": 4,
+     "min": -10,
+     "max": 100
+    },
+    "labels": {
+     "type": "text",
+     "default": "",
+     "what": "ceiling;policy;floor names"
+    },
+    "mode": {
+     "type": "choice",
+     "default": "corridor",
+     "choices": [
+      "corridor",
+      "floor",
+      "broken"
+     ]
+    },
+    "path": {
+     "type": "text",
+     "default": "",
+     "what": "time:rate;… (empty: a wander)"
+    },
+    "wander": {
+     "type": "number",
+     "default": 0.6,
+     "min": 0,
+     "max": 1
+    },
+    "span": {
+     "type": "number",
+     "default": 10,
+     "min": 1,
+     "max": 100,
+     "what": "time span"
+    },
+    "speed": {
+     "type": "number",
+     "default": 1,
+     "min": 0.05,
+     "max": 20,
+     "what": "time units per second"
+    },
+    "omo": {
+     "type": "bool",
+     "default": false,
+     "what": "push the dot back to the policy rate"
+    },
+    "omoLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "dotLabel": {
+     "type": "text",
+     "default": "{y}%"
+    },
+    "xLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "yLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "xTicks": {
+     "type": "text",
+     "default": ""
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "moneySplit": {
+   "anchor": "center",
+   "what": "one amount that splits into labelled parts, each as big as its amount, and each part flies on its own step to its destination (GST to the tax office, imports to the port, the rest to a factory)",
+   "tags": [
+    "बँटवारा",
+    "हिस्से",
+    "कर",
+    "आयात",
+    "खर्च का बँटवारा",
+    "split",
+    "parts",
+    "where money goes",
+    "tax",
+    "imports",
+    "consumption",
+    "leakages"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1500,
+     "min": 500,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "total": {
+     "type": "text",
+     "default": "",
+     "what": "the whole (default: the sum)"
+    },
+    "parts": {
+     "type": "text",
+     "default": "",
+     "what": "label:amount:destination@picture;… (up to 5)"
+    },
+    "split": {
+     "type": "bool",
+     "default": true
+    },
+    "upto": {
+     "type": "text",
+     "default": "",
+     "what": "parts flown so far (empty: all)"
+    },
+    "label": {
+     "type": "text",
+     "default": ""
+    },
+    "unit": {
+     "type": "text",
+     "default": "",
+     "what": "unit: ₹, $, % or a word (₹ करोड़ puts ₹ before and करोड़ after)"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.4,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds the change after a step takes"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "tradeLedger": {
+   "anchor": "center",
+   "what": "a two-way trade between two parties with running ledgers: things (permits, goods) cross one way and money the other on the deal word; each party's ledger values glide and the totals update; a cap pile of permits can shrink",
+   "tags": [
+    "व्यापार",
+    "परमिट",
+    "लेन-देन",
+    "खाता",
+    "कार्बन ट्रेडिंग",
+    "trade",
+    "permits",
+    "cap and trade",
+    "two-way deal",
+    "ledger",
+    "emissions trading",
+    "compensation"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1500,
+     "min": 500,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "left": {
+     "type": "text",
+     "default": ""
+    },
+    "right": {
+     "type": "text",
+     "default": ""
+    },
+    "leftKind": {
+     "type": "choice",
+     "default": "factory",
+     "choices": [
+      "house",
+      "firm",
+      "factory",
+      "government",
+      "office",
+      "shop",
+      "warehouse",
+      "tower",
+      "exchange",
+      "bank",
+      "centralBank",
+      "people",
+      "person",
+      "globe",
+      "box"
+     ]
+    },
+    "rightKind": {
+     "type": "choice",
+     "default": "factory",
+     "choices": [
+      "house",
+      "firm",
+      "factory",
+      "government",
+      "office",
+      "shop",
+      "warehouse",
+      "tower",
+      "exchange",
+      "bank",
+      "centralBank",
+      "people",
+      "person",
+      "globe",
+      "box"
+     ]
+    },
+    "deal": {
+     "type": "bool",
+     "default": false,
+     "what": "the trade happens (plays over glide)"
+    },
+    "items": {
+     "type": "int",
+     "default": 3,
+     "min": 0,
+     "max": 8
+    },
+    "itemKind": {
+     "type": "choice",
+     "default": "slip",
+     "choices": [
+      "slip",
+      "goods",
+      "coin",
+      "note"
+     ]
+    },
+    "itemLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "payLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "leftRows": {
+     "type": "text",
+     "default": "",
+     "what": "label:value;… (value may glide: 20000<40000)"
+    },
+    "rightRows": {
+     "type": "text",
+     "default": ""
+    },
+    "totals": {
+     "type": "bool",
+     "default": true
+    },
+    "totalLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "cap": {
+     "type": "text",
+     "default": "",
+     "what": "slips in the cap pile"
+    },
+    "capFrom": {
+     "type": "text",
+     "default": "",
+     "what": "cap before the step"
+    },
+    "capLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "unit": {
+     "type": "text",
+     "default": "",
+     "what": "unit: ₹, $, % or a word (₹ करोड़ puts ₹ before and करोड़ after)"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.6,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds the change after a step takes"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "road": {
+   "anchor": "center",
+   "what": "a city road seen from above: lanes each way with cars streaming at a density and slowing to a jam, a bus lane, a car-pool lane, a charging gantry with its display, side streets taking diverted cars, kerb parking (free, banned, paid), roadside houses with fumes, or a closed street of walkers",
+   "tags": [
+    "सड़क",
+    "जाम",
+    "यातायात",
+    "भीड़भाड़ शुल्क",
+    "बस लेन",
+    "road",
+    "traffic",
+    "congestion",
+    "road pricing",
+    "bus lane",
+    "toll",
+    "parking",
+    "rat-run"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1600,
+     "min": 600,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "lanes": {
+     "type": "int",
+     "default": 2,
+     "min": 1,
+     "max": 4,
+     "what": "lanes each way"
+    },
+    "cars": {
+     "type": "number",
+     "default": 0.4,
+     "min": 0,
+     "max": 1,
+     "what": "density"
+    },
+    "speed": {
+     "type": "number",
+     "default": 0.7,
+     "min": 0,
+     "max": 1,
+     "what": "flow speed (below 0.3 a jam)"
+    },
+    "busLane": {
+     "type": "bool",
+     "default": false
+    },
+    "hovLane": {
+     "type": "bool",
+     "default": false
+    },
+    "gantry": {
+     "type": "text",
+     "default": "",
+     "what": "charge display text (empty: no gantry)"
+    },
+    "sideStreets": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 3
+    },
+    "sideCars": {
+     "type": "number",
+     "default": 0.3,
+     "min": 0,
+     "max": 1
+    },
+    "parking": {
+     "type": "choice",
+     "default": "none",
+     "choices": [
+      "none",
+      "free",
+      "banned",
+      "paid"
+     ]
+    },
+    "houses": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 8
+    },
+    "fumes": {
+     "type": "bool",
+     "default": false
+    },
+    "pedestrian": {
+     "type": "bool",
+     "default": false,
+     "what": "a closed street with walkers"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "road name plate"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "agents": {
+   "anchor": "center",
+   "what": "a crowd of agents: identical ones that slide together into one representative agent and split back into different people (mode merge), thought bubbles of a belief spreading across a share of them (mode belief: expectations), or people herding to a stall whose price rises with the crowd (mode herd)",
+   "tags": [
+    "प्रतिनिधि एजेंट",
+    "उम्मीदें",
+    "झुंड",
+    "भीड़",
+    "विश्वास",
+    "representative agent",
+    "aggregation",
+    "expectations",
+    "herd behaviour",
+    "beliefs",
+    "crowd",
+    "fallacy of composition"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1400,
+     "min": 500,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "mode": {
+     "type": "choice",
+     "default": "merge",
+     "choices": [
+      "merge",
+      "belief",
+      "herd"
+     ]
+    },
+    "n": {
+     "type": "int",
+     "default": 24,
+     "min": 1,
+     "max": 60
+    },
+    "kinds": {
+     "type": "choice",
+     "default": "people",
+     "choices": [
+      "people",
+      "firms"
+     ]
+    },
+    "merge": {
+     "type": "number",
+     "default": 1,
+     "min": 0,
+     "max": 1
+    },
+    "from": {
+     "type": "number",
+     "default": -1,
+     "min": -1,
+     "max": 1,
+     "what": "merge or share at the step (-1: none)"
+    },
+    "vary": {
+     "type": "bool",
+     "default": false
+    },
+    "react": {
+     "type": "bool",
+     "default": false,
+     "what": "split people react up or down"
+    },
+    "shock": {
+     "type": "bool",
+     "default": false
+    },
+    "share": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0,
+     "max": 1
+    },
+    "belief": {
+     "type": "choice",
+     "default": "up",
+     "choices": [
+      "up",
+      "down",
+      "factory",
+      "rupee",
+      "house"
+     ]
+    },
+    "spread": {
+     "type": "number",
+     "default": 2,
+     "min": 0.1,
+     "max": 30,
+     "what": "seconds for the share to grow"
+    },
+    "rate": {
+     "type": "number",
+     "default": 2,
+     "min": 0,
+     "max": 20,
+     "what": "herd: people per second"
+    },
+    "price": {
+     "type": "number",
+     "default": 100,
+     "min": 0,
+     "max": 1000000000.0
+    },
+    "priceStep": {
+     "type": "number",
+     "default": 5,
+     "min": 0,
+     "max": 1000000.0
+    },
+    "target": {
+     "type": "choice",
+     "default": "shop",
+     "choices": [
+      "shop",
+      "office",
+      "exchange",
+      "warehouse",
+      "house"
+     ]
+    },
+    "label": {
+     "type": "text",
+     "default": ""
+    },
+    "unit": {
+     "type": "text",
+     "default": "₹"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.5,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds the change after a step takes"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "riskDial": {
+   "anchor": "center",
+   "what": "risk against uncertainty: a coin that flips and lands heads or tails, a spinner whose wedge shows a known chance and whose pointer spins and stops, and a dial lost in fog with a question mark",
+   "tags": [
+    "टॉस",
+    "संभावना",
+    "जोखिम",
+    "अनिश्चितता",
+    "चित पट",
+    "coin toss",
+    "probability",
+    "risk",
+    "uncertainty",
+    "spinner",
+    "chance",
+    "odds"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1200,
+     "min": 400,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "kind": {
+     "type": "text",
+     "default": "coin,spinner",
+     "what": "coin, spinner, fog in any order (up to 3)"
+    },
+    "p": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0,
+     "max": 1,
+     "what": "the spinner's known chance"
+    },
+    "pText": {
+     "type": "text",
+     "default": "",
+     "what": "text over the spinner (default: the %)"
+    },
+    "outcome": {
+     "type": "choice",
+     "default": "heads",
+     "choices": [
+      "heads",
+      "tails"
+     ]
+    },
+    "headsLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "tailsLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "win": {
+     "type": "bool",
+     "default": true,
+     "what": "the spinner stops in the wedge"
+    },
+    "flip": {
+     "type": "number",
+     "default": 1.2,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds of the flip"
+    },
+    "spin": {
+     "type": "number",
+     "default": 2,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds of the spin"
+    },
+    "labels": {
+     "type": "text",
+     "default": "",
+     "what": "one label under each"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "accountBar": {
+   "anchor": "center",
+   "what": "an account balance bar with zero marked: green above zero, a red overdraft zone below it down to the limit; the balance glides from its old value and falls through zero into red on the word",
+   "tags": [
+    "खाता",
+    "ओवरड्राफ़्ट",
+    "बकाया",
+    "शेष",
+    "account balance",
+    "overdraft",
+    "negative balance",
+    "credit limit",
+    "bank account"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1100,
+     "min": 400,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "balance": {
+     "type": "number",
+     "default": 300,
+     "min": -1000000000.0,
+     "max": 1000000000.0
+    },
+    "from": {
+     "type": "text",
+     "default": "",
+     "what": "balance before the step"
+    },
+    "limit": {
+     "type": "number",
+     "default": 500,
+     "min": 0,
+     "max": 1000000000.0,
+     "what": "overdraft limit"
+    },
+    "max": {
+     "type": "number",
+     "default": 1000,
+     "min": 1,
+     "max": 1000000000.0,
+     "what": "the bar's top"
+    },
+    "label": {
+     "type": "text",
+     "default": ""
+    },
+    "limitLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "zeroLabel": {
+     "type": "text",
+     "default": "0"
+    },
+    "unit": {
+     "type": "text",
+     "default": "₹"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.5,
+     "min": 0.1,
+     "max": 10,
+     "what": "seconds the change after a step takes"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "appliance": {
+   "anchor": "bottom",
+   "what": "an appliance of the stories: a pedestal fan that turns when on, a fridge whose door opens, a water tanker with its fill, a TV or a washing machine, with an optional price tag",
+   "tags": [
+    "पंखा",
+    "फ़्रिज",
+    "टैंकर",
+    "टीवी",
+    "उपकरण",
+    "fan",
+    "fridge",
+    "water tanker",
+    "appliance",
+    "durable goods",
+    "TV"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 300,
+     "min": 60,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "kind": {
+     "type": "choice",
+     "default": "fan",
+     "choices": [
+      "fan",
+      "fridge",
+      "tanker",
+      "tv",
+      "washer"
+     ]
+    },
+    "on": {
+     "type": "bool",
+     "default": true
+    },
+    "open": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1
+    },
+    "level": {
+     "type": "number",
+     "default": 0.7,
+     "min": 0,
+     "max": 1,
+     "what": "tanker fill"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "price tag"
+    },
+    "color": {
+     "type": "color",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "usedCar": {
+   "anchor": "bottom",
+   "what": "a vehicle (small car, sedan, SUV, luxury car, bus, truck) with a damage state (dents, cracked window, smoke), a lemon sticker, wheels that turn and speed lines when moving, and a price tag",
+   "tags": [
+    "गाड़ी",
+    "कार",
+    "बस",
+    "ट्रक",
+    "पुरानी गाड़ी",
+    "car",
+    "vehicle",
+    "lemon",
+    "used car",
+    "bus",
+    "truck",
+    "insurance"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 420,
+     "min": 80,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "kind": {
+     "type": "choice",
+     "default": "sedan",
+     "choices": [
+      "small",
+      "sedan",
+      "suv",
+      "luxury",
+      "bus",
+      "truck"
+     ]
+    },
+    "damage": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1
+    },
+    "lemon": {
+     "type": "bool",
+     "default": false
+    },
+    "moving": {
+     "type": "bool",
+     "default": false
+    },
+    "label": {
+     "type": "text",
+     "default": ""
+    },
+    "color": {
+     "type": "color",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "certificate": {
+   "anchor": "center",
+   "what": "a paper of the insurance and information stories: a policy with its rows (cover, premium, excess), a form whose ticks fill in, a degree with its seal or a medical certificate, on which a stamp lands after the step",
+   "tags": [
+    "पॉलिसी",
+    "फ़ॉर्म",
+    "डिग्री",
+    "प्रमाणपत्र",
+    "मोहर",
+    "policy",
+    "form",
+    "degree",
+    "certificate",
+    "stamp",
+    "signalling",
+    "screening"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 520,
+     "min": 150,
+     "max": 1900,
+     "what": "width; words scale with it"
+    },
+    "kind": {
+     "type": "choice",
+     "default": "policy",
+     "choices": [
+      "policy",
+      "form",
+      "degree",
+      "medical"
+     ]
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    },
+    "rows": {
+     "type": "text",
+     "default": "",
+     "what": "label:value;… (form: the questions)"
+    },
+    "ticked": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 5,
+     "what": "form: boxes ticked"
+    },
+    "boxes": {
+     "type": "int",
+     "default": 4,
+     "min": 1,
+     "max": 5,
+     "what": "form: boxes"
+    },
+    "stamp": {
+     "type": "text",
+     "default": "",
+     "what": "lands over 0.5 s after the step"
+    },
+    "stampColor": {
+     "type": "color",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  }
+ }
+}

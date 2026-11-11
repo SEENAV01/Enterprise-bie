@@ -56,10 +56,23 @@ _FIXED_SPOTS = {"market": ("floor",), "bankHall": ("vault", "queue", "floor"), "
                 "exchangeFloor": ("board", "desks", "floor"), "port": ("ship", "crane", "dock"), "factory": ("belt", "chimney"),
                 "village": ("field", "hut", "well", "tree"), "office": ("floor",), "court": ("bench", "left", "right", "floor"),
                 "city": ("road",), "assembly": ("podium", "seats", "floor"), "twoCountries": ("left", "right", "border", "road"),
-                "forexCounter": ("counter", "board", "queue", "floor")}
+                "forexCounter": ("counter", "board", "queue", "floor"),
+                # the Sloman book's places (5 Nov 2026)
+                "mandi": ("board", "yard", "buyers", "road", "truck", "notice"), "foodStreet": ("lane",),
+                "labourChowk": ("crowd", "truck", "board", "road", "floor"), "factoryFloor": ("belt", "godown", "board", "notice", "floor"),
+                "farm": ("field", "heap", "fence"), "riverTown": ("factory", "pipe", "river", "ghat", "bank"), "mohalla": ("road",),
+                "canteen": ("menu", "counter", "tables", "notice", "floor"),
+                "home": ("kitchen", "stove", "fridge", "counter", "living", "sofa", "tv", "study", "desk", "door", "floor"),
+                "teaEstate": ("garden", "factory", "lines", "gate", "board", "union", "road"), "busStand": ("platform",), "petrolPump": ("board", "road"),
+                "venue": ("seats", "screen", "window", "door", "board", "foyer"), "godown": ("store", "door", "board", "yard"),
+                "island": ("land", "field", "huts", "bank", "boat", "sea", "neighbour", "beach"), "twoSector": ("farm", "shed", "bench", "path"),
+                "dealingRoom": ("board", "floor"), "hospital": ("reception", "queue", "ward", "floor"), "foodShop": ("counter", "till", "board", "floor")}
 _NUMBERED = {"market": ("stall", 4, 2, 6), "bankHall": ("counter", 3, 1, 5), "office": ("desk", 5, 1, 6),
-             "factory": ("shed", 3, 3, 3), "city": ("shop", 3, 3, 3)}
-_NAMED = {"twoCountries": ("left", "right")}             # the first signs name these fixed spots (the two countries)
+             "factory": ("shed", 3, 3, 3), "city": ("shop", 3, 3, 3), "mandi": ("heap", 3, 1, 5), "foodStreet": ("stall", 5, 1, 12),
+             "factoryFloor": ("machine", 4, 1, 8), "farm": ("plot", 2, 1, 6), "mohalla": ("house", 5, 1, 8), "canteen": ("row", 3, 1, 6),
+             "busStand": ("bay", 2, 1, 4), "petrolPump": ("pump", 2, 1, 4), "dealingRoom": ("desk", 4, 2, 6), "hospital": ("cabin", 3, 1, 4),
+             "foodShop": ("oven", 2, 1, 4)}
+_NAMED = {"twoCountries": ("left", "right"), "twoSector": ("farm", "shed")}   # the first signs name these fixed spots
 
 
 def world_spot_names(world: dict) -> list:

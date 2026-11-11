@@ -32,7 +32,7 @@ def _node_env():
 
 
 TOOLBOX_FILES = ("toolbox.html", "toolbox.js", "toolbox.css")
-ENGINE_FILES = ("engine.html", "engine.js")
+ENGINE_FILES = ("engine.html", "engine.js", "engine3d.html", "engine3d.js")
 
 
 def needs_toolbox(spec: dict) -> bool:
@@ -48,6 +48,13 @@ def needs_engine(spec: dict) -> bool:
     return bool(scenes and "els" in scenes[0] and "subs" in spec)
 
 
+def needs_3d(spec: dict) -> bool:
+    """True when a show-spec has a 3D model element (a scene's world3d or a model item): only the engine's 3D bundle
+    (engine3d.js, three.js inside) draws it. Plain specs keep the plain engine and never need three.js installed."""
+    return any(isinstance(el, dict) and el.get("kind") == "model3d"
+               for scene in spec.get("scenes") or [] for el in scene.get("els") or [])
+
+
 def total_frames(spec: dict) -> int:
     """Frames of either spec shape: a show-spec carries seconds, a VideoSpec carries per-scene frames."""
     if "duration" in spec:
@@ -55,18 +62,23 @@ def total_frames(spec: dict) -> int:
     return sum(int(s.get("duration") or 0) for s in spec.get("scenes") or [])
 
 
-def build_preview(dist: str | Path, *, toolbox: bool = False, engine: bool = False) -> Path:
+def build_preview(dist: str | Path, *, toolbox: bool = False, engine: bool = False, three: bool = False) -> Path:
     dist = Path(dist)
-    if (dist / "bundle.js").exists() and (not toolbox or (dist / "toolbox.js").exists()) and (not engine or (dist / "engine.js").exists()):
+    if (dist / "bundle.js").exists() and (not toolbox or (dist / "toolbox.js").exists()) and (not engine or (dist / "engine.js").exists()) \
+            and (not three or (dist / "engine3d.js").exists()):
         return dist
-    flags = (["--toolbox"] if toolbox else []) + (["--engine"] if engine else [])
+    flags = (["--toolbox"] if toolbox else []) + (["--engine"] if engine else []) + (["--engine3d"] if three else [])
     try:
         run = subprocess.run(["node", str(PREVIEW / "build.mjs"), str(dist)] + flags,
                              capture_output=True, text=True, env=_node_env(), timeout=900)
     except (OSError, subprocess.TimeoutExpired) as exc:
         raise RenderError(f"preview build could not run: {exc}") from None
     if run.returncode != 0:
-        raise RenderError("preview build failed: " + (run.stderr or run.stdout)[-800:])
+        err = (run.stderr or run.stdout)[-800:]
+        if three and "three" in err:
+            err = ("a 3D scene needs three.js on NODE_PATH (python tools/toolbox_setup.py --web <folder>, then the lines of "
+                   "--print-env <folder>): " + err)
+        raise RenderError("preview build failed: " + err)
     return dist
 
 
@@ -80,9 +92,9 @@ def _workdir(dist: Path, assets: str | Path | None) -> Path:
     return work
 
 
-def _page(toolbox: bool, engine: bool = False) -> list:
+def _page(toolbox: bool, engine: bool = False, three: bool = False) -> list:
     if engine:
-        return ["--page", "engine.html"]
+        return ["--page", "engine3d.html" if three else "engine.html"]
     return ["--page", "toolbox.html"] if toolbox else []
 
 
@@ -91,14 +103,15 @@ def stills(spec: dict, frames, *, dist: str | Path, assets: str | Path | None = 
     """PNG bytes of the given frames of ``spec`` (a VideoSpec), in order."""
     toolbox = needs_toolbox(spec) if toolbox is None else toolbox
     engine = needs_engine(spec)
-    dist = build_preview(dist, toolbox=toolbox, engine=engine)
+    three = engine and needs_3d(spec)
+    dist = build_preview(dist, toolbox=toolbox, engine=engine, three=three)
     work = _workdir(dist, assets)
     try:
         (work / "spec.json").write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
         target = Path(out_dir) if out_dir else work / "stills"
         try:
             run = subprocess.run(["node", str(PREVIEW / "stills.mjs"), "--dist", str(work), "--spec", str(work / "spec.json"),
-                                  "--frames", ",".join(str(int(f)) for f in frames), "--out", str(target)] + _page(toolbox, engine),
+                                  "--frames", ",".join(str(int(f)) for f in frames), "--out", str(target)] + _page(toolbox, engine, three),
                                  capture_output=True, text=True, env=_node_env(), timeout=600)
         except (OSError, subprocess.TimeoutExpired) as exc:
             raise RenderError(f"stills could not run: {exc}") from None
@@ -114,12 +127,13 @@ def audit(spec: dict, *, dist: str | Path, assets: str | Path | None = None, eve
     """The text measurements of every ``every``-th frame of ``spec`` (``preview/audit.mjs``; ``text_audit.summarize`` reads them)."""
     toolbox = needs_toolbox(spec) if toolbox is None else toolbox
     engine = needs_engine(spec)
-    dist = build_preview(dist, toolbox=toolbox, engine=engine)
+    three = engine and needs_3d(spec)
+    dist = build_preview(dist, toolbox=toolbox, engine=engine, three=three)
     work = _workdir(dist, assets)
     try:
         (work / "spec.json").write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
         cmd = ["node", str(PREVIEW / "audit.mjs"), "--dist", str(work), "--spec", str(work / "spec.json"),
-               "--out", str(work / "audit.jsonl"), "--every", str(int(every))] + _page(toolbox, engine)
+               "--out", str(work / "audit.jsonl"), "--every", str(int(every))] + _page(toolbox, engine, three)
         if first is not None:
             cmd += ["--from", str(int(first))]
         if last is not None:
@@ -140,12 +154,13 @@ def mp4(spec: dict, out: str | Path, *, dist: str | Path, assets: str | Path | N
         timeout: int = 7200, toolbox: bool | None = None):
     toolbox = needs_toolbox(spec) if toolbox is None else toolbox
     engine = needs_engine(spec)
-    dist = build_preview(dist, toolbox=toolbox, engine=engine)
+    three = engine and needs_3d(spec)
+    dist = build_preview(dist, toolbox=toolbox, engine=engine, three=three)
     work = _workdir(dist, assets)
     try:
         (work / "spec.json").write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
         args = ["node", str(PREVIEW / "stills.mjs"), "--dist", str(work), "--spec", str(work / "spec.json"),
-                "--mp4", str(Path(out).resolve())] + _page(toolbox, engine)
+                "--mp4", str(Path(out).resolve())] + _page(toolbox, engine, three)
         if audio:
             args += ["--audio", str(Path(audio).resolve())]
         try:
@@ -164,12 +179,13 @@ def mp4_range(spec: dict, out: str | Path, first: int, last: int, *, dist: str |
     """Frames [first, last) of ``spec`` as one MP4 part (Task 046: a long video rendered in chunks on several runners)."""
     toolbox = needs_toolbox(spec) if toolbox is None else toolbox
     engine = needs_engine(spec)
-    dist = build_preview(dist, toolbox=toolbox, engine=engine)
+    three = engine and needs_3d(spec)
+    dist = build_preview(dist, toolbox=toolbox, engine=engine, three=three)
     work = _workdir(dist, assets)
     try:
         (work / "spec.json").write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
         args = ["node", str(PREVIEW / "stills.mjs"), "--dist", str(work), "--spec", str(work / "spec.json"),
-                "--mp4", str(Path(out).resolve()), "--from", str(int(first)), "--to", str(int(last))] + _page(toolbox, engine)
+                "--mp4", str(Path(out).resolve()), "--from", str(int(first)), "--to", str(int(last))] + _page(toolbox, engine, three)
         try:
             run = subprocess.run(args, capture_output=True, text=True, env=_node_env(), timeout=timeout)
         except (OSError, subprocess.TimeoutExpired) as exc:
