@@ -23,7 +23,7 @@ FAMILY = ENGINE / "saanche.d" / "econ_finance.json"
 NAMES = sorted(json.loads(FAMILY.read_text(encoding="utf-8"))["saanche"])
 PROCESSES = ["circularFlow", "chainRounds", "tank", "balanceSheet", "timeValue", "gambleTree", "insurancePool", "queueLine",
              "contagion", "securitisation", "layers", "pricePath", "rateCorridor", "moneySplit", "tradeLedger", "road", "agents",
-             "chance", "accountBar", "appliance", "vehicle", "certificate"]
+             "riskDial", "accountBar", "appliance", "usedCar", "certificate"]
 VARIANTS = [
     ('circularFlow', {'households': 'परिवार', 'firms': 'कंपनियाँ', 'top': 'वस्तु बाज़ार', 'bottom': 'साधन बाज़ार', 'arrows': 'खर्च;माल;मज़दूरी;श्रम', 'realToken': 'labour', 'moneyToken': 'note', 'active': 'money', 'size': 2}),
     ('circularFlow', {'mode': 'income', 'households': 'परिवार', 'firms': 'कंपनियाँ', 'leaks': 'S:20;T:30;M:10', 'injections': 'I:25;G:30;X:15', 'sectors': 'बैंक;सरकार;विदेश', 'arrows': 'Cd;Y', 'income': 1000, 'incomeFrom': 900, 'unit': '₹', 'brackets': True, 'lit': 'S,I', 'outer': 'पर्यावरण', 'inputs': 'संसाधन', 'outputs': 'कचरा'}),
@@ -74,9 +74,9 @@ VARIANTS = [
     ('agents', {'mode': 'merge', 'n': 12, 'merge': 0, 'vary': True, 'react': True, 'kinds': 'firms'}),
     ('agents', {'mode': 'belief', 'n': 24, 'share': 0.6, 'from': 0.1, 'belief': 'factory', 'label': 'महँगाई की उम्मीद'}),
     ('agents', {'mode': 'herd', 'n': 18, 'rate': 3, 'price': 100, 'priceStep': 5, 'label': 'शेयर', 'target': 'exchange'}),
-    ('chance', {'kind': 'coin,spinner,fog', 'p': 0.5, 'outcome': 'heads', 'headsLabel': 'चित', 'labels': 'सिक्का;पहिया;शेयर'}),
-    ('chance', {'kind': 'spinner', 'p': 1, 'win': False, 'pText': '1/2'}),
-    ('chance', {'kind': 'x', 'outcome': 'tails', 'tailsLabel': 'पट'}),
+    ('riskDial', {'kind': 'coin,spinner,fog', 'p': 0.5, 'outcome': 'heads', 'headsLabel': 'चित', 'labels': 'सिक्का;पहिया;शेयर'}),
+    ('riskDial', {'kind': 'spinner', 'p': 1, 'win': False, 'pText': '1/2'}),
+    ('riskDial', {'kind': 'x', 'outcome': 'tails', 'tailsLabel': 'पट'}),
     ('accountBar', {'balance': -300, 'from': 400, 'limit': 500, 'max': 1000, 'label': 'खाते में बाकी', 'limitLabel': 'ओवरड्राफ़्ट'}),
     ('accountBar', {'balance': 5000, 'limit': 0}),
     ('appliance', {'kind': 'fan', 'label': '₹1,500', 'on': False}),
@@ -84,11 +84,11 @@ VARIANTS = [
     ('appliance', {'kind': 'tanker', 'level': 0.6, 'label': '₹500', 'color': '#e5484d'}),
     ('appliance', {'kind': 'tv'}),
     ('appliance', {'kind': 'washer', 'label': '₹9,000'}),
-    ('vehicle', {'kind': 'small', 'label': '₹3 लाख', 'moving': True}),
-    ('vehicle', {'kind': 'luxury', 'color': '#2d3748', 'damage': 0.5}),
-    ('vehicle', {'kind': 'suv', 'damage': 0.9, 'lemon': True, 'label': 'नींबू'}),
-    ('vehicle', {'kind': 'bus'}),
-    ('vehicle', {'kind': 'truck', 'label': 'माल'}),
+    ('usedCar', {'kind': 'small', 'label': '₹3 लाख', 'moving': True}),
+    ('usedCar', {'kind': 'luxury', 'color': '#2d3748', 'damage': 0.5}),
+    ('usedCar', {'kind': 'suv', 'damage': 0.9, 'lemon': True, 'label': 'नींबू'}),
+    ('usedCar', {'kind': 'bus'}),
+    ('usedCar', {'kind': 'truck', 'label': 'माल'}),
     ('certificate', {'kind': 'policy', 'title': 'बीमा पॉलिसी', 'rows': 'कवर:₹5 लाख;प्रीमियम:₹500;एक्सेस:₹2,000', 'stamp': 'मंज़ूर'}),
     ('certificate', {'kind': 'form', 'title': 'फ़ॉर्म', 'rows': 'सिगरेट?;शराब?;बीमारी?', 'ticked': 2}),
     ('certificate', {'kind': 'degree', 'title': 'डिग्री', 'rows': 'नाम:सीता'}),
@@ -154,7 +154,7 @@ class Manifest(unittest.TestCase):
     def test_out_of_range_parameters_are_refused(self):
         bad = [("chainRounds", {"keep": 2}), ("chainRounds", {"rounds": 9}), ("tank", {"level": 1.5}), ("tank", {"clock": "sundial"}),
                ("timeValue", {"periods": 2.5}), ("queueLine", {"n": 400}), ("contagion", {"style": "jenga"}), ("securitisation", {"stage": 7}),
-               ("road", {"lanes": 9}), ("agents", {"mode": "dance"}), ("chance", {"p": -1}), ("vehicle", {"damage": "lots"}),
+               ("road", {"lanes": 9}), ("agents", {"mode": "dance"}), ("riskDial", {"p": -1}), ("usedCar", {"damage": "lots"}),
                ("balanceSheet", {"cushion": "yes"}), ("circularFlow", {"widht": 900}), ("layers", {"fill": 3}), ("tank", {"color": "blue"})]
         for name, p in bad:
             with self.subTest(name=name, p=p):
@@ -165,8 +165,8 @@ class Manifest(unittest.TestCase):
                            ("वर्तमान", "timeValue"), ("जुआ", "gambleTree"), ("बीमा", "insurancePool"), ("कतार", "queueLine"),
                            ("डोमिनो", "contagion"), ("प्रतिभूतिकरण", "securitisation"), ("बेसल", "layers"), ("बुलबुला", "pricePath"),
                            ("रेपो", "rateCorridor"), ("बँटवारा", "moneySplit"), ("परमिट", "tradeLedger"), ("जाम", "road"),
-                           ("उम्मीदें", "agents"), ("अनिश्चितता", "chance"), ("ओवरड्राफ़्ट", "accountBar"), ("पंखा", "appliance"),
-                           ("कार", "vehicle"), ("पॉलिसी", "certificate")]:
+                           ("उम्मीदें", "agents"), ("अनिश्चितता", "riskDial"), ("ओवरड्राफ़्ट", "accountBar"), ("पंखा", "appliance"),
+                           ("कार", "usedCar"), ("पॉलिसी", "certificate")]:
             found = [r.get("name") for r in saanche.search(word, limit=20, icons_limit=0) if r.get("kind") == "draw"]
             self.assertIn(name, found, word)
 
@@ -211,9 +211,9 @@ class Drawing(unittest.TestCase):
         moving = {"circularFlow": {}, "chainRounds": {"upto": 2}, "tank": {"from": 0.1, "level": 0.9}, "timeValue": {"amounts": "100@2", "travel": 1},
                   "gambleTree": {"fly": True}, "insurancePool": {"phase": "premium"}, "queueLine": {"rate": 1, "stock": 9},
                   "contagion": {"upto": 1}, "securitisation": {"stage": 1}, "pricePath": {"drawIn": 4}, "rateCorridor": {},
-                  "moneySplit": {"upto": 1}, "tradeLedger": {"deal": True}, "road": {"cars": 0.5}, "agents": {"from": 0}, "chance": {},
+                  "moneySplit": {"upto": 1}, "tradeLedger": {"deal": True}, "road": {"cars": 0.5}, "agents": {"from": 0}, "riskDial": {},
                   "accountBar": {"from": 500, "balance": -200}, "balanceSheet": {"assets": "a:10<20", "liabilities": "b:10"},
-                  "layers": {"layers": "a:1;b:2", "upto": 2}, "appliance": {"kind": "fan"}, "vehicle": {"moving": True},
+                  "layers": {"layers": "a:1;b:2", "upto": 2}, "appliance": {"kind": "fan"}, "usedCar": {"moving": True},
                   "certificate": {"stamp": "OK"}}
         self.assertEqual(sorted(moving), NAMES)
         res = run_node(list(moving.items()), [[0.3, 0.3], [1.1, 1.1]])["out"]

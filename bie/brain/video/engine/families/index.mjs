@@ -6,9 +6,11 @@
 import { DRAWS as ECON_CHARTS } from "./econ_charts.mjs";
 import { DRAWS as ECON_TOOLS } from "./econ_tools.mjs";
 import { DRAWS as econ_finance } from "./econ_finance.mjs";
+import { DRAWS as ECON_THINGS } from "./econ_things.mjs";
 
 export const FAMILY_DRAWS = {
   ...ECON_CHARTS,
   ...ECON_TOOLS,
   ...econ_finance,
+  ...ECON_THINGS,
 };

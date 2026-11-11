@@ -1323,10 +1323,10 @@ export const DRAWS = {
   tradeLedger: { fn: tradeLedger, anchor: "center" },
   road: { fn: road, anchor: "center" },
   agents: { fn: agents, anchor: "center" },
-  chance: { fn: chance, anchor: "center" },
+  riskDial: { fn: chance, anchor: "center" },
   accountBar: { fn: accountBar, anchor: "center" },
   appliance: { fn: appliance, anchor: "bottom" },
-  vehicle: { fn: vehicle, anchor: "bottom" },
+  usedCar: { fn: vehicle, anchor: "bottom" },
   certificate: { fn: certificate, anchor: "center" },
 };
 export const _test = { fmt, money, items };
