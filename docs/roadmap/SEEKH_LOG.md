@@ -1960,3 +1960,22 @@ measured at 25.1 px: the plan showed the notes as one text that changed every 0.
 them): each stays at least 1.5 s, or the compiler names the value and asks for the values side by side or a longer
 moment each; the director's prompt says so. Under it, v4 run b (₹10, 0.5 s) and v5 run b ("उधार", 1.1 s) each break it
 once, so both go through the director again (run c).
+
+## Entry · the Sloman economics book, the content length rule (S2-11), 11 November 2026
+
+- **Run:** Claude's whole-book run of the Sloman *Economics* (10th ed., 26 chapters) in the scratch workspace, from
+  5 November 2026, for graduation and UPSC/NET learners in Hinglish (Navin's choices on decision cards). Chapter maps,
+  plans and narration were written by Claude's workers through a kit that calls BIE's own checks; the book stays out of
+  the repo. Not a BIE live run: no AI route was paid, ₹0.
+- **Taught:** S2-01's 6-8 minutes per book page cannot hold a dense economics page: one Sloman page carries 8-15
+  teachable items, several of them a graph to build, a sum to work or a misconception to correct. Navin chose "Mix" (5 Nov):
+  thorough where students go wrong, short where the idea is plain. Marked by hand-checked workers: 25-36% of teachable
+  items are deep; a chapter of 170-386 items plans to 9-15 videos and 79-158 minutes.
+- **Changed in BIE:** new rule S2-11 (vision rulebook 2026-10-21.18) and the course's `length_rule` ("pages" by default,
+  "content" for a dense book; `tools/run_brain.py --length-rule`). Section 1 marks every item's `teach_depth` and
+  `deep_why` (understand-page/5); the lesson plan's budgets, checks and source text follow the content rule (normal 0.25,
+  deep 0.75, question 0.10 minutes; a video 0.8-1.4 times its items', split above ~18, merged below ~3.6), lesson-plan/5.
+  A map written by the run's kit (`depth` on the item) is read too. IMPLEMENTED (tests: `tests/test_p1_content_length.py`).
+- **Measured:** offline: the passed outputs (tissue understand and lesson sets) still pass, 0 problems; the 833 brain and
+  Phase 1 tests pass. Live (first-try pass rate of plans under S2-11, ₹ per page) comes from the first BIE run with
+  `--length-rule content`.
