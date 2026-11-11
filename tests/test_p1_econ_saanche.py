@@ -156,7 +156,7 @@ class EconSaanche(unittest.TestCase):
 class Worlds(unittest.TestCase):
     def test_every_world_kind_is_in_the_manifest_and_a_plain_background_too(self):
         kinds = saanche.get("world")["params"]["kind"]["choices"]
-        self.assertEqual(kinds, WORLDS)
+        self.assertEqual(kinds[:len(WORLDS)], WORLDS)               # the Sloman places follow (tests/test_p1_fam_econ_worlds.py)
         engine = (ENGINE / "worlds.mjs").read_text(encoding="utf-8")
         bgs = (ENGINE / "backgrounds.mjs").read_text(encoding="utf-8")
         vocab = sp.vocab()["backgrounds"]
