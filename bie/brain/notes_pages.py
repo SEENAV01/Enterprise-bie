@@ -111,10 +111,12 @@ def still_spec(page: dict, *, width: int = 1280, height: int = 720, assets: dict
     els = []
     for el in visual.get("els") or []:
         el = dict(el)
-        el.setdefault("t0", 0.0)
+        # a still is the finished picture: everything is already there (a word does not pop in, an arrow is drawn,
+        # a mark is ticked) - the engine animates from t0, so t0 lies well before the frame (Sloman ch2 notes: words
+        # and arrows were invisible at frame 0)
+        el["t0"] = min(float(el.get("t0") or 0.0), 0.0) - 5.0
         el.setdefault("t1", None)
-        if el.get("text") is None and "enter" not in el:
-            el["enter"] = "none"
+        el["enter"] = "none"
         if el.get("text") is None and "keys" not in el and not el.get("kind"):
             el["keys"] = []
         if el.get("text") is None and not el.get("kind") and "s" not in el:

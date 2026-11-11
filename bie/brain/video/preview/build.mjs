@@ -2,6 +2,8 @@
 //   node build.mjs <dist>             core blocks only (bundle.js + index.html), as before
 //   node build.mjs <dist> --engine    also the showing engine (engine.js + engine.html, Phase 1: ../engine/engine.mjs,
 //                                     plain SVG, no React; the same window API, so stills, MP4 and audit work unchanged)
+//   node build.mjs <dist> --engine3d  also the engine with its 3D layer (engine3d.js + engine3d.html: ../engine/engine3d.mjs,
+//                                     three.js from NODE_PATH), only for show-specs with a 3D model (render.py needs_3d)
 //   node build.mjs <dist> --toolbox   also the toolbox bundle (toolbox.js + toolbox.css + toolbox.html, Task 046a):
 //                                     the core blocks plus three.js, KaTeX, D3, 3Dmol.js, Mol*, matter.js, cannon-es
 //                                     blocks; "@remotion/three" resolves to three-lite.tsx (ThreeCanvas shim).
@@ -15,6 +17,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const out = process.argv[2] && !process.argv[2].startsWith("--") ? process.argv[2] : join(here, "dist");
 const toolbox = process.argv.includes("--toolbox");
 const engine = process.argv.includes("--engine");
+const engine3d = process.argv.includes("--engine3d");
 const nodePath = process.env.NODE_PATH || execFileSync("npm", ["root", "-g"]).toString().trim();
 const candidates = [process.env.ESBUILD, join(nodePath, "esbuild/bin/esbuild"), "/opt/npm-tools/node_modules/esbuild/bin/esbuild"].filter(Boolean);
 const esbuild = candidates.find((c) => existsSync(c)) || "esbuild";
@@ -38,4 +41,9 @@ if (engine) {
     `--outfile=${join(out, "engine.js")}`], { stdio: "inherit", env });
   writeFileSync(join(out, "engine.html"), `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0"><div id="root"></div><script src="engine.js"></script></body></html>`);
 }
-console.log("built " + out + (toolbox ? " (with toolbox)" : "") + (engine ? " (with engine)" : ""));
+if (engine3d) {
+  execFileSync(esbuild, [join(here, "../engine/engine3d.mjs"), "--bundle", "--format=iife", "--minify", "--log-level=error",
+    `--outfile=${join(out, "engine3d.js")}`], { stdio: "inherit", env });
+  writeFileSync(join(out, "engine3d.html"), `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0"><div id="root"></div><script src="engine3d.js"></script></body></html>`);
+}
+console.log("built " + out + (toolbox ? " (with toolbox)" : "") + (engine ? " (with engine)" : "") + (engine3d ? " (with 3D)" : ""));

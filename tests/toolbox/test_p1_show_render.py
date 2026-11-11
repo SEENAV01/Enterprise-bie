@@ -106,6 +106,66 @@ class EngineRender(unittest.TestCase):
 
 
 @unittest.skipUnless(shutil.which("node"), "needs node (the toolbox demos job has it)")
+class Engine3DRender(unittest.TestCase):
+    """The 3D layer draws (three.js on SwiftShader): a compiled plan with a 3D place and a 3D model renders, the same frame
+    twice is the same bytes, and every 3D model's still sheet draws. Only here, where three.js is installed."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.tmp = Path(tempfile.mkdtemp())
+        try:
+            cls.dist = render.build_preview(cls.tmp / "dist", engine=True, three=True)
+        except render.RenderError as exc:                        # the canonical gate has node but not three.js
+            raise unittest.SkipTest(f"engine3d build needs three.js and esbuild on NODE_PATH: {exc}")
+
+    @classmethod
+    def tearDownClass(cls):
+        shutil.rmtree(cls.tmp, ignore_errors=True)
+
+    def spec(self):
+        sys.path.insert(0, str(ROOT / "tests"))
+        from test_p1_models3d import FACTORY, HILL, RAMU, compiled, scene
+        plan = scene(RAMU, {"op": "text", "text": "मशीनें", "at": {"spot": "machine2", "dy": -70}, "size": 44},
+                     world3d=dict(FACTORY, steps=[{"t": {"line": "l2", "edge": "start"}, "p": {"running": 4, "output": 14}}],
+                                  cam3d=[{"t": {"line": "l2", "edge": "start"}, "d": 1.5, "angle": -15}]), lines=("l1", "l2"))
+        plan["scenes"].append({"id": "B", "lines": ["l3"], "bg": "paper", "cam": [], "steps": [
+            dict(HILL, steps=[{"t": {"line": "l3", "edge": "start"}, "p": {"drop": 1, "flatten": 1}, "d": 1.0}],
+                 cam3d=[{"t": {"line": "l3", "edge": "start"}, "d": 1.0, "angle": 0, "height": 18, "dist": 0, "ty": 0}])]})
+        return compiled(plan)
+
+    def test_a_3d_place_and_a_3d_model_render_under_the_svg_and_the_same_frame_is_the_same_bytes(self):
+        spec = self.spec()
+        self.assertTrue(render.needs_3d(spec))
+        a = render.stills(spec, [30, 120, 230], dist=self.dist)
+        b = render.stills(spec, [30, 120, 230], dist=self.dist)
+        for png in a:
+            self.assertEqual(png[:8], b"\x89PNG\r\n\x1a\n")
+            self.assertGreater(len(png), 30000)                  # a drawn 3D frame, not an empty page
+        self.assertEqual(a, b)                                    # same params and time -> same pixels
+        self.assertNotEqual(a[0], a[1])                           # the step and the camera changed the frame
+        from PIL import Image
+        import io
+        im = Image.open(io.BytesIO(a[0])).convert("RGB")
+        colours = len(set(im.resize((160, 90)).getdata()))
+        self.assertGreater(colours, 200)                          # many colours: the 3D world is drawn, not one fill
+        frames = render.audit(spec, dist=self.dist, every=30)
+        self.assertIn("मशीनें", {t["t"] for f in frames for t in f["texts"]})   # the SVG words sit over the 3D layer
+
+    def test_every_3d_model_still_draws(self):
+        sys.path.insert(0, str(ROOT / "tools"))
+        import models3d_stills as tool
+        from bie.brain.video import models3d
+        with tempfile.TemporaryDirectory() as folder:
+            out = Path(folder)
+            self.assertEqual(tool.main(["--out", str(out), "--dist", str(self.dist), "--width", "640"]), 0)
+            frames = sorted(out.glob("models3d-*-[0-9].png"))
+            self.assertEqual(len(frames), len(tool.states()))
+            self.assertEqual({f.name.split("-")[1] for f in frames}, set(models3d.names()))
+            for f in frames:
+                self.assertGreater(len(f.read_bytes()), 8000, f.name)
+
+
+@unittest.skipUnless(shutil.which("node"), "needs node (the toolbox demos job has it)")
 class GameBotPlays(unittest.TestCase):
     """BIE's bot plays the allocate engine on a phone in Chromium: one wrong split (every box out of range reddens with
     its reason), then the right one (4 Nov 2026)."""
