@@ -1,0 +1,4284 @@
+{
+ "schema": "bie.scene-plan/1",
+ "video": "v4",
+ "scenes": [
+  {
+   "id": "प्रश्न",
+   "lines": [
+    "b1",
+    "b62"
+   ],
+   "bg": "paper",
+   "steps": [
+    {
+     "op": "person",
+     "id": "ग्राहक",
+     "look": "ramu",
+     "x": 350,
+     "y": 890,
+     "h": 300
+    },
+    {
+     "op": "person",
+     "id": "दुकानदार",
+     "look": "shop",
+     "x": 1550,
+     "y": 890,
+     "h": 300,
+     "facing": -1
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "note",
+      "p": {
+       "w": 260,
+       "value": "₹100"
+      }
+     },
+     "giver": "ग्राहक",
+     "taker": "दुकानदार",
+     "t": {
+      "line": "b1",
+      "word": "₹100"
+     },
+     "keep": true
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "sack",
+      "p": {
+       "w": 250,
+       "content": "wheat",
+       "label": "चावल"
+      }
+     },
+     "x": 1150,
+     "y": 890,
+     "t0": {
+      "line": "b1",
+      "word": "चावल"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "metal": "gold",
+       "r": 65
+      }
+     },
+     "x": 400,
+     "y": 330,
+     "t0": {
+      "line": "b1",
+      "word": "gold"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "question",
+     "x": 570,
+     "y": 330,
+     "w": 75,
+     "t0": {
+      "line": "b1",
+      "word": "gold"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "paper",
+      "p": {
+       "kind": "law",
+       "title": "कानून",
+       "lines": 0
+      }
+     },
+     "x": 980,
+     "y": 340,
+     "s": 2,
+     "t0": {
+      "line": "b1",
+      "word": "कानून"
+     }
+    },
+    {
+     "op": "text",
+     "text": "मूल्य",
+     "x": 400,
+     "y": 160,
+     "size": 44,
+     "t0": {
+      "line": "b62",
+      "word": "Value"
+     }
+    },
+    {
+     "op": "text",
+     "text": "कानूनी मान्यता",
+     "x": 980,
+     "y": 75,
+     "size": 44,
+     "t0": {
+      "line": "b62",
+      "word": "legal"
+     }
+    },
+    {
+     "op": "text",
+     "text": "भुगतान का तरीका",
+     "x": 1510,
+     "y": 160,
+     "size": 44,
+     "t0": {
+      "line": "b62",
+      "word": "payment"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "foreignNote",
+      "p": {
+       "sign": "$",
+       "value": "USD"
+      }
+     },
+     "s": 2,
+     "x": 1510,
+     "y": 350,
+     "t0": {
+      "line": "b62",
+      "word": "dollar"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "question",
+     "x": 1510,
+     "y": 510,
+     "w": 75,
+     "t0": {
+      "line": "b62",
+      "word": "माँग"
+     }
+    }
+   ]
+  },
+  {
+   "id": "सोने_का_दावा",
+   "lines": [
+    "b2",
+    "b3",
+    "b4",
+    "b5"
+   ],
+   "bg": "paper",
+   "steps": [
+    {
+     "op": "person",
+     "id": "ग्राहक",
+     "look": "ramu",
+     "x": 350,
+     "y": 890,
+     "h": 300
+    },
+    {
+     "op": "person",
+     "id": "बैंकर",
+     "look": "mohan",
+     "x": 1550,
+     "y": 890,
+     "h": 300,
+     "facing": -1
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "bank",
+      "p": {
+       "w": 350,
+       "label": ""
+      }
+     },
+     "x": 1550,
+     "y": 480,
+     "t0": {
+      "line": "b2",
+      "word": "bank"
+     }
+    },
+    {
+     "op": "text",
+     "text": "बैंक",
+     "x": 1550,
+     "y": 140,
+     "size": 44,
+     "t0": {
+      "line": "b2",
+      "word": "bank"
+     }
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "note",
+      "p": {
+       "w": 270,
+       "value": "1 नोट"
+      }
+     },
+     "giver": "ग्राहक",
+     "taker": "बैंकर",
+     "t": {
+      "line": "b2",
+      "word": "लौटाएँ"
+     },
+     "keep": false
+    },
+    {
+     "op": "text",
+     "text": "1 ग्राम सोना",
+     "x": 400,
+     "y": 160,
+     "size": 46,
+     "t0": {
+      "line": "b2",
+      "word": "1 gram"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "metal": "gold",
+       "r": 65
+      }
+     },
+     "x": 400,
+     "y": 350,
+     "t0": {
+      "line": "b2",
+      "word": "gold"
+     }
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "metal": "gold",
+       "r": 48
+      }
+     },
+     "giver": "बैंकर",
+     "taker": "ग्राहक",
+     "t": {
+      "line": "b2",
+      "word": "देता"
+     },
+     "keep": true
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "note",
+      "p": {
+       "w": 260,
+       "value": "₹"
+      }
+     },
+     "x": 950,
+     "y": 350,
+     "t0": {
+      "line": "b2",
+      "word": "rupee"
+     },
+     "t1": {
+      "line": "b3",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "cross",
+     "x": 950,
+     "y": 500,
+     "w": 70,
+     "t0": {
+      "line": "b2",
+      "word": "नहीं"
+     },
+     "t1": {
+      "line": "b3",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "paper",
+      "p": {
+       "kind": "receipt",
+       "title": "स्वर्ण दावा",
+       "lines": 0
+      }
+     },
+     "x": 950,
+     "y": 350,
+     "s": 2.5,
+     "t0": {
+      "line": "b3",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 700,
+     "y1": 350,
+     "x2": 520,
+     "y2": 350,
+     "dashed": true,
+     "color": "#24865b",
+     "t0": {
+      "line": "b3",
+      "word": "redemption"
+     }
+    },
+    {
+     "op": "text",
+     "text": "कागज नहीं, लौटाने का वादा",
+     "x": 950,
+     "y": 45,
+     "size": 44,
+     "t0": {
+      "line": "b3",
+      "word": "paper"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "cross",
+     "x": 1550,
+     "y": 530,
+     "w": 65,
+     "t0": {
+      "line": "b4",
+      "word": "काफी"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "tick",
+     "x": 950,
+     "y": 680,
+     "w": 70,
+     "t0": {
+      "line": "b4",
+      "word": "claim"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "noteBundle",
+      "p": {
+       "w": 250,
+       "value": ""
+      }
+     },
+     "x": 950,
+     "y": 820,
+     "t0": {
+      "line": "b5",
+      "word": "notes"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 500,
+     "y1": 470,
+     "x2": 800,
+     "y2": 780,
+     "color": "#24865b",
+     "t0": {
+      "line": "b5",
+      "word": "backing"
+     }
+    }
+   ]
+  },
+  {
+   "id": "आरक्षित_सोना",
+   "lines": [
+    "b6",
+    "b7",
+    "b8",
+    "b9",
+    "b10",
+    "b11"
+   ],
+   "bg": "paper",
+   "steps": [
+    {
+     "op": "person",
+     "id": "ग्राहक",
+     "look": "ramu",
+     "x": 350,
+     "y": 890,
+     "h": 280
+    },
+    {
+     "op": "person",
+     "id": "बैंकर",
+     "look": "mohan",
+     "x": 1550,
+     "y": 890,
+     "h": 280,
+     "facing": -1
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "bank",
+      "p": {
+       "w": 300,
+       "label": ""
+      }
+     },
+     "x": 1550,
+     "y": 470,
+     "t0": {
+      "line": "b6",
+      "edge": "start"
+     },
+     "t1": {
+      "line": "b8",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "note",
+      "p": {
+       "w": 280,
+       "value": "11वाँ नोट"
+      }
+     },
+     "x": 950,
+     "y": 760,
+     "t0": {
+      "line": "b6",
+      "word": "11वाँ"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coinStack",
+      "p": {
+       "r": 55,
+       "n": 6,
+       "metal": "gold"
+      }
+     },
+     "x": 400,
+     "y": 470,
+     "t0": {
+      "line": "b6",
+      "word": "10 grams"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "r": 48,
+       "metal": "gold"
+      }
+     },
+     "x": 250,
+     "y": 390,
+     "t0": {
+      "line": "b6",
+      "word": "10 grams"
+     }
+    },
+    {
+     "op": "text",
+     "text": "10 ग्राम सोना",
+     "x": 400,
+     "y": 180,
+     "size": 44,
+     "t0": {
+      "line": "b6",
+      "word": "10 grams"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "noteBundle",
+      "p": {
+       "w": 270,
+       "value": ""
+      }
+     },
+     "x": 950,
+     "y": 350,
+     "t0": {
+      "line": "b6",
+      "word": "10 notes"
+     }
+    },
+    {
+     "op": "text",
+     "text": "10 नोट",
+     "x": 950,
+     "y": 180,
+     "size": 44,
+     "t0": {
+      "line": "b6",
+      "word": "10 notes"
+     }
+    },
+    {
+     "op": "text",
+     "text": "हर नोट → 1 ग्राम",
+     "x": 950,
+     "y": 520,
+     "size": 44,
+     "t0": {
+      "line": "b6",
+      "word": "1 gram"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "cross",
+     "x": 1160,
+     "y": 760,
+     "w": 70,
+     "t0": {
+      "line": "b6",
+      "word": "अगला"
+     },
+     "t1": {
+      "line": "b7",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "metal": "gold",
+       "r": 48
+      }
+     },
+     "x": 650,
+     "y": 500,
+     "t0": {
+      "line": "b6",
+      "word": "और"
+     },
+     "keys": [
+      {
+       "t": {
+        "line": "b6",
+        "word": "चाहिए"
+       },
+       "d": 1,
+       "x": 570,
+       "y": 420
+      }
+     ]
+    },
+    {
+     "op": "text",
+     "text": "+1 ग्राम",
+     "x": 650,
+     "y": 590,
+     "size": 42,
+     "t0": {
+      "line": "b6",
+      "word": "और"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "tick",
+     "x": 1160,
+     "y": 760,
+     "w": 70,
+     "t0": {
+      "line": "b7",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 570,
+     "y1": 260,
+     "x2": 780,
+     "y2": 260,
+     "color": "#24865b",
+     "t0": {
+      "line": "b7",
+      "word": "constraint"
+     }
+    },
+    {
+     "op": "text",
+     "text": "वादा पूरा करने का भंडार",
+     "x": 400,
+     "y": 75,
+     "size": 40,
+     "t0": {
+      "line": "b7",
+      "word": "reserves"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "centralBank",
+      "p": {
+       "w": 350,
+       "label": ""
+      }
+     },
+     "x": 1550,
+     "y": 480,
+     "t0": {
+      "line": "b8",
+      "word": "Central bank"
+     }
+    },
+    {
+     "op": "text",
+     "text": "केंद्रीय बैंक",
+     "x": 1550,
+     "y": 120,
+     "size": 44,
+     "t0": {
+      "line": "b8",
+      "word": "Central bank"
+     }
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "note",
+      "p": {
+       "w": 200,
+       "value": ""
+      }
+     },
+     "giver": "बैंकर",
+     "taker": "ग्राहक",
+     "t": {
+      "line": "b8",
+      "word": "जारी"
+     },
+     "keep": true
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "r": 45,
+       "metal": "gold"
+      }
+     },
+     "giver": "बैंकर",
+     "taker": "ग्राहक",
+     "t": {
+      "line": "b8",
+      "word": "देता"
+     },
+     "keep": true
+    },
+    {
+     "op": "text",
+     "text": "विमोचन के नियम",
+     "x": 1510,
+     "y": 550,
+     "size": 40,
+     "t0": {
+      "line": "b8",
+      "word": "unrestricted"
+     }
+    },
+    {
+     "op": "expr",
+     "who": "ग्राहक",
+     "t": {
+      "line": "b9",
+      "word": "टूटे"
+     },
+     "expr": "frown"
+    },
+    {
+     "op": "pose",
+     "who": "ग्राहक",
+     "t": {
+      "line": "b9",
+      "word": "माँगें"
+     },
+     "pose": "receive"
+    },
+    {
+     "op": "arrow",
+     "x1": 450,
+     "y1": 710,
+     "x2": 1400,
+     "y2": 710,
+     "dashed": true,
+     "color": "#bf5047",
+     "t0": {
+      "line": "b9",
+      "word": "माँगें"
+     },
+     "t1": {
+      "line": "b10",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "glow",
+     "x": 400,
+     "y": 380,
+     "w": 220,
+     "fill": "#e5c16a",
+     "t0": {
+      "line": "b10",
+      "word": "reserves"
+     },
+     "t1": {
+      "line": "b11",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 580,
+     "y1": 470,
+     "x2": 800,
+     "y2": 710,
+     "color": "#24865b",
+     "t0": {
+      "line": "b10",
+      "word": "issue"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 1380,
+     "y1": 820,
+     "x2": 500,
+     "y2": 820,
+     "dashed": true,
+     "color": "#24865b",
+     "t0": {
+      "line": "b11",
+      "word": "redemption"
+     }
+    },
+    {
+     "op": "nod",
+     "who": "बैंकर",
+     "t": {
+      "line": "b11",
+      "word": "ज़िम्मेदारी"
+     },
+     "d": 1
+    }
+   ]
+  },
+  {
+   "id": "इतिहास",
+   "lines": [
+    "b12",
+    "b13",
+    "b14",
+    "b15",
+    "b16",
+    "b17",
+    "b18"
+   ],
+   "bg": "paper",
+   "steps": [
+    {
+     "op": "person",
+     "id": "व्यापारी",
+     "look": "ramu",
+     "x": 350,
+     "y": 890,
+     "h": 280
+    },
+    {
+     "op": "person",
+     "id": "प्राप्तकर्ता",
+     "look": "shop",
+     "x": 1550,
+     "y": 890,
+     "h": 280,
+     "facing": -1
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "paper",
+      "p": {
+       "w": 180,
+       "kind": "receipt",
+       "title": "",
+       "lines": 0
+      }
+     },
+     "giver": "व्यापारी",
+     "taker": "प्राप्तकर्ता",
+     "t": {
+      "line": "b12",
+      "word": "receipt"
+     },
+     "keep": false
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "paper",
+      "p": {
+       "kind": "receipt",
+       "title": "रसीद",
+       "lines": 0
+      }
+     },
+     "s": 1.93,
+     "x": 600,
+     "y": 470,
+     "t0": {
+      "line": "b12",
+      "word": "receipt"
+     },
+     "t1": {
+      "line": "b15",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "timeline",
+      "p": {
+       "w": 1650,
+       "events": "7वीं;1023;1275;1661;1816;1944;1971",
+       "even": true,
+       "upto": 1,
+       "at": 0
+      }
+     },
+     "x": 960,
+     "y": 110,
+     "t0": {
+      "line": "b13",
+      "word": "7th"
+     },
+     "steps": [
+      {
+       "t": {
+        "line": "b13",
+        "word": "1023"
+       },
+       "p": {
+        "upto": 2,
+        "at": 1
+       }
+      },
+      {
+       "t": {
+        "line": "b14",
+        "word": "1275"
+       },
+       "p": {
+        "upto": 3,
+        "at": 2
+       }
+      },
+      {
+       "t": {
+        "line": "b14",
+        "word": "1661"
+       },
+       "p": {
+        "upto": 4,
+        "at": 3
+       }
+      },
+      {
+       "t": {
+        "line": "b15",
+        "word": "1816"
+       },
+       "p": {
+        "upto": 5,
+        "at": 4
+       }
+      },
+      {
+       "t": {
+        "line": "b15",
+        "word": "1944"
+       },
+       "p": {
+        "upto": 6,
+        "at": 5
+       }
+      },
+      {
+       "t": {
+        "line": "b16",
+        "word": "1971"
+       },
+       "p": {
+        "upto": 7,
+        "at": 6
+       }
+      }
+     ]
+    },
+    {
+     "op": "text",
+     "text": "तांग · 7वीं सदी · जमा की रसीद",
+     "x": 960,
+     "y": 225,
+     "size": 40,
+     "t0": {
+      "line": "b13",
+      "word": "7th"
+     },
+     "t1": {
+      "line": "b13",
+      "word": "1023"
+     }
+    },
+    {
+     "op": "text",
+     "text": "सोंग · सरकारी नोट",
+     "x": 960,
+     "y": 225,
+     "size": 40,
+     "t0": {
+      "line": "b13",
+      "word": "1023"
+     },
+     "t1": {
+      "line": "b14",
+      "word": "1275"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "institutionBadge",
+      "p": {
+       "kind": "government",
+       "name": "सरकार"
+      }
+     },
+     "s": 1.5,
+     "x": 900,
+     "y": 480,
+     "t0": {
+      "line": "b13",
+      "word": "authority"
+     },
+     "t1": {
+      "line": "b15",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "pose",
+     "who": "प्राप्तकर्ता",
+     "t": {
+      "line": "b14",
+      "word": "मना"
+     },
+     "pose": "refuse"
+    },
+    {
+     "op": "text",
+     "text": "युआन · स्वीकार करना अनिवार्य",
+     "x": 960,
+     "y": 225,
+     "size": 40,
+     "t0": {
+      "line": "b14",
+      "word": "1275"
+     },
+     "t1": {
+      "line": "b14",
+      "word": "1661"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "paper",
+      "p": {
+       "kind": "law",
+       "title": "नियम",
+       "lines": 0
+      }
+     },
+     "s": 1.93,
+     "x": 1320,
+     "y": 480,
+     "t0": {
+      "line": "b14",
+      "word": "compulsory"
+     },
+     "t1": {
+      "line": "b15",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "pose",
+     "who": "प्राप्तकर्ता",
+     "t": {
+      "line": "b14",
+      "word": "ज़रूरी"
+     },
+     "pose": "receive"
+    },
+    {
+     "op": "text",
+     "text": "स्वीडन · बैंकनोट",
+     "x": 960,
+     "y": 225,
+     "size": 40,
+     "t0": {
+      "line": "b14",
+      "word": "1661"
+     },
+     "t1": {
+      "line": "b15",
+      "word": "1816"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "note",
+      "p": {
+       "w": 270,
+       "value": ""
+      }
+     },
+     "x": 400,
+     "y": 470,
+     "t0": {
+      "line": "b15",
+      "word": "पैसे"
+     },
+     "t1": {
+      "line": "b15",
+      "word": "dollar-gold"
+     }
+    },
+    {
+     "op": "text",
+     "text": "ब्रिटेन · स्वर्ण मानक",
+     "x": 960,
+     "y": 225,
+     "size": 40,
+     "t0": {
+      "line": "b15",
+      "word": "1816"
+     },
+     "t1": {
+      "line": "b15",
+      "word": "1944"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "metal": "gold",
+       "r": 70
+      }
+     },
+     "x": 1500,
+     "y": 470,
+     "t0": {
+      "line": "b15",
+      "word": "Gold"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "rope",
+      "p": {
+       "w": 650,
+       "kind": "chain",
+       "label": ""
+      }
+     },
+     "x": 950,
+     "y": 470,
+     "t0": {
+      "line": "b15",
+      "word": "जोड़ता"
+     },
+     "t1": {
+      "line": "b16",
+      "word": "टूटा"
+     }
+    },
+    {
+     "op": "text",
+     "text": "ब्रेटन वुड्स · डॉलर–सोना संबंध",
+     "x": 960,
+     "y": 225,
+     "size": 40,
+     "t0": {
+      "line": "b15",
+      "word": "1944"
+     },
+     "t1": {
+      "line": "b16",
+      "word": "1971"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "foreignNote",
+      "p": {
+       "sign": "$",
+       "value": "USD"
+      }
+     },
+     "s": 2,
+     "x": 400,
+     "y": 470,
+     "t0": {
+      "line": "b15",
+      "word": "dollar-gold"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "desk",
+      "p": {
+       "w": 320,
+       "label": "",
+       "chair": false
+      }
+     },
+     "x": 950,
+     "y": 920,
+     "t0": {
+      "line": "b15",
+      "word": "official"
+     }
+    },
+    {
+     "op": "text",
+     "text": "आधिकारिक विनिमय",
+     "x": 950,
+     "y": 650,
+     "size": 42,
+     "t0": {
+      "line": "b15",
+      "word": "official"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "cross",
+     "x": 1550,
+     "y": 580,
+     "w": 65,
+     "t0": {
+      "line": "b15",
+      "word": "नहीं"
+     }
+    },
+    {
+     "op": "text",
+     "text": "स्वर्ण विमोचन संबंध समाप्त",
+     "x": 960,
+     "y": 225,
+     "size": 40,
+     "t0": {
+      "line": "b16",
+      "word": "1971"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "cross",
+     "x": 950,
+     "y": 470,
+     "w": 90,
+     "t0": {
+      "line": "b16",
+      "word": "टूटा"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "question",
+     "x": 400,
+     "y": 650,
+     "w": 75,
+     "t0": {
+      "line": "b17",
+      "word": "क्यों"
+     }
+    },
+    {
+     "op": "expr",
+     "who": "व्यापारी",
+     "t": {
+      "line": "b17",
+      "word": "क्यों"
+     },
+     "expr": "surprised"
+    },
+    {
+     "op": "arrow",
+     "x1": 600,
+     "y1": 570,
+     "x2": 1300,
+     "y2": 570,
+     "color": "#24865b",
+     "t0": {
+      "line": "b18",
+      "word": "बदलता"
+     }
+    }
+   ]
+  },
+  {
+   "id": "भरोसे_से_चलता_नोट",
+   "lines": [
+    "b19",
+    "b20",
+    "b21",
+    "b22"
+   ],
+   "bg": "paper",
+   "steps": [
+    {
+     "op": "person",
+     "id": "ग्राहक",
+     "look": "ramu",
+     "x": 300,
+     "y": 890,
+     "h": 280
+    },
+    {
+     "op": "person",
+     "id": "दुकानदार",
+     "look": "shop",
+     "x": 950,
+     "y": 890,
+     "h": 280,
+     "facing": -1
+    },
+    {
+     "op": "person",
+     "id": "अगला_विक्रेता",
+     "look": "sita",
+     "x": 1600,
+     "y": 890,
+     "h": 280,
+     "facing": -1
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "note",
+      "p": {
+       "w": 260,
+       "value": "₹100"
+      }
+     },
+     "giver": "ग्राहक",
+     "taker": "दुकानदार",
+     "t": {
+      "line": "b19",
+      "word": "देकर"
+     },
+     "keep": true
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "sack",
+      "p": {
+       "w": 250,
+       "content": "wheat",
+       "label": "चावल"
+      }
+     },
+     "giver": "दुकानदार",
+     "taker": "ग्राहक",
+     "t": {
+      "line": "b19",
+      "word": "लेते"
+     },
+     "keep": true
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "note",
+      "p": {
+       "w": 260,
+       "value": "₹100"
+      }
+     },
+     "giver": "दुकानदार",
+     "taker": "अगला_विक्रेता",
+     "t": {
+      "line": "b19",
+      "word": "खर्च"
+     },
+     "keep": true
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "institutionBadge",
+      "p": {
+       "kind": "government",
+       "name": "सरकार"
+      }
+     },
+     "s": 1.5,
+     "x": 350,
+     "y": 300,
+     "t0": {
+      "line": "b20",
+      "word": "government"
+     }
+    },
+    {
+     "op": "text",
+     "text": "प्राधिकार + भरोसा",
+     "x": 950,
+     "y": 75,
+     "size": 46,
+     "t0": {
+      "line": "b20",
+      "word": "trust"
+     }
+    },
+    {
+     "op": "nod",
+     "who": "अगला_विक्रेता",
+     "t": {
+      "line": "b20",
+      "word": "trust"
+     },
+     "d": 1
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "veg",
+      "p": {
+       "w": 100
+      }
+     },
+     "giver": "अगला_विक्रेता",
+     "taker": "दुकानदार",
+     "t": {
+      "line": "b20",
+      "word": "groceries"
+     },
+     "keep": true
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "metal": "gold",
+       "r": 65
+      }
+     },
+     "x": 950,
+     "y": 350,
+     "t0": {
+      "line": "b21",
+      "word": "Gold-backed"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "paper",
+      "p": {
+       "kind": "receipt",
+       "title": "स्वर्ण दावा",
+       "lines": 0
+      }
+     },
+     "s": 2.35,
+     "x": 1400,
+     "y": 330,
+     "t0": {
+      "line": "b21",
+      "word": "redemption"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 1210,
+     "y1": 350,
+     "x2": 1100,
+     "y2": 350,
+     "dashed": true,
+     "color": "#24865b",
+     "t0": {
+      "line": "b21",
+      "word": "redemption"
+     }
+    },
+    {
+     "op": "text",
+     "text": "कागजी मुद्रा ≠ हमेशा फिएट",
+     "x": 950,
+     "y": 560,
+     "size": 42,
+     "t0": {
+      "line": "b21",
+      "word": "हर"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "cross",
+     "x": 950,
+     "y": 470,
+     "w": 65,
+     "t0": {
+      "line": "b22",
+      "word": "बिना"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 480,
+     "y1": 300,
+     "x2": 790,
+     "y2": 300,
+     "color": "#24865b",
+     "t0": {
+      "line": "b22",
+      "word": "control"
+     }
+    }
+   ]
+  },
+  {
+   "id": "निर्गमन_और_नीति",
+   "lines": [
+    "b23",
+    "b24",
+    "b25"
+   ],
+   "bg": "paper",
+   "steps": [
+    {
+     "op": "item",
+     "thing": {
+      "draw": "building",
+      "p": {
+       "kind": "factory",
+       "w": 300,
+       "label": ""
+      }
+     },
+     "x": 300,
+     "y": 600,
+     "t0": {
+      "line": "b23",
+      "word": "Press"
+     },
+     "t1": {
+      "line": "b25",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "छपाई",
+     "x": 300,
+     "y": 150,
+     "size": 44,
+     "t0": {
+      "line": "b23",
+      "word": "Press"
+     },
+     "t1": {
+      "line": "b25",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "noteBundle",
+      "p": {
+       "w": 250,
+       "value": ""
+      }
+     },
+     "x": 600,
+     "y": 550,
+     "t0": {
+      "line": "b23",
+      "word": "note"
+     },
+     "t1": {
+      "line": "b25",
+      "edge": "start"
+     },
+     "keys": [
+      {
+       "t": {
+        "line": "b24",
+        "word": "printing"
+       },
+       "d": 1,
+       "x": 800,
+       "y": 550
+      },
+      {
+       "t": {
+        "line": "b24",
+        "word": "circulation"
+       },
+       "d": 1.3,
+       "x": 1500,
+       "y": 550
+      }
+     ]
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "accountCard",
+      "p": {
+       "w": 400,
+       "title": "डिजिटल",
+       "amount": "₹"
+      }
+     },
+     "s": 1.15,
+     "x": 400,
+     "y": 800,
+     "t0": {
+      "line": "b23",
+      "word": "digital"
+     },
+     "t1": {
+      "line": "b25",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "institutionBadge",
+      "p": {
+       "kind": "government",
+       "name": "सरकार"
+      }
+     },
+     "s": 1.4,
+     "x": 950,
+     "y": 260,
+     "t0": {
+      "line": "b23",
+      "word": "government"
+     },
+     "t1": {
+      "line": "b25",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "centralBank",
+      "p": {
+       "w": 330,
+       "label": ""
+      }
+     },
+     "x": 950,
+     "y": 900,
+     "t0": {
+      "line": "b23",
+      "word": "central-bank"
+     },
+     "t1": {
+      "line": "b25",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "crowd",
+      "p": {
+       "w": 320,
+       "n": 8,
+       "cols": 4
+      }
+     },
+     "x": 1550,
+     "y": 900,
+     "t0": {
+      "line": "b23",
+      "word": "public"
+     },
+     "t1": {
+      "line": "b25",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "barrier",
+      "p": {
+       "w": 250,
+       "label": ""
+      }
+     },
+     "x": 1150,
+     "y": 570,
+     "t0": {
+      "line": "b24",
+      "word": "authorised"
+     },
+     "t1": {
+      "line": "b24",
+      "word": "circulation"
+     }
+    },
+    {
+     "op": "text",
+     "text": "अधिकृत निर्गमन",
+     "x": 1450,
+     "y": 150,
+     "size": 44,
+     "t0": {
+      "line": "b24",
+      "word": "authorised"
+     },
+     "t1": {
+      "line": "b25",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "note",
+      "p": {
+       "w": 240,
+       "value": ""
+      }
+     },
+     "x": 1550,
+     "y": 360,
+     "t0": {
+      "line": "b24",
+      "word": "पुराने"
+     },
+     "t1": {
+      "line": "b25",
+      "edge": "start"
+     },
+     "keys": [
+      {
+       "t": {
+        "line": "b24",
+        "word": "बदलना"
+       },
+       "d": 1,
+       "x": 550,
+       "y": 360
+      }
+     ]
+    },
+    {
+     "op": "text",
+     "text": "पुराना ↔ नया; कुल नहीं बढ़ा",
+     "x": 950,
+     "y": 60,
+     "size": 44,
+     "t0": {
+      "line": "b24",
+      "word": "पुराने"
+     },
+     "t1": {
+      "line": "b25",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "fork",
+      "p": {
+       "w": 950,
+       "from": "नीति",
+       "up": "महँगा ऋण",
+       "upNote": "खर्च ↓",
+       "upResult": "दबाव ↓",
+       "down": "सस्ता ऋण",
+       "downNote": "खर्च ↑",
+       "downResult": "दबाव ↑",
+       "glow": "up"
+      }
+     },
+     "s": 1.15,
+     "x": 650,
+     "y": 420,
+     "t0": {
+      "line": "b25",
+      "word": "Policy"
+     },
+     "steps": [
+      {
+       "t": {
+        "line": "b25",
+        "word": "सस्ता"
+       },
+       "p": {
+        "glow": "down"
+       }
+      }
+     ]
+    },
+    {
+     "op": "person",
+     "id": "दुकानदार",
+     "look": "shop",
+     "x": 1450,
+     "y": 900,
+     "h": 280,
+     "t0": {
+      "line": "b25",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "building",
+      "p": {
+       "kind": "shop",
+       "w": 250,
+       "label": ""
+      }
+     },
+     "x": 1600,
+     "y": 470,
+     "t0": {
+      "line": "b25",
+      "word": "expansion"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "cross",
+     "x": 1600,
+     "y": 550,
+     "w": 70,
+     "t0": {
+      "line": "b25",
+      "word": "रोक"
+     },
+     "t1": {
+      "line": "b25",
+      "word": "सस्ता"
+     }
+    },
+    {
+     "op": "pose",
+     "who": "दुकानदार",
+     "t": {
+      "line": "b25",
+      "word": "रोक"
+     },
+     "pose": "refuse"
+    },
+    {
+     "op": "pose",
+     "who": "दुकानदार",
+     "t": {
+      "line": "b25",
+      "word": "सस्ता"
+     },
+     "pose": "point"
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "cart",
+      "p": {
+       "w": 250,
+       "content": "empty",
+       "label": ""
+      }
+     },
+     "x": 650,
+     "y": 930,
+     "t0": {
+      "line": "b25",
+      "word": "missing"
+     }
+    },
+    {
+     "op": "text",
+     "text": "सामान अपने आप नहीं बनता",
+     "x": 1500,
+     "y": 130,
+     "w": 480,
+     "size": 36,
+     "t0": {
+      "line": "b25",
+      "word": "missing"
+     }
+    }
+   ]
+  },
+  {
+   "id": "मुद्राओं_की_पहचान",
+   "lines": [
+    "b26",
+    "b27",
+    "b28",
+    "b29",
+    "b30",
+    "b31"
+   ],
+   "bg": "paper",
+   "steps": [
+    {
+     "op": "item",
+     "thing": {
+      "draw": "foreignNote",
+      "p": {
+       "sign": "$",
+       "value": "USD"
+      }
+     },
+     "s": 2,
+     "x": 350,
+     "y": 350,
+     "t0": {
+      "line": "b26",
+      "word": "$"
+     },
+     "t1": {
+      "line": "b28",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "अमेरिकी डॉलर · USD",
+     "x": 350,
+     "y": 150,
+     "size": 40,
+     "t0": {
+      "line": "b26",
+      "word": "Dollar"
+     },
+     "t1": {
+      "line": "b28",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "foreignNote",
+      "p": {
+       "sign": "€",
+       "value": "EUR"
+      }
+     },
+     "s": 2,
+     "x": 950,
+     "y": 350,
+     "t0": {
+      "line": "b26",
+      "word": "€"
+     }
+    },
+    {
+     "op": "text",
+     "text": "यूरो · EUR",
+     "x": 950,
+     "y": 150,
+     "size": 40,
+     "t0": {
+      "line": "b26",
+      "word": "Euro"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "crowd",
+      "p": {
+       "w": 350,
+       "n": 8,
+       "cols": 4
+      }
+     },
+     "x": 950,
+     "y": 850,
+     "t0": {
+      "line": "b26",
+      "word": "shared"
+     },
+     "t1": {
+      "line": "b28",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "foreignNote",
+      "p": {
+       "sign": "¥",
+       "value": "JPY"
+      }
+     },
+     "s": 2,
+     "x": 1550,
+     "y": 350,
+     "t0": {
+      "line": "b27",
+      "word": "¥"
+     },
+     "t1": {
+      "line": "b28",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "जापानी येन · JPY",
+     "x": 1550,
+     "y": 150,
+     "size": 40,
+     "t0": {
+      "line": "b27",
+      "word": "Yen"
+     },
+     "t1": {
+      "line": "b28",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "foreignNote",
+      "p": {
+       "sign": "¥",
+       "value": "CNY"
+      }
+     },
+     "s": 2,
+     "x": 1550,
+     "y": 700,
+     "t0": {
+      "line": "b27",
+      "word": "Yuan"
+     },
+     "t1": {
+      "line": "b28",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "चीनी युआन · CNY",
+     "x": 1550,
+     "y": 880,
+     "size": 40,
+     "t0": {
+      "line": "b27",
+      "word": "Yuan"
+     },
+     "t1": {
+      "line": "b28",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coinJar",
+      "p": {
+       "w": 180,
+       "fill": 0.8,
+       "label": ""
+      }
+     },
+     "x": 350,
+     "y": 870,
+     "t0": {
+      "line": "b27",
+      "word": "reserves"
+     },
+     "t1": {
+      "line": "b28",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 1300,
+     "y1": 700,
+     "x2": 500,
+     "y2": 700,
+     "color": "#24865b",
+     "t0": {
+      "line": "b27",
+      "word": "reserves"
+     },
+     "t1": {
+      "line": "b28",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "building",
+      "p": {
+       "kind": "shop",
+       "w": 270,
+       "label": ""
+      }
+     },
+     "x": 350,
+     "y": 850,
+     "t0": {
+      "line": "b28",
+      "word": "दुकान"
+     },
+     "t1": {
+      "line": "b31",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "foreignNote",
+      "p": {
+       "sign": "£",
+       "value": "GBP"
+      }
+     },
+     "s": 2,
+     "x": 350,
+     "y": 350,
+     "t0": {
+      "line": "b28",
+      "word": "£"
+     },
+     "t1": {
+      "line": "b31",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "ब्रिटिश पाउंड · GBP",
+     "x": 350,
+     "y": 150,
+     "size": 40,
+     "t0": {
+      "line": "b28",
+      "word": "Pound"
+     },
+     "t1": {
+      "line": "b31",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "जड़ें: 8वीं सदी",
+     "x": 350,
+     "y": 520,
+     "size": 42,
+     "t0": {
+      "line": "b28",
+      "word": "8th"
+     },
+     "t1": {
+      "line": "b29",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "r": 60,
+       "metal": "gold"
+      }
+     },
+     "x": 1550,
+     "y": 350,
+     "t0": {
+      "line": "b28",
+      "word": "gold"
+     },
+     "t1": {
+      "line": "b31",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "crowd",
+      "p": {
+       "w": 650,
+       "n": 27,
+       "cols": 9,
+       "share": 0.7407407407,
+       "shareLabel": "",
+       "restLabel": "",
+       "label": "",
+       "shareColor": "#24865b",
+       "restColor": "#c1c6ce"
+      }
+     },
+     "x": 1150,
+     "y": 920,
+     "t0": {
+      "line": "b29",
+      "word": "27"
+     },
+     "t1": {
+      "line": "b31",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "27 EU सदस्य",
+     "x": 1150,
+     "y": 500,
+     "size": 44,
+     "t0": {
+      "line": "b29",
+      "word": "27"
+     },
+     "t1": {
+      "line": "b31",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "20 ने यूरो अपनाया",
+     "x": 1150,
+     "y": 570,
+     "size": 44,
+     "t0": {
+      "line": "b29",
+      "word": "20"
+     },
+     "t1": {
+      "line": "b31",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "question",
+     "x": 1550,
+     "y": 500,
+     "w": 75,
+     "t0": {
+      "line": "b30",
+      "word": "stable"
+     },
+     "t1": {
+      "line": "b31",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "question",
+     "x": 950,
+     "y": 470,
+     "w": 75,
+     "t0": {
+      "line": "b30",
+      "word": "ranking"
+     },
+     "t1": {
+      "line": "b31",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "noteBundle",
+      "p": {
+       "w": 250,
+       "value": ""
+      }
+     },
+     "x": 400,
+     "y": 700,
+     "t0": {
+      "line": "b31",
+      "edge": "start"
+     },
+     "keys": [
+      {
+       "t": {
+        "line": "b31",
+        "word": "ज़्यादा"
+       },
+       "d": 1,
+       "s": 1.5
+      }
+     ]
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "cart",
+      "p": {
+       "w": 350,
+       "content": "goods",
+       "label": ""
+      }
+     },
+     "x": 1450,
+     "y": 850,
+     "t0": {
+      "line": "b31",
+      "word": "goods"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 650,
+     "y1": 700,
+     "x2": 1200,
+     "y2": 700,
+     "color": "#bf5047",
+     "t0": {
+      "line": "b31",
+      "word": "आगे"
+     }
+    },
+    {
+     "op": "text",
+     "text": "खरीदने की शक्ति ↓",
+     "x": 950,
+     "y": 900,
+     "size": 44,
+     "t0": {
+      "line": "b31",
+      "word": "power"
+     }
+    }
+   ]
+  },
+  {
+   "id": "उधार_और_सीमा",
+   "lines": [
+    "b32",
+    "b33",
+    "b34",
+    "b35",
+    "b36",
+    "b37",
+    "b38",
+    "b39"
+   ],
+   "bg": "paper",
+   "steps": [
+    {
+     "op": "person",
+     "id": "ग्राहक",
+     "look": "ramu",
+     "x": 350,
+     "y": 890,
+     "h": 280
+    },
+    {
+     "op": "person",
+     "id": "दुकानदार",
+     "look": "shop",
+     "x": 1550,
+     "y": 890,
+     "h": 280,
+     "facing": -1
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "accountCard",
+      "p": {
+       "w": 430,
+       "title": "उधार बाकी",
+       "amount": "₹100"
+      }
+     },
+     "x": 950,
+     "y": 300,
+     "t0": {
+      "line": "b32",
+      "word": "₹100"
+     },
+     "t1": {
+      "line": "b33",
+      "edge": "start"
+     },
+     "steps": [
+      {
+       "t": {
+        "line": "b32",
+        "word": "₹0"
+       },
+       "p": {
+        "amount": "₹0"
+       }
+      }
+     ]
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "note",
+      "p": {
+       "w": 260,
+       "value": "₹100"
+      }
+     },
+     "giver": "ग्राहक",
+     "taker": "दुकानदार",
+     "t": {
+      "line": "b32",
+      "word": "देते"
+     },
+     "keep": false
+    },
+    {
+     "op": "nod",
+     "who": "दुकानदार",
+     "t": {
+      "line": "b32",
+      "word": "चुका"
+     },
+     "d": 1
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "r": 65,
+       "metal": "silver"
+      }
+     },
+     "x": 950,
+     "y": 400,
+     "t0": {
+      "line": "b33",
+      "word": "coin"
+     },
+     "t1": {
+      "line": "b34",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "1 सिक्का · ₹10",
+     "x": 950,
+     "y": 180,
+     "size": 46,
+     "t0": {
+      "line": "b33",
+      "word": "₹10"
+     },
+     "t1": {
+      "line": "b34",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "r": 45,
+       "metal": "silver"
+      }
+     },
+     "giver": "ग्राहक",
+     "taker": "दुकानदार",
+     "t": {
+      "line": "b33",
+      "word": "देकर"
+     },
+     "keep": false
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "veg",
+      "p": {
+       "w": 90
+      }
+     },
+     "giver": "दुकानदार",
+     "taker": "ग्राहक",
+     "t": {
+      "line": "b33",
+      "word": "लेते"
+     },
+     "keep": false
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "noteBundle",
+      "p": {
+       "w": 250,
+       "value": ""
+      }
+     },
+     "x": 500,
+     "y": 480,
+     "t0": {
+      "line": "b34",
+      "word": "₹500"
+     },
+     "t1": {
+      "line": "b35",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "2 × ₹500 = ₹1,000",
+     "x": 500,
+     "y": 180,
+     "size": 44,
+     "t0": {
+      "line": "b34",
+      "word": "2"
+     },
+     "t1": {
+      "line": "b35",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "3 × ₹500 = ₹1,500",
+     "x": 500,
+     "y": 270,
+     "size": 44,
+     "t0": {
+      "line": "b34",
+      "word": "3"
+     },
+     "t1": {
+      "line": "b35",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coinStack",
+      "p": {
+       "r": 50,
+       "n": 6,
+       "metal": "silver"
+      }
+     },
+     "x": 1400,
+     "y": 500,
+     "t0": {
+      "line": "b34",
+      "word": "coins"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "r": 48,
+       "metal": "silver"
+      }
+     },
+     "x": 1220,
+     "y": 470,
+     "t0": {
+      "line": "b34",
+      "word": "coins"
+     }
+    },
+    {
+     "op": "text",
+     "text": "100 × ₹10 = ₹1,000",
+     "x": 1400,
+     "y": 180,
+     "size": 42,
+     "t0": {
+      "line": "b34",
+      "word": "100"
+     },
+     "t1": {
+      "line": "b35",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "101 × ₹10 = ₹1,010",
+     "x": 1400,
+     "y": 270,
+     "size": 42,
+     "t0": {
+      "line": "b34",
+      "word": "101"
+     },
+     "t1": {
+      "line": "b35",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "pose",
+     "who": "दुकानदार",
+     "t": {
+      "line": "b34",
+      "word": "मर्ज़ी"
+     },
+     "pose": "shrug"
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "institutionBadge",
+      "p": {
+       "kind": "government",
+       "name": "सरकार"
+      }
+     },
+     "s": 1.5,
+     "x": 500,
+     "y": 350,
+     "t0": {
+      "line": "b35",
+      "word": "government"
+     },
+     "t1": {
+      "line": "b36",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 700,
+     "y1": 350,
+     "x2": 1200,
+     "y2": 350,
+     "color": "#24865b",
+     "t0": {
+      "line": "b35",
+      "word": "recognised"
+     },
+     "t1": {
+      "line": "b36",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "r": 45,
+       "metal": "silver"
+      }
+     },
+     "giver": "ग्राहक",
+     "taker": "दुकानदार",
+     "t": {
+      "line": "b35",
+      "word": "इस्तेमाल"
+     },
+     "keep": false
+    },
+    {
+     "op": "text",
+     "text": "स्मारक सिक्का भी रोज़ के भुगतान में",
+     "x": 950,
+     "y": 75,
+     "size": 42,
+     "t0": {
+      "line": "b35",
+      "word": "Circulation"
+     },
+     "t1": {
+      "line": "b36",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "noteBundle",
+      "p": {
+       "w": 250,
+       "value": ""
+      }
+     },
+     "x": 500,
+     "y": 500,
+     "t0": {
+      "line": "b36",
+      "word": "notes"
+     },
+     "keys": [
+      {
+       "t": {
+        "line": "b36",
+        "word": "जोड़ते"
+       },
+       "d": 1,
+       "s": 1.4
+      }
+     ]
+    },
+    {
+     "op": "text",
+     "text": "₹10 · ₹20 · ₹50 · ₹100 · ₹200 · ₹500",
+     "x": 950,
+     "y": 75,
+     "size": 42,
+     "t0": {
+      "line": "b36",
+      "word": "₹10"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "centralBank",
+      "p": {
+       "w": 240,
+       "label": ""
+      }
+     },
+     "x": 1650,
+     "y": 330,
+     "t0": {
+      "line": "b36",
+      "word": "Reserve Bank"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "paper",
+      "p": {
+       "kind": "law",
+       "title": "RBI कानून",
+       "year": "1934",
+       "lines": 0
+      }
+     },
+     "s": 2.5,
+     "x": 950,
+     "y": 390,
+     "t0": {
+      "line": "b36",
+      "word": "1934"
+     },
+     "t1": {
+      "line": "b37",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "paper",
+      "p": {
+       "kind": "law",
+       "title": "सिक्का कानून",
+       "year": "2011",
+       "lines": 0
+      }
+     },
+     "s": 3,
+     "x": 950,
+     "y": 440,
+     "t0": {
+      "line": "b37",
+      "word": "2011"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "barrier",
+      "p": {
+       "w": 260,
+       "label": ""
+      }
+     },
+     "x": 1400,
+     "y": 570,
+     "t0": {
+      "line": "b37",
+      "word": "limit"
+     }
+    },
+    {
+     "op": "pose",
+     "who": "दुकानदार",
+     "t": {
+      "line": "b37",
+      "word": "रुकती"
+     },
+     "pose": "refuse"
+    },
+    {
+     "op": "mark",
+     "kind": "tick",
+     "x": 1400,
+     "y": 620,
+     "w": 65,
+     "t0": {
+      "line": "b38",
+      "word": "Valid"
+     }
+    },
+    {
+     "op": "text",
+     "text": "सीमा पार ≠ मान्यता समाप्त",
+     "x": 950,
+     "y": 900,
+     "size": 42,
+     "t0": {
+      "line": "b38",
+      "word": "limit"
+     },
+     "t1": {
+      "line": "b39",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "नोट: कुल राशि की छत नहीं",
+     "x": 500,
+     "y": 900,
+     "size": 40,
+     "t0": {
+      "line": "b39",
+      "word": "notes"
+     }
+    },
+    {
+     "op": "text",
+     "text": "सिक्के: तय कुल राशि",
+     "x": 1400,
+     "y": 900,
+     "size": 40,
+     "t0": {
+      "line": "b39",
+      "word": "coins"
+     }
+    }
+   ]
+  },
+  {
+   "id": "सिक्के_की_जाँच",
+   "lines": [
+    "b40",
+    "b41",
+    "b42",
+    "b43",
+    "b44",
+    "b45",
+    "b46",
+    "b47",
+    "b48"
+   ],
+   "bg": "paper",
+   "steps": [
+    {
+     "op": "person",
+     "id": "ग्राहक",
+     "look": "ramu",
+     "x": 300,
+     "y": 890,
+     "h": 260
+    },
+    {
+     "op": "person",
+     "id": "दुकानदार",
+     "look": "shop",
+     "x": 1600,
+     "y": 890,
+     "h": 260,
+     "facing": -1
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "phone",
+      "p": {
+       "w": 180,
+       "screen": "paid",
+       "amount": ""
+      }
+     },
+     "s": 1.4,
+     "x": 950,
+     "y": 380,
+     "t0": {
+      "line": "b40",
+      "word": "Bitcoin"
+     },
+     "t1": {
+      "line": "b41",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "कानूनी मुद्रा ≠ हमेशा फिएट",
+     "x": 950,
+     "y": 70,
+     "size": 46,
+     "t0": {
+      "line": "b40",
+      "word": "legal"
+     },
+     "t1": {
+      "line": "b41",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "cross",
+     "x": 1200,
+     "y": 380,
+     "w": 75,
+     "t0": {
+      "line": "b40",
+      "word": "exception"
+     },
+     "t1": {
+      "line": "b41",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "r": 70,
+       "metal": "silver"
+      }
+     },
+     "x": 500,
+     "y": 400,
+     "t0": {
+      "line": "b41",
+      "word": "coin"
+     },
+     "t1": {
+      "line": "b43",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "स्मारक: अधिकांश, सभी नहीं",
+     "x": 950,
+     "y": 100,
+     "size": 46,
+     "t0": {
+      "line": "b41",
+      "word": "अधिकांश"
+     },
+     "t1": {
+      "line": "b43",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "rect",
+     "x": 1150,
+     "y": 400,
+     "w": 300,
+     "h": 260,
+     "fill": "#e8eef4",
+     "stroke": "#60798c",
+     "sw": 5,
+     "alpha": 0.4,
+     "t0": {
+      "line": "b42",
+      "word": "Pack"
+     },
+     "t1": {
+      "line": "b43",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "r": 65,
+       "metal": "silver"
+      }
+     },
+     "x": 1150,
+     "y": 400,
+     "t0": {
+      "line": "b42",
+      "word": "coin"
+     },
+     "t1": {
+      "line": "b43",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "institutionBadge",
+      "p": {
+       "kind": "government",
+       "name": "टकसाल"
+      }
+     },
+     "s": 1.4,
+     "x": 1650,
+     "y": 350,
+     "t0": {
+      "line": "b42",
+      "word": "Government"
+     },
+     "t1": {
+      "line": "b43",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "प्रूफ: खास फिनिश",
+     "x": 500,
+     "y": 570,
+     "size": 40,
+     "t0": {
+      "line": "b42",
+      "word": "Proof"
+     },
+     "t1": {
+      "line": "b43",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "अप्रचलित (UNC)",
+     "x": 1150,
+     "y": 570,
+     "size": 40,
+     "t0": {
+      "line": "b42",
+      "word": "UNC"
+     },
+     "t1": {
+      "line": "b43",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coinStack",
+      "p": {
+       "r": 50,
+       "n": 4,
+       "metal": "silver"
+      }
+     },
+     "x": 550,
+     "y": 500,
+     "t0": {
+      "line": "b43",
+      "word": "4"
+     },
+     "t1": {
+      "line": "b44",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "r": 45,
+       "metal": "silver"
+      }
+     },
+     "x": 400,
+     "y": 460,
+     "t0": {
+      "line": "b43",
+      "word": "coins"
+     },
+     "t1": {
+      "line": "b44",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "4 × 25 पैसे",
+     "x": 550,
+     "y": 180,
+     "size": 44,
+     "t0": {
+      "line": "b43",
+      "word": "25"
+     },
+     "t1": {
+      "line": "b44",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "accountCard",
+      "p": {
+       "w": 420,
+       "title": "बिल बाकी",
+       "amount": "₹1"
+      }
+     },
+     "x": 1200,
+     "y": 350,
+     "t0": {
+      "line": "b43",
+      "word": "₹1"
+     },
+     "t1": {
+      "line": "b44",
+      "edge": "start"
+     },
+     "steps": [
+      {
+       "t": {
+        "line": "b43",
+        "word": "₹0"
+       },
+       "p": {
+        "amount": "₹0"
+       }
+      }
+     ]
+    },
+    {
+     "op": "pose",
+     "who": "दुकानदार",
+     "t": {
+      "line": "b43",
+      "word": "मना"
+     },
+     "pose": "refuse"
+    },
+    {
+     "op": "mark",
+     "kind": "cross",
+     "x": 800,
+     "y": 450,
+     "w": 70,
+     "t0": {
+      "line": "b43",
+      "word": "मना"
+     },
+     "t1": {
+      "line": "b44",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "r": 42,
+       "metal": "silver"
+      }
+     },
+     "giver": "ग्राहक",
+     "taker": "दुकानदार",
+     "t": {
+      "line": "b43",
+      "word": "दें",
+      "nth": 2
+     },
+     "keep": false
+    },
+    {
+     "op": "text",
+     "text": "मान्यता वापस लेना = विमुद्रीकरण",
+     "x": 950,
+     "y": 900,
+     "size": 42,
+     "t0": {
+      "line": "b43",
+      "word": "demonetization"
+     },
+     "t1": {
+      "line": "b44",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coinStack",
+      "p": {
+       "r": 55,
+       "n": 6,
+       "metal": "silver"
+      }
+     },
+     "x": 550,
+     "y": 500,
+     "t0": {
+      "line": "b44",
+      "word": "coins"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "r": 48,
+       "metal": "silver"
+      }
+     },
+     "x": 400,
+     "y": 450,
+     "t0": {
+      "line": "b44",
+      "word": "coins"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "r": 65,
+       "metal": "silver"
+      }
+     },
+     "x": 1350,
+     "y": 430,
+     "t0": {
+      "line": "b44",
+      "word": "50"
+     }
+    },
+    {
+     "op": "text",
+     "text": "₹1 · ₹2 · ₹5 · ₹10 · ₹20",
+     "x": 550,
+     "y": 180,
+     "size": 40,
+     "t0": {
+      "line": "b44",
+      "word": "₹1"
+     },
+     "t1": {
+      "line": "b45",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "कुल सीमा: ₹1,000",
+     "x": 550,
+     "y": 580,
+     "size": 42,
+     "t0": {
+      "line": "b44",
+      "word": "₹1,000"
+     }
+    },
+    {
+     "op": "text",
+     "text": "50 पैसे → कुल ₹10",
+     "x": 1350,
+     "y": 580,
+     "size": 42,
+     "t0": {
+      "line": "b44",
+      "word": "₹10"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "cross",
+     "x": 950,
+     "y": 740,
+     "w": 70,
+     "t0": {
+      "line": "b44",
+      "word": "छोटे"
+     }
+    },
+    {
+     "op": "text",
+     "text": "₹20 × 50 = ₹1,000",
+     "x": 550,
+     "y": 180,
+     "size": 42,
+     "t0": {
+      "line": "b45",
+      "word": "50"
+     }
+    },
+    {
+     "op": "text",
+     "text": "50 पैसे × 20 = ₹10",
+     "x": 1350,
+     "y": 180,
+     "size": 42,
+     "t0": {
+      "line": "b45",
+      "word": "20"
+     }
+    },
+    {
+     "op": "text",
+     "text": "सीमा राशि की, सिक्कों की संख्या की नहीं",
+     "x": 950,
+     "y": 900,
+     "size": 42,
+     "t0": {
+      "line": "b45",
+      "word": "नहीं"
+     },
+     "t1": {
+      "line": "b46",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "सिक्का अधिनियम · 2011",
+     "x": 950,
+     "y": 75,
+     "size": 44,
+     "t0": {
+      "line": "b46",
+      "word": "2011"
+     }
+    },
+    {
+     "op": "text",
+     "text": "25 पैसे: भुगतान मान्यता नहीं",
+     "x": 950,
+     "y": 820,
+     "size": 42,
+     "t0": {
+      "line": "b46",
+      "word": "25"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "tick",
+     "x": 1550,
+     "y": 450,
+     "w": 65,
+     "t0": {
+      "line": "b47",
+      "word": "status"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 550,
+     "y1": 650,
+     "x2": 550,
+     "y2": 770,
+     "color": "#24865b",
+     "t0": {
+      "line": "b48",
+      "word": "count"
+     }
+    },
+    {
+     "op": "text",
+     "text": "मूल्यवर्ग × संख्या → राशि → सीमा और मान्यता",
+     "x": 950,
+     "y": 900,
+     "size": 40,
+     "t0": {
+      "line": "b48",
+      "edge": "start"
+     }
+    }
+   ]
+  },
+  {
+   "id": "बिटकॉइन",
+   "lines": [
+    "b49",
+    "b50",
+    "b51",
+    "b52",
+    "b53"
+   ],
+   "bg": "paper",
+   "steps": [
+    {
+     "op": "person",
+     "id": "भुगतानकर्ता",
+     "look": "ramu",
+     "x": 350,
+     "y": 890,
+     "h": 280
+    },
+    {
+     "op": "person",
+     "id": "विक्रेता",
+     "look": "shop",
+     "x": 1550,
+     "y": 890,
+     "h": 280,
+     "facing": -1
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "phone",
+      "p": {
+       "w": 180,
+       "screen": "paid",
+       "amount": ""
+      }
+     },
+     "s": 1.34,
+     "x": 950,
+     "y": 480,
+     "t0": {
+      "line": "b49",
+      "word": "Phone"
+     }
+    },
+    {
+     "op": "text",
+     "text": "बिटकॉइन",
+     "x": 650,
+     "y": 740,
+     "size": 44,
+     "t0": {
+      "line": "b49",
+      "word": "Bitcoin"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "institutionBadge",
+      "p": {
+       "kind": "government",
+       "name": "सरकार"
+      }
+     },
+     "s": 1.5,
+     "x": 1550,
+     "y": 430,
+     "t0": {
+      "line": "b49",
+      "word": "government-issued"
+     }
+    },
+    {
+     "op": "text",
+     "text": "एल-साल्वाडोर",
+     "x": 1550,
+     "y": 220,
+     "size": 42,
+     "t0": {
+      "line": "b49",
+      "word": "El-Salvador"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "cross",
+     "x": 1250,
+     "y": 430,
+     "w": 70,
+     "t0": {
+      "line": "b49",
+      "word": "नहीं"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "timeline",
+      "p": {
+       "w": 1500,
+       "events": "2024;2025",
+       "even": true,
+       "upto": 1,
+       "at": 0
+      }
+     },
+     "s": 1.1,
+     "x": 960,
+     "y": 90,
+     "t0": {
+      "line": "b50",
+      "word": "2024"
+     },
+     "steps": [
+      {
+       "t": {
+        "line": "b51",
+        "word": "2025"
+       },
+       "p": {
+        "upto": 2,
+        "at": 1
+       }
+      }
+     ]
+    },
+    {
+     "op": "text",
+     "text": "गैर-फिएट कानूनी मुद्रा",
+     "x": 960,
+     "y": 200,
+     "size": 40,
+     "t0": {
+      "line": "b50",
+      "word": "non-fiat"
+     },
+     "t1": {
+      "line": "b51",
+      "word": "2025"
+     }
+    },
+    {
+     "op": "text",
+     "text": "स्वीकार करना स्वैच्छिक",
+     "x": 960,
+     "y": 200,
+     "size": 40,
+     "t0": {
+      "line": "b51",
+      "word": "2025"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "building",
+      "p": {
+       "kind": "office",
+       "w": 250,
+       "label": ""
+      }
+     },
+     "x": 350,
+     "y": 500,
+     "t0": {
+      "line": "b50",
+      "word": "mining"
+     }
+    },
+    {
+     "op": "text",
+     "text": "नेटवर्क नियम",
+     "x": 350,
+     "y": 550,
+     "size": 42,
+     "t0": {
+      "line": "b50",
+      "word": "network"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "metal": "copper",
+       "r": 45
+      }
+     },
+     "x": 550,
+     "y": 500,
+     "t0": {
+      "line": "b50",
+      "word": "बनते"
+     },
+     "keys": [
+      {
+       "t": {
+        "line": "b50",
+        "word": "बनते"
+       },
+       "d": 1,
+       "x": 700,
+       "y": 500
+      }
+     ]
+    },
+    {
+     "op": "text",
+     "text": "कीमत: माँग ↔ आपूर्ति",
+     "x": 950,
+     "y": 805,
+     "size": 44,
+     "t0": {
+      "line": "b50",
+      "word": "demand-supply"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 1390,
+     "y1": 430,
+     "x2": 1100,
+     "y2": 430,
+     "dashed": true,
+     "color": "#bf5047",
+     "t0": {
+      "line": "b50",
+      "word": "government"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "barrier",
+      "p": {
+       "w": 160,
+       "label": ""
+      }
+     },
+     "x": 1250,
+     "y": 590,
+     "t0": {
+      "line": "b50",
+      "word": "legal-tender"
+     },
+     "t1": {
+      "line": "b51",
+      "word": "हटी"
+     }
+    },
+    {
+     "op": "pose",
+     "who": "विक्रेता",
+     "t": {
+      "line": "b51",
+      "word": "हटी"
+     },
+     "pose": "shrug"
+    },
+    {
+     "op": "nod",
+     "who": "भुगतानकर्ता",
+     "t": {
+      "line": "b51",
+      "word": "राज़ी"
+     },
+     "d": 1
+    },
+    {
+     "op": "nod",
+     "who": "विक्रेता",
+     "t": {
+      "line": "b51",
+      "word": "राज़ी"
+     },
+     "d": 1
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "metal": "copper",
+       "r": 40
+      }
+     },
+     "giver": "भुगतानकर्ता",
+     "taker": "विक्रेता",
+     "t": {
+      "line": "b51",
+      "word": "payment"
+     },
+     "keep": false
+    },
+    {
+     "op": "mark",
+     "kind": "tick",
+     "x": 1250,
+     "y": 590,
+     "w": 70,
+     "t0": {
+      "line": "b51",
+      "word": "संभव"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 500,
+     "y1": 570,
+     "x2": 750,
+     "y2": 570,
+     "color": "#24865b",
+     "t0": {
+      "line": "b52",
+      "word": "network"
+     }
+    },
+    {
+     "op": "text",
+     "text": "जारीकर्ता · रखना वैध · स्वीकार्यता",
+     "x": 950,
+     "y": 910,
+     "size": 40,
+     "t0": {
+      "line": "b53",
+      "edge": "start"
+     },
+     "t1": {
+      "line": "b53",
+      "edge": "end"
+     }
+    }
+   ]
+  },
+  {
+   "id": "संग्रह_और_भुगतान",
+   "lines": [
+    "b54",
+    "b55",
+    "b56",
+    "b57",
+    "b58"
+   ],
+   "bg": "paper",
+   "steps": [
+    {
+     "op": "person",
+     "id": "मालिक",
+     "look": "ramu",
+     "x": 300,
+     "y": 890,
+     "h": 270
+    },
+    {
+     "op": "person",
+     "id": "दुकानदार",
+     "look": "shop",
+     "x": 950,
+     "y": 890,
+     "h": 270,
+     "facing": -1
+    },
+    {
+     "op": "person",
+     "id": "संग्राहक",
+     "look": "mohan",
+     "x": 1600,
+     "y": 890,
+     "h": 270,
+     "facing": -1
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "coin",
+      "p": {
+       "metal": "silver",
+       "r": 80
+      }
+     },
+     "x": 450,
+     "y": 400,
+     "t0": {
+      "line": "b54",
+      "word": "silver"
+     },
+     "keys": [
+      {
+       "t": {
+        "line": "b55",
+        "word": "Payment"
+       },
+       "d": 1,
+       "x": 950,
+       "y": 400
+      },
+      {
+       "t": {
+        "line": "b55",
+        "word": "collector"
+       },
+       "d": 1,
+       "x": 1550,
+       "y": 400
+      },
+      {
+       "t": {
+        "line": "b58",
+        "word": "Payment"
+       },
+       "d": 1,
+       "x": 950,
+       "y": 400
+      }
+     ]
+    },
+    {
+     "op": "text",
+     "text": "अंकित मूल्य: ₹100",
+     "x": 450,
+     "y": 180,
+     "size": 44,
+     "t0": {
+      "line": "b54",
+      "word": "₹100"
+     }
+    },
+    {
+     "op": "text",
+     "text": "भुगतान: ₹100",
+     "x": 950,
+     "y": 550,
+     "size": 42,
+     "t0": {
+      "line": "b55",
+      "word": "₹100"
+     }
+    },
+    {
+     "op": "text",
+     "text": "संग्रह बिक्री: कई हज़ार",
+     "x": 1500,
+     "y": 180,
+     "size": 40,
+     "t0": {
+      "line": "b55",
+      "word": "हज़ार"
+     }
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "moneyBag",
+      "p": {
+       "w": 160,
+       "label": "",
+       "sign": "₹"
+      }
+     },
+     "giver": "संग्राहक",
+     "taker": "मालिक",
+     "t": {
+      "line": "b56",
+      "word": "देता"
+     },
+     "keep": false
+    },
+    {
+     "op": "text",
+     "text": "चाँदी · हालत · संग्रह आकर्षण",
+     "x": 1450,
+     "y": 75,
+     "size": 40,
+     "t0": {
+      "line": "b56",
+      "word": "silver"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 1400,
+     "y1": 400,
+     "x2": 1100,
+     "y2": 400,
+     "dashed": true,
+     "color": "#bf5047",
+     "t0": {
+      "line": "b57",
+      "word": "debt-settlement"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "cross",
+     "x": 1250,
+     "y": 400,
+     "w": 70,
+     "t0": {
+      "line": "b57",
+      "word": "नहीं"
+     }
+    },
+    {
+     "op": "text",
+     "text": "भुगतान में अंकित मूल्य; संग्रह में तय कीमत",
+     "x": 950,
+     "y": 910,
+     "size": 42,
+     "t0": {
+      "line": "b58",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "nod",
+     "who": "संग्राहक",
+     "t": {
+      "line": "b58",
+      "word": "agreed"
+     },
+     "d": 1
+    }
+   ]
+  },
+  {
+   "id": "भुगतान_के_रास्ते",
+   "lines": [
+    "b59",
+    "b60",
+    "b61"
+   ],
+   "bg": "paper",
+   "steps": [
+    {
+     "op": "person",
+     "id": "विद्यार्थी",
+     "look": "ramu",
+     "x": 300,
+     "y": 900,
+     "h": 260
+    },
+    {
+     "op": "person",
+     "id": "बैंकर",
+     "look": "mohan",
+     "x": 950,
+     "y": 900,
+     "h": 260,
+     "facing": -1
+    },
+    {
+     "op": "person",
+     "id": "कॉलेज",
+     "look": "sita",
+     "x": 1600,
+     "y": 900,
+     "h": 260,
+     "facing": -1
+    },
+    {
+     "op": "text",
+     "text": "फीस: ₹1,000",
+     "x": 1550,
+     "y": 100,
+     "size": 44,
+     "t0": {
+      "line": "b59",
+      "word": "₹1,000"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "accountCard",
+      "p": {
+       "w": 420,
+       "title": "आपका खाता",
+       "amount": "₹2,000"
+      }
+     },
+     "x": 350,
+     "y": 280,
+     "t0": {
+      "line": "b59",
+      "word": "₹2,000"
+     },
+     "t1": {
+      "line": "b61",
+      "edge": "start"
+     },
+     "steps": [
+      {
+       "t": {
+        "line": "b59",
+        "word": "बचते"
+       },
+       "p": {
+        "amount": "₹1,000"
+       }
+      }
+     ]
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "bank",
+      "p": {
+       "w": 280,
+       "label": ""
+      }
+     },
+     "x": 950,
+     "y": 450,
+     "t0": {
+      "line": "b59",
+      "word": "bank"
+     },
+     "t1": {
+      "line": "b60",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "building",
+      "p": {
+       "kind": "office",
+       "w": 250,
+       "label": ""
+      }
+     },
+     "x": 1550,
+     "y": 460,
+     "t0": {
+      "line": "b59",
+      "word": "college"
+     },
+     "t1": {
+      "line": "b61",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "give",
+     "thing": {
+      "draw": "paper",
+      "p": {
+       "w": 180,
+       "kind": "contract",
+       "title": "",
+       "lines": 0
+      }
+     },
+     "giver": "विद्यार्थी",
+     "taker": "बैंकर",
+     "t": {
+      "line": "b59",
+      "word": "देते"
+     },
+     "keep": false
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "accountCard",
+      "p": {
+       "w": 420,
+       "title": "कॉलेज को मिला",
+       "amount": "₹1,000"
+      }
+     },
+     "x": 1250,
+     "y": 565,
+     "t0": {
+      "line": "b59",
+      "word": "Clearing"
+     },
+     "t1": {
+      "line": "b60",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 1120,
+     "y1": 400,
+     "x2": 1370,
+     "y2": 400,
+     "color": "#24865b",
+     "t0": {
+      "line": "b59",
+      "word": "मिलते"
+     },
+     "t1": {
+      "line": "b60",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "mark",
+     "kind": "cross",
+     "x": 1250,
+     "y": 600,
+     "w": 70,
+     "t0": {
+      "line": "b59",
+      "word": "कम"
+     },
+     "t1": {
+      "line": "b60",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "institutionBadge",
+      "p": {
+       "kind": "bank",
+       "name": "जारीकर्ता"
+      }
+     },
+     "s": 1.5,
+     "x": 950,
+     "y": 300,
+     "t0": {
+      "line": "b60",
+      "word": "issuer"
+     },
+     "t1": {
+      "line": "b61",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 1120,
+     "y1": 330,
+     "x2": 1370,
+     "y2": 330,
+     "color": "#4184bf",
+     "t0": {
+      "line": "b60",
+      "word": "payment"
+     },
+     "t1": {
+      "line": "b61",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "accountCard",
+      "p": {
+       "w": 440,
+       "title": "लौटाना है",
+       "amount": "₹1,000"
+      }
+     },
+     "x": 950,
+     "y": 530,
+     "t0": {
+      "line": "b60",
+      "word": "₹1,000"
+     },
+     "t1": {
+      "line": "b61",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "arrow",
+     "x1": 450,
+     "y1": 800,
+     "x2": 800,
+     "y2": 800,
+     "dashed": true,
+     "color": "#b6713d",
+     "t0": {
+      "line": "b60",
+      "word": "लौटाने"
+     },
+     "t1": {
+      "line": "b61",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "text",
+     "text": "जमा नहीं, उधार इस्तेमाल हुआ",
+     "x": 950,
+     "y": 100,
+     "size": 42,
+     "t0": {
+      "line": "b60",
+      "word": "credit"
+     },
+     "t1": {
+      "line": "b61",
+      "edge": "start"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "cheque",
+      "p": {
+       "amount": "₹1,000"
+      }
+     },
+     "s": 2.4,
+     "x": 500,
+     "y": 380,
+     "t0": {
+      "line": "b61",
+      "word": "cheque"
+     }
+    },
+    {
+     "op": "item",
+     "thing": {
+      "draw": "accountCard",
+      "p": {
+       "w": 440,
+       "title": "क्रेडिट कार्ड",
+       "amount": "उधार तक पहुँच"
+      }
+     },
+     "x": 1400,
+     "y": 380,
+     "t0": {
+      "line": "b61",
+      "word": "credit card"
+     }
+    },
+    {
+     "op": "text",
+     "text": "जमा से भुगतान का निर्देश",
+     "x": 500,
+     "y": 580,
+     "size": 40,
+     "t0": {
+      "line": "b61",
+      "word": "deposits"
+     }
+    },
+    {
+     "op": "text",
+     "text": "भुगतान साधन, स्वयं मुद्रा नहीं",
+     "x": 950,
+     "y": 75,
+     "size": 44,
+     "t0": {
+      "line": "b61",
+      "word": "instruments"
+     }
+    },
+    {
+     "op": "nod",
+     "who": "कॉलेज",
+     "t": {
+      "line": "b61",
+      "word": "स्वीकार"
+     },
+     "d": 1
+    },
+    {
+     "op": "text",
+     "text": "मूल्य का आधार · कानूनी मान्यता · भुगतान का तरीका",
+     "x": 950,
+     "y": 910,
+     "size": 40,
+     "t0": {
+      "line": "b61",
+      "word": "payment method"
+     }
+    }
+   ]
+  }
+ ]
+}
