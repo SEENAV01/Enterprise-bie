@@ -24,13 +24,14 @@ from pathlib import Path
 FLOOR_PX = 36.0            # CV-17: the readable floor on the 1080p frame, measured after the camera
 SUB_TOP = 960.0            # the subtitle strip: texts stay above this line on the 1080 stage
 SHOW_GAP = 2.0             # agreement: no SHOW_GAP seconds without the thing being shown
-BACKDROPS = {"world"}      # a whole place behind the lesson: it never counts as the thing being shown
+BACKDROPS = {"world"}      # a whole place behind the lesson: it never counts as the thing being shown (so is a world3d)
+AT_OPS = ("person", "item", "text", "mark", "glow")      # steps that may stand at a 3D model's spot instead of an x, y
 VOCAB_PATH = Path(__file__).resolve().parent / "engine" / "plan_vocab.json"
 
 POSES = {"stand": (8, 5, 8, 5), "give": (80, 0, 10, 5), "receive": (62, 18, 10, 5), "hold": (20, 85, 10, 5),
          "holdBoth": (22, 80, 22, 80), "think": (28, 145, 10, 5), "point": (120, 5, 10, 5), "shrug": (40, 110, 40, 110),
          "wave": (150, 25, 10, 5), "carry": (160, 40, 10, 5), "write": (35, 75, 10, 5), "walk": (10, 5, 10, 5),
-         "refuse": (55, 105, 10, 5)}
+         "refuse": (55, 105, 10, 5), "pull": (84, 6, 78, 10), "raise": (172, 4, 10, 5)}
 
 
 class PlanProblems(ValueError):
@@ -160,23 +161,36 @@ class Recorder:
     def __init__(self, sid, lines, bg="paper", kicker=None, fg=None):
         self.id, self.lines, self.bg, self.kicker, self.fg = sid, lines, bg, kicker, fg
         self.steps, self.cam = [], []
+        self.place3d = None
 
     def _step(self, op, **kw):
         self.steps.append({"op": op, **{k: v for k, v in kw.items() if v is not None or k in ("t1",)}})
         return self.steps[-1]
 
     # ---- elements (a person step returns the handle the action steps name)
-    def person(self, pid, look, x, t0=None, y=885, h=440, facing=1, pose="stand", expr="smile", z=10, t1=None):
-        self._step("person", id=pid, look=look, x=x, y=y, h=h, facing=facing, pose=pose, expr=expr, t0=t0, t1=t1, z=z)
+    def person(self, pid, look, x=None, t0=None, y=885, h=440, facing=1, pose="stand", expr="smile", z=10, t1=None, at=None):
+        self._step("person", id=pid, look=look, x=x, y=None if at else y, h=h, facing=facing, pose=pose, expr=expr, t0=t0, t1=t1,
+                   z=z, at=at)
         return {"id": pid, "h": h}
 
-    def item(self, spec, x, y, t0=None, t1=None, s=1, z=20, keys=None, enter="pop", **kw):
+    # ---- 3D (engine/three): the scene's 3D place, or a 3D model as a thing; ``at`` puts others beside its spots
+    def world3d(self, model, p=None, steps=None, cam3d=None, id="world3d", enter="fade"):
+        self.place3d = {k: v for k, v in dict(model=model, p=p, steps=steps, cam3d=cam3d, id=id, enter=enter).items() if v is not None}
+        return {"id": id}
+
+    def model(self, mid, model, x=960, y=540, p=None, t0=None, t1=None, s=1, z=20, w=None, h=None, steps=None, cam3d=None,
+              keys=None, enter="fade"):
+        thing = {"model": model, "p": p or {}}
+        return self._step("item", thing=thing, id=mid, x=x, y=y, s=s, z=z, t0=t0, t1=t1, enter=enter, w=w, h=h, steps=steps,
+                          cam3d=cam3d, keys=keys)
+
+    def item(self, spec, x=None, y=None, t0=None, t1=None, s=1, z=20, keys=None, enter="pop", **kw):
         return self._step("item", thing=spec, x=x, y=y, s=s, z=z, t0=t0, t1=t1, enter=enter, keys=keys, **kw)
 
-    def text(self, text, x, y, t0=None, t1=None, size=46, style="tag", w=None, z=40, **kw):
+    def text(self, text, x=None, y=None, t0=None, t1=None, size=46, style="tag", w=None, z=40, **kw):
         return self._step("text", text=text, x=x, y=y, t0=t0, t1=t1, size=size, style=style, w=w, z=z, **kw)
 
-    def mark(self, kind, x, y, t0, t1=None, w=120, z=45, **kw):
+    def mark(self, kind, x=None, y=None, t0=None, t1=None, w=120, z=45, **kw):
         return self._step("mark", kind=kind, x=x, y=y, t0=t0, t1=t1, w=w, z=z, **kw)
 
     def arrow(self, x1, y1, x2, y2, t0, t1=None, z=30, **kw):
@@ -188,7 +202,7 @@ class Recorder:
     def rect(self, x, y, w, h, t0=None, t1=None, z=1, **kw):
         return self._step("rect", x=x, y=y, w=w, h=h, t0=t0, t1=t1, z=z, **kw)
 
-    def glow(self, x, y, w, t0, t1=None, fill=None, z=5, **kw):
+    def glow(self, x=None, y=None, w=200, t0=None, t1=None, fill=None, z=5, **kw):
         return self._step("glow", x=x, y=y, w=w, t0=t0, t1=t1, fill=fill, z=z, **kw)
 
     def map(self, t0=None, z=1, **kw):
@@ -230,6 +244,8 @@ class Recorder:
             out["kicker"] = self.kicker
         if self.fg:
             out["fg"] = self.fg
+        if self.place3d:
+            out["world3d"] = _jsonable(self.place3d)
         return out
 
 
@@ -285,6 +301,9 @@ class _Executor:
         first = scene["lines"][0]
         self.t0 = T.L(first)["t0"] - 0.35
         self.els, self.cam, self.people = [], [], {}
+        self.models = {}                              # 3D models of this scene by id (world3d first), for ``at``
+        if scene.get("world3d") is not None:
+            self._world3d(scene["world3d"])
 
     def where(self, i, op):
         return f"scene {self.id} step {i + 1} ({op})"
@@ -315,15 +334,110 @@ class _Executor:
             self.problems.append(f"{w}: no person '{pid}' in this scene (it has: {', '.join(self.people) or 'none'})")
         return p
 
+    # ---- 3D models (engine/three, models3d.py)
+    def _model_el(self, w, spec, e, place):
+        from bie.brain.video import models3d
+        name = spec.get("model")
+        mid = e.pop("id", None) or ("world3d" if place else f"model{len(self.models) + 1}")
+        if mid in self.models:
+            self.problems.append(f"{w}: two 3D models named '{mid}' in one scene")
+        extra = sorted(set(spec) - {"model", "p"})
+        if extra:
+            self.problems.append(f"{w}: a 3D model thing has only model and p, not {', '.join(extra)}")
+        size = models3d.PLACE_SIZE if place else (models3d.size_of(name) if isinstance(name, str) and models3d.get(name) else models3d.PLACE_SIZE)
+        steps = e.pop("steps", None) or []
+        if not isinstance(steps, list):
+            self.problems.append(f"{w}: steps must be a list of [{{t, p, d}}]")
+            steps = []
+        cams = e.pop("cam3d", None) or []
+        el = {"kind": "model3d", "id": mid, "model": name, "p": dict(spec.get("p") or {}) if isinstance(spec.get("p"), dict) else spec.get("p"),
+              "x": e.pop("x", 960), "y": e.pop("y", 540), "w": e.pop("w", None) or size[0], "h": e.pop("h", None) or size[1],
+              "s": e.pop("s", 1), "z": e.pop("z", 0 if place else 20), "t0": self.rt(e.pop("t0", None), w, self.t0),
+              "t1": self.rt(e.pop("t1", None), w), "enter": e.pop("enter", "fade"), "keys": self._keys(w, e.pop("keys", None)),
+              "steps": [dict(st, t=self.rt(st.get("t"), w + " steps", self.t0)) if isinstance(st, dict) else st for st in steps],
+              "cam3d": [dict(k, t=self.rt(k.get("t"), w + " cam3d", self.t0)) if isinstance(k, dict) else k for k in cams]
+              if isinstance(cams, list) else cams, "place": place}
+        if el["enter"] not in ("pop", "fade", "none"):
+            self.problems.append(f"{w}: enter must be pop, fade or none, not {el['enter']!r}")
+        self._leftover(w, e)
+        self.models[mid] = el
+        self.els.append(el)
+        return el
+
+    def _world3d(self, spec):
+        w = f"scene {self.id} world3d"
+        if not isinstance(spec, dict) or not spec.get("model"):
+            self.problems.append(f"{w}: world3d needs {{model, p, steps, cam3d}} (models: see the 3D library)")
+            return
+        e = {k: v for k, v in spec.items() if k not in ("model", "p")}
+        e.setdefault("z", 0)
+        for key in ("x", "y", "w", "h", "s", "keys"):
+            if key in e:
+                self.problems.append(f"{w}: a scene's 3D place always fills the stage; no field '{key}' here")
+                e.pop(key)
+        self._model_el(w, {"model": spec["model"], "p": spec.get("p") or {}}, e, True)
+
+    def _at(self, w, e, el):
+        """``at: {of, spot, dx, dy, when}`` instead of x and y: the element stands where a 3D model's spot is on the stage
+        at ``when`` (default: when the element appears), measured from the engine's own description of that model (a
+        model of this scene, named before this step; ``of`` may be left out when the scene has one)."""
+        from bie.brain.video import models3d
+        at = e.pop("at", None)
+        if at is None:
+            return
+        if not isinstance(at, dict) or not at.get("spot"):
+            self.problems.append(f"{w}: at needs {{of, spot, dx, dy, when}} (a 3D model's id and one of its spots)")
+            return
+        bad = sorted(set(at) - {"of", "spot", "dx", "dy", "when"})
+        if bad:
+            self.problems.append(f"{w}: at has no field {', '.join(repr(b) for b in bad)} (of, spot, dx, dy, when)")
+        of = at.get("of")
+        if of is None and len(self.models) == 1:
+            of = next(iter(self.models))
+        model = self.models.get(of)
+        if model is None:
+            self.problems.append(f"{w}: at.of: no 3D model '{of}' in this scene before this step (it has: {', '.join(self.models) or 'none'})")
+            return
+        if models3d.get(model.get("model")) is None or not isinstance(model.get("p"), dict):
+            return                                         # the model's own problem is named once, by the checks
+        t = self.rt(at.get("when"), w + " at.when", None) if at.get("when") is not None else el.get("t0")
+        t = float(t if t is not None else model.get("t0") or 0.0)
+        try:
+            res = models3d.measure(model, t)
+        except models3d.ModelsUnavailable as exc:
+            self.problems.append(f"{w}: the spot could not be measured: {exc}")
+            return
+        if res.get("error"):
+            self.problems.append(f"{w}: the 3D model '{of}' could not be measured: {res['error']}")
+            return
+        spot = (res.get("spots") or {}).get(at["spot"])
+        if spot is None:
+            self.problems.append(f"{w}: the 3D model '{of}' ({model['model']}) has no spot '{at['spot']}' at {t:.1f}s "
+                                 f"(spots: {', '.join(sorted(res.get('spots') or {}))})")
+            return
+        if not spot.get("front"):
+            self.problems.append(f"{w}: the spot '{at['spot']}' of '{of}' is hidden from its camera at {t:.1f}s (behind the model "
+                                 "or the camera): turn the model (face, turn) or the camera, or use another spot")
+        for f, d in (("x", "dx"), ("y", "dy")):
+            v = at.get(d) or 0
+            if isinstance(v, bool) or not isinstance(v, (int, float)):
+                self.problems.append(f"{w}: at.{d} needs a number of pixels, not {v!r}")
+                v = 0
+            el[f] = round(spot[f] + float(v), 1)
+        el["on"] = of
+
     # ---- element ops
     def op_person(self, w, e):
         pid = e.pop("id")
         if pid in self.people:
             self.problems.append(f"{w}: two persons named '{pid}' in one scene")
-        el = {"id": pid, "kind": "person", "look": e.pop("look"), "x": e.pop("x"), "y": e.pop("y", 885),
+        if "at" not in e and "x" not in e:
+            raise KeyError("x")
+        el = {"id": pid, "kind": "person", "look": e.pop("look"), "x": e.pop("x", 0), "y": e.pop("y", 885),
               "h": e.pop("h", 440), "facing": e.pop("facing", 1), "pose": e.pop("pose", "stand"),
               "expr": e.pop("expr", "smile"), "t0": self.rt(e.pop("t0", None), w, self.t0), "t1": self.rt(e.pop("t1", None), w),
               "z": e.pop("z", 10), "poses": [], "exprs": [], "holds": [], "facings": [], "walks": [], "shakes": [], "nods": [], "keys": []}
+        self._at(w, e, el)
         self._leftover(w, e)
         self.people[pid] = el
         self.els.append(el)
@@ -336,11 +450,24 @@ class _Executor:
             out.append(k)
         return out
 
+    def _xy_needed(self, e):
+        if "at" not in e:
+            for f in ("x", "y"):
+                if f not in e:
+                    raise KeyError(f)
+
     def op_item(self, w, e):
         spec = e.pop("thing")
-        el = dict(spec, x=e.pop("x"), y=e.pop("y"), s=e.pop("s", 1), z=e.pop("z", 20),
+        if isinstance(spec, dict) and "model" in spec:
+            self._model_el(w, spec, e, False)
+            return
+        self._xy_needed(e)
+        at = e.pop("at", None)
+        el = dict(spec, x=e.pop("x", 0), y=e.pop("y", 0), s=e.pop("s", 1), z=e.pop("z", 20),
                   t0=self.rt(e.pop("t0", None), w, self.t0), t1=self.rt(e.pop("t1", None), w),
                   enter=e.pop("enter", "pop"), keys=self._keys(w, e.pop("keys", None)))
+        if at is not None:
+            self._at(w, {"at": at}, el)
         el.update(self._steps_times(w, e))
         self.els.append(el)
 
@@ -350,17 +477,21 @@ class _Executor:
         return e
 
     def op_text(self, w, e):
-        el = {"text": e.pop("text"), "size": e.pop("size", 46), "style": e.pop("style", "tag"), "x": e.pop("x"), "y": e.pop("y"),
+        self._xy_needed(e)
+        el = {"text": e.pop("text"), "size": e.pop("size", 46), "style": e.pop("style", "tag"), "x": e.pop("x", 0), "y": e.pop("y", 0),
               "t0": self.rt(e.pop("t0", None), w, self.t0), "t1": self.rt(e.pop("t1", None), w), "z": e.pop("z", 40)}
+        self._at(w, e, el)
         if e.get("w") is None:
             e.pop("w", None)
         el.update(self._steps_times(w, e))
         self.els.append(el)
 
     def op_mark(self, w, e):
-        self.els.append(dict({"kind": "mark", "mark": e.pop("kind"), "x": e.pop("x"), "y": e.pop("y"), "w": e.pop("w", 120),
-                              "t0": self.rt(e.pop("t0", None), w, self.t0), "t1": self.rt(e.pop("t1", None), w),
-                              "z": e.pop("z", 45), "enter": "none"}, **e))
+        self._xy_needed(e)
+        el = {"kind": "mark", "mark": e.pop("kind"), "x": e.pop("x", 0), "y": e.pop("y", 0), "w": e.pop("w", 120),
+              "t0": self.rt(e.pop("t0", None), w, self.t0), "t1": self.rt(e.pop("t1", None), w), "z": e.pop("z", 45), "enter": "none"}
+        self._at(w, e, el)
+        self.els.append(dict(el, **e))
 
     def op_arrow(self, w, e):
         self.els.append(dict({"kind": "arrow", "x1": e.pop("x1"), "y1": e.pop("y1"), "x2": e.pop("x2"), "y2": e.pop("y2"),
@@ -380,9 +511,11 @@ class _Executor:
                               "z": e.pop("z", 1), "enter": "fade"}, **e))
 
     def op_glow(self, w, e):
-        self.els.append(dict({"kind": "glow", "x": e.pop("x"), "y": e.pop("y"), "w": e.pop("w"),
-                              "t0": self.rt(e.pop("t0", None), w, self.t0), "t1": self.rt(e.pop("t1", None), w),
-                              "z": e.pop("z", 5)}, **e))
+        self._xy_needed(e)
+        el = {"kind": "glow", "x": e.pop("x", 0), "y": e.pop("y", 0), "w": e.pop("w"),
+              "t0": self.rt(e.pop("t0", None), w, self.t0), "t1": self.rt(e.pop("t1", None), w), "z": e.pop("z", 5)}
+        self._at(w, e, el)
+        self.els.append(dict(el, **e))
 
     def op_map(self, w, e):
         self.els.append(dict({"kind": "map", "x": 0, "y": 0, "t0": self.rt(e.pop("t0", None), w, self.t0),
@@ -569,6 +702,14 @@ def _covers(a, b):
     return ox * oy > 0.25 * min(aw * ah, bw * bh)
 
 
+def _nested_model(value) -> bool:
+    if isinstance(value, dict):
+        return "model" in value or any(_nested_model(v) for v in value.values())
+    if isinstance(value, list):
+        return any(_nested_model(v) for v in value)
+    return False
+
+
 def check_spec(spec, plan, T, language=None, box_rule=True, said_shown=True) -> list:
     """The plan checks on the compiled spec; each problem names the scene, the text and the second."""
     from bie.brain import saanche
@@ -584,6 +725,8 @@ def check_spec(spec, plan, T, language=None, box_rule=True, said_shown=True) -> 
                     if isinstance(st, dict) and isinstance(st.get("p"), dict):
                         for p in saanche.problems(value["draw"], st["p"]):
                             problems.append(f"{where}: step at {st.get('t')}: {p}")
+                    if isinstance(st, dict) and "d" in st and not (isinstance(st["d"], (int, float)) and 0 <= st["d"] <= 30):
+                        problems.append(f"{where}: step at {st.get('t')}: d must be 0-30 seconds (numbers glide over d)")
             for inner in value.values():
                 drawn(inner, where)
         elif isinstance(value, list):
@@ -594,7 +737,15 @@ def check_spec(spec, plan, T, language=None, box_rule=True, said_shown=True) -> 
         sid = scene["id"]
         texts = [e for e in scene["els"] if e.get("text") is not None]
         things = [e for e in scene["els"] if e.get("text") is None and e.get("kind") != "rect"
-                  and e.get("draw") not in BACKDROPS]
+                  and e.get("draw") not in BACKDROPS and not (e.get("kind") == "model3d" and e.get("place"))]
+        from bie.brain.video import models3d
+        for el in scene["els"]:
+            if el.get("kind") == "model3d":
+                problems.extend(models3d.element_problems(el, f"scene {sid} 3D model '{el.get('id')}'"))
+        for el in scene["els"]:
+            if el.get("kind") != "model3d" and _nested_model(el):
+                problems.append(f"scene {sid}: a 3D model stands on its own (an item step or the scene's world3d), never inside "
+                                "a group, a hold, a bubble or a give")
         panels = [e for e in scene["els"] if e.get("kind") == "rect" and e.get("fill") and e.get("alpha", 1.0) >= 0.85]
         drawn(scene["els"], f"scene {sid}")
 

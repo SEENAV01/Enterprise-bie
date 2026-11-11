@@ -97,6 +97,13 @@ def library_text(limit: int = 120, text: str = "") -> str:
     return "\n".join(rows)
 
 
+def models3d_text() -> str:
+    """The 3D models (engine/three, models3d.json) after the saanche: places and models the plan may use in 3D."""
+    from bie.brain.video import models3d
+    return ("\n\n3D MODELS (a scene's world3d, or an item whose thing is {model, p}; drawn with three.js; depth only where it "
+            "teaches):\n" + models3d.library_text())
+
+
 def size_text(name: str) -> str:
     """A saancha's size at its default parameters and the scale its words need (the box rule), from its own drawing."""
     from bie.brain.video import box_rules, boxes
@@ -213,7 +220,7 @@ def apply_patch(previous: dict, patch: dict) -> dict:
 def video_step(course: Course, video: dict, T: narration.Timeline, *, rulebook, assets: dict | None = None,
                max_rounds: int = 4, start: dict | None = None) -> Step:
     system = fmt(ROLE, course, vocab=json.dumps(showplan.vocab(), ensure_ascii=False),
-                 saanche=library_text(text=" ".join(T.L(lid)["sub"] for lid in T.line_ids())), example=gold_example(),
+                 saanche=library_text(text=" ".join(T.L(lid)["sub"] for lid in T.line_ids())) + models3d_text(), example=gold_example(),
                  zones=zones_text(), language_rule=language_rule(course.language), rules=rulebook.instructions(SECTION))
     user = (f"Video {video['video_id']}: {video.get('title', '')}.\n"
             f"The narration (JSON; cue words come from each line's sub):\n"

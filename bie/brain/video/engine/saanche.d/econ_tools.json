@@ -1,0 +1,1268 @@
+{
+ "schema": "bie.saancha-manifest/1",
+ "licence": "MIT (BIE)",
+ "provenance": "family econ_tools, built by Claude for BIE on 5 November 2026 from the Sloman economics book's chapter needs (43 needs, 482 beats: formula builder, balance and seesaw, cause chain, sorter, spectrum and pendulum, ceteris paribus padlocks, tug of war, one versus all, T-account, choice paths, income line, doorway); drawn by code in families/econ_tools.mjs",
+ "saanche": {
+  "formula": {
+   "anchor": "center",
+   "what": "a formula built at the voice's speed: terms arrive one by one (operators come with the next term), fractions, Δ, powers and subscripts, letters that flip into numbers with a strike-and-write (or numbers that drop under the terms), working lines, a boxed result that can compute itself, Hindi labels under symbols, a glowing term; beam mode puts both sides of an identity on a balance that levels when they are equal (MV = PY)",
+   "tags": [
+    "सूत्र",
+    "समीकरण",
+    "फ़ॉर्मूला",
+    "फार्मूला",
+    "गणना",
+    "हिसाब",
+    "भिन्न",
+    "मान रखो",
+    "पहचान",
+    "सर्वसमिका",
+    "formula",
+    "equation",
+    "identity",
+    "fraction",
+    "substitute",
+    "calculate",
+    "compute",
+    "solve",
+    "maths",
+    "math",
+    "elasticity",
+    "ped",
+    "multiplier",
+    "mv=py",
+    "quantity theory",
+    "delta"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1200,
+     "min": 200,
+     "max": 1900
+    },
+    "terms": {
+     "type": "text",
+     "default": "Q|=|a|−|bP",
+     "what": "the formula as terms separated by |, e.g. PED|=|%ΔQ//%ΔP or P_1|=|a − c − bt//b + d; a//b (or {a}//{b}) is a fraction, x^2 or d^{t} a power, U_t a subscript, * becomes ×"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 30,
+     "what": "terms shown (1, 2, 3 ... in steps; an operator arrives with the term after it); 0: all"
+    },
+    "values": {
+     "type": "text",
+     "default": "",
+     "what": "substitutions: letter=number (P=10;a=120) and term-number:text (3:2×10); a two-letter product like bt takes b and t"
+    },
+    "sub": {
+     "type": "choice",
+     "choices": [
+      "",
+      "in",
+      "under"
+     ],
+     "default": "",
+     "what": "in: the letters flip into their numbers in place; under: the numbers drop into chips under the terms; empty: letters only"
+    },
+    "result": {
+     "type": "text",
+     "default": "",
+     "what": "the boxed result after =; auto: computed from the right-hand side with the values"
+    },
+    "unit": {
+     "type": "text",
+     "default": "",
+     "what": "added to the result (₹ or $ go in front)"
+    },
+    "lines": {
+     "type": "text",
+     "default": "",
+     "what": "working lines separated by ; (each may start with = to line up under the first =), e.g. = {110}//{20}"
+    },
+    "linesUpto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 10,
+     "what": "working lines shown; 0: all"
+    },
+    "labels": {
+     "type": "text",
+     "default": "",
+     "what": "words under terms: term-number:label;... e.g. 1:सीमांत उपयोगिता;3:दाम"
+    },
+    "glow": {
+     "type": "text",
+     "default": "",
+     "what": "term numbers that glow (1-based)"
+    },
+    "beam": {
+     "type": "bool",
+     "default": false,
+     "what": "both sides on a beam balance that tips by their values and levels when equal (needs sub and values)"
+    },
+    "tiltFrom": {
+     "type": "text",
+     "default": "",
+     "what": "beam mode: the tilt before this step (-1..1); empty: level"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1,
+     "min": 0.1,
+     "max": 5,
+     "what": "seconds the beam takes to settle"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    },
+    "color": {
+     "type": "color",
+     "default": "#e07b24",
+     "what": "the colour of numbers and the result"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "scaleBalance": {
+   "anchor": "bottom",
+   "what": "a tarazu (two hanging pans) or a seesaw (a plank on a pivot) that tips by what is put on it: things (words or library drawings like @coinStack) drop into the pans one by one, values on the pans, the beam settles to its tilt (given, or auto from the weights), a tick on the winner, a level tag when it balances (MB = MC), a red gap block (scarcity); seesaw extras: a burden weight that slides by share (who bears a tax, with each side's part), a label on the pivot (a bond's fixed coupon)",
+   "tags": [
+    "तराज़ू",
+    "तराजू",
+    "तुला",
+    "संतुलन",
+    "झूला",
+    "सी-सॉ",
+    "पलड़ा",
+    "वज़न",
+    "भार",
+    "लाभ लागत",
+    "कर का बोझ",
+    "balance",
+    "scale",
+    "tarazu",
+    "seesaw",
+    "see-saw",
+    "weigh",
+    "weighing",
+    "trade-off",
+    "benefit cost",
+    "marginal benefit",
+    "marginal cost",
+    "tax incidence",
+    "burden",
+    "bond price",
+    "scarcity",
+    "lever"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1000,
+     "min": 200,
+     "max": 1900
+    },
+    "mode": {
+     "type": "choice",
+     "choices": [
+      "scale",
+      "seesaw"
+     ],
+     "default": "scale"
+    },
+    "left": {
+     "type": "text",
+     "default": "",
+     "what": "things in the left pan separated by ; ('text', 'text=weight', '@coinStack' or '@moneyBag:label=2' for a library drawing)"
+    },
+    "right": {
+     "type": "text",
+     "default": "",
+     "what": "things in the right pan"
+    },
+    "order": {
+     "type": "text",
+     "default": "",
+     "what": "the order things arrive in, e.g. L1,R1,L2; empty: all left then all right"
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 16,
+     "what": "things arrived so far, in that order (the newest drops in after the step); 0: all"
+    },
+    "leftLabel": {
+     "type": "text",
+     "default": "",
+     "what": "the left side's name"
+    },
+    "rightLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "leftValue": {
+     "type": "text",
+     "default": "",
+     "what": "a value on the left pan (₹400, 60%); its number counts as the weight in auto"
+    },
+    "rightValue": {
+     "type": "text",
+     "default": ""
+    },
+    "tilt": {
+     "type": "number",
+     "default": 0,
+     "min": -1,
+     "max": 1,
+     "what": "-1: left side fully down, +1: right side fully down"
+    },
+    "tiltFrom": {
+     "type": "text",
+     "default": "",
+     "what": "the tilt before this step (-1..1); empty: level, or (auto) the state before the newest thing"
+    },
+    "auto": {
+     "type": "bool",
+     "default": false,
+     "what": "tilt from the weights (values, else the things' weights)"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1,
+     "min": 0.1,
+     "max": 5,
+     "what": "seconds the beam takes to settle"
+    },
+    "weight": {
+     "type": "text",
+     "default": "",
+     "what": "seesaw: a burden weight on the plank (कर ₹10); the plank then tips by share"
+    },
+    "share": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0,
+     "max": 1,
+     "what": "seesaw weight: the part borne by the left side (1: all on the left)"
+    },
+    "shareFrom": {
+     "type": "text",
+     "default": "",
+     "what": "the value before this step (it glides from here after the step); empty: no glide"
+    },
+    "split": {
+     "type": "bool",
+     "default": false,
+     "what": "seesaw weight: show each side's part (₹7 and ₹3, or %)"
+    },
+    "pivotLabel": {
+     "type": "text",
+     "default": "",
+     "what": "seesaw: a label on the pivot (₹10 हर साल)"
+    },
+    "mark": {
+     "type": "choice",
+     "choices": [
+      "",
+      "left",
+      "right",
+      "auto"
+     ],
+     "default": "",
+     "what": "a tick above that side (auto: the heavier one)"
+    },
+    "levelTag": {
+     "type": "text",
+     "default": "",
+     "what": "shown when the beam is level (MB = MC)"
+    },
+    "gapLabel": {
+     "type": "text",
+     "default": "",
+     "what": "a red block above the pivot (दुर्लभता, net gain)"
+    },
+    "crack": {
+     "type": "choice",
+     "choices": [
+      "",
+      "left",
+      "right"
+     ],
+     "default": "",
+     "what": "a crack under that pan"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    },
+    "leftColor": {
+     "type": "color",
+     "default": "#e07b24"
+    },
+    "rightColor": {
+     "type": "color",
+     "default": "#2459a6"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "causeChain": {
+   "anchor": "center",
+   "what": "a mechanism told as a chain: chips with up/down badges light one by one with arrows that draw themselves (rate up → EMI up → buyers down → prices down), subscripts in chips (D_g), the chain still to come shown faint, an optional loop back from the last chip to the first (wage-price spiral, self-fulfilling expectations) with a token running round, an 'until X = Y' stamp at the end, a second row joined to a chip (goods market to factor market); laid out in a row, a snake of two rows or a ring",
+   "tags": [
+    "कारण",
+    "क्रम",
+    "श्रृंखला",
+    "शृंखला",
+    "कड़ी",
+    "असर",
+    "प्रभाव",
+    "चक्र",
+    "चक्रव्यूह",
+    "सिलसिला",
+    "बढ़ा घटा",
+    "cause",
+    "effect",
+    "chain",
+    "cause chain",
+    "mechanism",
+    "transmission",
+    "spiral",
+    "loop",
+    "feedback",
+    "sequence",
+    "until",
+    "rises falls",
+    "knock-on"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1600,
+     "min": 200,
+     "max": 1900
+    },
+    "links": {
+     "type": "text",
+     "default": "A|up;B|up;C|down;D|down",
+     "what": "chips in order: text|up, text|down, text|eq or text, separated by ;"
+    },
+    "links2": {
+     "type": "text",
+     "default": "",
+     "what": "a second row of chips (another market), joined below chip 'join'"
+    },
+    "join": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 10,
+     "what": "the chip of the first row the second row hangs from; 0: the last"
+    },
+    "at": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 20,
+     "what": "chips lit so far (first row, then second); 0: all"
+    },
+    "ghost": {
+     "type": "bool",
+     "default": true,
+     "what": "show the chips still to come, faint"
+    },
+    "loop": {
+     "type": "bool",
+     "default": false,
+     "what": "an arrow from the last chip back to the first"
+    },
+    "loopLabel": {
+     "type": "text",
+     "default": "",
+     "what": "a word on the loop arrow (फिर से)"
+    },
+    "until": {
+     "type": "text",
+     "default": "",
+     "what": "the end condition stamped once every chip is lit (जब तक D_g = S_g)"
+    },
+    "layout": {
+     "type": "choice",
+     "choices": [
+      "auto",
+      "row",
+      "snake",
+      "ring"
+     ],
+     "default": "auto",
+     "what": "auto: a row up to 5 chips, else a snake"
+    },
+    "run": {
+     "type": "bool",
+     "default": false,
+     "what": "a token keeps running along the lit arrows"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    },
+    "color": {
+     "type": "color",
+     "default": "#2459a6",
+     "what": "chips without a badge"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "sorter": {
+   "anchor": "center",
+   "what": "a classification as a game: a deck of cards, the next one big at the top; on each step a card flies into its labelled bin and gets a tick, or lands in a wrong bin, gets a cross and moves to the right one (macro or micro, positive or normative, land, labour or capital, a cost or not)",
+   "tags": [
+    "छाँटो",
+    "छांटना",
+    "वर्गीकरण",
+    "श्रेणी",
+    "डिब्बे",
+    "सही गलत",
+    "पहचानो",
+    "sort",
+    "sorter",
+    "classify",
+    "classification",
+    "bins",
+    "categories",
+    "quiz",
+    "which one",
+    "positive normative",
+    "micro macro",
+    "tick cross"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1500,
+     "min": 200,
+     "max": 1900
+    },
+    "bins": {
+     "type": "text",
+     "default": "A;B",
+     "what": "bin labels separated by ; (2 to 4)"
+    },
+    "cards": {
+     "type": "text",
+     "default": "",
+     "what": "cards separated by ;, each 'short|long statement' or one text"
+    },
+    "answers": {
+     "type": "text",
+     "default": "",
+     "what": "the right bin of each card, 1-based, separated by commas (1,2,1)"
+    },
+    "wrong": {
+     "type": "text",
+     "default": "",
+     "what": "cards that first land in a wrong bin: card:bin;... (2:1)"
+    },
+    "at": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 16,
+     "what": "cards sorted so far (the newest flies after the step)"
+    },
+    "marks": {
+     "type": "bool",
+     "default": true,
+     "what": "ticks on sorted cards"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    },
+    "color": {
+     "type": "color",
+     "default": "#2459a6"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "spectrum": {
+   "anchor": "center",
+   "what": "a line between two poles with many labelled pins that drop in one by one and slide between two dated states (economies from planned to free market, 1980 to the late 2010s; schools of thought); as a pendulum, a bob under a clock swings between the two poles, the era named above and a flash at the end it reaches",
+   "tags": [
+    "पैमाना",
+    "स्पेक्ट्रम",
+    "दो छोर",
+    "बीच",
+    "स्थिति",
+    "पेंडुलम",
+    "लोलक",
+    "झुकाव",
+    "विचारधारा",
+    "spectrum",
+    "scale",
+    "continuum",
+    "between two poles",
+    "planned",
+    "free market",
+    "mixed economy",
+    "pins",
+    "pendulum",
+    "swing",
+    "schools of thought"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1600,
+     "min": 200,
+     "max": 1900
+    },
+    "look": {
+     "type": "choice",
+     "choices": [
+      "bar",
+      "pendulum"
+     ],
+     "default": "bar"
+    },
+    "left": {
+     "type": "text",
+     "default": "",
+     "what": "the left pole"
+    },
+    "right": {
+     "type": "text",
+     "default": "",
+     "what": "the right pole"
+    },
+    "pins": {
+     "type": "text",
+     "default": "",
+     "what": "name:value;... (values between min and max; pendulum: -1..1)"
+    },
+    "pins2": {
+     "type": "text",
+     "default": "",
+     "what": "name:value for the second state (pins not named stay)"
+    },
+    "state": {
+     "type": "choice",
+     "choices": [
+      "1",
+      "2"
+     ],
+     "default": "1",
+     "what": "2: the pins slide to pins2 after the step and the date turns to date2"
+    },
+    "date": {
+     "type": "text",
+     "default": ""
+    },
+    "date2": {
+     "type": "text",
+     "default": ""
+    },
+    "min": {
+     "type": "number",
+     "default": 0,
+     "min": -1000000000.0,
+     "max": 1000000000.0
+    },
+    "max": {
+     "type": "number",
+     "default": 1,
+     "min": -1000000000.0,
+     "max": 1000000000.0
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 14,
+     "what": "pins shown (the newest drops in); 0: all"
+    },
+    "glow": {
+     "type": "text",
+     "default": "",
+     "what": "pins that glow, 1-based"
+    },
+    "at": {
+     "type": "number",
+     "default": 0,
+     "min": -1,
+     "max": 1,
+     "what": "pendulum: the bob's place, -1 left pole, 1 right pole"
+    },
+    "atFrom": {
+     "type": "text",
+     "default": "",
+     "what": "pendulum: the value before this step (it glides from here after the step); empty: no glide"
+    },
+    "era": {
+     "type": "text",
+     "default": "",
+     "what": "pendulum: the era named above the clock"
+    },
+    "leftNote": {
+     "type": "text",
+     "default": "",
+     "what": "pendulum: a flash at the left end while the bob is there (a crisis)"
+    },
+    "rightNote": {
+     "type": "text",
+     "default": ""
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.4,
+     "min": 0.1,
+     "max": 6,
+     "what": "seconds of the slide or swing"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    },
+    "leftColor": {
+     "type": "color",
+     "default": "#e07b24"
+    },
+    "rightColor": {
+     "type": "color",
+     "default": "#2459a6"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "padlocks": {
+   "anchor": "center",
+   "what": "ceteris paribus: labelled tags each held by a padlock; the tags in open have sprung free, the glowing one animates on its step (springs open, or snaps shut)",
+   "tags": [
+    "ताला",
+    "बाकी सब स्थिर",
+    "स्थिर",
+    "शर्त",
+    "निर्धारक",
+    "ceteris paribus",
+    "padlock",
+    "lock",
+    "held constant",
+    "other things equal",
+    "determinants",
+    "assumptions",
+    "tags"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1500,
+     "min": 200,
+     "max": 1900
+    },
+    "labels": {
+     "type": "text",
+     "default": "A;B;C",
+     "what": "tag names separated by ; (up to 9)"
+    },
+    "open": {
+     "type": "text",
+     "default": "",
+     "what": "1-based tags that are unlocked"
+    },
+    "glow": {
+     "type": "text",
+     "default": "",
+     "what": "the tag being told (it animates after the step)"
+    },
+    "cols": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 5,
+     "what": "tags per row; 0: automatic"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    },
+    "color": {
+     "type": "color",
+     "default": "#2459a6",
+     "what": "open tags"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "tugOfWar": {
+   "anchor": "bottom",
+   "what": "two teams pulling a rope over a share: the rope and teams move with the left team's share (shown on a bar above), the pulling team leans and the rope jerks on its step, and a price tag climbs one notch a round (wage-price spiral, conflict over national income)",
+   "tags": [
+    "रस्साकशी",
+    "खींचतान",
+    "हिस्सा",
+    "यूनियन",
+    "मालिक",
+    "संघर्ष",
+    "मज़दूरी-दाम",
+    "tug of war",
+    "tug-of-war",
+    "pull",
+    "share",
+    "unions",
+    "employers",
+    "conflict",
+    "wage-price spiral",
+    "struggle"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1500,
+     "min": 200,
+     "max": 1900
+    },
+    "left": {
+     "type": "text",
+     "default": "",
+     "what": "left team's name"
+    },
+    "right": {
+     "type": "text",
+     "default": ""
+    },
+    "share": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0,
+     "max": 1,
+     "what": "the left team's share"
+    },
+    "shareFrom": {
+     "type": "text",
+     "default": "",
+     "what": "the value before this step (it glides from here after the step); empty: no glide"
+    },
+    "pull": {
+     "type": "choice",
+     "choices": [
+      "",
+      "left",
+      "right",
+      "both"
+     ],
+     "default": "",
+     "what": "who pulls on this step"
+    },
+    "rounds": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 12,
+     "what": "rounds so far: the tag climbs a notch each"
+    },
+    "prices": {
+     "type": "text",
+     "default": "",
+     "what": "the tag's text per round separated by ; (₹100;₹110;₹121)"
+    },
+    "tag": {
+     "type": "text",
+     "default": "",
+     "what": "the tag's name (दाम)"
+    },
+    "shareLabel": {
+     "type": "text",
+     "default": "",
+     "what": "the words over the share bar"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1,
+     "min": 0.1,
+     "max": 5
+    },
+    "leftColor": {
+     "type": "color",
+     "default": "#e07b24"
+    },
+    "rightColor": {
+     "type": "color",
+     "default": "#2459a6"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "oneVsAll": {
+   "anchor": "center",
+   "what": "the fallacy of composition: left panel, one actor does something and gains (or loses); right panel, the whole crowd copies it and the total's result tag flips the other way",
+   "tags": [
+    "एक बनाम सब",
+    "सब मिलकर",
+    "भ्रम",
+    "संयोजन का भ्रम",
+    "बचत का विरोधाभास",
+    "one versus all",
+    "one vs all",
+    "fallacy of composition",
+    "paradox of thrift",
+    "aggregation",
+    "everyone does it",
+    "crowd"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1600,
+     "min": 200,
+     "max": 1900
+    },
+    "actor": {
+     "type": "text",
+     "default": "",
+     "what": "the one actor's name (किसान)"
+    },
+    "action": {
+     "type": "text",
+     "default": "",
+     "what": "what they do (फसल आधी)"
+    },
+    "oneResult": {
+     "type": "text",
+     "default": ""
+    },
+    "oneDir": {
+     "type": "choice",
+     "choices": [
+      "",
+      "up",
+      "down",
+      "eq"
+     ],
+     "default": ""
+    },
+    "allResult": {
+     "type": "text",
+     "default": ""
+    },
+    "allDir": {
+     "type": "choice",
+     "choices": [
+      "",
+      "up",
+      "down",
+      "eq"
+     ],
+     "default": ""
+    },
+    "stage": {
+     "type": "int",
+     "default": 2,
+     "min": 0,
+     "max": 2,
+     "what": "0: both panels waiting, 1: the one acts, 2: everyone acts and the tag flips"
+    },
+    "n": {
+     "type": "int",
+     "default": 12,
+     "min": 2,
+     "max": 30,
+     "what": "people in the crowd"
+    },
+    "leftTitle": {
+     "type": "text",
+     "default": ""
+    },
+    "rightTitle": {
+     "type": "text",
+     "default": ""
+    },
+    "total": {
+     "type": "text",
+     "default": "",
+     "what": "the words over the crowd's result (कुल आमदनी)"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    },
+    "color": {
+     "type": "color",
+     "default": "#2459a6"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "tAccount": {
+   "anchor": "center",
+   "what": "a balance sheet as an open ledger: liabilities on the left page, assets on the right, rows that enter on cue in their order, amounts struck and rewritten, totals that recount with a tick when they match, a capital cushion under the left page that a loss presses down (and breaks), a net-worth row that balances a household's sheet",
+   "tags": [
+    "बैलेंस शीट",
+    "तुलन पत्र",
+    "खाता",
+    "बही",
+    "देनदारी",
+    "संपत्ति",
+    "पूंजी",
+    "जमा",
+    "कर्ज़",
+    "हैसियत",
+    "balance sheet",
+    "t-account",
+    "ledger",
+    "liabilities",
+    "assets",
+    "capital",
+    "deposits",
+    "loans",
+    "reserves",
+    "net worth",
+    "equity",
+    "bank"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1400,
+     "min": 200,
+     "max": 1900
+    },
+    "title": {
+     "type": "text",
+     "default": "",
+     "what": "whose balance sheet"
+    },
+    "unit": {
+     "type": "text",
+     "default": "",
+     "what": "₹ करोड़, £ billion"
+    },
+    "leftHead": {
+     "type": "text",
+     "default": "",
+     "what": "देनदारियाँ"
+    },
+    "rightHead": {
+     "type": "text",
+     "default": "",
+     "what": "संपत्तियाँ"
+    },
+    "left": {
+     "type": "text",
+     "default": "",
+     "what": "rows label:amount;... on the left page"
+    },
+    "right": {
+     "type": "text",
+     "default": "",
+     "what": "rows on the right page"
+    },
+    "order": {
+     "type": "text",
+     "default": "",
+     "what": "the order rows enter, e.g. L1,R1,R2; empty: L1,R1,L2,R2..."
+    },
+    "upto": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 20,
+     "what": "rows entered so far (the newest slides in); 0: all"
+    },
+    "glow": {
+     "type": "text",
+     "default": "",
+     "what": "rows that glow, e.g. L1,R2"
+    },
+    "was": {
+     "type": "text",
+     "default": "",
+     "what": "old amounts struck beside the new ones: L1:1,000;..."
+    },
+    "totals": {
+     "type": "bool",
+     "default": true,
+     "what": "the Σ row and the match tick"
+    },
+    "net": {
+     "type": "bool",
+     "default": false,
+     "what": "a net-worth row on the left that balances the sheet"
+    },
+    "netLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "capital": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000000000000.0,
+     "what": "a capital cushion under the left page (0: none)"
+    },
+    "loss": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000000000000.0,
+     "what": "a loss that drops on the cushion"
+    },
+    "capitalLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "lossLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "color": {
+     "type": "color",
+     "default": "#e07b24",
+     "what": "rewritten amounts"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "choicePaths": {
+   "anchor": "center",
+   "what": "opportunity cost: paths from one start to 2-4 options; the chosen path draws itself and gets a tick, the others fade, the best forgone option keeps a glow and a tag",
+   "tags": [
+    "अवसर लागत",
+    "चुनाव",
+    "विकल्प",
+    "रास्ते",
+    "छोड़ा गया",
+    "opportunity cost",
+    "choice",
+    "options",
+    "alternatives",
+    "forgone",
+    "paths",
+    "decision",
+    "trade-off"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1300,
+     "min": 200,
+     "max": 1900
+    },
+    "options": {
+     "type": "text",
+     "default": "A;B;C",
+     "what": "2 to 4 options separated by ;"
+    },
+    "chosen": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 4,
+     "what": "the chosen option, 1-based; 0: not yet"
+    },
+    "best": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 4,
+     "what": "the best forgone option"
+    },
+    "tag": {
+     "type": "text",
+     "default": "",
+     "what": "its tag (अवसर लागत)"
+    },
+    "from": {
+     "type": "text",
+     "default": "",
+     "what": "who chooses (under the start)"
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    },
+    "color": {
+     "type": "color",
+     "default": "#2459a6"
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "incomeLine": {
+   "anchor": "bottom",
+   "what": "a threshold over a population: people standing on bars at their incomes, a line across that counts and shades those below; relative mode puts the line at a share of the average and moves it as everyone gets richer (rise)",
+   "tags": [
+    "गरीबी रेखा",
+    "रेखा",
+    "आय",
+    "आबादी",
+    "सापेक्ष गरीबी",
+    "निरपेक्ष गरीबी",
+    "poverty line",
+    "threshold",
+    "income",
+    "population",
+    "relative poverty",
+    "absolute poverty",
+    "below the line",
+    "average"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 1400,
+     "min": 200,
+     "max": 1900
+    },
+    "values": {
+     "type": "text",
+     "default": "2;3;4;5;7;9;12;16",
+     "what": "incomes separated by ; (up to 24)"
+    },
+    "line": {
+     "type": "number",
+     "default": 5,
+     "min": -1000000000000.0,
+     "max": 1000000000000.0,
+     "what": "absolute mode: the line's value"
+    },
+    "mode": {
+     "type": "choice",
+     "choices": [
+      "absolute",
+      "relative"
+     ],
+     "default": "absolute"
+    },
+    "share": {
+     "type": "number",
+     "default": 0.6,
+     "min": 0,
+     "max": 2,
+     "what": "relative mode: the line as a share of the average"
+    },
+    "rise": {
+     "type": "number",
+     "default": 1,
+     "min": 0,
+     "max": 100,
+     "what": "everyone's income multiplied by this"
+    },
+    "riseFrom": {
+     "type": "text",
+     "default": "",
+     "what": "the value before this step (it glides from here after the step); empty: no glide"
+    },
+    "max": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1000000000000.0,
+     "what": "the top of the scale; 0: automatic"
+    },
+    "lineLabel": {
+     "type": "text",
+     "default": ""
+    },
+    "showValue": {
+     "type": "bool",
+     "default": false,
+     "what": "write the line's value"
+    },
+    "unit": {
+     "type": "text",
+     "default": ""
+    },
+    "countLabel": {
+     "type": "text",
+     "default": "{n}",
+     "what": "the count of people below; {n} is the number"
+    },
+    "meanLabel": {
+     "type": "text",
+     "default": "",
+     "what": "relative mode: the average line's name"
+    },
+    "glide": {
+     "type": "number",
+     "default": 1.5,
+     "min": 0.1,
+     "max": 6
+    },
+    "title": {
+     "type": "text",
+     "default": ""
+    }
+   },
+   "since": "2026-11-05"
+  },
+  "doorway": {
+   "anchor": "bottom",
+   "what": "a threshold concept as a door frame with a step: the door swings open on the word and the view beyond (a word) grows clear; a person can be walked across it",
+   "tags": [
+    "दहलीज़",
+    "दरवाज़ा",
+    "द्वार",
+    "पार",
+    "नई समझ",
+    "doorway",
+    "door",
+    "threshold",
+    "threshold concept",
+    "cross",
+    "gateway",
+    "entrance"
+   ],
+   "params": {
+    "w": {
+     "type": "number",
+     "default": 520,
+     "min": 100,
+     "max": 1900
+    },
+    "open": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "0 shut, 1 wide open"
+    },
+    "openFrom": {
+     "type": "text",
+     "default": "",
+     "what": "the opening before this step; empty: shut"
+    },
+    "label": {
+     "type": "text",
+     "default": "",
+     "what": "the words on the lintel"
+    },
+    "beyond": {
+     "type": "text",
+     "default": "",
+     "what": "what is seen beyond once open"
+    },
+    "glide": {
+     "type": "number",
+     "default": 0.9,
+     "min": 0.1,
+     "max": 5
+    },
+    "color": {
+     "type": "color",
+     "default": "#8a5a2b",
+     "what": "the door"
+    }
+   },
+   "since": "2026-11-05"
+  }
+ }
+}
