@@ -30,7 +30,7 @@ VOCAB_PATH = Path(__file__).resolve().parent / "engine" / "plan_vocab.json"
 POSES = {"stand": (8, 5, 8, 5), "give": (80, 0, 10, 5), "receive": (62, 18, 10, 5), "hold": (20, 85, 10, 5),
          "holdBoth": (22, 80, 22, 80), "think": (28, 145, 10, 5), "point": (120, 5, 10, 5), "shrug": (40, 110, 40, 110),
          "wave": (150, 25, 10, 5), "carry": (160, 40, 10, 5), "write": (35, 75, 10, 5), "walk": (10, 5, 10, 5),
-         "refuse": (55, 105, 10, 5)}
+         "refuse": (55, 105, 10, 5), "pull": (84, 6, 78, 10), "raise": (172, 4, 10, 5)}
 
 
 class PlanProblems(ValueError):
