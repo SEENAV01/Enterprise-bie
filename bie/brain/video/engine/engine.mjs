@@ -233,9 +233,14 @@ function sceneAt(spec, t) {
   return t >= (spec.duration || 0) ? scenes[scenes.length - 1] : scenes[0];
 }
 
-function renderFrame(spec, t) {
+// A 3D model element (kind "model3d": a scene's 3D world or a 3D model item, three/scene3d.mjs) is not SVG: the frame
+// leaves a marker in its place and setFrame draws it through the 3D layer (engine3d.js) between the SVG layers.
+let LAYER3D = null;
+export function setLayer3d(layer) { LAYER3D = layer; }
+
+function frameOf(spec, t) {
   const sc = sceneAt(spec, t);
-  if (!sc) return "";
+  if (!sc) return null;
   const persons = {};
   const parts = [];
   const els = [...(sc.els || [])].map((el, i) => [el, i]).sort((a, b) => (a[0].z ?? 10) - (b[0].z ?? 10) || a[1] - b[1]);
@@ -245,6 +250,7 @@ function renderFrame(spec, t) {
     if (alpha <= 0.004) continue;
     const kind = el.kind || (el.draw || el.asset || el.group ? "item" : el.text != null ? "text" : "");
     let svg = "";
+    if (kind === "model3d") { parts.push({ model: el, alpha, popS }); continue; }
     if (kind === "person") {
       const p = personSvg(el, t, spec.assets);
       if (el.id) persons[el.id] = p;
@@ -281,8 +287,6 @@ function renderFrame(spec, t) {
     parts.push(svg);
   }
   const cam = camAt(sc.cam, t);
-  const world = `<g transform="translate(960,540) scale(${cam.z.toFixed(4)}) translate(${(-cam.x).toFixed(1)},${(-cam.y).toFixed(1)})">` +
-    background(sc.bg || "paper") + parts.join("") + foreground(sc.fg) + `</g>`;
   // screen space: kicker + subtitles
   let hud = "";
   if (sc.kicker) {
@@ -298,7 +302,40 @@ function renderFrame(spec, t) {
     hud += `<g class="bie-caption" transform="translate(960,${by + bh / 2})"><rect x="${-bw / 2}" y="${-bh / 2}" width="${bw}" height="${bh}" rx="16" fill="#12141c" opacity="0.86"/>` +
       lines.map((l, i) => `<text y="${-((lines.length - 1) * lh) / 2 + i * lh + size * 0.34}" font-family=${JSON.stringify(FONT)} font-size="${size}" font-weight="700" fill="#ffffff" text-anchor="middle">${esc(l)}</text>`).join("") + `</g>`;
   }
-  return world + hud;
+  return { sc, parts, cam, hud };
+}
+
+const openWorld = (cam) => `<g transform="translate(960,540) scale(${cam.z.toFixed(4)}) translate(${(-cam.x).toFixed(1)},${(-cam.y).toFixed(1)})">`;
+
+function renderFrame(spec, t) {
+  const f = frameOf(spec, t);
+  if (!f) return "";
+  const world = openWorld(f.cam) + background(f.sc.bg || "paper") + f.parts.filter((p) => typeof p === "string").join("") + foreground(f.sc.fg) + `</g>`;
+  return world + f.hud;
+}
+
+/** The frame as layers: SVG strings with the 3D models between them (svgs.length === models.length + 1); a frame
+ * without a model is one layer, the very string renderFrame gives. */
+function renderLayers(spec, t) {
+  const f = frameOf(spec, t);
+  if (!f) return { svgs: [""], models: [], cam: null };
+  const segs = [[]], models = [];
+  for (const p of f.parts) {
+    if (typeof p === "string") segs[segs.length - 1].push(p);
+    else { models.push(p); segs.push([]); }
+  }
+  const last = segs.length - 1;
+  const svgs = segs.map((seg, i) => openWorld(f.cam) + (i === 0 ? background(f.sc.bg || "paper") : "") + seg.join("") +
+    (i === last ? foreground(f.sc.fg) : "") + `</g>` + (i === last ? f.hud : ""));
+  return { svgs, models, cam: f.cam };
+}
+
+/** A model's rectangle on the screen in frame pixels (its stage box, after its moves, its pop and the 2D camera). */
+function modelRect(m, t, cam, spec) {
+  const el = m.model, pos = propAt(el, t, ["x", "y", "s"]), s = (pos.s || 1) * (m.popS || 1);
+  const w = (el.w ?? 1920) * s, h = (el.h ?? 1080) * s, k = (spec.width || 1920) / 1920;
+  const x0 = (pos.x - w / 2 - cam.x) * cam.z + 960, y0 = (pos.y - h / 2 - cam.y) * cam.z + 540;
+  return { x: x0 * k, y: y0 * k, w: w * cam.z * k, h: h * cam.z * k };
 }
 
 // ---------------------------------------------------------------- window API
@@ -326,13 +363,62 @@ window.totalFrames = () => {
   return spec ? Math.round((spec.duration || 0) * (spec.fps || 30)) : 0;
 };
 let fontsReady = false;
+// The extra layers of a frame with 3D: [canvas, svg] pairs over the stage, made once and reused; hidden on 2D frames.
+const extra = [];
+function layerPair(i, spec) {
+  while (extra.length <= i) {
+    const root = document.getElementById("root");
+    const canvas = document.createElement("canvas");
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 1920 1080");
+    for (const node of [canvas, svg]) { node.style.cssText = "position:absolute;left:0;top:0"; root.appendChild(node); }
+    extra.push({ canvas, svg });
+  }
+  const pair = extra[i];
+  if (pair.canvas.width !== spec.width || pair.canvas.height !== spec.height) { pair.canvas.width = spec.width; pair.canvas.height = spec.height; }
+  pair.svg.setAttribute("width", spec.width); pair.svg.setAttribute("height", spec.height);
+  pair.canvas.style.display = pair.svg.style.display = "";
+  return pair;
+}
+
+// One model in a frame (the usual case: a scene's 3D place, or one 3D model) shows the WebGL canvas itself in its layer,
+// with its fade as the layer's opacity (no copy: on SwiftShader a read-back costs more than the draw). Two or more
+// models in one frame each get a copy in their own layer, drawn one after another through the one WebGL canvas.
+function paintLayers(spec, t, el) {
+  const L = renderLayers(spec, t);
+  el.innerHTML = L.svgs[0];
+  if (L.models.length && !LAYER3D) throw new Error("BIE_3D_MISSING: this frame has a 3D model; render it with engine3d.html (render.py picks it when a spec uses 3D)");
+  const direct = L.models.length === 1;
+  L.models.forEach((m, i) => {
+    const pair = layerPair(i, spec);
+    const gl = LAYER3D.render(m.model, t, modelRect(m, t, L.cam, spec), spec.width, spec.height);
+    const alpha = Math.max(0, Math.min(1, m.alpha));
+    if (direct) {
+      if (gl.parentNode !== pair.svg.parentNode || gl.nextSibling !== pair.svg) pair.svg.parentNode.insertBefore(gl, pair.svg);
+      gl.style.cssText = `position:absolute;left:0;top:0;width:${spec.width}px;height:${spec.height}px;opacity:${alpha.toFixed(3)}`;
+      pair.canvas.style.display = "none";
+    } else {
+      if (gl.parentNode) gl.parentNode.removeChild(gl);
+      const g = pair.canvas.getContext("2d");
+      g.clearRect(0, 0, spec.width, spec.height);
+      g.globalAlpha = alpha;
+      g.drawImage(gl, 0, 0);
+      g.globalAlpha = 1;
+    }
+    pair.svg.innerHTML = L.svgs[i + 1];
+  });
+  const glc = !L.models.length && LAYER3D && LAYER3D.canvas ? LAYER3D.canvas() : null;     // null until the first 3D frame
+  if (glc && glc.parentNode) glc.parentNode.removeChild(glc);
+  for (let i = L.models.length; i < extra.length; i++) { extra[i].canvas.style.display = extra[i].svg.style.display = "none"; extra[i].svg.innerHTML = ""; }
+}
+
 window.setFrame = async (n) => {
   const spec = window.__VIDEO__;
   const el = svgRoot();
   if (!fontsReady) { try { await document.fonts.ready; } catch { } fontsReady = true; }
-  el.innerHTML = renderFrame(spec, n / (spec.fps || 30));
+  paintLayers(spec, n / (spec.fps || 30), el);
   await raf(); await raf();
-  const images = Array.from(el.querySelectorAll("image"));
+  const images = [el, ...extra.map((x) => x.svg)].flatMap((svg) => Array.from(svg.querySelectorAll("image")));
   await Promise.all(images.map((img) => new Promise((r) => {
     const href = img.getAttribute("href");
     const probe = new Image();
@@ -343,4 +429,4 @@ window.setFrame = async (n) => {
 };
 window.ready = true;
 
-export const _test = { propAt, camAt, wrap, renderFrame, sceneAt };
+export const _test = { propAt, camAt, wrap, renderFrame, renderLayers, sceneAt };

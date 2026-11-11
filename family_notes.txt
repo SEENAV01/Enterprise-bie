@@ -1,0 +1,109 @@
+3D layer of the showing engine (fam-3d) — notes for the merge and for plan writers
+=================================================================================
+
+What it is
+----------
+A 3D layer the scene plan controls. A 3D model is a parametric procedural model drawn by code from three.js primitives
+(the toolbox's pinned three 0.186.1, MIT; no downloaded art). It is described as a flat list of nodes by pure code
+(engine/three/scene3d.mjs + kinds_*.mjs), so the same parameters and time always give the same description and the same
+pixels; layer3d.mjs draws that description with three.js. A plan uses a model in two ways:
+  - a scene's place:  scene field  world3d: {model, p, steps, cam3d, id (default "world3d"), enter}
+                      a backdrop under the SVG people, things and words (z 0, fills the stage); never "the thing shown"
+  - a thing:          item step whose thing is {model, p}, with id, x, y, w, h (default its manifest size), s, z, t0, t1,
+                      enter (default fade), keys, steps, cam3d
+Steps [{t, p, d}] change parameters on a cue word; numbers glide over d seconds (default 0.8, 0 jumps), choices and
+bools switch on the word. cam3d [{t, d, angle, height, dist, tx, ty, tz, fov, spin}] moves the 3D camera (glides d s,
+default 1.2; spin keeps turning, degrees per second). Processes (belt, cranes, traffic, smoke, rain, goods on routes)
+move as a pure function of time since the model appeared.
+at {of, spot, dx, dy, when} puts a person, text, mark, glow or item at a model's spot (screen position after its camera,
+read at `when`, default when the element appears; `of` may be left out when the scene has one model; the model must
+come before the step). Such elements carry "on": <model id>.
+
+Kinds (manifest: bie/brain/video/engine/three/models3d.json, saancha-manifest format, checked by the same law)
+-------------------------------------------------------------------------------------------------------
+place  factory   machines 1-8, running 0-8, workers 0-16, rate 0-3 (belt), output 0-45 (stack), stock 0-1 (godown),
+                 target 0-45 (wall board bar), smoke 0-1, overtime, light day|evening|night
+                 spots belt belt_start belt_end output godown board chimney smoke floor machine1..8 worker1..16
+place  port      ships 0-3, arrive 0-1, cargo 0-1, cranes 1-3, working, flow export|import, exports 0-48, imports 0-48,
+                 trucks 0-4, light;  spots ship ship1..3 crane crane1..3 exports imports dock sea
+place  city      size 0-1 (grows outward), lights 0-1, traffic 0-1 (jams slow it), smog 0-1, seed, light
+                 spots centre tallest road edge park sky
+place  farm      plots 1-6, crops "wheat;rice;none", hillPlots 0-6, harvest 0-1, workers 0-24, workplot 0-6 (0 spread),
+                 sacks 0-40, tractor, rain 0-1, drought 0-1, light;  spots plot1..6 sacks tractor hill valley field hut
+place  vault     open 0-1, level 0-1, stacks 1-9, reserve gold|notes, glow, light;  spots door reserves counter sign floor
+place  exchange  trend -1..1, level 0.2-1.6, crowd 0-1, ticker, seed;  spots board board_top latest ticker desk1..4 floor
+model  globe     routes "india-europe;china-usa", volumes "3;1", highlight, face, turn, spin, tokens, speed
+                 (18 regions: india china japan southeastAsia gulf europe uk russia africa southAfrica usa canada mexico
+                 brazil argentina australia centralAsia egypt); spots globe north route1.. and every region used
+                 (a spot behind the globe is refused as "hidden from its camera")
+model  utilityHill  a b (U = X^a Y^b), rings 0-8, drop 0-1, flatten 0-1, glow, show, planes, axes, base, solid
+                 spots ring1..8 peak hill origin xaxis yaxis uaxis floor; top view = cam3d {angle 0, height 18, dist 0, ty 0}
+model  containerCube  side 0.5-3, units 0-27, faces 0-1, explode 0-1, grid, compare
+                 spots cube top front side right base small small_front
+
+Example step list (ch04 v5 p144-i01: on "contour" the hill turns and its rings become I1..I5)
+---------------------------------------------------------------------------------------------
+{"op": "item", "id": "hill", "thing": {"model": "utilityHill", "p": {"rings": 5}}, "x": 1180, "y": 470,
+ "steps": [{"t": {"line": "l4", "word": "contour"}, "p": {"drop": 1, "flatten": 1}, "d": 1.5}],
+ "cam3d": [{"t": {"line": "l4", "word": "contour"}, "d": 1.6, "angle": 0, "height": 18, "dist": 0, "ty": 0}]},
+{"op": "text", "text": "I1", "style": "plain", "size": 40, "t0": {"line": "l5", "edge": "start"},
+ "at": {"of": "hill", "spot": "ring1", "when": {"line": "l5", "edge": "start"}}}      ... and I2..I5 at ring2..ring5
+A 3D place:  "world3d": {"model": "factory", "p": {"machines": 4, "running": 2},
+              "steps": [{"t": {"line": "l2", "word": "मशीन"}, "p": {"running": 4, "output": 14}}],
+              "cam3d": [{"t": {"line": "l3", "edge": "start"}, "d": 2, "angle": -15}]}
+ then {"op": "text", "text": "मशीनें", "at": {"spot": "machine2", "dy": -70}} labels the second machine.
+Recorder: rec.world3d(model, p=, steps=, cam3d=), rec.model(id, model, x, y, p=, steps=, cam3d=), and at= on
+person/item/text/mark/glow.
+
+Checks (compiler + box rule)
+----------------------------
+Every parameter and step parameter against models3d.json (type, range, choice, unknown name), step fields (t, p, d),
+cam3d fields and ranges, the kind's own checks (globe regions), at (model of the scene, known spot, seen by the camera),
+a model never inside a group/hold/bubble/give, two models with one id. Box rule: a world3d is a backdrop (not "the
+thing shown"); its parts are reserved zones measured at every half second (they move with its camera); a model item
+is a thing whose box is its drawn parts after its camera; elements placed at a model's spot ("on") may label that
+model and its zones. Spots, boxes and zones come from the engine's own description (tools/model3d_measure.mjs, one
+Node call per batch, cached).
+
+Render
+------
+render.needs_3d(spec) picks engine3d.html (build.mjs --engine3d: engine3d.mjs = engine.mjs + layer3d.mjs + three) only
+for a spec with a model3d element; plain specs keep engine.js, which imports no three.js (test reads the import graph)
+and draws 2D frames as the very same SVG string as before. A 3D frame is layers: SVG (background + parts below), the
+WebGL canvas (one model: the canvas itself with its fade as opacity; two or more: copies, one per layer), SVG above
+(+ foreground, kicker, subtitles). One WebGL renderer at the frame size, drawn once per frame inside the model's
+rectangle after the 2D camera; geometries/materials cached; nodes sharing both drawn as one InstancedMesh. No PNG.
+Same frame twice = same bytes (tested).
+
+Measured speed (this 2-core cloud machine, 1280x720, whole MP4 path: draw + capture + encode, SwiftShader, MSAA on)
+  plain 2D scene 0.082 s/frame · 3D factory 0.222 · 3D port 0.255 · 3D city (night, heavy traffic, ~1000 nodes) 0.419
+  setFrame alone: factory ~131 ms, city ~173-188 ms; JS description+build+draw calls ~8 ms; the rest is SwiftShader's
+  raster (antialias off saves 20-30% but leaves jagged edges, so it stays on).
+
+Stills (Read and fixed: vault opening, crop shape, roof/bow/hut turns, chimney framing, night light, falling market,
+cube framing, see-through hill)
+  /tmp/claude-0/-home-claude/2458773c-72c0-5c80-9ef5-9b5df2cc93b9/scratchpad/s3d/stills/  (25 states of 9 models,
+  models3d-<model>-<n>.png and models3d-sheet-01..07.png, INDEX.md)
+  /tmp/claude-0/-home-claude/2458773c-72c0-5c80-9ef5-9b5df2cc93b9/scratchpad/s3d/out/csheet.png (a compiled plan:
+  factory world under a person and labels, steps and camera; the utility hill turning into its contour map with I1)
+  CI: tools/models3d_stills.py runs in the show lane and uploads bie-models3d-stills.
+
+Tests
+-----
+tests/test_p1_models3d.py (core lane, Node only, 21 tests; added to tools/run_task046a_tests.py core); show lane
+tests/toolbox/test_p1_show_render.py Engine3DRender (needs three.js; build/render/determinism/audit/every model's
+still). Existing suites pass: test_p1_saanche, econ_saanche, box_rule, saanche_families, show_engine, scene_plan,
+show_director, one_button, notes_pages, game_levels, task046a_toolbox, task046_render_speed, task048_render_checks.
+Local three.js: python3 tools/toolbox_setup.py --web <dir> --groups preview,web-core (npm needed NO_PROXY without
+registry.npmjs.org here: the direct DNS lookup fails in this sandbox; the proxy works).
+
+What is left / unsure
+---------------------
+- IMPLEMENTED, not yet INTEGRATED: no real chapter plan uses world3d yet (W2 plan workers come after the merge).
+- Spots are read once (at `when`); a label does not follow a part while the camera moves (place labels after the move).
+- The needs list's island, kitchen, mandi, godown, labour chowk, river town are flat 2D worlds (the 2D worlds builder);
+  a 3D mandi/godown could reuse the farm and factory parts later.
+- 3D frames cost ~3-5x a 2D frame; long 3D scenes should stay where depth teaches.
+- Engine step tweening for saanche is the coordinator's work; model steps glide on their own (paramsAt in scene3d.mjs).
+- Words never go into the 3D picture (all labels are SVG at spots), so Hindi shaping and the 36 px floor stay the
+  engine's usual checks.

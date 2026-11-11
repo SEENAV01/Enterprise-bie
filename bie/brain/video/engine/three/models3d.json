@@ -1,0 +1,836 @@
+{
+ "schema": "bie.saancha-manifest/1",
+ "licence": "BIE original code (repository licence); built from three.js primitives by code, no downloaded art",
+ "provenance": "3D models of the showing engine's 3D layer (Navin, 5 November 2026: 3D models, objects, worlds and processes the scene plan can change), chosen from the Sloman economics book's needs (3d and world kit), 10 November 2026",
+ "saanche": {
+  "factory": {
+   "anchor": "center",
+   "what": "a 3D factory floor: machines in a row (the first `running` press and glow green, the rest stand idle), workers at them (more workers than machines crowd the same stations), a conveyor whose boxes ride at `rate`, an output stack growing with `output`, a godown rack filled to `stock`, a wall board with a target bar beside the output bar, chimney smoke",
+   "tags": [
+    "कारख़ाना",
+    "फ़ैक्टरी",
+    "मशीन",
+    "मज़दूर",
+    "उत्पादन",
+    "गोदाम",
+    "factory",
+    "machines",
+    "workers",
+    "output",
+    "production",
+    "conveyor",
+    "godown",
+    "shift",
+    "overtime",
+    "target"
+   ],
+   "params": {
+    "machines": {
+     "type": "int",
+     "default": 4,
+     "min": 1,
+     "max": 8,
+     "what": "machines in the row"
+    },
+    "running": {
+     "type": "number",
+     "default": 4,
+     "min": 0,
+     "max": 8,
+     "what": "how many of them run (the rest idle)"
+    },
+    "workers": {
+     "type": "number",
+     "default": 4,
+     "min": 0,
+     "max": 16,
+     "what": "workers at the machines (fractional: the next one is stepping in)"
+    },
+    "rate": {
+     "type": "number",
+     "default": 1,
+     "min": 0,
+     "max": 3,
+     "what": "belt speed (0 stops it)"
+    },
+    "output": {
+     "type": "number",
+     "default": 6,
+     "min": 0,
+     "max": 45,
+     "what": "boxes in the output stack"
+    },
+    "stock": {
+     "type": "number",
+     "default": 0.3,
+     "min": 0,
+     "max": 1,
+     "what": "godown rack fill"
+    },
+    "target": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 45,
+     "what": "target bar on the wall board (0: no bars)"
+    },
+    "smoke": {
+     "type": "number",
+     "default": 0.6,
+     "min": 0,
+     "max": 1,
+     "what": "chimney smoke (0 none, 1 thick and dark)"
+    },
+    "overtime": {
+     "type": "bool",
+     "default": false,
+     "what": "lights on, everyone works faster"
+    },
+    "light": {
+     "type": "choice",
+     "choices": [
+      "day",
+      "evening",
+      "night"
+     ],
+     "default": "day",
+     "what": "the light of the place"
+    }
+   },
+   "since": "2026-11-10",
+   "role": "place",
+   "size": [
+    1920,
+    1080
+   ],
+   "spots": [
+    "belt",
+    "belt_start",
+    "belt_end",
+    "output",
+    "godown",
+    "board",
+    "chimney",
+    "smoke",
+    "floor",
+    "machine1..8",
+    "worker1..16"
+   ]
+  },
+  "port": {
+   "anchor": "center",
+   "what": "a 3D port: container ships come in along the sea lane as `arrive` goes 0 to 1, gantry cranes carry containers between ship and quay (from ship to quay when flow is import), export containers wait on the left yard and imports land on the right, trucks drive along the quay",
+   "tags": [
+    "बंदरगाह",
+    "जहाज़",
+    "निर्यात",
+    "आयात",
+    "कंटेनर",
+    "व्यापार",
+    "port",
+    "ship",
+    "exports",
+    "imports",
+    "containers",
+    "trade",
+    "crane",
+    "harbour"
+   ],
+   "params": {
+    "ships": {
+     "type": "int",
+     "default": 1,
+     "min": 0,
+     "max": 3,
+     "what": "ships at the berths"
+    },
+    "arrive": {
+     "type": "number",
+     "default": 1,
+     "min": 0,
+     "max": 1,
+     "what": "ships sailing in (0 far at sea, 1 at the berth)"
+    },
+    "cargo": {
+     "type": "number",
+     "default": 0.6,
+     "min": 0,
+     "max": 1,
+     "what": "containers on each ship's deck"
+    },
+    "cranes": {
+     "type": "int",
+     "default": 2,
+     "min": 1,
+     "max": 3,
+     "what": "gantry cranes"
+    },
+    "working": {
+     "type": "bool",
+     "default": true,
+     "what": "the cranes move"
+    },
+    "flow": {
+     "type": "choice",
+     "choices": [
+      "export",
+      "import"
+     ],
+     "default": "export",
+     "what": "export: quay to ship; import: ship to quay"
+    },
+    "exports": {
+     "type": "number",
+     "default": 10,
+     "min": 0,
+     "max": 48,
+     "what": "containers in the export yard"
+    },
+    "imports": {
+     "type": "number",
+     "default": 10,
+     "min": 0,
+     "max": 48,
+     "what": "containers in the import yard"
+    },
+    "trucks": {
+     "type": "int",
+     "default": 1,
+     "min": 0,
+     "max": 4,
+     "what": "trucks on the quay road"
+    },
+    "light": {
+     "type": "choice",
+     "choices": [
+      "day",
+      "evening",
+      "night"
+     ],
+     "default": "day",
+     "what": "the light of the place"
+    }
+   },
+   "since": "2026-11-10",
+   "role": "place",
+   "size": [
+    1920,
+    1080
+   ],
+   "spots": [
+    "ship",
+    "ship1..3",
+    "crane",
+    "crane1..3",
+    "exports",
+    "imports",
+    "dock",
+    "sea"
+   ]
+  },
+  "city": {
+   "anchor": "center",
+   "what": "a 3D city on a road grid seen from above: buildings appear and rise outward from the centre with `size`, windows lit by `lights`, cars on the roads (a crowded road moves slower: the jam), smog that hazes the air, day or night",
+   "tags": [
+    "शहर",
+    "नगर",
+    "शहरीकरण",
+    "ट्रैफ़िक",
+    "जाम",
+    "धुँआ",
+    "प्रदूषण",
+    "city",
+    "town",
+    "urban",
+    "growth",
+    "traffic",
+    "congestion",
+    "smog",
+    "pollution",
+    "night"
+   ],
+   "params": {
+    "size": {
+     "type": "number",
+     "default": 0.6,
+     "min": 0,
+     "max": 1,
+     "what": "how much of the city is built (it grows outward)"
+    },
+    "lights": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "share of windows lit"
+    },
+    "traffic": {
+     "type": "number",
+     "default": 0.4,
+     "min": 0,
+     "max": 1,
+     "what": "cars on the roads (more cars move slower)"
+    },
+    "smog": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "haze in the air"
+    },
+    "seed": {
+     "type": "int",
+     "default": 7,
+     "min": 1,
+     "max": 999,
+     "what": "another layout of the same city"
+    },
+    "light": {
+     "type": "choice",
+     "choices": [
+      "day",
+      "evening",
+      "night"
+     ],
+     "default": "day",
+     "what": "the light of the place"
+    }
+   },
+   "since": "2026-11-10",
+   "role": "place",
+   "size": [
+    1920,
+    1080
+   ],
+   "spots": [
+    "centre",
+    "tallest",
+    "road",
+    "edge",
+    "park",
+    "sky"
+   ]
+  },
+  "farm": {
+   "anchor": "center",
+   "what": "a 3D farm: plots in the fertile valley (and `hillPlots` on stony hillside terraces) with crops that grow and ripen with `harvest`, workers who crowd one plot (`workplot`) or spread over all, sacks of harvest piling up, a tractor, rain from clouds or a drought that browns the land, a hut and trees",
+   "tags": [
+    "खेत",
+    "किसान",
+    "फ़सल",
+    "कटाई",
+    "पैदावार",
+    "सूखा",
+    "बारिश",
+    "farm",
+    "field",
+    "crop",
+    "harvest",
+    "yield",
+    "workers",
+    "drought",
+    "rain",
+    "land",
+    "diminishing returns"
+   ],
+   "params": {
+    "plots": {
+     "type": "int",
+     "default": 3,
+     "min": 1,
+     "max": 6,
+     "what": "plots of land"
+    },
+    "crops": {
+     "type": "text",
+     "default": "wheat",
+     "what": "crop per plot: wheat, rice or none, separated by ;"
+    },
+    "hillPlots": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 6,
+     "what": "how many of the plots are on the stony hillside"
+    },
+    "harvest": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0,
+     "max": 1,
+     "what": "crop stage: 0 bare, 0.5 green, 1 ripe and golden"
+    },
+    "workers": {
+     "type": "number",
+     "default": 2,
+     "min": 0,
+     "max": 24,
+     "what": "workers in the fields"
+    },
+    "workplot": {
+     "type": "int",
+     "default": 1,
+     "min": 0,
+     "max": 6,
+     "what": "the plot they all work on (0: spread over every plot)"
+    },
+    "sacks": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 40,
+     "what": "harvest sacks at the field's edge"
+    },
+    "tractor": {
+     "type": "bool",
+     "default": false,
+     "what": "a tractor ploughs plot 1"
+    },
+    "rain": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "rain"
+    },
+    "drought": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "dry, browned land and short crops"
+    },
+    "light": {
+     "type": "choice",
+     "choices": [
+      "day",
+      "evening",
+      "night"
+     ],
+     "default": "day",
+     "what": "the light of the place"
+    }
+   },
+   "since": "2026-11-10",
+   "role": "place",
+   "size": [
+    1920,
+    1080
+   ],
+   "spots": [
+    "plot1..6",
+    "sacks",
+    "tractor",
+    "hill",
+    "valley",
+    "field",
+    "hut"
+   ]
+  },
+  "vault": {
+   "anchor": "center",
+   "what": "a 3D bank vault or central bank: a round vault door on its hinge opens with `open`, behind it reserve stacks (gold bars or note bundles) fill to `level`, pillars, a counter and a sign board above the door",
+   "tags": [
+    "तिजोरी",
+    "बैंक",
+    "रिज़र्व",
+    "सोना",
+    "केंद्रीय बैंक",
+    "भंडार",
+    "vault",
+    "bank",
+    "central bank",
+    "reserves",
+    "gold",
+    "reserve ratio",
+    "deposits"
+   ],
+   "params": {
+    "open": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "the vault door (0 shut, 1 wide open)"
+    },
+    "level": {
+     "type": "number",
+     "default": 0.7,
+     "min": 0,
+     "max": 1,
+     "what": "how full the reserve stacks are"
+    },
+    "stacks": {
+     "type": "int",
+     "default": 6,
+     "min": 1,
+     "max": 9,
+     "what": "reserve stacks"
+    },
+    "reserve": {
+     "type": "choice",
+     "choices": [
+      "gold",
+      "notes"
+     ],
+     "default": "gold",
+     "what": "gold bars or note bundles"
+    },
+    "glow": {
+     "type": "bool",
+     "default": false,
+     "what": "the reserves glow"
+    },
+    "light": {
+     "type": "choice",
+     "choices": [
+      "day",
+      "evening",
+      "night"
+     ],
+     "default": "day",
+     "what": "the light of the place"
+    }
+   },
+   "since": "2026-11-10",
+   "role": "place",
+   "size": [
+    1920,
+    1080
+   ],
+   "spots": [
+    "door",
+    "reserves",
+    "counter",
+    "sign",
+    "floor"
+   ]
+  },
+  "exchange": {
+   "anchor": "center",
+   "what": "a 3D stock-exchange floor: a big board of bars that rise or fall with `trend` (the newest bar grows on each step) under an index line, a ticker band sliding below, desks with green or red screens, traders on the floor who get busier as the market moves",
+   "tags": [
+    "शेयर बाज़ार",
+    "स्टॉक एक्सचेंज",
+    "सूचकांक",
+    "तेज़ी",
+    "मंदी",
+    "शेयर",
+    "stock exchange",
+    "share market",
+    "index",
+    "trend",
+    "bull",
+    "bear",
+    "traders",
+    "ticker"
+   ],
+   "params": {
+    "trend": {
+     "type": "number",
+     "default": 0.5,
+     "min": -1,
+     "max": 1,
+     "what": "the market: -1 falling hard, 0 flat, 1 rising"
+    },
+    "level": {
+     "type": "number",
+     "default": 1,
+     "min": 0.2,
+     "max": 1.6,
+     "what": "height of the board's bars"
+    },
+    "crowd": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0,
+     "max": 1,
+     "what": "traders on the floor"
+    },
+    "ticker": {
+     "type": "bool",
+     "default": true,
+     "what": "the ticker band"
+    },
+    "seed": {
+     "type": "int",
+     "default": 3,
+     "min": 1,
+     "max": 999,
+     "what": "another run of bars"
+    }
+   },
+   "since": "2026-11-10",
+   "role": "place",
+   "size": [
+    1920,
+    1080
+   ],
+   "spots": [
+    "board",
+    "board_top",
+    "latest",
+    "ticker",
+    "desk1..4",
+    "floor"
+   ]
+  },
+  "globe": {
+   "anchor": "center",
+   "what": "a 3D globe with trade routes: arcs between named regions (thicker for a bigger `volumes` value) with goods moving along them, highlighted regions pulsing, turned to face a region; regions: india, china, japan, southeastAsia, gulf, europe, uk, russia, africa, southAfrica, usa, canada, mexico, brazil, argentina, australia, centralAsia, egypt",
+   "tags": [
+    "पृथ्वी",
+    "ग्लोब",
+    "व्यापार",
+    "व्यापार मार्ग",
+    "निर्यात",
+    "आयात",
+    "वैश्वीकरण",
+    "globe",
+    "world",
+    "trade routes",
+    "international trade",
+    "globalisation",
+    "exports",
+    "imports"
+   ],
+   "params": {
+    "routes": {
+     "type": "text",
+     "default": "india-europe",
+     "what": "routes as region-region, separated by ; (like india-europe;china-usa)"
+    },
+    "volumes": {
+     "type": "text",
+     "default": "2",
+     "what": "thickness of each route, 0.2 to 5, separated by ;"
+    },
+    "highlight": {
+     "type": "text",
+     "default": "",
+     "what": "regions that pulse, separated by ;"
+    },
+    "face": {
+     "type": "text",
+     "default": "",
+     "what": "the region turned toward the camera (default: the middle of the first route)"
+    },
+    "turn": {
+     "type": "number",
+     "default": 0,
+     "min": -180,
+     "max": 180,
+     "what": "extra turn in degrees"
+    },
+    "spin": {
+     "type": "number",
+     "default": 0,
+     "min": -30,
+     "max": 30,
+     "what": "the globe turns on, degrees per second"
+    },
+    "tokens": {
+     "type": "bool",
+     "default": true,
+     "what": "goods move along the routes"
+    },
+    "speed": {
+     "type": "number",
+     "default": 1,
+     "min": 0,
+     "max": 4,
+     "what": "how fast the goods move"
+    }
+   },
+   "since": "2026-11-10",
+   "role": "model",
+   "size": [
+    1100,
+    1000
+   ],
+   "spots": [
+    "globe",
+    "north",
+    "route1..",
+    "every region named in routes or highlight"
+   ]
+  },
+  "utilityHill": {
+   "anchor": "center",
+   "what": "the utility hill U = X^a Y^b in 3D over the X-Y floor, with horizontal slices (rings) at equal heights; `drop` lowers the rings to the floor and `flatten` squashes the hill, and with the camera turned to the top view (cam3d angle 0, height 18, dist 0) the rings are the indifference map I1..In, the contour lines of one utility surface",
+   "tags": [
+    "उपयोगिता",
+    "तटस्थता वक्र",
+    "कंटूर",
+    "समोच्च",
+    "उपयोगिता पहाड़ी",
+    "utility",
+    "indifference curves",
+    "indifference map",
+    "contour",
+    "utility surface",
+    "consumer theory"
+   ],
+   "params": {
+    "a": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0.1,
+     "max": 1.5,
+     "what": "power of X"
+    },
+    "b": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0.1,
+     "max": 1.5,
+     "what": "power of Y"
+    },
+    "rings": {
+     "type": "int",
+     "default": 5,
+     "min": 0,
+     "max": 8,
+     "what": "slices at equal heights"
+    },
+    "drop": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "rings lowered to the floor"
+    },
+    "flatten": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "the hill squashed into the floor (0 full hill)"
+    },
+    "glow": {
+     "type": "number",
+     "default": 0.4,
+     "min": 0,
+     "max": 1,
+     "what": "how bright the rings glow"
+    },
+    "show": {
+     "type": "int",
+     "default": 0,
+     "min": 0,
+     "max": 8,
+     "what": "one ring drawn thicker and brighter (0 none)"
+    },
+    "planes": {
+     "type": "bool",
+     "default": false,
+     "what": "see-through slicing planes at the ring heights"
+    },
+    "axes": {
+     "type": "bool",
+     "default": true,
+     "what": "X, Y and U axes"
+    },
+    "base": {
+     "type": "bool",
+     "default": true,
+     "what": "the paper floor with grid"
+    },
+    "solid": {
+     "type": "bool",
+     "default": true,
+     "what": "false: a see-through hill"
+    }
+   },
+   "since": "2026-11-10",
+   "role": "model",
+   "size": [
+    1300,
+    900
+   ],
+   "spots": [
+    "ring1..8",
+    "peak",
+    "hill",
+    "origin",
+    "xaxis",
+    "yaxis",
+    "uaxis",
+    "floor"
+   ]
+  },
+  "containerCube": {
+   "anchor": "center",
+   "what": "the container principle in 3D: a glass cube whose side grows (1 m to 2 m), unit cubes filling it one by one (1 fits the small cube, 8 the big one), its six faces lit and pulled apart to count the surface (6 x 1 m2 against 6 x 4 m2), a 1 m cube beside it to compare",
+   "tags": [
+    "घन",
+    "आयतन",
+    "सतह",
+    "क्षेत्रफल",
+    "पैमाने की बचत",
+    "cube",
+    "volume",
+    "surface",
+    "container principle",
+    "economies of scale",
+    "tanker"
+   ],
+   "params": {
+    "side": {
+     "type": "number",
+     "default": 1,
+     "min": 0.5,
+     "max": 3,
+     "what": "side of the cube in metres"
+    },
+    "units": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 27,
+     "what": "unit cubes inside (filled bottom layer first)"
+    },
+    "faces": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "the faces light up"
+    },
+    "explode": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 1,
+     "what": "faces pulled apart"
+    },
+    "grid": {
+     "type": "bool",
+     "default": false,
+     "what": "1 m squares drawn on every face"
+    },
+    "compare": {
+     "type": "bool",
+     "default": false,
+     "what": "a 1 m cube beside it"
+    }
+   },
+   "since": "2026-11-10",
+   "role": "model",
+   "size": [
+    1000,
+    900
+   ],
+   "spots": [
+    "cube",
+    "top",
+    "front",
+    "side",
+    "right",
+    "base",
+    "small",
+    "small_front"
+   ]
+  }
+ }
+}
