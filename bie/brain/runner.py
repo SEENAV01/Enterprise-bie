@@ -204,6 +204,12 @@ def _review_findings(step: Step, review: dict, value: dict) -> list:
     return step.review_problems(review)
 
 
+# Maker failures that another round can mend: an answer that came back but could not be read. A truncated answer is
+# not asked again (the same request would hit the same output cap and cost the same again); refusals, auth, budget and
+# plan limits never are (the gateway retries the transient ones itself).
+UNREADABLE_KINDS = frozenset({"schema_invalid", "malformed"})
+
+
 class SectionRunner:
     def __init__(self, gateway, *, maker: str, reviewer: str | None, rulebook, records_dir: str | Path | None = None,
                  clock=time.time):
@@ -241,8 +247,16 @@ class SectionRunner:
                 response = self.gateway.complete(self.maker, request, prompt_version=step.instructions_version)
             except ProviderError as exc:
                 entry.update(maker_error={"kind": exc.kind, "message": str(exc)[:1500]}, passed=False)
+                if getattr(exc, "excerpt", None):
+                    entry["maker_error"]["excerpt"] = exc.excerpt
                 rounds.append(entry)
                 status = "stopped" if exc.kind in STOP_KINDS else status
+                if exc.kind in UNREADABLE_KINDS and number < step.max_rounds:
+                    # An answer that could not be read (after the gateway's own repair turn) is a slip, not a verdict:
+                    # the next round asks again from the same messages (Money v4 run c, 10 November 2026: one unreadable
+                    # 13,000-token plan ended the video in round 1 of 6).
+                    entry["finished_at"] = self._clock()
+                    continue
                 break
             value, crash = response.content, None
             if patching:

@@ -1960,3 +1960,22 @@ measured at 25.1 px: the plan showed the notes as one text that changed every 0.
 them): each stays at least 1.5 s, or the compiler names the value and asks for the values side by side or a longer
 moment each; the director's prompt says so. Under it, v4 run b (₹10, 0.5 s) and v5 run b ("उधार", 1.1 s) each break it
 once, so both go through the director again (run c).
+
+## Entry 52 · an unreadable answer gets another round, and the record keeps its start and end, 10 November 2026
+
+**The run:** run c of Money v4 and v5 (after entry 51; VM jobs `p1h-money-showplan-v4-c`, `-v5-c`, Codex, ₹0, plan
+usage 32% → 33%). v5 passed in 4 rounds with said = shown 100% (41 lines name things). v4 never reached the compiler:
+Codex's first answer (13,367 output tokens) and the gateway's repair turn (13,867) were both "not a JSON object", and the
+section runner ended the video in round 1 of 6. The record said only "unable to repair", so why the answer could not be
+read (cut off, prose around the JSON, two objects) cannot be told. The scene-plan schema is free-form, so it goes in the
+prompt, not to Codex's `--output-schema`.
+
+**What changed in BIE:** an answer that comes back but cannot be read (`schema_invalid`, `malformed`) is now a slip, not
+a verdict: the runner asks again from the same messages in the next round, up to the step's round limit
+(`bie/brain/runner.py`, `UNREADABLE_KINDS`). A truncated answer is not asked again (the same request would hit the same
+cap and cost the same), nor are refusals, auth, budget or plan limits. The gateway's `schema_invalid` error now carries
+the reply's length and its first and last 600 characters (keys redacted), and the round record keeps them as
+`maker_error.excerpt`. Tests: a garbled answer then a good one passes in round 2 with the excerpt recorded; an answer
+that never reads stops at the round limit. Passed-output sets: 0 problems.
+
+**Measured effect:** v4 run c goes again on the VM after this merges (run c2).

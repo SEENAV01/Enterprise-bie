@@ -23,7 +23,7 @@ class ProviderError(RuntimeError):
     """A failed provider call. ``kind`` decides whether a retry is allowed."""
 
     def __init__(self, kind: str, message: str = "", *, status: int | None = None, provider: str | None = None,
-                 usage: dict | None = None, retry_after: float | None = None):
+                 usage: dict | None = None, retry_after: float | None = None, excerpt: dict | None = None):
         if kind not in KINDS:
             raise ValueError("unknown provider error kind: " + str(kind))
         self.kind = kind
@@ -33,6 +33,9 @@ class ProviderError(RuntimeError):
         self.usage = usage
         # Seconds the provider asks BIE to wait before the next try (Google's RetryInfo on a per-minute quota).
         self.retry_after = retry_after
+        # The start and end of an answer that could not be read (schema_invalid), so the record shows why: a reply cut
+        # off, prose around the JSON, two objects (Money v4 run c, 10 November 2026: 13,000 tokens, no way to tell).
+        self.excerpt = excerpt
         self.status = status
         self.provider = provider
         self.message = message[:600]

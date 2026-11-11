@@ -10,6 +10,7 @@ cost; a call that would cross the run's rupee cap is not sent (ledger outcome ``
 """
 from __future__ import annotations
 
+import json
 import time
 from dataclasses import replace
 
@@ -21,7 +22,7 @@ from ..schema_validation import SchemaValidationError, validate as validate_sche
 from ..structured_output import StructuredOutputError, parse_json
 from .budget import STOP_KINDS, input_tokens, output_cap
 from .disk_cache import cache_key
-from .errors import ProviderError
+from .errors import ProviderError, redact
 from .ledger import UsageLedger
 from .pricing import SUBSCRIPTION_VIAS, estimate_cost
 
@@ -135,7 +136,10 @@ class LiveGateway:
                                       cache_hit=False, attempts=attempt, returned_model=returned_model, via=via)
             self.ledger.record(**row, outcome="schema_invalid", error_kind="schema_invalid")
             if repairs >= self.max_repairs:
-                raise ProviderError("schema_invalid", problem[:300], provider=provider)
+                reply = text if isinstance(text, str) else json.dumps(text, ensure_ascii=False)[:100000]
+                raise ProviderError("schema_invalid", problem[:300], provider=provider,
+                                    excerpt={"chars": len(reply or ""), "head": redact((reply or "")[:600]),
+                                             "tail": redact((reply or "")[-600:])})
             repairs += 1
             previous = text if isinstance(text, str) else str(text)
             messages += [{"role": "assistant", "content": previous[:20000]},
