@@ -1,0 +1,43 @@
+{
+ "schema": "bie.text-audit/1",
+ "floor_px": 36,
+ "frames_sampled": 880,
+ "every_frames": 30,
+ "texts_seen": 273,
+ "min_px": 35.7,
+ "small": [],
+ "small_count": 0,
+ "lasting_small_count": 0,
+ "symbols": [],
+ "overlaps": [
+  {
+   "a": "11वाँ नोट",
+   "b": "₹",
+   "first_s": 70.0,
+   "samples": 62,
+   "share": 0.77,
+   "longest_run": 62,
+   "caption": false,
+   "last_s": 131.0
+  }
+ ],
+ "overlap_count": 1,
+ "lasting_overlap_count": 1,
+ "caption_overlap_count": 0,
+ "sample_s": 1.0,
+ "overlap_seconds": 62.0,
+ "longest_overlap_s": 62.0,
+ "plan_marked": true,
+ "spec": "/home/runner/work/_temp/in/video_spec.json",
+ "gate": {
+  "passed": false,
+  "long_s": 2.0,
+  "long_overlaps": 1,
+  "small_plan_texts": 0,
+  "overlap_seconds": 62.0,
+  "longest_overlap_s": 62.0,
+  "problems": [
+   "'11वाँ नोट' and '₹' cover each other for 62 s from 70.0 s"
+  ]
+ }
+}
