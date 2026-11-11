@@ -5,8 +5,10 @@
 // families first). Add one import and one spread below.
 import { DRAWS as ECON_CHARTS } from "./econ_charts.mjs";
 import { DRAWS as ECON_TOOLS } from "./econ_tools.mjs";
+import { DRAWS as econ_finance } from "./econ_finance.mjs";
 
 export const FAMILY_DRAWS = {
   ...ECON_CHARTS,
   ...ECON_TOOLS,
+  ...econ_finance,
 };
