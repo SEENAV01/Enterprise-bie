@@ -87,6 +87,26 @@ export const BACKGROUNDS = {
   assembly: () => worldBg("assembly"),
   twoCountries: () => worldBg("twoCountries"),
   forexCounter: () => worldBg("forexCounter"),
+  // the Sloman book's places (5 Nov 2026), at their defaults
+  mandi: () => worldBg("mandi"),
+  foodStreet: () => worldBg("foodStreet"),
+  labourChowk: () => worldBg("labourChowk"),
+  factoryFloor: () => worldBg("factoryFloor"),
+  farm: () => worldBg("farm"),
+  riverTown: () => worldBg("riverTown"),
+  mohalla: () => worldBg("mohalla"),
+  canteen: () => worldBg("canteen"),
+  home: () => worldBg("home"),
+  teaEstate: () => worldBg("teaEstate"),
+  busStand: () => worldBg("busStand"),
+  petrolPump: () => worldBg("petrolPump"),
+  venue: () => worldBg("venue"),
+  godown: () => worldBg("godown"),
+  island: () => worldBg("island"),
+  twoSector: () => worldBg("twoSector"),
+  dealingRoom: () => worldBg("dealingRoom"),
+  hospital: () => worldBg("hospital"),
+  foodShop: () => worldBg("foodShop"),
 };
 
 export const FOREGROUNDS = {
@@ -122,6 +142,14 @@ export const WORLD_ZONES = {
   village: { hut: "text", well: "text", tree: "text" }, office: { desk: "text" }, court: { bench: "text" },
   city: { shop: "text" }, assembly: { podium: "text", seats: "text" }, twoCountries: { border: "text" },
   forexCounter: { board: "all", counter: "text" },
+  mandi: { board: "all", notice: "all", heap: "text", buyers: "text", truck: "text" }, foodStreet: { stall: "text" },
+  labourChowk: { board: "all", crowd: "text", truck: "text" }, factoryFloor: { board: "all", notice: "all", machine: "text", belt: "text", godown: "text" },
+  farm: { heap: "text", fence: "text" }, riverTown: { factory: "text", pipe: "text", ghat: "text" }, mohalla: { house: "text" },
+  canteen: { menu: "all", notice: "all", counter: "text", tables: "text" }, home: { tv: "text", stove: "text", fridge: "text", desk: "text", door: "text" },
+  teaEstate: { board: "all", factory: "text", lines: "text", gate: "text", union: "text" }, busStand: { bay: "text" }, petrolPump: { board: "all", pump: "text" },
+  venue: { board: "all", screen: "text", seats: "text", window: "text", door: "text" }, godown: { board: "all", store: "text", door: "text" },
+  island: { huts: "text", bank: "text", boat: "text", neighbour: "text" }, twoSector: { shed: "text", bench: "text" },
+  dealingRoom: { board: "all", desk: "text" }, hospital: { cabin: "text", reception: "text", ward: "text" }, foodShop: { board: "all", oven: "text", till: "text", counter: "text" },
 };
 
 /** A world's reserved zones in its own coordinates (centred on its origin, at its p.w). */

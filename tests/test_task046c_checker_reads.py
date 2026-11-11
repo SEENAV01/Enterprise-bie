@@ -125,13 +125,13 @@ class TheVmJobMayAskForMoreRounds(unittest.TestCase):
 class RulebookAndRegistry(unittest.TestCase):
     def test_the_rulebook_carries_the_change(self):
         vision = json.loads((ROOT / "bie/brain/rulebook/vision-2026-10-21.json").read_text(encoding="utf-8"))
-        self.assertEqual(vision["version"], "2026-10-21.17")
+        self.assertGreaterEqual(vision["version"], "2026-10-21.17")      # .18 added S2-11 (the content rule)
         rules = {r["id"]: r for r in vision["rules"]}
         self.assertIn("without one", rules["S2-09"]["rule"])
         self.assertIn("minor by code", rules["S2-10"]["rule"])
         self.assertIn("minor by code", rules["S2-08"]["rule"])
-        self.assertTrue(vision["changes"][-1].startswith("2026-10-21.17"))
-        self.assertIn("vision-2026-10-21@2026-10-21.17", rulebook.load().version)
+        self.assertTrue(any(c.startswith("2026-10-21.17") for c in vision["changes"]))
+        self.assertIn(f"vision-2026-10-21@{vision['version']}", rulebook.load().version)
 
     def test_the_regression_registry_explains_a_new_s2_09_finding_on_an_earlier_passed_script(self):
         old = {"rulebook": "visual_grammar@2026-10-29.1+vision-2026-10-21@2026-10-21.16"}

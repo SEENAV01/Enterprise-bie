@@ -122,6 +122,42 @@ shape in the writer's prompt, #144 the render counts either spec kind + the one 
 video), SEEKH_LOG entries 42–46. Parts A–E are INTEGRATED on a real chapter; nothing is ACCEPTED until Navin's
 verdict. Interim renders stay captions-only (voice waits on his yes).
 
+## S2-11, the content length rule (11 November 2026, branch `p1s-depth-length`)
+
+Navin's "Mix" choice of 5 November 2026 for the Sloman economics book, taught to BIE: with the course's `length_rule`
+"content" (`tools/run_brain.py --length-rule content`) a topic video's minutes come from its items' depth — Section 1 marks
+every item's `teach_depth` ("deep" with `deep_why`: graph, numerical, misconception, application, story, subtle) and the
+lesson plan gives a normal item 0.25 minutes, a deep one 0.75, a practice question 0.10, a video 0.8-1.4 times that (split
+above ~18, merged below ~3.6). S2-01 (6-8 minutes per page) stays the default. Rulebook vision 2026-10-21.18,
+understand-page/5, lesson-plan/5. IMPLEMENTED; the passed outputs still pass. SEEKH_LOG has the entry.
+## The Sloman book: saanche families, the economics graph, 3D (5–11 November 2026, branch `sloman-saanche`, PR #155)
+
+Navin, 5 November 2026, with the Sloman *Economics* PDF: the whole book (26 chapters) to v2 standard — understanding,
+narration, scene plans (compiled, not rendered), every saancha/world/process/3D model the book needs, notes and game —
+for graduation and UPSC/NET learners in Hinglish, length by his "Mix" choice (normal items short, deep items — graphs,
+numericals, misconceptions, applications — long). The chapter outputs are Claude's run in the scratch workspace (the
+book is copyrighted and stays out of the repo); this branch carries only what BIE gained from it:
+
+- **Graph at the voice's speed** (`draw.mjs` graph): show/grow/drawIn, bold, areas, h/v lines, arrows, gaps, ticks,
+  dots that glide, a line that slides or morphs, a point that runs along a curve with a live readout, a lettered path.
+  Item steps may glide numbers (`d`, seconds).
+- **EconGraph** (`bie/brain/video/econ_graph.py`): a plan writes the economics (demand, supply, costs, shifts, taxes,
+  ceilings, budget and indifference curves, the 45° line with the multiplier's rounds, MR, PPF, Lorenz with its Gini)
+  and the builder computes every point, crossing and area, so the drawing and the spoken numbers agree.
+- **Families of saanche** (`engine/families/*.mjs` + `engine/saanche.d/*.json`, merged by `bie/brain/saanche.py`;
+  a name defined twice is refused): econ_charts (15), econ_tools (12: formula, tarazu, cause chain, T-account …),
+  econ_finance (22: circular flow, multiplier rounds, balance sheet, bank run …), econ_things (18 drawings, 31 people
+  looks), and 19 new world kinds (mandi, labour chowk, factory floor, farm, mohalla, dhaba …) with 5 upgraded.
+- **3D layer** (`engine/three/`, `bie/brain/video/models3d.py`, `engine3d.mjs`): 9 parametric three.js models a scene
+  plan controls (parameters, steps on cue words, camera, spots); plain 2D specs never load three.js; 3D frames cost
+  about 3–5× a 2D frame.
+- **Fixes found by the run**: the spoken order of a video is never changed by scene grouping; a notes picture is the
+  finished picture at frame 0.
+
+Status words: IMPLEMENTED (tests in the core lane); INTEGRATED for the chapters' plans as they are written; nothing
+ACCEPTED until Navin sees the outputs. Not yet in BIE's own sections: the depth marks and the Mix length rule (they run
+in the run's kit; teaching them to `lesson.py` and the rulebook is its own PR).
+
 ## Dikhaya-bola: the shown-said check (5 November 2026, branch `p1h-shown-said`)
 
 Navin's answers on the decision cards of 5 November 2026: dikhaya-bola **"Boli cheez usi line mein"** (a thing a line

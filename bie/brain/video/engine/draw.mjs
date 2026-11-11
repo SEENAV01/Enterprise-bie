@@ -4,24 +4,25 @@
 // centred on it. No real currency designs (notes carry ₹ and a value in BIE's own colours), no real persons.
 
 import { world } from "./worlds.mjs";
+import { FAMILY_DRAWS } from "./families/index.mjs";
 import { svgBounds } from "./boxes.mjs";
 
-const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const FONT = "'Noto Sans', 'Noto Sans Devanagari', sans-serif";
-const INK = "#2b2b33";
+export const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+export const FONT = "'Noto Sans', 'Noto Sans Devanagari', sans-serif";
+export const INK = "#2b2b33";
 
-function shade(hex, f = 0.72) {
+export function shade(hex, f = 0.72) {
   const n = parseInt(hex.slice(1), 16);
   const c = (v) => Math.max(0, Math.min(255, Math.round(v * f)));
   return `#${((c(n >> 16) << 16) | (c((n >> 8) & 255) << 8) | c(n & 255)).toString(16).padStart(6, "0")}`;
 }
 
-function rnd(seed) {
+export function rnd(seed) {
   let x = seed >>> 0 || 1;
   return () => ((x = (x * 1103515245 + 12345) >>> 0), x / 4294967296);
 }
 
-const label = (text, y, size, fill = INK, weight = 700) =>
+export const label = (text, y, size, fill = INK, weight = 700) =>
   text ? `<text x="0" y="${y}" font-family=${JSON.stringify(FONT)} font-size="${size}" font-weight="${weight}" fill="${fill}" text-anchor="middle">${esc(text)}</text>` : "";
 
 // ---------------------------------------------------------------- things
@@ -295,9 +296,9 @@ function phone(p) {
 // Learned from 37 Indian-economy reference videos (asset_intake/econ_kit, rules/show_lexicon.json): the things those
 // videos draw most that the Money v2 set lacked. BIE's own drawings: no logos, emblems, seals or real persons — an
 // institution is shown by institutionBadge (the references showed real logos in 25 of 37 videos).
-const tx = (text, x, cy, size, fill = INK, weight = 700) =>
+export const tx = (text, x, cy, size, fill = INK, weight = 700) =>
   text === "" || text == null ? "" : `<g transform="translate(${x},0)">` + label(String(text), cy + size * 0.35, size, fill, weight) + `</g>`;
-const clamp01 = (v) => Math.max(0, Math.min(1, Number(v) || 0));
+export const clamp01 = (v) => Math.max(0, Math.min(1, Number(v) || 0));
 
 const BADGE_KINDS = {
   central_bank: ["#138a8a", "coin"], bank: ["#3a7bd5", "columns"], government: ["#e07b24", "dome"],
@@ -716,9 +717,9 @@ export function markSvg(kind, w, color, k = 1) {
 // The rest of the 57-video needs list: a coin jar that fills, pillars that hold a roof (one can crack), a briefcase,
 // a winners' podium, a staircase of steps, a desk with its chair, a chair, and a rope / rod / chain that ties two
 // things. Whole places behind the lesson (market, bank hall, port, ...) are the world saancha (worlds.mjs).
-const parts = (s) => String(s ?? "").split(";").map((t) => t.trim());
-const idxSet = (s) => new Set(String(s ?? "").split(",").map((t) => parseInt(t, 10)).filter((v) => v > 0));
-const fit = (t, maxW, cap) => Math.min(cap, (maxW * 0.92) / Math.max(1, String(t).length) * 1.75);
+export const parts = (s) => String(s ?? "").split(";").map((t) => t.trim());
+export const idxSet = (s) => new Set(String(s ?? "").split(",").map((t) => parseInt(t, 10)).filter((v) => v > 0));
+export const fit = (t, maxW, cap) => Math.min(cap, (maxW * 0.92) / Math.max(1, String(t).length) * 1.75);
 
 function coinJar(p) {
   const w = p.w || 160, h = w * 1.25, f = clamp01(p.fill == null ? 0.5 : p.fill), lid = p.color || "#c0563f";
@@ -994,8 +995,8 @@ function gapBars(p) {
 // The economy videos carry most meaning by diagram (39% of segments): a timeline (62 segment-uses), a table (55) and a
 // graph (35) led the needs list, and the scene-plan engine had none. Each is one parametric saancha whose parts can be
 // revealed through steps (upto) and highlighted (at, glow); a graph's curves draw themselves (drawIn seconds).
-const DIAG = ["#2459a6", "#e5484d", "#2fa35b", "#f29f05", "#7b61ff", "#2a9d8f"];
-const isNum = (v) => v !== "" && v != null && Number.isFinite(Number(v));
+export const DIAG = ["#2459a6", "#e5484d", "#2fa35b", "#f29f05", "#7b61ff", "#2a9d8f"];
+export const isNum = (v) => v !== "" && v != null && Number.isFinite(Number(v));
 
 function timeline(p) {
   const w = p.w || 1500, h = w * 0.3, ev = parts(p.events).filter(Boolean).slice(0, 12).map((e) => { const i = e.indexOf(":");
@@ -1056,7 +1057,7 @@ function table(p) {
     (rowW ? `<path d="M${x0 + rowW} ${y0} L${x0 + rowW} ${y0 + H}" stroke="#9aa5b1" stroke-width="${Math.max(2, w * 0.003)}"/>` : "");
 }
 
-function smoothPath(pts) {
+export function smoothPath(pts) {
   if (pts.length < 3) return pts.map((q, i) => `${i ? "L" : "M"}${q[0].toFixed(1)} ${q[1].toFixed(1)}`).join(" ");
   let d = `M${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
   for (let i = 0; i < pts.length - 1; i++) {
@@ -1067,37 +1068,146 @@ function smoothPath(pts) {
 }
 
 function graph(p) {
+  // The economics graph (Sloman: most of its 343 figures). Everything is in data units and can change on a cue word
+  // through the item's steps: show reveals lines one by one, grow draws the newly shown lines and areas over drawIn
+  // seconds after the step (_s), a dot glides from where it was (x,y<x0,y0), areas shade surplus, revenue or loss,
+  // hlines/vlines are price floors and ceilings, arrows are shifts, gaps are shortages and surpluses, xTicks/yTicks
+  // name P1, Q1 on the axes.
   const w = p.w || 900, h = w * 0.62, L = -w / 2 + w * 0.09, R = w / 2 - w * 0.05, T = -h / 2 + h * 0.06, B = h / 2 - h * 0.13;
   const xmin = isNum(p.xmin) ? +p.xmin : 0, xmax = isNum(p.xmax) && +p.xmax > xmin ? +p.xmax : xmin + 10;
   const ymin = isNum(p.ymin) ? +p.ymin : 0, ymax = isNum(p.ymax) && +p.ymax > ymin ? +p.ymax : ymin + 10;
   const X = (v) => L + ((v - xmin) / (xmax - xmin)) * (R - L), Y = (v) => B - ((v - ymin) / (ymax - ymin)) * (B - T);
-  const t = Number(p._t), drawIn = Math.max(0, Number(p.drawIn) || 0), prog = drawIn && Number.isFinite(t) ? Math.min(1, t / drawIn) : 1;
-  const dashed = idxSet(p.dashed), fs = h * 0.055;
-  let out = `<path d="M${L} ${T - h * 0.03} L${L} ${B} L${R + w * 0.02} ${B}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>` +
+  const t = Number(p._t), sinceStep = p._s === null || p._s === undefined || p._s === "" ? t : Number(p._s);
+  const drawIn = Math.max(0, Number(p.drawIn) || 0);
+  const grow = new Set(parts(p.grow).map((g) => g.trim()).filter(Boolean));
+  const progAll = drawIn && Number.isFinite(t) ? Math.min(1, t / drawIn) : 1;
+  const progStep = drawIn && Number.isFinite(sinceStep) ? Math.min(1, Math.max(0, sinceStep) / drawIn) : 1;
+  const progOf = (key) => (grow.size ? (grow.has(key) ? progStep : 1) : progAll);
+  const dashed = idxSet(p.dashed), bold = idxSet(p.bold), fs = h * 0.055;
+  const shown = p.show === undefined || p.show === null || String(p.show).trim() === "" ? null : idxSet(p.show);
+  const colors = {};
+  parts(p.colors).forEach((c) => { const i = c.indexOf(":"); if (i > 0) colors[c.slice(0, i).trim()] = c.slice(i + 1).trim(); });
+  const xy = (q) => q.split(",").map(Number);
+  const ok = (q) => q.length === 2 && q.every(Number.isFinite);
+  const lab = (s) => { const i = s.indexOf(":"); return i >= 0 ? [s.slice(0, i).trim(), s.slice(i + 1).trim()] : [s.trim(), ""]; };
+  let out = "";
+  // shaded areas first, under everything: "label:x,y x,y x,y@#color"
+  parts(p.areas).filter(Boolean).slice(0, 6).forEach((ar, k) => {
+    const at = ar.lastIndexOf("@"), col = at > 0 && ar.slice(at + 1).trim().startsWith("#") ? ar.slice(at + 1).trim() : AREA[k % AREA.length];
+    const body = at > 0 && ar.slice(at + 1).trim().startsWith("#") ? ar.slice(0, at) : ar;
+    const i = body.indexOf(":"), name = i >= 0 ? body.slice(0, i).trim() : "", pts = (i >= 0 ? body.slice(i + 1) : body).trim().split(/\s+/)
+      .map(xy).filter(ok).map(([a, b]) => [X(a), Y(b)]);
+    if (pts.length < 3) return;
+    const pr = progOf(`a${k + 1}`);
+    const cx = pts.reduce((s2, q) => s2 + q[0], 0) / pts.length, cy = pts.reduce((s2, q) => s2 + q[1], 0) / pts.length;
+    out += `<path d="${pts.map((q, j) => `${j ? "L" : "M"}${q[0].toFixed(1)} ${q[1].toFixed(1)}`).join(" ")} Z" fill="${col}" fill-opacity="${(0.42 * pr).toFixed(3)}" stroke="${col}" stroke-width="${w * 0.002}" stroke-opacity="${pr.toFixed(3)}"/>`;
+    if (name && pr >= 1) out += tx(name, cx, cy, fit(name, Math.max(w * 0.08, (Math.max(...pts.map((q) => q[0])) - Math.min(...pts.map((q) => q[0]))) * 0.9), fs * 0.9), INK, 800);
+  });
+  out += `<path d="M${L} ${T - h * 0.03} L${L} ${B} L${R + w * 0.02} ${B}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>` +
     `<path d="M${L - w * 0.012} ${T} L${L} ${T - h * 0.035} L${L + w * 0.012} ${T}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>` +
     `<path d="M${R + w * 0.005} ${B - h * 0.02} L${R + w * 0.025} ${B} L${R + w * 0.005} ${B + h * 0.02}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>`;
   if (ymin < 0 && ymax > 0) out += `<path d="M${L} ${Y(0)} L${R} ${Y(0)}" stroke="#9aa5b1" stroke-width="${w * 0.002}" stroke-dasharray="${w * 0.01} ${w * 0.008}"/>`;
-  if (p.xLabel) out += tx(p.xLabel, (L + R) / 2, B + h * 0.08, fit(p.xLabel, w * 0.6, fs), INK, 800);
-  if (p.yLabel) out += `<g transform="translate(${L - w * 0.05},${(T + B) / 2}) rotate(-90)">${tx(p.yLabel, 0, 0, fit(p.yLabel, h * 0.7, fs), INK, 800)}</g>`;
+  const xt = parts(p.xTicks).some(Boolean), yt = parts(p.yTicks).some(Boolean);      // named axis points push the axis names out
+  if (p.xLabel) out += tx(p.xLabel, (L + R) / 2, B + h * (xt ? 0.115 : 0.08), fit(p.xLabel, w * 0.6, fs), INK, 800);
+  if (p.yLabel) out += `<g transform="translate(${L - w * (yt ? 0.1 : 0.05)},${(T + B) / 2}) rotate(-90)">${tx(p.yLabel, 0, 0, fit(p.yLabel, h * 0.7, fs), INK, 800)}</g>`;
   if (p.ticks) out += tx(String(xmin), L, B + h * 0.035, fs * 0.7, "#4a5568", 700) + tx(String(xmax), R, B + h * 0.035, fs * 0.7, "#4a5568", 700) +
     tx(String(ymax), L - w * 0.02, T, fs * 0.7, "#4a5568", 700) + (ymin !== 0 ? tx(String(ymin), L - w * 0.02, B, fs * 0.7, "#4a5568", 700) : "");
+  // named points on the axes: "2:Q1;5:Q2" and "4:P1"
+  parts(p.xTicks).filter(Boolean).slice(0, 8).forEach((tk) => { const [v, n] = lab(tk); if (!isNum(v)) return;
+    out += `<path d="M${X(+v)} ${B} L${X(+v)} ${B + h * 0.02}" stroke="${INK}" stroke-width="${w * 0.003}"/>` + (n ? tx(n, X(+v), B + h * 0.045, fit(n, w * 0.1, fs * 0.8), INK, 800) : ""); });
+  parts(p.yTicks).filter(Boolean).slice(0, 8).forEach((tk) => { const [v, n] = lab(tk); if (!isNum(v)) return;
+    out += `<path d="M${L - w * 0.012} ${Y(+v)} L${L} ${Y(+v)}" stroke="${INK}" stroke-width="${w * 0.003}"/>` + (n ? tx(n, L - w * 0.04, Y(+v), fit(n, w * 0.05, fs * 0.8), INK, 800) : ""); });
+  // price ceilings and floors, and fixed quantities: "6:न्यूनतम मूल्य" (y) and "4:quota" (x)
+  parts(p.hlines).filter(Boolean).slice(0, 4).forEach((hl) => { const [v, n] = lab(hl); if (!isNum(v)) return;
+    out += `<path d="M${L} ${Y(+v)} L${R} ${Y(+v)}" stroke="#c0392b" stroke-width="${w * 0.004}" stroke-dasharray="${w * 0.014} ${w * 0.008}"/>` +
+      (n ? tx(n, R - w * 0.12, Y(+v) - h * 0.035, fit(n, w * 0.22, fs * 0.85), "#c0392b", 800) : ""); });
+  parts(p.vlines).filter(Boolean).slice(0, 4).forEach((vl) => { const [v, n] = lab(vl); if (!isNum(v)) return;
+    out += `<path d="M${X(+v)} ${T} L${X(+v)} ${B}" stroke="#7b61ff" stroke-width="${w * 0.004}" stroke-dasharray="${w * 0.014} ${w * 0.008}"/>` +
+      (n ? tx(n, X(+v), T + h * 0.02, fit(n, w * 0.2, fs * 0.85), "#7b61ff", 800) : ""); });
+  // a curve that moves on the cue word: "2:-2,0" slides line 2 from 2 units left into place; morph "2:1,9 9,1" reshapes
+  // line 2 from those points into its own (a pivot, a new slope); both over glide seconds after the step (_s)
+  const gl = Math.max(0.1, Number(p.glide) || 1.2);
+  const moveE = Number.isFinite(sinceStep) ? easeIO(Math.min(1, Math.max(0, sinceStep) / gl)) : 1;
+  const slide = {}, morph = {};
+  parts(p.slide).forEach((sl) => { const [k, v] = lab(sl); const d = xy(v || ""); if (k && ok(d)) slide[k] = d; });
+  parts(p.morph).forEach((mo) => { const [k, v] = lab(mo); const q = (v || "").trim().split(/\s+/).map(xy).filter(ok); if (k && q.length >= 2) morph[k] = q; });
+  const resample = (q, n) => Array.from({ length: n }, (_, j) => { const f = (j / (n - 1)) * (q.length - 1), a = Math.floor(f), b2 = Math.min(q.length - 1, a + 1), u = f - a;
+    return [q[a][0] + (q[b2][0] - q[a][0]) * u, q[a][1] + (q[b2][1] - q[a][1]) * u]; });
+  const linePts = {};                          // data points of each drawn line (after slide and morph), for "along"
   parts(p.lines).filter(Boolean).slice(0, 6).forEach((ln, k) => {
-    const i = ln.indexOf(":"), lab = i >= 0 ? ln.slice(0, i).trim() : "", pts = (i >= 0 ? ln.slice(i + 1) : ln).trim().split(/\s+/)
-      .map((q) => q.split(",").map(Number)).filter((q) => q.length === 2 && q.every(Number.isFinite)).map(([a, b]) => [X(a), Y(b)]);
-    if (pts.length < 2) return;
-    const c = DIAG[k % DIAG.length], d = p.smooth === false ? pts.map((q, j) => `${j ? "L" : "M"}${q[0].toFixed(1)} ${q[1].toFixed(1)}`).join(" ") : smoothPath(pts);
-    out += `<path d="${d}" fill="none" stroke="${c}" stroke-width="${w * 0.007}" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="${dashed.has(k + 1) ? "0.02 0.015" : `${prog} 1`}"${dashed.has(k + 1) && prog < 1 ? ` opacity="${prog}"` : ""}/>`;
-    if (lab && prog >= 1) { const [ex, ey] = pts[pts.length - 1]; out += tx(lab, Math.min(R, ex + w * 0.03), ey - h * 0.04, fit(lab, w * 0.16, fs), c, 800); }
+    if (shown && !shown.has(k + 1)) return;
+    const i = ln.indexOf(":"), name = i >= 0 ? ln.slice(0, i).trim() : "";
+    let dpts = (i >= 0 ? ln.slice(i + 1) : ln).trim().split(/\s+/).map(xy).filter(ok);
+    if (dpts.length < 2) return;
+    const key = String(k + 1);
+    if (morph[key] && moveE < 1) {
+      const n = Math.max(dpts.length, morph[key].length, 12), A = resample(morph[key], n), Bq = resample(dpts, n);
+      dpts = A.map((q, j) => [q[0] + (Bq[j][0] - q[0]) * moveE, q[1] + (Bq[j][1] - q[1]) * moveE]);
+    }
+    if (slide[key] && moveE < 1) dpts = dpts.map(([a, b2]) => [a + slide[key][0] * (1 - moveE), b2 + slide[key][1] * (1 - moveE)]);
+    linePts[key] = dpts;
+    const pts = dpts.map(([a, b2]) => [X(a), Y(b2)]);
+    const prog = progOf(String(k + 1));
+    const c = colors[String(k + 1)] || DIAG[k % DIAG.length], d = p.smooth === false ? pts.map((q, j) => `${j ? "L" : "M"}${q[0].toFixed(1)} ${q[1].toFixed(1)}`).join(" ") : smoothPath(pts);
+    const sw = w * (bold.has(k + 1) ? 0.012 : 0.007);
+    out += `<path d="${d}" fill="none" stroke="${c}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="${dashed.has(k + 1) ? "0.02 0.015" : `${prog} 1`}"${dashed.has(k + 1) && prog < 1 ? ` opacity="${prog}"` : ""}/>`;
+    if (name && prog >= 1) { const [ex, ey] = pts[pts.length - 1]; out += tx(name, Math.min(R, ex + w * 0.03), ey - h * 0.04, fit(name, w * 0.16, fs), c, 800); }
   });
-  if (prog >= 1) parts(p.dots).filter(Boolean).slice(0, 6).forEach((dt) => {
-    const i = dt.indexOf(":"), [a, b] = (i >= 0 ? dt.slice(0, i) : dt).split(",").map(Number), lab = i >= 0 ? dt.slice(i + 1).trim() : "";
-    if (![a, b].every(Number.isFinite)) return;
-    const x = X(a), y = Y(b);
+  // shifts: "3,5>6,5:माँग बढ़ी"
+  parts(p.arrows).filter(Boolean).slice(0, 4).forEach((ar) => { const [body, n] = lab(ar), [a, b2] = body.split(">");
+    if (!a || !b2) return; const p1 = xy(a), p2 = xy(b2); if (!ok(p1) || !ok(p2)) return;
+    const x1 = X(p1[0]), y1 = Y(p1[1]), x2 = X(p2[0]), y2 = Y(p2[1]), ang = Math.atan2(y2 - y1, x2 - x1), hl = w * 0.028;
+    out += `<path d="M${x1} ${y1} L${x2} ${y2}" stroke="#e76f51" stroke-width="${w * 0.008}" stroke-linecap="round"/>` +
+      `<path d="M${x2 - hl * Math.cos(ang - 0.45)} ${y2 - hl * Math.sin(ang - 0.45)} L${x2} ${y2} L${x2 - hl * Math.cos(ang + 0.45)} ${y2 - hl * Math.sin(ang + 0.45)}" fill="none" stroke="#e76f51" stroke-width="${w * 0.008}" stroke-linecap="round" stroke-linejoin="round"/>` +
+      (n ? tx(n, (x1 + x2) / 2, Math.min(y1, y2) - h * 0.045, fit(n, w * 0.3, fs * 0.85), "#e76f51", 800) : ""); });
+  // shortages and surpluses: "3,7@4:कमी (shortage)"
+  parts(p.gaps).filter(Boolean).slice(0, 3).forEach((gp) => { const [body, n] = lab(gp), [xs, yv] = body.split("@"); if (!xs || !isNum(yv)) return;
+    const [a, b2] = xy(xs); if (![a, b2].every(Number.isFinite)) return;
+    const x1 = X(Math.min(a, b2)), x2 = X(Math.max(a, b2)), y = Y(+yv), tk = h * 0.025;
+    out += `<path d="M${x1} ${y - tk} L${x1} ${y + tk} M${x1} ${y} L${x2} ${y} M${x2} ${y - tk} L${x2} ${y + tk}" stroke="#d62828" stroke-width="${w * 0.006}" stroke-linecap="round"/>` +
+      (n ? tx(n, (x1 + x2) / 2, y + h * 0.055, fit(n, Math.max(w * 0.12, x2 - x1), fs * 0.85), "#d62828", 800) : ""); });
+  // plain dashed segments: a chord, a tangent, a reading line "x1,y1>x2,y2:label"
+  parts(p.segs).filter(Boolean).slice(0, 6).forEach((sg) => { const [body, n] = lab(sg), [a, b2] = body.split(">");
+    if (!a || !b2) return; const p1 = xy(a), p2 = xy(b2); if (!ok(p1) || !ok(p2)) return;
+    out += `<path d="M${X(p1[0])} ${Y(p1[1])} L${X(p2[0])} ${Y(p2[1])}" stroke="#5c677d" stroke-width="${w * 0.004}" stroke-dasharray="${w * 0.012} ${w * 0.008}"/>` +
+      (n ? tx(n, (X(p1[0]) + X(p2[0])) / 2, (Y(p1[1]) + Y(p2[1])) / 2 - h * 0.04, fit(n, w * 0.22, fs * 0.8), "#5c677d", 800) : ""); });
+  // a lettered adjustment path "x,y:a;x,y:b;x,y:c": points joined by arrows, pathUpto reveals the first n points
+  const pathPts = parts(p.path).filter(Boolean).slice(0, 8).map((pp) => { const [body, n] = lab(pp); const q = xy(body); return ok(q) ? [X(q[0]), Y(q[1]), n] : null; }).filter(Boolean);
+  const upto = isNum(p.pathUpto) ? Math.max(0, Math.min(pathPts.length, Math.round(+p.pathUpto))) : pathPts.length;
+  pathPts.slice(0, upto).forEach(([x, y, n], j) => {
+    if (j > 0) { const [x0, y0] = pathPts[j - 1], ang = Math.atan2(y - y0, x - x0), hl = w * 0.022, ex = x - Math.cos(ang) * w * 0.012, ey = y - Math.sin(ang) * w * 0.012;
+      out += `<path d="M${x0} ${y0} L${ex} ${ey}" stroke="#7b2cbf" stroke-width="${w * 0.006}" stroke-linecap="round"/>` +
+        `<path d="M${ex - hl * Math.cos(ang - 0.45)} ${ey - hl * Math.sin(ang - 0.45)} L${ex} ${ey} L${ex - hl * Math.cos(ang + 0.45)} ${ey - hl * Math.sin(ang + 0.45)}" fill="none" stroke="#7b2cbf" stroke-width="${w * 0.006}" stroke-linecap="round" stroke-linejoin="round"/>`; }
+    out += `<circle cx="${x}" cy="${y}" r="${w * 0.011}" fill="#7b2cbf"/>` + (n ? tx(n, x - w * 0.03, y - h * 0.045, fit(n, w * 0.08, fs), "#7b2cbf", 800) : "");
+  });
+  // a point on a curve "2@0.4:E" (a fraction along line 2's points), gliding along the curve from "2@0.1" after the step;
+  // {x} and {y} in its label read the point's values live
+  parts(p.along).filter(Boolean).slice(0, 3).forEach((al) => {
+    const [body, n] = lab(al), [to, from] = body.split("<"), [k, f] = (to || "").split("@");
+    const q = linePts[(k || "").trim()]; if (!q || !isNum(f)) return;
+    const f0 = from && isNum(from.split("@")[1]) ? +from.split("@")[1] : +f, ff = f0 + (+f - f0) * moveE;
+    const at = (fr) => { const g = Math.max(0, Math.min(1, fr)) * (q.length - 1), a = Math.floor(g), b2 = Math.min(q.length - 1, a + 1), u = g - a;
+      return [q[a][0] + (q[b2][0] - q[a][0]) * u, q[a][1] + (q[b2][1] - q[a][1]) * u]; };
+    const [dx, dy] = at(ff), x = X(dx), y = Y(dy);
+    const nm = (n || "").replace("{x}", _num(dx)).replace("{y}", _num(dy));
     out += (p.drop === false ? "" : `<path d="M${x} ${y} L${x} ${B} M${x} ${y} L${L} ${y}" stroke="#4a5568" stroke-width="${w * 0.0025}" stroke-dasharray="${w * 0.008} ${w * 0.006}"/>`) +
-      `<circle cx="${x}" cy="${y}" r="${w * 0.009}" fill="${INK}" stroke="#ffffff" stroke-width="${w * 0.002}"/>` + (lab ? tx(lab, x + w * 0.04, y - h * 0.05, fit(lab, w * 0.2, fs), INK, 800) : "");
+      `<circle cx="${x}" cy="${y}" r="${w * 0.012}" fill="#e63946" stroke="#ffffff" stroke-width="${w * 0.003}"/>` + (nm ? tx(nm, x + w * 0.05, y - h * 0.055, fit(nm, w * 0.24, fs), "#e63946", 800) : "");
+  });
+  if (progAll >= 1 || grow.size) parts(p.dots).filter(Boolean).slice(0, 6).forEach((dt) => {
+    const [body, n] = lab(dt), [to, from] = body.split("<"), q = xy(to);
+    if (!ok(q)) return;
+    let [a, b2] = q;
+    if (from && ok(xy(from))) { const f = xy(from), g = Math.max(0.1, Number(p.glide) || 1.2), e = Number.isFinite(sinceStep) ? easeIO(Math.min(1, Math.max(0, sinceStep) / g)) : 1;
+      a = f[0] + (a - f[0]) * e; b2 = f[1] + (b2 - f[1]) * e; }
+    const x = X(a), y = Y(b2);
+    out += (p.drop === false ? "" : `<path d="M${x} ${y} L${x} ${B} M${x} ${y} L${L} ${y}" stroke="#4a5568" stroke-width="${w * 0.0025}" stroke-dasharray="${w * 0.008} ${w * 0.006}"/>`) +
+      `<circle cx="${x}" cy="${y}" r="${w * 0.009}" fill="${INK}" stroke="#ffffff" stroke-width="${w * 0.002}"/>` + (n ? tx(n, x + w * 0.04, y - h * 0.05, fit(n, w * 0.2, fs), INK, 800) : "");
   });
   return out + (p.title ? tx(p.title, 0, T - h * 0.07, fit(p.title, w * 0.8, fs * 1.2), INK, 800) : "");
 }
+const _num = (v) => (Math.abs(v - Math.round(v)) < 0.05 ? String(Math.round(v)) : v.toFixed(1));
+export const easeIO = (x) => (x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2);
+const AREA = ["#f4a261", "#2a9d8f", "#e76f51", "#8ecae6", "#b5838d", "#90be6d"];
 
 // A funnel (much goes in, a part comes out: reserve money into the money multiplier, many inputs into one result)
 // and a road map (the lesson's agenda: items in order, the current one framed, the done ones ticked) from E63/E64/E59.
@@ -1216,6 +1326,7 @@ export const DRAWS = {
   funnel: { fn: funnel, anchor: "bottom" },
   roadmap: { fn: roadmap, anchor: "center" },
   plant: { fn: plant, anchor: "bottom" },
+  ...FAMILY_DRAWS,                       // the families of saanche (families/index.mjs, manifests in saanche.d/)
 };
 
 export function drawSaancha(name, p = {}) {

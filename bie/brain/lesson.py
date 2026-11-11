@@ -31,6 +31,13 @@ starts with one 5-8 minute "pehle yeh jaan lo" video (``kind`` "prerequisites", 
 prerequisite of the map (ids "pre1", "pre2" ... in the map's order); a topic video reminds of them in at most two
 beats. Every book item stays in must_cover and every teacher question answered from the book must be answered;
 outside answers are optional, the time is won by cutting repetition and side-tracks.
+
+The content rule (S2-11, Navin, 5 November 2026, his "Mix" choice for the Sloman economics book): for a dense book whose
+pages each carry far more than 6-8 minutes of teaching, the course's ``length_rule`` is "content" and the minutes come from
+what the items need, not from the page count: a normal item 0.25 spoken minutes, a deep item (teach_depth "deep": a graph
+built, a sum worked, a misconception corrected, an application run, a box told as a story, a subtle point) 0.75, a
+practice question 0.10. A topic video gets 0.8-1.4 times its items' minutes, at least 4.8-6; a video whose items weigh
+more than about 18 minutes is split, one under about 3.6 merged with a neighbour.
 """
 from __future__ import annotations
 
@@ -55,7 +62,7 @@ from .runner import NOTES_SCHEMA, Step, merge_notes
 from .understanding import DEFAULT_OUTPUT_TOKENS, Course, chapter_id, money
 
 SECTION = "lesson"
-PLAN_VERSION = "lesson-plan/4"
+PLAN_VERSION = "lesson-plan/5"
 SCRIPT_VERSION = "lesson-script/6"
 PLAN_SCHEMA_ID = "bie.brain.lesson-plan/3"
 SCRIPT_SCHEMA_ID = "bie.brain.lesson-script/3"
@@ -70,6 +77,10 @@ CONDITIONAL_STEP = re.compile(r"\bwhen there is one\b")   # "a formula built ter
 MINUTES_PER_PAGE = (6.0, 8.0)        # S2-01, Navin 23 October 2026
 DENSE_ALLOWANCE = 1.25               # a very dense video, with the reason in length_note
 PREREQUISITE_MINUTES = (5.0, 8.0)    # the "pehle yeh jaan lo" video
+LENGTH_RULES = ("pages", "content")  # S2-01 (the default) and S2-11, the course's length_rule
+ITEM_MINUTES = {"normal": 0.25, "deep": 0.75, "question": 0.10}   # S2-11: spoken minutes an item needs
+CONTENT_SLACK = (0.8, 1.4)           # S2-11: a topic video's minutes against its items' minutes
+CONTENT_VIDEO = (6.0, 18.0)          # S2-11: the minutes of one topic video
 PREREQUISITE_VIDEO = "prerequisites"
 WORDS_PER_MINUTE = 130
 TIME_TOLERANCE = 0.03        # 130 words a minute is an estimate: a script up to 3% over its upper bound is within it (Task 045d, job B)
@@ -167,8 +178,8 @@ How to fill the JSON:
   title in the learner language; goal = what the student will understand after it; concept_ids = the concept ids taught in it, in
   order (every concept in some topic video); opening_hook = a real-life question, puzzle or surprise that opens it; story_or_analogy =
   the story or analogy that genuinely helps, or "" if none fits; estimated_minutes = within the video's narration budget: the sum of
-  its concepts' minutes in the source (6-8 minutes per book page, S2-01); length_note = "" or, only for a very dense video, why it needs
-  up to 25% more; why_this_unit = why these concepts belong together. Group concepts so that every topic video gets at least 3
+  its concepts' minutes in the source (S2-01, 6-8 minutes per book page, or S2-11, the content rule, when the source says so);
+  length_note = "" or, only for a very dense video under S2-01, why it needs up to 25% more; why_this_unit = why these concepts belong together. Group concepts so that every topic video gets at least 3
   minutes (its hook, teaching and recap need room). All videos together stay within the chapter's minutes. A classification concept
   (a family: the types of a tissue, the kinds of a rock) is taught through the family pattern (the overview tree, every member in
   the same slots, the comparison, a memory trick), so keep a family and its members in one video where the time allows.
@@ -435,11 +446,64 @@ def concept_pages(chapter) -> dict:
     return dict(out)
 
 
+def length_rule(chapter) -> str:
+    """The course's length rule: "pages" (S2-01, the default) or "content" (S2-11)."""
+    rule = ((chapter.get("course") or {}).get("length_rule") or "pages").strip()
+    if rule not in LENGTH_RULES:
+        raise ValueError(f"length_rule {rule!r}: one of {LENGTH_RULES}")
+    return rule
+
+
+def teach_depth(item: dict) -> str:
+    """An item's teach depth (S2-11): "deep" or "normal". Section 1 writes teach_depth; a map made by the Sloman run's
+    kit wrote "depth" with the same words, which is read too (an integer depth belongs to a teacher question, not here)."""
+    value = item.get("teach_depth")
+    if value is None and isinstance(item.get("depth"), str):
+        value = item["depth"]
+    return "deep" if value == "deep" else "normal"
+
+
+def item_minutes(item: dict) -> float:
+    """The spoken minutes a teachable item needs under the content rule (S2-11)."""
+    if not item.get("teachable"):
+        return 0.0
+    if item.get("kind") == "question":
+        return ITEM_MINUTES["question"]
+    return ITEM_MINUTES[teach_depth(item)]
+
+
+def concept_minutes(chapter) -> dict:
+    """{concept id: minutes} under the content rule: every teachable item's minutes, split between the concepts it
+    belongs to (all concepts together: the chapter's item minutes)."""
+    items, owners = chapter["items"], defaultdict(set)
+    for cid, concept in _concepts(chapter).items():
+        for iid in concept.get("item_ids") or []:
+            if items.get(iid, {}).get("teachable"):
+                owners[iid].add(cid)
+    out = defaultdict(float)
+    for iid, cids in owners.items():
+        for cid in cids:
+            out[cid] += item_minutes(items[iid]) / len(cids)
+    return dict(out)
+
+
+def video_weight(chapter, videos, video, minutes=None) -> float:
+    """The minutes of a topic video's items under the content rule (a concept in two videos is shared)."""
+    minutes = minutes if minutes is not None else concept_minutes(chapter)
+    count = Counter(cid for v in videos for cid in v.get("concept_ids") or [])
+    return sum(minutes.get(cid, 0.0) / max(1, count[cid]) for cid in video.get("concept_ids") or [])
+
+
 def video_budget(chapter, videos, video, pages=None) -> tuple:
-    """(lowest, highest) narration minutes of a video (S2-01): 5-8 for the prerequisite video; for a topic video 6-8 per
-    book page of its items (a concept in two videos is shared), the highest x1.25 when the plan gives a length_note."""
+    """(lowest, highest) narration minutes of a video: 5-8 for the prerequisite video; for a topic video under S2-01 6-8
+    per book page of its items (a concept in two videos is shared), the highest x1.25 when the plan gives a length_note;
+    under S2-11 0.8-1.4 times its items' minutes, at least 4.8-6."""
     if is_prerequisite_video(video):
         return PREREQUISITE_MINUTES
+    if length_rule(chapter) == "content":
+        weight = video_weight(chapter, videos, video, pages)
+        return (round(max(CONTENT_VIDEO[0] * 0.8, weight * CONTENT_SLACK[0]), 1),
+                round(max(CONTENT_VIDEO[0], weight * CONTENT_SLACK[1]), 1))
     pages = pages if pages is not None else concept_pages(chapter)
     count = Counter(cid for v in videos for cid in v.get("concept_ids") or [])
     share = sum(pages.get(cid, 0.0) / max(1, count[cid]) for cid in video.get("concept_ids") or [])
@@ -450,8 +514,12 @@ def video_budget(chapter, videos, video, pages=None) -> tuple:
 
 
 def chapter_budget(chapter, videos) -> tuple:
-    """(lowest, highest) minutes of the topic videos together (S2-01: 6-8 per book page); the prerequisite video's 5-8
-    minutes come on top, so a short chapter can always meet the rule."""
+    """(lowest, highest) minutes of the topic videos together (S2-01: 6-8 per book page; S2-11: the sum of the topic
+    videos' budgets); the prerequisite video's 5-8 minutes come on top, so a short chapter can always meet the rule."""
+    if length_rule(chapter) == "content":
+        minutes = concept_minutes(chapter)
+        budgets = [video_budget(chapter, videos, v, minutes) for v in videos if not is_prerequisite_video(v)]
+        return round(sum(b[0] for b in budgets), 1), round(sum(b[1] for b in budgets), 1)
     total = book_pages(chapter)
     pages = concept_pages(chapter)
     extra = sum(video_budget(chapter, videos, v, pages)[1] * (1 - 1 / DENSE_ALLOWANCE) for v in videos
@@ -473,7 +541,8 @@ def time_problems(value, chapter) -> list:
     elif first and videos[0] is not first[0]:
         problems.append(f"the prerequisite video {first[0]['video_id']} comes first (S2-01)")
     names = {p["name"].strip().lower(): p["name"] for _, p in prerequisites}
-    pages = concept_pages(chapter)
+    content = length_rule(chapter) == "content"
+    pages = concept_minutes(chapter) if content else concept_pages(chapter)
     for video in videos:
         low, high = video_budget(chapter, videos, video, pages)
         if is_prerequisite_video(video):
@@ -490,18 +559,27 @@ def time_problems(value, chapter) -> list:
         elif video.get("prerequisites_taught"):
             problems.append(f"video {video['video_id']}: prerequisites are taught in the prerequisite video, so prerequisites_taught "
                             "is []; a topic video reminds of them in at most 2 beats (S2-03)")
+        elif content:
+            weight = video_weight(chapter, videos, video, pages)
+            if weight > CONTENT_VIDEO[1] * 1.1:
+                problems.append(f"video {video['video_id']}: its items need {weight:.1f} minutes, more than one video holds "
+                                f"(about {CONTENT_VIDEO[1]:g}): split it into two videos (S2-11)")
+            elif weight < CONTENT_VIDEO[0] * 0.6 and len([v for v in videos if not is_prerequisite_video(v)]) > 1:
+                problems.append(f"video {video['video_id']}: its items need only {weight:.1f} minutes: merge it with the video "
+                                "before or after (S2-11)")
         elif high < MIN_TOPIC_MINUTES and len([v for v in videos if not is_prerequisite_video(v)]) > 1:
             problems.append(f"video {video['video_id']}: its concepts get only {low}-{high} minutes; a topic video needs at least "
                             f"{MIN_TOPIC_MINUTES:g} minutes for its hook, teaching and recap, so merge it with the video before or "
                             "after (S2-01)")
         minutes = video.get("estimated_minutes", 0)
         if minutes < math.floor(low) or minutes > math.ceil(high):
-            why = ("the prerequisite video is 5-8 minutes" if is_prerequisite_video(video) else
-                   "6-8 minutes per book page of its items, up to 25% more only with a length_note")
+            why = ("the prerequisite video is 5-8 minutes; S2-01" if is_prerequisite_video(video) else
+                   "0.8-1.4 times its items' minutes: normal 0.25, deep 0.75, question 0.10 each; S2-11" if content else
+                   "6-8 minutes per book page of its items, up to 25% more only with a length_note; S2-01")
             problems.append(f"video {video['video_id']}: {minutes} minutes is outside its narration budget of {low}-{high} "
-                            f"minutes ({why}; S2-01)")
+                            f"minutes ({why})")
     topics = [v for v in videos if not is_prerequisite_video(v)]
-    if topics:
+    if topics and not content:                  # under S2-11 every video in its budget is the chapter in its budget
         low, high = chapter_budget(chapter, videos)
         total = sum(v.get("estimated_minutes", 0) for v in topics)
         if total < math.floor(low) or total > math.ceil(high):
@@ -603,13 +681,23 @@ def _plan_source(chapter, naksha) -> str:
     prereq = "\n".join(f"- {p['name']} · needed for {', '.join(p.get('needed_for') or [])} · {p.get('basis', '')} · {p.get('why_needed', '')}"
                        for p in m.get("prerequisites_to_teach") or [])
     focus = "\n".join(f"- {f['concept_id']}: {f['why']}" for f in m.get("exam_focus") or [])
-    pages = concept_pages(chapter)
-    total = book_pages(chapter)
-    budget = " | ".join(f"{cid} {pages.get(cid, 0) * MINUTES_PER_PAGE[0]:.1f}-{pages.get(cid, 0) * MINUTES_PER_PAGE[1]:.1f}"
-                        for cid in _concepts(chapter))
-    time = (f"Narration time (S2-01): 6-8 minutes per book page; this chapter has {total} book pages, so the topic videos together "
-            f"{total * MINUTES_PER_PAGE[0]:.0f}-{total * MINUTES_PER_PAGE[1]:.0f} minutes, plus the 5-8 minute prerequisite video. "
-            f"Minutes per concept (a topic video's budget is the sum of its concepts'):\n{budget}")
+    if length_rule(chapter) == "content":
+        minutes = concept_minutes(chapter)
+        deep = sum(1 for item in chapter["items"].values() if item.get("teachable") and teach_depth(item) == "deep")
+        budget = " | ".join(f"{cid} {minutes.get(cid, 0):.1f}" for cid in _concepts(chapter))
+        time = (f"Narration time (S2-11, the content rule): minutes come from what the items need, not from the pages: a normal item "
+                f"0.25 minutes, a deep item 0.75 ({deep} deep items here), a practice question 0.10; this chapter's items need "
+                f"{sum(minutes.values()):.0f} minutes. A topic video's estimated_minutes is 0.8-1.4 times the minutes of its "
+                f"concepts (at least 6; split a video whose concepts need more than about {CONTENT_VIDEO[1]:g}, merge one that "
+                f"needs under about {CONTENT_VIDEO[0] * 0.6:g}), plus the 5-8 minute prerequisite video. Minutes per concept:\n{budget}")
+    else:
+        pages = concept_pages(chapter)
+        total = book_pages(chapter)
+        budget = " | ".join(f"{cid} {pages.get(cid, 0) * MINUTES_PER_PAGE[0]:.1f}-{pages.get(cid, 0) * MINUTES_PER_PAGE[1]:.1f}"
+                            for cid in _concepts(chapter))
+        time = (f"Narration time (S2-01): 6-8 minutes per book page; this chapter has {total} book pages, so the topic videos together "
+                f"{total * MINUTES_PER_PAGE[0]:.0f}-{total * MINUTES_PER_PAGE[1]:.0f} minutes, plus the 5-8 minute prerequisite video. "
+                f"Minutes per concept (a topic video's budget is the sum of its concepts'):\n{budget}")
     return (f"Chapter summary: {m.get('chapter_summary', '')}\n\nHow the concepts link (from link to):\n{links or '(none)'}\n\n"
             f"Prerequisites to teach (name · needed for · basis · why):\n{prereq or '(none)'}\n\n"
             f"BIE's teaching order: {', '.join(naksha['order'])}\n\nExam focus:\n{focus or '(none)'}\n\n{time}")

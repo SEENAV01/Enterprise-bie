@@ -17,6 +17,11 @@ more while both are on screen:
 
 Each problem names the scene, the two things, the second and the way out, for the director to patch. Marks, arrows and
 glows point at things on purpose and never count as things here (they still keep to the frame and the zones).
+
+3D models (engine/three, models3d.py): a scene's 3D world is a backdrop like the world saancha, whose parts (machines,
+a belt, a ship, a board) are reserved zones that move with its camera; a 3D model item is a thing whose box is its
+drawn parts after its camera, at every sampled second. Words and things placed at a model's spot (``at``, marked
+``on``) label that part on purpose, so they may sit on that model and its zones.
 """
 from __future__ import annotations
 
@@ -272,6 +277,13 @@ def facing_at(el, t):
 
 def geo_of(el, t, persons):
     kind = el.get("kind")
+    if kind == "model3d":
+        from bie.brain.video import models3d
+        name = f"the 3D {'world' if el.get('place') else 'model'} '{el.get('id')}' ({el.get('model')})"
+        if el.get("place"):
+            return Geo(el, "backdrop", None, [], [], name)
+        got = models3d.measure(el, t)
+        return Geo(el, "thing", tuple(got["box"]) if got.get("box") else None, [], [], name)
     if kind == "person":
         pos = person_pos(el, t)
         h = float(el.get("h") or 440)
@@ -382,6 +394,22 @@ def problems(spec, language=None) -> list:
         boxes.measure(items=plan_items, persons=persons_req, bgs=sorted(bgs), worlds=worlds)
     except boxes.BoxesUnavailable as exc:
         return [f"box rule not checked: {exc}"]
+    pairs = []                                   # every 3D model at every sampled second, measured in one Node call
+    for scene in spec.get("scenes") or []:
+        models = [el for el in scene.get("els") or [] if el.get("kind") == "model3d"]
+        t = float(scene["t0"])
+        while models and t < scene["t1"]:
+            pairs += [(el, t) for el in models if visible(el, t, scene)]
+            t += STEP
+    if pairs:
+        from bie.brain.video import models3d
+        try:
+            got = models3d.measure_many(pairs)
+        except models3d.ModelsUnavailable as exc:
+            return [f"box rule not checked: {exc}"]
+        bad = {f"the 3D model '{el.get('id')}': {g['error']}" for (el, _), g in zip(pairs, got) if g.get("error")}
+        if bad:
+            return [f"box rule not checked: {b}" for b in sorted(bad)]
 
     def word_rules(sid, text, where):
         m = CAUTION.search(text)
@@ -464,6 +492,12 @@ def problems(spec, language=None) -> list:
                         continue
                 on.append(g)
             now = set()
+            zones_now = list(zones)
+            for el in els:                       # a 3D world's parts move with its camera: its zones at this second
+                if el.get("kind") == "model3d" and el.get("place") and visible(el, t, scene):
+                    from bie.brain.video import models3d
+                    zones_now += [{**z, "name": f"{z['name']} (3D world '{el.get('id')}')", "of": el.get("id")}
+                                  for z in models3d.measure(el, t).get("zones") or []]
             texts = [g for g in on if g.kind == "text"]
             things = [g for g in on if g.kind in ("thing", "person", "bubble")]
             # the words on screen: caution and language (once per scene and text), and the floor for words inside things
@@ -490,6 +524,8 @@ def problems(spec, language=None) -> list:
             # 1. a text on a thing
             for a in texts:
                 for b in things:
+                    if b.el.get("kind") == "model3d" and a.el.get("on") == b.el.get("id"):
+                        continue                 # a label placed at this model's spot
                     if share(a.box, b.box) > SHARE:
                         key = ("text-thing", a.name, b.name)
                         now.add(key)
@@ -516,7 +552,9 @@ def problems(spec, language=None) -> list:
             for g in on:
                 if g.kind in ("glow", "map", "backdrop") or not g.box:
                     continue
-                for z in zones:
+                for z in zones_now:
+                    if z.get("of") is not None and g.el.get("on") == z["of"]:
+                        continue                 # placed at a spot of this 3D world: it labels that part
                     zb = tuple(z["box"])
                     if z.get("keep") == "text" and g.kind != "text":
                         continue
