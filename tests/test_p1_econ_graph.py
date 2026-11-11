@@ -91,6 +91,80 @@ class EconGraphTest(unittest.TestCase):
         self.assertEqual(p["path"], "5,5:a;6,6:b")
         self.assertEqual(p["pathUpto"], 1)
 
+    def test_consumer_choice_is_computed_from_income_and_prices(self):
+        g = EconGraph(xmax=12, ymax=12)
+        b1 = g.budget("B1", income=120, px=20, py=12)
+        a = g.best_bundle(b1, name="A")
+        self.assertEqual((a.x, a.y), (3.0, 5.0))                        # half the income on each good
+        i1 = g.indifference("I1", u=a.u)
+        t = g.touch(i1, b1, dot=False)
+        self.assertAlmostEqual(t.x, a.x, places=2)                      # the curve touches the budget line at A
+        for q in (1.5, 2.5, 4, 5.5):
+            self.assertGreaterEqual(g.value(i1, q), g.value(b1, q) - 1e-9)   # and lies above it everywhere else
+        b2 = g.budget("B2", income=120, px=10, py=12)                   # X becomes cheaper
+        c = g.best_bundle(b2, name="C")
+        bc, b = g.compensated("Bc", b2, u=a.u)
+        self.assertTrue(bc.dashed)
+        self.assertAlmostEqual(b.x ** 0.5 * b.y ** 0.5, a.u, places=3)  # B is on the old curve
+        self.assertAlmostEqual(g.value(bc, 0) / (bc.meta["income"] / bc.meta["px"]), 10 / 12 * 1.0, places=6)
+        self.assertGreater(b.x, a.x)                                    # substitution effect: more of the cheaper good
+        self.assertGreater(c.x, b.x)                                    # income effect (a normal good): more again
+        g.indifference("I2", u=c.u)
+        p = g.params()
+        self.assertEqual(saanche.problems("graph", p), [])
+        first = p["lines"].split(";")[1].split(":")[1].split()
+        self.assertEqual(first[0].split(",")[1], "12")                  # the curve starts at the top of the frame
+        with self.assertRaises(ValueError):
+            g.indifference("far", u=500)
+
+    def test_the_multiplier_rounds_climb_to_the_new_equilibrium(self):
+        g = EconGraph(xmax=1000, ymax=1000)
+        line45 = g.forty_five()
+        e1 = g.linear("E1", intercept=200, slope=0.6)
+        e2 = g.shift(e1, dy=100, name="E2")                             # injections rise by 100
+        y1, y2 = g.cross(e1, line45, dot=False), g.cross(e2, line45, dot=False)
+        self.assertAlmostEqual(y1.x, 500, places=2)
+        self.assertAlmostEqual(y2.x, 750, places=2)                     # multiplier 1 / (1 - 0.6) = 2.5
+        pts = g.staircase(e2, line45, start=y1.x, rounds=4, names="abcd")
+        self.assertEqual([round(x) for x, _, n in pts if n], [500, 600, 660, 696])   # 100, then 60, then 36 more
+        self.assertEqual([n for _, _, n in pts if n], list("abcd"))
+        self.assertLess(pts[-1][0], y2.x)
+        self.assertEqual(saanche.problems("graph", g.params(path_upto=3)), [])
+        web = EconGraph()
+        d, s = web.linear("D", intercept=9, slope=-1), web.linear("S", intercept=1, slope=1.5)   # supply steeper: stable
+        steps = web.staircase(d, s, start=2, rounds=5)
+        e = web.cross(d, s, dot=False)
+        self.assertLess(abs(steps[-1][0] - e.x), abs(steps[0][0] - e.x))    # a stable cobweb closes in
+
+    def test_the_firm_and_the_distribution_curves(self):
+        g = EconGraph(xmax=10, ymax=10)
+        d = g.linear("D", intercept=10, slope=-1)
+        mr = g.revenue_marginal("MR", d)
+        self.assertAlmostEqual(g.at_price(mr, 0), 5.0, places=3)        # MR meets the axis halfway
+        self.assertAlmostEqual(g.value(mr, 2), 6.0, places=3)           # and falls twice as fast
+        tc = lambda q: 20 + q * q                                       # noqa: E731
+        c = EconGraph(xmin=0.5, ymax=30)
+        low = c.cross(c.average("AC", tc), c.marginal("MC", tc), dot=False)
+        self.assertAlmostEqual(low.x, 20 ** 0.5, places=2)
+        f = EconGraph()
+        ppf = f.ppf("PPF", x_max=8, y_max=9)
+        self.assertAlmostEqual(g.value(ppf, 0), 9)
+        self.assertAlmostEqual(g.value(ppf, 8), 0)
+        self.assertLess(f.tangent(ppf, 6), f.tangent(ppf, 2))           # the opportunity cost rises along the curve
+        self.assertTrue(f._pts(ppf).endswith("8,0"))
+        straight = f.ppf("line", x_max=8, y_max=4, bow=1)
+        self.assertAlmostEqual(f.tangent(straight, 3), -0.5, places=4)
+        z = EconGraph(xmax=100, ymax=100, smooth=False)
+        lz = z.lorenz("Lorenz", [4, 8, 13, 22, 53])
+        self.assertEqual(z._pts(lz), "0,0 20,4 40,12 60,25 80,47 100,100")
+        self.assertAlmostEqual(lz.meta["gini"], 0.448, places=3)
+        self.assertEqual(z.lorenz("equal", [20, 20, 20, 20, 20]).meta["gini"], 0.0)
+        self.assertIs(z.params()["smooth"], False)
+        with self.assertRaises(ValueError):
+            z.lorenz("bad", [50, 10, 40])
+        kink = z.piecewise("D", [(0, 90), (40, 70), (60, 10)])
+        self.assertAlmostEqual(z.value(kink, 50), 40)
+
     def test_limits_are_named(self):
         g = EconGraph()
         for k in range(6):

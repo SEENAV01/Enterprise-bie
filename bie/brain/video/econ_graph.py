@@ -13,7 +13,14 @@ numbers spoken always agree. It returns the graph saancha's parameters (and its 
     g.surplus_consumer(D, E, "उपभोक्ता बचत")
     D2 = g.shift(D, dx=2, name="D2")                     # demand rises: the whole curve moves right
     g.arrow_between(D, D2, at_y=6, label="माँग बढ़ी")
-    p = g.params(show=[D, S])                            # the first state; g.step(...) gives later states
+    p = g.params(show=[D, S])                            # the first state; later states are item steps
+
+Beyond the market diagram (every helper computes its points from the economics):
+    consumer choice   budget(), indifference(), best_bundle(), compensated() (substitution and income effects), touch()
+    national income   forty_five(), staircase() (the multiplier's rounds; also a cobweb between demand and supply)
+    the firm          marginal(), average(), revenue_marginal() from a total function
+    scarcity          ppf() (bowed or straight), tangent() for the opportunity cost
+    distribution      lorenz() from group shares (its Gini in line.meta), piecewise() for any kinked line
 """
 from __future__ import annotations
 
@@ -29,6 +36,8 @@ class Line:
     dashed: bool = False
     domain: tuple = ()               # (x0, x1) to draw over; the whole range by default
     index: int = 0                   # 1-based place in the saancha's lines
+    xs: tuple = ()                   # the x values to sample at (a bending curve wants them closer where it bends)
+    meta: dict = field(default_factory=dict)   # what the economics knows about the line (income, prices, utility, Gini)
 
 
 @dataclass
@@ -36,6 +45,7 @@ class Point:
     x: float
     y: float
     name: str = ""
+    u: float = 0.0                   # the utility at a best bundle (best_bundle)
 
 
 def _fmt(v: float) -> str:
@@ -54,6 +64,7 @@ class EconGraph:
     title: str = ""
     w: int = 1200
     samples: int = 9
+    smooth: bool = True              # False: lines are straight between their points (a kinked demand curve)
     lines: list = field(default_factory=list)
     areas: list = field(default_factory=list)
     dots: list = field(default_factory=list)
@@ -67,11 +78,11 @@ class EconGraph:
     path: list = field(default_factory=list)
 
     # ------------------------------------------------------------------ curves
-    def curve(self, name: str, f, *, color: str = "", dashed: bool = False, domain: tuple = ()) -> Line:
+    def curve(self, name: str, f, *, color: str = "", dashed: bool = False, domain: tuple = (), xs: tuple = ()) -> Line:
         """Any P = f(Q) (a cost curve, an indifference curve solved for y, a Lorenz curve): sampled smoothly."""
         if len(self.lines) >= 6:
             raise ValueError("the graph saancha draws at most six lines; split the idea over two graphs")
-        line = Line(name, f, color, dashed, domain, len(self.lines) + 1)
+        line = Line(name, f, color, dashed, domain, len(self.lines) + 1, tuple(xs))
         self.lines.append(line)
         return line
 
@@ -92,7 +103,8 @@ class EconGraph:
         """The same curve moved: dx > 0 moves it right (more is bought or sold at every price), dy > 0 up (a tax on
         the sellers lifts supply by the tax)."""
         return self.curve(name or line.name + "2", lambda q, f=line.f: f(q - dx) + dy, dashed=dashed, color=color,
-                          domain=tuple(v + dx for v in line.domain) if line.domain else ())
+                          domain=tuple(v + dx for v in line.domain) if line.domain else (),
+                          xs=tuple(v + dx for v in line.xs))
 
     # ------------------------------------------------------------------ what the economics computes
     def value(self, line: Line, q: float) -> float:
@@ -208,13 +220,168 @@ class EconGraph:
         xs = [x0 + (x1 - x0) * i / n for i in range(n + 1)]
         return self.area([(x, float(a.f(x))) for x in xs] + [(x, float(b.f(x))) for x in reversed(xs)], label, color)
 
+    # ------------------------------------------------------------------ consumer choice
+    def budget(self, name: str, *, income: float, px: float, py: float, **kw) -> Line:
+        """The budget line px·X + py·Y = income, from (0, income/py) to (income/px, 0)."""
+        if min(income, px, py) <= 0:
+            raise ValueError("a budget line needs a positive income and positive prices")
+        line = self.curve(name, lambda x, m=income, a=px, b=py: (m - a * x) / b,
+                          domain=(self.xmin, min(self.xmax, income / px)), **kw)
+        line.meta = {"income": income, "px": px, "py": py}
+        return line
+
+    def indifference(self, name: str, *, u: float, a: float = 0.5, **kw) -> Line:
+        """An indifference curve of U = X^a · Y^(1-a) at utility u: convex to the origin, never touching an axis.
+        Drawn only where it is inside the frame, with its points closer together where it bends."""
+        if not 0 < a < 1 or u <= 0:
+            raise ValueError("an indifference curve needs 0 < a < 1 and a positive utility")
+        f = lambda x, u=u, a=a: (u / x ** a) ** (1 / (1 - a))  # noqa: E731
+        lo = max(self.xmin, (u / self.ymax ** (1 - a)) ** (1 / a), 1e-6)
+        hi = self.xmax
+        if lo >= hi:
+            raise ValueError(f"the indifference curve u = {u:g} lies outside the frame")
+        n = max(2, self.samples)
+        line = self.curve(name, f, domain=(lo, hi), xs=tuple(lo * (hi / lo) ** (i / n) for i in range(n + 1)), **kw)
+        line.meta = {"u": u, "a": a}
+        return line
+
+    def best_bundle(self, budget: Line, *, a: float = 0.5, name: str = "", dot: bool = True) -> Point:
+        """The consumer's best point on a budget line for U = X^a · Y^(1-a): X = a·M/px, Y = (1-a)·M/py. The point's
+        u is the utility there, so indifference(u=point.u, a=a) is the curve that just touches the budget line."""
+        m, px, py = (budget.meta[k] for k in ("income", "px", "py"))
+        x, y = a * m / px, (1 - a) * m / py
+        p = Point(round(x, 4), round(y, 4), name, x ** a * y ** (1 - a))
+        if dot:
+            self.dots.append(p)
+        return p
+
+    def compensated(self, name: str, new_budget: Line, *, u: float, a: float = 0.5, **kw) -> tuple:
+        """The dashed budget line with the NEW prices that just reaches the OLD indifference curve (utility u), and
+        its touching point. Old best bundle → this point is the substitution effect (along the old curve); this
+        point → the new best bundle is the income effect."""
+        px, py = new_budget.meta["px"], new_budget.meta["py"]
+        x = u * (a / (1 - a) * py / px) ** (1 - a)
+        y = u * ((1 - a) / a * px / py) ** a
+        kw.setdefault("dashed", True)
+        line = self.budget(name, income=px * x + py * y, px=px, py=py, **kw)
+        return line, Point(round(x, 4), round(y, 4), "", u)
+
+    def touch(self, a: Line, b: Line, name: str = "", *, dot: bool = True) -> Point:
+        """Where curve a comes closest to curve b: a tangency (an isoquant on an isocost line, an indifference
+        curve of any shape on a budget line)."""
+        lo = max((a.domain or (self.xmin,))[0], (b.domain or (self.xmin,))[0])
+        hi = min((a.domain or (0, self.xmax))[1], (b.domain or (0, self.xmax))[1])
+        if lo >= hi:
+            raise ValueError(f"{a.name} and {b.name} share no range")
+        gap = lambda q: abs(float(a.f(q)) - float(b.f(q)))  # noqa: E731
+        n = 2000
+        k = min(range(n + 1), key=lambda i: gap(lo + (hi - lo) * i / n))
+        x0, x1 = lo + (hi - lo) * max(0, k - 1) / n, lo + (hi - lo) * min(n, k + 1) / n
+        for _ in range(60):
+            m1, m2 = x0 + (x1 - x0) / 3, x1 - (x1 - x0) / 3
+            if gap(m1) < gap(m2):
+                x1 = m2
+            else:
+                x0 = m1
+        q = (x0 + x1) / 2
+        p = Point(round(q, 4), round(float(a.f(q)), 4), name)
+        if dot:
+            self.dots.append(p)
+        return p
+
+    # ------------------------------------------------------------------ national income
+    def forty_five(self, name: str = "45°", **kw) -> Line:
+        """The 45° line of the income–expenditure diagram: expenditure equal to income."""
+        return self.linear(name, intercept=0, slope=1, **kw)
+
+    def staircase(self, a: Line, b: Line, *, start: float, rounds: int = 4, names: str = "") -> list:
+        """The step-by-step path between two curves from x = start: up (or down) to curve a, across to curve b,
+        and again. With a = the new expenditure line and b = the 45° line these are the multiplier's rounds; with
+        a = demand and b = supply it is the cobweb. Sets the lettered path (names: one letter per corner on curve a,
+        e.g. "abcd") and returns its points; reveal it round by round with params(path_upto=...)."""
+        if rounds < 1:
+            raise ValueError("a staircase has at least one round")
+        x = float(start)
+        pts = [(x, float(b.f(x)), "")]
+        for r in range(rounds):
+            y = float(a.f(x))
+            pts.append((x, y, names[r] if r < len(names) else ""))
+            try:
+                x = self.at_price(b, y)
+            except ValueError:
+                break                                   # the path has left the frame
+            pts.append((x, y, ""))
+        self.path = [(round(px, 4), round(py, 4), n) for px, py, n in pts]
+        return self.path
+
+    # ------------------------------------------------------------------ the firm: marginal and average from a total
+    def marginal(self, name: str, total, **kw) -> Line:
+        """The marginal curve of a total function (MC from TC, MR from TR, MP from TP): its slope at each quantity."""
+        e = 1e-4 * max(1.0, abs(self.xmax - self.xmin))
+        return self.curve(name, lambda q, t=total, e=e: (t(q + e) - t(q - e)) / (2 * e), **kw)
+
+    def average(self, name: str, total, **kw) -> Line:
+        """The average curve of a total function (AC from TC, AP from TP): total ÷ quantity."""
+        return self.curve(name, lambda q, t=total: t(q) / q, **kw)
+
+    def revenue_marginal(self, name: str, demand: Line, **kw) -> Line:
+        """Marginal revenue of a demand (average revenue) curve: the slope of P × Q. For a straight demand line it
+        falls twice as fast and meets the quantity axis halfway."""
+        return self.marginal(name, lambda q, f=demand.f: f(q) * q, **kw)
+
+    # ------------------------------------------------------------------ scarcity and distribution
+    def ppf(self, name: str, *, x_max: float, y_max: float, bow: float = 2.0, **kw) -> Line:
+        """A production possibility curve from (0, y_max) to (x_max, 0). bow > 1 bows it outward (the opportunity
+        cost rises as more of X is made); bow = 1 is a straight line (a constant opportunity cost)."""
+        if bow < 1:
+            raise ValueError("a production possibility curve is straight (bow 1) or bowed outward (bow > 1)")
+        f = lambda x, a=x_max, b=y_max, k=bow: b * max(0.0, 1 - (x / a) ** k) ** (1 / k)  # noqa: E731
+        n = max(2, self.samples)
+        xs = tuple(x_max * math.sin(math.pi / 2 * i / n) ** (2 / bow) for i in range(n + 1))
+        line = self.curve(name, f, domain=(0.0, x_max), xs=xs, **kw)
+        line.meta = {"x_max": x_max, "y_max": y_max, "bow": bow}
+        return line
+
+    def piecewise(self, name: str, points: list, **kw) -> Line:
+        """A line through the given (x, y) points, straight between them (a kinked demand curve, a tax schedule)."""
+        pts = sorted((float(x), float(y)) for x, y in points)
+        if len(pts) < 2 or len({x for x, _ in pts}) != len(pts):
+            raise ValueError("a piecewise line needs two or more points with different x")
+
+        def f(q, pts=pts):
+            if q <= pts[0][0]:
+                (x1, y1), (x2, y2) = pts[0], pts[1]
+            elif q >= pts[-1][0]:
+                (x1, y1), (x2, y2) = pts[-2], pts[-1]
+            else:
+                k = next(i for i in range(1, len(pts)) if q <= pts[i][0])
+                (x1, y1), (x2, y2) = pts[k - 1], pts[k]
+            return y1 + (y2 - y1) * (q - x1) / (x2 - x1)
+
+        return self.curve(name, f, domain=(pts[0][0], pts[-1][0]), xs=tuple(x for x, _ in pts), **kw)
+
+    def lorenz(self, name: str, shares: list, **kw) -> Line:
+        """The Lorenz curve from the income shares of equal-sized groups, poorest first (five quintile shares that add
+        up to 100): cumulative % of people against cumulative % of income. line.meta["gini"] is the Gini coefficient
+        of these groups; the line of complete equality is linear(intercept=0, slope=1)."""
+        total = float(sum(shares))
+        if total <= 0 or any(s < 0 for s in shares) or list(shares) != sorted(shares):
+            raise ValueError("Lorenz shares are non-negative and listed poorest group first")
+        n, cum, pts = len(shares), 0.0, [(0.0, 0.0)]
+        for i, s in enumerate(shares, 1):
+            cum += s
+            pts.append((100.0 * i / n, 100.0 * cum / total))
+        line = self.piecewise(name, pts, **kw)
+        area = sum((x2 - x1) * (y1 + y2) / 2 for (x1, y1), (x2, y2) in zip(pts, pts[1:]))
+        line.meta = {"gini": round(1 - area / 5000.0, 4)}
+        return line
+
     # ------------------------------------------------------------------ out: the saancha's parameters
     def _pts(self, line: Line) -> str:
         x0, x1 = line.domain or (self.xmin, self.xmax)
         n = max(2, self.samples)
         rows = []
-        for i in range(n + 1):
-            q = x0 + (x1 - x0) * i / n
+        for q in (line.xs or [x0 + (x1 - x0) * i / n for i in range(n + 1)]):
             try:
                 p = float(line.f(q))
             except (ValueError, ZeroDivisionError, OverflowError):
@@ -244,6 +411,8 @@ class EconGraph:
             p["yLabel"] = self.y_label
         if self.title:
             p["title"] = self.title
+        if not self.smooth:
+            p["smooth"] = False
         dashed = [str(l.index) for l in self.lines if l.dashed]
         if dashed:
             p["dashed"] = ",".join(dashed)
