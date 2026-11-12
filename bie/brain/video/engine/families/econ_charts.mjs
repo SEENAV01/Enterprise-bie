@@ -13,7 +13,7 @@
 // its last step; without times a drawing shows its end state (the box rule measures that). A change on a cue word
 // glides instead of jumping where the drawing is told where it came from (from, lineFrom, windowFrom, modelFrom ...):
 // the engine merges steps, so a later step that should not replay the glide sets from to "" (or grow to 0).
-import { tx, shade, INK, FONT, esc, clamp01, parts, idxSet, isNum, easeIO } from "../draw.mjs";
+import { tx, shade, INK, FONT, esc, clamp01, parts, idxSet, isNum, easeIO, inr, uptoOf } from "../draw.mjs";
 import { textWidth } from "../boxes.mjs";
 
 const PAL = ["#2459a6", "#f29f05", "#2fa35b", "#e2558f", "#7b61ff", "#2a9d8f", "#c0563f", "#9b6b43", "#5b7fb8", "#d6454f", "#8cc152", "#6b7280"];
@@ -42,7 +42,7 @@ function withUnit(s, unit) {
   const u = String(unit ?? "");
   if (!u || s === "") return s;
   const m = u.match(/^([₹$£€¥])\s*(.*)$/);
-  if (m) return (s.startsWith("-") ? "−" + m[1] + s.slice(1) : m[1] + s) + (m[2] ? " " + m[2] : "");
+  if (m) return inr((s.startsWith("-") ? "−" + m[1] + s.slice(1) : m[1] + s) + (m[2] ? " " + m[2] : ""));
   return (s.startsWith("-") ? "−" + s.slice(1) : s) + u;
 }
 const signed = (s) => (s.startsWith("−") || s.startsWith("-") ? s : "+" + s);
@@ -91,7 +91,7 @@ function barChart(p) {
     d.cv = Number.isFinite(f[0]) ? f[0] + (d.v - f[0]) * gk : d.v;
     d.cv2 = Number.isFinite(d.v2) ? (Number.isFinite(f[1]) ? f[1] + (d.v2 - f[1]) * gk : d.v2) : NaN; });
   if (p.sort === "desc") data.sort((a, b) => b.v - a.v); else if (p.sort === "asc") data.sort((a, b) => a.v - b.v);
-  const n = data.length, upto = Math.max(0, Math.round(num(p.upto, 0))), shown = upto > 0 ? Math.min(n, upto) : n;
+  const n = data.length, upto = Math.max(0, Math.round(num(p.upto, 0))), shown = uptoOf(p.upto, n);
   const grow = num(p.grow, 0.8), unit = p.unit ?? "", dec = p.decimals, glow = idxSet(p.glow), dim = p.dim === true && glow.size > 0;
   const cmap = colorMap(p.colors), c1 = okColor(p.color, "#2459a6"), c2 = okColor(p.color2, "#f29f05");
   const [refV, refL] = (() => { const s = String(p.refLine ?? ""), i = s.indexOf(":"); const v = tnum(i >= 0 ? s.slice(0, i) : s); return [v, i >= 0 ? s.slice(i + 1).trim() : ""]; })();
@@ -209,12 +209,15 @@ function marginalBars(p) {
   const w = Math.max(200, num(p.w, 1100)), vals = listN(p.values ?? "7;4;2;1;0;-1").map((v) => (Number.isFinite(v) ? v : 0));
   if (!vals.length) vals.push(0);
   const costs = listN(p.costs), paired = costs.some(Number.isFinite), n = vals.length;
-  const labs = parts(p.labels).filter((x, i, a) => a.length > 1 || x);
+  // labels are ;-separated; a ,-separated list with one name per bar is read the same way (ch12: "a,b,c" put every
+  // name under bar 1)
+  const labS = String(p.labels ?? ""), labC = labS.split(",").map((t) => t.trim());
+  const labs = (!labS.includes(";") && n > 1 && labC.length === n ? labC : parts(p.labels)).filter((x, i, a) => a.length > 1 || x);
   const unit = p.unit ?? "", dec = p.decimals, c1 = okColor(p.color, "#2459a6"), c2 = okColor(p.color2, "#e07b24");
   const lineS = String(p.line ?? ""), li = lineS.indexOf(":"), lineV0 = tnum(li >= 0 ? lineS.slice(0, li) : lineS), lineL = li >= 0 ? lineS.slice(li + 1).trim() : "";
   const glk = easeIO(prog(sinceStep(p), num(p.glide, 1.2)));
   const lineV = Number.isFinite(lineV0) && isNum(p.lineFrom) ? +p.lineFrom + (lineV0 - +p.lineFrom) * glk : lineV0, hasLine = Number.isFinite(lineV);
-  const upto = Math.max(0, Math.round(num(p.upto, 0))), shown = upto > 0 ? Math.min(n, upto) : n, grow = num(p.grow, 0.7);
+  const upto = Math.max(0, Math.round(num(p.upto, 0))), shown = uptoOf(p.upto, n), grow = num(p.grow, 0.7);
   const towerMode = ["beside", "only"].includes(p.tower) ? p.tower : "off", gather = p.gather === true && towerMode === "off" && hasLine && !paired;
   const cum = []; vals.reduce((a, v, i) => (cum[i] = a + v), 0);
   const names = parts(p.names).filter(Boolean);
@@ -256,7 +259,7 @@ function marginalBars(p) {
           else if (above) {
             out += rect(x, ys, bw, Y(v) - ys, GOLD, `opacity="0.9"`) + `<path d="${Array.from({ length: 6 }, (_, q) => `M${r1(x)} ${r1(ys + (Y(v) - ys) * (q / 6))} L${r1(x + bw)} ${r1(ys + (Y(v) - ys) * ((q + 1) / 6))}`).join(" ")}" stroke="#ffffff" stroke-width="${r1(Math.max(2, w * 0.002))}" opacity="0.6"/>`;
             const sv = vstr(v - lineV, v), fsS = fitT(sv, bw * 0.92, fsV * 0.9);
-            if (Math.abs(Y(v) - ys) > fsS * 1.2) out += txa(sv, x + bw / 2, (ys + Y(v)) / 2, fsS, "#6b4a00", 800);
+            if (p.numbers !== false && Math.abs(Y(v) - ys) > fsS * 1.2) out += txa(sv, x + bw / 2, (ys + Y(v)) / 2, fsS, "#6b4a00", 800);
           }
         }
         if (k > 0.05 && p.numbers !== false) words += txa(vstr(vv, v), x + bw / 2, vv >= 0 ? y1 - fsV * 0.7 : y1 + fsV * 0.7, fsV, INK, 800, "middle", PAPER);
@@ -297,7 +300,7 @@ function marginalBars(p) {
         const y0 = Y(level), y1 = Y(level + v * kk), c = i % 2 ? shade(c1, 1.25) : c1;
         s += rect(cx - cwid / 2, y0, cwid, y1 - y0, c, `stroke="#ffffff" stroke-width="${r1(Math.max(2, w * 0.003))}"` + (isNew && kk < 1 ? ` opacity="${r1(0.3 + 0.7 * kk)}"` : ""));
         const vs = vstr(v, v), f = fitT(vs, cwid * 0.85, fsV);
-        if (Math.abs(y1 - y0) > f * 1.15) s += txa(vs, cx, (y0 + y1) / 2, f, "#ffffff", 800);
+        if (p.numbers !== false && Math.abs(y1 - y0) > f * 1.15) s += txa(vs, cx, (y0 + y1) / 2, f, "#ffffff", 800);
         level += v;
       } else {
         const y0 = Y(level + v), y1 = Y(level);
@@ -306,7 +309,7 @@ function marginalBars(p) {
         level += v;
       }
     }
-    const lab = (p.towerLabel ? p.towerLabel + " " : "") + vstr(level, vals[0]), fl = fitT(lab, colW * 0.95, fsCap);
+    const lab = [p.towerLabel || "", p.numbers !== false ? vstr(level, vals[0]) : ""].filter(Boolean).join(" "), fl = fitT(lab, colW * 0.95, fsCap);
     out += line(cx - colW * 0.42, base, cx + colW * 0.42, base, INK, Math.max(2, w * 0.003)) + s +
       pill(lab, cx, Math.min(Y(Math.max(...cum.slice(0, Math.max(1, shown)), 0)), Y(hi)) - fl * 1.3, fl, INK);
   } else if (gather) {
@@ -324,7 +327,7 @@ function marginalBars(p) {
       acc += surplus[i];
     }
     if (k >= 1 && sumSur > 0) {
-      const lab = (p.gatherLabel ? p.gatherLabel + " " : "") + vstr(sumSur, vals[0]), fl = fitT(lab, colW * 0.95, fsCap);
+      const lab = [p.gatherLabel || "", p.numbers !== false ? vstr(sumSur, vals[0]) : ""].filter(Boolean).join(" "), fl = fitT(lab, colW * 0.95, fsCap);
       out += pill(lab, cx, Y(sumSur) - fl * 1.3, fl, "#6b4a00");
     }
   }
@@ -392,7 +395,7 @@ function pieChart(p) {
   if (!sl.length) sl = [{ l: "", v: 1, i: 0, c: PAL[0] }];
   const fr = listN(p.from), gk = easeIO(prog(sinceStep(p), num(p.glide, 1.2)));
   sl.forEach((s) => { const f = fr[s.i]; s.cv = Number.isFinite(f) ? Math.max(0, f + (s.v - f) * gk) : s.v; });
-  const n = sl.length, upto = Math.max(0, Math.round(num(p.upto, 0))), shown = upto > 0 ? Math.min(n, upto) : n, grow = num(p.grow, 0.8);
+  const n = sl.length, upto = Math.max(0, Math.round(num(p.upto, 0))), shown = uptoOf(p.upto, n), grow = num(p.grow, 0.8);
   const total = sl.reduce((a, s) => a + s.cv, 0) || 1, glow = idxSet(p.glow), legend = p.legend !== false && sl.some((s) => s.l);
   const fsT = w * 0.044, head = p.title ? fsT * 1.7 : 0;
   // legendSize: the legend's letters as a share of w (default 0.036); a small pie (two pies side by side) takes up to
@@ -409,10 +412,13 @@ function pieChart(p) {
   out += `<circle cx="${r1(cx)}" cy="${r1(cy)}" r="${r1(R)}" fill="#eef0f3" stroke="#d5dbe1" stroke-width="${r1(Math.max(2, w * 0.003))}"/>`;
   let a0 = -Math.PI / 2;
   const fsV = Math.min(w * 0.036, R * 0.17), small = new Set();
+  // order: the slices revealed in any order ("3,1,2": slice 3 first); slices it leaves out follow in their own order
+  const ord = listN(p.order).map((v) => Math.round(v) - 1).filter((v, i, a2) => v >= 0 && v < n && a2.indexOf(v) === i);
+  const rank = new Array(n); ord.concat([...Array(n).keys()].filter((j) => !ord.includes(j))).forEach((j, r) => { rank[j] = r; });
   sl.forEach((s, j) => {
     const span = (s.cv / total) * Math.PI * 2;
-    if (j < shown) {
-      const k = growOf(p, j, shown, upto, grow), a1 = a0 + span * k, mid = (a0 + a1) / 2, g = glow.has(s.i + 1), off = g ? R * 0.07 : 0;
+    if (rank[j] < shown) {
+      const k = growOf(p, rank[j], shown, upto, grow), a1 = a0 + span * k, mid = (a0 + a1) / 2, g = glow.has(s.i + 1), off = g ? R * 0.07 : 0;
       const ox = cx + Math.cos(mid) * off, oy = cy + Math.sin(mid) * off, big = a1 - a0 > Math.PI ? 1 : 0;
       if (a1 - a0 > 1e-4) {
         const P = (a, r) => `${r1(ox + Math.cos(a) * r)} ${r1(oy + Math.sin(a) * r)}`;
@@ -467,7 +473,7 @@ function shareBar(p) {
   const fsT = w * 0.04;
   let out = "";
   if (!multi) {
-    const segs = rows[0], n = segs.length, shown = upto > 0 ? Math.min(n, upto) : n, h = w * 0.12;
+    const segs = rows[0], n = segs.length, shown = uptoOf(p.upto, n), h = w * 0.12;
     const sum = segs.reduce((a, s) => a + s.cv, 0), full = Math.max(whole, over ? sum : whole);
     const scale = over ? Math.max(whole * 1.18, sum) : Math.max(whole, sum), bw = w * 0.92, x0 = -bw / 2, X = (v) => x0 + (v / scale) * bw;
     const frameW = over ? X(whole) - x0 : X(Math.max(whole, sum)) - x0;
@@ -855,7 +861,7 @@ function scatterFit(p) {
   for (const [v, t] of yt) out += line(L, Y(v), R, Y(v), GRID, Math.max(1, w * 0.0012)) + txa(t, L - fs * 0.3, Y(v), fsK, MUTED, 700, "end");
   if (p.xLabel) out += tx(p.xLabel, (L + R) / 2, B + fs * 2.2, fitT(p.xLabel, w * 0.6, fs), INK, 800);
   if (p.yLabel) out += `<g transform="translate(${r1(-w / 2 + fs * 0.65)},${r1((T + B) / 2)}) rotate(-90)">${tx(p.yLabel, 0, 0, fitT(p.yLabel, B - T, fs), INK, 800)}</g>`;
-  const upto = Math.max(0, Math.round(num(p.upto, 0))), shown = upto > 0 ? Math.min(n, upto) : n, popK = upto > 0 ? easeIO(prog(sinceStep(p), 0.35)) : 1;
+  const upto = Math.max(0, Math.round(num(p.upto, 0))), shown = uptoOf(p.upto, n), popK = upto > 0 ? easeIO(prog(sinceStep(p), 0.35)) : 1;
   const lineOn = fitS !== "none" && p.line !== false;
   if (lineOn) {
     const ord = pts.map((q, i) => [q[0], cur[i]]).sort((u, v) => u[0] - v[0]);
@@ -937,7 +943,7 @@ function dayHours(p) {
   const pulse = Number.isFinite(sinceStart(p)) ? 0.55 + 0.45 * Math.sin(sinceStart(p) * 6) : 1;
   const wage = num(p.wage, 0), tax = clamp01(num(p.tax, 0)), above = num(p.taxAbove, 0);
   const gross = wage * work, net = gross - tax * Math.max(0, gross - above);
-  const earn = wage > 0 ? String(p.earn || "₹{v}").replace("{v}", fmt(Math.round(net))) : "";
+  const earn = wage > 0 ? inr(String(p.earn || "₹{v}").replace("{v}", fmt(Math.round(net)))) : "";
   const hstr = (v) => fmt(Math.round(v * 2) / 2) + uh;
   let out = "";
   if (p.shape === "dial") {
@@ -1129,7 +1135,7 @@ function pumpJack(p) {
 function bargainTable(p) {
   const w = Math.max(300, num(p.w, 1300)), tw0 = w * 0.74, th = w * 0.36, fs = w * 0.03;
   const cards = parts(p.cards ?? "L:हड़ताल;R:बोनस").filter(Boolean).slice(0, 8).map((c) => { const b = c.split(":"); return { side: (b[0] || "").trim().toUpperCase() === "R" ? "R" : "L", t: (b[1] || "").trim(), st: (b[2] || "").trim() }; });
-  const upto = Math.max(0, Math.round(num(p.upto, 0))), shown = upto > 0 ? Math.min(cards.length, upto) : cards.length;
+  const upto = Math.max(0, Math.round(num(p.upto, 0))), shown = uptoOf(p.upto, cards.length);
   const k = easeIO(prog(sinceStep(p), num(p.glide, 1))), mood = clamp01(num(p.mood, 0)), t = sinceStart(p);
   const top = -th / 2, cTop = -th / 2 - fs * 2.2;
   let out = "";

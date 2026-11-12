@@ -68,10 +68,80 @@ def english_label(text: str) -> bool:
     if DEVANAGARI.search(text):
         return False
     for word in LATIN_WORD.findall(text):
-        if (word.isupper() and len(word) <= 4) or word.lower() in UNITS:
+        if (word.isupper() and len(word) <= 4) or word.lower() in UNITS or maths_token(word):
             continue
         return True
     return False
+
+
+def label_strings(el, t=None) -> list:
+    """The whole labels an element was given (its text, every string of its params at ``t``, split at ; and at the
+    name:points colon), so a word wrapped onto its own line is judged with the label it came from."""
+    out = []
+    if el.get("text") is not None:
+        out.append(str(el["text"]))
+    stack = [item_p(el, t if t is not None else float("inf"))]
+    for m in el.get("group") or []:
+        if isinstance(m, dict):
+            stack.append(item_p(m, t if t is not None else float("inf")))
+            if m.get("text") is not None:
+                out.append(str(m["text"]))
+    while stack:
+        v = stack.pop()
+        if isinstance(v, dict):
+            stack += list(v.values())
+        elif isinstance(v, (list, tuple)):
+            stack += list(v)
+        elif isinstance(v, str):
+            for piece in v.split(";"):
+                out.append(piece)
+                if ":" in piece:
+                    out.append(piece[:piece.rfind(":")])
+                    out.append(piece[piece.rfind(":") + 1:])
+    return [x.strip() for x in out if x and x.strip()]
+
+
+def wrapped_hindi(text: str, labels) -> bool:
+    """``text`` is one wrapped line of a whole label that is not English (Sloman workers, Nov 2026: "45 डिग्री (degree)"
+    drew "(degree)" on its own line, and that line alone was refused as English)."""
+    t = str(text).strip()
+    return bool(t) and any(t != lab and t in lab and DEVANAGARI.search(lab) and not english_label(lab) for lab in labels)
+
+
+def moving_at(el, t) -> bool:
+    """The element is moving at ``t`` (a key that changes x or y is running): an item or a person walking or sliding in
+    from off-screen is not "cut by the frame" while it moves; only where it settles must be inside."""
+    for k in el.get("keys") or []:
+        if k.get("t") is None or (k.get("x") is None and k.get("y") is None):
+            continue
+        if float(k["t"]) <= t < float(k["t"]) + float(k.get("d") or 0.6):
+            return True
+    return False
+
+
+def bracket_term(text: str, siblings) -> bool:
+    """``text`` is (part of) an English term in brackets after a Hindi word of the same label, wrapped onto its own line
+    (Sloman workers, Nov 2026: a graph line "माँग (demand)" draws "माँग" over "(demand)", "आपूर्ति (supply" over "curve)")."""
+    t = str(text).strip()
+    if not t:
+        return False
+    joined = " ".join(str(x) for x in siblings)
+    for m in re.finditer(r"\([^()]*\)", joined):
+        if t.strip("()") and t in m.group(0) and DEVANAGARI.search(joined[max(0, m.start() - 40):m.start()]):
+            return True
+    return False
+
+
+# two-letter English words: never read as maths symbols
+ENGLISH_2 = {"is", "of", "to", "in", "on", "at", "an", "be", "by", "or", "if", "it", "no", "so", "up", "we", "he", "me", "my",
+             "do", "go", "as", "us", "am", "ok", "hi", "oh"}
+
+
+def maths_token(word: str) -> bool:
+    """A Latin token used as maths, not English (Sloman scene plans: a, b, Qd, Ps, Pe, d/dQ in formula, table and graph
+    labels): one letter, or two letters that are not an English word (Qd, Pe, dQ, MC)."""
+    w = str(word)
+    return w.isalpha() and (len(w) == 1 or (len(w) == 2 and w.lower() not in ENGLISH_2))
 
 
 def letter_width(ch: str) -> float:
@@ -331,10 +401,28 @@ def min_readable_w(draw: str, p: dict | None = None, scale: float = 1.0, floor: 
 class Geo:
     """One element at one moment, on the stage: its box, its words, its faces, what it is."""
 
-    __slots__ = ("el", "kind", "box", "words", "faces", "name", "scale")
+    __slots__ = ("el", "kind", "box", "words", "faces", "name", "scale", "loose")
 
-    def __init__(self, el, kind, box, words=(), faces=(), name="", scale=1.0):
+    def __init__(self, el, kind, box, words=(), faces=(), name="", scale=1.0, loose=()):
         self.el, self.kind, self.box, self.words, self.faces, self.name, self.scale = el, kind, box, list(words), list(faces), name, scale
+        self.loose = list(loose)         # words drawn outside the thing's own body (a crowd's caption, a label under a board)
+
+
+def loose_local(spec, t) -> list:
+    """The words of a drawn saancha that lie mostly outside its body (the shapes without the words), at its origin."""
+    if not spec.get("draw") or spec.get("group") or spec.get("draw") in BACKDROPS:
+        return []
+    p = {k: v for k, v in item_p(spec, t).items() if not str(k).startswith("_")}
+    got = boxes.item(spec["draw"], p)
+    body = got.get("body")
+    if not body:
+        return []
+    out = []
+    for w in got.get("texts") or []:
+        wb = tuple(w["box"])
+        if area(wb) > 0 and cover(tuple(body), wb) < area(wb) * 0.5:
+            out.append((w["t"], float(w["px"]), wb))
+    return out
 
 
 def person_pos(el, t):
@@ -406,7 +494,8 @@ def geo_of(el, t, persons):
     kind = "mark" if el.get("draw") == "mark" else "thing"
     return Geo(el, kind, place(b, pos["x"], pos["y"], pos["s"], pos["r"]),
                [(tx, px * pos["s"], place(wb, pos["x"], pos["y"], pos["s"], pos["r"])) for tx, px, wb in ws],
-               [place(f, pos["x"], pos["y"], pos["s"], pos["r"]) for f in fs], name, pos["s"])
+               [place(f, pos["x"], pos["y"], pos["s"], pos["r"]) for f in fs], name, pos["s"],
+               [(tx, px * pos["s"], place(wb, pos["x"], pos["y"], pos["s"], pos["r"])) for tx, px, wb in loose_local(el, t)])
 
 
 def held_words(person, t):
@@ -485,12 +574,12 @@ def problems(spec, language=None) -> list:
         if bad:
             return [f"box rule not checked: {b}" for b in sorted(bad)]
 
-    def word_rules(sid, text, where):
+    def word_rules(sid, text, where, siblings=(), labels=()):
         m = CAUTION.search(text)
         if m:
             out.append(f"scene {sid}: '{text[:50]}' ({where}) is a caution or fact-check line ('{m.group(0)}'); it stays a background "
                        "check, never on screen: show the thing itself (D1-06)")
-        if hindi and english_label(text):
+        if hindi and english_label(text) and not bracket_term(text, siblings) and not wrapped_hindi(text, labels):
             out.append(f"scene {sid}: '{text[:50]}' ({where}) is English on a Hindi video's screen: write it in Hindi (Devanagari); an "
                        "English term may follow in brackets")
 
@@ -503,8 +592,8 @@ def problems(spec, language=None) -> list:
         for el in els:
             if el.get("draw") == "world":
                 pos = prop_at(el, scene["t0"])
-                for z in boxes.world_zones(el.get("p") or {}):
-                    zones.append({**z, "box": list(place(tuple(z["box"]), pos["x"], pos["y"], pos["s"]))})
+                for z in boxes.world_zones(el.get("p") or {}):      # held only while the world is on screen
+                    zones.append({**z, "box": list(place(tuple(z["box"]), pos["x"], pos["y"], pos["s"])), "_el": el})
         panels = [el for el in els if el.get("kind") == "rect" and el.get("fill") and (el.get("alpha") if el.get("alpha") is not None else 1.0) >= 0.85]
         if scene.get("kicker"):
             word_rules(sid, str(scene["kicker"]), "the kicker")
@@ -566,7 +655,9 @@ def problems(spec, language=None) -> list:
                         continue
                 on.append(g)
             now = set()
-            zones_now = list(zones)
+            # a world's zones count only during the world's own time (a world that arrives mid-scene does not block the
+            # lines before it)
+            zones_now = [z for z in zones if "_el" not in z or visible(z["_el"], t, scene)]
             for el in els:                       # a 3D world's parts move with its camera: its zones at this second
                 if el.get("kind") == "model3d" and el.get("place") and visible(el, t, scene):
                     from bie.brain.video import models3d
@@ -579,7 +670,8 @@ def problems(spec, language=None) -> list:
                 for tx, px, _ in g.words:
                     if (sid, tx) not in seen_words:
                         seen_words.add((sid, tx))
-                        word_rules(sid, tx, g.name if g.kind != "text" else "a text")
+                        word_rules(sid, tx, g.name if g.kind != "text" else "a text", [w[0] for w in g.words],
+                                   label_strings(g.el, t) if g.el else ())
                     if g.kind != "text" and not is_symbol(tx):
                         key = (g.name, tx)
                         screen = px * cam["z"]
@@ -624,6 +716,14 @@ def problems(spec, language=None) -> list:
                             now.add(key)
                             hit(key, t, f"scene {sid}: {a.name} sits on the words '{tx[:30]}' of {b.name} from §Fs for "
                                         "§Ds (box rule: nothing on another thing's words)")
+                    # 2b. words a thing draws outside its own body (a crowd's caption, a tag under a sign) that land on
+                    # another thing: the whole-box test above lets them through when the other thing is drawn first
+                    for tx, _, wb in a.loose:
+                        if b.box and cover(b.box, wb) > area(wb) * WORD_SHARE and (a.el.get("z") or 20) >= (b.el.get("z") or 20):
+                            key = ("loose-words", a.name, b.name, tx)
+                            now.add(key)
+                            hit(key, t, f"scene {sid}: the words '{tx[:30]}' of {a.name} sit on {b.name} from §Fs for §Ds "
+                                        "(box rule: a thing's caption never sits on another thing; move one of them)")
             # 3. reserved zones of the background
             for g in on:
                 if g.kind in ("glow", "map", "backdrop") or not g.box:
@@ -650,7 +750,7 @@ def problems(spec, language=None) -> list:
                 inside = sb[2] > 0 and sb[0] < STAGE_W and sb[3] > 0 and sb[1] < STAGE_H
                 cut = [side for side, v in (("left", -sb[0]), ("top", -sb[1]), ("right", sb[2] - STAGE_W), ("bottom", sb[3] - STAGE_H)) if v > EDGE]
                 # words are always whole; a thing cropped while the camera is zoomed in is framing, not layout
-                if inside and cut and (g.kind == "text" or cam["z"] <= ZOOMED):
+                if inside and cut and not (g.el and moving_at(g.el, t)) and (g.kind == "text" or cam["z"] <= ZOOMED):
                     key = ("edge", g.name)
                     now.add(key)
                     hit(key, t, f"scene {sid}: {g.name} is cut by the frame's {'/'.join(cut)} edge from §Fs for §Ds "

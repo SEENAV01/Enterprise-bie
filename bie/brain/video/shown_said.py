@@ -17,8 +17,9 @@ What shows a word: during the line (at least 1 s of it, or half of a shorter lin
 of the saanche carrying that word — drawn alone, in a group, held by a person or inside a thought bubble — or a drawn
 thing whose own label carries the word (a sack labelled "नमक" shows salt) at that second, its steps included: a label
 or a graph title that a step changes on the cue word shows the word from then on (the Money v2 craft). A word that names a place is also shown by the
-place the scene stands in (its background or a world item of that kind: दुकान in the shop). A text alone is not the
-thing, and a world never shows an object (a bank hall shows "बैंक" the place, not a coin).
+place the scene stands in (its background or a world item of that kind: दुकान in the shop, पंप in the petrol pump), and
+by the world's own sign and spot names (its label and signs are written on the place). A text alone is not the thing, and
+a world never shows an object it does not draw or write (a bank hall shows "बैंक" the place, not a coin).
 """
 from __future__ import annotations
 
@@ -56,7 +57,23 @@ PLACES = {"village": {"गाँव", "village"}, "haat": {"हाट", "बा�
           "factory": {"कारख़ाना", "उद्योग", "factory", "industry"}, "office": {"दफ़्तर", "office"},
           "court": {"अदालत", "न्यायालय", "court"}, "city": {"शहर", "city"}, "assembly": {"संसद", "सभा", "parliament",
           "assembly"}, "twoCountries": {"दो देश", "border"}, "forexCounter": {"विदेशी मुद्रा", "मुद्रा विनिमय", "forex",
-          "foreign currency", "काउंटर", "counter"}}
+          "foreign currency", "काउंटर", "counter"},
+          # the newer worlds and backgrounds name themselves and their numbered spots (Sloman workers, Nov 2026: about 20
+          # boards a video were added only so the checker saw "पंप" in the petrol-pump world)
+          "mandi": {"मंडी", "mandi", "बाज़ार", "बाजार", "market", "ढेर", "अनाज"}, "foodStreet": {"गली", "street", "food street",
+          "ठेला", "ठेले", "स्टॉल", "stall", "दुकान", "shop"}, "labourChowk": {"चौक", "मज़दूर चौक", "मजदूर चौक", "मज़दूर", "मजदूर",
+          "labour", "worker", "workers"}, "factoryFloor": {"कारख़ाना", "कारखाना", "फ़ैक्टरी", "फैक्टरी", "factory", "मशीन", "machine"},
+          "farm": {"खेत", "farm", "field", "किसान", "farmer"}, "riverTown": {"नदी", "river", "क़स्बा", "कस्बा", "town", "नाव", "boat"},
+          "mohalla": {"मोहल्ला", "गली", "street", "घर", "मकान", "house"}, "canteen": {"कैंटीन", "canteen", "मेन्यू", "menu", "कॉलेज",
+          "college"}, "home": {"घर", "home", "house", "मकान"}, "teaEstate": {"बागान", "चाय बागान", "tea estate", "चाय", "tea"},
+          "busStand": {"बस स्टैंड", "बस अड्डा", "bus stand", "bus", "बस"}, "petrolPump": {"पेट्रोल पंप", "petrol pump", "पंप", "pump",
+          "पेट्रोल", "petrol", "डीज़ल", "डीजल", "diesel", "fuel", "ईंधन"}, "venue": {"हॉल", "hall", "venue", "मंच", "stage", "सभागार"},
+          "godown": {"गोदाम", "godown", "warehouse", "बोरी", "बोरियाँ", "sack", "sacks"}, "island": {"टापू", "द्वीप", "island"},
+          "twoSector": {"खेत", "farm", "कारख़ाना", "कारखाना", "factory"}, "dealingRoom": {"डीलिंग रूम", "dealing room", "स्क्रीन",
+          "screen", "screens", "trader", "traders"}, "hospital": {"अस्पताल", "hospital", "डॉक्टर", "doctor", "क्लिनिक", "clinic"},
+          "foodShop": {"दुकान", "shop", "बेकरी", "bakery", "ओवन", "oven", "भट्टी"}}
+# a world's sign and spot words (its label, its signs) are written on the place: they show what they name
+WORLD_WORD_PARAMS = ("label", "signs", "title", "name")
 # Saanche that draw an idea, a process or a chart (a cause chain, a pie, a formula, a poverty line): their tags name the
 # idea, so a tag that only such a saancha carries creates no obligation (pilot ch02 v1: income -> incomeLine, effect ->
 # causeChain, बिंदु -> scatterFit, बीच -> spectrum, गिनी -> barChart). They still show a thing through their labels, and
@@ -73,9 +90,158 @@ STOP = {"बस", "बीच", "दिन", "काम", "कमाई", "गि
         "साल", "महीना", "महीने", "हफ़्ता", "हफ़्ते", "घंटे", "दौर", "असर", "प्रभाव", "हिस्सा", "हिस्से", "हिसाब", "छूट",
         "शर्त", "विकल्प", "लोग", "तुलना", "स्थिति", "पहचान", "सूची", "स्तर", "बदलाव", "योगदान", "चरण", "मान",
         "effect", "income", "table", "mechanism", "count", "time", "day", "days", "year", "years", "month", "hours", "work",
-        "model", "trend", "threshold", "level", "flow", "rounds", "choice", "options", "risk", "chance"}
+        "model", "trend", "threshold", "level", "flow", "rounds", "choice", "options", "risk", "chance",
+        # too vague to demand a drawing (Sloman workers, Nov 2026): फल is also "result", stock a stock of anything,
+        # उत्पादन "production", board any board, जोखिम "risk"; खाते is mostly "(they) eat"
+        "फल", "stock", "उत्पादन", "board", "जोखिम", "खाते", "सूखा"}
 # Said forms that look like a tag plus an ending but are other words: आगे (ahead) is not आग (fire) + े.
-NOT_FORMS = {"आगे", "बसे", "बसा", "बसी", "बसें", "दिना", "तेली", "नोटा"}
+NOT_FORMS = {"आगे", "बसे", "बसा", "बसी", "बसें", "दिना", "तेली", "नोटा",
+             # verb forms that look like a thing word plus an ending (Sloman workers, Nov 2026): करो/करें/करते are "do",
+             # not कर "tax"; खाती is "eats", not खाता "account"
+             "करो", "करें", "करे", "करते", "करता", "करती", "करेंगे", "करेगा", "करेगी", "करना", "करने", "करनी", "करके",
+             "करवाते", "कराते", "खाती"}
+# A thing word that is also a verb (कर "tax" / कर "do", खाता "account" / खाता "eats"): read as the verb when the next
+# word is a helper verb (कर लें, कर दिया, कर सकते; खाते हैं, खाता है). Real uses (कर बढ़ा, कर दर, बैंक खाते में) still count.
+VERB_TAGS = {
+    "खाता": {"है", "हैं", "था", "थे", "थी", "हो", "हूँ", "रहा", "रहे", "रही", "जाता", "जाते"},
+}
+# कर followed by a light or helper verb in any form is "do" (Sloman workers, Nov 2026: कर देंगी, कर दिए, कर लेंगे,
+# कर लीजिए, कर दीजियेगा, कर पाएँगे, कर डालिए): the general pattern is a light-verb stem (दे/दि/दी/दो, ले/लि/ली/लो, सक,
+# रह, चुक, पा, डाल, बैठ, उठ, जा/गय/गए/गई) with a verb ending (-ता/-ते/-ती, -ना/-ने/-नी, -गा/-गे/-गी, -एँ/-ें, -ए/-या, -इए/
+# -ीजिए/-ीजियेगा, -ो, -कर). Not verbs: कर देय "tax payable", कर दाता, कर दर, कर लगा, कर राजस्व, कर जाल.
+_END = r"(?:|ं|ँ|[ाीेो]|ें|त[ाीे]|न[ाीे]|ग[ाीे]|ंग[ेी]|ँग[ेी]|एँ|एं|ए|या|ये|यी|इए|िए|िये|िएगा|ियेगा|कर|ो)"
+KAR_VERB = re.compile(
+    r"^(?:(?:दे|दें|दो)" + _END + r"|दे(?:त[ाीे]|न[ाीे]|ग[ाीे]|ंग[ेी]|ँग[ेी])|दिय[ाेी]|दिए|दी|दीं|दीजि(?:ए|ये|येगा|एगा)|दिलवा\w*"
+    r"|ले" + _END + r"|लो|लिय[ाेी]|लिए|ली|लीं|लीजि(?:ए|ये|येगा|एगा)|लू[ँं](?:गा|गी)?"
+    r"|सक" + _END + r"|सकूँ|सकूं|सकें|रह" + _END + r"|चुक" + _END + r"|पा(?:ए|एँ|एं|एँग[ेी]|एंग[ेी]|एग[ाीे]|ओ|ऊँ|ते|ता|ती|ना|ने|या|यी|ये|येंगे)"
+    r"|डाल" + _END + r"|बैठ" + _END + r"|उठ" + _END + r"|जात[ाीे]|जाए|जाएँ|जाएं|जाना|जाने|जाएग[ाीे]|जाएंग[ेी]|जाएँग[ेी]|जाओ|जाइए"
+    r"|गया|गए|गई|गयी|गये)$")
+# "दो" after कर is also "two" (कर दो प्रकार के होते हैं): followed by a counted noun it is the number, not the verb.
+_TWO_NOUNS = {"प्रकार", "तरह", "किस्म", "क़िस्म", "तरीके", "तरीक़े", "रूप", "हिस्से", "हिस्सों", "स्तर", "स्तरों", "भाग", "भागों", "चीज़ें", "चीजें",
+              "दर", "दरें", "देश", "देशों", "साल", "बार"}
+_KAR_SKIP = {"नहीं", "न", "भी", "ही", "तो"}
+PUNCT = "।॥?!,.;:…\"'“”‘’()[]{}-–—"
+
+
+def _clean(tok: str) -> str:
+    """A word with the Hindi and English punctuation round it taken off (कर दे। -> दे)."""
+    return str(tok or "").strip(PUNCT + " ")
+
+
+# Hindi names of English thing words (and back): a Hindi label shows an English word said in the narration, and an
+# English label a Hindi one (डीज़ल = diesel, कारख़ाना = factory, कर = tax).
+ALIAS_GROUPS = (
+    ("diesel", "डीज़ल", "डीजल"), ("petrol", "पेट्रोल"), ("factory", "फ़ैक्टरी", "फैक्टरी", "फ़ैक्ट्री", "फैक्ट्री", "कारख़ाना", "कारखाना"),
+    ("tax", "कर", "टैक्स"), ("pound", "पाउंड", "पौंड"), ("dollar", "डॉलर"), ("euro", "यूरो"), ("rupee", "रुपया", "रुपये"),
+    ("bank", "बैंक"), ("shop", "दुकान"), ("market", "बाज़ार", "बाजार", "मंडी"), ("farmer", "किसान"), ("worker", "मज़दूर", "मजदूर"),
+    ("car", "कार", "गाड़ी"), ("house", "घर", "मकान"), ("coin", "सिक्का"), ("note", "नोट"), ("loan", "क़र्ज़", "कर्ज", "ऋण"),
+    ("oil", "तेल"), ("wheat", "गेहूँ", "गेहूं"), ("rice", "चावल"), ("phone", "फ़ोन", "फोन"), ("train", "ट्रेन", "रेल"),
+    ("plane", "हवाई जहाज़", "विमान"), ("ship", "जहाज़", "जहाज"), ("government", "सरकार"), ("company", "कंपनी"),
+    ("ticket", "टिकट"), ("salary", "वेतन", "तनख़्वाह"), ("price", "कीमत", "क़ीमत", "दाम"), ("gold", "सोना"), ("electricity", "बिजली"),
+    # economics terms (Sloman workers, Nov 2026): a Hindi label shows the English word said, and back
+    ("marginal cost", "सीमांत लागत", "mc"), ("marginal revenue", "सीमांत आय", "सीमांत राजस्व", "mr"),
+    ("marginal utility", "सीमांत उपयोगिता", "mu"), ("marginal product", "सीमांत उत्पाद"), ("average cost", "औसत लागत", "ac", "atc"),
+    ("total cost", "कुल लागत", "tc"), ("fixed cost", "स्थिर लागत", "बंधी लागत", "fc"), ("variable cost", "परिवर्ती लागत", "vc"),
+    ("opportunity cost", "अवसर लागत"), ("total revenue", "कुल आय", "कुल राजस्व", "tr"), ("average revenue", "औसत आय", "ar"),
+    ("cost", "लागत"), ("revenue", "राजस्व", "आमदनी"), ("profit", "लाभ", "मुनाफ़ा", "मुनाफा", "प्रॉफिट"), ("loss", "हानि", "घाटा", "नुकसान", "नुक़सान"),
+    ("demand", "माँग", "मांग"), ("supply", "आपूर्ति", "पूर्ति", "सप्लाई"), ("demand curve", "माँग वक्र", "मांग वक्र"),
+    ("supply curve", "आपूर्ति वक्र", "पूर्ति वक्र"), ("equilibrium", "संतुलन"), ("elasticity", "लोच"), ("budget line", "बजट रेखा"),
+    ("indifference curve", "तटस्थता वक्र", "उदासीनता वक्र"), ("utility", "उपयोगिता"), ("output", "उत्पादन", "उत्पाद"),
+    ("offer", "प्रस्ताव", "ऑफ़र", "ऑफर", "पेशकश"), ("bid", "बोली"), ("auction", "नीलामी"), ("account", "खाता", "खाते", "अकाउंट"),
+    ("bank account", "बैंक खाता", "बैंक खाते"), ("insurance", "बीमा", "इंश्योरेंस"), ("premium", "प्रीमियम", "किस्त", "क़िस्त"),
+    ("policy", "पॉलिसी"), ("claim", "दावा", "क्लेम"), ("pension", "पेंशन"), ("interest", "ब्याज"), ("interest rate", "ब्याज दर"),
+    ("deposit", "जमा राशि", "डिपॉज़िट"), ("cheque", "चेक"), ("receipt", "रसीद"), ("invoice", "बिल"), ("wage", "मज़दूरी", "मजदूरी"),
+    ("wages", "मज़दूरी", "मजदूरी"), ("rent", "किराया"), ("land", "ज़मीन", "जमीन", "भूमि"), ("capital", "पूँजी", "पूंजी"),
+    ("labour", "श्रम"), ("labor", "श्रम"), ("machine", "मशीन"), ("tractor", "ट्रैक्टर"), ("crop", "फसल", "फ़सल"), ("budget", "बजट"),
+    ("subsidy", "सब्सिडी", "अनुदान"), ("tariff", "टैरिफ़", "टैरिफ", "शुल्क", "सीमा शुल्क"), ("duty", "शुल्क"), ("quota", "कोटा"),
+    ("inflation", "महँगाई", "महंगाई", "मुद्रास्फीति"), ("unemployment", "बेरोज़गारी", "बेरोजगारी"), ("export", "निर्यात"),
+    ("import", "आयात"), ("exports", "निर्यात"), ("imports", "आयात"), ("consumer", "उपभोक्ता", "ग्राहक"), ("customer", "ग्राहक"),
+    ("producer", "उत्पादक"), ("buyer", "ख़रीदार", "खरीदार"), ("seller", "विक्रेता", "बेचने वाला"), ("firm", "फ़र्म", "फर्म"),
+    ("monopoly", "एकाधिकार"), ("cartel", "कार्टेल"), ("contract", "अनुबंध", "कॉन्ट्रैक्ट", "करार"), ("warranty", "वारंटी"),
+    ("guarantee", "गारंटी"), ("lottery", "लॉटरी"), ("gamble", "जुआ"), ("bet", "दाँव", "दांव"), ("dice", "पासा", "पासे"),
+    ("queue", "कतार", "क़तार", "लाइन"), ("ration card", "राशन कार्ड"), ("credit card", "क्रेडिट कार्ड"), ("debit card", "डेबिट कार्ड"),
+    ("wallet", "बटुआ", "वॉलेट"), ("share", "शेयर"), ("shares", "शेयर"), ("stock market", "शेयर बाज़ार", "शेयर बाजार"),
+    ("bond", "बॉन्ड", "बांड"), ("gdp", "जीडीपी", "सकल घरेलू उत्पाद"), ("budget deficit", "बजट घाटा"), ("savings", "बचत"),
+    ("investment", "निवेश"), ("wealth", "संपत्ति", "दौलत"), ("asset", "परिसंपत्ति", "संपत्ति"), ("debt", "ऋण", "क़र्ज़", "कर्ज"),
+    ("truck", "ट्रक"), ("milk", "दूध"), ("water", "पानी", "जल"), ("sugar", "चीनी"), ("salt", "नमक"), ("sack", "बोरी"),
+    ("vehicle", "वाहन", "गाड़ी"), ("car insurance", "कार बीमा", "वाहन बीमा"), ("health insurance", "स्वास्थ्य बीमा"),
+    ("used car", "पुरानी कार", "पुरानी गाड़ी"), ("employer", "मालिक", "नियोक्ता"), ("union", "यूनियन", "संघ"),
+)
+_ALIAS: dict = {}
+for _g in ALIAS_GROUPS:
+    for _w in _g:
+        _ALIAS.setdefault(_w, set()).update(x for x in _g if x != _w)
+
+
+def aliases(tag: str) -> set:
+    """Other-language names of a thing word (lower case), for matching a label against what was said."""
+    return set(_ALIAS.get(str(tag or "").strip().lower(), ()))
+
+
+# Ideas a drawing shows without spelling them: a shortage is a gap (gapBars, a graph's gaps), rationing a ration card.
+SHOWN_BY = {"shortage": lambda d, p: d == "gapBars" or (d == "graph" and bool(str(p.get("gaps") or "").strip())),
+            "rationing": lambda d, p: d == "slip" and p.get("kind") == "rationCard"}
+for _w, _k in (("कमी", "shortage"), ("अभाव", "shortage"), ("राशनिंग", "rationing"), ("राशन", "rationing")):
+    SHOWN_BY[_w] = SHOWN_BY[_k]
+
+
+def _verb_at(toks: list, i: int, tag: str) -> bool:
+    """Token ``i`` (a match of ``tag``) is the verb that shares the thing word's spelling: the next word is a helper."""
+    if i + 1 >= len(toks):
+        return False
+    nxt = _clean(toks[i + 1])
+    if tag == "कर":
+        if nxt == "दो" and i + 2 < len(toks) and _clean(toks[i + 2]) in _TWO_NOUNS:
+            return False
+        if nxt in _KAR_SKIP and i + 2 < len(toks):  # कर नहीं सकती, कर भी देगी, कर ही लेंगे
+            nxt = _clean(toks[i + 2])
+        return bool(KAR_VERB.match(nxt))
+    return nxt in VERB_TAGS.get(tag, ())
+
+
+# A word that names a thing only in some contexts: लाइन is a queue only when the line also says कतार/queue or people
+# stand in it (तीन लाइन लिखिए is a line of text).
+CONTEXT_ONLY = {"लाइन": ("कतार", "क़तार", "कतारें", "queue", "खड़े", "खड़ा", "खड़ी", "खड़े", "इंतज़ार", "इंतजार", "wait", "लगे", "लगी",
+                       "लगना", "लगते", "लगती", "लगाना", "लगाते", "टिकट", "राशन", "खिड़की", "काउंटर")}
+# Idioms whose thing word names no thing: पासा पलटना "the tables turn" (पासा पलटिए, पासा पलट गया); पानी फेरना "to ruin".
+IDIOMS = {"पासा": ("पलट",), "पासे": ("पलट",), "पानी": ("फेर", "फिर"), "पत्ता": ("कट", "साफ़"), "घी": ("के दिए", "के दीये")}
+
+
+def _idiom_at(toks: list, i: int, tag: str) -> bool:
+    nxt = " ".join(_clean(t) for t in toks[i + 1:i + 3])
+    return any(nxt.startswith(w) for w in IDIOMS.get(_clean(toks[i]), ()) + IDIOMS.get(tag, ()))
+
+
+# A word that names no thing in some contexts: डिग्री/degree after a number or in a line about angles, graphs or lines is
+# an angle (45 डिग्री की रेखा), not a degree certificate.
+_NUM = re.compile(r"^[\d.,०-९]+°?$")
+NOT_IN_CONTEXT = {w: ("कोण", "angle", "रेखा", "line", "graph", "ग्राफ़", "ग्राफ", "वक्र", "curve", "ढलान", "slope", "अक्ष", "axis",
+                      "°", "घुमाव", "तापमान", "temperature", "सेल्सियस", "celsius")
+                  for w in ("डिग्री", "degree", "degrees")}
+
+
+# A thing word that names a country or a body after these words: सोवियत संघ / Soviet Union is a country, यूरोपीय संघ /
+# European Union a group of countries, not a trade union.
+NOT_AFTER = {w: ("सोवियत", "soviet", "यूरोपीय", "european", "राष्ट्र", "राष्ट्रों", "अफ्रीकी", "african", "अफ़्रीकी", "postal", "customs",
+                 "सीमा", "monetary", "मौद्रिक")
+             for w in ("संघ", "union", "यूनियन")}
+
+
+def _context_ok(toks: list, tag: str, i: int | None = None) -> bool:
+    if i is not None and i > 0 and _clean(toks[i - 1]) in NOT_AFTER.get(tag, ()):
+        return False
+    need = CONTEXT_ONLY.get(tag)
+    if need and not any(_clean(t) in need for t in toks):
+        return False
+    bad = NOT_IN_CONTEXT.get(tag)
+    if bad:
+        if i is not None and i > 0 and _NUM.match(_clean(toks[i - 1])):
+            return False
+        if any(_clean(t) in bad for t in toks):
+            return False
+    return True
+
+
 SUFFIXES = ("ों", "ो", "ें", "े", "ियों", "ियाँ", "यों", "एँ", "ाओं", "ाएँ")   # plural and oblique endings only: जार + ी is जारी
 STEM_ENDINGS = ("ा", "े", "ों", "ें", "ी", "ियाँ", "ियों")                             # रुपया -> रुपये, सिक्का -> सिक्कों
 TOKEN = re.compile(r"[\wऀ-ॿ][\wऀ-ॿ़ँ-ःा-्'-]*")
@@ -98,7 +264,7 @@ def lexicon() -> dict:
 
 def tokens(text: str) -> list:
     """The whole words of a text (Devanagari with its signs, or Roman), lower case: the units every match is made on."""
-    return [m.group(0).strip("'-") for m in TOKEN.finditer(str(text or "").lower())]
+    return [m.group(0).strip("'-।॥") for m in TOKEN.finditer(str(text or "").lower())]
 
 
 def _phrase_at(toks: list, i: int, words: list) -> bool:
@@ -113,7 +279,7 @@ def has_word(text: str, tag: str) -> bool:
     toks, words = tokens(text), tokens(tag)
     if not words:
         return False
-    return any(_phrase_at(toks, i, words) for i in range(len(toks)))
+    return any(_phrase_at(toks, i, words) and not (len(words) == 1 and _verb_at(toks, i, words[0])) for i in range(len(toks)))
 
 
 def _stem_match(token: str, word: str) -> bool:
@@ -135,7 +301,7 @@ def named_things(text: str, lex: dict | None = None) -> list:
     """The thing-words a line names, in order: [(word as said, tag, saanche)]; phrases before single words."""
     lex = lex if lex is not None else lexicon()
     low = str(text or "").lower()
-    spans = [(m.start(), m.end(), m.group(0).strip("'-")) for m in TOKEN.finditer(low)]
+    spans = [(m.start(), m.end(), m.group(0).strip("'-।॥")) for m in TOKEN.finditer(low)]
     toks = [t for _, _, t in spans]
     found, used = [], set()                      # used: token indexes already taken by a phrase
     for tag in sorted((t for t in lex if " " in t), key=len, reverse=True):
@@ -151,7 +317,8 @@ def named_things(text: str, lex: dict | None = None) -> list:
         if i in used:
             continue
         for tag, names in lex.items():
-            if " " not in tag and _stem_match(token, tag):
+            if " " not in tag and _stem_match(token, tag) and not _verb_at(toks, i, tag) and not _idiom_at(toks, i, tag) \
+                    and _context_ok(toks, tag, i):
                 found.append((str(text)[a:b], tag, sorted(names)))
                 break
     seen, out = set(), []
@@ -210,11 +377,26 @@ def _things(el: dict, t: float) -> list:
 
 def _places(scene: dict, t: float) -> set:
     """The place words of where the scene stands at ``t``: its background and any world item on screen."""
-    words = set(PLACES.get(scene.get("bg") or "", ()))
+    return _place_view(scene, t)[0]
+
+
+def _place_view(scene: dict, t: float) -> tuple:
+    """(place words, the words written on the place) of where the scene stands at ``t``: its background, any world item
+    on screen with its kind, and that world's own sign and spot names (label, signs: "पंप 1;पंप 2")."""
+    words, written = set(PLACES.get(scene.get("bg") or "", ())), []
     for el in scene.get("els") or []:
         if el.get("draw") == "world" and _visible(el, t, scene):
-            words |= PLACES.get((el.get("p") or {}).get("kind") or "", set())
-    return words
+            p = _p_at(el, t)
+            words |= PLACES.get(p.get("kind") or "", set())
+            written += [str(p.get(k)) for k in WORLD_WORD_PARAMS if p.get(k)]
+    return words, " ; ".join(written).replace(";", " ; ").lower()
+
+
+def _place_shows(scene: dict, t: float, tag: str, alt: set) -> bool:
+    words, written = _place_view(scene, t)
+    if tag in words or any(a in words for a in alt):
+        return True
+    return bool(written) and (has_word(written, tag) or any(has_word(written, a) for a in alt))
 
 
 def _visible(el, t, scene) -> bool:
@@ -230,9 +412,11 @@ def _shown_seconds(spec: dict, t0: float, t1: float, tag: str, names: list) -> f
         for scene in spec.get("scenes") or []:
             if not (scene["t0"] <= t < scene["t1"]):
                 continue
-            if tag in _places(scene, t) or any(name in names or has_word(label, tag)
-                                               for el in scene.get("els") or [] if _visible(el, t, scene)
-                                               for name, label in _things(el, t)):
+            alt, by = aliases(tag), SHOWN_BY.get(tag)
+            vis = [el for el in scene.get("els") or [] if _visible(el, t, scene)]
+            if _place_shows(scene, t, tag, alt) or any(name in names or has_word(label, tag) or any(has_word(label, a) for a in alt)
+                                               for el in vis for name, label in _things(el, t)) \
+                    or (by and any(by(el.get("draw"), _p_at(el, t)) for el in vis if el.get("draw"))):
                 hits += 1
                 break
         t += STEP

@@ -50,9 +50,9 @@
     "upto": {
      "type": "int",
      "default": 0,
-     "min": 0,
+     "min": -1,
      "max": 60,
-     "what": "bars shown so far (0: all); the newest grows after the step"
+     "what": "bars shown so far (0: all); the newest grows after the step; -1: none yet (the chart stands empty)"
     },
     "glow": {
      "type": "text",
@@ -204,7 +204,7 @@
     "labels": {
      "type": "text",
      "default": "",
-     "what": "unit names under the bars (default 1,2,3…)"
+     "what": "unit names under the bars, ;-separated (a ,-separated list with one name per bar also works); default 1,2,3…"
     },
     "line": {
      "type": "text",
@@ -219,9 +219,9 @@
     "upto": {
      "type": "int",
      "default": 0,
-     "min": 0,
+     "min": -1,
      "max": 60,
-     "what": "units shown so far (0: all)"
+     "what": "units shown so far (0: all); -1: none yet (the chart stands empty)"
     },
     "marks": {
      "type": "bool",
@@ -295,7 +295,7 @@
     "numbers": {
      "type": "bool",
      "default": true,
-     "what": "write the values"
+     "what": "write the values (false: no number on the bars, the surplus parts or the totals: numbers nobody says)"
     },
     "grow": {
      "type": "number",
@@ -445,9 +445,9 @@
     "upto": {
      "type": "int",
      "default": 0,
-     "min": 0,
+     "min": -1,
      "max": 60,
-     "what": "slices drawn so far (0: all)"
+     "what": "slices drawn so far (0: all); -1: none yet (the chart stands empty)"
     },
     "glow": {
      "type": "text",
@@ -526,6 +526,11 @@
     "title": {
      "type": "text",
      "default": ""
+    },
+    "order": {
+     "type": "text",
+     "default": "",
+     "what": "the order the slices are revealed in with upto, 1-based (3,1,2: slice 3 first); empty: their own order"
     }
    },
    "since": "2026-11-05"
@@ -582,9 +587,9 @@
     "upto": {
      "type": "int",
      "default": 0,
-     "min": 0,
+     "min": -1,
      "max": 60,
-     "what": "parts (or bars) shown so far (0: all)"
+     "what": "parts (or bars) shown so far (0: all); -1: none yet (the chart stands empty)"
     },
     "running": {
      "type": "bool",
@@ -1141,9 +1146,9 @@
     "upto": {
      "type": "int",
      "default": 0,
-     "min": 0,
+     "min": -1,
      "max": 60,
-     "what": "points shown so far (0: all)"
+     "what": "points shown so far (0: all); -1: none yet (the chart stands empty)"
     },
     "fit": {
      "type": "text",
@@ -1816,9 +1821,9 @@
     "upto": {
      "type": "int",
      "default": 0,
-     "min": 0,
+     "min": -1,
      "max": 60,
-     "what": "cards sent so far (0: all); the newest slides over glide seconds"
+     "what": "cards sent so far (0: all); the newest slides over glide seconds; -1: none yet (the chart stands empty)"
     },
     "glide": {
      "type": "number",

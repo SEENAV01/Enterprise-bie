@@ -5,7 +5,7 @@
 
 import { world } from "./worlds.mjs";
 import { FAMILY_DRAWS } from "./families/index.mjs";
-import { svgBounds } from "./boxes.mjs";
+import { svgBounds, textWidth } from "./boxes.mjs";
 
 export const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 export const FONT = "'Noto Sans', 'Noto Sans Devanagari', sans-serif";
@@ -77,7 +77,8 @@ function noteBundle(p) {
   const col = NOTE_COLORS[v] || "#1f8a70";
   const blank = (dy) => `<rect x="${-w * 0.5}" y="${-h * 0.5 + dy}" width="${w}" height="${h}" rx="${w * 0.03}" fill="${shade(col, 0.88)}" stroke="${shade(col, 0.7)}" stroke-width="${w * 0.015}"/>`;
   return blank(w * 0.1) + blank(w * 0.05) + note({ w, value: v, bare: p.bare }) +
-    `<rect x="${-w * 0.09}" y="${-w * 0.26}" width="${w * 0.18}" height="${w * 0.42}" fill="#e8d9b0" stroke="#c9b683" stroke-width="${w * 0.015}"/>`;
+    // the paper band sits at the left end, clear of the ₹ sign and the amount, so it never hides the value (ch21)
+    `<rect x="${-w * 0.435}" y="${-w * 0.26}" width="${w * 0.08}" height="${w * 0.42}" fill="#e8d9b0" stroke="#c9b683" stroke-width="${w * 0.012}"/>`;
 }
 
 const METALS = { gold: ["#f2c14e", "#b8860b"], silver: ["#d7dde4", "#8d99a6"], copper: ["#c77b4a", "#8a4f2d"] };
@@ -162,14 +163,16 @@ function saw(p) {
 }
 
 function calendar(p) {
-  const w = p.w || 200, h = w * 0.92;
+  const w = p.w || 200, h = w * 0.92, head = p.text ? readFit(p.text, w * 0.9, h * 0.17, READ_PX, true) : null;
+  const band = Math.max(h * 0.26, head ? head.h + head.size * 0.45 + h * 0.06 : 0);   // a long heading wraps and the red band grows
+  const gy = -h * 0.5 + band + h * 0.07, rows = Math.max(1, Math.min(3, Math.floor((h * 0.44 - gy - h * 0.11) / (h * 0.16)) + 1)), gs = h * 0.16;   // the day grid sits under the heading
   let grid = "";
-  for (let r = 0; r < 3; r++) for (let c = 0; c < 4; c++)
-    grid += `<rect x="${-w * 0.36 + c * w * 0.19}" y="${-h * 0.34 + r * h * 0.16}" width="${w * 0.14}" height="${h * 0.11}" rx="${w * 0.015}" fill="#e9eef4"/>`;
+  for (let r = 0; r < rows; r++) for (let c = 0; c < 4; c++)
+    grid += `<rect x="${-w * 0.36 + c * w * 0.19}" y="${gy + r * gs}" width="${w * 0.14}" height="${h * 0.11}" rx="${w * 0.015}" fill="#e9eef4"/>`;
   return `<rect x="${-w * 0.5}" y="${-h * 0.5}" width="${w}" height="${h}" rx="${w * 0.05}" fill="#ffffff" stroke="#9db3c7" stroke-width="${w * 0.025}"/>` +
-    `<rect x="${-w * 0.5}" y="${-h * 0.5}" width="${w}" height="${h * 0.26}" rx="${w * 0.05}" fill="#e5484d"/>` +
+    `<rect x="${-w * 0.5}" y="${-h * 0.5}" width="${w}" height="${band}" rx="${w * 0.05}" fill="#e5484d"/>` +
     `<rect x="${-w * 0.3}" y="${-h * 0.6}" width="${w * 0.06}" height="${h * 0.16}" rx="${w * 0.03}" fill="${INK}"/><rect x="${w * 0.24}" y="${-h * 0.6}" width="${w * 0.06}" height="${h * 0.16}" rx="${w * 0.03}" fill="${INK}"/>` +
-    `<g transform="translate(0,${-h * 0.305})">` + label(p.text || "", 0, h * 0.15, "#ffffff", 800) + `</g>` + grid;
+    (head ? txLines(head.lines, 0, -h * 0.5 + h * 0.03 + band / 2, head.size, "#ffffff", 800) : "") + grid;
 }
 
 function bugs(p) {
@@ -300,6 +303,48 @@ export const tx = (text, x, cy, size, fill = INK, weight = 700) =>
   text === "" || text == null ? "" : `<g transform="translate(${x},0)">` + label(String(text), cy + size * 0.35, size, fill, weight) + `</g>`;
 export const clamp01 = (v) => Math.max(0, Math.min(1, Number(v) || 0));
 
+// The readable floor (Sloman notes and videos, Nov 2026: tick names, line names and fork words came out at 25-30 px).
+// A saancha's own words are never drawn under READ_PX at scale 1 on the 1920x1080 frame: a word too long for its room
+// wraps to two lines (split at the space that balances them) and, if it still does not fit, keeps the floor and is
+// allowed to stick out of its room (the caller places it outside the plot) instead of shrinking.
+export const READ_PX = 36;
+export const textW = (t, px) => textWidth(String(t ?? ""), px);
+export function wrap2(t, px, maxW) {
+  const s = String(t ?? "").trim(), words = s.split(/\s+/);
+  if (words.length < 2 || textW(s, px) <= maxW) return [s];
+  let best = null;
+  for (let i = 1; i < words.length; i++) {
+    const a = words.slice(0, i).join(" "), b = words.slice(i).join(" "), m = Math.max(textW(a, px), textW(b, px));
+    if (!best || m < best[0]) best = [m, a, b];
+  }
+  return [best[1], best[2]];
+}
+// fit t into maxW at most cap px, never under floor; returns { size, lines, w, h } (w, h: the block's own size)
+// hard: the room has walls (a calendar band, a podium step): words that still do not fit after wrapping shrink to the room,
+// so the readable-width measure (box_rules.min_readable_w, bk.py fit) reports the w they need instead of overflowing
+export function readFit(t, maxW, cap, floor = READ_PX, hard = false) {
+  const s = String(t ?? "").trim(), top = Math.max(cap, floor), u = textW(s, 1) || 1;
+  let size = Math.max(floor, Math.min(top, maxW / u)), lines = [s];
+  if (textW(s, size) > maxW + 0.5) {
+    lines = wrap2(s, top, maxW);
+    // wrapped words stay near the floor (a wrapped name is not drawn bigger than its unwrapped neighbours)
+    if (lines.length > 1) size = Math.max(floor, Math.min(top, floor * 1.2, maxW / Math.max(...lines.map((l) => textW(l, 1)))));
+    if (hard) size = Math.min(size, maxW / Math.max(...lines.map((l) => textW(l, 1))));
+  }
+  return { size, lines, w: Math.max(...lines.map((l) => textW(l, size))), h: size * (1 + (lines.length - 1) * 1.15) };
+}
+// draw lines centred on (x, cy), one under the other
+export const txLines = (lines, x, cy, size, fill = INK, weight = 700) =>
+  lines.map((l, i) => tx(l, x, cy + (i - (lines.length - 1) / 2) * size * 1.15, size, fill, weight)).join("");
+// a readable word block centred on (x, cy): readFit + txLines
+// grow: 0 the block is centred on cy; -1 its last line stays on cy (it grows upward, for a name above a point);
+// 1 its first line stays on cy (it grows downward, for a name under a bracket)
+export const readTx = (t, x, cy, maxW, cap, fill = INK, weight = 700, grow = 0, floor = READ_PX) => {
+  if (t === "" || t == null) return "";
+  const f = readFit(t, maxW, cap, floor);
+  return txLines(f.lines, x, cy + grow * (f.h - f.size) / 2, f.size, fill, weight);
+};
+
 const BADGE_KINDS = {
   central_bank: ["#138a8a", "coin"], bank: ["#3a7bd5", "columns"], government: ["#e07b24", "dome"],
   regulator: ["#7b5cd6", "scale"], international: ["#2a9d8f", "globe"], cooperative: ["#2fa35b", "hands"],
@@ -352,7 +397,7 @@ const PAPER_KINDS = {
 
 function paper(p) {
   const w = p.w || 170, h = w * 1.3, fold = w * 0.16, x0 = -w / 2, y0 = -h / 2, [band, tint, icon] = PAPER_KINDS[p.kind] || PAPER_KINDS.law;
-  const title = String(p.title ?? "Act"), year = String(p.year ?? ""), value = String(p.value ?? ""), note = String(p.note ?? "");
+  const title = String(p.title ?? "Act"), year = String(p.year ?? ""), value = String(p.value || p.amount || ""), note = String(p.note || p.footer || "");   // amount, footer: the names its card uses
   const lines = Math.max(0, Math.min(8, p.lines == null ? 4 : Math.round(p.lines)));
   let body = p.kind === "bond" ? `<rect x="${x0 + w * 0.07}" y="${y0 + h * 0.2}" width="${w * 0.86}" height="${h * 0.72}" rx="${w * 0.03}" fill="none" stroke="${band}" stroke-width="${w * 0.012}" stroke-dasharray="${w * 0.03} ${w * 0.015}"/>` : "";
   const top = y0 + h * 0.27;
@@ -561,13 +606,16 @@ function building(p) {
 }
 
 function priceTag(p) {
+  // a long value (more than ~6 letters: "₹1,20,000") keeps its size and makes the tag longer instead of spilling out
   const w = p.w || 170, h = w * 0.56, col = p.color || "#f2c14e", now = String(p.value ?? "₹50"), old = p.old ? String(p.old) : "";
-  const arrow = p.trend === "up" ? `<path d="M${w * 0.36} ${h * 0.14} L${w * 0.46} ${-h * 0.06} L${w * 0.56} ${h * 0.14} Z" fill="#2fa35b"/>`
-    : p.trend === "down" ? `<path d="M${w * 0.36} ${-h * 0.06} L${w * 0.46} ${h * 0.14} L${w * 0.56} ${-h * 0.06} Z" fill="#e5484d"/>` : "";
-  return `<path d="M${-w * 0.5} ${-h * 0.5} L${w * 0.32} ${-h * 0.5} L${w * 0.5} 0 L${w * 0.32} ${h * 0.5} L${-w * 0.5} ${h * 0.5} Z" fill="${col}" stroke="${shade(col)}" stroke-width="${w * 0.02}"/>` +
-    `<circle cx="${w * 0.3}" cy="0" r="${h * 0.08}" fill="#ffffff" stroke="${shade(col)}" stroke-width="${w * 0.01}"/>` +
-    (old ? tx(old, -w * 0.1, -h * 0.2, h * 0.28, "#7a5a00", 700) + `<path d="M${-w * 0.36} ${-h * 0.2} L${w * 0.16} ${-h * 0.2}" stroke="#e5484d" stroke-width="${h * 0.06}"/>` : "") +
-    tx(now, -w * 0.1, old ? h * 0.2 : 0, old ? h * 0.36 : h * 0.44, INK, 800) + arrow;
+  const fsN = old ? h * 0.36 : h * 0.44, need = Math.max(textW(now, fsN), old ? textW(old, h * 0.28) : 0) + h * 0.2, extra = Math.max(0, need - w * 0.66);
+  const W = w + extra, R = W / 2, cx = -R + w * 0.4 + extra / 2;
+  const arrow = p.trend === "up" ? `<path d="M${R - w * 0.14} ${h * 0.14} L${R - w * 0.04} ${-h * 0.06} L${R + w * 0.06} ${h * 0.14} Z" fill="#2fa35b"/>`
+    : p.trend === "down" ? `<path d="M${R - w * 0.14} ${-h * 0.06} L${R - w * 0.04} ${h * 0.14} L${R + w * 0.06} ${-h * 0.06} Z" fill="#e5484d"/>` : "";
+  return `<path d="M${-R} ${-h * 0.5} L${R - w * 0.18} ${-h * 0.5} L${R} 0 L${R - w * 0.18} ${h * 0.5} L${-R} ${h * 0.5} Z" fill="${col}" stroke="${shade(col)}" stroke-width="${w * 0.02}"/>` +
+    `<circle cx="${R - w * 0.2}" cy="0" r="${h * 0.08}" fill="#ffffff" stroke="${shade(col)}" stroke-width="${w * 0.01}"/>` +
+    (old ? tx(old, cx, -h * 0.2, h * 0.28, "#7a5a00", 700) + `<path d="M${cx - w * 0.26 - extra / 2} ${-h * 0.2} L${cx + w * 0.26 + extra / 2} ${-h * 0.2}" stroke="#e5484d" stroke-width="${h * 0.06}"/>` : "") +
+    tx(now, cx, old ? h * 0.2 : 0, fsN, INK, 800) + arrow;
 }
 
 function gauge(p) {
@@ -752,13 +800,17 @@ function pillars(p) {
       `<rect x="${cx - pw * 0.65}" y="${y1 - h * 0.005}" width="${pw * 1.3}" height="${h * 0.035}" fill="${shade(c, 0.9)}"/>` +
       (bad ? `<path d="M${cx - pw * 0.45} ${y0 + (y1 - y0) * 0.38} L${cx - pw * 0.05} ${y0 + (y1 - y0) * 0.46} L${cx - pw * 0.25} ${y0 + (y1 - y0) * 0.55} L${cx + pw * 0.2} ${y0 + (y1 - y0) * 0.62} L${cx + pw * 0.05} ${y0 + (y1 - y0) * 0.7} L${cx + pw * 0.45} ${y0 + (y1 - y0) * 0.76}" fill="none" stroke="#5a4636" stroke-width="${w * 0.008}" stroke-linejoin="round"/>` : "") +
       (glow.has(i + 1) ? `<rect x="${cx - pw * 0.75}" y="${y0 - h * 0.05}" width="${pw * 1.5}" height="${y1 - y0 + h * 0.1}" fill="none" stroke="#f2c14e" stroke-width="${w * 0.012}" rx="${w * 0.01}"/>` : "") +
-      (labels[i] ? `<rect x="${cx - slot * 0.46}" y="${(y0 + y1) / 2 - h * 0.06}" width="${slot * 0.92}" height="${h * 0.12}" rx="${h * 0.02}" fill="#ffffff" stroke="${shade(c, 0.7)}" stroke-width="${w * 0.004}"/>` +
-        tx(labels[i], cx, (y0 + y1) / 2, fit(labels[i], slot * 0.88, w * 0.055), INK, 800) : "");
+      (labels[i] ? (() => { const f = readFit(labels[i], slot * 0.88, w * 0.055, READ_PX, true), lh = Math.max(h * 0.12, f.h + f.size * 0.4);   // a long name wraps, its card grows
+        return `<rect x="${cx - slot * 0.46}" y="${(y0 + y1) / 2 - lh / 2}" width="${slot * 0.92}" height="${lh}" rx="${h * 0.02}" fill="#ffffff" stroke="${shade(c, 0.7)}" stroke-width="${w * 0.004}"/>` +
+          txLines(f.lines, cx, (y0 + y1) / 2, f.size, INK, 800); })() : "");
   }
+  // the title sits on the roof beam at the readable floor; a big title makes the beam taller (the roof rises with it)
+  // instead of shrinking or spilling onto the text around the pillars (ch12)
+  const tf = p.title ? readFit(p.title, w * 0.9, h * 0.075, READ_PX, true) : null, bh = Math.max(h * 0.08, tf ? tf.h + tf.size * 0.3 : 0), bt = -h * 0.78 - bh;
   return `<rect x="${-w * 0.5}" y="${-h * 0.06}" width="${w}" height="${h * 0.06}" fill="${shade(c, 0.8)}"/><rect x="${-w * 0.47}" y="${-h * 0.1}" width="${w * 0.94}" height="${h * 0.045}" fill="${shade(c, 0.9)}"/>` +
-    cols + `<rect x="${-w * 0.5}" y="${-h * 0.86}" width="${w}" height="${h * 0.08}" fill="${shade(c, 0.9)}" stroke="${shade(c, 0.7)}" stroke-width="${w * 0.005}"/>` +
-    `<path d="M${-w * 0.52} ${-h * 0.86} L0 ${-h * 1.02} L${w * 0.52} ${-h * 0.86} Z" fill="${c}" stroke="${shade(c, 0.7)}" stroke-width="${w * 0.006}"/>` +
-    (p.title ? tx(p.title, 0, -h * 0.82, fit(p.title, w * 0.9, h * 0.065), INK, 800) : "");
+    cols + `<rect x="${-w * 0.5}" y="${bt}" width="${w}" height="${bh}" fill="${shade(c, 0.9)}" stroke="${shade(c, 0.7)}" stroke-width="${w * 0.005}"/>` +
+    `<path d="M${-w * 0.52} ${bt} L0 ${bt - h * 0.16} L${w * 0.52} ${bt} Z" fill="${c}" stroke="${shade(c, 0.7)}" stroke-width="${w * 0.006}"/>` +
+    (tf ? txLines(tf.lines, 0, bt + bh / 2, tf.size, INK, 800) : "");
 }
 
 function briefcase(p) {
@@ -777,11 +829,14 @@ function podium(p) {
   const cols = ["#f2c14e", "#c9ced6", "#d9925a"], at = [0, -1, 1];
   let out = "";
   for (let r = 0; r < 3; r++) {
-    const x = at[r] * unit - unit / 2, h = hs[r], c = cols[r];
+    const x = at[r] * unit - unit / 2, h = hs[r], c = cols[r], ns = Math.min(unit * 0.4, Math.max(READ_PX, Math.min(h * 0.4, unit * 0.4)));
     out += `<rect x="${x}" y="${-h}" width="${unit}" height="${h}" fill="${c}" stroke="${shade(c)}" stroke-width="${w * 0.006}"/>` +
       `<rect x="${x}" y="${-h}" width="${unit}" height="${w * 0.02}" fill="${shade(c, 1.12)}"/>` +
-      tx(String(r + 1), x + unit / 2, -h + Math.min(h * 0.32, unit * 0.32), Math.min(h * 0.4, unit * 0.4), shade(c, 0.55), 800) +
-      (labels[r] ? tx(labels[r], x + unit / 2, -h * 0.22, fit(labels[r], unit * 0.9, unit * 0.15), INK, 800) : "");
+      tx(String(r + 1), x + unit / 2, -h + Math.min(h * 0.32, unit * 0.32), ns, shade(c, 0.55), 800) +
+      (labels[r] ? (() => { const f = readFit(labels[r], unit * 0.9, unit * 0.2, READ_PX, true);       // readable floor; a long name wraps
+        const cy = -Math.max(h * 0.22, f.size * 0.7) - (f.h - f.size) / 2, numLow = -h + Math.min(h * 0.32, unit * 0.32) + ns * 0.4;
+        // no room under the rank number: the name stands on top of its step instead of over the number
+        return txLines(f.lines, x + unit / 2, cy - f.h / 2 >= numLow ? cy : -h - w * 0.012 - f.h / 2 + f.size * 0.15, f.size, INK, 800); })() : "");
   }
   return out;
 }
@@ -955,18 +1010,26 @@ function bands(p) {
 
 function fork(p) {
   const w = p.w || 640, h = w * 0.62, c = p.color || "#2459a6", glow = String(p.glow || ""), sx = -w * 0.08;
+  // every word keeps the readable floor: a long word wraps to two lines and its pill or box grows to hold it
+  const pill = (t, cx, cy, minW, minH, cap, fill, stroke, sw, ink) => {
+    const f = readFit(t, minW * 0.9, cap), bw = Math.max(minW, f.w + f.size * 0.7), bh = Math.max(minH, f.h + f.size * 0.5);
+    return `<rect x="${cx - bw / 2}" y="${cy - bh / 2}" width="${bw}" height="${bh}" rx="${Math.min(bh / 2, h * 0.045)}" fill="${fill}"${stroke ? ` stroke="${stroke}" stroke-width="${sw}"` : ""}/>` +
+      txLines(f.lines, cx, cy, f.size, ink, 800);
+  };
   const branch = (dir, lab, note, res) => {
     const y = dir * h * 0.36, on = !glow || glow === (dir < 0 ? "up" : "down"), col = on ? c : "#b8c0cc", ex = w * 0.3;
-    return `<path d="M${sx} 0 C${sx + w * 0.12} 0 ${sx + w * 0.1} ${y} ${ex - w * 0.02} ${y}" fill="none" stroke="${col}" stroke-width="${w * 0.016}" stroke-linecap="round"/>` +
-      `<path d="M${ex - w * 0.05} ${y - w * 0.03} L${ex} ${y} L${ex - w * 0.05} ${y + w * 0.03}" fill="none" stroke="${col}" stroke-width="${w * 0.016}" stroke-linecap="round" stroke-linejoin="round"/>` +
-      (lab ? `<rect x="${sx + w * 0.05}" y="${y * 0.62 - h * 0.075}" width="${w * 0.2}" height="${h * 0.15}" rx="${h * 0.04}" fill="#ffffff" stroke="${col}" stroke-width="${w * 0.004}"/>` +
-        tx(lab, sx + w * 0.15, y * 0.62, fit(lab, w * 0.18, h * 0.09), on ? INK : "#8a94a3", 800) : "") +
-      (note ? tx(note, sx + w * 0.2, y + (dir < 0 ? -1 : 1) * h * 0.13, fit(note, w * 0.44, h * 0.085), on ? "#4a5568" : "#9aa5b1", 700) : "") +
-      (res ? `<rect x="${ex + w * 0.01}" y="${y - h * 0.09}" width="${w * 0.19}" height="${h * 0.18}" rx="${h * 0.04}" fill="${on ? shade(c, 1.9) : "#eef0f3"}" stroke="${col}" stroke-width="${w * 0.005}"/>` +
-        tx(res, ex + w * 0.105, y, fit(res, w * 0.17, h * 0.085), on ? INK : "#8a94a3", 800) : "");
+    let out = `<path d="M${sx} 0 C${sx + w * 0.12} 0 ${sx + w * 0.1} ${y} ${ex - w * 0.02} ${y}" fill="none" stroke="${col}" stroke-width="${w * 0.016}" stroke-linecap="round"/>` +
+      `<path d="M${ex - w * 0.05} ${y - w * 0.03} L${ex} ${y} L${ex - w * 0.05} ${y + w * 0.03}" fill="none" stroke="${col}" stroke-width="${w * 0.016}" stroke-linecap="round" stroke-linejoin="round"/>`;
+    if (lab) out += pill(lab, sx + w * 0.15, y * 0.62, w * 0.2, h * 0.15, h * 0.09, "#ffffff", col, w * 0.004, on ? INK : "#8a94a3");
+    if (note) { const f = readFit(note, w * 0.44, h * 0.085);
+      out += txLines(f.lines, sx + w * 0.2, y + dir * (h * 0.13 + (f.h - f.size) / 2), f.size, on ? "#4a5568" : "#9aa5b1", 700); }
+    if (res) { const f = readFit(res, w * 0.17, h * 0.085), bw = Math.max(w * 0.19, f.w + f.size * 0.7);
+      out += pill(res, ex + w * 0.01 + bw / 2, y, w * 0.19, h * 0.18, h * 0.085, on ? shade(c, 1.9) : "#eef0f3", col, w * 0.005, on ? INK : "#8a94a3"); }
+    return out;
   };
+  const from = p.from ? readFit(p.from, w * 0.27, h * 0.1) : null, fw = from ? Math.max(w * 0.3, from.w + from.size * 0.7) : 0;
   return `<path d="M${-w * 0.48} 0 L${sx} 0" stroke="${c}" stroke-width="${w * 0.016}" stroke-linecap="round"/>` +
-    (p.from ? `<rect x="${-w * 0.5}" y="${-h * 0.1}" width="${w * 0.3}" height="${h * 0.2}" rx="${h * 0.05}" fill="${c}"/>` + tx(p.from, -w * 0.35, 0, fit(p.from, w * 0.27, h * 0.1), "#ffffff", 800) : "") +
+    (from ? pill(p.from, -w * 0.2 - fw / 2, 0, w * 0.3, h * 0.2, h * 0.1, c, "", 0, "#ffffff") : "") +
     `<circle cx="${sx}" cy="0" r="${w * 0.018}" fill="${c}"/>` + branch(-1, p.up, p.upNote, p.upResult) + branch(1, p.down, p.downNote, p.downResult);
 }
 
@@ -982,13 +1045,19 @@ function gapBars(p) {
     if (y1 < gy0) { x1 = gx + (c - gy0) / 0.5; y1 = gy0; }
     if (x1 > x0) hatch += `<path d="M${x0} ${y0} L${x1} ${y1}" stroke="#e5484d" stroke-width="${w * 0.006}" opacity="0.6"/>`;
   }
+  // a currency sign goes before the number (₹200, not 200₹); other units after it (20%, 5 kg)
+  const withU = (v) => (/^[₹$€£¥]/.test(u) ? inr(`${u}${v}`) : `${v}${u}`);
   const bar = (x, hh, c, l, v) => `<rect x="${x}" y="${-hh}" width="${bw}" height="${hh}" fill="${c}" rx="${w * 0.01}"/>` +
-    (l ? tx(l, x + bw / 2, w * 0.06, fit(l, bw * 1.2, w * 0.06), INK, 800) : "") + (v !== undefined && v !== "" ? tx(`${v}${u}`, x + bw / 2, -hh + w * 0.05, fit(`${v}${u}`, bw * 0.9, w * 0.055), "#ffffff", 800) : "");
-  const gl = p.gap ? `${p.gap}${p.showGap === false ? "" : ` ${+(gap.toFixed(2))}${u}`}` : (p.showGap === false ? "" : `${+(gap.toFixed(2))}${u}`);
+    (l ? tx(l, x + bw / 2, w * 0.06, fit(l, bw * 1.2, w * 0.06), INK, 800) : "") + (v !== undefined && v !== "" ? tx(withU(v), x + bw / 2, -hh + w * 0.05, fit(withU(v), bw * 0.9, w * 0.055), "#ffffff", 800) : "");
+  // a gap name that already carries a number is not followed by the number again
+  const gn = withU(+(gap.toFixed(2))), gl = p.gap ? `${p.gap}${p.showGap === false || /\d/.test(String(p.gap)) ? "" : ` ${gn}`}` : (p.showGap === false ? "" : gn);
+  // the gap's tag: beside the gap when the gap is on the right bar; when it is on the left bar, beside it would cover the
+  // right bar's value (Sloman workers, Nov 2026), so the tag stands just above the gap
+  const tagX = low === "a" ? gx + bw / 2 : gx + bw + w * 0.2, tagY = low === "a" ? gy0 - w * 0.075 : (gy0 + gy1) / 2;
   return `<path d="M${-w * 0.48} 0 L${w * 0.48} 0" stroke="#9aa5b1" stroke-width="${w * 0.006}"/>` + bar(xa, ha, ca, al, av) + bar(xb, hb, cb, bl, bv) +
     (gap ? `<rect x="${gx}" y="${gy0}" width="${bw}" height="${gy1 - gy0}" fill="#ffffff" stroke="#e5484d" stroke-width="${w * 0.008}" stroke-dasharray="${w * 0.02} ${w * 0.012}"/>` + hatch +
-      (gl ? `<rect x="${gx + bw + w * 0.02}" y="${(gy0 + gy1) / 2 - w * 0.045}" width="${w * 0.36}" height="${w * 0.09}" rx="${w * 0.02}" fill="#e5484d"/>` +
-        tx(gl, gx + bw + w * 0.2, (gy0 + gy1) / 2, fit(gl, w * 0.34, w * 0.055), "#ffffff", 800) : "") : "");
+      (gl ? `<rect x="${tagX - w * 0.18}" y="${tagY - w * 0.045}" width="${w * 0.36}" height="${w * 0.09}" rx="${w * 0.02}" fill="#e5484d"/>` +
+        tx(gl, tagX, tagY, fit(gl, w * 0.34, w * 0.055), "#ffffff", 800) : "") : "");
 }
 
 // ---------------------------------------------------------------- diagrams of the 57-video needs list (4 Nov 2026)
@@ -997,11 +1066,57 @@ function gapBars(p) {
 // revealed through steps (upto) and highlighted (at, glow); a graph's curves draw themselves (drawIn seconds).
 export const DIAG = ["#2459a6", "#e5484d", "#2fa35b", "#f29f05", "#7b61ff", "#2a9d8f"];
 export const isNum = (v) => v !== "" && v != null && Number.isFinite(Number(v));
+// Rupees read with Indian commas (Sloman notes, Nov 2026: "₹30000" and "₹100,000" were drawn): every ₹ amount the
+// engine formats goes through inr(), so ₹30000 -> ₹30,000, ₹100000 or ₹100,000 -> ₹1,00,000; decimals stay as given.
+// upto: how many parts are shown so far; 0 (or empty) is all, -1 (or "none") none yet, so a chart can stand empty
+// before its first number is said (Sloman workers, Nov 2026)
+export const uptoOf = (v, n) => { const s = String(v ?? "").trim().toLowerCase();
+  if (s === "none" || (isNum(s) && +s < 0)) return 0; const u = Math.round(Number(s)); return isNum(s) && u > 0 ? Math.min(n, u) : n; };
+export const indianGroup = (ip) => (ip.length > 3 ? ip.slice(0, -3).replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," + ip.slice(-3) : ip);
+export const inr = (s) => String(s ?? "").replace(/₹(\s?)([−-]?)(\d{1,3}(?:,\d{3})+|\d{4,})(?![\d,])/g,
+  (_, sp, sg, n) => `₹${sp}${sg}${indianGroup(n.replace(/,/g, ""))}`);
+
+// compact: a timeline under 250 px tall (a strip under another drawing). Each event is one card, year over label, above
+// or below the axis; close years (1917/1921, 1985/1989/1993) go to the other side, and when both sides are taken the card
+// moves right along the axis with a leader to its dot, so no two cards ever overlap (Sloman workers, Nov 2026).
+function timelineCompact(p, ev, w) {
+  const n = ev.length, upto = uptoOf(p.upto, n), at = Math.round(p.at || 0), x0 = -w * 0.46, x1 = w * 0.44;
+  const nums = ev.every((e) => isNum(e.year)) && n > 1 && !p.even, lo = nums ? Math.min(...ev.map((e) => +e.year)) : 0, hi = nums ? Math.max(...ev.map((e) => +e.year)) : 1;
+  const X = (y, i) => (nums ? x0 + ((+y - lo) / ((hi - lo) || 1)) * (x1 - x0) : n === 1 ? (x0 + x1) / 2 : x0 + (i * (x1 - x0)) / (n - 1));
+  const fs = READ_PX, gap = fs * 0.5, maxW = Math.max(w * 0.14, fs * 5), lead = fs * 0.35;
+  let out = "";
+  parts(p.zones).filter(Boolean).slice(0, 6).forEach((z, k) => {          // zones: a band on the axis (no words: no room)
+    const m = z.match(/^\s*(-?[\d.]+)\s*-\s*(-?[\d.]+)/);
+    if (!m || !nums) return;
+    const a = Math.max(x0, X(+m[1])), b = Math.min(x1 + w * 0.03, X(+m[2]));
+    if (b > a) out += `<rect x="${a}" y="${-fs * 0.18}" width="${b - a}" height="${fs * 0.36}" rx="${fs * 0.1}" fill="${DIAG[k % DIAG.length]}" opacity="0.3"/>`;
+  });
+  out += `<path d="M${x0 - w * 0.02} 0 L${x1 + w * 0.04} 0" stroke="${INK}" stroke-width="${Math.max(3, w * 0.003)}"/><path d="M${x1 + w * 0.025} ${-fs * 0.3} L${x1 + w * 0.045} 0 L${x1 + w * 0.025} ${fs * 0.3}" fill="none" stroke="${INK}" stroke-width="${Math.max(3, w * 0.003)}"/>`;
+  const right = { up: -Infinity, down: -Infinity };
+  ev.forEach((e, i) => {
+    if (i >= upto) return;
+    const x = X(e.year, i), hot = at === i + 1, c = hot ? "#e5484d" : "#2459a6";
+    const fy = readFit(e.year, maxW, fs * 1.05), fl = e.label ? readFit(e.label, maxW, fs) : null;
+    const bw = Math.max(fy.w, fl ? fl.w : 0) + fs * 0.6, bh = fy.h + (fl ? fl.h + fs * 0.15 : 0) + fs * 0.35;
+    // the side whose last card ends left of this one; else the side that needs the smaller move, and the move
+    const need = (side) => Math.max(0, right[side] + gap - (x - bw / 2));
+    const side = need("up") === 0 ? "up" : need("down") === 0 ? "down" : need("up") <= need("down") ? "up" : "down";
+    const cx = x + need(side), top = side === "up" ? -lead - bh : lead;
+    right[side] = cx + bw / 2;
+    out += `<circle cx="${x}" cy="0" r="${hot ? fs * 0.3 : fs * 0.2}" fill="${c}" stroke="#ffffff" stroke-width="2"/>` +
+      `<path d="M${x} 0 L${cx} ${side === "up" ? -lead : lead}" stroke="${c}" stroke-width="2"/>` +
+      `<rect x="${cx - bw / 2}" y="${top}" width="${bw}" height="${bh}" rx="${fs * 0.25}" fill="${hot ? "#fdecec" : "#ffffff"}" stroke="${c}" stroke-width="2"/>` +
+      txLines(fy.lines, cx, top + fs * 0.18 + fy.h / 2, fy.size, hot ? c : INK, 800) +
+      (fl ? txLines(fl.lines, cx, top + fs * 0.18 + fy.h + fs * 0.15 + fl.h / 2, fl.size, INK, 700) : "");
+  });
+  return out + (p.title ? readTx(p.title, 0, -lead - fs * 3.6, w * 0.8, fs * 1.1, INK, 800, -1) : "");
+}
 
 function timeline(p) {
   const w = p.w || 1500, h = w * 0.3, ev = parts(p.events).filter(Boolean).slice(0, 12).map((e) => { const i = e.indexOf(":");
     return i < 0 ? { year: e.trim(), label: "" } : { year: e.slice(0, i).trim(), label: e.slice(i + 1).trim() }; });
-  const n = ev.length, upto = p.upto ? Math.max(0, Math.round(p.upto)) : n, at = Math.round(p.at || 0), x0 = -w * 0.46, x1 = w * 0.44;
+  if (p.compact === true || p.compact === "true") return timelineCompact(p, ev, w);
+  const n = ev.length, upto = uptoOf(p.upto, n), at = Math.round(p.at || 0), x0 = -w * 0.46, x1 = w * 0.44;
   const nums = ev.every((e) => isNum(e.year)) && n > 1 && !p.even, lo = nums ? Math.min(...ev.map((e) => +e.year)) : 0, hi = nums ? Math.max(...ev.map((e) => +e.year)) : 1;
   const X = (y, i) => (nums ? x0 + ((+y - lo) / ((hi - lo) || 1)) * (x1 - x0) : n === 1 ? (x0 + x1) / 2 : x0 + (i * (x1 - x0)) / (n - 1));
   let out = "";
@@ -1011,7 +1126,7 @@ function timeline(p) {
     const a = Math.max(x0, X(+m[1])), b = Math.min(x1 + w * 0.03, X(+m[2])), c = DIAG[k % DIAG.length];
     if (b <= a) return;
     out += `<rect x="${a}" y="${h * 0.2}" width="${b - a}" height="${h * 0.12}" rx="${h * 0.03}" fill="${c}" opacity="0.22"/>` +
-      `<rect x="${a}" y="${h * 0.2}" width="${b - a}" height="${h * 0.025}" fill="${c}"/>` + (m[3] ? tx(m[3].trim(), (a + b) / 2, h * 0.27, fit(m[3].trim(), b - a, h * 0.075), shade(c, 0.7), 800) : "");
+      `<rect x="${a}" y="${h * 0.2}" width="${b - a}" height="${h * 0.025}" fill="${c}"/>` + (m[3] ? readTx(m[3].trim(), (a + b) / 2, h * 0.27, b - a, h * 0.075, shade(c, 0.7), 800, 1) : "");
   });
   out += `<path d="M${x0 - w * 0.02} 0 L${x1 + w * 0.04} 0" stroke="${INK}" stroke-width="${w * 0.004}"/><path d="M${x1 + w * 0.025} ${-h * 0.035} L${x1 + w * 0.045} 0 L${x1 + w * 0.025} ${h * 0.035}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>`;
   const slot = n > 1 ? Math.min(w * 0.2, ((x1 - x0) / (n - 1)) * 1.8) : w * 0.25;
@@ -1019,15 +1134,16 @@ function timeline(p) {
     if (i >= upto) return;
     const x = X(e.year, i), hot = at === i + 1, c = hot ? "#e5484d" : "#2459a6", tier = i % 2 ? -h * 0.5 : -h * 0.24;
     out += `<circle cx="${x}" cy="0" r="${hot ? w * 0.011 : w * 0.007}" fill="${c}" stroke="#ffffff" stroke-width="${w * 0.002}"/>` +
-      tx(e.year, x, h * 0.1, fit(e.year, slot * 0.6, h * 0.075), hot ? c : INK, 800);
+      readTx(e.year, x, h * 0.1, slot * 0.9, h * 0.075, hot ? c : INK, 800, 1);
     if (e.label) {
-      const fs = fit(e.label, slot * 0.95, h * 0.07), bw = Math.min(slot, e.label.length * fs * 0.6 + fs);
-      out += `<path d="M${x} ${-w * 0.008} L${x} ${tier + fs * 0.75}" stroke="${c}" stroke-width="${w * 0.002}"/>` +
-        `<rect x="${x - bw / 2}" y="${tier - fs * 0.75}" width="${bw}" height="${fs * 1.5}" rx="${fs * 0.3}" fill="${hot ? "#fdecec" : "#ffffff"}" stroke="${c}" stroke-width="${w * 0.002}"/>` +
-        tx(e.label, x, tier, fs, INK, 800);
+      // the label wraps to two lines and keeps the 36 px floor (Sloman workers: 29 px at w 1900); its card grows to hold it
+      const f = readFit(e.label, slot * 0.92, h * 0.07), fs = f.size, bw = f.w + fs, bh = f.h + fs * 0.5;
+      out += `<path d="M${x} ${-w * 0.008} L${x} ${tier + bh / 2}" stroke="${c}" stroke-width="${w * 0.002}"/>` +
+        `<rect x="${x - bw / 2}" y="${tier - bh / 2}" width="${bw}" height="${bh}" rx="${fs * 0.3}" fill="${hot ? "#fdecec" : "#ffffff"}" stroke="${c}" stroke-width="${w * 0.002}"/>` +
+        txLines(f.lines, x, tier, fs, INK, 800);
     }
   });
-  return out + (p.title ? tx(p.title, 0, -h * 0.72, fit(p.title, w * 0.8, h * 0.09), INK, 800) : "");
+  return out + (p.title ? readTx(p.title, 0, -h * 0.72, w * 0.8, h * 0.09, INK, 800, -1) : "");
 }
 
 function table(p) {
@@ -1035,7 +1151,7 @@ function table(p) {
   const cells = String(p.cells ?? "").split("|").map((r) => r.split(";").map((c) => c.trim()));
   const nc = Math.max(1, cols.length, ...cells.map((r) => r.length)), nr = Math.max(1, rows.length, cells.length);
   const w = p.w || 900, rowW = rows.some(Boolean) ? w * 0.3 : 0, cw = (w - rowW) / nc, rh = Math.min(w * 0.085, (w * 0.62) / (nr + 1));
-  const H = (nr + 1) * rh, x0 = -w / 2, y0 = -H / 2, upto = p.upto ? Math.max(0, Math.round(p.upto)) : nr;
+  const H = (nr + 1) * rh, x0 = -w / 2, y0 = -H / 2, upto = uptoOf(p.upto, nr);
   const gr = idxSet(p.glowRow), gc = idxSet(p.glowCol), fs = rh * 0.42;
   // fill "c:n;…": column c shows only its first n cells, so a step fills a column cell by cell on the voice
   const fillTo = new Map(String(p.fill ?? "").split(";").map((t) => t.split(":").map((v) => Math.round(Number(v))))
@@ -1086,7 +1202,7 @@ function graph(p) {
   const progAll = drawIn && Number.isFinite(t) ? Math.min(1, t / drawIn) : 1;
   const progStep = drawIn && Number.isFinite(sinceStep) ? Math.min(1, Math.max(0, sinceStep) / drawIn) : 1;
   const progOf = (key) => (grow.size ? (grow.has(key) ? progStep : 1) : progAll);
-  const dashed = idxSet(p.dashed), bold = idxSet(p.bold), fs = h * 0.055;
+  const dashed = idxSet(p.dashed), bold = idxSet(p.bold), fs = Math.max(h * 0.055, READ_PX), tf = Math.max(fs * 0.8, READ_PX);
   const shown = p.show === undefined || p.show === null || String(p.show).trim() === "" ? null : idxSet(p.show);
   const colors = {};
   parts(p.colors).forEach((c) => { const i = c.indexOf(":"); if (i > 0) colors[c.slice(0, i).trim()] = c.slice(i + 1).trim(); });
@@ -1098,35 +1214,48 @@ function graph(p) {
   parts(p.areas).filter(Boolean).slice(0, 6).forEach((ar, k) => {
     const at = ar.lastIndexOf("@"), col = at > 0 && ar.slice(at + 1).trim().startsWith("#") ? ar.slice(at + 1).trim() : AREA[k % AREA.length];
     const body = at > 0 && ar.slice(at + 1).trim().startsWith("#") ? ar.slice(0, at) : ar;
-    const i = body.indexOf(":"), name = i >= 0 ? body.slice(0, i).trim() : "", pts = (i >= 0 ? body.slice(i + 1) : body).trim().split(/\s+/)
+    const i = body.lastIndexOf(":"), name = i >= 0 ? body.slice(0, i).trim() : "", pts = (i >= 0 ? body.slice(i + 1) : body).trim().split(/\s+/)
       .map(xy).filter(ok).map(([a, b]) => [X(a), Y(b)]);
     if (pts.length < 3) return;
     const pr = progOf(`a${k + 1}`);
     const cx = pts.reduce((s2, q) => s2 + q[0], 0) / pts.length, cy = pts.reduce((s2, q) => s2 + q[1], 0) / pts.length;
     out += `<path d="${pts.map((q, j) => `${j ? "L" : "M"}${q[0].toFixed(1)} ${q[1].toFixed(1)}`).join(" ")} Z" fill="${col}" fill-opacity="${(0.42 * pr).toFixed(3)}" stroke="${col}" stroke-width="${w * 0.002}" stroke-opacity="${pr.toFixed(3)}"/>`;
-    if (name && pr >= 1) out += tx(name, cx, cy, fit(name, Math.max(w * 0.08, (Math.max(...pts.map((q) => q[0])) - Math.min(...pts.map((q) => q[0]))) * 0.9), fs * 0.9), INK, 800);
+    if (name && pr >= 1) out += readTx(name, cx, cy, Math.max(w * 0.08, (Math.max(...pts.map((q) => q[0])) - Math.min(...pts.map((q) => q[0]))) * 0.9), fs * 0.9, INK, 800);
   });
   out += `<path d="M${L} ${T - h * 0.03} L${L} ${B} L${R + w * 0.02} ${B}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>` +
     `<path d="M${L - w * 0.012} ${T} L${L} ${T - h * 0.035} L${L + w * 0.012} ${T}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>` +
     `<path d="M${R + w * 0.005} ${B - h * 0.02} L${R + w * 0.025} ${B} L${R + w * 0.005} ${B + h * 0.02}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>`;
   if (ymin < 0 && ymax > 0) out += `<path d="M${L} ${Y(0)} L${R} ${Y(0)}" stroke="#9aa5b1" stroke-width="${w * 0.002}" stroke-dasharray="${w * 0.01} ${w * 0.008}"/>`;
-  const xt = parts(p.xTicks).some(Boolean), yt = parts(p.yTicks).some(Boolean);      // named axis points push the axis names out
-  if (p.xLabel) out += tx(p.xLabel, (L + R) / 2, B + h * (xt ? 0.115 : 0.08), fit(p.xLabel, w * 0.6, fs), INK, 800);
-  if (p.yLabel) out += `<g transform="translate(${L - w * (yt ? 0.1 : 0.05)},${(T + B) / 2}) rotate(-90)">${tx(p.yLabel, 0, 0, fit(p.yLabel, h * 0.7, fs), INK, 800)}</g>`;
-  if (p.ticks) out += tx(String(xmin), L, B + h * 0.035, fs * 0.7, "#4a5568", 700) + tx(String(xmax), R, B + h * 0.035, fs * 0.7, "#4a5568", 700) +
-    tx(String(ymax), L - w * 0.02, T, fs * 0.7, "#4a5568", 700) + (ymin !== 0 ? tx(String(ymin), L - w * 0.02, B, fs * 0.7, "#4a5568", 700) : "");
-  // named points on the axes: "2:Q1;5:Q2" and "4:P1"
-  parts(p.xTicks).filter(Boolean).slice(0, 8).forEach((tk) => { const [v, n] = lab(tk); if (!isNum(v)) return;
-    out += `<path d="M${X(+v)} ${B} L${X(+v)} ${B + h * 0.02}" stroke="${INK}" stroke-width="${w * 0.003}"/>` + (n ? tx(n, X(+v), B + h * 0.045, fit(n, w * 0.1, fs * 0.8), INK, 800) : ""); });
-  parts(p.yTicks).filter(Boolean).slice(0, 8).forEach((tk) => { const [v, n] = lab(tk); if (!isNum(v)) return;
-    out += `<path d="M${L - w * 0.012} ${Y(+v)} L${L} ${Y(+v)}" stroke="${INK}" stroke-width="${w * 0.003}"/>` + (n ? tx(n, L - w * 0.04, Y(+v), fit(n, w * 0.05, fs * 0.8), INK, 800) : ""); });
+  // named points on the axes: "2:Q1;5:Q2" and "4:P1"; their names keep the readable floor (tf), a long x name wraps
+  // under its tick, a y name is right-aligned to its tick and pushes the axis name out (never shrinks)
+  const xTk = parts(p.xTicks).filter(Boolean).slice(0, 8).map(lab).filter(([v]) => isNum(v));
+  const yTk = parts(p.yTicks).filter(Boolean).slice(0, 8).map(lab).filter(([v]) => isNum(v));
+  const xSlot = Math.max(w * 0.1, xTk.length > 1 ? Math.min(...xTk.slice(1).map(([v], j) => Math.abs(X(+v) - X(+xTk[j][0])))) * 0.92 : w * 0.2);
+  const xFits = xTk.map(([, n]) => (n ? readFit(n, xSlot, tf) : null)), yFits = yTk.map(([, n]) => (n ? readFit(n, w * 0.16, tf) : null));
+  const xTop = B + Math.max(h * 0.026, h * 0.02 + tf * 0.12), xBlock = Math.max(0, ...xFits.map((f) => (f ? f.h : 0)));
+  const yRight = L - w * 0.018, yBlock = Math.max(0, ...yFits.map((f) => (f ? f.w : 0)));
+  const short = p.yLabel && textW(p.yLabel, fs) <= fs * 2.4;            // "₹", "P", "₹/kg": drawn upright, not as a sideways glyph
+  if (p.xLabel) { const f = readFit(p.xLabel, w * 0.75, fs);
+    out += txLines(f.lines, (L + R) / 2, Math.max(B + h * 0.08, xBlock ? xTop + xBlock + h * 0.012 + f.h / 2 : 0), f.size, INK, 800); }
+  if (p.yLabel) { const f = readFit(p.yLabel, h * 0.8, fs), edge = yBlock ? yRight - yBlock - w * 0.02 : L - w * 0.02;
+    out += short ? txLines(f.lines, Math.min(L - w * 0.05, edge - f.w / 2), (T + B) / 2, f.size, INK, 800)
+      : `<g transform="translate(${Math.min(L - w * 0.05, edge - f.h / 2)},${(T + B) / 2}) rotate(-90)">${txLines(f.lines, 0, 0, f.size, INK, 800)}</g>`; }
+  if (p.ticks) { const tn = Math.max(fs * 0.7, READ_PX), yT = (v, y) => tx(String(v), yRight - textW(String(v), tn) / 2, y, tn, "#4a5568", 700);
+    out += tx(String(xmin), L, B + h * 0.02 + tn * 0.6, tn, "#4a5568", 700) + tx(String(xmax), R, B + h * 0.02 + tn * 0.6, tn, "#4a5568", 700) +
+      yT(ymax, T) + (ymin !== 0 ? yT(ymin, B) : ""); }
+  xTk.forEach(([v, n], j) => {
+    out += `<path d="M${X(+v)} ${B} L${X(+v)} ${B + h * 0.02}" stroke="${INK}" stroke-width="${w * 0.003}"/>`;
+    if (n) { const f = xFits[j]; out += txLines(f.lines, X(+v), xTop + f.h / 2, f.size, INK, 800); } });
+  yTk.forEach(([v, n], j) => {
+    out += `<path d="M${L - w * 0.012} ${Y(+v)} L${L} ${Y(+v)}" stroke="${INK}" stroke-width="${w * 0.003}"/>`;
+    if (n) { const f = yFits[j]; out += txLines(f.lines, yRight - f.w / 2, Y(+v), f.size, INK, 800); } });
   // price ceilings and floors, and fixed quantities: "6:न्यूनतम मूल्य" (y) and "4:quota" (x)
   parts(p.hlines).filter(Boolean).slice(0, 4).forEach((hl) => { const [v, n] = lab(hl); if (!isNum(v)) return;
     out += `<path d="M${L} ${Y(+v)} L${R} ${Y(+v)}" stroke="#c0392b" stroke-width="${w * 0.004}" stroke-dasharray="${w * 0.014} ${w * 0.008}"/>` +
-      (n ? tx(n, R - w * 0.12, Y(+v) - h * 0.035, fit(n, w * 0.22, fs * 0.85), "#c0392b", 800) : ""); });
+      (n ? (() => { const f = readFit(n, w * 0.22, fs * 0.85); return txLines(f.lines, R - w * 0.12, Y(+v) - h * 0.012 - f.h / 2, f.size, "#c0392b", 800); })() : ""); });
   parts(p.vlines).filter(Boolean).slice(0, 4).forEach((vl) => { const [v, n] = lab(vl); if (!isNum(v)) return;
     out += `<path d="M${X(+v)} ${T} L${X(+v)} ${B}" stroke="#7b61ff" stroke-width="${w * 0.004}" stroke-dasharray="${w * 0.014} ${w * 0.008}"/>` +
-      (n ? tx(n, X(+v), T + h * 0.02, fit(n, w * 0.2, fs * 0.85), "#7b61ff", 800) : ""); });
+      (n ? (() => { const f = readFit(n, w * 0.2, fs * 0.85); return txLines(f.lines, X(+v), T + h * 0.02 + (f.h - f.size) / 2, f.size, "#7b61ff", 800); })() : ""); });
   // a curve that moves on the cue word: "2:-2,0" slides line 2 from 2 units left into place; morph "2:1,9 9,1" reshapes
   // line 2 from those points into its own (a pivot, a new slope); both over glide seconds after the step (_s)
   const gl = Math.max(0.1, Number(p.glide) || 1.2);
@@ -1139,7 +1268,7 @@ function graph(p) {
   const linePts = {};                          // data points of each drawn line (after slide and morph), for "along"
   parts(p.lines).filter(Boolean).slice(0, 6).forEach((ln, k) => {
     if (shown && !shown.has(k + 1)) return;
-    const i = ln.indexOf(":"), name = i >= 0 ? ln.slice(0, i).trim() : "";
+    const i = ln.lastIndexOf(":"), name = i >= 0 ? ln.slice(0, i).trim() : "";
     let dpts = (i >= 0 ? ln.slice(i + 1) : ln).trim().split(/\s+/).map(xy).filter(ok);
     if (dpts.length < 2) return;
     const key = String(k + 1);
@@ -1154,7 +1283,9 @@ function graph(p) {
     const c = colors[String(k + 1)] || DIAG[k % DIAG.length], d = p.smooth === false ? pts.map((q, j) => `${j ? "L" : "M"}${q[0].toFixed(1)} ${q[1].toFixed(1)}`).join(" ") : smoothPath(pts);
     const sw = w * (bold.has(k + 1) ? 0.012 : 0.007);
     out += `<path d="${d}" fill="none" stroke="${c}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="${dashed.has(k + 1) ? "0.02 0.015" : `${prog} 1`}"${dashed.has(k + 1) && prog < 1 ? ` opacity="${prog}"` : ""}/>`;
-    if (name && prog >= 1) { const [ex, ey] = pts[pts.length - 1]; out += tx(name, Math.min(R, ex + w * 0.03), ey - h * 0.04, fit(name, w * 0.16, fs), c, 800); }
+    if (name && prog >= 1) {                     // a long name wraps to two lines; still too wide: it starts at the line's end
+      const [ex, ey] = pts[pts.length - 1], f = readFit(name, w * 0.16, fs), cy = ey - h * 0.04 - (f.h - f.size) / 2;
+      out += txLines(f.lines, f.w <= w * 0.16 + 0.5 ? Math.min(R, ex + w * 0.03) : Math.max(Math.min(R, ex + w * 0.03), ex + w * 0.012 + f.w / 2), cy, f.size, c, 800); }
   });
   // shifts: "3,5>6,5:माँग बढ़ी"
   parts(p.arrows).filter(Boolean).slice(0, 4).forEach((ar) => { const [body, n] = lab(ar), [a, b2] = body.split(">");
@@ -1162,18 +1293,18 @@ function graph(p) {
     const x1 = X(p1[0]), y1 = Y(p1[1]), x2 = X(p2[0]), y2 = Y(p2[1]), ang = Math.atan2(y2 - y1, x2 - x1), hl = w * 0.028;
     out += `<path d="M${x1} ${y1} L${x2} ${y2}" stroke="#e76f51" stroke-width="${w * 0.008}" stroke-linecap="round"/>` +
       `<path d="M${x2 - hl * Math.cos(ang - 0.45)} ${y2 - hl * Math.sin(ang - 0.45)} L${x2} ${y2} L${x2 - hl * Math.cos(ang + 0.45)} ${y2 - hl * Math.sin(ang + 0.45)}" fill="none" stroke="#e76f51" stroke-width="${w * 0.008}" stroke-linecap="round" stroke-linejoin="round"/>` +
-      (n ? tx(n, (x1 + x2) / 2, Math.min(y1, y2) - h * 0.045, fit(n, w * 0.3, fs * 0.85), "#e76f51", 800) : ""); });
+      readTx(n, (x1 + x2) / 2, Math.min(y1, y2) - h * 0.045, w * 0.3, fs * 0.85, "#e76f51", 800, -1); });
   // shortages and surpluses: "3,7@4:कमी (shortage)"
   parts(p.gaps).filter(Boolean).slice(0, 3).forEach((gp) => { const [body, n] = lab(gp), [xs, yv] = body.split("@"); if (!xs || !isNum(yv)) return;
     const [a, b2] = xy(xs); if (![a, b2].every(Number.isFinite)) return;
     const x1 = X(Math.min(a, b2)), x2 = X(Math.max(a, b2)), y = Y(+yv), tk = h * 0.025;
     out += `<path d="M${x1} ${y - tk} L${x1} ${y + tk} M${x1} ${y} L${x2} ${y} M${x2} ${y - tk} L${x2} ${y + tk}" stroke="#d62828" stroke-width="${w * 0.006}" stroke-linecap="round"/>` +
-      (n ? tx(n, (x1 + x2) / 2, y + h * 0.055, fit(n, Math.max(w * 0.12, x2 - x1), fs * 0.85), "#d62828", 800) : ""); });
+      readTx(n, (x1 + x2) / 2, y + h * 0.055, Math.max(w * 0.12, x2 - x1), fs * 0.85, "#d62828", 800, 1); });
   // plain dashed segments: a chord, a tangent, a reading line "x1,y1>x2,y2:label"
   parts(p.segs).filter(Boolean).slice(0, 6).forEach((sg) => { const [body, n] = lab(sg), [a, b2] = body.split(">");
     if (!a || !b2) return; const p1 = xy(a), p2 = xy(b2); if (!ok(p1) || !ok(p2)) return;
     out += `<path d="M${X(p1[0])} ${Y(p1[1])} L${X(p2[0])} ${Y(p2[1])}" stroke="#5c677d" stroke-width="${w * 0.004}" stroke-dasharray="${w * 0.012} ${w * 0.008}"/>` +
-      (n ? tx(n, (X(p1[0]) + X(p2[0])) / 2, (Y(p1[1]) + Y(p2[1])) / 2 - h * 0.04, fit(n, w * 0.22, fs * 0.8), "#5c677d", 800) : ""); });
+      readTx(n, (X(p1[0]) + X(p2[0])) / 2, (Y(p1[1]) + Y(p2[1])) / 2 - h * 0.04, w * 0.22, fs * 0.8, "#5c677d", 800, -1); });
   // a lettered adjustment path "x,y:a;x,y:b;x,y:c": points joined by arrows, pathUpto reveals the first n points
   const pathPts = parts(p.path).filter(Boolean).slice(0, 8).map((pp) => { const [body, n] = lab(pp); const q = xy(body); return ok(q) ? [X(q[0]), Y(q[1]), n] : null; }).filter(Boolean);
   const upto = isNum(p.pathUpto) ? Math.max(0, Math.min(pathPts.length, Math.round(+p.pathUpto))) : pathPts.length;
@@ -1181,7 +1312,7 @@ function graph(p) {
     if (j > 0) { const [x0, y0] = pathPts[j - 1], ang = Math.atan2(y - y0, x - x0), hl = w * 0.022, ex = x - Math.cos(ang) * w * 0.012, ey = y - Math.sin(ang) * w * 0.012;
       out += `<path d="M${x0} ${y0} L${ex} ${ey}" stroke="#7b2cbf" stroke-width="${w * 0.006}" stroke-linecap="round"/>` +
         `<path d="M${ex - hl * Math.cos(ang - 0.45)} ${ey - hl * Math.sin(ang - 0.45)} L${ex} ${ey} L${ex - hl * Math.cos(ang + 0.45)} ${ey - hl * Math.sin(ang + 0.45)}" fill="none" stroke="#7b2cbf" stroke-width="${w * 0.006}" stroke-linecap="round" stroke-linejoin="round"/>`; }
-    out += `<circle cx="${x}" cy="${y}" r="${w * 0.011}" fill="#7b2cbf"/>` + (n ? tx(n, x - w * 0.03, y - h * 0.045, fit(n, w * 0.08, fs), "#7b2cbf", 800) : "");
+    out += `<circle cx="${x}" cy="${y}" r="${w * 0.011}" fill="#7b2cbf"/>` + readTx(n, x - w * 0.03, y - h * 0.045, w * 0.08, fs, "#7b2cbf", 800, -1);
   });
   // a point on a curve "2@0.4:E" (a fraction along line 2's points), gliding along the curve from "2@0.1" after the step;
   // {x} and {y} in its label read the point's values live
@@ -1194,7 +1325,7 @@ function graph(p) {
     const [dx, dy] = at(ff), x = X(dx), y = Y(dy);
     const nm = (n || "").replace("{x}", _num(dx)).replace("{y}", _num(dy));
     out += (p.drop === false ? "" : `<path d="M${x} ${y} L${x} ${B} M${x} ${y} L${L} ${y}" stroke="#4a5568" stroke-width="${w * 0.0025}" stroke-dasharray="${w * 0.008} ${w * 0.006}"/>`) +
-      `<circle cx="${x}" cy="${y}" r="${w * 0.012}" fill="#e63946" stroke="#ffffff" stroke-width="${w * 0.003}"/>` + (nm ? tx(nm, x + w * 0.05, y - h * 0.055, fit(nm, w * 0.24, fs), "#e63946", 800) : "");
+      `<circle cx="${x}" cy="${y}" r="${w * 0.012}" fill="#e63946" stroke="#ffffff" stroke-width="${w * 0.003}"/>` + readTx(nm, x + w * 0.05, y - h * 0.055, w * 0.24, fs, "#e63946", 800, -1);
   });
   if (progAll >= 1 || grow.size) parts(p.dots).filter(Boolean).slice(0, 6).forEach((dt) => {
     const [body, n] = lab(dt), [to, from] = body.split("<"), q = xy(to);
@@ -1204,9 +1335,9 @@ function graph(p) {
       a = f[0] + (a - f[0]) * e; b2 = f[1] + (b2 - f[1]) * e; }
     const x = X(a), y = Y(b2);
     out += (p.drop === false ? "" : `<path d="M${x} ${y} L${x} ${B} M${x} ${y} L${L} ${y}" stroke="#4a5568" stroke-width="${w * 0.0025}" stroke-dasharray="${w * 0.008} ${w * 0.006}"/>`) +
-      `<circle cx="${x}" cy="${y}" r="${w * 0.009}" fill="${INK}" stroke="#ffffff" stroke-width="${w * 0.002}"/>` + (n ? tx(n, x + w * 0.04, y - h * 0.05, fit(n, w * 0.2, fs), INK, 800) : "");
+      `<circle cx="${x}" cy="${y}" r="${w * 0.009}" fill="${INK}" stroke="#ffffff" stroke-width="${w * 0.002}"/>` + (n ? (() => { const f = readFit(n, w * 0.2, fs); return txLines(f.lines, Math.max(x + w * 0.04, x + w * 0.02 + f.w / 2), y - h * 0.05 - (f.h - f.size) / 2, f.size, INK, 800); })() : "");
   });
-  return out + (p.title ? tx(p.title, 0, T - h * 0.07, fit(p.title, w * 0.8, fs * 1.2), INK, 800) : "");
+  return out + (p.title ? (() => { const f = readFit(p.title, w * 0.8, fs * 1.2); return txLines(f.lines, 0, T - h * 0.07 - (f.h - f.size) / 2, f.size, INK, 800); })() : "");
 }
 const _num = (v) => (Math.abs(v - Math.round(v)) < 0.05 ? String(Math.round(v)) : v.toFixed(1));
 export const easeIO = (x) => (x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2);

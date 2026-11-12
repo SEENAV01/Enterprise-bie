@@ -76,6 +76,17 @@ function unitOf(u) {
   return m ? [m[1], m[2] ? " " + m[2] : ""] : ["", u === "%" ? "%" : " " + u];
 }
 const money = (v, u, dp) => { const [a, b] = unitOf(u); return a + fmt(v, dp) + b; };
+// decimals as the plan wrote them (Sloman ch12/13: ₹100.50, ₹1.50, ₹16.20 were drawn as ₹101, ₹1.5, ₹16.2): decOf counts
+// the given decimals, fmtKeep / moneyKeep show exactly that many (with Indian grouping); dp 0 falls back to fmt / money.
+const decOf = (v) => { const m = String(v ?? "").replace(/,/g, "").match(/[-−]?\d*\.(\d+)/); return m ? Math.min(4, m[1].length) : 0; };
+function fmtKeep(v, dp) {
+  if (!Number.isFinite(v)) return "";
+  if (!dp) return fmt(v);
+  const [i, d] = Math.abs(v).toFixed(dp).split(".");
+  return (v < 0 && Number(Math.abs(v).toFixed(dp)) !== 0 ? "−" : "") + group(i) + "." + d;
+}
+const moneyKeep = (v, u, dp) => { if (!dp) return money(v, u); const [a, b] = unitOf(u); return a + fmtKeep(v, dp) + b; };
+const numIn = (v, d) => { const n = Number(String(v ?? "").replace(/[₹$€£¥,\s]/g, "").replace("−", "-")); return String(v ?? "").trim() !== "" && Number.isFinite(n) ? n : d; };
 // "label:value" items; the value may glide from an old one: "label:70<80"
 function items(v, max = 8) {
   return list(v).slice(0, max).map((s) => {
@@ -456,9 +467,13 @@ function timeValue(p) {
   const P = clampInt(num(p.periods, 3), 1, 60), slots = parts(p.slots), now = clampInt(num(p.now, 0), 0, P), fwd = p.dir === "forward";
   const rates = list(p.rate).map(Number).filter(Number.isFinite).slice(0, 3);
   if (!rates.length) rates.push(0.1);
-  const dGiven = isNum(p.d) ? clamp01(+p.d) : null, b = isNum(p.b) ? clamp01(+p.b) : 1;
+  // d: one discount factor, or one per lane (0.9;0.8): a lane per factor, its label d = 0.9 unless laneLabels names it
+  const dList = list(p.d).map((x) => Number(x)).filter(Number.isFinite).map(clamp01).slice(0, 3);
+  while (dList.length > 1 && rates.length < dList.length) rates.push(rates[rates.length - 1]);
+  const dGiven = dList.length ? dList[0] : null, dLane = (li) => (dList.length ? dList[Math.min(li, dList.length - 1)] : null), b = isNum(p.b) ? clamp01(+p.b) : 1;
   const amts = list(p.amounts).slice(0, 6).map((a) => { const i = a.lastIndexOf(":"), lab = i >= 0 ? a.slice(0, i).trim() : "", body = i >= 0 ? a.slice(i + 1) : a;
-    const [v, at2] = body.split("@").map((x) => x.trim()); return { lab, v: num(v, 0), at: clampInt(num(at2, fwd ? 0 : P), 0, P) }; });
+    const [v, at2] = body.split("@").map((x) => x.trim()); return { lab, v: numIn(v, 0), dp: decOf(v), at: clampInt(num(at2, fwd ? 0 : P), 0, P) }; });
+  const dpAll = Math.max(0, ...amts.map((a) => a.dp), decOf(p.cost)), mk = (v, dp) => moneyKeep(v, unit, dp);
   const travel = clampInt(num(p.travel, 0), 0, amts.length), newest = travel - 1, e = easeIO(prog(s, g));
   const x0 = -w * 0.36, x1 = w * 0.42, X = (i) => x0 + (i * (x1 - x0)) / P, nl = rates.length, laneH = nl > 1 ? w * 0.13 : w * 0.17;
   const axisY = (nl * laneH) / 2 + fs * 0.4, top = Math.max(1e-9, ...amts.map((a) => Math.abs(a.v))), target = fwd ? P : now;
@@ -482,16 +497,23 @@ function timeValue(p) {
   }
   let total = 0;
   rates.forEach((r, li) => {
-    const d = dGiven ?? 1 / (1 + r), laneY = -axisY + fs * 0.6 + (li + 0.5) * laneH + (nl > 1 ? 0 : laneH * 0.1), coinY = laneY + laneH * 0.22;
+    const d = dLane(li) ?? 1 / (1 + r), laneY = -axisY + fs * 0.6 + (li + 0.5) * laneH + (nl > 1 ? 0 : laneH * 0.1), coinY = laneY + laneH * 0.22;
     if (nl > 1) out += `<path d="M${r1(x0)} ${r1(coinY)} L${r1(x1)} ${r1(coinY)}" stroke="${C.dim}" stroke-width="${r1(w * 0.003)}" stroke-dasharray="${r1(w * 0.008)} ${r1(w * 0.008)}"/>` +
-      T(list(p.laneLabels)[li] || `${fmt(r * 100, 2)}%`, x0 - w * 0.05, coinY, fs, C.blue, 800, "end");
+      T(list(p.laneLabels)[li] || (dList.length > 1 ? `d = ${fmt(d, 3)}` : `${fmt(r * 100, 2)}%`), x0 - w * 0.05, coinY, fs, C.blue, 800, "end");
     const factor = (dist, part) => (fwd ? (1 + r) ** (dist * part) : d ** (dist * part) * (dist > 0 ? b ** part : 1));
     let arrived = 0, row = 0;
     amts.forEach((a, k) => {
       const dist = Math.abs(target - a.at), moving = k === newest ? e : k < travel ? 1 : 0, x = lerp(X(a.at), X(target), moving);
-      const v = a.v * factor(dist, moving), neg = v < 0, txt = [a.lab, money(v, unit)].filter(Boolean).join(" ");
+      const v = a.v * factor(dist, moving), neg = v < 0, txt = [a.lab, mk(v, a.dp)].filter(Boolean).join(" ");
       let rad = Math.max(w * 0.008, Math.sqrt(Math.abs(v) / top) * laneH * 0.26), y = coinY;
       if (moving >= 1) arrived += v;
+      // the amount that left stays as a faded ghost at its own slot (ch12: "₹100 in 30 years" vanished once it travelled,
+      // so the picture showed only ₹41 / ₹6 with nothing to compare them to); ghost: false turns it off
+      if (moving > 0 && dist > 1 && p.ghost !== false && li === 0 && amts.length === 1) {   // one amount: its ghost has room
+        const g0 = a.v, gt = [a.lab, mk(g0, a.dp)].filter(Boolean).join(" "), gr = Math.max(w * 0.008, Math.min(Math.sqrt(Math.abs(g0) / top) * laneH * 0.26, fs * 0.8));
+        out += `<g opacity="0.5"><circle cx="${r1(X(a.at))}" cy="${r1(coinY)}" r="${r1(gr)}" fill="none" stroke="#c99a2e" stroke-width="${r1(w * 0.003)}" stroke-dasharray="${r1(w * 0.006)} ${r1(w * 0.004)}"/>` +
+          pill(gt, X(a.at), coinY - gr - fs * 0.95, fs, { stroke: "#c99a2e", color: INK }) + `</g>`;
+      }
       if (moving >= 1 && nl === 1 && travel > 1) {           // arrived amounts stack up at their end slot, one row each
         rad = Math.min(rad, fs * 0.7); y = coinY - row * fs * 1.65; row++;
         out += `<circle cx="${r1(x)}" cy="${r1(y)}" r="${r1(rad)}" fill="${neg ? "#f6b5b7" : "#f2c14e"}" stroke="${neg ? C.red : "#c99a2e"}" stroke-width="${r1(w * 0.003)}"/>` +
@@ -504,10 +526,10 @@ function timeValue(p) {
     total += arrived;
   });
   // under the end slot: the cost paid today and the sum (or the net), judged
-  const cost = isNum(p.cost) ? Math.abs(+p.cost) : null, ux = X(target);
-  if (cost != null && !fwd) out += pill(`${p.costLabel ? p.costLabel + " " : ""}${money(-cost, unit)}`, ux, axisY + fs * 2.65, fs, { fill: "#fdeeee", stroke: C.red, color: shade(C.red, 0.7) });
+  const cost = isNum(String(p.cost ?? "").replace(/,/g, "")) ? Math.abs(numIn(p.cost, 0)) : null, ux = X(target);
+  if (cost != null && !fwd) out += pill(`${p.costLabel ? p.costLabel + " " : ""}${mk(-cost, dpAll)}`, ux, axisY + fs * 2.65, fs, { fill: "#fdeeee", stroke: C.red, color: shade(C.red, 0.7) });
   if (p.sum && travel && nl === 1) {
-    const net = p.net && cost != null, val = net ? total - cost : total, txt = `${p.sumLabel ? p.sumLabel + " " : "Σ "}${money(val, unit)}`, sy = axisY + fs * (cost != null && !fwd ? 4.4 : 2.65);
+    const net = p.net && cost != null, val = net ? total - cost : total, txt = `${p.sumLabel ? p.sumLabel + " " : "Σ "}${mk(val, dpAll)}`, sy = axisY + fs * (cost != null && !fwd ? 4.4 : 2.65);
     out += pill(txt, ux, sy, fs * 1.05, { fill: net && val < 0 ? C.red : C.teal, color: "#ffffff" });
     if (cost != null && p.judge !== false && travel >= amts.length && e >= 1) out += ((net ? val >= 0 : total >= cost) ? tickMark : crossMark)(ux + pillW(txt, fs * 1.05) / 2 + fs * 0.9, sy, fs * 0.6);
   }
@@ -523,22 +545,23 @@ function gambleTree(p) {
   const w = num(p.w, 1400), h = w * 0.55, fs = w * 0.026, unit = p.unit ?? "", s = since(p), g = Math.max(0.2, num(p.glide, 1.5)), e = easeIO(prog(s, g));
   const parseP = (v) => { v = String(v ?? "").trim(); const m = v.match(/^(-?[\d.]+)\s*\/\s*([\d.]+)$/); if (m) return +m[1] / (+m[2] || 1);
     if (v.endsWith("%")) return num(v.slice(0, -1), 0) / 100; return num(v, 0); };
-  const br = list(p.branches).slice(0, 4).map((b) => { const [l, pp, o] = b.split(":").map((x) => (x ?? "").trim()); return { l, ptxt: pp, p: parseP(pp), o: num(o, 0) }; });
+  const br = list(p.branches).slice(0, 4).map((b) => { const [l, pp, o] = b.split(":").map((x) => (x ?? "").trim()); return { l, ptxt: pp, p: parseP(pp), o: numIn(o, 0), dp: decOf(o) }; });
   if (!br.length) br.push({ l: "", ptxt: "1/2", p: 0.5, o: 100 }, { l: "", ptxt: "1/2", p: 0.5, o: 0 });
   const sure = String(p.sure ?? "").trim(), [sl, sv] = sure.includes(":") ? sure.split(":").map((x) => x.trim()) : ["", sure];
   const glow = num(p.glow, 0), n = br.length, ev = br.reduce((a, b) => a + b.p * b.o, 0);
+  const dp = Math.max(0, ...br.map((b) => b.dp || 0), decOf(sv)), mk = (v) => moneyKeep(v, unit, dp), fk = (v) => (dp ? fmtKeep(v, dp) : fmt(v));
   const rx = -w * 0.38, ex = -w * 0.06, ys = br.map((_, i) => (n === 1 ? 0 : -h * 0.4 + (i * h * 0.8) / (n - 1)) - (sure ? h * 0.08 : 0));
-  const outTxt = br.map((b) => [b.l, money(b.o, unit)].filter(Boolean).join(" ")), ox = ex + fs * 0.4;
+  const outTxt = br.map((b) => [b.l, moneyKeep(b.o, unit, b.dp)].filter(Boolean).join(" ")), ox = ex + fs * 0.4;
   const termX = ox + Math.max(...outTxt.map((t2) => pillW(t2, fs * 1.05))) + fs * 1.2;
-  const termTxt = br.map((b) => `${fmt(b.p, 3)} × ${fmt(b.o)} = ${fmt(b.p * b.o)}`), termW = Math.max(...termTxt.map((t2) => tw(t2, fs)));
-  const evTxt = `${p.evLabel ? p.evLabel + " " : "EV "}${money(ev, unit)}`, evX = Math.max(w * 0.4, termX + termW + fs * 1.5 + pillW(evTxt, fs * 1.15) / 2);
+  const termTxt = br.map((b) => `${fmt(b.p, 3)} × ${b.dp ? fmtKeep(b.o, b.dp) : fmt(b.o)} = ${fk(b.p * b.o)}`), termW = Math.max(...termTxt.map((t2) => tw(t2, fs)));
+  const evTxt = `${p.evLabel ? p.evLabel + " " : "EV "}${mk(ev)}`, evX = Math.max(w * 0.4, termX + termW + fs * 1.5 + pillW(evTxt, fs * 1.15) / 2);
   let out = "";
   if (sure) {
     const y = h * 0.47;
     out += `<rect x="${r1(rx - w * 0.1)}" y="${r1(-w * 0.025)}" width="${r1(w * 0.05)}" height="${r1(w * 0.05)}" fill="#2d3748"/>` +
       `<path d="M${r1(rx - w * 0.075)} ${r1(w * 0.025)} L${r1(rx - w * 0.075)} ${r1(y)} L${r1(ex)} ${r1(y)}" fill="none" stroke="${C.money}" stroke-width="${r1(w * 0.006)}" stroke-dasharray="${r1(w * 0.014)} ${r1(w * 0.008)}"/>` +
       `<path d="M${r1(rx - w * 0.05)} 0 L${r1(rx)} 0" stroke="${C.blue}" stroke-width="${r1(w * 0.006)}"/>` +
-      pill([sl, isNum(sv) ? money(+sv, unit) : sv].filter(Boolean).join(" "), ox, y, fs * 1.05, { anchor: "start", fill: "#e9f6ee", stroke: C.money, color: shade(C.money, 0.6) });
+      pill([sl, isNum(String(sv).replace(/,/g, "")) ? mk(numIn(sv, 0)) : sv].filter(Boolean).join(" "), ox, y, fs * 1.05, { anchor: "start", fill: "#e9f6ee", stroke: C.money, color: shade(C.money, 0.6) });
   }
   out += `<circle cx="${r1(rx)}" cy="0" r="${r1(w * 0.022)}" fill="${C.blue}"/>`;
   br.forEach((b, i) => {
@@ -1094,7 +1117,8 @@ function road(p) {
 // bubbles carrying the belief (price up, prices down, a growing factory, a rupee) pop up across a growing share of the
 // crowd over spread seconds. mode "herd": people walk towards a stall and its price tag rises as the crowd there grows.
 function agents(p) {
-  const w = num(p.w, 1400), h = w * 0.55, fs = w * 0.028, s = since(p), t = tnum(p._t), n = clampInt(num(p.n, 24), 1, 60), mode = ["belief", "herd"].includes(p.mode) ? p.mode : "merge";
+  // fs: the words keep the readable floor (36 px at s 1): on a notes picture the crowd came out with 28 px labels (ch20)
+  const w = num(p.w, 1400), h = w * 0.55, fs = Math.max(36, w * 0.028), s = since(p), t = tnum(p._t), n = clampInt(num(p.n, 24), 1, 60), mode = ["belief", "herd"].includes(p.mode) ? p.mode : "merge";
   const cols = Math.ceil(Math.sqrt(n * 2)), rows = Math.ceil(n / cols), cell = Math.min((w * 0.8) / cols, (h * 0.75) / rows), ps = cell * 0.8, firms = p.kinds === "firms";
   let out = "";
   const grid = (i) => [-((cols - 1) * cell) / 2 + (i % cols) * cell, -((rows - 1) * cell) / 2 + Math.floor(i / cols) * cell + cell * 0.45];
