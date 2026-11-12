@@ -119,6 +119,7 @@ KAR_VERB = re.compile(
 # "दो" after कर is also "two" (कर दो प्रकार के होते हैं): followed by a counted noun it is the number, not the verb.
 _TWO_NOUNS = {"प्रकार", "तरह", "किस्म", "क़िस्म", "तरीके", "तरीक़े", "रूप", "हिस्से", "हिस्सों", "स्तर", "स्तरों", "भाग", "भागों", "चीज़ें", "चीजें",
               "दर", "दरें", "देश", "देशों", "साल", "बार"}
+_KAR_SKIP = {"नहीं", "न", "भी", "ही", "तो"}
 PUNCT = "।॥?!,.;:…\"'“”‘’()[]{}-–—"
 
 
@@ -192,6 +193,8 @@ def _verb_at(toks: list, i: int, tag: str) -> bool:
     if tag == "कर":
         if nxt == "दो" and i + 2 < len(toks) and _clean(toks[i + 2]) in _TWO_NOUNS:
             return False
+        if nxt in _KAR_SKIP and i + 2 < len(toks):  # कर नहीं सकती, कर भी देगी, कर ही लेंगे
+            nxt = _clean(toks[i + 2])
         return bool(KAR_VERB.match(nxt))
     return nxt in VERB_TAGS.get(tag, ())
 
