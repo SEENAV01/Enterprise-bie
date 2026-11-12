@@ -1037,6 +1037,9 @@ function table(p) {
   const w = p.w || 900, rowW = rows.some(Boolean) ? w * 0.3 : 0, cw = (w - rowW) / nc, rh = Math.min(w * 0.085, (w * 0.62) / (nr + 1));
   const H = (nr + 1) * rh, x0 = -w / 2, y0 = -H / 2, upto = p.upto ? Math.max(0, Math.round(p.upto)) : nr;
   const gr = idxSet(p.glowRow), gc = idxSet(p.glowCol), fs = rh * 0.42;
+  // fill "c:n;…": column c shows only its first n cells, so a step fills a column cell by cell on the voice
+  const fillTo = new Map(String(p.fill ?? "").split(";").map((t) => t.split(":").map((v) => Math.round(Number(v))))
+    .filter(([c, n]) => Number.isFinite(c) && Number.isFinite(n)));
   let out = `<rect x="${x0}" y="${y0}" width="${w}" height="${rh}" fill="#2d3748" rx="${rh * 0.15}"/>`;
   cols.forEach((c, j) => { if (c) out += tx(c, x0 + rowW + (j + 0.5) * cw, y0 + rh / 2, fit(c, cw * 0.9, fs), "#ffffff", 800); });
   if (p.corner) out += tx(p.corner, x0 + rowW / 2, y0 + rh / 2, fit(p.corner, rowW * 0.9, fs), "#ffffff", 800);
@@ -1046,7 +1049,7 @@ function table(p) {
     if (!shown) continue;
     if (rows[i]) out += tx(rows[i], x0 + rowW / 2, y + rh / 2, fit(rows[i], rowW * 0.92, fs), INK, 800);
     for (let j = 0; j < nc; j++) {
-      const v = (cells[i] || [])[j] || "", cx = x0 + rowW + (j + 0.5) * cw, cy = y + rh / 2;
+      const v = fillTo.has(j + 1) && i >= fillTo.get(j + 1) ? "" : (cells[i] || [])[j] || "", cx = x0 + rowW + (j + 0.5) * cw, cy = y + rh / 2;
       if (/^(✓|✔|y|yes|tick)$/i.test(v)) out += `<g transform="translate(${cx},${cy})">${markSvg("tick", rh * 0.6, "#2fa35b", 1)}</g>`;
       else if (/^(✗|✘|x|no|cross)$/i.test(v)) out += `<g transform="translate(${cx},${cy})">${markSvg("cross", rh * 0.55, "#e5484d", 1)}</g>`;
       else if (v) out += tx(v, cx, cy, fit(v, cw * 0.9, fs), INK, 700);

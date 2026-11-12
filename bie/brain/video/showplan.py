@@ -98,17 +98,32 @@ class Cue:
         return float(self) >= float(other)
 
 
+def _line_edge(T, line, edge):
+    try:
+        return float(T.L(line)[edge])
+    except KeyError:
+        return 0.0
+
+
 def cues(T):
-    """The gold builder's pen for times: ``C(line, word, frac=, nth=)`` -> a Cue carrying its resolved seconds."""
+    """The gold builder's pen for times: ``C(line, word, frac=, nth=)`` -> a Cue carrying its resolved seconds.
+
+    A cue word that is not in its line (or a line that is not in the narration) never stops the plan: the Cue keeps
+    the word as written and stands at its line's start for the arithmetic, so the whole plan is built and the compiler
+    names every such cue in one run, with its scene and step (pilot ch02 v1: 13 compile rounds, three of them crashes)."""
 
     def C(line, word=None, frac=0.0, nth=1):
-        return Cue(line, word, nth, frac, value=T.cue(line, word, frac=frac, nth=nth))
+        try:
+            value = T.cue(line, word, frac=frac, nth=nth)
+        except KeyError:
+            value = _line_edge(T, line, "t0")
+        return Cue(line, word, nth, frac, value=value)
 
     def start(line, plus=0.0):
-        return Cue(line, edge="start", plus=plus, value=T.L(line)["t0"] + plus)
+        return Cue(line, edge="start", plus=plus, value=_line_edge(T, line, "t0") + plus)
 
     def end(line, plus=0.0):
-        return Cue(line, edge="end", plus=plus, value=T.L(line)["t1"] + plus)
+        return Cue(line, edge="end", plus=plus, value=_line_edge(T, line, "t1") + plus)
 
     return C, start, end
 
@@ -134,7 +149,12 @@ def resolve_time(v, T, where, problems):
                 return T.L(v["line"])["t0" if v["edge"] == "start" else "t1"] + plus
             return T.cue(v["line"], v.get("word"), frac=float(v.get("frac", 0.0)), nth=int(v.get("nth", 1))) + plus
         except KeyError as exc:
-            problems.append(f"{where}: {exc.args[0] if exc.args else exc}")
+            msg = exc.args[0] if exc.args else exc
+            said = T.L(v["line"]).get("sub") if T.has(v["line"]) else None
+            problems.append(f"{where}: {msg}" + (f" (the line says: {str(said)[:140]!r})" if said else ""))
+            return None
+        except (TypeError, ValueError) as exc:
+            problems.append(f"{where}: not a time: {v!r} ({exc})")
             return None
     problems.append(f"{where}: not a time: {v!r} (a number of seconds, or {{line, word}} / {{line, edge}})")
     return None
@@ -314,18 +334,45 @@ class _Executor:
         return resolve_time(v, self.T, where, self.problems)
 
     def run(self, i, st):
-        op = st.get("op")
+        op = st.get("op") if isinstance(st, dict) else None
         w = self.where(i, op or "?")
         fn = getattr(self, "op_" + str(op), None)
-        if fn is None:
+        if not isinstance(st, dict):
+            fn = None
+        if fn is None and isinstance(st, dict):
             known = sorted(n[3:] for n in dir(self) if n.startswith("op_"))
             self.problems.append(f"{w}: no step '{op}' (steps: {', '.join(known)})")
             return
+        if fn is None:
+            self.problems.append(f"{w}: a step is an object {{op, ...}}, not {type(st).__name__}")
+            return
         extras = {k: v for k, v in st.items() if k != "op"}
+        for f in ("t", "t0", "t1"):                    # a wrong time is named even when the step fails for another reason
+            if isinstance(extras.get(f), dict):
+                resolve_time(extras[f], self.T, w, self.problems)
+        before = len(self.els)
         try:
             fn(w, extras)
         except KeyError as exc:
             self.problems.append(f"{w}: missing field {exc}")
+        except (TypeError, ValueError, AttributeError, IndexError) as exc:   # a bad field never stops the other steps
+            self.problems.append(f"{w}: this step could not be read ({type(exc).__name__}: {exc})")
+        for el in self.els[before:]:
+            self._times_left(w, el)
+
+    def _times_left(self, w, el):
+        """Every time an op passed through (t1 of a map, the steps of a mark, keys of a glow) becomes seconds, so no
+        cue dict reaches the checks (pilot ch02 v1: a map's t1 crashed the checks with a TypeError naming no scene)."""
+        for f in ("t0", "t1"):
+            v = el.get(f)
+            if v is not None and not isinstance(v, (int, float)):
+                el[f] = self.rt(v, f"{w} {f}")
+        for f in ("steps", "keys", "cam3d"):
+            seq = el.get(f)
+            if isinstance(seq, list):
+                for k in seq:
+                    if isinstance(k, dict) and k.get("t") is not None and not isinstance(k["t"], (int, float)):
+                        k["t"] = self.rt(k["t"], f"{w} {f}", self.t0)
 
     def _person_of(self, w, extras):
         pid = extras.pop("who")
@@ -519,7 +566,7 @@ class _Executor:
 
     def op_map(self, w, e):
         self.els.append(dict({"kind": "map", "x": 0, "y": 0, "t0": self.rt(e.pop("t0", None), w, self.t0),
-                              "z": e.pop("z", 1), "enter": e.pop("enter", "fade")}, **e))
+                              "t1": self.rt(e.pop("t1", None), w), "z": e.pop("z", 1), "enter": e.pop("enter", "fade")}, **e))
 
     # ---- action ops
     def op_pose(self, w, e):
@@ -648,7 +695,7 @@ def compile_plan(plan, T, *, width=1280, height=720, assets=None, checks=True, l
     if checks:
         problems += check_spec(spec, plan, T, language=language, box_rule=box_rule, said_shown=said_shown)
     if problems:
-        raise PlanProblems(problems)
+        raise PlanProblems(list(dict.fromkeys(problems)))     # each problem once, in the order found
     return spec
 
 
@@ -811,9 +858,15 @@ def check_spec(spec, plan, T, language=None, box_rule=True, said_shown=True) -> 
     # zones and the frame kept clear, words inside things readable, no caution line, Hindi labels in a Hindi video
     if box_rule:
         from bie.brain.video import box_rules
-        problems += box_rules.problems(spec, language=language)
+        try:
+            problems += box_rules.problems(spec, language=language)
+        except (TypeError, ValueError, KeyError, AttributeError, IndexError) as exc:   # still refused, never a crash
+            problems.append(f"the box rule check could not run on this plan ({type(exc).__name__}: {exc})")
     # dikhaya-bola (Navin, 5 November 2026: "boli cheez usi line mein"): every thing a line names is on screen during it
     if said_shown:
         from bie.brain.video import shown_said
-        problems += shown_said.problems(spec, T, only=set(seen))   # a line in no scene is already named above
+        try:
+            problems += shown_said.problems(spec, T, only=set(seen))   # a line in no scene is already named above
+        except (TypeError, ValueError, KeyError, AttributeError, IndexError) as exc:
+            problems.append(f"the dikhaya-bola check could not run on this plan ({type(exc).__name__}: {exc})")
     return sorted(set(problems))

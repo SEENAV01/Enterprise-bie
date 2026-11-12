@@ -254,6 +254,80 @@ def item_local(spec, t):
     return None, [], [], "thing"
 
 
+def _min_px(got) -> float | None:
+    px = [float(w["px"]) for w in (got or {}).get("texts") or [] if not is_symbol(w.get("t", ""))]
+    return min(px) if px else None
+
+
+_MIN_W: dict = {}
+MIN_W_TABLE = __import__("pathlib").Path(__file__).resolve().parent / "engine" / "min_readable_w.json"
+
+
+def min_w_table() -> dict:
+    """name -> {w_default, min_w, px_at_default, sample}: the readable-width table (tools/saancha_min_w.py), {} if absent."""
+    import json as _json
+    try:
+        return _json.loads(MIN_W_TABLE.read_text(encoding="utf-8")).get("saanche") or {}
+    except (OSError, ValueError):
+        return {}
+
+
+def _min_w_cached(draw, p, scale):
+    import json as _json
+    key = (draw, _json.dumps(p, sort_keys=True, ensure_ascii=False, default=str), round(scale, 3))
+    if key not in _MIN_W:
+        try:
+            _MIN_W[key] = min_readable_w(draw, p, scale)
+        except boxes.BoxesUnavailable:
+            raise
+        except Exception as exc:  # noqa: BLE001  - a helper's hint never hides the problem itself
+            _MIN_W[key] = {"w": None, "reason": f"could not be measured ({type(exc).__name__})"}
+    return _MIN_W[key]
+
+
+def min_readable_w(draw: str, p: dict | None = None, scale: float = 1.0, floor: float = FLOOR_PX) -> dict:
+    """The smallest ``w`` at which every word inside this saancha, drawn with these exact ``p`` at ``scale`` (the item's
+    s times the camera), reaches the floor on screen; measured by the engine's own drawing, not guessed.
+
+    Returns {"w": the width or None (no words, no w parameter, or never readable up to the manifest's max),
+    "w_now", "px_now" (smallest word px at w_now and scale 1), "box" (the box at w_now), "reason"}."""
+    from bie.brain import saanche
+    entry = saanche.get(draw) or {}
+    spec = (entry.get("params") or {}).get("w")
+    p = {k: v for k, v in dict(p or {}).items() if not str(k).startswith("_")}
+    now = boxes.item(draw, p)
+    out = {"w": None, "w_now": None, "px_now": _min_px(now), "box": now.get("box"), "reason": ""}
+    if spec is None:
+        out["reason"] = f"{draw} has no w parameter (make it bigger with s)"
+        return out
+    w_now = float(p.get("w", spec.get("default") or 0) or 0)
+    out["w_now"] = w_now
+    if out["px_now"] is None:
+        out["reason"] = "no words inside it"
+        return out
+    lo, hi = float(spec.get("min", 10) or 10), float(spec.get("max", 1900) or 1900)
+    lo = max(lo, 10.0)
+    need = floor / max(scale, 1e-6) - 0.5
+
+    def ok(w):
+        got = _min_px(boxes.item(draw, dict(p, w=w)))
+        return got is not None and got >= need
+
+    grid = [round(lo * (hi / lo) ** (k / 39.0), 1) for k in range(40)]
+    boxes.measure(items=[{"draw": draw, "p": dict(p, w=w)} for w in grid])          # one Node call for the whole grid
+    passing = [k for k, w in enumerate(grid) if ok(w)]
+    if not passing:
+        out["reason"] = f"its words stay under {floor:.0f}px up to w {hi:.0f} at scale {scale:.2f} (shorten the words)"
+        return out
+    k = passing[0]
+    a, b = (grid[k - 1] if k else lo), grid[k]
+    fine = [round(a + (b - a) * j / 16.0, 1) for j in range(1, 17)]
+    boxes.measure(items=[{"draw": draw, "p": dict(p, w=w)} for w in fine])
+    best = next((w for w in fine if ok(w)), b)
+    out["w"] = int(math.ceil(best / 10.0) * 10) if ok(math.ceil(best / 10.0) * 10) or best >= hi else int(math.ceil(best))
+    return out
+
+
 class Geo:
     """One element at one moment, on the stage: its box, its words, its faces, what it is."""
 
@@ -510,7 +584,9 @@ def problems(spec, language=None) -> list:
                         key = (g.name, tx)
                         screen = px * cam["z"]
                         if key not in floor or screen < floor[key][0]:
-                            floor[key] = (screen, px, cam["z"], g.scale)
+                            src = g.el if (g.el.get("draw") and not g.el.get("group")) else None
+                            floor[key] = (screen, px, cam["z"], g.scale,
+                                          (src["draw"], item_p(src, t)) if src else None)
                 if g.kind == "person":
                     for tx, px, _, name in held_words(g.el, t):
                         if (sid, tx) not in seen_words:
@@ -520,7 +596,7 @@ def problems(spec, language=None) -> list:
                             key = (f"{name} held by {g.name}", tx)
                             screen = px * cam["z"]
                             if key not in floor or screen < floor[key][0]:
-                                floor[key] = (screen, px, cam["z"], 1.0)
+                                floor[key] = (screen, px, cam["z"], 1.0, None)
             # 1. a text on a thing
             for a in texts:
                 for b in things:
@@ -587,10 +663,17 @@ def problems(spec, language=None) -> list:
             close(now)
             t += STEP
         close(set(), t_end=t)
-        for (name, tx), (screen, px, z, s) in sorted(floor.items()):
+        for (name, tx), (screen, px, z, s, src) in sorted(floor.items(), key=lambda kv: kv[0]):
             if screen < FLOOR_PX - 0.5:
                 need = s * (FLOOR_PX / screen) if screen > 0 else 0
+                way = f"make the thing bigger (s at least {need:.2f})"
+                if src:
+                    mw = _min_w_cached(src[0], src[1], s * z)
+                    if mw.get("w"):
+                        way = (f"give it w {mw['w']} (now {mw['w_now']:.0f}; at s {s:.2f} and camera {z:.2f} all its words reach "
+                               f"{FLOOR_PX:.0f}px from w {mw['w']}) or s at least {need:.2f}")
+                    elif mw.get("reason"):
+                        way += f" - w alone will not do: {mw['reason']}"
                 out.append(f"scene {sid}: the words '{tx[:30]}' inside {name} are {screen:.0f}px on screen (scale {s:.2f}, camera "
-                           f"{z:.2f}), under the {FLOOR_PX:.0f}px floor: make the thing bigger (s at least {need:.2f}) or its words "
-                           "shorter (box rule)")
+                           f"{z:.2f}), under the {FLOOR_PX:.0f}px floor: {way}, or its words shorter (box rule)")
     return out

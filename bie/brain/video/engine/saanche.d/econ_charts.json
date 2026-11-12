@@ -488,6 +488,13 @@
      "default": true,
      "what": "names beside the pie"
     },
+    "legendSize": {
+     "type": "number",
+     "default": 0.036,
+     "min": 0.02,
+     "max": 0.09,
+     "what": "legend letters as a share of w; a small pie takes 0.07-0.09 so its names reach 36px (the pie shrinks to give room)"
+    },
     "donut": {
      "type": "bool",
      "default": false
