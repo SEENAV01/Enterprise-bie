@@ -74,6 +74,64 @@ def english_label(text: str) -> bool:
     return False
 
 
+def label_strings(el, t=None) -> list:
+    """The whole labels an element was given (its text, every string of its params at ``t``, split at ; and at the
+    name:points colon), so a word wrapped onto its own line is judged with the label it came from."""
+    out = []
+    if el.get("text") is not None:
+        out.append(str(el["text"]))
+    stack = [item_p(el, t if t is not None else float("inf"))]
+    for m in el.get("group") or []:
+        if isinstance(m, dict):
+            stack.append(item_p(m, t if t is not None else float("inf")))
+            if m.get("text") is not None:
+                out.append(str(m["text"]))
+    while stack:
+        v = stack.pop()
+        if isinstance(v, dict):
+            stack += list(v.values())
+        elif isinstance(v, (list, tuple)):
+            stack += list(v)
+        elif isinstance(v, str):
+            for piece in v.split(";"):
+                out.append(piece)
+                if ":" in piece:
+                    out.append(piece[:piece.rfind(":")])
+                    out.append(piece[piece.rfind(":") + 1:])
+    return [x.strip() for x in out if x and x.strip()]
+
+
+def wrapped_hindi(text: str, labels) -> bool:
+    """``text`` is one wrapped line of a whole label that is not English (Sloman workers, Nov 2026: "45 डिग्री (degree)"
+    drew "(degree)" on its own line, and that line alone was refused as English)."""
+    t = str(text).strip()
+    return bool(t) and any(t != lab and t in lab and DEVANAGARI.search(lab) and not english_label(lab) for lab in labels)
+
+
+def moving_at(el, t) -> bool:
+    """The element is moving at ``t`` (a key that changes x or y is running): an item or a person walking or sliding in
+    from off-screen is not "cut by the frame" while it moves; only where it settles must be inside."""
+    for k in el.get("keys") or []:
+        if k.get("t") is None or (k.get("x") is None and k.get("y") is None):
+            continue
+        if float(k["t"]) <= t < float(k["t"]) + float(k.get("d") or 0.6):
+            return True
+    return False
+
+
+def bracket_term(text: str, siblings) -> bool:
+    """``text`` is (part of) an English term in brackets after a Hindi word of the same label, wrapped onto its own line
+    (Sloman workers, Nov 2026: a graph line "माँग (demand)" draws "माँग" over "(demand)", "आपूर्ति (supply" over "curve)")."""
+    t = str(text).strip()
+    if not t:
+        return False
+    joined = " ".join(str(x) for x in siblings)
+    for m in re.finditer(r"\([^()]*\)", joined):
+        if t.strip("()") and t in m.group(0) and DEVANAGARI.search(joined[max(0, m.start() - 40):m.start()]):
+            return True
+    return False
+
+
 # two-letter English words: never read as maths symbols
 ENGLISH_2 = {"is", "of", "to", "in", "on", "at", "an", "be", "by", "or", "if", "it", "no", "so", "up", "we", "he", "me", "my",
              "do", "go", "as", "us", "am", "ok", "hi", "oh"}
@@ -516,12 +574,12 @@ def problems(spec, language=None) -> list:
         if bad:
             return [f"box rule not checked: {b}" for b in sorted(bad)]
 
-    def word_rules(sid, text, where):
+    def word_rules(sid, text, where, siblings=(), labels=()):
         m = CAUTION.search(text)
         if m:
             out.append(f"scene {sid}: '{text[:50]}' ({where}) is a caution or fact-check line ('{m.group(0)}'); it stays a background "
                        "check, never on screen: show the thing itself (D1-06)")
-        if hindi and english_label(text):
+        if hindi and english_label(text) and not bracket_term(text, siblings) and not wrapped_hindi(text, labels):
             out.append(f"scene {sid}: '{text[:50]}' ({where}) is English on a Hindi video's screen: write it in Hindi (Devanagari); an "
                        "English term may follow in brackets")
 
@@ -612,7 +670,8 @@ def problems(spec, language=None) -> list:
                 for tx, px, _ in g.words:
                     if (sid, tx) not in seen_words:
                         seen_words.add((sid, tx))
-                        word_rules(sid, tx, g.name if g.kind != "text" else "a text")
+                        word_rules(sid, tx, g.name if g.kind != "text" else "a text", [w[0] for w in g.words],
+                                   label_strings(g.el, t) if g.el else ())
                     if g.kind != "text" and not is_symbol(tx):
                         key = (g.name, tx)
                         screen = px * cam["z"]
@@ -691,7 +750,7 @@ def problems(spec, language=None) -> list:
                 inside = sb[2] > 0 and sb[0] < STAGE_W and sb[3] > 0 and sb[1] < STAGE_H
                 cut = [side for side, v in (("left", -sb[0]), ("top", -sb[1]), ("right", sb[2] - STAGE_W), ("bottom", sb[3] - STAGE_H)) if v > EDGE]
                 # words are always whole; a thing cropped while the camera is zoomed in is framing, not layout
-                if inside and cut and (g.kind == "text" or cam["z"] <= ZOOMED):
+                if inside and cut and not (g.el and moving_at(g.el, t)) and (g.kind == "text" or cam["z"] <= ZOOMED):
                     key = ("edge", g.name)
                     now.add(key)
                     hit(key, t, f"scene {sid}: {g.name} is cut by the frame's {'/'.join(cut)} edge from §Fs for §Ds "

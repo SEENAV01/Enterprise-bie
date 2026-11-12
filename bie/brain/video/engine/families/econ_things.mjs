@@ -8,7 +8,7 @@
 // Words come only from parameters (labels, titles, items); no logos, emblems, real places or real persons.
 // A moving part is a pure function of _t (seconds since the thing appeared) and _s (since its last step); without
 // times (a box measurement) a drawing shows its settled state.
-import { tx, fit, shade, INK, clamp01, parts, idxSet } from "../draw.mjs";
+import { tx, fit, shade, INK, clamp01, parts, idxSet, inr } from "../draw.mjs";
 
 // ---------------------------------------------------------------- helpers (used inside functions only)
 const N = (v, d) => (v === "" || v == null || typeof v === "boolean" || !Number.isFinite(Number(v)) ? d : Number(v));
@@ -504,9 +504,9 @@ function pump(p) {
   const bx0 = -w * 0.48, bw = w * 0.28, bxc = bx0 + bw / 2, by0 = -w * 0.74;
   out += rect(bxc - w * 0.012, by0, w * 0.024, -by0, "#8a8f98") + rect(bx0, by0, bw, w * 0.5, "#2d3748", w * 0.015, "#1f2328", w * 0.004);
   words += plate(bxc, by0 + w * 0.05, bw * 0.92, w * 0.076, p.fuel ?? "", "#f2c14e", INK, "#f2c14e");
-  const unit = S(p.unit ?? "₹"), ptxt = `${unit}${Number.isInteger(price) ? price : price.toFixed(2)}`;
+  const unit = S(p.unit ?? "₹"), ptxt = inr(`${unit}${Number.isInteger(price) ? price : price.toFixed(2)}`);
   out += rect(bx0 + bw * 0.06, by0 + w * 0.1, bw * 0.88, w * 0.11, "#111418", w * 0.01);
-  words += word(ptxt, bxc, by0 + w * 0.155, bw * 0.84, w * 0.085, "#ffb020", 800);
+  if (p.priceBoard !== false) words += word(ptxt, bxc, by0 + w * 0.155, bw * 0.84, w * 0.085, "#ffb020", 800);   // false: a price nobody says stays off
   if (tax > 0) {      // the price bar, its tax slice coloured; a split of the slice between buyer and seller
     const share = Math.min(1, tax / Math.max(0.01, price)), barX = bx0 + bw * 0.06, barW = bw * 0.88, y = by0 + w * 0.24, bh = w * 0.045;
     out += rect(barX, y, barW, bh, "#2fa35b", bh * 0.2) + rect(barX + barW * (1 - share), y, barW * share, bh, "#e5484d", 0);

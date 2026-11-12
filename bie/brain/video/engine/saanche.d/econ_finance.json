@@ -590,7 +590,7 @@
     "amounts": {
      "type": "text",
      "default": "",
-     "what": "value@slot;… or label:value@slot (negative for costs)"
+     "what": "value@slot;… or label:value@slot (negative for costs); decimals are kept as written (₹16.20)"
     },
     "rate": {
      "type": "text",
@@ -600,7 +600,7 @@
     "d": {
      "type": "text",
      "default": "",
-     "what": "discount factor per period instead of rate"
+     "what": "discount factor per period instead of rate; several ;-separated draw one lane each (0.9;0.8)"
     },
     "b": {
      "type": "number",
@@ -725,7 +725,7 @@
     "branches": {
      "type": "text",
      "default": "",
-     "what": "label:p:outcome;… (2 to 4), p as 0.1, 1/10 or 10%"
+     "what": "label:p:outcome;… (2 to 4), p as 0.1, 1/10 or 10%; outcome decimals are kept as written (₹100.50)"
     },
     "sure": {
      "type": "text",

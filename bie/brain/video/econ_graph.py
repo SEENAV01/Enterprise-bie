@@ -113,10 +113,60 @@ class EconGraph:
         line.meta["vertical"] = (float(x), float(lo), float(hi))
         return line
 
-    def shift(self, line: Line, *, dx: float = 0.0, dy: float = 0.0, name: str = "", dashed: bool = True,
+    def horizontal(self, name: str, y: float, *, color: str = "", dashed: bool = False, domain: tuple = ()) -> Line:
+        """A flat curve P = y (perfectly elastic demand or supply, a world price, a fixed wage): one of the graph's
+        lines, drawn solid unless dashed=True."""
+        if not self.ymin <= y <= self.ymax:
+            raise ValueError(f"the horizontal line P = {y:g} lies outside the frame")
+        line = self.curve(name, lambda q, c=float(y): c, color=color, dashed=dashed, domain=domain)
+        line.meta["horizontal"] = float(y)
+        return line
+
+    def of_price(self, name: str, q_of_p, *, p0: float | None = None, p1: float | None = None, samples: int = 0,
+                 color: str = "", dashed: bool = False) -> Line:
+        """A curve given as Q = f(P) (a backward-bending labour supply, any curve that turns back on itself): P is
+        sampled from p0 to p1 (the whole height by default) and the points are kept in that order, along the curve, not
+        sorted by Q. at_price() reads Q from the function; cross() and shift() know it."""
+        lo = self.ymin if p0 is None else p0
+        hi = self.ymax if p1 is None else p1
+
+        def f(q):
+            raise ValueError("a curve given as Q = f(P) can have two prices at one quantity; use at_price() or cross()")
+        line = self.curve(name, f, color=color, dashed=dashed)
+        line.meta["qp"] = (q_of_p, float(lo), float(hi), int(samples or max(24, self.samples * 3)))
+        return line
+
+    def _qp_points(self, line: Line) -> list:
+        g, lo, hi, n = line.meta["qp"]
+        out = []
+        for i in range(n + 1):
+            pr = lo + (hi - lo) * i / n
+            try:
+                q = float(g(pr))
+            except (ValueError, ZeroDivisionError, OverflowError):
+                continue
+            if math.isfinite(q) and self.xmin - 1e-9 <= q <= self.xmax + 1e-9:
+                out.append((q, pr))
+        return out
+
+    @staticmethod
+    def _flat(line: Line) -> bool:
+        return "horizontal" in line.meta
+
+    def shift(self, line: Line, *, dx: float = 0.0, dy: float = 0.0, name: str = "", dashed: bool | None = None,
               color: str = "") -> Line:
         """The same curve moved: dx > 0 moves it right (more is bought or sold at every price), dy > 0 up (a tax on
-        the sellers lifts supply by the tax)."""
+        the sellers lifts supply by the tax). The moved curve is dashed by default, but a vertical or horizontal one
+        (perfectly inelastic or elastic) stays solid unless dashed=True."""
+        straight = "vertical" in line.meta or "horizontal" in line.meta
+        dashed = (not straight) if dashed is None else dashed
+        if "horizontal" in line.meta:
+            return self.horizontal(name or line.name + "2", line.meta["horizontal"] + dy, color=color, dashed=dashed,
+                                   domain=tuple(v + dx for v in line.domain) if line.domain else ())
+        if "qp" in line.meta:
+            g, lo, hi, n = line.meta["qp"]
+            return self.of_price(name or line.name + "2", lambda pr, g=g: g(pr - dy) + dx, p0=lo + dy, p1=hi + dy, samples=n,
+                                 color=color, dashed=dashed)
         if "vertical" in line.meta:
             x, lo, hi = line.meta["vertical"]
             return self.vertical(name or line.name + "2", x + dx, y0=lo + dy, y1=hi + dy, color=color, dashed=dashed)
@@ -130,6 +180,11 @@ class EconGraph:
 
     def cross(self, a: Line, b: Line, name: str = "", *, dot: bool = True) -> Point:
         """Where two curves meet (bisection on the difference over the x range): the equilibrium, MC = MR, AD = AS."""
+        if "qp" in a.meta or "qp" in b.meta:
+            p = self._cross_qp(a, b, name)
+            if dot:
+                self.dots.append(p)
+            return p
         if "vertical" in a.meta or "vertical" in b.meta:
             v, o = (a, b) if "vertical" in a.meta else (b, a)
             if "vertical" in o.meta:
@@ -167,10 +222,53 @@ class EconGraph:
             self.dots.append(p)
         return p
 
+    def _q_at(self, line: Line, price: float) -> float:
+        if "qp" in line.meta:
+            return float(line.meta["qp"][0](price))
+        if "vertical" in line.meta:
+            return line.meta["vertical"][0]
+        return self.at_price(line, price)
+
+    def _cross_qp(self, a: Line, b: Line, name: str) -> Point:
+        """A crossing with a Q = f(P) curve: bisection over P along that curve (its first crossing from the bottom)."""
+        c, o = (a, b) if "qp" in a.meta else (b, a)
+        _, lo, hi, _ = c.meta["qp"]
+        q = lambda pr: float(c.meta["qp"][0](pr))  # noqa: E731
+        if "qp" in o.meta or "vertical" in o.meta:
+            h = lambda pr: q(pr) - self._q_at(o, pr)  # noqa: E731
+        elif "horizontal" in o.meta:
+            h = lambda pr: pr - o.meta["horizontal"]  # noqa: E731
+        else:
+            h = lambda pr: float(o.f(q(pr))) - pr  # noqa: E731
+        n, prev = 400, None
+        for i in range(n + 1):
+            pr = lo + (hi - lo) * i / n
+            try:
+                v = h(pr)
+            except (ValueError, ZeroDivisionError, OverflowError):
+                prev = None
+                continue
+            if v == 0:
+                return Point(round(q(pr), 4), round(pr, 4), name)
+            if prev is not None and prev[1] * v < 0:
+                x0, x1 = prev[0], pr
+                for _ in range(60):
+                    m = (x0 + x1) / 2
+                    if h(x0) * h(m) <= 0:
+                        x1 = m
+                    else:
+                        x0 = m
+                pm = (x0 + x1) / 2
+                return Point(round(q(pm), 4), round(pm, 4), name)
+            prev = (pr, v)
+        raise ValueError(f"{a.name} and {b.name} do not meet between P = {lo:g} and {hi:g}")
+
     def at_price(self, line: Line, price: float) -> float:
         """The quantity on a curve at a price (demand or supply at a ceiling or a floor)."""
         if "vertical" in line.meta:
             return line.meta["vertical"][0]
+        if "qp" in line.meta:
+            return float(line.meta["qp"][0](price))
         flat = Line("", lambda q, c=price: c)
         return self.cross(line, flat, dot=False).x
 
@@ -200,9 +298,10 @@ class EconGraph:
         """A shift arrow from curve a to curve b at one price."""
         self.arrows.append(((self.at_price(a, at_y), at_y), (self.at_price(b, at_y), at_y), label))
 
-    def seg(self, p1: tuple, p2: tuple, label: str = ""):
-        """A dashed segment: a chord, a tangent, a reading line."""
+    def seg(self, p1: tuple, p2: tuple, label: str = "") -> int:
+        """A dashed segment: a chord, a tangent, a reading line; returns its 1-based number (params(segs=[n]))."""
         self.segs.append((p1, p2, label))
+        return len(self.segs)
 
     def tangent(self, line: Line, q: float, *, half: float = 1.5, label: str = "") -> float:
         """The tangent of a curve at q (its slope by a small difference), drawn as a dashed segment; returns the slope."""
@@ -407,6 +506,8 @@ class EconGraph:
 
     # ------------------------------------------------------------------ out: the saancha's parameters
     def _pts(self, line: Line) -> str:
+        if "qp" in line.meta:
+            return " ".join(f"{_fmt(q)},{_fmt(pr)}" for q, pr in self._qp_points(line))
         if "vertical" in line.meta:
             x, lo, hi = line.meta["vertical"]
             return f"{_fmt(x)},{_fmt(lo)} {_fmt(x)},{_fmt(hi)}"
@@ -426,7 +527,7 @@ class EconGraph:
     def params(self, *, show: list | None = None, grow: list | None = None, bold: list | None = None, areas: list | None = None,
                dots: list | None = None, draw_in: float = 0.0, extras=True, slide: dict | None = None,
                morph_from: dict | None = None, along: list | None = None, path_upto: int | None = None,
-               glide: float | None = None) -> dict:
+               glide: float | None = None, segs: list | None = None) -> dict:
         """The graph saancha's parameters for one state. show: the lines visible (all by default); grow: the lines (and
         area numbers as "a<n>") that draw over draw_in seconds after the step that sets this state; areas: which area
         numbers are visible (all by default); dots: which points are visible (all by default); extras: True for every
@@ -434,7 +535,8 @@ class EconGraph:
         "path"); slide {line: (dx, dy)}: the line slides in from that offset after the step; morph_from {line: old_line}:
         the line reshapes from the old line's points; along [(line, f, label), (line, f, label, f0)]: a point on the
         curve at fraction f of its points, gliding from f0 ({x} {y} in the label read its values); path_upto: how many
-        points of the lettered path are shown; glide: seconds those moves take."""
+        points of the lettered path are shown; glide: seconds those moves take; segs: which segments are visible, by
+        their numbers from seg() (all by default, like dots); show=[] shows no line (the graph saancha's "none")."""
         p = {"w": self.w, "xmin": self.xmin, "xmax": self.xmax, "ymin": self.ymin, "ymax": self.ymax,
              "lines": ";".join(f"{l.name}:{self._pts(l)}" for l in self.lines)}
         if self.x_label:
@@ -451,7 +553,7 @@ class EconGraph:
         colors = [f"{l.index}:{l.color}" for l in self.lines if l.color]
         if colors:
             p["colors"] = ";".join(colors)
-        p["show"] = ",".join(str(l.index) for l in (show if show is not None else self.lines))
+        p["show"] = ",".join(str(l.index) for l in (show if show is not None else self.lines)) or "none"
         p["grow"] = ",".join(str(g) if isinstance(g, str) else str(g.index) for g in (grow or []))
         if bold:
             p["bold"] = ",".join(str(l.index) for l in bold)
@@ -491,9 +593,10 @@ class EconGraph:
                 p["xTicks"] = ";".join(f"{_fmt(x)}:{lab}" for x, lab in self.xticks)
             if self.yticks and "yTicks" in kinds:
                 p["yTicks"] = ";".join(f"{_fmt(y)}:{lab}" for y, lab in self.yticks)
-            if self.segs and "segs" in kinds:
+            keep_s = set(range(1, len(self.segs) + 1)) if segs is None else {int(k) for k in segs}
+            if self.segs and "segs" in kinds and keep_s:
                 p["segs"] = ";".join(f"{_fmt(a[0])},{_fmt(a[1])}>{_fmt(b[0])},{_fmt(b[1])}" + (f":{lab}" if lab else "")
-                                     for a, b, lab in self.segs)
+                                     for k, (a, b, lab) in enumerate(self.segs, 1) if k in keep_s)
             if self.path and "path" in kinds:
                 p["path"] = ";".join(f"{_fmt(x)},{_fmt(y)}" + (f":{n}" if n else "") for x, y, n in self.path)
                 if path_upto is not None:

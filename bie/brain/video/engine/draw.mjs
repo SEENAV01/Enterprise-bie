@@ -1046,15 +1046,18 @@ function gapBars(p) {
     if (x1 > x0) hatch += `<path d="M${x0} ${y0} L${x1} ${y1}" stroke="#e5484d" stroke-width="${w * 0.006}" opacity="0.6"/>`;
   }
   // a currency sign goes before the number (₹200, not 200₹); other units after it (20%, 5 kg)
-  const withU = (v) => (/^[₹$€£¥]/.test(u) ? `${u}${v}` : `${v}${u}`);
+  const withU = (v) => (/^[₹$€£¥]/.test(u) ? inr(`${u}${v}`) : `${v}${u}`);
   const bar = (x, hh, c, l, v) => `<rect x="${x}" y="${-hh}" width="${bw}" height="${hh}" fill="${c}" rx="${w * 0.01}"/>` +
     (l ? tx(l, x + bw / 2, w * 0.06, fit(l, bw * 1.2, w * 0.06), INK, 800) : "") + (v !== undefined && v !== "" ? tx(withU(v), x + bw / 2, -hh + w * 0.05, fit(withU(v), bw * 0.9, w * 0.055), "#ffffff", 800) : "");
   // a gap name that already carries a number is not followed by the number again
   const gn = withU(+(gap.toFixed(2))), gl = p.gap ? `${p.gap}${p.showGap === false || /\d/.test(String(p.gap)) ? "" : ` ${gn}`}` : (p.showGap === false ? "" : gn);
+  // the gap's tag: beside the gap when the gap is on the right bar; when it is on the left bar, beside it would cover the
+  // right bar's value (Sloman workers, Nov 2026), so the tag stands just above the gap
+  const tagX = low === "a" ? gx + bw / 2 : gx + bw + w * 0.2, tagY = low === "a" ? gy0 - w * 0.075 : (gy0 + gy1) / 2;
   return `<path d="M${-w * 0.48} 0 L${w * 0.48} 0" stroke="#9aa5b1" stroke-width="${w * 0.006}"/>` + bar(xa, ha, ca, al, av) + bar(xb, hb, cb, bl, bv) +
     (gap ? `<rect x="${gx}" y="${gy0}" width="${bw}" height="${gy1 - gy0}" fill="#ffffff" stroke="#e5484d" stroke-width="${w * 0.008}" stroke-dasharray="${w * 0.02} ${w * 0.012}"/>` + hatch +
-      (gl ? `<rect x="${gx + bw + w * 0.02}" y="${(gy0 + gy1) / 2 - w * 0.045}" width="${w * 0.36}" height="${w * 0.09}" rx="${w * 0.02}" fill="#e5484d"/>` +
-        tx(gl, gx + bw + w * 0.2, (gy0 + gy1) / 2, fit(gl, w * 0.34, w * 0.055), "#ffffff", 800) : "") : "");
+      (gl ? `<rect x="${tagX - w * 0.18}" y="${tagY - w * 0.045}" width="${w * 0.36}" height="${w * 0.09}" rx="${w * 0.02}" fill="#e5484d"/>` +
+        tx(gl, tagX, tagY, fit(gl, w * 0.34, w * 0.055), "#ffffff", 800) : "") : "");
 }
 
 // ---------------------------------------------------------------- diagrams of the 57-video needs list (4 Nov 2026)
@@ -1063,11 +1066,57 @@ function gapBars(p) {
 // revealed through steps (upto) and highlighted (at, glow); a graph's curves draw themselves (drawIn seconds).
 export const DIAG = ["#2459a6", "#e5484d", "#2fa35b", "#f29f05", "#7b61ff", "#2a9d8f"];
 export const isNum = (v) => v !== "" && v != null && Number.isFinite(Number(v));
+// Rupees read with Indian commas (Sloman notes, Nov 2026: "₹30000" and "₹100,000" were drawn): every ₹ amount the
+// engine formats goes through inr(), so ₹30000 -> ₹30,000, ₹100000 or ₹100,000 -> ₹1,00,000; decimals stay as given.
+// upto: how many parts are shown so far; 0 (or empty) is all, -1 (or "none") none yet, so a chart can stand empty
+// before its first number is said (Sloman workers, Nov 2026)
+export const uptoOf = (v, n) => { const s = String(v ?? "").trim().toLowerCase();
+  if (s === "none" || (isNum(s) && +s < 0)) return 0; const u = Math.round(Number(s)); return isNum(s) && u > 0 ? Math.min(n, u) : n; };
+export const indianGroup = (ip) => (ip.length > 3 ? ip.slice(0, -3).replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," + ip.slice(-3) : ip);
+export const inr = (s) => String(s ?? "").replace(/₹(\s?)([−-]?)(\d{1,3}(?:,\d{3})+|\d{4,})(?![\d,])/g,
+  (_, sp, sg, n) => `₹${sp}${sg}${indianGroup(n.replace(/,/g, ""))}`);
+
+// compact: a timeline under 250 px tall (a strip under another drawing). Each event is one card, year over label, above
+// or below the axis; close years (1917/1921, 1985/1989/1993) go to the other side, and when both sides are taken the card
+// moves right along the axis with a leader to its dot, so no two cards ever overlap (Sloman workers, Nov 2026).
+function timelineCompact(p, ev, w) {
+  const n = ev.length, upto = uptoOf(p.upto, n), at = Math.round(p.at || 0), x0 = -w * 0.46, x1 = w * 0.44;
+  const nums = ev.every((e) => isNum(e.year)) && n > 1 && !p.even, lo = nums ? Math.min(...ev.map((e) => +e.year)) : 0, hi = nums ? Math.max(...ev.map((e) => +e.year)) : 1;
+  const X = (y, i) => (nums ? x0 + ((+y - lo) / ((hi - lo) || 1)) * (x1 - x0) : n === 1 ? (x0 + x1) / 2 : x0 + (i * (x1 - x0)) / (n - 1));
+  const fs = READ_PX, gap = fs * 0.5, maxW = Math.max(w * 0.14, fs * 5), lead = fs * 0.35;
+  let out = "";
+  parts(p.zones).filter(Boolean).slice(0, 6).forEach((z, k) => {          // zones: a band on the axis (no words: no room)
+    const m = z.match(/^\s*(-?[\d.]+)\s*-\s*(-?[\d.]+)/);
+    if (!m || !nums) return;
+    const a = Math.max(x0, X(+m[1])), b = Math.min(x1 + w * 0.03, X(+m[2]));
+    if (b > a) out += `<rect x="${a}" y="${-fs * 0.18}" width="${b - a}" height="${fs * 0.36}" rx="${fs * 0.1}" fill="${DIAG[k % DIAG.length]}" opacity="0.3"/>`;
+  });
+  out += `<path d="M${x0 - w * 0.02} 0 L${x1 + w * 0.04} 0" stroke="${INK}" stroke-width="${Math.max(3, w * 0.003)}"/><path d="M${x1 + w * 0.025} ${-fs * 0.3} L${x1 + w * 0.045} 0 L${x1 + w * 0.025} ${fs * 0.3}" fill="none" stroke="${INK}" stroke-width="${Math.max(3, w * 0.003)}"/>`;
+  const right = { up: -Infinity, down: -Infinity };
+  ev.forEach((e, i) => {
+    if (i >= upto) return;
+    const x = X(e.year, i), hot = at === i + 1, c = hot ? "#e5484d" : "#2459a6";
+    const fy = readFit(e.year, maxW, fs * 1.05), fl = e.label ? readFit(e.label, maxW, fs) : null;
+    const bw = Math.max(fy.w, fl ? fl.w : 0) + fs * 0.6, bh = fy.h + (fl ? fl.h + fs * 0.15 : 0) + fs * 0.35;
+    // the side whose last card ends left of this one; else the side that needs the smaller move, and the move
+    const need = (side) => Math.max(0, right[side] + gap - (x - bw / 2));
+    const side = need("up") === 0 ? "up" : need("down") === 0 ? "down" : need("up") <= need("down") ? "up" : "down";
+    const cx = x + need(side), top = side === "up" ? -lead - bh : lead;
+    right[side] = cx + bw / 2;
+    out += `<circle cx="${x}" cy="0" r="${hot ? fs * 0.3 : fs * 0.2}" fill="${c}" stroke="#ffffff" stroke-width="2"/>` +
+      `<path d="M${x} 0 L${cx} ${side === "up" ? -lead : lead}" stroke="${c}" stroke-width="2"/>` +
+      `<rect x="${cx - bw / 2}" y="${top}" width="${bw}" height="${bh}" rx="${fs * 0.25}" fill="${hot ? "#fdecec" : "#ffffff"}" stroke="${c}" stroke-width="2"/>` +
+      txLines(fy.lines, cx, top + fs * 0.18 + fy.h / 2, fy.size, hot ? c : INK, 800) +
+      (fl ? txLines(fl.lines, cx, top + fs * 0.18 + fy.h + fs * 0.15 + fl.h / 2, fl.size, INK, 700) : "");
+  });
+  return out + (p.title ? readTx(p.title, 0, -lead - fs * 3.6, w * 0.8, fs * 1.1, INK, 800, -1) : "");
+}
 
 function timeline(p) {
   const w = p.w || 1500, h = w * 0.3, ev = parts(p.events).filter(Boolean).slice(0, 12).map((e) => { const i = e.indexOf(":");
     return i < 0 ? { year: e.trim(), label: "" } : { year: e.slice(0, i).trim(), label: e.slice(i + 1).trim() }; });
-  const n = ev.length, upto = p.upto ? Math.max(0, Math.round(p.upto)) : n, at = Math.round(p.at || 0), x0 = -w * 0.46, x1 = w * 0.44;
+  if (p.compact === true || p.compact === "true") return timelineCompact(p, ev, w);
+  const n = ev.length, upto = uptoOf(p.upto, n), at = Math.round(p.at || 0), x0 = -w * 0.46, x1 = w * 0.44;
   const nums = ev.every((e) => isNum(e.year)) && n > 1 && !p.even, lo = nums ? Math.min(...ev.map((e) => +e.year)) : 0, hi = nums ? Math.max(...ev.map((e) => +e.year)) : 1;
   const X = (y, i) => (nums ? x0 + ((+y - lo) / ((hi - lo) || 1)) * (x1 - x0) : n === 1 ? (x0 + x1) / 2 : x0 + (i * (x1 - x0)) / (n - 1));
   let out = "";
@@ -1077,7 +1126,7 @@ function timeline(p) {
     const a = Math.max(x0, X(+m[1])), b = Math.min(x1 + w * 0.03, X(+m[2])), c = DIAG[k % DIAG.length];
     if (b <= a) return;
     out += `<rect x="${a}" y="${h * 0.2}" width="${b - a}" height="${h * 0.12}" rx="${h * 0.03}" fill="${c}" opacity="0.22"/>` +
-      `<rect x="${a}" y="${h * 0.2}" width="${b - a}" height="${h * 0.025}" fill="${c}"/>` + (m[3] ? tx(m[3].trim(), (a + b) / 2, h * 0.27, fit(m[3].trim(), b - a, h * 0.075), shade(c, 0.7), 800) : "");
+      `<rect x="${a}" y="${h * 0.2}" width="${b - a}" height="${h * 0.025}" fill="${c}"/>` + (m[3] ? readTx(m[3].trim(), (a + b) / 2, h * 0.27, b - a, h * 0.075, shade(c, 0.7), 800, 1) : "");
   });
   out += `<path d="M${x0 - w * 0.02} 0 L${x1 + w * 0.04} 0" stroke="${INK}" stroke-width="${w * 0.004}"/><path d="M${x1 + w * 0.025} ${-h * 0.035} L${x1 + w * 0.045} 0 L${x1 + w * 0.025} ${h * 0.035}" fill="none" stroke="${INK}" stroke-width="${w * 0.004}"/>`;
   const slot = n > 1 ? Math.min(w * 0.2, ((x1 - x0) / (n - 1)) * 1.8) : w * 0.25;
@@ -1085,15 +1134,16 @@ function timeline(p) {
     if (i >= upto) return;
     const x = X(e.year, i), hot = at === i + 1, c = hot ? "#e5484d" : "#2459a6", tier = i % 2 ? -h * 0.5 : -h * 0.24;
     out += `<circle cx="${x}" cy="0" r="${hot ? w * 0.011 : w * 0.007}" fill="${c}" stroke="#ffffff" stroke-width="${w * 0.002}"/>` +
-      tx(e.year, x, h * 0.1, fit(e.year, slot * 0.6, h * 0.075), hot ? c : INK, 800);
+      readTx(e.year, x, h * 0.1, slot * 0.9, h * 0.075, hot ? c : INK, 800, 1);
     if (e.label) {
-      const fs = fit(e.label, slot * 0.95, h * 0.07), bw = Math.min(slot, e.label.length * fs * 0.6 + fs);
-      out += `<path d="M${x} ${-w * 0.008} L${x} ${tier + fs * 0.75}" stroke="${c}" stroke-width="${w * 0.002}"/>` +
-        `<rect x="${x - bw / 2}" y="${tier - fs * 0.75}" width="${bw}" height="${fs * 1.5}" rx="${fs * 0.3}" fill="${hot ? "#fdecec" : "#ffffff"}" stroke="${c}" stroke-width="${w * 0.002}"/>` +
-        tx(e.label, x, tier, fs, INK, 800);
+      // the label wraps to two lines and keeps the 36 px floor (Sloman workers: 29 px at w 1900); its card grows to hold it
+      const f = readFit(e.label, slot * 0.92, h * 0.07), fs = f.size, bw = f.w + fs, bh = f.h + fs * 0.5;
+      out += `<path d="M${x} ${-w * 0.008} L${x} ${tier + bh / 2}" stroke="${c}" stroke-width="${w * 0.002}"/>` +
+        `<rect x="${x - bw / 2}" y="${tier - bh / 2}" width="${bw}" height="${bh}" rx="${fs * 0.3}" fill="${hot ? "#fdecec" : "#ffffff"}" stroke="${c}" stroke-width="${w * 0.002}"/>` +
+        txLines(f.lines, x, tier, fs, INK, 800);
     }
   });
-  return out + (p.title ? tx(p.title, 0, -h * 0.72, fit(p.title, w * 0.8, h * 0.09), INK, 800) : "");
+  return out + (p.title ? readTx(p.title, 0, -h * 0.72, w * 0.8, h * 0.09, INK, 800, -1) : "");
 }
 
 function table(p) {
@@ -1101,7 +1151,7 @@ function table(p) {
   const cells = String(p.cells ?? "").split("|").map((r) => r.split(";").map((c) => c.trim()));
   const nc = Math.max(1, cols.length, ...cells.map((r) => r.length)), nr = Math.max(1, rows.length, cells.length);
   const w = p.w || 900, rowW = rows.some(Boolean) ? w * 0.3 : 0, cw = (w - rowW) / nc, rh = Math.min(w * 0.085, (w * 0.62) / (nr + 1));
-  const H = (nr + 1) * rh, x0 = -w / 2, y0 = -H / 2, upto = p.upto ? Math.max(0, Math.round(p.upto)) : nr;
+  const H = (nr + 1) * rh, x0 = -w / 2, y0 = -H / 2, upto = uptoOf(p.upto, nr);
   const gr = idxSet(p.glowRow), gc = idxSet(p.glowCol), fs = rh * 0.42;
   // fill "c:n;…": column c shows only its first n cells, so a step fills a column cell by cell on the voice
   const fillTo = new Map(String(p.fill ?? "").split(";").map((t) => t.split(":").map((v) => Math.round(Number(v))))
