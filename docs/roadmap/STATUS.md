@@ -1,18 +1,34 @@
 # BIE Status
 
-Updated: 5 November 2026 · Read this first in every new session, then show Navin the current task card.
+Updated: 18 November 2026 · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
 | Field | Value |
 | --- | --- |
 | Phase | 1 · BIE end to end on the new showing engine; agreement of 3 November 2026 (`docs/vision/AGREEMENT_2026-11-03.md`; ROADMAP, "Agreed on 3 November 2026"). Target 22 November. |
-| Current task | **Phase 1 · dikhaya-bola, the shown-said check** (Navin, 5 November 2026: "Boli cheez usi line mein", proof on v4 and v5), section below. Then the voice route he chose (one-time upload page, his Google Drive). |
-| Branch | `p1h-shown-said` |
-| State | **5 November 2026:** the box rule merged (PR #149) and Money v5 ran through it: 3 overlap seconds against the v2 demo's 36 and v4's 472, longest 1 s, gate passed, ₹0 AI. Navin passed v5's result ("Theek, aage dikhaya-bola") and said yes to keeping his voice clip on the VM only. |
-| Next task | v4 and v5 again through the director with the box rule and dikhaya-bola, render, numbers next to before; then the voice: the one-time upload page for his clip (shown to him before it is switched on). |
+| Current task | **Film-pehle course studio** (Navin, 18 November 2026), section below: the Monsoon demo (Unit 10, Geography of India) reached 9/10 and Navin said move on; its method and templates are saved (`docs/vision/STUDIO_METHOD_2026-11-18.md`, the Navin-facing "Kaam ki Kitaab" doc, the Drive rebuild kit). |
+| Branch | `p1-studio-method` (docs only) |
+| State | **18 November 2026:** method saved; Claude's demo, not BIE output. Nothing of it is in BIE yet. The Sloman book work stays paused until Navin says yes. Earlier state (5 November, dikhaya-bola and the voice page) is in the sections below. |
+| Next task | Bring the studio templates into BIE, part by part, on the existing slots (showing engine and its 3D layer, `bie/audio/`, notes-page slot, game-level slot, rulebook), each with tests and real-source proof; ask Navin first what he expects from each part. |
 | Canonical main | `a76003bd` (PR #147: Part F decision report) on `cec89b9d` (PR #146) … PRs #131–#145 (Phase 1 parts B–F) … on `3cd3c19e` (PR #127: Task 048 first slice) on `a14e732f` (PR #126: Task 046 Part D3, the general fixes) on `e8bc9968` (PR #125: the addendum proof's docs) on `d51a5cf3` (PR #124) on `4f612f20` (PR #123) on `3be6680f` (PR #121) on `a568edaf` (PR #120) on `866d171d` (PR #119) on `788106ba` (PR #118) on `ef77d816` (PR #117) on `7e06fa1e` (PR #115: Part D2) on `65e87a6e` (PR #114: Part D1 proof run b, the fetch rules, currency icons, the six pin) on `d6174636` (PR #113: F-18, the Section 18 sidecar race) on `18595156` (PR #112: the proof fixes) on `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai). On the VM, from 25 October 2026, the checker is Navin's free Google AI Studio key `GEMINI_API_KEY` in `/etc/bie/bie.env` (direct route, `gemini-3.8-flash`); the AICredits key stays there unused (a job can still choose it with `routes google=aicredits`). Since 24 October a free Google AI Studio key is the GitHub secret `GEMINI_API_KEY` (Navin's choice for now, sample content only, never student data); it serves GitHub Actions runs only and wins over AICredits there: `gemini-3.8-flash` answers (smoke run 40114580580), `gemini-4-argon` gives 429 quota and `gemini-3.1-pro` 404, so a run that uses it passes `models=google=gemini-3.8-flash` |
+
+## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
+
+Navin asked for one Unit 10 (Geography of India) topic at the Chapter 17 golden-benchmark level, as a film, a Living
+Book and a game. Claude made the Monsoon set outside BIE (Claude's demo, not BIE output): a 12-shot film (3 min 19 s,
+three.js relief map, Kokoro voice), a Living Book built from the film's frames (4 lessons, 5 dialogue scenes each with
+one beat per sentence, speaking notes, an auto-playing clip chain) and a five-stage hands-on game with decisions.
+Navin's verdicts: 70 % ("video first, not notes into video"), film approved, 8/10, then 9/10 and "aage badho".
+
+- **Method:** `docs/vision/STUDIO_METHOD_2026-11-18.md` (six steps, Navin's eight review rules, time estimate, the
+  first mapping onto BIE's slots). The Hinglish copy for Navin is the Claude Docs "Kaam ki Kitaab".
+- **Rebuild kit:** Navin's Google Drive, folder "Monsoon rebuild kit (2026-11-18)", five zips under 3 MB each plus a
+  README. Rebuilding the Living Book and the game from the zips alone in an empty folder gave the same pages with no
+  page errors. Lesson content and Navin's images are not in this public repository.
+- **Status words:** nothing IMPLEMENTED in BIE. The demo never goes into `tests/fixtures/passed_outputs/`. The next
+  task brings the parts into BIE's existing slots; each counts only when BIE makes the same kind of output itself.
 
 ## Phase 1 · part A: the showing engine inside BIE (3 November 2026)
 
