@@ -50,7 +50,7 @@ SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "canv
 # ChatGPT plan (tools/vm_image.py, prompts written by BIE, at most 4 images) and returns the image files; "look" runs the
 # LOOK-01 look check with the free Google reviewer (tools/vm_look.py). Both are fixed commands, like run_brain.
 TOOL_SECTIONS = ("image", "look")
-STUDIO_STAGES = ("questions", "films")
+STUDIO_STAGES = ("questions", "films", "games")
 FRESH_ENV = "BIE_VM_FRESH"         # set on the one re-run of a poll after the checkout moved to a newer main
 MAKERS = ("codex", "google", "openai")
 REVIEWERS = ("google", "openai", "codex")      # codex: the checker on the plan too (Navin, 27 October 2026)
@@ -107,8 +107,8 @@ def validate(job: dict) -> dict:
         raise JobError("source: needed for understand and chain")
     if out["section"] == "studio" and out.get("stage", "questions") == "questions" and not out.get("source"):
         raise JobError("source: needed for studio questions")
-    if out["section"] == "studio" and out.get("stage") == "films" and not out.get("from_run"):
-        raise JobError("from_run: needed for studio films (the questions run Navin said yes to)")
+    if out["section"] == "studio" and out.get("stage") in ("films", "games") and not out.get("from_run"):
+        raise JobError(f"from_run: needed for studio {out.get('stage')} (the earlier run: questions Navin said yes to, or films)")
     if out["section"] == "studio" and out.get("stage", "questions") not in STUDIO_STAGES:
         raise JobError("stage: one of " + ", ".join(STUDIO_STAGES))
     if out["section"] != "studio" and out.get("stage"):

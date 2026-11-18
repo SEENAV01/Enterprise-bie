@@ -36,6 +36,27 @@ PID = re.compile(r"^p[0-9]$")
 S = {"type": "string"}
 
 
+# Navin's decision 4 (18 November 2026): one skeleton for every subject; the colours follow the subject.
+SUBJECT_TINTS = (
+    (r"biolog|botan|zoolog|life science|jeev|plant|animal|tissue|cell|ncert.*science", "#3f7d4e"),
+    (r"geograph|bhugol|climate|monsoon|earth|environment", "#2c6e87"),
+    (r"econom|arthshastra|money|bank|finance|budget|commerce", "#9a6b1f"),
+    (r"histor|itihas|medieval|ancient|modern india|culture", "#8a3b2e"),
+    (r"polit|polity|civics|constitution|governance|samvidhan", "#33508f"),
+    (r"physic|bhautik|motion|electric|magnet|optic", "#4b4fa8"),
+    (r"chemi|rasayan|reaction|organic", "#7a4a9a"),
+    (r"math|ganit|algebra|geometry|calculus|statistic", "#245f9e"),
+)
+
+
+def subject_tint(course: str) -> str:
+    text = (course or "").lower()
+    for pattern, tint in SUBJECT_TINTS:
+        if re.search(pattern, text):
+            return tint
+    return "#2c6e87"
+
+
 def _obj(properties: dict) -> dict:
     return {"type": "object", "properties": properties, "required": list(properties), "additionalProperties": False}
 
@@ -224,6 +245,25 @@ def plan(client, model: str, pages, *, course: str = "", language: str = "Hingli
                          {"role": "user", "content": PROBLEMS_PROMPT + "\n- ".join(found)}]
     return {"answer": answer, "problems": found, "rounds": rounds, "usage": usage, "teachable": teach,
             "coverage": coverage(answer, teach) if isinstance(answer, dict) else None}
+
+
+def ask(client, model: str, convo: list, schema: dict, check, *, max_rounds: int = 3,
+        problems_prompt: str = "BIE's code checked your answer and found these problems. Send the whole corrected JSON "
+                               "object again:\n- ") -> dict:
+    """The studio's maker loop for the later stages: ask, let code check, send the exact problems back."""
+    rounds, usage, answer, found = [], {"input_tokens": 0, "output_tokens": 0}, None, ["no answer yet"]
+    for number in range(1, max_rounds + 1):
+        reply = client.chat(model=model, messages=convo, schema=schema)
+        for key in usage:
+            usage[key] += int((reply.get("usage") or {}).get(key) or 0)
+        answer = parse(reply.get("content", ""))
+        found = check(answer)
+        rounds.append({"round": number, "problems": found})
+        if not found:
+            break
+        convo = convo + [{"role": "assistant", "content": reply.get("content", "")},
+                         {"role": "user", "content": problems_prompt + "\n- ".join(found)}]
+    return {"answer": answer, "problems": found, "rounds": rounds, "usage": usage}
 
 
 LENGTH_WORD = {"long": "lambi film", "short": "chhoti film"}
