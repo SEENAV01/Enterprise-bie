@@ -62,9 +62,10 @@ How a BIE film works (approved benchmark: Monsoon and Pollen-to-seed films):
   points this shot teaches; together the shots cover every point.
 - visual.type "photo": a photorealistic picture made by an image model. image_prompt describes it fully (place, subject,
   camera, light, 16:9) and must leave room for labels; svg is "". Use photo for real things, places, organisms, machines.
-  visual.type "diagram": you draw it as one clean SVG (viewBox, no text larger than labels, no script, no images, no style
-  element; give every part you will light up an id); image_prompt is "". Use diagram for processes, cycles, cross-sections,
-  graphs and comparisons that a photo cannot show.
+  visual.type "diagram": you draw it as one SVG illustration in the style of BIE's Pollen Lab (a calm background colour,
+  gradients and soft shading, rounded natural shapes, depth, short labels with leader lines; at least one gradient and at
+  least 12 drawn shapes; viewBox; no script, no images, no style element; give every part you will light up an id);
+  image_prompt is "". Use diagram for processes, cycles, cross-sections, graphs and comparisons that a photo cannot show.
 - Every sentence says what appears WHILE it is spoken ("dikhaya = bola"): pins (a short label at x,y in percent of the
   picture, 3 to 97; the label's words must be spoken in that sentence), arrows (2 to 4 points in percent, a short label or
   ""), effects (rise for rising air or heat, rain, glow; a box x0,x1,y0,y1 in percent), focus (ids of SVG parts to light up;
@@ -105,6 +106,27 @@ def svg_problems(svg: str) -> list:
     return out
 
 
+SHAPES = ("path", "rect", "circle", "ellipse", "polygon", "polyline", "line")
+MIN_SHAPES = 12
+
+
+def illustration_problems(svg: str) -> list:
+    """An illustration in the Chapter 17 Pollen Lab style (Navin, 19 November 2026), not a bare sketch: at least one
+    gradient and at least MIN_SHAPES drawn shapes."""
+    try:
+        root = ET.fromstring(svg)
+    except ET.ParseError:
+        return []
+    tags = [el.tag.rsplit("}", 1)[-1] for el in root.iter()]
+    out = []
+    if not any(t in ("linearGradient", "radialGradient") for t in tags):
+        out.append("the illustration has no gradient; draw it in the Pollen Lab style (gradients, soft shading, depth)")
+    shapes = sum(1 for t in tags if t in SHAPES)
+    if shapes < MIN_SHAPES:
+        out.append(f"the illustration has {shapes} shapes; a bare sketch is not enough, draw at least {MIN_SHAPES}")
+    return out
+
+
 def svg_ids(svg: str) -> set:
     try:
         return {el.get("id") for el in ET.fromstring(svg).iter() if el.get("id")}
@@ -137,7 +159,7 @@ def problems(film, question: dict) -> list:
             if len((visual.get("image_prompt") or "").strip()) < 60:
                 out.append(f"{sid}: image_prompt needs a full description (at least 60 characters)")
         elif visual.get("type") == "diagram":
-            out += [f"{sid}: {p}" for p in svg_problems(visual.get("svg") or "")]
+            out += [f"{sid}: {p}" for p in svg_problems(visual.get("svg") or "") + illustration_problems(visual.get("svg") or "")]
             ids = svg_ids(visual.get("svg") or "")
         else:
             out.append(f"{sid}: visual.type must be photo or diagram")

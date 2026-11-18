@@ -28,6 +28,12 @@ Decision cards in the planning chat, 18 November 2026:
    separate ChatGPT-app work; Navin allowed Codex to write files and run commands inside a closed folder when a stage
    needs it (security yes, 18 November 2026). Stage `questions` needs neither: it is a read-only call.
 6. **Review:** Navin looks at the first chapter before the whole book runs, and at the end.
+7. **Game look (decision card, 19 November 2026):** what is seen from outside (a place, a field, a fort, a machine) is
+   played on the question's own film photo with the moving pieces drawn on top (game `backdrop: film_photo`, the film's
+   pins tell the maker where things are in the photo); an inside process or structure is a full illustration in the
+   Chapter 17 Pollen Lab style (`backdrop: illustration`, code check: at least one gradient and 12 drawn shapes). The same
+   illustration check now applies to film diagrams. Navin saw the player test pictures (Claude's test data, a bare
+   triangle scene) and said they were far from the vision; only real VM output or clearly marked samples are shown now.
 
 Checked the same day: VM job `img-check-20261118` (two test pictures through the plan, 3 minutes, ₹0); Codex's weekly
 plan window was 43 % used before it (resets about 21 November).

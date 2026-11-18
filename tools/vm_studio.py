@@ -172,7 +172,7 @@ def games(args, client, model, pages, out: Path, summary: dict):
     blocks = studio.all_blocks(pages) if pages else {}
     (out / "games").mkdir(exist_ok=True)
     (out / "questions.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
-    stages, heroes, rows, usage = [], {}, [], {"input_tokens": 0, "output_tokens": 0}
+    stages, heroes, photos, rows, usage = [], {}, {}, [], {"input_tokens": 0, "output_tokens": 0}
     for q in questions:
         q = dict(q)
         ids = [i for p in q.get("points") or [] for i in p.get("block_ids") or []]
@@ -180,7 +180,9 @@ def games(args, client, model, pages, out: Path, summary: dict):
         made = maybe_json(args.from_run, f"films/{q['id']}.json") or {}
         film = made.get("film") if isinstance(made.get("film"), dict) else {}
         q["film_keys"] = "\n".join(f"- {s.get('key')}" for s in film.get("shots") or [] if s.get("key"))
-        for name in (made.get("images") or {}).values():
+        files = made.get("images") or {}
+        q["film_photos"] = [studio_game.film_photo(shot) for shot in film.get("shots") or [] if shot.get("id") in files]
+        for name in files.values():
             try:
                 heroes[q["id"]] = image_uri(read_bytes(args.from_run, f"films/img/{name}"), 1200)
                 break
@@ -188,6 +190,12 @@ def games(args, client, model, pages, out: Path, summary: dict):
                 continue
         record = studio_game.write(client, model, q, course=args.course, language=args.language,
                                    chapter=plan.get("chapter_title", ""), max_rounds=args.max_rounds)
+        shot = (record.get("stage") or {}).get("photo_shot") if isinstance(record.get("stage"), dict) else None
+        if shot in files:
+            try:
+                photos[(q["id"], shot)] = image_uri(read_bytes(args.from_run, f"films/img/{files[shot]}"), 1600)
+            except Exception as exc:              # the stage still plays; the report says the photo is missing
+                record["problems"] = record["problems"] + [f"film photo {shot} not read ({str(exc)[:80]})"]
         for key in usage:
             usage[key] += record["usage"].get(key, 0)
         stage = record.get("stage") if isinstance(record.get("stage"), dict) else None
@@ -195,13 +203,15 @@ def games(args, client, model, pages, out: Path, summary: dict):
         if stage and not record["problems"]:
             stages.append({"qid": q["id"], "stage": stage})
         rows.append({"qid": q["id"], "question": q.get("question"), "rounds": len((stage or {}).get("rounds") or []),
+                     "look": (stage or {}).get("backdrop"),
                      "mechanics": sorted({r.get("mechanic") for r in (stage or {}).get("rounds") or []}),
                      "maker_rounds": len(record["rounds"]), "problems": record["problems"]})
-    data = studio_game.player_data(stages, plan=plan, tint=studio.subject_tint(args.course), heroes=heroes)
+    data = studio_game.player_data(stages, plan=plan, tint=studio.subject_tint(args.course), heroes=heroes, photos=photos)
     (out / "GAME.html").write_text(studio_game.html(data, GAME_PLAYER.read_text(encoding="utf-8")), encoding="utf-8")
     lines = ["# Game", "", f"{len(stages)} / {len(rows)} sawaalon ke stage bane (GAME.html).", ""]
     for row in rows:
-        lines.append(f"- **{row['qid']}** {row['question']} · {row['rounds']} round · {', '.join(row['mechanics'])}"
+        look = {"film_photo": "film ki photo par", "illustration": "illustration"}.get(row["look"], "")
+        lines.append(f"- **{row['qid']}** {row['question']} · {row['rounds']} round · {', '.join(row['mechanics'])} · {look}"
                      + (f" · kamiyan: {len(row['problems'])}" if row["problems"] else ""))
     (out / "GAMES.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     summary.update(games=rows, stages=len(stages), usage=usage, model=model,

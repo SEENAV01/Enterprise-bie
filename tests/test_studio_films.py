@@ -29,8 +29,10 @@ QUESTION = {"id": "q01", "question": "Ek hi hawa kahin baadh aur kahin sookha ky
                        {"block_ids": ["p0001-b0003"], "point": "Doosri taraf vrishti chhaya", "kind": "cause_effect"}],
             "film": {"length": "short", "showing_moment": "Hawa ka gola Ghat par chadhta hai"},
             "game_stage": {"mechanic": "drag_to_target", "idea": "Gole ko Ghat par kheencho"}}
-SVG = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 56"><path id="slope" d="M0 50 L50 10 L100 50"/>'
-       '<circle id="cloud" cx="40" cy="12" r="6"/></svg>')
+SVG = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 56"><defs><linearGradient id="g"><stop offset="0"/>'
+       '</linearGradient></defs><rect width="100" height="56" fill="#eef"/><path id="slope" d="M0 50 L50 10 L100 50"/>'
+       '<circle id="cloud" cx="40" cy="12" r="6"/>' + "".join(f'<circle cx="{5 + i * 9}" cy="52" r="2"/>' for i in range(10))
+       + '</svg>')
 
 
 def sentence(roman, voice, pins=(), focus=()):

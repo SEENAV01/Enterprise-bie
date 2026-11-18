@@ -27,7 +27,10 @@ QUESTION = {"id": "q01", "pillar": "p1", "question": "Ek hi hawa kahin baadh aur
             "game_stage": {"mechanic": "drag_to_target", "idea": "Gole ko Ghat par kheencho"}}
 PLAN = {"chapter_title": "Monsoon", "big_question": "Ek hi hawa poore Bharat ko kaise bhigoti hai?",
         "pillars": [{"id": "p1", "title": "Ghat", "line": "Pahaad aur baarish"}], "questions": [QUESTION]}
-SVG = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450"><rect id="sea" x="0" y="300" width="250" height="150"/>'
+SVG = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450"><defs><linearGradient id="sky"><stop offset="0"/>'
+       '</linearGradient></defs><rect width="800" height="450" fill="url(#sky)"/>'
+       + "".join(f'<circle cx="{60 + i * 70}" cy="30" r="8"/>' for i in range(8))
+       + '<rect id="sea" x="0" y="300" width="250" height="150"/>'
        '<path id="ghat" d="M250 450 L420 160 L560 450Z"/><circle id="parcel" cx="120" cy="260" r="26"/>'
        '<g id="cloud"><ellipse cx="400" cy="140" rx="60" ry="26"/></g><path id="rain" d="M380 170 L370 230"/>'
        '<rect id="pune" x="600" y="400" width="60" height="30"/><text x="610" y="395">Pune</text></svg>')
@@ -45,7 +48,7 @@ def opt(label, correct=True, *, group="", order=0, target="", actions=None):
 
 def stage():
     return {"title": "Hawa ko Ghat par chadhao", "intro": "Samudra ki geeli hawa ko pahaad tak le jaao aur dekho kya hota hai.",
-            "scene_svg": SVG, "start_hidden": ["cloud", "rain"],
+            "backdrop": "illustration", "photo_shot": "", "scene_svg": SVG, "start_hidden": ["cloud", "rain"],
             "rounds": [
                 {"id": "r1", "mechanic": "drag_to_target", "covers": [0], "prompt": "Hawa ke gole ko Ghat ki dhalaan par chhodo.",
                  "groups": [], "options": [opt("Geeli hawa", target="ghat", actions=[act("parcel", "move", x=260, y=-110),
@@ -117,6 +120,29 @@ class GameChecks(unittest.TestCase):
         self.assertIn("banned element", found)
         self.assertIn("names the source", found)
 
+    def test_look_photo_or_illustration(self):
+        bare = stage()
+        bare["scene_svg"] = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450"><path id="ghat" d="M0 0 L9 9"/>'
+                             '<circle id="parcel" r="3"/><g id="cloud"/><path id="rain" d="M1 1"/><rect id="pune"/></svg>')
+        found = " | ".join(studio_game.problems(bare, QUESTION))
+        self.assertIn("no gradient", found)
+        self.assertIn("shapes; a bare sketch is not enough", found)
+        on_photo = stage()
+        on_photo.update(backdrop="film_photo", photo_shot="s1")
+        found = " | ".join(studio_game.problems(on_photo, QUESTION))
+        self.assertIn("there is none, so use backdrop illustration", found)
+        self.assertIn("a shape covers the film photo", found)
+        question = dict(QUESTION, film_photos=[{"id": "s1", "description": "Western Ghats in rain",
+                                                "pins": [{"t": "Ghat", "x": 55, "y": 40}]}])
+        on_photo["scene_svg"] = SVG.replace('<rect width="800" height="450" fill="url(#sky)"/>', "")
+        self.assertEqual(studio_game.problems(on_photo, question), [])
+        text = studio_game.messages(question, course="Class 9", language="Hinglish")[1]["content"]
+        self.assertIn("photo_shot s1: Western Ghats in rain | pins: Ghat at (55, 40)", text)
+        data = studio_game.player_data([{"qid": "q01", "stage": on_photo}], plan=PLAN, tint="#000",
+                                       heroes={"q01": "data:hero"}, photos={("q01", "s1"): "data:photo"})
+        item = data["worlds"][0]["stages"][0]
+        self.assertEqual((item["bg"], item["hero"]), ("data:photo", ""))
+
     def test_problems_go_back_and_are_fixed(self):
         broken = copy.deepcopy(stage())
         broken["rounds"][0]["options"][0]["target"] = "nowhere"
@@ -137,12 +163,17 @@ class GameRun(unittest.TestCase):
             (films / "films" / "img").mkdir(parents=True)
             (films / "questions.json").write_text(json.dumps(PLAN, ensure_ascii=False), encoding="utf-8")
             (films / "films" / "q01.json").write_text(json.dumps(
-                {"film": {"shots": [{"key": "Hawa chadhti hai, baarish hoti hai"}]}, "images": {"s1": "q01-s1.png"}}),
-                encoding="utf-8")
+                {"film": {"shots": [{"id": "s1", "key": "Hawa chadhti hai, baarish hoti hai",
+                                     "visual": {"type": "photo", "image_prompt": "Western Ghats in the July rain", "svg": ""},
+                                     "sentences": [{"roman": "Yeh Ghat hai.", "pins": [{"label": "Ghat", "x": 55, "y": 40}]}]}]},
+                 "images": {"s1": "q01-s1.png"}}), encoding="utf-8")
             buffer = io.BytesIO()
             Image.new("RGB", (64, 36), (40, 120, 60)).save(buffer, "PNG")
             (films / "films" / "img" / "q01-s1.png").write_bytes(buffer.getvalue())
-            client = FakeClient([stage()])
+            on_photo = stage()
+            on_photo.update(backdrop="film_photo", photo_shot="s1",
+                            scene_svg=SVG.replace('<rect width="800" height="450" fill="url(#sky)"/>', ""))
+            client = FakeClient([on_photo])
             args = SimpleNamespace(stage="games", source="", from_run=str(films), videos="", out=str(Path(folder) / "out"),
                                    pages="", course="Class 9 Geography", language="Hinglish", model="", max_rounds=2)
             summary = vm_studio.run(args, client=client, load=None)
@@ -150,6 +181,8 @@ class GameRun(unittest.TestCase):
             self.assertEqual(summary["status"], "ok", summary.get("error"))
             self.assertEqual(summary["stages"], 1)
             self.assertIn("Hawa chadhti hai, baarish hoti hai", client.calls[0][1]["content"])
+            self.assertIn("photo_shot s1: Western Ghats in the July rain | pins: Ghat at (55, 40)", client.calls[0][1]["content"])
+            self.assertEqual(json.loads((out / "SUMMARY.json").read_text())["games"][0]["look"], "film_photo")
             page = (out / "GAME.html").read_text(encoding="utf-8")
             self.assertNotIn("/*__GAME__*/null", page)
             self.assertIn("data:image/webp;base64,", page)

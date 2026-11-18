@@ -25,6 +25,7 @@ h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(1
 .bar .rd{padding:3px 9px;border-radius:99px;border:1px solid var(--line)}.bar .rd.on{color:var(--gold);border-color:var(--gold)}.bar .rd.ok{color:var(--ok);border-color:var(--ok)}
 .bar .sp{flex:1}.bar button{background:transparent;border:1px solid var(--line);border-radius:9px;padding:6px 10px;min-height:36px}
 .scene{position:relative;background:radial-gradient(circle at 30% 20%,#18302a,#0c1714);touch-action:none}
+.scene{background-size:cover;background-position:center}.scene.photo{aspect-ratio:16/9}.scene.photo svg{position:absolute;inset:0;height:100%}
 .scene svg{display:block;width:100%;height:auto}
 .scene svg *{transform-box:fill-box;transform-origin:center}
 .scene .zone{outline:none;filter:drop-shadow(0 0 7px var(--gold))}
@@ -117,7 +118,7 @@ function restore(m){$('scene').querySelectorAll('[id]').forEach(e=>{e.getAnimati
 function open(i){si=i;S=ALL[i];$('home').classList.add('hidden');$('stage').classList.remove('hidden');
   $('stitle').textContent=S.title||S.question;$('sintro').textContent=S.intro||S.question||'';
   const hi=$('heroimg');if(S.hero){hi.src=S.hero;hi.classList.remove('hidden');}else hi.classList.add('hidden');
-  const sc=$('scene');sc.innerHTML=S.svg||'';sc.querySelectorAll('[id]').forEach(e=>{e._s=null;const s=st(e);if(S.hidden.includes(e.id))s.o=0;paint(e,s);});
+  const sc=$('scene');sc.innerHTML=S.svg||'';sc.classList.toggle('photo',!!S.bg);sc.style.backgroundImage=S.bg?'url('+S.bg+')':'';sc.querySelectorAll('[id]').forEach(e=>{e._s=null;const s=st(e);if(S.hidden.includes(e.id))s.o=0;paint(e,s);});
   round(0);window.scrollTo(0,0);}
 function bar(){const b=$('bar');b.innerHTML='';const back=el('button',null,'← Saare stage');back.onclick=home;b.appendChild(back);
   b.appendChild(el('span',null,S.qid.toUpperCase()+' · '+(si+1)+'/'+ALL.length));
