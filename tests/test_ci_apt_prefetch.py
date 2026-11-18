@@ -78,9 +78,18 @@ class AptPrefetch(unittest.TestCase):
         self.assertEqual(sum(1 for c in calls if c.endswith(' update')), 1)
         self.assertIn('::error title=APT download bound (F-11)::', result.stdout)
 
+    def test_regional_only_list_fails_over_to_the_primary_archive(self):
+        only = 'http://azure.archive.ubuntu.com/ubuntu/\tpriority:1\n'
+        result, calls, bounds, mirrors = self.run_helper('124,0', 'apt_prefetch a', mirrors=only)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(mirrors, 'http://archive.ubuntu.com/ubuntu/\tpriority:1\n')   # only the host changed
+        self.assertIn("no second mirror listed; using Ubuntu's primary archive", result.stdout)
+        self.assertEqual([c.split(' -o Acquire::https::Timeout=30 ')[1] for c in calls],
+                         ['install -y --download-only a', 'update', 'install -y --download-only a'])
+        self.assertEqual(bounds[:2], [180, 90])
+
     def test_unknown_mirror_layout_is_not_rewritten(self):
-        for layout in (None, 'https://archive.ubuntu.com/ubuntu/\tpriority:1\n',
-                       'http://azure.archive.ubuntu.com/ubuntu/\tpriority:1\n'):
+        for layout in (None, 'https://archive.ubuntu.com/ubuntu/\tpriority:1\n'):
             result, calls, bounds, mirrors = self.run_helper('124,0', 'apt_prefetch a', mirrors=layout)
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertEqual(mirrors, layout)

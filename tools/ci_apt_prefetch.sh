@@ -10,7 +10,11 @@
 # apt_prefetch only DOWNLOADS (apt-get --download-only); the unchanged install
 # commands then install from the local cache. Package set, versions and trust
 # are unchanged: apt verifies every .deb against the signed archive indexes,
-# and the fail-over only drops the regional line of the image's own mirror list.
+# and the fail-over drops the regional line of the image's own mirror list. When
+# the image lists ONLY the regional mirror (18 November 2026, PR #166: two runs an
+# hour apart, "no second mirror listed"), the fail-over points that one line at
+# Ubuntu's primary archive (archive.ubuntu.com, the same signed indexes and the
+# same Ubuntu archive key; nothing else in the list or in apt's trust changes).
 # Worst case for all prefetches of one job: APT_BUDGET_S seconds, then a clear
 # ::error annotation and a non-zero exit instead of a silent job cancel.
 
@@ -18,6 +22,7 @@ APT_MIRRORS="${APT_MIRRORS:-/etc/apt/apt-mirrors.txt}"
 APT_BUDGET_S="${APT_BUDGET_S:-480}"        # all prefetches of this job together
 APT_FIRST_TRY_S="${APT_FIRST_TRY_S:-180}"  # first try on the regional mirror (healthy: ~10 s)
 APT_REGIONAL='^http://azure\.archive\.ubuntu\.com/'
+APT_PRIMARY='http://archive.ubuntu.com/'
 APT_FAILED_OVER=0
 APT_DEADLINE=$((SECONDS + APT_BUDGET_S))
 
@@ -35,6 +40,14 @@ apt_mirror_failover() {
     sudo sed -i '\#^http://azure\.archive\.ubuntu\.com/#d' "$APT_MIRRORS"
     echo "apt mirror list after fail-over:"; cat "$APT_MIRRORS"
     echo "::warning title=APT mirror fail-over (F-11)::regional mirror too slow; using the image's next listed mirror"
+    left=$((APT_DEADLINE - SECONDS))
+    test "$left" -gt 0 || return 1
+    apt_get_bounded "$((left < 90 ? left : 90))" update
+  elif test -f "$APT_MIRRORS" && grep -q "$APT_REGIONAL" "$APT_MIRRORS"; then
+    echo "apt mirror list before fail-over:"; cat "$APT_MIRRORS"
+    sudo sed -i "s#^http://azure\.archive\.ubuntu\.com/#${APT_PRIMARY}#" "$APT_MIRRORS"
+    echo "apt mirror list after fail-over:"; cat "$APT_MIRRORS"
+    echo "::warning title=APT mirror fail-over (F-11)::regional mirror too slow and no second mirror listed; using Ubuntu's primary archive"
     left=$((APT_DEADLINE - SECONDS))
     test "$left" -gt 0 || return 1
     apt_get_bounded "$((left < 90 ? left : 90))" update
