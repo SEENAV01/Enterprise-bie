@@ -145,7 +145,7 @@ class StudioJob(unittest.TestCase):
         self.assertEqual(cmd[cmd.index("--course") + 1], "Class 11 Geography")
 
     def test_refusals(self):
-        for change, word in (({"source": None}, "source"), ({"stage": "films"}, "stage"), ({"stage": "bad stage"}, "stage")):
+        for change, word in (({"source": None}, "source"), ({"stage": "videos"}, "stage"), ({"stage": "bad stage"}, "stage")):
             job = {k: v for k, v in dict(self.JOB, **change).items() if v is not None}
             with self.assertRaises(codex_vm.JobError) as caught:
                 codex_vm.validate(job)

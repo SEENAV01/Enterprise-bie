@@ -50,7 +50,7 @@ SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "canv
 # ChatGPT plan (tools/vm_image.py, prompts written by BIE, at most 4 images) and returns the image files; "look" runs the
 # LOOK-01 look check with the free Google reviewer (tools/vm_look.py). Both are fixed commands, like run_brain.
 TOOL_SECTIONS = ("image", "look")
-STUDIO_STAGES = ("questions",)
+STUDIO_STAGES = ("questions", "films")
 FRESH_ENV = "BIE_VM_FRESH"         # set on the one re-run of a poll after the checkout moved to a newer main
 MAKERS = ("codex", "google", "openai")
 REVIEWERS = ("google", "openai", "codex")      # codex: the checker on the plan too (Navin, 27 October 2026)
@@ -103,8 +103,12 @@ def validate(job: dict) -> dict:
     for name, pattern in FIELDS.items():
         if out.get(name) not in (None, "") and not pattern.match(str(out[name])):
             raise JobError(f"{name}: not allowed")
-    if out["section"] in ("understand", "chain", "studio") and not out.get("source"):
-        raise JobError("source: needed for understand, chain and studio")
+    if out["section"] in ("understand", "chain") and not out.get("source"):
+        raise JobError("source: needed for understand and chain")
+    if out["section"] == "studio" and out.get("stage", "questions") == "questions" and not out.get("source"):
+        raise JobError("source: needed for studio questions")
+    if out["section"] == "studio" and out.get("stage") == "films" and not out.get("from_run"):
+        raise JobError("from_run: needed for studio films (the questions run Navin said yes to)")
     if out["section"] == "studio" and out.get("stage", "questions") not in STUDIO_STAGES:
         raise JobError("stage: one of " + ", ".join(STUDIO_STAGES))
     if out["section"] != "studio" and out.get("stage"):
@@ -141,10 +145,10 @@ def argv(job: dict, out: Path, python: str = sys.executable) -> list:
         return cmd
     if job["section"] == "studio":
         cmd = [python, "-B", str(ROOT / "tools" / "vm_studio.py"), "--stage", job.get("stage") or "questions",
-               "--source", str(job["source"]), "--out", str(out), "--max-rounds", str(job["max_rounds"])]
-        for name in ("pages", "course", "language"):
+               "--out", str(out), "--max-rounds", str(job["max_rounds"])]
+        for name in ("source", "from_run", "pages", "course", "language", "videos"):
             if job.get(name):
-                cmd += ["--" + name, str(job[name])]
+                cmd += ["--" + name.replace("_", "-"), str(job[name])]
         return cmd
     cmd = [python, "-B", str(ROOT / "tools" / "run_brain.py"), "--section", job["section"], "--out", str(out),
            "--maker", job["maker"], "--reviewer", job["reviewer"], "--max-inr", str(job["max_inr"]),
@@ -304,6 +308,8 @@ def poll(*, python: str = sys.executable, update_main: bool = True) -> list:
             if not installed.exists() or installed.read_text() != current:      # dependencies changed on main
                 subprocess.run([python, "-m", "pip", "install", "-q", "-e",
                                 f"{ROOT}[document-intelligence,document-intelligence-layout]"], check=True)
+                # the studio's voice and pictures: a failed install must not stop the other jobs (films then say why)
+                subprocess.run([python, "-m", "pip", "install", "-q", "-e", f"{ROOT}[studio]"], check=False)
                 installed.write_text(current)
         rep = repo()
         rep.fetch(JOBS_BRANCH)
