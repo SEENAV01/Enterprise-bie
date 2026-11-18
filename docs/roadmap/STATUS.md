@@ -2163,7 +2163,12 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   go. Fix in its own small PR (Navin's yes asked, as it changes where CI fetches packages from): when only the regional
   line is listed, the fail-over points that line at Ubuntu's primary archive (`archive.ubuntu.com`); apt still verifies
   every package against the same signed indexes and archive key, and nothing else in the list changes. Test: a
-  regional-only list fails over to the primary archive within the same budget.
+  regional-only list fails over to the primary archive within the same budget. The PR's first run (head `029f72cf`, run
+  44417991830, 23:08 UTC) still said "no second mirror listed": the image no longer names the regional host in
+  `/etc/apt/apt-mirrors.txt` the way the script expected. Second commit: the fail-over now finds the regional host
+  (any region prefix) wherever apt names it (the mirror list, `sources.list`, `*.list`, deb822 `*.sources`) and points
+  it at the primary archive, and every fail-over first writes a `::notice` "APT sources (F-11)" listing where apt
+  fetches from, since job logs cannot be read from the cloud workspace.
 - F-14 (26 October 2026, VM runner): the first job after PR #77 merged (`codex-jobs:jobs/t046-oneshot-images.json`)
   came back `refused: unknown fields: max_images, prompts`. Cause: `tools/codex_vm.py poll` imports the runner, then
   moves the checkout to the new `main`, then checks the jobs with the rules it had already loaded, so the first poll

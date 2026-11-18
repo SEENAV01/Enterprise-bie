@@ -26,7 +26,7 @@ STUBS = {
 
 @unittest.skipUnless(shutil.which('bash') and sys.platform != 'win32', 'bash required')
 class AptPrefetch(unittest.TestCase):
-    def run_helper(self, plan, script, mirrors=MIRRORS, budget=480):
+    def run_helper(self, plan, script, mirrors=MIRRORS, budget=480, sources=None):
         work = Path(tempfile.mkdtemp()); self.addCleanup(shutil.rmtree, work)
         stub = work / 'bin'; stub.mkdir()
         for name, body in STUBS.items():
@@ -34,8 +34,12 @@ class AptPrefetch(unittest.TestCase):
         (stub / 'python').symlink_to(sys.executable)
         mirror_file = work / 'apt-mirrors.txt'
         if mirrors is not None: mirror_file.write_text(mirrors)
+        etc = work / 'etc-apt'; (etc / 'sources.list.d').mkdir(parents=True)     # never the machine's own /etc/apt
+        for name, text in (sources or {}).items(): (etc / name).write_text(text)
+        self.etc = etc
         env = dict(os.environ, PATH=f'{stub}:{os.environ["PATH"]}', FAKE_LOG=str(work / 'log'),
-                   FAKE_PLAN=plan, APT_MIRRORS=str(mirror_file), APT_BUDGET_S=str(budget))
+                   FAKE_PLAN=plan, APT_MIRRORS=str(mirror_file), APT_BUDGET_S=str(budget),
+                   APT_SOURCES_DIR=str(etc))
         result = subprocess.run(['bash', '-c', f'set -euo pipefail; source "{HELPER}"; {script}'],
                                 env=env, capture_output=True, text=True, timeout=60)
         read = lambda p: p.read_text().splitlines() if p.exists() else []
@@ -83,10 +87,26 @@ class AptPrefetch(unittest.TestCase):
         result, calls, bounds, mirrors = self.run_helper('124,0', 'apt_prefetch a', mirrors=only)
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(mirrors, 'http://archive.ubuntu.com/ubuntu/\tpriority:1\n')   # only the host changed
-        self.assertIn("no second mirror listed; using Ubuntu's primary archive", result.stdout)
+        self.assertIn("no second mirror listed; using Ubuntu's primary archive (archive.ubuntu.com) in apt-mirrors.txt",
+                      result.stdout)
+        self.assertIn('::notice title=APT sources (F-11)::mirror-list http://azure.archive.ubuntu.com/ubuntu/', result.stdout)
         self.assertEqual([c.split(' -o Acquire::https::Timeout=30 ')[1] for c in calls],
                          ['install -y --download-only a', 'update', 'install -y --download-only a'])
         self.assertEqual(bounds[:2], [180, 90])
+
+    def test_deb822_sources_without_a_mirror_list_fail_over_too(self):
+        ubuntu = ('Types: deb\nURIs: http://westus.azure.archive.ubuntu.com/ubuntu/\nSuites: noble noble-updates\n'
+                  'Components: main universe\nSigned-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg\n\n'
+                  'Types: deb\nURIs: http://security.ubuntu.com/ubuntu/\nSuites: noble-security\nComponents: main\n')
+        result, calls, bounds, mirrors = self.run_helper('124,0', 'apt_prefetch a', mirrors=None,
+                                                         sources={'sources.list.d/ubuntu.sources': ubuntu})
+        self.assertEqual(result.returncode, 0, result.stderr)
+        after = (self.etc / 'sources.list.d/ubuntu.sources').read_text()
+        self.assertEqual(after, ubuntu.replace('westus.azure.archive.ubuntu.com', 'archive.ubuntu.com'))  # host only
+        self.assertIn('Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg', after)                # trust unchanged
+        self.assertIn('ubuntu.sources http://westus.azure.archive.ubuntu.com/ubuntu/', result.stdout)
+        self.assertIn('in ubuntu.sources', result.stdout)
+        self.assertEqual(sum(1 for c in calls if c.endswith(' update')), 1)
 
     def test_unknown_mirror_layout_is_not_rewritten(self):
         for layout in (None, 'https://archive.ubuntu.com/ubuntu/\tpriority:1\n'):
