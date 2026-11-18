@@ -2174,6 +2174,14 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   same PR (it already touches only this workflow): both steps now download through `tools/ci_apt_prefetch.sh` (one
   480 s budget, mirror fail-over, an `::error` annotation instead of a silent cancel) and install from the local
   cache. Not rerun; the push that adds this note starts the new run (rule CI-2).
+- F-11 again (18 November 2026, PR #166, head `097e436e`): five jobs stopped in their apt install step, before any test
+  ran, all between 17:15 and 17:24 UTC: toolbox run 44356532761 `demos (1)`, `demos (2)` ("System libraries and fonts")
+  and `wrappers` ("System libraries and programs"); Section 18 run 44356532603 `native-render` ("Provision unchanged
+  governed native toolchain") and `section16-regression` ("Install the existing governed hosted-worker profile"). Each
+  shows the annotation "APT download bound (F-11): apt downloads did not finish within the 480 s budget" and "no second
+  mirror listed; retrying the same mirror": the runner image listed only its regional mirror, so the fail-over had
+  nowhere to go. The PR touches none of these steps. Rerun once under rule CI-2; the push that adds this note starts
+  the new run. Follow-up (its own small PR): give `tools/ci_apt_prefetch.sh` a second mirror when the image lists only one.
 - F-14 (26 October 2026, VM runner): the first job after PR #77 merged (`codex-jobs:jobs/t046-oneshot-images.json`)
   came back `refused: unknown fields: max_images, prompts`. Cause: `tools/codex_vm.py poll` imports the runner, then
   moves the checkout to the new `main`, then checks the jobs with the rules it had already loaded, so the first poll
