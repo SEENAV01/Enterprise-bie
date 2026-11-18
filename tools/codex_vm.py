@@ -42,13 +42,15 @@ JOB_SCHEMA = "bie.vm-job/1"
 JOBS_BRANCH = "codex-jobs"
 RESULTS_BRANCH = "blindtest-results"
 SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "canvas", "chain", "image", "look", "coder",
-            "showplan", "notespages", "gamelevels")   # Phase 1 part C (agreement of 3 November 2026)
+            "showplan", "notespages", "gamelevels",   # Phase 1 part C (agreement of 3 November 2026)
+            "studio")   # the film-first course studio (Navin, 18 November 2026): tools/vm_studio.py, stage "questions" first
 # "coder" (Task 046 Part D2 addendum, Navin 2 November 2026): BIE's coder draws an SVG for each need no source had
 # (run_brain --section coder --from-run <canvas run> --library <shared library>), through the plan like the canvas section.
 # Task 046 one-shot test (Navin, 26 October 2026): "image" makes pictures with Codex's built-in image_gen tool through the
 # ChatGPT plan (tools/vm_image.py, prompts written by BIE, at most 4 images) and returns the image files; "look" runs the
 # LOOK-01 look check with the free Google reviewer (tools/vm_look.py). Both are fixed commands, like run_brain.
 TOOL_SECTIONS = ("image", "look")
+STUDIO_STAGES = ("questions",)
 FRESH_ENV = "BIE_VM_FRESH"         # set on the one re-run of a poll after the checkout moved to a newer main
 MAKERS = ("codex", "google", "openai")
 REVIEWERS = ("google", "openai", "codex")      # codex: the checker on the plan too (Navin, 27 October 2026)
@@ -62,6 +64,7 @@ FIELDS = {
     "routes": re.compile(r"^[a-z]+=[a-z]+(,[a-z]+=[a-z]+)*$"),
     "reviewer_model": re.compile(r"^[A-Za-z0-9/._:-]{1,80}$"),
     "language": re.compile(r"^[A-Za-z ]{2,30}$"),
+    "stage": re.compile(r"^[a-z]{3,20}$"),
 }
 DEFAULTS = {"maker": "codex", "reviewer": "google", "max_inr": 300, "workers": 2, "max_rounds": 3}
 RUN_TIMEOUT = 8 * 3600
@@ -77,7 +80,7 @@ def validate(job: dict) -> dict:
         raise JobError(f"job: must be a {JOB_SCHEMA} object")
     allowed = {"job", "id", "section", "source", "chapter_map", "from_run", "resume_from", "library", "pages", "videos", "course",
                "maker", "reviewer", "reviewer_model", "models", "routes", "max_inr", "workers", "max_rounds", "language",
-               "with_visual", "with_canvas", "with_show", "render", "fake", "note", "prompts", "request", "max_images"}
+               "with_visual", "with_canvas", "with_show", "render", "fake", "note", "prompts", "request", "max_images", "stage"}
     unknown = sorted(set(job) - allowed)
     if unknown:
         raise JobError("unknown fields: " + ", ".join(unknown))
@@ -100,8 +103,12 @@ def validate(job: dict) -> dict:
     for name, pattern in FIELDS.items():
         if out.get(name) not in (None, "") and not pattern.match(str(out[name])):
             raise JobError(f"{name}: not allowed")
-    if out["section"] in ("understand", "chain") and not out.get("source"):
-        raise JobError("source: needed for understand and chain")
+    if out["section"] in ("understand", "chain", "studio") and not out.get("source"):
+        raise JobError("source: needed for understand, chain and studio")
+    if out["section"] == "studio" and out.get("stage", "questions") not in STUDIO_STAGES:
+        raise JobError("stage: one of " + ", ".join(STUDIO_STAGES))
+    if out["section"] != "studio" and out.get("stage"):
+        raise JobError("stage: only for studio")
     if out["section"] in ("lesson", "notes", "game", "notespages", "gamelevels") and not out.get("chapter_map"):
         raise JobError("chapter_map: needed for lesson, notes and game")
     if out["section"] in ("director", "visual", "canvas", "coder", "showplan") and not out.get("from_run"):
@@ -129,6 +136,13 @@ def argv(job: dict, out: Path, python: str = sys.executable) -> list:
         cmd = [python, "-B", str(ROOT / "tools" / "vm_look.py"), "--request", str(job["request"]), "--out", str(out),
                "--max-inr", str(job["max_inr"])]
         for name in ("models", "routes"):
+            if job.get(name):
+                cmd += ["--" + name, str(job[name])]
+        return cmd
+    if job["section"] == "studio":
+        cmd = [python, "-B", str(ROOT / "tools" / "vm_studio.py"), "--stage", job.get("stage") or "questions",
+               "--source", str(job["source"]), "--out", str(out), "--max-rounds", str(job["max_rounds"])]
+        for name in ("pages", "course", "language"):
             if job.get(name):
                 cmd += ["--" + name, str(job[name])]
         return cmd
