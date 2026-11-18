@@ -131,5 +131,27 @@ class BookRun(unittest.TestCase):
             codex_vm.validate({k: v for k, v in job.items() if k != "from_run"})
 
 
+class Course(unittest.TestCase):
+    def test_course_folder_links_film_game_and_notes(self):
+        import studio_course
+        with tempfile.TemporaryDirectory() as folder:
+            base = Path(folder)
+            for run in ("films", "games", "book"):
+                (base / run).mkdir()
+                (base / run / "questions.json").write_text(json.dumps(PLAN, ensure_ascii=False), encoding="utf-8")
+            (base / "films" / "films").mkdir()
+            (base / "films" / "films" / "q01.html").write_text("<html>film</html>", encoding="utf-8")
+            (base / "games" / "GAME.html").write_text("<html>game</html>", encoding="utf-8")
+            (base / "book" / "BOOK.html").write_text("<html>book</html>", encoding="utf-8")
+            made = studio_course.assemble(films=base / "films", games=base / "games", book=base / "book",
+                                          out=base / "course", course="Class 9 Geography")
+            self.assertEqual(made, {"films": ["q01"], "game": True, "book": True, "questions": 1})
+            index = (base / "course" / "index.html").read_text(encoding="utf-8")
+            for text in ('href="films/q01.html"', 'href="GAME.html#q01"', 'href="BOOK.html#q01"', "Ek hi hawa poore Bharat"):
+                self.assertIn(text, index)
+            for name in ("films/q01.html", "GAME.html", "BOOK.html", "questions.json"):
+                self.assertTrue((base / "course" / name).exists(), name)
+
+
 if __name__ == "__main__":
     unittest.main()
