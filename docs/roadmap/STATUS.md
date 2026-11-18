@@ -7,10 +7,10 @@ Updated: 18 November 2026 (evening) · Read this first in every new session, the
 | Field | Value |
 | --- | --- |
 | Phase | 1 · BIE end to end on the new showing engine; agreement of 3 November 2026 (`docs/vision/AGREEMENT_2026-11-03.md`; ROADMAP, "Agreed on 3 November 2026"). Target 22 November. |
-| Current task | **Course studio on the VM, 3 days** (Navin, 18 November 2026): Codex on the ChatGPT plan makes a whole course per chapter on the VM. Day 1: stage `questions` (VM job section `studio`, `tools/vm_studio.py`, `bie/brain/studio.py`). Navin's six decisions are in the section below. |
-| Branch | `studio-day1-questions` |
-| State | **18 November 2026:** VM alive; Codex image_gen made 2 photoreal test images in 3 minutes, ₹0 (job `img-check-20261118`). Stage `questions` built with tests; first run waits for Navin's book PDF. Sloman work stays paused. |
-| Next task | Day 2: per-question films (script, AI images, voice, browser film player); Day 3: games and Living Book; Navin says yes to the question list and to the first chapter before the whole book runs. |
+| Current task | **Course studio on the VM, 3 days** (Navin, 18 November 2026): Codex on the ChatGPT plan makes a whole course per chapter on the VM, VM job section `studio` (`tools/vm_studio.py`) with four stages: `questions` (`bie/brain/studio.py`), `films` (`studio_film.py`, `studio_player.html`, `studio_voice.py`), `games` (`studio_game.py`, `studio_game_player.html`) and `book` (`studio_book.py`, `studio_book_player.html`). Navin's six decisions are in the section below. |
+| Branch | `studio-day1-questions` (PR #166, stage `questions`); `studio-day2-films` (films, games, Living Book) |
+| State | **18 November 2026:** VM alive; Codex image_gen made 2 photoreal test images in 3 minutes, ₹0 (job `img-check-20261118`). All four stages IMPLEMENTED with offline tests (31) and the three players checked in a phone browser (film, game played through by touch, Living Book); none INTEGRATED yet: no live run, the first waits for Navin's book PDF. PR #166 is held by F-11 (the runner's only apt mirror timed out twice); the fallback fix waits for Navin's yes. Sloman work stays paused. |
+| Next task | Merge PR #166 and the films/games/book PR; first live chapter on the VM: questions → Navin's yes → films → games → book → one course folder (films, `GAME.html`, `BOOK.html`) for Navin's review; then the whole book. |
 | Canonical main | `a76003bd` (PR #147: Part F decision report) on `cec89b9d` (PR #146) … PRs #131–#145 (Phase 1 parts B–F) … on `3cd3c19e` (PR #127: Task 048 first slice) on `a14e732f` (PR #126: Task 046 Part D3, the general fixes) on `e8bc9968` (PR #125: the addendum proof's docs) on `d51a5cf3` (PR #124) on `4f612f20` (PR #123) on `3be6680f` (PR #121) on `a568edaf` (PR #120) on `866d171d` (PR #119) on `788106ba` (PR #118) on `ef77d816` (PR #117) on `7e06fa1e` (PR #115: Part D2) on `65e87a6e` (PR #114: Part D1 proof run b, the fetch rules, currency icons, the six pin) on `d6174636` (PR #113: F-18, the Section 18 sidecar race) on `18595156` (PR #112: the proof fixes) on `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai). On the VM, from 25 October 2026, the checker is Navin's free Google AI Studio key `GEMINI_API_KEY` in `/etc/bie/bie.env` (direct route, `gemini-3.8-flash`); the AICredits key stays there unused (a job can still choose it with `routes google=aicredits`). Since 24 October a free Google AI Studio key is the GitHub secret `GEMINI_API_KEY` (Navin's choice for now, sample content only, never student data); it serves GitHub Actions runs only and wins over AICredits there: `gemini-3.8-flash` answers (smoke run 40114580580), `gemini-4-argon` gives 429 quota and `gemini-3.1-pro` 404, so a run that uses it passes `models=google=gemini-3.8-flash` |
 
@@ -31,6 +31,17 @@ Decision cards in the planning chat, 18 November 2026:
 
 Checked the same day: VM job `img-check-20261118` (two test pictures through the plan, 3 minutes, ₹0); Codex's weekly
 plan window was 43 % used before it (resets about 21 November).
+
+How a chapter runs (one VM job per stage; each later stage reads the earlier run's folder, `from_run`):
+1. `questions` (source = the chapter PDF): `QUESTIONS.md` for Navin's yes.
+2. `films` (from_run = the questions run, source = the same PDF, `videos` = optional subset): `films/<qid>.html`; the run
+   keeps `questions.json` and each film's picture files, so the next two stages read only this run.
+3. `games` (from_run = the films run): `GAME.html`, one stage per question; every option carries actions on the scene,
+   so right and wrong choices both visibly do something, then "Kya hua" explains.
+4. `book` (from_run = the films run): `BOOK.html`, note cards covering every point, the film's picture with its pins,
+   the class moment (Asha, Dev, Teacher), "yaad rakho" and a check, linked to `films/<qid>.html` and `GAME.html#<qid>`.
+The course folder for Navin is the four runs' pages side by side. Every maker answer is checked by code and the exact
+problems go back (at most `max_rounds`); a stage with problems left is reported as `needs_fix`.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

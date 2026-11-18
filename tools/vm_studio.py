@@ -27,6 +27,13 @@ Stage ``games`` (``bie.brain.studio_game``): one game stage per question (an SVG
 choice visibly does something), checked by code; ``GAME.html`` is the whole chapter's game for a phone browser (pillars
 as worlds), with ``games/<qid>.json`` and ``GAMES.md``. When the from-run has films, each stage gets the film's takeaway
 lines and its first picture as the stage's banner.
+
+    python -B tools/vm_studio.py --stage book --from-run <films run> --source <same PDF> --out <folder> [--videos q01,q02]
+
+Stage ``book`` (``bie.brain.studio_book``): the Living Book. Per question the maker writes the note cards (together they
+cover every point), a class moment with Asha, Dev and the Teacher, a "yaad rakho" line and a check question; code adds
+the film's picture with its pins, its diagram and its takeaway lines. ``BOOK.html`` is the chapter's notes for a phone
+browser, linking each question to ``films/<qid>.html`` and ``GAME.html#<qid>`` of the same course folder.
 """
 from __future__ import annotations
 
@@ -41,10 +48,11 @@ sys.path.insert(0, str(ROOT))
 
 from bie.brain import studio  # noqa: E402
 
-STAGES = ("questions", "films", "games")
+STAGES = ("questions", "films", "games", "book")
 MAX_IMAGES_PER_FILM = 12
 PLAYER = ROOT / "bie" / "brain" / "studio_player.html"
 GAME_PLAYER = ROOT / "bie" / "brain" / "studio_game_player.html"
+BOOK_PLAYER = ROOT / "bie" / "brain" / "studio_book_player.html"
 MAX_PDF_BYTES = 120 * 1024 * 1024
 
 
@@ -200,6 +208,51 @@ def games(args, client, model, pages, out: Path, summary: dict):
                    status="ok" if rows and len(stages) == len(rows) else ("needs_fix" if stages else "failed"))
 
 
+def book(args, client, model, pages, out: Path, summary: dict):
+    from bie.brain import studio_book
+    plan = read_json(args.from_run, "questions.json")
+    wanted = [q.strip() for q in (args.videos or "").split(",") if q.strip()]
+    questions = [q for q in plan.get("questions") or [] if not wanted or q.get("id") in wanted]
+    blocks = studio.all_blocks(pages) if pages else {}
+    (out / "book").mkdir(exist_ok=True)
+    (out / "questions.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
+    sections, rows, usage = [], [], {"input_tokens": 0, "output_tokens": 0}
+    for q in questions:
+        q = dict(q)
+        ids = [i for p in q.get("points") or [] for i in p.get("block_ids") or []]
+        q["source_text"] = "\n".join(f"[{i}] {blocks[i]}" for i in dict.fromkeys(ids) if i in blocks)
+        made = maybe_json(args.from_run, f"films/{q['id']}.json") or {}
+        film = made.get("film") if isinstance(made.get("film"), dict) else {}
+        q["film_text"] = "\n".join(s.get("roman", "") for shot in film.get("shots") or [] for s in shot.get("sentences") or [])
+        images = {}
+        for sid, name in (made.get("images") or {}).items():
+            try:
+                images[sid] = image_uri(read_bytes(args.from_run, f"films/img/{name}"), 1200)
+            except Exception:
+                continue
+        record = studio_book.write(client, model, q, course=args.course, language=args.language,
+                                   chapter=plan.get("chapter_title", ""), max_rounds=args.max_rounds)
+        for key in usage:
+            usage[key] += record["usage"].get(key, 0)
+        (out / "book" / f"{q['id']}.json").write_text(json.dumps(record, ensure_ascii=False, indent=1), encoding="utf-8")
+        notes = record.get("notes") if isinstance(record.get("notes"), dict) else None
+        if notes:
+            sections.append({"qid": q["id"], "notes": notes, "figures": studio_book.film_figures(film, images),
+                             "film_link": f"films/{q['id']}.html" if film else "", "game_link": f"GAME.html#{q['id']}"})
+        rows.append({"qid": q["id"], "question": q.get("question"), "cards": len((notes or {}).get("cards") or []),
+                     "picture": bool(images), "maker_rounds": len(record["rounds"]), "problems": record["problems"]})
+    data = studio_book.player_data(sections, plan=plan, tint=studio.subject_tint(args.course))
+    (out / "BOOK.html").write_text(studio_book.html(data, BOOK_PLAYER.read_text(encoding="utf-8")), encoding="utf-8")
+    lines = ["# Living Book", "", f"{len(sections)} / {len(rows)} sawaalon ke notes bane (BOOK.html).", ""]
+    for row in rows:
+        lines.append(f"- **{row['qid']}** {row['question']} · {row['cards']} cards" + (" · film ki tasveer" if row["picture"] else "")
+                     + (f" · kamiyan: {len(row['problems'])}" if row["problems"] else ""))
+    (out / "BOOK.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    clean = sum(1 for r in rows if not r["problems"])
+    summary.update(book=rows, sections=len(sections), usage=usage, model=model,
+                   status="ok" if rows and clean == len(rows) else ("needs_fix" if sections else "failed"))
+
+
 def run(args, *, client=None, load=None, voice_maker=None) -> dict:
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -221,11 +274,13 @@ def run(args, *, client=None, load=None, voice_maker=None) -> dict:
         if args.source:
             source_hash, page_count, pages = load(read_pdf(args.source), args.pages or None, with_images=False)
             summary.update(source_sha256=source_hash, page_count=page_count, pages_read=[p.number for p in pages])
-        if args.stage in ("films", "games"):
+        if args.stage in ("films", "games", "book"):
             if args.stage == "films":
                 films(args, client, model, pages, out, summary, voice_maker=voice_maker)
-            else:
+            elif args.stage == "games":
                 games(args, client, model, pages, out, summary)
+            else:
+                book(args, client, model, pages, out, summary)
             summary["plan_usage_after"] = _usage(client)
             raise _Done()
         record = studio.plan(client, model, pages, course=args.course, language=args.language,
@@ -266,8 +321,8 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--stage", choices=STAGES, default="questions")
     parser.add_argument("--source", default="")
-    parser.add_argument("--from-run", default="", help="films, games: the earlier run (folder or https URL) with questions.json")
-    parser.add_argument("--videos", default="", help="films, games: only these question ids, for example q01,q02")
+    parser.add_argument("--from-run", default="", help="films, games, book: the earlier run (folder or https URL) with questions.json")
+    parser.add_argument("--videos", default="", help="films, games, book: only these question ids, for example q01,q02")
     parser.add_argument("--out", required=True)
     parser.add_argument("--pages", default="")
     parser.add_argument("--course", default="")
@@ -278,7 +333,7 @@ def main(argv=None):
     args.max_rounds = max(1, min(6, args.max_rounds))
     if args.stage == "questions" and not args.source:
         parser.error("--source is needed for questions")
-    if args.stage in ("films", "games") and not args.from_run:
+    if args.stage in ("films", "games", "book") and not args.from_run:
         parser.error(f"--from-run is needed for {args.stage}")
     summary = run(args)
     print(json.dumps({k: summary.get(k) for k in ("status", "questions", "coverage", "voice", "error")}, ensure_ascii=False))

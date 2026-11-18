@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BIE Living Book</title>
+<style>
+:root{--paper:#eef0e4;--card:#f8f7f0;--ink:#1d2f27;--mute:#56685f;--line:#d6dacb;--tint:#3f7d4e;--gold:#b8892b;--ok:#2f7d4a;--bad:#b4462f}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}
+button{font:inherit;color:inherit;cursor:pointer}a{color:inherit}
+.top{position:sticky;top:0;z-index:5;background:rgba(248,247,240,.96);border-bottom:2px solid var(--tint);display:flex;justify-content:space-between;align-items:center;padding:10px 16px}
+.brand b{display:block;font-size:1.05rem}.brand small{font-size:.62rem;letter-spacing:.16em;font-weight:700}
+.top a{font-weight:600;font-size:.9rem;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px 60px}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;line-height:1.15}
+.hero h1{font-size:clamp(2rem,6vw,3.2rem);margin:28px 0 8px}.hero p{font-size:1.1rem;color:var(--mute);margin:0 0 18px}
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:8px 0 26px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+.pill h3{margin:0;font-size:1rem;color:var(--tint)}.pill p{margin:2px 0 8px;font-size:.88rem;color:var(--mute)}
+.pill a{display:block;text-decoration:none;font-size:.9rem;padding:5px 0;border-top:1px solid var(--line)}.pill a b{color:var(--gold);font-size:.75rem;margin-right:6px}
+section.q{border-top:1px solid var(--line);padding:26px 0 8px;scroll-margin-top:64px}
+.eyebrow{font-size:.74rem;letter-spacing:.14em;font-weight:700;color:var(--tint)}
+section.q h2{font-size:clamp(1.5rem,4.4vw,2.2rem);margin:6px 0 6px}.hook{font-style:italic;color:var(--mute);margin:0 0 12px}
+.links{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}.links a{text-decoration:none;border:1px solid var(--tint);color:var(--tint);border-radius:99px;padding:7px 14px;font-weight:600;font-size:.9rem}
+.links a.film{background:var(--tint);color:#fff}
+.grid{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;align-items:start}
+@media (max-width:820px){.grid{grid-template-columns:1fr}}
+.fig{position:relative;border-radius:10px;overflow:hidden;background:#13231d}
+.fig .ph{position:relative;aspect-ratio:16/9}.fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fig svg.ov{position:absolute;inset:0;width:100%;height:100%}.fig .dot{fill:none;stroke:#f3d48a;stroke-width:.35}.fig .lead{stroke:#f6ecd0;stroke-width:.18}
+.fig .pin{position:absolute;transform:translateY(-50%);background:rgba(16,34,27,.92);color:#fff;border:1px solid rgba(255,255,255,.5);border-radius:5px;padding:2px 8px;font-size:clamp(.66rem,1.5vw,.85rem);font-weight:600;white-space:nowrap}
+.cap{background:#1d3328;color:#eef3ea;font-size:.88rem;padding:8px 12px}
+.diag{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-top:12px;overflow:hidden}.diag svg{display:block;width:100%;height:auto;background:#fbfaf3}
+.diag .cap{background:transparent;color:var(--mute)}
+.keys{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:12px}
+.keys summary{font-weight:600;cursor:pointer}.keys li{margin:4px 0}
+.cards{display:flex;flex-direction:column;gap:10px}
+.card{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:6px;padding:10px 14px}
+.card b{display:block;font-size:.95rem;margin-bottom:2px}.card span{font-size:.95rem}
+.scene{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.scene h4,.rem h4,.chk h4{margin:0 0 8px;font-size:.72rem;letter-spacing:.14em;color:var(--tint)}
+.say{display:flex;gap:8px;margin:7px 0;align-items:flex-start}.say i{font-style:normal;font-weight:700;font-size:.78rem;min-width:4.6em;padding-top:3px}
+.say span{background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px 10px;font-size:.94rem}
+.say.t{flex-direction:row-reverse;text-align:right}.say.t span{background:#e7efe2;border-color:#bcd2b6}.say.t i{color:var(--tint)}
+.rem{margin-top:14px;border:1px dashed var(--gold);border-radius:10px;padding:10px 14px;background:#fbf4e1}
+.chk{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.chk p{margin:0 0 8px;font-weight:600}.chk .ch{display:flex;flex-direction:column;gap:6px}
+.chk button{text-align:left;background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 12px;min-height:44px}
+.chk button.ok{border-color:var(--ok);background:#e6f2e8}.chk button.bad{border-color:var(--bad);background:#f8e7e2}
+.chk .ex{margin-top:8px;font-size:.93rem;display:none}.chk.done .ex{display:block}
+</style></head>
+<body>
+<div class="top"><div class="brand"><b>BIE</b><small>THE LIVING BOOK</small></div><a href="#map">Chapter map</a></div>
+<div class="wrap"><div class="hero"><h1 id="title"></h1><p id="big"></p></div><div class="map" id="map"></div><div id="book"></div></div>
+<script>
+const B=/*__BOOK__*/null;const NS='http://www.w3.org/2000/svg';
+document.documentElement.style.setProperty('--tint',B.tint||'#3f7d4e');
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
+document.title='BIE · '+(B.chapter||'Living Book');document.getElementById('title').textContent=B.chapter||'';document.getElementById('big').textContent=B.big||'';
+const map=document.getElementById('map'),book=document.getElementById('book');
+function photo(f){const box=el('div','fig');const ph=el('div','ph');const im=el('img');im.alt='';im.loading='lazy';im.src=f.img;ph.appendChild(im);
+  const svg=document.createElementNS(NS,'svg');svg.setAttribute('class','ov');svg.setAttribute('viewBox','0 0 100 56.25');svg.setAttribute('preserveAspectRatio','none');ph.appendChild(svg);
+  (f.pins||[]).forEach(p=>{const y=p.y*.5625,right=p.x<62,lx=right?p.x+5:p.x-5,ly=Math.max(3,Math.min(53,y-4));
+    const c=document.createElementNS(NS,'ellipse');c.setAttribute('class','dot');c.setAttribute('cx',p.x);c.setAttribute('cy',y);c.setAttribute('rx',2);c.setAttribute('ry',2);svg.appendChild(c);
+    const l=document.createElementNS(NS,'line');l.setAttribute('class','lead');l.setAttribute('x1',p.x);l.setAttribute('y1',y);l.setAttribute('x2',lx);l.setAttribute('y2',ly);svg.appendChild(l);
+    const b=el('div','pin',p.t);b.style.top=(ly/56.25*100)+'%';if(right)b.style.left=lx+'%';else b.style.right=(100-lx)+'%';ph.appendChild(b);});
+  box.appendChild(ph);if(f.caption)box.appendChild(el('div','cap',f.caption));return box;}
+B.pillars.forEach(p=>{const m=el('div','pill');m.appendChild(el('h3',null,p.title));m.appendChild(el('p',null,p.line||''));
+  p.items.forEach(it=>{const a=el('a');a.href='#'+it.qid;a.appendChild(el('b',null,it.qid.toUpperCase()));a.appendChild(document.createTextNode(it.question));m.appendChild(a);});map.appendChild(m);
+  p.items.forEach(it=>{const n=it.notes||{},f=it.figures||{};const s=el('section','q');s.id=it.qid;
+    s.appendChild(el('div','eyebrow',it.qid.toUpperCase()+' · '+(p.title||'')));s.appendChild(el('h2',null,it.question));if(it.hook)s.appendChild(el('p','hook',it.hook));
+    const ln=el('div','links');if(it.film){const a=el('a','film','▶ Film dekho');a.href=it.film;ln.appendChild(a);}if(it.game){const a=el('a',null,'Game khelo');a.href=it.game;ln.appendChild(a);}if(ln.children.length)s.appendChild(ln);
+    const g=el('div','grid');const left=el('div'),right=el('div','cards');
+    if(f.photo)left.appendChild(photo(f.photo));
+    if(f.diagram){const d=el('div','diag');d.innerHTML=f.diagram.svg;if(f.diagram.caption)d.appendChild(el('div','cap',f.diagram.caption));left.appendChild(d);}
+    if((f.keys||[]).length){const k=el('details','keys');k.appendChild(el('summary',null,'Film ki baatein'));const ul=el('ul');f.keys.forEach(x=>ul.appendChild(el('li',null,x)));k.appendChild(ul);left.appendChild(k);}
+    (n.cards||[]).forEach(c=>{const d=el('div','card');d.appendChild(el('b',null,c.label));d.appendChild(el('span',null,c.text));right.appendChild(d);});
+    g.appendChild(left);g.appendChild(right);s.appendChild(g);
+    if((n.scene||[]).length){const sc=el('div','scene');sc.appendChild(el('h4',null,'CLASS MEIN'));n.scene.forEach(l=>{const r=el('div','say'+(l.who==='Teacher'?' t':''));r.appendChild(el('i',null,l.who));r.appendChild(el('span',null,l.line));sc.appendChild(r);});s.appendChild(sc);}
+    if(n.remember){const r=el('div','rem');r.appendChild(el('h4',null,'YAAD RAKHO'));r.appendChild(el('div',null,n.remember));s.appendChild(r);}
+    const c=n.check;if(c&&c.choices){const k=el('div','chk');k.appendChild(el('h4',null,'KHUD JAANCHO'));k.appendChild(el('p',null,c.question));const ch=el('div','ch');
+      c.choices.forEach((t,i)=>{const b=el('button',null,t);b.onclick=()=>{if(k.classList.contains('done'))return;k.classList.add('done');b.classList.add(i===c.correct?'ok':'bad');ch.children[c.correct].classList.add('ok');};ch.appendChild(b);});
+      k.appendChild(ch);k.appendChild(el('div','ex',c.explanation));s.appendChild(k);}
+    book.appendChild(s);});});
+</script></body></html>

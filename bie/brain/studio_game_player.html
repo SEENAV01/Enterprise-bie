@@ -172,4 +172,5 @@ function sortUI(R,c){const box=el('div','opts');const gs=el('div','groups');cons
     else{miss++;b.classList.add('shake');setTimeout(()=>b.classList.remove('shake'),450);fb('Nahi, yeh '+g+' mein nahi aata. Phir socho.','bad');}};gs.appendChild(d);});
   c.appendChild(box);c.appendChild(gs);}
 home();
+{const h=decodeURIComponent((location.hash||'').slice(1));const k=ALL.findIndex(s=>s.qid===h);if(k>=0)open(k);}
 </script></body></html>
