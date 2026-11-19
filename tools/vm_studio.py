@@ -127,7 +127,8 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
         film = record.get("film") if isinstance(record.get("film"), dict) else {}
         images, audio, made, files = {}, {}, 0, {}
         for shot in film.get("shots") or []:
-            if (shot.get("visual") or {}).get("type") == "photo" and made < MAX_IMAGES_PER_FILM and hasattr(client, "generate_image"):
+            if (shot.get("visual") or {}).get("type") in ("photo", "cutaway") and made < MAX_IMAGES_PER_FILM \
+                    and hasattr(client, "generate_image"):
                 target = out / "films" / "img" / f"{q['id']}-{shot.get('id')}.png"
                 target.parent.mkdir(parents=True, exist_ok=True)
                 try:

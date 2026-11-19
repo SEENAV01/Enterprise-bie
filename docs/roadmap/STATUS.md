@@ -34,6 +34,19 @@ Decision cards in the planning chat, 18 November 2026:
    Chapter 17 Pollen Lab style (`backdrop: illustration`, code check: at least one gradient and 12 drawn shapes). The same
    illustration check now applies to film diagrams. Navin saw the player test pictures (Claude's test data, a bare
    triangle scene) and said they were far from the vision; only real VM output or clearly marked samples are shown now.
+8. **Film motion, toward the Campbell 17 film (19 November 2026):** Navin asked how to reach the Campbell 17 output
+   (photoreal pictures, pollen travelling from anther to stigma, played as HTML without a GPU). The film now has a motion
+   layer the phone's browser plays: `moves` (pollen, cells, molecules, drops, light, sparks along a smooth path), `grows`
+   (a living line such as a pollen tube), `fuses` (two parts become one, with its label such as "n + n → 2n"), a camera
+   that pushes in up to 2.2x (labels stay readable at any zoom; overlapping labels move apart), `cutaway` shots (an AI
+   picture drawn as a transparent scientific cutaway) and shots that `dive` into a point of the previous picture. Code
+   checks every path, count, timing and label (dikhaya = bola) and asks for motion in at least 2 shots of a long film.
+   Navin left the order to Claude ("Mujhe nahi pata"): the recommended order is used, films first. Checked in Chromium
+   with a real VM AI photo (Claude's test data, not BIE output); the first BIE film with motion comes from the
+   Photosynthesis chapter.
+9. **Navin's chapter (19 November 2026):** NCERT Class 11 Biology chapter 11, Photosynthesis in Higher Plants, for NEET +
+   Class 11 in Hinglish (decision card). NCERT's site sends an incomplete certificate chain, so Navin chose the public
+   inputs branch for the PDF (`blindtest-inputs:chapters/ncert-class11-biology-ch11-photosynthesis.pdf`).
 
 Checked the same day: VM job `img-check-20261118` (two test pictures through the plan, 3 minutes, ₹0); Codex's weekly
 plan window was 43 % used before it (resets about 21 November).
