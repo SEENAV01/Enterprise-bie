@@ -505,7 +505,7 @@ def run(lines: list, options: list) -> dict:
     hits = [i for i, c in enumerate(canon) if c and c == target]
     out["option_structures"] = canon
     out["answer_option"] = hits[0] if len(hits) == 1 else None
-    if not hits:
+    if not hits and any(canon):
         out["problems"].append(f"the mechanism's product {product['smiles']} is none of the options' structures "
                                f"(write 'option <n> <SMILES>' for each structure option)")
     for trap in spec["traps"]:

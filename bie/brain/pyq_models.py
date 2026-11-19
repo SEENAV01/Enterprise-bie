@@ -54,7 +54,7 @@ def build(model: dict, options: list) -> dict:
                          for name, r in rows.items()}
         answer = values.get(result["answer"])
         base["answer_option"] = pyq_math.match_option(answer, options) if answer is not None else None
-        if base["answer_option"] is None:
+        if options and base["answer_option"] is None:     # an exercise question without options has no option to match
             base["problems"].append(f"the worked answer {pyq_math.fmt(answer) if answer is not None else '?'} matches no "
                                     f"single option")
         base["trap_options"] = {t["name"]: pyq_math.match_option(t["value"], options) for t in result["traps"]}

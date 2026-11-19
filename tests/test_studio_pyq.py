@@ -193,6 +193,10 @@ class Models(unittest.TestCase):
         self.assertEqual((r["problems"], r["answer_option"]), ([], 2))
         self.assertEqual(pyq_bio.run(SAC + ["asked ratio pen"], ["1:1", "2:1"])["answer_option"], 1)
 
+    def test_exercise_question_without_options(self):
+        r = pyq_models.build(PHYS_MODEL, [])
+        self.assertEqual((r["problems"], r["answer_option"], r["answer_value"]), ([], None, "1,000"))
+
     def test_family_recomputes(self):
         f = pyq_models.family(PHYS_MODEL, ["u = 140 m/s"], ["500 m", "250 m"])
         self.assertEqual((f["correct"], f["value"]), (1, "250"))

@@ -165,7 +165,7 @@ def run(lines: list, options: list) -> dict:
     numbers |= {e["sets"] for e in ents.values()}
     out["numbers"] = numbers
     out["diploid"] = spec["diploid"]
-    if spec["asked"]:
+    if spec["asked"] and (options or spec["options"]):        # without options the model still computes everything
         _answer(spec, ents, options or [], out)
     return out
 
