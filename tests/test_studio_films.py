@@ -35,10 +35,15 @@ SVG = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 56"><defs><line
        + '</svg>')
 
 
-def sentence(roman, voice, pins=(), focus=()):
+def sentence(roman, voice, pins=(), focus=(), moves=(), grows=(), fuses=(), scale=1.1):
     return {"roman": roman, "voice": voice, "pins": [{"label": p, "x": 40, "y": 30} for p in pins],
             "arrows": [{"points": [[10, 60], [40, 30]], "label": "hawa"}], "effects": [],
-            "focus": list(focus), "zoom": {"x": 50, "y": 50, "scale": 1.1}}
+            "focus": list(focus), "zoom": {"x": 50, "y": 50, "scale": scale},
+            "moves": list(moves), "grows": list(grows), "fuses": list(fuses)}
+
+
+CLOUDS = {"what": "drop", "colour": "blue", "label": "hawa", "points": [[10, 80], [35, 45], [55, 25]], "count": 6,
+          "ms": 2600, "loop": True}
 
 
 def film():
@@ -46,10 +51,13 @@ def film():
         {"id": "s1", "title": "Ghat ki deewar", "key": "Hawa chadhti hai, baarish hoti hai", "covers": [0],
          "visual": {"type": "photo", "image_prompt": "Photorealistic wide view of the green Western Ghats escarpment in the "
                     "July monsoon with dark clouds on the windward slope and waterfalls", "svg": ""},
+         "dive": {"x": -1, "y": -1},
          "sentences": [sentence("Dekhiye, yeh Ghat ki deewar hai.", "देखिए, यह घाट की दीवार है।", ["Ghat"]),
-                       sentence("Hawa yahan chadhkar thandi hoti hai aur barasti hai.", "हवा यहाँ चढ़कर ठंडी होती है और बरसती है।")]},
+                       sentence("Hawa yahan chadhkar thandi hoti hai aur barasti hai.", "हवा यहाँ चढ़कर ठंडी होती है और बरसती है।",
+                                moves=[CLOUDS], scale=1.8)]},
         {"id": "s2", "title": "Kaat", "key": "Doosri taraf sookha", "covers": [1],
          "visual": {"type": "diagram", "image_prompt": "", "svg": SVG},
+         "dive": {"x": 55, "y": 25},
          "sentences": [sentence("Ab pahaad ka kaat dekhiye, baadal upar.", "अब पहाड़ का काट देखिए, बादल ऊपर।", ["baadal"], ["cloud"]),
                        sentence("Doosri taraf utarti hawa sookhi rehti hai.", "दूसरी तरफ़ उतरती हवा सूखी रहती है।", [], ["slope"])]}]}
 
@@ -95,6 +103,43 @@ class FilmChecks(unittest.TestCase):
         bad = film()
         bad["shots"][0]["sentences"][1]["voice"] = "Hawa chadhti hai"
         self.assertIn("Devanagari", " ".join(studio_film.problems(bad, QUESTION)))
+
+
+class FilmMotion(unittest.TestCase):
+    """Navin, 19 November 2026: the Campbell 17 film's motion (what travels is shown travelling, the camera pushes in)."""
+
+    def test_motion_is_checked(self):
+        bad = film()
+        first = bad["shots"][0]["sentences"][1]
+        first["moves"] = [dict(CLOUDS, points=[[10, 180]], count=40, ms=50, label="Thar")]
+        first["grows"] = [{"points": [[5, 5]], "label": "", "ms": 100}]
+        first["fuses"] = [{"x": 50, "y": 50, "label": ""}]
+        first["zoom"]["scale"] = 3
+        bad["shots"][0]["dive"] = {"x": 20, "y": 20}
+        found = " | ".join(studio_film.problems(bad, QUESTION))
+        for text in ("2 to 6 points", "count is 1 to 12", "ms is 800 to 8000", "'Thar' is not spoken", "2 to 8 points",
+                     "grow's ms", "needs its label", "zoom.scale must be 1.0 to 2.2", "first shot cannot dive"):
+            self.assertIn(text, found)
+
+    def test_a_film_without_motion_is_sent_back(self):
+        still = film()
+        for shot in still["shots"]:
+            for line in shot["sentences"]:
+                line["moves"], line["grows"], line["fuses"] = [], [], []
+        self.assertIn("show what travels travelling", " ".join(studio_film.problems(still, QUESTION)))
+
+    def test_player_plays_motion(self):
+        page = Path(ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        for hook in ("addMove", "addGrow", "addFuse", "camTo", "toScreen", "s.dive", "SPRITE_SCALE", "/*__FILM__*/null"):
+            self.assertIn(hook, page)
+
+    def test_cutaway_is_an_ai_picture_in_cutaway_style(self):
+        shot = {"visual": {"type": "cutaway", "image_prompt": "The inside of a mature ovule", "svg": ""}}
+        self.assertIn("transparent cross-section", studio_film.image_prompt(shot))
+        data = studio_film.player_data(film(), images={}, audio={}, chapter="Monsoon", question=QUESTION)
+        self.assertEqual(data["shots"][1]["dive"], {"x": 55, "y": 25})
+        self.assertIsNone(data["shots"][0]["dive"])
+        self.assertEqual(data["shots"][0]["sentences"][1]["moves"][0]["what"], "drop")
 
 
 class FilmStage(unittest.TestCase):
