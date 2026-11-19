@@ -1,0 +1,85 @@
+{
+ "schema": "bie.studio-run/1",
+ "section": "studio",
+ "stage": "pyq",
+ "status": "ok",
+ "maker": "codex on the ChatGPT plan (read-only, no shell)",
+ "cost": {
+  "total_inr": 0.0
+ },
+ "error": null,
+ "plan_usage_before": {
+  "rateLimits.primary.usedPercent": 44,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1795275033,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 44,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1795275033,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 0
+ },
+ "source_sha256": "40fc9a0ffeb96a39258c2cdc77555f862e1a2f0e1da54d6fc3ff3733fb053f4b",
+ "page_count": 15,
+ "pages_read": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15
+ ],
+ "voice": "kokoro hf_alpha",
+ "pyq": [
+  {
+   "qid": "e5",
+   "kind": "mechanism",
+   "proved": 2,
+   "key": 2,
+   "verified": true,
+   "rounds": 2,
+   "problems": []
+  },
+  {
+   "qid": "c1",
+   "kind": "mechanism",
+   "proved": 2,
+   "key": 2,
+   "verified": true,
+   "rounds": 2,
+   "problems": []
+  }
+ ],
+ "coverage": {
+  "teachable_blocks": 188,
+  "reached_by_pyqs": 2,
+  "percent": 1.1,
+  "note": "PYQ evidence only; the chapter is taught by the films and notes"
+ },
+ "usage": {
+  "input_tokens": 75758,
+  "output_tokens": 19310
+ },
+ "model": "gpt-6.1-sol",
+ "plan_usage_after": {
+  "rateLimits.primary.usedPercent": 44,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1795275034,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 44,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1795275034,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 0
+ },
+ "minutes": 7.7
+}

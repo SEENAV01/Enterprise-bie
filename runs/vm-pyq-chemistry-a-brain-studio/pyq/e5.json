@@ -1,0 +1,750 @@
+{
+ "question": {
+  "id": "e5",
+  "exam": "NEET 2023",
+  "origin": "pyq",
+  "question": "3-methylbutan-2-ol, CH3–CH(CH3)–CH(OH)–CH3, reacts with HBr. Identify the major product (P).",
+  "options": [
+   "(CH3)3C–CH2Br",
+   "2-bromo-2-methylbutane",
+   "CH3CH=CH–CH3",
+   "2-bromo-3-methylbutane"
+  ],
+  "answer": 1
+ },
+ "lesson": {
+  "title": "Br kahan lagega?",
+  "concept": "Protonation, water loss, stabilising hydride shift aur nucleophilic capture.",
+  "scene_title": "Original OH site ya rearranged carbon?",
+  "given": [
+   {
+    "name": "Alcohol",
+    "value": "3-methylbutan-2-ol: CH3–CH(OH)–CH(CH3)–CH3"
+   },
+   {
+    "name": "Reagent",
+    "value": "HBr"
+   },
+   {
+    "name": "Options",
+    "value": "1: (CH3)3C–CH2Br; 2: 2-bromo-2-methylbutane; 3: CH3CH=CH–CH3; 4: 2-bromo-3-methylbutane"
+   }
+  ],
+  "asked": "Major product ka structure aur uske banne ka reason.",
+  "unknowns": [
+   "Final Br attachment site",
+   "Stabilising rearrangement ka role"
+  ],
+  "assumptions": [
+   "The major substitution pathway under the question's HBr conditions is considered."
+  ],
+  "objectives": [
+   "Initial OH-bearing carbon aur final electrophilic carbon alag pehchanna.",
+   "Electron-pair arrows se bonds aur charges track karna.",
+   "Hydride shift ko carbocation stability se justify karna."
+  ],
+  "prerequisites": [
+   {
+    "idea": "Oxygen lone pair",
+    "why": "Oxygen apna electron pair proton ko de sakta hai."
+   },
+   {
+    "idea": "Carbocation degree",
+    "why": "Positive carbon ke directly attached carbon neighbours stability compare karne mein madad karte hain."
+   },
+   {
+    "idea": "Electron-pair arrows",
+    "why": "Arrow electron pair ki movement dikhata hai, positive charge ki movement nahi."
+   }
+  ],
+  "evidence": [
+   {
+    "block_ids": [
+     "p0002-b0022",
+     "p0002-b0023",
+     "p0002-b0024"
+    ],
+    "idea": "Alcohol classification depends on the carbon bearing OH.",
+    "parts": [
+     "a2",
+     "a5"
+    ],
+    "moment": "start"
+   },
+   {
+    "block_ids": [
+     "p0014-b0008",
+     "p0014-b0009",
+     "p0014-b0010"
+    ],
+    "idea": "Oxygen lone pairs allow alcohols to accept a proton.",
+    "parts": [
+     "a5",
+     "a6"
+    ],
+    "moment": "protonate"
+   },
+   {
+    "block_ids": [
+     "p0012-b0023",
+     "p0012-b0024"
+    ],
+    "idea": "Protonated alcohols undergo carbon–oxygen bond cleavage as electrophiles.",
+    "parts": [
+     "a2",
+     "a5",
+     "a2-a5"
+    ],
+    "moment": "leave"
+   },
+   {
+    "block_ids": [
+     "p0007-b0032"
+    ],
+    "idea": "Nucleophiles can supply an electron pair to a carbocation.",
+    "parts": [
+     "a3",
+     "a7"
+    ],
+    "moment": "capture"
+   }
+  ],
+  "model": {
+   "kind": "mechanism",
+   "lines": [
+    "reactant [CH3:1][C:2]([H:10])([O:5][H:8])[C:3]([H:9])([CH3:4])[CH3:11].[H:6][Br:7]",
+    "label 2 C2",
+    "label 3 C3",
+    "label 9 migrating-H",
+    "step protonate Oxygen accepts proton and bromide forms: lp 5 -> 6; bond 6-7 -> 7",
+    "step leave Water leaves and secondary carbocation forms: bond 2-5 -> 5",
+    "step rearrange Adjacent hydride shifts with its bond pair to form tertiary carbocation: shift 9 3 -> 2",
+    "step capture Bromide attacks the tertiary carbocation: lp 7 -> 3",
+    "trap direct after leave Capture before checking stabilising rearrangement: lp 7 -> 2",
+    "option 1 CC(C)(C)CBr",
+    "option 2 CC(Br)(C)CC",
+    "option 3 CC=CC",
+    "option 4 CC(Br)C(C)C"
+   ],
+   "svg": ""
+  },
+  "stages": [
+   {
+    "key": "see",
+    "title": "Reactive jagah pehchano",
+    "text": "Starting OH site final Br site hona zaroori nahi.",
+    "beats": [
+     {
+      "say": "Yeh alcohol HBr se react karta hai; humein major product ka structure chunna hai.",
+      "voice": "यह ऐल्कोहॉल एचबीआर से रिऐक्ट करता है; हमें मेजर प्रॉडक्ट का स्ट्रक्चर चुनना है।",
+      "view": "main",
+      "focus": [
+       "a2",
+       "a3",
+       "a5",
+       "a7"
+      ],
+      "labels": [
+       "a2",
+       "a3"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Pehle OH wala carbon chuno, paas ka zyada branched carbon nahi.",
+      "voice": "पहले ओएच वाला कार्बन चुनो, पास का ज़्यादा ब्रांच्ड कार्बन नहीं।",
+      "view": "main",
+      "focus": [
+       "a2",
+       "a3",
+       "a5"
+      ],
+      "labels": [
+       "a2",
+       "a3"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": "initial"
+     }
+    ]
+   },
+   {
+    "key": "trap",
+    "title": "Seedha replacement kyun adhura hai?",
+    "text": "Original OH site par Br rakhna stability check ko skip karta hai.",
+    "beats": [
+     {
+      "say": "Sirf OH ki jagah Br rakhna aasaan lagta hai, isliye unrearranged product tempting hai.",
+      "voice": "सिर्फ़ ओएच की जगह बीआर रखना आसान लगता है, इसलिए अनरिअरेंज्ड प्रॉडक्ट टेम्प्टिंग है।",
+      "view": "main",
+      "focus": [
+       "a2",
+       "a5",
+       "a7"
+      ],
+      "labels": [
+       "a2"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Lekin yeh shortcut maanta hai ki reactive carbon badlega nahi; carbocation ki stability check karni padegi.",
+      "voice": "लेकिन यह शॉर्टकट मानता है कि रिऐक्टिव कार्बन बदलेगा नहीं; कार्बोकैटायन की स्टेबिलिटी चेक करनी पड़ेगी।",
+      "view": "both",
+      "focus": [
+       "a2",
+       "a3",
+       "a9"
+      ],
+      "labels": [
+       "a2",
+       "a3"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "concept",
+    "title": "Leaving group taiyaar karo",
+    "text": "Protonation ke baad OH neutral water ke roop mein nikal sakta hai.",
+    "beats": [
+     {
+      "say": "Oxygen ka lone pair proton ko pakad sakta hai; pehle donor aur acceptor jodo.",
+      "voice": "ऑक्सीजन का लोन पेयर प्रोटॉन को पकड़ सकता है; पहले डोनर और ऐक्सेप्टर जोड़ो।",
+      "view": "detail",
+      "focus": [
+       "a5",
+       "a6",
+       "a7"
+      ],
+      "labels": [
+       "a5",
+       "a6"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "activation",
+      "gate": "proton"
+     },
+     {
+      "say": "Oxygen proton leta hai aur HBr ke bond ka pair bromine ko milta hai.",
+      "voice": "ऑक्सीजन प्रोटॉन लेता है और एचबीआर के बॉन्ड का पेयर ब्रोमीन को मिलता है।",
+      "view": "both",
+      "focus": [
+       "a5",
+       "a6",
+       "a7"
+      ],
+      "labels": [
+       "a5",
+       "a7"
+      ],
+      "moment": "protonate",
+      "play": true,
+      "board": "protonate",
+      "detail": "activation",
+      "gate": ""
+     },
+     {
+      "say": "Oxygen ab positive hai; carbon oxygen bond ka pair lekar woh neutral water banata hai.",
+      "voice": "ऑक्सीजन अब पॉज़िटिव है; कार्बन ऑक्सीजन बॉन्ड का पेयर लेकर वह न्यूट्रल वॉटर बनाता है।",
+      "view": "both",
+      "focus": [
+       "a2",
+       "a5",
+       "a2-a5"
+      ],
+      "labels": [
+       "a2",
+       "a5"
+      ],
+      "moment": "leave",
+      "play": true,
+      "board": "leave",
+      "detail": "activation",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "solve",
+    "title": "Charge track karke product banao",
+    "text": "Secondary carbocation se hydride shift tertiary carbocation deta hai, phir bromide capture hota hai.",
+    "beats": [
+     {
+      "say": "Positive carbon ke paas wale carbon par hydrogen dekho; kaunsi movement zyada stable carbocation degi?",
+      "voice": "पॉज़िटिव कार्बन के पास वाले कार्बन पर हाइड्रोजन देखो; कौनसी मूवमेंट ज़्यादा स्टेबल कार्बोकैटायन देगी?",
+      "view": "detail",
+      "focus": [
+       "a2",
+       "a3",
+       "a9",
+       "a3-a9"
+      ],
+      "labels": [
+       "a2",
+       "a3",
+       "a9"
+      ],
+      "moment": "leave",
+      "play": false,
+      "board": "",
+      "detail": "stability",
+      "gate": "shift"
+     },
+     {
+      "say": "Hydrogen apne bond pair ke saath shift hota hai; purana positive carbon neutral hota hai.",
+      "voice": "हाइड्रोजन अपने बॉन्ड पेयर के साथ शिफ्ट होता है; पुराना पॉज़िटिव कार्बन न्यूट्रल होता है।",
+      "view": "both",
+      "focus": [
+       "a2",
+       "a3",
+       "a9"
+      ],
+      "labels": [
+       "a2",
+       "a3"
+      ],
+      "moment": "rearrange",
+      "play": true,
+      "board": "rearrange",
+      "detail": "stability",
+      "gate": ""
+     },
+     {
+      "say": "Naye positive carbon ke teen carbon neighbours hain; bromide ka pair ab kahan jaayega?",
+      "voice": "नए पॉज़िटिव कार्बन के तीन कार्बन नेबर्स हैं; ब्रोमाइड का पेयर अब कहाँ जाएगा?",
+      "view": "main",
+      "focus": [
+       "a2",
+       "a3",
+       "a4",
+       "a11",
+       "a7"
+      ],
+      "labels": [
+       "a2",
+       "a3"
+      ],
+      "moment": "rearrange",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": "attack"
+     },
+     {
+      "say": "Bromide naya bond banaakar charge neutral karta hai; product hai 2-bromo-2-methylbutane, yaani option do.",
+      "voice": "ब्रोमाइड नया बॉन्ड बनाकर चार्ज न्यूट्रल करता है; प्रॉडक्ट है टू-ब्रोमो-टू-मिथाइलब्यूटेन, यानी ऑप्शन दो।",
+      "view": "both",
+      "focus": [
+       "a3",
+       "a7",
+       "a2",
+       "a1",
+       "a4",
+       "a11"
+      ],
+      "labels": [
+       "a3",
+       "a7"
+      ],
+      "moment": "capture",
+      "play": true,
+      "board": "capture",
+      "detail": "",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "transfer",
+    "title": "Halide badlo, reasoning lagao",
+    "text": "HBr ki jagah HCl ke saath analogous substitution product predict karo.",
+    "beats": [
+     {
+      "say": "Ab sirf HBr ki jagah HCl rakho; carbon skeleton aur alcohol wahi rehte hain.",
+      "voice": "अब सिर्फ़ एचबीआर की जगह एचसीएल रखो; कार्बन स्केलेटन और ऐल्कोहॉल वही रहते हैं।",
+      "view": "main",
+      "focus": [
+       "a2",
+       "a3",
+       "a5"
+      ],
+      "labels": [
+       "a2",
+       "a3"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Khud stability check lagao aur batao, analogous substitution mein chloride kis carbon par lagega.",
+      "voice": "खुद स्टेबिलिटी चेक लगाओ और बताओ, अनैलॉगस सब्स्टिट्यूशन में क्लोराइड किस कार्बन पर लगेगा।",
+      "view": "main",
+      "focus": [
+       "a2",
+       "a3"
+      ],
+      "labels": [
+       "a2",
+       "a3"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": "transfer_site"
+     }
+    ]
+   }
+  ],
+  "details": [
+   {
+    "id": "activation",
+    "title": "OH se water leaving group",
+    "text": "Protonation oxygen par positive charge laati hai. C–O cleavage mein pair oxygen par jaane se neutral water aur carbocation bante hain.",
+    "chain": [
+     "Alcohol oxygen ke paas lone pair hai.",
+     "Protonation ke baad C–O pair oxygen leta hai.",
+     "Neutral water nikalta hai; carbon positive hota hai."
+    ],
+    "focus": [
+     "a5",
+     "a6",
+     "a7",
+     "a2",
+     "a2-a5"
+    ],
+    "moment": "start"
+   },
+   {
+    "id": "stability",
+    "title": "Hydride shift ka fayda",
+    "text": "Adjacent hydrogen apne C–H bond pair ke saath migrate karta hai. Donor carbon positive hota hai, jiske teen carbon neighbours charge ko stabilise karte hain.",
+    "chain": [
+     "Initial positive carbon ke do carbon neighbours hain.",
+     "Adjacent C–H bond pair hydrogen ke saath migrate karta hai.",
+     "Naye positive carbon ke teen carbon neighbours hain."
+    ],
+    "focus": [
+     "a2",
+     "a3",
+     "a9",
+     "a3-a9"
+    ],
+    "moment": "leave"
+   }
+  ],
+  "gates": [
+   {
+    "id": "initial",
+    "mechanic": "tap_part",
+    "prompt": "Starting alcohol mein OH kis carbon se attached hai?",
+    "choices": [],
+    "answer": "a2",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "a3",
+      "why": "Zyada branched carbon starting OH-bearing carbon nahi hai."
+     },
+     {
+      "match": "other",
+      "why": "Oxygen ka directly bonded carbon pehchanna hai, koi bhi chain carbon nahi."
+     }
+    ],
+    "reveal": "start",
+    "why": "OH seedhe C2 se juda hai; is carbon ke do carbon neighbours hain, isliye starting alcohol secondary hai."
+   },
+   {
+    "id": "proton",
+    "mechanic": "pair",
+    "prompt": "Protonation ke liye electron-pair donor ko proton se jodo.",
+    "choices": [],
+    "answer": "a5>a6",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "a6>a5",
+      "why": "Proton electron pair nahi deta; oxygen apna lone pair deta hai."
+     },
+     {
+      "match": "other",
+      "why": "Alcohol oxygen proton accept karta hai, carbon skeleton nahi."
+     }
+    ],
+    "reveal": "protonate",
+    "why": "Oxygen–hydrogen bond banta hai aur H–Br bond ka pair bromine par jaata hai."
+   },
+   {
+    "id": "shift",
+    "mechanic": "choose",
+    "prompt": "Water loss ke baad major pathway ka agla useful event kya hai?",
+    "choices": [
+     "Adjacent hydride ka positive carbon par shift",
+     "Bromide ko turant original site par fix karna",
+     "Hydrogen ko electron pair ke bina shift karna"
+    ],
+    "answer": "0",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "1",
+      "why": "Yeh stabilising rearrangement skip karke unrearranged structure ko major maan leta hai."
+     },
+     {
+      "match": "2",
+      "why": "Hydride migration mein C–H bond pair bhi move karta hai; proton akela nahi."
+     }
+    ],
+    "reveal": "rearrange",
+    "why": "Hydride shift secondary carbocation ko zyada stable tertiary carbocation mein badalta hai."
+   },
+   {
+    "id": "attack",
+    "mechanic": "tap_part",
+    "prompt": "Rearrangement ke baad bromide kis carbon par attack karega?",
+    "choices": [],
+    "answer": "a3",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "a2",
+      "why": "Original OH carbon ab neutral hai; positive charge adjacent carbon par aa chuka hai."
+     },
+     {
+      "match": "other",
+      "why": "Nucleophile positive, electron-deficient carbon ko electron pair deta hai."
+     }
+    ],
+    "reveal": "capture",
+    "why": "Bromide tertiary carbocation se bond banaakar neutral alkyl bromide deta hai."
+   },
+   {
+    "id": "transfer_site",
+    "mechanic": "choose",
+    "prompt": "HCl ke saath analogous substitution mein chloride kahan lagega?",
+    "choices": [
+     "Rearranged tertiary carbon par",
+     "Sirf original OH carbon par"
+    ],
+    "answer": "0",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "1",
+      "why": "Halide badalne se stabilising hydride shift ka structural reason khatam nahi hota."
+     }
+    ],
+    "reveal": "",
+    "why": "Carbocation stability final attachment site guide karti hai; halide ab chloride hai."
+   }
+  ],
+  "board": [
+   {
+    "step": "protonate",
+    "note": "Oxygen proton accept karta hai; oxonium aur bromide bante hain."
+   },
+   {
+    "step": "leave",
+    "note": "C–O pair oxygen leta hai; neutral water aur secondary carbocation milte hain."
+   },
+   {
+    "step": "rearrange",
+    "note": "Adjacent hydride bond pair ke saath migrate karke tertiary carbocation deta hai."
+   },
+   {
+    "step": "capture",
+    "note": "Bromide ka lone pair C–Br bond banata hai: 2-bromo-2-methylbutane, option 2."
+   }
+  ],
+  "diagnoses": [
+   {
+    "option": 1,
+    "title": "Galat skeleton",
+    "why": "Yeh neopentyl connectivity hai; actual hydride shift carbon–carbon skeleton nahi badalta.",
+    "shows": ""
+   },
+   {
+    "option": 2,
+    "title": "Stability-guided capture",
+    "why": "Water loss ke baad hydride shift tertiary carbocation deta hai, jise bromide capture karta hai.",
+    "shows": ""
+   },
+   {
+    "option": 3,
+    "title": "Carbon conservation chhoota",
+    "why": "Is alkene mein starting alcohol se ek carbon kam hai; simple substitution ya dehydration mein carbon gaayab nahi hota.",
+    "shows": ""
+   },
+   {
+    "option": 4,
+    "title": "Rearrangement skip hua",
+    "why": "Original secondary carbocation par direct capture ka structure hai; stabilising hydride shift miss hota hai.",
+    "shows": "direct"
+   }
+  ],
+  "families": [
+   {
+    "id": "migration",
+    "title": "Migrating group pehchano",
+    "question": "Water loss ke baad major rearrangement kaunsi movement se hota hai?",
+    "changes": [],
+    "choices": [
+     "Adjacent hydride migration",
+     "Bromide migration",
+     "OH ka neutral carbon par migration"
+    ],
+    "correct": 1,
+    "why": "Adjacent C–H pair positive carbon se bond banata hai aur tertiary carbocation milta hai.",
+    "transfer": false
+   },
+   {
+    "id": "chloride",
+    "title": "Halide identity badli",
+    "question": "Isi alcohol ki HCl se analogous substitution mein rearranged product kaunsa hai?",
+    "changes": [
+     "reactant [CH3:1][C:2]([H:10])([O:5][H:8])[C:3]([H:9])([CH3:4])[CH3:11].[H:6][Cl:7]",
+     "step protonate Oxygen accepts proton and chloride forms: lp 5 -> 6; bond 6-7 -> 7",
+     "step capture Chloride attacks the tertiary carbocation: lp 7 -> 3",
+     "option 1 CC(Cl)(C)CC",
+     "option 2 CC(Cl)C(C)C",
+     "option 3 CC(C)(C)CCl",
+     "option 4 CC=CC"
+    ],
+    "choices": [
+     "2-chloro-2-methylbutane",
+     "2-chloro-3-methylbutane",
+     "1-chloro-2,2-dimethylpropane",
+     "But-2-ene"
+    ],
+    "correct": 1,
+    "why": "Halide badla hai, lekin stabilising hydride shift ke baad electrophilic carbon wahi hai.",
+    "transfer": true
+   }
+  ],
+  "recap": "Protonation, water loss, stability check, hydride shift, phir bromide capture: major product 2-bromo-2-methylbutane, option 2.",
+  "limitations": [
+   "Provided text supports proton acceptance, protonated-alcohol C–O cleavage and nucleophilic capture, but does not explicitly describe this substrate's hydride rearrangement.",
+   "The model represents the major substitution pathway, not quantitative competition with elimination or unrearranged capture.",
+   "Atom-tracking tags remain fixed; final IUPAC numbering is assigned independently.",
+   "The HCl transfer tests analogous substitution connectivity, not equal rates or yields."
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "stage trap: 1 beats; it needs at least 2",
+    "stage transfer: 1 beats; it needs at least 2",
+    "gate initial: why (the teacher's reason after the action) is missing"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "usage": {
+  "input_tokens": 37935,
+  "output_tokens": 9836
+ },
+ "model": {
+  "kind": "mechanism",
+  "problems": [],
+  "answer_option": 1,
+  "trap_options": {
+   "direct": 3
+  },
+  "parts": [
+   "a1",
+   "a10",
+   "a11",
+   "a2",
+   "a3",
+   "a4",
+   "a5",
+   "a6",
+   "a7",
+   "a8",
+   "a9",
+   "a1-a2",
+   "a2-a10",
+   "a2-a5",
+   "a5-a8",
+   "a2-a3",
+   "a3-a9",
+   "a3-a4",
+   "a3-a11",
+   "a6-a7"
+  ],
+  "moments": [
+   "start",
+   "protonate",
+   "leave",
+   "rearrange",
+   "capture",
+   "direct"
+  ],
+  "numbers": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   11
+  ],
+  "values": {},
+  "verified": true,
+  "board": {
+   "protonate": {
+    "label": "Oxygen accepts proton and bromide forms",
+    "facts": [],
+    "cations": []
+   },
+   "leave": {
+    "label": "Water leaves and secondary carbocation forms",
+    "facts": [],
+    "cations": [
+     "2° C⁺ at a2"
+    ]
+   },
+   "rearrange": {
+    "label": "Adjacent hydride shifts with its bond pair to form tertiary carbocation",
+    "facts": [
+     "2° → 3° carbocation"
+    ],
+    "cations": [
+     "3° C⁺ at a3"
+    ]
+   },
+   "capture": {
+    "label": "Bromide attacks the tertiary carbocation",
+    "facts": [],
+    "cations": []
+   }
+  }
+ }
+}

@@ -1,0 +1,745 @@
+{
+ "question": {
+  "id": "c1",
+  "exam": "Practice",
+  "origin": "practice",
+  "question": "3,3-dimethylbutan-2-ol, CH3–CH(OH)–C(CH3)3, reacts with HBr. What is the major product?",
+  "options": [
+   "3-bromo-2,2-dimethylbutane",
+   "2-bromo-2,3-dimethylbutane",
+   "2,3-dimethylbut-2-ene",
+   "1-bromo-3,3-dimethylbutane"
+  ],
+  "answer": 1
+ },
+ "lesson": {
+  "title": "Br kahan lagega: pehle skeleton dekho",
+  "concept": "Protonation, water departure, stability-driven methyl migration and halide capture",
+  "scene_title": "Alcohol se rearranged bromide tak",
+  "given": [
+   {
+    "name": "Alcohol",
+    "value": "3,3-dimethylbutan-2-ol, CH3–CH(OH)–C(CH3)3"
+   },
+   {
+    "name": "Reagent",
+    "value": "HBr"
+   },
+   {
+    "name": "Options",
+    "value": "1: 3-bromo-2,2-dimethylbutane; 2: 2-bromo-2,3-dimethylbutane; 3: 2,3-dimethylbut-2-ene; 4: 1-bromo-3,3-dimethylbutane"
+   }
+  ],
+  "asked": "HBr ke saath major organic product kaunsa banega?",
+  "unknowns": [
+   "Carbon skeleton rearrange hoga ya nahi",
+   "Bromine ki final attachment"
+  ],
+  "assumptions": [
+   "Ordinary HBr substitution conditions, without deliberately promoted dehydration.",
+   "A stepwise carbocation pathway represents the expected major product."
+  ],
+  "objectives": [
+   "OH-bearing carbon identify karo.",
+   "Electron pairs aur charges track karo.",
+   "Capture se pehle carbocation stability check karo.",
+   "Final connectivity se product pehchaano."
+  ],
+  "prerequisites": [
+   {
+    "idea": "Carbon degree",
+    "why": "Direct carbon neighbours secondary aur tertiary centres ko distinguish karte hain."
+   },
+   {
+    "idea": "Electron-pair arrows",
+    "why": "Arrow lone pair ya bond se shuru hota hai."
+   },
+   {
+    "idea": "Carbocation stability",
+    "why": "Migration tab favourable hoti hai jab zyada stable carbocation mile."
+   }
+  ],
+  "evidence": [
+   {
+    "block_ids": [
+     "p0002-b0022",
+     "p0002-b0023",
+     "p0002-b0024"
+    ],
+    "idea": "Alcohol classification OH-bearing carbon par depend karti hai.",
+    "parts": [
+     "a2",
+     "a7"
+    ],
+    "moment": "start"
+   },
+   {
+    "block_ids": [
+     "p0014-b0008",
+     "p0014-b0009",
+     "p0014-b0010"
+    ],
+    "idea": "Oxygen ka lone pair alcohol ko proton accept karne deta hai.",
+    "parts": [
+     "a7",
+     "a9"
+    ],
+    "moment": "protonate"
+   },
+   {
+    "block_ids": [
+     "p0012-b0023",
+     "p0012-b0024",
+     "p0012-b0025"
+    ],
+    "idea": "Protonated alcohol electrophile ki tarah carbon–oxygen bond cleavage karta hai.",
+    "parts": [
+     "a2-a7",
+     "a7"
+    ],
+    "moment": "leave"
+   }
+  ],
+  "model": {
+   "kind": "mechanism",
+   "lines": [
+    "reactant [CH3:1][C:2]([H:11])([O:7][H:8])[C:3]([CH3:4])([CH3:5])[CH3:6].[H:9][Br:10]",
+    "label 1 left_methyl",
+    "label 2 original_OH_carbon",
+    "label 3 neighbouring_branched_carbon",
+    "label 5 migrating_methyl",
+    "label 7 alcohol_oxygen",
+    "label 9 acid_proton",
+    "label 10 halide",
+    "step protonate Oxygen accepts the acid proton and bromide forms: lp 7 -> 9; bond 9-10 -> 10",
+    "step leave Water leaves and the original alcohol carbon becomes cationic: bond 2-7 -> 7",
+    "step migrate A neighbouring methyl migrates with its bond pair to give a tertiary carbocation: shift 5 3 -> 2",
+    "step capture Bromide captures the rearranged carbocation: lp 10 -> 3",
+    "trap direct after leave Capture before checking rearrangement preserves the original skeleton: lp 10 -> 2",
+    "option 1 CC(Br)C(C)(C)C",
+    "option 2 CC(C)C(Br)(C)C",
+    "option 3 CC(C)=C(C)C",
+    "option 4 BrCCC(C)(C)C"
+   ],
+   "svg": ""
+  },
+  "stages": [
+   {
+    "key": "see",
+    "title": "Reaction centre pehchaano",
+    "text": "OH-bearing carbon aur branched neighbour ko alag track karo.",
+    "beats": [
+     {
+      "say": "Yahan HBr diya hai, aur humein major product ki connectivity pehchaanani hai.",
+      "voice": "यहाँ एचबीआर दिया है, और हमें मेजर प्रोडक्ट की कनेक्टिविटी पहचाननी है।",
+      "view": "main",
+      "focus": [
+       "a2",
+       "a3",
+       "a7",
+       "a10"
+      ],
+      "labels": [
+       "a2",
+       "a3"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Paas ka carbon bahut branched hai, lekin OH asal mein kis carbon par laga hai?",
+      "voice": "पास का कार्बन बहुत ब्रांच्ड है, लेकिन ओएच असल में किस कार्बन पर लगा है?",
+      "view": "main",
+      "focus": [
+       "a2",
+       "a3",
+       "a7"
+      ],
+      "labels": [
+       "a2",
+       "a3"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": "site"
+     }
+    ]
+   },
+   {
+    "key": "trap",
+    "title": "Sirf OH ko Br se badalna?",
+    "text": "Direct replacement skeleton ko unchanged maan leta hai.",
+    "beats": [
+     {
+      "say": "Seedha OH hataakar Br laga dena tempting hai, par ismein skeleton unchanged maan liya gaya.",
+      "voice": "सीधा ओएच हटाकर बीआर लगा देना टेम्प्टिंग है, पर इसमें स्केलेटन अनचेंज्ड मान लिया गया।",
+      "view": "main",
+      "focus": [
+       "a2",
+       "a7",
+       "a10"
+      ],
+      "labels": [
+       "a2"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Yeh shortcut padosi carbon ke methyl ko ignore karta hai; carbocation banne par uski migration check karni hogi.",
+      "voice": "यह शॉर्टकट पड़ोसी कार्बन के मिथाइल को इग्नोर करता है; कार्बोकैटायन बनने पर उसकी माइग्रेशन चेक करनी होगी।",
+      "view": "main",
+      "focus": [
+       "a2",
+       "a3",
+       "a5",
+       "a3-a5"
+      ],
+      "labels": [
+       "a2",
+       "a3",
+       "a5"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "concept",
+    "title": "Leaving group taiyaar karo",
+    "text": "Oxygen proton leta hai; neutral water nikal sakta hai.",
+    "beats": [
+     {
+      "say": "Oxygen ke paas electron pair hai; acid ka proton lene wala atom pehle chuno.",
+      "voice": "ऑक्सीजन के पास इलेक्ट्रॉन पेयर है; एसिड का प्रोटॉन लेने वाला ऐटम पहले चुनो।",
+      "view": "detail",
+      "focus": [
+       "a7",
+       "a9",
+       "a10"
+      ],
+      "labels": [
+       "a7",
+       "a9"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "activation",
+      "gate": "proton"
+     },
+     {
+      "say": "Oxygen proton leta hai aur H–Br ke bond electrons bromine par jaate hain.",
+      "voice": "ऑक्सीजन प्रोटॉन लेता है और एच–बीआर के बॉन्ड इलेक्ट्रॉन्स ब्रोमीन पर जाते हैं।",
+      "view": "both",
+      "focus": [
+       "a7",
+       "a9",
+       "a10"
+      ],
+      "labels": [
+       "a7",
+       "a10"
+      ],
+      "moment": "protonate",
+      "play": true,
+      "board": "protonate",
+      "detail": "activation",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "solve",
+    "title": "Charge aur skeleton track karo",
+    "text": "Water departure ke baad stability check, migration aur capture.",
+    "beats": [
+     {
+      "say": "Carbon–oxygen bond ka pair oxygen leta hai; water nikalta hai aur carbon positive banta hai.",
+      "voice": "कार्बन–ऑक्सीजन बॉन्ड का पेयर ऑक्सीजन लेता है; वॉटर निकलता है और कार्बन पॉज़िटिव बनता है।",
+      "view": "both",
+      "focus": [
+       "a2-a7",
+       "a2",
+       "a7"
+      ],
+      "labels": [
+       "a2"
+      ],
+      "moment": "leave",
+      "play": true,
+      "board": "leave",
+      "detail": "activation",
+      "gate": ""
+     },
+     {
+      "say": "Ab bromide bulaane se pehle dekho, padosi methyl khiske toh positive carbon zyada stable hoga?",
+      "voice": "अब ब्रोमाइड बुलाने से पहले देखो, पड़ोसी मिथाइल खिसके तो पॉज़िटिव कार्बन ज़्यादा स्टेबल होगा?",
+      "view": "detail",
+      "focus": [
+       "a2",
+       "a3",
+       "a5",
+       "a3-a5"
+      ],
+      "labels": [
+       "a2",
+       "a3",
+       "a5"
+      ],
+      "moment": "leave",
+      "play": false,
+      "board": "",
+      "detail": "stability",
+      "gate": "shift"
+     },
+     {
+      "say": "Methyl apne bond pair ke saath khiskta hai; purana positive centre neutral aur padosi tertiary carbocation banta hai.",
+      "voice": "मिथाइल अपने बॉन्ड पेयर के साथ खिसकता है; पुराना पॉज़िटिव सेंटर न्यूट्रल और पड़ोसी टर्शियरी कार्बोकैटायन बनता है।",
+      "view": "both",
+      "focus": [
+       "a2",
+       "a3",
+       "a5"
+      ],
+      "labels": [
+       "a2",
+       "a3",
+       "a5"
+      ],
+      "moment": "migrate",
+      "play": true,
+      "board": "migrate",
+      "detail": "stability",
+      "gate": "attack"
+     },
+     {
+      "say": "Bromide ab naye positive carbon se bond banaata hai, isliye rearranged bromide major product hai.",
+      "voice": "ब्रोमाइड अब नए पॉज़िटिव कार्बन से बॉन्ड बनाता है, इसलिए रीअरेंज्ड ब्रोमाइड मेजर प्रोडक्ट है।",
+      "view": "main",
+      "focus": [
+       "a3",
+       "a10"
+      ],
+      "labels": [
+       "a3",
+       "a10"
+      ],
+      "moment": "capture",
+      "play": true,
+      "board": "capture",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Final structure ko dobara number karo; naam 2-bromo-2,3-dimethylbutane hai, yani option 2 sahi hai.",
+      "voice": "फाइनल स्ट्रक्चर को दोबारा नंबर करो; नाम 2-ब्रोमो-2,3-डाइमिथाइलब्यूटेन है, यानी ऑप्शन 2 सही है।",
+      "view": "main",
+      "focus": [
+       "a1",
+       "a2",
+       "a3",
+       "a4",
+       "a5",
+       "a6",
+       "a10"
+      ],
+      "labels": [
+       "a2",
+       "a3"
+      ],
+      "moment": "capture",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "transfer",
+    "title": "Halide badlo, reasoning rakho",
+    "text": "Sirf HBr ki jagah HCl rakho.",
+    "beats": [
+     {
+      "say": "Ab sirf HBr ki jagah HCl rakho; alcohol ka carbon skeleton bilkul wahi rakhenge.",
+      "voice": "अब सिर्फ़ एचबीआर की जगह एचसीएल रखो; ऐल्कोहॉल का कार्बन स्केलेटन बिल्कुल वही रखेंगे।",
+      "view": "main",
+      "focus": [
+       "a2",
+       "a3",
+       "a5"
+      ],
+      "labels": [
+       "a2",
+       "a3"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Khud stability check karke batao, chloride capture se pehle rearranged skeleton milega ya original skeleton?",
+      "voice": "खुद स्टेबिलिटी चेक करके बताओ, क्लोराइड कैप्चर से पहले रीअरेंज्ड स्केलेटन मिलेगा या ओरिजिनल स्केलेटन?",
+      "view": "main",
+      "focus": [
+       "a2",
+       "a3",
+       "a5"
+      ],
+      "labels": [
+       "a2",
+       "a3"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": "transfer"
+     }
+    ]
+   }
+  ],
+  "details": [
+   {
+    "id": "activation",
+    "title": "OH se water tak",
+    "text": "Protonation oxygen ko positive banaati hai. C–O bond pair oxygen par aane se neutral water aur carbocation milte hain.",
+    "chain": [
+     "Oxygen lone pair aur acidic proton",
+     "Protonation, phir C–O bond cleavage",
+     "Neutral water aur positive carbon"
+    ],
+    "focus": [
+     "a7",
+     "a9",
+     "a10",
+     "a2-a7"
+    ],
+    "moment": "protonate"
+   },
+   {
+    "id": "stability",
+    "title": "Methyl bond pair ke saath chalta hai",
+    "text": "Initial positive carbon ke do carbon neighbours hain; migration ke baad positive neighbour ke teen carbon neighbours hain. Neighbour par hydrogen nahi hai, isliye usse hydride shift nahi hota.",
+    "chain": [
+     "Secondary carbocation aur branched neighbour",
+     "Methyl apne bond pair ke saath migrate",
+     "Neighbour par tertiary carbocation"
+    ],
+    "focus": [
+     "a2",
+     "a3",
+     "a5",
+     "a3-a5"
+    ],
+    "moment": "leave"
+   }
+  ],
+  "gates": [
+   {
+    "id": "site",
+    "mechanic": "tap_part",
+    "prompt": "OH directly kis carbon se bonded hai?",
+    "choices": [],
+    "answer": "a2",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "a3",
+      "why": "Nearby branching ko OH attachment samajh liya; classification directly bonded carbon se hoti hai."
+     },
+     {
+      "match": "other",
+      "why": "Oxygen se carbon tak actual bond trace karo."
+     }
+    ],
+    "reveal": "start",
+    "why": "OH-bearing carbon apne direct carbon neighbours ke hisaab se secondary hai."
+   },
+   {
+    "id": "proton",
+    "mechanic": "pair",
+    "prompt": "Acid proton ke liye electron-pair donor aur acceptor chuno.",
+    "choices": [],
+    "answer": "a7>a9",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "a9>a7",
+      "why": "Proton electron-pair donor nahi hai; arrow oxygen ke lone pair se shuru hoga."
+     },
+     {
+      "match": "other",
+      "why": "Alcohol oxygen pair deta hai aur acid hydrogen use accept karta hai."
+     }
+    ],
+    "reveal": "protonate",
+    "why": "O–H bond banta hai aur H–Br bond pair bromide ko milta hai."
+   },
+   {
+    "id": "shift",
+    "mechanic": "choose",
+    "prompt": "Water departure ke baad major pathway ke liye kya check karoge?",
+    "choices": [
+     "Methyl shift se secondary ki jagah tertiary carbocation",
+     "Seedha capture; skeleton badal hi nahi sakta",
+     "Neighbour se hydride shift bina hydrogen check kiye"
+    ],
+    "answer": "0",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "1",
+      "why": "Available stability-improving rearrangement ko ignore kiya gaya hai."
+     },
+     {
+      "match": "2",
+      "why": "Branched neighbour par hydrogen nahi hai, isliye usse hydride migrate nahi kar sakta."
+     }
+    ],
+    "reveal": "migrate",
+    "why": "Methyl migration secondary carbocation ko tertiary carbocation mein badalti hai."
+   },
+   {
+    "id": "attack",
+    "mechanic": "tap_part",
+    "prompt": "Migration ke baad bromide kis carbon ko capture karega?",
+    "choices": [],
+    "answer": "a3",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "a2",
+      "why": "Original OH-carbon neutral ho chuka hai; positive charge neighbour par hai."
+     },
+     {
+      "match": "other",
+      "why": "Nucleophile current positive centre ko electron pair deta hai."
+     }
+    ],
+    "reveal": "capture",
+    "why": "Bromide ka lone pair carbocation se bond banaakar charge neutral karta hai."
+   },
+   {
+    "id": "transfer",
+    "mechanic": "choose",
+    "prompt": "Isi alcohol ke saath HCl ho toh expected major chloride ka skeleton?",
+    "choices": [
+     "Rearranged skeleton, chloride naye tertiary centre par",
+     "Original skeleton, kyunki chloride migration rokta hai"
+    ],
+    "answer": "0",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "1",
+      "why": "Halide badalne se stability-improving methyl migration ki structural opportunity khatam nahi hoti."
+     }
+    ],
+    "reveal": "",
+    "why": "Same stability check chloride capture se pehle bhi rearranged carbocation deta hai."
+   }
+  ],
+  "board": [
+   {
+    "step": "protonate",
+    "note": "Oxygen proton leta hai; oxygen positive aur bromide negative banta hai."
+   },
+   {
+    "step": "leave",
+    "note": "C–O pair oxygen leta hai; water aur secondary carbocation bante hain."
+   },
+   {
+    "step": "migrate",
+    "note": "Methyl bond pair migrate karta hai; tertiary carbocation milta hai."
+   },
+   {
+    "step": "capture",
+    "note": "Bromide naye positive centre se bond banaata hai."
+   }
+  ],
+  "diagnoses": [
+   {
+    "option": 1,
+    "title": "Unrearranged replacement",
+    "why": "OH ko Br se replace karke stability-improving methyl migration skip ki.",
+    "shows": "direct"
+   },
+   {
+    "option": 2,
+    "title": "Migration aur capture",
+    "why": "Methyl migration tertiary carbocation deti hai, jise bromide capture karta hai.",
+    "shows": ""
+   },
+   {
+    "option": 3,
+    "title": "Elimination ko major chuna",
+    "why": "Alkene pathway ko expected HBr substitution product ki jagah major maan liya.",
+    "shows": ""
+   },
+   {
+    "option": 4,
+    "title": "Arbitrary terminal attachment",
+    "why": "Terminal carbon par bromine bhejne ka supported electron-pair pathway nahi hai.",
+    "shows": ""
+   }
+  ],
+  "families": [
+   {
+    "id": "tag",
+    "title": "Migrating group tracking",
+    "question": "Marked methyl ki final attachment kis original carbon par hogi?",
+    "changes": [
+     "label 5 marked_methyl"
+    ],
+    "choices": [
+     "Original OH-bearing carbon",
+     "Original branched neighbour",
+     "Oxygen"
+    ],
+    "correct": 1,
+    "why": "Methyl apne bond pair ke saath original carbocation centre par migrate karta hai.",
+    "transfer": false
+   },
+   {
+    "id": "chloride",
+    "title": "Different hydrogen halide",
+    "question": "Sirf HBr ko HCl se badalne par expected major product kaunsa hai?",
+    "changes": [
+     "reactant [CH3:1][C:2]([H:11])([O:7][H:8])[C:3]([CH3:4])([CH3:5])[CH3:6].[H:9][Cl:10]",
+     "option 1 CC(Cl)C(C)(C)C",
+     "option 2 CC(C)C(Cl)(C)C",
+     "option 3 CC(C)=C(C)C",
+     "option 4 ClCCC(C)(C)C"
+    ],
+    "choices": [
+     "Unrearranged secondary chloride",
+     "Rearranged tertiary chloride",
+     "Rearranged alkene",
+     "Terminal chloride"
+    ],
+    "correct": 2,
+    "why": "Methyl migration ka stability gain bana rehta hai; chloride rearranged carbocation ko capture karta hai.",
+    "transfer": true
+   }
+  ],
+  "recap": "Protonation, water departure, stability check, methyl migration aur bromide capture: major product 2-bromo-2,3-dimethylbutane, option 2.",
+  "limitations": [
+   "Supplied blocks support classification, proton acceptance and protonated-alcohol C–O cleavage, but do not explicitly cover HBr substitution or carbocation rearrangements.",
+   "The model explains expected connectivity, not rates, solvent effects or product percentages.",
+   "Equivalent neighbouring methyl groups can migrate; one mapped representative is shown.",
+   "Distractors without suitable supported pathways are diagnosed without invented arrows."
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "stage trap: 1 beats; it needs at least 2",
+    "stage solve beat 4: focus a3-a10 are not parts of the model (a1, a1-a2, a10, a11, a2, a2-a11, a2-a3, a2-a7, a3, a3-a4, a3-a5, a3-a6...)",
+    "stage transfer: 1 beats; it needs at least 2"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "usage": {
+  "input_tokens": 37823,
+  "output_tokens": 9474
+ },
+ "model": {
+  "kind": "mechanism",
+  "problems": [],
+  "answer_option": 1,
+  "trap_options": {
+   "direct": 0
+  },
+  "parts": [
+   "a1",
+   "a10",
+   "a11",
+   "a2",
+   "a3",
+   "a4",
+   "a5",
+   "a6",
+   "a7",
+   "a8",
+   "a9",
+   "a1-a2",
+   "a2-a11",
+   "a2-a7",
+   "a7-a8",
+   "a2-a3",
+   "a3-a4",
+   "a3-a5",
+   "a3-a6",
+   "a9-a10"
+  ],
+  "moments": [
+   "start",
+   "protonate",
+   "leave",
+   "migrate",
+   "capture",
+   "direct"
+  ],
+  "numbers": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   11
+  ],
+  "values": {},
+  "verified": true,
+  "board": {
+   "protonate": {
+    "label": "Oxygen accepts the acid proton and bromide forms",
+    "facts": [],
+    "cations": []
+   },
+   "leave": {
+    "label": "Water leaves and the original alcohol carbon becomes cationic",
+    "facts": [],
+    "cations": [
+     "2° C⁺ at a2"
+    ]
+   },
+   "migrate": {
+    "label": "A neighbouring methyl migrates with its bond pair to give a tertiary carbocation",
+    "facts": [
+     "2° → 3° carbocation"
+    ],
+    "cations": [
+     "3° C⁺ at a3"
+    ]
+   },
+   "capture": {
+    "label": "Bromide captures the rearranged carbocation",
+    "facts": [],
+    "cations": []
+   }
+  }
+ }
+}
