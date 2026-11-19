@@ -23,6 +23,13 @@ api = [
 api-test = [
     "httpx==0.28.1",
 ]
+# The course studio on Navin's Codex machine (Navin, 18 November 2026): the narrator voice and the film pictures.
+# Licences: kokoro-onnx MIT (Kokoro-82M weights Apache-2.0, fetched at first use), soundfile BSD-3-Clause, Pillow MIT-CMU.
+studio = [
+    "kokoro-onnx==0.6.1",
+    "soundfile==0.14.0",
+    "pillow==13.0.0",
+]
 # Task 046a toolbox (bie/toolbox/registry.json): optional groups per subject family, installed only by the toolbox lane
 # and on machines that render; versions are the newest with a Python 3.13 Linux wheel before tools/npm_before.txt.
 toolbox-core = [

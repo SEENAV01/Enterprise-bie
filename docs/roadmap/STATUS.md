@@ -1,18 +1,53 @@
 # BIE Status
 
-Updated: 18 November 2026 · Read this first in every new session, then show Navin the current task card.
+Updated: 18 November 2026 (evening) · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
 | Field | Value |
 | --- | --- |
 | Phase | 1 · BIE end to end on the new showing engine; agreement of 3 November 2026 (`docs/vision/AGREEMENT_2026-11-03.md`; ROADMAP, "Agreed on 3 November 2026"). Target 22 November. |
-| Current task | **Film-pehle course studio** (Navin, 18 November 2026), section below: the Monsoon demo (Unit 10, Geography of India) reached 9/10 and Navin said move on; its method and templates are saved (`docs/vision/STUDIO_METHOD_2026-11-18.md`, the Navin-facing "Kaam ki Kitaab" doc, the Drive rebuild kit). |
-| Branch | `p1-studio-method` (docs only) |
-| State | **18 November 2026:** method saved; Claude's demo, not BIE output. Nothing of it is in BIE yet. The Sloman book work stays paused until Navin says yes. Earlier state (5 November, dikhaya-bola and the voice page) is in the sections below. |
-| Next task | Bring the studio templates into BIE, part by part, on the existing slots (showing engine and its 3D layer, `bie/audio/`, notes-page slot, game-level slot, rulebook), each with tests and real-source proof; ask Navin first what he expects from each part. |
+| Current task | **Course studio on the VM, 3 days** (Navin, 18 November 2026): Codex on the ChatGPT plan makes a whole course per chapter on the VM, VM job section `studio` (`tools/vm_studio.py`) with four stages: `questions` (`bie/brain/studio.py`), `films` (`studio_film.py`, `studio_player.html`, `studio_voice.py`), `games` (`studio_game.py`, `studio_game_player.html`) and `book` (`studio_book.py`, `studio_book_player.html`). Navin's six decisions are in the section below. |
+| Branch | `studio-day1-questions` (PR #166: all four stages, the course folder and the game look) |
+| State | **18 November 2026:** VM alive; Codex image_gen made 2 photoreal test images in 3 minutes, ₹0 (job `img-check-20261118`). All four stages IMPLEMENTED with offline tests (33) and the three players checked in a phone browser (film, game played through by touch, Living Book); none INTEGRATED yet: no live run, the first waits for Navin's book PDF. **19 November:** the F-11 fix merged (PR #167, `4509733a`, Navin's yes), and PR #166 now carries days 1–3. Sloman work stays paused. |
+| Next task | Merge PR #166; a ₹0 proof `questions` run on the Money chapter; first live chapter on the VM: questions → Navin's yes → films → games → book → one course folder (films, `GAME.html`, `BOOK.html`) for Navin's review; then the whole book. |
 | Canonical main | `a76003bd` (PR #147: Part F decision report) on `cec89b9d` (PR #146) … PRs #131–#145 (Phase 1 parts B–F) … on `3cd3c19e` (PR #127: Task 048 first slice) on `a14e732f` (PR #126: Task 046 Part D3, the general fixes) on `e8bc9968` (PR #125: the addendum proof's docs) on `d51a5cf3` (PR #124) on `4f612f20` (PR #123) on `3be6680f` (PR #121) on `a568edaf` (PR #120) on `866d171d` (PR #119) on `788106ba` (PR #118) on `ef77d816` (PR #117) on `7e06fa1e` (PR #115: Part D2) on `65e87a6e` (PR #114: Part D1 proof run b, the fetch rules, currency icons, the six pin) on `d6174636` (PR #113: F-18, the Section 18 sidecar race) on `18595156` (PR #112: the proof fixes) on `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai). On the VM, from 25 October 2026, the checker is Navin's free Google AI Studio key `GEMINI_API_KEY` in `/etc/bie/bie.env` (direct route, `gemini-3.8-flash`); the AICredits key stays there unused (a job can still choose it with `routes google=aicredits`). Since 24 October a free Google AI Studio key is the GitHub secret `GEMINI_API_KEY` (Navin's choice for now, sample content only, never student data); it serves GitHub Actions runs only and wins over AICredits there: `gemini-3.8-flash` answers (smoke run 40114580580), `gemini-4-argon` gives 429 quota and `gemini-3.1-pro` 404, so a run that uses it passes `models=google=gemini-3.8-flash` |
+
+## Course studio on the VM: Navin's decisions of 18 November 2026
+
+Decision cards in the planning chat, 18 November 2026:
+1. **Coverage (route C):** every point of the book is taught in a video and kept in the notes; the video is made first and
+   its length follows the point (process or structure: a long cinematic film; a light point: a short one).
+2. **Games:** revise the whole chapter in each subject's own ways (a choice makes something happen on screen); every
+   student question gets at least one game stage.
+3. **Question list:** BIE writes each chapter's student questions (Chapter 17 shape: one big question, 3-5 pillars,
+   questions in the learner's words); Navin says yes before that chapter's videos are made.
+4. **Look:** the same frame in every subject; colours and visuals follow the subject.
+5. **Route:** everything is made on the VM by Codex on Navin's ChatGPT plan, pictures from AI (Codex image_gen), no
+   separate ChatGPT-app work; Navin allowed Codex to write files and run commands inside a closed folder when a stage
+   needs it (security yes, 18 November 2026). Stage `questions` needs neither: it is a read-only call.
+6. **Review:** Navin looks at the first chapter before the whole book runs, and at the end.
+7. **Game look (decision card, 19 November 2026):** what is seen from outside (a place, a field, a fort, a machine) is
+   played on the question's own film photo with the moving pieces drawn on top (game `backdrop: film_photo`, the film's
+   pins tell the maker where things are in the photo); an inside process or structure is a full illustration in the
+   Chapter 17 Pollen Lab style (`backdrop: illustration`, code check: at least one gradient and 12 drawn shapes). The same
+   illustration check now applies to film diagrams. Navin saw the player test pictures (Claude's test data, a bare
+   triangle scene) and said they were far from the vision; only real VM output or clearly marked samples are shown now.
+
+Checked the same day: VM job `img-check-20261118` (two test pictures through the plan, 3 minutes, ₹0); Codex's weekly
+plan window was 43 % used before it (resets about 21 November).
+
+How a chapter runs (one VM job per stage; each later stage reads the earlier run's folder, `from_run`):
+1. `questions` (source = the chapter PDF): `QUESTIONS.md` for Navin's yes.
+2. `films` (from_run = the questions run, source = the same PDF, `videos` = optional subset): `films/<qid>.html`; the run
+   keeps `questions.json` and each film's picture files, so the next two stages read only this run.
+3. `games` (from_run = the films run): `GAME.html`, one stage per question; every option carries actions on the scene,
+   so right and wrong choices both visibly do something, then "Kya hua" explains.
+4. `book` (from_run = the films run): `BOOK.html`, note cards covering every point, the film's picture with its pins,
+   the class moment (Asha, Dev, Teacher), "yaad rakho" and a check, linked to `films/<qid>.html` and `GAME.html#<qid>`.
+The course folder for Navin is the four runs' pages side by side. Every maker answer is checked by code and the exact
+problems go back (at most `max_rounds`); a stage with problems left is reported as `needs_fix`.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
@@ -2175,7 +2210,9 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   as "regional", so it never dropped the slow line. Third commit: "regional" is now any host under
   `archive.ubuntu.com` (one or more labels before it), never `archive.ubuntu.com` or `security.ubuntu.com` themselves;
   a comment line no longer counts as a second mirror. Tests: the exact EC2 list from the notice drops only its regional
-  line; an EC2-only list points at the primary archive. No CI rerun used: new commit, new run.
+  line; an EC2-only list points at the primary archive. No CI rerun used: new commit, new run. Third run (head
+  `b4e495e8`): all 5 checks passed, and its notice and warning show the fail-over fired on a slow EC2 mirror and moved
+  to the image's next listed mirror. Merged as PR #167 at `4509733a` on 19 November 2026.
 - F-14 (26 October 2026, VM runner): the first job after PR #77 merged (`codex-jobs:jobs/t046-oneshot-images.json`)
   came back `refused: unknown fields: max_images, prompts`. Cause: `tools/codex_vm.py poll` imports the runner, then
   moves the checkout to the new `main`, then checks the jobs with the rules it had already loaded, so the first poll
