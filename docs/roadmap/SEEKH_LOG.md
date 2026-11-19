@@ -2002,3 +2002,15 @@ the core lane 563 → 577 tests, all green. The next video worker's rounds and h
 - **Measured:** offline: the passed outputs (tissue understand and lesson sets) still pass, 0 problems; the 833 brain and
   Phase 1 tests pass. Live (first-try pass rate of plans under S2-11, ₹ per page) comes from the first BIE run with
   `--length-rule content`.
+## Entry · the course studio's first VM run, stage questions on the Money chapter, 19 November 2026
+
+- **Run:** VM job `studio-money-q1` (section `studio`, stage `questions`), the Money chapter (Indian Economy, chapter 3,
+  20 pages) for UPSC / State PCS in Hinglish, right after PR #166 merged; Codex maker on the ChatGPT plan (`gpt-6.1-sol`),
+  ₹0. Results: `blindtest-results:runs/vm-studio-money-q1-brain-studio` (`QUESTIONS.md`, `questions.json`, `record.json`).
+- **Taught:** the studio runs on the VM as built: the first poll after the merge picked up the new section and stage, one
+  maker answer passed every code check in round 1 (0 problems), and the coverage check found all 187 teachable blocks
+  in some question (28 questions, 5 pillars). The plan meter did not move (44 % before and after; 16,580 input and
+  18,162 output tokens), so a question list costs almost nothing of the week's plan; the films' AI pictures will be
+  the real plan cost. Most questions got a "lambi film"; the films stage will show whether that is right.
+- **Changed in BIE:** nothing yet (first run); the run's numbers are the baseline for the next chapter.
+- **Measured:** first-try pass 1 of 1, rounds 1, 6.4 minutes on the VM (8.2 with the runner), ₹0, coverage 100 %.
