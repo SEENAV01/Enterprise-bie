@@ -73,6 +73,16 @@ Decision cards in the planning chat, 18 November 2026:
    and a Chromium check of guided play, gates, wrong-action feedback, retry, stop, diagnosis, transfer and 390 px layout
    on Claude's test data. Not INTEGRATED: no VM run yet. Differences from the brief: the studio's browser engine is the
    compiler here (the old Remotion compiler is not used); browser speech is a fallback, Kokoro is the voice.
+   First VM runs (19 November 2026, ₹0, Codex on the plan): `pyq-physics-a` (NEET 2023 bullet height + a fresh range
+   question) and `pyq-chemistry-a` (3-methylbutan-2-ol + HBr, hydride shift + a fresh methyl shift) ok, every answer
+   proved by the model and equal to the key, 2 rounds each, about 7.5 minutes per job; results
+   `blindtest-results:runs/vm-pyq-{physics,chemistry}-a-brain-studio`. `pyq-biology-a` failed before the maker ran: the
+   scanned NCERT Class 12 Biology carries an invisible '.' partly above page 25 and the PDF readers stopped the whole book;
+   they now leave out glyphs not on the page (the four chapters read before read byte for byte the same; the full
+   311-page book reads). Walking both lessons in Chromium (a wrong, then a right action at every gate) found that the
+   physics gate "tap the vertical component" could not be answered and that labels showed ids or covered each other;
+   the player was fixed (SEEKH_LOG) and the re-walk passes all 17 gates. INTEGRATED for physics and chemistry (real
+   chapter PDF → VM → lesson played); biology waits for its re-run.
 
 Checked the same day: VM job `img-check-20261118` (two test pictures through the plan, 3 minutes, ₹0); Codex's weekly
 plan window was 43 % used before it (resets about 21 November).

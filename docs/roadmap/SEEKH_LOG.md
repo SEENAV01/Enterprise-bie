@@ -2037,4 +2037,33 @@ the core lane 563 → 577 tests, all green. The next video worker's rounds and h
   highlighted words readable, no half words at the frame edge, words stay above moving molecules (contact sheets in the
   PR). Generation: first-try pass 0 of 3 (rounds 3, 2, 2), 112k tokens for 3 films, 5.5 minutes of film, ₹0; plan meter
   44 % before and after. Navin's look verdict is pending.
+## Entry · the PYQ lab's first VM runs (physics, chemistry, biology), 19 November 2026
+
+- **Run:** VM jobs `pyq-physics-a`, `pyq-chemistry-a`, `pyq-biology-a` (section `studio`, stage `pyq`) right after PR #171
+  merged; each a reference PYQ plus one fresh question, NCERT chapter PDFs from the inputs branch, Codex maker and
+  reviewer on the ChatGPT plan, ₹0. Results: `blindtest-results:runs/vm-pyq-{physics,chemistry,biology}-a-brain-studio`.
+- **Taught:** (1) the models carry the answers: all four physics and chemistry answers were proved by code (projectile
+  working; RDKit arrows, a 1,2-hydride and a 1,2-methyl shift) and equal the keys, in 2 rounds each. (2) A scanned book
+  broke the reader before any AI ran: one OCR glyph ('.') starts above page 25 of NCERT Class 12 Biology and the text and
+  structure adapters refused the whole document. (3) Walking each lesson in Chromium with a wrong, then a right action
+  at every gate found what the code checks could not: the physics gate "tap the vertical component" had no tap target
+  (the vector arrows were drawn outside their part groups), a tap on a label or beside a thin line did nothing,
+  chemistry labels said "a2", "a3" and long maker tags ("original_OH_carbon") piled up on atoms, labels covered each
+  other or ran off the picture, the range question's peak label showed u_y as "H = 17.32", the launch label showed
+  v_y a frame late (134.4 instead of 140), and the second question's first transfer try counted as a later try.
+- **Changed in BIE:** `bie/document_intelligence/pdfplumber_text_adapter.py` and `pdfplumber_structure_adapter.py`
+  build lines only from glyphs wholly on the page (`page.within_bbox(page.bbox)`); tests with a stray glyph above the
+  page. `bie/brain/studio_pyq_player.html`: v, vₓ, vᵧ, g and R are tap targets with finger-sized strokes and every
+  projectile part is drawn while a tap gate is open; a tap counts for the nearest part within 28 px; parts carry names
+  (atom tag or symbol, "C2–C3 bond", the cell's label, "vᵧ"), long tags only as labels; labels move apart, stay inside the
+  frame and are not repeated for a part the scene already names; the peak label is always the height; attempts reset
+  per question. Tests: `tests/test_studio_pyq.py::test_player_lets_every_part_be_tapped_and_names_it`, the two adapter
+  tests. IMPLEMENTED.
+- **Measured:** PDF: Money, Photosynthesis, Physics ch3 and Chemistry Alcohols read byte for byte the same as before;
+  the biology extract (23 pages, 897 blocks) and the full 311-page book now read. Player, the same VM lesson data
+  re-wrapped: before, physics question 1 stopped at its first gate and chemistry question 2's taps missed; after, all
+  17 gates answered (one wrong, then right; every wrong action got its own misconception), all practice options
+  diagnosed, both transfers checked, no console errors, no sideways scroll at 390 px. Generation: first-try pass 0 of 4
+  (2 rounds each), physics 157k tokens, chemistry 95k tokens, ₹0. The task044 lane 381 tests and the document
+  intelligence suite 96 tests pass.
 
