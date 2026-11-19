@@ -1,0 +1,846 @@
+{
+ "question": {
+  "id": "g1",
+  "exam": "NEET 2023",
+  "origin": "pyq",
+  "question": "A bullet is fired from a gun at 280 m/s, at 30° above the horizontal. What is the maximum height? Take g = 9.8 m/s² and sin 30° = 0.5.",
+  "options": [
+   "3000 m",
+   "2800 m",
+   "2000 m",
+   "1000 m"
+  ],
+  "answer": 3
+ },
+ "lesson": {
+  "title": "Bullet kitni oonchai tak jaayegi?",
+  "concept": "Maximum height initial velocity ke vertical component se milti hai, poori speed se nahi.",
+  "scene_title": "Launch se peak tak",
+  "given": [
+   {
+    "name": "Initial speed",
+    "value": "280 m/s"
+   },
+   {
+    "name": "Horizontal se angle",
+    "value": "30°"
+   },
+   {
+    "name": "Gravity",
+    "value": "9.8 m/s²"
+   },
+   {
+    "name": "sin 30°",
+    "value": "0.5"
+   }
+  ],
+  "asked": "Launch point se bullet ki maximum vertical height kya hai?",
+  "unknowns": [
+   "uy",
+   "H"
+  ],
+  "assumptions": [
+   "Air resistance negligible hai.",
+   "Gravity constant aur vertically downward hai.",
+   "Launch point height ka zero reference hai."
+  ],
+  "objectives": [
+   "Total speed aur vertical component mein fark karna.",
+   "Peak par vertical velocity zero hone ka matlab samajhna.",
+   "Vertical motion se maximum height nikaalna.",
+   "Speed badalne par height ka square dependence apply karna."
+  ],
+  "prerequisites": [
+   {
+    "idea": "Velocity ke perpendicular components",
+    "why": "Height ke liye upar wala component alag chahiye."
+   },
+   {
+    "idea": "Right triangle mein sine",
+    "why": "Horizontal se angle diya ho toh opposite side vertical component hoti hai."
+   },
+   {
+    "idea": "Constant-acceleration kinematics",
+    "why": "Gravity vertical velocity ko uniformly badalti hai."
+   }
+  ],
+  "evidence": [
+   {
+    "block_ids": [
+     "p0006-b0022",
+     "p0006-b0024",
+     "p0006-b0025",
+     "p0006-b0027"
+    ],
+    "idea": "Horizontal se measured angle ke liye vertical component magnitude times sine hota hai.",
+    "parts": [
+     "v",
+     "vx",
+     "vy"
+    ],
+    "moment": "launch"
+   },
+   {
+    "block_ids": [
+     "p0012-b0028",
+     "p0012-b0030",
+     "p0012-b0032",
+     "p0012-b0034",
+     "p0012-b0036",
+     "p0012-b0062",
+     "p0012-b0064",
+     "p0012-b0066",
+     "p0012-b0070"
+    ],
+    "idea": "Horizontal aur vertical motion independently analyse hote hain; acceleration downward hai.",
+    "parts": [
+     "vx",
+     "vy",
+     "gravity"
+    ],
+    "moment": "rise"
+   },
+   {
+    "block_ids": [
+     "p0013-b0054",
+     "p0013-b0056",
+     "p0013-b0057",
+     "p0013-b0062",
+     "p0013-b0070",
+     "p0013-b0071"
+    ],
+    "idea": "Peak par vertical velocity zero hoti hai aur maximum height initial vertical component ke square par depend karti hai.",
+    "parts": [
+     "peak",
+     "vx",
+     "vy",
+     "height"
+    ],
+    "moment": "peak"
+   }
+  ],
+  "model": {
+   "kind": "projectile",
+   "lines": [
+    "u = 280 m/s",
+    "theta = 30 deg",
+    "g = 9.8 m/s2",
+    "sin = 0.5",
+    "asked = max_height"
+   ],
+   "svg": ""
+  },
+  "stages": [
+   {
+    "key": "see",
+    "title": "Kaunsi speed height banati hai?",
+    "text": "Pehle height ki direction pehchaano, formula baad mein aayega.",
+    "beats": [
+     {
+      "say": "Bullet horizontal se 30 degree upar nikalti hai, aur humein launch point se seedhi oonchai chahiye.",
+      "voice": "बुलेट हॉरिज़ॉन्टल से 30 डिग्री ऊपर निकलती है, और हमें लॉन्च पॉइंट से सीधी ऊँचाई चाहिए।",
+      "view": "main",
+      "focus": [
+       "launcher",
+       "v",
+       "height"
+      ],
+      "labels": [
+       "v",
+       "height"
+      ],
+      "moment": "launch",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Tirchhi speed aage aur upar dono le jaati hai; height ke liye kaunsa hissa chunoge?",
+      "voice": "तिरछी स्पीड आगे और ऊपर दोनों ले जाती है; हाइट के लिए कौनसा हिस्सा चुनोगे?",
+      "view": "main",
+      "focus": [
+       "v",
+       "vx",
+       "vy"
+      ],
+      "labels": [
+       "v",
+       "vx",
+       "vy"
+      ],
+      "moment": "launch",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": "component"
+     }
+    ]
+   },
+   {
+    "key": "trap",
+    "title": "Poora arrow upar nahi hai",
+    "text": "Total speed ko vertical speed maan lena direction ki galti hai.",
+    "beats": [
+     {
+      "say": "Poori speed ko upar lagaane se tum horizontal motion ko bhi height banaane mein gin rahe ho.",
+      "voice": "पूरी स्पीड को ऊपर लगाने से तुम हॉरिज़ॉन्टल मोशन को भी हाइट बनाने में गिन रहे हो।",
+      "view": "both",
+      "focus": [
+       "v",
+       "vy",
+       "ghost"
+      ],
+      "labels": [
+       "v",
+       "vy"
+      ],
+      "moment": "launch",
+      "play": false,
+      "board": "",
+      "detail": "resolve",
+      "gate": ""
+     },
+     {
+      "say": "Speed ko square karke sine sirf ek baar lagaaoge, toh vertical component ka square nahi milega.",
+      "voice": "स्पीड को स्क्वेयर करके साइन सिर्फ़ एक बार लगाओगे, तो वर्टिकल कंपोनेंट का स्क्वेयर नहीं मिलेगा।",
+      "view": "detail",
+      "focus": [
+       "v",
+       "vy"
+      ],
+      "labels": [
+       "vy"
+      ],
+      "moment": "",
+      "play": false,
+      "board": "",
+      "detail": "resolve",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "concept",
+    "title": "Peak par kya rukta hai?",
+    "text": "Gravity upar waali velocity ghataati hai, horizontal velocity nahi.",
+    "beats": [
+     {
+      "say": "Angle horizontal se hai, isliye triangle ki saamne waali side sine se milne waali vertical speed hai.",
+      "voice": "एंगल हॉरिज़ॉन्टल से है, इसलिए ट्रायंगल की सामने वाली साइड साइन से मिलने वाली वर्टिकल स्पीड है।",
+      "view": "both",
+      "focus": [
+       "v",
+       "vx",
+       "vy"
+      ],
+      "labels": [
+       "v",
+       "vx",
+       "vy"
+      ],
+      "moment": "launch",
+      "play": false,
+      "board": "",
+      "detail": "resolve",
+      "gate": ""
+     },
+     {
+      "say": "Gravity neeche kheenchti rehti hai; peak par kaunsa velocity component zero hone waala hai?",
+      "voice": "ग्रैविटी नीचे खींचती रहती है; पीक पर कौनसा वेलॉसिटी कंपोनेंट ज़ीरो होने वाला है?",
+      "view": "both",
+      "focus": [
+       "projectile",
+       "vy",
+       "vx",
+       "gravity"
+      ],
+      "labels": [
+       "vy",
+       "vx",
+       "gravity"
+      ],
+      "moment": "rise",
+      "play": true,
+      "board": "",
+      "detail": "peak_motion",
+      "gate": "peak_prediction"
+     },
+     {
+      "say": "Dekho, upar waali velocity zero hui hai, lekin bullet abhi bhi horizontal chal rahi hai.",
+      "voice": "देखो, ऊपर वाली वेलॉसिटी ज़ीरो हुई है, लेकिन बुलेट अभी भी हॉरिज़ॉन्टल चल रही है।",
+      "view": "both",
+      "focus": [
+       "peak",
+       "vx",
+       "vy",
+       "gravity"
+      ],
+      "labels": [
+       "vx",
+       "vy",
+       "gravity"
+      ],
+      "moment": "peak",
+      "play": true,
+      "board": "",
+      "detail": "peak_motion",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "solve",
+    "title": "Scene se calculation tak",
+    "text": "Vertical direction mein constant acceleration ka equation lagao.",
+    "beats": [
+     {
+      "say": "Gravity constant hai, isliye vertical motion ka equation lagega; upar positive lene par gravity ka sign negative hoga.",
+      "voice": "ग्रैविटी कॉन्स्टेंट है, इसलिए वर्टिकल मोशन का इक्वेशन लगेगा; ऊपर पॉज़िटिव लेने पर ग्रैविटी का साइन नेगेटिव होगा।",
+      "view": "both",
+      "focus": [
+       "height",
+       "gravity",
+       "vy"
+      ],
+      "labels": [
+       "height",
+       "gravity"
+      ],
+      "moment": "peak",
+      "play": false,
+      "board": "",
+      "detail": "peak_motion",
+      "gate": ""
+     },
+     {
+      "say": "Peak ki vertical velocity zero rakhne se height ke liye initial vertical speed ka square divide by two g milta hai.",
+      "voice": "पीक की वर्टिकल वेलॉसिटी ज़ीरो रखने से हाइट के लिए इनिशियल वर्टिकल स्पीड का स्क्वेयर डिवाइड बाय टू जी मिलता है।",
+      "view": "both",
+      "focus": [
+       "height",
+       "vy"
+      ],
+      "labels": [
+       "height",
+       "vy"
+      ],
+      "moment": "",
+      "play": false,
+      "board": "",
+      "detail": "peak_motion",
+      "gate": ""
+     },
+     {
+      "say": "Ab 280 ko 0.5 se multiply karo; upar waali initial speed kitni milegi?",
+      "voice": "अब 280 को 0.5 से मल्टिप्लाई करो; ऊपर वाली इनिशियल स्पीड कितनी मिलेगी?",
+      "view": "main",
+      "focus": [
+       "v",
+       "vy"
+      ],
+      "labels": [
+       "v",
+       "vy"
+      ],
+      "moment": "launch",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": "vertical_number"
+     },
+     {
+      "say": "Vertical speed 140 metre per second milti hai; ab height ke liye isi component ko use karenge.",
+      "voice": "वर्टिकल स्पीड 140 मीटर पर सेकंड मिलती है; अब हाइट के लिए इसी कंपोनेंट को यूज़ करेंगे।",
+      "view": "main",
+      "focus": [
+       "v",
+       "vy"
+      ],
+      "labels": [
+       "vy"
+      ],
+      "moment": "launch",
+      "play": false,
+      "board": "uy",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Is poore vertical component ko square karne par 19600 milta hai; sine ka factor bhi square hota hai.",
+      "voice": "इस पूरे वर्टिकल कंपोनेंट को स्क्वेयर करने पर 19600 मिलता है; साइन का फ़ैक्टर भी स्क्वेयर होता है।",
+      "view": "main",
+      "focus": [
+       "vy",
+       "height"
+      ],
+      "labels": [
+       "vy"
+      ],
+      "moment": "launch",
+      "play": false,
+      "board": "uy2",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Neeche two g ka matlab 19.6 hai; decimal hataane ke liye numerator aur denominator dono ko barabar badhaana hoga.",
+      "voice": "नीचे टू जी का मतलब 19.6 है; डेसिमल हटाने के लिए न्यूमरेटर और डिनॉमिनेटर दोनों को बराबर बढ़ाना होगा।",
+      "view": "main",
+      "focus": [
+       "gravity",
+       "height"
+      ],
+      "labels": [
+       "gravity",
+       "height"
+      ],
+      "moment": "peak",
+      "play": false,
+      "board": "two_g",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Division se height 1000 metre aati hai; squared speed ko acceleration se divide karne par unit metre bachta hai.",
+      "voice": "डिविज़न से हाइट 1000 मीटर आती है; स्क्वेयर्ड स्पीड को एक्सेलरेशन से डिवाइड करने पर यूनिट मीटर बचता है।",
+      "view": "main",
+      "focus": [
+       "height",
+       "peak"
+      ],
+      "labels": [
+       "height"
+      ],
+      "moment": "peak",
+      "play": false,
+      "board": "H",
+      "detail": "",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "transfer",
+    "title": "Speed aadhi, height kitni?",
+    "text": "Ab sirf initial speed badlegi; angle aur gravity wahi rahenge.",
+    "beats": [
+     {
+      "say": "Ab speed 140 metre per second kar do; wahi angle rakhkar nayi maximum height khud chuno.",
+      "voice": "अब स्पीड 140 मीटर पर सेकंड कर दो; वही एंगल रखकर नई मैक्सिमम हाइट खुद चुनो।",
+      "view": "main",
+      "focus": [
+       "v",
+       "vy",
+       "height"
+      ],
+      "labels": [
+       "v",
+       "vy",
+       "height"
+      ],
+      "moment": "launch",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Apna answer chunne se pehle socho: vertical speed ka badlaav height mein seedha aayega ya square hokar?",
+      "voice": "अपना आंसर चुनने से पहले सोचो: वर्टिकल स्पीड का बदलाव हाइट में सीधा आएगा या स्क्वेयर होकर?",
+      "view": "both",
+      "focus": [
+       "vy",
+       "height"
+      ],
+      "labels": [
+       "vy",
+       "height"
+      ],
+      "moment": "",
+      "play": false,
+      "board": "",
+      "detail": "resolve",
+      "gate": ""
+     }
+    ]
+   }
+  ],
+  "details": [
+   {
+    "id": "resolve",
+    "title": "Velocity ka right triangle",
+    "text": "Tirchha arrow hypotenuse hai. Horizontal se angle hone ke kaaran vertical side opposite hai: uy = u sin theta.",
+    "chain": [
+     "Given: tirchhi velocity aur horizontal se angle",
+     "Vertical projection: u ko sine se multiply karo",
+     "Result: height ke liye initial vertical speed"
+    ],
+    "focus": [
+     "v",
+     "vx",
+     "vy"
+    ],
+    "moment": "launch"
+   },
+   {
+    "id": "peak_motion",
+    "title": "Vertical turning point",
+    "text": "Upward positive hai. Gravity downward rehkar vertical velocity ghataati hai. Peak par vy zero hai, acceleration zero nahi; vx bana rehta hai.",
+    "chain": [
+     "Source: initial upward component aur downward gravity",
+     "Event: vertical velocity ghatkar zero hoti hai",
+     "Meaning: maximum height, poori bullet ka rukna nahi"
+    ],
+    "focus": [
+     "projectile",
+     "peak",
+     "vx",
+     "vy",
+     "gravity",
+     "height"
+    ],
+    "moment": "rise"
+   }
+  ],
+  "gates": [
+   {
+    "id": "component",
+    "mechanic": "tap_part",
+    "prompt": "Height ke liye relevant initial velocity component ka arrow tap karo.",
+    "choices": [],
+    "answer": "vy",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "v",
+      "why": "Tirchhi total velocity mein horizontal motion bhi shaamil hai, jo height nahi badhaata."
+     },
+     {
+      "match": "vx",
+      "why": "Horizontal component aage ka motion bataata hai, upward rise nahi."
+     },
+     {
+      "match": "other",
+      "why": "Height ke liye upward velocity component pehchaanna zaroori hai."
+     }
+    ],
+    "reveal": "launch",
+    "why": "Vertical component hi gravity ke khilaaf upward rise deta hai."
+   },
+   {
+    "id": "peak_prediction",
+    "mechanic": "choose",
+    "prompt": "Peak par kya zero hoga?",
+    "choices": [
+     "Sirf vertical velocity",
+     "Poori velocity",
+     "Gravity"
+    ],
+    "answer": "0",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "1",
+      "why": "Upward motion rukne ka matlab horizontal motion rukna nahi hai."
+     },
+     {
+      "match": "2",
+      "why": "Velocity ka component zero hone se gravitational acceleration zero nahi hota."
+     }
+    ],
+    "reveal": "peak",
+    "why": "Peak vertical motion ka turning point hai; horizontal velocity abhi bhi nonzero hai."
+   },
+   {
+    "id": "vertical_number",
+    "mechanic": "number",
+    "prompt": "Initial vertical speed metre per second mein batao.",
+    "choices": [],
+    "answer": "uy",
+    "tolerance": 0.01,
+    "wrong": [
+     {
+      "match": "u",
+      "why": "Tumne total speed ko bina vertical projection liye use kiya hai."
+     },
+     {
+      "match": "other",
+      "why": "Horizontal se angle diya hai, isliye total speed ko diye hue sine se multiply karo."
+     }
+    ],
+    "reveal": "launch",
+    "why": "uy = u sin theta se upward component milta hai."
+   }
+  ],
+  "board": [
+   {
+    "step": "uy",
+    "note": "Horizontal se angle hai, isliye initial vertical component u sin theta hai."
+   },
+   {
+    "step": "uy2",
+    "note": "Height relation mein poore vertical component ka square chahiye; sine bhi square hota hai."
+   },
+   {
+    "step": "two_g",
+    "note": "Vertical constant-acceleration equation mein downward acceleration se denominator two g milta hai."
+   },
+   {
+    "step": "H",
+    "note": "vy² = uy² − 2gH mein peak par vy = 0; H = uy²/(2g), aur unit metre hai."
+   }
+  ],
+  "diagnoses": [
+   {
+    "option": 1,
+    "title": "3000 m: calculation ko dobara jodo",
+    "why": "Yeh value vertical component ke square ko two g se divide karne se nahi milti. Sirf is choice se koi ek specific galti pakki nahi hoti.",
+    "shows": ""
+   },
+   {
+    "option": 2,
+    "title": "2800 m: calculation trace karo",
+    "why": "Yeh value sahi vertical-motion calculation se nahi milti. Component, uska square aur denominator dobara check karo; is choice se exact galti tay nahi hoti.",
+    "shows": ""
+   },
+   {
+    "option": 3,
+    "title": "2000 m: sine ka square chhoot gaya",
+    "why": "u² sin theta ko two g se divide karne par yeh trap milta hai. Sahi numerator poore u sin theta ka square hai.",
+    "shows": "H_one_sin"
+   },
+   {
+    "option": 4,
+    "title": "1000 m: vertical motion sahi chuna",
+    "why": "Initial vertical component ko square karke two g se divide kiya gaya hai; peak par vertical velocity zero use hui hai.",
+    "shows": ""
+   }
+  ],
+  "families": [
+   {
+    "id": "peak_time",
+    "title": "Isi launch ka time to peak",
+    "question": "Isi bullet ko peak tak pahunchne mein kitna samay lagega?",
+    "changes": [
+     "asked = time_to_peak"
+    ],
+    "choices": [
+     "14.29 s",
+     "28.57 s",
+     "0 s"
+    ],
+    "correct": 1,
+    "why": "Gravity vertical speed ghataati hai, isliye time to peak uy/g hai, u/g nahi.",
+    "transfer": false
+   },
+   {
+    "id": "half_speed",
+    "title": "Sirf speed aadhi",
+    "question": "Speed 140 m/s ho aur baaki given wahi rahein, toh maximum height kya hogi?",
+    "changes": [
+     "u = 140 m/s"
+    ],
+    "choices": [
+     "500 m",
+     "250 m",
+     "1000 m"
+    ],
+    "correct": 2,
+    "why": "Angle fixed hone par vertical speed aadhi hoti hai. Height uske square par depend karti hai, isliye height ek-chauthai hoti hai.",
+    "transfer": true
+   }
+  ],
+  "recap": "Height ke liye vertical component lo, peak par sirf vertical velocity zero rakho, aur poore component ko square karo. Maximum height 1000 m hai: option 4.",
+  "limitations": [
+   "Ideal projectile model ignores drag, wind and variation of gravity; a real bullet need not reach this height.",
+   "The whole-speed trap gives a value outside the supplied options.",
+   "Options 1 and 2 do not uniquely identify a specific misconception.",
+   "Same-level landing is needed for full-flight quantities, not for maximum rise."
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "stage transfer: 1 beats; it needs at least 2",
+    "family peak_time: the model's answer (14.29) matches none of its choices"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "usage": {
+  "input_tokens": 69420,
+  "output_tokens": 9017
+ },
+ "model": {
+  "kind": "projectile",
+  "problems": [],
+  "answer_option": 3,
+  "trap_options": {
+   "H_one_sin": 2,
+   "H_whole_u": null
+  },
+  "parts": [
+   "launcher",
+   "projectile",
+   "path",
+   "v",
+   "vx",
+   "vy",
+   "gravity",
+   "height",
+   "peak",
+   "ground",
+   "range",
+   "ref",
+   "ghost"
+  ],
+  "moments": [
+   "launch",
+   "rise",
+   "peak",
+   "descent",
+   "land"
+  ],
+  "numbers": [
+   0.5,
+   0.866025,
+   9.8,
+   10.0,
+   19.6,
+   30.0,
+   40.0,
+   100.0,
+   140.0,
+   196.0,
+   242.487113,
+   280.0,
+   1000.0,
+   2000.0,
+   4000.0,
+   5600.0,
+   14000.0,
+   19600.0,
+   196000.0
+  ],
+  "values": {
+   "u": "280",
+   "theta": "30",
+   "g": "9.8",
+   "s": "0.5",
+   "c": "0.87",
+   "uy": "140",
+   "ux": "242.49",
+   "uy2": "19,600",
+   "two_g": "19.6",
+   "H": "1,000",
+   "H_one_sin": "2,000",
+   "H_whole_u": "4,000"
+  },
+  "verified": true,
+  "board": {
+   "u": {
+    "expr": "280 m/s",
+    "with_values": "280",
+    "value": "280",
+    "unit": "m/s",
+    "label": "launch speed (the whole, slanted velocity)",
+    "kind": "given"
+   },
+   "theta": {
+    "expr": "30",
+    "with_values": "30",
+    "value": "30",
+    "unit": "",
+    "label": "launch angle above the horizontal",
+    "kind": "given"
+   },
+   "g": {
+    "expr": "9.8 m/s2",
+    "with_values": "9.8",
+    "value": "9.8",
+    "unit": "m/s2",
+    "label": "gravity, pulling down",
+    "kind": "given"
+   },
+   "s": {
+    "expr": "0.5",
+    "with_values": "0.5",
+    "value": "0.5",
+    "unit": "",
+    "label": "sin θ, as the question gives it",
+    "kind": "given"
+   },
+   "c": {
+    "expr": "cos(theta)",
+    "with_values": "cos(30)",
+    "value": "0.87",
+    "unit": "",
+    "label": "cos θ",
+    "kind": "step"
+   },
+   "uy": {
+    "expr": "u * s",
+    "with_values": "280 × 0.5",
+    "value": "140",
+    "unit": "m/s",
+    "label": "vertical part: the side opposite θ",
+    "kind": "step"
+   },
+   "ux": {
+    "expr": "u * c",
+    "with_values": "280 × 0.87",
+    "value": "242.49",
+    "unit": "m/s",
+    "label": "horizontal part: the side next to θ",
+    "kind": "step"
+   },
+   "uy2": {
+    "expr": "uy^2",
+    "with_values": "140^2",
+    "value": "19,600",
+    "unit": "m^2/s^2",
+    "label": "the whole vertical part, squared",
+    "kind": "step"
+   },
+   "two_g": {
+    "expr": "2 * g",
+    "with_values": "2 × 9.8",
+    "value": "19.6",
+    "unit": "m/s^2",
+    "label": "2g",
+    "kind": "step"
+   },
+   "H": {
+    "expr": "uy2 / two_g",
+    "with_values": "19,600 ÷ 19.6",
+    "value": "1,000",
+    "unit": "m",
+    "label": "0 = uᵧ² − 2gH, so H = uᵧ²/2g",
+    "kind": "step"
+   },
+   "H_one_sin": {
+    "expr": "u^2 * s / two_g",
+    "with_values": "280^2 × 0.5 ÷ 19.6",
+    "value": "2,000",
+    "unit": "m",
+    "label": "only one sin θ: u² sin θ / 2g",
+    "kind": "trap"
+   },
+   "H_whole_u": {
+    "expr": "u^2 / two_g",
+    "with_values": "280^2 ÷ 19.6",
+    "value": "4,000",
+    "unit": "m",
+    "label": "the whole speed used as if it went straight up",
+    "kind": "trap"
+   }
+  },
+  "answer_value": "1,000"
+ }
+}

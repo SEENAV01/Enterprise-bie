@@ -1,0 +1,92 @@
+{
+ "schema": "bie.studio-run/1",
+ "section": "studio",
+ "stage": "pyq",
+ "status": "ok",
+ "maker": "codex on the ChatGPT plan (read-only, no shell)",
+ "cost": {
+  "total_inr": 0.0
+ },
+ "error": null,
+ "plan_usage_before": {
+  "rateLimits.primary.usedPercent": 44,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1795275033,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 44,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1795275033,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 0
+ },
+ "source_sha256": "190e8b0401c56f15e92d077efa6251b43f10fed3a187503a392b83d8644a7d50",
+ "page_count": 22,
+ "pages_read": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22
+ ],
+ "voice": "kokoro hf_alpha",
+ "pyq": [
+  {
+   "qid": "g1",
+   "kind": "projectile",
+   "proved": 4,
+   "key": 4,
+   "verified": true,
+   "rounds": 2,
+   "problems": []
+  },
+  {
+   "qid": "p1",
+   "kind": "projectile",
+   "proved": 2,
+   "key": 2,
+   "verified": true,
+   "rounds": 2,
+   "problems": []
+  }
+ ],
+ "coverage": {
+  "teachable_blocks": 296,
+  "reached_by_pyqs": 8,
+  "percent": 2.7,
+  "note": "PYQ evidence only; the chapter is taught by the films and notes"
+ },
+ "usage": {
+  "input_tokens": 138727,
+  "output_tokens": 17947
+ },
+ "model": "gpt-6.1-sol",
+ "plan_usage_after": {
+  "rateLimits.primary.usedPercent": 44,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1795275034,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 44,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1795275034,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 0
+ },
+ "minutes": 7.5
+}

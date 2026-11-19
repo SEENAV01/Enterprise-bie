@@ -1,0 +1,825 @@
+{
+ "question": {
+  "id": "p1",
+  "exam": "Practice",
+  "origin": "practice",
+  "question": "A ball is thrown from level ground at 20 m/s, 60° above the horizontal. Taking g = 10 m/s², what is its horizontal range?",
+  "options": [
+   "17.3 m",
+   "34.6 m",
+   "40 m",
+   "20 m"
+  ],
+  "answer": 1
+ },
+ "lesson": {
+  "title": "Range: poori flight ka horizontal safar",
+  "concept": "Horizontal speed constant rehti hai; vertical motion flight ka samay tay karta hai.",
+  "scene_title": "Level ground se phenki gayi ball",
+  "given": [
+   {
+    "name": "Initial speed",
+    "value": "20 m/s"
+   },
+   {
+    "name": "Launch angle",
+    "value": "60° horizontal ke above"
+   },
+   {
+    "name": "Gravity",
+    "value": "10 m/s² downward"
+   },
+   {
+    "name": "Options",
+    "value": "1: 17.3 m; 2: 34.6 m; 3: 40 m; 4: 20 m"
+   }
+  ],
+  "asked": "Launch se ground par lautne tak horizontal range kitni hai?",
+  "unknowns": [
+   "ux",
+   "uy",
+   "T",
+   "R"
+  ],
+  "assumptions": [
+   "Air resistance negligible hai.",
+   "Gravity constant aur vertically downward hai.",
+   "Landing aur launch same height par hain."
+  ],
+  "objectives": [
+   "Range ko curved path length se alag pehchanna.",
+   "Initial velocity ke horizontal aur vertical components nikalna.",
+   "Vertical motion se total flight time nikalna.",
+   "Horizontal speed ko poore flight time se multiply karna."
+  ],
+  "prerequisites": [
+   {
+    "idea": "Velocity ke directional components",
+    "why": "Tirchhi speed ka horizontal hissa horizontal displacement deta hai."
+   },
+   {
+    "idea": "Sine aur cosine",
+    "why": "Horizontal se diye angle ke adjacent component mein cosine lagta hai."
+   },
+   {
+    "idea": "Constant-acceleration motion",
+    "why": "Vertical displacement aur time ka relation landing ka samay deta hai."
+   }
+  ],
+  "evidence": [
+   {
+    "block_ids": [
+     "p0006-b0022",
+     "p0006-b0024",
+     "p0006-b0025",
+     "p0006-b0027"
+    ],
+    "idea": "Horizontal se angle ho to horizontal component cosine aur vertical component sine se milta hai.",
+    "parts": [
+     "v",
+     "vx",
+     "vy"
+    ],
+    "moment": "launch"
+   },
+   {
+    "block_ids": [
+     "p0012-b0030",
+     "p0012-b0032",
+     "p0012-b0035",
+     "p0012-b0037",
+     "p0012-b0039",
+     "p0012-b0041"
+    ],
+    "idea": "Projectile ke perpendicular motions simultaneously aur independently analyse hote hain.",
+    "parts": [
+     "projectile",
+     "vx",
+     "vy",
+     "gravity"
+    ],
+    "moment": "rise"
+   },
+   {
+    "block_ids": [
+     "p0013-b0043",
+     "p0013-b0045",
+     "p0013-b0049",
+     "p0013-b0054",
+     "p0013-b0056"
+    ],
+    "idea": "Same-level landing ke liye total flight time ascent time ka double hota hai.",
+    "parts": [
+     "path",
+     "peak",
+     "ground"
+    ],
+    "moment": "land"
+   },
+   {
+    "block_ids": [
+     "p0014-b0002",
+     "p0014-b0004",
+     "p0014-b0005",
+     "p0014-b0007",
+     "p0014-b0009"
+    ],
+    "idea": "Range constant horizontal velocity aur total flight time ka product hai.",
+    "parts": [
+     "vx",
+     "range"
+    ],
+    "moment": "land"
+   }
+  ],
+  "model": {
+   "kind": "projectile",
+   "lines": [
+    "u = 20 m/s",
+    "theta = 60 deg",
+    "g = 10 m/s2",
+    "asked = range"
+   ],
+   "svg": ""
+  },
+  "stages": [
+   {
+    "key": "see",
+    "title": "Kya naapna hai?",
+    "text": "Range ground ke parallel launch aur landing ke beech ki doori hai.",
+    "beats": [
+     {
+      "say": "Ball ko 20 meter per second se horizontal ke upar 60 degree par phenka gaya hai.",
+      "voice": "बॉल को 20 मीटर पर सेकंड से हॉरिज़ॉन्टल के ऊपर 60 डिग्री पर फेंका गया है।",
+      "view": "main",
+      "focus": [
+       "launcher",
+       "v",
+       "ground"
+      ],
+      "labels": [
+       "v",
+       "ground"
+      ],
+      "moment": "launch",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Range ke liye ground wali seedhi doori chahiye, ya ball ka poora curved raasta?",
+      "voice": "रेंज के लिए ग्राउंड वाली सीधी दूरी चाहिए, या बॉल का पूरा कर्व्ड रास्ता?",
+      "view": "main",
+      "focus": [
+       "range",
+       "path"
+      ],
+      "labels": [
+       "range",
+       "path"
+      ],
+      "moment": "",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": "identify"
+     }
+    ]
+   },
+   {
+    "key": "trap",
+    "title": "Peak par safar khatam nahi hota",
+    "text": "Sirf ascent ka time lene par horizontal range aadhi milti hai.",
+    "beats": [
+     {
+      "say": "Peak tak ka samay lekar multiply karna tempting hai, lekin ball abhi ground par nahi lauti.",
+      "voice": "पीक तक का समय लेकर मल्टिप्लाई करना टेम्प्टिंग है, लेकिन बॉल अभी ग्राउंड पर नहीं लौटी।",
+      "view": "both",
+      "focus": [
+       "projectile",
+       "peak",
+       "range",
+       "ghost"
+      ],
+      "labels": [
+       "peak",
+       "range"
+      ],
+      "moment": "peak",
+      "play": true,
+      "board": "R_up_only",
+      "detail": "flight",
+      "gate": ""
+     },
+     {
+      "say": "17.3 meter sirf peak tak ka horizontal safar hai; neeche aate waqt bhi ball aage badhegi.",
+      "voice": "17.3 मीटर सिर्फ पीक तक का हॉरिज़ॉन्टल सफर है; नीचे आते वक्त भी बॉल आगे बढ़ेगी।",
+      "view": "main",
+      "focus": [
+       "vx",
+       "path",
+       "ground"
+      ],
+      "labels": [
+       "vx",
+       "ground"
+      ],
+      "moment": "descent",
+      "play": true,
+      "board": "R_up_only",
+      "detail": "",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "concept",
+    "title": "Do directions, ek hi clock",
+    "text": "Gravity vertical speed badalti hai; horizontal speed constant rehti hai.",
+    "beats": [
+     {
+      "say": "Angle horizontal se diya hai; batao horizontal arrow ke liye sine lagega ya cosine?",
+      "voice": "एंगल हॉरिज़ॉन्टल से दिया है; बताओ हॉरिज़ॉन्टल ऐरो के लिए साइन लगेगा या कोसाइन?",
+      "view": "detail",
+      "focus": [
+       "v",
+       "vx",
+       "vy"
+      ],
+      "labels": [
+       "v",
+       "vx",
+       "vy"
+      ],
+      "moment": "launch",
+      "play": false,
+      "board": "",
+      "detail": "components",
+      "gate": "component"
+     },
+     {
+      "say": "Horizontal arrow angle ke paas wali side hai, isliye cosine; upar wali opposite side ke liye sine.",
+      "voice": "हॉरिज़ॉन्टल ऐरो एंगल के पास वाली साइड है, इसलिए कोसाइन; ऊपर वाली ऑपोज़िट साइड के लिए साइन।",
+      "view": "both",
+      "focus": [
+       "v",
+       "vx",
+       "vy",
+       "gravity"
+      ],
+      "labels": [
+       "vx",
+       "vy",
+       "gravity"
+      ],
+      "moment": "launch",
+      "play": false,
+      "board": "ux",
+      "detail": "components",
+      "gate": ""
+     },
+     {
+      "say": "Gravity sirf neeche kheenchti hai; isliye aage wali speed nahi badalti, par upar wali speed badalti hai.",
+      "voice": "ग्रैविटी सिर्फ नीचे खींचती है; इसलिए आगे वाली स्पीड नहीं बदलती, पर ऊपर वाली स्पीड बदलती है।",
+      "view": "both",
+      "focus": [
+       "vx",
+       "vy",
+       "gravity"
+      ],
+      "labels": [
+       "vx",
+       "vy",
+       "gravity"
+      ],
+      "moment": "rise",
+      "play": true,
+      "board": "",
+      "detail": "flight",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "solve",
+    "title": "Vertical time se horizontal range",
+    "text": "Pehle components, phir total flight time, phir horizontal displacement.",
+    "beats": [
+     {
+      "say": "20 ko cosine se project karne par horizontal speed 10 milti hai; sine se vertical speed lagbhag 17.32 milti hai.",
+      "voice": "20 को कोसाइन से प्रोजेक्ट करने पर हॉरिज़ॉन्टल स्पीड 10 मिलती है; साइन से वर्टिकल स्पीड लगभग 17.32 मिलती है।",
+      "view": "both",
+      "focus": [
+       "v",
+       "vx",
+       "vy"
+      ],
+      "labels": [
+       "vx",
+       "vy"
+      ],
+      "moment": "launch",
+      "play": false,
+      "board": "uy",
+      "detail": "components",
+      "gate": ""
+     },
+     {
+      "say": "Upar positive lene par gravity negative hai; peak par vertical speed zero hogi, horizontal speed nahi.",
+      "voice": "ऊपर पॉज़िटिव लेने पर ग्रैविटी नेगेटिव है; पीक पर वर्टिकल स्पीड ज़ीरो होगी, हॉरिज़ॉन्टल स्पीड नहीं।",
+      "view": "both",
+      "focus": [
+       "vy",
+       "vx",
+       "gravity",
+       "peak"
+      ],
+      "labels": [
+       "vy",
+       "vx",
+       "gravity"
+      ],
+      "moment": "rise",
+      "play": false,
+      "board": "t_up",
+      "detail": "flight",
+      "gate": "flight_time"
+     },
+     {
+      "say": "Same ground level par lautne ke liye neeche ka samay bhi judega; total flight lagbhag 3.464 second hai.",
+      "voice": "सेम ग्राउंड लेवल पर लौटने के लिए नीचे का समय भी जुड़ेगा; टोटल फ्लाइट लगभग 3.464 सेकंड है।",
+      "view": "both",
+      "focus": [
+       "path",
+       "peak",
+       "ground"
+      ],
+      "labels": [
+       "peak",
+       "ground"
+      ],
+      "moment": "land",
+      "play": true,
+      "board": "T",
+      "detail": "flight",
+      "gate": "range_value"
+     },
+     {
+      "say": "10 meter per second ko poore flight time se multiply karo; seconds cancel hokar range lagbhag 34.6 meter milti hai.",
+      "voice": "10 मीटर पर सेकंड को पूरे फ्लाइट टाइम से मल्टिप्लाई करो; सेकंड्स कैंसल होकर रेंज लगभग 34.6 मीटर मिलती है।",
+      "view": "main",
+      "focus": [
+       "vx",
+       "range"
+      ],
+      "labels": [
+       "vx",
+       "range"
+      ],
+      "moment": "land",
+      "play": false,
+      "board": "R",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Shortcut mein speed ka square dono components ke multiplication se aata hai; final decimal round karne par option 2 milta hai.",
+      "voice": "शॉर्टकट में स्पीड का स्क्वेयर दोनों कंपोनेंट्स के मल्टिप्लिकेशन से आता है; फाइनल डेसिमल राउंड करने पर ऑप्शन 2 मिलता है।",
+      "view": "both",
+      "focus": [
+       "vx",
+       "vy",
+       "range"
+      ],
+      "labels": [
+       "range"
+      ],
+      "moment": "",
+      "play": false,
+      "board": "R",
+      "detail": "components",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "transfer",
+    "title": "Sirf angle badlo",
+    "text": "Speed aur gravity wahi rakho; angle 30° karo.",
+    "beats": [
+     {
+      "say": "Ab sirf angle 30 degree karo; components ke badle roles se nayi range khud predict karo.",
+      "voice": "अब सिर्फ एंगल 30 डिग्री करो; कंपोनेंट्स के बदले रोल्स से नई रेंज खुद प्रिडिक्ट करो।",
+      "view": "main",
+      "focus": [
+       "v",
+       "vx",
+       "vy",
+       "range"
+      ],
+      "labels": [
+       "vx",
+       "vy",
+       "range"
+      ],
+      "moment": "launch",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Apna jawab chunne se pehle socho: horizontal speed badhne ke saath flight ka samay kaise badlega?",
+      "voice": "अपना जवाब चुनने से पहले सोचो: हॉरिज़ॉन्टल स्पीड बढ़ने के साथ फ्लाइट का समय कैसे बदलेगा?",
+      "view": "both",
+      "focus": [
+       "vx",
+       "vy",
+       "ground"
+      ],
+      "labels": [
+       "vx",
+       "vy"
+      ],
+      "moment": "",
+      "play": false,
+      "board": "",
+      "detail": "components",
+      "gate": ""
+     }
+    ]
+   }
+  ],
+  "details": [
+   {
+    "id": "components",
+    "title": "Tirchhi velocity ka right triangle",
+    "text": "ux = u cosθ aur uy = u sinθ. Horizontal component angle ke adjacent hai; vertical opposite hai.",
+    "chain": [
+     "Given: speed aur horizontal se angle",
+     "Velocity ko perpendicular directions mein project karo",
+     "ux horizontal safar deta hai; uy flight time tay karta hai"
+    ],
+    "focus": [
+     "v",
+     "vx",
+     "vy"
+    ],
+    "moment": "launch"
+   },
+   {
+    "id": "flight",
+    "title": "Vertical motion ki clock",
+    "text": "Upward positive: y = uy t − g t²/2. Landing par y = 0; launch wala root chhodkar T = 2uy/g. Peak par vy = 0, isliye t_up = uy/g.",
+    "chain": [
+     "Launch aur landing ki height same hai",
+     "Vertical displacement ko zero rakho",
+     "Total flight time ascent time ka double hai"
+    ],
+    "focus": [
+     "vy",
+     "gravity",
+     "peak",
+     "ground"
+    ],
+    "moment": "land"
+   }
+  ],
+  "gates": [
+   {
+    "id": "identify",
+    "mechanic": "choose",
+    "prompt": "Range mein kaunsi doori chahiye?",
+    "choices": [
+     "Ground ke parallel launch se landing tak",
+     "Poore curved path ki length"
+    ],
+    "answer": "0",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "1",
+      "why": "Curved path length total safar hai; range uska horizontal displacement hai."
+     }
+    ],
+    "reveal": "land",
+    "why": "Range ka endpoint ball ka ground par lautna hai."
+   },
+   {
+    "id": "component",
+    "mechanic": "choose",
+    "prompt": "Horizontal component kaunsa hai?",
+    "choices": [
+     "u cosθ",
+     "u sinθ",
+     "u"
+    ],
+    "answer": "0",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "1",
+      "why": "Angle horizontal se measured hai, isliye sine vertical opposite side deta hai."
+     },
+     {
+      "match": "2",
+      "why": "Poori initial speed tirchhi hai; woh horizontal component nahi hai."
+     }
+    ],
+    "reveal": "launch",
+    "why": "Horizontal component angle ki adjacent side hai."
+   },
+   {
+    "id": "flight_time",
+    "mechanic": "choose",
+    "prompt": "Same-level landing tak ka samay kaunsa hoga?",
+    "choices": [
+     "uy/g",
+     "2uy/g"
+    ],
+    "answer": "1",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "0",
+      "why": "uy/g sirf peak tak ka samay hai; descent ka samay abhi judna hai."
+     }
+    ],
+    "reveal": "land",
+    "why": "Same height par return ke liye ascent aur descent dono count hote hain."
+   },
+   {
+    "id": "range_value",
+    "mechanic": "number",
+    "prompt": "Constant horizontal speed ko total flight time se multiply karke range meter mein do.",
+    "choices": [],
+    "answer": "R",
+    "tolerance": 0.01,
+    "wrong": [
+     {
+      "match": "R_up_only",
+      "why": "Tumne sirf peak tak ka time liya, isliye horizontal safar aadha reh gaya."
+     },
+     {
+      "match": "other",
+      "why": "Horizontal component ko poore flight time se multiply karo; poori tirchhi speed use mat karo."
+     }
+    ],
+    "reveal": "land",
+    "why": "Horizontal acceleration zero hai, isliye horizontal displacement ux times T hai."
+   }
+  ],
+  "board": [
+   {
+    "step": "ux",
+    "note": "Horizontal se angle diya hai: ux = u cosθ."
+   },
+   {
+    "step": "uy",
+    "note": "Vertical opposite component: uy = u sinθ."
+   },
+   {
+    "step": "t_up",
+    "note": "vy = uy − gt; peak par vy zero hai."
+   },
+   {
+    "step": "T",
+    "note": "Same-level landing ke liye y zero; nonzero root T = 2uy/g."
+   },
+   {
+    "step": "R",
+    "note": "R = ux T = 2u² sinθ cosθ/g; units meter, final answer ko round karo."
+   }
+  ],
+  "diagnoses": [
+   {
+    "option": 1,
+    "title": "Sirf ascent count hua",
+    "why": "17.3 m horizontal speed times time-to-peak se milta hai; descent omit hua.",
+    "shows": "R_up_only"
+   },
+   {
+    "option": 2,
+    "title": "Poori flight, sahi component",
+    "why": "34.6 m constant horizontal component aur total flight time ka product hai.",
+    "shows": ""
+   },
+   {
+    "option": 3,
+    "title": "Angular factor hata diya",
+    "why": "40 m ke liye u²/g use hua; given angle ka factor include nahi hua.",
+    "shows": ""
+   },
+   {
+    "option": 4,
+    "title": "Speed ko distance samjha",
+    "why": "20 initial speed ka numerical value hai; time aur horizontal projection ke bina ise range nahi keh sakte.",
+    "shows": ""
+   }
+  ],
+  "families": [
+   {
+    "id": "time",
+    "title": "Range ki jagah flight time",
+    "question": "Isi throw ka total flight time kitna hai?",
+    "changes": [
+     "asked = flight_time"
+    ],
+    "choices": [
+     "1.732 s",
+     "3.464 s"
+    ],
+    "correct": 2,
+    "why": "Vertical component ko gravity se divide karne par ascent time milta hai; same-level return ke liye double karo.",
+    "transfer": false
+   },
+   {
+    "id": "angle",
+    "title": "Complementary angle par range",
+    "question": "Sirf launch angle 30° karne par horizontal range kitni hogi?",
+    "changes": [
+     "theta = 30 deg"
+    ],
+    "choices": [
+     "17.3 m",
+     "34.6 m",
+     "40 m",
+     "20 m"
+    ],
+    "correct": 2,
+    "why": "Horizontal aur vertical initial components swap hote hain; unka product same rehta hai, isliye range same hai.",
+    "transfer": true
+   }
+  ],
+  "recap": "Range = horizontal speed × poori flight ka samay. Horizontal ke liye cosine, vertical ke liye sine; peak par sirf vertical speed zero hoti hai. Sahi jawab option 2: 34.6 m.",
+  "limitations": [
+   "Same-level flight-time aur range relations unequal landing height par seedhe apply nahi hote.",
+   "Air drag aur changing gravity model mein included nahi hain.",
+   "Option 3 aur option 4 ke liye dedicated projectile trap identifiers available nahi hain."
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "stage transfer: 1 beats; it needs at least 2"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "usage": {
+  "input_tokens": 69307,
+  "output_tokens": 8930
+ },
+ "model": {
+  "kind": "projectile",
+  "problems": [],
+  "answer_option": 1,
+  "trap_options": {
+   "R_up_only": 0
+  },
+  "parts": [
+   "launcher",
+   "projectile",
+   "path",
+   "v",
+   "vx",
+   "vy",
+   "gravity",
+   "height",
+   "peak",
+   "ground",
+   "range",
+   "ref",
+   "ghost"
+  ],
+  "moments": [
+   "launch",
+   "rise",
+   "peak",
+   "descent",
+   "land"
+  ],
+  "numbers": [
+   0.5,
+   0.866025,
+   1.732051,
+   3.464102,
+   10.0,
+   17.320508,
+   20.0,
+   34.641016,
+   60.0
+  ],
+  "values": {
+   "u": "20",
+   "theta": "60",
+   "g": "10",
+   "s": "0.87",
+   "c": "0.5",
+   "uy": "17.32",
+   "ux": "10",
+   "t_up": "1.73",
+   "T": "3.46",
+   "R": "34.64",
+   "R_up_only": "17.32"
+  },
+  "verified": true,
+  "board": {
+   "u": {
+    "expr": "20 m/s",
+    "with_values": "20",
+    "value": "20",
+    "unit": "m/s",
+    "label": "launch speed (the whole, slanted velocity)",
+    "kind": "given"
+   },
+   "theta": {
+    "expr": "60",
+    "with_values": "60",
+    "value": "60",
+    "unit": "",
+    "label": "launch angle above the horizontal",
+    "kind": "given"
+   },
+   "g": {
+    "expr": "10 m/s2",
+    "with_values": "10",
+    "value": "10",
+    "unit": "m/s2",
+    "label": "gravity, pulling down",
+    "kind": "given"
+   },
+   "s": {
+    "expr": "sin(theta)",
+    "with_values": "sin(60)",
+    "value": "0.87",
+    "unit": "",
+    "label": "sin θ",
+    "kind": "step"
+   },
+   "c": {
+    "expr": "cos(theta)",
+    "with_values": "cos(60)",
+    "value": "0.5",
+    "unit": "",
+    "label": "cos θ",
+    "kind": "step"
+   },
+   "uy": {
+    "expr": "u * s",
+    "with_values": "20 × 0.87",
+    "value": "17.32",
+    "unit": "m/s",
+    "label": "vertical part: the side opposite θ",
+    "kind": "step"
+   },
+   "ux": {
+    "expr": "u * c",
+    "with_values": "20 × 0.5",
+    "value": "10",
+    "unit": "m/s",
+    "label": "horizontal part: the side next to θ",
+    "kind": "step"
+   },
+   "t_up": {
+    "expr": "uy / g",
+    "with_values": "17.32 ÷ 10",
+    "value": "1.73",
+    "unit": "s",
+    "label": "time to the top",
+    "kind": "step"
+   },
+   "T": {
+    "expr": "2 * t_up",
+    "with_values": "2 × 1.73",
+    "value": "3.46",
+    "unit": "s",
+    "label": "whole flight time",
+    "kind": "step"
+   },
+   "R": {
+    "expr": "ux * T",
+    "with_values": "10 × 3.46",
+    "value": "34.64",
+    "unit": "m",
+    "label": "horizontal speed stays the same for the whole flight",
+    "kind": "step"
+   },
+   "R_up_only": {
+    "expr": "ux * t_up",
+    "with_values": "10 × 1.73",
+    "value": "17.32",
+    "unit": "m",
+    "label": "only the way up",
+    "kind": "trap"
+   }
+  },
+  "answer_value": "34.64"
+ }
+}
