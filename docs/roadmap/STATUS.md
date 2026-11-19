@@ -47,6 +47,25 @@ Decision cards in the planning chat, 18 November 2026:
 9. **Navin's chapter (19 November 2026):** NCERT Class 11 Biology chapter 11, Photosynthesis in Higher Plants, for NEET +
    Class 11 in Hinglish (decision card). NCERT's site sends an incomplete certificate chain, so Navin chose the public
    inputs branch for the PDF (`blindtest-inputs:chapters/ncert-class11-biology-ch11-photosynthesis.pdf`).
+10. **PYQ Visual-Solving Lab (Navin, 19 November 2026, "PDF se pehle yeh karo"; scope confirmed: it is for PYQs,
+   question books and a chapter's exercise questions, for every subject, the chapter itself is taught by films and notes;
+   PDF course and lab run side by side):** studio stage `pyq` (`tools/vm_studio.py --stage pyq --source <chapter PDF>
+   --pyqs <questions JSON>`, VM job field `pyqs`). One question becomes a five-stage investigation (see, trap, concept,
+   solve, transfer) driven by one science model that code checks (`bie/brain/pyq_models.py`): `projectile` and `numeric`
+   (`pyq_math.py`: exact values, units, every intermediate step, traps that explain wrong options), `mechanism`
+   (`pyq_chem.py`, RDKit: electron-pair arrows applied to atom-mapped molecules; lone pairs, valence, charge, carbocation
+   degree, a 1,2-shift never forced and never missed, product decides the option), `fusion` (`pyq_bio.py`: sets added,
+   maternal/paternal shares, cells vs nuclei, chromosome numbers) and `scene` (any other subject; structure checked only,
+   marked unverified). Lesson checks (`studio_pyq.py`): stages and beats, cues on model parts and moments, prediction gates
+   (number, choose, tap a part, donor/acceptor pair, order) with a misconception for every wrong action, one diagnosis
+   per option, families recomputed by the model, evidence blocks that exist, no narration number the model did not make,
+   no caution or source line on screen; question-level evidence and chapter-level reach kept apart. Player
+   (`studio_pyq_player.html`): one engine (state machine, independent voice and animation speed, observation hold,
+   gates without timers, scrub, stale-callback tokens) with each model drawn in a main view and an enlarged detail view.
+   IMPLEMENTED: 16 tests (reference questions and fresh ones: range at 60°, a methyl shift, PEN chromosomes for 2n = 20)
+   and a Chromium check of guided play, gates, wrong-action feedback, retry, stop, diagnosis, transfer and 390 px layout
+   on Claude's test data. Not INTEGRATED: no VM run yet. Differences from the brief: the studio's browser engine is the
+   compiler here (the old Remotion compiler is not used); browser speech is a fallback, Kokoro is the voice.
 
 Checked the same day: VM job `img-check-20261118` (two test pictures through the plan, 3 minutes, ₹0); Codex's weekly
 plan window was 43 % used before it (resets about 21 November).

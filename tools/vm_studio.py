@@ -30,6 +30,14 @@ lines and its first picture as the stage's banner.
 
     python -B tools/vm_studio.py --stage book --from-run <films run> --source <same PDF> --out <folder> [--videos q01,q02]
 
+    python -B tools/vm_studio.py --stage pyq --source <chapter PDF> --pyqs <questions JSON: https URL or file> --out <folder>
+
+Stage ``pyq`` (``bie.brain.studio_pyq``, Navin, 19 November 2026): the PYQ lab. Each question (a PYQ, a question-book
+question or an exercise question: id, exam, question, options, answer index, origin) becomes a visual investigation of its
+concept in five stages, driven by one science model (``bie.brain.pyq_models``) that code checks; ``PYQ.html`` plays all of
+the chapter's investigations on a phone, with ``pyq/<qid>.json`` and ``PYQS.md`` (question-level evidence and the
+chapter-level reach kept apart).
+
 Stage ``book`` (``bie.brain.studio_book``): the Living Book. Per question the maker writes the note cards (together they
 cover every point), a class moment with Asha, Dev and the Teacher, a "yaad rakho" line and a check question; code adds
 the film's picture with its pins, its diagram and its takeaway lines. ``BOOK.html`` is the chapter's notes for a phone
@@ -48,11 +56,12 @@ sys.path.insert(0, str(ROOT))
 
 from bie.brain import studio  # noqa: E402
 
-STAGES = ("questions", "films", "games", "book")
+STAGES = ("questions", "films", "games", "book", "pyq")
 MAX_IMAGES_PER_FILM = 12
 PLAYER = ROOT / "bie" / "brain" / "studio_player.html"
 GAME_PLAYER = ROOT / "bie" / "brain" / "studio_game_player.html"
 BOOK_PLAYER = ROOT / "bie" / "brain" / "studio_book_player.html"
+PYQ_PLAYER = ROOT / "bie" / "brain" / "studio_pyq_player.html"
 MAX_PDF_BYTES = 120 * 1024 * 1024
 
 
@@ -264,7 +273,70 @@ def book(args, client, model, pages, out: Path, summary: dict):
                    status="ok" if rows and clean == len(rows) else ("needs_fix" if sections else "failed"))
 
 
-def run(args, *, client=None, load=None, voice_maker=None) -> dict:
+def read_pyqs(source: str) -> list:
+    """The questions for the PYQ lab: a JSON list (or {"questions": [...]}) from an https URL or a file."""
+    if source.startswith("https://"):
+        import urllib.request
+        with urllib.request.urlopen(urllib.request.Request(source, headers={"user-agent": "bie-studio/1"}), timeout=120) as r:
+            data = json.loads(r.read(5 * 1024 * 1024).decode("utf-8"))
+    else:
+        data = json.loads(Path(source).read_text(encoding="utf-8"))
+    items = data.get("questions") if isinstance(data, dict) else data
+    out = []
+    for n, item in enumerate(items or [], 1):
+        if not isinstance(item, dict) or not item.get("question") or not isinstance(item.get("options") or [], list):
+            raise ValueError(f"pyqs item {n}: needs question and options")
+        answer = item.get("answer")
+        out.append({"id": str(item.get("id") or f"pyq{n:02d}"), "exam": str(item.get("exam") or ""),
+                    "origin": item.get("origin") if item.get("origin") in ("pyq", "practice", "exercise") else "pyq",
+                    "question": str(item["question"]), "options": [str(o) for o in item.get("options") or []],
+                    "answer": answer if isinstance(answer, int) and 0 <= answer < len(item.get("options") or []) else None})
+    if not out:
+        raise ValueError("the pyqs file has no questions")
+    return out
+
+
+def pyq(args, client, model, pages, out: Path, summary: dict, *, voice_maker=None):
+    from bie.brain import studio_pyq, studio_voice
+    questions = read_pyqs(args.pyqs)
+    blocks, teach = studio.all_blocks(pages), studio.teachable(pages)
+    text = studio.chapter_text(pages)
+    voice, why = (voice_maker or studio_voice.make)()
+    summary["voice"] = "kokoro hf_alpha" if voice else f"no voice ({why}); the player uses the browser's voice or captions"
+    records, usage, audio = [], {"input_tokens": 0, "output_tokens": 0}, {}
+    (out / "pyq").mkdir(exist_ok=True)
+    for q in questions:
+        record = studio_pyq.write(client, model, q, course=args.course, language=args.language, chapter_text=text,
+                                  block_ids=set(blocks), max_rounds=args.max_rounds)
+        for key in usage:
+            usage[key] += record["usage"].get(key, 0)
+        records.append(record)
+        for stage in record["lesson"].get("stages") or []:
+            for k, beat in enumerate(stage.get("beats") or []):
+                if voice:
+                    try:
+                        audio[(q["id"], stage.get("key"), k)] = voice.say(beat.get("voice") or beat.get("say") or "")
+                    except Exception:
+                        pass
+        saved = {k: v for k, v in record.items() if k != "model"}
+        saved["model"] = {k: (sorted(v) if isinstance(v, set) else v) for k, v in record["model"].items() if k != "data"}
+        (out / "pyq" / f"{q['id']}.json").write_text(json.dumps(saved, ensure_ascii=False, indent=1, default=str),
+                                                     encoding="utf-8")
+    title = args.course or "PYQ Lab"
+    data = studio_pyq.player_data([r for r in records if r["lesson"]], title=title, tint=studio.subject_tint(args.course),
+                                  audio=audio, voice=summary["voice"])
+    (out / "PYQ.html").write_text(studio_pyq.html(data, PYQ_PLAYER.read_text(encoding="utf-8")), encoding="utf-8")
+    cover = studio_pyq.coverage(records, set(teach))
+    (out / "PYQS.md").write_text(studio_pyq.markdown(records, cover, title=title), encoding="utf-8")
+    rows = [{"qid": r["question"]["id"], "kind": r["model"].get("kind"),
+             "proved": (r["model"].get("answer_option") + 1) if r["model"].get("answer_option") is not None else None,
+             "key": (r["question"]["answer"] + 1) if isinstance(r["question"].get("answer"), int) else None,
+             "verified": r["model"].get("verified"), "rounds": len(r["rounds"]), "problems": r["problems"]} for r in records]
+    summary.update(pyq=rows, coverage=cover["chapter"], usage=usage, model=model,
+                   status="ok" if rows and not any(r["problems"] for r in rows) else ("needs_fix" if rows else "failed"))
+
+
+def run(args, *, client=None, load=None, voice_maker=None, read=None) -> dict:
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     started = time.time()
@@ -283,10 +355,12 @@ def run(args, *, client=None, load=None, voice_maker=None) -> dict:
         summary["plan_usage_before"] = _usage(client)
         pages = []
         if args.source:
-            source_hash, page_count, pages = load(read_pdf(args.source), args.pages or None, with_images=False)
+            source_hash, page_count, pages = load((read or read_pdf)(args.source), args.pages or None, with_images=False)
             summary.update(source_sha256=source_hash, page_count=page_count, pages_read=[p.number for p in pages])
-        if args.stage in ("films", "games", "book"):
-            if args.stage == "films":
+        if args.stage in ("films", "games", "book", "pyq"):
+            if args.stage == "pyq":
+                pyq(args, client, model, pages, out, summary, voice_maker=voice_maker)
+            elif args.stage == "films":
                 films(args, client, model, pages, out, summary, voice_maker=voice_maker)
             elif args.stage == "games":
                 games(args, client, model, pages, out, summary)
@@ -334,6 +408,7 @@ def main(argv=None):
     parser.add_argument("--source", default="")
     parser.add_argument("--from-run", default="", help="films, games, book: the earlier run (folder or https URL) with questions.json")
     parser.add_argument("--videos", default="", help="films, games, book: only these question ids, for example q01,q02")
+    parser.add_argument("--pyqs", default="", help="pyq: the questions JSON (https URL or file)")
     parser.add_argument("--out", required=True)
     parser.add_argument("--pages", default="")
     parser.add_argument("--course", default="")
@@ -344,6 +419,8 @@ def main(argv=None):
     args.max_rounds = max(1, min(6, args.max_rounds))
     if args.stage == "questions" and not args.source:
         parser.error("--source is needed for questions")
+    if args.stage == "pyq" and not (args.source and args.pyqs):
+        parser.error("--source and --pyqs are needed for pyq")
     if args.stage in ("films", "games", "book") and not args.from_run:
         parser.error(f"--from-run is needed for {args.stage}")
     summary = run(args)

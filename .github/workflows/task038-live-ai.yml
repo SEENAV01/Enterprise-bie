@@ -102,6 +102,8 @@ jobs:
       - name: Document intelligence PDF dependencies
         run: |
           python -m pip install -e '.[document-intelligence,document-intelligence-layout]'
+          # the PYQ lab's mechanism checks (bie/brain/pyq_chem.py): RDKit, BSD-3-Clause, pinned as in pyproject's studio group
+          python -m pip install 'rdkit==2026.9.1'
           python -m pip check
       - name: Task038 offline tests (clients, gateway, blind test) and unchanged gateway contracts
         run: python -B tools/run_task038_tests.py --output "$RUNNER_TEMP/task038-evidence/task038-tests.json"
@@ -191,6 +193,8 @@ jobs:
       - name: Document intelligence PDF dependencies
         run: |
           python -m pip install -e '.[document-intelligence,document-intelligence-layout]'
+          # the PYQ lab's mechanism checks (bie/brain/pyq_chem.py): RDKit, BSD-3-Clause, pinned as in pyproject's studio group
+          python -m pip install 'rdkit==2026.9.1'
           python -m pip check
       - name: Preview renderer tools for brain visual runs (Node, Chromium, Noto fonts, ffmpeg)
         if: inputs.mode == 'brain-visual' || inputs.mode == 'brain-chain'

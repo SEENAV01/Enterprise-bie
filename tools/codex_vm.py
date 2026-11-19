@@ -50,7 +50,7 @@ SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "canv
 # ChatGPT plan (tools/vm_image.py, prompts written by BIE, at most 4 images) and returns the image files; "look" runs the
 # LOOK-01 look check with the free Google reviewer (tools/vm_look.py). Both are fixed commands, like run_brain.
 TOOL_SECTIONS = ("image", "look")
-STUDIO_STAGES = ("questions", "films", "games", "book")
+STUDIO_STAGES = ("questions", "films", "games", "book", "pyq")
 FRESH_ENV = "BIE_VM_FRESH"         # set on the one re-run of a poll after the checkout moved to a newer main
 MAKERS = ("codex", "google", "openai")
 REVIEWERS = ("google", "openai", "codex")      # codex: the checker on the plan too (Navin, 27 October 2026)
@@ -80,7 +80,8 @@ def validate(job: dict) -> dict:
         raise JobError(f"job: must be a {JOB_SCHEMA} object")
     allowed = {"job", "id", "section", "source", "chapter_map", "from_run", "resume_from", "library", "pages", "videos", "course",
                "maker", "reviewer", "reviewer_model", "models", "routes", "max_inr", "workers", "max_rounds", "language",
-               "with_visual", "with_canvas", "with_show", "render", "fake", "note", "prompts", "request", "max_images", "stage"}
+               "with_visual", "with_canvas", "with_show", "render", "fake", "note", "prompts", "request", "max_images", "stage",
+               "pyqs"}
     unknown = sorted(set(job) - allowed)
     if unknown:
         raise JobError("unknown fields: " + ", ".join(unknown))
@@ -89,7 +90,7 @@ def validate(job: dict) -> dict:
         raise JobError("section: one of " + ", ".join(SECTIONS))
     if out["maker"] not in MAKERS or out["reviewer"] not in REVIEWERS:
         raise JobError("maker or reviewer: not allowed")
-    for name in ("source", "chapter_map", "from_run", "resume_from", "library", "prompts", "request"):
+    for name in ("source", "chapter_map", "from_run", "resume_from", "library", "prompts", "request", "pyqs"):
         if out.get(name) and not URL.match(str(out[name])):
             raise JobError(f"{name}: an https URL")
     if out["section"] == "image" and not out.get("prompts"):
@@ -109,6 +110,10 @@ def validate(job: dict) -> dict:
         raise JobError("source: needed for studio questions")
     if out["section"] == "studio" and out.get("stage") in ("films", "games", "book") and not out.get("from_run"):
         raise JobError(f"from_run: needed for studio {out.get('stage')} (the earlier run: questions Navin said yes to, or films)")
+    if out["section"] == "studio" and out.get("stage") == "pyq" and not (out.get("source") and out.get("pyqs")):
+        raise JobError("source and pyqs: needed for studio pyq (the chapter PDF and the questions JSON)")
+    if out.get("pyqs") and not (out["section"] == "studio" and out.get("stage") == "pyq"):
+        raise JobError("pyqs: only for studio pyq")
     if out["section"] == "studio" and out.get("stage", "questions") not in STUDIO_STAGES:
         raise JobError("stage: one of " + ", ".join(STUDIO_STAGES))
     if out["section"] != "studio" and out.get("stage"):
@@ -146,7 +151,7 @@ def argv(job: dict, out: Path, python: str = sys.executable) -> list:
     if job["section"] == "studio":
         cmd = [python, "-B", str(ROOT / "tools" / "vm_studio.py"), "--stage", job.get("stage") or "questions",
                "--out", str(out), "--max-rounds", str(job["max_rounds"])]
-        for name in ("source", "from_run", "pages", "course", "language", "videos"):
+        for name in ("source", "from_run", "pages", "course", "language", "videos", "pyqs"):
             if job.get(name):
                 cmd += ["--" + name.replace("_", "-"), str(job[name])]
         return cmd
