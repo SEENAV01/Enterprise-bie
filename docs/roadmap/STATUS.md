@@ -2226,6 +2226,15 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   line; an EC2-only list points at the primary archive. No CI rerun used: new commit, new run. Third run (head
   `b4e495e8`): all 5 checks passed, and its notice and warning show the fail-over fired on a slow EC2 mirror and moved
   to the image's next listed mirror. Merged as PR #167 at `4509733a` on 19 November 2026.
+- F-11 again, the index update (19 November 2026, PR #169 head `b541a631`, 12:27–12:35 UTC): `native-render`,
+  `section16-regression` and the three `canonical-regression` jobs stopped with exit 124 in their setup step, before
+  any test ran: `apt_get_bounded 90 update` (the package indexes, `.integration/tools/setup_ci_environment.sh`) timed out
+  on the regional mirror, and the fail-over only guarded the downloads; the toolbox lane's `demos` jobs stopped in their
+  unbounded `sudo apt-get update`. Fix in its own small PR: `apt_update_bounded` (the update, 90 s; on a stall the same
+  one fail-over to the image's next mirror or the primary archive, Navin's yes of 18 November; a second stall is an
+  `::error` annotation) replaces every apt index update in the setup script and the toolbox workflow. Tests: a stalled
+  update fails over once; a healthy one changes nothing; no unbounded update is left. PR #169 is not rerun; it picks
+  the fix up from `main`.
 - F-14 (26 October 2026, VM runner): the first job after PR #77 merged (`codex-jobs:jobs/t046-oneshot-images.json`)
   came back `refused: unknown fields: max_images, prompts`. Cause: `tools/codex_vm.py poll` imports the runner, then
   moves the checkout to the new `main`, then checks the jobs with the rules it had already loaded, so the first poll
