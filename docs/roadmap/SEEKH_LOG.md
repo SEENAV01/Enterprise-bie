@@ -2014,3 +2014,27 @@ the core lane 563 → 577 tests, all green. The next video worker's rounds and h
   the real plan cost. Most questions got a "lambi film"; the films stage will show whether that is right.
 - **Changed in BIE:** nothing yet (first run); the run's numbers are the baseline for the next chapter.
 - **Measured:** first-try pass 1 of 1, rounds 1, 6.4 minutes on the VM (8.2 with the runner), ₹0, coverage 100 %.
+## Entry · the first studio films with motion, Photosynthesis q03, q14, q19, 19 November 2026
+
+- **Run:** VM job `studio-photosynthesis-films1` (section `studio`, stage `films`, from the approved 25-question run
+  `vm-studio-photosynthesis-q2`), NCERT Class 11 Biology chapter 11 for NEET + Class 11 in Hinglish, right after PR #169
+  (the motion layer) merged; Codex maker and reviewer on the ChatGPT plan (`gpt-6.1-sol`), Kokoro voice, ₹0. Results:
+  `blindtest-results:runs/vm-studio-photosynthesis-films1-brain-studio` (`FILMS.md`, `films/q03.html`, `q14.html`,
+  `q19.html`).
+- **Taught:** the maker uses the motion layer fully without being pushed: moves in 14 of 16 shots, two fuses, a camera
+  push-in on almost every sentence (up to 1.7x) and two dives; q14 and q19 open on an AI cutaway (ATP synthase in the
+  thylakoid membrane; the mesophyll and bundle sheath cells) and go on as diagrams. Played through in Chromium (1280 x 800,
+  every sentence captured): no errors, audio drives the timing. The look check found three faults, all in the player,
+  none in the film data: on diagram shots a zoom cut words at the frame edge ("CF1: catalytic h…"), a highlighted group
+  drew its words with a 3 px red stroke (unreadable), and molecules on their paths passed over words ("3C", "Calvin
+  cycle", "Proton pump").
+- **Changed in BIE:** `bie/brain/studio_player.html`: the diagram's words ride on a copy of the diagram that shows only
+  text, above the sprite and arrow layer (ids move to `data-oid`, so a highlight reaches both copies); a word the camera
+  cuts at the frame edge fades out and returns when whole (checked every 120 ms); a highlight glows and bolds words but
+  outlines only shapes. `window.BIEFilm.state()` reports `words` and `cut`. Test:
+  `tests/test_studio_films.py::test_player_keeps_diagram_words_readable`. IMPLEMENTED.
+- **Measured:** the same VM film data re-wrapped with the new player and played through again (q14, q19): no errors;
+  highlighted words readable, no half words at the frame edge, words stay above moving molecules (contact sheets in the
+  PR). Generation: first-try pass 0 of 3 (rounds 3, 2, 2), 112k tokens for 3 films, 5.5 minutes of film, ₹0; plan meter
+  44 % before and after. Navin's look verdict is pending.
+

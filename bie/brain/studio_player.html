@@ -12,7 +12,14 @@
 .world img{width:100%;height:100%;object-fit:cover;display:block}
 .world .svg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#f7f4ec}
 .world .svg svg{width:100%;height:100%}
-.svg .lit{filter:drop-shadow(0 0 6px #e8a93a);stroke:#c8492b!important;stroke-width:3!important}
+.svg .lit{filter:drop-shadow(0 0 6px #e8a93a)}
+.svg :is(rect,circle,ellipse,path,polygon,polyline,line).lit,.svg .lit :is(rect,circle,ellipse,path,polygon,polyline,line){stroke:#c8492b!important;stroke-width:3!important}
+.svg text.lit,.svg .lit text{stroke:none!important;font-weight:700}
+/* the diagram's words ride on their own top layer: moving sprites and arrows pass under them, never over them */
+.world .svg.tl{background:none;pointer-events:none}
+.svg.tl svg *{visibility:hidden}.svg.tl svg :is(text,tspan,textPath){visibility:visible}
+.svg.tl svg text{transition:opacity .25s}.svg.tl svg text.cut{opacity:0}
+.svg.base svg text{visibility:hidden}
 .wsvg,.ssvg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .labels{position:absolute;inset:0;pointer-events:none}
 .pin{position:absolute;transform:translateY(-50%);background:rgba(8,26,33,.9);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:6px;padding:3px 9px;font-size:clamp(.62rem,1.3vw,.9rem);font-weight:600;white-space:nowrap;animation:inn .5s both}
@@ -72,12 +79,19 @@ function camStep(now){if(cam.to){const t=ease((now-cam.t0)/cam.ms);cam.ox=cam.fr
 function toScreen(x,y){return[cam.ox+(x-cam.ox)*cam.s,cam.oy+(y-cam.oy)*cam.s];}   // percent of the frame
 
 // --- world layers -------------------------------------------------------------------------------------------------------
-let wsvg=null,fxBox=null;
+let wsvg=null,fxBox=null,texts=[],lastCut=0;
 function worldLayers(){wsvg=sv('svg',{class:'wsvg',viewBox:'0 0 100 56.25',preserveAspectRatio:'none'});$('world').appendChild(wsvg);
   const defs=sv('defs',{},wsvg);Object.keys(COL).forEach(k=>{const g=sv('radialGradient',{id:'g-'+k,cx:'35%',cy:'30%',r:'75%'},defs);
     sv('stop',{offset:'0',['stop-color']:COL[k][0]},g);sv('stop',{offset:'.45',['stop-color']:COL[k][1]},g);sv('stop',{offset:'1',['stop-color']:COL[k][2]},g);});
   const f=sv('filter',{id:'halo',x:'-1',y:'-1',width:'3',height:'3'},defs);sv('feGaussianBlur',{stdDeviation:'.6'},f);
   fxBox=el('div','fx');$('world').appendChild(fxBox);}
+// a copy of the diagram that shows only its words, above the sprites; ids move to data-oid so ids stay unique
+function textLayer(){const base=$('world').querySelector('.svg.base');if(!base)return;const t=base.cloneNode(true);t.className='svg tl';
+  t.querySelectorAll('[id]').forEach(e=>{e.dataset.oid=e.id;e.removeAttribute('id');});$('world').appendChild(t);texts=[...t.querySelectorAll('text')];}
+// a word the camera cuts at the frame edge fades out (half a word on screen reads as a mistake); it returns when whole again
+function edgeCut(now){if(!texts.length||now-lastCut<120)return;lastCut=now;const S=$('stage').getBoundingClientRect();
+  for(const t of texts){const r=t.getBoundingClientRect();if(!r.width)continue;
+    t.classList.toggle('cut',r.left<S.left-1||r.right>S.right+1||r.top<S.top-1||r.bottom>S.bottom+1);}}
 
 // --- paths: a smooth curve through the points, walked by arc length -----------------------------------------------------
 function spline(points){const P=points.map(p=>[p[0],p[1]*.5625]);if(P.length<3)return P.length===2?sample(t=>[P[0][0]+(P[1][0]-P[0][0])*t,P[0][1]+(P[1][1]-P[0][1])*t]):sample(()=>P[0]);
@@ -113,7 +127,7 @@ function addGrow(g,born){const path=spline(g.points||[]);const tube=sv('path',{d
   if(g.label){const end=g.points[g.points.length-1];addLabel(g.label,end[0],end[1],'pin',born+(g.ms||3000));}}
 function addFuse(f,born){const x=f.x,y=f.y*.5625;const a=sprite('cell','gold',wsvg),b=sprite('cell','blue',wsvg);const ring=sv('circle',{cx:x,cy:y,r:.5,fill:'none',stroke:'#ffe9a8','stroke-width':.4,opacity:0},wsvg);
   const made=sprite('cell','purple',wsvg);made.style.opacity=0;actors.push({kind:'fuse',x,y,a,b,ring,made,born});addLabel(f.label,f.x,f.y-6,'pin math',born+1100);}
-function tick(now){camStep(now);
+function tick(now){camStep(now);edgeCut(now);
   for(const ac of actors){const t=now-ac.born;
     if(ac.kind==='move'){ac.items.forEach((g,i)=>{const local=t-i*ac.gap;if(local<0){g.style.opacity=0;return;}let u=local/ac.ms;if(ac.loop)u=u%1;else if(u>1){g.style.opacity=u>1.15?0:1-(u-1)/.15;u=1;}
         const p=ac.path.at(ease(u)*.98+u*.02);const wob=Math.sin(now/180+i)*.25;g.setAttribute('transform',`translate(${p[0].toFixed(2)} ${(p[1]+wob*.4).toFixed(2)}) rotate(${ac.rot?(p[2]*57.3).toFixed(1):((now/30+i*40)%360).toFixed(0)})`);
@@ -154,10 +168,10 @@ function fxAdd(arrows,effects){arrows.forEach(a=>{const P=a.points.map(p=>[p[0],
     if(f.type==='rise')for(let i=0;i<12;i++){const ii=el('i');ii.style.left=(4+i*8)+'%';ii.style.animationDelay=(i*.37%2.6)+'s';e.appendChild(ii);}fxBox.appendChild(e);});}
 
 // --- shots and sentences -------------------------------------------------------------------------------------------------
-function clearShot(){actors=[];labels=[];$('world').innerHTML='';$('ssvg').innerHTML='';$('labels').innerHTML='';}
+function clearShot(){actors=[];labels=[];texts=[];$('world').innerHTML='';$('ssvg').innerHTML='';$('labels').innerHTML='';}
 function build(i){const s=F.shots[i];clearShot();
-  if(s.type==='diagram'){const d=el('div','svg');d.innerHTML=s.svg;$('world').appendChild(d);}else{const im=el('img');im.alt='';im.src=s.img||'';$('world').appendChild(im);}
-  worldLayers();$('key').textContent=s.key||'';$('sc').textContent=(s.title||'')+' · '+String(i+1).padStart(2,'0')+' / '+String(F.shots.length).padStart(2,'0');
+  if(s.type==='diagram'){const d=el('div','svg base');d.innerHTML=s.svg;$('world').appendChild(d);}else{const im=el('img');im.alt='';im.src=s.img||'';$('world').appendChild(im);}
+  worldLayers();if(s.type==='diagram')textLayer();$('key').textContent=s.key||'';$('sc').textContent=(s.title||'')+' · '+String(i+1).padStart(2,'0')+' / '+String(F.shots.length).padStart(2,'0');
   [...$('dots').children].forEach((b,j)=>b.setAttribute('aria-current',String(j===i)));}
 function show(i,k,viaDive){const my=++token;const s=F.shots[i];si=i;ki=0;
   if(viaDive&&s.dive&&!reduced){camTo(s.dive.x,s.dive.y,3,900);setTimeout(()=>{if(my!==token)return;cam.fade=0;build(i);cam.ox=s.dive.x;cam.oy=s.dive.y;cam.s=1.35;
@@ -167,7 +181,7 @@ function sentence(k){const s=F.shots[si];const t=s.sentences[k];if(!t)return;ki=
   const zm=t.zoom||{};camTo(zm.x==null?50:zm.x,zm.y==null?50:zm.y,Math.min(2.2,Math.max(1,zm.scale||1)),1700);
   (t.pins||[]).forEach(p=>addLabel(p.t,p.x,p.y,'pin new',now));fxAdd(t.arrows||[],t.effects||[]);
   (t.moves||[]).forEach(m=>addMove(m,now+300));(t.grows||[]).forEach(g=>addGrow(g,now+300));(t.fuses||[]).forEach((f,i)=>addFuse(f,now+400+i*1200));
-  const w=$('world');w.querySelectorAll('.lit').forEach(e=>e.classList.remove('lit'));(t.focus||[]).forEach(id=>{const e=w.querySelector('#'+CSS.escape(id));if(e)e.classList.add('lit');});
+  const w=$('world');w.querySelectorAll('.lit').forEach(e=>e.classList.remove('lit'));(t.focus||[]).forEach(id=>{const q=CSS.escape(id);w.querySelectorAll('#'+q+',[data-oid="'+q+'"]').forEach(e=>e.classList.add('lit'));});
   if(playing)speak(t);}
 function speak(t){clearTimeout(timer);const my=token;if(t.audio){au.src=blobURL(t.audio);au.currentTime=0;const p=au.play();if(p)p.catch(()=>{timer=setTimeout(()=>{if(my===token)next();},t.dur*1000);});}
   else timer=setTimeout(()=>{if(my===token)next();},t.dur*1000);}
@@ -176,6 +190,6 @@ au.addEventListener('ended',()=>{const my=token;setTimeout(()=>{if(my===token)ne
 function stop(){playing=false;clearTimeout(timer);au.pause();$('play').innerHTML='&#9654; Film chalaiye';}
 $('play').onclick=()=>{if(playing){stop();return;}playing=true;$('play').innerHTML='&#10074;&#10074; Rokiye';speak(F.shots[si].sentences[ki]);};
 $('again').onclick=()=>{stop();show(0,0);};
-window.BIEFilm={state:()=>({shot:si,sentence:ki,playing,camera:{ox:cam.ox,oy:cam.oy,s:cam.s},actors:actors.map(a=>a.kind),labels:labels.length})};
+window.BIEFilm={state:()=>({shot:si,sentence:ki,playing,camera:{ox:cam.ox,oy:cam.oy,s:cam.s},actors:actors.map(a=>a.kind),labels:labels.length,words:texts.length,cut:texts.filter(t=>t.classList.contains('cut')).length})};
 show(0,0);
 </script></body></html>

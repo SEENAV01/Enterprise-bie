@@ -43,7 +43,14 @@ Decision cards in the planning chat, 18 November 2026:
    checks every path, count, timing and label (dikhaya = bola) and asks for motion in at least 2 shots of a long film.
    Navin left the order to Claude ("Mujhe nahi pata"): the recommended order is used, films first. Checked in Chromium
    with a real VM AI photo (Claude's test data, not BIE output); the first BIE film with motion comes from the
-   Photosynthesis chapter.
+   Photosynthesis chapter. First BIE films with motion: VM job `studio-photosynthesis-films1` (q03, q14, q19), status ok,
+   0 problems, rounds 3/2/2, 24 minutes, ₹0 (plan 44 % before and after), results
+   `blindtest-results:runs/vm-studio-photosynthesis-films1-brain-studio`; moves in every film, 8 AI pictures (6 photos,
+   2 cutaways), played through in Chromium without errors and sent to Navin for his look verdict (pending; the other 22
+   films wait for it). Claude's look check found three player faults on diagram shots (a zoom cut words at the frame
+   edge, highlighted words got a thick red outline, moving sprites covered words); the player now keeps the diagram's
+   words on a top layer, fades a word the frame cuts and highlights words without an outline (branch
+   `studio-film-legible`, SEEKH_LOG).
 9. **Navin's chapter (19 November 2026):** NCERT Class 11 Biology chapter 11, Photosynthesis in Higher Plants, for NEET +
    Class 11 in Hinglish (decision card). NCERT's site sends an incomplete certificate chain, so Navin chose the public
    inputs branch for the PDF (`blindtest-inputs:chapters/ncert-class11-biology-ch11-photosynthesis.pdf`).
