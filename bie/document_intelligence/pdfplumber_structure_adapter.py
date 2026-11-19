@@ -10,6 +10,13 @@ from statistics import median
 import pdfplumber
 
 
+def _on_page(page):
+    """Only what lies on the page. A scanned book's OCR layer can carry a stray glyph partly off the page (a '.' whose box
+    starts above the top edge): nobody can see it, yet one such glyph used to stop the whole book. Lines wholly on the page
+    are unchanged; a glyph not wholly inside the page box is left out before lines are built."""
+    return page.within_bbox(page.bbox)
+
+
 class PdfPlumberStructureAdapterError(ValueError):
     """Raised when native PDF structure signals cannot be extracted safely."""
 
@@ -125,7 +132,7 @@ class PdfPlumberStructureAdapter:
                     )
 
                 try:
-                    raw_lines = page.dedupe_chars().extract_text_lines(
+                    raw_lines = _on_page(page).dedupe_chars().extract_text_lines(
                         strip=True,
                         return_chars=True,
                     )

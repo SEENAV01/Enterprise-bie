@@ -241,6 +241,33 @@ class Lesson(unittest.TestCase):
         page = studio_pyq.html(data, (ROOT / "bie" / "brain" / "studio_pyq_player.html").read_text(encoding="utf-8"))
         self.assertNotIn("/*__PYQ__*/null", page)
 
+    def test_player_lets_every_part_be_tapped_and_names_it(self):
+        """The first VM runs (19 Nov 2026): the physics gate "tap the vertical component" could not be answered (the vᵧ
+        arrow was not a tap target), a tap that landed on a label or beside a thin line did nothing, the chemistry scene
+        labelled atoms "a2", "a3", and the second question's first transfer try counted as a later try."""
+        import re
+        src = (ROOT / "bie" / "brain" / "studio_pyq_player.html").read_text(encoding="utf-8")
+        kit = src[src.index("KITS.projectile="):src.index("KITS.mechanism=")]
+        for part in pyq_models.PROJECTILE_PARTS:            # every part a cue or a tap gate may name is a tap target
+            self.assertRegex(kit, r"hit\(el\([^;]*?\),'%s'\)" % part, part)
+        self.assertIn("S.tapAll=!!(S.gate&&S.waiting&&(S.gate.mechanic==='tap_part'||S.gate.mechanic==='pair'))", src)
+        self.assertIn("'stroke-width':30", src)                    # a finger-sized target on every vector
+        self.assertIn("const p=nearestPart(e);", src)
+        self.assertIn("return bd<=28?best:null;", src)
+        self.assertIn("const name=partName(id);", src)
+        self.assertIn("label(svg,bb.x+bb.width/2,bb.y,name,", src)
+        self.assertIn("atoms[x].tag||atoms[x].label", src)
+        self.assertIn("if(a.tag&&a.tag.length<=4)el('text'", src)      # long maker tags only as labels, never piled on atoms
+        self.assertIn("unclash(svg);$('scrub')", src)                    # labels never sit on each other
+        self.assertIn("unclash(svg);$('dscrub')", src)
+        self.assertIn("t.textContent.startsWith(name+' ')", src)       # no second label for a part the scene already names
+        self.assertIn("'H = '+(m.values.H||", src)                        # the peak label is the height, never u_y
+        self.assertIn("if(bx+w+16>W-4)bx=Math.max(4,x-w-19);", src)       # labels stay inside the picture
+        self.assertIn("function human(t)", src)
+        self.assertIn("S.tries=0;S.tTries=0;", src)
+        self.assertNotRegex(src, r"let t?[tT]ries=0;")
+        self.assertIn("const vyNow=t<=.02?m.values.uy:", src)
+
 
 class Stage(unittest.TestCase):
     def test_pyq_stage_writes_the_lab(self):
