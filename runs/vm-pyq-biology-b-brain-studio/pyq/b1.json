@@ -1,0 +1,766 @@
+{
+ "question": {
+  "id": "b1",
+  "exam": "Practice",
+  "origin": "practice",
+  "question": "The leaf cells of a flowering plant have 20 chromosomes. How many chromosomes will its primary endosperm nucleus have after double fertilisation?",
+  "options": [
+   "10",
+   "20",
+   "30",
+   "40"
+  ],
+  "answer": 2
+ },
+ "lesson": {
+  "title": "Leaf se PEN tak: sets ko track karo",
+  "concept": "Primary endosperm nucleus mein ek male gamete aur dono polar nuclei ke haploid sets judte hain.",
+  "scene_title": "Syngamy aur triple fusion ke alag raaste",
+  "given": [
+   {
+    "name": "Leaf cell chromosomes",
+    "value": "20"
+   },
+   {
+    "name": "Options",
+    "value": "10, 20, 30, 40"
+   }
+  ],
+  "asked": "Double fertilisation ke baad primary endosperm nucleus mein kitne chromosomes honge?",
+  "unknowns": [
+   "Haploid chromosome count",
+   "PEN ka chromosome count"
+  ],
+  "assumptions": [
+   "Plant diploid hai aur gametes normally reduced hain.",
+   "Typical embryo sac mein har polar nucleus haploid hai.",
+   "Count PEN banne ke turant baad ka hai."
+  ],
+  "objectives": [
+   "Somatic chromosome count se haploid count nikaalna.",
+   "Syngamy aur triple fusion ke participants alag karna.",
+   "PEN ke chromosome contributions jodna."
+  ],
+  "prerequisites": [
+   {
+    "idea": "Diploid aur haploid",
+    "why": "Diploid mein do chromosome sets, haploid mein ek set hota hai."
+   },
+   {
+    "idea": "Meiosis aur mitosis",
+    "why": "Meiosis ploidy aadhi karti hai; embryo sac ki mitotic divisions haploid ploidy banaye rakhti hain."
+   },
+   {
+    "idea": "Cell aur nucleus",
+    "why": "Ek central cell mein dono polar nuclei maujood hote hain."
+   }
+  ],
+  "evidence": [
+   {
+    "block_ids": [
+     "p0008-b0017",
+     "p0008-b0018",
+     "p0008-b0019",
+     "p0009-b0003",
+     "p0009-b0007"
+    ],
+    "idea": "Meiosis megaspores banati hai; functional megaspore ki mitotic divisions embryo sac banati hain.",
+    "parts": [
+     "egg",
+     "polar_a",
+     "polar_b"
+    ],
+    "moment": "start"
+   },
+   {
+    "block_ids": [
+     "p0009-b0013",
+     "p0009-b0014",
+     "p0009-b0021",
+     "p0009-b0022"
+    ],
+    "idea": "Dono polar nuclei large central cell mein hote hain.",
+    "parts": [
+     "central",
+     "polar_a",
+     "polar_b"
+    ],
+    "moment": "start"
+   },
+   {
+    "block_ids": [
+     "p0016-b0002",
+     "p0016-b0003",
+     "p0016-b0004",
+     "p0016-b0005"
+    ],
+    "idea": "Male gamete aur egg nucleus ki syngamy diploid zygote banati hai.",
+    "parts": [
+     "male_a",
+     "egg",
+     "zygote"
+    ],
+    "moment": "syngamy"
+   },
+   {
+    "block_ids": [
+     "p0016-b0006",
+     "p0016-b0007",
+     "p0016-b0008",
+     "p0016-b0009",
+     "p0016-b0010",
+     "p0016-b0011",
+     "p0016-b0012",
+     "p0016-b0013"
+    ],
+    "idea": "Doosra male gamete dono polar nuclei se fuse karke triploid PEN banata hai; central cell endosperm banati hai.",
+    "parts": [
+     "male_b",
+     "polar_a",
+     "polar_b",
+     "pen",
+     "central"
+    ],
+    "moment": "triple"
+   }
+  ],
+  "model": {
+   "kind": "fusion",
+   "lines": [
+    "diploid 20",
+    "entity leaf \"Leaf cell\" cell sets=2 origin=none at=12,20 nuclei=1",
+    "entity central \"Central cell\" cell sets=0 origin=none at=68,40 nuclei=2",
+    "entity egg \"Egg nucleus\" nucleus sets=1 origin=maternal at=68,82 nuclei=1",
+    "entity polar_a \"Polar nucleus A\" nucleus sets=1 origin=maternal in=central at=58,36 nuclei=1",
+    "entity polar_b \"Polar nucleus B\" nucleus sets=1 origin=maternal in=central at=78,36 nuclei=1",
+    "entity male_a \"Male gamete A\" gamete sets=1 origin=paternal at=25,82 nuclei=1",
+    "entity male_b \"Male gamete B\" gamete sets=1 origin=paternal at=25,48 nuclei=1",
+    "fuse syngamy \"Syngamy\": male_a + egg -> zygote \"Zygote\" fate=\"Embryo\"",
+    "fuse triple \"Triple fusion\": male_b + polar_a + polar_b -> pen \"Primary endosperm nucleus\" fate=\"Endosperm development in the central cell\"",
+    "asked count pen"
+   ],
+   "svg": ""
+  },
+  "stages": [
+   {
+    "key": "see",
+    "title": "Given aur target alag hain",
+    "text": "Leaf ka count diya hai; PEN ka count nikaalna hai.",
+    "beats": [
+     {
+      "say": "Leaf cell mein 20 chromosomes hain, lekin sawaal primary endosperm nucleus ka count poochhta hai.",
+      "voice": "लीफ़ सेल में 20 क्रोमोसोम्स हैं, लेकिन सवाल प्राइमरी एंडोस्पर्म न्यूक्लियस का काउंट पूछता है।",
+      "view": "main",
+      "focus": [
+       "leaf",
+       "central"
+      ],
+      "labels": [
+       "leaf",
+       "central"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": "given_type"
+     },
+     {
+      "say": "Pehle yeh pehchaano ki diya hua count poori somatic cell ka hai, gamete ka nahi.",
+      "voice": "पहले यह पहचानो कि दिया हुआ काउंट पूरी सोमैटिक सेल का है, गैमीट का नहीं।",
+      "view": "main",
+      "focus": [
+       "leaf",
+       "male_b"
+      ],
+      "labels": [
+       "leaf",
+       "male_b"
+      ],
+      "moment": "",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "trap",
+    "title": "Double shabd ka jaal",
+    "text": "Double fertilisation do fusion events hain, chromosome count ko double karna nahi.",
+    "beats": [
+     {
+      "say": "Double sunke leaf ka count double kar doge, toh fusion ke actual partners chhoot jaayenge.",
+      "voice": "डबल सुनके लीफ़ का काउंट डबल कर दोगे, तो फ़्यूज़न के ऐक्चुअल पार्टनर्स छूट जाएँगे।",
+      "view": "main",
+      "focus": [
+       "male_a",
+       "male_b",
+       "egg",
+       "polar_a",
+       "polar_b"
+      ],
+      "labels": [
+       "male_a",
+       "male_b"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Dono male gametes ek hi nucleus mein nahi judte; unke fusion ke raaste alag hain.",
+      "voice": "दोनों मेल गैमीट्स एक ही न्यूक्लियस में नहीं जुड़ते; उनके फ़्यूज़न के रास्ते अलग हैं।",
+      "view": "both",
+      "focus": [
+       "egg",
+       "central",
+       "male_a",
+       "male_b"
+      ],
+      "labels": [
+       "egg",
+       "central"
+      ],
+      "moment": "",
+      "play": false,
+      "board": "",
+      "detail": "routes",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "concept",
+    "title": "Har participant ka contribution",
+    "text": "Har gamete aur har polar nucleus ek haploid set deta hai.",
+    "beats": [
+     {
+      "say": "Leaf mein do chromosome sets hain; meiosis ploidy aadhi karti hai, mitosis use banaye rakhti hai.",
+      "voice": "लीफ़ में दो क्रोमोसोम सेट्स हैं; मीयोसिस प्लॉइडी आधी करती है, माइटोसिस उसे बनाए रखती है।",
+      "view": "both",
+      "focus": [
+       "leaf",
+       "egg",
+       "polar_a",
+       "polar_b"
+      ],
+      "labels": [
+       "leaf",
+       "polar_a",
+       "polar_b"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "sets",
+      "gate": ""
+     },
+     {
+      "say": "Central cell ke andar dono polar nuclei dekho; PEN ke liye inke saath kaun judega?",
+      "voice": "सेंट्रल सेल के अंदर दोनों पोलर न्यूक्लिआई देखो; पी ई एन के लिए इनके साथ कौन जुड़ेगा?",
+      "view": "detail",
+      "focus": [
+       "central",
+       "polar_a",
+       "polar_b",
+       "male_b"
+      ],
+      "labels": [
+       "polar_a",
+       "polar_b",
+       "male_b"
+      ],
+      "moment": "",
+      "play": false,
+      "board": "",
+      "detail": "routes",
+      "gate": "participants"
+     }
+    ]
+   },
+   {
+    "key": "solve",
+    "title": "Pehle haploid count, phir fusion",
+    "text": "20 ko do sets mein baanto, phir target nucleus ke contributions jodo.",
+    "beats": [
+     {
+      "say": "Do sets mein 20 chromosomes hain, isliye ek set mein 10 chromosomes aate hain.",
+      "voice": "दो सेट्स में 20 क्रोमोसोम्स हैं, इसलिए एक सेट में 10 क्रोमोसोम्स आते हैं।",
+      "view": "both",
+      "focus": [
+       "leaf",
+       "egg",
+       "male_a"
+      ],
+      "labels": [
+       "leaf",
+       "egg",
+       "male_a"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "sets",
+      "gate": ""
+     },
+     {
+      "say": "Egg aur ek male gamete ke sets judne se diploid zygote banta hai, PEN nahi.",
+      "voice": "एग और एक मेल गैमीट के सेट्स जुड़ने से डिप्लॉइड ज़ाइगोट बनता है, पी ई एन नहीं।",
+      "view": "both",
+      "focus": [
+       "male_a",
+       "egg",
+       "zygote"
+      ],
+      "labels": [
+       "zygote"
+      ],
+      "moment": "syngamy",
+      "play": true,
+      "board": "syngamy",
+      "detail": "routes",
+      "gate": ""
+     },
+     {
+      "say": "Ab doosre male gamete aur dono polar nuclei ko dekho; fusion se pehle total predict karo.",
+      "voice": "अब दूसरे मेल गैमीट और दोनों पोलर न्यूक्लिआई को देखो; फ़्यूज़न से पहले टोटल प्रिडिक्ट करो।",
+      "view": "both",
+      "focus": [
+       "male_b",
+       "polar_a",
+       "polar_b"
+      ],
+      "labels": [
+       "male_b",
+       "polar_a",
+       "polar_b"
+      ],
+      "moment": "",
+      "play": false,
+      "board": "",
+      "detail": "sets",
+      "gate": "pen_count"
+     },
+     {
+      "say": "Har participant ke 10 chromosomes judte hain; 10 plus 10 plus 10 se PEN mein 30 milte hain.",
+      "voice": "हर पार्टिसिपेंट के 10 क्रोमोसोम्स जुड़ते हैं; 10 प्लस 10 प्लस 10 से पी ई एन में 30 मिलते हैं।",
+      "view": "both",
+      "focus": [
+       "pen",
+       "central"
+      ],
+      "labels": [
+       "pen",
+       "central"
+      ],
+      "moment": "triple",
+      "play": true,
+      "board": "triple",
+      "detail": "sets",
+      "gate": ""
+     },
+     {
+      "say": "Isliye option 3 sahi hai; hum ek nucleus ke chromosomes gin rahe hain, cells nahi.",
+      "voice": "इसलिए ऑप्शन 3 सही है; हम एक न्यूक्लियस के क्रोमोसोम्स गिन रहे हैं, सेल्स नहीं।",
+      "view": "main",
+      "focus": [
+       "pen"
+      ],
+      "labels": [
+       "pen"
+      ],
+      "moment": "",
+      "play": false,
+      "board": "triple",
+      "detail": "",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "transfer",
+    "title": "Sirf target badlo",
+    "text": "Isi plant mein ab zygote ka chromosome count khud nikaalo.",
+    "beats": [
+     {
+      "say": "Leaf ka count wahi rakho, lekin ab zygote poochha hai; uske participants se jawaab nikaalo.",
+      "voice": "लीफ़ का काउंट वही रखो, लेकिन अब ज़ाइगोट पूछा है; उसके पार्टिसिपेंट्स से जवाब निकालो।",
+      "view": "main",
+      "focus": [
+       "male_a",
+       "egg"
+      ],
+      "labels": [
+       "male_a",
+       "egg"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": "zygote_count"
+     },
+     {
+      "say": "Zygote mein egg aur male gamete hi judte hain; target badla toh contributions bhi badal gaye.",
+      "voice": "ज़ाइगोट में एग और मेल गैमीट ही जुड़ते हैं; टारगेट बदला तो कॉन्ट्रिब्यूशन्स भी बदल गए।",
+      "view": "main",
+      "focus": [
+       "zygote"
+      ],
+      "labels": [
+       "zygote"
+      ],
+      "moment": "syngamy",
+      "play": false,
+      "board": "syngamy",
+      "detail": "",
+      "gate": ""
+     }
+    ]
+   }
+  ],
+  "details": [
+   {
+    "id": "routes",
+    "title": "Alag partners, alag products",
+    "text": "PEN mein egg shaamil nahi hota. Male gametes alag fusion events mein jaate hain.",
+    "chain": [
+     "Egg aur polar nuclei alag targets hain",
+     "Ek gamete egg se, doosra dono polar nuclei se judta hai",
+     "Syngamy zygote aur triple fusion PEN banati hai"
+    ],
+    "focus": [
+     "male_a",
+     "egg",
+     "male_b",
+     "polar_a",
+     "polar_b",
+     "central"
+    ],
+    "moment": "start"
+   },
+   {
+    "id": "sets",
+    "title": "Chromosome sets ka hisaab",
+    "text": "Leaf ke do sets mein 20 chromosomes hain. Har haploid contribution mein 10 chromosomes hain.",
+    "chain": [
+     "Leaf: do sets mein 20 chromosomes",
+     "PEN ke liye teen haploid contributions judte hain",
+     "10 + 10 + 10 = 30 chromosomes"
+    ],
+    "focus": [
+     "leaf",
+     "male_b",
+     "polar_a",
+     "polar_b"
+    ],
+    "moment": "start"
+   }
+  ],
+  "gates": [
+   {
+    "id": "given_type",
+    "mechanic": "choose",
+    "prompt": "Leaf cell ka 20 kaunsa count hai?",
+    "choices": [
+     "Diploid count",
+     "Haploid count"
+    ],
+    "answer": "0",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "1",
+      "why": "Leaf somatic cell hai; uska chromosome count gamete ka haploid count nahi hai."
+     }
+    ],
+    "reveal": "start",
+    "why": "Leaf ke count mein do chromosome sets shaamil hain."
+   },
+   {
+    "id": "participants",
+    "mechanic": "choose",
+    "prompt": "PEN banane ke participants chuno.",
+    "choices": [
+     "Ek male gamete aur dono polar nuclei",
+     "Ek male gamete aur egg",
+     "Dono male gametes aur dono polar nuclei"
+    ],
+    "answer": "0",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "1",
+      "why": "Egg aur male gamete ki syngamy zygote banati hai, PEN nahi."
+     },
+     {
+      "match": "2",
+      "why": "Ek male gamete egg se fuse hota hai; dono central cell mein contribute nahi karte."
+     }
+    ],
+    "reveal": "entry",
+    "why": "Triple fusion mein ek paternal aur do maternal haploid sets judte hain."
+   },
+   {
+    "id": "pen_count",
+    "mechanic": "number",
+    "prompt": "Triple fusion ke baad PEN mein kitne chromosomes honge?",
+    "choices": [],
+    "answer": "30",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "10",
+      "why": "Yeh sirf ek haploid participant ka count hai; fusion partners abhi jodne hain."
+     },
+     {
+      "match": "20",
+      "why": "Tumne sirf do haploid contributions gine; PEN mein teen judte hain."
+     },
+     {
+      "match": "40",
+      "why": "Double fertilisation do events batata hai, leaf count ko double karne ka operation nahi."
+     },
+     {
+      "match": "other",
+      "why": "Leaf count ko do se baanto, phir teen haploid contributions jodo."
+     }
+    ],
+    "reveal": "triple",
+    "why": "Male gamete aur dono polar nuclei ke 10 chromosomes judkar 30 bante hain."
+   },
+   {
+    "id": "zygote_count",
+    "mechanic": "number",
+    "prompt": "Isi plant ke zygote ka chromosome count batao.",
+    "choices": [],
+    "answer": "20",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "10",
+      "why": "Yeh ek gamete ka count hai; zygote mein egg ka contribution bhi judta hai."
+     },
+     {
+      "match": "30",
+      "why": "Tumne PEN ka count zygote par laga diya; syngamy mein polar nuclei nahi judte."
+     },
+     {
+      "match": "other",
+      "why": "Zygote ke liye egg aur sirf ek male gamete ke contributions jodo."
+     }
+    ],
+    "reveal": "syngamy",
+    "why": "Egg aur male gamete ke 10 + 10 chromosomes se zygote mein 20 bante hain."
+   }
+  ],
+  "board": [
+   {
+    "step": "syngamy",
+    "note": "Leaf count ka aadha har haploid participant ka contribution hai; egg aur male gamete milkar diploid zygote banate hain."
+   },
+   {
+    "step": "triple",
+    "note": "PEN ke liye ek male gamete aur dono polar nuclei ke haploid chromosome contributions jodte hain."
+   }
+  ],
+  "diagnoses": [
+   {
+    "option": 1,
+    "title": "10: haploid par ruk gaye",
+    "why": "Aadha karna sahi shuruaat hai, lekin PEN mein fusion partners ke contributions bhi jodne hain.",
+    "shows": ""
+   },
+   {
+    "option": 2,
+    "title": "20: zygote wala hisaab",
+    "why": "Do haploid sets zygote banate hain; PEN mein teen haploid sets hote hain.",
+    "shows": ""
+   },
+   {
+    "option": 3,
+    "title": "30: sahi participants jode",
+    "why": "Ek male gamete aur dono polar nuclei ke 10 + 10 + 10 chromosomes judte hain.",
+    "shows": ""
+   },
+   {
+    "option": 4,
+    "title": "40: double ko multiplier maana",
+    "why": "Double fertilisation do fusion events ka naam hai, chromosome count doubling ka nahi.",
+    "shows": ""
+   }
+  ],
+  "families": [
+   {
+    "id": "zygote",
+    "title": "Target zygote",
+    "question": "Isi plant ki leaf cell mein 20 chromosomes hain. Zygote mein kitne honge?",
+    "changes": [
+     "asked count zygote"
+    ],
+    "choices": [
+     "10",
+     "20",
+     "30",
+     "40"
+    ],
+    "correct": 2,
+    "why": "Syngamy mein egg aur ek male gamete ke haploid sets judte hain.",
+    "transfer": true
+   },
+   {
+    "id": "parental_ratio",
+    "title": "Maternal aur paternal shares",
+    "question": "PEN mein maternal:paternal chromosome contribution ka ratio kya hai?",
+    "changes": [
+     "asked ratio pen"
+    ],
+    "choices": [
+     "1:1",
+     "1:2",
+     "2:1"
+    ],
+    "correct": 3,
+    "why": "Dono polar nuclei maternal contributions dete hain; male gamete ek paternal contribution deta hai.",
+    "transfer": false
+   }
+  ],
+  "recap": "Leaf: do sets mein 20, toh haploid count 10. PEN: male gamete aur dono polar nuclei, yani 10 + 10 + 10 = 30 chromosomes. Option 3.",
+  "limitations": [
+   "Typical diploid plant aur typical embryo sac tak model limited hai.",
+   "Central cell ka sets=0 container bookkeeping hai; uska chromosome material polar nuclei mein represented hai.",
+   "Scene complete embryo sac cell ya nucleus census ke liye nahi hai.",
+   "Fusion grammar mein trap declarations nahi hain, isliye diagnoses ke shows khaali hain."
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "entity leaf: in=none is not an entity",
+    "entity central: in=none is not an entity",
+    "entity egg: in=none is not an entity",
+    "entity male_a: in=none is not an entity",
+    "entity male_b: in=none is not an entity",
+    "central: nuclei=0 but 2 nucleus entities sit in it",
+    "stage see: 1 beats; it needs at least 2",
+    "stage see beat 1: focus leaf, central are not parts of the model (...)",
+    "stage see beat 1: labels leaf, central are not parts of the model (...)",
+    "stage see beat 1: moment 'start' is not one of ",
+    "stage trap beat 1: focus male_a, egg, male_b, polar_a are not parts of the model (...)",
+    "stage trap beat 1: labels egg, polar_a, polar_b are not parts of the model (...)",
+    "stage trap beat 1: moment 'start' is not one of ",
+    "stage trap beat 2: focus egg, central, polar_a, polar_b are not parts of the model (...)",
+    "stage trap beat 2: labels egg, central are not parts of the model (...)",
+    "stage trap beat 2: moment 'start' is not one of ",
+    "stage concept beat 1: focus leaf, polar_a, polar_b, male_b are not parts of the model (...)",
+    "stage concept beat 1: labels leaf, polar_a, polar_b, male_b are not parts of the model (...)",
+    "stage concept beat 1: moment 'start' is not one of ",
+    "stage concept beat 2: focus central, polar_a, polar_b, male_b are not parts of the model (...)",
+    "stage concept beat 2: labels polar_a, polar_b, male_b are not parts of the model (...)",
+    "stage concept beat 2: moment 'start' is not one of ",
+    "stage solve beat 1: focus leaf, male_b, polar_a, polar_b are not parts of the model (...)",
+    "stage solve beat 1: labels leaf, male_b, polar_a, polar_b are not parts of the model (...)",
+    "stage solve beat 1: moment 'start' is not one of ",
+    "stage solve beat 2: focus male_b, polar_a, polar_b, pen are not parts of the model (...)",
+    "stage solve beat 2: labels pen are not parts of the model (...)",
+    "stage solve beat 2: moment 'triple' is not one of ",
+    "stage solve beat 2: board 'triple' is not a model step ()",
+    "stage solve beat 3: focus pen, central are not parts of the model (...)",
+    "stage solve beat 3: labels pen, central are not parts of the model (...)",
+    "stage solve beat 3: board 'triple' is not a model step ()",
+    "stage transfer: 1 beats; it needs at least 2",
+    "stage transfer beat 1: focus male_a, egg are not parts of the model (...)",
+    "stage transfer beat 1: labels male_a, egg are not parts of the model (...)",
+    "stage transfer beat 1: moment 'start' is not one of ",
+    "gate given_type: reveal 'start' is not a model moment",
+    "gate participants: reveal 'entry' is not a model moment",
+    "gate pen_count: reveal 'triple' is not a model moment",
+    "gate zygote_count: reveal 'syngamy' is not a model moment",
+    "detail routes: focus male_a, egg, male_b, polar_a are not model parts",
+    "detail routes: moment 'start' is not a model moment",
+    "detail sets: focus leaf, male_b, polar_a, polar_b are not model parts",
+    "detail sets: moment 'start' is not a model moment",
+    "board: at least 2 rows, each a model step ()",
+    "family zygote: entity leaf: in=none is not an entity",
+    "family zygote: entity central: in=none is not an entity",
+    "family zygote: entity egg: in=none is not an entity",
+    "family zygote: entity male_a: in=none is not an entity",
+    "family zygote: entity male_b: in=none is not an entity",
+    "family zygote: central: nuclei=0 but 2 nucleus entities sit in it",
+    "family zygote: the model's answer (None) matches none of its choices",
+    "family parental_ratio: entity leaf: in=none is not an entity",
+    "family parental_ratio: entity central: in=none is not an entity",
+    "family parental_ratio: entity egg: in=none is not an entity",
+    "family parental_ratio: entity male_a: in=none is not an entity",
+    "family parental_ratio: entity male_b: in=none is not an entity",
+    "family parental_ratio: central: nuclei=0 but 2 nucleus entities sit in it",
+    "family parental_ratio: the model's answer (None) matches none of its choices",
+    "evidence 1: parts egg, polar_a, polar_b are not model parts",
+    "evidence 2: parts central, polar_a, polar_b are not model parts",
+    "evidence 3: parts male_a, egg, zygote are not model parts",
+    "evidence 4: parts male_b, polar_a, polar_b, pen are not model parts"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "usage": {
+  "input_tokens": 62747,
+  "output_tokens": 9275
+ },
+ "model": {
+  "kind": "fusion",
+  "problems": [],
+  "answer_option": 2,
+  "trap_options": {},
+  "parts": [
+   "leaf",
+   "central",
+   "egg",
+   "polar_a",
+   "polar_b",
+   "male_a",
+   "male_b",
+   "zygote",
+   "pen"
+  ],
+  "moments": [
+   "start",
+   "entry",
+   "syngamy",
+   "triple",
+   "end"
+  ],
+  "numbers": [
+   0.0,
+   1.0,
+   2.0,
+   3.0,
+   10.0,
+   20.0,
+   30.0
+  ],
+  "values": {},
+  "verified": true,
+  "board": {
+   "syngamy": {
+    "label": "Syngamy",
+    "sum": "n + n = 2n",
+    "product": "Zygote"
+   },
+   "triple": {
+    "label": "Triple fusion",
+    "sum": "n + n + n = 3n",
+    "product": "Primary endosperm nucleus"
+   }
+  }
+ }
+}

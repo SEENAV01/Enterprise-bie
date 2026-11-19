@@ -1,0 +1,716 @@
+{
+ "question": {
+  "id": "g2",
+  "exam": "NEET 2023",
+  "origin": "pyq",
+  "question": "In angiosperms, the haploid, diploid and triploid structures of a fertilized embryo sac, sequentially, are:",
+  "options": [
+   "Synergids, antipodals and polar nuclei",
+   "Synergids, primary endosperm nucleus and zygote",
+   "Antipodals, synergids and primary endosperm nucleus",
+   "Synergids, zygote and primary endosperm nucleus"
+  ],
+  "answer": 3
+ },
+ "lesson": {
+  "title": "Fertilised embryo sac: chromosome sets ka hisaab",
+  "concept": "Fusion partners ke chromosome sets judte hain; embryo sac ki har cell ki ploidy nahi badalti.",
+  "scene_title": "Syngamy aur triple fusion",
+  "given": [
+   {
+    "name": "Stage",
+    "value": "Angiosperm ka fertilised embryo sac"
+   },
+   {
+    "name": "Required order",
+    "value": "Haploid → diploid → triploid"
+   }
+  ],
+  "asked": "Structures ka sahi haploid, diploid aur triploid sequence chuno.",
+  "unknowns": [
+   "Zygote ki ploidy",
+   "PEN ki ploidy",
+   "Sahi ordered option"
+  ],
+  "assumptions": [
+   "Typical monosporic embryo sac aur reduced gametes.",
+   "Polar nuclei fusion se pehle separate hain.",
+   "Synergid aur antipodal representative entities hain."
+  ],
+  "objectives": [
+   "Nuclei ki ginti aur chromosome sets ko alag karna.",
+   "Fusion partners se products ki ploidy nikaalna.",
+   "Required sequence ko options se match karna."
+  ],
+  "prerequisites": [
+   {
+    "idea": "Ploidy chromosome sets ka count hai.",
+    "why": "Ek nucleus mein multiple chromosome sets ho sakte hain."
+   },
+   {
+    "idea": "Functional megaspore se mitotic divisions embryo sac banati hain.",
+    "why": "Starting synergids, antipodals aur polar nuclei haploid hain."
+   }
+  ],
+  "evidence": [
+   {
+    "block_ids": [
+     "p0008-b0020",
+     "p0008-b0021",
+     "p0008-b0022",
+     "p0009-b0003",
+     "p0009-b0005"
+    ],
+    "idea": "Functional megaspore se mitotic divisions embryo sac banati hain.",
+    "parts": [
+     "syn",
+     "anti",
+     "egg"
+    ],
+    "moment": "start"
+   },
+   {
+    "block_ids": [
+     "p0009-b0013",
+     "p0009-b0014",
+     "p0009-b0017",
+     "p0009-b0021",
+     "p0009-b0022"
+    ],
+    "idea": "Egg apparatus mein synergids aur egg, central cell mein polar nuclei aur opposite end par antipodals hote hain.",
+    "parts": [
+     "syn",
+     "egg",
+     "central",
+     "polar1",
+     "polar2",
+     "anti"
+    ],
+    "moment": "start"
+   },
+   {
+    "block_ids": [
+     "p0016-b0002",
+     "p0016-b0003",
+     "p0016-b0004",
+     "p0016-b0005",
+     "p0016-b0006",
+     "p0016-b0007",
+     "p0016-b0008",
+     "p0016-b0013"
+    ],
+    "idea": "Syngamy diploid zygote aur triple fusion triploid PEN banati hai.",
+    "parts": [
+     "male1",
+     "male2",
+     "zygote",
+     "pen"
+    ],
+    "moment": "end"
+   }
+  ],
+  "model": {
+   "kind": "fusion",
+   "lines": [
+    "entity sac \"Embryo sac\" structure sets=0 origin=none at=50,50 nuclei=0",
+    "entity central \"Central cell\" cell sets=0 origin=none in=sac at=53,45 nuclei=2",
+    "entity syn \"Synergid representative\" cell sets=1 origin=maternal in=sac at=30,76 nuclei=1",
+    "entity anti \"Antipodal representative\" cell sets=1 origin=maternal in=sac at=50,15 nuclei=1",
+    "entity egg \"Egg\" gamete sets=1 origin=maternal in=sac at=51,76 nuclei=1",
+    "entity polar1 \"Polar nucleus\" nucleus sets=1 origin=maternal in=central at=45,43 nuclei=1",
+    "entity polar2 \"Polar nucleus\" nucleus sets=1 origin=maternal in=central at=61,43 nuclei=1",
+    "entity male1 \"Male gamete for egg\" gamete sets=1 origin=paternal in=sac at=18,91 nuclei=1",
+    "entity male2 \"Male gamete for central cell\" gamete sets=1 origin=paternal in=sac at=80,91 nuclei=1",
+    "fuse syngamy \"Syngamy\": egg + male1 -> zygote \"Zygote\" fate=\"Embryo\"",
+    "fuse triple \"Triple fusion\": polar1 + polar2 + male2 -> pen \"Primary endosperm nucleus\" fate=\"Primary endosperm cell develops into endosperm\"",
+    "asked sequence 1 2 3",
+    "option 1 = syn, anti, polar1",
+    "option 2 = syn, pen, zygote",
+    "option 3 = anti, syn, pen",
+    "option 4 = syn, zygote, pen"
+   ],
+   "svg": ""
+  },
+  "stages": [
+   {
+    "key": "see",
+    "title": "Kya count karna hai?",
+    "text": "Fertilised embryo sac ke structures ko ploidy order mein rakhna hai.",
+    "beats": [
+     {
+      "say": "Question fertilised embryo sac deta hai, aur haploid se triploid structures ka sequence poochta hai.",
+      "voice": "क्वेश्चन फर्टिलाइज़्ड एम्ब्रियो सैक देता है, और हैप्लॉइड से ट्रिप्लॉइड स्ट्रक्चर्स का सीक्वेंस पूछता है।",
+      "view": "main",
+      "focus": [
+       "sac"
+      ],
+      "labels": [
+       "syn",
+       "anti",
+       "egg",
+       "central"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     },
+     {
+      "say": "Pehle batao, ploidy ke liye nuclei ginoge ya nucleus ke andar chromosome sets?",
+      "voice": "पहले बताओ, प्लॉइडी के लिए न्यूक्लिआई गिनोगे या न्यूक्लियस के अंदर क्रोमोसोम सेट्स?",
+      "view": "main",
+      "focus": [
+       "polar1",
+       "polar2"
+      ],
+      "labels": [
+       "polar1",
+       "polar2"
+      ],
+      "moment": "",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": "quantity"
+     }
+    ]
+   },
+   {
+    "key": "trap",
+    "title": "Fertilised ka matlab sab diploid nahi",
+    "text": "Sirf fusion mein participating nuclei ke sets judte hain.",
+    "beats": [
+     {
+      "say": "Fertilised shabd dekhkar synergid ko diploid mat banao, kyunki uska nucleus male nucleus se fuse nahi hota.",
+      "voice": "फर्टिलाइज़्ड शब्द देखकर सिनर्जिड को डिप्लॉइड मत बनाओ, क्योंकि उसका न्यूक्लियस मेल न्यूक्लियस से फ़्यूज़ नहीं होता।",
+      "view": "both",
+      "focus": [
+       "syn"
+      ],
+      "labels": [
+       "syn"
+      ],
+      "moment": "start",
+      "play": false,
+      "board": "",
+      "detail": "unchanged",
+      "gate": ""
+     },
+     {
+      "say": "Dono polar nuclei saath dikhte hain, lekin separate rehne par har nucleus haploid hi hai.",
+      "voice": "दोनों पोलर न्यूक्लिआई साथ दिखते हैं, लेकिन सेपरेट रहने पर हर न्यूक्लियस हैप्लॉइड ही है।",
+      "view": "main",
+      "focus": [
+       "polar1",
+       "polar2"
+      ],
+      "labels": [
+       "polar1",
+       "polar2"
+      ],
+      "moment": "",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "concept",
+    "title": "Target se product pehchaano",
+    "text": "Tube entry aur nuclear fusion alag events hain.",
+    "beats": [
+     {
+      "say": "Synergid pollen tube ki entry mein madad karti hai; zygote banane ke liye gamete kisse fuse karega?",
+      "voice": "सिनर्जिड पोलन ट्यूब की एंट्री में मदद करती है; ज़ाइगोट बनाने के लिए गैमीट किससे फ़्यूज़ करेगा?",
+      "view": "main",
+      "focus": [
+       "male1",
+       "egg",
+       "syn"
+      ],
+      "labels": [
+       "male1",
+       "egg",
+       "syn"
+      ],
+      "moment": "entry",
+      "play": true,
+      "board": "",
+      "detail": "",
+      "gate": "target"
+     },
+     {
+      "say": "Ab enlarged view mein dekho, egg aur male gamete ke sets zygote mein jud gaye.",
+      "voice": "अब एनलार्ज्ड व्यू में देखो, एग और मेल गैमीट के सेट्स ज़ाइगोट में जुड़ गए।",
+      "view": "both",
+      "focus": [
+       "zygote"
+      ],
+      "labels": [
+       "zygote"
+      ],
+      "moment": "syngamy",
+      "play": false,
+      "board": "syngamy",
+      "detail": "egg_route",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "solve",
+    "title": "Partners ke sets jodo",
+    "text": "Fusion ke set ledgers se required sequence niklega.",
+    "beats": [
+     {
+      "say": "Egg ka ek maternal set aur male gamete ka ek paternal set milkar diploid zygote banate hain.",
+      "voice": "एग का एक मैटर्नल सेट और मेल गैमीट का एक पैटर्नल सेट मिलकर डिप्लॉइड ज़ाइगोट बनाते हैं।",
+      "view": "both",
+      "focus": [
+       "zygote"
+      ],
+      "labels": [
+       "zygote"
+      ],
+      "moment": "syngamy",
+      "play": false,
+      "board": "syngamy",
+      "detail": "egg_route",
+      "gate": ""
+     },
+     {
+      "say": "Central cell mein dono polar nuclei aur doosre male gamete ke sets judenge; total kitna hoga?",
+      "voice": "सेंट्रल सेल में दोनों पोलर न्यूक्लिआई और दूसरे मेल गैमीट के सेट्स जुड़ेंगे; टोटल कितना होगा?",
+      "view": "main",
+      "focus": [
+       "polar1",
+       "polar2",
+       "male2"
+      ],
+      "labels": [
+       "polar1",
+       "polar2",
+       "male2"
+      ],
+      "moment": "",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": "pen_sets"
+     },
+     {
+      "say": "Triple fusion mein maternal ke do aur paternal ka ek set judkar triploid PEN banate hain.",
+      "voice": "ट्रिपल फ़्यूज़न में मैटर्नल के दो और पैटर्नल का एक सेट जुड़कर ट्रिप्लॉइड पी ई एन बनाते हैं।",
+      "view": "both",
+      "focus": [
+       "pen"
+      ],
+      "labels": [
+       "pen"
+      ],
+      "moment": "triple",
+      "play": false,
+      "board": "triple",
+      "detail": "central_route",
+      "gate": ""
+     },
+     {
+      "say": "Synergid haploid, zygote diploid aur PEN triploid rakhne par option chaar ka sequence sahi milta hai.",
+      "voice": "सिनर्जिड हैप्लॉइड, ज़ाइगोट डिप्लॉइड और पी ई एन ट्रिप्लॉइड रखने पर ऑप्शन चार का सीक्वेंस सही मिलता है।",
+      "view": "main",
+      "focus": [
+       "syn",
+       "zygote",
+       "pen"
+      ],
+      "labels": [
+       "syn",
+       "zygote",
+       "pen"
+      ],
+      "moment": "end",
+      "play": true,
+      "board": "",
+      "detail": "",
+      "gate": ""
+     }
+    ]
+   },
+   {
+    "key": "transfer",
+    "title": "Ab parental share nikalo",
+    "text": "Total ploidy ki jagah PEN ka maternal:paternal ratio nikaalo.",
+    "beats": [
+     {
+      "say": "Ab sirf sawaal badla hai: PEN ke sets mein maternal aur paternal contribution ka ratio khud nikalo.",
+      "voice": "अब सिर्फ़ सवाल बदला है: पी ई एन के सेट्स में मैटर्नल और पैटर्नल कॉन्ट्रिब्यूशन का रेशियो खुद निकालो।",
+      "view": "main",
+      "focus": [
+       "pen"
+      ],
+      "labels": [
+       "pen"
+      ],
+      "moment": "",
+      "play": false,
+      "board": "",
+      "detail": "",
+      "gate": "transfer_ratio"
+     },
+     {
+      "say": "Dono polar nuclei maternal hain aur male gamete paternal hai, isliye contribution ka source follow karo.",
+      "voice": "दोनों पोलर न्यूक्लिआई मैटर्नल हैं और मेल गैमीट पैटर्नल है, इसलिए कॉन्ट्रिब्यूशन का सोर्स फ़ॉलो करो।",
+      "view": "both",
+      "focus": [
+       "pen"
+      ],
+      "labels": [
+       "pen"
+      ],
+      "moment": "end",
+      "play": false,
+      "board": "",
+      "detail": "central_route",
+      "gate": ""
+     }
+    ]
+   }
+  ],
+  "details": [
+   {
+    "id": "unchanged",
+    "title": "Synergid kyun haploid?",
+    "text": "Tube entry se synergid nucleus fusion product nahi banta.",
+    "chain": [
+     "Synergid nucleus n",
+     "Male nucleus se fusion nahi",
+     "Ploidy n hi rehti hai"
+    ],
+    "focus": [
+     "syn"
+    ],
+    "moment": "start"
+   },
+   {
+    "id": "egg_route",
+    "title": "Syngamy ka ledger",
+    "text": "Dono haploid partners ke chromosome sets judte hain.",
+    "chain": [
+     "Egg n + male n",
+     "Syngamy: sets ka addition",
+     "Zygote 2n → embryo"
+    ],
+    "focus": [
+     "egg",
+     "male1",
+     "zygote"
+    ],
+    "moment": "syngamy"
+   },
+   {
+    "id": "central_route",
+    "title": "Triple fusion ka ledger",
+    "text": "Maternal polar nuclei aur paternal gamete PEN banate hain.",
+    "chain": [
+     "Polar n + polar n + male n",
+     "Triple fusion: sets ka addition",
+     "PEN 3n; maternal:paternal = 2:1"
+    ],
+    "focus": [
+     "polar1",
+     "polar2",
+     "male2",
+     "pen"
+    ],
+    "moment": "triple"
+   }
+  ],
+  "gates": [
+   {
+    "id": "quantity",
+    "mechanic": "choose",
+    "prompt": "Ploidy ke liye kya count karoge?",
+    "choices": [
+     "Nucleus ke chromosome sets",
+     "Scene ke total nuclei"
+    ],
+    "answer": "0",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "1",
+      "why": "Nucleus count aur chromosome-set count alag quantities hain."
+     }
+    ],
+    "reveal": "start",
+    "why": "Ploidy chromosome sets batati hai, nuclei ki ginti nahi."
+   },
+   {
+    "id": "target",
+    "mechanic": "tap_part",
+    "prompt": "Zygote banane wale gamete ka fusion target chuno.",
+    "choices": [
+     "egg",
+     "syn",
+     "polar1"
+    ],
+    "answer": "egg",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "syn",
+      "why": "Tube synergid mein enter karti hai, par syngamy egg nucleus se hoti hai."
+     },
+     {
+      "match": "polar1",
+      "why": "Polar nuclei PEN ke partners hain, zygote ke nahi."
+     }
+    ],
+    "reveal": "syngamy",
+    "why": "Egg aur male gamete ke fusion se zygote banta hai."
+   },
+   {
+    "id": "pen_sets",
+    "mechanic": "number",
+    "prompt": "Triple fusion ke baad PEN mein kitne chromosome sets honge?",
+    "choices": [],
+    "answer": "3",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "2",
+      "why": "Is count mein ek haploid partner ka contribution chhoot gaya hai."
+     },
+     {
+      "match": "1",
+      "why": "Ek resulting nucleus hone ka matlab ek chromosome set nahi hai."
+     }
+    ],
+    "reveal": "triple",
+    "why": "Dono polar nuclei aur male gamete ek-ek set contribute karte hain."
+   },
+   {
+    "id": "transfer_ratio",
+    "mechanic": "choose",
+    "prompt": "PEN mein maternal:paternal chromosome-set ratio chuno.",
+    "choices": [
+     "1:1",
+     "2:1",
+     "1:2"
+    ],
+    "answer": "1",
+    "tolerance": 0,
+    "wrong": [
+     {
+      "match": "0",
+      "why": "Tumne maternal polar nuclei ke dono contributions count nahi kiye."
+     },
+     {
+      "match": "2",
+      "why": "Tumne maternal aur paternal contributions ka order ulat diya."
+     }
+    ],
+    "reveal": "end",
+    "why": "Maternal polar nuclei do sets aur paternal gamete ek set deta hai."
+   }
+  ],
+  "board": [
+   {
+    "step": "syngamy",
+    "note": "Egg aur male gamete ke haploid sets judne se zygote diploid hota hai."
+   },
+   {
+    "step": "triple",
+    "note": "Dono polar nuclei aur doosre male gamete ke sets judne se PEN triploid hota hai."
+   }
+  ],
+  "diagnoses": [
+   {
+    "option": 1,
+    "title": "Starting structures ko products samajhna",
+    "why": "Antipodals diploid nahi hain; separate polar nuclei triploid PEN nahi hain.",
+    "shows": ""
+   },
+   {
+    "option": 2,
+    "title": "Products ka order ulta",
+    "why": "PEN triploid aur zygote diploid hai; middle aur last slots ulte hain.",
+    "shows": ""
+   },
+   {
+    "option": 3,
+    "title": "Synergid ko diploid maana",
+    "why": "Antipodals aur synergids dono haploid hain; middle slot galat hai.",
+    "shows": ""
+   },
+   {
+    "option": 4,
+    "title": "Fusion se derived sequence",
+    "why": "Synergids n, zygote 2n aur PEN 3n required order dete hain.",
+    "shows": ""
+   }
+  ],
+  "families": [
+   {
+    "id": "zygote_share",
+    "title": "Zygote ka parental contribution",
+    "question": "Zygote mein maternal:paternal chromosome-set ratio kya hai?",
+    "changes": [
+     "asked ratio zygote"
+    ],
+    "choices": [
+     "1:1",
+     "2:1",
+     "1:2"
+    ],
+    "correct": 1,
+    "why": "Egg maternal set aur male gamete paternal set deta hai; dono contributions barabar hain.",
+    "transfer": false
+   },
+   {
+    "id": "parent_share",
+    "title": "PEN ka parental contribution",
+    "question": "PEN mein maternal:paternal chromosome-set ratio kya hai?",
+    "changes": [
+     "asked ratio pen"
+    ],
+    "choices": [
+     "1:1",
+     "2:1",
+     "1:2"
+    ],
+    "correct": 2,
+    "why": "Dono polar nuclei maternal hain aur male gamete paternal hai.",
+    "transfer": true
+   }
+  ],
+  "recap": "Option 4: synergids n → zygote 2n → PEN 3n. Actual fusion partners ke sets jodo.",
+  "limitations": [
+   "Representative synergid aur antipodal entities complete embryo-sac census nahi dikhati hain.",
+   "Synergid degeneration aur antipodal persistence ki timing model nahi ki gayi.",
+   "Plural polar nuclei wale option ko separate haploid polar1 representative se encode kiya hai.",
+   "Central cell ka sets=0 boundary placeholder hai, nuclear ploidy ka claim nahi; contained nuclei separately encoded hain."
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "central: nuclei=0 but 2 nucleus entities sit in it",
+    "stage see beat 1: focus sac are not parts of the model (...)",
+    "stage see beat 1: labels syn, anti, egg, central are not parts of the model (...)",
+    "stage see beat 1: moment 'start' is not one of ",
+    "stage see beat 2: focus polar1, polar2 are not parts of the model (...)",
+    "stage see beat 2: labels polar1, polar2 are not parts of the model (...)",
+    "stage trap beat 1: focus syn, egg, central are not parts of the model (...)",
+    "stage trap beat 1: labels syn are not parts of the model (...)",
+    "stage trap beat 1: moment 'start' is not one of ",
+    "stage trap beat 2: focus polar1, polar2 are not parts of the model (...)",
+    "stage trap beat 2: labels polar1, polar2 are not parts of the model (...)",
+    "stage concept beat 1: focus male1, egg, syn are not parts of the model (...)",
+    "stage concept beat 1: labels male1, egg are not parts of the model (...)",
+    "stage concept beat 1: moment 'entry' is not one of ",
+    "stage concept beat 2: focus zygote are not parts of the model (...)",
+    "stage concept beat 2: labels zygote are not parts of the model (...)",
+    "stage concept beat 2: moment 'syngamy' is not one of ",
+    "stage concept beat 2: board 'syngamy' is not a model step ()",
+    "stage solve: 2 beats; it needs at least 3",
+    "stage solve beat 1: focus polar1, polar2, male2 are not parts of the model (...)",
+    "stage solve beat 1: labels polar1, polar2, male2 are not parts of the model (...)",
+    "stage solve beat 2: focus syn, zygote, pen are not parts of the model (...)",
+    "stage solve beat 2: labels syn, zygote, pen are not parts of the model (...)",
+    "stage solve beat 2: moment 'end' is not one of ",
+    "stage solve beat 2: board 'triple' is not a model step ()",
+    "stage transfer beat 1: focus pen are not parts of the model (...)",
+    "stage transfer beat 1: labels pen are not parts of the model (...)",
+    "stage transfer beat 2: focus syn, zygote, pen are not parts of the model (...)",
+    "stage transfer beat 2: labels syn, zygote, pen are not parts of the model (...)",
+    "stage transfer beat 2: moment 'end' is not one of ",
+    "gate quantity: reveal 'start' is not a model moment",
+    "gate target: tap_part answer 'egg' is not a model part",
+    "gate target: reveal 'syngamy' is not a model moment",
+    "gate pen_sets: reveal 'triple' is not a model moment",
+    "gate transfer_sets: reveal 'end' is not a model moment",
+    "detail unchanged: focus syn are not model parts",
+    "detail unchanged: moment 'start' is not a model moment",
+    "detail egg_route: focus egg, male1, zygote are not model parts",
+    "detail egg_route: moment 'syngamy' is not a model moment",
+    "detail central_route: focus polar1, polar2, male2, pen are not model parts",
+    "detail central_route: moment 'triple' is not a model moment",
+    "board: at least 2 rows, each a model step ()",
+    "family parent_share: central: nuclei=0 but 2 nucleus entities sit in it",
+    "family parent_share: the model's answer (None) matches none of its choices",
+    "family pen_count: central: nuclei=0 but 2 nucleus entities sit in it",
+    "family pen_count: the model's answer (None) matches none of its choices",
+    "evidence 1: parts syn, anti, egg are not model parts",
+    "evidence 2: parts syn, egg, central, polar1 are not model parts",
+    "evidence 3: parts male1, male2, zygote, pen are not model parts"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": [
+    "family pen_sets_family: the model's answer (None) matches none of its choices"
+   ]
+  },
+  {
+   "round": 3,
+   "problems": []
+  }
+ ],
+ "usage": {
+  "input_tokens": 101200,
+  "output_tokens": 13540
+ },
+ "model": {
+  "kind": "fusion",
+  "problems": [],
+  "answer_option": 3,
+  "trap_options": {},
+  "parts": [
+   "sac",
+   "central",
+   "syn",
+   "anti",
+   "egg",
+   "polar1",
+   "polar2",
+   "male1",
+   "male2",
+   "zygote",
+   "pen"
+  ],
+  "moments": [
+   "start",
+   "entry",
+   "syngamy",
+   "triple",
+   "end"
+  ],
+  "numbers": [
+   0.0,
+   1.0,
+   2.0,
+   3.0,
+   4.0
+  ],
+  "values": {},
+  "verified": true,
+  "board": {
+   "syngamy": {
+    "label": "Syngamy",
+    "sum": "n + n = 2n",
+    "product": "Zygote"
+   },
+   "triple": {
+    "label": "Triple fusion",
+    "sum": "n + n + n = 3n",
+    "product": "Primary endosperm nucleus"
+   }
+  }
+ }
+}
