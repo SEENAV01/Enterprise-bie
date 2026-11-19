@@ -79,10 +79,10 @@ source "$GITHUB_WORKSPACE/tools/ci_apt_prefetch.sh"
 SYSTEM_DEBS=(ffmpeg bubblewrap libseccomp2 apparmor apparmor-utils)
 PLAYWRIGHT_DEBS_TEXT="$(python -m playwright install-deps --dry-run chromium | apt_packages_from_playwright_dry_run)"
 read -r -a PLAYWRIGHT_DEBS <<< "$PLAYWRIGHT_DEBS_TEXT"
-apt_get_bounded 90 update
+apt_update_bounded 90
 apt_prefetch --no-install-recommends "${PLAYWRIGHT_DEBS[@]}"
 python -m playwright install --with-deps chromium
-sudo apt-get update
+apt_update_bounded 90
 apt_prefetch "${SYSTEM_DEBS[@]}"
 sudo apt-get install -y "${SYSTEM_DEBS[@]}"
 

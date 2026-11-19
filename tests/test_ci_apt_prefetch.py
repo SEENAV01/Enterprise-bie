@@ -18,6 +18,8 @@ STUBS = {
     'timeout': '#!/bin/sh\necho "$2" >> "$FAKE_LOG.bounds"\nshift 2\nexec "$@"\n',
     # apt-get: record arguments; exit with the next planned code for downloads.
     'apt-get': ('#!/bin/sh\necho "$*" >> "$FAKE_LOG"\n'
+                'case "$*" in *" update") u=$(cat "$FAKE_LOG.u" 2>/dev/null || echo 0); echo $((u+1)) > "$FAKE_LOG.u"; '
+                'code=$(echo "${FAKE_UPDATE:-0}" | cut -d, -f$((u+1))); exit "${code:-0}" ;; esac\n'
                 'case "$*" in *--download-only*) ;; *) exit 0 ;; esac\n'
                 'n=$(cat "$FAKE_LOG.n" 2>/dev/null || echo 0); echo $((n+1)) > "$FAKE_LOG.n"\n'
                 'code=$(echo "$FAKE_PLAN" | cut -d, -f$((n+1)))\nexit "${code:-0}"\n'),
@@ -26,7 +28,7 @@ STUBS = {
 
 @unittest.skipUnless(shutil.which('bash') and sys.platform != 'win32', 'bash required')
 class AptPrefetch(unittest.TestCase):
-    def run_helper(self, plan, script, mirrors=MIRRORS, budget=480, sources=None):
+    def run_helper(self, plan, script, mirrors=MIRRORS, budget=480, sources=None, updates='0'):
         work = Path(tempfile.mkdtemp()); self.addCleanup(shutil.rmtree, work)
         stub = work / 'bin'; stub.mkdir()
         for name, body in STUBS.items():
@@ -39,7 +41,7 @@ class AptPrefetch(unittest.TestCase):
         self.etc = etc
         env = dict(os.environ, PATH=f'{stub}:{os.environ["PATH"]}', FAKE_LOG=str(work / 'log'),
                    FAKE_PLAN=plan, APT_MIRRORS=str(mirror_file), APT_BUDGET_S=str(budget),
-                   APT_SOURCES_DIR=str(etc))
+                   APT_SOURCES_DIR=str(etc), FAKE_UPDATE=updates)
         result = subprocess.run(['bash', '-c', f'set -euo pipefail; source "{HELPER}"; {script}'],
                                 env=env, capture_output=True, text=True, timeout=60)
         read = lambda p: p.read_text().splitlines() if p.exists() else []
@@ -134,6 +136,34 @@ class AptPrefetch(unittest.TestCase):
             self.assertEqual(mirrors, layout)
             self.assertIn('no second mirror listed; retrying the same mirror', result.stdout)
             self.assertFalse(any(c.endswith(' update') for c in calls))
+
+    def test_index_update_that_stalls_fails_over_once(self):
+        # PR #169 (19 November 2026): five jobs stopped in "apt-get update" with exit 124 before any test ran
+        result, calls, bounds, mirrors = self.run_helper('0', 'apt_update_bounded 90; apt_prefetch a', updates='124,0')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(mirrors, MIRRORS.split('\n', 1)[1])                 # the regional line dropped once
+        self.assertIn('::warning title=APT index update (F-11)::', result.stdout)
+        self.assertEqual(sum(1 for c in calls if c.endswith(' update')), 2)
+        self.assertEqual(bounds[:2], [90, 90])
+
+    def test_healthy_index_update_changes_nothing(self):
+        result, calls, bounds, mirrors = self.run_helper('0', 'apt_update_bounded 90', updates='0')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(mirrors, MIRRORS)
+        self.assertNotIn('::', result.stdout)
+
+    def test_index_update_still_stalled_after_fail_over_is_a_clear_error(self):
+        result, calls, bounds, mirrors = self.run_helper('0', 'apt_update_bounded 90; apt_update_bounded 90; echo NOT',
+                                                         updates='124,124,124')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('::error title=APT index update (F-11)::', result.stdout)
+        self.assertNotIn('NOT', result.stdout.replace('NOTICE', ''))
+
+    def test_no_unbounded_index_update_is_left(self):
+        for path in (SETUP, ROOT / '.github/workflows/toolbox.yml'):
+            text = path.read_text(encoding='utf-8')
+            self.assertNotIn('sudo apt-get update', text, path)
+            self.assertIn('apt_update_bounded 90', text, path)
 
     def test_exhausted_budget_never_starts_a_download(self):
         result, calls, bounds, mirrors = self.run_helper('0', 'apt_prefetch a', budget=0)
