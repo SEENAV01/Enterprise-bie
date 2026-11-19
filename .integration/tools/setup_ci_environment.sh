@@ -70,6 +70,9 @@ python -m pip install -r .integration/tools/requirements-validation.txt 2>&1 | t
 # Independent projection-reference tests require this declared test-only extra.
 # Preserve the sealed compile-worker requirements file without modification.
 python -m pip install 'pyproj==3.7.2' 'certifi==2026.5.20' 2>&1 | tee "$EVIDENCE/regression-extras-install.log"
+# The PYQ lab's chemistry model (bie/brain/pyq_chem.py) needs RDKit (BSD-3-Clause, the same pin as the studio extra);
+# the canonical gates allow no skipped tests, so its tests must run here too.
+python -m pip install 'rdkit==2026.9.1' 2>&1 | tee -a "$EVIDENCE/regression-extras-install.log"
 python -m pip check
 npm install --global typescript@5.8.3 2>&1 | tee "$EVIDENCE/typescript-install.log"
 # F-11(a): download each apt package set first, time-bounded with one fail-over
