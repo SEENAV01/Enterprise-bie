@@ -82,6 +82,24 @@ class AptPrefetch(unittest.TestCase):
         self.assertEqual(sum(1 for c in calls if c.endswith(' update')), 1)
         self.assertIn('::error title=APT download bound (F-11)::', result.stdout)
 
+    def test_ec2_regional_mirror_is_regional_too(self):
+        # PR #167 run on bbd4d746 (18 November 2026): the image's own list, read from the "APT sources (F-11)" notice
+        ec2 = ('http://us-east-2.ec2.archive.ubuntu.com/ubuntu/\tpriority:1\n'
+               'https://archive.ubuntu.com/ubuntu/\tpriority:2\n'
+               'https://security.ubuntu.com/ubuntu/\tpriority:3\n')
+        result, calls, bounds, mirrors = self.run_helper('124,0', 'apt_prefetch a', mirrors=ec2)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(mirrors, ec2.split('\n', 1)[1])                 # only the regional line dropped
+        self.assertIn("using the image's next listed mirror", result.stdout)
+        self.assertNotIn('no second mirror listed', result.stdout)
+        self.assertEqual(sum(1 for c in calls if c.endswith(' update')), 1)
+
+    def test_regional_only_ec2_list_points_at_the_primary_archive(self):
+        only = 'http://us-east-2.ec2.archive.ubuntu.com/ubuntu/\tpriority:1\n# a comment line\n'
+        result, calls, bounds, mirrors = self.run_helper('124,0', 'apt_prefetch a', mirrors=only)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(mirrors, 'http://archive.ubuntu.com/ubuntu/\tpriority:1\n# a comment line\n')  # a comment is no mirror
+
     def test_regional_only_list_fails_over_to_the_primary_archive(self):
         only = 'http://azure.archive.ubuntu.com/ubuntu/\tpriority:1\n'
         result, calls, bounds, mirrors = self.run_helper('124,0', 'apt_prefetch a', mirrors=only)
@@ -109,7 +127,8 @@ class AptPrefetch(unittest.TestCase):
         self.assertEqual(sum(1 for c in calls if c.endswith(' update')), 1)
 
     def test_unknown_mirror_layout_is_not_rewritten(self):
-        for layout in (None, 'https://archive.ubuntu.com/ubuntu/\tpriority:1\n'):
+        for layout in (None, 'https://archive.ubuntu.com/ubuntu/\tpriority:1\n',      # the primary and security hosts
+                       'http://archive.ubuntu.com/ubuntu/\nhttp://security.ubuntu.com/ubuntu/\n'):  # are never regional
             result, calls, bounds, mirrors = self.run_helper('124,0', 'apt_prefetch a', mirrors=layout)
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertEqual(mirrors, layout)

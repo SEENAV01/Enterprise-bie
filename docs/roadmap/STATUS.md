@@ -2168,7 +2168,14 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   `/etc/apt/apt-mirrors.txt` the way the script expected. Second commit: the fail-over now finds the regional host
   (any region prefix) wherever apt names it (the mirror list, `sources.list`, `*.list`, deb822 `*.sources`) and points
   it at the primary archive, and every fail-over first writes a `::notice` "APT sources (F-11)" listing where apt
-  fetches from, since job logs cannot be read from the cloud workspace.
+  fetches from, since job logs cannot be read from the cloud workspace. The second run (head `bbd4d746`, 23:20–23:29
+  UTC) still failed three jobs in setup, but its notice showed why: these runners now fetch from
+  `us-east-2.ec2.archive.ubuntu.com` (an EC2 regional mirror), and the mirror list does name a second mirror
+  (`https://archive.ubuntu.com/ubuntu/`, then `security.ubuntu.com`); the script only knew `azure.archive.ubuntu.com`
+  as "regional", so it never dropped the slow line. Third commit: "regional" is now any host under
+  `archive.ubuntu.com` (one or more labels before it), never `archive.ubuntu.com` or `security.ubuntu.com` themselves;
+  a comment line no longer counts as a second mirror. Tests: the exact EC2 list from the notice drops only its regional
+  line; an EC2-only list points at the primary archive. No CI rerun used: new commit, new run.
 - F-14 (26 October 2026, VM runner): the first job after PR #77 merged (`codex-jobs:jobs/t046-oneshot-images.json`)
   came back `refused: unknown fields: max_images, prompts`. Cause: `tools/codex_vm.py poll` imports the runner, then
   moves the checkout to the new `main`, then checks the jobs with the rules it had already loaded, so the first poll

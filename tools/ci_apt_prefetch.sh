@@ -18,14 +18,17 @@
 # *.list or deb822 *.sources files; nothing else in apt's sources or trust
 # changes. Navin said yes on 18 November 2026. Every fail-over first writes a
 # ::notice listing where apt fetches from, because job logs cannot be read here.
+# "Regional" means any mirror host under archive.ubuntu.com (azure.archive... on
+# Azure runners; us-east-2.ec2.archive... seen on 18 November 2026, PR #167 run
+# on bbd4d746), never archive.ubuntu.com or security.ubuntu.com themselves.
 # Worst case for all prefetches of one job: APT_BUDGET_S seconds, then a clear
 # ::error annotation and a non-zero exit instead of a silent job cancel.
 
 APT_MIRRORS="${APT_MIRRORS:-/etc/apt/apt-mirrors.txt}"
 APT_BUDGET_S="${APT_BUDGET_S:-480}"        # all prefetches of this job together
 APT_FIRST_TRY_S="${APT_FIRST_TRY_S:-180}"  # first try on the regional mirror (healthy: ~10 s)
-APT_REGIONAL='^http://azure\.archive\.ubuntu\.com/'
-APT_SLOW_HOST='([a-z0-9-]+\.)*azure\.archive\.ubuntu\.com'   # the runner's regional mirror, any region prefix
+APT_SLOW_HOST='([a-z0-9-]+\.)+archive\.ubuntu\.com'   # a regional mirror: one or more labels before archive.ubuntu.com
+APT_REGIONAL="^https?://${APT_SLOW_HOST}/"                 # a mirror-list line on that host (ERE)
 APT_PRIMARY_HOST='archive.ubuntu.com'
 APT_SOURCES_DIR="${APT_SOURCES_DIR:-/etc/apt}"
 APT_FAILED_OVER=0
@@ -57,9 +60,10 @@ apt_mirror_failover() {
   local left files f
   APT_FAILED_OVER=1
   echo "::notice title=APT sources (F-11)::$(apt_sources_summary)"
-  if test -f "$APT_MIRRORS" && grep -q "$APT_REGIONAL" "$APT_MIRRORS" && grep -vq "$APT_REGIONAL" "$APT_MIRRORS"; then
+  if test -f "$APT_MIRRORS" && grep -Eq "$APT_REGIONAL" "$APT_MIRRORS" \
+     && test -n "$(grep -E '^https?://' "$APT_MIRRORS" | grep -Ev "$APT_REGIONAL")"; then   # another mirror is listed
     echo "apt mirror list before fail-over:"; cat "$APT_MIRRORS"
-    sudo sed -i '\#^http://azure\.archive\.ubuntu\.com/#d' "$APT_MIRRORS"
+    sudo sed -i -E "\\#${APT_REGIONAL}#d" "$APT_MIRRORS"
     echo "apt mirror list after fail-over:"; cat "$APT_MIRRORS"
     echo "::warning title=APT mirror fail-over (F-11)::regional mirror too slow; using the image's next listed mirror"
   else
