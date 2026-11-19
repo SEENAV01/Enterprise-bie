@@ -1,0 +1,2014 @@
+{
+ "chapter_title": "Money: Bharose se bank balance tak",
+ "big_question": "Ek kagaz, coin ya screen par number ko paisa kaun banata hai, aur yeh poori economy ko kaise chalata hai?",
+ "pillars": [
+  {
+   "id": "p1",
+   "title": "Paisa kyun aur kaise bana?",
+   "line": "Barter ki rukawaton se gold-backed notes tak, har naya roop exchange ki ek dikkat suljhata hai."
+  },
+  {
+   "id": "p2",
+   "title": "Paise ko value aur kanooni taqat kahan se milti hai?",
+   "line": "Fiat money, legal tender, dollar aur rupee ki kahani mein bharose aur authority ka role dekho."
+  },
+  {
+   "id": "p3",
+   "title": "Note ka bharosa kaise bachta ya toot-ta hai?",
+   "line": "Tughlaq ke experiment se security features, demonetisation aur Gresham's Law tak."
+  },
+  {
+   "id": "p4",
+   "title": "Account se payment tak paisa kaise pahunchta hai?",
+   "line": "Bank instruments, UPI aur payment networks ke andar paisa aur instructions ka raasta dekho."
+  },
+  {
+   "id": "p5",
+   "title": "Naya paisa kya hai, aur total paisa kaise ginte hain?",
+   "line": "Polymer, crypto aur RBI ke money aggregates ko alag-alag pehchaano."
+  }
+ ],
+ "questions": [
+  {
+   "id": "q01",
+   "pillar": "p1",
+   "question": "Dukaan par cash bhi chalta hai aur account ka balance bhi—dono paisa kaise hain?",
+   "hook": "Wallet khaali hai, phir bhi groceries ki payment ho jaati hai.",
+   "points": [
+    {
+     "block_ids": [
+      "p0001-b0004",
+      "p0001-b0005"
+     ],
+     "point": "Goods-services khareedne aur karz chukane ke liye accept hone wali cheez money hai.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0001-b0006",
+      "p0001-b0007",
+      "p0001-b0008"
+     ],
+     "point": "Money sirf notes-coins nahi; accepted bank deposits aur digital balances bhi payment mein kaam aate hain.",
+     "kind": "classification"
+    },
+    {
+     "block_ids": [
+      "p0001-b0010",
+      "p0001-b0011",
+      "p0001-b0012"
+     ],
+     "point": "Achha paisa log accept karein, jaldi kharab na ho aur aasani se carry ho sake.",
+     "kind": "classification"
+    },
+    {
+     "block_ids": [
+      "p0001-b0013",
+      "p0001-b0014",
+      "p0001-b0015"
+     ],
+     "point": "Achhe paise ki chhoti units ban sakein, same denomination ki units uniform hon aur supply ki scarcity value sambhalne mein madad kare.",
+     "kind": "classification"
+    },
+    {
+     "block_ids": [
+      "p0001-b0017",
+      "p0001-b0018",
+      "p0001-b0019",
+      "p0001-b0020"
+     ],
+     "point": "Money exchange ka medium aur common price scale hai—₹500 se groceries milti hain aur ₹20,000 ka phone ₹60,000 ke laptop se compare hota hai.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0001-b0021",
+      "p0001-b0022",
+      "p0001-b0023",
+      "p0001-b0024"
+     ],
+     "point": "Money purchasing power future ke liye rakhne aur loan-EMI jaise future payments fix karne ka kaam karta hai.",
+     "kind": "definition"
+    }
+   ],
+   "film": {
+    "length": "short",
+    "showing_moment": "Ek hi ₹500 ki value shopping, price tag, savings aur future payment ke chaar use-slots mein dikhai deti hai."
+   },
+   "game_stage": {
+    "mechanic": "drag_to_target",
+    "idea": "Payment, price comparison, saving aur EMI ke scenes ko sahi money-function par rakho; sahi match se transaction complete ho."
+   }
+  },
+  {
+   "id": "q02",
+   "pillar": "p1",
+   "question": "Mere paas gehun hai aur mujhe jootey chahiye—sauda atak kyun sakta hai?",
+   "hook": "Mochi ko gehun nahi, doodh chahiye; tumhara gehun kaam ka hote hue bhi payment nahi ban raha.",
+   "points": [
+    {
+     "block_ids": [
+      "p0002-b0003",
+      "p0002-b0004",
+      "p0002-b0006",
+      "p0002-b0007",
+      "p0002-b0008"
+     ],
+     "point": "Barter mein money ke bina goods-services seedhe exchange hote hain aur value aapas ki agreement se tay hoti hai.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0002-b0009"
+     ],
+     "point": "Barter early civilizations mein common tha aur aaj bhi kuch informal exchanges mein milta hai.",
+     "kind": "timeline"
+    },
+    {
+     "block_ids": [
+      "p0002-b0011"
+     ],
+     "point": "Double coincidence of wants mein dono parties ko ek-doosre ki offered cheez ek hi waqt par chahiye hoti hai.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0003-b0002",
+      "p0003-b0003"
+     ],
+     "point": "Common value scale aur divisibility na hone se barter mein price compare karna aur chhota payment karna mushkil hota hai.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0003-b0004",
+      "p0003-b0005"
+     ],
+     "point": "Goods mein wealth store karna aur future payment ka standard fix karna bhi mushkil hota hai.",
+     "kind": "cause_effect"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Gehun se jootey lene ki exchange line mochi ki alag demand par ruk jaati hai."
+   },
+   "game_stage": {
+    "mechanic": "route_flow",
+    "idea": "Logon ki wants dekhkar barter ka route banao; matching wants na milne par goods ki movement ruk jaaye."
+   }
+  },
+  {
+   "id": "q03",
+   "pillar": "p1",
+   "question": "Agar sab anaaj ko payment maan lein, toh barter ki dikkat khatam ho jaayegi?",
+   "hook": "Anaaj se jootey mil gaye, lekin kuch mahine baad bacha hua 'paisa' sad gaya.",
+   "points": [
+    {
+     "block_ids": [
+      "p0003-b0007",
+      "p0003-b0008",
+      "p0003-b0009",
+      "p0003-b0010"
+     ],
+     "point": "Commodity money ki intrinsic value hoti hai, yaani payment ke alawa bhi us cheez ka apna use aur value hota hai.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0003-b0012",
+      "p0003-b0013",
+      "p0003-b0014"
+     ],
+     "point": "Community mein widely accepted aur doosre uses wali commodity barter se zyada aasani se payment ban sakti hai.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0003-b0015",
+      "p0003-b0016"
+     ],
+     "point": "Metallic coins common hone se pehle commodity money medium bana aur double coincidence ki zaroorat ghati.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0003-b0018",
+      "p0003-b0019",
+      "p0003-b0020",
+      "p0003-b0021",
+      "p0003-b0022"
+     ],
+     "point": "Commodity money mein quality-uniformity, divisibility, perishability, transport aur standardization ki dikkatein reh sakti hain.",
+     "kind": "classification"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Accepted anaaj exchange ko chala deta hai, par storage mein wahi anaaj kharab hokar payment value kho deta hai."
+   },
+   "game_stage": {
+    "mechanic": "choose_and_see",
+    "idea": "Alag commodities ko payment medium banao aur storage, chhutte payment aur transport mein unki performance dekho."
+   }
+  },
+  {
+   "id": "q04",
+   "pillar": "p1",
+   "question": "Sikke anaaj se behtar the, toh phir kagaz ke note kyun aaye?",
+   "hook": "Chhota sauda coins se aasaan hai, lekin bade saude ke liye sikko ka bhaari sandook chahiye.",
+   "points": [
+    {
+     "block_ids": [
+      "p0003-b0024",
+      "p0003-b0025"
+     ],
+     "point": "Metallic money gold, silver, copper, bronze ya electrum se banta tha; value metal aur baad mein minting authority se judi.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0003-b0026",
+      "p0003-b0034",
+      "p0003-b0035"
+     ],
+     "point": "Durability, portability, divisibility, intrinsic value, standardization aur acceptance ne metallic money se trade zyada reliable banaya.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0003-b0027",
+      "p0003-b0028",
+      "p0003-b0029",
+      "p0003-b0030",
+      "p0003-b0031",
+      "p0003-b0032",
+      "p0003-b0033"
+     ],
+     "point": "Early metal exchange Mesopotamia-Egypt mein tha, jabki pehle standardized coins ka credit aam taur par Lydia ko milta hai.",
+     "kind": "timeline"
+    },
+    {
+     "block_ids": [
+      "p0003-b0036",
+      "p0003-b0037",
+      "p0003-b0038"
+     ],
+     "point": "Limited supply, bhaari transport, theft, ghisawat aur debasement ne large-scale expansion roki aur paper money ki taraf dhakela.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0004-b0002",
+      "p0004-b0003",
+      "p0004-b0004",
+      "p0004-b0005",
+      "p0004-b0006",
+      "p0004-b0007"
+     ],
+     "point": "Gold-backed note ki value kagaz mein nahi, fixed quantity gold mein redeem karne ke issuer ke promise mein thi.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0004-b0008",
+      "p0004-b0009",
+      "p0004-b0010",
+      "p0004-b0011"
+     ],
+     "point": "Central bank gold reserve rakhta, notes issue karta aur redemption deta; gold backing ki requirement note issue ko constrain karti thi.",
+     "kind": "process"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Gold vault mein reh jaata hai aur uske badle redeemable paper note bazaar mein chalne lagta hai."
+   },
+   "game_stage": {
+    "mechanic": "slider_cause_effect",
+    "idea": "Gold reserve badhao-ghatao aur fixed backing rule ke andar issue ho sakne wale notes ki quantity badalte dekho."
+   }
+  },
+  {
+   "id": "q05",
+   "pillar": "p2",
+   "question": "Aaj ka note gold mein badalta nahi, phir bhi sab use kyun lete hain?",
+   "hook": "₹500 ke kagaz ki material value bahut kam hai, par usse ₹500 ka sauda ho jaata hai.",
+   "points": [
+    {
+     "block_ids": [
+      "p0004-b0013",
+      "p0004-b0014",
+      "p0004-b0015",
+      "p0004-b0016",
+      "p0004-b0017"
+     ],
+     "point": "Fiat money ki monetary value material ki intrinsic value ke bajay government authority aur public trust par tikti hai.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0004-b0019",
+      "p0004-b0020",
+      "p0004-b0021",
+      "p0004-b0022",
+      "p0004-b0023"
+     ],
+     "point": "Fiat paper ya digital form mein ho sakta hai aur gold-silver redemption se backed hona zaroori nahi.",
+     "kind": "classification"
+    },
+    {
+     "block_ids": [
+      "p0004-b0024",
+      "p0004-b0025",
+      "p0004-b0026",
+      "p0004-b0027",
+      "p0004-b0028",
+      "p0004-b0029",
+      "p0004-b0030",
+      "p0004-b0031"
+     ],
+     "point": "State-central bank framework fiat issue ko control karta hai; supply flexible hoti hai, par monetary policy aur public confidence maayne rakhte hain.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0004-b0032",
+      "p0004-b0033",
+      "p0004-b0034"
+     ],
+     "point": "Legal tender kanoon se recognised debt-settlement status hai; fiat value ka basis hai, isliye dono terms ko universal synonyms mat samjho.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0004-b0035",
+      "p0004-b0036",
+      "p0004-b0037",
+      "p0004-b0038"
+     ],
+     "point": "El Salvador ka Bitcoin case non-fiat legal tender ka exception samjhata hai; 2025 reforms ke baad private acceptance voluntary hui.",
+     "kind": "timeline"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Note ki gold-redemption line hat jaati hai, par authority aur trust ke sahare payment network chalta rehta hai."
+   },
+   "game_stage": {
+    "mechanic": "sort_groups",
+    "idea": "Value-backing aur legal-status ke do alag switches set karo; Bitcoin aur fiat ke cases sahi zones mein jaakar payment rules badlein."
+   }
+  },
+  {
+   "id": "q06",
+   "pillar": "p2",
+   "question": "₹100 ka special coin hazaaron mein bik sakta hai, par payment mein kitne ka chalega?",
+   "hook": "Collector ek coin ke liye ₹3,000 deta hai, lekin us par denomination ₹100 likhi hai.",
+   "points": [
+    {
+     "block_ids": [
+      "p0004-b0039",
+      "p0004-b0040",
+      "p0004-b0041",
+      "p0004-b0042"
+     ],
+     "point": "Commemorative coin ka fiat/legal-tender status uske issue rules se dekho; circulation issues ordinary coins ki tarah use hote hain.",
+     "kind": "classification"
+    },
+    {
+     "block_ids": [
+      "p0005-b0002",
+      "p0005-b0003",
+      "p0005-b0004",
+      "p0005-b0005"
+     ],
+     "point": "Proof ya UNC collector sets roz ke circulation mein kam aate hain; ₹100 legal-tender coin ki payment value ₹100 aur collector value kaafi zyada ho sakti hai.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0005-b0006"
+     ],
+     "point": "Cheque aur credit card payment tools hain, apne aap fiat currency ya compulsory legal tender nahi.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0005-b0009",
+      "p0005-b0010",
+      "p0005-b0011",
+      "p0005-b0012",
+      "p0005-b0013",
+      "p0005-b0014",
+      "p0005-b0015",
+      "p0005-b0016",
+      "p0005-b0017"
+     ],
+     "point": "Valid genuine ₹10, ₹20, ₹50, ₹100, ₹200 aur ₹500 banknotes unlimited legal tender ke examples hain; RBI Act, 1934 iska kanooni framework deta hai.",
+     "kind": "classification"
+    },
+    {
+     "block_ids": [
+      "p0005-b0019",
+      "p0005-b0020",
+      "p0005-b0021"
+     ],
+     "point": "Coinage Act, 2011 ke limited legal tender mein compulsory acceptance prescribed amount tak hoti hai; usse aage acceptance voluntary hai.",
+     "kind": "comparison"
+    }
+   ],
+   "film": {
+    "length": "short",
+    "showing_moment": "Ek coin ke neeche collector price ₹3,000 dikhte hue bhi debt-settlement meter sirf ₹100 ghatta hai."
+   },
+   "game_stage": {
+    "mechanic": "choose_and_see",
+    "idea": "Debt chukane ke liye valid note, coin ya cheque chuno; denomination, legal limit aur voluntary acceptance ke hisaab se debt meter badle."
+   }
+  },
+  {
+   "id": "q07",
+   "pillar": "p2",
+   "question": "Duniya ko zyada dollars chahiye the, toh America ka gold promise kyun toot gaya?",
+   "hook": "International trade dollar maang raha hai, lekin har naya dollar gold redemption par bharosa kam kar raha hai.",
+   "points": [
+    {
+     "block_ids": [
+      "p0005-b0022",
+      "p0005-b0023",
+      "p0005-b0024",
+      "p0005-b0025"
+     ],
+     "point": "1944 Bretton Woods mein US ne mainly foreign central banks ko US$35 ke badle ek troy ounce gold ka promise diya aur dollar reserve currency bana.",
+     "kind": "timeline"
+    },
+    {
+     "block_ids": [
+      "p0005-b0026",
+      "p0005-b0027",
+      "p0005-b0028",
+      "p0005-b0029",
+      "p0005-b0030",
+      "p0005-b0031",
+      "p0005-b0032",
+      "p0005-b0033"
+     ],
+     "point": "1960s ke war-welfare spending aur worldwide dollar expansion ne gold backing par pressure badhaya; France ne dollars ke badle gold maanga.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0005-b0034",
+      "p0005-b0035",
+      "p0005-b0036",
+      "p0005-b0037"
+     ],
+     "point": "Triffin dilemma mein global trade ko dollar supply chahiye, lekin wahi extra supply gold convertibility par confidence kam karti hai.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0005-b0038"
+     ],
+     "point": "15 August 1971 ko Richard Nixon ne dollar ki gold convertibility band kar di.",
+     "kind": "timeline"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Dollars ka stack gold reserve se tez badhta hai aur redemption demand aate hi gold window band ho jaati hai."
+   },
+   "game_stage": {
+    "mechanic": "slider_cause_effect",
+    "idea": "Dollar supply badhakar trade ki demand poori karo; saath mein fixed gold reserve par redemption pressure aur confidence badalte dekho."
+   }
+  },
+  {
+   "id": "q08",
+   "pillar": "p2",
+   "question": "Gold backing gayi, phir bhi duniya dollars kyun rakhti rahi?",
+   "hook": "Oil khareedne ke liye dollar chahiye, chahe dollar ke badle gold na mile.",
+   "points": [
+    {
+     "block_ids": [
+      "p0005-b0040",
+      "p0006-b0002"
+     ],
+     "point": "Gold convertibility khatam hone ke baad dollar demand ke doosre sources ka sawaal mahatvapurn ho gaya.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0006-b0003",
+      "p0006-b0004",
+      "p0006-b0005"
+     ],
+     "point": "1973 OPEC embargo mein oil prices lagbhag chaar guna hue; dollar-priced oil ne countries ki dollar demand ko support kiya.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0006-b0006",
+      "p0006-b0007",
+      "p0006-b0008"
+     ],
+     "point": "1974 US-Saudi understanding mein dollar oil pricing aur oil revenues ka US Treasuries-financial markets mein investment mahatvapurn tha.",
+     "kind": "process"
+    },
+    {
+     "block_ids": [
+      "p0006-b0009",
+      "p0006-b0010"
+     ],
+     "point": "Is relationship mein US ki military protection, weapons supply aur Saudi security guarantees bhi shamil the.",
+     "kind": "structure"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Oil buyer ke dollars Saudi revenue ban kar US Treasury investments ki taraf lautte hain."
+   },
+   "game_stage": {
+    "mechanic": "route_flow",
+    "idea": "Oil buyer, Saudi oil revenue aur US financial market ko jodo; sahi route par dollar demand aur revenue recycling chal pade."
+   }
+  },
+  {
+   "id": "q09",
+   "pillar": "p2",
+   "question": "Aaj ka rupee kabhi chandi ka sikka tha—uski pehchaan ek jaisi kaise bani?",
+   "hook": "Alag ilaqon ke alag coins se ek common rupee tak pahunchna sirf naam badalne ka kaam nahi tha.",
+   "points": [
+    {
+     "block_ids": [
+      "p0006-b0012",
+      "p0006-b0013",
+      "p0006-b0014",
+      "p0006-b0015",
+      "p0006-b0016",
+      "p0006-b0022"
+     ],
+     "point": "Rupiya Sanskrit Rupya, yaani wrought silver se juda hai; Sher Shah Suri ne lagbhag 1540 mein uniform, high-purity 178-grain yani kareeb 11.5-gram silver rupee diya.",
+     "kind": "timeline"
+    },
+    {
+     "block_ids": [
+      "p0006-b0017",
+      "p0006-b0018",
+      "p0006-b0019",
+      "p0006-b0020",
+      "p0006-b0023"
+     ],
+     "point": "Mughal era mein Akbar ne minting badhai aur emperor ke naam wale standardized-weight silver coins empire bhar mein bane.",
+     "kind": "timeline"
+    },
+    {
+     "block_ids": [
+      "p0007-b0004",
+      "p0007-b0007",
+      "p0007-b0009",
+      "p0007-b0011"
+     ],
+     "point": "Coin-metal mapping mein Mohur gold, Rupee silver aur Dam copper se juda tha.",
+     "kind": "classification"
+    },
+    {
+     "block_ids": [
+      "p0007-b0002",
+      "p0007-b0003",
+      "p0007-b0005",
+      "p0007-b0006"
+     ],
+     "point": "1757–1835 mein East India Company ne pehle Mughal-style coinage chalayi aur Bombay, Calcutta, Madras Presidencies alag coins mint karti thi.",
+     "kind": "timeline"
+    },
+    {
+     "block_ids": [
+      "p0006-b0024",
+      "p0007-b0008",
+      "p0007-b0009",
+      "p0007-b0010",
+      "p0007-b0012"
+     ],
+     "point": "Currency Act, 1835 ne British India ke liye uniform design aur monarch portrait wala common rupee aur single legal-tender framework diya.",
+     "kind": "timeline"
+    },
+    {
+     "block_ids": [
+      "p0007-b0013",
+      "p0007-b0014"
+     ],
+     "point": "Paper Currency Act, 1861 se banknotes issue karne ka exclusive right British government ko mila.",
+     "kind": "timeline"
+    },
+    {
+     "block_ids": [
+      "p0006-b0025",
+      "p0007-b0015",
+      "p0007-b0016",
+      "p0007-b0017",
+      "p0007-b0018",
+      "p0007-b0019",
+      "p0007-b0020",
+      "p0007-b0022"
+     ],
+     "point": "Silver discoveries se prices girne ke baad Fowler Committee, 1898 ne rupee ko gold se link karne ki recommendation di aur gold exchange standard ki taraf badlaav hua.",
+     "kind": "cause_effect"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Alag mints ke uneven coins ek standardized rupee design aur weight par align ho jaate hain."
+   },
+   "game_stage": {
+    "mechanic": "build_sequence",
+    "idea": "Sher Shah, Mughals, Presidency coins, 1835, 1861 aur silver crisis ke milestones jodo; har sahi step par rupee ka roop badle."
+   }
+  },
+  {
+   "id": "q10",
+   "pillar": "p2",
+   "question": "Ek rupee mein kabhi 16 annas the—100 paise aur digital rupee tak kya badla?",
+   "hook": "Naam rupee hi raha, lekin uski counting, symbols, exchange rate aur digital form badalte gaye.",
+   "points": [
+    {
+     "block_ids": [
+      "p0007-b0024",
+      "p0007-b0026",
+      "p0007-b0027",
+      "p0007-b0029"
+     ],
+     "point": "RBI 1935 mein shuru hua aur usne 1938 se notes issue kiye; colonial note portraits ki chronology ko George VI wale RBI issues se alag pehchaano.",
+     "kind": "timeline"
+    },
+    {
+     "block_ids": [
+      "p0006-b0026",
+      "p0007-b0030",
+      "p0007-b0031",
+      "p0007-b0032"
+     ],
+     "point": "Independence ke baad imperial symbols ki jagah Ashoka Lion Capital aaya, par British monetary system se links kuch samay rahe.",
+     "kind": "timeline"
+    },
+    {
+     "block_ids": [
+      "p0006-b0027",
+      "p0007-b0021",
+      "p0007-b0023",
+      "p0007-b0025",
+      "p0007-b0028",
+      "p0007-b0029",
+      "p0007-b0033",
+      "p0007-b0034"
+     ],
+     "point": "1955 amendment ke baad 1957 decimalization mein 1 rupee = 16 annas = 64 old paise = 192 pies ki jagah 100 naye paise hue.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0006-b0028",
+      "p0007-b0035",
+      "p0007-b0036",
+      "p0007-b0037"
+     ],
+     "point": "1971 ke global gold-convertibility break ko India ke fiat framework ki taraf gradual transition ke context mein dekho, ek single domestic switch ki tarah nahi.",
+     "kind": "timeline"
+    },
+    {
+     "block_ids": [
+      "p0006-b0029",
+      "p0007-b0038",
+      "p0007-b0039",
+      "p0007-b0040"
+     ],
+     "point": "1993 se managed market-determined exchange rate mein RBI mainly excessive volatility smooth karta hai, fixed rate maintain nahi.",
+     "kind": "process"
+    },
+    {
+     "block_ids": [
+      "p0007-b0041",
+      "p0007-b0042"
+     ],
+     "point": "2010 mein adopted ₹ symbol D. Udaya Kumar ne Devanagari aur Roman script ke elements se design kiya.",
+     "kind": "facts_numbers"
+    },
+    {
+     "block_ids": [
+      "p0007-b0043",
+      "p0007-b0044",
+      "p0007-b0045",
+      "p0007-b0046"
+     ],
+     "point": "Digital rupee RBI ki rupee-denominated legal-tender digital currency hai; wholesale pilot November 2022 aur retail pilot December 2022 se shuru hokar expand hue.",
+     "kind": "timeline"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Rupee ki timeline par 16-anna counting tootkar 100-paise grid banti hai aur aakhir mein digital form judta hai."
+   },
+   "game_stage": {
+    "mechanic": "build_sequence",
+    "idea": "RBI, independent symbols, decimalization, managed float, ₹ symbol aur digital pilots ko sequence mein rakho; har milestone par currency display update ho."
+   }
+  },
+  {
+   "id": "q11",
+   "pillar": "p3",
+   "question": "Tughlaq ne copper ko silver ke barabar kaha, toh bazaar ne maanna kyun chhod diya?",
+   "hook": "Royal order ne coin ka face value badha diya, lekin ghar-ghar nakli coins banne lage.",
+   "points": [
+    {
+     "block_ids": [
+      "p0008-b0002",
+      "p0008-b0003",
+      "p0008-b0004",
+      "p0008-b0005",
+      "p0008-b0006",
+      "p0008-b0007",
+      "p0008-b0014",
+      "p0008-b0016",
+      "p0008-b0018",
+      "p0008-b0020",
+      "p0008-b0022",
+      "p0008-b0024",
+      "p0008-b0026",
+      "p0008-b0028",
+      "p0008-b0030",
+      "p0008-b0032",
+      "p0008-b0034",
+      "p0008-b0036",
+      "p0008-b0038",
+      "p0008-b0040",
+      "p0008-b0042",
+      "p0008-b0044"
+     ],
+     "point": "1329–1330 CE mein military expenditure, silver shortage aur administration-trade ki money needs ke beech Tughlaq ne brass-copper token ko silver Tanka ke barabar declare kiya.",
+     "kind": "timeline"
+    },
+    {
+     "block_ids": [
+      "p0008-b0014",
+      "p0008-b0016",
+      "p0008-b0018",
+      "p0008-b0020",
+      "p0008-b0022",
+      "p0008-b0024",
+      "p0008-b0026",
+      "p0008-b0028",
+      "p0008-b0030",
+      "p0008-b0032",
+      "p0008-b0034",
+      "p0008-b0036",
+      "p0008-b0038",
+      "p0008-b0040",
+      "p0008-b0042",
+      "p0008-b0044"
+     ],
+     "point": "Silver Tanka ki intrinsic value ke muqable token ka face value royal order se tha; maksad silver dependence ghatakar money supply aur trade badhana tha.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0008-b0013",
+      "p0008-b0015",
+      "p0008-b0017",
+      "p0008-b0019",
+      "p0008-b0021",
+      "p0008-b0023",
+      "p0008-b0025",
+      "p0008-b0027",
+      "p0008-b0029",
+      "p0008-b0031",
+      "p0008-b0033",
+      "p0008-b0035",
+      "p0008-b0037",
+      "p0008-b0039",
+      "p0008-b0041",
+      "p0008-b0043",
+      "p0008-b0045"
+     ],
+     "point": "Easy imitation, insecure minting aur weak enforcement se counterfeit coins badhe, public trust gira aur traders ne tokens lena chhod diya.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0008-b0052",
+      "p0008-b0054",
+      "p0008-b0056",
+      "p0008-b0058",
+      "p0008-b0060",
+      "p0008-b0062",
+      "p0008-b0064",
+      "p0008-b0066"
+     ],
+     "point": "Token withdrawal ke baad copper ko silver se exchange karne ki ijazat ne royal treasury ko bhaari loss diya.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0008-b0051",
+      "p0008-b0053",
+      "p0008-b0055",
+      "p0008-b0057",
+      "p0008-b0059",
+      "p0008-b0061",
+      "p0008-b0063",
+      "p0008-b0065",
+      "p0008-b0067",
+      "p0008-b0068"
+     ],
+     "point": "Tughlaq ke weakly secured tokens ke muqable modern fiat money state-central bank institutions, advanced security aur public credibility par tikta hai.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0008-b0051",
+      "p0008-b0053",
+      "p0008-b0055",
+      "p0008-b0057",
+      "p0008-b0059",
+      "p0008-b0061",
+      "p0008-b0063",
+      "p0008-b0065",
+      "p0008-b0067",
+      "p0008-b0068",
+      "p0009-b0003",
+      "p0009-b0004",
+      "p0009-b0006"
+     ],
+     "point": "Silver se token, counterfeiting, trust collapse aur withdrawal ki chain batati hai ki successful currency ke liye trust aur effective regulation zaroori hain.",
+     "kind": "cause_effect"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Nakli token supply badhte hi acceptance network bujhne lagta hai aur redemption se treasury ka silver ghatt jaata hai."
+   },
+   "game_stage": {
+    "mechanic": "predict_then_run",
+    "idea": "Mint security aur enforcement set karke token experiment chalao; counterfeit supply, acceptance aur treasury loss ka outcome dekho."
+   }
+  },
+  {
+   "id": "q12",
+   "pillar": "p3",
+   "question": "Note ko roshni mein dekhne aur ungli se chhoone par alag clues kyun milte hain?",
+   "hook": "Ek hi note ko tilt, touch aur light ke saamne karne se alag features ubharte hain.",
+   "points": [
+    {
+     "block_ids": [
+      "p0009-b0008",
+      "p0009-b0009"
+     ],
+     "point": "Raised printing, identification marks, bade numerals aur distinct sizes visually impaired users ko denomination pehchaanne mein madad karte hain.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0009-b0011",
+      "p0009-b0012",
+      "p0009-b0013"
+     ],
+     "point": "₹1 note Government of India issue karti hai, Finance Secretary sign karte hain aur RBI circulation manage karta hai.",
+     "kind": "facts_numbers"
+    },
+    {
+     "block_ids": [
+      "p0009-b0014",
+      "p0009-b0015"
+     ],
+     "point": "RBI ka Paisa Bolta Hai resource denominations ke note features pehchaanne mein support deta hai.",
+     "kind": "facts_numbers"
+    },
+    {
+     "block_ids": [
+      "p0009-b0017",
+      "p0009-b0018"
+     ],
+     "point": "Reverse language panel ki 15 languages aur Hindi-English mila kar note par total 17 languages represent hoti hain.",
+     "kind": "facts_numbers"
+    },
+    {
+     "block_ids": [
+      "p0009-b0020",
+      "p0009-b0021",
+      "p0009-b0022",
+      "p0009-b0023"
+     ],
+     "point": "Watermark, Bharat-RBI-denomination wala security thread, tilt par latent image aur light mein milta see-through register visual security checks hain.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0009-b0024",
+      "p0009-b0025",
+      "p0009-b0026",
+      "p0009-b0027"
+     ],
+     "point": "Micro-lettering, higher denominations par optically variable ink, intaglio feel aur increasing-size number panels security design ke aur parts hain.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0010-b0008",
+      "p0010-b0009",
+      "p0010-b0010",
+      "p0010-b0011",
+      "p0010-b0012",
+      "p0010-b0013",
+      "p0010-b0014",
+      "p0010-b0015",
+      "p0010-b0016",
+      "p0010-b0017"
+     ],
+     "point": "RBI ka free MANI app 1 January 2020 ko launch hua; Android-iOS par install hone ke baad offline aur 15 languages mein denomination identify karne mein madad karta hai.",
+     "kind": "facts_numbers"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Note ko light ke saamne laate hi see-through register ke do adhoore parts milkar denomination bana dete hain."
+   },
+   "game_stage": {
+    "mechanic": "choose_and_see",
+    "idea": "Light, tilt, magnify ya touch mode chuno; note par us mode se visible feature khule aur denomination-identification clues judte jaayein."
+   }
+  },
+  {
+   "id": "q13",
+   "pillar": "p3",
+   "question": "Note par 'promise' likha hai—kya RBI mujhe gold ya interest dega?",
+   "hook": "₹100 ka purana note aaj bhi ₹100 hi hai, chahe usse milne wala samaan kam ho gaya ho.",
+   "points": [
+    {
+     "block_ids": [
+      "p0009-b0029",
+      "p0009-b0030",
+      "p0009-b0031"
+     ],
+     "point": "Promise clause note ki face value ki RBI guarantee dikhata hai; bearer woh hai jiske physical possession mein note hai.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0009-b0032",
+      "p0009-b0033",
+      "p0009-b0034",
+      "p0009-b0035",
+      "p0009-b0036"
+     ],
+     "point": "Historical convertible systems mein promise gold-silver redemption se juda tha, jaise Bretton Woods dollar aur British monetary arrangements.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0009-b0037",
+      "p0009-b0038",
+      "p0009-b0039"
+     ],
+     "point": "Modern note gold-silver weight ya inflation-adjusted purchasing power ki guarantee nahi deta; yeh zero-interest anonymous bearer liability hai.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0010-b0002",
+      "p0010-b0003",
+      "p0010-b0004",
+      "p0010-b0005",
+      "p0010-b0006"
+     ],
+     "point": "Negotiable Instruments Act, 1881 ke Section 4 mein banknote aur currency note excluded hain, isliye promise clause ke bawajood currency legally promissory note nahi.",
+     "kind": "classification"
+    }
+   ],
+   "film": {
+    "length": "short",
+    "showing_moment": "Note ka face-value meter ₹100 par fixed rehta hai, jabki uske saamne khareedi ja sakne wali basket chhoti ho jaati hai."
+   },
+   "game_stage": {
+    "mechanic": "sort_groups",
+    "idea": "Face value, gold redemption, interest aur inflation protection ke claim-tokens guarantee gate par rakho; valid claim hi note ke saath attach ho."
+   }
+  },
+  {
+   "id": "q14",
+   "pillar": "p3",
+   "question": "₹2,000 note wapas bulana aur ₹1,000 note band karna ek hi baat kyun nahi?",
+   "hook": "Dono baar note bank tak gaya, par sirf ek case mein uska legal-tender status hata.",
+   "points": [
+    {
+     "block_ids": [
+      "p0010-b0019",
+      "p0010-b0020"
+     ],
+     "point": "Demonetisation currency ka legal-tender status hatana hai, jisse woh ordinary transactions ke liye valid nahi rehti.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0010-b0021",
+      "p0010-b0022",
+      "p0010-b0023",
+      "p0010-b0024"
+     ],
+     "point": "India ke major demonetisations 1946, 1978 aur 2016 mein hue; 8 November 2016 ki announcement se existing ₹500 aur ₹1,000 notes ka status midnight se hata.",
+     "kind": "timeline"
+    },
+    {
+     "block_ids": [
+      "p0010-b0025",
+      "p0010-b0026",
+      "p0010-b0027"
+     ],
+     "point": "2023 mein ₹2,000 notes ka circulation withdrawal demonetisation nahi tha, kyunki unka legal-tender status bana raha.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0010-b0028",
+      "p0010-b0029",
+      "p0010-b0030",
+      "p0010-b0031",
+      "p0010-b0032",
+      "p0010-b0033"
+     ],
+     "point": "₹2,000 note November 2016 mein liquidity jaldi restore karne aaya, printing 2018–19 mein ruki aur May 2023 withdrawal ke baad deposit-exchange process chala.",
+     "kind": "timeline"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Do notes circulation se nikalte hain, par legal-tender light sirf demonetised note ki bujhti hai."
+   },
+   "game_stage": {
+    "mechanic": "choose_and_see",
+    "idea": "Har policy case mein circulation aur legal-tender ke alag controls chuno; dekho note ka payment-status badalta hai ya sirf bank ki taraf flow."
+   }
+  },
+  {
+   "id": "q15",
+   "pillar": "p3",
+   "question": "Do sikko par same value likhi ho, toh log zyada silver wala kyun chhupa lete hain?",
+   "hook": "Bazaar mein ghatiya coin ghoom raha hai, jabki achha coin ghar ki tijori mein pada hai.",
+   "points": [
+    {
+     "block_ids": [
+      "p0010-b0035",
+      "p0010-b0036"
+     ],
+     "point": "Gresham's Law mein fixed same face value par bad money circulation se good money ko displace karta hai.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0010-b0038",
+      "p0010-b0039",
+      "p0010-b0040",
+      "p0011-b0002"
+     ],
+     "point": "Iske liye dono currencies legal tender, official exchange value fixed, ek ki intrinsic value undervalued aur spending ka choice available hona chahiye.",
+     "kind": "classification"
+    },
+    {
+     "block_ids": [
+      "p0011-b0003",
+      "p0011-b0004",
+      "p0011-b0005",
+      "p0011-b0006",
+      "p0011-b0007"
+     ],
+     "point": "Log higher-intrinsic-value coin hoard ya melt karte hain aur lower-intrinsic-value coin payment mein kharch karte hain.",
+     "kind": "process"
+    },
+    {
+     "block_ids": [
+      "p0011-b0008",
+      "p0011-b0009",
+      "p0011-b0010",
+      "p0011-b0011"
+     ],
+     "point": "16th-century England mein Henry VIII ke debased silver coins ke saath equal face value wale purane purer coins hoard hone lage.",
+     "kind": "cause_effect"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Har payment round mein low-silver coin bazaar mein laut-ta hai aur pure-silver coin tijori mein jama hota jaata hai."
+   },
+   "game_stage": {
+    "mechanic": "predict_then_run",
+    "idea": "Same face value wale do coins mein spend aur save ka choice karo; kai rounds ke baad circulation ka composition dekho."
+   }
+  },
+  {
+   "id": "q16",
+   "pillar": "p4",
+   "question": "UPI ya cheque se payment mein note nahi jaata—phir paisa kya move hota hai?",
+   "hook": "Cash drawer nahi khulta, lekin ek account ghatta aur doosra badhta hai.",
+   "points": [
+    {
+     "block_ids": [
+      "p0011-b0013",
+      "p0011-b0014",
+      "p0011-b0015"
+     ],
+     "point": "Bank money deposits ke roop mein hota hai aur modern money supply ka sabse bada hissa banata hai.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0011-b0016",
+      "p0011-b0017"
+     ],
+     "point": "Cheque, UPI, debit card, NEFT aur RTGS deposit money transfer karne ke channels hain, deposit se alag naya paisa nahi.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0011-b0018",
+      "p0011-b0019",
+      "p0011-b0020",
+      "p0011-b0021",
+      "p0011-b0022",
+      "p0011-b0023"
+     ],
+     "point": "NIA, 1881 transferable aur enforceable written payment promises-orders ka framework deta hai; ismein promissory note, bill of exchange aur cheque cover hote hain.",
+     "kind": "classification"
+    },
+    {
+     "block_ids": [
+      "p0011-b0025",
+      "p0011-b0026",
+      "p0011-b0027",
+      "p0011-b0028",
+      "p0011-b0029"
+     ],
+     "point": "Promissory note mein maker payee ko fixed amount dene ka written promise karta hai, jaise Rahul ko 1 January ko ₹50,000 dena.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0011-b0030",
+      "p0011-b0031",
+      "p0011-b0032",
+      "p0011-b0033",
+      "p0011-b0034"
+     ],
+     "point": "Bill of exchange mein drawer drawee ko payee ko payment ka order deta hai, jaise wholesaler ka retailer ko 90 din baad ₹1 lakh dene ka order.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0011-b0035",
+      "p0012-b0002",
+      "p0012-b0003"
+     ],
+     "point": "Cheque bank par drawn, demand par payable special bill hai; drawer account holder, drawee bank aur receiver payee hota hai.",
+     "kind": "structure"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Payment instruction bank tak pahunchte hi payer ka deposit balance ghatta aur payee ka badhta hai."
+   },
+   "game_stage": {
+    "mechanic": "assemble_parts",
+    "idea": "Maker-payee ya drawer-drawee-payee ke roles jodkar instrument banao; sahi instruction se payment route activate ho."
+   }
+  },
+  {
+   "id": "q17",
+   "pillar": "p4",
+   "question": "Cheque bounce ho sakta hai, toh demand draft par zyada bharosa kyun hota hai?",
+   "hook": "Dono papers payment ke liye hain, par ek mein funds pehle hi bank ko mil chuke hain.",
+   "points": [
+    {
+     "block_ids": [
+      "p0012-b0004",
+      "p0012-b0005",
+      "p0012-b0006",
+      "p0012-b0007"
+     ],
+     "point": "Section 138 mein insufficient-funds jaise qualifying dishonour, statutory demand notice aur prescribed time mein non-payment ki conditions par cheque bounce criminal offence ban sakta hai.",
+     "kind": "process"
+    },
+    {
+     "block_ids": [
+      "p0012-b0010",
+      "p0012-b0011",
+      "p0012-b0012",
+      "p0012-b0013",
+      "p0012-b0014",
+      "p0012-b0015"
+     ],
+     "point": "Demand draft prepaid bank-issued instrument hai; customer pehle funds deta hai, isliye bank payment ki zimmedari leta hai.",
+     "kind": "process"
+    },
+    {
+     "block_ids": [
+      "p0012-b0017",
+      "p0012-b0018",
+      "p0012-b0019",
+      "p0012-b0020"
+     ],
+     "point": "Overdraft approved short-term credit hai jisme balance se zyada withdrawal allowed hota hai; eligible PMJDY holders ko bhi facility mil sakti hai.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0012-b0023",
+      "p0012-b0024",
+      "p0012-b0025",
+      "p0012-b0026"
+     ],
+     "point": "MICR ka full form Magnetic Ink Character Recognition hai; iron-oxide ink ka 9-digit code machines ko cheques sort-clear karne mein madad deta hai.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0012-b0028",
+      "p0012-b0029",
+      "p0012-b0030",
+      "p0012-b0031"
+     ],
+     "point": "11-character alphanumeric IFSC electronic-payment branch identify karta hai aur NEFT, RTGS, IMPS mein correct routing mein madad karta hai.",
+     "kind": "structure"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Cheque ka funds-check fail hota hai, jabki prepaid draft ka payment pehle se funded route par aage badhta hai."
+   },
+   "game_stage": {
+    "mechanic": "route_flow",
+    "idea": "Payment ko cheque, draft ya approved overdraft se route karo; available funds aur sahi MICR-IFSC ke hisaab se clearance chale ya ruke."
+   }
+  },
+  {
+   "id": "q18",
+   "pillar": "p4",
+   "question": "UPI app par PIN daalte hi bank aur RBI ke beech kya hota hai?",
+   "hook": "Screen par success ek second mein dikhta hai, par peeche kai institutions kaam karte hain.",
+   "points": [
+    {
+     "block_ids": [
+      "p0012-b0033",
+      "p0012-b0034",
+      "p0012-b0035",
+      "p0012-b0036",
+      "p0012-b0037",
+      "p0012-b0038",
+      "p0012-b0039",
+      "p0012-b0040",
+      "p0013-b0002"
+     ],
+     "point": "Payment and Settlement Systems Act, 2007 ke under RBI payment-settlement systems ka apex regulator hai.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0013-b0003",
+      "p0013-b0004",
+      "p0013-b0005",
+      "p0013-b0006",
+      "p0013-b0007"
+     ],
+     "point": "RBI aur IBA ki 2008 initiative NPCI not-for-profit retail payment infrastructure chalata hai; customer deposits NPCI mein nahi, banks mein rehte hain.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0013-b0008",
+      "p0013-b0009",
+      "p0013-b0010",
+      "p0013-b0011"
+     ],
+     "point": "Commercial, payment aur small finance banks ke saath apps, gateways aur merchants customer-facing layer banate hain.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0013-b0013",
+      "p0013-b0014",
+      "p0013-b0015",
+      "p0013-b0016",
+      "p0013-b0017",
+      "p0013-b0018",
+      "p0013-b0019"
+     ],
+     "point": "UPI mein PIN-authorised request app se NPCI switch aur banks tak jaati hai; funds verification-confirmation ke baad interbank settlement RBI infrastructure se hota hai.",
+     "kind": "process"
+    },
+    {
+     "block_ids": [
+      "p0019-b0029",
+      "p0019-b0030",
+      "p0019-b0031",
+      "p0019-b0032",
+      "p0019-b0033",
+      "p0019-b0034",
+      "p0019-b0035",
+      "p0019-b0036",
+      "p0019-b0037"
+     ],
+     "point": "BHIM-UPI ke Prelims case mein UPI-enabled account ko transfer wala statement sahi hai; chip-PIN ke four-factor authentication wala claim galat hai.",
+     "kind": "comparison"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Ek payment request app se NPCI switch par jaakar payer-payee banks ke beech route hoti hai."
+   },
+   "game_stage": {
+    "mechanic": "route_flow",
+    "idea": "App, NPCI, dono banks aur RBI ko sahi roles mein connect karo; NPCI ko deposit-holder banaoge toh payment route fail ho."
+   }
+  },
+  {
+   "id": "q19",
+   "pillar": "p4",
+   "question": "Bijli ka bill apne aap kat sakta hai, par har baar PIN dabana kyun zaroori nahi?",
+   "hook": "Chai ki payment tum bhejte ho, lekin authorised monthly bill ki request merchant shuru kar sakta hai.",
+   "points": [
+    {
+     "block_ids": [
+      "p0013-b0021",
+      "p0013-b0022",
+      "p0013-b0023"
+     ],
+     "point": "Push payment payer khud initiate karta hai, jaise friend ya chai seller ko paisa bhejna.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0013-b0024",
+      "p0013-b0025",
+      "p0013-b0026",
+      "p0013-b0027",
+      "p0013-b0028"
+     ],
+     "point": "Authorised recurring pull mein pehle diye mandate ke rules ke andar biller payment initiate karta hai; bina authorisation arbitrary debit allowed nahi.",
+     "kind": "process"
+    },
+    {
+     "block_ids": [
+      "p0013-b0029",
+      "p0013-b0030",
+      "p0013-b0031"
+     ],
+     "point": "August 2024 delegated UPI feature mein primary user secondary user ko apne bank account se set limit tak spend karne ki permission de sakta hai.",
+     "kind": "structure"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Pre-approved mandate ka monthly trigger aate hi payment chalti hai, jabki limit se bahar request ruk jaati hai."
+   },
+   "game_stage": {
+    "mechanic": "slider_cause_effect",
+    "idea": "Mandate aur delegated spending limit set karo; bill ya secondary-user purchase limit ke andar ho toh payment chale, warna block ho."
+   }
+  },
+  {
+   "id": "q20",
+   "pillar": "p4",
+   "question": "Transfer abhi karna ho, toh NEFT, RTGS aur IMPS mein kya farq padega?",
+   "hook": "Teen services 24×7 hain, phir bhi settlement ka tareeka aur suitable transaction alag hai.",
+   "points": [
+    {
+     "block_ids": [
+      "p0014-b0003",
+      "p0014-b0004",
+      "p0014-b0005",
+      "p0014-b0006",
+      "p0014-b0007",
+      "p0014-b0008",
+      "p0014-b0009",
+      "p0014-b0010",
+      "p0014-b0011",
+      "p0014-b0012",
+      "p0014-b0013",
+      "p0014-b0014"
+     ],
+     "point": "NEFT 24×7 half-hourly batches mein ordinary bank transfers settle karta hai; charges ko customer-channel rules ke saath padho, blanket free claim ki tarah nahi.",
+     "kind": "process"
+    },
+    {
+     "block_ids": [
+      "p0014-b0015",
+      "p0014-b0016",
+      "p0014-b0017",
+      "p0014-b0018",
+      "p0014-b0019",
+      "p0014-b0020",
+      "p0014-b0021"
+     ],
+     "point": "NEFT ki bank-channel limits alag ho sakti hain; ₹5 lakh ko system-wide upper limit mat samjho.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0014-b0022",
+      "p0014-b0023",
+      "p0014-b0024",
+      "p0014-b0025",
+      "p0014-b0026",
+      "p0014-b0027",
+      "p0014-b0028",
+      "p0014-b0029",
+      "p0014-b0030",
+      "p0014-b0031",
+      "p0014-b0032",
+      "p0014-b0033"
+     ],
+     "point": "RBI-operated RTGS 24×7 high-value transfers ko individually real time mein settle karta hai; inward free aur outward charges prescribed slabs mein up to ₹50 ho sakte hain.",
+     "kind": "process"
+    },
+    {
+     "block_ids": [
+      "p0014-b0034",
+      "p0014-b0035",
+      "p0014-b0036",
+      "p0014-b0037",
+      "p0014-b0038"
+     ],
+     "point": "IMPS mobile-internet banking se round-the-clock immediate transfer deta hai; listed transaction range ₹1 se ₹5 lakh tak hai.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0019-b0020",
+      "p0019-b0021",
+      "p0019-b0022",
+      "p0019-b0023",
+      "p0019-b0024",
+      "p0019-b0025",
+      "p0019-b0026",
+      "p0019-b0027",
+      "p0019-b0028"
+     ],
+     "point": "RTGS-NEFT ke Prelims case mein sirf instantaneous RTGS versus batch NEFT wala statement sahi hai; RTGS inward charge aur restricted hours wale claims galat hain.",
+     "kind": "comparison"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "NEFT requests batch clock tak jama hoti hain, jabki RTGS ki request alag se turant settlement line paar karti hai."
+   },
+   "game_stage": {
+    "mechanic": "route_flow",
+    "idea": "Amount, urgency aur bank rules dekhkar transfer route chuno; batch clock, individual settlement aur applicable fee screen par badlein."
+   }
+  },
+  {
+   "id": "q21",
+   "pillar": "p4",
+   "question": "Smartphone na ho, phir bhi Aadhaar se banking aur ek jagah bill payment kaise ho sakti hai?",
+   "hook": "Gaon ka Bank Mitra biometric se banking karata hai, jabki alag companies ke bills ek platform se bhar jaate hain.",
+   "points": [
+    {
+     "block_ids": [
+      "p0014-b0039",
+      "p0014-b0040",
+      "p0015-b0002",
+      "p0015-b0003",
+      "p0015-b0004",
+      "p0015-b0005",
+      "p0015-b0006"
+     ],
+     "point": "AEPS Aadhaar-biometric authentication aur Bank Mitras ke through banking access deta hai, jo financial inclusion aur DBT access mein madad karta hai.",
+     "kind": "process"
+    },
+    {
+     "block_ids": [
+      "p0015-b0007",
+      "p0015-b0008",
+      "p0015-b0009",
+      "p0015-b0010"
+     ],
+     "point": "BBPS electricity, mobile, gas aur insurance jaise bills ke liye interoperable platform hai; AEPS aur BBPS NPCI ecosystem ka hissa hain.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0015-b0011",
+      "p0015-b0012",
+      "p0015-b0013",
+      "p0015-b0014",
+      "p0015-b0015",
+      "p0015-b0016"
+     ],
+     "point": "NPCI ne 2012 mein RuPay, yaani Rupee plus Payment, domestic card-payment network launch kiya; global networks ke alternative aur lower-fee positioning ko samjho.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0015-b0017",
+      "p0015-b0018",
+      "p0015-b0019",
+      "p0015-b0020"
+     ],
+     "point": "RuPay debit, credit aur prepaid forms mein hai; PMJDY debit-card access aur RuPay credit-card-UPI linking iske important uses hain.",
+     "kind": "classification"
+    },
+    {
+     "block_ids": [
+      "p0019-b0038",
+      "p0019-b0039",
+      "p0020-b0002",
+      "p0020-b0003",
+      "p0020-b0004",
+      "p0020-b0005",
+      "p0020-b0006",
+      "p0020-b0007"
+     ],
+     "point": "NPCI ke Prelims case mein financial inclusion promote karna aur RuPay launch karna dono statements sahi hain.",
+     "kind": "comparison"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Bank Mitra par biometric authentication successful hote hi customer ka banking access khul jaata hai."
+   },
+   "game_stage": {
+    "mechanic": "drag_to_target",
+    "idea": "Biometric banking, electricity bill aur card purchase ko AEPS, BBPS aur RuPay par bhejo; sahi infrastructure se service complete ho."
+   }
+  },
+  {
+   "id": "q22",
+   "pillar": "p4",
+   "question": "Government ka ₹1,000 voucher vaccine par chale, shopping par kyun nahi?",
+   "hook": "Mobile par value aayi hai, par na cash nikal sakte ho aur na use kisi aur cheez par uda sakte ho.",
+   "points": [
+    {
+     "block_ids": [
+      "p0015-b0021",
+      "p0015-b0022",
+      "p0015-b0023",
+      "p0015-b0033",
+      "p0015-b0034"
+     ],
+     "point": "2021 ka NPCI e-RUPI UPI platform par bana prepaid cashless SMS-QR electronic voucher hai.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0015-b0024",
+      "p0015-b0025",
+      "p0015-b0026",
+      "p0015-b0027",
+      "p0015-b0035",
+      "p0015-b0036",
+      "p0015-b0037",
+      "p0015-b0038"
+     ],
+     "point": "e-RUPI person-specific aur purpose-specific coupon hai, payment app, bank transfer ya digital currency nahi.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0015-b0028",
+      "p0015-b0029",
+      "p0015-b0030",
+      "p0015-b0031",
+      "p0015-b0032",
+      "p0015-b0039",
+      "p0015-b0040",
+      "p0015-b0041",
+      "p0016-b0002",
+      "p0016-b0003"
+     ],
+     "point": "₹1,000 vaccination voucher intended beneficiary authorized centre par vaccine ke liye redeem karta hai; cash withdrawal ya unrelated shopping allowed nahi.",
+     "kind": "process"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Wahi QR shopping counter par reject hota hai aur authorized vaccination centre par redeem ho jaata hai."
+   },
+   "game_stage": {
+    "mechanic": "route_flow",
+    "idea": "Beneficiary aur purpose match karke voucher centre tak pahunchao; galat person ya service par redemption gate band rahe."
+   }
+  },
+  {
+   "id": "q23",
+   "pillar": "p4",
+   "question": "Card se ₹1,000 ki sale hui, toh merchant ko poore ₹1,000 kyun nahi milte?",
+   "hook": "Customer ne poora bill diya, phir bhi merchant settlement mein fee kat gayi.",
+   "points": [
+    {
+     "block_ids": [
+      "p0016-b0005",
+      "p0016-b0011"
+     ],
+     "point": "MDR card transaction accept karne par merchant ka acquirer bank ko diya charge hai; direct payer merchant hai, customer nahi.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0016-b0006",
+      "p0016-b0007",
+      "p0016-b0008",
+      "p0016-b0009",
+      "p0016-b0010"
+     ],
+     "point": "MDR acquiring bank, issuing bank, card network aur applicable payment gateway-service provider ke beech share hota hai.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0020-b0008",
+      "p0020-b0009",
+      "p0020-b0010",
+      "p0020-b0011",
+      "p0020-b0012",
+      "p0020-b0013",
+      "p0020-b0014",
+      "p0020-b0015",
+      "p0020-b0016"
+     ],
+     "point": "MDR ke Prelims case mein merchant par bank ka card-acceptance charge wala option C sahi hai; incentive ya cashback wale options nahi.",
+     "kind": "comparison"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Sale amount se MDR ka chhota hissa alag hokar payment-chain participants mein split ho jaata hai."
+   },
+   "game_stage": {
+    "mechanic": "assemble_parts",
+    "idea": "Merchant settlement aur fee-sharing chain banao; sahi recipients jodne par gross sale se net settlement nikle."
+   }
+  },
+  {
+   "id": "q24",
+   "pillar": "p4",
+   "question": "UPI jitni aasani se foreign payment karni ho, toh har desh se alag link banana padega?",
+   "hook": "Paanch deshon ko aapas mein jodne ke liye bahut bilateral links chahiye, par ek common connector kaam aasaan kar sakta hai.",
+   "points": [
+    {
+     "block_ids": [
+      "p0016-b0013",
+      "p0016-b0014",
+      "p0016-b0015",
+      "p0016-b0016",
+      "p0016-b0027",
+      "p0016-b0028",
+      "p0016-b0029"
+     ],
+     "point": "BIS Innovation Hub-led Project Nexus alag countries ke fast payment systems ko connect karne ki multilateral initiative hai.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0016-b0017",
+      "p0016-b0018",
+      "p0016-b0019",
+      "p0016-b0020",
+      "p0016-b0021",
+      "p0016-b0030",
+      "p0016-b0031",
+      "p0016-b0032"
+     ],
+     "point": "Maksad international transfers ko domestic instant payment jitna aasaan banana hai; India ka UPI founding participating systems mein hai.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0016-b0022",
+      "p0016-b0023",
+      "p0016-b0024",
+      "p0016-b0033",
+      "p0016-b0034"
+     ],
+     "point": "Traditional cross-border transfer mein multiple correspondent banks fees aur delay badha sakte hain.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0016-b0025",
+      "p0016-b0026",
+      "p0017-b0002",
+      "p0017-b0003"
+     ],
+     "point": "Nexus standardized common connection deta hai, jisse har country pair ke liye separate payment link banana zaroori nahi rehta.",
+     "kind": "structure"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Countries ke beech uljhe bilateral links ek standardized Nexus connector ke around simplify ho jaate hain."
+   },
+   "game_stage": {
+    "mechanic": "assemble_parts",
+    "idea": "Naye country payment systems common connector se jodo; har addition par usable cross-border routes badhein bina har pair ka naya link banaye."
+   }
+  },
+  {
+   "id": "q25",
+   "pillar": "p5",
+   "question": "Note polymer ka bana dein, toh kya woh bas aam plastic ka tukda hoga?",
+   "hook": "Roz mudne aur bheegne wala note agar zyada chale, toh replacement ka kharcha bhi bach sakta hai.",
+   "points": [
+    {
+     "block_ids": [
+      "p0017-b0005",
+      "p0017-b0006",
+      "p0017-b0007",
+      "p0017-b0008"
+     ],
+     "point": "Polymer banknote traditional cotton substrate ki jagah security-grade BOPP aur embedded security features se banta hai, ordinary plastic se nahi.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0017-b0009",
+      "p0017-b0010",
+      "p0017-b0011",
+      "p0017-b0012"
+     ],
+     "point": "2013 mein ₹10 polymer field trial approve hua; ₹10-₹20 jaise small notes ka proposal aur paper ke saath coexistence ko confirmed nationwide rollout mat samjho.",
+     "kind": "timeline"
+    },
+    {
+     "block_ids": [
+      "p0017-b0009",
+      "p0017-b0013",
+      "p0017-b0014"
+     ],
+     "point": "Polymer ka aim longer life, counterfeit resistance aur lower replacement cost hai; lifespan up to chaar guna ho sakta hai.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0017-b0015",
+      "p0017-b0016"
+     ],
+     "point": "Australia ne 1988 mein polymer banknote introduce kiya aur 50 se zyada countries polymer notes use karti hain.",
+     "kind": "facts_numbers"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Repeated handling cycles mein cotton note replacement line tak pahunchta hai, jabki polymer note aur cycles survive karta hai."
+   },
+   "game_stage": {
+    "mechanic": "slider_cause_effect",
+    "idea": "Handling cycles badhao aur cotton-polymer notes ki surviving quantity aur replacement cost compare karo."
+   }
+  },
+  {
+   "id": "q26",
+   "pillar": "p5",
+   "question": "Crypto bhi screen par number hai—phir woh digital rupee ya UPI balance jaisa kyun nahi?",
+   "hook": "Teen digital screens dikhne mein similar hain, par issuer, ownership record aur legal status alag hain.",
+   "points": [
+    {
+     "block_ids": [
+      "p0017-b0018",
+      "p0017-b0019",
+      "p0017-b0020"
+     ],
+     "point": "Cryptocurrency blockchain par created-stored private digital asset hai; India mein na RBI-issued hai aur na legal tender.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0017-b0021",
+      "p0017-b0022"
+     ],
+     "point": "Distributed ledger ownership records ko network par maintain karta hai, central bank-account ledger ke bina bhi.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0017-b0023",
+      "p0017-b0024",
+      "p0017-b0025",
+      "p0017-b0026",
+      "p0017-b0027"
+     ],
+     "point": "2007–08 crisis ke baad fiat-banking par distrust aur transaction fees-interoperability ki complaints kuch crypto supporters ki motivations bani, crypto value ki guarantee nahi.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0019-b0009",
+      "p0019-b0010",
+      "p0019-b0011",
+      "p0019-b0012",
+      "p0019-b0013",
+      "p0019-b0014",
+      "p0019-b0015",
+      "p0019-b0016",
+      "p0019-b0017",
+      "p0019-b0018",
+      "p0019-b0019"
+     ],
+     "point": "Public permissionless blockchain ke Prelims case mein inspectable non-single-user-controlled ledger aur permissionless applications sahi hain; blockchain ko crypto-only kehna galat hai, isliye answer 1 aur 3 hai.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0007-b0043",
+      "p0011-b0013",
+      "p0011-b0014",
+      "p0017-b0019",
+      "p0017-b0020"
+     ],
+     "point": "Digital rupee RBI currency hai, UPI bank deposits ka payment channel hai aur crypto private digital asset hai.",
+     "kind": "comparison"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "Ek central ledger ki jagah transaction record ki matching copies distributed network ke nodes par update hoti hain."
+   },
+   "game_stage": {
+    "mechanic": "sort_groups",
+    "idea": "Issuer, ledger aur legal-status parts se digital rupee, UPI deposit payment aur crypto ke profiles banao; sahi profile par ownership-record animation chale."
+   }
+  },
+  {
+   "id": "q27",
+   "pillar": "p5",
+   "question": "RBI total paisa ginta hai, toh cash aur bank balance ko ek hi number mein kyun nahi jod deta?",
+   "hook": "Bank ki RBI reserve balance aur tumhari pocket ka cash dono rupees hain, par dono public spending money nahi.",
+   "points": [
+    {
+     "block_ids": [
+      "p0017-b0029",
+      "p0017-b0030",
+      "p0017-b0031",
+      "p0017-b0032",
+      "p0017-b0033",
+      "p0017-b0034",
+      "p0017-b0035"
+     ],
+     "point": "Money supply kisi given time par economy mein spending, saving aur payments ke liye available money ka stock hai.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0017-b0036",
+      "p0017-b0037",
+      "p0017-b0038",
+      "p0017-b0039",
+      "p0017-b0040"
+     ],
+     "point": "RBI M0 aur M1–M4 jaise measures alag components ke liye use karta hai; M3 key broad-money indicator hai, M4 broadest hai.",
+     "kind": "classification"
+    },
+    {
+     "block_ids": [
+      "p0018-b0002",
+      "p0018-b0003"
+     ],
+     "point": "Households, businesses, banks aur RBI ke beech money flow hota rehta hai, par money supply ek time-point ka stock hai.",
+     "kind": "comparison"
+    },
+    {
+     "block_ids": [
+      "p0018-b0004",
+      "p0018-b0005",
+      "p0018-b0006"
+     ],
+     "point": "M0 reserve ya high-powered money hai, jo RBI-created monetary base ko capture karta hai.",
+     "kind": "definition"
+    },
+    {
+     "block_ids": [
+      "p0018-b0007",
+      "p0018-b0008",
+      "p0018-b0009",
+      "p0018-b0010"
+     ],
+     "point": "M0 = currency in circulation + other deposits with RBI + bankers' deposits with RBI, jisme CRR balances bhi aate hain.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0018-b0011",
+      "p0018-b0012"
+     ],
+     "point": "Reserve base banking-system lending aur deposit expansion ko support karta hai; expansion automatic ya unlimited nahi hota.",
+     "kind": "cause_effect"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "RBI base ke teen components assemble hote hain aur banking lending-deposit cycle se public deposits ka layer expand hota hai."
+   },
+   "game_stage": {
+    "mechanic": "assemble_parts",
+    "idea": "Currency, RBI other deposits aur bank reserves se M0 banao; public deposit ko galti se base mein jodne par double-count warning aaye."
+   }
+  },
+  {
+   "id": "q28",
+   "pillar": "p5",
+   "question": "Pocket ka cash, savings account aur FD—RBI inhe alag baskets mein kyun rakhta hai?",
+   "hook": "FD bhi tumhara paisa hai, lekin chai ka payment cash ya demand deposit jitni seedhi tarah nahi hota.",
+   "points": [
+    {
+     "block_ids": [
+      "p0018-b0013",
+      "p0018-b0014",
+      "p0018-b0015",
+      "p0018-b0016",
+      "p0018-b0017",
+      "p0018-b0018",
+      "p0018-b0019",
+      "p0018-b0020"
+     ],
+     "point": "M1 narrow money = public ke paas currency + demand deposits + other deposits with RBI; iske components everyday use ke liye highly liquid hain.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0018-b0021",
+      "p0018-b0022",
+      "p0018-b0023",
+      "p0018-b0024",
+      "p0018-b0025",
+      "p0018-b0026"
+     ],
+     "point": "M2 = M1 + Post Office Savings Banks ke savings deposits; NSC jaise instruments is addition mein nahi aate.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0018-b0027",
+      "p0018-b0028",
+      "p0018-b0029",
+      "p0018-b0030",
+      "p0018-b0031",
+      "p0018-b0032",
+      "p0018-b0033",
+      "p0018-b0034",
+      "p0018-b0035"
+     ],
+     "point": "M3 broad money = M1 + banks ke time deposits, jisme fixed aur recurring deposits shamil hain; reported money-supply growth aam taur par M3 hoti hai.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0018-b0036",
+      "p0018-b0037",
+      "p0018-b0038",
+      "p0018-b0039",
+      "p0018-b0040"
+     ],
+     "point": "RBI M3 ko inflationary pressure, liquidity, credit growth aur monetary-policy effectiveness samajhne ke liye track karta hai.",
+     "kind": "cause_effect"
+    },
+    {
+     "block_ids": [
+      "p0018-b0041",
+      "p0018-b0042",
+      "p0019-b0002",
+      "p0019-b0003",
+      "p0019-b0004",
+      "p0019-b0005"
+     ],
+     "point": "M4 broadest measure = M3 + Post Office Savings Banks ke all deposits, NSC ko chhodkar.",
+     "kind": "structure"
+    },
+    {
+     "block_ids": [
+      "p0019-b0006",
+      "p0019-b0007"
+     ],
+     "point": "NSC long-term savings instrument hai, readily spendable money nahi; isliye M4 mein count nahi hota.",
+     "kind": "classification"
+    },
+    {
+     "block_ids": [
+      "p0018-b0007",
+      "p0018-b0008",
+      "p0018-b0015",
+      "p0018-b0017",
+      "p0018-b0023",
+      "p0018-b0030",
+      "p0019-b0004",
+      "p0019-b0005"
+     ],
+     "point": "M0 ki currency in circulation aur M1 ki public currency alag hain; M2 aur M3 bhi M1 se nikli alag branches hain, seedhi M1–M2–M3 nesting nahi.",
+     "kind": "comparison"
+    }
+   ],
+   "film": {
+    "length": "long",
+    "showing_moment": "M1 basket se do branches nikalti hain—post-office savings jodne par M2 aur bank time deposits jodne par M3; M3 mein eligible post-office deposits se M4 banta hai."
+   },
+   "game_stage": {
+    "mechanic": "assemble_parts",
+    "idea": "Cash, demand deposits, FD, post-office deposits aur NSC tokens se aggregates banao; sahi formula par total update ho aur excluded instrument par gate band rahe."
+   }
+  }
+ ]
+}
