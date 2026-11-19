@@ -21,6 +21,8 @@
 # "Regional" means any mirror host under archive.ubuntu.com (azure.archive... on
 # Azure runners; us-east-2.ec2.archive... seen on 18 November 2026, PR #167 run
 # on bbd4d746), never archive.ubuntu.com or security.ubuntu.com themselves.
+# The index update itself can stall on the same mirror (19 November 2026, PR #169: five jobs stopped in
+# "apt-get update" with exit 124 before any test ran), so apt_update_bounded fails over the same way.
 # Worst case for all prefetches of one job: APT_BUDGET_S seconds, then a clear
 # ::error annotation and a non-zero exit instead of a silent job cancel.
 
@@ -80,6 +82,18 @@ apt_mirror_failover() {
   left=$((APT_DEADLINE - SECONDS))
   test "$left" -gt 0 || return 1
   apt_get_bounded "$((left < 90 ? left : 90))" update
+}
+
+apt_update_bounded() {  # the package indexes, bounded; a stalled regional mirror fails over once (F-11, 19 Nov 2026)
+  if apt_get_bounded "${1:-90}" update; then return 0; fi
+  if test "$APT_FAILED_OVER" != 0; then
+    echo "::error title=APT index update (F-11)::apt-get update did not finish after the mirror fail-over"
+    return 1
+  fi
+  echo "::warning title=APT index update (F-11)::apt-get update stalled on the first mirror; failing over"
+  apt_mirror_failover && return 0
+  echo "::error title=APT index update (F-11)::apt-get update did not finish after the mirror fail-over"
+  return 1
 }
 
 apt_prefetch() {  # <apt-get install options and packages...>; downloads only, installs nothing
