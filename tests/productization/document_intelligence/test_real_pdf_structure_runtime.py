@@ -32,7 +32,7 @@ from bie.document_intelligence.real_pdf_structure_runtime import (
     inspect_real_pdf_structure,
 )
 from bie.document_intelligence.real_pdf_text_runtime import inspect_real_pdf_text
-from structural_pdf_fixtures import styled_text_pdf
+from structural_pdf_fixtures import positioned_text_pdf, styled_text_pdf
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -85,6 +85,20 @@ class PdfPlumberStructureAdapterTests(unittest.TestCase):
         x0, y0, x1, y1 = heading.box
         self.assertTrue(0 <= x0 < x1 <= 1)
         self.assertTrue(0 <= y0 < y1 <= 1)
+
+    def test_glyphs_off_the_page_are_left_out(self):
+        # Same rule as the text adapter: an invisible glyph partly or wholly off the page no longer stops the book.
+        on_page = positioned_text_pdf([[(72, 720, "First structural line"), (144, 680, "Second line")]])
+        with_stray = positioned_text_pdf(
+            [[(72, 720, "First structural line"), (144, 680, "Second line"), (150, 788, "."), (72, 800, "Off the top")]]
+        )
+
+        document = PdfPlumberStructureAdapter().extract(with_stray)
+
+        self.assertEqual(
+            [line.text for line in document.pages[0].lines], ["First structural line", "Second line"]
+        )
+        self.assertEqual(document.pages, PdfPlumberStructureAdapter().extract(on_page).pages)
 
     def test_invalid_and_encrypted_pdf_fail_closed(self):
         adapter = PdfPlumberStructureAdapter()
