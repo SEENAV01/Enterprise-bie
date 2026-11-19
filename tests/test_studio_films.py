@@ -133,6 +133,24 @@ class FilmMotion(unittest.TestCase):
         for hook in ("addMove", "addGrow", "addFuse", "camTo", "toScreen", "s.dive", "SPRITE_SCALE", "/*__FILM__*/null"):
             self.assertIn(hook, page)
 
+    def test_player_keeps_diagram_words_readable(self):
+        """The first Photosynthesis films (19 Nov 2026) showed three faults on diagram shots: a zoom cut words at the frame
+        edge, highlighted words got a thick red outline, and moving sprites passed over words. The player now keeps the
+        diagram's words on their own top layer, fades a word the frame cuts, and highlights words without an outline."""
+        page = Path(ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        self.assertIn(".svg text.lit,.svg .lit text{stroke:none!important", page)
+        self.assertNotIn(".svg .lit{filter:drop-shadow(0 0 6px #e8a93a);stroke", page)
+        self.assertIn(".svg.base svg text{visibility:hidden}", page)
+        self.assertIn(".svg.tl svg text.cut{opacity:0}", page)
+        build = page[page.index("function build(i)"):page.index("function show(i,k,viaDive)")]
+        self.assertIn("'svg base'", build)
+        self.assertLess(build.index("worldLayers()"), build.index("textLayer()"))   # words go above the sprite layer
+        layer = page[page.index("function textLayer()"):page.index("function edgeCut(now)")]
+        self.assertIn("e.dataset.oid=e.id;e.removeAttribute('id')", layer)          # ids stay unique in the page
+        self.assertIn("[data-oid=", page)                                           # a highlight reaches the top words
+        self.assertIn("function tick(now){camStep(now);edgeCut(now);", page)
+        self.assertIn("words:texts.length,cut:", page)
+
     def test_cutaway_is_an_ai_picture_in_cutaway_style(self):
         shot = {"visual": {"type": "cutaway", "image_prompt": "The inside of a mature ovule", "svg": ""}}
         self.assertIn("transparent cross-section", studio_film.image_prompt(shot))
