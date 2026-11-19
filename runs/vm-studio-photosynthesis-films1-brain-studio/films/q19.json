@@ -1,0 +1,848 @@
+{
+ "film": {
+  "title": "C4 paudhe ka CO2 parcel",
+  "shots": [
+   {
+    "id": "s1",
+    "title": "CO2 ka parcel kyun?",
+    "key": "C4 parcel RuBisCO ke paas CO2 ki concentration badhata hai.",
+    "covers": [
+     1,
+     2
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 transparent scientific cutaway inside a maize leaf, glossy translucent cells, soft volumetric light, calm dark teal background and convincing depth. A large mesophyll cell occupies the left half; a bundle sheath cell occupies the right half and belongs to a ring around a vascular bundle visible at far right. Green chloroplasts in both cells. Clear connection across their shared boundary at image centre. Leave uncluttered space above the cells for labels and a horizontal corridor through their centres for molecular animation. No text, arrows or molecular symbols.",
+     "svg": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "C4 paudha CO2 ko seedha Calvin cycle mein bhejne ke bajay parcel kyun banata hai?",
+      "voice": "सी फोर पौधा सी ओ टू को सीधे कैल्विन साइकल में भेजने के बजाय पार्सल क्यों बनाता है?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "Isse bundle sheath mein RuBisCO ke paas CO2 ki concentration badhti hai.",
+      "voice": "इससे बंडल शीथ में रुबिस्को के पास सी ओ टू की कॉन्सन्ट्रेशन बढ़ती है।",
+      "pins": [
+       {
+        "label": "Bundle sheath",
+        "x": 72,
+        "y": 25
+       },
+       {
+        "label": "RuBisCO",
+        "x": 72,
+        "y": 65
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 61,
+        "x1": 82,
+        "y0": 35,
+        "y1": 72
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 70,
+       "y": 49,
+       "scale": 1.35
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          63,
+          40
+         ],
+         [
+          70,
+          50
+         ],
+         [
+          73,
+          59
+         ]
+        ],
+        "count": 6,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "Mesophyll mein bana four-carbon parcel, CO2 ko bundle sheath tak pahunchata hai—jaise delivery packet.",
+      "voice": "मेसोफिल में बना फोर कार्बन पार्सल, सी ओ टू को बंडल शीथ तक पहुँचाता है—जैसे डिलिवरी पैकेट।",
+      "pins": [
+       {
+        "label": "Mesophyll",
+        "x": 25,
+        "y": 25
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          25,
+          49
+         ],
+         [
+          43,
+          49
+         ],
+         [
+          56,
+          49
+         ],
+         [
+          71,
+          49
+         ]
+        ],
+        "count": 3,
+        "ms": 2600,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": []
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "title": "Mesophyll mein packing",
+    "key": "PEP (3C) + CO2 → OAA (4C); enzyme hai PEPcase.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "diagram",
+     "image_prompt": "",
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 560\"><defs><linearGradient id=\"bg\" x2=\"0\" y2=\"1\"><stop stop-color=\"#edf5ef\"/><stop offset=\"1\" stop-color=\"#d2e5dd\"/></linearGradient><radialGradient id=\"cellfill\"><stop stop-color=\"#f7fff0\"/><stop offset=\"1\" stop-color=\"#b7d6b5\"/></radialGradient></defs><rect width=\"1000\" height=\"560\" rx=\"26\" fill=\"url(#bg)\"/><rect id=\"mesophyll\" x=\"60\" y=\"76\" width=\"880\" height=\"420\" rx=\"100\" fill=\"url(#cellfill)\" stroke=\"#729d7c\" stroke-width=\"4\"/><text x=\"90\" y=\"54\" font-family=\"sans-serif\" font-size=\"26\" fill=\"#244c42\">Mesophyll • Hatch–Slack pathway</text><ellipse cx=\"130\" cy=\"158\" rx=\"32\" ry=\"15\" fill=\"#76a878\"/><ellipse cx=\"860\" cy=\"159\" rx=\"32\" ry=\"15\" fill=\"#76a878\"/><ellipse cx=\"142\" cy=\"423\" rx=\"32\" ry=\"15\" fill=\"#76a878\"/><ellipse cx=\"846\" cy=\"427\" rx=\"32\" ry=\"15\" fill=\"#76a878\"/><g id=\"pep\"><rect x=\"147\" y=\"251\" width=\"160\" height=\"91\" rx=\"28\" fill=\"#f5d279\"/><circle cx=\"184\" cy=\"280\" r=\"12\" fill=\"#ad7a29\"/><circle cx=\"225\" cy=\"280\" r=\"12\" fill=\"#ad7a29\"/><circle cx=\"266\" cy=\"280\" r=\"12\" fill=\"#ad7a29\"/><text x=\"179\" y=\"326\" font-family=\"sans-serif\" font-size=\"23\">PEP • 3C</text></g><g id=\"co2\"><circle cx=\"390\" cy=\"160\" r=\"35\" fill=\"#8dcadd\"/><text x=\"365\" y=\"167\" font-family=\"sans-serif\" font-size=\"21\">CO₂</text></g><path d=\"M325 296 H642 M630 285 L644 296 L630 307\" fill=\"none\" stroke=\"#53796a\" stroke-width=\"5\"/><g id=\"pepcase\"><rect x=\"425\" y=\"229\" width=\"166\" height=\"64\" rx=\"29\" fill=\"#b1a2db\"/><text x=\"449\" y=\"269\" font-family=\"sans-serif\" font-size=\"25\">PEPcase</text></g><g id=\"oaa\"><rect x=\"678\" y=\"251\" width=\"185\" height=\"91\" rx=\"28\" fill=\"#f3c46c\"/><circle cx=\"708\" cy=\"279\" r=\"12\" fill=\"#ad7a29\"/><circle cx=\"749\" cy=\"279\" r=\"12\" fill=\"#ad7a29\"/><circle cx=\"790\" cy=\"279\" r=\"12\" fill=\"#ad7a29\"/><circle cx=\"831\" cy=\"279\" r=\"12\" fill=\"#ad7a29\"/><text x=\"720\" y=\"326\" font-family=\"sans-serif\" font-size=\"23\">OAA • 4C</text></g><g id=\"no-rubisco\"><rect x=\"370\" y=\"399\" width=\"260\" height=\"52\" rx=\"24\" fill=\"#f5ebe3\"/><text x=\"405\" y=\"433\" font-family=\"sans-serif\" font-size=\"24\" fill=\"#84584c\">RuBisCO absent</text></g></svg>"
+    },
+    "dive": {
+     "x": 25,
+     "y": 49
+    },
+    "sentences": [
+     {
+      "roman": "Hatch-Slack pathway ki shuruaat mesophyll mein hoti hai; yahan CO2 ka pehla acceptor three-carbon PEP hai.",
+      "voice": "हैच स्लैक पाथवे की शुरुआत मेसोफिल में होती है; यहाँ सी ओ टू का पहला एक्सेप्टर थ्री कार्बन पी ई पी है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "mesophyll",
+       "pep"
+      ],
+      "zoom": {
+       "x": 28,
+       "y": 49,
+       "scale": 1.3
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "PEPcase ki madad se PEP, CO2 fix karta hai aur four-carbon OAA banta hai.",
+      "voice": "पेपकेस की मदद से पी ई पी, सी ओ टू फिक्स करता है और फोर कार्बन ओ ए ए बनता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "pep",
+       "co2",
+       "pepcase",
+       "oaa"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          39,
+          29
+         ],
+         [
+          43,
+          41
+         ],
+         [
+          50,
+          53
+         ],
+         [
+          76,
+          53
+         ]
+        ],
+        "count": 1,
+        "ms": 2600,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [
+       {
+        "x": 77,
+        "y": 53,
+        "label": "OAA"
+       }
+      ]
+     },
+     {
+      "roman": "Teen carbon ke acceptor mein ek carbon jud gaya, isliye pehla product four-carbon hai.",
+      "voice": "तीन कार्बन के एक्सेप्टर में एक कार्बन जुड़ गया, इसलिए पहला प्रोडक्ट फोर कार्बन है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "pep",
+       "oaa"
+      ],
+      "zoom": {
+       "x": 76,
+       "y": 53,
+       "scale": 1.55
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "C4 ke mesophyll mein RuBisCO absent hota hai; yahan initial fixation PEPcase karta hai.",
+      "voice": "सी फोर के मेसोफिल में रुबिस्को ऐब्सेंट होता है; यहाँ इनिशियल फिक्सेशन पेपकेस करता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "no-rubisco",
+       "pepcase"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 60,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": []
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "title": "Delivery aur unpacking",
+    "key": "Malate ya aspartate bundle sheath mein CO2 aur 3C compound dete hain.",
+    "covers": [
+     1
+    ],
+    "visual": {
+     "type": "diagram",
+     "image_prompt": "",
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 560\"><defs><linearGradient id=\"bg\" x2=\"1\" y2=\"1\"><stop stop-color=\"#eef5ed\"/><stop offset=\"1\" stop-color=\"#dce9ed\"/></linearGradient><radialGradient id=\"gold\"><stop stop-color=\"#ffe9a9\"/><stop offset=\"1\" stop-color=\"#e6b554\"/></radialGradient></defs><rect width=\"1000\" height=\"560\" rx=\"26\" fill=\"url(#bg)\"/><rect id=\"mesophyll\" x=\"35\" y=\"80\" width=\"425\" height=\"425\" rx=\"65\" fill=\"#d0e5c7\" stroke=\"#7ea17b\" stroke-width=\"3\"/><rect id=\"sheath\" x=\"490\" y=\"80\" width=\"475\" height=\"425\" rx=\"65\" fill=\"#c8e4dd\" stroke=\"#679c91\" stroke-width=\"3\"/><text x=\"145\" y=\"56\" font-family=\"sans-serif\" font-size=\"26\">Mesophyll</text><text x=\"630\" y=\"56\" font-family=\"sans-serif\" font-size=\"26\">Bundle sheath</text><ellipse cx=\"99\" cy=\"145\" rx=\"29\" ry=\"14\" fill=\"#88b47d\"/><ellipse cx=\"394\" cy=\"447\" rx=\"29\" ry=\"14\" fill=\"#88b47d\"/><ellipse cx=\"550\" cy=\"445\" rx=\"29\" ry=\"14\" fill=\"#6eaa92\"/><ellipse cx=\"900\" cy=\"144\" rx=\"29\" ry=\"14\" fill=\"#6eaa92\"/><g id=\"oaa\"><rect x=\"87\" y=\"191\" width=\"132\" height=\"68\" rx=\"24\" fill=\"url(#gold)\"/><text x=\"108\" y=\"232\" font-family=\"sans-serif\" font-size=\"24\">OAA • 4C</text></g><path d=\"M155 270 V310 M145 299 L155 312 L165 299\" fill=\"none\" stroke=\"#65836b\" stroke-width=\"4\"/><g id=\"parcel\"><rect x=\"83\" y=\"324\" width=\"300\" height=\"95\" rx=\"30\" fill=\"url(#gold)\"/><circle cx=\"113\" cy=\"347\" r=\"9\" fill=\"#a47b30\"/><circle cx=\"139\" cy=\"347\" r=\"9\" fill=\"#a47b30\"/><circle cx=\"165\" cy=\"347\" r=\"9\" fill=\"#a47b30\"/><circle cx=\"191\" cy=\"347\" r=\"9\" fill=\"#a47b30\"/><text x=\"105\" y=\"392\" font-family=\"sans-serif\" font-size=\"24\">Malate / Aspartate</text></g><path d=\"M395 370 Q490 370 612 280\" fill=\"none\" stroke=\"#a68b4c\" stroke-width=\"5\" stroke-dasharray=\"9 8\"/><g id=\"unpack\"><rect x=\"603\" y=\"220\" width=\"140\" height=\"91\" rx=\"27\" fill=\"url(#gold)\"/><text x=\"622\" y=\"275\" font-family=\"sans-serif\" font-size=\"25\">4C acid</text></g><path d=\"M747 256 L820 193 M747 278 L820 353\" fill=\"none\" stroke=\"#568c83\" stroke-width=\"4\"/><g id=\"co2\"><circle cx=\"853\" cy=\"170\" r=\"43\" fill=\"#8dc8df\"/><text x=\"825\" y=\"179\" font-family=\"sans-serif\" font-size=\"25\">CO₂</text></g><g id=\"threec\"><rect x=\"792\" y=\"347\" width=\"123\" height=\"72\" rx=\"24\" fill=\"#c3b7e0\"/><circle cx=\"818\" cy=\"370\" r=\"9\" fill=\"#79669f\"/><circle cx=\"850\" cy=\"370\" r=\"9\" fill=\"#79669f\"/><circle cx=\"882\" cy=\"370\" r=\"9\" fill=\"#79669f\"/><text x=\"836\" y=\"404\" font-family=\"sans-serif\" font-size=\"22\">3C</text></g></svg>"
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "Mesophyll mein OAA se malate ya aspartate jaise four-carbon compounds bante hain.",
+      "voice": "मेसोफिल में ओ ए ए से मैलेट या ऐस्पार्टेट जैसे फोर कार्बन कम्पाउंड्स बनते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "oaa",
+       "parcel"
+      ],
+      "zoom": {
+       "x": 25,
+       "y": 53,
+       "scale": 1.5
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          15,
+          43
+         ],
+         [
+          15,
+          54
+         ],
+         [
+          23,
+          66
+         ]
+        ],
+        "count": 1,
+        "ms": 1600,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "Ye four-carbon parcel mesophyll se bundle sheath mein transport hota hai.",
+      "voice": "ये फोर कार्बन पार्सल मेसोफिल से बंडल शीथ में ट्रांसपोर्ट होता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "mesophyll",
+       "parcel",
+       "sheath",
+       "unpack"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 52,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          25,
+          66
+         ],
+         [
+          40,
+          66
+         ],
+         [
+          51,
+          61
+         ],
+         [
+          67,
+          47
+         ]
+        ],
+        "count": 3,
+        "ms": 2800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "Bundle sheath mein parcel tootne par CO2 release hoti hai aur three-carbon compound bach jaata hai.",
+      "voice": "बंडल शीथ में पार्सल टूटने पर सी ओ टू रिलीज़ होती है और थ्री कार्बन कम्पाउंड बच जाता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "unpack",
+       "co2",
+       "threec"
+      ],
+      "zoom": {
+       "x": 77,
+       "y": 50,
+       "scale": 1.6
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          68,
+          46
+         ],
+         [
+          77,
+          39
+         ],
+         [
+          85,
+          30
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       },
+       {
+        "what": "molecule",
+        "colour": "purple",
+        "label": "",
+        "points": [
+         [
+          68,
+          49
+         ],
+         [
+          76,
+          56
+         ],
+         [
+          85,
+          68
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": []
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "title": "CO2 aage, carrier wapas",
+    "key": "CO2 Calvin cycle mein; 3C compound wapas jaakar PEP banata hai.",
+    "covers": [
+     2
+    ],
+    "visual": {
+     "type": "diagram",
+     "image_prompt": "",
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 560\"><defs><linearGradient id=\"bg\" x2=\"0\" y2=\"1\"><stop stop-color=\"#edf4ec\"/><stop offset=\"1\" stop-color=\"#d9e9e3\"/></linearGradient><radialGradient id=\"calvinfill\"><stop stop-color=\"#f5fff0\"/><stop offset=\"1\" stop-color=\"#9ac8a8\"/></radialGradient></defs><rect width=\"1000\" height=\"560\" rx=\"26\" fill=\"url(#bg)\"/><rect id=\"mesophyll\" x=\"35\" y=\"72\" width=\"400\" height=\"440\" rx=\"65\" fill=\"#d6e7c5\" stroke=\"#89a57a\" stroke-width=\"3\"/><rect id=\"sheath\" x=\"465\" y=\"72\" width=\"500\" height=\"440\" rx=\"65\" fill=\"#c7e3db\" stroke=\"#73a397\" stroke-width=\"3\"/><text x=\"147\" y=\"48\" font-family=\"sans-serif\" font-size=\"26\">Mesophyll</text><text x=\"640\" y=\"48\" font-family=\"sans-serif\" font-size=\"26\">Bundle sheath</text><ellipse cx=\"97\" cy=\"141\" rx=\"27\" ry=\"13\" fill=\"#81ae78\"/><ellipse cx=\"370\" cy=\"457\" rx=\"27\" ry=\"13\" fill=\"#81ae78\"/><ellipse cx=\"908\" cy=\"459\" rx=\"27\" ry=\"13\" fill=\"#6caa94\"/><g id=\"pep\"><rect x=\"115\" y=\"226\" width=\"175\" height=\"76\" rx=\"27\" fill=\"#f0d07b\"/><text x=\"153\" y=\"272\" font-family=\"sans-serif\" font-size=\"26\">PEP • 3C</text></g><g id=\"return\"><rect x=\"562\" y=\"386\" width=\"160\" height=\"68\" rx=\"25\" fill=\"#c7b9df\"/><text x=\"605\" y=\"429\" font-family=\"sans-serif\" font-size=\"26\">3C</text></g><path id=\"returnpath\" d=\"M553 420 H251 Q202 420 202 318 M191 330 L202 317 L213 330\" fill=\"none\" stroke=\"#8d7aa7\" stroke-width=\"5\"/><text id=\"energy\" x=\"75\" y=\"475\" font-family=\"sans-serif\" font-size=\"21\" fill=\"#596b4d\">PEP regeneration: energy</text><g id=\"co2\"><circle cx=\"572\" cy=\"161\" r=\"39\" fill=\"#89c6df\"/><text x=\"546\" y=\"169\" font-family=\"sans-serif\" font-size=\"24\">CO₂</text></g><g id=\"calvin\"><circle cx=\"790\" cy=\"233\" r=\"105\" fill=\"url(#calvinfill)\" stroke=\"#6b9c7b\" stroke-width=\"3\"/><path d=\"M751 190 A59 59 0 1 1 739 264 M730 251 L739 267 L756 261\" fill=\"none\" stroke=\"#5a8a67\" stroke-width=\"6\"/><text x=\"738\" y=\"226\" font-family=\"sans-serif\" font-size=\"22\">Calvin</text><text x=\"740\" y=\"251\" font-family=\"sans-serif\" font-size=\"22\">cycle</text></g><g id=\"rubisco\"><rect x=\"654\" y=\"88\" width=\"197\" height=\"48\" rx=\"22\" fill=\"#f6eed7\"/><text x=\"704\" y=\"120\" font-family=\"sans-serif\" font-size=\"23\">RuBisCO</text></g><g id=\"no-pepcase\"><rect x=\"742\" y=\"390\" width=\"203\" height=\"57\" rx=\"23\" fill=\"#f3e7df\"/><text x=\"757\" y=\"425\" font-family=\"sans-serif\" font-size=\"20\">PEPcase absent</text></g><path d=\"M614 165 L683 200\" stroke=\"#62958a\" stroke-width=\"4\"/><path d=\"M890 265 Q930 350 805 470\" fill=\"none\" stroke=\"#82996b\" stroke-width=\"3\"/><g id=\"sugar\"><rect x=\"746\" y=\"478\" width=\"115\" height=\"41\" rx=\"17\" fill=\"#e8d49a\"/><text x=\"774\" y=\"506\" font-family=\"sans-serif\" font-size=\"21\">Sugar</text></g></svg>"
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "Released CO2, bundle sheath ke RuBisCO ki madad se Calvin cycle mein fix hoti hai.",
+      "voice": "रिलीज़्ड सी ओ टू, बंडल शीथ के रुबिस्को की मदद से कैल्विन साइकल में फिक्स होती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "co2",
+       "rubisco",
+       "calvin"
+      ],
+      "zoom": {
+       "x": 73,
+       "y": 37,
+       "scale": 1.45
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          57,
+          29
+         ],
+         [
+          66,
+          31
+         ],
+         [
+          73,
+          37
+         ],
+         [
+          79,
+          42
+         ]
+        ],
+        "count": 3,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "Three-carbon compound mesophyll lautkar energy ki madad se PEP regenerate karta hai.",
+      "voice": "थ्री कार्बन कम्पाउंड मेसोफिल लौटकर एनर्जी की मदद से पी ई पी रीजनरेट करता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "return",
+       "returnpath",
+       "energy",
+       "pep"
+      ],
+      "zoom": {
+       "x": 43,
+       "y": 63,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "purple",
+        "label": "",
+        "points": [
+         [
+          64,
+          75
+         ],
+         [
+          46,
+          75
+         ],
+         [
+          25,
+          75
+         ],
+         [
+          20,
+          65
+         ],
+         [
+          20,
+          48
+         ]
+        ],
+        "count": 2,
+        "ms": 3400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "Carrier dobara taiyaar hai; ab woh CO2 ki agli delivery kar sakta hai.",
+      "voice": "कैरियर दोबारा तैयार है; अब वो सी ओ टू की अगली डिलिवरी कर सकता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 11,
+        "x1": 30,
+        "y0": 39,
+        "y1": 55
+       }
+      ],
+      "focus": [
+       "pep"
+      ],
+      "zoom": {
+       "x": 21,
+       "y": 48,
+       "scale": 1.6
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "Bundle sheath mein RuBisCO hota hai, PEPcase nahi; sugar banane wala raasta Calvin cycle hi hai.",
+      "voice": "बंडल शीथ में रुबिस्को होता है, पेपकेस नहीं; शुगर बनाने वाला रास्ता कैल्विन साइकल ही है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "rubisco",
+       "no-pepcase",
+       "calvin",
+       "sugar"
+      ],
+      "zoom": {
+       "x": 72,
+       "y": 50,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": []
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "title": "C3 aur C4: jagah ka farq",
+    "key": "C4: mesophyll mein packing, bundle sheath mein Calvin cycle, carrier wapas.",
+    "covers": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "visual": {
+     "type": "diagram",
+     "image_prompt": "",
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 560\"><defs><linearGradient id=\"bg\" x2=\"1\" y2=\"1\"><stop stop-color=\"#f0f5ee\"/><stop offset=\"1\" stop-color=\"#dce8e3\"/></linearGradient><radialGradient id=\"green\"><stop stop-color=\"#f5ffea\"/><stop offset=\"1\" stop-color=\"#b4d6ac\"/></radialGradient></defs><rect width=\"1000\" height=\"560\" rx=\"25\" fill=\"url(#bg)\"/><rect x=\"30\" y=\"28\" width=\"940\" height=\"218\" rx=\"32\" fill=\"#fafcf6\"/><rect x=\"30\" y=\"271\" width=\"940\" height=\"263\" rx=\"32\" fill=\"#f6faf7\"/><text x=\"57\" y=\"73\" font-family=\"sans-serif\" font-size=\"30\" fill=\"#355b49\">C3</text><text x=\"57\" y=\"318\" font-family=\"sans-serif\" font-size=\"30\" fill=\"#355b49\">C4</text><g id=\"c3meso\"><rect x=\"276\" y=\"53\" width=\"570\" height=\"163\" rx=\"47\" fill=\"url(#green)\" stroke=\"#85a480\" stroke-width=\"3\"/><text x=\"305\" y=\"85\" font-family=\"sans-serif\" font-size=\"22\">Mesophyll</text><circle cx=\"578\" cy=\"139\" r=\"57\" fill=\"#d5eac9\" stroke=\"#6d9869\" stroke-width=\"3\"/><text x=\"538\" y=\"134\" font-family=\"sans-serif\" font-size=\"19\">Calvin</text><text x=\"540\" y=\"158\" font-family=\"sans-serif\" font-size=\"19\">cycle</text><text x=\"670\" y=\"145\" font-family=\"sans-serif\" font-size=\"22\">RuBisCO</text></g><g id=\"c3co2\"><circle cx=\"180\" cy=\"139\" r=\"35\" fill=\"#9bd0e0\"/><text x=\"155\" y=\"147\" font-family=\"sans-serif\" font-size=\"22\">CO₂</text></g><path d=\"M219 139 H510 M498 129 L512 139 L498 149\" fill=\"none\" stroke=\"#688c80\" stroke-width=\"4\"/><g id=\"c4meso\"><rect x=\"159\" y=\"335\" width=\"337\" height=\"166\" rx=\"40\" fill=\"url(#green)\" stroke=\"#85a480\" stroke-width=\"3\"/><text x=\"188\" y=\"366\" font-family=\"sans-serif\" font-size=\"22\">Mesophyll</text><g id=\"packing\"><rect x=\"191\" y=\"387\" width=\"266\" height=\"65\" rx=\"23\" fill=\"#f3d68c\"/><text x=\"213\" y=\"414\" font-family=\"sans-serif\" font-size=\"19\">PEPcase → OAA (4C)</text><text x=\"213\" y=\"439\" font-family=\"sans-serif\" font-size=\"19\">Malate / Aspartate</text></g></g><g id=\"c4sheath\"><rect x=\"615\" y=\"335\" width=\"337\" height=\"166\" rx=\"40\" fill=\"#c3e1d6\" stroke=\"#75a08f\" stroke-width=\"3\"/><text x=\"659\" y=\"366\" font-family=\"sans-serif\" font-size=\"22\">Bundle sheath</text><g id=\"c4calvin\"><circle cx=\"837\" cy=\"428\" r=\"55\" fill=\"#e6f1d9\" stroke=\"#6b986d\" stroke-width=\"3\"/><text x=\"805\" y=\"423\" font-family=\"sans-serif\" font-size=\"18\">Calvin</text><text x=\"810\" y=\"446\" font-family=\"sans-serif\" font-size=\"18\">cycle</text></g><g id=\"released\"><circle cx=\"686\" cy=\"416\" r=\"29\" fill=\"#9bd0e0\"/><text x=\"664\" y=\"423\" font-family=\"sans-serif\" font-size=\"19\">CO₂</text></g></g><path id=\"delivery\" d=\"M499 404 H609 M596 394 L611 404 L596 414\" fill=\"none\" stroke=\"#b3954c\" stroke-width=\"5\"/><text x=\"535\" y=\"389\" font-family=\"sans-serif\" font-size=\"21\">4C</text><path id=\"back\" d=\"M608 476 H502 M515 466 L500 476 L515 486\" fill=\"none\" stroke=\"#8d77a4\" stroke-width=\"5\"/><text x=\"535\" y=\"509\" font-family=\"sans-serif\" font-size=\"21\">3C</text><ellipse cx=\"464\" cy=\"188\" rx=\"23\" ry=\"10\" fill=\"#90b17e\"/><ellipse cx=\"906\" cy=\"475\" rx=\"23\" ry=\"10\" fill=\"#83af94\"/></svg>"
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "C3 paudhe mein CO2 mesophyll ke Calvin cycle mein fix hoti hai.",
+      "voice": "सी थ्री पौधे में सी ओ टू मेसोफिल के कैल्विन साइकल में फिक्स होती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "c3meso",
+       "c3co2"
+      ],
+      "zoom": {
+       "x": 52,
+       "y": 25,
+       "scale": 1.35
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          18,
+          25
+         ],
+         [
+          34,
+          25
+         ],
+         [
+          50,
+          25
+         ],
+         [
+          57,
+          25
+         ]
+        ],
+        "count": 2,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "C4 mein initial fixation mesophyll mein, lekin Calvin cycle bundle sheath mein hota hai.",
+      "voice": "सी फोर में इनिशियल फिक्सेशन मेसोफिल में, लेकिन कैल्विन साइकल बंडल शीथ में होता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "c4meso",
+       "packing",
+       "c4sheath",
+       "c4calvin"
+      ],
+      "zoom": {
+       "x": 54,
+       "y": 73,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "Dono sugar banane ke liye Calvin cycle istemaal karte hain; C4 mein pehle CO2 delivery ka extra raasta hai.",
+      "voice": "दोनों शुगर बनाने के लिए कैल्विन साइकल इस्तेमाल करते हैं; सी फोर में पहले सी ओ टू डिलिवरी का एक्स्ट्रा रास्ता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "c3meso",
+       "packing",
+       "delivery",
+       "c4calvin"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "Bas yaad rakho: mesophyll mein CO2 ka four-carbon parcel, bundle sheath mein release aur Calvin cycle, phir three-carbon carrier wapas.",
+      "voice": "बस याद रखो: मेसोफिल में सी ओ टू का फोर कार्बन पार्सल, बंडल शीथ में रिलीज़ और कैल्विन साइकल, फिर थ्री कार्बन कैरियर वापस।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "packing",
+       "delivery",
+       "released",
+       "c4calvin",
+       "back"
+      ],
+      "zoom": {
+       "x": 54,
+       "y": 73,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          43,
+          72
+         ],
+         [
+          54,
+          72
+         ],
+         [
+          65,
+          72
+         ]
+        ],
+        "count": 1,
+        "ms": 1600,
+        "loop": false
+       },
+       {
+        "what": "molecule",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          68,
+          74
+         ],
+         [
+          75,
+          75
+         ],
+         [
+          83,
+          76
+         ]
+        ],
+        "count": 1,
+        "ms": 1600,
+        "loop": false
+       },
+       {
+        "what": "molecule",
+        "colour": "purple",
+        "label": "",
+        "points": [
+         [
+          63,
+          85
+         ],
+         [
+          55,
+          85
+         ],
+         [
+          45,
+          85
+         ],
+         [
+          34,
+          80
+         ]
+        ],
+        "count": 1,
+        "ms": 2400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": []
+     }
+    ]
+   }
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "s1 sentence 2: move label 'CO2' is not spoken in this sentence (dikhaya = bola)",
+    "s2 sentence 2: move label 'CO2' is not spoken in this sentence (dikhaya = bola)",
+    "s3 sentence 1: move label '4C' is not spoken in this sentence (dikhaya = bola)",
+    "s3 sentence 3: move label 'CO2' is not spoken in this sentence (dikhaya = bola)",
+    "s3 sentence 3: move label '3C' is not spoken in this sentence (dikhaya = bola)",
+    "s4 sentence 1: move label 'CO2' is not spoken in this sentence (dikhaya = bola)",
+    "s4 sentence 2: move label '3C' is not spoken in this sentence (dikhaya = bola)",
+    "s5 sentence 1: move label 'CO2' is not spoken in this sentence (dikhaya = bola)",
+    "s5 sentence 4: move label '4C' is not spoken in this sentence (dikhaya = bola)",
+    "s5 sentence 4: move label 'CO2' is not spoken in this sentence (dikhaya = bola)",
+    "s5 sentence 4: move label '3C' is not spoken in this sentence (dikhaya = bola)"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "images": {
+  "s1": "q19-s1.png"
+ }
+}

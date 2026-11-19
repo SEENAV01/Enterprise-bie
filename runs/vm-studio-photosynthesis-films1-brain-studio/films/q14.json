@@ -1,0 +1,783 @@
+{
+ "film": {
+  "title": "H+ ki waapsi se ATP kaise banta hai?",
+  "shots": [
+   {
+    "id": "s1",
+    "title": "Stored energy ka sahi exit",
+    "key": "Proton gradient ki energy ATP synthase se ATP banwati hai.",
+    "covers": [
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 transparent scientific cutaway of a chloroplast thylakoid membrane. Glossy molecular forms, soft volumetric lighting, calm dark teal background. Horizontal membrane across middle, thylakoid lumen below and stroma above. Many gold proton spheres in lumen, few in stroma. ATP synthase centered at x65 percent, transmembrane channel at y55 and rounded catalytic head extending into stroma at y32, connected by a stalk. Channel opens laterally into stroma above membrane, not through catalytic head. Small ADP and phosphate forms beside head and luminous ATP product nearby. Strong depth, generous empty space on left for labels. No text or arrows.",
+     "svg": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "Lumen mein jama H+ wapas niklein, toh ATP kaise ban jaata hai?",
+      "voice": "ल्यूमेन में जमा एच प्लस वापस निकलें, तो एटीपी कैसे बन जाता है?",
+      "pins": [
+       {
+        "label": "Lumen",
+        "x": 25,
+        "y": 76
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 15,
+        "x1": 80,
+        "y0": 65,
+        "y1": 85
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 55,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "Raaz hai ATP synthase: is raaste se H+ lautte hain, toh gradient ki stored energy ATP banwati hai.",
+      "voice": "राज़ है एटीपी सिंथेज़: इस रास्ते से एच प्लस लौटते हैं, तो ग्रेडिएंट की स्टोर्ड एनर्जी एटीपी बनवाती है।",
+      "pins": [
+       {
+        "label": "ATP synthase",
+        "x": 77,
+        "y": 33
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 72,
+        "x1": 87,
+        "y0": 20,
+        "y1": 36
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 65,
+       "y": 49,
+       "scale": 1.4
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          65,
+          79
+         ],
+         [
+          65,
+          57
+         ],
+         [
+          65,
+          45
+         ],
+         [
+          79,
+          43
+         ]
+        ],
+        "count": 6,
+        "ms": 2400,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": []
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "title": "Channel aur catalytic head",
+    "key": "CF0 membrane mein channel hai; CF1 stroma-facing catalytic part hai.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "diagram",
+     "image_prompt": "",
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 600\"><defs><linearGradient id=\"bg\" x2=\"0\" y2=\"1\"><stop stop-color=\"#e5f5ee\"/><stop offset=\"1\" stop-color=\"#b9dcd7\"/></linearGradient><linearGradient id=\"protein\" x2=\"1\" y2=\"1\"><stop stop-color=\"#ffe0a0\"/><stop offset=\"1\" stop-color=\"#c38b45\"/></linearGradient></defs><rect width=\"1000\" height=\"600\" fill=\"url(#bg)\"/><rect id=\"stroma\" x=\"25\" y=\"25\" width=\"950\" height=\"270\" rx=\"35\" fill=\"#eaf7ef\"/><rect id=\"lumen\" x=\"25\" y=\"365\" width=\"950\" height=\"210\" rx=\"35\" fill=\"#acd3cf\"/><g id=\"membrane\"><rect x=\"40\" y=\"300\" width=\"920\" height=\"65\" rx=\"24\" fill=\"#548f89\"/><path d=\"M60 317H940M60 349H940\" stroke=\"#a4d2b2\" stroke-width=\"13\"/></g><g fill=\"#c1dfb9\"><circle cx=\"100\" cy=\"315\" r=\"14\"/><circle cx=\"160\" cy=\"315\" r=\"14\"/><circle cx=\"220\" cy=\"315\" r=\"14\"/><circle cx=\"280\" cy=\"315\" r=\"14\"/><circle cx=\"720\" cy=\"315\" r=\"14\"/><circle cx=\"780\" cy=\"315\" r=\"14\"/><circle cx=\"840\" cy=\"315\" r=\"14\"/><circle cx=\"900\" cy=\"315\" r=\"14\"/></g><g id=\"cf0\"><rect x=\"450\" y=\"290\" width=\"100\" height=\"86\" rx=\"23\" fill=\"url(#protein)\"/><rect x=\"487\" y=\"293\" width=\"26\" height=\"80\" rx=\"12\" fill=\"#f7f6d6\"/></g><rect id=\"stalk\" x=\"486\" y=\"210\" width=\"28\" height=\"88\" rx=\"12\" fill=\"#ba9157\"/><g id=\"cf1\" fill=\"url(#protein)\" stroke=\"#ba8c48\" stroke-width=\"2\"><ellipse cx=\"460\" cy=\"180\" rx=\"57\" ry=\"55\"/><ellipse cx=\"540\" cy=\"180\" rx=\"57\" ry=\"55\"/><ellipse cx=\"500\" cy=\"150\" rx=\"48\" ry=\"52\"/></g><g id=\"protons\" fill=\"#f2bb48\"><circle cx=\"410\" cy=\"440\" r=\"12\"/><circle cx=\"495\" cy=\"460\" r=\"12\"/><circle cx=\"570\" cy=\"425\" r=\"12\"/><circle cx=\"640\" cy=\"495\" r=\"12\"/><circle cx=\"345\" cy=\"505\" r=\"12\"/><circle cx=\"730\" cy=\"170\" r=\"12\"/></g><g font-family=\"sans-serif\" font-size=\"24\" fill=\"#254c48\"><text x=\"85\" y=\"100\">Stroma</text><text x=\"85\" y=\"485\">Lumen</text><text x=\"690\" y=\"270\">Thylakoid membrane</text><text x=\"665\" y=\"365\">CF0: channel</text><text x=\"650\" y=\"140\">CF1: catalytic head</text></g><g stroke=\"#456e65\" stroke-width=\"2\" fill=\"none\"><path d=\"M680 275L810 300\"/><path d=\"M650 355L551 335\"/><path d=\"M640 145L591 167\"/></g></svg>"
+    },
+    "dive": {
+     "x": 65,
+     "y": 49
+    },
+    "sentences": [
+     {
+      "roman": "ATP synthase ke do parts dekho: CF0 aur CF1.",
+      "voice": "एटीपी सिंथेज़ के दो पार्ट्स देखो: सी एफ ज़ीरो और सी एफ वन।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "cf0",
+       "cf1"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 40,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "CF0 thylakoid membrane mein embedded hai; yahi H+ ka channel hai.",
+      "voice": "सी एफ ज़ीरो थायलाकोइड मेम्ब्रेन में एम्बेडेड है; यही एच प्लस का चैनल है।",
+      "pins": [],
+      "arrows": [
+       {
+        "points": [
+         [
+          64,
+          64
+         ],
+         [
+          52,
+          56
+         ]
+        ],
+        "label": ""
+       }
+      ],
+      "effects": [],
+      "focus": [
+       "membrane",
+       "cf0"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 55,
+       "scale": 1.7
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "CF1 stroma ki taraf nikla catalytic part hai, jahan ATP banta hai.",
+      "voice": "सी एफ वन स्ट्रोमा की तरफ निकला कैटेलिटिक पार्ट है, जहाँ एटीपी बनता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "cf1",
+       "stroma"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 28,
+       "scale": 1.7
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": []
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "title": "Flow se shape change",
+    "key": "H+ ki facilitated diffusion CF1 ka conformation badalkar ATP banwati hai.",
+    "covers": [
+     1
+    ],
+    "visual": {
+     "type": "diagram",
+     "image_prompt": "",
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 600\"><defs><linearGradient id=\"bg\" x2=\"0\" y2=\"1\"><stop stop-color=\"#f0f6e9\"/><stop offset=\"1\" stop-color=\"#b8dcd5\"/></linearGradient><linearGradient id=\"head\" x2=\"1\" y2=\"1\"><stop stop-color=\"#ffdf93\"/><stop offset=\"1\" stop-color=\"#ce9450\"/></linearGradient></defs><rect width=\"1000\" height=\"600\" fill=\"url(#bg)\"/><rect id=\"membrane\" x=\"35\" y=\"335\" width=\"930\" height=\"65\" rx=\"25\" fill=\"#5c9990\"/><path d=\"M50 350H950M50 385H950\" stroke=\"#b6d9ac\" stroke-width=\"10\"/><rect id=\"cf0\" x=\"365\" y=\"320\" width=\"100\" height=\"95\" rx=\"25\" fill=\"url(#head)\"/><rect x=\"402\" y=\"320\" width=\"26\" height=\"95\" rx=\"10\" fill=\"#fcf7d6\"/><rect id=\"stalk\" x=\"402\" y=\"230\" width=\"26\" height=\"95\" rx=\"10\" fill=\"#b38a53\"/><g id=\"cf1\" fill=\"url(#head)\" stroke=\"#b48b43\" stroke-width=\"3\"><ellipse cx=\"375\" cy=\"203\" rx=\"55\" ry=\"55\"/><ellipse cx=\"455\" cy=\"203\" rx=\"55\" ry=\"55\"/><ellipse cx=\"415\" cy=\"162\" rx=\"48\" ry=\"48\"/></g><g id=\"changed\" fill=\"#f3cd70\" stroke=\"#b48b43\" stroke-width=\"3\"><ellipse cx=\"760\" cy=\"185\" rx=\"73\" ry=\"42\"/><ellipse cx=\"777\" cy=\"227\" rx=\"45\" ry=\"43\"/><ellipse cx=\"716\" cy=\"220\" rx=\"40\" ry=\"46\"/></g><path d=\"M535 200H645L630 189M645 200L630 211\" fill=\"none\" stroke=\"#64836f\" stroke-width=\"4\"/><g id=\"pool\" fill=\"#edb647\"><circle cx=\"180\" cy=\"480\" r=\"12\"/><circle cx=\"280\" cy=\"530\" r=\"12\"/><circle cx=\"415\" cy=\"485\" r=\"12\"/><circle cx=\"520\" cy=\"530\" r=\"12\"/><circle cx=\"610\" cy=\"465\" r=\"12\"/><circle cx=\"750\" cy=\"515\" r=\"12\"/><circle cx=\"850\" cy=\"465\" r=\"12\"/><circle cx=\"150\" cy=\"180\" r=\"12\"/></g><g id=\"adp\"><rect x=\"635\" y=\"70\" width=\"80\" height=\"38\" rx=\"15\" fill=\"#a7cbe1\"/><text x=\"647\" y=\"97\" font-size=\"23\">ADP</text></g><g id=\"pi\"><circle cx=\"775\" cy=\"88\" r=\"23\" fill=\"#c0b0da\"/><text x=\"765\" y=\"96\" font-size=\"22\">Pi</text></g><g id=\"atp\"><rect x=\"855\" y=\"185\" width=\"100\" height=\"50\" rx=\"20\" fill=\"#f8d56f\"/><text x=\"878\" y=\"218\" font-size=\"27\">ATP</text></g><g fill=\"#2c504a\" font-family=\"sans-serif\" font-size=\"24\"><text x=\"65\" y=\"65\">Stroma: fewer H+</text><text x=\"65\" y=\"575\">Lumen: more H+</text><text x=\"525\" y=\"155\">Shape change</text><text x=\"285\" y=\"303\">CF1</text><text x=\"475\" y=\"375\">CF0</text></g></svg>"
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "Lumen mein H+ zyada hain; woh CF0 se stroma mein apne electrochemical gradient ke saath lautte hain.",
+      "voice": "ल्यूमेन में एच प्लस ज़्यादा हैं; वे सी एफ ज़ीरो से स्ट्रोमा में अपने इलेक्ट्रोकेमिकल ग्रेडिएंट के साथ लौटते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "pool",
+       "cf0"
+      ],
+      "zoom": {
+       "x": 41,
+       "y": 60,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          42,
+          84
+         ],
+         [
+          41.5,
+          68
+         ],
+         [
+          41.5,
+          54
+         ],
+         [
+          54,
+          44
+         ]
+        ],
+        "count": 8,
+        "ms": 2300,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "Yeh facilitated diffusion hai: channel raasta deta hai, aur gradient ki energy CF1 ka conformation, yaani shape, badalwati hai.",
+      "voice": "यह फ़ैसिलिटेटेड डिफ्यूज़न है: चैनल रास्ता देता है, और ग्रेडिएंट की एनर्जी सी एफ वन का कॉनफ़ॉर्मेशन, यानी शेप, बदलवाती है।",
+      "pins": [],
+      "arrows": [
+       {
+        "points": [
+         [
+          53,
+          33
+         ],
+         [
+          65,
+          33
+         ]
+        ],
+        "label": ""
+       }
+      ],
+      "effects": [],
+      "focus": [
+       "cf0",
+       "cf1",
+       "changed"
+      ],
+      "zoom": {
+       "x": 58,
+       "y": 32,
+       "scale": 1.3
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "Is shape change se CF1, ADP aur Pi, yaani inorganic phosphate, ko jodkar ATP banata hai.",
+      "voice": "इस शेप चेंज से सी एफ वन, एडीपी और पी आई, यानी इनऑर्गैनिक फ़ॉस्फ़ेट, को जोड़कर एटीपी बनाता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 85,
+        "x1": 96,
+        "y0": 29,
+        "y1": 41
+       }
+      ],
+      "focus": [
+       "adp",
+       "pi",
+       "changed",
+       "atp"
+      ],
+      "zoom": {
+       "x": 78,
+       "y": 29,
+       "scale": 1.5
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "blue",
+        "label": "ADP",
+        "points": [
+         [
+          68,
+          16
+         ],
+         [
+          73,
+          29
+         ],
+         [
+          76,
+          35
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       },
+       {
+        "what": "molecule",
+        "colour": "purple",
+        "label": "",
+        "points": [
+         [
+          78,
+          16
+         ],
+         [
+          78,
+          26
+         ],
+         [
+          76,
+          35
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       },
+       {
+        "what": "molecule",
+        "colour": "gold",
+        "label": "ATP",
+        "points": [
+         [
+          76,
+          35
+         ],
+         [
+          84,
+          35
+         ],
+         [
+          91,
+          35
+         ]
+        ],
+        "count": 1,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [
+       {
+        "x": 76,
+        "y": 35,
+        "label": "ATP"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "title": "Sahi raasta kyun zaroori hai?",
+    "key": "Membrane, pump, gradient aur ATP synthase milkar chemiosmosis chalate hain.",
+    "covers": [
+     2
+    ],
+    "visual": {
+     "type": "diagram",
+     "image_prompt": "",
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 600\"><defs><linearGradient id=\"bg\" x2=\"1\" y2=\"1\"><stop stop-color=\"#e8f4ee\"/><stop offset=\"1\" stop-color=\"#bfdad6\"/></linearGradient></defs><rect width=\"1000\" height=\"600\" fill=\"url(#bg)\"/><rect x=\"25\" y=\"70\" width=\"590\" height=\"475\" rx=\"30\" fill=\"#f2f7e9\"/><rect x=\"640\" y=\"70\" width=\"335\" height=\"475\" rx=\"30\" fill=\"#f5e7dc\"/><g id=\"intact\"><rect x=\"45\" y=\"290\" width=\"550\" height=\"55\" rx=\"20\" fill=\"#609c8e\"/><path d=\"M60 302H580M60 332H580\" stroke=\"#b5d5a7\" stroke-width=\"8\"/></g><g id=\"pump\"><rect x=\"130\" y=\"267\" width=\"75\" height=\"100\" rx=\"25\" fill=\"#87aed0\"/><path d=\"M168 285V348M155 333L168 348L181 333\" stroke=\"#f8fcff\" stroke-width=\"5\" fill=\"none\"/></g><g id=\"synthase\"><rect x=\"430\" y=\"278\" width=\"65\" height=\"78\" rx=\"20\" fill=\"#dab56a\"/><rect x=\"453\" y=\"225\" width=\"18\" height=\"65\" rx=\"8\" fill=\"#b89354\"/><ellipse cx=\"462\" cy=\"202\" rx=\"55\" ry=\"40\" fill=\"#edcc7d\"/></g><g id=\"gradient\" fill=\"#eab642\"><circle cx=\"90\" cy=\"415\" r=\"11\"/><circle cx=\"180\" cy=\"470\" r=\"11\"/><circle cx=\"270\" cy=\"410\" r=\"11\"/><circle cx=\"345\" cy=\"480\" r=\"11\"/><circle cx=\"465\" cy=\"425\" r=\"11\"/><circle cx=\"550\" cy=\"480\" r=\"11\"/><circle cx=\"310\" cy=\"190\" r=\"11\"/></g><g id=\"leak\"><rect x=\"660\" y=\"290\" width=\"130\" height=\"55\" rx=\"16\" fill=\"#609c8e\"/><rect x=\"830\" y=\"290\" width=\"125\" height=\"55\" rx=\"16\" fill=\"#609c8e\"/><path d=\"M790 290L805 300L791 315L804 329L790 345M830 290L817 305L830 319L818 335L830 345\" stroke=\"#b25f4d\" stroke-width=\"4\" fill=\"none\"/></g><g fill=\"#eab642\"><circle cx=\"705\" cy=\"430\" r=\"11\"/><circle cx=\"805\" cy=\"470\" r=\"11\"/><circle cx=\"900\" cy=\"415\" r=\"11\"/><circle cx=\"730\" cy=\"200\" r=\"11\"/><circle cx=\"865\" cy=\"225\" r=\"11\"/></g><g font-family=\"sans-serif\" font-size=\"23\" fill=\"#294f48\"><text x=\"60\" y=\"115\">Chemiosmosis</text><text x=\"75\" y=\"255\">Proton pump</text><text x=\"375\" y=\"135\">ATP synthase</text><text x=\"65\" y=\"385\">Intact membrane</text><text x=\"270\" y=\"520\">Proton gradient</text><text x=\"670\" y=\"115\">Uncontrolled leak</text><text x=\"65\" y=\"160\">Stroma</text><text x=\"65\" y=\"515\">Lumen</text></g><path d=\"M168 243V267M462 145V163\" stroke=\"#456b5e\" stroke-width=\"2\"/></svg>"
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "Chemiosmosis ko chaar cheezein chahiye: intact membrane, proton pump, proton gradient aur ATP synthase.",
+      "voice": "केमिऑस्मोसिस को चार चीज़ें चाहिए: इंटैक्ट मेम्ब्रेन, प्रोटॉन पम्प, प्रोटॉन ग्रेडिएंट और एटीपी सिंथेज़।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "intact",
+       "pump",
+       "gradient",
+       "synthase"
+      ],
+      "zoom": {
+       "x": 33,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "Pump energy lagakar H+ lumen mein jama karta hai; intact membrane unhe bina raaste ke wapas nahi aane deti.",
+      "voice": "पम्प एनर्जी लगाकर एच प्लस ल्यूमेन में जमा करता है; इंटैक्ट मेम्ब्रेन उन्हें बिना रास्ते के वापस नहीं आने देती।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "pump",
+       "intact",
+       "gradient"
+      ],
+      "zoom": {
+       "x": 29,
+       "y": 53,
+       "scale": 1.4
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          17,
+          36
+         ],
+         [
+          17,
+          48
+         ],
+         [
+          17,
+          58
+         ],
+         [
+          26,
+          73
+         ]
+        ],
+        "count": 5,
+        "ms": 2500,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "H+ ATP synthase se lautein toh energy ATP mein capture hoti hai; uncontrolled leak se lautein toh gradient ghatega, par us flow se ATP nahi banega.",
+      "voice": "एच प्लस एटीपी सिंथेज़ से लौटें तो एनर्जी एटीपी में कैप्चर होती है; अनकंट्रोल्ड लीक से लौटें तो ग्रेडिएंट घटेगा, पर उस फ्लो से एटीपी नहीं बनेगा।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "synthase",
+       "leak"
+      ],
+      "zoom": {
+       "x": 66,
+       "y": 51,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          46,
+          74
+         ],
+         [
+          46,
+          57
+         ],
+         [
+          46,
+          46
+         ],
+         [
+          53,
+          39
+         ]
+        ],
+        "count": 4,
+        "ms": 2300,
+        "loop": true
+       },
+       {
+        "what": "molecule",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          81,
+          77
+         ],
+         [
+          81,
+          58
+         ],
+         [
+          81,
+          47
+         ],
+         [
+          87,
+          32
+         ]
+        ],
+        "count": 5,
+        "ms": 1800,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": []
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "title": "ATP ka agla kaam",
+    "key": "ATP aur NADPH stroma mein CO2 fixation aur sugar synthesis ko supply karte hain.",
+    "covers": [
+     3
+    ],
+    "visual": {
+     "type": "diagram",
+     "image_prompt": "",
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 600\"><defs><linearGradient id=\"bg\" x2=\"1\" y2=\"1\"><stop stop-color=\"#edf7ec\"/><stop offset=\"1\" stop-color=\"#b6d8ca\"/></linearGradient><linearGradient id=\"sugar\" x2=\"1\" y2=\"1\"><stop stop-color=\"#ffe4a0\"/><stop offset=\"1\" stop-color=\"#d5a456\"/></linearGradient></defs><rect width=\"1000\" height=\"600\" fill=\"url(#bg)\"/><rect id=\"stroma\" x=\"25\" y=\"25\" width=\"950\" height=\"550\" rx=\"55\" fill=\"#e1efda\" stroke=\"#84b59e\" stroke-width=\"3\"/><g id=\"thylakoid\"><rect x=\"70\" y=\"355\" width=\"300\" height=\"130\" rx=\"55\" fill=\"#629f88\"/><rect x=\"90\" y=\"377\" width=\"260\" height=\"85\" rx=\"40\" fill=\"#91bda1\"/><path d=\"M110 398H330M110 438H330\" stroke=\"#b3d49e\" stroke-width=\"9\"/></g><g id=\"synthase\"><rect x=\"240\" y=\"345\" width=\"45\" height=\"55\" rx=\"15\" fill=\"#d6ad65\"/><rect x=\"256\" y=\"315\" width=\"14\" height=\"35\" fill=\"#b28e51\"/><ellipse cx=\"263\" cy=\"300\" rx=\"38\" ry=\"27\" fill=\"url(#sugar)\"/></g><g id=\"atp\"><rect x=\"145\" y=\"200\" width=\"105\" height=\"48\" rx=\"20\" fill=\"#f2cf70\"/><text x=\"170\" y=\"232\" font-size=\"26\">ATP</text></g><g id=\"nadph\"><rect x=\"110\" y=\"110\" width=\"145\" height=\"48\" rx=\"20\" fill=\"#b7a6d7\"/><text x=\"125\" y=\"142\" font-size=\"26\">NADPH</text></g><g id=\"fixation\"><rect x=\"430\" y=\"145\" width=\"280\" height=\"190\" rx=\"55\" fill=\"#b6d4b0\" stroke=\"#7caa83\" stroke-width=\"3\"/><ellipse cx=\"570\" cy=\"240\" rx=\"110\" ry=\"60\" fill=\"#d3e6c6\"/><text x=\"476\" y=\"235\" font-family=\"sans-serif\" font-size=\"25\" fill=\"#345846\">CO2 fixation</text><text x=\"469\" y=\"270\" font-family=\"sans-serif\" font-size=\"23\" fill=\"#345846\">Sugar synthesis</text></g><g id=\"co2\" fill=\"#8ba7b8\"><circle cx=\"570\" cy=\"73\" r=\"20\"/><circle cx=\"538\" cy=\"73\" r=\"15\"/><circle cx=\"602\" cy=\"73\" r=\"15\"/></g><g id=\"product\"><path d=\"M850 178L900 207V265L850 294L800 265V207Z\" fill=\"url(#sugar)\" stroke=\"#b28d49\" stroke-width=\"3\"/><circle cx=\"850\" cy=\"236\" r=\"14\" fill=\"#fff1c2\"/></g><g font-family=\"sans-serif\" font-size=\"25\" fill=\"#345846\"><text x=\"70\" y=\"65\">Stroma</text><text x=\"90\" y=\"530\">Thylakoid</text><text x=\"817\" y=\"335\">Sugar</text><text x=\"635\" y=\"80\">CO2</text></g><g fill=\"none\" stroke=\"#648e71\" stroke-width=\"3\"><path d=\"M720 240H780L767 230M780 240L767 250\"/><path d=\"M570 100V132L560 120M570 132L580 120\"/></g></svg>"
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "Bana hua ATP stroma ki biosynthetic reactions ko energy deta hai.",
+      "voice": "बना हुआ एटीपी स्ट्रोमा की बायोसिंथेटिक रिएक्शन्स को एनर्जी देता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "atp",
+       "stroma",
+       "fixation"
+      ],
+      "zoom": {
+       "x": 44,
+       "y": 43,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "gold",
+        "label": "ATP",
+        "points": [
+         [
+          26,
+          49
+         ],
+         [
+          28,
+          38
+         ],
+         [
+          43,
+          38
+         ],
+         [
+          52,
+          40
+         ]
+        ],
+        "count": 3,
+        "ms": 2600,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "Electron flow se bana NADPH reducing power deta hai; ATP aur NADPH milkar CO2 fixation aur sugar synthesis ko supply karte hain.",
+      "voice": "इलेक्ट्रॉन फ्लो से बना एनएडीपीएच रिड्यूसिंग पावर देता है; एटीपी और एनएडीपीएच मिलकर सी ओ टू फिक्सेशन और शुगर सिंथेसिस को सप्लाई करते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "nadph",
+       "atp",
+       "co2",
+       "fixation",
+       "product"
+      ],
+      "zoom": {
+       "x": 56,
+       "y": 36,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "purple",
+        "label": "NADPH",
+        "points": [
+         [
+          20,
+          23
+         ],
+         [
+          34,
+          26
+         ],
+         [
+          49,
+          34
+         ]
+        ],
+        "count": 3,
+        "ms": 2600,
+        "loop": true
+       },
+       {
+        "what": "molecule",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          57,
+          13
+         ],
+         [
+          57,
+          23
+         ],
+         [
+          57,
+          33
+         ]
+        ],
+        "count": 3,
+        "ms": 2000,
+        "loop": true
+       },
+       {
+        "what": "molecule",
+        "colour": "gold",
+        "label": "Sugar",
+        "points": [
+         [
+          69,
+          40
+         ],
+         [
+          77,
+          40
+         ],
+         [
+          85,
+          40
+         ]
+        ],
+        "count": 2,
+        "ms": 2500,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": []
+     },
+     {
+      "roman": "Bas yaad rakho: H+ CF0 se laute, CF1 ki shape badle, ATP bane aur stroma mein sugar banane ke kaam aaye.",
+      "voice": "बस याद रखो: एच प्लस सी एफ ज़ीरो से लौटें, सी एफ वन की शेप बदले, एटीपी बने और स्ट्रोमा में शुगर बनाने के काम आए।",
+      "pins": [],
+      "arrows": [
+       {
+        "points": [
+         [
+          27,
+          51
+         ],
+         [
+          35,
+          43
+         ],
+         [
+          53,
+          40
+         ],
+         [
+          84,
+          40
+         ]
+        ],
+        "label": ""
+       }
+      ],
+      "effects": [],
+      "focus": [
+       "synthase",
+       "atp",
+       "fixation",
+       "product"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": []
+     }
+    ]
+   }
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "s1 sentence 2: move label 'H+' is not spoken in this sentence (dikhaya = bola)",
+    "s3 sentence 1: move label 'H+' is not spoken in this sentence (dikhaya = bola)",
+    "s3 sentence 3: move label 'Pi' is not spoken in this sentence (dikhaya = bola)",
+    "s4 sentence 2: move label 'H+' is not spoken in this sentence (dikhaya = bola)",
+    "s4 sentence 3: move label 'H+' is not spoken in this sentence (dikhaya = bola)",
+    "s4 sentence 3: move label 'H+' is not spoken in this sentence (dikhaya = bola)",
+    "s5 sentence 2: move label 'CO2' is not spoken in this sentence (dikhaya = bola)"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "images": {
+  "s1": "q14-s1.png"
+ }
+}
