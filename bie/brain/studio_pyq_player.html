@@ -93,9 +93,14 @@ let voices=[];const au=$('au');
 function el(t,a,p,txt){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;if(p)p.appendChild(e);return e;}
 function h(t,cls,txt){const e=document.createElement(t);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
 const item=()=>D.items[S.i],stage=()=>item().stages[S.stage]||{beats:[]},beat=()=>stage().beats[S.beat]||null;
-function label(svg,x,y,txt,col){if(!txt)return;const g=el('g',{},svg);const t=el('text',{x:x+11,y:y-14,class:'lbl'},g,txt);const w=t.getComputedTextLength?t.getComputedTextLength():txt.length*8;
-  el('rect',{x:x+3,y:y-40,width:w+16,height:36,rx:8,class:'lblbg'},g).after(t);g.insertBefore(g.lastChild,null);el('circle',{cx:x,cy:y,r:4,fill:col||'#efbc69'},g);return g;}
-function arrow(svg,x1,y1,x2,y2,col,w,cls){const a=Math.atan2(y2-y1,x2-x1);el('line',{x1,y1,x2,y2,stroke:col,'stroke-width':w||4,'stroke-linecap':'round',class:cls||''},svg);
+function label(svg,x,y,txt,col){if(!txt)return;const g=el('g',{class:'lab'},svg);const t=el('text',{x:x+11,y:y-14,class:'lbl'},g,txt);const w=t.getComputedTextLength?t.getComputedTextLength():txt.length*8;
+  // a label stays inside the picture: near the right edge it opens to the left of its point, near the top it drops below it
+  const vb=svg.ownerSVGElement?svg.ownerSVGElement.viewBox.baseVal:svg.viewBox&&svg.viewBox.baseVal,W=vb&&vb.width?vb.width:1000,Hh=vb&&vb.height?vb.height:600;
+  let bx=x+3,by=y-40;if(bx+w+16>W-4)bx=Math.max(4,x-w-19);if(by<4)by=y+8;if(by+40>Hh)by=Hh-40;t.setAttribute('x',bx+8);t.setAttribute('y',by+26);
+  el('rect',{x:bx,y:by,width:w+16,height:36,rx:8,class:'lblbg'},g).after(t);g.insertBefore(g.lastChild,null);el('circle',{cx:x,cy:y,r:4,fill:col||'#efbc69'},g);return g;}
+function arrow(svg,x1,y1,x2,y2,col,w,cls){const a=Math.atan2(y2-y1,x2-x1);
+  if(svg.hasAttribute&&svg.hasAttribute('data-part'))el('line',{x1,y1,x2,y2,stroke:'transparent','stroke-width':30,'stroke-linecap':'round','pointer-events':'stroke'},svg);  // a finger-sized target
+  el('line',{x1,y1,x2,y2,stroke:col,'stroke-width':w||4,'stroke-linecap':'round',class:cls||''},svg);
   el('path',{d:`M${x2} ${y2} L${x2-14*Math.cos(a-.45)} ${y2-14*Math.sin(a-.45)} L${x2-14*Math.cos(a+.45)} ${y2-14*Math.sin(a+.45)}Z`,fill:col},svg);}
 function curved(svg,x1,y1,x2,y2,col,lift,p){const mx=(x1+x2)/2,my=(y1+y2)/2-(lift||70);const d=`M${x1} ${y1} Q${mx} ${my} ${x2} ${y2}`;
   const path=el('path',{d,fill:'none',stroke:col,'stroke-width':4},svg);const L=path.getTotalLength?path.getTotalLength():300;path.setAttribute('stroke-dasharray',L);path.setAttribute('stroke-dashoffset',L*(1-clamp(p)));
@@ -116,17 +121,19 @@ KITS.projectile={moments:{launch:[0,.02],rise:[.02,.5],peak:[.5,.5],descent:[.5,
   if(f.ref){const th=f.ref.height*sy;hit(el('rect',{x:R+28,y:B-th,width:26,height:th,fill:'#91b7a344',stroke:'#bcd9bd88'},svg),'ref');label(svg,R+41,B-th,f.ref.label+' '+f.ref.height+' m','#bcd9bd');}
   if(ghost&&trapH){let g='';for(let k=0;k<=60;k++){const s=k/60,x=L+s*(R-L),y=B-4*trapH*s*(1-s)*sy;g+=(k?'L':'M')+x.toFixed(1)+' '+y.toFixed(1);}
    hit(el('path',{d:g,fill:'none',stroke:'#e88a7a','stroke-width':3,'stroke-dasharray':'8 7'},svg),'ghost');label(svg,(L+R)/2,B-trapH*sy,'Trap: '+Math.round(trapH)+' m','#e88a7a');}
-  const top=P(.5);if(t>=.45||focus.has('height')||focus.has('peak')){hit(el('line',{x1:top[0],y1:top[1],x2:top[0],y2:B,stroke:'#bddfa5','stroke-width':2,'stroke-dasharray':'6 6'},svg),'height');
-   hit(el('circle',{cx:top[0],cy:top[1],r:9,fill:'none',stroke:'#bddfa5','stroke-width':3},svg),'peak');if(focus.has('height')||focus.has('peak'))label(svg,top[0],top[1],'H = '+m.values[m.data.asked==='max_height'?'H':'uy']+(m.data.asked==='max_height'?' m':''),'#bddfa5');}
+  const all=!!S.tapAll;const top=P(.5);if(t>=.45||all||focus.has('height')||focus.has('peak')){hit(el('line',{x1:top[0],y1:top[1],x2:top[0],y2:B,stroke:'#bddfa5','stroke-width':2,'stroke-dasharray':'6 6'},svg),'height');
+   hit(el('circle',{cx:top[0],cy:top[1],r:9,fill:'none',stroke:'#bddfa5','stroke-width':3},svg),'peak');if(focus.has('height')||focus.has('peak'))label(svg,top[0],top[1],'H = '+(m.values.H||String(Math.round(f.H*100)/100))+' m','#bddfa5');}
   const g=el('g',{transform:`translate(${L} ${B}) rotate(${-f.theta})`},svg);hit(el('rect',{x:-6,y:-9,width:70,height:18,rx:6,fill:'#62766a',stroke:'#a8bba9'},g),'launcher');
   el('circle',{cx:L-14,cy:B+6,r:16,fill:'#132c25',stroke:'#65826b','stroke-width':2},svg);
   const p=P(t),tt=t*f.T,vy=f.uy-f.g*tt,k=1.1;hit(el('circle',{cx:p[0],cy:p[1],r:13,fill:'#ffecb7',stroke:'#efbc69','stroke-width':3},svg),'projectile');
-  if(t<.999||focus.size){const vxL=f.ux*k*.55,vyL=vy*k*.55;if(focus.has('v')||!focus.size)arrow(svg,p[0],p[1],p[0]+vxL,p[1]-vyL,'#bddfa5',3);
-   if(focus.has('vx')||focus.has('v')||stg!=='see')hit(el('g',{},svg),'vx'),arrow(svg,p[0],p[1],p[0]+vxL,p[1],'#81c7de',4);
-   if(Math.abs(vyL)>2&&(focus.has('vy')||stg!=='see'))arrow(svg,p[0],p[1],p[0],p[1]-vyL,'#efbc69',4);
-   if(focus.has('vx'))label(svg,p[0]+vxL,p[1],'vₓ = '+m.values.ux+' m/s','#81c7de');if(focus.has('vy'))label(svg,p[0],p[1]-vyL,'vᵧ = '+(Math.round(vy*10)/10)+' m/s','#efbc69');
-   if(focus.has('gravity')){arrow(svg,p[0]+40,p[1]-10,p[0]+40,p[1]+60,'#e88a7a',4);label(svg,p[0]+40,p[1]+60,'g ↓','#e88a7a');}}
-  if(focus.has('range'))label(svg,R,B,'R = '+(m.values.R||Math.round(f.R))+' m','#81c7de');},
+  if(t<.999||focus.size||all){const vxL=f.ux*k*.55,vyL=vy*k*.55;if(focus.has('v')||!focus.size||all)arrow(hit(el('g',{},svg),'v'),p[0],p[1],p[0]+vxL,p[1]-vyL,'#bddfa5',3);
+   if(focus.has('vx')||focus.has('v')||stg!=='see'||all)arrow(hit(el('g',{},svg),'vx'),p[0],p[1],p[0]+vxL,p[1],'#81c7de',4);
+   if(Math.abs(vyL)>2&&(focus.has('vy')||stg!=='see'||all))arrow(hit(el('g',{},svg),'vy'),p[0],p[1],p[0],p[1]-vyL,'#efbc69',4);
+   // at the launch moment the label says the model's own initial value (the narration's number), not a value a frame later
+   const vyNow=t<=.02?m.values.uy:(Math.round(vy*10)/10);
+   if(focus.has('vx'))label(svg,p[0]+vxL,p[1],'vₓ = '+m.values.ux+' m/s','#81c7de');if(focus.has('vy'))label(svg,p[0],p[1]-vyL,'vᵧ = '+vyNow+' m/s','#efbc69');
+   if(focus.has('gravity')||all){arrow(hit(el('g',{},svg),'gravity'),p[0]+40,p[1]-10,p[0]+40,p[1]+60,'#e88a7a',4);if(focus.has('gravity'))label(svg,p[0]+40,p[1]+60,'g ↓','#e88a7a');}}
+  if(focus.has('range')||all){arrow(hit(el('g',{},svg),'range'),L,B+28,R,B+28,'#81c7de',3);if(focus.has('range'))label(svg,R,B,'R = '+(m.values.R||Math.round(f.R))+' m','#81c7de');}},
  detail(svg,m,p,det){const f=m.data.flight,v=m.values;const tri=(det.focus||[]).some(x=>['vx','vy','v','launcher'].includes(x));
   if(tri){const ox=120,oy=330,a=f.theta*Math.PI/180,len=420,X=ox+len*Math.cos(a),Y=oy-len*Math.sin(a)*.9;
    arrow(svg,ox,oy,X,oy,'#81c7de',5);arrow(svg,X,oy,X,mix(oy,Y,ease(p)),'#efbc69',5);arrow(svg,ox,oy,X,Y,'#bddfa5',4);
@@ -156,7 +163,7 @@ KITS.mechanism={span:12,
    if(ord>1){const nx=(y2-y1),ny=-(x2-x1),L=Math.hypot(nx,ny)||1;el('line',{x1:x1+nx/L*9,y1:y1+ny/L*9,x2:x2+nx/L*9,y2:y2+ny/L*9,stroke:'#7faba0','stroke-width':4},g);}});
   const atoms=(done?Bt:A).atoms;atoms.forEach(a=>{if(!pos[a.id])return;const [x,y]=pos[a.id];const col={C:'#77968a',O:'#b16b5e',Br:'#b48942',H:'#e0c081',N:'#6b7fb6',Cl:'#6faa5a'}[a.el]||'#888';
    const g=hit(el('g',{},svg),a.id);el('circle',{cx:x,cy:y,r:a.el==='H'?19:30,fill:col,stroke:focus.has(a.id)?'#efbc69':'#0a1f18','stroke-width':focus.has(a.id)?4:2},g);
-   el('text',{x,y:y+5,'text-anchor':'middle',class:'lbl',style:'font-size:17px'},g,a.label);if(a.tag)el('text',{x,y:y-30,'text-anchor':'middle',fill:'#bddfa5','font-size':18},g,a.tag);
+   el('text',{x,y:y+5,'text-anchor':'middle',class:'lbl',style:'font-size:17px'},g,a.label);if(a.tag&&a.tag.length<=4)el('text',{x,y:y-30,'text-anchor':'middle',fill:'#bddfa5','font-size':18},g,human(a.tag));  // long tags only on focused atoms: no pile of words
    if(a.charge)el('text',{x:x+22,y:y-18,fill:a.charge>0?'#e88a7a':'#81c7de','font-size':24,'font-weight':700},g,a.charge>0?'+':'−');
    for(let k=0;k<Math.min(2,a.lp||0);k++)pair(g,x+(k?-1:1)*0,y+(k?32:-36),'#efbc69aa');});
   if(fr.step&&p<.95){(fr.step.arrows||[]).forEach(ar=>{const src=ar.from.atom?pos[ar.from.atom]:ar.from.bond&&[mix(pos[ar.from.bond[0]][0],pos[ar.from.bond[1]][0],.5),mix(pos[ar.from.bond[0]][1],pos[ar.from.bond[1]][1],.5)];
@@ -206,15 +213,32 @@ KITS.scene={span:8,
   g.querySelectorAll('[id]').forEach(e=>{hit(e,e.id);if(focus.has(e.id))e.setAttribute('stroke','#efbc69');});},
  detail(svg,m,p,det){this.main(svg,m,S.t,new Set(det.focus||[]));}};
 const kit=()=>KITS[item().model.kind]||KITS.numeric;
+// the learner sees names, never internal ids: an atom by its tag or symbol, a bond by its two atoms, a cell by its label
+const PART_NAMES={v:'v',vx:'vₓ',vy:'vᵧ',height:'H',peak:'Peak',range:'R',ground:'Ground',launcher:'Launcher',projectile:'Projectile',
+  path:'Path',gravity:'g',ref:'Reference',ghost:'Trap'};
+function partName(id){const m=item().model,d=m.data||{};
+  if(m.kind==='mechanism'){const atoms={};(d.states||[]).forEach(st=>(st.atoms||[]).forEach(a=>{if(!atoms[a.id])atoms[a.id]=a;}));
+    const nm=x=>atoms[x]?human(atoms[x].tag||atoms[x].label||atoms[x].el):x;if(atoms[id])return nm(id);
+    const bond=String(id).split('-');if(bond.length===2&&atoms[bond[0]]&&atoms[bond[1]])return nm(bond[0])+'–'+nm(bond[1])+' bond';}
+  if(m.kind==='fusion'){const e=(d.entities||[]).find(x=>x.id===id);if(e)return e.label;}
+  return PART_NAMES[id]||human(id);}
+function human(t){return String(t).replace(/[_]+/g,' ').replace(/(\w)-(?=[a-z])/g,'$1 ').trim();}   // "original_OH_carbon" → "original OH carbon"
 const moments=()=>{const k=kit();return typeof k.moments==='function'?k.moments():k.moments;};
 
 // ---------------------------------------------------------------- rendering --------------------------------------------
-function drawMain(){const svg=$('main');svg.innerHTML='';const b=beat(),focus=new Set([...(b?b.focus:[]),...(S.gate&&S.gate.mechanic==='pair'?S.gsel:[])]);
+function drawMain(){const svg=$('main');svg.innerHTML='';S.tapAll=!!(S.gate&&S.waiting&&(S.gate.mechanic==='tap_part'||S.gate.mechanic==='pair'));const b=beat(),focus=new Set([...(b?b.focus:[]),...(S.gate&&S.gate.mechanic==='pair'?S.gsel:[])]);
   try{kit().main(svg,item().model,S.t,focus,stage().key);}catch(e){el('text',{x:40,y:60,fill:'#e88a7a'},svg,'Scene draw error: '+e.message);}
-  (b?b.labels:[]).forEach(id=>{const e=svg.querySelector('[data-part="'+CSS.escape(id)+'"]');if(e&&e.getBBox){const bb=e.getBBox();label(svg,bb.x+bb.width/2,bb.y,id,'#efbc69');}});
-  $('scrub').value=Math.round(clamp(S.t)*1000);}
+  (b?b.labels:[]).forEach(id=>{const e=svg.querySelector('[data-part="'+CSS.escape(id)+'"]');if(!e||!e.getBBox)return;const name=partName(id);
+    if([...svg.querySelectorAll('g.lab text')].some(t=>t.textContent===name||t.textContent.startsWith(name+' ')))return;   // the scene already names it ("vₓ = 242.49 m/s")
+    const bb=e.getBBox();label(svg,bb.x+bb.width/2,bb.y,name,'#efbc69');});
+  unclash(svg);$('scrub').value=Math.round(clamp(S.t)*1000);}
+// labels never sit on each other: a label that would cover an earlier one moves down, a thin line keeps it tied to its point
+function unclash(svg){const placed=[];svg.querySelectorAll('g.lab').forEach(g=>{const box=g.querySelector('rect'),txt=g.querySelector('text'),dot=g.querySelector('circle');if(!box||!txt)return;
+  const b=box.getBBox();let dy=0;for(let k=0;k<8;k++){const o=placed.find(q=>b.x<q.x+q.w&&b.x+b.width>q.x&&b.y+dy<q.y+q.h&&b.y+dy+b.height>q.y);if(!o)break;dy=o.y+o.h+4-b.y;}
+  if(dy){[box,txt].forEach(n=>n.setAttribute('transform','translate(0 '+dy+')'));if(dot)el('line',{x1:dot.getAttribute('cx'),y1:dot.getAttribute('cy'),x2:b.x+8,y2:b.y+dy,stroke:'#ffffff88','stroke-width':1.5},g);}
+  placed.push({x:b.x,y:b.y+dy,w:b.width,h:b.height});});}
 function drawDetail(){const svg=$('detail');svg.innerHTML='';const d=S.detail;if(!d)return;try{kit().detail(svg,item().model,S.dp,d);}catch(e){el('text',{x:40,y:60,fill:'#e88a7a'},svg,'Detail error: '+e.message);}
-  $('dscrub').value=Math.round(S.dp*1000);}
+  unclash(svg);$('dscrub').value=Math.round(S.dp*1000);}
 function setDetail(id){const it=item();S.detail=it.details.find(x=>x.id===id)||it.details[0]||null;S.dp=0;S.dplay=true;
   $('dtabs').innerHTML='';it.details.forEach(x=>{const b=h('button',x===S.detail?'on':'',x.title);b.onclick=()=>{manual();setDetail(x.id);};$('dtabs').appendChild(b);});
   const d=S.detail||{};$('dtitle').textContent=d.title||'';$('dtext').textContent=d.text||'';$('chain').innerHTML='';
@@ -226,7 +250,7 @@ function renderBoard(){const it=item(),b=beat();const upto=Math.max(-1,...it.sta
 function renderTeacher(){const s=stage(),b=beat();$('kick').textContent='STEP '+(S.stage+1)+' · '+(s.name||'').toUpperCase();$('ttitle').textContent=s.title||'';
   $('say').textContent=b?b.say:(s.text||'');$('caption').textContent=b?b.say:(s.text||'');renderBoard();
   [...$('journey').children].forEach((x,k)=>{x.className=k===S.stage?'on':k<S.stage?'done':'';});}
-function renderItem(){const it=item();S.stage=0;S.beat=0;S.t=0;S.trapView=false;S.gate=null;$('gate').classList.remove('on');
+function renderItem(){const it=item();S.stage=0;S.beat=0;S.t=0;S.trapView=false;S.gate=null;S.tries=0;S.tTries=0;   // attempts count per question$('gate').classList.remove('on');
   $('tabs').innerHTML='';D.items.forEach((x,k)=>{const b=h('button',k===S.i?'on':'',(x.exam||x.id)+(x.origin==='practice'?' · practice':''));b.setAttribute('aria-pressed',String(k===S.i));b.onclick=()=>{stopAll();S.i=k;renderItem();};$('tabs').appendChild(b);});
   $('qmeta').textContent=[it.exam,it.origin==='pyq'?'PYQ':it.origin==='exercise'?'Exercise':'Practice',it.concept].filter(Boolean).join(' · ');
   $('qtitle').textContent=it.title||'';$('qtext').textContent=it.question;$('sceneTitle').textContent=(it.scene_title||'').toUpperCase();
@@ -282,8 +306,12 @@ function openGate(id){const g=item().gates.find(x=>x.id===id);if(!g){advance();r
      if(S.gsel.length===g.choices.length){checkGate(S.gsel.join(','));S.gsel=[];}};c.appendChild(b);});body.append(c,out);}
   else{body.appendChild(h('p','status',g.mechanic==='pair'?'Scene mein pehle source (dene wala) tap kijiye, phir target (lene wala).':'Scene mein sahi hissa tap kijiye.'));}
   $('gate').scrollIntoView({behavior:reduced?'auto':'smooth',block:'nearest'});}
-$('main').addEventListener('click',e=>{const p=e.target.closest('[data-part]');if(!p)return;const id=p.getAttribute('data-part');
-  if(!S.gate||!S.waiting){inspect([id]);$('caption').textContent=id;return;}
+function nearestPart(e){const own=e.target.closest&&e.target.closest('[data-part]');if(own)return own;let best=null,bd=1e9;
+  $('main').querySelectorAll('[data-part]').forEach(n=>{const r=n.getBoundingClientRect();if(!r.width&&!r.height)return;
+    const dx=Math.max(r.left-e.clientX,0,e.clientX-r.right),dy=Math.max(r.top-e.clientY,0,e.clientY-r.bottom),d=Math.hypot(dx,dy)+Math.sqrt(r.width*r.height)*.05;
+    if(d<bd){bd=d;best=n;}});return bd<=28?best:null;}
+$('main').addEventListener('click',e=>{const p=nearestPart(e);if(!p)return;const id=p.getAttribute('data-part');
+  if(!S.gate||!S.waiting){inspect([id]);$('caption').textContent=partName(id);return;}
   if(S.gate.mechanic==='tap_part')checkGate(id);else if(S.gate.mechanic==='pair'){S.gsel.push(id);drawMain();if(S.gsel.length===2){checkGate(S.gsel.join('>'));S.gsel=[];}}});
 function checkGate(ans,btn){const g=S.gate;if(!g)return;const rec=S.first[g.id];rec.tries++;let ok=false,why='';
   if(g.mechanic==='number'){const v=parseFloat(ans);if(!isFinite(v)){$('gfb').textContent='Pehle ek number bhariye.';rec.tries--;return;}
@@ -297,12 +325,12 @@ function checkGate(ans,btn){const g=S.gate;if(!g)return;const rec=S.first[g.id];
 $('gnext').onclick=()=>{if(!S.gate||!S.solved.has(item().id+':'+S.gate.id))return;$('gate').classList.remove('on');S.gate=null;S.waiting=false;S.playing=false;if(S.guided)advance();};
 
 // ---------------------------------------------------------------- practice and transfer ---------------------------------
-let tries=0;function choose(k,btn){tries++;const it=item(),d=it.diagnoses.find(x=>x.option===k+1)||{};const right=it.proved!=null?it.proved:it.key;const ok=k===right;
+function choose(k,btn){S.tries=(S.tries||0)+1;const tries=S.tries;const it=item(),d=it.diagnoses.find(x=>x.option===k+1)||{};const right=it.proved!=null?it.proved:it.key;const ok=k===right;
   [...$('opts').children].forEach(b=>b.classList.remove('good','bad'));btn.classList.add(ok?'good':'bad');
   $('diag').textContent=(ok?'✓ ':'✗ ')+(d.title||'')+' — '+(d.why||'');$('attempts').textContent=tries+' koshish'+(ok?(tries===1?' · pehli baar mein':' · feedback ke baad'):'');
   if(d.shows&&it.model.kind==='mechanism'){const tr=(it.model.data.traps||[]).find(x=>x.id===d.shows);if(tr){S.trapView=tr;S.trapP=0;let p=0;const go=()=>{p+=.02;S.trapP=p;drawMain();if(p<1)requestAnimationFrame(go);};requestAnimationFrame(go);}}
   else if(d.shows){const b=beat();if(b){const old=b.focus;b.focus=['ghost'];drawMain();b.focus=old;}}}
-let tTries=0;function transfer(f,k,btn){tTries++;const ok=k===f.right;btn.classList.add(ok?'good':'bad');$('tfb').className='fb '+(ok?'good':'bad');
+function transfer(f,k,btn){S.tTries=(S.tTries||0)+1;const tTries=S.tTries;const ok=k===f.right;btn.classList.add(ok?'good':'bad');$('tfb').className='fb '+(ok?'good':'bad');
   $('tfb').textContent=(ok?(tTries===1?'Khud se, pehli baar mein: concept lag gaya. ':'Sahi, par koshishon ke baad: ek baar reason dobara padhiye. '):'Abhi nahi. ')+f.why+(f.model_checked&&f.value!=null?' (model ka jawab: '+f.value+')':'');}
 
 // ---------------------------------------------------------------- controls ---------------------------------------------
