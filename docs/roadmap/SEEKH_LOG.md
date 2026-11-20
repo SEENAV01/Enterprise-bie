@@ -2212,3 +2212,31 @@ director run.
   lines. The Q14 film re-wrapped with the new player plays end to end in Chromium with the
   voice in all 20 sentences, no shot numbers, the bar moving, no console errors; the older q03 film plays all six shots
   in the new player without errors. Rounds, tokens and ₹ per film are measured on the Q14 remake.
+
+## Entry · the Q14 remake with every NCERT line, 20 November 2026
+
+- **Run:** VM job `studio-photosynthesis-q14-ncert` (after PR #176): status ok, Codex on the ChatGPT plan, ₹0; one film,
+  q14, 6 shots, 6 AI cutaway pictures, 19 sentences, 3.0 minutes, 2 rounds, 24,416 input and 14,411 output tokens.
+- **Taught:** the book-line contract works on the first try: the maker mapped all 12 NCERT sentences (pages 141, 142,
+  151) to narration lines, wrote 2 prerequisite and 2 use sentences, kept the last shot to ATP and NADPH being used in
+  the stroma (no wheel), and noted 9 sentences that go beyond the book (the turbine-bypass analogy for a leak, the shape
+  change as catalysis, ATP energy versus NADPH reducing power). Round 1's 12 findings were all "shown but not spoken"
+  labels (H+, CF0, CF1, F0, CO2), the same kind as on the first living film. The colour rule from PR #175 held: ATP
+  synthase is amber, ivory and violet in all five shots it appears in. The beyond notes came in English although the
+  review page is for Navin.
+- **Navin's verdict:** the new film is better overall, but labels sit on wrong structures, the scale journey and the
+  closed thylakoid of the old film are missing, the leak is hard to see and the last shot is static ("Film 1 + Film 2
+  ki khoobiyan" on the card).
+- **Changed in BIE:** `bie/brain/studio_film.py`: the beyond note is written in the course language in Roman script;
+  `place_items` / `place` / `apply_places`: after each picture exists, one vision call moves every point drawn over it
+  onto the structure or route it names (sound answers only: same number of points, inside the picture, labels 3 to 97;
+  a failed call keeps the maker's points); maker rules for growing scale, closed compartments, visible leaks and a
+  moving use part; picture prompts forbid arrows, symbols and loose molecules. `tools/vm_studio.py`: the placement runs
+  after each picture, the film record keeps it ("placement"), FILMS.md shows how many points moved. Tests in
+  `tests/test_studio_films.py`. IMPLEMENTED.
+- **Measured:** against the first living film (PR #174 run): NCERT lines taught 12/12 (before: not recorded; by Claude's
+  hand count 10 of 12 fully, 2 thin), rounds 2 (before 2), minutes 3.0 (before 2.6), molecules on screen at once in the last shot at most 4
+  (before 8), shot numbers on screen none (before 6 buttons), ₹0 both. The repeated "shown but not spoken" labels are
+  the next first-try loss to move from AI to code (for example, the player could speak-check a label against the
+  sentence before the maker writes it, or the maker could be shown the rule with the kit tags it uses).
+
