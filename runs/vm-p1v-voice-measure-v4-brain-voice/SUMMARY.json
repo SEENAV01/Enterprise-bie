@@ -1,0 +1,49 @@
+{
+ "section": "voice",
+ "status": "failed",
+ "video": "v4",
+ "reference": "Chatterbox built-in voice",
+ "error": "TypeError: 'NoneType' object is not callable",
+ "engine": {
+  "pins": [
+   "torch==2.6.0+cpu",
+   "torchaudio==2.6.0+cpu",
+   "chatterbox-tts==0.1.7",
+   "av==18.0.0"
+  ],
+  "model": "ResembleAI/chatterbox",
+  "model_revision": "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18",
+  "torch": null,
+  "threads": null,
+  "sample_rate": null,
+  "watermark": "Perth (Chatterbox's own, inaudible)"
+ },
+ "machine": {
+  "cpus": 2,
+  "ram_gb": 7.8
+ },
+ "setup": {
+  "installed": true,
+  "install_s": 106.9
+ },
+ "timing_s": {
+  "download_s": 47.3,
+  "load_s": null,
+  "reference_s": null
+ },
+ "peak_ram_mb": 6597,
+ "totals": {
+  "sentences_asked": 8,
+  "sentences_made": 0,
+  "audio_s": 0,
+  "compute_s": 0,
+  "rtf": null,
+  "chars_per_audio_s": null
+ },
+ "sentences": [],
+ "cost": {
+  "total_inr": 0,
+  "note": "CPU of Navin's own machine"
+ },
+ "audio": "kept on the machine only (private folder); never published"
+}
