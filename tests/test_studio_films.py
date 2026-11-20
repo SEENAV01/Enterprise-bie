@@ -260,6 +260,31 @@ class LivingFilm(unittest.TestCase):
         self.assertLess(play.index("viaElement(uri"), play.index("viaContext(uri"))   # data: URI first, then Web Audio
         self.assertNotIn("createObjectURL", voice)                                   # no blob: URL a viewer can refuse
 
+    def test_player_keeps_the_first_living_film_tidy(self):
+        """What the first living film (Q14, 20 November 2026) showed: tags piled under the Calvin cycle, two ATPs for a
+        moment after a react, the next picture growing as a box. The player now declutters tags every frame, hands a
+        react's product over to the move that carries it on, fans a station's molecules out, and keeps the lens round."""
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        tick = page[page.index("function tick(now)"):page.index("requestAnimationFrame(tick);}")]
+        self.assertIn("declutter(now)", tick)
+        self.assertIn("g.mtag", page[page.index("function declutter("):])
+        self.assertIn("{class:'mtag'}", page[page.index("function molecule("):page.index("function declutter(")])
+        for who, level in (("q.becomes,'gold',wsvg),3)", "carrier"), ("sprite(m.what,m.colour,wsvg),1)", "move"),
+                           ("sprite(w,'gold',wsvg),0)", "flyer")):
+            self.assertIn(who, page, level)
+        sentence = page[page.index("function sentence(k)"):page.index("function speak(")]
+        self.assertLess(sentence.index("handOff(t.moves"), sentence.index("addMove(m,"))
+        self.assertIn("o.goneAt&&now>=o.goneAt", page[page.index("function stepReact("):])
+        cycle = page[page.index("function stepCycle("):page.index("function tick(")]
+        self.assertIn("away(q,13+j*2,-1,j)", cycle)    # takes come in from the side the carrier comes from, fanned
+        self.assertIn("away(q,12+j*2,1,j)", cycle)     # gives leave to the side it goes to, fanned
+        show = page[page.index("function show("):page.index("function sentence(")]
+        self.assertIn("camTo(50,50,1,ms*.78)", show)   # the picture fills the frame before the lens opens to the corners
+        self.assertIn("lens(u<.78?18+ease(u/.78)*22:", show)
+
+    def test_maker_names_the_colours_of_repeated_structures(self):
+        self.assertIn("names\n  the colour of every structure that is seen in more than one picture", studio_film.INSTRUCTIONS)
+
 
 class FilmStage(unittest.TestCase):
     def test_films_stage_makes_a_phone_film(self):

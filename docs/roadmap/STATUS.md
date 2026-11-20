@@ -66,7 +66,13 @@ Decision cards in the planning chat, 18 November 2026:
    H+, H2O, O2, Pi, e-, PEP, OAA, malate, pyruvate); `reacts` (inputs fly in, products come out and stay), `cycles` (a
    wheel of stations that takes and gives molecules as it turns, e.g. the Calvin cycle) and a `spin` effect; every shot
    moves, at least half the sentences of a long film move, the film opens on a question, the narration tells what
-   happens. IMPLEMENTED; checked in Chromium on Claude's test data (not BIE output); the Q14 film from the VM is next.
+   happens. INTEGRATED (PR #174): VM job `studio-photosynthesis-q14-living` made the Q14 film (status ok, 6 shots,
+   6 AI pictures, 2.6 minutes, 2 rounds, no problems left, ₹0); played end to end in Chromium, the voice sounded through
+   the audio element in all 20 sentences, molecules, a react and the Calvin cycle moved on the pictures, five shots dive,
+   no console errors. Sent to Navin on 20 November 2026; his verdict is pending. What the film showed is tidied in the
+   player (branch `studio-film-tidy`): name tags never pile up, a react's product is handed to the move that carries
+   it on, a station's molecules fan out, the next picture opens as a round lens (never a box), and the maker names the
+   colours of structures seen in more than one picture.
 9. **Navin's chapter (19 November 2026):** NCERT Class 11 Biology chapter 11, Photosynthesis in Higher Plants, for NEET +
    Class 11 in Hinglish (decision card). NCERT's site sends an incomplete certificate chain, so Navin chose the public
    inputs branch for the PDF (`blindtest-inputs:chapters/ncert-class11-biology-ch11-photosynthesis.pdf`).

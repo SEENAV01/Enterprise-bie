@@ -2095,3 +2095,32 @@ the core lane 563 → 577 tests, all green. The next video worker's rounds and h
 - **Measured:** voice routes in Chromium on Claude's test film (not BIE output): plain page, audio element; page with
   `media-src 'none'`, Web Audio; no Web Audio and media blocked, the notice shows and the film goes on with captions.
   The Q14 film on the VM measures the rest (rounds, problems, pictures, Navin's verdict).
+
+## Entry · the first living film, Photosynthesis Q14, 20 November 2026
+
+- **Run:** VM job `studio-photosynthesis-q14-living` (after PR #174): status ok, 11.1 minutes, Codex on the ChatGPT plan,
+  ₹0; 22 of 22 pages read; one film, q14 "Jama hue protons wapas niklein toh ATP kaise ban jaata hai?", 6 shots, 6 AI
+  cutaway pictures, 20 sentences, 2.6 minutes, 2 rounds (round 1: 15 "shown but not spoken" findings, pins CF0 and CF1
+  and the H+ / Pi tags; round 2: none). The journey is one world: leaf, chloroplast, thylakoid membrane with the pump
+  and ATP synthase, CF0 and CF1 with a membrane leak shown as the wasteful exit, the CF1 head with ADP + Pi becoming
+  ATP (a react), then the stroma with ATP and NADPH arriving and the Calvin cycle turning (CO2 fixation, 3-PGA, G3P,
+  RuBP; G3P leaving for sugar). Five shots dive into the picture before them; one cuts (the stroma).
+- **Taught (Claude's own look, Navin's verdict pending):** in Chromium the voice played through the audio element in all
+  20 sentences and there were no console errors. Four visible flaws: tags sat on each other under the Calvin cycle (the
+  stations sent everything they take and give along one line, and three carriers trigger often); a react's ATP stayed
+  where it was made while the next sentence moved an ATP from the same spot (two ATPs for a moment); during a dive the
+  new picture grew as a rectangle inside the old one (the lens was wider than the picture's own edges while the
+  picture was still small); the CF1 head was violet in shot 4 and green in shot 5 (the shared `look` named the palette,
+  not the colour of each structure).
+- **Changed in BIE:** `bie/brain/studio_player.html`: name tags hide while they would overlap a label or a more
+  important tag (cycle carriers, then reacting molecules, then moving ones, then molecules flying to or from a station);
+  a move that starts where a react left the same molecule takes that molecule over; the molecules a station takes come
+  in fanned out on the side the carrier comes from and the ones it gives leave fanned out on the other side; the dive
+  fills the frame at 78% of its time and the round lens stays inside the picture until then. `bie/brain/studio_film.py`:
+  the maker names the colours of every structure seen in more than one picture in `look` and uses them in each
+  image_prompt. Tests in `tests/test_studio_films.py`. IMPLEMENTED.
+- **Measured:** the same Q14 film data re-wrapped with the new player (no new AI run): in Chromium the bottom station's
+  ATP, NADPH, ADP, NADP+ and G3P no longer share one line and their tags do not overlap; after the react one ATP leaves;
+  frame-by-frame the dive shows the old picture zooming past and a round lens, no rectangle; no console errors. The
+  older q03 film still plays in the new player without errors. The colour rule is an instruction; its effect shows on the
+  next VM film.
