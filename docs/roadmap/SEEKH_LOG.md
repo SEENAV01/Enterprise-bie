@@ -2240,3 +2240,27 @@ director run.
   the next first-try loss to move from AI to code (for example, the player could speak-check a label against the
   sentence before the maker writes it, or the maker could be shown the rule with the kit tags it uses).
 
+
+## Entry · the Q14 remake with labels placed by looking, 20 November 2026
+
+- **Run:** VM job `studio-photosynthesis-q14-place` (after PR #177): status ok, Codex on the ChatGPT plan, ₹0; one film,
+  q14, 7 shots, 7 AI pictures, 22 sentences, 3.3 minutes, 2 rounds, 15.2 minutes on the VM; the placement pass used
+  7 vision calls (about 39,000 input and 2,400 output tokens).
+- **Taught:** the placement pass is worth its call: 36 of 75 points moved, most in the last, busiest shot (19 of 21),
+  none refused; in Chromium the pins sit on chloroplast, mesophyll cell, stroma, lumen, proton pump, channel and leak.
+  The maker followed the new rules on the first try (scale leaf → cell → chloroplast → closed thylakoid → ATP synthase,
+  a visible tear for the leak, a moving last shot). Two losses came from code, not from the maker: (1) the film's shared
+  look line names every structure's colours and is appended to every picture prompt, so the cell picture got ATP
+  synthase and proton pumps drawn on the chloroplast, at the wrong scale, against its own "no molecular proteins";
+  (2) round 1 again refused every 'H+' label on a move, because the spoken-label check counted only words of three or
+  more letters, so 'H+' had no word and could never be "spoken".
+- **Changed in BIE:** `bie/brain/studio_film.py`: `look_for` keeps the look's light and palette for every picture and a
+  structure's colours only for pictures whose prompt names that structure ("16:9" is not mistaken for a colour clause);
+  `_tokens` gives the "dikhaya = bola" check the short names (H+, Pi, CO2) with plural and H+/proton folded, used for
+  pins, moves, grows, reacts, stations, cycles and fuses (it accepts every label the old check accepted). The maker's
+  instructions say that colours reach only the pictures at that structure's scale. Tests in `tests/test_studio_films.py`
+  (the look per picture on the Q14 look line; H+, Pi and CO2 labels spoken by their names). IMPLEMENTED.
+- **Measured:** on this film's own look line, the cell picture's prompt now carries leaf, cell and chloroplast colours
+  and no ATP synthase, proton pump, thylakoid or H+ (before: all of them); the membrane pictures keep ATP synthase's
+  colours. The H+ labels refused in round 1 of this run (10 of 13 findings) would pass the new check; the effect on
+  first-try rounds is measured on the next film. Canonical brain tests: 407 passed, 0 skips.
