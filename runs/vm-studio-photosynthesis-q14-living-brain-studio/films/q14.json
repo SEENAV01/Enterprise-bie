@@ -1,0 +1,1175 @@
+{
+ "film": {
+  "title": "Protons ki waapsi se ATP kaise banta hai?",
+  "look": "Ek hi patti ke andar cinematic scientific safar: emerald membranes, teal stroma, golden protons, glossy biological surfaces aur soft volumetric light; har frame 16:9, bina printed text ke.",
+  "shots": [
+   {
+    "id": "s1",
+    "title": "Energy ka specific exit",
+    "key": "H+ ki controlled waapsi ATP banwati hai.",
+    "covers": [
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 cinematic transparent scientific cutaway of a living green leaf under soft sunlight. Translucent mesophyll cells beneath the surface, one prominent cell centered at 60%,52% with recognizable emerald chloroplasts. Hydrated glossy biological textures, dark teal background and volumetric sunlight. Leave upper left open for light animation and labels. No text, inset panels or diagrams.",
+     "svg": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "Patti ke andar jama H+ ek khaas raaste se lautte hain, toh ATP kaise banne lagta hai?",
+      "voice": "पत्ती के अंदर जमा एच प्लस एक ख़ास रास्ते से लौटते हैं, तो एटीपी कैसे बनने लगता है?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     },
+     {
+      "roman": "Dekhiye, dhoop patti tak pahunchti hai; isi energy ka kuch hissa aage ATP mein sambhalta hai.",
+      "voice": "देखिए, धूप पत्ती तक पहुँचती है; इसी एनर्जी का कुछ हिस्सा आगे एटीपी में सँभलता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 60,
+       "y": 52,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          15,
+          12
+         ],
+         [
+          38,
+          29
+         ],
+         [
+          60,
+          52
+         ]
+        ],
+        "count": 5,
+        "ms": 1800,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     },
+     {
+      "roman": "Ab isi cell ke chloroplast mein chal kar woh raasta dekhte hain.",
+      "voice": "अब इसी सेल के क्लोरोप्लास्ट में चलकर वह रास्ता देखते हैं।",
+      "pins": [
+       {
+        "label": "Chloroplast",
+        "x": 61,
+        "y": 53
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 56,
+        "x1": 66,
+        "y0": 46,
+        "y1": 60
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 61,
+       "y": 53,
+       "scale": 2.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "title": "Gradient mein energy jama",
+    "key": "Pump H+ jama karta hai; intact membrane gradient sambhaalti hai.",
+    "covers": [
+     2
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 transparent scientific cutaway inside the same chloroplast. Recognizable stacks of flattened emerald thylakoid discs at left and rear, fluid teal stroma around them. A front disc is opened with its membrane horizontal at y55, lumen below and stroma above. A proton pump crosses the membrane at x44; a small ATP synthase at x67 has a head facing upward into stroma. Continuous lipid membrane with realistic depth. Leave broad clear aqueous spaces above and below for animated protons. Soft volumetric light, no text or drawn symbols.",
+     "svg": ""
+    },
+    "dive": {
+     "x": 61,
+     "y": 53
+    },
+    "sentences": [
+     {
+      "roman": "Yeh thylakoid hai; proton pump energy lagaakar H+ ko stroma se lumen mein jama karta hai.",
+      "voice": "यह थायलाकोइड है; प्रोटॉन पम्प एनर्जी लगाकर एच प्लस को स्ट्रोमा से ल्यूमेन में जमा करता है।",
+      "pins": [
+       {
+        "label": "Stroma",
+        "x": 30,
+        "y": 30
+       },
+       {
+        "label": "Lumen",
+        "x": 48,
+        "y": 74
+       },
+       {
+        "label": "Proton pump",
+        "x": 44,
+        "y": 54
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 53,
+       "y": 56,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          33,
+          29
+         ],
+         [
+          44,
+          48
+         ],
+         [
+          44,
+          59
+         ],
+         [
+          49,
+          73
+         ]
+        ],
+        "count": 8,
+        "ms": 2200,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     },
+     {
+      "roman": "Par H+ turant waapas kyun nahin aa jaate; intact membrane unhein seedhe paar nahin jaane deti.",
+      "voice": "पर एच प्लस तुरन्त वापस क्यों नहीं आ जाते; इन्टैक्ट मेम्ब्रेन उन्हें सीधे पार नहीं जाने देती।",
+      "pins": [
+       {
+        "label": "Intact membrane",
+        "x": 65,
+        "y": 54
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 58,
+       "y": 57,
+       "scale": 1.5
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          58,
+          76
+         ],
+         [
+          62,
+          63
+         ],
+         [
+          60,
+          72
+         ]
+        ],
+        "count": 4,
+        "ms": 1800,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     },
+     {
+      "roman": "Lumen mein zyada H+ aur stroma mein kam H+ hain; yeh proton gradient bandh ke peeche paani ki tarah energy sambhaalkar rakhta hai.",
+      "voice": "ल्यूमेन में ज़्यादा एच प्लस और स्ट्रोमा में कम एच प्लस हैं; यह प्रोटॉन ग्रेडिएंट बाँध के पीछे पानी की तरह एनर्जी सँभालकर रखता है।",
+      "pins": [
+       {
+        "label": "Proton gradient",
+        "x": 76,
+        "y": 42
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 35,
+        "x1": 76,
+        "y0": 63,
+        "y1": 81
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 67,
+       "y": 55,
+       "scale": 1.7
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          40,
+          73
+         ],
+         [
+          51,
+          76
+         ],
+         [
+          69,
+          71
+         ]
+        ],
+        "count": 10,
+        "ms": 4000,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "title": "Useful exit aur wasteful leak",
+    "key": "Chemiosmosis: intact membrane + pump + gradient + ATP synthase.",
+    "covers": [
+     0,
+     2
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer scientific cutaway of the same front thylakoid membrane, horizontal at y58. Stroma above, lumen below. At x65 an anatomically recognizable ATP synthase has its embedded CF0 proton channel at y58, a connecting stalk and lobed CF1 catalytic head in stroma at y32. Proton pump at x24. At x40 show a small physically open membrane defect with visibly separated lipid edges for a hypothetical leak demonstration; keep it distinct from proteins. Organic protein textures, emerald bilayer, teal water, gold volumetric light. Leave clear particle paths and label space. No text or panels.",
+     "svg": ""
+    },
+    "dive": {
+     "x": 67,
+     "y": 55
+    },
+    "sentences": [
+     {
+      "roman": "Sahi exit kaunsa hai; ATP synthase ka CF zero membrane mein proton channel banata hai, jisse H+ lautte hain.",
+      "voice": "सही एग्ज़िट कौन-सा है; एटीपी सिंथेज़ का सी एफ ज़ीरो मेम्ब्रेन में प्रोटॉन चैनल बनाता है, जिससे एच प्लस लौटते हैं।",
+      "pins": [
+       {
+        "label": "ATP synthase",
+        "x": 79,
+        "y": 39
+       },
+       {
+        "label": "Proton channel",
+        "x": 69,
+        "y": 58
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 65,
+       "y": 47,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          79,
+          80
+         ],
+         [
+          65,
+          68
+         ],
+         [
+          65,
+          57
+         ],
+         [
+          65,
+          46
+         ],
+         [
+          78,
+          29
+         ]
+        ],
+        "count": 5,
+        "ms": 2400,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     },
+     {
+      "roman": "Iska CF one stroma ki taraf nikla catalytic hissa hai; ATP yahin banta hai.",
+      "voice": "इसका सी एफ वन स्ट्रोमा की तरफ़ निकला कैटेलिटिक हिस्सा है; एटीपी यहीं बनता है।",
+      "pins": [
+       {
+        "label": "Stroma",
+        "x": 86,
+        "y": 20
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 56,
+        "x1": 74,
+        "y0": 22,
+        "y1": 41
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 65,
+       "y": 38,
+       "scale": 1.7
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     },
+     {
+      "roman": "Agar membrane mein aisa uncontrolled leak ho, toh H+ bina ATP synthase chalaaye nikalte hain; gradient ki energy waste hoti hai.",
+      "voice": "अगर मेम्ब्रेन में ऐसा अनकन्ट्रोल्ड लीक हो, तो एच प्लस बिना एटीपी सिंथेज़ चलाए निकलते हैं; ग्रेडिएंट की एनर्जी वेस्ट होती है।",
+      "pins": [
+       {
+        "label": "Uncontrolled leak",
+        "x": 40,
+        "y": 57
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 48,
+       "y": 55,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          44,
+          81
+         ],
+         [
+          40,
+          65
+         ],
+         [
+          40,
+          55
+         ],
+         [
+          35,
+          33
+         ],
+         [
+          26,
+          21
+         ]
+        ],
+        "count": 8,
+        "ms": 1700,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     },
+     {
+      "roman": "Isliye chemiosmosis ko intact membrane, proton pump, proton gradient aur ATP synthase, chaaron saath chahiye.",
+      "voice": "इसलिए केमिऑस्मोसिस को इन्टैक्ट मेम्ब्रेन, प्रोटॉन पम्प, प्रोटॉन ग्रेडिएंट और एटीपी सिंथेज़, चारों साथ चाहिए।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 57,
+        "x1": 76,
+        "y0": 26,
+        "y1": 78
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 65,
+       "y": 47,
+       "scale": 1.4
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "title": "Flow se conformational change",
+    "key": "H+ ka downhill flow CF1 ka shape badalwata hai.",
+    "covers": [
+     0,
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 extreme molecular scientific cutaway of the same ATP synthase. Intact emerald lipid membrane horizontal at y66, lumen below and stroma above. CF0 proton-conducting structure centered x48 y66 has an aqueous route exiting directly into stroma beside its stalk, not through the catalytic head. Central stalk rises to a large three-lobed CF1 head at x52 y31. Flexible organic lobes with deep catalytic clefts and a clearly visible central rotor. Clear space lower left for incoming protons and right for departing protons. Dark teal water, glossy protein surfaces, soft volumetric light. No gears, labels or panels.",
+     "svg": ""
+    },
+    "dive": {
+     "x": 65,
+     "y": 47
+    },
+    "sentences": [
+     {
+      "roman": "Ab H+ lumen se CF zero ke raaste stroma mein lautte hain; yeh facilitated diffusion hai.",
+      "voice": "अब एच प्लस ल्यूमेन से सी एफ ज़ीरो के रास्ते स्ट्रोमा में लौटते हैं; यह फ़ैसिलिटेटेड डिफ्यूज़न है।",
+      "pins": [
+       {
+        "label": "Lumen",
+        "x": 24,
+        "y": 85
+       },
+       {
+        "label": "Stroma",
+        "x": 82,
+        "y": 43
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 48,
+       "y": 62,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          25,
+          86
+         ],
+         [
+          48,
+          78
+         ],
+         [
+          48,
+          66
+         ],
+         [
+          55,
+          55
+         ],
+         [
+          79,
+          43
+         ]
+        ],
+        "count": 8,
+        "ms": 2600,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     },
+     {
+      "roman": "Waapsi ko energy kahaan se milti hai; H+ apne electrochemical gradient ke saath behte hain, aur stored energy release hoti hai.",
+      "voice": "वापसी को एनर्जी कहाँ से मिलती है; एच प्लस अपने इलेक्ट्रोकेमिकल ग्रेडिएंट के साथ बहते हैं, और स्टोर्ड एनर्जी रिलीज़ होती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 41,
+        "x1": 56,
+        "y0": 48,
+        "y1": 76
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 49,
+       "y": 52,
+       "scale": 1.5
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          31,
+          87
+         ],
+         [
+          48,
+          74
+         ],
+         [
+          48,
+          65
+         ],
+         [
+          55,
+          55
+         ],
+         [
+          70,
+          47
+         ]
+        ],
+        "count": 5,
+        "ms": 2200,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     },
+     {
+      "roman": "H+ ka yahi flow rotor ko ghumaata hai aur CF one ke catalytic hisson ka shape badalwata hai; isi ko conformational change kehte hain.",
+      "voice": "एच प्लस का यही फ़्लो रोटर को घुमाता है और सी एफ वन के कैटेलिटिक हिस्सों का शेप बदलवाता है; इसी को कॉनफ़ॉर्मेशनल चेंज कहते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "spin",
+        "x0": 46,
+        "x1": 54,
+        "y0": 38,
+        "y1": 54
+       },
+       {
+        "type": "glow",
+        "x0": 32,
+        "x1": 71,
+        "y0": 17,
+        "y1": 42
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 52,
+       "y": 31,
+       "scale": 2
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          32,
+          86
+         ],
+         [
+          48,
+          71
+         ],
+         [
+          48,
+          65
+         ],
+         [
+          55,
+          55
+         ],
+         [
+          76,
+          44
+         ]
+        ],
+        "count": 4,
+        "ms": 2400,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "title": "ADP aur Pi se ATP",
+    "key": "CF1 mein ADP + Pi se ATP banta aur release hota hai.",
+    "covers": [
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 intimate molecular scientific cutaway inside the same stroma-facing CF1 head. Three organic protein lobes around a central stalk. Foreground lobe opened to reveal a deep catalytic binding cleft centered x52 y50. Curved flexible protein lips and hinge-like surfaces, no machine gears. Teal stroma visible through right opening at x85 y35; membrane softly blurred far below. Leave clear approach paths from x18 y34 and x20 y72 to the cleft and an exit toward x88 y30 for molecule animations. Glossy emerald protein material, soft golden light. No embedded molecules, text or panels.",
+     "svg": ""
+    },
+    "dive": {
+     "x": 52,
+     "y": 31
+    },
+    "sentences": [
+     {
+      "roman": "Ab CF one ke catalytic hisse mein ADP aur Pi aa kar bind karte hain.",
+      "voice": "अब सी एफ वन के कैटेलिटिक हिस्से में एडीपी और पी आई आकर बाइंड करते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 52,
+       "y": 50,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "ADP",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          18,
+          34
+         ],
+         [
+          38,
+          42
+         ],
+         [
+          49,
+          49
+         ]
+        ],
+        "count": 1,
+        "ms": 2200,
+        "loop": false
+       },
+       {
+        "what": "Pi",
+        "colour": "purple",
+        "label": "",
+        "points": [
+         [
+          20,
+          72
+         ],
+         [
+          39,
+          61
+         ],
+         [
+          54,
+          51
+         ]
+        ],
+        "count": 1,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     },
+     {
+      "roman": "Ab kya hota hai; proton flow se chalta shape change ADP aur Pi se ATP banwaata hai.",
+      "voice": "अब क्या होता है; प्रोटॉन फ़्लो से चलता शेप चेंज एडीपी और पी आई से एटीपी बनवाता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 41,
+        "x1": 63,
+        "y0": 38,
+        "y1": 60
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 52,
+       "y": 50,
+       "scale": 1.8
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "ADP",
+          "from": [
+           42,
+           45
+          ]
+         },
+         {
+          "what": "Pi",
+          "from": [
+           59,
+           55
+          ]
+         }
+        ],
+        "at": [
+         52,
+         50
+        ],
+        "outputs": [
+         {
+          "what": "ATP",
+          "to": [
+           64,
+           43
+          ]
+         }
+        ],
+        "label": "",
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "cycles": []
+     },
+     {
+      "roman": "Phir catalytic hissa khulta hai aur ATP stroma mein chhoot jaata hai.",
+      "voice": "फिर कैटेलिटिक हिस्सा खुलता है और एटीपी स्ट्रोमा में छूट जाता है।",
+      "pins": [
+       {
+        "label": "Stroma",
+        "x": 85,
+        "y": 29
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 69,
+       "y": 41,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          64,
+          43
+         ],
+         [
+          75,
+          37
+         ],
+         [
+          88,
+          30
+         ]
+        ],
+        "count": 1,
+        "ms": 2400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     }
+    ]
+   },
+   {
+    "id": "s6",
+    "title": "Stroma mein energy ka istemaal",
+    "key": "ATP aur NADPH stroma mein carbon fixation aur sugar synthesis ko supply hote hain.",
+    "covers": [
+     3
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 wider scientific cutaway of the same chloroplast stroma. Emerald thylakoid membrane recedes along left, recognizable ATP synthase projecting into stroma at x23 y58, neighboring electron-transfer proteins farther back at x24 y27. Broad fluid teal stroma occupies center and right with scattered realistic soluble enzymes and a carbon-fixing enzyme near x74 y32. Leave the central foreground at x64 y51 clear for a molecular cycle overlay and right edge clear for sugar-precursor departure. Soft blurred grana in background, glossy biological depth, gold volumetric light. No printed text, boxes or tracks.",
+     "svg": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "ATP stroma mein pahunchta hai; electron transfer se bana NADPH bhi yahin milta hai.",
+      "voice": "एटीपी स्ट्रोमा में पहुँचता है; इलेक्ट्रॉन ट्रांसफ़र से बना एनएडीपीएच भी यहीं मिलता है।",
+      "pins": [
+       {
+        "label": "Stroma",
+        "x": 75,
+        "y": 23
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 56,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          25,
+          51
+         ],
+         [
+          39,
+          43
+         ],
+         [
+          52,
+          42
+         ]
+        ],
+        "count": 3,
+        "ms": 2400,
+        "loop": false
+       },
+       {
+        "what": "NADPH",
+        "colour": "purple",
+        "label": "",
+        "points": [
+         [
+          24,
+          27
+         ],
+         [
+          40,
+          30
+         ],
+         [
+          58,
+          37
+         ]
+        ],
+        "count": 3,
+        "ms": 2600,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     },
+     {
+      "roman": "Ab inka kaam kya hai; Calvin cycle mein CO2 fixation ke baad ATP energy aur NADPH reducing power deta hai, jisse G3P banta hai aur RuBP dobara taiyaar hota hai.",
+      "voice": "अब इनका काम क्या है; कैल्विन साइकल में सी ओ टू फ़िक्सेशन के बाद एटीपी एनर्जी और एनएडीपीएच रिड्यूसिंग पावर देता है, जिससे जी थ्री पी बनता है और आर यू बी पी दोबारा तैयार होता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 64,
+       "y": 51,
+       "scale": 1.3
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [
+       {
+        "x": 64,
+        "y": 51,
+        "rx": 21,
+        "ry": 22,
+        "label": "Calvin cycle",
+        "carriers": 3,
+        "ms": 16000,
+        "stations": [
+         {
+          "at": 300,
+          "label": "CO2 fixation",
+          "becomes": "3-PGA",
+          "takes": [
+           "CO2"
+          ],
+          "gives": []
+         },
+         {
+          "at": 90,
+          "label": "",
+          "becomes": "G3P",
+          "takes": [
+           "ATP",
+           "NADPH"
+          ],
+          "gives": [
+           "ADP",
+           "NADP+",
+           "G3P"
+          ]
+         },
+         {
+          "at": 200,
+          "label": "",
+          "becomes": "RuBP",
+          "takes": [
+           "ATP"
+          ],
+          "gives": [
+           "ADP"
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "roman": "Cycle se nikla kuch G3P aage sugar banane mein lagta hai.",
+      "voice": "साइकल से निकला कुछ जी थ्री पी आगे शुगर बनाने में लगता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 78,
+       "y": 66,
+       "scale": 1.4
+      },
+      "moves": [
+       {
+        "what": "G3P",
+        "colour": "green",
+        "label": "",
+        "points": [
+         [
+          64,
+          73
+         ],
+         [
+          78,
+          70
+         ],
+         [
+          91,
+          61
+         ]
+        ],
+        "count": 2,
+        "ms": 2800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     },
+     {
+      "roman": "Yaad rakhiye: CF zero se H+ ki waapsi CF one ko ATP banwaati hai, aur ATP aur NADPH stroma mein sugar synthesis chalaate hain.",
+      "voice": "याद रखिए: सी एफ ज़ीरो से एच प्लस की वापसी सी एफ वन को एटीपी बनवाती है, और एटीपी और एनएडीपीएच स्ट्रोमा में शुगर सिंथेसिस चलाते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 54,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          25,
+          51
+         ],
+         [
+          43,
+          49
+         ],
+         [
+          62,
+          59
+         ]
+        ],
+        "count": 3,
+        "ms": 2600,
+        "loop": true
+       },
+       {
+        "what": "NADPH",
+        "colour": "purple",
+        "label": "",
+        "points": [
+         [
+          24,
+          27
+         ],
+         [
+          45,
+          34
+         ],
+         [
+          63,
+          57
+         ]
+        ],
+        "count": 3,
+        "ms": 2800,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": []
+     }
+    ]
+   }
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "s2 sentence 1: move label 'H+' is not spoken in this sentence (dikhaya = bola)",
+    "s2 sentence 2: move label 'H+' is not spoken in this sentence (dikhaya = bola)",
+    "s2 sentence 3: move label 'H+' is not spoken in this sentence (dikhaya = bola)",
+    "s3 sentence 1: pin 'CF0' is not spoken in this sentence (dikhaya = bola)",
+    "s3 sentence 1: move label 'H+' is not spoken in this sentence (dikhaya = bola)",
+    "s3 sentence 2: pin 'CF1' is not spoken in this sentence (dikhaya = bola)",
+    "s3 sentence 3: move label 'H+' is not spoken in this sentence (dikhaya = bola)",
+    "s3 sentence 4: move label 'H+' is not spoken in this sentence (dikhaya = bola)",
+    "s4 sentence 1: pin 'CF0' is not spoken in this sentence (dikhaya = bola)",
+    "s4 sentence 1: move label 'H+' is not spoken in this sentence (dikhaya = bola)",
+    "s4 sentence 2: move label 'H+' is not spoken in this sentence (dikhaya = bola)",
+    "s4 sentence 3: pin 'CF1' is not spoken in this sentence (dikhaya = bola)",
+    "s4 sentence 3: move label 'H+' is not spoken in this sentence (dikhaya = bola)",
+    "s5 sentence 1: pin 'CF1' is not spoken in this sentence (dikhaya = bola)",
+    "s5 sentence 1: move label 'Pi' is not spoken in this sentence (dikhaya = bola)"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "images": {
+  "s1": "q14-s1.png",
+  "s2": "q14-s2.png",
+  "s3": "q14-s3.png",
+  "s4": "q14-s4.png",
+  "s5": "q14-s5.png",
+  "s6": "q14-s6.png"
+ }
+}
