@@ -70,6 +70,9 @@ python -m pip install -r .integration/tools/requirements-validation.txt 2>&1 | t
 # Independent projection-reference tests require this declared test-only extra.
 # Preserve the sealed compile-worker requirements file without modification.
 python -m pip install 'pyproj==3.7.2' 'certifi==2026.5.20' 2>&1 | tee "$EVIDENCE/regression-extras-install.log"
+# The PYQ lab's chemistry model (bie/brain/pyq_chem.py) needs RDKit (BSD-3-Clause, the same pin as the studio extra);
+# the canonical gates allow no skipped tests, so its tests must run here too.
+python -m pip install 'rdkit==2026.9.1' 2>&1 | tee -a "$EVIDENCE/regression-extras-install.log"
 python -m pip check
 npm install --global typescript@5.8.3 2>&1 | tee "$EVIDENCE/typescript-install.log"
 # F-11(a): download each apt package set first, time-bounded with one fail-over
@@ -79,10 +82,10 @@ source "$GITHUB_WORKSPACE/tools/ci_apt_prefetch.sh"
 SYSTEM_DEBS=(ffmpeg bubblewrap libseccomp2 apparmor apparmor-utils)
 PLAYWRIGHT_DEBS_TEXT="$(python -m playwright install-deps --dry-run chromium | apt_packages_from_playwright_dry_run)"
 read -r -a PLAYWRIGHT_DEBS <<< "$PLAYWRIGHT_DEBS_TEXT"
-apt_get_bounded 90 update
+apt_update_bounded 90
 apt_prefetch --no-install-recommends "${PLAYWRIGHT_DEBS[@]}"
 python -m playwright install --with-deps chromium
-sudo apt-get update
+apt_update_bounded 90
 apt_prefetch "${SYSTEM_DEBS[@]}"
 sudo apt-get install -y "${SYSTEM_DEBS[@]}"
 

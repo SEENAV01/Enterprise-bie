@@ -290,3 +290,36 @@ class Drawing(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PilotNeeds(unittest.TestCase):
+    """Pilot ch02 v1 (Sloman): two small pies side by side were left unlabelled; a table column had to be rewritten
+    cell by cell through ``cells`` on every step."""
+
+    @classmethod
+    def setUpClass(cls):
+        if not shutil.which("node"):
+            raise unittest.SkipTest("node is needed to measure the drawings")
+        from bie.brain.video import boxes
+        cls.boxes = boxes
+
+    def test_a_small_pie_with_a_big_legend_reads_at_36px_and_the_default_is_unchanged(self):
+        p = {"w": 500, "slices": "कॉफ़ी:30;बाकी:70"}
+        small = self.boxes.item("pieChart", p)
+        self.assertTrue(all(t["px"] < 36 for t in small["texts"]))
+        big = self.boxes.item("pieChart", dict(p, legendSize=0.08))
+        self.assertEqual(sorted(t["t"] for t in big["texts"]), ["कॉफ़ी 30%", "बाकी 70%"])   # values move into the legend
+        self.assertTrue(all(t["px"] >= 36 for t in big["texts"]), big["texts"])
+        self.assertEqual(self.boxes.item("pieChart", dict(p, legendSize=0.036)), small)
+        self.assertEqual(saanche.problems("pieChart", {"legendSize": 0.2}), ["pieChart.legendSize: 0.2 is outside 0.02..0.09"])
+
+    def test_a_table_column_fills_cell_by_cell(self):
+        p = {"w": 900, "cols": "भाव;कुल", "cells": "₹50;700|₹40;500|₹30;350"}
+        words = lambda q: [t["t"] for t in self.boxes.item("table", q)["texts"]]   # noqa: E731
+        self.assertIn("350", words(p))
+        one = words(dict(p, fill="2:1"))
+        self.assertIn("700", one)
+        self.assertNotIn("500", one)
+        self.assertIn("₹30", one)                                                   # other columns stay whole
+        self.assertNotIn("700", words(dict(p, fill="2:0")))
+        self.assertEqual(saanche.problems("table", {"fill": "2:1"}), [])

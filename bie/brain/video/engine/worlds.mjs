@@ -966,12 +966,12 @@ const KINDS = {
       }
       g += rect(px - 85 * k, base - 16 * k, 170 * k, 24 * k, "#8d96a0") + rect(px - 58 * k, base - 196 * k, 116 * k, 180 * k, shut > 0.5 ? "#9aa5b1" : "#e5484d", ` rx="${10 * k}"`) + rect(px - 40 * k, base - 150 * k, 80 * k, 50 * k, "#f7f4ee", ` rx="${5 * k}"`) +
         `<path d="M${r1(px + 58 * k)} ${r1(base - 140 * k)} q${r1(50 * k)} ${r1(12 * k)} ${r1(38 * k)} ${r1(100 * k)}" stroke="#2d3748" stroke-width="${7 * k}" fill="none"/>`;
-      const [now, old] = boardOf(p, "prices", i);
+      const [now, old] = p.numbers === false ? ["", ""] : boardOf(p, "prices", i);     // numbers: false keeps the boards blank
       g += rect(px - 85 * k, base - 272 * k, 170 * k, 72 * k, "#111a22", ` rx="${8 * k}"`) + (old ? struck(old, px - 140 * k, base - 222 * k, 38 * k, "#c0392b", "end") : "") + textA(now, px, base - 222 * k, fitFs(now, 160 * k, 46 * k), "#ffcf4a", 800, "middle") +
         smallSign(signs[i], px, base - 312 * k, Math.min(pw * 0.9, 240 * k), 40);
     }
     const tx = W * 0.4;                                                                              // the totem with the litre counter
-    g += rect(tx - 10 * k, -H * 0.2, 20 * k, gy + H * 0.26, "#6b7280") + rect(tx - W * 0.075, -H * 0.36, W * 0.15, H * 0.17, "#2a9d8f", ` rx="${10 * k}"`) + counterBox(tx, -H * 0.32, p, k, 50);
+    g += rect(tx - 10 * k, -H * 0.2, 20 * k, gy + H * 0.26, "#6b7280") + rect(tx - W * 0.075, -H * 0.36, W * 0.15, H * 0.17, "#2a9d8f", ` rx="${10 * k}"`) + (p.numbers === false ? "" : counterBox(tx, -H * 0.32, p, k, 50));
     return g + board(p.label, -W * 0.08, -H * 0.42, W * 0.4, "#2a9d8f");
   },
   venue(W, H, p) {

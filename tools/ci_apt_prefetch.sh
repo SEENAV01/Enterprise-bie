@@ -10,14 +10,29 @@
 # apt_prefetch only DOWNLOADS (apt-get --download-only); the unchanged install
 # commands then install from the local cache. Package set, versions and trust
 # are unchanged: apt verifies every .deb against the signed archive indexes,
-# and the fail-over only drops the regional line of the image's own mirror list.
+# and the fail-over drops the regional line of the image's own mirror list. When
+# the image lists ONLY the regional mirror (18 November 2026, PR #166: two runs an
+# hour apart, "no second mirror listed"), the fail-over points the regional host
+# at Ubuntu's primary archive (archive.ubuntu.com, the same signed indexes and the
+# same Ubuntu archive key) wherever apt names it: the mirror list, sources.list,
+# *.list or deb822 *.sources files; nothing else in apt's sources or trust
+# changes. Navin said yes on 18 November 2026. Every fail-over first writes a
+# ::notice listing where apt fetches from, because job logs cannot be read here.
+# "Regional" means any mirror host under archive.ubuntu.com (azure.archive... on
+# Azure runners; us-east-2.ec2.archive... seen on 18 November 2026, PR #167 run
+# on bbd4d746), never archive.ubuntu.com or security.ubuntu.com themselves.
+# The index update itself can stall on the same mirror (19 November 2026, PR #169: five jobs stopped in
+# "apt-get update" with exit 124 before any test ran), so apt_update_bounded fails over the same way.
 # Worst case for all prefetches of one job: APT_BUDGET_S seconds, then a clear
 # ::error annotation and a non-zero exit instead of a silent job cancel.
 
 APT_MIRRORS="${APT_MIRRORS:-/etc/apt/apt-mirrors.txt}"
 APT_BUDGET_S="${APT_BUDGET_S:-480}"        # all prefetches of this job together
 APT_FIRST_TRY_S="${APT_FIRST_TRY_S:-180}"  # first try on the regional mirror (healthy: ~10 s)
-APT_REGIONAL='^http://azure\.archive\.ubuntu\.com/'
+APT_SLOW_HOST='([a-z0-9-]+\.)+archive\.ubuntu\.com'   # a regional mirror: one or more labels before archive.ubuntu.com
+APT_REGIONAL="^https?://${APT_SLOW_HOST}/"                 # a mirror-list line on that host (ERE)
+APT_PRIMARY_HOST='archive.ubuntu.com'
+APT_SOURCES_DIR="${APT_SOURCES_DIR:-/etc/apt}"
 APT_FAILED_OVER=0
 APT_DEADLINE=$((SECONDS + APT_BUDGET_S))
 
@@ -27,20 +42,58 @@ apt_get_bounded() {  # <seconds> <apt-get arguments...>
     -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 "$@"
 }
 
+apt_sources_summary() {  # one line for the annotation: where apt fetches from (URLs only, no secrets live here)
+  local f
+  { test -f "$APT_MIRRORS" && sed -n 's#^\(https\{0,1\}://[^[:space:]]*\).*#mirror-list \1#p' "$APT_MIRRORS"
+    for f in "$APT_SOURCES_DIR"/sources.list "$APT_SOURCES_DIR"/sources.list.d/*.list "$APT_SOURCES_DIR"/sources.list.d/*.sources; do
+      test -f "$f" || continue
+      grep -Eho '(mirror\+file:[^[:space:]]+|https?://[^[:space:]]+)' "$f" | sed "s#^#${f##*/} #"
+    done; } 2>/dev/null | sort -u | head -12 | tr '\n' ';' | cut -c1-900
+}
+
+apt_slow_host_files() {  # the apt source files (mirror list, sources.list, *.list, deb822 *.sources) naming the regional host
+  local f
+  for f in "$APT_MIRRORS" "$APT_SOURCES_DIR"/sources.list "$APT_SOURCES_DIR"/sources.list.d/*.list "$APT_SOURCES_DIR"/sources.list.d/*.sources; do
+    if test -f "$f" && grep -Eq "https?://${APT_SLOW_HOST}/" "$f"; then echo "$f"; fi
+  done
+}
+
 apt_mirror_failover() {
-  local left
+  local left files f
   APT_FAILED_OVER=1
-  if test -f "$APT_MIRRORS" && grep -q "$APT_REGIONAL" "$APT_MIRRORS" && grep -vq "$APT_REGIONAL" "$APT_MIRRORS"; then
+  echo "::notice title=APT sources (F-11)::$(apt_sources_summary)"
+  if test -f "$APT_MIRRORS" && grep -Eq "$APT_REGIONAL" "$APT_MIRRORS" \
+     && test -n "$(grep -E '^https?://' "$APT_MIRRORS" | grep -Ev "$APT_REGIONAL")"; then   # another mirror is listed
     echo "apt mirror list before fail-over:"; cat "$APT_MIRRORS"
-    sudo sed -i '\#^http://azure\.archive\.ubuntu\.com/#d' "$APT_MIRRORS"
+    sudo sed -i -E "\\#${APT_REGIONAL}#d" "$APT_MIRRORS"
     echo "apt mirror list after fail-over:"; cat "$APT_MIRRORS"
     echo "::warning title=APT mirror fail-over (F-11)::regional mirror too slow; using the image's next listed mirror"
-    left=$((APT_DEADLINE - SECONDS))
-    test "$left" -gt 0 || return 1
-    apt_get_bounded "$((left < 90 ? left : 90))" update
   else
-    echo "::warning title=APT mirror fail-over (F-11)::no second mirror listed; retrying the same mirror"
+    files=$(apt_slow_host_files)
+    if test -z "$files"; then
+      echo "::warning title=APT mirror fail-over (F-11)::no second mirror listed; retrying the same mirror"
+      return 0
+    fi
+    for f in $files; do
+      sudo sed -i -E "s#(https?)://${APT_SLOW_HOST}/#\\1://${APT_PRIMARY_HOST}/#g" "$f"
+    done
+    echo "::warning title=APT mirror fail-over (F-11)::regional mirror too slow and no second mirror listed; using Ubuntu's primary archive (${APT_PRIMARY_HOST}) in $(for f in $files; do printf '%s ' "${f##*/}"; done)"
   fi
+  left=$((APT_DEADLINE - SECONDS))
+  test "$left" -gt 0 || return 1
+  apt_get_bounded "$((left < 90 ? left : 90))" update
+}
+
+apt_update_bounded() {  # the package indexes, bounded; a stalled regional mirror fails over once (F-11, 19 Nov 2026)
+  if apt_get_bounded "${1:-90}" update; then return 0; fi
+  if test "$APT_FAILED_OVER" != 0; then
+    echo "::error title=APT index update (F-11)::apt-get update did not finish after the mirror fail-over"
+    return 1
+  fi
+  echo "::warning title=APT index update (F-11)::apt-get update stalled on the first mirror; failing over"
+  apt_mirror_failover && return 0
+  echo "::error title=APT index update (F-11)::apt-get update did not finish after the mirror fail-over"
+  return 1
 }
 
 apt_prefetch() {  # <apt-get install options and packages...>; downloads only, installs nothing

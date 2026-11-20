@@ -18,6 +18,28 @@ def split_sub(sub: str) -> list:
     return [p for p in re.split(r"(?<=[।?!.])\s+", sub.strip()) if p]
 
 
+def cue_positions(text: str, word: str) -> list:
+    """Where a cue word starts in a subtitle. A cue whose edges are Roman letters or digits matches whole words only
+    ("TR" is not inside "extra", "MC" not inside "MCQ"; "price" still finds "prices"); a Devanagari edge keeps the prefix match, so a cue on a stem
+    (खरीद) still finds खरीदार."""
+    low, w = str(text or "").lower(), str(word or "").lower()
+    if not w:
+        return []
+    pre = r"(?<![a-z0-9])" if re.match(r"[a-z0-9]", w) else ""
+    post = r"(?:e?s|'s)?(?![a-z0-9])" if re.search(r"[a-z0-9]$", w) else ""   # a plural or possessive still counts
+    return [m.start() for m in _overlapping(pre + re.escape(w) + post, low)]
+
+
+def _overlapping(pattern: str, text: str):
+    rx, i = re.compile(pattern), 0
+    while True:
+        m = rx.search(text, i)
+        if not m:
+            return
+        yield m
+        i = m.start() + 1
+
+
 class Timeline:
     def __init__(self, script: list, durations: dict | None = None):
         self.script = script
@@ -67,15 +89,10 @@ class Timeline:
             return line["t0"] + (line["t1"] - line["t0"]) * frac
         seen = 0
         for p in line["parts"]:
-            start = 0
-            while True:
-                i = p["sub"].lower().find(word.lower(), start)
-                if i < 0:
-                    break
+            for i in cue_positions(p["sub"], word):
                 seen += 1
                 if seen == nth:
                     return p["t0"] + (p["t1"] - p["t0"]) * (i / max(1, len(p["sub"])))
-                start = i + 1
         raise KeyError(f"cue word not found: {lid} {word!r}")
 
     def subs(self) -> list:

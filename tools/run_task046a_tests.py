@@ -34,7 +34,8 @@ LANES = {"core": ("tests/test_task046a_toolbox.py", "tests/test_task046a_licence
                   "tests/test_p1_econ_saanche.py", "tests/test_p1_box_rule.py", "tests/test_p1_models3d.py",
                   "tests/test_p1_shown_said.py", "tests/test_p1_econ_graph.py", "tests/test_p1_saanche_families.py",
                   "tests/test_p1_fam_econ_charts.py", "tests/test_p1_fam_econ_tools.py", "tests/test_p1_fam_econ_finance.py",
-                  "tests/test_p1_fam_econ_things.py", "tests/test_p1_fam_econ_worlds.py"),
+                  "tests/test_p1_fam_econ_things.py", "tests/test_p1_fam_econ_worlds.py",
+                  "tests/test_p1_readable_words.py", "tests/test_p1_worker_round3.py"),
          "wrappers": ("tests/toolbox/test_wrappers.py",)}
 LANES["show"] = ("tests/toolbox/test_p1_show_render.py",)   # needs node + esbuild + Chromium (the demos job)
 LANES["all"] = LANES["core"] + LANES["wrappers"]

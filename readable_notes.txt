@@ -1,0 +1,51 @@
+Readable words in BIE drawings (branch sloman-readable2) - notes, not committed
+
+Rule: draw.mjs READ_PX = 36; readFit/readTx/txLines/wrap2 helpers. A word never goes under 36 px at the drawing's w:
+it wraps to two lines (balanced split), then keeps 36 and sticks out (graph line names start at the line's end, outside
+the plot). "hard" rooms (calendar band, podium step, pillar card/beam) shrink after wrapping so box_rules.min_readable_w
+/ bk.py fit still report the w they need.
+
+graph: fs = max(0.055h, 36), ticks max(0.8fs, 36), axis ends max(0.7fs, 36); x tick names wrap under their tick and push
+  the x label down; y tick names right-aligned, push the y label out; short y label ("₹", "P") drawn upright; line name
+  = text before the LAST ':' (":" inside a name keeps the line; areas too); every other label floored and grows upward
+  (dots, arrows, segs, path, along) or downward (gaps). Before: ticks 32.7 px, "Demand curve" 25.8 px at w 1200.
+fork: pills and result boxes grow to hold wrapped words (before 19.9-24.5 px at w 1100; after >= 40 px).
+paper: amount/footer accepted as value/note (manifest said "amount, footer note").
+noteBundle: band moved to the left end, value clear.
+calendar: heading fits/wraps, band grows, day grid moved under the heading (it used to cover the heading).
+podium: names floored; no room under the rank number -> the name stands on top of its step; rank 3 number floored.
+vehicle plane: default w 760 (was 1000), bigger plate (label 44.8 px).
+slip ticket: rows drawn in a strip under the ticket face.
+agents: fs = max(36, 0.028w).
+pillars: names floored/wrapped, cards grow; title on the beam at >= 36, beam and roof grow with it.
+scaleBalance: chips and title >= 36; title sits just above the highest thing (was a band higher).
+timeValue: a single travelled amount leaves a faded ghost at its slot (param ghost, default true).
+marginalBars: labels "a,b,c" with one name per bar read like "a;b;c" (manifest says so).
+priceTag: long value (₹1,20,000) keeps its size, the tag gets longer.
+gapBars: currency unit before the number (₹200); a gap name that already has a number is not followed by it again.
+
+Coordinator extras:
+shown_said: NOT_FORMS for कर/खा verb forms; VERB_TAGS (कर/खाता followed by a helper verb = verb); STOP adds फल, stock,
+  उत्पादन, board, जोखिम, खाते, सूखा; ALIAS_GROUPS (Hindi<->English thing words) count for labels on drawings; SHOWN_BY:
+  shortage/कमी by gapBars or a graph with gaps, rationing/राशन by slip kind rationCard. Plain text els alone still do not
+  show a thing (kept the existing designed rule + its test).
+box_rules: maths_token() - one letter or a 2-letter non-English token (Qd, Pe, dQ) is maths, not English; world zones
+  only while the world element is visible; boxes.mjs svgBounds returns body (shapes only); Geo.loose = words outside the
+  body; rule 2b refuses a loose caption sitting on another thing.
+econ_graph: vertical(name, x) (perfectly inelastic supply), cross/at_price/shift/_pts know it; through() names it.
+kit bk.py: botplay prints a short summary (count, names, result fields); build renders into a per-run temp dir under a
+  flock on BK_DIST/.build.lock (backup of the old kit: scratchpad/rd/bk.py.bak).
+
+Not done / limits: world saancha left as is (a 3840 backdrop drawn small on a still is a w/s choice); scaleBalance pan
+values (₹120) stay ~32 px at w 800 and fit reports it; pillars single long word (non-excludable) shrinks (hard room) and
+fit reports its w; timeline/segmentedBar/moneySplit small labels (other notes) not touched.
+Tests: tests/test_p1_readable_words.py (23), added to the core lane; core lane 600 tests pass. min_readable_w.json regenerated.
+
+Round 3 (worker fixes): shown_said KAR_VERB regex (कर + any दे/ले/सक/रह/चुक/पा/डाल/बैठ/उठ/जा form, punctuation stripped; कर दो प्रकार
+= two), CONTEXT_ONLY लाइन, IDIOMS पासा पलट, NOT_IN_CONTEXT डिग्री (angle), NOT_AFTER सोवियत संघ, ~100 econ ALIAS_GROUPS, worlds:
+kind words (PLACES for every world kind) + label/signs count. narration.cue_positions: Roman cues whole-word (plural ok).
+draw.mjs inr()/uptoOf() (upto -1 = none yet); timeline readFit + compact mode; gapBars tag above gap when gap on left bar.
+econ_finance fmtKeep/moneyKeep (decimals as given), timeValue d per lane; tugOfWar shareNumbers; pump priceBoard; world numbers;
+marginalBars numbers:false hides all numbers; pie order; formula/causeChain scripts floored at 36. box_rules: wrapped_hindi
+(whole label language), moving_at (entry moves not cut). EconGraph: of_price (Q=f(P)), horizontal, solid flat/vertical shifts,
+show=[] -> "none", segs by number. Tests: tests/test_p1_worker_round3.py (35), core lane 635 pass.

@@ -101,6 +101,57 @@ class CompilerRefuses(unittest.TestCase):
         self.assertTrue(spec["scenes"])
 
 
+class FairerWords(unittest.TestCase):
+    """Pilot ch02 v1 (Sloman): ~60% of 82 said-not-shown hits were word-matching false positives."""
+
+    def tags(self, text):
+        return [tag for _, tag, _ in ss.named_things(text)]
+
+    def test_whole_words_only_so_a_function_word_is_not_a_thing(self):
+        self.assertNotIn("बस", self.tags("बस इतना ही चाहिए"))          # बस = only, not a bus
+        self.assertIn("bus", self.tags("एक bus आई"))                    # the English word still names the bus
+        self.assertNotIn("आग", self.tags("आगे के चित्र"))                # आगे is not आग + े
+        self.assertIn("आग", self.tags("घर में आग लगी"))
+        self.assertFalse(ss.has_word("bus stand", "बस"))
+        self.assertFalse(ss.has_word("आगे", "आग"))
+        self.assertTrue(ss.has_word("नोटों की गड्डी", "नोट"))
+        self.assertFalse(ss.has_word("नोटबंदी", "नोट"))                 # inside another word is not the word
+
+    def test_ordinary_and_idea_words_create_no_obligation(self):
+        lex = ss.lexicon()
+        for word in ("बीच", "दिन", "काम", "कमाई", "गिनी", "बिंदु", "चित्र", "रेखा", "समय", "साल", "income", "effect", "table"):
+            self.assertNotIn(word, lex, word)
+        self.assertEqual(self.tags("दिन भर का काम, कुल कमाई और income effect"), [])
+        for word in ("आलू", "कॉफ़ी", "घड़ी", "laptop", "बोरी"):            # real things stay obliged
+            self.assertIn(word, lex, word)
+
+    def test_a_phrase_tag_needs_its_whole_words(self):
+        self.assertEqual(self.tags("नोटों की गड्डी आई")[0], "नोटों की गड्डी")
+        self.assertNotIn("नोटों की गड्डी", self.tags("नोटों की गड्डियाँनुमा"))
+
+
+class StepsShowToo(unittest.TestCase):
+    """The gold Money v2 craft: a thing's label changes on the cue word; that change shows the word from then on."""
+
+    def test_a_label_changed_by_a_step_on_its_line_shows_the_word(self):
+        plan = plan_of({"op": "item", "thing": {"draw": "sack", "p": {"w": 230, "label": "नमक"}}, "x": 960, "y": 885,
+                        "steps": [{"t": {"line": "l2", "edge": "start"}, "p": {"label": "कपड़ा"}}]})
+        self.assertEqual(said_problems(plan), [])
+
+    def test_a_label_step_after_the_line_does_not_count(self):
+        plan = plan_of({"op": "item", "thing": {"draw": "sack", "p": {"w": 230, "label": "नमक"}}, "x": 960, "y": 885,
+                        "steps": [{"t": {"line": "l3", "edge": "start"}, "p": {"label": "कपड़ा"}}]})
+        self.assertEqual(len(said_problems(plan)), 1)
+
+    def test_a_graph_title_set_by_a_step_is_read(self):
+        graph = {"draw": "graph", "p": {"w": 900, "title": ""}}
+        step = {"t": {"line": "l2", "edge": "start"}, "p": {"title": "कपड़ा का भाव"}}
+        plan = plan_of({"op": "item", "thing": graph, "x": 1000, "y": 480, "steps": [step]})
+        self.assertEqual(said_problems(plan), [])
+        self.assertIn("कपड़ा", ss._labels({"draw": "graph", "p": {"title": ""}, "steps": [dict(step, t=1.0)]}, 2.0))
+        self.assertNotIn("कपड़ा", ss._labels({"draw": "graph", "p": {"title": ""}, "steps": [dict(step, t=1.0)]}, 0.5))
+
+
 class Measure(unittest.TestCase):
     def test_the_summary_counts_lines_that_name_things(self):
         spec = showplan.compile_plan(json.loads(json.dumps(plan_of())), timeline(), width=1920, height=1080,

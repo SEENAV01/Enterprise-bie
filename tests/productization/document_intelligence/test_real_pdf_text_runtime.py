@@ -82,6 +82,24 @@ class PdfPlumberTextAdapterTests(unittest.TestCase):
             self.assertTrue(0 <= x0 < x1 <= 1)
             self.assertTrue(0 <= y0 < y1 <= 1)
 
+    def test_glyphs_off_the_page_are_left_out(self):
+        # A scanned book's OCR layer (NCERT Class 12 Biology, page 25) carried a '.' whose box starts above the page;
+        # that one invisible glyph used to stop the whole book. Lines on the page are kept exactly as before.
+        on_page = positioned_text_pdf([[(72, 720, "First structural line"), (144, 680, "Second line")]])
+        with_stray = positioned_text_pdf(
+            [[(72, 720, "First structural line"), (144, 680, "Second line"), (150, 788, "."), (72, 800, "Off the top")]]
+        )
+
+        document = PdfPlumberTextAdapter().extract(with_stray)
+
+        self.assertEqual(
+            [line.text for line in document.pages[0].lines], ["First structural line", "Second line"]
+        )
+        self.assertEqual(document.pages, PdfPlumberTextAdapter().extract(on_page).pages)
+        for line in document.pages[0].lines:
+            self.assertTrue(0 <= line.top < line.bottom <= document.pages[0].height)
+        self.assertEqual(inspect_real_pdf_text(with_stray).page_count, 1)
+
     def test_invalid_inputs_fail_closed(self):
         adapter = PdfPlumberTextAdapter()
         with self.assertRaises(PdfPlumberTextAdapterError):

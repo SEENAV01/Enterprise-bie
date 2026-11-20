@@ -1,18 +1,166 @@
 # BIE Status
 
-Updated: 5 November 2026 · Read this first in every new session, then show Navin the current task card.
+Updated: 18 November 2026 (evening) · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
 | Field | Value |
 | --- | --- |
 | Phase | 1 · BIE end to end on the new showing engine; agreement of 3 November 2026 (`docs/vision/AGREEMENT_2026-11-03.md`; ROADMAP, "Agreed on 3 November 2026"). Target 22 November. |
-| Current task | **Phase 1 · dikhaya-bola, the shown-said check** (Navin, 5 November 2026: "Boli cheez usi line mein", proof on v4 and v5), section below. Then the voice route he chose (one-time upload page, his Google Drive). |
-| Branch | `p1h-shown-said` |
-| State | **5 November 2026:** the box rule merged (PR #149) and Money v5 ran through it: 3 overlap seconds against the v2 demo's 36 and v4's 472, longest 1 s, gate passed, ₹0 AI. Navin passed v5's result ("Theek, aage dikhaya-bola") and said yes to keeping his voice clip on the VM only. |
-| Next task | v4 and v5 again through the director with the box rule and dikhaya-bola, render, numbers next to before; then the voice: the one-time upload page for his clip (shown to him before it is switched on). |
+| Current task | **Course studio on the VM, 3 days** (Navin, 18 November 2026): Codex on the ChatGPT plan makes a whole course per chapter on the VM, VM job section `studio` (`tools/vm_studio.py`) with four stages: `questions` (`bie/brain/studio.py`), `films` (`studio_film.py`, `studio_player.html`, `studio_voice.py`), `games` (`studio_game.py`, `studio_game_player.html`) and `book` (`studio_book.py`, `studio_book_player.html`). Navin's six decisions are in the section below. |
+| Branch | `studio-day1-questions` (PR #166: all four stages, the course folder and the game look) |
+| State | **18 November 2026:** VM alive; Codex image_gen made 2 photoreal test images in 3 minutes, ₹0 (job `img-check-20261118`). All four stages IMPLEMENTED with offline tests (33) and the three players checked in a phone browser (film, game played through by touch, Living Book); none INTEGRATED yet: no live run, the first waits for Navin's book PDF. **19 November:** the F-11 fix merged (PR #167, `4509733a`, Navin's yes) and days 1–3 merged (PR #166, `df68e5aa`). First VM proof, stage `questions` on the Money chapter (job `studio-money-q1`, results `blindtest-results:runs/vm-studio-money-q1-brain-studio`): status ok in one round, 0 problems, 28 questions in 5 pillars, 187 of 187 teachable blocks covered, 6.4 minutes, ₹0, plan usage 44 % before and after. Navin chose to stop the Money chapter there and send his own book next (decision card, 19 November). Sloman work stays paused. |
+| Next task | Navin's book PDF; first live chapter on the VM: questions → Navin's yes → films → games → book → one course folder (films, `GAME.html`, `BOOK.html`) for Navin's review; then the whole book. |
 | Canonical main | `a76003bd` (PR #147: Part F decision report) on `cec89b9d` (PR #146) … PRs #131–#145 (Phase 1 parts B–F) … on `3cd3c19e` (PR #127: Task 048 first slice) on `a14e732f` (PR #126: Task 046 Part D3, the general fixes) on `e8bc9968` (PR #125: the addendum proof's docs) on `d51a5cf3` (PR #124) on `4f612f20` (PR #123) on `3be6680f` (PR #121) on `a568edaf` (PR #120) on `866d171d` (PR #119) on `788106ba` (PR #118) on `ef77d816` (PR #117) on `7e06fa1e` (PR #115: Part D2) on `65e87a6e` (PR #114: Part D1 proof run b, the fetch rules, currency icons, the six pin) on `d6174636` (PR #113: F-18, the Section 18 sidecar race) on `18595156` (PR #112: the proof fixes) on `e998f926` (PR #111: Part D1) on `73a07941` (PR #109: the render publish step retries) on `16c1e5fe` (PR #110: the Money chapter's report); earlier: `f99b77a6` (PR #93: PR 3, the bank kit) on `f929d5a5` (PR #92: docs, the proof's numbers and the chosen video) on `d265dc90` (PR #90: the everyday words of money and the W-01 source-packet phrases; PR #91 `abeb70b0` F-16 skyfield files in the shared asset cache; PR #89 `f03c9208` plan review; PR #88 `182c9b01` page review; PR #87 `995c808b` map review; PR #86 `8612d724` render speed; PR #85 `78a9a721` PR 2 and Navin's addition; PR #81 `d7ce8388`: F-14b, Codex image calls keep the code-mode host on, Navin's yes; PR #80 `4128cbdd` F-14; PR #77 `aa8d6519` VM image and look jobs; PR #79 `2c6c2fc5` F-13c + F-11 toolbox lane; PR #78 `c4375064` F-13b; PR #74 `39e3430e` Task 046 Part A) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro, signed in with Codex on Navin's machine (Hostinger KVM 2, Mumbai). On the VM, from 25 October 2026, the checker is Navin's free Google AI Studio key `GEMINI_API_KEY` in `/etc/bie/bie.env` (direct route, `gemini-3.8-flash`); the AICredits key stays there unused (a job can still choose it with `routes google=aicredits`). Since 24 October a free Google AI Studio key is the GitHub secret `GEMINI_API_KEY` (Navin's choice for now, sample content only, never student data); it serves GitHub Actions runs only and wins over AICredits there: `gemini-3.8-flash` answers (smoke run 40114580580), `gemini-4-argon` gives 429 quota and `gemini-3.1-pro` 404, so a run that uses it passes `models=google=gemini-3.8-flash` |
+
+## Course studio on the VM: Navin's decisions of 18 November 2026
+
+Decision cards in the planning chat, 18 November 2026:
+1. **Coverage (route C):** every point of the book is taught in a video and kept in the notes; the video is made first and
+   its length follows the point (process or structure: a long cinematic film; a light point: a short one).
+2. **Games:** revise the whole chapter in each subject's own ways (a choice makes something happen on screen); every
+   student question gets at least one game stage.
+3. **Question list:** BIE writes each chapter's student questions (Chapter 17 shape: one big question, 3-5 pillars,
+   questions in the learner's words); Navin says yes before that chapter's videos are made.
+4. **Look:** the same frame in every subject; colours and visuals follow the subject.
+5. **Route:** everything is made on the VM by Codex on Navin's ChatGPT plan, pictures from AI (Codex image_gen), no
+   separate ChatGPT-app work; Navin allowed Codex to write files and run commands inside a closed folder when a stage
+   needs it (security yes, 18 November 2026). Stage `questions` needs neither: it is a read-only call.
+6. **Review:** Navin looks at the first chapter before the whole book runs, and at the end.
+7. **Game look (decision card, 19 November 2026):** what is seen from outside (a place, a field, a fort, a machine) is
+   played on the question's own film photo with the moving pieces drawn on top (game `backdrop: film_photo`, the film's
+   pins tell the maker where things are in the photo); an inside process or structure is a full illustration in the
+   Chapter 17 Pollen Lab style (`backdrop: illustration`, code check: at least one gradient and 12 drawn shapes). The same
+   illustration check now applies to film diagrams. Navin saw the player test pictures (Claude's test data, a bare
+   triangle scene) and said they were far from the vision; only real VM output or clearly marked samples are shown now.
+8. **Film motion, toward the Campbell 17 film (19 November 2026):** Navin asked how to reach the Campbell 17 output
+   (photoreal pictures, pollen travelling from anther to stigma, played as HTML without a GPU). The film now has a motion
+   layer the phone's browser plays: `moves` (pollen, cells, molecules, drops, light, sparks along a smooth path), `grows`
+   (a living line such as a pollen tube), `fuses` (two parts become one, with its label such as "n + n → 2n"), a camera
+   that pushes in up to 2.2x (labels stay readable at any zoom; overlapping labels move apart), `cutaway` shots (an AI
+   picture drawn as a transparent scientific cutaway) and shots that `dive` into a point of the previous picture. Code
+   checks every path, count, timing and label (dikhaya = bola) and asks for motion in at least 2 shots of a long film.
+   Navin left the order to Claude ("Mujhe nahi pata"): the recommended order is used, films first. Checked in Chromium
+   with a real VM AI photo (Claude's test data, not BIE output); the first BIE film with motion comes from the
+   Photosynthesis chapter. First BIE films with motion: VM job `studio-photosynthesis-films1` (q03, q14, q19), status ok,
+   0 problems, rounds 3/2/2, 24 minutes, ₹0 (plan 44 % before and after), results
+   `blindtest-results:runs/vm-studio-photosynthesis-films1-brain-studio`; moves in every film, 8 AI pictures (6 photos,
+   2 cutaways), played through in Chromium without errors and sent to Navin for his look verdict (pending; the other 22
+   films wait for it). Claude's look check found three player faults on diagram shots (a zoom cut words at the frame
+   edge, highlighted words got a thick red outline, moving sprites covered words); the player now keeps the diagram's
+   words on a top layer, fades a word the frame cuts and highlights words without an outline (branch
+   `studio-film-legible`, SEEKH_LOG).
+   **Navin's verdict on the three films (19 November 2026, 23:36): not accepted.** In his words: the concepts were not
+   clear, there was no narration he could hear and no script, it felt like 4–5 pictures joined as slides with a zoom on
+   each, unlike the continuous Campbell 17 film; he wants things alive, e.g. ATP and NADPH doing CO2 fixation and sugar
+   synthesis in a stroma and thylakoid that look real, the reaction steps happening on screen. The other 22 films wait.
+   His answers (decision cards): no voice came when he pressed play; next step "pehle sirf Q14". Living films (branch
+   `studio-film-living`): the voice plays as a data: URI through the audio element, then through Web Audio when the
+   viewer refuses media loads (the old player used blob: URLs, which a page policy with `media-src` blocks; checked in
+   Chromium: old player silent, new player speaks), and shows "Awaaz band hai" when neither can sound (the PYQ lab uses
+   the same `studio_voice_player.js`); one world (every shot after the first dives into the picture before it, at most one
+   cut; the next picture opens as a soft lens while the old one zooms past; a shared `look` for every AI picture);
+   processes on AI pictures (at most one diagram, for a comparison or graph); BIE's molecule kit
+   (`bie/brain/molecule_kit.json`, 18 ball-and-stick molecules: ATP, ADP, NADPH, NADP+, CO2, RuBP, 3-PGA, G3P, glucose,
+   H+, H2O, O2, Pi, e-, PEP, OAA, malate, pyruvate); `reacts` (inputs fly in, products come out and stay), `cycles` (a
+   wheel of stations that takes and gives molecules as it turns, e.g. the Calvin cycle) and a `spin` effect; every shot
+   moves, at least half the sentences of a long film move, the film opens on a question, the narration tells what
+   happens. INTEGRATED (PR #174): VM job `studio-photosynthesis-q14-living` made the Q14 film (status ok, 6 shots,
+   6 AI pictures, 2.6 minutes, 2 rounds, no problems left, ₹0); played end to end in Chromium, the voice sounded through
+   the audio element in all 20 sentences, molecules, a react and the Calvin cycle moved on the pictures, five shots dive,
+   no console errors. Sent to Navin on 20 November 2026. What the film showed is tidied in the player (PR #175,
+   merged): name tags never pile up, a react's product is handed to the move that carries it on, a station's molecules
+   fan out, the next picture opens as a round lens (never a box), and the maker names the colours of structures seen
+   in more than one picture; the same film re-wrapped with that player went to Navin.
+   **Navin's verdict on Q14 (20 November 2026, decision card): "Theek hai, par badlaav chahiye"** ("video achhi bani
+   hai"): the pictures do not look like the real thing, the molecules' movement is not clear, voice or script fall
+   short, the screen is crowded; the shot numbers 1–6 under the film are what read as slides; the Calvin cycle at the
+   end "ek khichdi ban gaya"; every point of the NCERT text the question covers must be in the teacher's script, and he
+   asked which NCERT text the film teaches (answered: section 11.6.3, page 141 "Why are we so interested in the proton
+   gradient?" to page 142 "...synthesis of sugars.", Figure 11.7 and one Summary line on page 151; two lines thin, and
+   G3P, rotor, electrochemical gradient and leak beyond the book). He will send his own recorded voice, to be refined and
+   cloned as the teacher's voice (tool to be licence-checked; any paid route needs his yes; the recording never goes in
+   the public repo). He reads the NCERT text, then judges the remade Q14. His answers on the second card the same day:
+   the cycle may come, but when a film touches what another film teaches, its context and basics must be clear, and
+   prerequisites, where the concept is used and the effect of what happened matter; going beyond the book is welcome
+   wherever it explains better (prerequisite, example, story, real-world use, NEET depth), with no fixed limit.
+   Changes on branch `studio-film-ncert`: the player shows one progress bar instead of numbered shots; every film is
+   checked line by line against the question's book lines (whole sentences with their printed page,
+   `studio.book_lines`); every sentence has its part (hook, prerequisite, concept, use, recap) and each film has a
+   prerequisite and a use sentence; what goes beyond the book is noted for the review page; words are free (Navin's
+   third message: a rule against words outside the book would weaken how BIE teaches; words the chapter never uses
+   are only listed on the review page); a wheel is started by one sentence and each station explained in a sentence of
+   its own; at most 5 different molecules are on screen at once; pictures follow real
+   structure; each film gets an NCERT-to-film review page (`films/<qid>-ncert.html`).
+   Also from Navin's third message (20 November 2026), for later sections: the voice is its own piece of work, aimed at
+   many languages where voice, script and on-screen labels are the native language mixed with English terms; and
+   "photorealistic animation" means real-looking things that move themselves (a car driving, a living thing moving,
+   the inside of a jet engine working, a product being made in a plant), not zoom on a still, together with 3D
+   realistic models, for skill and job courses; a still picture is fine for the leaf films. The colour rule (one part
+   keeps its colours from shot to shot) was explained to him as continuity, not a limit on content.
+9. **Navin's chapter (19 November 2026):** NCERT Class 11 Biology chapter 11, Photosynthesis in Higher Plants, for NEET +
+   Class 11 in Hinglish (decision card). NCERT's site sends an incomplete certificate chain, so Navin chose the public
+   inputs branch for the PDF (`blindtest-inputs:chapters/ncert-class11-biology-ch11-photosynthesis.pdf`).
+10. **PYQ Visual-Solving Lab (Navin, 19 November 2026, "PDF se pehle yeh karo"; scope confirmed: it is for PYQs,
+   question books and a chapter's exercise questions, for every subject, the chapter itself is taught by films and notes;
+   PDF course and lab run side by side):** studio stage `pyq` (`tools/vm_studio.py --stage pyq --source <chapter PDF>
+   --pyqs <questions JSON>`, VM job field `pyqs`). One question becomes a five-stage investigation (see, trap, concept,
+   solve, transfer) driven by one science model that code checks (`bie/brain/pyq_models.py`): `projectile` and `numeric`
+   (`pyq_math.py`: exact values, units, every intermediate step, traps that explain wrong options), `mechanism`
+   (`pyq_chem.py`, RDKit: electron-pair arrows applied to atom-mapped molecules; lone pairs, valence, charge, carbocation
+   degree, a 1,2-shift never forced and never missed, product decides the option), `fusion` (`pyq_bio.py`: sets added,
+   maternal/paternal shares, cells vs nuclei, chromosome numbers) and `scene` (any other subject; structure checked only,
+   marked unverified). Lesson checks (`studio_pyq.py`): stages and beats, cues on model parts and moments, prediction gates
+   (number, choose, tap a part, donor/acceptor pair, order) with a misconception for every wrong action, one diagnosis
+   per option, families recomputed by the model, evidence blocks that exist, no narration number the model did not make,
+   no caution or source line on screen; question-level evidence and chapter-level reach kept apart. Player
+   (`studio_pyq_player.html`): one engine (state machine, independent voice and animation speed, observation hold,
+   gates without timers, scrub, stale-callback tokens) with each model drawn in a main view and an enlarged detail view.
+   IMPLEMENTED: 16 tests (reference questions and fresh ones: range at 60°, a methyl shift, PEN chromosomes for 2n = 20)
+   and a Chromium check of guided play, gates, wrong-action feedback, retry, stop, diagnosis, transfer and 390 px layout
+   on Claude's test data. Not INTEGRATED: no VM run yet. Differences from the brief: the studio's browser engine is the
+   compiler here (the old Remotion compiler is not used); browser speech is a fallback, Kokoro is the voice.
+   First VM runs (19 November 2026, ₹0, Codex on the plan): `pyq-physics-a` (NEET 2023 bullet height + a fresh range
+   question) and `pyq-chemistry-a` (3-methylbutan-2-ol + HBr, hydride shift + a fresh methyl shift) ok, every answer
+   proved by the model and equal to the key, 2 rounds each, about 7.5 minutes per job; results
+   `blindtest-results:runs/vm-pyq-{physics,chemistry}-a-brain-studio`. `pyq-biology-a` failed before the maker ran: the
+   scanned NCERT Class 12 Biology carries an invisible '.' partly above page 25 and the PDF readers stopped the whole book;
+   they now leave out glyphs not on the page (the four chapters read before read byte for byte the same; the full
+   311-page book reads). Walking both lessons in Chromium (a wrong, then a right action at every gate) found that the
+   physics gate "tap the vertical component" could not be answered and that labels showed ids or covered each other;
+   the player was fixed (SEEKH_LOG) and the re-walk passes all 17 gates. INTEGRATED for physics and chemistry (real
+   chapter PDF → VM → lesson played); biology waits for its re-run.
+
+Checked the same day: VM job `img-check-20261118` (two test pictures through the plan, 3 minutes, ₹0); Codex's weekly
+plan window was 43 % used before it (resets about 21 November).
+
+How a chapter runs (one VM job per stage; each later stage reads the earlier run's folder, `from_run`):
+1. `questions` (source = the chapter PDF): `QUESTIONS.md` for Navin's yes.
+2. `films` (from_run = the questions run, source = the same PDF, `videos` = optional subset): `films/<qid>.html`; the run
+   keeps `questions.json` and each film's picture files, so the next two stages read only this run.
+3. `games` (from_run = the films run): `GAME.html`, one stage per question; every option carries actions on the scene,
+   so right and wrong choices both visibly do something, then "Kya hua" explains.
+4. `book` (from_run = the films run): `BOOK.html`, note cards covering every point, the film's picture with its pins,
+   the class moment (Asha, Dev, Teacher), "yaad rakho" and a check, linked to `films/<qid>.html` and `GAME.html#<qid>`.
+The course folder for Navin is the four runs' pages side by side. Every maker answer is checked by code and the exact
+problems go back (at most `max_rounds`); a stage with problems left is reported as `needs_fix`.
+
+## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
+
+Navin asked for one Unit 10 (Geography of India) topic at the Chapter 17 golden-benchmark level, as a film, a Living
+Book and a game. Claude made the Monsoon set outside BIE (Claude's demo, not BIE output): a 12-shot film (3 min 19 s,
+three.js relief map, Kokoro voice), a Living Book built from the film's frames (4 lessons, 5 dialogue scenes each with
+one beat per sentence, speaking notes, an auto-playing clip chain) and a five-stage hands-on game with decisions.
+Navin's verdicts: 70 % ("video first, not notes into video"), film approved, 8/10, then 9/10 and "aage badho".
+
+- **Method:** `docs/vision/STUDIO_METHOD_2026-11-18.md` (six steps, Navin's eight review rules, time estimate, the
+  first mapping onto BIE's slots). The Hinglish copy for Navin is the Claude Docs "Kaam ki Kitaab".
+- **Rebuild kit:** Navin's Google Drive, folder "Monsoon rebuild kit (2026-11-18)", five zips under 3 MB each plus a
+  README. Rebuilding the Living Book and the game from the zips alone in an empty folder gave the same pages with no
+  page errors. Lesson content and Navin's images are not in this public repository.
+- **Status words:** nothing IMPLEMENTED in BIE. The demo never goes into `tests/fixtures/passed_outputs/`. The next
+  task brings the parts into BIE's existing slots; each counts only when BIE makes the same kind of output itself.
 
 ## Phase 1 · part A: the showing engine inside BIE (3 November 2026)
 
@@ -171,6 +319,16 @@ only; Hindi endings, English plurals; shown when on screen for at least 1 s of t
 bubble, labelled, or the place the scene stands in), refused by `showplan.compile_plan`, named per line in the
 director's payload, reported per video. Before the live runs: v4 68.3%, v5 73.2%, Claude's v2 demo 76.7% of the lines
 that name things show them. Next: v4 and v5 again through the director (box rule + dikhaya-bola), render, numbers.
+
+Proof runs (5-11 November 2026, Codex on the VM, ₹0; SEEKH_LOG entries 50-53): runs a, b and c of Money v4 and v5 all
+passed the compiler with said = shown 100% (41 lines name things in each video). The post-render text gate stopped one
+video each time and each stop became a compiler rule: run a v5 (two labels at 15 and 27 px), run b v4 (a counter text
+flipping every 0.5 s, "₹10" caught at 25 px; rule 8 per value, PR #157), run c v4 (Codex's answer unreadable JSON: the
+runner now asks again, PR #159), run c2 v4 (a note's own words "11वाँ नोट" over its ₹ sign for 62 s: the note fits its
+value and box rule 9, PR #159). Run c v5 rendered with the gate passed: 1 overlap second (longest 1 s), no small text,
+said = shown 100%, 9.0 min (`runs/p1h-money-v5c/REVIEW.html`). v4 run c2's plan passes rule 9 with the fixed note (0
+problems), its re-render waits for PR #159. Navin stopped the Money chapter on 19 November (course studio first), so
+this proof is recorded here and not sent for a separate verdict.
 
 ## Voice clip: the one-time upload page (5 November 2026, branch `p1v-voice-upload`)
 
@@ -2140,6 +2298,37 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   same PR (it already touches only this workflow): both steps now download through `tools/ci_apt_prefetch.sh` (one
   480 s budget, mirror fail-over, an `::error` annotation instead of a silent cancel) and install from the local
   cache. Not rerun; the push that adds this note starts the new run (rule CI-2).
+- F-11 again (18 November 2026, PR #166): on head `097e436e` five jobs and on the CI-2 rerun (head `9b3c9281`, runs
+  44370640506 and 44370639963, 18:31–18:40 UTC) three jobs (`wrappers`, `native-render`, `canonical-regression`) stopped in
+  their apt step, before any test ran, with "apt downloads did not finish within the 480 s budget" and "no second mirror
+  listed; retrying the same mirror": the runner image now lists only its regional mirror, so the fail-over had nowhere to
+  go. Fix in its own small PR (Navin's yes asked, as it changes where CI fetches packages from): when only the regional
+  line is listed, the fail-over points that line at Ubuntu's primary archive (`archive.ubuntu.com`); apt still verifies
+  every package against the same signed indexes and archive key, and nothing else in the list changes. Test: a
+  regional-only list fails over to the primary archive within the same budget. The PR's first run (head `029f72cf`, run
+  44417991830, 23:08 UTC) still said "no second mirror listed": the image no longer names the regional host in
+  `/etc/apt/apt-mirrors.txt` the way the script expected. Second commit: the fail-over now finds the regional host
+  (any region prefix) wherever apt names it (the mirror list, `sources.list`, `*.list`, deb822 `*.sources`) and points
+  it at the primary archive, and every fail-over first writes a `::notice` "APT sources (F-11)" listing where apt
+  fetches from, since job logs cannot be read from the cloud workspace. The second run (head `bbd4d746`, 23:20–23:29
+  UTC) still failed three jobs in setup, but its notice showed why: these runners now fetch from
+  `us-east-2.ec2.archive.ubuntu.com` (an EC2 regional mirror), and the mirror list does name a second mirror
+  (`https://archive.ubuntu.com/ubuntu/`, then `security.ubuntu.com`); the script only knew `azure.archive.ubuntu.com`
+  as "regional", so it never dropped the slow line. Third commit: "regional" is now any host under
+  `archive.ubuntu.com` (one or more labels before it), never `archive.ubuntu.com` or `security.ubuntu.com` themselves;
+  a comment line no longer counts as a second mirror. Tests: the exact EC2 list from the notice drops only its regional
+  line; an EC2-only list points at the primary archive. No CI rerun used: new commit, new run. Third run (head
+  `b4e495e8`): all 5 checks passed, and its notice and warning show the fail-over fired on a slow EC2 mirror and moved
+  to the image's next listed mirror. Merged as PR #167 at `4509733a` on 19 November 2026.
+- F-11 again, the index update (19 November 2026, PR #169 head `b541a631`, 12:27–12:35 UTC): `native-render`,
+  `section16-regression` and the three `canonical-regression` jobs stopped with exit 124 in their setup step, before
+  any test ran: `apt_get_bounded 90 update` (the package indexes, `.integration/tools/setup_ci_environment.sh`) timed out
+  on the regional mirror, and the fail-over only guarded the downloads; the toolbox lane's `demos` jobs stopped in their
+  unbounded `sudo apt-get update`. Fix in its own small PR: `apt_update_bounded` (the update, 90 s; on a stall the same
+  one fail-over to the image's next mirror or the primary archive, Navin's yes of 18 November; a second stall is an
+  `::error` annotation) replaces every apt index update in the setup script and the toolbox workflow. Tests: a stalled
+  update fails over once; a healthy one changes nothing; no unbounded update is left. PR #169 is not rerun; it picks
+  the fix up from `main`.
 - F-14 (26 October 2026, VM runner): the first job after PR #77 merged (`codex-jobs:jobs/t046-oneshot-images.json`)
   came back `refused: unknown fields: max_images, prompts`. Cause: `tools/codex_vm.py poll` imports the runner, then
   moves the checkout to the new `main`, then checks the jobs with the rules it had already loaded, so the first poll

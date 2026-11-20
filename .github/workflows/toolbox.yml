@@ -76,6 +76,7 @@ on:
       - 'bie/brain/formats.py'
       - 'bie/brain/cost.py'
       - 'tools/codex_vm.py'
+      - 'tools/vm_studio.py'
       - 'tools/run_brain.py'
       - 'tools/respec_video.py'
       - 'tools/text_audit.py'
@@ -184,7 +185,7 @@ jobs:
         run: |
           # bounded downloads with mirror fail-over (F-11): the regional mirror once took this step past the 40-minute limit
           source tools/ci_apt_prefetch.sh
-          sudo apt-get update -qq
+          apt_update_bounded 90
           PKGS="libcairo2-dev libpango1.0-dev pkg-config ffmpeg libxi6 libxkbcommon0 libsm6 libxrender1 libxxf86vm1 libgl1 libegl1 ngspice gmt libgmt-dev gmt-dcw gmt-gshhg-low ghostscript"
           apt_prefetch -qq $PKGS
           sudo apt-get install -y -qq $PKGS >/dev/null
@@ -234,7 +235,7 @@ jobs:
         run: |
           # bounded downloads with mirror fail-over (F-11), as in the wrappers job
           source tools/ci_apt_prefetch.sh
-          sudo apt-get update -qq
+          apt_update_bounded 90
           PKGS="fonts-noto-core fonts-noto-ui-core libcairo2-dev libpango1.0-dev pkg-config ffmpeg libxi6 libxkbcommon0 libsm6 libxrender1 libxxf86vm1 libgl1 libegl1 ngspice gmt libgmt-dev gmt-dcw gmt-gshhg-low ghostscript"
           apt_prefetch -qq $PKGS
           sudo apt-get install -y -qq $PKGS >/dev/null
