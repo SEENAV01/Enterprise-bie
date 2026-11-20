@@ -19,6 +19,10 @@ class ProcessConfinementReaudit(unittest.TestCase):
             status=Path('/proc')/marker.read_text()/'status'
             for _ in range(20):
                 if not status.exists():return
-                if any(line.startswith('State:') and ('Z' in line or 'X' in line) for line in status.read_text().splitlines()):return
+                try:
+                    lines=status.read_text().splitlines()
+                except (FileNotFoundError,ProcessLookupError):
+                    return  # reaped between the two reads (CI, 20 November 2026): the child is gone, which is the point
+                if any(line.startswith('State:') and ('Z' in line or 'X' in line) for line in lines):return
                 time.sleep(.05)
             self.fail('Timed-out invocation left a live child process')
