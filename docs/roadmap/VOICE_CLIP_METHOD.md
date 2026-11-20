@@ -57,10 +57,26 @@ Navin's answer: **his Google Drive** (a private folder he names). The access the
 security decision and is set up with him first; until then voiced videos stay on the VM and nothing with his voice is
 published.
 
+## Measuring the voice on the VM's CPU (₹0): the "voice" job
+
+A VM job with `"section": "voice"` (`tools/vm_voice.py speak`, `tools/vm_voice_worker.py`) speaks the first sentences
+of one video's narration with Chatterbox Multilingual (Hindi) on the machine's own CPU:
+
+- `"reference": "default"` uses Chatterbox's built-in voice, so the speed can be measured before Navin's clip arrives;
+  `"reference": "navin"` uses his clip from `/etc/bie/voice/` with pitch −2 semitones (agreement of 3 November).
+- The first job makes a separate voice environment on the machine (`/var/lib/bie/voice-venv`, pinned: torch and
+  torchaudio 2.6.0 CPU builds, chatterbox-tts 0.1.7, av 18.0.0; the model `ResembleAI/chatterbox` at a fixed
+  revision). Licences: MIT (Chatterbox and its model), BSD-3 (torch, PyAV), Apache/MIT/BSD/ISC for the rest; nothing
+  of it goes into `apps/`.
+- The audio goes only to `/var/lib/bie/private/voice/<job id>/` (mode 700). The public run folder gets numbers only:
+  seconds of audio and of CPU per sentence, the real-time factor, an estimate for the whole video, and
+  `durations.json` (sentence → seconds, the shape the scene-plan timeline takes for real voice durations).
+- Chatterbox marks its audio with its own inaudible watermark (Perth), which says the audio is generated.
+
 ## Still open (Navin's decisions)
 
-1. **Speed and money:** first measure the clone voice on the VM's own CPU (₹0); a GPU (free quota or hourly rental)
-   only if the CPU is too slow, and only on his budget yes.
+1. **Speed and money:** the CPU measure above comes first (₹0); a GPU (free quota or hourly rental) only if the CPU is
+   too slow, and only on his budget yes.
 2. **Google Drive access** for the voiced videos (above).
 
 Until the clip is on the VM and the voice is measured, every video stays captions-only.
