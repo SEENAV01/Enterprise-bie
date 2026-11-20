@@ -394,6 +394,11 @@ class BookLines(unittest.TestCase):
         self.assertNotIn("Use the book's own names", studio_film.INSTRUCTIONS)
         self.assertIn("Words are free", studio_film.INSTRUCTIONS)
 
+    def test_beyond_notes_are_in_the_course_language(self):
+        """The Q14 remake (20 November 2026) wrote its beyond notes in English; Navin reads the review page in Hinglish."""
+        system = studio_film.messages(BOOK_Q, course="Class 9", language="Hinglish")[0]["content"]
+        self.assertIn("naming what it adds beyond the book, written in\n  Hinglish in Roman script", system)
+
     def test_one_thing_at_a_time_and_a_wheel_explained_station_by_station(self):
         busy = living_film()
         busy["shots"][1]["sentences"][1]["cycles"] = [dict(CALVIN_BUSY)]

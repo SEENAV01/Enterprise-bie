@@ -145,7 +145,8 @@ with a process written inside a box instead of happening on screen):
 - GO BEYOND THE BOOK WHEREVER IT MAKES THE CONCEPT CLEARER. The learner should think a step beyond the book's lines, not
   just hear them: tell the prerequisite they need first, give an example or a short story, show where and how it works in
   the real world, and go to NEET depth where it helps. "beyond" is "" when the sentence says only what the book says;
-  otherwise a short note for BIE's review page (never shown) naming what it adds beyond the book.
+  otherwise a short note for BIE's review page (never shown) naming what it adds beyond the book, written in
+  {language} in Roman script, because Navin reads that page beside the book.
 - THE WHOLE PICTURE. Every sentence has its part: "hook" (the opening question), "prerequisite" (what the learner must
   already know to follow this; recall it briefly, even when another film teaches it), "concept" (the question's own
   ideas), "use" (where this concept is used next, in the plant or in life, and the effect of what happened) or "recap".
