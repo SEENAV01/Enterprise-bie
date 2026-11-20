@@ -103,7 +103,9 @@ def main(argv=None) -> int:
             save()                                   # a long run that stops still leaves the sentences it made
         result["status"] = "ok"
     except Exception as exc:                         # the error goes to the result; the audio folder keeps what was made
+        import traceback
         result["error"] = f"{type(exc).__name__}: {str(exc)[:400]}"
+        result["trace"] = traceback.format_exc()[-1500:]       # where it died, for the next fix (file paths only, no audio)
     result["peak_ram_mb"] = round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024)
     save()
     return 0 if result["status"] == "ok" else 1

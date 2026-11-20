@@ -2264,3 +2264,16 @@ director run.
   and no ATP synthase, proton pump, thylakoid or H+ (before: all of them); the membrane pictures keep ATP synthase's
   colours. The H+ labels refused in round 1 of this run (10 of 13 findings) would pass the new check; the effect on
   first-try rounds is measured on the next film. Canonical brain tests: 407 passed, 0 skips.
+
+## Entry · the clone voice's first CPU measure stopped at the watermark, 20 November 2026
+
+**The run:** VM job `p1v-voice-measure-v4` (PR #160's voice section, Money v4, 8 sentences, Chatterbox's built-in voice,
+₹0): the pinned voice environment installed in 107 s and the model downloaded in 47 s, then the model died at load with
+"TypeError: 'NoneType' object is not callable" (peak RAM 6.6 GB of 7.8 GB, 2 CPUs). Chatterbox's watermarker
+(resemble-perth 1.0.1) imports `pkg_resources`, which a fresh Python 3.12 venv lacks; perth then sets
+`PerthImplicitWatermarker = None` and Chatterbox calls it.
+
+**What changed in BIE:** the voice environment pins `setuptools==80.9.0` (still ships `pkg_resources`), so the next job
+rebuilds it once; the worker now keeps the last 1,500 characters of a failure's traceback in the run's SUMMARY
+(`error_trace`, file paths only), so the next failure names its line. The measure job runs again after this merges.
+
