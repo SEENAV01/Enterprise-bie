@@ -178,6 +178,38 @@ class CompilerRefuses(unittest.TestCase):
         self.assertTrue(spec["scenes"])
 
 
+class ReadableWidth(unittest.TestCase):
+    """Pilot ch02 v1: ~70 under-36px hits, each saancha needing a different w the worker had to find by trial."""
+
+    def test_the_under_floor_message_names_the_width_that_makes_the_words_readable(self):
+        plan = plan_of({"op": "item", "thing": {"draw": "sack", "p": {"w": 120, "label": "गेहूँ"}}, "x": 1300, "y": 885})
+        msg = next(p for p in refusal(plan) if "'गेहूँ' inside 'sack'" in p)
+        got = box_rules.min_readable_w("sack", {"w": 120, "label": "गेहूँ"})
+        self.assertIn(f"give it w {got['w']} (now 120", msg)
+        self.assertIn("s at least", msg)
+
+    def test_the_width_is_measured_and_is_the_smallest_that_reads(self):
+        p = {"w": 120, "label": "गेहूँ"}
+        got = box_rules.min_readable_w("sack", p)
+        self.assertTrue(got["w"] and got["w"] > 120)
+        self.assertGreaterEqual(box_rules._min_px(boxes.item("sack", dict(p, w=got["w"]))), box_rules.FLOOR_PX - 0.5)
+        self.assertLess(box_rules._min_px(boxes.item("sack", dict(p, w=got["w"] - 12))), box_rules.FLOOR_PX - 0.5)
+        half = box_rules.min_readable_w("sack", p, scale=0.5)               # at half size it needs about twice the w
+        self.assertGreater(half["w"], got["w"] * 1.7)
+        self.assertIsNone(box_rules.min_readable_w("clothRoll", {})["w"])   # no words, nothing to read
+        self.assertIn("no w parameter", box_rules.min_readable_w("coin", {})["reason"])
+
+    def test_the_table_names_every_saancha_with_a_width_and_matches_the_measure(self):
+        table = json.loads((ROOT / "bie" / "brain" / "video" / "engine" / "min_readable_w.json").read_text(encoding="utf-8"))
+        from bie.brain import saanche
+        with_w = {n for n in saanche.names() if "w" in saanche.get(n)["params"]}
+        self.assertEqual(set(table["saanche"]), with_w)
+        sys.path.insert(0, str(ROOT / "tools"))
+        import saancha_min_w
+        for name in ("sack", "graph", "table"):
+            self.assertEqual(saancha_min_w.row(name), table["saanche"][name], name)
+
+
 class GoldExample(unittest.TestCase):
     def test_the_directors_example_scene_keeps_the_box_rule(self):
         plan, T = gold_plan()

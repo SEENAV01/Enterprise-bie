@@ -44,6 +44,7 @@ JOBS_BRANCH = "codex-jobs"
 RESULTS_BRANCH = "blindtest-results"
 SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "canvas", "chain", "image", "look", "coder",
             "showplan", "notespages", "gamelevels",   # Phase 1 part C (agreement of 3 November 2026)
+            "studio",  # the film-first course studio (Navin, 18 November 2026): tools/vm_studio.py, stage "questions" first
             "voice")   # P1-D: the clone voice on the CPU (tools/vm_voice.py speak); audio stays on the machine
 # "coder" (Task 046 Part D2 addendum, Navin 2 November 2026): BIE's coder draws an SVG for each need no source had
 # (run_brain --section coder --from-run <canvas run> --library <shared library>), through the plan like the canvas section.
@@ -51,6 +52,7 @@ SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "canv
 # ChatGPT plan (tools/vm_image.py, prompts written by BIE, at most 4 images) and returns the image files; "look" runs the
 # LOOK-01 look check with the free Google reviewer (tools/vm_look.py). Both are fixed commands, like run_brain.
 TOOL_SECTIONS = ("image", "look", "voice")
+STUDIO_STAGES = ("questions", "films", "games", "book", "pyq")
 # "voice" (P1-D, Navin 5 November 2026): Chatterbox Multilingual speaks a video's narration sentences on this machine's
 # CPU (Rs 0) with its built-in voice or Navin's clip (/etc/bie/voice, "sirf VM par private"); the audio stays in
 # BIE_HOME/private/voice/<job id>/ and only numbers (seconds, characters, durations.json) are published.
@@ -68,6 +70,7 @@ FIELDS = {
     "routes": re.compile(r"^[a-z]+=[a-z]+(,[a-z]+=[a-z]+)*$"),
     "reviewer_model": re.compile(r"^[A-Za-z0-9/._:-]{1,80}$"),
     "language": re.compile(r"^[A-Za-z ]{2,30}$"),
+    "stage": re.compile(r"^[a-z]{3,20}$"),
 }
 DEFAULTS = {"maker": "codex", "reviewer": "google", "max_inr": 300, "workers": 2, "max_rounds": 3}
 RUN_TIMEOUT = 8 * 3600
@@ -83,8 +86,8 @@ def validate(job: dict) -> dict:
         raise JobError(f"job: must be a {JOB_SCHEMA} object")
     allowed = {"job", "id", "section", "source", "chapter_map", "from_run", "resume_from", "library", "pages", "videos", "course",
                "maker", "reviewer", "reviewer_model", "models", "routes", "max_inr", "workers", "max_rounds", "language",
-               "with_visual", "with_canvas", "with_show", "render", "fake", "note", "prompts", "request", "max_images",
-               "reference", "max_lines"}
+               "with_visual", "with_canvas", "with_show", "render", "fake", "note", "prompts", "request", "max_images", "stage",
+               "pyqs", "reference", "max_lines"}
     unknown = sorted(set(job) - allowed)
     if unknown:
         raise JobError("unknown fields: " + ", ".join(unknown))
@@ -93,7 +96,7 @@ def validate(job: dict) -> dict:
         raise JobError("section: one of " + ", ".join(SECTIONS))
     if out["maker"] not in MAKERS or out["reviewer"] not in REVIEWERS:
         raise JobError("maker or reviewer: not allowed")
-    for name in ("source", "chapter_map", "from_run", "resume_from", "library", "prompts", "request"):
+    for name in ("source", "chapter_map", "from_run", "resume_from", "library", "prompts", "request", "pyqs"):
         if out.get(name) and not URL.match(str(out[name])):
             raise JobError(f"{name}: an https URL")
     if out["section"] == "image" and not out.get("prompts"):
@@ -120,6 +123,18 @@ def validate(job: dict) -> dict:
             raise JobError(f"{name}: not allowed")
     if out["section"] in ("understand", "chain") and not out.get("source"):
         raise JobError("source: needed for understand and chain")
+    if out["section"] == "studio" and out.get("stage", "questions") == "questions" and not out.get("source"):
+        raise JobError("source: needed for studio questions")
+    if out["section"] == "studio" and out.get("stage") in ("films", "games", "book") and not out.get("from_run"):
+        raise JobError(f"from_run: needed for studio {out.get('stage')} (the earlier run: questions Navin said yes to, or films)")
+    if out["section"] == "studio" and out.get("stage") == "pyq" and not (out.get("source") and out.get("pyqs")):
+        raise JobError("source and pyqs: needed for studio pyq (the chapter PDF and the questions JSON)")
+    if out.get("pyqs") and not (out["section"] == "studio" and out.get("stage") == "pyq"):
+        raise JobError("pyqs: only for studio pyq")
+    if out["section"] == "studio" and out.get("stage", "questions") not in STUDIO_STAGES:
+        raise JobError("stage: one of " + ", ".join(STUDIO_STAGES))
+    if out["section"] != "studio" and out.get("stage"):
+        raise JobError("stage: only for studio")
     if out["section"] in ("lesson", "notes", "game", "notespages", "gamelevels") and not out.get("chapter_map"):
         raise JobError("chapter_map: needed for lesson, notes and game")
     if out["section"] in ("director", "visual", "canvas", "coder", "showplan") and not out.get("from_run"):
@@ -149,6 +164,13 @@ def argv(job: dict, out: Path, python: str = sys.executable) -> list:
         for name in ("models", "routes"):
             if job.get(name):
                 cmd += ["--" + name, str(job[name])]
+        return cmd
+    if job["section"] == "studio":
+        cmd = [python, "-B", str(ROOT / "tools" / "vm_studio.py"), "--stage", job.get("stage") or "questions",
+               "--out", str(out), "--max-rounds", str(job["max_rounds"])]
+        for name in ("source", "from_run", "pages", "course", "language", "videos", "pyqs"):
+            if job.get(name):
+                cmd += ["--" + name.replace("_", "-"), str(job[name])]
         return cmd
     if job["section"] == "voice":
         return [python, "-B", str(ROOT / "tools" / "vm_voice.py"), "speak", "--from-run", str(job["from_run"]),
@@ -314,6 +336,8 @@ def poll(*, python: str = sys.executable, update_main: bool = True) -> list:
             if not installed.exists() or installed.read_text() != current:      # dependencies changed on main
                 subprocess.run([python, "-m", "pip", "install", "-q", "-e",
                                 f"{ROOT}[document-intelligence,document-intelligence-layout]"], check=True)
+                # the studio's voice and pictures: a failed install must not stop the other jobs (films then say why)
+                subprocess.run([python, "-m", "pip", "install", "-q", "-e", f"{ROOT}[studio]"], check=False)
                 installed.write_text(current)
         rep = repo()
         rep.fetch(JOBS_BRANCH)

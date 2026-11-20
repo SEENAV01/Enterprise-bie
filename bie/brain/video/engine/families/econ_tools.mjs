@@ -25,7 +25,7 @@
 // Conventions: a count (upto, at) shows parts 1..n and the newest one arrives with a short animation after the step;
 // a value that glides (tilt, share, at, open, rise) has a *From partner the step sets to the value before it.
 
-import { shade, INK, FONT, esc, clamp01, parts, idxSet, isNum, easeIO, markSvg, drawSaancha, boxOf } from "../draw.mjs";
+import { shade, INK, FONT, esc, clamp01, parts, idxSet, isNum, easeIO, markSvg, drawSaancha, boxOf, inr, READ_PX } from "../draw.mjs";
 import { textWidth } from "../boxes.mjs";
 
 // ---------------------------------------------------------------- shared helpers
@@ -121,8 +121,9 @@ function fmtNum(v, group = "") {
   else if (group === "w" || (!group && ip.length >= 5)) g = ip.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   return (neg ? "−" : "") + g + (dp ? "." + dp : "");
 }
-// the digit grouping the writer used (1,00,000 Indian or 100,000 western), so totals look like their rows
-const groupOf = (texts) => (texts.some((t) => /\d,\d{2},\d{3}/.test(t)) ? "in" : texts.some((t) => /\d,\d{3}/.test(t)) ? "w" : "");
+// the digit grouping the writer used (1,00,000 Indian or 100,000 western), so totals look like their rows; rupees are
+// always Indian (₹1,00,000)
+const groupOf = (texts) => (texts.some((t) => /\d,\d{2},\d{3}/.test(t) || /₹\s?[−-]?\d/.test(t)) ? "in" : texts.some((t) => /\d,\d{3}/.test(t)) ? "w" : "");
 
 // ---------------------------------------------------------------- math rows: fractions, powers, subscripts, accents
 // Markup: {num}//{den} (or a whole token a − c//d + b) is a fraction; x^2, d^{t-1} a power; U_t, D_{g} a subscript;
@@ -175,14 +176,17 @@ function parseRow(src, accent = false) {
   flush();
   return out;
 }
+// a script or a fraction's line is smaller than its row, but never under the readable floor while the row itself is
+// over it (Sloman workers, Nov 2026: the g of D_g came out at 29.8 px in a 48 px chip)
+const smallFs = (fs, k) => Math.max(fs * k, Math.min(fs, READ_PX));
 function measureRow(row, fs) {
   let w = 0, asc = fs * 0.78, desc = fs * 0.24;
   for (const n of row) {
     if (n.k === "t") { w += tw(n.s, fs); }
-    else if (n.k === "sup") { const m = measureRow(n.row, fs * 0.62); w += m.w + fs * 0.1; asc = Math.max(asc, fs * 0.42 + m.asc); }
-    else if (n.k === "sub") { const m = measureRow(n.row, fs * 0.62); w += m.w + fs * 0.1; desc = Math.max(desc, fs * 0.24 + m.desc); }
+    else if (n.k === "sup") { const m = measureRow(n.row, smallFs(fs, 0.62)); w += m.w + fs * 0.1; asc = Math.max(asc, fs * 0.42 + m.asc); }
+    else if (n.k === "sub") { const m = measureRow(n.row, smallFs(fs, 0.62)); w += m.w + fs * 0.1; desc = Math.max(desc, fs * 0.24 + m.desc); }
     else if (n.k === "frac") {
-      const a = measureRow(n.num, fs * 0.88), b = measureRow(n.den, fs * 0.88), axis = fs * 0.3, gap = fs * 0.14;
+      const a = measureRow(n.num, smallFs(fs, 0.88)), b = measureRow(n.den, smallFs(fs, 0.88)), axis = fs * 0.3, gap = fs * 0.14;
       w += Math.max(a.w, b.w) + fs * 0.3;
       asc = Math.max(asc, axis + gap + a.desc + a.asc);
       desc = Math.max(desc, gap + b.asc + b.desc - axis);
@@ -204,11 +208,11 @@ function renderRow(row, x, base, fs, col, acc, weight = 800) {
       }
       cx += tw(n.s, fs);
     } else if (n.k === "sup" || n.k === "sub") {
-      const f = fs * 0.62, m = measureRow(n.row, f);
+      const f = smallFs(fs, 0.62), m = measureRow(n.row, f);
       out += renderRow(n.row, cx + fs * 0.07, base + (n.k === "sup" ? -fs * 0.42 : fs * 0.24), f, col, acc, weight);
       cx += m.w + fs * 0.1;
     } else if (n.k === "frac") {
-      const f = fs * 0.88, a = measureRow(n.num, f), b = measureRow(n.den, f), W = Math.max(a.w, b.w) + fs * 0.3, axis = base - fs * 0.3, gap = fs * 0.14;
+      const f = smallFs(fs, 0.88), a = measureRow(n.num, f), b = measureRow(n.den, f), W = Math.max(a.w, b.w) + fs * 0.3, axis = base - fs * 0.3, gap = fs * 0.14;
       out += renderRow(n.num, cx + (W - a.w) / 2, axis - gap - a.desc, f, col, acc, weight) +
         `<path d="M${f1(cx + fs * 0.05)} ${f1(axis)} L${f1(cx + W - fs * 0.05)} ${f1(axis)}" stroke="${col}" stroke-width="${f1(fs * 0.065)}" stroke-linecap="round"/>` +
         renderRow(n.den, cx + (W - b.w) / 2, axis + gap + b.asc, f, col, acc, weight);
@@ -323,7 +327,7 @@ function formula(p) {
     const v = eqAt >= 0 ? evalSide(eqAt + 1, toks.length) : evalSide(0, toks.length);
     result = Number.isFinite(v) ? fmtNum(v) : "";
   }
-  if (result && p.unit) result = /^[₹$£€¥]/.test(String(p.unit)) ? `${p.unit}${result}` : `${result}${p.unit}`;
+  if (result && p.unit) result = /^[₹$£€¥]/.test(String(p.unit)) ? inr(`${p.unit}${result.replace(/,/g, "")}`) : `${result}${p.unit}`;
   const showResult = !!result && allIn && (!lines.length || shownL >= lines.length);
   // the phase the latest step brought (it is the one that animates)
   const phase = showResult ? "result" : lines.length && shownL > 0 && allIn ? "lines" : mode && allIn ? "sub" : "terms";
@@ -591,12 +595,15 @@ function scaleBalance(p) {
   const mk = p.mark === "auto" ? (target < -0.02 ? "left" : target > 0.02 ? "right" : "") : p.mark;
   ends.forEach((e) => { if (mk === (e.d < 0 ? "left" : "right")) out += `<g transform="translate(${f1(e.x)},${f1(e.top - w * 0.05)})">${mark("tick", w * 0.07, "#2fa35b", ph(s, glide * 0.6, 0.4) || (s > 50 ? 1 : 0))}</g>`; });
   let tagY = (seesaw ? Math.min(...ends.map((e) => e.top)) - w * 0.06 : pivY - w * 0.085);
-  if (p.levelTag && level) { const f = fitT(p.levelTag, w * 0.3, w * 0.04), cw = tw(p.levelTag, f) + f * 1.2, kk = backOut(ph(s, glide * 0.8, 0.4));
-    out += `<g transform="translate(0,${f1(tagY)}) scale(${kk.toFixed(3)})">${chipBox(0, 0, cw, f * 1.55, "#e6f6ea", "#2fa35b", w * 0.004)}${T(p.levelTag, 0, 0, f, "#1f7a43", 800)}</g>`; tagY -= f * 2; }
-  if (p.gapLabel) { const f = fitT(p.gapLabel, w * 0.3, w * 0.04), cw = tw(p.gapLabel, f) + f * 1.2, kk = backOut(ph(s, glide * 0.7, 0.45));
-    out += `<g transform="translate(0,${f1(tagY)}) scale(${kk.toFixed(3)})">${chipBox(0, 0, cw, f * 1.55, "#e5484d", "#a3273a", w * 0.004)}${T(p.gapLabel, 0, 0, f, "#ffffff", 800)}</g>`; tagY -= f * 2; }
-  const highest = Math.min(tagY + w * 0.03, ...ends.map((e) => e.top - (mk ? w * 0.1 : 0)), seesaw ? 0 : pivY - w * 0.12);
-  if (p.title) out += T(p.title, 0, highest - w * 0.045, fitT(p.title, w * 0.9, w * 0.046), INK, 800);
+  // the chips and the title keep the readable floor (36 px); the title sits just above the highest thing, not a band
+  // higher, so it no longer runs into a pill placed over the scale (ch12)
+  let chipTop = Infinity;
+  if (p.levelTag && level) { const f = fitT(p.levelTag, w * 0.5, Math.max(36, w * 0.04)), cw = tw(p.levelTag, f) + f * 1.2, kk = backOut(ph(s, glide * 0.8, 0.4));
+    out += `<g transform="translate(0,${f1(tagY)}) scale(${kk.toFixed(3)})">${chipBox(0, 0, cw, f * 1.55, "#e6f6ea", "#2fa35b", w * 0.004)}${T(p.levelTag, 0, 0, f, "#1f7a43", 800)}</g>`; chipTop = tagY - f * 0.78; tagY -= f * 2; }
+  if (p.gapLabel) { const f = fitT(p.gapLabel, w * 0.5, Math.max(36, w * 0.04)), cw = tw(p.gapLabel, f) + f * 1.2, kk = backOut(ph(s, glide * 0.7, 0.45));
+    out += `<g transform="translate(0,${f1(tagY)}) scale(${kk.toFixed(3)})">${chipBox(0, 0, cw, f * 1.55, "#e5484d", "#a3273a", w * 0.004)}${T(p.gapLabel, 0, 0, f, "#ffffff", 800)}</g>`; chipTop = tagY - f * 0.78; tagY -= f * 2; }
+  const highest = Math.min(chipTop, ...ends.map((e) => e.top - (mk ? w * 0.1 : 0)), seesaw ? 0 : pivY - w * 0.05);
+  if (p.title) { const f = fitT(p.title, w * 0.9, Math.max(36, w * 0.046)); out += T(p.title, 0, highest - w * 0.015 - f * 0.5, f, INK, 800); }
   return out;
 }
 
@@ -952,8 +959,10 @@ function tugOfWar(p) {
     `<rect x="${f1(-bw / 2)}" y="${f1(by - bh / 2)}" width="${f1(bw)}" height="${f1(bh)}" rx="${f1(bh * 0.2)}" fill="none" stroke="${INK}" stroke-width="${f1(w * 0.002)}"/>` +
     `<path d="M0 ${f1(by - bh * 0.75)} L0 ${f1(by + bh * 0.75)}" stroke="${INK}" stroke-width="${f1(w * 0.003)}" stroke-dasharray="${f1(w * 0.006)} ${f1(w * 0.004)}"/>`;
   const pl = `${Math.round(sh * 100)}%`, pr = `${100 - Math.round(sh * 100)}%`, fb = bh * 0.62;
-  if (cut + bw / 2 > tw(pl, fb) + fb) out += T(pl, (-bw / 2 + cut) / 2, by, fb, "#ffffff", 800);
-  if (bw / 2 - cut > tw(pr, fb) + fb) out += T(pr, (cut + bw / 2) / 2, by, fb, "#ffffff", 800);
+  // shareNumbers: false hides the two % numbers (a story where the split is not a number, Sloman workers Nov 2026)
+  const nums = p.shareNumbers !== false && p.shareNumbers !== "false";
+  if (nums && cut + bw / 2 > tw(pl, fb) + fb) out += T(pl, (-bw / 2 + cut) / 2, by, fb, "#ffffff", 800);
+  if (nums && bw / 2 - cut > tw(pr, fb) + fb) out += T(pr, (cut + bw / 2) / 2, by, fb, "#ffffff", 800);
   if (p.shareLabel) out += T(p.shareLabel, 0, by - bh * 1.15, fitT(p.shareLabel, w * 0.7, w * 0.03), INK, 800);
   // the price tag that climbs one notch a round
   const prices = parts(p.prices).filter(Boolean), rounds = Math.max(0, Math.round(N(p.rounds, 0)));

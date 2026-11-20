@@ -3,7 +3,7 @@
 // same way without anyone writing its box by hand. Pure string work (no DOM): the scene-plan compiler asks Node for
 // these boxes (tools/saancha_boxes.mjs) and refuses a plan whose things sit on texts, faces or reserved places.
 //
-// svgBounds(svg) -> { box: [x0, y0, x1, y1] | null, texts: [{ t, px, box }] } in the SVG's own coordinates. Paths count
+// svgBounds(svg) -> { box: [x0, y0, x1, y1] | null, body: the shapes' box (no words) | null, texts: [{ t, px, box }] } in the SVG's own coordinates. Paths count
 // their control points (a box never smaller than the drawing), strokes add half their width, a text's width is
 // estimated per letter (Latin, digits, Devanagari with its vowel signs) like the compiler's own text box.
 
@@ -101,10 +101,12 @@ const unesc = (s) => s.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quo
 
 export function svgBounds(svg) {
   let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  const bb = [Infinity, Infinity, -Infinity, -Infinity];          // body: the shapes only, without the words
   const texts = [];
   const add = (m, x, y, pad = 0) => {
     const [px, py] = apply(m, x, y), p = pad * scaleOf(m);
     x0 = Math.min(x0, px - p); y0 = Math.min(y0, py - p); x1 = Math.max(x1, px + p); y1 = Math.max(y1, py + p);
+    bb[0] = Math.min(bb[0], px - p); bb[1] = Math.min(bb[1], py - p); bb[2] = Math.max(bb[2], px + p); bb[3] = Math.max(bb[3], py + p);
   };
   const addBox = (m, bx0, by0, bx1, by1, pad = 0) => { add(m, bx0, by0, pad); add(m, bx1, by0, pad); add(m, bx0, by1, pad); add(m, bx1, by1, pad); };
   const stack = [ID];
@@ -151,5 +153,6 @@ export function svgBounds(svg) {
       openText = { m: cur, x: n("x"), y: n("y"), px: n("font-size", 16), anchor: a["text-anchor"] || "start", t: "" };
   }
   const box = Number.isFinite(x0) ? [x0, y0, x1, y1].map((v) => +v.toFixed(2)) : null;
-  return { box, texts: texts.map((r) => ({ ...r, box: r.box.map((v) => +v.toFixed(2)) })) };
+  const body = Number.isFinite(bb[0]) ? bb.map((v) => +v.toFixed(2)) : null;
+  return { box, body, texts: texts.map((r) => ({ ...r, box: r.box.map((v) => +v.toFixed(2)) })) };
 }

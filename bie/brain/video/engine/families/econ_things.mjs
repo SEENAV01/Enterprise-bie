@@ -8,7 +8,7 @@
 // Words come only from parameters (labels, titles, items); no logos, emblems, real places or real persons.
 // A moving part is a pure function of _t (seconds since the thing appeared) and _s (since its last step); without
 // times (a box measurement) a drawing shows its settled state.
-import { tx, fit, shade, INK, clamp01, parts, idxSet } from "../draw.mjs";
+import { tx, fit, shade, INK, clamp01, parts, idxSet, inr } from "../draw.mjs";
 
 // ---------------------------------------------------------------- helpers (used inside functions only)
 const N = (v, d) => (v === "" || v == null || typeof v === "boolean" || !Number.isFinite(Number(v)) ? d : Number(v));
@@ -315,13 +315,13 @@ function vehicleBody(kind, w, col, cls, dmg, load, p) {
       rect(-w * 0.46, -w * 0.205, w * 0.94, w * 0.012, col, 0) + path(`M${r1(w * 0.41)} ${r1(-w * 0.245)} L${r1(w * 0.47)} ${r1(-w * 0.245)} L${r1(w * 0.48)} ${r1(-w * 0.22)} L${r1(w * 0.42)} ${r1(-w * 0.22)} Z`, glass);
     for (let i = 0; i < 14; i++) B.svg += circ(-w * 0.32 + i * w * 0.05, -w * 0.235, w * 0.009, glass);
     B.svg += line(-w * 0.2, -w * 0.13, -w * 0.2, -w * 0.035, "#4a5568", sw) + line(w * 0.3, -w * 0.13, w * 0.3, -w * 0.035, "#4a5568", sw);
-    B.wheels = [[-w * 0.2, -w * 0.02], [w * 0.3, -w * 0.02]]; B.wr = w * 0.02; B.top = -w * 0.4; B.exhaust = null; B.plate = [0, -w * 0.32, w * 0.36, w * 0.07];
+    B.wheels = [[-w * 0.2, -w * 0.02], [w * 0.3, -w * 0.02]]; B.wr = w * 0.02; B.top = -w * 0.4; B.exhaust = null; B.plate = [0, -w * 0.335, w * 0.36, w * 0.095];   // a bigger plate: its words stay readable at the smaller default
   }
   return B;
 }
 
 function vehicle(p) {
-  const kind = p.kind || "car", def = { car: 600, scooter: 380, bike: 380, cycle: 340, bus: 960, metro: 960, train: 960, auto: 440, erickshaw: 440, truck: 800, tanker: 800, van: 660, tractor: 520, plane: 1000 };
+  const kind = p.kind || "car", def = { car: 600, scooter: 380, bike: 380, cycle: 340, bus: 960, metro: 960, train: 960, auto: 440, erickshaw: 440, truck: 800, tanker: 800, van: 660, tractor: 520, plane: 760 };   // plane 760 (was 1000: it filled half the frame at s 1, ch08)
   const w = N(p.w, 0) || def[kind] || 600, dmg = DMG[p.state] || 0, t = tNow(p);
   const col0 = p.color || { car: "#e5484d", scooter: "#3a7bd5", bike: "#2b2b33", cycle: "#2459a6", bus: "#f29f05", metro: "#7b5cd6", train: "#2459a6", auto: "#f2c14e", erickshaw: "#2a9d8f", truck: "#e07b24", tanker: "#3a7bd5", van: "#f4f7fa", tractor: "#e5484d", plane: "#2459a6" }[kind] || "#e5484d";
   const col = dmg >= 3 ? "#9aa0a8" : col0, fs = p.facing === "left" ? -1 : 1, speed = clamp01(p.speed ?? 0);
@@ -504,9 +504,9 @@ function pump(p) {
   const bx0 = -w * 0.48, bw = w * 0.28, bxc = bx0 + bw / 2, by0 = -w * 0.74;
   out += rect(bxc - w * 0.012, by0, w * 0.024, -by0, "#8a8f98") + rect(bx0, by0, bw, w * 0.5, "#2d3748", w * 0.015, "#1f2328", w * 0.004);
   words += plate(bxc, by0 + w * 0.05, bw * 0.92, w * 0.076, p.fuel ?? "", "#f2c14e", INK, "#f2c14e");
-  const unit = S(p.unit ?? "₹"), ptxt = `${unit}${Number.isInteger(price) ? price : price.toFixed(2)}`;
+  const unit = S(p.unit ?? "₹"), ptxt = inr(`${unit}${Number.isInteger(price) ? price : price.toFixed(2)}`);
   out += rect(bx0 + bw * 0.06, by0 + w * 0.1, bw * 0.88, w * 0.11, "#111418", w * 0.01);
-  words += word(ptxt, bxc, by0 + w * 0.155, bw * 0.84, w * 0.085, "#ffb020", 800);
+  if (p.priceBoard !== false) words += word(ptxt, bxc, by0 + w * 0.155, bw * 0.84, w * 0.085, "#ffb020", 800);   // false: a price nobody says stays off
   if (tax > 0) {      // the price bar, its tax slice coloured; a split of the slice between buyer and seller
     const share = Math.min(1, tax / Math.max(0.01, price)), barX = bx0 + bw * 0.06, barW = bw * 0.88, y = by0 + w * 0.24, bh = w * 0.045;
     out += rect(barX, y, barW, bh, "#2fa35b", bh * 0.2) + rect(barX + barW * (1 - share), y, barW * share, bh, "#e5484d", 0);
@@ -640,18 +640,26 @@ function slip(p) {
     return o;
   }
   if (kind === "ticket") {
-    const h = w * 0.46, x0 = -w / 2, y0 = -h / 2, stub = w * 0.26;
+    // rows "label:value" (ch13: a ticket ignored them) sit in a strip under the ticket face; the face keeps its look
+    const H0 = w * 0.46, rh = w * 0.13, h = H0 + (rows.length ? rows.length * rh + w * 0.03 : 0), x0 = -w / 2, y0 = -h / 2, stub = w * 0.26;
     for (let c = count - 1; c > 0; c--) out += rect(x0 + c * w * 0.02, y0 - c * w * 0.02, w, h, shade(col, 1.25), w * 0.02);
-    out += rect(x0, y0, w, h, "#fbf7ee", w * 0.02, col, w * 0.006) + rect(x0, y0, w, h * 0.26, col, w * 0.02) + line(x0 + w - stub, y0, x0 + w - stub, y0 + h, col, w * 0.005, ' stroke-dasharray="8 6"');
-    out += word(p.title, x0 + (w - stub) / 2, y0 + h * 0.13, (w - stub) * 0.9, h * 0.17, "#ffffff", 800);
-    if (S(p.seat)) out += word(p.seat, x0 + (w - stub) / 2, y0 + h * 0.45, (w - stub) * 0.86, h * 0.15, INK, 700);
+    out += rect(x0, y0, w, h, "#fbf7ee", w * 0.02, col, w * 0.006) + rect(x0, y0, w, H0 * 0.26, col, w * 0.02) + line(x0 + w - stub, y0, x0 + w - stub, y0 + h, col, w * 0.005, ' stroke-dasharray="8 6"');
+    out += word(p.title, x0 + (w - stub) / 2, y0 + H0 * 0.13, (w - stub) * 0.9, H0 * 0.17, "#ffffff", 800);
+    if (S(p.seat)) out += word(p.seat, x0 + (w - stub) / 2, y0 + H0 * 0.45, (w - stub) * 0.86, H0 * 0.15, INK, 700);
     const face = S(p.face), resale = S(p.resale);
-    if (face) { out += word(face, x0 + (w - stub) / 2, y0 + h * 0.74, (w - stub) * 0.6, h * 0.2, resale ? "#8a8f98" : INK, 800);
-      if (resale) out += line(x0 + (w - stub) * 0.25, y0 + h * 0.74, x0 + (w - stub) * 0.75, y0 + h * 0.74, "#e5484d", h * 0.035); }
-    if (resale) { const k = prog(p, 0.5); out += `<g transform="translate(${r1(x0 + w - stub / 2)},${r1(y0 + h * 0.6)}) rotate(-10) scale(${r1(0.4 + 0.6 * ease(k))})">` + rect(-stub * 0.46, -h * 0.17, stub * 0.92, h * 0.34, "#fff3c4", h * 0.06, "#e5484d", w * 0.006) + word(resale, 0, 0, stub * 0.84, h * 0.22, "#e5484d", 800) + `</g>`; }
-    else if (p.paperless) out += rect(x0 + w - stub * 0.8, y0 + h * 0.35, stub * 0.3, h * 0.5, INK, w * 0.01) + rect(x0 + w - stub * 0.77, y0 + h * 0.4, stub * 0.24, h * 0.36, "#9fc7e8", w * 0.004) +
-      rect(x0 + w - stub * 0.42, y0 + h * 0.45, stub * 0.32, h * 0.26, "#ffffff", w * 0.008, "#4a5568", w * 0.004) + circ(x0 + w - stub * 0.33, y0 + h * 0.55, h * 0.04, "#c98850");
-    else for (let i = 0; i < 6; i++) out += rect(x0 + w - stub * 0.75 + (i % 3) * stub * 0.18, y0 + h * 0.4 + Math.floor(i / 3) * h * 0.2, stub * 0.12, h * 0.14, i % 2 ? INK : "#4a5568");
+    if (face) { out += word(face, x0 + (w - stub) / 2, y0 + H0 * 0.74, (w - stub) * 0.6, H0 * 0.2, resale ? "#8a8f98" : INK, 800);
+      if (resale) out += line(x0 + (w - stub) * 0.25, y0 + H0 * 0.74, x0 + (w - stub) * 0.75, y0 + H0 * 0.74, "#e5484d", H0 * 0.035); }
+    if (resale) { const k = prog(p, 0.5); out += `<g transform="translate(${r1(x0 + w - stub / 2)},${r1(y0 + H0 * 0.6)}) rotate(-10) scale(${r1(0.4 + 0.6 * ease(k))})">` + rect(-stub * 0.46, -H0 * 0.17, stub * 0.92, H0 * 0.34, "#fff3c4", H0 * 0.06, "#e5484d", w * 0.006) + word(resale, 0, 0, stub * 0.84, H0 * 0.22, "#e5484d", 800) + `</g>`; }
+    else if (p.paperless) out += rect(x0 + w - stub * 0.8, y0 + H0 * 0.35, stub * 0.3, H0 * 0.5, INK, w * 0.01) + rect(x0 + w - stub * 0.77, y0 + H0 * 0.4, stub * 0.24, H0 * 0.36, "#9fc7e8", w * 0.004) +
+      rect(x0 + w - stub * 0.42, y0 + H0 * 0.45, stub * 0.32, H0 * 0.26, "#ffffff", w * 0.008, "#4a5568", w * 0.004) + circ(x0 + w - stub * 0.33, y0 + H0 * 0.55, H0 * 0.04, "#c98850");
+    else for (let i = 0; i < 6; i++) out += rect(x0 + w - stub * 0.75 + (i % 3) * stub * 0.18, y0 + H0 * 0.4 + Math.floor(i / 3) * H0 * 0.2, stub * 0.12, H0 * 0.14, i % 2 ? INK : "#4a5568");
+    rows.forEach((r, i) => {
+      const y = y0 + H0 + i * rh, j = r.indexOf(":"), lab = j < 0 ? r : r.slice(0, j).trim(), val = j < 0 ? "" : r.slice(j + 1).trim(), lw = w - stub;
+      out += rect(x0 + w * 0.03, y + rh * 0.08, lw - w * 0.05, rh * 0.84, glow.has(i + 1) ? "#fff3c4" : i % 2 ? "#f3efe4" : "#fbf7ee", rh * 0.12, glow.has(i + 1) ? "#f2c14e" : "", glow.has(i + 1) ? w * 0.006 : 0);
+      if (i >= upto) { out += rect(x0 + w * 0.07, y + rh * 0.42, lw * 0.5, rh * 0.16, "#e6e8ec", rh * 0.08); return; }
+      if (val) out += word(lab, x0 + lw * 0.3, y + rh / 2, lw * 0.52, rh * 0.62, "#4a5568", 700) + word(val, x0 + lw * 0.77, y + rh / 2, lw * 0.4, rh * 0.66, INK, 800);
+      else out += word(lab, x0 + lw / 2, y + rh / 2, lw * 0.9, rh * 0.62, INK, 700);
+    });
     return out;
   }
   // the portrait papers: a header band with the title, then rows label:value, extras by kind

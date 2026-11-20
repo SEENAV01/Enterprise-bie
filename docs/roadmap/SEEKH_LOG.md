@@ -1961,6 +1961,29 @@ them): each stays at least 1.5 s, or the compiler names the value and asks for t
 moment each; the director's prompt says so. Under it, v4 run b (₹10, 0.5 s) and v5 run b ("उधार", 1.1 s) each break it
 once, so both go through the director again (run c).
 
+## Entry 52 · the scene-plan compiler after the Sloman pilot: every problem in one run, fairer dikhaya-bola, readable widths, 11 November 2026
+
+**The run:** the first Sloman scene-plan pilot (ch02 v1, 53 lines, 14.4 min, one worker): 2.6 h of work and 13 compile
+rounds (104 → 20 → 89 → 20 → 1 → 0 → 2 → 0 problems; 3 rounds were crashes). The top causes: ~70 under-36px hits with no
+way to know each saancha's readable width; 82 said-not-shown hits, ~60% false positives of the word match (बस "only" →
+bus, आगे → आग, बीच → spectrum, दिन/काम → dayHours, income → incomeLine, table → desk); labels changed by a step on the
+cue word (the Money v2 craft) not read; an unknown cue word stopping the build at the first miss; a map's `t1` crashing
+the checks.
+
+**What changed in BIE:** (1) `cues()` never raises: a missing cue word stands at its line's start and the compiler names
+every one with its scene, step and the line's words; a bad step is a named problem, never a crash; every time an op
+passes through is resolved (the map `t1` crash); each problem is listed once. (2) dikhaya-bola matches whole words only
+(phrases too), drops a STOP list of ordinary and idea words, and a tag that only diagram saanche carry (causeChain,
+pieChart, formula, scatterFit, …) obliges nothing; it reads the label, title and every string a thing has *at that
+second*, item steps included (a label or a graph title changed on the cue word counts). On the pilot narration the
+obligations fell from 102 named words to 43, every one a real thing (आलू, coffee, दुकान, बोरी, laptop, …). (3)
+`box_rules.min_readable_w(draw, p, scale)` measures the smallest `w` at which all of a thing's words reach 36 px; the
+under-36px message names it ("give it w 1490 (now 1200) …"); `engine/min_readable_w.json` (`tools/saancha_min_w.py`)
+holds it for every saancha and the director's library shows it. (4) table `fill` ("c:n", a column fills cell by cell on
+steps) and pieChart `legendSize` (a small pie's names reach 36 px; values move into the legend).
+
+**Measured effect:** the pilot plan still compiles with 0 problems under the stricter checks (no plan change needed);
+the core lane 563 → 577 tests, all green. The next video worker's rounds and hours are the real measure.
 ## Entry · the Sloman economics book, the content length rule (S2-11), 11 November 2026
 
 - **Run:** Claude's whole-book run of the Sloman *Economics* (10th ed., 26 chapters) in the scratch workspace, from
@@ -1979,3 +2002,178 @@ once, so both go through the director again (run c).
 - **Measured:** offline: the passed outputs (tissue understand and lesson sets) still pass, 0 problems; the 833 brain and
   Phase 1 tests pass. Live (first-try pass rate of plans under S2-11, ₹ per page) comes from the first BIE run with
   `--length-rule content`.
+## Entry · the course studio's first VM run, stage questions on the Money chapter, 19 November 2026
+
+- **Run:** VM job `studio-money-q1` (section `studio`, stage `questions`), the Money chapter (Indian Economy, chapter 3,
+  20 pages) for UPSC / State PCS in Hinglish, right after PR #166 merged; Codex maker on the ChatGPT plan (`gpt-6.1-sol`),
+  ₹0. Results: `blindtest-results:runs/vm-studio-money-q1-brain-studio` (`QUESTIONS.md`, `questions.json`, `record.json`).
+- **Taught:** the studio runs on the VM as built: the first poll after the merge picked up the new section and stage, one
+  maker answer passed every code check in round 1 (0 problems), and the coverage check found all 187 teachable blocks
+  in some question (28 questions, 5 pillars). The plan meter did not move (44 % before and after; 16,580 input and
+  18,162 output tokens), so a question list costs almost nothing of the week's plan; the films' AI pictures will be
+  the real plan cost. Most questions got a "lambi film"; the films stage will show whether that is right.
+- **Changed in BIE:** nothing yet (first run); the run's numbers are the baseline for the next chapter.
+- **Measured:** first-try pass 1 of 1, rounds 1, 6.4 minutes on the VM (8.2 with the runner), ₹0, coverage 100 %.
+## Entry · the first studio films with motion, Photosynthesis q03, q14, q19, 19 November 2026
+
+- **Run:** VM job `studio-photosynthesis-films1` (section `studio`, stage `films`, from the approved 25-question run
+  `vm-studio-photosynthesis-q2`), NCERT Class 11 Biology chapter 11 for NEET + Class 11 in Hinglish, right after PR #169
+  (the motion layer) merged; Codex maker and reviewer on the ChatGPT plan (`gpt-6.1-sol`), Kokoro voice, ₹0. Results:
+  `blindtest-results:runs/vm-studio-photosynthesis-films1-brain-studio` (`FILMS.md`, `films/q03.html`, `q14.html`,
+  `q19.html`).
+- **Taught:** the maker uses the motion layer fully without being pushed: moves in 14 of 16 shots, two fuses, a camera
+  push-in on almost every sentence (up to 1.7x) and two dives; q14 and q19 open on an AI cutaway (ATP synthase in the
+  thylakoid membrane; the mesophyll and bundle sheath cells) and go on as diagrams. Played through in Chromium (1280 x 800,
+  every sentence captured): no errors, audio drives the timing. The look check found three faults, all in the player,
+  none in the film data: on diagram shots a zoom cut words at the frame edge ("CF1: catalytic h…"), a highlighted group
+  drew its words with a 3 px red stroke (unreadable), and molecules on their paths passed over words ("3C", "Calvin
+  cycle", "Proton pump").
+- **Changed in BIE:** `bie/brain/studio_player.html`: the diagram's words ride on a copy of the diagram that shows only
+  text, above the sprite and arrow layer (ids move to `data-oid`, so a highlight reaches both copies); a word the camera
+  cuts at the frame edge fades out and returns when whole (checked every 120 ms); a highlight glows and bolds words but
+  outlines only shapes. `window.BIEFilm.state()` reports `words` and `cut`. Test:
+  `tests/test_studio_films.py::test_player_keeps_diagram_words_readable`. IMPLEMENTED.
+- **Measured:** the same VM film data re-wrapped with the new player and played through again (q14, q19): no errors;
+  highlighted words readable, no half words at the frame edge, words stay above moving molecules (contact sheets in the
+  PR). Generation: first-try pass 0 of 3 (rounds 3, 2, 2), 112k tokens for 3 films, 5.5 minutes of film, ₹0; plan meter
+  44 % before and after. Navin's look verdict is pending.
+## Entry · the PYQ lab's first VM runs (physics, chemistry, biology), 19 November 2026
+
+- **Run:** VM jobs `pyq-physics-a`, `pyq-chemistry-a`, `pyq-biology-a` (section `studio`, stage `pyq`) right after PR #171
+  merged; each a reference PYQ plus one fresh question, NCERT chapter PDFs from the inputs branch, Codex maker and
+  reviewer on the ChatGPT plan, ₹0. Results: `blindtest-results:runs/vm-pyq-{physics,chemistry,biology}-a-brain-studio`.
+- **Taught:** (1) the models carry the answers: all four physics and chemistry answers were proved by code (projectile
+  working; RDKit arrows, a 1,2-hydride and a 1,2-methyl shift) and equal the keys, in 2 rounds each. (2) A scanned book
+  broke the reader before any AI ran: one OCR glyph ('.') starts above page 25 of NCERT Class 12 Biology and the text and
+  structure adapters refused the whole document. (3) Walking each lesson in Chromium with a wrong, then a right action
+  at every gate found what the code checks could not: the physics gate "tap the vertical component" had no tap target
+  (the vector arrows were drawn outside their part groups), a tap on a label or beside a thin line did nothing,
+  chemistry labels said "a2", "a3" and long maker tags ("original_OH_carbon") piled up on atoms, labels covered each
+  other or ran off the picture, the range question's peak label showed u_y as "H = 17.32", the launch label showed
+  v_y a frame late (134.4 instead of 140), and the second question's first transfer try counted as a later try.
+- **Changed in BIE:** `bie/document_intelligence/pdfplumber_text_adapter.py` and `pdfplumber_structure_adapter.py`
+  build lines only from glyphs wholly on the page (`page.within_bbox(page.bbox)`); tests with a stray glyph above the
+  page. `bie/brain/studio_pyq_player.html`: v, vₓ, vᵧ, g and R are tap targets with finger-sized strokes and every
+  projectile part is drawn while a tap gate is open; a tap counts for the nearest part within 28 px; parts carry names
+  (atom tag or symbol, "C2–C3 bond", the cell's label, "vᵧ"), long tags only as labels; labels move apart, stay inside the
+  frame and are not repeated for a part the scene already names; the peak label is always the height; attempts reset
+  per question. Tests: `tests/test_studio_pyq.py::test_player_lets_every_part_be_tapped_and_names_it`, the two adapter
+  tests. IMPLEMENTED.
+- **Measured:** PDF: Money, Photosynthesis, Physics ch3 and Chemistry Alcohols read byte for byte the same as before;
+  the biology extract (23 pages, 897 blocks) and the full 311-page book now read. Player, the same VM lesson data
+  re-wrapped: before, physics question 1 stopped at its first gate and chemistry question 2's taps missed; after, all
+  17 gates answered (one wrong, then right; every wrong action got its own misconception), all practice options
+  diagnosed, both transfers checked, no console errors, no sideways scroll at 390 px. Generation: first-try pass 0 of 4
+  (2 rounds each), physics 157k tokens, chemistry 95k tokens, ₹0. The task044 lane 381 tests and the document
+  intelligence suite 96 tests pass.
+
+
+## Entry · Navin's verdict on the first Photosynthesis films, and living films, 20 November 2026
+
+- **Run:** Navin watched the three VM films of `studio-photosynthesis-films1` (q03, q14, q19) and the biology PYQ re-run
+  `pyq-biology-b` came back (status ok, 23 of 23 pages read, both answers proved and equal to the keys, all 8 gates
+  answered in Chromium with one wrong then the right action, no console errors, ₹0).
+- **Taught:** Navin rejected the films (a quality verdict, his): concepts not clear, no voice reached him, no script he
+  could feel, "4–5 photos joined as slides with a zoom", unlike the continuous Campbell 17 film; he wants the stroma and
+  thylakoid to look real and the reaction steps (ATP and NADPH spent on CO2 fixation and sugar synthesis) to happen on
+  screen. Looking at the films: q14 and q19 had one AI picture each, then flat SVG diagrams (the stroma a rounded box,
+  "CO2 fixation" written in an oval); 5–6 shots, 0–5 moving things a shot, sentences read like textbook labels. The voice
+  was in every file (Kokoro mp3) but played as blob: URLs through an audio element; a viewer with a media policy blocks
+  that (reproduced in Chromium with `media-src 'none'`: the old player stays paused with error 4) and the player then
+  ran silently on timers. The biology PYQ lesson works but its embryo sac is a plain sketch, labels crowd, and one label
+  shows an internal word ("representative").
+- **Changed in BIE:** `bie/brain/studio_voice_player.js` (inlined by `studio_voice.with_player_voice`) plays a clip as a
+  data: URI through the audio element, then through Web Audio, and tells the page when neither can sound; the film and
+  PYQ players use it and show "Awaaz band hai". `bie/brain/molecule_kit.json`: 18 ball-and-stick molecule actors in model
+  kit colours with name tags. The film player draws them, adds `reacts`, `cycles` and the `spin` effect, and zooms
+  through into the next picture (a soft lens opens while the old picture zooms past). `bie/brain/studio_film.py`: schema
+  (`look`, `reacts`, `cycles`, kit molecules in `moves`), the maker brief (one world, real places and living processes,
+  a teacher telling what happens) and code checks (every shot after the first dives, at most one cut; at most one
+  diagram; every shot moves and at least half of a long film's sentences move; the film opens on a question; `look`
+  present; reacts and cycles inside the picture, timed, labels spoken). Tests in `tests/test_studio_films.py`
+  (`LivingFilm`) and `tests/test_studio_pyq.py`. IMPLEMENTED.
+- **Measured:** voice routes in Chromium on Claude's test film (not BIE output): plain page, audio element; page with
+  `media-src 'none'`, Web Audio; no Web Audio and media blocked, the notice shows and the film goes on with captions.
+  The Q14 film on the VM measures the rest (rounds, problems, pictures, Navin's verdict).
+
+## Entry · the first living film, Photosynthesis Q14, 20 November 2026
+
+- **Run:** VM job `studio-photosynthesis-q14-living` (after PR #174): status ok, 11.1 minutes, Codex on the ChatGPT plan,
+  ₹0; 22 of 22 pages read; one film, q14 "Jama hue protons wapas niklein toh ATP kaise ban jaata hai?", 6 shots, 6 AI
+  cutaway pictures, 20 sentences, 2.6 minutes, 2 rounds (round 1: 15 "shown but not spoken" findings, pins CF0 and CF1
+  and the H+ / Pi tags; round 2: none). The journey is one world: leaf, chloroplast, thylakoid membrane with the pump
+  and ATP synthase, CF0 and CF1 with a membrane leak shown as the wasteful exit, the CF1 head with ADP + Pi becoming
+  ATP (a react), then the stroma with ATP and NADPH arriving and the Calvin cycle turning (CO2 fixation, 3-PGA, G3P,
+  RuBP; G3P leaving for sugar). Five shots dive into the picture before them; one cuts (the stroma).
+- **Taught (Claude's own look, Navin's verdict pending):** in Chromium the voice played through the audio element in all
+  20 sentences and there were no console errors. Four visible flaws: tags sat on each other under the Calvin cycle (the
+  stations sent everything they take and give along one line, and three carriers trigger often); a react's ATP stayed
+  where it was made while the next sentence moved an ATP from the same spot (two ATPs for a moment); during a dive the
+  new picture grew as a rectangle inside the old one (the lens was wider than the picture's own edges while the
+  picture was still small); the CF1 head was violet in shot 4 and green in shot 5 (the shared `look` named the palette,
+  not the colour of each structure).
+- **Changed in BIE:** `bie/brain/studio_player.html`: name tags hide while they would overlap a label or a more
+  important tag (cycle carriers, then reacting molecules, then moving ones, then molecules flying to or from a station);
+  a move that starts where a react left the same molecule takes that molecule over; the molecules a station takes come
+  in fanned out on the side the carrier comes from and the ones it gives leave fanned out on the other side; the dive
+  fills the frame at 78% of its time and the round lens stays inside the picture until then. `bie/brain/studio_film.py`:
+  the maker names the colours of every structure seen in more than one picture in `look` and uses them in each
+  image_prompt. Tests in `tests/test_studio_films.py`. IMPLEMENTED.
+- **Measured:** the same Q14 film data re-wrapped with the new player (no new AI run): in Chromium the bottom station's
+  ATP, NADPH, ADP, NADP+ and G3P no longer share one line and their tags do not overlap; after the react one ATP leaves;
+  frame-by-frame the dive shows the old picture zooming past and a round lens, no rectangle; no console errors. The
+  older q03 film still plays in the new player without errors. The colour rule is an instruction; its effect shows on the
+  next VM film.
+
+## Entry · Navin's verdict on the Q14 living film: every NCERT line, one film, one thing at a time, 20 November 2026
+
+- **Run:** no new AI run. Navin watched the Q14 film (the VM film of PR #174, re-wrapped with the PR #175 player) and
+  answered the decision card "Theek hai, par badlaav chahiye": the pictures are not like the real thing, the molecules'
+  movement is not clear, voice or script fall short, the screen is crowded. In his words: the shot numbers 1–6 under
+  the film are what made it slides; at the end the Calvin cycle "ek khichdi ban gaya, clear hua hi nahi ki ho kya raha
+  hai"; the teacher's script must cover every point of the NCERT text the question is about, and he asked which NCERT
+  text the film teaches; "video achhi bani hai". He will send his own recorded voice to refine and clone as the
+  teacher's voice. On a second card the same day he answered that the cycle itself was not the problem but molecules
+  flowing with nobody saying what happens; when a film touches what another film teaches, its context and basics must be
+  clear; prerequisites, where the concept is used and the effect of what happened matter; and going beyond the book is
+  welcome wherever it explains better ("tabhi to book ki lines se ek kadam hatke think kar paayenge, warna bachcha kitab
+  ki lines hi na padh leta"), NEET depth included. In a third message he corrected the one rule that still bound words:
+  explaining a book can need words, analogies and names from outside it, and a strict boundary would weaken "humara
+  padhana kaise hai"; so no word is refused.
+- **Taught:** the film had no link to the book's own lines, only to the question's points, so nobody (BIE, Claude or
+  Navin) could see which NCERT sentence each narration line teaches. Read against the chapter, Q14's text is section
+  11.6.3 from page 141 "Why are we so interested in the proton gradient?" to page 142 "...synthesis of sugars.", plus
+  one Summary sentence on page 151: 12 sentences; the film taught 10 fully, said "ATP banta" where the book says
+  several molecules of ATP, and went past the one book sentence on ATP and NADPH in the stroma into the steps of the
+  Calvin cycle, which three later questions (q15–q17) teach. It also said G3P (a word the chapter never uses; it says
+  PGA and triose phosphate), "rotor", "electrochemical gradient" and "leak". The khichdi was a scope error and a
+  crowding error at once: one shot held 8 different molecules (CO2, RuBP, 3-PGA, G3P, ATP, ADP, NADPH, NADP+) while the
+  ATP and NADPH loops of the sentence before kept moving.
+- **Changed in BIE:** `bie/brain/studio.py`: `book_lines(pages, block_ids)` gives a question's book lines as whole
+  sentences (across lines and page breaks, a sentence counted for the question when most of its letters lie in the
+  question's blocks), with the printed page number from the running head, lone subscripts put back after their term
+  from the block boxes (CF0, CF1, F0, CO2), running heads, footers and figure captions handled; `chapter_terms` and
+  `unknown_terms` find a short form or formula the chapter never uses however the PDF split its subscripts.
+  `bie/brain/studio_film.py`: the maker gets the book lines numbered (B1, B2, ... with their page) and the course's
+  other questions; every narration sentence carries `teaches` (the book lines it teaches), `beyond` (what it adds
+  beyond the book, welcome and unlimited, noted for the review page only) and `part` (hook, prerequisite, concept, use,
+  recap); code sends back a book line nobody teaches, a line claimed by a sentence that speaks none of its key words
+  (plural and H+/proton folded), a film without a prerequisite or a use sentence, a wheel whose stations do not each get a sentence of their own after the sentence that
+  starts it (matched one sentence per station), and more than 5 different molecules on screen at once (what loops, what
+  a reaction made and a turning wheel stay on screen until the shot ends; a swarm of one kind counts once); a process
+  another film teaches in detail is shown here in its context and basics; words are free (a name the chapter never
+  uses, such as G3P, is only listed on the review page; the maker is told to say the book's own name too because the
+  exam asks in the book's words); pictures follow real structure (a protein in its known shape, never invented blobs; a close-up keeps
+  its surroundings). `coverage_page` writes the NCERT-to-film review page (each book line, its page and the sentences
+  that teach it, the film's shape by part, then what goes beyond the book and the other lines with their part); `tools/vm_studio.py` writes it as
+  `films/<qid>-ncert.html` and FILMS.md shows "NCERT lines taught/total". `bie/brain/studio_player.html`: no shot
+  numbers and no "06 / 06" counter; one progress bar runs with the voice and a tap on it jumps to that sentence.
+  Tests in `tests/test_studio_films.py`; the living-film fixture's Calvin cycle now keeps to 5 molecules and the full
+  three-station wheel is the "too busy" example. IMPLEMENTED.
+- **Measured:** on the real chapter PDF the 25 questions have 364 book lines; Q14 has 12 (pages 141, 142, 151) with
+  CF0, CF1, F0 and CO2 restored. The checks on the old Q14 film send back exactly what Navin saw: 8 molecules at once
+  in three sentences of the last shot, a 3-station wheel told in one sentence (2 sentences after it, neither explaining
+  fixation or RuBP), no prerequisite and no use sentence (G3P is listed on the review page, not sent back), and (with no `teaches` yet) all 12 book
+  lines. The Q14 film re-wrapped with the new player plays end to end in Chromium with the
+  voice in all 20 sentences, no shot numbers, the bar moving, no console errors; the older q03 film plays all six shots
+  in the new player without errors. Rounds, tokens and ₹ per film are measured on the Q14 remake.

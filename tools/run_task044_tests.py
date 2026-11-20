@@ -20,7 +20,10 @@ from run_task043_tests import NEW as TASK043  # noqa: E402
 
 # the VM runner's image and look sections (Task 046 one-shot; PR #77 added the file but no lane ran it)
 # and the one-time voice upload page (P1-D voice, Navin 5 November 2026)
-NEW = ("tests/test_task044_codex.py", "tests/test_task046_vm_image.py", "tests/test_task046_vm_voice.py")
+# and the course studio (Navin, 18 November 2026): VM job section "studio", stage "questions"
+NEW = ("tests/test_task044_codex.py", "tests/test_task046_vm_image.py", "tests/test_task046_vm_voice.py",
+       "tests/test_studio_questions.py", "tests/test_studio_films.py", "tests/test_studio_games.py",
+       "tests/test_studio_book.py", "tests/test_studio_pyq.py")
 
 
 def main(argv=None):

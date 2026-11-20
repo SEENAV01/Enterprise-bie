@@ -120,6 +120,10 @@ def size_text(name: str) -> str:
         need = max(box_rules.FLOOR_PX / w["px"] for w in words)
         if need > 1.0:
             out += f" · its words need s >= {need:.2f}"
+    mw = box_rules.min_w_table().get(name) or {}
+    if mw.get("min_w"):
+        where = "/".join(mw.get("sample") or {}) or "default"
+        out += f" · short words ({where}) reach {box_rules.FLOOR_PX:.0f}px from w {mw['min_w']} at s 1"
     return out
 
 
