@@ -2229,3 +2229,29 @@ the core lane 563 → 577 tests, all green. The next video worker's rounds and h
   and no ATP synthase, proton pump, thylakoid or H+ (before: all of them); the membrane pictures keep ATP synthase's
   colours. The H+ labels refused in round 1 of this run (10 of 13 findings) would pass the new check; the effect on
   first-try rounds is measured on the next film. Canonical brain tests: 407 passed, 0 skips.
+
+## Entry · Navin's own script and the Q14 review, 20 November 2026
+
+- **Run:** no new run: Navin reviewed the third Q14 film (VM job `studio-photosynthesis-q14-place`) with a written
+  comparison of the three Q14 films, and edited its 22 narration lines himself.
+- **Taught:** the script read as a machine, not a teacher. Six of 22 lines joined a question and its answer with a dash
+  ("dilchaspi kyun—kyunki ..."), so the voice neither paused nor sounded like a question; three lines gave orders
+  ("pehchaan lo", "dekho", "yaad rakho"); the opening question had no invitation; shots had no bridges. Navin's edits show
+  what a teacher does instead: a question, then a bridge ("iski wajah jaan lete hain: aisa isliye hai kyunki ...", "ek
+  sawaal ab bhi banta hai ki ... iska seedha sa jawab hai ..."), "aaiye / chaliye / dekhiye", joining words ("jisse",
+  "jiske kaaran"), everyday pictures (a motor, a dam, a battery) and an opening for the recap. The review found motion
+  and layout faults code can catch: every H+ flow ended after about 2 s in sentences of 8 to 13 s, two pins 3% apart,
+  pump and synthase on opposite sides in s4 and s6, two shots of about 54 s.
+- **Changed in BIE:** `bie/brain/studio_film.py`: the maker's instructions carry Navin's six ways with his own lines as
+  examples; `teacher_problems` checks a question running into its answer, a voice question without ?, orders, the opening
+  invitation, and (with `teacher/<qid>.json` in the from-run folder) that the film speaks the teacher's lines in his
+  order; `layout_problems`; a pin-gap and a shot-length check; `held` marks short flows to keep flowing while their
+  sentence is spoken, which the player honours (`hold`); the placement call keeps two labels apart.
+  `bie/brain/studio_voice.py`: `parts` speaks a question on its own, followed by 0.45 s of silence. `tools/vm_studio.py`
+  reads the teacher's script. His script is kept in `docs/vision/TEACHER_SCRIPT_Q14_2026-11-20.md`. Tests in
+  `tests/test_studio_films.py`. IMPLEMENTED.
+- **Measured:** on the reviewed film the new checks name exactly what Navin and the review found: the 6 joined
+  question-answer lines (1.2, 3.2, 4.3, 5.4, 6.1, 7.2), the 3 orders, the missing invitation, the s4/s6 side swap, the s3
+  pins and the two long shots (645 and 633 characters). Kokoro now leaves a 0.58 s gap after "बंद मेम्ब्रेन क्यों चाहिए?"
+  (before: none). First-try rounds and Navin's verdict are measured on the two Q14 remakes. Canonical brain tests: 426
+  passed, 0 skips.

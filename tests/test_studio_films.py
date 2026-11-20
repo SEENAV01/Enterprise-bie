@@ -53,7 +53,7 @@ def film():
          "visual": {"type": "photo", "image_prompt": "Photorealistic wide view of the green Western Ghats escarpment in the "
                     "July monsoon with dark clouds on the windward slope and waterfalls", "svg": ""},
          "dive": {"x": -1, "y": -1},
-         "sentences": [sentence("Yeh Ghat ki deewar baarish kyun rokti hai?", "यह घाट की दीवार बारिश क्यों रोकती है?", ["Ghat"]),
+         "sentences": [sentence("Yeh Ghat ki deewar baarish kyun rokti hai? Aaiye jaante hain.", "यह घाट की दीवार बारिश क्यों रोकती है? आइए जानते हैं।", ["Ghat"]),
                        sentence("Hawa yahan chadhkar thandi hoti hai aur barasti hai.", "हवा यहाँ चढ़कर ठंडी होती है और बरसती है।",
                                 moves=[CLOUDS], scale=1.8)]},
         {"id": "s2", "title": "Kaat", "key": "Doosri taraf sookha", "covers": [1],
@@ -616,3 +616,157 @@ class FilmStage(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def said(roman, voice, pins=()):
+    return sentence(roman, voice, pins)
+
+
+class TeacherVoice(unittest.TestCase):
+    """Navin rewrote the Q14 script (20 November 2026): sentences a teacher would say, a question told apart from its
+    answer, the respectful "aap" voice, an invitation after the opening question, and his own lines kept when he gives
+    them."""
+
+    def lines_of(self, *pairs):
+        bad = film()
+        bad["shots"][0]["sentences"] = [said(r, v) for r, v in pairs]
+        return bad
+
+    def test_a_question_running_into_its_answer_is_sent_back(self):
+        bad = self.lines_of(("Yeh Ghat baarish kyun rokti hai? Aaiye jaante hain.", "यह घाट बारिश क्यों रोकती है? आइए जानते हैं।"),
+                            ("Hawa itni thandi kyun—kyunki upar dabav kam hai.", "हवा इतनी ठंडी क्यों—क्योंकि ऊपर दबाव कम है।"))
+        found = " | ".join(studio_film.teacher_problems(bad, QUESTION))
+        self.assertIn("s1 sentence 2: the question runs straight into its answer", found)
+        self.assertIn("s1 sentence 2: the line asks a question; in voice end the question with ?", found)
+
+    def test_navins_way_passes(self):
+        good = self.lines_of(("Yeh Ghat baarish kyun rokti hai? Aaiye jaante hain.", "यह घाट बारिश क्यों रोकती है? आइए जानते हैं।"),
+                             ("Par pehle, hawa itni thandi kyun? Iski wajah jaan lete hain: aisa isliye hai kyunki upar dabav kam hai.",
+                              "पर पहले, हवा इतनी ठंडी क्यों? इसकी वजह जान लेते हैं: ऐसा इसलिए है क्योंकि ऊपर दबाव कम है।"),
+                             ("Ek sawaal ab bhi banta hai ki baadal kahan jaate hain—iska seedha sa jawab hai pahaad ke paar.",
+                              "एक सवाल अब भी बनता है कि बादल कहाँ जाते हैं? इसका सीधा सा जवाब है पहाड़ के पार।"))
+        self.assertEqual(studio_film.teacher_problems(good, QUESTION), [])
+
+    def test_orders_are_sent_back_and_the_aap_voice_passes(self):
+        bad = self.lines_of(("Yeh Ghat baarish kyun rokti hai? Aaiye jaante hain.", "यह घाट बारिश क्यों रोकती है? आइए जानते हैं।"),
+                            ("Pehle jagah pehchaan lo, phir yahan dekho.", "पहले जगह पहचान लो, फिर यहाँ देखो।"))
+        found = " | ".join(studio_film.teacher_problems(bad, QUESTION))
+        self.assertIn("'pehchaan lo' orders the learner", found)
+        good = self.lines_of(("Yeh Ghat baarish kyun rokti hai? Aaiye jaante hain.", "यह घाट बारिश क्यों रोकती है? आइए जानते हैं।"),
+                             ("Aaiye pehle jagah pehchaan lete hain, phir yahan dekhiye.", "आइए पहले जगह पहचान लेते हैं, फिर यहाँ देखिए।"))
+        self.assertEqual(studio_film.teacher_problems(good, QUESTION), [])
+
+    def test_the_opening_question_invites(self):
+        bad = self.lines_of(("Yeh Ghat baarish kyun rokti hai?", "यह घाट बारिश क्यों रोकती है?"),
+                            ("Hawa yahan chadhti hai.", "हवा यहाँ चढ़ती है।"))
+        self.assertIn('invite the learner ("Aaiye jaante hain.")', " ".join(studio_film.teacher_problems(bad, QUESTION)))
+
+    def test_the_teachers_own_lines_are_kept_word_for_word(self):
+        lines = [{"roman": "Yeh Ghat ki deewar baarish kyun rokti hai? aayiye jaante hai"},
+                 {"roman": "Hawa yahan chadhkar thandi hoti hai aur barasti hai.", "note": "yahan baadal ki misaal do"},
+                 {"roman": "Doosri taraf hawa sookhi utarti hai."}, {"roman": "Isliye Pune sookha rehta hai."}]
+        q = dict(QUESTION, teacher_lines=lines, earlier_film=film())
+        made = film()
+        made["shots"][0]["sentences"][0]["roman"] = "Yeh Ghat ki deewar baarish kyun rokti hai? Aaiye jaante hain."
+        rest = [s for shot in made["shots"] for s in shot["sentences"]][2:]
+        self.assertEqual(len(rest), 2)
+        rest[0]["roman"], rest[1]["roman"] = lines[2]["roman"], lines[3]["roman"]
+        self.assertEqual([p for p in studio_film.teacher_problems(made, q) if "teacher" in p], [])
+        rest[1]["roman"] = "Aur baarish ka paani nadi mein jaata hai, jahan se khet seenche jaate hain."
+        self.assertIn("is not the teacher's line L4", " ".join(studio_film.teacher_problems(made, q)))
+        made["shots"][1]["sentences"].pop()
+        self.assertIn("the film has 3 sentences and the teacher's script 4 lines", " ".join(studio_film.teacher_problems(made, q)))
+        user = studio_film.messages(q, course="Class 9", language="Hinglish")[1]["content"]
+        self.assertIn("THE TEACHER'S SCRIPT", user)
+        self.assertIn("L2: Hawa yahan chadhkar thandi hoti hai aur barasti hai.\n    NOTE: yahan baadal ki misaal do", user)
+        self.assertIn('"title": "Ghat aur baarish"', user)               # the earlier film rides along
+        self.assertNotIn("THE TEACHER'S SCRIPT", studio_film.messages(QUESTION, course="Class 9", language="Hinglish")[1]["content"])
+
+    def test_the_teachers_lines_skip_style_but_not_the_voice_question_mark(self):
+        lines = [{"roman": "Yeh Ghat ki deewar baarish kyun rokti hai? Aaiye jaante hain."},
+                 {"roman": "Hawa thandi kyun—kyunki upar dabav kam hai."}, {"roman": "Doosri taraf hawa sookhi utarti hai."},
+                 {"roman": "Isliye Pune sookha rehta hai, dekho."}]
+        made = film()
+        flat = [s for shot in made["shots"] for s in shot["sentences"]]
+        for s, line in zip(flat, lines):
+            s["roman"] = line["roman"]
+        flat[1]["voice"] = "हवा ठंडी क्यों—क्योंकि ऊपर दबाव कम है।"
+        found = " | ".join(studio_film.teacher_problems(made, dict(QUESTION, teacher_lines=lines)))
+        self.assertNotIn("runs straight into", found)
+        self.assertNotIn("orders the learner", found)
+        self.assertIn("s1 sentence 2: the line asks a question; in voice end the question with ?", found)
+
+    def test_the_voice_speaks_a_question_on_its_own_with_a_pause(self):
+        from bie.brain import studio_voice
+        self.assertEqual(studio_voice.parts("बंद मेम्ब्रेन क्यों चाहिए? इसका सीधा सा जवाब है जमाव।"),
+                         [("बंद मेम्ब्रेन क्यों चाहिए?", studio_voice.QUESTION_PAUSE), ("इसका सीधा सा जवाब है जमाव।", 0.0)])
+        self.assertEqual(studio_voice.parts("सीधी बात।"), [("सीधी बात।", 0.0)])
+        self.assertGreater(studio_voice.QUESTION_PAUSE, 0.2)
+
+    def test_the_stage_reads_the_teachers_script(self):
+        with tempfile.TemporaryDirectory() as folder:
+            run_dir = Path(folder) / "qrun"
+            (run_dir / "teacher").mkdir(parents=True)
+            (run_dir / "questions.json").write_text(json.dumps({"chapter_title": "Monsoon", "questions": [QUESTION]}), encoding="utf-8")
+            lines = [{"roman": s["roman"]} for shot in film()["shots"] for s in shot["sentences"]]
+            lines[1]["note"] = "baadal ki misaal do"
+            (run_dir / "teacher" / "q01.json").write_text(json.dumps({"lines": lines, "film": film()}), encoding="utf-8")
+            args = SimpleNamespace(stage="films", source="", from_run=str(run_dir), videos="q01", out=str(Path(folder) / "out"),
+                                   pages="", course="Class 9", language="Hinglish", model="", max_rounds=2)
+            seen = {}
+
+            class Client(FakeClient):
+                def chat(self, *, model, messages, schema=None):
+                    seen.setdefault("user", messages[1]["content"])
+                    return super().chat(model=model, messages=messages, schema=schema)
+
+            summary = vm_studio.run(args, client=Client([film()]), load=None, voice_maker=lambda: (FakeVoice(), None))
+            self.assertEqual(summary["status"], "ok", summary)
+            self.assertIn("NOTE: baadal ki misaal do", seen["user"])
+            self.assertEqual(summary["films"][0]["teacher_lines"], 4)
+            self.assertIn("teacher ki 4 lines", (Path(folder) / "out" / "FILMS.md").read_text(encoding="utf-8"))
+
+
+class ReviewFindings(unittest.TestCase):
+    """The review of the third Q14 film (20 November 2026): flows that stop, labels on top of each other, a structure
+    changing sides between pictures, two shots of 54 seconds."""
+
+    def test_two_pins_on_one_spot_are_sent_back(self):
+        bad = film()
+        line = bad["shots"][0]["sentences"][1]
+        line["roman"] = "Thylakoid ke andar lumen hai aur hawa barasti hai."
+        line["pins"] = [{"label": "thylakoid", "x": 64, "y": 58}, {"label": "lumen", "x": 65, "y": 61}]
+        found = " | ".join(studio_film.problems(bad, QUESTION))
+        self.assertIn("pins 'thylakoid' and 'lumen' are 3% apart", found)
+        line["pins"][1].update(x=72, y=70)
+        self.assertNotIn("apart, on top of each other", " | ".join(studio_film.problems(bad, QUESTION)))
+
+    def test_a_structure_keeps_its_side_from_picture_to_picture(self):
+        def shot(sid, pump, synthase):
+            return {"id": sid, "sentences": [{"pins": [{"label": "proton pump", "x": pump, "y": 50},
+                                                       {"label": "ATP synthase", "x": synthase, "y": 40}]}]}
+        flipped = {"shots": [shot("s4", 30, 72), shot("s5", 50, 50), shot("s6", 89, 25)]}
+        found = studio_film.layout_problems(flipped)
+        self.assertEqual(len(found), 1)
+        self.assertIn("s6: 'proton pump' is left of 'atp synthase' in s4 but right of it here", found[0])
+        self.assertEqual(studio_film.layout_problems({"shots": [shot("s4", 30, 72), shot("s6", 20, 80)]}), [])
+
+    def test_a_long_shot_is_split(self):
+        bad = film()
+        bad["shots"][0]["sentences"][1]["roman"] = "Hawa yahan chadhkar thandi hoti hai aur barasti hai. " * 12
+        self.assertIn("s1: ", " ".join(p for p in studio_film.problems(bad, QUESTION) if "characters of narration" in p))
+
+    def test_a_short_flow_keeps_flowing_while_its_sentence_is_spoken(self):
+        short = {"what": "dot", "points": [[0, 0], [9, 9]], "count": 1, "ms": 2000}
+        long_trip = dict(short, ms=8000)
+        looping = dict(short, loop=True)
+        moved = studio_film.held([short, long_trip, looping], 10.0)
+        self.assertEqual([m.get("hold") for m in moved], [True, None, None])
+        self.assertNotIn("hold", short)                                  # the film itself is not changed
+        made = film()
+        made["shots"][0]["sentences"][1]["moves"] = [short]
+        data = studio_film.player_data(made, images={}, audio={("s1", 1): {"uri": "", "dur": 9.0}}, chapter="", question=QUESTION)
+        self.assertTrue(data["shots"][0]["sentences"][1]["moves"][0]["hold"])
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        for hook in ("until:m.hold&&!m.loop&&until?until:0", "addMove(m,now+300,now+300+(t.dur||0)*1000)", "if(!rep&&ac.until)"):
+            self.assertIn(hook, page)

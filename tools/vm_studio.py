@@ -148,6 +148,13 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
             q["chapter_terms"] = terms
         q["other_questions"] = [f"{o.get('id')}: {o.get('question')}" for o in plan.get("questions") or []
                                 if o.get("id") != q.get("id")]
+        # the teacher's own script (Navin, 20 November 2026): teacher/<qid>.json in the from-run folder holds his lines
+        # (and notes) and the earlier film; the film is made again with his lines as its narration
+        teacher = maybe_json(args.from_run, f"teacher/{q['id']}.json")
+        if isinstance(teacher, dict) and teacher.get("lines"):
+            q["teacher_lines"] = [{"roman": str(x.get("roman") or ""), "note": str(x.get("note") or "")}
+                                  for x in teacher["lines"] if isinstance(x, dict)]
+            q["earlier_film"] = teacher.get("film") if isinstance(teacher.get("film"), dict) else {}
         record = studio_film.write(client, model, q, course=args.course, language=args.language,
                                    chapter=plan.get("chapter_title", ""), max_rounds=args.max_rounds)
         for key in usage:
@@ -198,12 +205,14 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                      "minutes": round(seconds / 60, 1), "rounds": len(record["rounds"]), "problems": record["problems"],
                      "book_lines": f"{covered['taught']}/{covered['total']}", "beyond": len(covered["beyond"]),
                      "points_moved": sum(p.get("moved", 0) for p in placed.values()),
+                     "teacher_lines": len(q.get("teacher_lines") or []),
                      "not_in_picture": [m for p in placed.values() for m in p.get("missing", [])]})
     lines = ["# Filmein", "", f"Awaaz: {summary['voice']}", ""]
     for row in rows:
         lines.append(f"- **{row['qid']}** {row['question']} · {row['shots']} shots · {row['images']} tasveerein · "
                      f"{row['minutes']} min · NCERT lines {row['book_lines']} · NCERT se bahar {row['beyond']} · "
                      f"tasveer dekhkar khiske points {row['points_moved']}"
+                     + (f" · teacher ki {row['teacher_lines']} lines" if row.get("teacher_lines") else "")
                      + (f" · kamiyan: {len(row['problems'])}" if row["problems"] else ""))
     (out / "FILMS.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     summary.update(films=rows, usage=usage, model=model,
