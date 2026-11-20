@@ -2302,3 +2302,15 @@ rebuilds it once; the worker now keeps the last 1,500 characters of a failure's 
   pins and the two long shots (645 and 633 characters). Kokoro now leaves a 0.58 s gap after "बंद मेम्ब्रेन क्यों चाहिए?"
   (before: none). First-try rounds and Navin's verdict are measured on the two Q14 remakes. Canonical brain tests: 426
   passed, 0 skips.
+
+## Entry · the clone voice measured on the VM's CPU, 20 November 2026
+
+**The run:** VM job `p1v-voice-measure-v4b` (after PR #159's setuptools pin; Money v4, 8 sentences, Chatterbox's
+built-in voice, ₹0, 10.2 minutes in all): 8 of 8 sentences, 35.9 s of audio in 349.8 s of CPU — real-time factor 9.7 on
+2 CPUs; model load 56.8 s; peak RAM 6.4 GB of 7.8 GB. At that speed the whole of Money v4 (about 12.3 minutes of voice)
+needs about 2 hours of CPU, a 12-video chapter about a day.
+
+**What it means for BIE:** the VM's CPU can voice a sample or a chapter overnight but not books at scale; a GPU (Navin's
+budget decision, agreement of 3 November) is the route for whole books. The measure job stays as the yardstick: the
+same job with `"reference": "navin"` measures his clone once his clip is on the VM. Sound quality is not judged yet.
+
