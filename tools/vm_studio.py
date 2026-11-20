@@ -119,6 +119,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
     wanted = [q.strip() for q in (args.videos or "").split(",") if q.strip()]
     questions = [q for q in plan.get("questions") or [] if not wanted or q.get("id") in wanted]
     blocks = studio.all_blocks(pages) if pages else {}
+    terms = frozenset(studio.chapter_terms(pages)) if pages else frozenset()
     voice, why = (voice_maker or studio_voice.make)()
     summary["voice"] = "kokoro hf_alpha" if voice else f"no voice ({why})"
     template = PLAYER.read_text(encoding="utf-8")
@@ -129,6 +130,11 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
         q = dict(q)
         ids = [i for p in q.get("points") or [] for i in p.get("block_ids") or []]
         q["source_text"] = "\n".join(f"[{i}] {blocks[i]}" for i in dict.fromkeys(ids) if i in blocks)
+        if pages:                                   # every book line taught, checked sentence by sentence (20 Nov 2026)
+            q["book_lines"] = studio.book_lines(pages, ids)
+            q["chapter_terms"] = terms
+        q["other_questions"] = [f"{o.get('id')}: {o.get('question')}" for o in plan.get("questions") or []
+                                if o.get("id") != q.get("id")]
         record = studio_film.write(client, model, q, course=args.course, language=args.language,
                                    chapter=plan.get("chapter_title", ""), max_rounds=args.max_rounds)
         for key in usage:
@@ -158,17 +164,24 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
         data = studio_film.player_data(film, images=images, audio=audio, chapter=plan.get("chapter_title", ""), question=q,
                                        tint=studio.subject_tint(args.course))
         (out / "films" / f"{q['id']}.html").write_text(studio_film.html(data, template), encoding="utf-8")
+        covered = studio_film.coverage(film, q)
         (out / "films" / f"{q['id']}.json").write_text(json.dumps({"film": film, "problems": record["problems"],
-                                                                   "rounds": record["rounds"], "images": files},
+                                                                   "rounds": record["rounds"], "images": files,
+                                                                   "book_lines": q.get("book_lines") or []},
                                                                   ensure_ascii=False, indent=1),
                                                        encoding="utf-8")
+        if q.get("book_lines"):                     # Navin's NCERT-to-film page (a review page, never the learner's)
+            (out / "films" / f"{q['id']}-ncert.html").write_text(
+                studio_film.coverage_page(film, q, chapter=plan.get("chapter_title", "")), encoding="utf-8")
         seconds = sum(s["dur"] for shot in data["shots"] for s in shot["sentences"])
         rows.append({"qid": q["id"], "question": q.get("question"), "shots": len(film.get("shots") or []), "images": made,
-                     "minutes": round(seconds / 60, 1), "rounds": len(record["rounds"]), "problems": record["problems"]})
+                     "minutes": round(seconds / 60, 1), "rounds": len(record["rounds"]), "problems": record["problems"],
+                     "book_lines": f"{covered['taught']}/{covered['total']}", "beyond": len(covered["beyond"])})
     lines = ["# Filmein", "", f"Awaaz: {summary['voice']}", ""]
     for row in rows:
         lines.append(f"- **{row['qid']}** {row['question']} · {row['shots']} shots · {row['images']} tasveerein · "
-                     f"{row['minutes']} min" + (f" · kamiyan: {len(row['problems'])}" if row["problems"] else ""))
+                     f"{row['minutes']} min · NCERT lines {row['book_lines']} · NCERT se bahar {row['beyond']}"
+                     + (f" · kamiyan: {len(row['problems'])}" if row["problems"] else ""))
     (out / "FILMS.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     summary.update(films=rows, usage=usage, model=model,
                    status="ok" if rows and not any(r["problems"] for r in rows) else ("needs_fix" if rows else "failed"))
