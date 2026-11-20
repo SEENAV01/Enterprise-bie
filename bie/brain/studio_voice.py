@@ -61,6 +61,17 @@ def to_mp3(wav: bytes) -> bytes | None:
     return done.stdout if done.returncode == 0 and done.stdout else None
 
 
+PLAYER_JS = Path(__file__).with_name("studio_voice_player.js")
+VOICE_SLOT = "/*__VOICE__*/"
+
+
+def with_player_voice(page: str) -> str:
+    """The page with BIE's voice script (``studio_voice_player.js``) in its slot: the audio element with a data: URI first,
+    Web Audio when the viewer refuses media loads, and a visible notice when neither can sound (Navin, 20 November 2026:
+    the first films played silently)."""
+    return page.replace(VOICE_SLOT, PLAYER_JS.read_text(encoding="utf-8"), 1)
+
+
 def make(fetch: bool = True):
     """A Voice, or None with the reason when this machine cannot speak yet."""
     try:

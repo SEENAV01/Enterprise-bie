@@ -51,6 +51,22 @@ Decision cards in the planning chat, 18 November 2026:
    edge, highlighted words got a thick red outline, moving sprites covered words); the player now keeps the diagram's
    words on a top layer, fades a word the frame cuts and highlights words without an outline (branch
    `studio-film-legible`, SEEKH_LOG).
+   **Navin's verdict on the three films (19 November 2026, 23:36): not accepted.** In his words: the concepts were not
+   clear, there was no narration he could hear and no script, it felt like 4–5 pictures joined as slides with a zoom on
+   each, unlike the continuous Campbell 17 film; he wants things alive, e.g. ATP and NADPH doing CO2 fixation and sugar
+   synthesis in a stroma and thylakoid that look real, the reaction steps happening on screen. The other 22 films wait.
+   His answers (decision cards): no voice came when he pressed play; next step "pehle sirf Q14". Living films (branch
+   `studio-film-living`): the voice plays as a data: URI through the audio element, then through Web Audio when the
+   viewer refuses media loads (the old player used blob: URLs, which a page policy with `media-src` blocks; checked in
+   Chromium: old player silent, new player speaks), and shows "Awaaz band hai" when neither can sound (the PYQ lab uses
+   the same `studio_voice_player.js`); one world (every shot after the first dives into the picture before it, at most one
+   cut; the next picture opens as a soft lens while the old one zooms past; a shared `look` for every AI picture);
+   processes on AI pictures (at most one diagram, for a comparison or graph); BIE's molecule kit
+   (`bie/brain/molecule_kit.json`, 18 ball-and-stick molecules: ATP, ADP, NADPH, NADP+, CO2, RuBP, 3-PGA, G3P, glucose,
+   H+, H2O, O2, Pi, e-, PEP, OAA, malate, pyruvate); `reacts` (inputs fly in, products come out and stay), `cycles` (a
+   wheel of stations that takes and gives molecules as it turns, e.g. the Calvin cycle) and a `spin` effect; every shot
+   moves, at least half the sentences of a long film move, the film opens on a question, the narration tells what
+   happens. IMPLEMENTED; checked in Chromium on Claude's test data (not BIE output); the Q14 film from the VM is next.
 9. **Navin's chapter (19 November 2026):** NCERT Class 11 Biology chapter 11, Photosynthesis in Higher Plants, for NEET +
    Class 11 in Hinglish (decision card). NCERT's site sends an incomplete certificate chain, so Navin chose the public
    inputs branch for the PDF (`blindtest-inputs:chapters/ncert-class11-biology-ch11-photosynthesis.pdf`).

@@ -240,6 +240,12 @@ class Lesson(unittest.TestCase):
         self.assertNotIn("block_ids", json.dumps(item["evidence"]))
         page = studio_pyq.html(data, (ROOT / "bie" / "brain" / "studio_pyq_player.html").read_text(encoding="utf-8"))
         self.assertNotIn("/*__PYQ__*/null", page)
+        # Navin, 20 Nov 2026: no voice reached him from the films; the PYQ lab speaks through the same BIEVoice
+        self.assertIn("const BIEVoice=", page)
+        self.assertNotIn("/*__VOICE__*/", page)
+        src = (ROOT / "bie" / "brain" / "studio_pyq_player.html").read_text(encoding="utf-8")
+        self.assertIn("BIEVoice.play(b.audio,{rate:vs,done:end,fail:", src)
+        self.assertNotIn("au.src", src)
 
     def test_player_lets_every_part_be_tapped_and_names_it(self):
         """The first VM runs (19 Nov 2026): the physics gate "tap the vertical component" could not be answered (the vᵧ

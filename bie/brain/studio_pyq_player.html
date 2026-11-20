@@ -46,6 +46,7 @@ h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(1.5rem,4.5vw,2.3rem
 .lbl{font:600 24px system-ui;fill:#fff}.lblbg{fill:#081a14;stroke:#efbc6988;stroke-width:1}
 .hit{cursor:pointer}.hit:hover{filter:brightness(1.25)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.status.warn{background:#e8c26a;color:#17140a;padding:3px 9px;border-radius:7px;font-weight:700}
 </style></head><body>
 <div class="top"><span class="brand">BIE · PYQ LAB</span><nav class="tabs" id="tabs"></nav><span class="status" id="voiceStatus"></span></div>
 <main class="shell">
@@ -78,7 +79,7 @@ h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(1.5rem,4.5vw,2.3rem
   <div class="recap"><b>Yaad rakhne wali baat</b><p id="recap"></p><div class="status" id="assume"></div></div>
  </aside></div>
 </main>
-<audio id="au" preload="auto"></audio>
+<script>/*__VOICE__*/</script>
 <script>
 'use strict';
 // BIE PYQ lab player (Navin, 19 November 2026). The lesson is data; behaviour is here. Kits draw each science model in
@@ -89,7 +90,7 @@ const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),mix=(a,b,t)=>a+(b-a)*t,ease=t
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 document.documentElement.style.setProperty('--tint',D.tint||'#4b4fa8');
 const S={i:0,stage:0,beat:0,t:0,guided:false,waiting:false,token:0,seg:null,solved:new Set(),gate:null,gsel:[],first:{},dp:0,dplay:false,detail:null,trapView:false,playing:false,last:0};
-let voices=[];const au=$('au');
+let voices=[];const BLOCKED='Awaaz band hai: volume dekhiye, ya file Chrome mein kholiye · captions chal rahe hain';
 function el(t,a,p,txt){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;if(p)p.appendChild(e);return e;}
 function h(t,cls,txt){const e=document.createElement(t);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
 const item=()=>D.items[S.i],stage=()=>item().stages[S.stage]||{beats:[]},beat=()=>stage().beats[S.beat]||null;
@@ -268,14 +269,14 @@ function inspect(parts,moment){S.t=(moments()[moment]||[S.t,S.t])[1];const b=bea
 function familyPeek(f){$('caption').textContent=f.question+' — '+f.why+(f.model_checked&&f.value!=null?' (model: '+f.value+')':'');}
 
 // ---------------------------------------------------------------- transport --------------------------------------------
-function stopAll(){S.token++;S.guided=false;S.waiting=false;S.seg=null;S.playing=false;if(window.speechSynthesis)speechSynthesis.cancel();au.pause();$('obs').classList.remove('on');$('guide').textContent='▶ Teacher ke saath poora PYQ';}
+function stopAll(){S.token++;S.guided=false;S.waiting=false;S.seg=null;S.playing=false;if(window.speechSynthesis)speechSynthesis.cancel();BIEVoice.stop();$('obs').classList.remove('on');$('guide').textContent='▶ Teacher ke saath poora PYQ';}
 function manual(){if(S.guided||S.seg)stopAll();}
 function goStage(k){S.stage=clamp(k,0,item().stages.length-1);S.beat=0;S.trapView=false;applyBeat(false);}
 function applyBeat(animate){const b=beat();if(!b){renderTeacher();drawMain();return;}const r=moments()[b.moment];
   if(item().model.kind==='mechanism'){const tr=(item().model.data.traps||[]).find(x=>x.id===b.moment);S.trapView=tr||false;S.trapP=animate?0:1;}
   if(r){if(!animate||!b.play)S.t=r[1];else S.t=r[0];}if(b.detail)setDetail(b.detail);renderTeacher();drawMain();}
 function speak(b,my,done){const vs=+$('vspeed').value;let finished=false;const end=()=>{if(!finished&&my===S.token){finished=true;done();}};
-  if(b.audio){au.src=b.audio;au.playbackRate=vs;au.onended=end;au.onerror=end;const p=au.play();if(p)p.catch(()=>setTimeout(end,words(b)/2.05/vs*1000));$('voiceStatus').textContent='Awaaz: BIE (Kokoro)';return;}
+  if(b.audio){$('voiceStatus').textContent='Awaaz: BIE (Kokoro)';BIEVoice.play(b.audio,{rate:vs,done:end,fail:()=>{$('voiceStatus').textContent=BLOCKED;$('voiceStatus').classList.add('warn');setTimeout(end,words(b)/2.05/vs*1000);}});return;}
   if(window.speechSynthesis&&voices.length){const u=new SpeechSynthesisUtterance(b.voice||b.say);const v=voices.find(x=>/^hi/i.test(x.lang))||voices.find(x=>/en-IN/i.test(x.lang));
    if(v){u.voice=v;u.lang=v.lang;}u.rate=vs;u.onend=end;u.onerror=end;speechSynthesis.speak(u);$('voiceStatus').textContent='Awaaz: browser ki ('+(v?v.lang:'default')+')';setTimeout(end,Math.max(65000,words(b)/1.2/vs*1000));return;}
   $('voiceStatus').textContent='Awaaz nahi mili · sirf captions';setTimeout(end,words(b)/2.05/vs*1000);}
@@ -343,7 +344,7 @@ $('ready').onclick=()=>{if(S.seg&&S.seg.obs){S.seg.hold=99;}};
 $('scrub').oninput=e=>{manual();S.t=e.target.value/1000;S.trapView=false;drawMain();$('tlabel').textContent=Math.round(S.t*100)+'%';};
 $('playScene').onclick=()=>{if(S.guided)stopAll();S.playing=!S.playing;if(S.t>=1)S.t=0;};
 $('dplay').onclick=()=>{S.dp=S.dp>=1?0:S.dp;S.dplay=!S.dplay;};$('dscrub').oninput=e=>{S.dplay=false;S.dp=e.target.value/1000;drawDetail();};
-$('vspeed').onchange=()=>{au.playbackRate=+$('vspeed').value;};
+$('vspeed').onchange=()=>{};
 $('paced').onchange=e=>{if(!e.target.checked&&S.waiting&&S.gate){/* never silently skip an unresolved gate: it stays open */}};
 if(window.speechSynthesis){const load=()=>{voices=speechSynthesis.getVoices();};load();speechSynthesis.onvoiceschanged=load;}
 $('voiceStatus').textContent=D.voice&&/kokoro/.test(D.voice)?'Awaaz: BIE (Kokoro)':(window.speechSynthesis?'Awaaz: browser ki, ya sirf captions':'Sirf captions');

@@ -141,7 +141,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                 target = out / "films" / "img" / f"{q['id']}-{shot.get('id')}.png"
                 target.parent.mkdir(parents=True, exist_ok=True)
                 try:
-                    done = client.generate_image(studio_film.image_prompt(shot), target)
+                    done = client.generate_image(studio_film.image_prompt(shot, film.get("look", "")), target)
                     saved = target.with_name(done["file"]) if isinstance(done, dict) and done.get("file") else target
                     saved = saved if saved.exists() else target
                     images[shot.get("id")] = image_uri(saved)
