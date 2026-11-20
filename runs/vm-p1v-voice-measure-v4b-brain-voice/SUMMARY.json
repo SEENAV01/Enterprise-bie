@@ -1,0 +1,111 @@
+{
+ "section": "voice",
+ "status": "ok",
+ "video": "v4",
+ "reference": "Chatterbox built-in voice",
+ "error": null,
+ "engine": {
+  "pins": [
+   "torch==2.6.0+cpu",
+   "torchaudio==2.6.0+cpu",
+   "chatterbox-tts==0.1.7",
+   "av==18.0.0",
+   "setuptools==80.9.0"
+  ],
+  "model": "ResembleAI/chatterbox",
+  "model_revision": "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18",
+  "torch": "2.6.0+cpu",
+  "threads": 2,
+  "sample_rate": 24000,
+  "watermark": "Perth (Chatterbox's own, inaudible)"
+ },
+ "machine": {
+  "cpus": 2,
+  "ram_gb": 7.8
+ },
+ "setup": {
+  "installed": true,
+  "install_s": 83.1
+ },
+ "timing_s": {
+  "download_s": 0.0,
+  "load_s": 56.8,
+  "reference_s": null
+ },
+ "peak_ram_mb": 6447,
+ "totals": {
+  "sentences_asked": 8,
+  "sentences_made": 8,
+  "audio_s": 35.9,
+  "compute_s": 349.8,
+  "rtf": 9.74,
+  "chars_per_audio_s": 11.2,
+  "video_chars": 8284,
+  "video_audio_min_est": 12.3,
+  "video_compute_min_est": 119.8
+ },
+ "sentences": [
+  {
+   "key": "b1_0",
+   "chars": 37,
+   "audio_s": 3.84,
+   "compute_s": 53.64,
+   "rtf": 13.97
+  },
+  {
+   "key": "b1_1",
+   "chars": 18,
+   "audio_s": 3.04,
+   "compute_s": 30.43,
+   "rtf": 10.01
+  },
+  {
+   "key": "b1_2",
+   "chars": 52,
+   "audio_s": 3.0,
+   "compute_s": 29.92,
+   "rtf": 9.97
+  },
+  {
+   "key": "b2_0",
+   "chars": 46,
+   "audio_s": 4.56,
+   "compute_s": 40.26,
+   "rtf": 8.83
+  },
+  {
+   "key": "b2_1",
+   "chars": 59,
+   "audio_s": 5.84,
+   "compute_s": 51.7,
+   "rtf": 8.85
+  },
+  {
+   "key": "b2_2",
+   "chars": 21,
+   "audio_s": 4.32,
+   "compute_s": 40.12,
+   "rtf": 9.29
+  },
+  {
+   "key": "b3_0",
+   "chars": 57,
+   "audio_s": 4.24,
+   "compute_s": 41.12,
+   "rtf": 9.7
+  },
+  {
+   "key": "b3_1",
+   "chars": 113,
+   "audio_s": 7.08,
+   "compute_s": 62.6,
+   "rtf": 8.84
+  }
+ ],
+ "error_trace": null,
+ "cost": {
+  "total_inr": 0,
+  "note": "CPU of Navin's own machine"
+ },
+ "audio": "kept on the machine only (private folder); never published"
+}
