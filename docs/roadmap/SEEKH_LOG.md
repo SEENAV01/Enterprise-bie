@@ -2133,7 +2133,11 @@ the core lane 563 → 577 tests, all green. The next video worker's rounds and h
   the film are what made it slides; at the end the Calvin cycle "ek khichdi ban gaya, clear hua hi nahi ki ho kya raha
   hai"; the teacher's script must cover every point of the NCERT text the question is about, and he asked which NCERT
   text the film teaches; "video achhi bani hai". He will send his own recorded voice to refine and clone as the
-  teacher's voice.
+  teacher's voice. On a second card the same day he answered that the cycle itself was not the problem but molecules
+  flowing with nobody saying what happens; when a film touches what another film teaches, its context and basics must be
+  clear; prerequisites, where the concept is used and the effect of what happened matter; and going beyond the book is
+  welcome wherever it explains better ("tabhi to book ki lines se ek kadam hatke think kar paayenge, warna bachcha kitab
+  ki lines hi na padh leta"), NEET depth included.
 - **Taught:** the film had no link to the book's own lines, only to the question's points, so nobody (BIE, Claude or
   Navin) could see which NCERT sentence each narration line teaches. Read against the chapter, Q14's text is section
   11.6.3 from page 141 "Why are we so interested in the proton gradient?" to page 142 "...synthesis of sugars.", plus
@@ -2149,22 +2153,25 @@ the core lane 563 → 577 tests, all green. The next video worker's rounds and h
   from the block boxes (CF0, CF1, F0, CO2), running heads, footers and figure captions handled; `chapter_terms` and
   `unknown_terms` find a short form or formula the chapter never uses however the PDF split its subscripts.
   `bie/brain/studio_film.py`: the maker gets the book lines numbered (B1, B2, ... with their page) and the course's
-  other questions; every narration sentence carries `teaches` (the book lines it teaches) and `beyond` (what it adds
-  beyond the book, for the review page only, at most 2 per film); code sends back a book line nobody teaches, a line
-  claimed by a sentence that speaks none of its key words (plural and H+/proton folded), a short form the chapter never
-  uses in the narration, a label or a kit molecule on screen, a wheel (`cycles`) when the question's own lines describe
-  no cycle (another film's process is a one-sentence bridge here), and more than 5 different molecules on screen at
-  once (what loops, what a reaction made and a turning wheel stay on screen until the shot ends; a swarm of one kind
-  counts once); pictures follow real structure (a protein in its known shape, never invented blobs; a close-up keeps
+  other questions; every narration sentence carries `teaches` (the book lines it teaches), `beyond` (what it adds
+  beyond the book, welcome and unlimited, noted for the review page only) and `part` (hook, prerequisite, concept, use,
+  recap); code sends back a book line nobody teaches, a line claimed by a sentence that speaks none of its key words
+  (plural and H+/proton folded), a film without a prerequisite or a use sentence, a short form the chapter never uses
+  (in the narration, a label or a kit molecule on screen) unless that sentence's beyond note names it (the maker says
+  the book's own name with it), a wheel whose stations do not each get a sentence of their own after the sentence that
+  starts it (matched one sentence per station), and more than 5 different molecules on screen at once (what loops, what
+  a reaction made and a turning wheel stay on screen until the shot ends; a swarm of one kind counts once); a process
+  another film teaches in detail is shown here in its context and basics; pictures follow real structure (a protein in its known shape, never invented blobs; a close-up keeps
   its surroundings). `coverage_page` writes the NCERT-to-film review page (each book line, its page and the sentences
-  that teach it, then what goes beyond the book and the joining lines); `tools/vm_studio.py` writes it as
+  that teach it, the film's shape by part, then what goes beyond the book and the other lines with their part); `tools/vm_studio.py` writes it as
   `films/<qid>-ncert.html` and FILMS.md shows "NCERT lines taught/total". `bie/brain/studio_player.html`: no shot
   numbers and no "06 / 06" counter; one progress bar runs with the voice and a tap on it jumps to that sentence.
   Tests in `tests/test_studio_films.py`; the living-film fixture's Calvin cycle now keeps to 5 molecules and the full
   three-station wheel is the "too busy" example. IMPLEMENTED.
 - **Measured:** on the real chapter PDF the 25 questions have 364 book lines; Q14 has 12 (pages 141, 142, 151) with
-  CF0, CF1, F0 and CO2 restored. The checks on the old Q14 film send back exactly what Navin saw: G3P twice, 8 molecules
-  at once in three sentences of the last shot, a wheel in a question whose lines describe no cycle, and (with no
-  `teaches` yet) all 12 book lines. The Q14 film re-wrapped with the new player plays end to end in Chromium with the
+  CF0, CF1, F0 and CO2 restored. The checks on the old Q14 film send back exactly what Navin saw: 8 molecules at once
+  in three sentences of the last shot, a 3-station wheel told in one sentence (2 sentences after it, neither explaining
+  fixation or RuBP), G3P twice with no note, no prerequisite and no use sentence, and (with no `teaches` yet) all 12 book
+  lines. The Q14 film re-wrapped with the new player plays end to end in Chromium with the
   voice in all 20 sentences, no shot numbers, the bar moving, no console errors; the older q03 film plays all six shots
   in the new player without errors. Rounds, tokens and ₹ per film are measured on the Q14 remake.

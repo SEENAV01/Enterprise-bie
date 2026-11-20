@@ -81,11 +81,17 @@ Decision cards in the planning chat, 18 November 2026:
    gradient?" to page 142 "...synthesis of sugars.", Figure 11.7 and one Summary line on page 151; two lines thin, and
    G3P, rotor, electrochemical gradient and leak beyond the book). He will send his own recorded voice, to be refined and
    cloned as the teacher's voice (tool to be licence-checked; any paid route needs his yes; the recording never goes in
-   the public repo). He reads the NCERT text, then judges the remade Q14. Changes on branch `studio-film-ncert`: the
-   player shows one progress bar instead of numbered shots; every film is checked line by line against the question's
-   book lines (whole sentences with their printed page, `studio.book_lines`), a short form the chapter never uses is
-   sent back, a wheel turns only when the question's own lines describe a cycle, at most 5 different molecules are on
-   screen at once, pictures follow real structure; each film gets an NCERT-to-film review page (`films/<qid>-ncert.html`).
+   the public repo). He reads the NCERT text, then judges the remade Q14. His answers on the second card the same day:
+   the cycle may come, but when a film touches what another film teaches, its context and basics must be clear, and
+   prerequisites, where the concept is used and the effect of what happened matter; going beyond the book is welcome
+   wherever it explains better (prerequisite, example, story, real-world use, NEET depth), with no fixed limit.
+   Changes on branch `studio-film-ncert`: the player shows one progress bar instead of numbered shots; every film is
+   checked line by line against the question's book lines (whole sentences with their printed page,
+   `studio.book_lines`); every sentence has its part (hook, prerequisite, concept, use, recap) and each film has a
+   prerequisite and a use sentence; what goes beyond the book is noted for the review page; a short form the chapter
+   never uses comes only with the book's own name and a note; a wheel is started by one sentence and each station
+   explained in a sentence of its own; at most 5 different molecules are on screen at once; pictures follow real
+   structure; each film gets an NCERT-to-film review page (`films/<qid>-ncert.html`).
 9. **Navin's chapter (19 November 2026):** NCERT Class 11 Biology chapter 11, Photosynthesis in Higher Plants, for NEET +
    Class 11 in Hinglish (decision card). NCERT's site sends an incomplete certificate chain, so Navin chose the public
    inputs branch for the PDF (`blindtest-inputs:chapters/ncert-class11-biology-ch11-photosynthesis.pdf`).

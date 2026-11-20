@@ -26,11 +26,15 @@ Every book line taught (Navin, 20 November 2026, on the first living film, Q14: 
 usse har baat cover honi chahiye", "tum mujhe batao is video se NCERT ka konsa text clear hota hai", the end "ek khichdi ban
 gaya", and the shot numbers under the film read as slides). The maker gets the question's book lines numbered (whole
 sentences with their printed page, ``studio.book_lines``) and every narration sentence names the lines it teaches
-(``teaches``) and anything it says beyond the book (``beyond``, for the review page only). Code checks that every line is
-taught by a sentence that speaks its words, that no short form the chapter never uses is spoken or shown (G3P in a chapter
-that says PGA), that a wheel (``cycles``) turns only when the question's own lines describe a cycle (what another film
-teaches is a one-sentence bridge here), and that at most MAX_KINDS different molecules are on screen at once.
-``coverage_page`` writes the NCERT-to-film page Navin reads beside the book.
+(``teaches``), anything it says beyond the book (``beyond``, for the review page only) and its ``part`` of the whole
+picture. Navin's answers the same day: going beyond the book is welcome wherever it makes the concept clearer (a
+prerequisite told first, an example, a story, where it is used in the real world, NEET depth: "warna bachcha kitab ki
+lines hi na padh leta"), and when a film touches a process another film teaches in detail, its context and basics must
+still be clear; every film carries the prerequisite, the concept and where it is used or what it causes. Code checks
+that every line is taught by a sentence that speaks its words, that a short form the chapter never uses (G3P in a chapter
+that says PGA) comes only with a beyond note naming it, that a wheel with n stations keeps turning for at least n
+sentences, that at most MAX_KINDS different molecules are on screen at once, and that the film has a prerequisite and a
+use sentence. ``coverage_page`` writes the NCERT-to-film page Navin reads beside the book.
 """
 from __future__ import annotations
 
@@ -61,8 +65,9 @@ SVG_BANNED = re.compile(r"(?i)<\s*(script|foreignObject|iframe|image|use|style)\
 MAX_SVG = 60000
 WORD = re.compile(r"[A-Za-zऀ-ॿ]{3,}")
 MAX_KINDS = 5                 # different molecules on screen at once (the Q14 ending showed 8 and read as khichdi)
-MAX_BEYOND = 2                # sentences per film that say something beyond the book (each noted for the review page)
-CYCLE_WORDS = re.compile(r"(?i)\bcycl")
+PARTS = ("hook", "prerequisite", "concept", "use", "recap")   # the film's whole picture (Navin, 20 November 2026)
+PART_NAMES = {"hook": "sawaal", "prerequisite": "pehle ki baat", "concept": "concept", "use": "kahan kaam aata hai / asar",
+              "recap": "yaad rakhiye"}
 STOP = set("""this that with from which there their these those have been will would into also only more most such than
 then them they when where what while very each other some through because about after before being both does done made
 make many much must over same shall should since upon used uses using well were your here just like even known called
@@ -95,7 +100,7 @@ SENTENCE = _obj({
     "cycles": _arr(_obj({"x": N, "y": N, "rx": N, "ry": N, "label": S, "carriers": I, "ms": N,
                          "stations": _arr(_obj({"at": N, "label": S, "becomes": WHAT, "takes": _arr(WHAT),
                                                 "gives": _arr(WHAT)}))})),
-    "teaches": _arr(I), "beyond": S,
+    "teaches": _arr(I), "beyond": S, "part": {"type": "string", "enum": list(PARTS)},
 })
 SCHEMA = _obj({
     "title": S, "look": S,
@@ -132,17 +137,25 @@ with a process written inside a box instead of happening on screen):
 - EVERY BOOK LINE IS TAUGHT. The question's book lines are numbered (B1, B2, ...). Each sentence lists in "teaches" the
   numbers of the book lines it teaches ([] for the opening question, a bridge or the recap); together the sentences teach
   every book line, in the teacher's own words but with every fact of the line kept (names, numbers, "several molecules"),
-  and a sentence that teaches a line speaks that line's own key words. Use the book's own names: a short form or formula
-  the chapter never uses (a term from another textbook) is not spoken and not shown. "beyond" is "" when the sentence says
-  only what the book says; otherwise a short note for BIE's review page (never shown) naming what it adds beyond the book;
-  at most {beyond} such sentences in the film, and only where the learner needs the idea to understand the book line.
-- THIS QUESTION ONLY. Other films of this course teach the chapter's other questions (listed with the question). What they
-  teach appears here at most as a one-sentence bridge, without its own wheel, stations or new molecules: if this
-  question's lines only say that ATP and NADPH are used in the stroma to fix CO2 and make sugar, show them reaching the
-  stroma and being used there, and leave the steps of the cycle to the film that teaches them. A wheel (cycles) turns only
-  when this question's own book lines describe that cycle.
+  and a sentence that teaches a line speaks that line's own key words. Use the book's own names; a name the chapter never
+  uses (a short form from another textbook, such as G3P where the book says PGA or triose phosphate) is said only together
+  with the book's own name, and that sentence's beyond note names it.
+- GO BEYOND THE BOOK WHEREVER IT MAKES THE CONCEPT CLEARER. The learner should think a step beyond the book's lines, not
+  just hear them: tell the prerequisite they need first, give an example or a short story, show where and how it works in
+  the real world, and go to NEET depth where it helps. "beyond" is "" when the sentence says only what the book says;
+  otherwise a short note for BIE's review page (never shown) naming what it adds beyond the book.
+- THE WHOLE PICTURE. Every sentence has its part: "hook" (the opening question), "prerequisite" (what the learner must
+  already know to follow this; recall it briefly, even when another film teaches it), "concept" (the question's own
+  ideas), "use" (where this concept is used next, in the plant or in life, and the effect of what happened) or "recap".
+  The film has at least one prerequisite sentence and at least one use sentence.
+- CONTEXT AND BASICS. Other films of this course teach the chapter's other questions (listed with the question). When
+  this film touches a process another film teaches in detail (for example the Calvin cycle in a film about making ATP),
+  its context and basics are still clear here: what goes in, what comes out, why it matters for this question, shown
+  slowly; its step-by-step details stay in its own film.
 - ONE THING AT A TIME. At most {kinds} different molecules on screen at once (a swarm of one kind, such as many H+, counts
-  as one); a step that needs more is split over sentences or shots, so the learner always sees what is happening.
+  as one); a step that needs more is split over sentences or shots, so the learner always sees what is happening. A
+  wheel (cycles) with n stations is started by one sentence that names it and its stations, then keeps turning for n
+  more sentences of its shot, each explaining one station (what comes in, what it makes, what leaves).
 - A TEACHER TELLING WHAT HAPPENS, not a textbook read aloud. Speak in the present tense while it happens on screen
   ("Dekhiye, yeh CO2 andar aata hai...", "ab RuBP isse pakad leta hai..."), one step per sentence, naming each molecule or
   part as it appears; ask a small why or what-next before the answer at least once in every process shot; no textbook
@@ -204,7 +217,7 @@ def messages(question: dict, *, course: str, language: str, chapter: str = "") -
             + _book_part(question))
     return [{"role": "system", "content": INSTRUCTIONS.format(course=course or "school", language=language or "Hinglish",
                                                               shots=f"{low} to {high}", length=length,
-                                                              molecules=", ".join(MOLECULES), beyond=MAX_BEYOND,
+                                                              molecules=", ".join(MOLECULES),
                                                               kinds=MAX_KINDS)},
             {"role": "user", "content": user}]
 
@@ -480,11 +493,11 @@ def _spoken_words(text: str) -> set:
 
 
 def book_problems(film: dict, question: dict) -> list:
-    """Every book line taught by a sentence that speaks its words; nothing spoken or shown in a short form the chapter
-    never uses; at most MAX_BEYOND sentences beyond the book. Only when the question carries its book lines."""
+    """Every book line taught by a sentence that speaks its words; a short form the chapter never uses only with a beyond
+    note that names it (and the book's own name said with it); the film's prerequisite and use sentences."""
     lines = question.get("book_lines") or []
     known = question.get("chapter_terms")
-    out, claims, beyond = [], {}, 0
+    out, claims, parts = [], {}, set()
     for where, _shot, sentence in _sentences(film):
         if lines:
             teaches = sentence.get("teaches")
@@ -496,15 +509,19 @@ def book_problems(film: dict, question: dict) -> list:
                     out.append(f"{where}: teaches B{n}, but the book lines are B1 to B{len(lines)}")
                 else:
                     claims.setdefault(n, []).append(sentence.get("roman") or "")
-            if (sentence.get("beyond") or "").strip():
-                beyond += 1
+        if "part" in sentence:
+            parts.add(sentence.get("part"))
+            if sentence.get("part") not in PARTS:
+                out.append(f"{where}: part must be one of {', '.join(PARTS)}")
         if known:
             shown = [sentence.get("roman") or ""] + [p.get("label") or "" for p in sentence.get("pins") or []] + [
                 m.get("label") or "" for m in sentence.get("moves") or []]
             used = [KIT["molecules"].get(name, {}).get("tag") or name for name in _molecules_of(sentence)]
+            note = sentence.get("beyond") or ""
             for term in studio_terms.unknown_terms(" ".join(shown + used), known):
-                out.append(f"{where}: {term} is not a name this chapter uses; use the chapter's own name for it (or leave "
-                           "that molecule out)")
+                if term.casefold() not in note.casefold():
+                    out.append(f"{where}: {term} is not a name this chapter uses; say the chapter's own name for it with it "
+                               f"and name {term} in this sentence's beyond note (or use the chapter's name only)")
     for line in lines:
         said = claims.get(line["n"])
         if not said:
@@ -512,8 +529,11 @@ def book_problems(film: dict, question: dict) -> list:
         elif not _content_words(line["text"]) & _spoken_words(" ".join(said)):
             out.append(f"book line B{line['n']} is listed in teaches, but none of its key words is spoken there: "
                        f"{line['text'][:120]}")
-    if beyond > MAX_BEYOND:
-        out.append(f"{beyond} sentences go beyond the book; at most {MAX_BEYOND}, only where the learner needs it")
+    if lines or parts:
+        for part, what in (("prerequisite", "what the learner must know first"),
+                           ("use", "where this concept is used next and the effect of what happened")):
+            if part not in parts:
+                out.append(f"no sentence is a {part} ({what}); every film has at least one")
     return out
 
 
@@ -527,12 +547,33 @@ def _molecules_of(sentence: dict) -> list:
     return [n for n in dict.fromkeys(names) if n in KIT["molecules"]]
 
 
+def _unexplained(stations: list, rest: list) -> list:
+    """The stations that cannot each get a sentence of their own (a sentence that speaks the station's label or the
+    molecule it makes), matched one sentence per station."""
+    said = [_spoken_words((s.get("roman") or "") + " " + (s.get("voice") or "")) | _words(s.get("roman") or "") for s in rest]
+    def names(station):
+        words = {_stem(w) for w in re.findall(r"[A-Za-z]{4,}", station.get("label") or "")}
+        made = station.get("becomes") or ""
+        return words | {_stem(studio_terms._norm_term(t)) for t in studio_terms.TERM.findall(made) if t} | {made.lower()}
+    options = [[i for i, words in enumerate(said) if names(st) & words] for st in stations]
+    owner = {}
+    def place(j, seen):
+        for i in options[j]:
+            if i not in seen:
+                seen.add(i)
+                if i not in owner or place(owner[i], seen):
+                    owner[i] = j
+                    return True
+        return False
+    return [st for j, st in enumerate(stations) if not place(j, set())]
+
+
 def screen_problems(film: dict, question: dict) -> list:
     """One thing at a time: at most MAX_KINDS kit molecules on screen at once in a shot (what loops, what a reaction
-    made and a turning wheel stay on screen until the shot ends); a wheel only when the question's lines describe a cycle."""
+    made and a turning wheel stay on screen until the shot ends); a wheel with n stations keeps turning for n more
+    sentences after the one that starts it, one station explained per sentence (the Q14 ending told the whole cycle in
+    one sentence)."""
     out = []
-    lines = question.get("book_lines") or []
-    cycle_allowed = not lines or any(CYCLE_WORDS.search(line["text"]) for line in lines)
     for number, shot in enumerate(film.get("shots") or [], 1):
         sid = shot.get("id") or f"shot {number}"
         staying = set()
@@ -547,10 +588,18 @@ def screen_problems(film: dict, question: dict) -> list:
             for cycle in sentence.get("cycles") or []:
                 staying |= {n for st in cycle.get("stations") or [] for n in [st.get("becomes")] + list(st.get("takes") or [])
                             + list(st.get("gives") or []) if n in KIT["molecules"]}
-            if sentence.get("cycles") and not cycle_allowed:
-                out.append(f"{sid} sentence {k}: a wheel (cycles) turns, but this question's book lines describe no cycle; "
-                           "the cycle is taught in its own film: show here only what these lines say (a one-sentence "
-                           "bridge at most)")
+            rest = (shot.get("sentences") or [])[k:]
+            for cycle in sentence.get("cycles") or []:
+                stations = cycle.get("stations") or []
+                if len(stations) > len(rest):
+                    out.append(f"{sid} sentence {k}: a wheel with {len(stations)} stations turns for only {len(rest)} "
+                               f"sentence(s) after the one that starts it; keep it turning for {len(stations)} more "
+                               "sentences, one station explained per sentence")
+                else:
+                    for station in _unexplained(stations, rest):
+                        name = station.get("label") or station.get("becomes") or "a station"
+                        out.append(f"{sid} sentence {k}: the wheel's station {name!r} is not explained in a sentence of "
+                                   "its own (say its name or what it makes in one of the sentences while the wheel turns)")
     return out
 
 
@@ -640,7 +689,8 @@ def coverage(film: dict, question: dict) -> dict:
     lines = question.get("book_lines") or []
     taught, beyond, bridges = {line["n"]: [] for line in lines}, [], []
     for _where, shot, sentence in _sentences(film if isinstance(film, dict) else {}):
-        said = {"shot": shot.get("title") or shot.get("id") or "", "roman": sentence.get("roman") or ""}
+        said = {"shot": shot.get("title") or shot.get("id") or "", "roman": sentence.get("roman") or "",
+                "part": sentence.get("part") or ""}
         ns = [n for n in sentence.get("teaches") or [] if n in taught]
         for n in ns:
             taught[n].append(said)
@@ -654,8 +704,12 @@ def coverage(film: dict, question: dict) -> dict:
             unknown += [t for t in studio_terms.unknown_terms(sentence.get("roman") or "", question["chapter_terms"])
                         if t not in unknown]
     rows = [{"n": line["n"], "page": line.get("page", ""), "text": line["text"], "film": taught[line["n"]]} for line in lines]
+    parts = {}
+    for _where, _shot, sentence in _sentences(film if isinstance(film, dict) else {}):
+        if sentence.get("part") in PARTS:
+            parts[sentence["part"]] = parts.get(sentence["part"], 0) + 1
     return {"rows": rows, "taught": sum(1 for r in rows if r["film"]), "total": len(rows), "beyond": beyond,
-            "bridges": bridges, "unknown_terms": unknown}
+            "bridges": bridges, "unknown_terms": unknown, "parts": parts}
 
 
 def coverage_page(film: dict, question: dict, *, chapter: str = "") -> str:
@@ -671,8 +725,11 @@ def coverage_page(film: dict, question: dict, *, chapter: str = "") -> str:
         mark = '<b class="ok">✓</b>' if r["film"] else '<b class="no">✗ nahi padhaya</b>'
         rows.append(f'<tr><td class="pg">{e(r["page"])}</td><td class="book">{e(r["text"])}</td>'
                     f'<td>{mark}<ul>{said}</ul></td></tr>')
-    extra = "".join(f'<li>{e(b["roman"])}<div class="note">{e(b["note"])}</div></li>' for b in c["beyond"]) or "<li>Kuch nahi.</li>"
-    joins = "".join(f'<li><span class="shot">{e(b["shot"])}</span> {e(b["roman"])}</li>' for b in c["bridges"]) or "<li>Kuch nahi.</li>"
+    tag = lambda s: f'<span class="part">{e(PART_NAMES.get(s.get("part"), ""))}</span> ' if s.get("part") in PART_NAMES else ""
+    extra = "".join(f'<li>{tag(b)}{e(b["roman"])}<div class="note">{e(b["note"])}</div></li>' for b in c["beyond"]) or "<li>Kuch nahi.</li>"
+    joins = "".join(f'<li>{tag(b)}<span class="shot">{e(b["shot"])}</span> {e(b["roman"])}</li>' for b in c["bridges"]) or "<li>Kuch nahi.</li>"
+    shape = " · ".join(f"{PART_NAMES[p]}: {c['parts'][p]}" for p in PARTS if c["parts"].get(p))
+    shape = f'<p class="sum">Film ka dhaancha: {e(shape)}</p>' if shape else ""
     terms = (f'<p class="warn">Chapter mein na milne wale shabd: {e(", ".join(c["unknown_terms"]))}</p>'
              if c["unknown_terms"] else "")
     title = f'{question.get("id", "")} · {question.get("question", "")}'
@@ -685,12 +742,13 @@ h1{{font-size:1.25rem;margin:.2em 0}}h2{{font-size:1.05rem;margin:1.4em 0 .4em}}
 table{{width:100%;border-collapse:collapse;background:var(--card)}}td{{border-top:1px solid var(--line);padding:8px;vertical-align:top}}
 td.pg{{white-space:nowrap;color:var(--soft);width:3em}}td.book{{width:45%}}ul{{margin:.3em 0 0;padding-left:1.1em}}.shot{{color:var(--soft);font-size:.85em}}
 .ok{{color:var(--ok)}}.no{{color:var(--no)}}.note{{color:var(--soft);font-size:.9em}}.warn{{color:var(--no)}}
+.part{{display:inline-block;font-size:.75em;border:1px solid var(--line);border-radius:6px;padding:0 5px;color:var(--soft)}}
 @media (max-width:640px){{td{{display:block;width:auto!important;border-top:none}}tr{{display:block;border-top:1px solid var(--line);padding:6px 0}}}}
 </style></head><body><main>
 <p class="sum">BIE · {e(chapter)} · review page (learner ko nahi dikhta)</p>
 <h1>{e(title)}</h1>
-<p><b>{c["taught"]} / {c["total"]}</b> NCERT lines film mein padhayi gayi · NCERT page {e(", ".join(pages))}</p>{terms}
+<p><b>{c["taught"]} / {c["total"]}</b> NCERT lines film mein padhayi gayi · NCERT page {e(", ".join(pages))}</p>{shape}{terms}
 <table>{"".join(rows)}</table>
-<h2>NCERT se bahar ki baat</h2><ul>{extra}</ul>
-<h2>Jodne wali lines (inmein koi NCERT line nahi)</h2><ul>{joins}</ul>
+<h2>NCERT se bahar ki baat (BIE ne samjhane ke liye joda)</h2><ul>{extra}</ul>
+<h2>Baaki lines (sawaal, pehle ki baat, kahan kaam aata hai; inmein koi NCERT line nahi)</h2><ul>{joins}</ul>
 </main></body></html>"""

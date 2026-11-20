@@ -183,7 +183,10 @@ def living_film():
                                "left, open fluid stroma in the centre and right, membranes with depth", "svg": ""}
     f["shots"][1]["sentences"] = [
         sentence("Stroma mein CO2 aata hai aur RuBP se judkar 3-PGA banta hai.", "स्ट्रोमा में CO2 आता है और RuBP से जुड़कर 3-PGA बनता है।"),
-        sentence("Calvin cycle ghoomta hai: fixation, reduction aur regeneration.", "केल्विन साइकिल घूमता है: फ़िक्सेशन, रिडक्शन और रीजनरेशन।")]
+        sentence("Calvin cycle ghoomta hai: fixation, reduction aur regeneration.", "केल्विन साइकिल घूमता है: फ़िक्सेशन, रिडक्शन और रीजनरेशन।"),
+        sentence("Fixation par CO2 judta hai aur 3-PGA banta hai.", "फ़िक्सेशन पर CO2 जुड़ता है और 3-PGA बनता है।"),
+        sentence("Reduction par ATP lagta hai aur G3P banta hai.", "रिडक्शन पर ATP लगता है और G3P बनता है।"),
+        sentence("Regeneration par RuBP wapas banta hai.", "रीजनरेशन पर RuBP वापस बनता है।")]
     f["shots"][1]["sentences"][0]["reacts"] = [dict(REACT)]
     f["shots"][1]["sentences"][1]["cycles"] = [dict(CALVIN)]
     return f
@@ -322,8 +325,8 @@ def taught_film(teaches, beyond=("",) * 4):
     f["shots"][0]["sentences"][1]["roman"] = "Hawa Ghats par chadhkar thandi hoti hai (cools) aur barasti hai."
     f["shots"][1]["sentences"][1]["roman"] = "Doosri side par utarti hawa sookhi rehti hai."
     lines = [s for shot in f["shots"] for s in shot["sentences"]]
-    for s, n, b in zip(lines, teaches, beyond):
-        s["teaches"], s["beyond"] = list(n), b
+    for s, n, b, part in zip(lines, teaches, beyond, ("hook", "concept", "prerequisite", "use")):
+        s["teaches"], s["beyond"], s["part"] = list(n), b, part
     return f
 
 
@@ -369,54 +372,61 @@ class BookLines(unittest.TestCase):
         bad = taught_film([[], [1], [], [2]])
         del bad["shots"][0]["sentences"][0]["teaches"]
         self.assertIn("teaches is missing", " ".join(studio_film.problems(bad, BOOK_Q)))
-        busy = taught_film([[], [1], [], [2]], beyond=("a", "b", "c", ""))
-        self.assertIn("3 sentences go beyond the book; at most 2", " ".join(studio_film.problems(busy, BOOK_Q)))
+        rich = taught_film([[], [1], [], [2]], beyond=("a", "b", "c", "d"))                  # beyond the book: welcome
+        self.assertEqual(studio_film.problems(rich, BOOK_Q), [])
+        flat = taught_film([[], [1], [], [2]])
+        for s in flat["shots"][1]["sentences"]:
+            s["part"] = "concept"
+        found = " | ".join(studio_film.problems(flat, BOOK_Q))
+        self.assertIn("no sentence is a prerequisite", found)
+        self.assertIn("no sentence is a use", found)
         self.assertEqual(studio_film.problems(film(), QUESTION), [])                         # without book lines: as before
 
-    def test_a_short_form_the_chapter_never_uses_is_sent_back(self):
+    def test_a_short_form_the_chapter_never_uses_needs_a_beyond_note(self):
         bad = taught_film([[], [1], [], [2]])
-        bad["shots"][0]["sentences"][1]["roman"] = "Hawa yahan chadhkar thandi hoti hai, G3P jaisi nahi, aur barasti hai."
+        bad["shots"][0]["sentences"][1]["roman"] = "Hawa Ghats par chadhkar thandi hoti hai (cools), G3P jaisi nahi, aur barasti hai."
         bad["shots"][1]["sentences"][1]["moves"] = [dict(CLOUDS, what="G3P", label="", loop=False)]
         found = studio_film.problems(bad, BOOK_Q)
         self.assertEqual(sum("G3P is not a name this chapter uses" in p for p in found), 2, found)
+        bad["shots"][0]["sentences"][1]["beyond"] = "G3P: doosri kitabon ka naam, kitab ise triose phosphate kehti hai"
+        bad["shots"][1]["sentences"][1]["beyond"] = "g3p wahi triose phosphate"
+        self.assertEqual(studio_film.problems(bad, BOOK_Q), [])
 
-    def test_one_thing_at_a_time_and_no_wheel_from_another_film(self):
+    def test_one_thing_at_a_time_and_a_wheel_explained_station_by_station(self):
         busy = living_film()
         busy["shots"][1]["sentences"][1]["cycles"] = [dict(CALVIN_BUSY)]
         found = " | ".join(studio_film.problems(busy, QUESTION))
         self.assertIn("8 different molecules on screen at once", found)
-        q = dict(BOOK_Q, book_lines=[dict(line) for line in BOOK_Q["book_lines"]], chapter_terms=None)
-        f = living_film()
-        for shot in f["shots"]:
-            for s in shot["sentences"]:
-                s["teaches"], s["beyond"] = [], ""
-        f["shots"][0]["sentences"][1]["teaches"] = [1]
-        f["shots"][0]["sentences"][1]["roman"] = "Hawa Ghats par chadhkar thandi hoti hai (cools) aur barasti hai."
-        f["shots"][1]["sentences"][0]["roman"] += " Doosri side par hawa sookhi rehti hai."
-        f["shots"][1]["sentences"][0]["teaches"] = [2]
-        found = studio_film.problems(f, q)
-        self.assertEqual(len(found), 1, found)
-        self.assertIn("a wheel (cycles) turns, but this question's book lines describe no cycle", found[0])
-        q["book_lines"][1]["text"] += " This goes round as a cycle."
-        self.assertEqual(studio_film.problems(f, q), [])
+        rushed = living_film()
+        rushed["shots"][1]["sentences"] = rushed["shots"][1]["sentences"][:2]   # the whole wheel told in one sentence (Q14)
+        found = " | ".join(studio_film.problems(rushed, QUESTION))
+        self.assertIn("a wheel with 3 stations turns for only 0 sentence(s) after the one that starts it", found)
+        vague = living_film()                       # Q14's ending: the stations made 3-PGA, G3P and RuBP, one sentence said it all
+        vague["shots"][1]["sentences"][4]["roman"] = "Cycle aise hi chalta rehta hai."
+        vague["shots"][1]["sentences"][4]["voice"] = "साइकिल ऐसे ही चलता रहता है।"
+        found = " | ".join(studio_film.problems(vague, QUESTION))
+        self.assertIn("station 'regeneration' is not explained in a sentence of its own", found)
 
     def test_maker_gets_numbered_lines_and_the_other_films(self):
         q = dict(BOOK_Q, other_questions=["q02: Baadal kaise bante hain?"])
         user = studio_film.messages(q, course="Class 9", language="Hinglish")[1]["content"]
         self.assertIn("B1 (page 141): The wind climbs the Ghats and cools.", user)
         self.assertIn("Taught in this course's other films (a bridge at most here):\n- q02: Baadal kaise bante hain?", user)
-        for rule in ("EVERY BOOK LINE IS TAUGHT", "THIS QUESTION ONLY", "ONE THING AT A TIME", "never invented blobs"):
+        for rule in ("EVERY BOOK LINE IS TAUGHT", "GO BEYOND THE BOOK WHEREVER IT MAKES THE CONCEPT CLEARER",
+                     "THE WHOLE PICTURE", "CONTEXT AND BASICS", "ONE THING AT A TIME", "never invented blobs"):
             self.assertIn(rule, studio_film.INSTRUCTIONS)
         props = studio_film.SCHEMA["properties"]["shots"]["items"]["properties"]["sentences"]["items"]["properties"]
         self.assertIn("teaches", props)
         self.assertIn("beyond", props)
+        self.assertEqual(props["part"]["enum"], ["hook", "prerequisite", "concept", "use", "recap"])
 
     def test_coverage_page_for_navin(self):
         f = taught_film([[], [1], [], []], beyond=("", "", "", "ghaat ki oonchai kitab mein nahi <b>"))
         html = studio_film.coverage_page(f, BOOK_Q, chapter="Monsoon")
         for text in ("1 / 2</b> NCERT lines film mein padhayi gayi", "NCERT page 141, 142", "learner ko nahi dikhta",
                      "✗ nahi padhaya", "Hawa Ghats par chadhkar thandi hoti hai", "ghaat ki oonchai kitab mein nahi &lt;b&gt;",
-                     "Jodne wali lines"):
+                     "Film ka dhaancha: sawaal: 1 · pehle ki baat: 1 · concept: 1 · kahan kaam aata hai / asar: 1",
+                     '<span class="part">kahan kaam aata hai / asar</span>'):
             self.assertIn(text, html)
         c = studio_film.coverage(f, BOOK_Q)
         self.assertEqual((c["taught"], c["total"], len(c["beyond"])), (1, 2, 1))
