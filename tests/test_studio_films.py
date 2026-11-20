@@ -382,15 +382,17 @@ class BookLines(unittest.TestCase):
         self.assertIn("no sentence is a use", found)
         self.assertEqual(studio_film.problems(film(), QUESTION), [])                         # without book lines: as before
 
-    def test_a_short_form_the_chapter_never_uses_needs_a_beyond_note(self):
-        bad = taught_film([[], [1], [], [2]])
-        bad["shots"][0]["sentences"][1]["roman"] = "Hawa Ghats par chadhkar thandi hoti hai (cools), G3P jaisi nahi, aur barasti hai."
-        bad["shots"][1]["sentences"][1]["moves"] = [dict(CLOUDS, what="G3P", label="", loop=False)]
-        found = studio_film.problems(bad, BOOK_Q)
-        self.assertEqual(sum("G3P is not a name this chapter uses" in p for p in found), 2, found)
-        bad["shots"][0]["sentences"][1]["beyond"] = "G3P: doosri kitabon ka naam, kitab ise triose phosphate kehti hai"
-        bad["shots"][1]["sentences"][1]["beyond"] = "g3p wahi triose phosphate"
-        self.assertEqual(studio_film.problems(bad, BOOK_Q), [])
+    def test_words_are_free_and_only_listed(self):
+        """Navin, 20 November 2026: a strict rule against words outside the book would weaken "humara padhana kaise hai";
+        a name the chapter never uses is not sent back, only listed on the review page."""
+        free = taught_film([[], [1], [], [2]])
+        free["shots"][0]["sentences"][1]["roman"] = "Hawa Ghats par chadhkar thandi hoti hai (cools), jaise G3P ki kahani, aur barasti hai."
+        free["shots"][1]["sentences"][1]["moves"] = [dict(CLOUDS, what="G3P", label="", loop=False)]
+        self.assertEqual(studio_film.problems(free, BOOK_Q), [])
+        html = studio_film.coverage_page(free, BOOK_Q)
+        self.assertIn("Kitab se bahar ke shabd (sirf jaankari, film inse rukti nahi): G3P", html)
+        self.assertNotIn("Use the book's own names", studio_film.INSTRUCTIONS)
+        self.assertIn("Words are free", studio_film.INSTRUCTIONS)
 
     def test_one_thing_at_a_time_and_a_wheel_explained_station_by_station(self):
         busy = living_film()

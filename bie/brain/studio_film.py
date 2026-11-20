@@ -30,11 +30,13 @@ sentences with their printed page, ``studio.book_lines``) and every narration se
 picture. Navin's answers the same day: going beyond the book is welcome wherever it makes the concept clearer (a
 prerequisite told first, an example, a story, where it is used in the real world, NEET depth: "warna bachcha kitab ki
 lines hi na padh leta"), and when a film touches a process another film teaches in detail, its context and basics must
-still be clear; every film carries the prerequisite, the concept and where it is used or what it causes. Code checks
-that every line is taught by a sentence that speaks its words, that a short form the chapter never uses (G3P in a chapter
-that says PGA) comes only with a beyond note naming it, that a wheel with n stations keeps turning for at least n
-sentences, that at most MAX_KINDS different molecules are on screen at once, and that the film has a prerequisite and a
-use sentence. ``coverage_page`` writes the NCERT-to-film page Navin reads beside the book.
+still be clear; every film carries the prerequisite, the concept and where it is used or what it causes. And words are
+free ("agar mai strict boundation lga dunga ki book ki lines se bahar ek bhi word use nahi karna to humara padhana kaise
+hai wala section kamjor ho jaaega"): no word, name or analogy is refused for not being in the book; words the chapter
+never uses are only listed on the review page. Code checks that every line is taught by a sentence that speaks its
+words, that a wheel with n stations is explained station by station, that at most MAX_KINDS different molecules are on
+screen at once, and that the film has a prerequisite and a use sentence. ``coverage_page`` writes the NCERT-to-film page
+Navin reads beside the book.
 """
 from __future__ import annotations
 
@@ -137,9 +139,9 @@ with a process written inside a box instead of happening on screen):
 - EVERY BOOK LINE IS TAUGHT. The question's book lines are numbered (B1, B2, ...). Each sentence lists in "teaches" the
   numbers of the book lines it teaches ([] for the opening question, a bridge or the recap); together the sentences teach
   every book line, in the teacher's own words but with every fact of the line kept (names, numbers, "several molecules"),
-  and a sentence that teaches a line speaks that line's own key words. Use the book's own names; a name the chapter never
-  uses (a short form from another textbook, such as G3P where the book says PGA or triose phosphate) is said only together
-  with the book's own name, and that sentence's beyond note names it.
+  and a sentence that teaches a line speaks that line's own key words. Words are free: use whatever words, names,
+  analogies and everyday Hinglish make the idea clear, including words the book never uses; where the book has its own
+  name for something you call differently, say the book's name too, because the exam asks in the book's words.
 - GO BEYOND THE BOOK WHEREVER IT MAKES THE CONCEPT CLEARER. The learner should think a step beyond the book's lines, not
   just hear them: tell the prerequisite they need first, give an example or a short story, show where and how it works in
   the real world, and go to NEET depth where it helps. "beyond" is "" when the sentence says only what the book says;
@@ -493,10 +495,9 @@ def _spoken_words(text: str) -> set:
 
 
 def book_problems(film: dict, question: dict) -> list:
-    """Every book line taught by a sentence that speaks its words; a short form the chapter never uses only with a beyond
-    note that names it (and the book's own name said with it); the film's prerequisite and use sentences."""
+    """Every book line taught by a sentence that speaks its words, and the film's prerequisite and use sentences. Words
+    are free: no word is refused for not being in the book (Navin, 20 November 2026)."""
     lines = question.get("book_lines") or []
-    known = question.get("chapter_terms")
     out, claims, parts = [], {}, set()
     for where, _shot, sentence in _sentences(film):
         if lines:
@@ -513,15 +514,6 @@ def book_problems(film: dict, question: dict) -> list:
             parts.add(sentence.get("part"))
             if sentence.get("part") not in PARTS:
                 out.append(f"{where}: part must be one of {', '.join(PARTS)}")
-        if known:
-            shown = [sentence.get("roman") or ""] + [p.get("label") or "" for p in sentence.get("pins") or []] + [
-                m.get("label") or "" for m in sentence.get("moves") or []]
-            used = [KIT["molecules"].get(name, {}).get("tag") or name for name in _molecules_of(sentence)]
-            note = sentence.get("beyond") or ""
-            for term in studio_terms.unknown_terms(" ".join(shown + used), known):
-                if term.casefold() not in note.casefold():
-                    out.append(f"{where}: {term} is not a name this chapter uses; say the chapter's own name for it with it "
-                               f"and name {term} in this sentence's beyond note (or use the chapter's name only)")
     for line in lines:
         said = claims.get(line["n"])
         if not said:
@@ -730,8 +722,8 @@ def coverage_page(film: dict, question: dict, *, chapter: str = "") -> str:
     joins = "".join(f'<li>{tag(b)}<span class="shot">{e(b["shot"])}</span> {e(b["roman"])}</li>' for b in c["bridges"]) or "<li>Kuch nahi.</li>"
     shape = " · ".join(f"{PART_NAMES[p]}: {c['parts'][p]}" for p in PARTS if c["parts"].get(p))
     shape = f'<p class="sum">Film ka dhaancha: {e(shape)}</p>' if shape else ""
-    terms = (f'<p class="warn">Chapter mein na milne wale shabd: {e(", ".join(c["unknown_terms"]))}</p>'
-             if c["unknown_terms"] else "")
+    terms = (f'<p class="sum">Kitab se bahar ke shabd (sirf jaankari, film inse rukti nahi): '
+             f'{e(", ".join(c["unknown_terms"]))}</p>' if c["unknown_terms"] else "")
     title = f'{question.get("id", "")} · {question.get("question", "")}'
     return f"""<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NCERT aur film</title><style>

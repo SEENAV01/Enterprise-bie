@@ -88,10 +88,17 @@ Decision cards in the planning chat, 18 November 2026:
    Changes on branch `studio-film-ncert`: the player shows one progress bar instead of numbered shots; every film is
    checked line by line against the question's book lines (whole sentences with their printed page,
    `studio.book_lines`); every sentence has its part (hook, prerequisite, concept, use, recap) and each film has a
-   prerequisite and a use sentence; what goes beyond the book is noted for the review page; a short form the chapter
-   never uses comes only with the book's own name and a note; a wheel is started by one sentence and each station
-   explained in a sentence of its own; at most 5 different molecules are on screen at once; pictures follow real
+   prerequisite and a use sentence; what goes beyond the book is noted for the review page; words are free (Navin's
+   third message: a rule against words outside the book would weaken how BIE teaches; words the chapter never uses
+   are only listed on the review page); a wheel is started by one sentence and each station explained in a sentence of
+   its own; at most 5 different molecules are on screen at once; pictures follow real
    structure; each film gets an NCERT-to-film review page (`films/<qid>-ncert.html`).
+   Also from Navin's third message (20 November 2026), for later sections: the voice is its own piece of work, aimed at
+   many languages where voice, script and on-screen labels are the native language mixed with English terms; and
+   "photorealistic animation" means real-looking things that move themselves (a car driving, a living thing moving,
+   the inside of a jet engine working, a product being made in a plant), not zoom on a still, together with 3D
+   realistic models, for skill and job courses; a still picture is fine for the leaf films. The colour rule (one part
+   keeps its colours from shot to shot) was explained to him as continuity, not a limit on content.
 9. **Navin's chapter (19 November 2026):** NCERT Class 11 Biology chapter 11, Photosynthesis in Higher Plants, for NEET +
    Class 11 in Hinglish (decision card). NCERT's site sends an incomplete certificate chain, so Navin chose the public
    inputs branch for the PDF (`blindtest-inputs:chapters/ncert-class11-biology-ch11-photosynthesis.pdf`).

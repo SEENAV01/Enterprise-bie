@@ -2137,7 +2137,9 @@ the core lane 563 → 577 tests, all green. The next video worker's rounds and h
   flowing with nobody saying what happens; when a film touches what another film teaches, its context and basics must be
   clear; prerequisites, where the concept is used and the effect of what happened matter; and going beyond the book is
   welcome wherever it explains better ("tabhi to book ki lines se ek kadam hatke think kar paayenge, warna bachcha kitab
-  ki lines hi na padh leta"), NEET depth included.
+  ki lines hi na padh leta"), NEET depth included. In a third message he corrected the one rule that still bound words:
+  explaining a book can need words, analogies and names from outside it, and a strict boundary would weaken "humara
+  padhana kaise hai"; so no word is refused.
 - **Taught:** the film had no link to the book's own lines, only to the question's points, so nobody (BIE, Claude or
   Navin) could see which NCERT sentence each narration line teaches. Read against the chapter, Q14's text is section
   11.6.3 from page 141 "Why are we so interested in the proton gradient?" to page 142 "...synthesis of sugars.", plus
@@ -2156,12 +2158,12 @@ the core lane 563 → 577 tests, all green. The next video worker's rounds and h
   other questions; every narration sentence carries `teaches` (the book lines it teaches), `beyond` (what it adds
   beyond the book, welcome and unlimited, noted for the review page only) and `part` (hook, prerequisite, concept, use,
   recap); code sends back a book line nobody teaches, a line claimed by a sentence that speaks none of its key words
-  (plural and H+/proton folded), a film without a prerequisite or a use sentence, a short form the chapter never uses
-  (in the narration, a label or a kit molecule on screen) unless that sentence's beyond note names it (the maker says
-  the book's own name with it), a wheel whose stations do not each get a sentence of their own after the sentence that
+  (plural and H+/proton folded), a film without a prerequisite or a use sentence, a wheel whose stations do not each get a sentence of their own after the sentence that
   starts it (matched one sentence per station), and more than 5 different molecules on screen at once (what loops, what
   a reaction made and a turning wheel stay on screen until the shot ends; a swarm of one kind counts once); a process
-  another film teaches in detail is shown here in its context and basics; pictures follow real structure (a protein in its known shape, never invented blobs; a close-up keeps
+  another film teaches in detail is shown here in its context and basics; words are free (a name the chapter never
+  uses, such as G3P, is only listed on the review page; the maker is told to say the book's own name too because the
+  exam asks in the book's words); pictures follow real structure (a protein in its known shape, never invented blobs; a close-up keeps
   its surroundings). `coverage_page` writes the NCERT-to-film review page (each book line, its page and the sentences
   that teach it, the film's shape by part, then what goes beyond the book and the other lines with their part); `tools/vm_studio.py` writes it as
   `films/<qid>-ncert.html` and FILMS.md shows "NCERT lines taught/total". `bie/brain/studio_player.html`: no shot
@@ -2171,7 +2173,7 @@ the core lane 563 → 577 tests, all green. The next video worker's rounds and h
 - **Measured:** on the real chapter PDF the 25 questions have 364 book lines; Q14 has 12 (pages 141, 142, 151) with
   CF0, CF1, F0 and CO2 restored. The checks on the old Q14 film send back exactly what Navin saw: 8 molecules at once
   in three sentences of the last shot, a 3-station wheel told in one sentence (2 sentences after it, neither explaining
-  fixation or RuBP), G3P twice with no note, no prerequisite and no use sentence, and (with no `teaches` yet) all 12 book
+  fixation or RuBP), no prerequisite and no use sentence (G3P is listed on the review page, not sent back), and (with no `teaches` yet) all 12 book
   lines. The Q14 film re-wrapped with the new player plays end to end in Chromium with the
   voice in all 20 sentences, no shot numbers, the bar moving, no console errors; the older q03 film plays all six shots
   in the new player without errors. Rounds, tokens and ₹ per film are measured on the Q14 remake.
