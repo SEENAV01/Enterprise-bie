@@ -47,15 +47,15 @@
 .ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
 .ctl button{background:#132226;color:var(--ink);border:1px solid #2c4248;border-radius:9px;padding:9px 14px;font-size:.95rem;min-height:42px}
 .ctl .play{background:var(--gold);color:#17140a;border-color:var(--gold);font-weight:700}
-.dots{display:flex;gap:6px;flex-wrap:wrap}.dots button{min-height:30px;padding:4px 9px;font-size:.78rem}
-.dots button[aria-current=true]{border-color:var(--gold);color:var(--gold)}
+.bar{flex:1;min-width:120px;height:8px;border-radius:4px;background:#1d3238;cursor:pointer;position:relative;overflow:hidden}
+.bar i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold);border-radius:4px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style></head>
 <body><div class="film">
 <div class="top"><span class="mark" id="mark">BIE</span><span class="sc" id="sc"></span></div>
 <div class="stage" id="stage"><div class="world" id="world"></div><svg class="ssvg" id="ssvg" viewBox="0 0 100 56.25" preserveAspectRatio="none"></svg><div class="labels" id="labels"></div></div>
 <div class="band"><div class="key" id="key"></div><div class="sub" id="sub"></div></div>
-<div class="ctl"><button class="play" id="play">&#9654; Film chalaiye</button><button id="again">&#8634; Shuru se</button><div class="dots" id="dots"></div></div>
+<div class="ctl"><button class="play" id="play">&#9654; Film chalaiye</button><button id="again">&#8634; Shuru se</button><div class="bar" id="bar" role="progressbar" aria-label="Film kitni chal chuki hai"><i id="barfill"></i></div></div>
 <div class="vnote" id="vnote" hidden>Awaaz band hai: tablet ki awaaz/volume dekhiye, ya file ko Chrome mein kholiye. Film captions ke saath chal rahi hai.</div>
 </div>
 <script>/*__VOICE__*/</script>
@@ -74,7 +74,15 @@ let si=0,ki=0,playing=false,timer=null,token=0;const KIT=F.kit||{elements:{},mol
 const COL={gold:['#fff3c4','#e8b948','#7a5a12'],green:['#eaffd8','#7fc45a','#2c5a1c'],blue:['#e2f6ff','#5fb8e6','#17506e'],
   red:['#ffe0d8','#e0614a','#6e2015'],white:['#ffffff','#dfe8ea','#7d8b8f'],purple:['#f3e4ff','#a777e0','#45206e']};
 document.documentElement.style.setProperty('--tint',F.tint||'#2c6e87');$('mark').textContent='BIE · '+(F.chapter||'');
-F.shots.forEach((s,i)=>{const b=document.createElement('button');b.textContent=(i+1);b.title=s.title||'';b.onclick=()=>{stop();show(i,0);};$('dots').appendChild(b);});
+// one film, not numbered slides (Navin, 20 November 2026: the shot numbers 1-6 under the film made it read as slides): a single
+// progress bar shows how far the film has run; a tap on it jumps to the sentence at that point
+const DUR=F.shots.flatMap((s,i)=>s.sentences.map((t,k)=>({i,k,d:+t.dur||3})));const TOTAL=DUR.reduce((a,x)=>a+x.d,0)||1;
+function startOf(i,k){let a=0;for(const x of DUR){if(x.i===i&&x.k===k)return a;a+=x.d;}return a;}
+function bar(i,k,run){const f=$('barfill'),a=startOf(i,k)/TOTAL*100,d=((DUR.find(x=>x.i===i&&x.k===k)||{}).d||0);
+  f.style.transition='none';f.style.width=a+'%';if(run){void f.offsetWidth;f.style.transition='width '+d+'s linear';f.style.width=(a+d/TOTAL*100)+'%';}}
+function freezeBar(){const f=$('barfill'),w=f.getBoundingClientRect().width/$('bar').getBoundingClientRect().width*100;f.style.transition='none';f.style.width=w+'%';}
+$('bar').onclick=e=>{const r=$('bar').getBoundingClientRect(),at=(e.clientX-r.left)/r.width*TOTAL;let a=0,hit=DUR[0];
+  for(const x of DUR){if(a+x.d>at){hit=x;break;}a+=x.d;hit=x;}stop();show(hit.i,hit.k);};
 function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
 function sv(t,attrs,parent){const e=document.createElementNS(NS,t);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
 const ease=t=>t<0?0:t>1?1:t*t*(3-2*t);
@@ -263,8 +271,7 @@ function fxAdd(arrows,effects){arrows.forEach(a=>{const P=a.points.map(p=>[p[0],
 function clearShot(){actors=[];labels=[];texts=[];$('world').innerHTML='';$('ssvg').innerHTML='';$('labels').innerHTML='';}
 function build(i){const s=F.shots[i];clearShot();
   if(s.type==='diagram'){const d=el('div','svg base');d.innerHTML=s.svg;$('world').appendChild(d);}else{const im=el('img');im.alt='';im.src=s.img||'';$('world').appendChild(im);}
-  worldLayers();if(s.type==='diagram')textLayer();$('key').textContent=s.key||'';$('sc').textContent=(s.title||'')+' · '+String(i+1).padStart(2,'0')+' / '+String(F.shots.length).padStart(2,'0');
-  [...$('dots').children].forEach((b,j)=>b.setAttribute('aria-current',String(j===i)));}
+  worldLayers();if(s.type==='diagram')textLayer();$('key').textContent=s.key||'';$('sc').textContent=s.title||'';}
 function show(i,k,viaDive){const my=++token;const s=F.shots[i];si=i;ki=0;
   // the next picture opens inside the dive point while the old picture zooms past and fades (one world, no slide cut);
   // a shot without a dive cross-fades
@@ -282,7 +289,7 @@ function show(i,k,viaDive){const my=++token;const s=F.shots[i];si=i;ki=0;
       if(u<1)requestAnimationFrame(step);else{ghost.remove();cam.fade=1;lens(999);}};
     requestAnimationFrame(step);setTimeout(()=>{if(my===token)sentence(k||0);},deep?ms:200);return;}
   build(i);cam.to=null;cam.ox=50;cam.oy=50;cam.s=1;cam.fade=1;sentence(k||0);}
-function sentence(k){const s=F.shots[si];const t=s.sentences[k];if(!t)return;ki=k;$('sub').textContent=t.text;const now=performance.now();
+function sentence(k){const s=F.shots[si];const t=s.sentences[k];if(!t)return;ki=k;$('sub').textContent=t.text;const now=performance.now();bar(si,k,playing);
   const zm=t.zoom||{};camTo(zm.x==null?50:zm.x,zm.y==null?50:zm.y,Math.min(2.2,Math.max(1,zm.scale||1)),1700);
   (t.pins||[]).forEach(p=>addLabel(p.t,p.x,p.y,'pin new',now));fxAdd(t.arrows||[],t.effects||[]);
   handOff(t.moves||[],now+300);(t.moves||[]).forEach(m=>addMove(m,now+300));(t.grows||[]).forEach(g=>addGrow(g,now+300));(t.fuses||[]).forEach((f,i)=>addFuse(f,now+400+i*1200));
@@ -295,8 +302,8 @@ function speak(t){clearTimeout(timer);const my=token;const later=ms=>{timer=setT
   const s=F.shots[si],n=s.sentences[ki+1]||((F.shots[si+1]||{}).sentences||[])[0];if(n)BIEVoice.prefetch(n.audio);}
 function next(){if(!playing)return;const s=F.shots[si];if(ki+1<s.sentences.length){sentence(ki+1);return;}if(si+1<F.shots.length){show(si+1,0,true);return;}stop();}
 BIEVoice.onState=v=>{$('vnote').hidden=v!=='blocked';};
-function stop(){playing=false;clearTimeout(timer);BIEVoice.stop();$('play').innerHTML='&#9654; Film chalaiye';}
-$('play').onclick=()=>{BIEVoice.unlock();if(playing){stop();return;}playing=true;$('play').innerHTML='&#10074;&#10074; Rokiye';speak(F.shots[si].sentences[ki]);};
+function stop(){playing=false;clearTimeout(timer);BIEVoice.stop();freezeBar();$('play').innerHTML='&#9654; Film chalaiye';}
+$('play').onclick=()=>{BIEVoice.unlock();if(playing){stop();return;}playing=true;$('play').innerHTML='&#10074;&#10074; Rokiye';bar(si,ki,true);speak(F.shots[si].sentences[ki]);};
 $('again').onclick=()=>{stop();show(0,0);};
 window.BIEFilm={state:()=>({shot:si,sentence:ki,playing,camera:{ox:cam.ox,oy:cam.oy,s:cam.s},actors:actors.map(a=>a.kind),labels:labels.length,voice:BIEVoice.state,words:texts.length,cut:texts.filter(t=>t.classList.contains('cut')).length})};
 show(0,0);

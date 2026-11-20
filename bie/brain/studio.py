@@ -123,6 +123,132 @@ def all_blocks(pages) -> dict:
     return {block.id: " ".join((block.text or "").split()) for page in pages for block in page.blocks}
 
 
+# --- the book's own lines for one question (Navin, 20 November 2026, on the Q14 film: "video ki script jo teacher samjha
+# raha hai usse har baat cover honi chahiye"; "tum mujhe batao is video se NCERT ka konsa text clear hota hai"). A question's
+# blocks are lines of the page; its book lines are the whole sentences those blocks belong to, so a film can be checked
+# sentence by sentence and Navin can find each one on its printed page.
+
+LONE_MARK = re.compile(r"^[0-9+\-– ]{1,4}$")            # a block that is only a subscript or charge (the 0 of CF0, the 2 of CO2)
+FOOTER = re.compile(r"^[0-9][0-9\-–/ ]*$")              # a printed edition or page line such as "2024-25"
+HEADER_NUMBER = re.compile(r"^([0-9]{1,4})\s+[A-Z]|[A-Z]\s+([0-9]{1,4})$")
+CAPTION = re.compile(r"^(Figure|Fig\.|Table)\s+[0-9]")
+SENTENCE_END = re.compile(r"(?<=[.?!])\s+(?=[A-Z0-9(\"'“])")
+
+
+def printed_page(page) -> str:
+    """The page number printed in the page's running head ("PHOTOSYNTHESIS IN HIGHER PLANTS 141" -> "141"), else the
+    PDF page number."""
+    for block in page.blocks[:2]:
+        text = " ".join((block.text or "").split())
+        found = HEADER_NUMBER.search(text) if text.upper() == text else None
+        if found:
+            return found.group(1) or found.group(2)
+    return str(page.number)
+
+
+def _running_head(page, index: int, text: str) -> bool:
+    return (index < 2 and text.upper() == text and bool(HEADER_NUMBER.search(text))) or (
+        index == len(page.blocks) - 1 and bool(FOOTER.match(text)))
+
+
+def _pieces(page) -> list:
+    """(block, text) for the page's blocks, with each lone subscript put back after the term it belongs to: the text
+    layer gives the 0 of CF0 as its own block, sitting inside the line's height, at the term's place along the line."""
+    out = [[block, " ".join((block.text or "").split())] for block in page.blocks]
+    for index, (block, piece) in enumerate(out):
+        if not LONE_MARK.match(piece or "x") or " " in piece.strip():
+            continue
+        middle = (block.box[1] + block.box[3]) / 2
+        for back in range(index - 1, max(-1, index - 3), -1):
+            line, text = out[back]
+            x0, y0, x1, y1 = line.box
+            if not (y0 <= middle <= y1 + 0.004) or x1 <= x0 or LONE_MARK.match(text or "x"):
+                continue
+            guess = (block.box[0] - x0) / (x1 - x0) * len(text)
+            ends = [m.end() for m in re.finditer(r"[A-Z][A-Za-z]*", text)]
+            best = min(ends, key=lambda e: abs(e - guess), default=None)
+            if best is not None and abs(best - guess) <= 5:
+                out[back][1] = text[:best] + piece.strip() + text[best:]
+                out[index][1] = ""
+            break
+    return [(block, piece) for block, piece in out]
+
+
+def book_lines(pages, block_ids) -> list:
+    """The question's book lines: every whole sentence (across lines and page breaks) most of whose letters lie in the
+    question's blocks, in reading order, as [{"n", "text", "page", "blocks"}]. Running heads, footers and lone
+    subscripts are left out; a figure caption is a line of its own and never cuts the sentence it sits inside."""
+    wanted = set(block_ids or [])
+    if not wanted:
+        return []
+    text, owner, page_of, order, captions = "", [], {}, {}, []
+    for page in pages:
+        printed = printed_page(page)
+        for index, (block, piece) in enumerate(_pieces(page)):
+            order[block.id] = len(order)
+            if not piece or LONE_MARK.match(piece) or _running_head(page, index, piece):
+                continue
+            page_of[block.id] = printed
+            if CAPTION.match(piece):
+                if block.id in wanted:
+                    captions.append((block.id, piece))
+                continue
+            if text:
+                joint = "" if text.endswith("-") and piece[:1].islower() else " "
+                text += joint
+                owner.extend([None] * len(joint))
+            text += piece
+            owner.extend([block.id] * len(piece))
+    found, start = [], 0
+    for end in [m.start() for m in SENTENCE_END.finditer(text)] + [len(text)]:
+        ids = [o for o in owner[start:end] if o]
+        sentence = re.sub(r"\s+([,.;:?!])", r"\1", text[start:end].strip())
+        if ids and sum(1 for o in ids if o in wanted) * 2 > len(ids) and len(sentence) >= 12:
+            found.append((list(dict.fromkeys(o for o in ids if o in wanted)), sentence))
+        start = end + 1
+    found += [([bid], piece) for bid, piece in captions]
+    found.sort(key=lambda item: order.get(item[0][0], 0))
+    return [{"n": n, "text": sentence, "page": page_of.get(blocks[0], ""), "blocks": blocks}
+            for n, (blocks, sentence) in enumerate(found, 1)]
+
+
+TERM = re.compile(r"[A-Za-z0-9+]+")
+
+
+def _norm_term(token: str) -> str:
+    return re.sub(r"[0-9+\-]", "", token).casefold()
+
+
+def is_term(token: str) -> bool:
+    """A short form or formula a learner must meet in the book's own spelling: ATP, CO2, G3P, RuBP, H+ (not Pi, not words)."""
+    uppers = sum(c.isupper() for c in token)
+    return len(token) >= 2 and (uppers >= 2 or (uppers >= 1 and any(c.isdigit() or c == "+" for c in token)))
+
+
+def chapter_terms(pages) -> list:
+    """Every token of the chapter and every run of 2 or 3 neighbouring tokens joined, without digits and charges (the
+    text layer splits subscripts off: "CO 2", "H O"), so a term is found however the PDF split it."""
+    known = set()
+    for page in pages:
+        for block in page.blocks:
+            tokens = [_norm_term(t) for t in TERM.findall(block.text or "")]
+            tokens = [t for t in tokens if t]
+            for n in (1, 2, 3):
+                for i in range(len(tokens) - n + 1):
+                    known.add("".join(tokens[i:i + n]))
+    return sorted(known)
+
+
+def unknown_terms(text: str, known) -> list:
+    """The short forms and formulas in ``text`` that the chapter never uses (G3P in a chapter that says PGA)."""
+    known = known if isinstance(known, (set, frozenset)) else set(known or [])
+    out = []
+    for token in TERM.findall(text or ""):
+        if is_term(token) and _norm_term(token) and _norm_term(token) not in known and token not in out:
+            out.append(token)
+    return out
+
+
 def chapter_text(pages) -> str:
     lines = []
     for page in pages:

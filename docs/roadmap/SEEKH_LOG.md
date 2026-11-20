@@ -2124,3 +2124,56 @@ the core lane 563 → 577 tests, all green. The next video worker's rounds and h
   frame-by-frame the dive shows the old picture zooming past and a round lens, no rectangle; no console errors. The
   older q03 film still plays in the new player without errors. The colour rule is an instruction; its effect shows on the
   next VM film.
+
+## Entry · Navin's verdict on the Q14 living film: every NCERT line, one film, one thing at a time, 20 November 2026
+
+- **Run:** no new AI run. Navin watched the Q14 film (the VM film of PR #174, re-wrapped with the PR #175 player) and
+  answered the decision card "Theek hai, par badlaav chahiye": the pictures are not like the real thing, the molecules'
+  movement is not clear, voice or script fall short, the screen is crowded. In his words: the shot numbers 1–6 under
+  the film are what made it slides; at the end the Calvin cycle "ek khichdi ban gaya, clear hua hi nahi ki ho kya raha
+  hai"; the teacher's script must cover every point of the NCERT text the question is about, and he asked which NCERT
+  text the film teaches; "video achhi bani hai". He will send his own recorded voice to refine and clone as the
+  teacher's voice. On a second card the same day he answered that the cycle itself was not the problem but molecules
+  flowing with nobody saying what happens; when a film touches what another film teaches, its context and basics must be
+  clear; prerequisites, where the concept is used and the effect of what happened matter; and going beyond the book is
+  welcome wherever it explains better ("tabhi to book ki lines se ek kadam hatke think kar paayenge, warna bachcha kitab
+  ki lines hi na padh leta"), NEET depth included. In a third message he corrected the one rule that still bound words:
+  explaining a book can need words, analogies and names from outside it, and a strict boundary would weaken "humara
+  padhana kaise hai"; so no word is refused.
+- **Taught:** the film had no link to the book's own lines, only to the question's points, so nobody (BIE, Claude or
+  Navin) could see which NCERT sentence each narration line teaches. Read against the chapter, Q14's text is section
+  11.6.3 from page 141 "Why are we so interested in the proton gradient?" to page 142 "...synthesis of sugars.", plus
+  one Summary sentence on page 151: 12 sentences; the film taught 10 fully, said "ATP banta" where the book says
+  several molecules of ATP, and went past the one book sentence on ATP and NADPH in the stroma into the steps of the
+  Calvin cycle, which three later questions (q15–q17) teach. It also said G3P (a word the chapter never uses; it says
+  PGA and triose phosphate), "rotor", "electrochemical gradient" and "leak". The khichdi was a scope error and a
+  crowding error at once: one shot held 8 different molecules (CO2, RuBP, 3-PGA, G3P, ATP, ADP, NADPH, NADP+) while the
+  ATP and NADPH loops of the sentence before kept moving.
+- **Changed in BIE:** `bie/brain/studio.py`: `book_lines(pages, block_ids)` gives a question's book lines as whole
+  sentences (across lines and page breaks, a sentence counted for the question when most of its letters lie in the
+  question's blocks), with the printed page number from the running head, lone subscripts put back after their term
+  from the block boxes (CF0, CF1, F0, CO2), running heads, footers and figure captions handled; `chapter_terms` and
+  `unknown_terms` find a short form or formula the chapter never uses however the PDF split its subscripts.
+  `bie/brain/studio_film.py`: the maker gets the book lines numbered (B1, B2, ... with their page) and the course's
+  other questions; every narration sentence carries `teaches` (the book lines it teaches), `beyond` (what it adds
+  beyond the book, welcome and unlimited, noted for the review page only) and `part` (hook, prerequisite, concept, use,
+  recap); code sends back a book line nobody teaches, a line claimed by a sentence that speaks none of its key words
+  (plural and H+/proton folded), a film without a prerequisite or a use sentence, a wheel whose stations do not each get a sentence of their own after the sentence that
+  starts it (matched one sentence per station), and more than 5 different molecules on screen at once (what loops, what
+  a reaction made and a turning wheel stay on screen until the shot ends; a swarm of one kind counts once); a process
+  another film teaches in detail is shown here in its context and basics; words are free (a name the chapter never
+  uses, such as G3P, is only listed on the review page; the maker is told to say the book's own name too because the
+  exam asks in the book's words); pictures follow real structure (a protein in its known shape, never invented blobs; a close-up keeps
+  its surroundings). `coverage_page` writes the NCERT-to-film review page (each book line, its page and the sentences
+  that teach it, the film's shape by part, then what goes beyond the book and the other lines with their part); `tools/vm_studio.py` writes it as
+  `films/<qid>-ncert.html` and FILMS.md shows "NCERT lines taught/total". `bie/brain/studio_player.html`: no shot
+  numbers and no "06 / 06" counter; one progress bar runs with the voice and a tap on it jumps to that sentence.
+  Tests in `tests/test_studio_films.py`; the living-film fixture's Calvin cycle now keeps to 5 molecules and the full
+  three-station wheel is the "too busy" example. IMPLEMENTED.
+- **Measured:** on the real chapter PDF the 25 questions have 364 book lines; Q14 has 12 (pages 141, 142, 151) with
+  CF0, CF1, F0 and CO2 restored. The checks on the old Q14 film send back exactly what Navin saw: 8 molecules at once
+  in three sentences of the last shot, a 3-station wheel told in one sentence (2 sentences after it, neither explaining
+  fixation or RuBP), no prerequisite and no use sentence (G3P is listed on the review page, not sent back), and (with no `teaches` yet) all 12 book
+  lines. The Q14 film re-wrapped with the new player plays end to end in Chromium with the
+  voice in all 20 sentences, no shot numbers, the bar moving, no console errors; the older q03 film plays all six shots
+  in the new player without errors. Rounds, tokens and ₹ per film are measured on the Q14 remake.

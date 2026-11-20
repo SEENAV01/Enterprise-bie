@@ -69,10 +69,36 @@ Decision cards in the planning chat, 18 November 2026:
    happens. INTEGRATED (PR #174): VM job `studio-photosynthesis-q14-living` made the Q14 film (status ok, 6 shots,
    6 AI pictures, 2.6 minutes, 2 rounds, no problems left, ₹0); played end to end in Chromium, the voice sounded through
    the audio element in all 20 sentences, molecules, a react and the Calvin cycle moved on the pictures, five shots dive,
-   no console errors. Sent to Navin on 20 November 2026; his verdict is pending. What the film showed is tidied in the
-   player (branch `studio-film-tidy`): name tags never pile up, a react's product is handed to the move that carries
-   it on, a station's molecules fan out, the next picture opens as a round lens (never a box), and the maker names the
-   colours of structures seen in more than one picture.
+   no console errors. Sent to Navin on 20 November 2026. What the film showed is tidied in the player (PR #175,
+   merged): name tags never pile up, a react's product is handed to the move that carries it on, a station's molecules
+   fan out, the next picture opens as a round lens (never a box), and the maker names the colours of structures seen
+   in more than one picture; the same film re-wrapped with that player went to Navin.
+   **Navin's verdict on Q14 (20 November 2026, decision card): "Theek hai, par badlaav chahiye"** ("video achhi bani
+   hai"): the pictures do not look like the real thing, the molecules' movement is not clear, voice or script fall
+   short, the screen is crowded; the shot numbers 1–6 under the film are what read as slides; the Calvin cycle at the
+   end "ek khichdi ban gaya"; every point of the NCERT text the question covers must be in the teacher's script, and he
+   asked which NCERT text the film teaches (answered: section 11.6.3, page 141 "Why are we so interested in the proton
+   gradient?" to page 142 "...synthesis of sugars.", Figure 11.7 and one Summary line on page 151; two lines thin, and
+   G3P, rotor, electrochemical gradient and leak beyond the book). He will send his own recorded voice, to be refined and
+   cloned as the teacher's voice (tool to be licence-checked; any paid route needs his yes; the recording never goes in
+   the public repo). He reads the NCERT text, then judges the remade Q14. His answers on the second card the same day:
+   the cycle may come, but when a film touches what another film teaches, its context and basics must be clear, and
+   prerequisites, where the concept is used and the effect of what happened matter; going beyond the book is welcome
+   wherever it explains better (prerequisite, example, story, real-world use, NEET depth), with no fixed limit.
+   Changes on branch `studio-film-ncert`: the player shows one progress bar instead of numbered shots; every film is
+   checked line by line against the question's book lines (whole sentences with their printed page,
+   `studio.book_lines`); every sentence has its part (hook, prerequisite, concept, use, recap) and each film has a
+   prerequisite and a use sentence; what goes beyond the book is noted for the review page; words are free (Navin's
+   third message: a rule against words outside the book would weaken how BIE teaches; words the chapter never uses
+   are only listed on the review page); a wheel is started by one sentence and each station explained in a sentence of
+   its own; at most 5 different molecules are on screen at once; pictures follow real
+   structure; each film gets an NCERT-to-film review page (`films/<qid>-ncert.html`).
+   Also from Navin's third message (20 November 2026), for later sections: the voice is its own piece of work, aimed at
+   many languages where voice, script and on-screen labels are the native language mixed with English terms; and
+   "photorealistic animation" means real-looking things that move themselves (a car driving, a living thing moving,
+   the inside of a jet engine working, a product being made in a plant), not zoom on a still, together with 3D
+   realistic models, for skill and job courses; a still picture is fine for the leaf films. The colour rule (one part
+   keeps its colours from shot to shot) was explained to him as continuity, not a limit on content.
 9. **Navin's chapter (19 November 2026):** NCERT Class 11 Biology chapter 11, Photosynthesis in Higher Plants, for NEET +
    Class 11 in Hinglish (decision card). NCERT's site sends an incomplete certificate chain, so Navin chose the public
    inputs branch for the PDF (`blindtest-inputs:chapters/ncert-class11-biology-ch11-photosynthesis.pdf`).
