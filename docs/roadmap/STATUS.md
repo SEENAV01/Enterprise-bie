@@ -118,6 +118,17 @@ Decision cards in the planning chat, 18 November 2026:
    the picture did not show. The maker is told that scale grows step by step (leaf, cell, organelle, membrane; a
    protein only where it can be seen), that a compartment whose contents matter is drawn closed, that a leak is a gap
    the H+ visibly pass, and that the use part is shown moving; pictures carry no arrows, symbols or loose molecules.
+   INTEGRATED (PR #177): VM job `studio-photosynthesis-q14-place` remade Q14 (status ok, 7 shots, 7 AI pictures,
+   22 sentences, 3.3 minutes, 2 rounds, NCERT lines 12/12, 13 sentences beyond the book, ₹0); the placement pass moved
+   36 of 75 points (19 of 21 in the last shot), refused none and found nothing missing. Played in Chromium: all 7 shots
+   and 22 sentences with voice, no console errors. Navin's asks met on screen: the scale grows leaf → mesophyll cell →
+   chloroplast → closed thylakoid sac → ATP synthase; the leak is a visible tear with H+ passing; the last shot moves
+   (CO2 fixed, 3-PGA, G3P, glucose); pins sit on their structures. One fault seen by Claude: the cell picture (s2) shows
+   ATP synthase and proton pumps on the chloroplast at cell scale, although its prompt said "no molecular proteins". Cause:
+   the film's shared look line named ATP synthase's colours and went into every picture prompt. Changes on branch
+   `studio-look-per-scale`: a structure's colours from the look go only to pictures whose prompt names it (`look_for`);
+   the "dikhaya = bola" check folds short names, so a moving 'H+' label is spoken by a sentence that says protons (round 1
+   of this run again refused every H+ label). Q14 is sent to Navin for his verdict.
    Learning track (Claude's demos, not BIE output, not in `tests/fixtures/passed_outputs/`): after Navin's card "Jet
    engine demo", a 22-second jet engine film from four AI pictures (VM image job `demo-jet-engine-20261120`, ₹0) whose
    parts move by code (fan spinning up, air through the core changing colour, flames, exhaust haze), with a comparison

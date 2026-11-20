@@ -123,6 +123,16 @@ class FilmMotion(unittest.TestCase):
                      "grow's ms", "needs its label", "zoom.scale must be 1.0 to 2.2", "first shot cannot dive"):
             self.assertIn(text, found)
 
+    def test_short_labels_are_spoken_by_their_names(self):
+        # Q14 remake (20 November 2026): every 'H+' label on a move was refused though the sentence said protons
+        def found(label, said):
+            move = dict(CLOUDS, points=[[10, 10], [40, 40]], count=4, ms=2000, label=label)
+            return " ".join(studio_film.motion_problems({"moves": [move]}, studio_film._tokens(said), "s1 sentence 1"))
+        self.assertNotIn("not spoken", found("H+", "Protons lumen se stroma mein laut-te hain"))
+        self.assertNotIn("not spoken", found("Pi", "ADP aur Pi CF1 tak aate hain"))
+        self.assertNotIn("not spoken", found("CO2", "Rubisco CO2 ko pakadta hai"))
+        self.assertIn("'H+' is not spoken", found("H+", "Paani neeche behta hai"))
+
     def test_a_film_without_motion_is_sent_back(self):
         still = film()
         for shot in still["shots"]:
@@ -249,10 +259,26 @@ class LivingFilm(unittest.TestCase):
         self.assertEqual((carbons("RuBP"), carbons("3-PGA"), carbons("G3P"), carbons("OAA")), (5, 3, 3, 4))  # count the carbons
 
     def test_pictures_share_the_film_look(self):
-        shot = {"visual": {"type": "cutaway", "image_prompt": "The inside of a chloroplast", "svg": ""}}
+        shot = {"visual": {"type": "cutaway", "image_prompt": "The inside of a chloroplast: thylakoids and stroma", "svg": ""}}
         prompt = studio_film.image_prompt(shot, "emerald thylakoids, amber stroma glow")
         self.assertIn("Same look as the other pictures of this film: emerald thylakoids", prompt)
         self.assertIn("No text", prompt)
+
+    def test_a_structure_is_coloured_only_on_the_pictures_that_show_it(self):
+        # Q14 remake (20 November 2026): "ATP synthase: violet CF1 head" in the shared look put ATP synthase on the cell
+        # picture, one scale too early; its colours now go only to pictures whose prompt names it
+        look = ("Continuous photoreal journey, 16:9, golden light aur teal shadows; leaf emerald, cells translucent jade, "
+                "thylakoid membrane dark green; ATP synthase: amber CF0 ring, violet six-lobed CF1 head; proton pump copper, H+ gold")
+        cell = {"visual": {"type": "cutaway", "image_prompt": "Mesophyll cell with chloroplasts along the wall. No molecular proteins."}}
+        membrane = {"visual": {"type": "cutaway", "image_prompt": "The thylakoid membrane with ATP synthase and a proton pump."}}
+        at_cell, at_membrane = studio_film.image_prompt(cell, look), studio_film.image_prompt(membrane, look)
+        self.assertIn("golden light aur teal shadows", at_cell)
+        self.assertIn("cells translucent jade", at_cell)
+        for absent in ("ATP synthase", "proton pump", "thylakoid membrane", "H+"):
+            self.assertNotIn(absent, at_cell)
+        for present in ("ATP synthase: amber CF0 ring", "proton pump copper", "thylakoid membrane dark green", "golden light"):
+            self.assertIn(present, at_membrane)
+        self.assertNotIn("leaf emerald", at_membrane)
 
     def test_player_plays_living_films_and_the_voice(self):
         page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
