@@ -97,7 +97,10 @@ with a process written inside a box instead of happening on screen):
 - ONE WORLD, NOT SLIDES. The film is one journey the camera makes into the real thing (leaf, then the cell, then the
   chloroplast, then the membrane and the stroma). Every shot after the first is a closer look INSIDE a point of the picture
   before it, and sets dive to that point; at most one shot may cut instead (dive -1, -1). "look" is one line of art
-  direction every picture shares (palette, light, material, camera), so the pictures read as one place.
+  direction every picture shares (palette, light, material, camera), so the pictures read as one place; it also names
+  the colour of every structure that is seen in more than one picture (for example "ATP synthase: violet head, amber
+  channel"), and each image_prompt draws that structure in those colours (a part that changed colour between shots
+  read as a different thing).
 - REAL PLACES, LIVING PROCESSES. Places and processes are shown on AI pictures (photo or cutaway) that look like the real
   structure (for a chloroplast: stacked thylakoid discs, the fluid stroma between them, membranes with depth), and the
   process HAPPENS on that picture: molecules arrive, join, split, are spent and are made while the narration says so. Leave
