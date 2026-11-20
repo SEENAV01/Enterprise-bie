@@ -495,14 +495,17 @@ def problems(film, question: dict) -> list:
             pins = sentence.get("pins") or []
             if len(pins) > 3:
                 out.append(f"{where}: {len(pins)} pins; at most 3 per sentence")
-            for a, b in ((a, b) for i, a in enumerate(pins) for b in pins[i + 1:]):
+            marks = pins + [{"label": m.get("label"), "x": (m.get("points") or [[None]])[-1][0],
+                             "y": (m.get("points") or [[None, None]])[-1][-1]}
+                            for m in sentence.get("moves") or [] if (m.get("label") or "").strip()]
+            for a, b in ((a, b) for i, a in enumerate(marks) for b in marks[i + 1:]):
                 try:
                     apart = ((float(a["x"]) - float(b["x"])) ** 2 + (float(a["y"]) - float(b["y"])) ** 2) ** 0.5
                 except (KeyError, TypeError, ValueError):
                     continue
                 if apart < PIN_GAP and a.get("label") != b.get("label"):
-                    out.append(f"{where}: pins {a.get('label')!r} and {b.get('label')!r} are {apart:.0f}% apart, on top of each "
-                               f"other; pin two structures at least {PIN_GAP}% apart")
+                    out.append(f"{where}: labels {a.get('label')!r} and {b.get('label')!r} are {apart:.0f}% apart, on top of each "
+                               f"other; keep two labels (pins, and the end of a labelled move) at least {PIN_GAP}% apart")
             for pin in pins:
                 labels.add(pin.get("label"))
                 if not (3 <= float(pin.get("x", -1)) <= 97 and 3 <= float(pin.get("y", -1)) <= 97):
@@ -811,9 +814,18 @@ STYLE_WORDS = {"and", "aur", "camera", "cinematic", "colour", "colours", "color"
                "realistic", "same", "scale", "scientific", "shadow", "shadows", "soft", "structural", "the", "volumetric", "with"}
 
 
+GENERIC_WORDS = {"above", "back", "behind", "below", "beside", "biological", "bottom", "center", "central", "centre", "consistent",
+                 "facing", "far", "front", "inside", "large", "leave", "left", "lower", "many", "middle", "near", "one", "open",
+                 "orientation", "outside", "previous", "right", "selected", "several", "side", "small", "target", "top", "two",
+                 "upper"}
+
+
 def _structure_words(text: str) -> set:
+    """The words that name structures: not colours, style, places in the frame or sizes (the second Q14 remake: "proton
+    pump copper left" matched a cell picture's "upper left open", and ATP synthase was drawn on the cell again)."""
     return {_stem(w.lower()) for w in re.findall(r"[A-Za-z][A-Za-z0-9+]*", text or "")
-            if w.lower() not in COLOUR_WORDS | STYLE_WORDS and (len(w) >= 3 or "+" in w or w.lower() not in SHORT_STOP)}
+            if w.lower() not in COLOUR_WORDS | STYLE_WORDS | GENERIC_WORDS
+            and (len(w) >= 3 or "+" in w or w.lower() not in SHORT_STOP)}
 
 
 def look_for(prompt: str, look: str) -> str:
@@ -830,10 +842,18 @@ def look_for(prompt: str, look: str) -> str:
             if _structure_words(name) & shown:
                 kept.append(clause)
             continue
-        parts = [f.strip() for f in clause.split(",") if f.strip()]
-        parts = [f for f in parts if not _structure_words(f) or _structure_words(f) & shown]
-        if parts:
-            kept.append(", ".join(parts))
+        keep, last = [], None
+        for part in (f.strip() for f in clause.split(",") if f.strip()):
+            first = (re.findall(r"[A-Za-z]+", part) or [""])[0].lower()
+            if last is not None and first in COLOUR_WORDS:      # "silver central stalk ..." describes the structure before it
+                ok = last
+            else:
+                ok = not _structure_words(part) or bool(_structure_words(part) & shown)
+            if ok:
+                keep.append(part)
+            last = ok
+        if keep:
+            kept.append(", ".join(keep))
     return "; ".join(kept)
 
 

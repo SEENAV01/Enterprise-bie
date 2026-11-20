@@ -737,7 +737,7 @@ class ReviewFindings(unittest.TestCase):
         line["roman"] = "Thylakoid ke andar lumen hai aur hawa barasti hai."
         line["pins"] = [{"label": "thylakoid", "x": 64, "y": 58}, {"label": "lumen", "x": 65, "y": 61}]
         found = " | ".join(studio_film.problems(bad, QUESTION))
-        self.assertIn("pins 'thylakoid' and 'lumen' are 3% apart", found)
+        self.assertIn("labels 'thylakoid' and 'lumen' are 3% apart", found)
         line["pins"][1].update(x=72, y=70)
         self.assertNotIn("apart, on top of each other", " | ".join(studio_film.problems(bad, QUESTION)))
 
@@ -770,3 +770,38 @@ class ReviewFindings(unittest.TestCase):
         page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
         for hook in ("until:m.hold&&!m.loop&&until?until:0", "addMove(m,now+300,now+300+(t.dur||0)*1000)", "if(!rep&&ac.until)"):
             self.assertIn(hook, page)
+
+
+class LookWordsAndLabelGaps(unittest.TestCase):
+    """The two Q14 remakes of 20 November 2026: a look line with "copper left" and "central stalk" matched a cell picture's
+    "upper left open" and "central vacuole", so ATP synthase was drawn on the cell again; and a move's label ended on a
+    pin ("Patta" and "Dhoop" on one spot)."""
+
+    LOOK = ("16:9 realistic journey, golden light aur teal shadows; leaf emerald, mesophyll cell translucent jade, chloroplast "
+            "envelope sage green, thylakoid membrane dark green, stroma ivory-teal; proton pump copper left, ATP synthase right "
+            "with amber CF0 ring, silver central stalk and violet six-lobed CF1 head facing stroma; H+ gold")
+
+    def test_place_and_size_words_do_not_bring_a_structure_in(self):
+        cell = ("Transparent cutaway of one mesophyll cell, large central vacuole, chloroplasts along the wall. Selected "
+                "chloroplast right at 70,52. No molecular proteins. Leave upper left open for light.")
+        grana = "Inside one chloroplast: thylakoid membrane stacks and the stroma around them, no proteins."
+        membrane = "The thylakoid membrane with a proton pump at left and ATP synthase at right, stroma above."
+        for prompt in (cell, grana):
+            shared = studio_film.look_for(prompt, self.LOOK)
+            for absent in ("ATP synthase", "proton pump", "central stalk", "CF1 head"):
+                self.assertNotIn(absent, shared, (prompt[:30], shared))
+        self.assertIn("mesophyll cell translucent jade", studio_film.look_for(cell, self.LOOK))
+        self.assertIn("stroma ivory-teal", studio_film.look_for(grana, self.LOOK))
+        shared = studio_film.look_for(membrane, self.LOOK)
+        for present in ("proton pump copper left", "ATP synthase right with amber CF0 ring", "silver central stalk"):
+            self.assertIn(present, shared)
+
+    def test_a_move_label_ending_on_a_pin_is_sent_back(self):
+        bad = film()
+        line = bad["shots"][0]["sentences"][1]
+        line["roman"] = "Yeh patta dhoop le raha hai aur hawa barasti hai."
+        line["pins"] = [{"label": "Patta", "x": 60, "y": 50}]
+        line["moves"] = [dict(CLOUDS, label="Dhoop", points=[[10, 10], [60, 50]])]
+        self.assertIn("labels 'Patta' and 'Dhoop' are 0% apart", " ".join(studio_film.problems(bad, QUESTION)))
+        line["moves"][0]["points"] = [[10, 10], [30, 20]]
+        self.assertNotIn("'Patta' and 'Dhoop'", " ".join(studio_film.problems(bad, QUESTION)))

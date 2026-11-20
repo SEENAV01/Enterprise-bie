@@ -146,6 +146,20 @@ Decision cards in the planning chat, 18 November 2026:
    play as before), two pins of one sentence at least 8% apart, a structure keeps its side between pictures
    (`layout_problems`), at most 560 characters of narration per shot, and a returning process is shown as a wheel. The
    review's worry about the edge pin (x 89) does not apply: the player draws a label left of its pin past 62%.
+   INTEGRATED (PR #179): two VM jobs made Q14 both ways (status ok, ₹0, NCERT lines 12/12 in both).
+   `studio-photosynthesis-q14-teacher-lines` (A, his lines): 9 shots, 22 sentences, 4.0 minutes, 1 round with no
+   findings; his 22 lines spoken in his order with spelling slips fixed, the two long shots split. `studio-photosynthesis-q14-bie-style`
+   (B, BIE in his way): 8 shots, 22 sentences, 3.2 minutes, 2 rounds (round 1: two unspoken labels and one question
+   running into its answer). B uses his ways unprompted line by line ("Aaiye jaante hain", "Aakhir ... kyun?", "Ab
+   sawaal banta hai ki ...?", "Iska seedha sa jawab hai", "baandh ke peechhe jama paani jaisa samajhiye", the recap
+   opening) and gives no orders. Played in Chromium: both play every shot with voice and no console errors; flows keep
+   moving through their sentences; pump and synthase keep their sides. Claude's own look: A's cell picture again shows
+   ATP synthase at cell scale (its look line said "proton pump copper left ... silver central stalk", and "left" and
+   "central" matched the cell prompt's "upper left open" and "central vacuole"); B's first shots put a move's label on a
+   pin ("Patta" / "Dhoop"); A kept line 4.2 without the dam example his note asked for; B shows no Calvin wheel. Changes on
+   branch `studio-look-generic-words`: words for places and sizes in the frame never decide a structure, a colour-first
+   part of the look follows the structure before it, and the label gap counts the end of a labelled move. Both films
+   are sent to Navin for his verdict.
    Learning track (Claude's demos, not BIE output, not in `tests/fixtures/passed_outputs/`): after Navin's card "Jet
    engine demo", a 22-second jet engine film from four AI pictures (VM image job `demo-jet-engine-20261120`, ₹0) whose
    parts move by code (fan spinning up, air through the core changing colour, flames, exhaust haze), with a comparison
