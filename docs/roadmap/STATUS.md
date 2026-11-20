@@ -408,8 +408,10 @@ The CPU measure (branch `p1v-voice-measure`): the VM job section `voice` (`tools
 `tools/vm_voice_worker.py`) speaks a video's first sentences with Chatterbox Multilingual on the VM's CPU (₹0), with
 the built-in voice or, once it is there, Navin's clip at −2 semitones. Pinned voice environment on the VM, audio kept
 in a private folder, numbers only in the run folder (real-time factor, whole-video estimate, `durations.json`). Tests:
-7 more in `tests/test_task046_vm_voice.py` (fake worker). Next: the measure job on Money v4, then Google Drive access
-with him.
+7 more in `tests/test_task046_vm_voice.py` (fake worker). Merged (PR #160). Measured 20 November 2026 (job
+`p1v-voice-measure-v4b`, after the setuptools pin of PR #159): real-time factor 9.7 on the VM's 2 CPUs, model load
+57 s, peak RAM 6.4 GB; Money v4's whole voice would take about 2 hours of CPU (`docs/roadmap/VOICE_CLIP_METHOD.md`).
+Next: Navin's clip, then the same measure with his voice; a GPU for whole books is his budget decision.
 
 ## Navin's decisions of 5 November 2026 (decision cards, after Money v5)
 
