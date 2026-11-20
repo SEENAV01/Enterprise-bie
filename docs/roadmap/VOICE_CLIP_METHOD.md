@@ -65,7 +65,7 @@ of one video's narration with Chatterbox Multilingual (Hindi) on the machine's o
 - `"reference": "default"` uses Chatterbox's built-in voice, so the speed can be measured before Navin's clip arrives;
   `"reference": "navin"` uses his clip from `/etc/bie/voice/` with pitch −2 semitones (agreement of 3 November).
 - The first job makes a separate voice environment on the machine (`/var/lib/bie/voice-venv`, pinned: torch and
-  torchaudio 2.6.0 CPU builds, chatterbox-tts 0.1.7, av 18.0.0; the model `ResembleAI/chatterbox` at a fixed
+  torchaudio 2.6.0 CPU builds, chatterbox-tts 0.1.7, av 18.0.0, setuptools 80.9.0 for the watermarker; the model `ResembleAI/chatterbox` at a fixed
   revision). Licences: MIT (Chatterbox and its model), BSD-3 (torch, PyAV), Apache/MIT/BSD/ISC for the rest; nothing
   of it goes into `apps/`.
 - The audio goes only to `/var/lib/bie/private/voice/<job id>/` (mode 700). The public run folder gets numbers only:

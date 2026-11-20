@@ -51,7 +51,8 @@ refuses, naming both things, the second and the way out):
 - every background has reserved zones (listed below): nothing on a zone marked all, no words on a zone marked text;
 - everything stays inside the 1920x1080 frame after the camera (words always whole; a thing may be cropped only while
   the camera is zoomed in), and the kicker pill at the top left (x 46.., y 41-107) stays clear;
-- the words inside a thing are at least 36px on screen: each saancha below says the scale s its words need;
+- the words inside a thing are at least 36px on screen: each saancha below says the scale s its words need; and a
+  thing's own words never cover each other (a label or value too long for the drawing: keep it short, or widen w);
 - every text, and every value a text changes to, stays on screen at least 1.5 s (never a text that appears just
   before its scene ends, never a counter that flips every half second - show such values side by side);
 - never a caution or fact-check word on screen (hypothetical, illustrative, imagined, maan lijiye, data not given...);

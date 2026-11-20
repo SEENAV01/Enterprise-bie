@@ -351,7 +351,10 @@ def upload(argv=None) -> int:
 # 2.6.0 CPU builds (BSD-3), av 18.0.0 (PyAV, BSD-3, its wheel carries LGPL FFmpeg libraries) to read an m4a clip. Their
 # own dependencies (transformers, diffusers, librosa, s3tokenizer, resemble-perth ...) are Apache-2.0, MIT, BSD or ISC;
 # pykakasi (GPL-3.0, Japanese only) is installed with chatterbox but never shipped in apps/. Move a pin only in a PR.
-PINS = ("torch==2.6.0+cpu", "torchaudio==2.6.0+cpu", "chatterbox-tts==0.1.7", "av==18.0.0")
+# setuptools: Chatterbox's watermarker (resemble-perth 1.0.1) imports pkg_resources, which a fresh Python 3.12 venv lacks;
+# without it perth.PerthImplicitWatermarker is None and the model dies at load with "'NoneType' object is not callable"
+# (first VM measure, 20 November 2026). 80.9.0 still ships pkg_resources.
+PINS = ("torch==2.6.0+cpu", "torchaudio==2.6.0+cpu", "chatterbox-tts==0.1.7", "av==18.0.0", "setuptools==80.9.0")
 TORCH_INDEX = "https://download.pytorch.org/whl/cpu"
 MODEL_REVISION = "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18"     # ResembleAI/chatterbox on Hugging Face, 10 June 2026
 NAVIN_PITCH = -2.0                                               # agreement of 3 November 2026, section 5
@@ -439,7 +442,7 @@ def summarize(result: dict, *, video: str, reference: str, sentences: list, vide
                        "watermark": "Perth (Chatterbox's own, inaudible)"},
             "machine": machine(), "setup": setup,
             "timing_s": {k: result.get(k) for k in ("download_s", "load_s", "reference_s")},
-            "peak_ram_mb": result.get("peak_ram_mb"), "totals": totals, "sentences": rows,
+            "peak_ram_mb": result.get("peak_ram_mb"), "totals": totals, "sentences": rows, "error_trace": result.get("trace"),
             "cost": {"total_inr": 0, "note": "CPU of Navin's own machine"},
             "audio": "kept on the machine only (private folder); never published"}
 
