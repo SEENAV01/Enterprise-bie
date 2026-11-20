@@ -47,19 +47,20 @@ CLOUDS = {"what": "drop", "colour": "blue", "label": "hawa", "points": [[10, 80]
 
 
 def film():
-    return {"title": "Ghat aur baarish", "shots": [
+    return {"title": "Ghat aur baarish", "look": "Monsoon greens, wet stone, soft grey light, low aerial camera", "shots": [
         {"id": "s1", "title": "Ghat ki deewar", "key": "Hawa chadhti hai, baarish hoti hai", "covers": [0],
          "visual": {"type": "photo", "image_prompt": "Photorealistic wide view of the green Western Ghats escarpment in the "
                     "July monsoon with dark clouds on the windward slope and waterfalls", "svg": ""},
          "dive": {"x": -1, "y": -1},
-         "sentences": [sentence("Dekhiye, yeh Ghat ki deewar hai.", "देखिए, यह घाट की दीवार है।", ["Ghat"]),
+         "sentences": [sentence("Yeh Ghat ki deewar baarish kyun rokti hai?", "यह घाट की दीवार बारिश क्यों रोकती है?", ["Ghat"]),
                        sentence("Hawa yahan chadhkar thandi hoti hai aur barasti hai.", "हवा यहाँ चढ़कर ठंडी होती है और बरसती है।",
                                 moves=[CLOUDS], scale=1.8)]},
         {"id": "s2", "title": "Kaat", "key": "Doosri taraf sookha", "covers": [1],
          "visual": {"type": "diagram", "image_prompt": "", "svg": SVG},
          "dive": {"x": 55, "y": 25},
          "sentences": [sentence("Ab pahaad ka kaat dekhiye, baadal upar.", "अब पहाड़ का काट देखिए, बादल ऊपर।", ["baadal"], ["cloud"]),
-                       sentence("Doosri taraf utarti hawa sookhi rehti hai.", "दूसरी तरफ़ उतरती हवा सूखी रहती है।", [], ["slope"])]}]}
+                       sentence("Doosri taraf utarti hawa sookhi rehti hai.", "दूसरी तरफ़ उतरती हवा सूखी रहती है।", [], ["slope"],
+                                moves=[dict(CLOUDS, label="", loop=False)])]}]}
 
 
 class FakeClient:
@@ -160,6 +161,106 @@ class FilmMotion(unittest.TestCase):
         self.assertEqual(data["shots"][0]["sentences"][1]["moves"][0]["what"], "drop")
 
 
+REACT = {"inputs": [{"what": "CO2", "from": [10, 20]}, {"what": "RuBP", "from": [20, 80]}], "at": [50, 50],
+         "outputs": [{"what": "3-PGA", "to": [70, 40]}, {"what": "3-PGA", "to": [70, 60]}], "label": "CO2 + RuBP → 3-PGA",
+         "ms": 4000, "loop": False}
+CALVIN = {"x": 55, "y": 50, "rx": 22, "ry": 30, "label": "Calvin cycle", "carriers": 2, "ms": 14000, "stations": [
+    {"at": 300, "label": "fixation", "becomes": "3-PGA", "takes": ["CO2"], "gives": []},
+    {"at": 90, "label": "reduction", "becomes": "G3P", "takes": ["ATP", "NADPH"], "gives": ["ADP", "NADP+", "G3P"]},
+    {"at": 200, "label": "regeneration", "becomes": "RuBP", "takes": ["ATP"], "gives": ["ADP"]}]}
+
+
+def living_film():
+    """A two-shot film in the living style: the stroma picture, a reaction and the Calvin cycle turning."""
+    f = film()
+    f["shots"][1]["visual"] = {"type": "cutaway", "image_prompt": "The inside of a chloroplast: stacked thylakoid discs at the "
+                               "left, open fluid stroma in the centre and right, membranes with depth", "svg": ""}
+    f["shots"][1]["sentences"] = [
+        sentence("Stroma mein CO2 aata hai aur RuBP se judkar 3-PGA banta hai.", "स्ट्रोमा में CO2 आता है और RuBP से जुड़कर 3-PGA बनता है।"),
+        sentence("Calvin cycle ghoomta hai: fixation, reduction aur regeneration.", "केल्विन साइकिल घूमता है: फ़िक्सेशन, रिडक्शन और रीजनरेशन।")]
+    f["shots"][1]["sentences"][0]["reacts"] = [dict(REACT)]
+    f["shots"][1]["sentences"][1]["cycles"] = [dict(CALVIN)]
+    return f
+
+
+class LivingFilm(unittest.TestCase):
+    """Navin, 20 November 2026, on the first three Photosynthesis films: they felt like slides, the stroma was a box with
+    "CO2 fixation" written in it, and no voice reached him. One world, processes happening on AI pictures, molecules from
+    BIE's kit, reactions and cycles seen happening, and a voice that plays."""
+
+    def test_living_film_passes_and_carries_its_kit(self):
+        self.assertEqual(studio_film.problems(living_film(), QUESTION), [])
+        data = studio_film.player_data(living_film(), images={}, audio={}, chapter="Photosynthesis", question=QUESTION)
+        self.assertEqual(set(data["kit"]["molecules"]), {"CO2", "RuBP", "3-PGA", "G3P", "ATP", "NADPH", "ADP", "NADP+"})
+        self.assertIn("C", data["kit"]["elements"])
+        self.assertEqual(data["shots"][1]["sentences"][1]["cycles"][0]["stations"][1]["takes"], ["ATP", "NADPH"])
+
+    def test_slides_are_sent_back(self):
+        bad = film()
+        bad["look"] = ""
+        bad["shots"][0]["sentences"][0]["roman"] = "Yeh Ghat ki deewar hai."
+        third = json.loads(json.dumps(bad["shots"][1]))
+        third["id"], third["dive"] = "s3", {"x": -1, "y": -1}
+        bad["shots"][1]["dive"] = {"x": -1, "y": -1}
+        for line in third["sentences"]:
+            line["moves"] = []
+        bad["shots"].append(third)
+        found = " | ".join(studio_film.problems(bad, dict(QUESTION, film={"length": "long", "showing_moment": "x"})))
+        for text in ("2 shots cut instead of diving", "2 diagram shots", "first sentence must be the question",
+                     "look is missing", "nothing moves in s3", "sentences move"):
+            self.assertIn(text, found)
+
+    def test_reacts_and_cycles_are_checked(self):
+        bad = living_film()
+        react = bad["shots"][1]["sentences"][0]["reacts"][0]
+        react["inputs"] = react["inputs"] * 2
+        react["ms"], react["label"] = 100, "Glucose sugar"
+        cycle = bad["shots"][1]["sentences"][1]["cycles"][0]
+        cycle.update(x=90, rx=30, carriers=9, ms=1000)
+        cycle["stations"] = [dict(cycle["stations"][0], label="carboxylation", takes=["unobtainium"])]
+        found = " | ".join(studio_film.problems(bad, QUESTION))
+        for text in ("1 to 3 inputs", "react's ms is 1500 to 9000", "react label 'Glucose sugar' is not spoken",
+                     "must sit inside the picture", "1 to 4 carriers", "one lap", "2 to 5 stations",
+                     "must be sprites or kit molecules", "station label 'carboxylation' is not spoken"):
+            self.assertIn(text, found)
+
+    def test_kit_molecules_are_well_formed(self):
+        kit = json.loads((ROOT / "bie" / "brain" / "molecule_kit.json").read_text(encoding="utf-8"))
+        self.assertGreaterEqual(len(kit["molecules"]), 18)
+        for name in ("ATP", "ADP", "NADPH", "NADP+", "CO2", "RuBP", "3-PGA", "G3P", "glucose", "H+", "H2O", "O2", "PEP", "OAA",
+                     "malate", "pyruvate"):
+            self.assertIn(name, kit["molecules"])
+            self.assertIn(name, studio_film.ACTORS)
+        for name, spec in kit["molecules"].items():
+            for part in spec["parts"]:
+                self.assertIn(part[0], "bargt", (name, part))
+                if part[0] in "ar":
+                    self.assertIn(part[1], kit["elements"], (name, part))
+        carbons = lambda n: sum(1 for p in kit["molecules"][n]["parts"] if p[0] == "a" and p[1] == "C")
+        self.assertEqual((carbons("RuBP"), carbons("3-PGA"), carbons("G3P"), carbons("OAA")), (5, 3, 3, 4))  # count the carbons
+
+    def test_pictures_share_the_film_look(self):
+        shot = {"visual": {"type": "cutaway", "image_prompt": "The inside of a chloroplast", "svg": ""}}
+        prompt = studio_film.image_prompt(shot, "emerald thylakoids, amber stroma glow")
+        self.assertIn("Same look as the other pictures of this film: emerald thylakoids", prompt)
+        self.assertIn("No text", prompt)
+
+    def test_player_plays_living_films_and_the_voice(self):
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        for hook in ("function molecule(name,parent)", "function addReact(", "function stepReact(", "function addCycle(",
+                     "function stepCycle(", "f.type==='spin'", "classList.add('ghost')", "BIEVoice.play(", "BIEVoice.unlock()",
+                     "/*__VOICE__*/", "id=\"vnote\"", "addReact(r,", "addCycle(c,", "voice:BIEVoice.state"):
+            self.assertIn(hook, page)
+        for gone in ("<audio", "blobURL", "au.play()"):
+            self.assertNotIn(gone, page)
+        voice = (ROOT / "bie" / "brain" / "studio_voice_player.js").read_text(encoding="utf-8")
+        for hook in ("decodeAudioData", "createBufferSource", "el.play()", "set('blocked')", "ctx.resume()"):
+            self.assertIn(hook, voice)
+        play = voice[voice.index("async function play("):]
+        self.assertLess(play.index("viaElement(uri"), play.index("viaContext(uri"))   # data: URI first, then Web Audio
+        self.assertNotIn("createObjectURL", voice)                                   # no blob: URL a viewer can refuse
+
+
 class FilmStage(unittest.TestCase):
     def test_films_stage_makes_a_phone_film(self):
         with tempfile.TemporaryDirectory() as folder:
@@ -177,6 +278,8 @@ class FilmStage(unittest.TestCase):
             self.assertNotIn("/*__FILM__*/null", page)
             self.assertIn("data:image/webp;base64,", page)
             self.assertIn("घाट की दीवार", (out / "films" / "q01.json").read_text(encoding="utf-8"))
+            self.assertIn("const BIEVoice=", page)                     # the voice that plays (data: URI, then Web Audio)
+            self.assertNotIn("/*__VOICE__*/", page)
             self.assertTrue((out / "FILMS.md").exists())
 
     def test_job_for_films(self):

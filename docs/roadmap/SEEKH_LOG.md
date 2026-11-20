@@ -2067,3 +2067,31 @@ the core lane 563 → 577 tests, all green. The next video worker's rounds and h
   (2 rounds each), physics 157k tokens, chemistry 95k tokens, ₹0. The task044 lane 381 tests and the document
   intelligence suite 96 tests pass.
 
+
+## Entry · Navin's verdict on the first Photosynthesis films, and living films, 20 November 2026
+
+- **Run:** Navin watched the three VM films of `studio-photosynthesis-films1` (q03, q14, q19) and the biology PYQ re-run
+  `pyq-biology-b` came back (status ok, 23 of 23 pages read, both answers proved and equal to the keys, all 8 gates
+  answered in Chromium with one wrong then the right action, no console errors, ₹0).
+- **Taught:** Navin rejected the films (a quality verdict, his): concepts not clear, no voice reached him, no script he
+  could feel, "4–5 photos joined as slides with a zoom", unlike the continuous Campbell 17 film; he wants the stroma and
+  thylakoid to look real and the reaction steps (ATP and NADPH spent on CO2 fixation and sugar synthesis) to happen on
+  screen. Looking at the films: q14 and q19 had one AI picture each, then flat SVG diagrams (the stroma a rounded box,
+  "CO2 fixation" written in an oval); 5–6 shots, 0–5 moving things a shot, sentences read like textbook labels. The voice
+  was in every file (Kokoro mp3) but played as blob: URLs through an audio element; a viewer with a media policy blocks
+  that (reproduced in Chromium with `media-src 'none'`: the old player stays paused with error 4) and the player then
+  ran silently on timers. The biology PYQ lesson works but its embryo sac is a plain sketch, labels crowd, and one label
+  shows an internal word ("representative").
+- **Changed in BIE:** `bie/brain/studio_voice_player.js` (inlined by `studio_voice.with_player_voice`) plays a clip as a
+  data: URI through the audio element, then through Web Audio, and tells the page when neither can sound; the film and
+  PYQ players use it and show "Awaaz band hai". `bie/brain/molecule_kit.json`: 18 ball-and-stick molecule actors in model
+  kit colours with name tags. The film player draws them, adds `reacts`, `cycles` and the `spin` effect, and zooms
+  through into the next picture (a soft lens opens while the old picture zooms past). `bie/brain/studio_film.py`: schema
+  (`look`, `reacts`, `cycles`, kit molecules in `moves`), the maker brief (one world, real places and living processes,
+  a teacher telling what happens) and code checks (every shot after the first dives, at most one cut; at most one
+  diagram; every shot moves and at least half of a long film's sentences move; the film opens on a question; `look`
+  present; reacts and cycles inside the picture, timed, labels spoken). Tests in `tests/test_studio_films.py`
+  (`LivingFilm`) and `tests/test_studio_pyq.py`. IMPLEMENTED.
+- **Measured:** voice routes in Chromium on Claude's test film (not BIE output): plain page, audio element; page with
+  `media-src 'none'`, Web Audio; no Web Audio and media blocked, the notice shows and the film goes on with captions.
+  The Q14 film on the VM measures the rest (rounds, problems, pictures, Navin's verdict).

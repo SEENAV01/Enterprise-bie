@@ -379,8 +379,9 @@ def player_data(records: list, *, title: str, tint: str, audio: dict | None = No
 
 
 def html(data: dict, template: str) -> str:
+    from .studio_voice import with_player_voice
     blob = json.dumps(data, ensure_ascii=False, default=lambda v: sorted(v) if isinstance(v, set) else str(v))
-    return template.replace("/*__PYQ__*/null", blob.replace("</", "<\\/"), 1)
+    return with_player_voice(template).replace("/*__PYQ__*/null", blob.replace("</", "<\\/"), 1)
 
 
 def coverage(records: list, teachable_ids: set) -> dict:
