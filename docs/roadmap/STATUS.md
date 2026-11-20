@@ -129,6 +129,23 @@ Decision cards in the planning chat, 18 November 2026:
    `studio-look-per-scale`: a structure's colours from the look go only to pictures whose prompt names it (`look_for`);
    the "dikhaya = bola" check folds short names, so a moving 'H+' label is spoken by a sentence that says protons (round 1
    of this run again refused every H+ label). Q14 is sent to Navin for his verdict.
+   **His verdict (20 November 2026): "Badlaav chahiye".** He sent a review of the three Q14 films (the third is the best:
+   powers-of-ten scale, one ATP synthase colour, a clear leak; to fix: no H+ flow loops, so long sentences sit on a still
+   picture; "thylakoid" and "lumen" pins 3% apart in s3; pump and synthase swap sides between s4 and s6; s5 and s7 about
+   54 s each; no RuBP return) and edited the narration himself in a Claude Doc (`docs/vision/TEACHER_SCRIPT_Q14_2026-11-20.md`):
+   "sentence pura lage, teacher jaisa lage, aisa na lage koi machine paragraph padh rahi hai". On the card he chose both
+   ways: Q14 made with his own lines, and Q14 written fresh by BIE in his way. Changes on branch `studio-teacher-voice`:
+   the maker is taught his six ways (complete joined sentences; a question, then a bridge to its answer; ? in the voice;
+   the respectful "aap" voice; an invitation after the opening question and bridges between shots; everyday pictures
+   such as a motor, a dam, a battery; a recap opening "Is video se aapko yeh baatein yaad rakhni hain"), and code checks
+   them (`teacher_problems`: a question running into its answer, a voice without ?, an order such as "dekho" or
+   "pehchaan lo", no invitation). A from-run folder may carry `teacher/<qid>.json` (his lines, his notes, the earlier
+   film): the film's sentences are then his lines in his order, checked line by line (70% of his words kept, spelling
+   slips fixed). The voice speaks a question on its own with 0.45 s of silence after it (measured: a 0.58 s gap). Review
+   fixes: a short flow keeps flowing while its sentence is spoken (`hold`, in `player_data` and the player; older films
+   play as before), two pins of one sentence at least 8% apart, a structure keeps its side between pictures
+   (`layout_problems`), at most 560 characters of narration per shot, and a returning process is shown as a wheel. The
+   review's worry about the edge pin (x 89) does not apply: the player draws a label left of its pin past 62%.
    Learning track (Claude's demos, not BIE output, not in `tests/fixtures/passed_outputs/`): after Navin's card "Jet
    engine demo", a 22-second jet engine film from four AI pictures (VM image job `demo-jet-engine-20261120`, ₹0) whose
    parts move by code (fan spinning up, air through the core changing colour, flames, exhaust haze), with a comparison

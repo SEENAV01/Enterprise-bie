@@ -10,6 +10,7 @@ from __future__ import annotations
 import base64
 import io
 import os
+import re
 import shutil
 import subprocess
 import tempfile
@@ -19,6 +20,7 @@ from pathlib import Path
 FILES = {"kokoro-v1.0.onnx": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx",
          "voices-v1.0.bin": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin"}
 VOICE, SPEED, LANG = "hf_alpha", 0.95, "hi"
+QUESTION_PAUSE = 0.45     # seconds of silence after a question (Navin, 20 November 2026: question and answer sounded alike)
 
 
 def folder() -> Path:
@@ -41,16 +43,31 @@ class Voice:
         self.engine = Kokoro(str(path / "kokoro-v1.0.onnx"), str(path / "voices-v1.0.bin"))
 
     def say(self, text: str) -> dict:
-        """{"uri": data URI (mp3 when ffmpeg is here, else wav), "dur": seconds}."""
+        """{"uri": data URI (mp3 when ffmpeg is here, else wav), "dur": seconds}. A question is spoken on its own and
+        followed by a short silence, so the answer after it sounds like an answer (``parts``)."""
         import numpy as np
         import soundfile as sf
-        samples, rate = self.engine.create(text, voice=VOICE, speed=SPEED, lang=LANG)
+        chunks, rate = [], 24000
+        for part, pause in parts(text):
+            made, rate = self.engine.create(part, voice=VOICE, speed=SPEED, lang=LANG)
+            chunks.append(np.asarray(made, dtype="float32"))
+            if pause:
+                chunks.append(np.zeros(int(rate * pause), dtype="float32"))
+        samples = np.concatenate(chunks) if chunks else np.zeros(1, dtype="float32")
         buffer = io.BytesIO()
         sf.write(buffer, np.asarray(samples, dtype="float32"), rate, format="WAV")
         wav = buffer.getvalue()
         mp3 = to_mp3(wav)
         data, mime = (mp3, "audio/mpeg") if mp3 else (wav, "audio/wav")
         return {"uri": f"data:{mime};base64," + base64.b64encode(data).decode("ascii"), "dur": round(len(samples) / rate, 3)}
+
+
+def parts(text: str) -> list:
+    """The pieces a line is spoken in: each question on its own, with QUESTION_PAUSE seconds after it, then the rest.
+    "Band membrane kyun chahiye? Iska seedha sa jawab hai ..." -> [("Band membrane kyun chahiye?", 0.45),
+    ("Iska seedha sa jawab hai ...", 0.0)]."""
+    pieces = [p.strip() for p in re.split(r"(?<=\?)\s*", (text or "").strip()) if p.strip()]
+    return [(p, QUESTION_PAUSE if p.endswith("?") else 0.0) for p in pieces] or [((text or "").strip() or ".", 0.0)]
 
 
 def to_mp3(wav: bytes) -> bytes | None:

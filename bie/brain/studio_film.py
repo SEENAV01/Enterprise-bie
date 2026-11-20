@@ -67,6 +67,9 @@ SVG_BANNED = re.compile(r"(?i)<\s*(script|foreignObject|iframe|image|use|style)\
 MAX_SVG = 60000
 WORD = re.compile(r"[A-Za-zऀ-ॿ]{3,}")
 MAX_KINDS = 5                 # different molecules on screen at once (the Q14 ending showed 8 and read as khichdi)
+MAX_SHOT_CHARS = 560          # roman per shot, about 40 seconds of voice (the Q14 review: two shots of 54 s on one picture)
+PIN_GAP = 8                   # percent between two pins of one sentence (the Q14 review: thylakoid and lumen stacked)
+TEACHER_MATCH = 0.7           # share of a teacher's line's words the film's sentence keeps (spelling slips fixed)
 PARTS = ("hook", "prerequisite", "concept", "use", "recap")   # the film's whole picture (Navin, 20 November 2026)
 PART_NAMES = {"hook": "sawaal", "prerequisite": "pehle ki baat", "concept": "concept", "use": "kahan kaam aata hai / asar",
               "recap": "yaad rakhiye"}
@@ -161,7 +164,8 @@ with a process written inside a box instead of happening on screen):
 - CONTEXT AND BASICS. Other films of this course teach the chapter's other questions (listed with the question). When
   this film touches a process another film teaches in detail (for example the Calvin cycle in a film about making ATP),
   its context and basics are still clear here: what goes in, what comes out, why it matters for this question, shown
-  slowly; its step-by-step details stay in its own film.
+  slowly; its step-by-step details stay in its own film. A process that comes back to where it began (the Calvin cycle
+  making RuBP again) is shown as a wheel (cycles), so the learner sees it return.
 - ONE THING AT A TIME. At most {kinds} different molecules on screen at once (a swarm of one kind, such as many H+, counts
   as one); a step that needs more is split over sentences or shots, so the learner always sees what is happening. A
   wheel (cycles) with n stations is started by one sentence that names it and its stations, then keeps turning for n
@@ -172,7 +176,30 @@ with a process written inside a box instead of happening on screen):
   label lines ("CF0 membrane mein channel hai" becomes what the learner watches the channel do). It teaches like the best teacher: result first,
   then how and why, step by step, with an everyday example where it helps. Never "the book says", never a source name,
   never a caution line ("assume", "illustrative") on screen.
-- Shots: {shots} shots for this film ({length}). Each shot has one visual and 2 to 6 short sentences spoken over it.
+- A TEACHER EXPLAINING, NOT A MACHINE READING A PARAGRAPH. Navin, the teacher, rewrote a film's script on 20 November 2026;
+  these are his ways:
+  - Every sentence is complete and tied to the one before with joining words ("jisse ... ho jaati hai", "jiske kaaran
+    ... ban jaata hai", "jiske andar"), never fragments strung on dashes.
+  - A question and its answer are told apart: the question is asked, then a bridge opens the answer. Not "Proton
+    gradient mein itni dilchaspi kyun—kyunki iske ghatne se energy milti hai" but "Par pehle, proton gradient mein itni
+    dilchaspi kyun? Iski wajah jaan lete hain: aisa isliye hai kyunki iske ghatne se ATP banane ki energy milti hai."
+    His question openers: "ek sawaal ab bhi banta hai ki ...", "Ab sawaal banta hai ...", "Aakhir ... kyun?"; his
+    answer openers: "Iska seedha sa jawab hai ...", "Aisa isliye hai kyunki ...", "Isme kaam aata hai ...", "Dekhiye,
+    hota kya hai: ...".
+  - In voice every question ends with ? and its answer starts a new sentence, so the voice pauses and the question sounds
+    like a question.
+  - He speaks with respect and takes the learner along: "aaiye", "chaliye", "dekhiye", "samajhiye", "pehchaan lete hain",
+    "paas se dekhte hain", "aapko yaad rakhni hain"; never orders such as "dekho", "pehchaan lo", "yaad rakho".
+  - After the opening question he invites: "Aaiye jaante hain." Between shots he builds a bridge ("ab isi chloroplast ke
+    andar chalte hain aur cheezon ko aur detail mein samajhte hain"), and a new picture opens with where we are
+    ("Chloroplast ke andar yeh thylakoid ek band chapti thaili jaisa dikhta hai").
+  - Each hard idea gets an everyday picture: "Proton pump ko aap ek motor samajhiye"; a proton gradient is like water held
+    behind a dam (baandh), or a battery's higher and lower potential; and he points the learner's attention: "Par gaur
+    karne wali baat hai ...", "Dekhiye kaise ...".
+  - The recap opens "Is video se aapko yeh baatein yaad rakhni hain: ...".
+- Shots: {shots} shots for this film ({length}). Each shot has one visual and 2 to 6 short sentences spoken over it, about
+  {shot_chars} characters of roman at most (about 40 seconds); a longer shot is split into a closer look. A structure seen
+  in two pictures keeps its side (left or right) in both: write its place into each image_prompt, and pin it there.
   shot.key is the one-line takeaway shown in the bottom band; shot.covers lists the indexes (0-based) of the question's
   points this shot teaches; together the shots cover every point.
 - visual.type "photo": a photorealistic picture made by an image model. image_prompt describes it fully (place, subject,
@@ -211,7 +238,9 @@ with a process written inside a box instead of happening on screen):
   effects can also be spin (a turning rotor, such as the head of ATP synthase; the box is where it turns).
   Use [] when nothing moves in that sentence. EVERY shot moves in at least one sentence, and in a long film at least half
   of all sentences move (moves, grows, fuses, reacts or cycles).
-- At most 3 pins per sentence and at most 6 on a picture overall; labels of 1 to 3 words.
+- At most 3 pins per sentence and at most 6 on a picture overall; labels of 1 to 3 words; two pins of one sentence are
+  at least {pin_gap} percent apart (a part inside another, such as the lumen inside a thylakoid, is pinned in its own
+  inner space).
 
 Answer with the JSON object only."""
 
@@ -228,8 +257,35 @@ def messages(question: dict, *, course: str, language: str, chapter: str = "") -
     return [{"role": "system", "content": INSTRUCTIONS.format(course=course or "school", language=language or "Hinglish",
                                                               shots=f"{low} to {high}", length=length,
                                                               molecules=", ".join(MOLECULES),
-                                                              kinds=MAX_KINDS)},
-            {"role": "user", "content": user}]
+                                                              kinds=MAX_KINDS, shot_chars=MAX_SHOT_CHARS,
+                                                              pin_gap=PIN_GAP)},
+            {"role": "user", "content": user + _teacher_part(question)}]
+
+
+TEACHER_PART = """
+
+THE TEACHER'S SCRIPT. Navin, the teacher, rewrote the narration of the earlier film of this question (its JSON is below).
+Make the film again with HIS lines as the narration: the film's sentences are his lines, every one, in his order, and
+nothing else is spoken. Keep his words; fix only spelling slips and broken spacing from typing on a tablet ("dekhte hsi"
+is "dekhte hain"). A NOTE under a line is his instruction to you, never words to speak: follow it. Write each line's voice
+in Devanagari, ending every question with ? and starting its answer as a new sentence. You may regroup his lines into
+more shots (a long shot becomes a closer look) and change the pictures, their layout, the pins and the motion so that every
+rule here holds; set teaches, beyond and part for his lines as for your own.
+
+His lines:
+{lines}
+
+The earlier film (JSON):
+{film}"""
+
+
+def _teacher_part(question: dict) -> str:
+    lines = question.get("teacher_lines") or []
+    if not lines:
+        return ""
+    text = "\n".join(f"L{n}: {line.get('roman', '').strip()}" + (f"\n    NOTE: {line['note'].strip()}" if (line.get("note") or "").strip()
+                                                                   else "") for n, line in enumerate(lines, 1))
+    return TEACHER_PART.format(lines=text, film=json.dumps(question.get("earlier_film") or {}, ensure_ascii=False))
 
 
 def _book_part(question: dict) -> str:
@@ -439,6 +495,14 @@ def problems(film, question: dict) -> list:
             pins = sentence.get("pins") or []
             if len(pins) > 3:
                 out.append(f"{where}: {len(pins)} pins; at most 3 per sentence")
+            for a, b in ((a, b) for i, a in enumerate(pins) for b in pins[i + 1:]):
+                try:
+                    apart = ((float(a["x"]) - float(b["x"])) ** 2 + (float(a["y"]) - float(b["y"])) ** 2) ** 0.5
+                except (KeyError, TypeError, ValueError):
+                    continue
+                if apart < PIN_GAP and a.get("label") != b.get("label"):
+                    out.append(f"{where}: pins {a.get('label')!r} and {b.get('label')!r} are {apart:.0f}% apart, on top of each "
+                               f"other; pin two structures at least {PIN_GAP}% apart")
             for pin in pins:
                 labels.add(pin.get("label"))
                 if not (3 <= float(pin.get("x", -1)) <= 97 and 3 <= float(pin.get("y", -1)) <= 97):
@@ -465,6 +529,10 @@ def problems(film, question: dict) -> list:
                 out.append(f"{where}: names the source; remove it")
         if len(labels) > 6:
             out.append(f"{sid}: {len(labels)} different pins on one picture; at most 6")
+        chars = sum(len((sentence.get("roman") or "").strip()) for sentence in sentences)
+        if chars > MAX_SHOT_CHARS:
+            out.append(f"{sid}: {chars} characters of narration (about {chars * 0.078:.0f} seconds) on one picture; at most "
+                       f"{MAX_SHOT_CHARS}: split it into two shots, the second a closer look")
     still = [shot.get("id") or f"shot {n}" for n, shot in enumerate(shots, 1)
              if (shot.get("id") or f"shot {n}") not in moving_shots]
     if shots and still:
@@ -488,7 +556,95 @@ def problems(film, question: dict) -> list:
     missing_points = [i for i in points if i not in covered]
     if missing_points:
         out.append("no shot covers the question's points " + ", ".join(map(str, missing_points)))
-    return out + book_problems(film, question) + screen_problems(film, question)
+    return (out + book_problems(film, question) + screen_problems(film, question) + layout_problems(film)
+            + teacher_problems(film, question))
+
+
+QUESTION_WORD = re.compile(r"\b(kyun|kyon|kyu|kaise|kya|kab|kahan|kaun|kitna|kitne|kitni)\b", re.I)
+BRIDGE = re.compile(r"\b(jawab|isliye|isiliye|aisa|wajah|dekhiye|chaliye|aaiye|aayiye|isme|ismein|iska|iski|hota|suniye|samajhiye|"
+                    r"nahi|nahin|haan)\b", re.I)
+ORDER = re.compile(r"\b(dekho|samjho|samajho|socho|suno|rakho|chalo|jaano|batao|padho|pehchaano)\b|"
+                   r"\b(pehchaan|dekh|samajh|jaan|maan|sun|soch)\s+lo\b", re.I)
+INVITE = re.compile(r"\b(aaiye|aayiye|aaie|chaliye)\b", re.I)
+SEPARATOR = re.compile(r"\s*(?:—|–|;|:|\?|\s-\s)\s*")
+
+
+def _asked_then(roman: str):
+    """(question clause, what follows it) for every clause of a line that asks (a question word among its last six words)
+    and is followed by more of the same line."""
+    pieces = SEPARATOR.split(roman or "")
+    for before, after in zip(pieces, pieces[1:]):
+        if after.strip() and QUESTION_WORD.search(" ".join(before.split()[-6:])):
+            yield before, after
+
+
+def teacher_problems(film: dict, question: dict) -> list:
+    """Navin's script edits (20 November 2026) as checks: a question and its answer told apart by a bridge, the voice
+    ending a question with ?, the respectful "aap" voice, an invitation after the opening question, and, when the job
+    carries the teacher's own lines, every film sentence being his line in his order."""
+    out, teacher = [], question.get("teacher_lines") or []
+    found = list(_sentences(film))
+    for where, _shot, sentence in found:
+        roman, voice = sentence.get("roman") or "", sentence.get("voice") or ""
+        asks = "?" in roman or any(True for _ in _asked_then(roman))
+        if asks and "?" not in voice:
+            out.append(f"{where}: the line asks a question; in voice end the question with ? and start its answer as a new "
+                       "sentence (the voice pauses there)")
+        if teacher:                               # the teacher's own words are his call
+            continue
+        for before, after in _asked_then(roman):
+            if not BRIDGE.search(" ".join(after.split()[:5])):
+                out.append(f"{where}: the question runs straight into its answer ({' '.join(before.split()[-4:])} → "
+                           f"{' '.join(after.split()[:3])}); ask it, then open the answer with a bridge (\"Iska seedha sa "
+                           "jawab hai ...\", \"Aisa isliye hai kyunki ...\", \"Dekhiye, hota kya hai: ...\")")
+        order = ORDER.search(roman)
+        if order:
+            out.append(f"{where}: {order.group(0)!r} orders the learner; speak with respect and take them along (dekhiye, "
+                       "chaliye dekhte hain, pehchaan lete hain, aapko yaad rakhni hain)")
+    if found and not teacher:
+        first = found[0][2].get("roman") or ""
+        second = (found[1][2].get("roman") or "") if len(found) > 1 else ""
+        if not (INVITE.search(first) or INVITE.search(" ".join(second.split()[:6]))):
+            out.append(f"{found[0][0]}: after the opening question invite the learner (\"Aaiye jaante hain.\")")
+    if teacher:
+        if len(found) != len(teacher):
+            out.append(f"the film has {len(found)} sentences and the teacher's script {len(teacher)} lines: the film's "
+                       "sentences are his lines, every one, in his order")
+        for n, (line, (where, _shot, sentence)) in enumerate(zip(teacher, found), 1):
+            words = _tokens(line.get("roman") or "")
+            kept = len(words & _tokens(sentence.get("roman") or "")) / max(1, len(words))
+            if kept < TEACHER_MATCH:
+                start = " ".join((line.get("roman") or "").split()[:6])
+                out.append(f"{where} is not the teacher's line L{n} (\"{start} ...\"; {kept:.0%} of his words kept): keep "
+                           "his words, fixing only spelling slips")
+    return out
+
+
+def layout_problems(film: dict) -> list:
+    """A structure pinned in two pictures stays on the same side of the other structures pinned with it (the Q14 review:
+    the proton pump was left of ATP synthase in shot 4 and right of it in shot 6)."""
+    places = []
+    for number, shot in enumerate(film.get("shots") or [], 1):
+        xs = {}
+        for sentence in shot.get("sentences") or []:
+            for pin in sentence.get("pins") or []:
+                try:
+                    xs.setdefault((pin.get("label") or "").strip().lower(), []).append(float(pin["x"]))
+                except (KeyError, TypeError, ValueError):
+                    continue
+        places.append((shot.get("id") or f"shot {number}", {k: sum(v) / len(v) for k, v in xs.items() if k}))
+    out, told = [], set()
+    for i, (first, a) in enumerate(places):
+        for later, b in places[i + 1:]:
+            both = sorted(set(a) & set(b))
+            for one, two in ((one, two) for k, one in enumerate(both) for two in both[k + 1:]):
+                da, db = a[one] - a[two], b[one] - b[two]
+                if da * db < 0 and abs(da) > 10 and abs(db) > 10 and (one, two) not in told:
+                    told.add((one, two))
+                    left, right = (one, two) if da < 0 else (two, one)
+                    out.append(f"{later}: {left!r} is left of {right!r} in {first} but right of it here; keep the same "
+                               "left-right layout in every picture (write it into image_prompt and pin it there)")
+    return out
 
 
 def _sentences(film: dict):
@@ -706,7 +862,8 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
                               "pins": [{"t": p["label"], "x": p["x"], "y": p["y"]} for p in sentence.get("pins") or []],
                               "arrows": sentence.get("arrows") or [], "effects": sentence.get("effects") or [],
                               "focus": sentence.get("focus") or [], "zoom": sentence.get("zoom") or {},
-                              "moves": sentence.get("moves") or [], "grows": sentence.get("grows") or [],
+                              "moves": held(sentence.get("moves") or [], clip.get("dur") or max(2.5, 0.075 * len(text))),
+                              "grows": sentence.get("grows") or [],
                               "fuses": sentence.get("fuses") or [], "reacts": sentence.get("reacts") or [],
                               "cycles": sentence.get("cycles") or []})
         dive = shot.get("dive") or {}
@@ -716,6 +873,21 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
                       "svg": visual.get("svg", "") if visual.get("type") == "diagram" else "", "sentences": sentences})
     return {"title": film.get("title") or question.get("question"), "question": question.get("question"),
             "qid": question.get("id"), "chapter": chapter, "tint": tint, "shots": shots, "kit": kit_for(shots)}
+
+
+def held(moves: list, seconds: float) -> list:
+    """A move that would end long before its sentence does keeps flowing until the sentence ends (``hold``), then fades;
+    it does not stay on into the next sentence the way ``loop`` does. The Q14 review: H+ flows of about 2 seconds stopped
+    in sentences of 8 to 13 seconds, leaving a still picture."""
+    out = []
+    for move in moves:
+        move = dict(move)
+        count = max(1, min(12, int(move.get("count") or 1)))
+        ms = max(800.0, float(move.get("ms") or 2400))
+        if not move.get("loop") and ms * (1 + 0.85 * (count - 1) / count) < 0.6 * seconds * 1000:
+            move["hold"] = True
+        out.append(move)
+    return out
 
 
 def kit_for(shots: list) -> dict:
@@ -821,8 +993,9 @@ some sit on the wrong structure. For every item give the points where it really 
 percent of the picture's width and height (0, 0 = top left): a label's point on the very structure it names (not on a
 neighbour), a path along the real route through the real structures with the same number of points, a reaction where
 the named part is, a camera target on the part the sentence talks about, the dive point on the structure the next shot
-shows close up. Keep a point that is already right; keep labels 3 to 97. visible is false only when the named structure
-is not in the picture at all. Answer with the JSON object only."""
+shows close up. Keep a point that is already right; keep labels 3 to 97; two labels of one sentence never point at the
+same spot (a part inside another, such as the lumen inside a thylakoid, gets its own inner space). visible is false only
+when the named structure is not in the picture at all. Answer with the JSON object only."""
 
 PLACE_SCHEMA = _obj({"items": _arr(_obj({"id": S, "points": _arr(_arr(N)), "visible": B}))})
 
