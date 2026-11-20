@@ -383,6 +383,16 @@ bubble, labelled, or the place the scene stands in), refused by `showplan.compil
 director's payload, reported per video. Before the live runs: v4 68.3%, v5 73.2%, Claude's v2 demo 76.7% of the lines
 that name things show them. Next: v4 and v5 again through the director (box rule + dikhaya-bola), render, numbers.
 
+Proof runs (5-11 November 2026, Codex on the VM, ₹0; SEEKH_LOG entries 50-53): runs a, b and c of Money v4 and v5 all
+passed the compiler with said = shown 100% (41 lines name things in each video). The post-render text gate stopped one
+video each time and each stop became a compiler rule: run a v5 (two labels at 15 and 27 px), run b v4 (a counter text
+flipping every 0.5 s, "₹10" caught at 25 px; rule 8 per value, PR #157), run c v4 (Codex's answer unreadable JSON: the
+runner now asks again, PR #159), run c2 v4 (a note's own words "11वाँ नोट" over its ₹ sign for 62 s: the note fits its
+value and box rule 9, PR #159). Run c v5 rendered with the gate passed: 1 overlap second (longest 1 s), no small text,
+said = shown 100%, 9.0 min (`runs/p1h-money-v5c/REVIEW.html`). v4 run c2's plan passes rule 9 with the fixed note (0
+problems), its re-render waits for PR #159. Navin stopped the Money chapter on 19 November (course studio first), so
+this proof is recorded here and not sent for a separate verdict.
+
 ## Voice clip: the one-time upload page (5 November 2026, branch `p1v-voice-upload`)
 
 Built for Navin's answer "Ek-baar ka upload page" (`docs/roadmap/VOICE_CLIP_METHOD.md`): `tools/vm_voice.py upload`
