@@ -98,7 +98,42 @@ Decision cards in the planning chat, 18 November 2026:
    "photorealistic animation" means real-looking things that move themselves (a car driving, a living thing moving,
    the inside of a jet engine working, a product being made in a plant), not zoom on a still, together with 3D
    realistic models, for skill and job courses; a still picture is fine for the leaf films. The colour rule (one part
-   keeps its colours from shot to shot) was explained to him as continuity, not a limit on content.
+   keeps its colours from shot to shot) was explained to him as continuity, not a limit on content; on the card he kept
+   it.
+   INTEGRATED (PR #176): VM job `studio-photosynthesis-q14-ncert` remade Q14 (status ok, 6 shots, 6 AI pictures,
+   3.0 minutes, 2 rounds: round 1 sent back 12 "shown but not spoken" labels, round 2 none; NCERT lines 12/12; 9
+   sentences beyond the book; 2 prerequisite and 2 use sentences; ₹0) with its NCERT-to-film page. Played in Chromium:
+   voice in all 19 sentences, no shot numbers, no console errors; ATP synthase keeps one set of colours in all five
+   shots it appears in; the last shot has no wheel. Claude's own look: one needless line ("gravity ke hisaab se nahi"),
+   beyond notes written in English (the maker is now told to write them in the course language), some leader lines
+   end on empty space. Sent to Navin on 20 November 2026. **His verdict (20 November 2026, a shot-by-shot comparison
+   of the new film and the PR #175 re-wrap):** the new film is better overall (continuity, biology, 12/12 NCERT lines);
+   the old one had a better scale journey (leaf to chloroplast), a closed thylakoid sac and a moving cycle at the end;
+   in the new one the ATP synthase looks too big for the chloroplast in s1, labels sit on wrong structures (s2 stroma and
+   lumen, s3 membrane, s4 lumen and facilitated diffusion), the leak in s3 is hard to see and s6 is static. On the card
+   he chose "Film 1 + Film 2 ki khoobiyan": the fixes go into BIE and Q14 is made again. Changes on branch
+   `studio-q14-ncert-run`: after each picture is made, a vision call (Codex on the plan, the picture attached) moves
+   every point drawn over it (labels, arrows, paths, reactions, wheel centres, camera targets, the next dive point) onto
+   the structure it names; a failed call keeps the maker's points; the film record keeps how many points moved and what
+   the picture did not show. The maker is told that scale grows step by step (leaf, cell, organelle, membrane; a
+   protein only where it can be seen), that a compartment whose contents matter is drawn closed, that a leak is a gap
+   the H+ visibly pass, and that the use part is shown moving; pictures carry no arrows, symbols or loose molecules.
+   Learning track (Claude's demos, not BIE output, not in `tests/fixtures/passed_outputs/`): after Navin's card "Jet
+   engine demo", a 22-second jet engine film from four AI pictures (VM image job `demo-jet-engine-20261120`, ₹0) whose
+   parts move by code (fan spinning up, air through the core changing colour, flames, exhaust haze), with a comparison
+   of routes (code on AI pictures ₹0; paid AI video such as Veo 3.1 Lite about ₹4 a second and up, Sora's API closed on
+   24 September 2026; an open model on a rented GPU, Wan 2.2 under Apache 2.0; 3D models ₹0; LTX-2's licence is outside
+   BIE's list). Navin then asked for the engine built from real parts down to nuts and bolts, each part's work and the
+   working: a three.js (MIT) two-spool turbofan with 30 part types (about 290 flange bolts with washers and nuts), a
+   build sequence, an exploded view where a tap names a part and its work, and a running view (two spools, bypass and
+   core air, combustion), as an HTML page and a 109-second MP4. On the card Navin said "abhi paas nahi" and chose four
+   gaps (not real-looking, manufacturing not shown, too little part detail, no voice), then wrote that it is "achha bana
+   hai" and asked for an engineer's view: every small part's work, where it sits in the whole working, what can fail,
+   its symptoms and how it is fixed. Only after he passes it does Claude say what BIE needs to make the same itself. He
+   also proposed a photo-to-3D tool (real photos of objects, interiors, places, aerial and street views made into 3D
+   worlds); Claude answered with the known methods and their licences. He also asked whether a system can beat paid AI video: not a general
+   video model, but for teaching films a cheaper and more accurate route (3D or code for correct motion, AI for the
+   real look) is the direction proposed; any paid test waits for his yes.
 9. **Navin's chapter (19 November 2026):** NCERT Class 11 Biology chapter 11, Photosynthesis in Higher Plants, for NEET +
    Class 11 in Hinglish (decision card). NCERT's site sends an incomplete certificate chain, so Navin chose the public
    inputs branch for the PDF (`blindtest-inputs:chapters/ncert-class11-biology-ch11-photosynthesis.pdf`).

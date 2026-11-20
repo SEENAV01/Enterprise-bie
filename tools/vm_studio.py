@@ -80,6 +80,19 @@ def read_pdf(source: str) -> bytes:
     return data
 
 
+def vision_part(path, width: int = 1280) -> dict:
+    """The picture as an image message part for a vision call (JPEG, at most ``width`` px wide)."""
+    import base64
+    import io
+    from PIL import Image
+    image = Image.open(path).convert("RGB")
+    if image.width > width:
+        image = image.resize((width, round(image.height * width / image.width)))
+    buffer = io.BytesIO()
+    image.save(buffer, "JPEG", quality=88)
+    return {"type": "image", "media_type": "image/jpeg", "data": base64.b64encode(buffer.getvalue()).decode("ascii")}
+
+
 def read_bytes(source: str, name: str, limit: int = 40 * 1024 * 1024) -> bytes:
     if source.startswith("https://"):
         import urllib.request
@@ -140,8 +153,9 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
         for key in usage:
             usage[key] += record["usage"].get(key, 0)
         film = record.get("film") if isinstance(record.get("film"), dict) else {}
-        images, audio, made, files = {}, {}, 0, {}
-        for shot in film.get("shots") or []:
+        images, audio, made, files, placed = {}, {}, 0, {}, {}
+        shots = film.get("shots") or []
+        for number, shot in enumerate(shots):
             if (shot.get("visual") or {}).get("type") in ("photo", "cutaway") and made < MAX_IMAGES_PER_FILM \
                     and hasattr(client, "generate_image"):
                 target = out / "films" / "img" / f"{q['id']}-{shot.get('id')}.png"
@@ -150,9 +164,14 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                     done = client.generate_image(studio_film.image_prompt(shot, film.get("look", "")), target)
                     saved = target.with_name(done["file"]) if isinstance(done, dict) and done.get("file") else target
                     saved = saved if saved.exists() else target
+                    made += 1
+                    # the labels go where the picture really shows their structure (Navin's Q14 review, 20 Nov 2026)
+                    nxt = shots[number + 1] if number + 1 < len(shots) else None
+                    placed[shot.get("id")] = studio_film.place(client, model, shot, nxt, vision_part(saved))
+                    for key in usage:
+                        usage[key] += int((placed[shot.get("id")].get("usage") or {}).get(key) or 0)
                     images[shot.get("id")] = image_uri(saved)
                     files[shot.get("id")] = saved.name
-                    made += 1
                 except Exception as exc:             # one failed picture does not stop the film; the report names it
                     record["problems"] = record["problems"] + [f"{shot.get('id')}: image not made ({str(exc)[:120]})"]
             for k, sentence in enumerate(shot.get("sentences") or []):
@@ -167,7 +186,8 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
         covered = studio_film.coverage(film, q)
         (out / "films" / f"{q['id']}.json").write_text(json.dumps({"film": film, "problems": record["problems"],
                                                                    "rounds": record["rounds"], "images": files,
-                                                                   "book_lines": q.get("book_lines") or []},
+                                                                   "book_lines": q.get("book_lines") or [],
+                                                                   "placement": placed},
                                                                   ensure_ascii=False, indent=1),
                                                        encoding="utf-8")
         if q.get("book_lines"):                     # Navin's NCERT-to-film page (a review page, never the learner's)
@@ -176,11 +196,14 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
         seconds = sum(s["dur"] for shot in data["shots"] for s in shot["sentences"])
         rows.append({"qid": q["id"], "question": q.get("question"), "shots": len(film.get("shots") or []), "images": made,
                      "minutes": round(seconds / 60, 1), "rounds": len(record["rounds"]), "problems": record["problems"],
-                     "book_lines": f"{covered['taught']}/{covered['total']}", "beyond": len(covered["beyond"])})
+                     "book_lines": f"{covered['taught']}/{covered['total']}", "beyond": len(covered["beyond"]),
+                     "points_moved": sum(p.get("moved", 0) for p in placed.values()),
+                     "not_in_picture": [m for p in placed.values() for m in p.get("missing", [])]})
     lines = ["# Filmein", "", f"Awaaz: {summary['voice']}", ""]
     for row in rows:
         lines.append(f"- **{row['qid']}** {row['question']} · {row['shots']} shots · {row['images']} tasveerein · "
-                     f"{row['minutes']} min · NCERT lines {row['book_lines']} · NCERT se bahar {row['beyond']}"
+                     f"{row['minutes']} min · NCERT lines {row['book_lines']} · NCERT se bahar {row['beyond']} · "
+                     f"tasveer dekhkar khiske points {row['points_moved']}"
                      + (f" · kamiyan: {len(row['problems'])}" if row["problems"] else ""))
     (out / "FILMS.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     summary.update(films=rows, usage=usage, model=model,

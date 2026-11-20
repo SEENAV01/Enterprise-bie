@@ -394,6 +394,11 @@ class BookLines(unittest.TestCase):
         self.assertNotIn("Use the book's own names", studio_film.INSTRUCTIONS)
         self.assertIn("Words are free", studio_film.INSTRUCTIONS)
 
+    def test_beyond_notes_are_in_the_course_language(self):
+        """The Q14 remake (20 November 2026) wrote its beyond notes in English; Navin reads the review page in Hinglish."""
+        system = studio_film.messages(BOOK_Q, course="Class 9", language="Hinglish")[0]["content"]
+        self.assertIn("naming what it adds beyond the book, written in\n  Hinglish in Roman script", system)
+
     def test_one_thing_at_a_time_and_a_wheel_explained_station_by_station(self):
         busy = living_film()
         busy["shots"][1]["sentences"][1]["cycles"] = [dict(CALVIN_BUSY)]
@@ -443,6 +448,82 @@ class BookLines(unittest.TestCase):
         self.assertIn("$('sc').textContent=s.title||''", page)
 
 
+class LabelsOnThePicture(unittest.TestCase):
+    """Navin's Q14 review (20 November 2026): labels sat on the wrong structures ("stroma aur lumen dono pins left ke green
+    granum stack par lag gaye"). The maker writes points before the picture exists; a vision call moves them onto it."""
+
+    def shot(self):
+        f = living_film()
+        s = f["shots"][1]
+        s["sentences"][0]["pins"] = [{"label": "stroma", "x": 20, "y": 20}]
+        s["sentences"][0]["zoom"] = {"x": 50, "y": 50, "scale": 1.6}
+        return f, s
+
+    def test_every_point_is_listed_with_what_it_is(self):
+        f, s = self.shot()
+        nxt = {"title": "Andar", "dive": {"x": 40, "y": 60}, "visual": {"image_prompt": "close-up of the membrane"}}
+        items = studio_film.place_items(s, nxt)
+        ids = {i["id"] for i in items}
+        for iid in ("s0.pin0", "s0.react0.at", "s0.react0.in0", "s0.react0.out1", "s1.cycle0", "s0.zoom", "dive"):
+            self.assertIn(iid, ids)
+        pin = next(i for i in items if i["id"] == "s0.pin0")
+        self.assertEqual((pin["what"], pin["points"]), ("label 'stroma'", [[20.0, 20.0]]))
+        self.assertIn("close-up of the membrane", next(i for i in items if i["id"] == "dive")["what"])
+        msgs = studio_film.place_messages(items, {"type": "image", "media_type": "image/jpeg", "data": "AAAA"})
+        self.assertEqual(msgs[1]["content"][1]["type"], "image")
+        self.assertNotIn('"set"', msgs[1]["content"][0]["text"])
+        self.assertTrue(strict_ready(studio_film.PLACE_SCHEMA))
+
+    def test_sound_points_are_written_back_and_bad_ones_refused(self):
+        f, s = self.shot()
+        nxt = {"title": "Andar", "dive": {"x": 40, "y": 60}, "visual": {"image_prompt": "x"}}
+        items = studio_film.place_items(s, nxt)
+        result = studio_film.apply_places(items, {"items": [
+            {"id": "s0.pin0", "points": [[99, 70]], "visible": True},             # clamped to 97
+            {"id": "s0.react0.at", "points": [[61, 44]], "visible": True},
+            {"id": "s1.cycle0", "points": [[30, 30], [40, 40]], "visible": True},  # wrong count: refused
+            {"id": "dive", "points": [[120, 50]], "visible": True},                # outside the picture: refused
+            {"id": "s0.zoom", "points": [[50, 50]], "visible": False},              # unchanged but not in the picture
+        ]})
+        self.assertEqual(s["sentences"][0]["pins"][0], {"label": "stroma", "x": 97.0, "y": 70.0})
+        self.assertEqual(s["sentences"][0]["reacts"][0]["at"], [61.0, 44.0])
+        self.assertEqual((s["sentences"][1]["cycles"][0]["x"], nxt["dive"]["x"]), (55, 40))
+        self.assertEqual((result["moved"], result["refused"]), (2, 2))
+        self.assertEqual(result["missing"], ["camera target: the part this sentence talks about"])
+
+    def test_a_failed_call_keeps_the_makers_points(self):
+        f, s = self.shot()
+        class Broken:
+            def chat(self, **kw):
+                raise RuntimeError("plan limit")
+        result = studio_film.place(Broken(), "m", s, None, {"type": "image", "media_type": "image/jpeg", "data": "AAAA"})
+        self.assertEqual(s["sentences"][0]["pins"][0]["x"], 20)
+        self.assertIn("plan limit", result["error"])
+
+    def test_the_stage_places_labels_on_each_picture(self):
+        with tempfile.TemporaryDirectory() as folder:
+            run_dir = Path(folder) / "qrun"
+            run_dir.mkdir()
+            (run_dir / "questions.json").write_text(json.dumps({"chapter_title": "Monsoon", "questions": [QUESTION]}), encoding="utf-8")
+            args = SimpleNamespace(stage="films", source="", from_run=str(run_dir), videos="q01", out=str(Path(folder) / "out"),
+                                   pages="", course="Class 9", language="Hinglish", model="", max_rounds=2)
+            client = FakeClient([film(), {"items": [{"id": "s0.pin0", "points": [[62, 41]], "visible": True}]}])
+            summary = vm_studio.run(args, client=client, load=None, voice_maker=lambda: (FakeVoice(), None))
+            self.assertEqual(summary["status"], "ok", summary)
+            made = json.loads((Path(folder) / "out" / "films" / "q01.json").read_text(encoding="utf-8"))
+            self.assertEqual(made["film"]["shots"][0]["sentences"][0]["pins"][0]["x"], 62.0)
+            self.assertEqual(made["placement"]["s1"]["moved"], 1)
+            self.assertEqual(summary["films"][0]["points_moved"], 1)
+            self.assertIn('"x": 62.0', (Path(folder) / "out" / "films" / "q01.html").read_text(encoding="utf-8").replace('"x":62.0', '"x": 62.0'))
+
+    def test_pictures_carry_no_arrows_and_scale_grows(self):
+        for suffix in (studio_film.IMAGE_SUFFIX, studio_film.CUTAWAY_SUFFIX):
+            self.assertIn("no arrows or symbols", suffix)
+        self.assertIn("no loose molecules", studio_film.CUTAWAY_SUFFIX)
+        for rule in ("SCALE GROWS STEP BY", "drawn closed", "a leak is a clear gap", "shown\n  happening, moving"):
+            self.assertIn(rule, studio_film.INSTRUCTIONS)
+
+
 class FilmStage(unittest.TestCase):
     def test_films_stage_makes_a_phone_film(self):
         with tempfile.TemporaryDirectory() as folder:
@@ -481,7 +562,7 @@ class FilmStage(unittest.TestCase):
 
             class Client(FakeClient):
                 def chat(self, *, model, messages, schema=None):
-                    seen["user"] = messages[1]["content"]
+                    seen.setdefault("user", messages[1]["content"])          # the maker's call (placement comes later)
                     return super().chat(model=model, messages=messages, schema=schema)
 
             client = Client([taught_film([[], [1], [], [2]])])

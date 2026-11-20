@@ -131,7 +131,12 @@ with a process written inside a box instead of happening on screen):
   structure as electron micrographs and structural models show it (for a chloroplast: stacked thylakoid discs, the fluid
   stroma between them, membranes with depth; a protein in its known shape, such as ATP synthase: a ring in the membrane, a
   central stalk and a round head of six lobes facing the stroma), never invented blobs, ribbons or fantasy forms; a close-up
-  keeps enough of the surroundings (the membrane, the stroma) that the learner knows where they are. The process HAPPENS on
+  keeps enough of the surroundings (the membrane, the stroma) that the learner knows where they are. SCALE GROWS STEP BY
+  STEP: the opening picture is the biggest scale the question needs (for a process inside a cell: the leaf, then the
+  cell, then the organelle, then the membrane), and a protein or molecule appears only in a picture whose scale lets it
+  be seen (never a protein sitting on a whole chloroplast). A compartment whose contents matter is drawn closed (a
+  thylakoid as a closed flattened sac with its lumen inside), so the learner sees what is trapped. What a sentence says
+  happens is drawn so it can be seen (a leak is a clear gap that the moving H+ pass through). The process HAPPENS on
   that picture: molecules arrive, join, split, are spent and are made while the narration says so. Leave
   open space in the picture where the action will happen and say so in image_prompt. A diagram is only for a comparison or
   a graph, at most one per film; never draw a process as boxes with its name written inside.
@@ -145,10 +150,12 @@ with a process written inside a box instead of happening on screen):
 - GO BEYOND THE BOOK WHEREVER IT MAKES THE CONCEPT CLEARER. The learner should think a step beyond the book's lines, not
   just hear them: tell the prerequisite they need first, give an example or a short story, show where and how it works in
   the real world, and go to NEET depth where it helps. "beyond" is "" when the sentence says only what the book says;
-  otherwise a short note for BIE's review page (never shown) naming what it adds beyond the book.
+  otherwise a short note for BIE's review page (never shown) naming what it adds beyond the book, written in
+  {language} in Roman script, because Navin reads that page beside the book.
 - THE WHOLE PICTURE. Every sentence has its part: "hook" (the opening question), "prerequisite" (what the learner must
   already know to follow this; recall it briefly, even when another film teaches it), "concept" (the question's own
-  ideas), "use" (where this concept is used next, in the plant or in life, and the effect of what happened) or "recap".
+  ideas), "use" (where this concept is used next, in the plant or in life, and the effect of what happened; shown
+  happening, moving, in its basic form, not as still parts) or "recap".
   The film has at least one prerequisite sentence and at least one use sentence.
 - CONTEXT AND BASICS. Other films of this course teach the chapter's other questions (listed with the question). When
   this film touches a process another film teaches in detail (for example the Calvin cycle in a film about making ATP),
@@ -614,12 +621,13 @@ def write(client, model: str, question: dict, *, course: str = "", language: str
 
 
 IMAGE_SUFFIX = (" Photorealistic, natural colours, documentary quality, 16:9 landscape. No text, no letters, no numbers, "
-                "no labels, no logos, no watermark, no recognisable real person.")
+                "no labels, no arrows or symbols, no logos, no watermark, no recognisable real person.")
 
 
 CUTAWAY_SUFFIX = (" Scientific cutaway illustration: transparent cross-section, glossy cells, soft volumetric light, depth, "
                   "calm dark teal background, painterly 3D look, 16:9 landscape. No text, no letters, no numbers, no labels, "
-                  "no logos, no watermark.")
+                  "no arrows or symbols, no loose molecules or balls floating in the scene (BIE animates those over the "
+                  "picture), no logos, no watermark.")
 
 
 def image_prompt(shot: dict, look: str = "") -> str:
@@ -744,3 +752,113 @@ td.pg{{white-space:nowrap;color:var(--soft);width:3em}}td.book{{width:45%}}ul{{m
 <h2>NCERT se bahar ki baat (BIE ne samjhane ke liye joda)</h2><ul>{extra}</ul>
 <h2>Baaki lines (sawaal, pehle ki baat, kahan kaam aata hai; inmein koi NCERT line nahi)</h2><ul>{joins}</ul>
 </main></body></html>"""
+
+
+# --- labels placed on the picture they label (Navin's Q14 review, 20 November 2026: "stroma aur lumen dono pins left ke
+# green granum stack par lag gaye", "facilitated diffusion pin right lipid bilayer par hai"). The maker writes every point
+# before the picture exists, so the image model draws structures elsewhere. After each picture is made, a vision call sees
+# it and moves each point onto the structure or route it names; the labels and the story do not change.
+
+PLACE_INSTRUCTIONS = """You are BIE's layout checker for a teaching film. You see ONE picture of the film and the list of
+things BIE will draw over it while the narration plays: labels (each with one point), arrows and moving paths (several
+points in order), reactions (where they happen, where the inputs come from, where the products go), wheels (their
+centre), camera targets and the point the next shot dives into. BIE wrote these points before the picture existed, so
+some sit on the wrong structure. For every item give the points where it really belongs in THIS picture, x and y in
+percent of the picture's width and height (0, 0 = top left): a label's point on the very structure it names (not on a
+neighbour), a path along the real route through the real structures with the same number of points, a reaction where
+the named part is, a camera target on the part the sentence talks about, the dive point on the structure the next shot
+shows close up. Keep a point that is already right; keep labels 3 to 97. visible is false only when the named structure
+is not in the picture at all. Answer with the JSON object only."""
+
+PLACE_SCHEMA = _obj({"items": _arr(_obj({"id": S, "points": _arr(_arr(N)), "visible": B}))})
+
+
+def place_items(shot: dict, next_shot: dict | None = None) -> list:
+    """Every point drawn over this shot's picture, as {id, what, said, points, set}; ``set`` writes corrected points back."""
+    items = []
+
+    def add(iid, what, said, points, setter):
+        items.append({"id": iid, "what": what, "said": said, "points": [list(map(float, p)) for p in points], "set": setter})
+
+    for k, s in enumerate(shot.get("sentences") or []):
+        said = s.get("roman") or ""
+        for j, p in enumerate(s.get("pins") or []):
+            add(f"s{k}.pin{j}", f"label '{p.get('label')}'", said, [[p.get("x", 50), p.get("y", 50)]],
+                lambda pts, p=p: p.update(x=pts[0][0], y=pts[0][1]))
+        for j, a in enumerate(s.get("arrows") or []):
+            add(f"s{k}.arrow{j}", f"arrow {a.get('label') or ''}".strip(), said, a.get("points") or [],
+                lambda pts, a=a: a.update(points=pts))
+        for j, m in enumerate(s.get("moves") or []):
+            add(f"s{k}.move{j}", f"path of the moving {m.get('what')}", said, m.get("points") or [],
+                lambda pts, m=m: m.update(points=pts))
+        for j, g in enumerate(s.get("grows") or []):
+            add(f"s{k}.grow{j}", f"growing line {g.get('label') or ''}".strip(), said, g.get("points") or [],
+                lambda pts, g=g: g.update(points=pts))
+        for j, r in enumerate(s.get("reacts") or []):
+            add(f"s{k}.react{j}.at", f"where the reaction {r.get('label') or ''} happens".replace("  ", " "), said,
+                [r.get("at") or [50, 50]], lambda pts, r=r: r.update(at=pts[0]))
+            for i, x in enumerate(r.get("inputs") or []):
+                add(f"s{k}.react{j}.in{i}", f"where {x.get('what')} comes from", said, [x.get("from") or [10, 50]],
+                    lambda pts, x=x: x.update({"from": pts[0]}))
+            for i, x in enumerate(r.get("outputs") or []):
+                add(f"s{k}.react{j}.out{i}", f"where the product {x.get('what')} goes", said, [x.get("to") or [90, 50]],
+                    lambda pts, x=x: x.update(to=pts[0]))
+        for j, c in enumerate(s.get("cycles") or []):
+            add(f"s{k}.cycle{j}", f"centre of the wheel {c.get('label') or ''}".strip(), said, [[c.get("x", 50), c.get("y", 50)]],
+                lambda pts, c=c: c.update(x=pts[0][0], y=pts[0][1]))
+        for j, f in enumerate(s.get("fuses") or []):
+            add(f"s{k}.fuse{j}", f"where two parts become {f.get('label')}", said, [[f.get("x", 50), f.get("y", 50)]],
+                lambda pts, f=f: f.update(x=pts[0][0], y=pts[0][1]))
+        z = s.get("zoom") or {}
+        if float(z.get("scale") or 1) > 1.05:
+            add(f"s{k}.zoom", "camera target: the part this sentence talks about", said, [[z.get("x", 50), z.get("y", 50)]],
+                lambda pts, z=z: z.update(x=pts[0][0], y=pts[0][1]))
+    dive = (next_shot or {}).get("dive") or {}
+    if next_shot and dive.get("x", -1) != -1:
+        what = f"the point the next shot dives into: {next_shot.get('title') or ''}: " + \
+               ((next_shot.get("visual") or {}).get("image_prompt") or "")[:220]
+        add("dive", what, "", [[dive.get("x", 50), dive.get("y", 50)]], lambda pts, d=dive: d.update(x=pts[0][0], y=pts[0][1]))
+    return items
+
+
+def place_messages(items: list, image_part: dict) -> list:
+    listed = [{k: v for k, v in it.items() if k != "set"} for it in items]
+    text = ("The picture is attached. The items BIE will draw over it, with the points BIE guessed:\n"
+            + json.dumps(listed, ensure_ascii=False))
+    return [{"role": "system", "content": PLACE_INSTRUCTIONS},
+            {"role": "user", "content": [{"type": "text", "text": text}, image_part]}]
+
+
+def apply_places(items: list, answer) -> dict:
+    """Write the checker's points back where they are sound (same count, inside the picture); labels stay 3..97."""
+    known = {it["id"]: it for it in items}
+    moved, missing, refused = 0, [], 0
+    for got in (answer or {}).get("items") or []:
+        it = known.get(got.get("id"))
+        pts = got.get("points")
+        if not it or not isinstance(pts, list) or len(pts) != len(it["points"]) or not all(
+                isinstance(p, list) and len(p) == 2 and all(isinstance(v, (int, float)) and 0 <= v <= 100 for v in p) for p in pts):
+            refused += 1
+            continue
+        if ".pin" in it["id"]:
+            pts = [[min(97.0, max(3.0, float(p[0]))), min(97.0, max(3.0, float(p[1])))] for p in pts]
+        if [list(map(float, p)) for p in pts] != it["points"]:
+            it["set"]([[round(float(v), 1) for v in p] for p in pts])
+            moved += 1
+        if got.get("visible") is False:
+            missing.append(it["what"])
+    return {"items": len(items), "moved": moved, "refused": refused, "missing": missing}
+
+
+def place(client, model: str, shot: dict, next_shot: dict | None, image_part: dict) -> dict:
+    """One vision call: move this shot's points onto its picture. A failed call keeps the maker's points."""
+    items = place_items(shot, next_shot)
+    if not items:
+        return {"items": 0, "moved": 0, "refused": 0, "missing": [], "usage": {}}
+    try:
+        reply = client.chat(model=model, messages=place_messages(items, image_part), schema=PLACE_SCHEMA)
+        result = apply_places(items, parse(reply.get("content", "")))
+        result["usage"] = reply.get("usage") or {}
+    except Exception as exc:                          # the film still plays with the maker's points; the report says so
+        result = {"items": len(items), "moved": 0, "refused": 0, "missing": [], "error": str(exc)[:160], "usage": {}}
+    return result
