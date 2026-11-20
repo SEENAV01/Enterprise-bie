@@ -126,7 +126,8 @@ with a process written inside a box instead of happening on screen):
   direction every picture shares (palette, light, material, camera), so the pictures read as one place; it also names
   the colour of every structure that is seen in more than one picture (for example "ATP synthase: violet head, amber
   channel"), and each image_prompt draws that structure in those colours (a part that changed colour between shots
-  read as a different thing).
+  read as a different thing). BIE adds a structure's colours only to the pictures whose image_prompt names it, so a
+  structure appears only on the pictures at its own scale.
 - REAL PLACES, LIVING PROCESSES. Places and processes are shown on AI pictures (photo or cutaway) that look like the real
   structure as electron micrographs and structural models show it (for a chloroplast: stacked thylakoid discs, the fluid
   stroma between them, membranes with depth; a protein in its known shape, such as ATP synthase: a ring in the membrane, a
@@ -315,14 +316,14 @@ def motion_problems(sentence: dict, spoken: set, where: str) -> list:
             out.append(f"{where}: a move's count is 1 to 12")
         if not 800 <= float(move.get("ms") or 0) <= 8000:
             out.append(f"{where}: a move's ms is 800 to 8000")
-        if move.get("label") and not _words(move["label"]) & spoken:
+        if move.get("label") and not _tokens(move["label"]) & spoken:
             out.append(f"{where}: move label {move['label']!r} is not spoken in this sentence (dikhaya = bola)")
     for grow in sentence.get("grows") or []:
         if not _inside(grow.get("points"), 2, 8):
             out.append(f"{where}: a grow needs 2 to 8 points [x, y] in 0..100")
         if not 1000 <= float(grow.get("ms") or 0) <= 8000:
             out.append(f"{where}: a grow's ms is 1000 to 8000")
-        if grow.get("label") and not _words(grow["label"]) & spoken:
+        if grow.get("label") and not _tokens(grow["label"]) & spoken:
             out.append(f"{where}: grow label {grow['label']!r} is not spoken in this sentence (dikhaya = bola)")
     for react in sentence.get("reacts") or []:
         ins, outs = react.get("inputs") or [], react.get("outputs") or []
@@ -335,7 +336,7 @@ def motion_problems(sentence: dict, spoken: set, where: str) -> list:
         if not 1500 <= float(react.get("ms") or 0) <= 9000:
             out.append(f"{where}: a react's ms is 1500 to 9000")
         label = react.get("label") or ""
-        if _words(label) and not _words(label) & spoken:
+        if _tokens(label) and not _tokens(label) & spoken:
             out.append(f"{where}: react label {label!r} is not spoken in this sentence (dikhaya = bola)")
     for cycle in sentence.get("cycles") or []:
         x, y, rx, ry = (float(cycle.get(k) or 0) for k in ("x", "y", "rx", "ry"))
@@ -354,9 +355,9 @@ def motion_problems(sentence: dict, spoken: set, where: str) -> list:
             names = [station.get("becomes")] + list(station.get("takes") or []) + list(station.get("gives") or [])
             if any(n not in ACTORS for n in names):
                 out.append(f"{where}: a station's becomes, takes and gives must be sprites or kit molecules")
-            if station.get("label") and not _words(station["label"]) & spoken:
+            if station.get("label") and not _tokens(station["label"]) & spoken:
                 out.append(f"{where}: station label {station['label']!r} is not spoken in this sentence (dikhaya = bola)")
-        if cycle.get("label") and _words(cycle["label"]) and not _words(cycle["label"]) & spoken:
+        if cycle.get("label") and _tokens(cycle["label"]) and not _tokens(cycle["label"]) & spoken:
             out.append(f"{where}: cycle label {cycle['label']!r} is not spoken in this sentence (dikhaya = bola)")
     for fuse in sentence.get("fuses") or []:
         if not (0 <= float(fuse.get("x", -1)) <= 100 and 0 <= float(fuse.get("y", -1)) <= 100):
@@ -364,13 +365,29 @@ def motion_problems(sentence: dict, spoken: set, where: str) -> list:
         label = fuse.get("label") or ""
         if not label.strip():
             out.append(f"{where}: a fuse needs its label (what the two parts become)")
-        elif _words(label) and not _words(label) & spoken:
+        elif _tokens(label) and not _tokens(label) & spoken:
             out.append(f"{where}: fuse label {label!r} is not spoken in this sentence (dikhaya = bola)")
     return out
 
 
 def _words(text: str) -> set:
     return {w.lower() for w in WORD.findall(text or "")}
+
+
+SHORT_STOP = {"a", "an", "as", "at", "be", "by", "do", "ek", "hi", "in", "is", "it", "ka", "ke", "ki", "ko", "me", "na", "of",
+              "on", "or", "se", "to", "ya"}
+
+
+def _tokens(text: str) -> set:
+    """Words for "dikhaya = bola": the words of 3+ letters and the short names a label uses (H+, Pi, CO2, O2), plural
+    and H+/proton folded together, so a moving 'H+' label is spoken by a sentence that says protons (Q14 remake,
+    20 November 2026: every H+ label on a move was refused)."""
+    out = set()
+    for w in re.findall(r"[A-Za-z][A-Za-z0-9]*|[\u0900-\u097F]{3,}", text or ""):
+        low = w.lower()
+        if len(low) >= 3 or low not in SHORT_STOP:
+            out.add(_stem(low))
+    return out
 
 
 def problems(film, question: dict) -> list:
@@ -418,7 +435,7 @@ def problems(film, question: dict) -> list:
                 out.append(f"{where}: roman is missing or too short")
             if not DEVANAGARI.search(voice):
                 out.append(f"{where}: voice must be the same sentence in Devanagari")
-            spoken = _words(roman) | _words(voice)
+            spoken = _tokens(roman) | _tokens(voice)
             pins = sentence.get("pins") or []
             if len(pins) > 3:
                 out.append(f"{where}: {len(pins)} pins; at most 3 per sentence")
@@ -426,7 +443,7 @@ def problems(film, question: dict) -> list:
                 labels.add(pin.get("label"))
                 if not (3 <= float(pin.get("x", -1)) <= 97 and 3 <= float(pin.get("y", -1)) <= 97):
                     out.append(f"{where}: pin {pin.get('label')!r} is outside 3..97")
-                if not _words(pin.get("label")) & spoken:
+                if not _tokens(pin.get("label")) & spoken:
                     out.append(f"{where}: pin {pin.get('label')!r} is not spoken in this sentence (dikhaya = bola)")
             for arrow in sentence.get("arrows") or []:
                 pts = arrow.get("points") or []
@@ -630,12 +647,49 @@ CUTAWAY_SUFFIX = (" Scientific cutaway illustration: transparent cross-section, 
                   "picture), no logos, no watermark.")
 
 
+COLOUR_WORDS = {"amber", "black", "blue", "bright", "brown", "copper", "cool", "dark", "deep", "emerald", "glow", "glowing",
+                "gold", "golden", "gray", "green", "grey", "ivory", "jade", "light", "orange", "pale", "pink", "purple", "red",
+                "sage", "silver", "teal", "translucent", "transparent", "turquoise", "violet", "warm", "white", "yellow"}
+STYLE_WORDS = {"and", "aur", "camera", "cinematic", "colour", "colours", "color", "colors", "continuous", "depth", "every", "glossy",
+               "har", "journey", "lighting", "look", "macro", "material", "palette", "par", "photoreal", "photorealistic",
+               "realistic", "same", "scale", "scientific", "shadow", "shadows", "soft", "structural", "the", "volumetric", "with"}
+
+
+def _structure_words(text: str) -> set:
+    return {_stem(w.lower()) for w in re.findall(r"[A-Za-z][A-Za-z0-9+]*", text or "")
+            if w.lower() not in COLOUR_WORDS | STYLE_WORDS and (len(w) >= 3 or "+" in w or w.lower() not in SHORT_STOP)}
+
+
+def look_for(prompt: str, look: str) -> str:
+    """The film's look for one picture: its light and palette always, and the colours of a structure only when this
+    picture shows that structure. Q14 remake (20 November 2026): the shared look named 'ATP synthase: violet CF1 head',
+    and the image model drew ATP synthase on the cell picture, one scale too early, though its prompt said no proteins."""
+    shown = _structure_words(prompt)
+    kept = []
+    for clause in (c.strip() for c in re.split(r";|\.(?:\s|$)", look or "")):
+        if not clause:
+            continue
+        name = clause.split(":", 1)[0] if ":" in clause else ""
+        if _structure_words(name):            # "ATP synthase: violet head, amber channel" (not "16:9")
+            if _structure_words(name) & shown:
+                kept.append(clause)
+            continue
+        parts = [f.strip() for f in clause.split(",") if f.strip()]
+        parts = [f for f in parts if not _structure_words(f) or _structure_words(f) & shown]
+        if parts:
+            kept.append(", ".join(parts))
+    return "; ".join(kept)
+
+
 def image_prompt(shot: dict, look: str = "") -> str:
-    """The shot's picture prompt; ``look`` (the film's shared art direction) keeps every picture in one world."""
+    """The shot's picture prompt; ``look`` (the film's shared art direction) keeps every picture in one world, with a
+    structure's colours only on the pictures that show it (look_for)."""
     visual = shot.get("visual") or {}
     suffix = CUTAWAY_SUFFIX if visual.get("type") == "cutaway" else IMAGE_SUFFIX
-    shared = f" Same look as the other pictures of this film: {look.strip()}." if (look or "").strip() else ""
-    return visual.get("image_prompt", "").strip() + shared + suffix
+    prompt = visual.get("image_prompt", "").strip()
+    shared = look_for(prompt, look)
+    shared = f" Same look as the other pictures of this film: {shared.rstrip('.')}." if shared else ""
+    return prompt + shared + suffix
 
 
 def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question: dict, tint: str = "#2c6e87") -> dict:
