@@ -1,27 +1,38 @@
 #!/usr/bin/env python3
-"""Say a finished studio film again with another voice: a language's own engine, or Navin's tone colour.
+"""Say a finished studio film again with another voice: a language's own engine, or Navin's voice.
 
     python3 tools/studio_revoice.py --page <film .html> --film <film .json> --language hi|en|ta|te|ml|mr --out <page .html>
-           [--narrator navin --tone <private tone.npy>]
+           [--narrator navin --converter chatterbox --target <his clip> --voice-python <voice venv python>
+            --private <folder>]
+           [--narrator navin --converter openvoice --tone <his tone.npy>]
 
 The page gives the pictures and the film's frame (title, question, colours); the film JSON (a ``films/<qid>.json`` or
 ``dub/<lang>/<qid>.json`` record) gives every sentence's voice line. Each sentence is said by ``bie.brain.studio_voice``
 (BIE's teacher pauses), and the page is built again by ``studio_film.player_data``, so the motion's timing follows the new
-voice. With ``--narrator navin`` the voice is in Navin's timbre and the page is private: it must be written outside the
-repository and is shared only with him (``docs/roadmap/VOICE_CLIP_METHOD.md``).
+voice.
+
+Navin's voice (cards of 21 November 2026, "6: Kokoro + Chatterbox badlaav"): the base voice (Kokoro, or Indic-TTS for
+Tamil, Telugu, Malayalam and Marathi) says every line, then Chatterbox's voice conversion turns all lines into his voice
+in one batch, inside the private voice environment (``tools/vm_voice_worker.py``, convert request), with ``--target`` a
+clean clip of his reading. OpenVoice (``--converter openvoice``) stays as the faster, less close way. A page in his
+voice is private: it and its working files are written outside the repository and shared only with him
+(``docs/roadmap/VOICE_CLIP_METHOD.md``).
 """
 from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import sys
 import time
+import wave
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 MARK = "const F="
+WORKER = ROOT / "tools" / "vm_voice_worker.py"
 
 
 def page_data(page: str) -> dict:
@@ -40,26 +51,75 @@ def film_of(record: dict) -> dict:
     return film
 
 
-def revoice(page: str, record: dict, voice, *, template: str) -> tuple[str, dict]:
-    from bie.brain import studio_film
+def lines_of(film: dict) -> list:
+    """[(key "s1-0", (shot id, k), voice line)] in film order."""
+    return [(f"{shot.get('id')}-{k}", (shot.get("id"), k), sentence.get("voice") or sentence.get("roman") or "")
+            for shot in film.get("shots") or [] for k, sentence in enumerate(shot.get("sentences") or [])]
+
+
+def read_wav(path: Path):
+    import numpy as np
+    with wave.open(str(path), "rb") as w:
+        rate, frames = w.getframerate(), w.readframes(w.getnframes())
+    return np.frombuffer(frames, dtype="<i2").astype("float32") / 32767.0, rate
+
+
+def chatterbox_convert(base: dict, *, target: Path, private: Path, python: str, worker: Path = WORKER,
+                       revision: str = "", threads: int | None = None) -> tuple[dict, dict]:
+    """{key: base WAV path} in Navin's voice through one worker run: ({key: (samples, rate)}, worker result)."""
+    if not revision:
+        from vm_voice import MODEL_REVISION as revision        # the pinned Chatterbox model (tools/vm_voice.py)
+    out = private / "converted"
+    request = {"convert": [{"key": k, "wav": str(v)} for k, v in base.items()], "target": str(target),
+               "audio_dir": str(out), "model_revision": revision, "threads": threads}
+    (private / "request.json").write_text(json.dumps(request, ensure_ascii=False), encoding="utf-8")
+    subprocess.run([python, str(worker), "--request", str(private / "request.json"), "--result", str(private / "result.json")],
+                   check=False, timeout=6 * 3600)
+    result = json.loads((private / "result.json").read_text(encoding="utf-8"))
+    made = {k: read_wav(out / f"{k}.wav") for k in base if (out / f"{k}.wav").exists()}
+    return made, result
+
+
+def revoice(page: str, record: dict, voice, *, template: str, convert=None, private: Path | None = None) -> tuple[str, dict]:
+    """The page said again by ``voice``; with ``convert`` ({key: wav path} -> ({key: (samples, rate)}, result)) every
+    line is first said by the base voice into ``private`` and then turned to the new voice in one batch."""
+    from bie.brain import studio_film, studio_voice
     data = page_data(page)
     film = film_of(record)
     images = {s.get("id"): s.get("img") for s in data.get("shots") or [] if s.get("img")}
-    audio, rows, started = {}, [], time.process_time()
-    for shot in film.get("shots") or []:
-        for k, sentence in enumerate(shot.get("sentences") or []):
-            line = sentence.get("voice") or sentence.get("roman") or ""
-            clip = voice.say(line)
-            audio[(shot.get("id"), k)] = clip
-            rows.append({"line": f"{shot.get('id')}.{k}", "seconds": clip["dur"]})
+    audio, rows, started, worker = {}, [], time.process_time(), {}
+    todo = lines_of(film)
+    if convert is None:
+        for key, where, line in todo:
+            audio[where] = voice.say(line)
+    else:
+        base = private / "base"
+        base.mkdir(parents=True, exist_ok=True)
+        files = {}
+        for key, where, line in todo:
+            samples, rate = voice.render(line)
+            files[key] = base / f"{key}.wav"
+            files[key].write_bytes(studio_voice.wav_bytes(samples, rate))
+        made, worker = convert(files)
+        for key, where, line in todo:
+            if key in made:
+                audio[where] = studio_voice.clip(*made[key])
+            else:                                    # a line the converter did not make keeps the base voice; reported
+                audio[where] = studio_voice.clip(*read_wav(files[key]))
+                rows.append({"line": key, "not_converted": True})
+    for key, where, _ in todo:
+        rows.append({"line": key, "seconds": audio[where]["dur"]})
     question = {"id": data.get("qid"), "question": data.get("question")}
     rebuilt = studio_film.player_data(film, images=images, audio=audio, chapter=data.get("chapter") or "", question=question,
                                       tint=data.get("tint") or "#2c6e87")
-    seconds = sum(r["seconds"] for r in rows)
+    seconds = sum(r.get("seconds", 0) for r in rows)
     cpu = time.process_time() - started
-    return studio_film.html(rebuilt, template), {"lines": len(rows), "voice_seconds": round(seconds, 1),
-                                                 "cpu_seconds": round(cpu, 1), "cpu_per_voice_second": round(cpu / max(seconds, 1e-6), 2),
-                                                 "voice": getattr(voice, "label", ""), "per_line": rows}
+    report = {"lines": len(todo), "voice_seconds": round(seconds, 1), "cpu_seconds": round(cpu, 1),
+              "voice": getattr(voice, "label", ""), "not_converted": [r["line"] for r in rows if r.get("not_converted")],
+              "converter": {k: v for k, v in worker.items() if k in ("status", "error", "load_s", "threads")} if worker else None,
+              "convert_seconds": round(sum(x.get("compute_s", 0) for x in worker.get("converted", [])), 1) if worker else None,
+              "per_line": [r for r in rows if "seconds" in r]}
+    return studio_film.html(rebuilt, template), report
 
 
 def main(argv=None) -> int:
@@ -69,20 +129,38 @@ def main(argv=None) -> int:
     parser.add_argument("--language", required=True)
     parser.add_argument("--out", required=True)
     parser.add_argument("--narrator", choices=("female", "navin"), default="female")
-    parser.add_argument("--tone", default="", help="navin: his private tone .npy (tools/voice_tone.py)")
+    parser.add_argument("--converter", choices=("chatterbox", "openvoice"), default="chatterbox")
+    parser.add_argument("--tone", default="", help="openvoice: his private tone .npy (tools/voice_tone.py)")
+    parser.add_argument("--target", default="", help="chatterbox: a clean clip of his reading (private)")
+    parser.add_argument("--voice-python", default="", help="chatterbox: the voice environment's python")
+    parser.add_argument("--private", default="", help="chatterbox: a private working folder outside the repository")
     args = parser.parse_args(argv)
     out = Path(args.out).resolve()
+    private = Path(args.private).resolve() if args.private else None
     if args.narrator == "navin":
-        if out == ROOT or ROOT in out.parents:
-            parser.error("a page in Navin's voice is private: --out must be outside the repository")
-        if not args.tone or not Path(args.tone).exists():
-            parser.error("--narrator navin needs --tone (his private tone file)")
+        for where in (out, private):
+            if where is not None and (where == ROOT or ROOT in where.parents):
+                parser.error("Navin's voice is private: --out and --private must be outside the repository")
+        if args.converter == "openvoice" and (not args.tone or not Path(args.tone).exists()):
+            parser.error("--converter openvoice needs --tone (his private tone file)")
+        if args.converter == "chatterbox" and not (args.target and Path(args.target).exists() and args.voice_python and private):
+            parser.error("--converter chatterbox needs --target, --voice-python and --private")
     from bie.brain import studio_voice
-    tone = studio_voice.Tone(Path(args.tone)) if args.narrator == "navin" else None
-    voice = studio_voice.Voice(language=args.language, who=args.narrator, tone=tone)
+    convert = None
+    if args.narrator == "navin" and args.converter == "chatterbox":
+        private.mkdir(mode=0o700, parents=True, exist_ok=True)
+        sys.path.insert(0, str(ROOT / "tools"))
+        voice = studio_voice.Voice(language=args.language, who="navin", base_only=True)
+
+        def convert(files):
+            return chatterbox_convert(files, target=Path(args.target), private=private, python=args.voice_python)
+    else:
+        tone = studio_voice.Tone(Path(args.tone)) if args.narrator == "navin" else None
+        voice = studio_voice.Voice(language=args.language, who=args.narrator, tone=tone)
     template = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
     page, report = revoice(Path(args.page).read_text(encoding="utf-8"),
-                           json.loads(Path(args.film).read_text(encoding="utf-8")), voice, template=template)
+                           json.loads(Path(args.film).read_text(encoding="utf-8")), voice, template=template,
+                           convert=convert, private=private)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page, encoding="utf-8")
     if args.narrator == "navin":

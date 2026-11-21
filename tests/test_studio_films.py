@@ -936,3 +936,18 @@ class LearnedFromFilmA(unittest.TestCase):
                       " ".join(studio_film.library_problems(made, {"library": library})))
         made["shots"][1]["visual"]["library"] = "a-head"
         self.assertEqual(studio_film.library_problems(made, {"library": library}), [])
+
+
+class PassedFilms(unittest.TestCase):
+    """Seekh → BIE (CLAUDE.md): a film Navin passed must still pass every code check after any change. The first is Q14
+    "A jaisi" (Navin, 21 November 2026: "isko pass maankar")."""
+
+    def test_every_passed_film_still_passes(self):
+        import gzip
+        found = sorted((ROOT / "tests" / "fixtures" / "passed_outputs" / "studio").glob("*.json.gz"))
+        self.assertTrue(found)
+        for path in found:
+            with gzip.open(path, "rt", encoding="utf-8") as f:
+                kept = json.load(f)
+            self.assertIn("Navin", kept["accepted"])
+            self.assertEqual(studio_film.problems(kept["film"], kept["question"]), [], path.name)

@@ -254,6 +254,20 @@ Decision cards in the planning chat, 18 November 2026:
    voice). IMPLEMENTED with 22 offline tests; first sample: likeness to his reading 0.80 → 0.875 (his own ceiling 0.97),
    about 1.6 s of CPU per second of voice. His listening verdict and the first VM dub run are next.
 
+12. **Q14 passed, and the second voice round (21 November 2026):** VM job `studio-photosynthesis-q14-learned` (ok, ₹0,
+   13 minutes; 9 shots, 28 sentences, 4.1 minutes; 7 pictures from the cupboard, 2 drawn; NCERT 12/12; 2 rounds; no
+   problems; played in Chromium to the end, no errors) made Q14 again "A jaisa": 7 questions, 3 everyday pictures, 13
+   joining words, no stacked labels. Navin: **pass** ("isko pass maankar"), with one fix: "Aaiye jaante hain." and "Pehle
+   yaad kijiye ..." were said in one breath and one tone across the full stop. Fixed in `bie/brain/studio_voice.py`: every
+   sentence of a line is said on its own, 0.35 s after a full stop and 0.55 s after an invitation. The film is kept as a
+   passed output (`tests/fixtures/passed_outputs/studio/`); every change must keep it passing (`tests/test_studio_films.py`,
+   `PassedFilms`). Next, by his word: the other 22 films with everything Q14 taught (Claude's suggestion, also Q03 and Q19
+   again, made on 19 November under the old rules; the old films stay). His voice, second round: the first sample sounded
+   artificial to him; measured ways and his card ("6: Kokoro + Chatterbox badlaav") are in `VOICE_CLIP_METHOD.md`; built on
+   branch `voice-chatterbox-convert` (the worker's convert request, `tools/studio_revoice.py --converter chatterbox`), with
+   the VM runner now accepting studio stage `dub` (the first dub jobs were refused: `dub` was not in its stage list, and
+   commas are not allowed in `language`).
+
 Checked the same day: VM job `img-check-20261118` (two test pictures through the plan, 3 minutes, ₹0); Codex's weekly
 plan window was 43 % used before it (resets about 21 November).
 

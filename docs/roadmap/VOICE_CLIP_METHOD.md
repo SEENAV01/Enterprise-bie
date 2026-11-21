@@ -123,3 +123,30 @@ What the recording holds (measured by code, numbers only): 318 s; Whisper (large
 words a minute, speech 81% of the time, 24 pauses over 0.8 s (the longest 9.2 s), one word said twice, 6 unsure words;
 noise floor about −72 dB, one clipped sample. 32 clean stretches (3–10 s, no gap over 0.45 s, no restart, every word heard
 clearly) total 227 s; only these make his tone colour.
+
+### Second round, 21 November 2026: "voice artificial hai", and Chatterbox's conversion
+
+Navin heard the first sample (OpenVoice, likeness 0.875): "aawaj ko sur sudhaarna hai; meri recording se lehja to dekh
+sakte ho, jahan prashan hai wahan kaise prashan ka utaar ... jisse cheejen ek continuous paragraph jaisi na lage; voice
+ko thoda human touch do, saaf lag raha hai voice artificial hai". So his lehja may now be learned from the recording; his
+slips still may not.
+
+Measured on his reading: on a question word his pitch rises about 8 semitones above his middle and the question's end
+falls about 2; statements end about half a semitone low. The base voice already rose 6 to 9 semitones on question words,
+so a code reshaping of its pitch (WORLD, pyworld MIT) changed little. What changes the feel is the voice itself:
+
+| Way (same 4 Q14 lines) | Likeness to his reading | CPU per second of voice (2 CPUs) |
+| --- | --- | --- |
+| Chatterbox speaking, lehja and timbre from a 12 s clean question-and-answer clip of his | 0.96 | about 8 |
+| Kokoro speaking, Chatterbox's voice conversion (S3Gen) into his voice | 0.94 | about 4.5 |
+| Kokoro, slower, with his question shape, OpenVoice | 0.87 | about 1.6 |
+| His own reading, half against half (the ceiling) | 0.97 | |
+
+Chatterbox speaking once added two words that were not in the line; made part by part with a Whisper check, all six
+parts came out clean. Tamil (Indic-TTS male, a test sentence) through Chatterbox's conversion: likeness 0.71 → 0.91,
+Whisper heard 82% of the words (97% before conversion), so a Tamil speaker should listen once.
+
+His card: **"6: Kokoro + Chatterbox badlaav"**, and Claude chooses the clip of his reading that sets the voice. Built:
+the voice worker's convert request (`tools/vm_voice_worker.py`, the pinned Chatterbox model) and
+`tools/studio_revoice.py --narrator navin --converter chatterbox` (every line said by the base voice, all lines turned
+into his voice in one batch in the voice environment, the page built again). OpenVoice stays as the faster way.

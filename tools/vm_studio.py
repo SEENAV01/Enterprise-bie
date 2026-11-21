@@ -357,7 +357,8 @@ def dub(args, client, model, pages, out: Path, summary: dict, *, voice_maker=Non
     ``--language`` (codes: ta, te, ml, mr, en; comma-separated), the screen lines and labels in that language with the
     technical terms in English, and the voice from the language's engine when this machine has one."""
     from bie.brain import studio_dub, studio_film, studio_voice
-    languages = [x.strip() for x in (args.language or "").split(",") if x.strip()]
+    # codes separated by commas or spaces (the VM's job check allows letters and spaces in "language": "ta te ml")
+    languages = [x for x in (args.language or "").replace(",", " ").split() if x]
     unknown = [x for x in languages if x not in studio_dub.LANGUAGES]
     if not languages or unknown:
         raise ValueError(f"--language for dub: codes from {', '.join(studio_dub.LANGUAGES)} (got {args.language!r})")
@@ -557,7 +558,7 @@ def main(argv=None):
     parser.add_argument("--out", required=True)
     parser.add_argument("--pages", default="")
     parser.add_argument("--course", default="")
-    parser.add_argument("--language", default="Hinglish", help="dub: the target language codes, for example ta,te,ml,mr,en")
+    parser.add_argument("--language", default="Hinglish", help="dub: the target language codes, for example 'ta te ml mr en'")
     parser.add_argument("--model", default="")
     parser.add_argument("--max-rounds", type=int, default=3)
     args = parser.parse_args(argv)
