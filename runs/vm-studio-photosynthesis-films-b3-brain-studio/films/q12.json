@@ -1,0 +1,1856 @@
+{
+ "film": {
+  "title": "Electron ka seedha raasta aur return loop",
+  "look": "Ek emerald leaf ke andar golden light aur teal shadows ki realistic journey; chloroplast jade, grana aur membrane dark green, stroma ivory-teal, lumen turquoise, PSII ochre, PSI sage, acceptor cream, cytochrome b6f copper, NADP reductase rose, ATP synthase amber ring–silver stalk–violet six-lobed head; recurring structures apni side aur rang rakhte hain.",
+  "shots": [
+   {
+    "id": "s1",
+    "title": "Ek electron, do raaste",
+    "key": "Electron ka destination badalta hai, products bhi badalte hain.",
+    "covers": [],
+    "visual": {
+     "type": "photo",
+     "image_prompt": "16:9 photoreal macro of an emerald living leaf, golden sunlight, teal shaded natural background, realistic veins and translucent tissue. Sunlit patch at 60,50 leads into the leaf interior. No microscopic objects. Leave upper left open for light movement and labels.",
+     "svg": "",
+     "library": "leaf-sunlit"
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "Ek electron ke raaste se ATP aur NADPH dono milte hain, lekin doosre raaste se sirf ATP kyun milta hai?",
+      "voice": "एक इलेक्ट्रॉन के रास्ते से एटीपी और एनएडीपीएच दोनों मिलते हैं, लेकिन दूसरे रास्ते से सिर्फ़ एटीपी क्यों मिलता है?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "hook"
+     },
+     {
+      "roman": "Aaiye jaante hain; dhoop is patte par padti hai, aur hum isi roshan hisse ke andar chalte hain.",
+      "voice": "आइए जानते हैं; धूप इस पत्ते पर पड़ती है, और हम इसी रोशन हिस्से के अंदर चलते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 60,
+       "y": 50,
+       "scale": 1.6
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "Dhoop",
+        "points": [
+         [
+          20,
+          12
+         ],
+         [
+          60,
+          50
+         ]
+        ],
+        "count": 4,
+        "ms": 1600,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "prerequisite"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "title": "Energy ko sambhaalna",
+    "key": "ATP chemical bonds mein energy carry karta hai.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "Scientific transparent cross-section inside the same emerald leaf patch, 16:9, soft volumetric sunlight and deep teal shadows. One mesophyll cell dominates with translucent cream wall, large clear vacuole and peripheral cytoplasm. Several realistic jade double-envelope chloroplasts; target at 64,55 with faint olive-gold internal stacks. No proteins or molecules visible. Open space above target for light animation and labels.",
+     "svg": "",
+     "library": "mesophyll-cell"
+    },
+    "dive": {
+     "x": 60,
+     "y": 50
+    },
+    "sentences": [
+     {
+      "roman": "Patte ke andar yeh mesophyll cell hai; pehle energy sambhaalne ki ek zaroori baat samajhiye.",
+      "voice": "पत्ते के अंदर यह मेसोफिल सेल है; पहले एनर्जी सँभालने की एक ज़रूरी बात समझिए।",
+      "pins": [
+       {
+        "label": "Mesophyll cell",
+        "x": 14,
+        "y": 62
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Living organisms oxidisable substances se energy nikaalte hain aur use bond energy ke roop mein store karte hain.",
+      "voice": "लिविंग ऑर्गेनिज़्म ऑक्सिडाइज़ेबल सब्स्टेंसेज़ से एनर्जी निकालते हैं और उसे बॉन्ड एनर्जी के रूप में स्टोर करते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       1
+      ],
+      "beyond": "",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "ATP apne chemical bonds mein yeh energy carry karta hai, jaise kharch karne layak chhota energy-wallet.",
+      "voice": "एटीपी अपने केमिकल बॉन्ड्स में यह एनर्जी कैरी करता है, जैसे खर्च करने लायक छोटा एनर्जी-वॉलेट।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 64,
+       "y": 55,
+       "scale": 1.3
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       2
+      ],
+      "beyond": "ATP ko kharch karne layak energy-wallet se joda hai.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Ab roshni paane wale is chloroplast ke andar chalte hain, jahaan light ki energy ATP banane mein kaam aati hai.",
+      "voice": "अब रोशनी पाने वाले इस क्लोरोप्लास्ट के अंदर चलते हैं, जहाँ लाइट की एनर्जी एटीपी बनाने में काम आती है।",
+      "pins": [
+       {
+        "label": "Chloroplast",
+        "x": 29.0,
+        "y": 55.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 29.0,
+       "y": 55.0,
+       "scale": 1.8
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          42.0,
+          12.0
+         ],
+         [
+          29.0,
+          55.0
+         ]
+        ],
+        "count": 3,
+        "ms": 1800,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "title": "Raaston ki jagah",
+    "key": "Stroma lamellae mein PSII aur NADP reductase nahi hote.",
+    "covers": [
+     2
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 realistic scientific cutaway inside selected sage-green chloroplast. Double envelope surrounds ivory-teal fluid stroma and dark-green flattened thylakoid sacs stacked into grana and connected by stromal lamellae. Continuous enclosing membranes; optical transparency reveals pale turquoise lumen without physical openings. Accessible unstacked thylakoid at 64,58. No individual proteins or molecular beads at this scale. Golden light, teal depth, empty upper right for overlays.",
+     "svg": "",
+     "library": "chloroplast-grana"
+    },
+    "dive": {
+     "x": 29.0,
+     "y": 55.0
+    },
+    "sentences": [
+     {
+      "roman": "Chloroplast ke andar yeh grana ki stacks hain, jinhe stroma lamellae ki membranes jodti hain.",
+      "voice": "क्लोरोप्लास्ट के अंदर ये ग्राना की स्टैक्स हैं, जिन्हें स्ट्रोमा लैमेली की मेम्ब्रेन्स जोड़ती हैं।",
+      "pins": [
+       {
+        "label": "Grana",
+        "x": 20.0,
+        "y": 54.0
+       },
+       {
+        "label": "Stroma lamellae",
+        "x": 64,
+        "y": 58
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Grana aur connecting membranes ka spatial sambandh bataya hai.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Grana ki membranes mein PSI aur PSII dono hote hain, lekin stroma lamellae mein PSII aur NADP reductase nahi hote.",
+      "voice": "ग्राना की मेम्ब्रेन्स में पीएस वन और पीएस टू दोनों होते हैं, लेकिन स्ट्रोमा लैमेली में पीएस टू और एनएडीपी रिडक्टेज़ नहीं होते।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 54,
+        "x1": 75,
+        "y0": 52,
+        "y1": 64
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 64.0,
+       "y": 58.0,
+       "scale": 1.3
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       10
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Cyclic photophosphorylation ki ek possible jagah stroma lamellae hain; pehle paas ki granum membrane par dono photosystems ka raasta dekhte hain.",
+      "voice": "साइक्लिक फोटोफॉस्फोराइलेशन की एक पॉसिबल जगह स्ट्रोमा लैमेली हैं; पहले पास की ग्रैनम मेम्ब्रेन पर दोनों फोटोसिस्टम्स का रास्ता देखते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 26.0,
+       "y": 50.0,
+       "scale": 1.7
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          20.0,
+          12.0
+         ],
+         [
+          26.0,
+          50.0
+         ]
+        ],
+        "count": 3,
+        "ms": 1500,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       8,
+       9
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "title": "Paani se PSI tak",
+    "key": "Non-cyclic flow mein PSII → ETC → PSI kaam karte hain.",
+    "covers": [
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 realistic molecular cutaway inside granum membrane selected at previous frame 34,50. Dark-green thylakoid bilayer y60, sealed sac lower outline, turquoise lumen below and ivory-teal stroma above. Ochre structurally credible dimeric PSII left x20,y60 with water-oxidising cluster on lumen side x20,y70. Copper cytochrome b6f x43,y60; small mobile electron carriers along membrane and stroma surface; sage PSI right x68,y60, cream acceptor x73,y32, rose NADP reductase x88,y30 in stroma. Proteins shown as realistic multisubunit structural complexes, not blobs. Golden light, teal depth. Empty aqueous lanes for separately animated water, oxygen and electrons; no baked molecules, labels or arrows.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 26.0,
+     "y": 50.0
+    },
+    "sentences": [
+     {
+      "roman": "Ab granum membrane par PSII aur PSI ke paas hain; non-cyclic flow ka electron aata kahaan se hai?",
+      "voice": "अब ग्रैनम मेम्ब्रेन पर पीएस टू और पीएस वन के पास हैं; नॉन-साइक्लिक फ्लो का इलेक्ट्रॉन आता कहाँ से है?",
+      "pins": [
+       {
+        "label": "PSII",
+        "x": 20.0,
+        "y": 48.0
+       },
+       {
+        "label": "PSI",
+        "x": 68.0,
+        "y": 48.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 55,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Dekhiye, PSII ke paas water splitting se H2O tootkar electrons, H+ aur O2 deta hai, jisse oxygen bahar nikalti hai.",
+      "voice": "देखिए, पीएस टू के पास वॉटर स्प्लिटिंग से एच टू ओ टूटकर इलेक्ट्रॉन्स, एच प्लस और ओ टू देता है, जिससे ऑक्सीजन बाहर निकलती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 18.0,
+       "y": 63.0,
+       "scale": 1.4
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "H2O",
+          "from": [
+           8,
+           84
+          ]
+         },
+         {
+          "what": "H2O",
+          "from": [
+           11,
+           88
+          ]
+         }
+        ],
+        "at": [
+         18.0,
+         63.0
+        ],
+        "outputs": [
+         {
+          "what": "e-",
+          "to": [
+           20.0,
+           48.0
+          ]
+         },
+         {
+          "what": "H+",
+          "to": [
+           38,
+           82
+          ]
+         },
+         {
+          "what": "O2",
+          "to": [
+           7,
+           72
+          ]
+         }
+        ],
+        "label": "",
+        "ms": 4200,
+        "loop": false
+       }
+      ],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Water source aur oxygen release ka q11 se basic bridge diya hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Light pehle PSII ko excite karti hai, jisse electron electron transport chain, ya ETC, se PSI tak pahunchta hai.",
+      "voice": "लाइट पहले पीएस टू को एक्साइट करती है, जिससे इलेक्ट्रॉन इलेक्ट्रॉन ट्रांसपोर्ट चेन, या ईटीसी, से पीएस वन तक पहुँचता है।",
+      "pins": [
+       {
+        "label": "ETC",
+        "x": 43,
+        "y": 48
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 43.0,
+       "y": 48.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "Light",
+        "points": [
+         [
+          10.0,
+          12.0
+         ],
+         [
+          20.0,
+          48.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1200,
+        "loop": false
+       },
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "Electron",
+        "points": [
+         [
+          20.0,
+          48.0
+         ],
+         [
+          33.0,
+          48.0
+         ],
+         [
+          43.0,
+          48.0
+         ],
+         [
+          55.0,
+          58.0
+         ],
+         [
+          68.0,
+          48.0
+         ]
+        ],
+        "count": 1,
+        "ms": 5000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       5,
+       6
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Phir light PSI ke electron ko excite karti hai; yeh series non-cyclic photophosphorylation hai, jiska energy pattern Z scheme kehlata hai.",
+      "voice": "फिर लाइट पीएस वन के इलेक्ट्रॉन को एक्साइट करती है; यह सीरीज़ नॉन-साइक्लिक फोटोफॉस्फोराइलेशन है, जिसका एनर्जी पैटर्न ज़ेड स्कीम कहलाता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 68.0,
+       "y": 43.0,
+       "scale": 1.5
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "Light",
+        "points": [
+         [
+          57.0,
+          10.0
+         ],
+         [
+          68.0,
+          48.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1600,
+        "loop": false
+       },
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "Electron",
+        "points": [
+         [
+          68.0,
+          48.0
+         ],
+         [
+          75.0,
+          27.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2100,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       5,
+       6
+      ],
+      "beyond": "Z scheme physical zigzag nahi, energy pattern hai.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "title": "NADP+ par pahunchna",
+    "key": "Non-cyclic electron NADP+ ko reduce karta hai.",
+    "covers": [
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 deeper molecular cutaway into previous PSI and NADP reductase region at 78,35. Preserve sage PSI right x68,y64 in dark-green membrane y68, cream electron acceptor x73,y28, rose NADP reductase right x88,y32 with a visible substrate-binding cleft. Ivory-teal stroma above, turquoise lumen below, sealed membrane surroundings retained. Realistic multisubunit protein structural models with golden illumination and teal shadows. Leave clear substrate approach spaces x78,y12 and x96,y16, product space x94,y50. No painted molecules, arrows or text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 80.0,
+     "y": 29.0
+    },
+    "sentences": [
+     {
+      "roman": "PSI ke stroma wale taraf hain; ab electron wapas aayega ya NADP reductase ke zariye NADP+ tak jaayega?",
+      "voice": "पीएस वन के स्ट्रोमा वाले तरफ़ हैं; अब इलेक्ट्रॉन वापस आएगा या एनएडीपी रिडक्टेज़ के ज़रिए एनएडीपी प्लस तक जाएगा?",
+      "pins": [
+       {
+        "label": "PSI",
+        "x": 68,
+        "y": 64
+       },
+       {
+        "label": "NADP reductase",
+        "x": 88,
+        "y": 32
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 78,
+       "y": 42,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Is raaste mein electron acceptor se electron NADP reductase tak jaata hai, jaise ek taraf jaane wali delivery.",
+      "voice": "इस रास्ते में इलेक्ट्रॉन एक्सेप्टर से इलेक्ट्रॉन एनएडीपी रिडक्टेज़ तक जाता है, जैसे एक तरफ़ जाने वाली डिलीवरी।",
+      "pins": [
+       {
+        "label": "Electron acceptor",
+        "x": 64.0,
+        "y": 31.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 83,
+       "y": 32,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "Electron",
+        "points": [
+         [
+          64.0,
+          31.0
+         ],
+         [
+          74.0,
+          30.0
+         ],
+         [
+          88.0,
+          32.0
+         ]
+        ],
+        "count": 2,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Electron delivery ko one-way safar se samjhaya hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Yahaan NADP+ do electrons aur H+ lekar NADPH banta hai; non-cyclic flow ka reducing output NADPH + H+ likha jaata hai.",
+      "voice": "यहाँ एनएडीपी प्लस दो इलेक्ट्रॉन्स और एच प्लस लेकर एनएडीपीएच बनता है; नॉन-साइक्लिक फ्लो का रिड्यूसिंग आउटपुट एनएडीपीएच प्लस एच प्लस लिखा जाता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 88,
+       "y": 32,
+       "scale": 1.5
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "NADP+",
+          "from": [
+           79,
+           12
+          ]
+         },
+         {
+          "what": "e-",
+          "from": [
+           64.0,
+           31.0
+          ]
+         },
+         {
+          "what": "H+",
+          "from": [
+           96,
+           16
+          ]
+         }
+        ],
+        "at": [
+         88,
+         32
+        ],
+        "outputs": [
+         {
+          "what": "NADPH",
+          "to": [
+           94,
+           50
+          ]
+         }
+        ],
+        "label": "",
+        "ms": 5000,
+        "loop": false
+       }
+      ],
+      "cycles": [],
+      "teaches": [
+       7
+      ],
+      "beyond": "NADP+ reduction ki electron aur proton requirement batayi hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Yeh NADPH stroma mein jaata hai aur is flow se ATP bhi milta hai; ab stroma lamella par electron ki return trip dekhte hain.",
+      "voice": "यह एनएडीपीएच स्ट्रोमा में जाता है और इस फ्लो से एटीपी भी मिलता है; अब स्ट्रोमा लैमेला पर इलेक्ट्रॉन की रिटर्न ट्रिप देखते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 78,
+       "y": 42,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "NADPH",
+        "colour": "purple",
+        "label": "NADPH",
+        "points": [
+         [
+          94,
+          50
+         ],
+         [
+          80,
+          15
+         ]
+        ],
+        "count": 1,
+        "ms": 2400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       7
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s6",
+    "title": "Electron ka return loop",
+    "key": "Cyclic flow: PSI → acceptor → ETC → PSI.",
+    "covers": [
+     2
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 realistic molecular cutaway of neighboring stroma lamella in same chloroplast, sole return cut. Dark-green membrane y66 with intact closed turquoise lumen below, ivory-teal stroma above. Sage PSI right x68,y66, cream electron acceptor x68,y24, copper cytochrome b6f left x38,y66; realistic carriers occupy an empty oval corridor centered 53,44 radius 22 horizontal and 22 vertical. No PSII and no NADP reductase. ATP synthase far right x87: amber CF0 ring y66, silver stalk, violet six-lobed CF1 head y42, peripheral stator. Golden light, teal depth, realistic structural models. Leave corridor and lumen empty for coordinated animation.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "Ab stroma lamella par hain; sirf PSI active ho toh electron kahaan jaata hai?",
+      "voice": "अब स्ट्रोमा लैमेला पर हैं; सिर्फ़ पीएस वन एक्टिव हो तो इलेक्ट्रॉन कहाँ जाता है?",
+      "pins": [
+       {
+        "label": "PSI",
+        "x": 67.0,
+        "y": 55.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 57,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       8
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Iska jawab cyclic electron flow hai, jiske teen padaav electron acceptor, ETC aur PSI hain.",
+      "voice": "इसका जवाब साइक्लिक इलेक्ट्रॉन फ्लो है, जिसके तीन पड़ाव इलेक्ट्रॉन एक्सेप्टर, ईटीसी और पीएस वन हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 53,
+       "y": 44,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [
+       {
+        "x": 48.0,
+        "y": 40.0,
+        "rx": 22,
+        "ry": 22,
+        "label": "Cyclic electron flow",
+        "carriers": 1,
+        "ms": 12000,
+        "stations": [
+         {
+          "at": 313,
+          "label": "Electron acceptor",
+          "becomes": "e-",
+          "takes": [],
+          "gives": []
+         },
+         {
+          "at": 135,
+          "label": "ETC",
+          "becomes": "e-",
+          "takes": [],
+          "gives": []
+         },
+         {
+          "at": 47,
+          "label": "PSI",
+          "becomes": "e-",
+          "takes": [],
+          "gives": []
+         }
+        ]
+       }
+      ],
+      "teaches": [
+       8,
+       11
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Pehle light se excited PSI ka electron electron acceptor leta hai, lekin NADP+ ko nahi deta.",
+      "voice": "पहले लाइट से एक्साइटेड पीएस वन का इलेक्ट्रॉन इलेक्ट्रॉन एक्सेप्टर लेता है, लेकिन एनएडीपी प्लस को नहीं देता।",
+      "pins": [
+       {
+        "label": "Electron acceptor",
+        "x": 68,
+        "y": 24
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 68,
+       "y": 27,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          77.0,
+          10.0
+         ],
+         [
+          67.0,
+          48.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       11
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Phir ETC electron bhejti hai aur H+ lumen mein jama karne mein madad karti hai, jisse ATP banane ki energy milti hai.",
+      "voice": "फिर ईटीसी इलेक्ट्रॉन भेजती है और एच प्लस ल्यूमेन में जमा करने में मदद करती है, जिससे एटीपी बनाने की एनर्जी मिलती है।",
+      "pins": [
+       {
+        "label": "ETC",
+        "x": 26.0,
+        "y": 56.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 26.0,
+       "y": 60.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H+",
+        "points": [
+         [
+          26.0,
+          40.0
+         ],
+         [
+          26.0,
+          62.0
+         ],
+         [
+          40.0,
+          82.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2000,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       8
+      ],
+      "beyond": "ETC ko proton gradient se jodne ka q13 bridge hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Aakhir electron PSI mein laut aata hai, jaise gol chakkar ki bus, jisse loop band ho jaata hai.",
+      "voice": "आख़िर इलेक्ट्रॉन पीएस वन में लौट आता है, जैसे गोल चक्कर की बस, जिससे लूप बंद हो जाता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 67.0,
+       "y": 55.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       11
+      ],
+      "beyond": "Return loop ko gol chakkar ki bus se samjhaya hai.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s6b",
+    "title": "Sirf ATP wala raasta",
+    "key": "Beyond-680 nm light cyclic photophosphorylation ko favour karti hai.",
+    "covers": [
+     2
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer molecular structural inspection inside previous stroma lamella PSI region at 68,60. Sage PSI remains right x68,y65 in dark-green membrane y65; cream acceptor x68,y23, copper cytochrome b6f left x38,y65. Intact closed sac outline encloses turquoise lumen below, ivory-teal stroma above. No PSII or NADP reductase. ATP synthase remains far right x87 with amber CF0 ring y65, silver stalk and violet six-lobed CF1 head y39. Golden volumetric light, teal shadows, realistic protein complexes. Empty upper light corridor and aqueous spaces, no static molecules or arrows.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 68,
+     "y": 60
+    },
+    "sentences": [
+     {
+      "roman": "Isi stroma lamella par cyclic flow sirf ATP banata hai, NADPH + H+ nahi; ab sawaal hai ki kaunsi light ise favour karti hai?",
+      "voice": "इसी स्ट्रोमा लैमेला पर साइक्लिक फ्लो सिर्फ़ एटीपी बनाता है, एनएडीपीएच प्लस एच प्लस नहीं; अब सवाल है कि कौन-सी लाइट इसे फ़ेवर करती है?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 68,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       12
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Sirf 680 nm se aage ki wavelength ki light mile, tab bhi cyclic photophosphorylation hoti hai; ab paas ke ATP synthase ko dekhte hain.",
+      "voice": "सिर्फ़ छह सौ अस्सी नैनोमीटर से आगे की वेवलेंथ की लाइट मिले, तब भी साइक्लिक फोटोफॉस्फोराइलेशन होती है; अब पास के एटीपी सिंथेज़ को देखते हैं।",
+      "pins": [
+       {
+        "label": "ATP synthase",
+        "x": 87,
+        "y": 39
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 87,
+       "y": 49,
+       "scale": 1.5
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "red",
+        "label": "680 nm se aage",
+        "points": [
+         [
+          16.0,
+          5.0
+         ],
+         [
+          62.0,
+          44.0
+         ]
+        ],
+        "count": 3,
+        "ms": 1800,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       13
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s7",
+    "title": "Loop ki energy se ATP",
+    "key": "Light ki madad se ADP + Pi → ATP: photophosphorylation.",
+    "covers": [
+     0,
+     2
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer structural cutaway inside previous right-hand ATP synthase at 87,49, preserving x87 position. Dark-green bilayer y66, closed turquoise lumen below and ivory-teal stroma above. ATP synthase amber CF0 ring x87,y66 with offset lumen entry x83,y74 and stroma exit x91,y57, silver central rotating stalk x87,y49, violet six-lobed CF1 head x87,y31, peripheral stationary stalk. Realistic catalytic clefts, alternating open and closed structural domain contours, no whole-head rotation. Copper cytochrome b6f remains left x38,y66. Golden light, teal depth. Clear approach space x65,y18 and x76,y12 for substrates; empty cleft x85,y31 and product space x96,y20. No prepainted molecules.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 87,
+     "y": 49
+    },
+    "sentences": [
+     {
+      "roman": "Ab ATP synthase ke paas hain; jama H+ se ATP kaise banega?",
+      "voice": "अब एटीपी सिंथेज़ के पास हैं; जमा एच प्लस से एटीपी कैसे बनेगा?",
+      "pins": [
+       {
+        "label": "ATP synthase",
+        "x": 68.0,
+        "y": 29.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 81,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Baandh ke paani jaise H+ CF0 se wapas behkar central stalk ghumate hain, jisse CF1 ke catalytic parts ki shape badalti hai.",
+      "voice": "बाँध के पानी जैसे एच प्लस सीएफ ज़ीरो से वापस बहकर सेंट्रल स्टॉक घुमाते हैं, जिससे सीएफ वन के कैटेलिटिक पार्ट्स की शेप बदलती है।",
+      "pins": [
+       {
+        "label": "CF0",
+        "x": 67.0,
+        "y": 74.0
+       },
+       {
+        "label": "CF1",
+        "x": 67.0,
+        "y": 28.0
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "spin",
+        "x0": 64.0,
+        "x1": 68.0,
+        "y0": 42.5,
+        "y1": 63.5
+       },
+       {
+        "type": "glow",
+        "x0": 60.0,
+        "x1": 74.0,
+        "y0": 21.5,
+        "y1": 34.5
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 67.0,
+       "y": 49.0,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H+",
+        "points": [
+         [
+          51.0,
+          92.0
+         ],
+         [
+          53.0,
+          81.0
+         ],
+         [
+          56.0,
+          72.0
+         ],
+         [
+          58.0,
+          63.0
+         ],
+         [
+          54.0,
+          54.0
+         ]
+        ],
+        "count": 5,
+        "ms": 2600,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "q14 ka basic mechanism aur baandh analogy diya hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "CF1 par ADP aur inorganic phosphate, ya Pi, judkar ATP banate hain; cells mein ATP synthesis phosphorylation hai, jo mitochondria aur chloroplasts mein hoti hai.",
+      "voice": "सीएफ वन पर एडीपी और इनऑर्गैनिक फॉस्फेट, या पी आई, जुड़कर एटीपी बनाते हैं; सेल्स में एटीपी सिंथेसिस फॉस्फोराइलेशन है, जो माइटोकॉन्ड्रिया और क्लोरोप्लास्ट्स में होती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 67.0,
+       "y": 28.0,
+       "scale": 1.5
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "ADP",
+          "from": [
+           46.0,
+           18.0
+          ]
+         },
+         {
+          "what": "Pi",
+          "from": [
+           57.0,
+           8.0
+          ]
+         }
+        ],
+        "at": [
+         67.0,
+         28.0
+        ],
+        "outputs": [
+         {
+          "what": "ATP",
+          "to": [
+           94.0,
+           20.0
+          ]
+         }
+        ],
+        "label": "ADP + Pi → ATP",
+        "ms": 5000,
+        "loop": false
+       }
+      ],
+      "cycles": [],
+      "teaches": [
+       3
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Jab light ki madad se ADP aur inorganic phosphate, ya Pi, se ATP banta hai, toh ise photophosphorylation kehte hain.",
+      "voice": "जब लाइट की मदद से एडीपी और इनऑर्गैनिक फॉस्फेट, या पी आई, से एटीपी बनता है, तो इसे फोटोफॉस्फोराइलेशन कहते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 67.0,
+       "y": 28.0,
+       "scale": 1.4
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "ADP",
+          "from": [
+           46.0,
+           18.0
+          ]
+         },
+         {
+          "what": "Pi",
+          "from": [
+           57.0,
+           8.0
+          ]
+         }
+        ],
+        "at": [
+         67.0,
+         28.0
+        ],
+        "outputs": [
+         {
+          "what": "ATP",
+          "to": [
+           94.0,
+           20.0
+          ]
+         }
+        ],
+        "label": "",
+        "ms": 4500,
+        "loop": false
+       }
+      ],
+      "cycles": [],
+      "teaches": [
+       4
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s8",
+    "title": "ATP ka agla kaam",
+    "key": "Non-cyclic: ATP, NADPH, O2; cyclic: sirf ATP.",
+    "covers": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 deeper view inside previous ATP synthase stroma-facing head region at 85,31. ATP synthase stays right x87: violet realistic six-lobed CF1 head y40, silver central stalk descending to amber CF0 ring in dark-green bilayer y80; turquoise lumen below and ivory-teal stroma above. Peripheral stator retained, catalytic cleft x84,y39. Left stroma x30,y30 contains one realistic globular phosphoglycerate kinase enzyme with substrate-binding cleft, not a box. Open corridor from synthase x94,y27 to enzyme x30,y30; substrate space x18,y15 and product space x17,y49. Golden volumetric light, teal shadows. No baked molecules or arrows.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 67.0,
+     "y": 28.0
+    },
+    "sentences": [
+     {
+      "roman": "Ab CF1 ke paas stroma mein hain; yeh ATP aage kis kaam aata hai?",
+      "voice": "अब सीएफ वन के पास स्ट्रोमा में हैं; यह एटीपी आगे किस काम आता है?",
+      "pins": [
+       {
+        "label": "CF1",
+        "x": 87,
+        "y": 40
+       },
+       {
+        "label": "Stroma",
+        "x": 53,
+        "y": 16
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 60,
+       "y": 38,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "use"
+     },
+     {
+      "roman": "Dekhiye, ATP stroma ke enzyme tak pahunchta hai, jahaan iski energy carbon compounds ko sugar banne ki taraf badhaati hai.",
+      "voice": "देखिए, एटीपी स्ट्रोमा के एन्ज़ाइम तक पहुँचता है, जहाँ इसकी एनर्जी कार्बन कम्पाउंड्स को शुगर बनने की तरफ़ बढ़ाती है।",
+      "pins": [
+       {
+        "label": "Enzyme",
+        "x": 30,
+        "y": 30
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 30.0,
+       "y": 30.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          80.0,
+          28.0
+         ],
+         [
+          66.0,
+          20.0
+         ],
+         [
+          43.0,
+          22.0
+         ],
+         [
+          30.0,
+          30.0
+         ]
+        ],
+        "count": 1,
+        "ms": 3500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "ATP ka stromal carbon metabolism mein use dikhaya hai.",
+      "part": "use"
+     },
+     {
+      "roman": "ATP carbon compound ko phosphate dekar ADP banta hai, jisse phosphorylated carbon compound aage ke liye taiyaar hota hai.",
+      "voice": "एटीपी कार्बन कम्पाउंड को फॉस्फेट देकर एडीपी बनता है, जिससे फॉस्फोराइलेटेड कार्बन कम्पाउंड आगे के लिए तैयार होता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 30,
+       "y": 30,
+       "scale": 1.6
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "ATP",
+          "from": [
+           39,
+           24
+          ]
+         },
+         {
+          "what": "molecule",
+          "from": [
+           18,
+           15
+          ]
+         }
+        ],
+        "at": [
+         30,
+         30
+        ],
+        "outputs": [
+         {
+          "what": "ADP",
+          "to": [
+           48,
+           45
+          ]
+         },
+         {
+          "what": "molecule",
+          "to": [
+           17,
+           49
+          ]
+         }
+        ],
+        "label": "",
+        "ms": 5000,
+        "loop": false
+       }
+      ],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Carbon compound phosphorylation se ATP consumption dikhaya hai.",
+      "part": "use"
+     },
+     {
+      "roman": "Is video se aapko yeh baatein yaad rakhni hain: non-cyclic mein PSII-phir-PSI, electron NADP+ tak, water splitting aur ATP–NADPH–O2 milte hain, jabki cyclic mein sirf PSI, electron waapsi, water splitting nahi aur sirf ATP milta hai.",
+      "voice": "इस वीडियो से आपको ये बातें याद रखनी हैं: नॉन-साइक्लिक में पीएस टू-फिर-पीएस वन, इलेक्ट्रॉन एनएडीपी प्लस तक, वॉटर स्प्लिटिंग और एटीपी–एनएडीपीएच–ओ टू मिलते हैं, जबकि साइक्लिक में सिर्फ़ पीएस वन, इलेक्ट्रॉन वापसी, वॉटर स्प्लिटिंग नहीं और सिर्फ़ एटीपी मिलता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 60,
+       "y": 40,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Cyclic mein water splitting na hone ka explicit comparison diya hai.",
+      "part": "recap"
+     }
+    ]
+   }
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "s2 sentence 4: labels 'Chloroplast' and 'Light' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s4 sentence 1: pin 'PSII' is not spoken in this sentence (dikhaya = bola)",
+    "s4 sentence 1: pin 'PSI' is not spoken in this sentence (dikhaya = bola)",
+    "s4 sentence 4: move label 'Electron' is not spoken in this sentence (dikhaya = bola)",
+    "s5 sentence 4: move label 'NADPH' is not spoken in this sentence (dikhaya = bola)",
+    "s6: 584 characters of narration (about 46 seconds) on one picture; at most 560: split it into two shots, the second a closer look",
+    "s8 sentence 2: labels 'Enzyme' and 'ATP' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s7 sentence 4: Pi takes part in the meeting but the line does not name it; name every molecule as it meets"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "images": {
+  "s1": "q12-s1.png",
+  "s2": "q12-s2.png",
+  "s3": "q12-s3.png",
+  "s4": "q12-s4.png",
+  "s5": "q12-s5.png",
+  "s6": "q12-s6.png",
+  "s6b": "q12-s6b.png",
+  "s7": "q12-s7.png",
+  "s8": "q12-s8.png"
+ },
+ "book_lines": [
+  {
+   "n": 1,
+   "text": "11.6.2 Cyclic and Non-cyclic Photo-phosphorylation Living organisms have the capability of extracting energy from oxidisable substances and store this in the form of bond energy.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0046",
+    "p0009-b0047"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "Special substances like ATP, carry this energy in their chemical bonds.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0047",
+    "p0009-b0048"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "The process through which ATP is synthesised by cells (in mitochondria and Photosystem I chloroplasts) is named phosphorylation.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0048",
+    "p0010-b0002",
+    "p0010-b0003"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "Photo-phosphorylation is the synthesis of ATP from ADP and inorganic phosphate in the presence of e-acceptor light.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0003",
+    "p0010-b0004",
+    "p0010-b0005",
+    "p0010-b0006",
+    "p0010-b0007"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "When the two photosystems work in a Light series, first PS II and then the PS I, a process called P T A non-cyclic photo-phosphorylation occurs.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0007",
+    "p0010-b0008",
+    "p0010-b0009",
+    "p0010-b0010",
+    "p0010-b0011"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "The P i+ two photosystems are connected through an D P Electron A transport electron transport chain, as seen earlier – in the system Z scheme.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0011",
+    "p0010-b0012",
+    "p0010-b0013",
+    "p0010-b0014",
+    "p0010-b0015",
+    "p0010-b0016"
+   ]
+  },
+  {
+   "n": 7,
+   "text": "Both ATP and NADPH + H+ are synthesised by this kind of electron flow (Figure 11.5).",
+   "page": "140",
+   "blocks": [
+    "p0010-b0016",
+    "p0010-b0017",
+    "p0010-b0018"
+   ]
+  },
+  {
+   "n": 8,
+   "text": "Chlorophyll When only PS I is functional, the electron is P 700 circulated within the photosystem and the phosphorylation occurs due to cyclic flow of where this could be happening is in the stroma lamellae.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0019",
+    "p0010-b0020",
+    "p0010-b0021",
+    "p0010-b0023",
+    "p0010-b0024"
+   ]
+  },
+  {
+   "n": 9,
+   "text": "Figure 11.6 Cyclic photophosphorylation electrons (Figure 11.6). A possible location",
+   "page": "140",
+   "blocks": [
+    "p0010-b0022"
+   ]
+  },
+  {
+   "n": 10,
+   "text": "While the membrane or lamellae of the grana have both PS I and PS II the stroma lamellae membranes lack PS II as well as NADP reductase enzyme.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0024",
+    "p0010-b0025",
+    "p0010-b0026"
+   ]
+  },
+  {
+   "n": 11,
+   "text": "The excited electron does not pass on to NADP+ but is cycled back to the PS I complex through the electron transport chain (Figure 11.6).",
+   "page": "140",
+   "blocks": [
+    "p0010-b0026",
+    "p0010-b0027",
+    "p0010-b0028"
+   ]
+  },
+  {
+   "n": 12,
+   "text": "The cyclic flow hence, results only in the synthesis of ATP, but not of NADPH + H+.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0028",
+    "p0010-b0029"
+   ]
+  },
+  {
+   "n": 13,
+   "text": "Cyclic photophosphorylation also occurs when only light of wavelengths beyond 680 nm are available for excitation.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0029",
+    "p0010-b0030"
+   ]
+  }
+ ],
+ "placement": {
+  "s1": {
+   "items": 3,
+   "moved": 0,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5068,
+    "output_tokens": 73,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 0
+   }
+  },
+  "s2": {
+   "items": 6,
+   "moved": 4,
+   "refused": 0,
+   "missing": [
+    "camera target: the part this sentence talks about"
+   ],
+   "usage": {
+    "input_tokens": 5268,
+    "output_tokens": 205,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 74
+   }
+  },
+  "s3": {
+   "items": 7,
+   "moved": 5,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5365,
+    "output_tokens": 368,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 216
+   }
+  },
+  "s4": {
+   "items": 17,
+   "moved": 12,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 6144,
+    "output_tokens": 372,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 0
+   }
+  },
+  "s5": {
+   "items": 12,
+   "moved": 3,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5718,
+    "output_tokens": 363,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 99
+   }
+  },
+  "s6": {
+   "items": 10,
+   "moved": 7,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5554,
+    "output_tokens": 213,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 0
+   }
+  },
+  "s6b": {
+   "items": 4,
+   "moved": 1,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5163,
+    "output_tokens": 172,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 78
+   }
+  },
+  "s7": {
+   "items": 18,
+   "moved": 18,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 6234,
+    "output_tokens": 382,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 0
+   }
+  },
+  "s8": {
+   "items": 11,
+   "moved": 2,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5600,
+    "output_tokens": 346,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 101
+   }
+  }
+ }
+}
