@@ -52,7 +52,7 @@ SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "canv
 # ChatGPT plan (tools/vm_image.py, prompts written by BIE, at most 4 images) and returns the image files; "look" runs the
 # LOOK-01 look check with the free Google reviewer (tools/vm_look.py). Both are fixed commands, like run_brain.
 TOOL_SECTIONS = ("image", "look", "voice")
-STUDIO_STAGES = ("questions", "films", "games", "book", "pyq")
+STUDIO_STAGES = ("questions", "films", "games", "book", "pyq", "dub")   # dub: autodub (Navin, 21 November 2026)
 # "voice" (P1-D, Navin 5 November 2026): Chatterbox Multilingual speaks a video's narration sentences on this machine's
 # CPU (Rs 0) with its built-in voice or Navin's clip (/etc/bie/voice, "sirf VM par private"); the audio stays in
 # BIE_HOME/private/voice/<job id>/ and only numbers (seconds, characters, durations.json) are published.
@@ -125,8 +125,10 @@ def validate(job: dict) -> dict:
         raise JobError("source: needed for understand and chain")
     if out["section"] == "studio" and out.get("stage", "questions") == "questions" and not out.get("source"):
         raise JobError("source: needed for studio questions")
-    if out["section"] == "studio" and out.get("stage") in ("films", "games", "book") and not out.get("from_run"):
+    if out["section"] == "studio" and out.get("stage") in ("films", "games", "book", "dub") and not out.get("from_run"):
         raise JobError(f"from_run: needed for studio {out.get('stage')} (the earlier run: questions Navin said yes to, or films)")
+    if out["section"] == "studio" and out.get("stage") == "dub" and not out.get("language"):
+        raise JobError("language: needed for studio dub (the target codes, for example 'ta te ml mr en')")
     if out["section"] == "studio" and out.get("stage") == "pyq" and not (out.get("source") and out.get("pyqs")):
         raise JobError("source and pyqs: needed for studio pyq (the chapter PDF and the questions JSON)")
     if out.get("pyqs") and not (out["section"] == "studio" and out.get("stage") == "pyq"):

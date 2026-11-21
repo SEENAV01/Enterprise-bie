@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tools"))
 
 import vm_studio  # noqa: E402
+import codex_vm  # noqa: E402
 import studio_revoice  # noqa: E402
 import voice_tone  # noqa: E402
 from bie.brain import studio_dub, studio_voice  # noqa: E402
@@ -362,6 +363,19 @@ class DubStage(unittest.TestCase):
             (Path(folder) / "questions.json").write_text(json.dumps({"questions": []}), encoding="utf-8")
             summary = vm_studio.run(args, client=FakeClient([]), load=None, voice_maker=lambda language="hi": (None, "x"))
             self.assertEqual(summary["voice"], {"ta": "no voice (x)", "te": "no voice (x)"})
+
+    def test_the_vm_accepts_a_dub_job_and_runs_the_fixed_tool(self):
+        job = {"job": "bie.vm-job/1", "id": "studio-dub-test", "section": "studio", "stage": "dub",
+               "from_run": "https://raw.githubusercontent.com/x/y/z/run", "language": "ta te ml mr en", "videos": "q14",
+               "maker": "codex", "reviewer": "codex", "max_inr": 1, "max_rounds": 3}
+        cmd = codex_vm.argv(codex_vm.validate(dict(job)), Path("/tmp/out"), "python")
+        self.assertEqual(cmd[cmd.index("--stage") + 1], "dub")
+        self.assertEqual(cmd[cmd.index("--language") + 1], "ta te ml mr en")
+        for missing in ("from_run", "language"):
+            with self.assertRaises(codex_vm.JobError):
+                codex_vm.validate({k: v for k, v in job.items() if k != missing})
+        with self.assertRaises(codex_vm.JobError):
+            codex_vm.validate(dict(job, language="ta,te"))         # only letters and spaces reach the machine
 
     def test_the_stage_needs_language_codes(self):
         with tempfile.TemporaryDirectory() as folder:
