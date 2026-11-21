@@ -20,6 +20,9 @@ from pathlib import Path
 FILES = {"kokoro-v1.0.onnx": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx",
          "voices-v1.0.bin": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin"}
 VOICE, SPEED, LANG = "hf_alpha", 0.95, "hi"
+# per language: (Kokoro voice, Kokoro language). Autodub (Navin, 21 November 2026): the Indian languages other than Hindi
+# have no Kokoro voice; their engine (AI4Bharat Indic-TTS) joins here when the machine has it, else the film is timed by text.
+KOKORO_VOICES = {"hi": (VOICE, LANG), "en": ("bm_george", "en-gb")}
 QUESTION_PAUSE = 0.45     # seconds of silence after a question (Navin, 20 November 2026: question and answer sounded alike)
 
 
@@ -28,7 +31,10 @@ def folder() -> Path:
 
 
 class Voice:
-    def __init__(self, path: Path | None = None, *, fetch: bool = True):
+    def __init__(self, path: Path | None = None, *, fetch: bool = True, language: str = "hi"):
+        if language not in KOKORO_VOICES:
+            raise LookupError(f"no voice engine for {language!r} on this machine yet")
+        self.voice, self.lang = KOKORO_VOICES[language]
         from kokoro_onnx import Kokoro            # optional: ImportError means "no voice"
         path = path or folder()
         path.mkdir(parents=True, exist_ok=True)
@@ -49,7 +55,7 @@ class Voice:
         import soundfile as sf
         chunks, rate = [], 24000
         for part, pause in parts(text):
-            made, rate = self.engine.create(part, voice=VOICE, speed=SPEED, lang=LANG)
+            made, rate = self.engine.create(part, voice=self.voice, speed=SPEED, lang=self.lang)
             chunks.append(np.asarray(made, dtype="float32"))
             if pause:
                 chunks.append(np.zeros(int(rate * pause), dtype="float32"))
@@ -89,9 +95,14 @@ def with_player_voice(page: str) -> str:
     return page.replace(VOICE_SLOT, PLAYER_JS.read_text(encoding="utf-8"), 1)
 
 
-def make(fetch: bool = True):
-    """A Voice, or None with the reason when this machine cannot speak yet."""
+def name(language: str = "hi") -> str:
+    voice, lang = KOKORO_VOICES.get(language, ("", ""))
+    return f"kokoro {voice}" if voice else "none"
+
+
+def make(fetch: bool = True, language: str = "hi"):
+    """A Voice, or None with the reason when this machine cannot speak yet (or not in this language)."""
     try:
-        return Voice(fetch=fetch), None
+        return Voice(fetch=fetch, language=language), None
     except Exception as exc:              # missing library, files or network: the film is still made, without voice
         return None, f"{type(exc).__name__}: {str(exc)[:200]}"

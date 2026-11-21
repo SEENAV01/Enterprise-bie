@@ -38,6 +38,13 @@ concept in five stages, driven by one science model (``bie.brain.pyq_models``) t
 the chapter's investigations on a phone, with ``pyq/<qid>.json`` and ``PYQS.md`` (question-level evidence and the
 chapter-level reach kept apart).
 
+    python -B tools/vm_studio.py --stage dub --from-run <films run> --source <same PDF> --language ta,te,ml,mr,en --out <folder>
+
+Stage ``dub`` (``bie.brain.studio_dub``, Navin, 21 November 2026): autodub. Each finished film of the from-run is said
+again in each language (the screen lines, title and everyday labels in that language, technical terms in English), checked
+by code line by line; ``dub/<lang>/<qid>.html`` plays it with the same pictures and motion, voiced when the machine has
+that language's voice engine, with ``dub/<lang>/<qid>.json`` and ``DUB.md``.
+
 Stage ``book`` (``bie.brain.studio_book``): the Living Book. Per question the maker writes the note cards (together they
 cover every point), a class moment with Asha, Dev and the Teacher, a "yaad rakho" line and a check question; code adds
 the film's picture with its pins, its diagram and its takeaway lines. ``BOOK.html`` is the chapter's notes for a phone
@@ -56,7 +63,7 @@ sys.path.insert(0, str(ROOT))
 
 from bie.brain import studio  # noqa: E402
 
-STAGES = ("questions", "films", "games", "book", "pyq")
+STAGES = ("questions", "films", "games", "book", "pyq", "dub")
 MAX_IMAGES_PER_FILM = 12
 PLAYER = ROOT / "bie" / "brain" / "studio_player.html"
 GAME_PLAYER = ROOT / "bie" / "brain" / "studio_game_player.html"
@@ -345,6 +352,70 @@ def book(args, client, model, pages, out: Path, summary: dict):
                    status="ok" if rows and clean == len(rows) else ("needs_fix" if sections else "failed"))
 
 
+def dub(args, client, model, pages, out: Path, summary: dict, *, voice_maker=None):
+    """Stage ``dub`` (Navin, 21 November 2026): the from-run's finished films said again in each language of
+    ``--language`` (codes: ta, te, ml, mr, en; comma-separated), the screen lines and labels in that language with the
+    technical terms in English, and the voice from the language's engine when this machine has one."""
+    from bie.brain import studio_dub, studio_film, studio_voice
+    languages = [x.strip() for x in (args.language or "").split(",") if x.strip()]
+    unknown = [x for x in languages if x not in studio_dub.LANGUAGES]
+    if not languages or unknown:
+        raise ValueError(f"--language for dub: codes from {', '.join(studio_dub.LANGUAGES)} (got {args.language!r})")
+    plan = read_json(args.from_run, "questions.json")
+    wanted = [q.strip() for q in (args.videos or "").split(",") if q.strip()]
+    questions = [q for q in plan.get("questions") or [] if not wanted or q.get("id") in wanted]
+    known = frozenset(studio.chapter_terms(pages)) if pages else frozenset()
+    template = PLAYER.read_text(encoding="utf-8")
+    rows, usage = [], {"input_tokens": 0, "output_tokens": 0}
+    voices = {}
+    for language in languages:
+        voices[language] = (voice_maker or studio_voice.make)(language=language)
+    summary["voice"] = {x: (studio_voice.name(x) if v[0] else f"no voice ({v[1]})") for x, v in voices.items()}
+    for q in questions:
+        made = maybe_json(args.from_run, f"films/{q['id']}.json") or {}
+        film = made.get("film") if isinstance(made.get("film"), dict) else None
+        if not film:
+            rows.append({"qid": q["id"], "language": "-", "lines": 0, "rounds": 0, "voice": "-",
+                         "problems": ["the from-run has no film for this question"]})
+            continue
+        images = {}
+        for shot_id, name in (made.get("images") or {}).items():
+            try:
+                images[shot_id] = image_uri(read_bytes(args.from_run, f"films/img/{name}"))
+            except Exception:
+                pass
+        for language in languages:
+            record = studio_dub.dub(client, model, film, q, language, course=args.course, known=known,
+                                    max_rounds=args.max_rounds)
+            for key in usage:
+                usage[key] += record["usage"].get(key, 0)
+            folder = out / "dub" / language
+            folder.mkdir(parents=True, exist_ok=True)
+            voice = voices[language][0]
+            audio = {}
+            if record["film"] and voice:
+                for shot in record["film"].get("shots") or []:
+                    for k, sentence in enumerate(shot.get("sentences") or []):
+                        try:
+                            audio[(shot.get("id"), k)] = voice.say(sentence.get("voice") or sentence.get("roman") or "")
+                        except Exception:
+                            pass
+            if record["film"]:
+                data = studio_film.player_data(record["film"], images=images, audio=audio, chapter=plan.get("chapter_title", ""),
+                                               question=record["question"], tint=studio.subject_tint(args.course))
+                (folder / f"{q['id']}.html").write_text(studio_film.html(data, template), encoding="utf-8")
+            (folder / f"{q['id']}.json").write_text(studio_dub.to_json({k: v for k, v in record.items() if k != "usage"}),
+                                                    encoding="utf-8")
+            rows.append({"qid": q["id"], "language": language, "lines": len(studio_dub.line_ids(film)),
+                         "rounds": len(record["rounds"]), "problems": record["problems"],
+                         "voice": studio_voice.name(language) if voice else "nahi (text se samay)",
+                         "voiced_lines": len(audio)})
+    (out / "DUB.md").write_text(studio_dub.markdown(rows), encoding="utf-8")
+    (out / "questions.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
+    summary.update(dubs=rows, usage=usage, model=model,
+                   status="ok" if rows and not any(r["problems"] for r in rows) else ("needs_fix" if rows else "failed"))
+
+
 def read_pyqs(source: str) -> list:
     """The questions for the PYQ lab: a JSON list (or {"questions": [...]}) from an https URL or a file."""
     if source.startswith("https://"):
@@ -429,8 +500,10 @@ def run(args, *, client=None, load=None, voice_maker=None, read=None) -> dict:
         if args.source:
             source_hash, page_count, pages = load((read or read_pdf)(args.source), args.pages or None, with_images=False)
             summary.update(source_sha256=source_hash, page_count=page_count, pages_read=[p.number for p in pages])
-        if args.stage in ("films", "games", "book", "pyq"):
-            if args.stage == "pyq":
+        if args.stage in ("films", "games", "book", "pyq", "dub"):
+            if args.stage == "dub":
+                dub(args, client, model, pages, out, summary, voice_maker=voice_maker)
+            elif args.stage == "pyq":
                 pyq(args, client, model, pages, out, summary, voice_maker=voice_maker)
             elif args.stage == "films":
                 films(args, client, model, pages, out, summary, voice_maker=voice_maker)
@@ -484,7 +557,7 @@ def main(argv=None):
     parser.add_argument("--out", required=True)
     parser.add_argument("--pages", default="")
     parser.add_argument("--course", default="")
-    parser.add_argument("--language", default="Hinglish")
+    parser.add_argument("--language", default="Hinglish", help="dub: the target language codes, for example ta,te,ml,mr,en")
     parser.add_argument("--model", default="")
     parser.add_argument("--max-rounds", type=int, default=3)
     args = parser.parse_args(argv)
@@ -493,7 +566,7 @@ def main(argv=None):
         parser.error("--source is needed for questions")
     if args.stage == "pyq" and not (args.source and args.pyqs):
         parser.error("--source and --pyqs are needed for pyq")
-    if args.stage in ("films", "games", "book") and not args.from_run:
+    if args.stage in ("films", "games", "book", "dub") and not args.from_run:
         parser.error(f"--from-run is needed for {args.stage}")
     summary = run(args)
     print(json.dumps({k: summary.get(k) for k in ("status", "questions", "coverage", "voice", "error")}, ensure_ascii=False))
