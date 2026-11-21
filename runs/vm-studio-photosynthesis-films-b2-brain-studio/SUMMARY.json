@@ -1,0 +1,130 @@
+{
+ "schema": "bie.studio-run/1",
+ "section": "studio",
+ "stage": "films",
+ "status": "needs_fix",
+ "maker": "codex on the ChatGPT plan (read-only, no shell)",
+ "cost": {
+  "total_inr": 0.0
+ },
+ "error": null,
+ "plan_usage_before": {
+  "rateLimits.primary.usedPercent": 46,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1795275033,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 46,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1795275033,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 0
+ },
+ "source_sha256": "e2dbdb1ec7793daa87101e8264dfe039f7d277ad6153b904ec078d65ed1adbc8",
+ "page_count": 22,
+ "pages_read": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22
+ ],
+ "voice": "kokoro hf_alpha",
+ "films": [
+  {
+   "qid": "q06",
+   "question": "Patte ke andar light pakadne aur sugar banane ki jagah alag kyun hai?",
+   "shots": 9,
+   "images": 6,
+   "minutes": 4.5,
+   "rounds": 2,
+   "problems": [],
+   "book_lines": "25/25",
+   "beyond": 13,
+   "points_moved": 35,
+   "teacher_lines": 0,
+   "kept_pictures": 3,
+   "not_in_picture": []
+  },
+  {
+   "qid": "q07",
+   "question": "Hara patta chromatography mein peele-orange bands kyun deta hai?",
+   "shots": 8,
+   "images": 5,
+   "minutes": 3.5,
+   "rounds": 2,
+   "problems": [],
+   "book_lines": "13/13",
+   "beyond": 12,
+   "points_moved": 41,
+   "teacher_lines": 0,
+   "kept_pictures": 2,
+   "not_in_picture": []
+  },
+  {
+   "qid": "q08",
+   "question": "Green leaf blue aur red light mein zyada photosynthesis kyun karta hai?",
+   "shots": 9,
+   "images": 5,
+   "minutes": 3.8,
+   "rounds": 5,
+   "problems": [
+    "book line B3 is listed in teaches, but none of its key words is spoken there: If yes, which one?"
+   ],
+   "book_lines": "14/14",
+   "beyond": 12,
+   "points_moved": 32,
+   "teacher_lines": 0,
+   "kept_pictures": 3,
+   "not_in_picture": []
+  },
+  {
+   "qid": "q09",
+   "question": "Sauon pigment molecules ek reaction centre ko energy kaise pahunchate hain?",
+   "shots": 8,
+   "images": 5,
+   "minutes": 3.6,
+   "rounds": 2,
+   "problems": [],
+   "book_lines": "14/14",
+   "beyond": 11,
+   "points_moved": 44,
+   "teacher_lines": 0,
+   "kept_pictures": 3,
+   "not_in_picture": []
+  }
+ ],
+ "usage": {
+  "input_tokens": 418758,
+  "output_tokens": 104333
+ },
+ "model": "gpt-6.1-sol",
+ "plan_usage_after": {
+  "rateLimits.primary.usedPercent": 46,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1795275034,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 46,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1795275034,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 0
+ },
+ "minutes": 56.6
+}
