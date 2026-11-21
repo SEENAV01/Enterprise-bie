@@ -1,0 +1,1425 @@
+{
+ "film": {
+  "title": "Hara patta blue aur red light mein zyada kaam kyun karta hai?",
+  "look": "16:9 scientific realism, golden sunlight aur deep teal shadows; leaf emerald, cell wall cream, chloroplast jade, thylakoid dark green, lumen pale turquoise, stroma ivory-teal; chlorophyll a blue-green, chlorophyll b yellow-green, xanthophyll golden-yellow, carotenoid orange, antenna protein muted teal, reaction-centre protein slate-blue.",
+  "shots": [
+   {
+    "id": "s1",
+    "title": "Hara rang, alag pasand",
+    "key": "Dikhne ka rang aur light istemaal karna alag baatein hain.",
+    "covers": [],
+    "visual": {
+     "type": "photo",
+     "image_prompt": "16:9 photoreal macro of an emerald living leaf, golden sunlight, teal shaded natural background, realistic veins and translucent tissue. Sunlit patch at 60,50 leads into the leaf interior. No microscopic objects. Leave upper left open for light movement and labels.",
+     "svg": "",
+     "library": "leaf-sunlit"
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "Patta hara dikhta hai, toh blue aur red light mein photosynthesis zyada kyun hoti hai?",
+      "voice": "पत्ता हरा दिखता है, तो ब्लू और रेड लाइट में फोटोसिंथेसिस ज़्यादा क्यों होती है?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 60,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "hook"
+     },
+     {
+      "roman": "Aaiye jaante hain: patte par light aati hai, lekin uski saari energy andar absorb nahi hoti.",
+      "voice": "आइए जानते हैं: पत्ते पर लाइट आती है, लेकिन उसकी सारी एनर्जी अंदर एब्ज़ॉर्ब नहीं होती।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 60,
+       "y": 50,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "light",
+        "points": [
+         [
+          15,
+          15
+         ],
+         [
+          60,
+          50
+         ]
+        ],
+        "count": 4,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Absorption aur incident light ka prerequisite farq.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Green light ka kaafi hissa reflect ya transmit hota hai, jisse patta hara dikhta hai; ab iske andar chalte hain.",
+      "voice": "ग्रीन लाइट का काफ़ी हिस्सा रिफ्लेक्ट या ट्रांसमिट होता है, जिससे पत्ता हरा दिखता है; अब इसके अंदर चलते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 60,
+       "y": 50,
+       "scale": 1.6
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "green",
+        "label": "green light",
+        "points": [
+         [
+          60.0,
+          50.0
+         ],
+         [
+          40.0,
+          20.0
+         ]
+        ],
+        "count": 3,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Green appearance ko reflection aur transmission se jodta hai.",
+      "part": "prerequisite"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "title": "Cell ke andar",
+    "key": "Light ko pakadne ki jagah chloroplast hai.",
+    "covers": [],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "Scientific transparent cross-section inside the same emerald leaf patch, 16:9, soft volumetric sunlight and deep teal shadows. One mesophyll cell dominates with translucent cream wall, large clear vacuole and peripheral cytoplasm. Several realistic jade double-envelope chloroplasts; target at 64,55 with faint olive-gold internal stacks. No proteins or molecules visible. Open space above target for light animation and labels.",
+     "svg": "",
+     "library": "mesophyll-cell"
+    },
+    "dive": {
+     "x": 60,
+     "y": 50
+    },
+    "sentences": [
+     {
+      "roman": "Ab hum mesophyll cell ke andar hain, jahan chloroplast tak light pahunchti hai.",
+      "voice": "अब हम मेसोफ़िल सेल के अंदर हैं, जहाँ क्लोरोप्लास्ट तक लाइट पहुँचती है।",
+      "pins": [
+       {
+        "label": "chloroplast",
+        "x": 29.0,
+        "y": 54.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 29.0,
+       "y": 54.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          40.0,
+          10.0
+         ],
+         [
+          29.0,
+          54.0
+         ]
+        ],
+        "count": 3,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Mesophyll aur chloroplast ka spatial prerequisite.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Jaise solar panel ko roshni chahiye, waise hi yahan light ki energy kaam aati hai; aaiye isi chloroplast mein chalein.",
+      "voice": "जैसे सोलर पैनल को रोशनी चाहिए, वैसे ही यहाँ लाइट की एनर्जी काम आती है; आइए इसी क्लोरोप्लास्ट में चलें।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 29.0,
+       "y": 54.0,
+       "scale": 2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Solar panel ki everyday analogy.",
+      "part": "prerequisite"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "title": "Light pakadne ki satah",
+    "key": "Thylakoid membrane ke pigments light absorb karte hain.",
+    "covers": [
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 realistic scientific cutaway inside selected sage-green chloroplast. Double envelope surrounds ivory-teal fluid stroma and dark-green flattened thylakoid sacs stacked into grana and connected by stromal lamellae. Continuous enclosing membranes; optical transparency reveals pale turquoise lumen without physical openings. Accessible unstacked thylakoid at 64,58. No individual proteins or molecular beads at this scale. Golden light, teal depth, empty upper right for overlays.",
+     "svg": "",
+     "library": "chloroplast-grana"
+    },
+    "dive": {
+     "x": 29.0,
+     "y": 54.0
+    },
+    "sentences": [
+     {
+      "roman": "Chloroplast ke andar yeh thylakoid band chapti thailiyon ki tarah hain; light inki membrane tak aati hai.",
+      "voice": "क्लोरोप्लास्ट के अंदर ये थायलाकोइड बंद चपटी थैलियों की तरह हैं; लाइट इनकी मेम्ब्रेन तक आती है।",
+      "pins": [
+       {
+        "label": "thylakoid",
+        "x": 64,
+        "y": 58
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 64,
+       "y": 58,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          12.0,
+          4.0
+         ],
+         [
+          64.0,
+          58.0
+         ]
+        ],
+        "count": 3,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Closed thylakoid aur membrane ki location recall.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Par light pakadta kaun hai? Isme kaam aate hain membrane ke pigments; ab unhein paas se dekhte hain.",
+      "voice": "पर लाइट पकड़ता कौन है? इसमें काम आते हैं मेम्ब्रेन के पिगमेंट्स; अब उन्हें पास से देखते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 64,
+       "y": 58,
+       "scale": 2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       10
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "title": "Pigments ki team",
+    "key": "Accessory pigments extra light ki energy chlorophyll a ko dete hain.",
+    "covers": [
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 molecular scientific cutaway within the selected dark-green thylakoid membrane, bilayer across y62, ivory-teal stroma above and pale turquoise lumen below, membrane curves closed at distant edges. Realistic muted-teal light-harvesting protein transmembrane alpha-helical bundles at left x30-52 bind planar tetrapyrrole chlorophylls with phytol tails: yellow-green chlorophyll b at 32,45, blue-green chlorophyll a at 52,45. Bound golden-yellow xanthophyll at 30,58 and orange carotenoid at 43,55 have realistic elongated conjugated carbon backbones. Slate-blue reaction-centre transmembrane protein at right x74 contains blue-green chlorophyll a at 73,47. Molecular structural realism, not blobs or ribbon cartoons. Golden illumination, teal depth. Leave open energy-transfer corridors above pigments and right of centre; no prepainted arrows or free molecules.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 64,
+     "y": 58
+    },
+    "sentences": [
+     {
+      "roman": "Membrane mein chlorophyll a mukhya light-trapping pigment hai; par doosre rangon ki energy us tak kaise aati hai?",
+      "voice": "मेम्ब्रेन में क्लोरोफ़िल ए मुख्य लाइट-ट्रैपिंग पिगमेंट है; पर दूसरे रंगों की एनर्जी उस तक कैसे आती है?",
+      "pins": [
+       {
+        "label": "chlorophyll a",
+        "x": 41.8,
+        "y": 42.2
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       11
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Dekhiye, chlorophyll b light absorb karke energy chlorophyll a ko deta hai, jaise relay mein baton aage jaata hai.",
+      "voice": "देखिए, क्लोरोफ़िल बी लाइट एब्ज़ॉर्ब करके एनर्जी क्लोरोफ़िल ए को देता है, जैसे रिले में बैटन आगे जाता है।",
+      "pins": [
+       {
+        "label": "chlorophyll b",
+        "x": 20.0,
+        "y": 42.5
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 31.0,
+       "y": 42.3,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "blue",
+        "label": "energy",
+        "points": [
+         [
+          17.0,
+          20.0
+         ],
+         [
+          20.0,
+          42.5
+         ],
+         [
+          41.8,
+          42.2
+         ]
+        ],
+        "count": 1,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       11,
+       14
+      ],
+      "beyond": "Energy transfer ki relay analogy; pigment khud travel nahi karta.",
+      "part": "concept"
+     },
+     {
+      "roman": "Xanthophylls aur carotenoids bhi accessory pigments hain, jo light absorb karke chlorophyll a ko energy dete hain.",
+      "voice": "ज़ैंथोफ़िल्स और कैरोटिनॉइड्स भी एक्सेसरी पिगमेंट्स हैं, जो लाइट एब्ज़ॉर्ब करके क्लोरोफ़िल ए को एनर्जी देते हैं।",
+      "pins": [
+       {
+        "label": "xanthophylls",
+        "x": 19.5,
+        "y": 66.5
+       },
+       {
+        "label": "carotenoids",
+        "x": 33.0,
+        "y": 58.5
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 30.0,
+       "y": 57.0,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "blue",
+        "label": "energy",
+        "points": [
+         [
+          17.0,
+          25.0
+         ],
+         [
+          19.5,
+          66.5
+         ],
+         [
+          33.0,
+          58.5
+         ],
+         [
+          41.8,
+          42.2
+         ]
+        ],
+        "count": 1,
+        "ms": 3500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       11
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Is team se incoming light ki wider wavelength range istemaal hoti hai; ab isi team ka protective kaam dekhiye.",
+      "voice": "इस टीम से इनकमिंग लाइट की वाइडर वेवलेंथ रेंज इस्तेमाल होती है; अब इसी टीम का प्रोटेक्टिव काम देखिए।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 30.0,
+       "y": 51.0,
+       "scale": 1.7
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "light",
+        "points": [
+         [
+          18.0,
+          15.0
+         ],
+         [
+          33.0,
+          58.5
+         ]
+        ],
+        "count": 2,
+        "ms": 1600,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       12
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "title": "Energy bhi, protection bhi",
+    "key": "Accessory pigments photo-oxidation se bhi bachate hain.",
+    "covers": [
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer molecular structural view inside previous antenna region, preserving left-to-right arrangement. Dark-green thylakoid bilayer y65, ivory-teal stroma above, pale turquoise lumen below. Muted-teal transmembrane antenna protein left x30-54 binds yellow-green chlorophyll b x30,y44, golden-yellow xanthophyll x30,y58, orange elongated carotenoid x43,y55 beside blue-green planar chlorophyll a x52,y45. At right x74 retain slate-blue reaction-centre protein with blue-green chlorophyll a at 73,47. Show real pigment conjugated structures and phytol tails, protein alpha-helical packing, not invented beads. Empty space above carotenoid for excess-energy dissipation animation; golden light and teal shadows, no arrows or text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 30.0,
+     "y": 55.0
+    },
+    "sentences": [
+     {
+      "roman": "Ab antenna ke aur paas hain; par tez light ki extra energy se chlorophyll a ko nuksaan kyun nahi hota?",
+      "voice": "अब एंटीना के और पास हैं; पर तेज़ लाइट की एक्स्ट्रा एनर्जी से क्लोरोफ़िल ए को नुकसान क्यों नहीं होता?",
+      "pins": [
+       {
+        "label": "chlorophyll a",
+        "x": 59.0,
+        "y": 39.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 45,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Protection ka guiding sawaal.",
+      "part": "concept"
+     },
+     {
+      "roman": "Isme accessory pigments madad karte hain, jo chlorophyll a ko photo-oxidation, yaani light se jude oxidative damage, se bachate hain.",
+      "voice": "इसमें एक्सेसरी पिगमेंट्स मदद करते हैं, जो क्लोरोफ़िल ए को फोटो-ऑक्सिडेशन, यानी लाइट से जुड़े ऑक्सिडेटिव डैमेज, से बचाते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 44.0,
+        "x1": 55.0,
+        "y0": 38.5,
+        "y1": 51.5
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 43.0,
+       "y": 48.0,
+       "scale": 1.4
+      },
+      "moves": [
+       {
+        "what": "spark",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          59.0,
+          39.0
+         ],
+         [
+          49.5,
+          45.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       12,
+       14
+      ],
+      "beyond": "Photo-oxidation ka saral arth.",
+      "part": "concept"
+     },
+     {
+      "roman": "Jaise safety valve pressure ghataata hai, carotenoids extra excitation ko safely dissipate karte hain, jisse light-harvesting system bachta hai.",
+      "voice": "जैसे सेफ़्टी वाल्व प्रेशर घटाता है, कैरोटिनॉइड्स एक्स्ट्रा एक्साइटेशन को सेफ़ली डिसिपेट करते हैं, जिससे लाइट-हार्वेस्टिंग सिस्टम बचता है।",
+      "pins": [
+       {
+        "label": "carotenoids",
+        "x": 43.0,
+        "y": 48.0
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "rise",
+        "x0": 38,
+        "x1": 49,
+        "y0": 25,
+        "y1": 52
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 43.0,
+       "y": 48.0,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "spark",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          43.0,
+          48.0
+         ],
+         [
+          43.0,
+          40.0
+         ],
+         [
+          48.0,
+          25.0
+         ]
+        ],
+        "count": 2,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Carotenoid excitation quenching aur safety-valve analogy.",
+      "part": "use"
+     },
+     {
+      "roman": "Par energy milne ke baad photosynthesis shuru kaun karta hai? Aaiye daayein reaction centre ke andar chalein.",
+      "voice": "पर एनर्जी मिलने के बाद फोटोसिंथेसिस शुरू कौन करता है? आइए दाएँ रिएक्शन सेंटर के अंदर चलें।",
+      "pins": [
+       {
+        "label": "reaction centre",
+        "x": 84.0,
+        "y": 44.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 84.0,
+       "y": 44.0,
+       "scale": 1.8
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s6",
+    "title": "Chief pigment ki zaroorat",
+    "key": "Accessory pigments reaction-centre chlorophyll a ki jagah nahi lete.",
+    "covers": [
+     2
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 molecular structural close-up inside the previous right-hand reaction centre, retaining reaction centre on right x74. Slate-blue photosystem reaction-centre transmembrane alpha-helical protein embedded in dark-green bilayer y65, ivory-teal stroma above, pale turquoise lumen below. Blue-green chlorophyll a reaction-centre pair at 73,47, realistic planar tetrapyrrole rings with phytol tails held in protein. Recognizable bound quinone electron acceptor site at 87,42. Left edge retains muted-teal antenna with yellow-green chlorophyll b at 30,44 and blue-green chlorophyll a at 50,45; orange carotenoid at 43,55. Leave open transfer corridor from antenna to reaction-centre pair and short electron corridor to acceptor. Soft golden illumination, teal depth, no prepainted electron beads, no text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 84.0,
+     "y": 44.0
+    },
+    "sentences": [
+     {
+      "roman": "Yahan reaction centre hai; agar chlorophyll b bahut ho, lekin chlorophyll a na ho, toh kya normal photosynthesis chalegi?",
+      "voice": "यहाँ रिएक्शन सेंटर है; अगर क्लोरोफ़िल बी बहुत हो, लेकिन क्लोरोफ़िल ए न हो, तो क्या नॉर्मल फोटोसिंथेसिस चलेगी?",
+      "pins": [
+       {
+        "label": "reaction centre",
+        "x": 74,
+        "y": 47
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 70,
+       "y": 47,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       13
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Iska seedha sa jawab hai, nahi; accessory pigments energy dete hain, par reaction-centre chlorophyll a ka kaam nahi le sakte.",
+      "voice": "इसका सीधा सा जवाब है, नहीं; एक्सेसरी पिगमेंट्स एनर्जी देते हैं, पर रिएक्शन-सेंटर क्लोरोफ़िल ए का काम नहीं ले सकते।",
+      "pins": [
+       {
+        "label": "chlorophyll a",
+        "x": 73,
+        "y": 47
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 73,
+       "y": 47,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          35.0,
+          44.0
+         ],
+         [
+          64.0,
+          47.0
+         ],
+         [
+          73.0,
+          47.0
+         ]
+        ],
+        "count": 1,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       13,
+       14
+      ],
+      "beyond": "Reaction-centre dependency ko explicit karta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Energy paakar yeh chlorophyll a electron acceptor ko electron deta hai, jisse photochemistry shuru hoti hai; isliye yeh chief pigment hai.",
+      "voice": "एनर्जी पाकर यह क्लोरोफ़िल ए इलेक्ट्रॉन एक्सेप्टर को इलेक्ट्रॉन देता है, जिससे फोटोकेमिस्ट्री शुरू होती है; इसलिए यह चीफ़ पिगमेंट है।",
+      "pins": [
+       {
+        "label": "electron acceptor",
+        "x": 85.5,
+        "y": 38.0
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 69,
+        "x1": 77,
+        "y0": 42,
+        "y1": 52
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 73.0,
+       "y": 47.0,
+       "scale": 1.5
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          73.0,
+          47.0
+         ],
+         [
+          85.5,
+          38.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       7,
+       13
+      ],
+      "beyond": "Chief pigment ko charge separation ke basic mechanism se jodta hai.",
+      "part": "use"
+     },
+     {
+      "roman": "Ab isi kaam ko wavelength ke saath graph par naapkar dekhte hain.",
+      "voice": "अब इसी काम को वेवलेंथ के साथ ग्राफ़ पर नापकर देखते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 73,
+       "y": 47,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s7",
+    "title": "Do spectra, ek jawab",
+    "key": "Blue-red peaks milti hain; absorption aur action exact copies nahi hain.",
+    "covers": [
+     0,
+     1,
+     2
+    ],
+    "visual": {
+     "type": "diagram",
+     "image_prompt": "",
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 600\"><defs><linearGradient id=\"bg\" x2=\"0\" y2=\"1\"><stop stop-color=\"#e7efdf\"/><stop offset=\"1\" stop-color=\"#b8d5cc\"/></linearGradient><linearGradient id=\"visible\"><stop stop-color=\"#5263d9\"/><stop offset=\"0.28\" stop-color=\"#398bd1\"/><stop offset=\"0.48\" stop-color=\"#65ab68\"/><stop offset=\"0.68\" stop-color=\"#e5c95a\"/><stop offset=\"1\" stop-color=\"#c45453\"/></linearGradient></defs><rect width=\"1000\" height=\"600\" rx=\"24\" fill=\"url(#bg)\"/><rect x=\"82\" y=\"65\" width=\"835\" height=\"410\" rx=\"22\" fill=\"#f5f7eb\" opacity=\".85\"/><rect x=\"100\" y=\"483\" width=\"800\" height=\"18\" rx=\"8\" fill=\"url(#visible)\"/><path d=\"M100 100V465H905\" fill=\"none\" stroke=\"#355b56\" stroke-width=\"3\"/><path d=\"M100 360H900M100 255H900M100 150H900\" fill=\"none\" stroke=\"#64847a\" opacity=\".18\"/><path id=\"a\" d=\"M100 360C125 340 145 135 180 135S225 360 290 403S540 432 635 402S750 175 794 180S847 377 900 419\" fill=\"none\" stroke=\"#147f77\" stroke-width=\"5\"/><path id=\"b\" d=\"M100 415C160 413 205 205 260 210S310 409 410 422S630 428 690 272S755 350 805 418S860 430 900 433\" fill=\"none\" stroke=\"#91a339\" stroke-width=\"4\"/><path id=\"car\" d=\"M100 350C130 235 165 265 195 210S245 286 275 248S340 370 390 417S600 437 900 439\" fill=\"none\" stroke=\"#d29138\" stroke-width=\"4\"/><path id=\"action\" d=\"M100 315C130 260 165 175 205 180S285 260 365 325S495 380 565 350S680 295 755 193S830 275 900 415\" fill=\"none\" stroke=\"#784e87\" stroke-width=\"5\" stroke-dasharray=\"12 7\"/><path d=\"M100 465v9M233 465v9M367 465v9M500 465v9M633 465v9M767 465v9M900 465v9\" stroke=\"#355b56\" stroke-width=\"2\"/><g fill=\"#294c48\" font-family=\"sans-serif\" font-size=\"20\"><text x=\"88\" y=\"528\">400</text><text x=\"352\" y=\"528\">500</text><text x=\"618\" y=\"528\">600</text><text x=\"884\" y=\"528\">700</text><text x=\"400\" y=\"565\">Wavelength (nm)</text><text x=\"120\" y=\"92\">Relative absorption / rate</text><text x=\"160\" y=\"551\">Blue</text><text x=\"457\" y=\"551\">Green</text><text x=\"787\" y=\"551\">Red</text></g><g font-family=\"sans-serif\" font-size=\"19\"><rect x=\"350\" y=\"110\" width=\"18\" height=\"7\" fill=\"#147f77\"/><text x=\"380\" y=\"120\" fill=\"#147f77\">Chlorophyll a</text><rect x=\"350\" y=\"140\" width=\"18\" height=\"7\" fill=\"#91a339\"/><text x=\"380\" y=\"150\" fill=\"#71832a\">Chlorophyll b</text><rect x=\"350\" y=\"170\" width=\"18\" height=\"7\" fill=\"#d29138\"/><text x=\"380\" y=\"180\" fill=\"#aa7027\">Carotenoids</text><rect x=\"350\" y=\"200\" width=\"18\" height=\"7\" fill=\"#784e87\"/><text x=\"380\" y=\"210\" fill=\"#784e87\">Action spectrum</text></g></svg>",
+     "library": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "Yeh wavelength ka graph hai; dono spectra kya naapte hain?",
+      "voice": "यह वेवलेंथ का ग्राफ़ है; दोनों स्पेक्ट्रा क्या नापते हैं?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          10,
+          82
+         ],
+         [
+          90,
+          82
+         ]
+        ],
+        "count": 1,
+        "ms": 5000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Absorption spectrum chlorophyll a, b aur carotenoids ka light absorption dikhata hai.",
+      "voice": "एब्ज़ॉर्प्शन स्पेक्ट्रम क्लोरोफ़िल ए, बी और कैरोटिनॉइड्स का लाइट एब्ज़ॉर्प्शन दिखाता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "a",
+       "b",
+       "car"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 45,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "dot",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          10,
+          78
+         ],
+         [
+          90,
+          78
+         ]
+        ],
+        "count": 1,
+        "ms": 5000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       6,
+       7
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Chlorophyll a ka highest peak blue mein hai, aur doosra red mein hai.",
+      "voice": "क्लोरोफ़िल ए का हाइएस्ट पीक ब्लू में है, और दूसरा रेड में है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "a"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 45,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "dot",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          10,
+          60
+         ],
+         [
+          18,
+          23
+         ],
+         [
+          29,
+          67
+         ],
+         [
+          63,
+          67
+         ],
+         [
+          79,
+          30
+         ],
+         [
+          90,
+          70
+         ]
+        ],
+        "count": 1,
+        "ms": 5000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       1,
+       2,
+       3
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Action spectrum photosynthesis ki rate dikhata hai, jo blue-red mein zyada hai.",
+      "voice": "ऐक्शन स्पेक्ट्रम फोटोसिंथेसिस की रेट दिखाता है, जो ब्लू-रेड में ज़्यादा है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "action"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 45,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "dot",
+        "colour": "purple",
+        "label": "",
+        "points": [
+         [
+          10,
+          53
+         ],
+         [
+          21,
+          30
+         ],
+         [
+          40,
+          57
+         ],
+         [
+          55,
+          60
+         ],
+         [
+          76,
+          32
+         ],
+         [
+          90,
+          69
+         ]
+        ],
+        "count": 1,
+        "ms": 5000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       4,
+       5,
+       8,
+       9
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Superimpose karne par exact overlap nahi hai; accessory pigments se baaki visible wavelengths par bhi kuch photosynthesis hoti hai.",
+      "voice": "सुपरइम्पोज़ करने पर एग्ज़ैक्ट ओवरलैप नहीं है; एक्सेसरी पिगमेंट्स से बाकी विज़िबल वेवलेंथ्स पर भी कुछ फोटोसिंथेसिस होती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "a",
+       "action",
+       "b",
+       "car"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "dot",
+        "colour": "purple",
+        "label": "",
+        "points": [
+         [
+          36,
+          54
+         ],
+         [
+          50,
+          61
+         ],
+         [
+          63,
+          54
+         ]
+        ],
+        "count": 1,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       8,
+       9,
+       12
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Is video se aapko yeh baatein yaad rakhni hain: blue-red behtar hain, accessories madadgaar hain, chlorophyll a zaroori hai.",
+      "voice": "इस वीडियो से आपको ये बातें याद रखनी हैं: ब्लू-रेड बेहतर हैं, एक्सेसरीज़ मददगार हैं, क्लोरोफ़िल ए ज़रूरी है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "a",
+       "action"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "recap"
+     }
+    ]
+   }
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "s2 sentence 1: labels 'chloroplast' and 'light' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s3 sentence 1: labels 'thylakoid' and 'light' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s5 sentence 2: move label 'energy' is not spoken in this sentence (dikhaya = bola)",
+    "s5 sentence 3: move label 'energy' is not spoken in this sentence (dikhaya = bola)",
+    "s6 sentence 2: labels 'chlorophyll a' and 'energy' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s6 sentence 3: labels 'electron acceptor' and 'electron' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s7: 627 characters of narration (about 49 seconds) on one picture; at most 560: split it into two shots, the second a closer look"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "images": {
+  "s1": "q08-s1.png",
+  "s2": "q08-s2.png",
+  "s3": "q08-s3.png",
+  "s4": "q08-s4.png",
+  "s5": "q08-s5.png",
+  "s6": "q08-s6.png"
+ },
+ "book_lines": [
+  {
+   "n": 1,
+   "text": "From Figure 11.3a can you determine the wavelength (colour of light) at which chlorophyll a shows the maximum absorption?",
+   "page": "137",
+   "blocks": [
+    "p0007-b0027",
+    "p0007-b0028",
+    "p0007-b0029"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "Does it show another absorption peak at any other wavelengths too?",
+   "page": "137",
+   "blocks": [
+    "p0007-b0029",
+    "p0007-b0030",
+    "p0007-b0031"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "If yes, which one?",
+   "page": "137",
+   "blocks": [
+    "p0007-b0031"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "Now look at Figure 11.3b showing the wavelengths at which maximum photosynthesis occurs in a plant.",
+   "page": "137",
+   "blocks": [
+    "p0007-b0032",
+    "p0007-b0033",
+    "p0007-b0034"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "Can you see that the wavelengths at which there is maximum absorption by chlorophyll a, i.e., in the blue and the red regions, also shows higher rate of photosynthesis.",
+   "page": "137",
+   "blocks": [
+    "p0007-b0034",
+    "p0007-b0035",
+    "p0007-b0036",
+    "p0007-b0037",
+    "p0007-b0039"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "Figure 11.3a Graph showing the absorption",
+   "page": "137",
+   "blocks": [
+    "p0007-b0038"
+   ]
+  },
+  {
+   "n": 7,
+   "text": "Hence, we can conclude that spectrum of chlorophyll a, b and chlorophyll a is the chief pigment associated the carotenoids with photosynthesis.",
+   "page": "137",
+   "blocks": [
+    "p0007-b0039",
+    "p0007-b0040",
+    "p0007-b0041",
+    "p0007-b0042"
+   ]
+  },
+  {
+   "n": 8,
+   "text": "But by looking at Figure Figure 11.3b Graph showing action 11.3c can you say that there is a complete one- spectrum of photosynthesis to-one overlap between the absorption spectrum of photosynthesis spectrum of chlorophyll a and the action superimposed on absorption spectrum of photosynthesis? spectrum of chlorophyll a These graphs, together, show that most of the photosynthesis takes place in the blue and red regions of the spectrum; some photosynthesis does take place at the other wavelengths of the visible spectrum.",
+   "page": "137",
+   "blocks": [
+    "p0007-b0042",
+    "p0007-b0043",
+    "p0007-b0045",
+    "p0007-b0046",
+    "p0007-b0047",
+    "p0007-b0048",
+    "p0007-b0049",
+    "p0008-b0002",
+    "p0008-b0003",
+    "p0008-b0004"
+   ]
+  },
+  {
+   "n": 9,
+   "text": "Figure 11.3c Graph showing action",
+   "page": "137",
+   "blocks": [
+    "p0007-b0044"
+   ]
+  },
+  {
+   "n": 10,
+   "text": "Let us see how this happens.",
+   "page": "138",
+   "blocks": [
+    "p0008-b0004",
+    "p0008-b0005"
+   ]
+  },
+  {
+   "n": 11,
+   "text": "Though chlorophyll is the major pigment responsible for trapping light, other thylakoid pigments like chlorophyll b, xanthophylls and carotenoids, which are called accessory pigments, also absorb light and transfer the energy to chlorophyll a.",
+   "page": "138",
+   "blocks": [
+    "p0008-b0005",
+    "p0008-b0006",
+    "p0008-b0007",
+    "p0008-b0008"
+   ]
+  },
+  {
+   "n": 12,
+   "text": "Indeed, they not only enable a wider range of wavelength of incoming light to be utilised for photosyntesis but also protect chlorophyll a from photo-oxidation.",
+   "page": "138",
+   "blocks": [
+    "p0008-b0008",
+    "p0008-b0009",
+    "p0008-b0010"
+   ]
+  },
+  {
+   "n": 13,
+   "text": "Suppose there were plants that had a high concentration of Chlorophyll b, but lacked chlorophyll a, would it carry out photosynthesis?",
+   "page": "152",
+   "blocks": [
+    "p0022-b0005",
+    "p0022-b0006"
+   ]
+  },
+  {
+   "n": 14,
+   "text": "Then why do plants have chlorophyll b and other accessory pigments?",
+   "page": "152",
+   "blocks": [
+    "p0022-b0006",
+    "p0022-b0007"
+   ]
+  }
+ ],
+ "placement": {
+  "s1": {
+   "items": 5,
+   "moved": 1,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5205,
+    "output_tokens": 181,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 65
+   }
+  },
+  "s2": {
+   "items": 5,
+   "moved": 5,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5178,
+    "output_tokens": 110,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 0
+   }
+  },
+  "s3": {
+   "items": 5,
+   "moved": 1,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5200,
+    "output_tokens": 202,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 90
+   }
+  },
+  "s4": {
+   "items": 11,
+   "moved": 11,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5637,
+    "output_tokens": 328,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 51
+   }
+  },
+  "s5": {
+   "items": 10,
+   "moved": 10,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5576,
+    "output_tokens": 216,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 0
+   }
+  },
+  "s6": {
+   "items": 8,
+   "moved": 4,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5424,
+    "output_tokens": 321,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 138
+   }
+  }
+ }
+}
