@@ -1,0 +1,50 @@
+# Claude Code for BIE engineering tasks, paid from Navin's Claude Console credits (Navin, 12 November 2026: the $100
+# Console credit goes to BIE engine/compiler v2 work, not to book content). It runs only when someone with write access
+# writes "@claude" in an issue or a pull-request comment. Every change it makes goes to a branch and a pull request; CI
+# checks it and Claude (the main session) reviews it before any merge. Book text and lesson outputs never come here.
+#
+# Cost guard: one run at a time, 60 turns at most, 45 minutes at most, Sonnet by default (write "@claude use opus" in the
+# comment's first line only when Navin asks for it).
+name: Claude engine work
+on:
+  issue_comment:
+    types: [created]
+  issues:
+    types: [opened]
+concurrency:
+  group: claude-engine
+  cancel-in-progress: false
+jobs:
+  claude:
+    if: >-
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
+      (github.event_name == 'issues' && contains(github.event.issue.body, '@claude'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: >-
+            --max-turns 60
+            --model ${{ contains(github.event.comment.body || github.event.issue.body, 'use opus') && 'claude-opus-5-5' || 'claude-sonnet-5-5' }}
+            --append-system-prompt "You work on BIE (Book Intelligence Engine). Read CLAUDE.md first and follow it.
+            Work only on the task in the issue. Make a branch, commit with tests, open a pull request that says what changed
+            and how it was tested. Never touch secrets, never write keys, never add book text or lesson outputs. Run the
+            focused unittest suites for what you change (python -m unittest ...) and the core lane
+            python -B tools/run_task046a_tests.py --lane core when the engine or compiler changes."
