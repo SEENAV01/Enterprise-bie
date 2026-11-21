@@ -294,6 +294,7 @@ class Speak(unittest.TestCase):
         self.assertIn("torch==2.6.0+cpu", calls[2])
         self.assertIn(vm_voice.TORCH_INDEX, calls[2])
         self.assertIn("chatterbox-tts==0.1.7", calls[3])
+        self.assertIn("setuptools==80.9.0", calls[3])                    # the watermarker's pkg_resources (20 Nov 2026)
         self.assertEqual(vm_voice.ensure_venv(venv, run=run), {"installed": False, "install_s": 0.0})
         self.assertEqual(len(calls), 4)
 

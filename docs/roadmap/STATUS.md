@@ -397,6 +397,16 @@ bubble, labelled, or the place the scene stands in), refused by `showplan.compil
 director's payload, reported per video. Before the live runs: v4 68.3%, v5 73.2%, Claude's v2 demo 76.7% of the lines
 that name things show them. Next: v4 and v5 again through the director (box rule + dikhaya-bola), render, numbers.
 
+Proof runs (5-11 November 2026, Codex on the VM, ₹0; SEEKH_LOG entries 50-53): runs a, b and c of Money v4 and v5 all
+passed the compiler with said = shown 100% (41 lines name things in each video). The post-render text gate stopped one
+video each time and each stop became a compiler rule: run a v5 (two labels at 15 and 27 px), run b v4 (a counter text
+flipping every 0.5 s, "₹10" caught at 25 px; rule 8 per value, PR #157), run c v4 (Codex's answer unreadable JSON: the
+runner now asks again, PR #159), run c2 v4 (a note's own words "11वाँ नोट" over its ₹ sign for 62 s: the note fits its
+value and box rule 9, PR #159). Run c v5 rendered with the gate passed: 1 overlap second (longest 1 s), no small text,
+said = shown 100%, 9.0 min (`runs/p1h-money-v5c/REVIEW.html`). v4 run c2's plan passes rule 9 with the fixed note (0
+problems), its re-render waits for PR #159. Navin stopped the Money chapter on 19 November (course studio first), so
+this proof is recorded here and not sent for a separate verdict.
+
 ## Voice clip: the one-time upload page (5 November 2026, branch `p1v-voice-upload`)
 
 Built for Navin's answer "Ek-baar ka upload page" (`docs/roadmap/VOICE_CLIP_METHOD.md`): `tools/vm_voice.py upload`
@@ -412,8 +422,10 @@ The CPU measure (branch `p1v-voice-measure`): the VM job section `voice` (`tools
 `tools/vm_voice_worker.py`) speaks a video's first sentences with Chatterbox Multilingual on the VM's CPU (₹0), with
 the built-in voice or, once it is there, Navin's clip at −2 semitones. Pinned voice environment on the VM, audio kept
 in a private folder, numbers only in the run folder (real-time factor, whole-video estimate, `durations.json`). Tests:
-7 more in `tests/test_task046_vm_voice.py` (fake worker). Next: the measure job on Money v4, then Google Drive access
-with him.
+7 more in `tests/test_task046_vm_voice.py` (fake worker). Merged (PR #160). Measured 20 November 2026 (job
+`p1v-voice-measure-v4b`, after the setuptools pin of PR #159): real-time factor 9.7 on the VM's 2 CPUs, model load
+57 s, peak RAM 6.4 GB; Money v4's whole voice would take about 2 hours of CPU (`docs/roadmap/VOICE_CLIP_METHOD.md`).
+Next: Navin's clip, then the same measure with his voice; a GPU for whole books is his budget decision.
 
 ## Navin's decisions of 5 November 2026 (decision cards, after Money v5)
 

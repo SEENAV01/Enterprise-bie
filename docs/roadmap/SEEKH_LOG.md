@@ -1961,6 +1961,25 @@ them): each stays at least 1.5 s, or the compiler names the value and asks for t
 moment each; the director's prompt says so. Under it, v4 run b (₹10, 0.5 s) and v5 run b ("उधार", 1.1 s) each break it
 once, so both go through the director again (run c).
 
+## Entry 52 · an unreadable answer gets another round, and the record keeps its start and end, 10 November 2026
+
+**The run:** run c of Money v4 and v5 (after entry 51; VM jobs `p1h-money-showplan-v4-c`, `-v5-c`, Codex, ₹0, plan
+usage 32% → 33%). v5 passed in 4 rounds with said = shown 100% (41 lines name things). v4 never reached the compiler:
+Codex's first answer (13,367 output tokens) and the gateway's repair turn (13,867) were both "not a JSON object", and the
+section runner ended the video in round 1 of 6. The record said only "unable to repair", so why the answer could not be
+read (cut off, prose around the JSON, two objects) cannot be told. The scene-plan schema is free-form, so it goes in the
+prompt, not to Codex's `--output-schema`.
+
+**What changed in BIE:** an answer that comes back but cannot be read (`schema_invalid`, `malformed`) is now a slip, not
+a verdict: the runner asks again from the same messages in the next round, up to the step's round limit
+(`bie/brain/runner.py`, `UNREADABLE_KINDS`). A truncated answer is not asked again (the same request would hit the same
+cap and cost the same), nor are refusals, auth, budget or plan limits. The gateway's `schema_invalid` error now carries
+the reply's length and its first and last 600 characters (keys redacted), and the round record keeps them as
+`maker_error.excerpt`. Tests: a garbled answer then a good one passes in round 2 with the excerpt recorded; an answer
+that never reads stops at the round limit. Passed-output sets: 0 problems.
+
+**Measured effect:** v4 run c goes again on the VM after this merges (run c2).
+
 ## Entry 52 · the scene-plan compiler after the Sloman pilot: every problem in one run, fairer dikhaya-bola, readable widths, 11 November 2026
 
 **The run:** the first Sloman scene-plan pilot (ch02 v1, 53 lines, 14.4 min, one worker): 2.6 h of work and 13 compile
@@ -2002,6 +2021,22 @@ the core lane 563 → 577 tests, all green. The next video worker's rounds and h
 - **Measured:** offline: the passed outputs (tissue understand and lesson sets) still pass, 0 problems; the 833 brain and
   Phase 1 tests pass. Live (first-try pass rate of plans under S2-11, ₹ per page) comes from the first BIE run with
   `--length-rule content`.
+
+## Entry 53 · a thing's own words never cover each other, 11 November 2026
+
+**The run:** v4 run c2 (VM job `p1h-money-showplan-v4-c2`, Codex, ₹0, 19.5 min): passed in 6 rounds, said = shown 100%
+(41 lines name things). Its render (one-button, run 42939283502) stopped at the gate: "'11वाँ नोट' and '₹' cover each
+other for 62 s from 70.0 s". Both words belong to one note: the plan gave a note the value "11वाँ नोट", and the note
+drawing put a long value, centred, over its own ₹ sign. The box rule looked only between things, so the compiler passed it.
+A scan of all 134 drawings (every saancha at its defaults and its examples) found the note the only one.
+
+**What changed in BIE:** the note's value now shrinks to stay clear of its ₹ sign (short values, ₹10 to ₹2000, keep their
+size, so the gold example does not change; "11वाँ नोट" at w 280 is drawn at about 51 px instead of 67). Box rule 9: two
+words inside one thing that cover each other are refused, naming both words and the thing ("give it a shorter label or
+value, or a wider thing"); the director's prompt says so. On v4 run c2's own spec: the new rule names the same 62 s with
+the old note, and 0 problems with the fixed note (v5 run c: 0 too), so the same plan is rendered again, without a new
+director run.
+
 ## Entry · the course studio's first VM run, stage questions on the Money chapter, 19 November 2026
 
 - **Run:** VM job `studio-money-q1` (section `studio`, stage `questions`), the Money chapter (Indian Economy, chapter 3,
@@ -2230,6 +2265,18 @@ the core lane 563 → 577 tests, all green. The next video worker's rounds and h
   colours. The H+ labels refused in round 1 of this run (10 of 13 findings) would pass the new check; the effect on
   first-try rounds is measured on the next film. Canonical brain tests: 407 passed, 0 skips.
 
+## Entry · the clone voice's first CPU measure stopped at the watermark, 20 November 2026
+
+**The run:** VM job `p1v-voice-measure-v4` (PR #160's voice section, Money v4, 8 sentences, Chatterbox's built-in voice,
+₹0): the pinned voice environment installed in 107 s and the model downloaded in 47 s, then the model died at load with
+"TypeError: 'NoneType' object is not callable" (peak RAM 6.6 GB of 7.8 GB, 2 CPUs). Chatterbox's watermarker
+(resemble-perth 1.0.1) imports `pkg_resources`, which a fresh Python 3.12 venv lacks; perth then sets
+`PerthImplicitWatermarker = None` and Chatterbox calls it.
+
+**What changed in BIE:** the voice environment pins `setuptools==80.9.0` (still ships `pkg_resources`), so the next job
+rebuilds it once; the worker now keeps the last 1,500 characters of a failure's traceback in the run's SUMMARY
+(`error_trace`, file paths only), so the next failure names its line. The measure job runs again after this merges.
+
 ## Entry · Navin's own script and the Q14 review, 20 November 2026
 
 - **Run:** no new run: Navin reviewed the third Q14 film (VM job `studio-photosynthesis-q14-place`) with a written
@@ -2255,6 +2302,17 @@ the core lane 563 → 577 tests, all green. The next video worker's rounds and h
   pins and the two long shots (645 and 633 characters). Kokoro now leaves a 0.58 s gap after "बंद मेम्ब्रेन क्यों चाहिए?"
   (before: none). First-try rounds and Navin's verdict are measured on the two Q14 remakes. Canonical brain tests: 426
   passed, 0 skips.
+
+## Entry · the clone voice measured on the VM's CPU, 20 November 2026
+
+**The run:** VM job `p1v-voice-measure-v4b` (after PR #159's setuptools pin; Money v4, 8 sentences, Chatterbox's
+built-in voice, ₹0, 10.2 minutes in all): 8 of 8 sentences, 35.9 s of audio in 349.8 s of CPU — real-time factor 9.7 on
+2 CPUs; model load 56.8 s; peak RAM 6.4 GB of 7.8 GB. At that speed the whole of Money v4 (about 12.3 minutes of voice)
+needs about 2 hours of CPU, a 12-video chapter about a day.
+
+**What it means for BIE:** the VM's CPU can voice a sample or a chapter overnight but not books at scale; a GPU (Navin's
+budget decision, agreement of 3 November) is the route for whole books. The measure job stays as the yardstick: the
+same job with `"reference": "navin"` measures his clone once his clip is on the VM. Sound quality is not judged yet.
 
 ## Entry · Q14 made two ways (Navin's lines, and BIE in his way), 20 November 2026
 

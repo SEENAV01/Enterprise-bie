@@ -271,6 +271,38 @@ class Runner(unittest.TestCase):
         self.assertEqual(result.status, "failed")
         self.assertEqual(result.rounds[0]["maker_error"]["kind"], "auth")
 
+    def test_an_unreadable_answer_gets_another_round_and_the_record_shows_it(self):
+        """Money v4 run c (10 November 2026): one unreadable 13,000-token answer (and its repair turn) ended the video in
+        round 1 of 6, and the record could not say why. Now the next round asks again, and the record keeps the reply's
+        start and end."""
+        class Garbled(BrainFakeClient):
+            bad = 2                                  # the answer and the gateway's repair turn
+
+            def _respond(self, model, messages, schema):
+                if self.bad > 0:
+                    self.bad -= 1
+                    return {"content": "Here is the plan you asked for: {\"blocks\": [ ... cut", "finish_reason": "stop",
+                            "model": model, "usage": {"input_tokens": 10, "output_tokens": 10}}
+                return super()._respond(model, messages, schema)
+        runner = SectionRunner(gateway(Garbled("anthropic")), maker="anthropic", reviewer="openai", rulebook=self.book)
+        result = runner.run(self.step(page_with()))
+        self.assertEqual((result.status, len(result.rounds)), ("passed", 2))
+        error = result.rounds[0]["maker_error"]
+        self.assertEqual(error["kind"], "schema_invalid")
+        self.assertTrue(error["excerpt"]["head"].startswith("Here is the plan"))
+        self.assertTrue(error["excerpt"]["tail"].endswith("cut"))
+
+    def test_an_answer_that_never_reads_stops_at_the_round_limit(self):
+        class Garbled(BrainFakeClient):
+            def _respond(self, model, messages, schema):
+                return {"content": "not json at all", "finish_reason": "stop", "model": model,
+                        "usage": {"input_tokens": 10, "output_tokens": 10}}
+        runner = SectionRunner(gateway(Garbled("anthropic")), maker="anthropic", reviewer="openai", rulebook=self.book)
+        step = self.step(page_with())
+        result = runner.run(step)
+        self.assertEqual((result.status, len(result.rounds)), ("failed", step.max_rounds))
+        self.assertTrue(all(r["maker_error"]["kind"] == "schema_invalid" for r in result.rounds))
+
     def test_reviewer_must_differ(self):
         with self.assertRaises(ValueError):
             SectionRunner(gateway(), maker="anthropic", reviewer="anthropic", rulebook=self.book)

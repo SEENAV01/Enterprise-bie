@@ -65,13 +65,33 @@ of one video's narration with Chatterbox Multilingual (Hindi) on the machine's o
 - `"reference": "default"` uses Chatterbox's built-in voice, so the speed can be measured before Navin's clip arrives;
   `"reference": "navin"` uses his clip from `/etc/bie/voice/` with pitch −2 semitones (agreement of 3 November).
 - The first job makes a separate voice environment on the machine (`/var/lib/bie/voice-venv`, pinned: torch and
-  torchaudio 2.6.0 CPU builds, chatterbox-tts 0.1.7, av 18.0.0; the model `ResembleAI/chatterbox` at a fixed
+  torchaudio 2.6.0 CPU builds, chatterbox-tts 0.1.7, av 18.0.0, setuptools 80.9.0 for the watermarker; the model `ResembleAI/chatterbox` at a fixed
   revision). Licences: MIT (Chatterbox and its model), BSD-3 (torch, PyAV), Apache/MIT/BSD/ISC for the rest; nothing
   of it goes into `apps/`.
 - The audio goes only to `/var/lib/bie/private/voice/<job id>/` (mode 700). The public run folder gets numbers only:
   seconds of audio and of CPU per sentence, the real-time factor, an estimate for the whole video, and
   `durations.json` (sentence → seconds, the shape the scene-plan timeline takes for real voice durations).
 - Chatterbox marks its audio with its own inaudible watermark (Perth), which says the audio is generated.
+
+## Measured on the VM's CPU (20 November 2026)
+
+VM job `p1v-voice-measure-v4b` (₹0; results `blindtest-results:runs/vm-p1v-voice-measure-v4b-brain-voice/`, numbers
+only): Chatterbox Multilingual's built-in voice spoke the first 8 sentences of Money v4 in Hindi on the Hostinger KVM 2
+(2 CPUs, 7.8 GB RAM).
+
+| Measure | Value |
+| --- | --- |
+| Sentences made | 8 of 8 (35.9 s of audio) |
+| CPU time | 349.8 s, real-time factor **9.7** (each second of voice takes about 10 s of CPU) |
+| Model load | 56.8 s (once per job); voice environment build 83 s (once) |
+| Peak RAM | 6.4 GB of 7.8 GB |
+| Whole Money v4 (8,284 characters) | about 12.3 min of voice, about **2 hours** of CPU |
+
+So on this CPU one video's voice takes about 2 hours and a 12-video chapter about a day; it works for a sample or one
+chapter overnight, not for whole books. The first run (`p1v-voice-measure-v4`) stopped at load on a missing
+`pkg_resources` (the watermarker's); the voice environment now pins setuptools (PR #159). Not yet judged: how the
+Hinglish sounds (English words in Roman, Hindi pronunciation) — the audio stays on the VM, and a listening check (or the
+STT check per sentence) comes with Navin's clip.
 
 ## Still open (Navin's decisions)
 
