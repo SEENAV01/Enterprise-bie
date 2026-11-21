@@ -2458,7 +2458,10 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   and 104,333 output tokens). q06, q07, q09 passed in 2 rounds; q08 used all 5 rounds and ended `needs_fix`.
 - **Taught:** q08's book line B3 is "If yes, which one?" (after "Does it show another absorption peak ...?"). It has no
   key word of its own, so the check "a sentence that lists a book line speaks one of its key words" could never be met.
+  The same check pushed the book talking to the reader into the voice in English: q08 says "Aaiye, let us see how this
+  happens" and "If yes, which one?", q06 "aap definitely right hain".
 - **Changed in BIE:** `bie/brain/studio_film.py` (`book_problems`): a book line with no key word is taught by the
-  sentence that lists it. Test in `tests/test_studio_films.py`. IMPLEMENTED.
-- **Measured:** q08's film now has 0 problems (was 1 after 5 rounds); batches 1 and 2: 1 of 117 book lines has no key
-  word.
+  sentence that lists it; the reader-talk words "happen", "definitely", "right" are no key words (`STOP`). Tests in
+  `tests/test_studio_films.py`. IMPLEMENTED.
+- **Measured:** q08's film now has 0 problems (was 1 after 5 rounds); batches 1 and 2: 3 of 117 book lines are reader
+  talk ("If yes, which one?", "Let us see how this happens.", "You are definitely right.") and need no key word now.

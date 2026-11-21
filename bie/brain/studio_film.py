@@ -76,7 +76,9 @@ PART_NAMES = {"hook": "sawaal", "prerequisite": "pehle ki baat", "concept": "con
 STOP = set("""this that with from which there their these those have been will would into also only more most such than
 then them they when where what while very each other some through because about after before being both does done made
 make many much must over same shall should since upon used uses using well were your here just like even known called
-take takes taken part parts form forms place given gives give provide provides show shows hence thus therefore""".split())
+take takes taken part parts form forms place given gives give provide provides show shows hence thus therefore
+happen happens happened definitely right""".split())      # the last line: the book talking to the reader ("You are
+# definitely right.", "Let us see how this happens.", Photosynthesis q06 and q08, 21 November 2026), never a key word
 
 
 def _obj(properties: dict) -> dict:

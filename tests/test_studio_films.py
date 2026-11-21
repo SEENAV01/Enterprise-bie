@@ -387,6 +387,8 @@ class BookLines(unittest.TestCase):
         # Photosynthesis q08 (batch 2, 21 November 2026): "If yes, which one?" has no key word, so asking for its key
         # words could never be met; the film spent all 5 rounds on it
         self.assertEqual(studio_film._content_words("If yes, which one?"), set())
+        self.assertEqual(studio_film._content_words("Let us see how this happens."), set())       # the book talking
+        self.assertEqual(studio_film._content_words("You are definitely right."), set())          # to the reader
         question = dict(BOOK_Q, book_lines=[dict(BOOK_Q["book_lines"][0]), {"n": 2, "text": "If yes, which one?", "page": "1"}])
         self.assertEqual(studio_film.book_problems(taught_film([[], [1], [], [2]]), question), [])
         self.assertIn("book line B2 is not taught", " | ".join(studio_film.book_problems(taught_film([[], [1], [], []]), question)))
