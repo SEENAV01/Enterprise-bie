@@ -2433,7 +2433,29 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   1.00 (chosen), the CF0 question and answer 0.938 / 0.98, the opening question 0.927 / 0.98, "yahaan pe kya hota hai" 0.924
   / 1.00.
 
-## The unit's opening page becomes the unit's overview film, 21 November 2026
+## Entry · The invitation pause also before ";", 21 November 2026
+
+- **Runs:** VM job `studio-photosynthesis-films-b1` (q01, q02, q04, q05; ok, ₹0 on the plan, 48 minutes, 2 rounds each,
+  no problems; plan meter 45% → 46%; 301,320 input and 76,561 output tokens).
+- **Taught:** all four films open with "आइए जानते हैं;" (a semicolon, not Q14's full stop), so the voice gave it only the
+  0.22 s clause breath: the same fault Navin found in Q14 ("thoda ruko, pehle yaad kijiye bolo").
+- **Changed in BIE:** `bie/brain/studio_voice.py`: a short invitation (at most `INVITE_WORDS` = 4 words, starting
+  "आइए", "चलिए", "देखिए", "Aaiye", "Chaliye", ...) gets the 0.55 s invitation pause whatever mark ends it; a longer clause
+  that only starts with such a word keeps the breath. Tests in `tests/test_studio_dub.py`, including one that the passed
+  Q14 film is said exactly as before. IMPLEMENTED.
+- **Measured:** batch 1: 4 of 114 lines change (the four openings); the passed Q14 film: 0 of 28 lines change.
+
+## Entry · A pin label moves off a wheel's name, 21 November 2026
+
+- **Runs:** VM job `studio-photosynthesis-films-b1`, film q05 played in Chromium.
+- **Taught:** in the water-accounting wheel the "6 H2O" pin sat on the wheel's name "Water-hisaab" for about 15
+  seconds: the player kept pin labels apart from each other, but not from a wheel's centre name.
+- **Changed in BIE:** `bie/brain/studio_player.html` (`placeLabels`): centre (math) labels are fixed obstacles; a pin
+  that overlaps one, or an earlier pin, moves down, with up to four passes so it moves on past the next one too. Test
+  in `tests/test_studio_films.py`. IMPLEMENTED.
+- **Measured** (Chromium, every 0.4 s, visible label boxes that overlap): q05 38 samples → 0; q01 0 → 0; q04 0 → 0.
+
+## Entry · The unit's opening page becomes the unit's overview film, 21 November 2026
 
 - **Runs:** VM job `studio-photosynthesis-films-b1`, film q01 ("Paudha khana khata nahi, toh hamara khana aakhir aata
   kahan se hai?").
@@ -2452,7 +2474,7 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
 - **Measured** (Chapter 11, the batch 1 question list): unit page found (Unit 4, Plant Physiology, chapters 11, 12, 13);
   25 → 26 questions; q01's book lines 20 → 12, the overview's 8; every block covered before is still covered.
 
-## A follow-up book line with no key word, 21 November 2026
+## Entry · A follow-up book line with no key word, 21 November 2026
 
 - **Runs:** VM job `studio-photosynthesis-films-b2` (q06–q09; 59 minutes, ₹0, plan meter still 46%; 418,758 input
   and 104,333 output tokens). q06, q07, q09 passed in 2 rounds; q08 used all 5 rounds and ended `needs_fix`.

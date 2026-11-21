@@ -182,6 +182,25 @@ class TeacherVoice(unittest.TestCase):
                          [("Yeh CO2 3.5 guna hai.", studio_voice.SENTENCE_PAUSE), ("Ab aage chalte hain.", 0.0)])
         self.assertGreater(studio_voice.INVITE_PAUSE, studio_voice.SENTENCE_PAUSE)
 
+    def test_an_invitation_before_a_semicolon_gets_the_same_pause(self):
+        # Photosynthesis films q01, q02, q04, q05 (21 November 2026) all wrote "आइए जानते हैं;", which got only a breath
+        self.assertEqual(studio_voice.parts("आइए जानते हैं; रोटी के पीछे गेहूँ का पौधा मिलता है।"),
+                         [("आइए जानते हैं", studio_voice.INVITE_PAUSE), ("रोटी के पीछे गेहूँ का पौधा मिलता है।", 0.0)])
+        # a long clause that only starts with an invitation word is a statement: a breath, not the invitation pause
+        self.assertEqual(studio_voice.parts("देखिए, ब्लू और रेड रीजन्स से ज़्यादा O2 निकलती है; इसलिए बैक्टीरिया वहीं जमा होते हैं।"),
+                         [("देखिए, ब्लू और रेड रीजन्स से ज़्यादा O2 निकलती है", studio_voice.CLAUSE_PAUSE),
+                          ("इसलिए बैक्टीरिया वहीं जमा होते हैं।", 0.0)])
+
+    def test_the_passed_q14_film_is_said_as_before(self):
+        # the invitation rule must not change how any line of Navin's passed Q14 film is said
+        import gzip
+        film = json.load(gzip.open(ROOT / "tests" / "fixtures" / "passed_outputs" / "studio" / "photosynthesis-q14.json.gz"))["film"]
+        for shot in film["shots"]:
+            for sentence in shot["sentences"]:
+                for bit, pause in studio_voice.parts(sentence["voice"]):
+                    if pause == studio_voice.INVITE_PAUSE:          # only after a full stop, as when Navin passed it
+                        self.assertRegex(bit, r"[.।!]$", sentence["voice"])
+
     def test_the_line_is_said_part_by_part_then_turned_to_his_tone(self):
         import numpy as np
 
