@@ -281,6 +281,9 @@ How a chapter runs (one VM job per stage; each later stage reads the earlier run
    the class moment (Asha, Dev, Teacher), "yaad rakho" and a check, linked to `films/<qid>.html` and `GAME.html#<qid>`.
 5. `dub` (from_run = the films run, source = the same PDF, language = target codes such as `ta,te,ml,mr,en`):
    `dub/<lang>/<qid>.html`, the same film in each language, and `DUB.md`.
+A chapter PDF that begins with its unit's opening page ("UNIT 4 / PLANT PHYSIOLOGY / Chapter 11, 12, 13") gets one more
+question, `u<unit>`, the unit's overview: a short film made only from that page, whose blocks leave the chapter questions
+(Navin, 21 November 2026). It has notes but no game stage.
 The course folder for Navin is the four runs' pages side by side. Every maker answer is checked by code and the exact
 problems go back (at most `max_rounds`); a stage with problems left is reported as `needs_fix`.
 

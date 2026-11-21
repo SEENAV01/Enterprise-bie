@@ -76,7 +76,9 @@ PART_NAMES = {"hook": "sawaal", "prerequisite": "pehle ki baat", "concept": "con
 STOP = set("""this that with from which there their these those have been will would into also only more most such than
 then them they when where what while very each other some through because about after before being both does done made
 make many much must over same shall should since upon used uses using well were your here just like even known called
-take takes taken part parts form forms place given gives give provide provides show shows hence thus therefore""".split())
+take takes taken part parts form forms place given gives give provide provides show shows hence thus therefore
+happen happens happened definitely right""".split())      # the last line: the book talking to the reader ("You are
+# definitely right.", "Let us see how this happens.", Photosynthesis q06 and q08, 21 November 2026), never a key word
 
 
 def _obj(properties: dict) -> dict:
@@ -271,7 +273,25 @@ def messages(question: dict, *, course: str, language: str, chapter: str = "") -
                                                               molecules=", ".join(MOLECULES),
                                                               kinds=MAX_KINDS, shot_chars=MAX_SHOT_CHARS,
                                                               pin_gap=PIN_GAP)},
-            {"role": "user", "content": user + _teacher_part(question) + _library_part(question)}]
+            {"role": "user", "content": user + _overview_part(question) + _teacher_part(question) + _library_part(question)}]
+
+
+OVERVIEW_PART = """
+
+THE UNIT'S OVERVIEW. This is not a chapter question: it is the overview film of Unit {unit}{title}, made only from the
+unit's opening page (Navin, 21 November 2026: "us unit ke sabhi chapters mein hum kya samjhenge jaisa overview mil
+jaaye"). Its chapters: {chapters}. Show, in 2 to 4 shots, what this unit will help the learner understand, as the page
+says it: its way of looking at life and what its chapters take up. Name each chapter by its number and title as the page
+gives them. Teach nothing from inside the chapters that the page does not say (no light reaction, no Calvin cycle, no
+Krebs cycle); the chapters' own films do that. End by leading into the first chapter."""
+
+
+def _overview_part(question: dict) -> str:
+    if not question.get("overview"):
+        return ""
+    unit = question.get("unit") or {}
+    return OVERVIEW_PART.format(unit=unit.get("unit", ""), title=f" ({unit['title']})" if unit.get("title") else "",
+                                chapters=", ".join(f"Chapter {c}" for c in unit.get("chapters") or []) or "as the page lists")
 
 
 TEACHER_PART = """
@@ -813,9 +833,12 @@ def book_problems(film: dict, question: dict) -> list:
                 out.append(f"{where}: part must be one of {', '.join(PARTS)}")
     for line in lines:
         said = claims.get(line["n"])
+        words = _content_words(line["text"])
         if not said:
             out.append(f"book line B{line['n']} is not taught: {line['text'][:160]}")
-        elif not _content_words(line["text"]) & _spoken_words(" ".join(said)):
+        # a follow-up line with no key word of its own ("If yes, which one?", Photosynthesis q08, 21 November 2026) is
+        # taught by the sentence that lists it; asking for its key words could never be met and spent 3 extra rounds
+        elif words and not words & _spoken_words(" ".join(said)):
             out.append(f"book line B{line['n']} is listed in teaches, but none of its key words is spoken there: "
                        f"{line['text'][:120]}")
     if lines or parts:

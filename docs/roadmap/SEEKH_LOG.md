@@ -2433,7 +2433,7 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   1.00 (chosen), the CF0 question and answer 0.938 / 0.98, the opening question 0.927 / 0.98, "yahaan pe kya hota hai" 0.924
   / 1.00.
 
-## The invitation pause also before ";", 21 November 2026
+## Entry · The invitation pause also before ";", 21 November 2026
 
 - **Runs:** VM job `studio-photosynthesis-films-b1` (q01, q02, q04, q05; ok, ₹0 on the plan, 48 minutes, 2 rounds each,
   no problems; plan meter 45% → 46%; 301,320 input and 76,561 output tokens).
@@ -2445,7 +2445,7 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   Q14 film is said exactly as before. IMPLEMENTED.
 - **Measured:** batch 1: 4 of 114 lines change (the four openings); the passed Q14 film: 0 of 28 lines change.
 
-## A pin label moves off a wheel's name, 21 November 2026
+## Entry · A pin label moves off a wheel's name, 21 November 2026
 
 - **Runs:** VM job `studio-photosynthesis-films-b1`, film q05 played in Chromium.
 - **Taught:** in the water-accounting wheel the "6 H2O" pin sat on the wheel's name "Water-hisaab" for about 15
@@ -2454,3 +2454,36 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   that overlaps one, or an earlier pin, moves down, with up to four passes so it moves on past the next one too. Test
   in `tests/test_studio_films.py`. IMPLEMENTED.
 - **Measured** (Chromium, every 0.4 s, visible label boxes that overlap): q05 38 samples → 0; q01 0 → 0; q04 0 → 0.
+
+## Entry · The unit's opening page becomes the unit's overview film, 21 November 2026
+
+- **Runs:** VM job `studio-photosynthesis-films-b1`, film q01 ("Paudha khana khata nahi, toh hamara khana aakhir aata
+  kahan se hai?").
+- **Taught:** the Chapter 11 PDF opens with Unit 4's page ("UNIT 4 / PLANT PHYSIOLOGY", the three chapters, and a
+  paragraph on two ways of looking at life). The question stage put that page into q01, so 2 of q01's 10 shots spoke of
+  "biology ke do nazariye", away from its question. Navin: "Ise unit ka overview naam se bna do jisme us unit ke sbhi
+  chapters mein hum kya samjhenge jaisa overview mil jaaye"; then, on the card, "Sirf Unit page se banao" (BIE has only
+  Chapter 11's PDF).
+- **Changed in BIE:** `bie/brain/studio.py`: `unit_pages` finds a unit's opening page by code (its first blocks spell
+  UNIT and a number, even when the text layer splits small caps into "U 4" + "NIT", and it names at least two
+  chapters); `with_unit_overview` moves that page's blocks out of every chapter question into one short overview
+  question `u<unit>`, first in the list, idempotent, no block lost. Applied after the question stage and when the films,
+  games and book stages read an older question list; the overview has no game stage. `bie/brain/studio_film.py`: the
+  maker is told it is the unit's overview, made only from that page (2 to 4 shots, chapters by number and title, nothing
+  from inside the chapters). Tests in `tests/test_studio_questions.py`. IMPLEMENTED.
+- **Measured** (Chapter 11, the batch 1 question list): unit page found (Unit 4, Plant Physiology, chapters 11, 12, 13);
+  25 → 26 questions; q01's book lines 20 → 12, the overview's 8; every block covered before is still covered.
+
+## Entry · A follow-up book line with no key word, 21 November 2026
+
+- **Runs:** VM job `studio-photosynthesis-films-b2` (q06–q09; 59 minutes, ₹0, plan meter still 46%; 418,758 input
+  and 104,333 output tokens). q06, q07, q09 passed in 2 rounds; q08 used all 5 rounds and ended `needs_fix`.
+- **Taught:** q08's book line B3 is "If yes, which one?" (after "Does it show another absorption peak ...?"). It has no
+  key word of its own, so the check "a sentence that lists a book line speaks one of its key words" could never be met.
+  The same check pushed the book talking to the reader into the voice in English: q08 says "Aaiye, let us see how this
+  happens" and "If yes, which one?", q06 "aap definitely right hain".
+- **Changed in BIE:** `bie/brain/studio_film.py` (`book_problems`): a book line with no key word is taught by the
+  sentence that lists it; the reader-talk words "happen", "definitely", "right" are no key words (`STOP`). Tests in
+  `tests/test_studio_films.py`. IMPLEMENTED.
+- **Measured:** q08's film now has 0 problems (was 1 after 5 rounds); batches 1 and 2: 3 of 117 book lines are reader
+  talk ("If yes, which one?", "Let us see how this happens.", "You are definitely right.") and need no key word now.
