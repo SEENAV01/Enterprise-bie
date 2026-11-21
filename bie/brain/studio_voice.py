@@ -104,6 +104,24 @@ class KokoroEngine:
         return np.asarray(made, dtype="float32"), rate
 
 
+def local_config(model: Path) -> Path:
+    """AI4Bharat's configs name their speaker file by the path it had on their machine ("models/v1/ta/fastpitch/
+    speakers.pth"); a copy beside the original names the file where it really is."""
+    import json
+    config = json.loads((model / "config.json").read_text(encoding="utf-8"))
+    speakers = str((model / "speakers.pth").resolve())
+
+    def fix(node):
+        if isinstance(node, dict):
+            return {k: (speakers if k == "speakers_file" and v else fix(v)) for k, v in node.items()}
+        return [fix(x) for x in node] if isinstance(node, list) else node
+    fixed = model / "config.bie.json"
+    text = json.dumps(fix(config), ensure_ascii=False, indent=1)
+    if not fixed.exists() or fixed.read_text(encoding="utf-8") != text:
+        fixed.write_text(text, encoding="utf-8")
+    return fixed
+
+
 class IndicEngine:
     def __init__(self, language: str, who: str):
         base = indic_folder(language)
@@ -113,7 +131,7 @@ class IndicEngine:
                 raise FileNotFoundError(f"{need} is missing")
         from TTS.utils.synthesizer import Synthesizer     # optional: coqui-tts
         speakers = model / "speakers.pth"
-        self.engine = Synthesizer(tts_checkpoint=str(model / "best_model.pth"), tts_config_path=str(model / "config.json"),
+        self.engine = Synthesizer(tts_checkpoint=str(model / "best_model.pth"), tts_config_path=str(local_config(model)),
                                   tts_speakers_file=str(speakers) if speakers.exists() else None,
                                   vocoder_checkpoint=str(vocoder / "best_model.pth"), vocoder_config=str(vocoder / "config.json"),
                                   use_cuda=False)
@@ -217,7 +235,6 @@ class Voice:
     def say(self, text: str) -> dict:
         """{"uri": data URI (mp3 when ffmpeg is here, else wav), "dur": seconds}, said by BIE's teacher rules (``parts``)."""
         import numpy as np
-        import soundfile as sf
         chunks, rate = [], 24000
         for part, pause in parts(text):
             made, rate = self.engine.speak(part, speed(part))
@@ -228,12 +245,24 @@ class Voice:
         if self.tone is not None and len(samples) > rate // 2:
             samples, rate = self.tone.convert(samples, rate, self.engine.label,
                                               lambda: self.engine.speak(TONE_SAMPLE.get(self.language, TONE_SAMPLE["en"]), SPEED))
-        buffer = io.BytesIO()
-        sf.write(buffer, np.asarray(samples, dtype="float32"), rate, format="WAV")
-        wav = buffer.getvalue()
+        wav = wav_bytes(samples, rate)
         mp3 = to_mp3(wav)
         data, mime = (mp3, "audio/mpeg") if mp3 else (wav, "audio/wav")
         return {"uri": f"data:{mime};base64," + base64.b64encode(data).decode("ascii"), "dur": round(len(samples) / rate, 3)}
+
+
+def wav_bytes(samples, rate: int) -> bytes:
+    """16-bit mono WAV through the standard library (no audio library needed to write it)."""
+    import wave
+    import numpy as np
+    pcm = (np.clip(np.asarray(samples, dtype="float32"), -1.0, 1.0) * 32767).astype("<i2").tobytes()
+    buffer = io.BytesIO()
+    with wave.open(buffer, "wb") as out:
+        out.setnchannels(1)
+        out.setsampwidth(2)
+        out.setframerate(int(rate))
+        out.writeframes(pcm)
+    return buffer.getvalue()
 
 
 def to_mp3(wav: bytes) -> bytes | None:

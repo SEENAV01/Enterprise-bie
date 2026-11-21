@@ -198,6 +198,16 @@ class TeacherVoice(unittest.TestCase):
         self.assertEqual(Tone.calls, 1)
         self.assertTrue(made["uri"].startswith("data:audio/"))
 
+    def test_the_indic_config_names_its_speaker_file_where_it_is(self):
+        with tempfile.TemporaryDirectory() as folder:
+            model = Path(folder) / "ta" / "fastpitch"
+            model.mkdir(parents=True)
+            (model / "config.json").write_text(json.dumps({"model": "fast_pitch", "speakers_file": "models/v1/ta/fastpitch/speakers.pth",
+                                                           "model_args": {"speakers_file": "models/v1/ta/fastpitch/speakers.pth"}}))
+            fixed = json.loads(studio_voice.local_config(model).read_text(encoding="utf-8"))
+            where = str((model / "speakers.pth").resolve())
+            self.assertEqual((fixed["speakers_file"], fixed["model_args"]["speakers_file"]), (where, where))
+
     def test_navin_narrator_needs_his_private_tone_file(self):
         import os
         old = {k: os.environ.get(k) for k in ("BIE_NARRATOR", "BIE_VOICE_TONE")}
