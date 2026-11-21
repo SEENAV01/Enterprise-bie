@@ -797,6 +797,15 @@ class LookWordsAndLabelGaps(unittest.TestCase):
         for present in ("proton pump copper left", "ATP synthase right with amber CF0 ring", "silver central stalk"):
             self.assertIn(present, shared)
 
+    def test_a_pin_label_moves_off_a_wheels_name(self):
+        # Photosynthesis q05 (batch 1, 21 November 2026): the "6 H2O" pin sat on the "Water-hisaab" wheel name for about
+        # 15 seconds, because the keep-apart step skipped centre (math) labels; now they are fixed obstacles
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        place = page[page.index("function placeLabels("):page.index("// --- arrows and effects")]
+        self.assertIn("fixed=labels.filter(l=>l.box.style.opacity==='1'&&l.math)", place)
+        self.assertIn("[...fixed,...shown.slice(0,i)]", place)
+        self.assertIn("for(let pass=0;pass<4;pass++)", place)
+
     def test_a_move_label_ending_on_a_pin_is_sent_back(self):
         bad = film()
         line = bad["shots"][0]["sentences"][1]
