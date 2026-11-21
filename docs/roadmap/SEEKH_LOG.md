@@ -2432,3 +2432,15 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   (likeness / Whisper's words kept from the base): "chaliye dekhte hain ki ATP synthase yeh kaam karta kaise hai" 0.950 /
   1.00 (chosen), the CF0 question and answer 0.938 / 0.98, the opening question 0.927 / 0.98, "yahaan pe kya hota hai" 0.924
   / 1.00.
+
+## The invitation pause also before ";", 21 November 2026
+
+- **Runs:** VM job `studio-photosynthesis-films-b1` (q01, q02, q04, q05; ok, ₹0 on the plan, 48 minutes, 2 rounds each,
+  no problems; plan meter 45% → 46%; 301,320 input and 76,561 output tokens).
+- **Taught:** all four films open with "आइए जानते हैं;" (a semicolon, not Q14's full stop), so the voice gave it only the
+  0.22 s clause breath: the same fault Navin found in Q14 ("thoda ruko, pehle yaad kijiye bolo").
+- **Changed in BIE:** `bie/brain/studio_voice.py`: a short invitation (at most `INVITE_WORDS` = 4 words, starting
+  "आइए", "चलिए", "देखिए", "Aaiye", "Chaliye", ...) gets the 0.55 s invitation pause whatever mark ends it; a longer clause
+  that only starts with such a word keeps the breath. Tests in `tests/test_studio_dub.py`, including one that the passed
+  Q14 film is said exactly as before. IMPLEMENTED.
+- **Measured:** batch 1: 4 of 114 lines change (the four openings); the passed Q14 film: 0 of 28 lines change.
