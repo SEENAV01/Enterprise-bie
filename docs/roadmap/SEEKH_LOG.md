@@ -2487,3 +2487,35 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   `tests/test_studio_films.py`. IMPLEMENTED.
 - **Measured:** q08's film now has 0 problems (was 1 after 5 rounds); batches 1 and 2: 3 of 117 book lines are reader
   talk ("If yes, which one?", "Let us see how this happens.", "You are definitely right.") and need no key word now.
+
+## Entry · BIE reads the printed page by code before any AI does, 21 November 2026
+
+- **Runs:** the Chapter 11 audit (NCERT Class 11 Biology, Photosynthesis; the 371 lines of the chapter against the
+  question list of `studio-photosynthesis-films-b1` and the films of batches 1–4).
+- **Taught:** the text layer gives one block per printed line in top-then-left order, and on a real book that order
+  loses things before any AI reads them: the small 2 of CO₂ and the 3 and 4 of C₃ and C₄ became lines of their own
+  ("2 2 2 2" under an equation, "CO )" in the line), the unit page's chapter list and its paragraph were read as one
+  sentence ("Chapter 11 The description … Photosynthesis in Higher period of time"), and the Z scheme's words sat inside
+  the running text ("… downhill, Photosystem II Photosystem I"). Codex only ever saw that text. Navin: "book ko dekh bhi
+  sake book understanding ke liye … jab tak book understanding book coverge nhi bnegi pdhana kya hai kaise hai shi nhi
+  bnega".
+- **Changed in BIE:** new `bie/brain/reading.py` (no AI, pdfplumber glyphs only): marks go back after the glyph they
+  hang from (a height-overlap and touching test picks the right line), lines are cut at gutters at least three lines
+  share and where a figure's drawing begins, a word that starts exactly at the right column's start is cut even
+  without a wide gap, list marks and heading numbers are never a gutter, small-capital titles are joined, running heads
+  are found by repetition across pages, equation bands are not figures, a ruled box is a table, captions and headings
+  set on two lines are joined, "Light" over an arrow joins its equation. `bie/brain/pages.py` uses it by default
+  (`Block.kind`, `Page.reading`, `Page.absorbed`); `bie/brain/studio.py` (`teachable`, `book_lines`, `chapter_text`)
+  and `bie/brain/understanding.py` (running heads as boilerplate, kinds on the page's block list) follow the kinds.
+  Section 1 now also places every item in the printed section it comes from, by code (`reading.chapter_structure`:
+  the numbered headings and the SUMMARY and EXERCISES zones; `item.ncert_section`, `item.zone`,
+  `chapter_map.ncert_sections`, a section list in MAP.md), and the maker names each item's role in the book (`role`:
+  teach, in_text_question, reader_talk, activity, biography, summary, exercise, heading, caption), so that later
+  sections teach a line by what it does. Tests in `tests/test_brain_reading.py` (PDFs built by hand). IMPLEMENTED.
+- **Measured:** Chapter 11 with the batch 1 question list: book lines with a lost subscript 29 → 1, figure words inside a
+  sentence 6 → 0, mixed columns 1 → 0; book lines 364 → 380 (headings, captions, tables and side entries are now lines
+  of their own); every teachable block still in a question. Across the six input books: 0 pages left unread; physics
+  Chapter 3's two-column pages are read left column, then right (they were read across both columns line by line).
+  Reading time 2–11 s per book. Chapter 11's structure by code: 19 numbered sections (11.1 … 11.10.4), Summary and
+  Exercises, every block placed. The passed outputs (`tests/fixtures/passed_outputs/`) still pass; 489 + 700 tests.
+

@@ -35,6 +35,7 @@ from . import formats
 from . import hinglish
 from . import level as level_module
 from . import naksha as naksha_module
+from . import reading
 from . import shots
 from . import soul
 from .common import SEVERITY, S, arr, blocking, checklist_text, fmt, obj, review_problems
@@ -82,6 +83,11 @@ _obj, _arr, S = obj, arr, S
 # bhi"): "deep" gets the full treatment for one of the reasons in DEEP_WHYS; everything else is "normal" (opened like a
 # teacher in two or three spoken sentences); a question item or a pure heading is "normal" with deep_why "".
 TEACH_DEPTHS = ["normal", "deep"]
+# What a line does in the book (Navin, 21 November 2026, after the Chapter 11 audit: the films taught the exercises, the
+# book's "Let us see how this happens" and the Melvin Calvin box as if they were the chapter's teaching): each role is
+# taught its own way later (an in-text question is posed and answered, reader talk is said in the teacher's own words,
+# an activity becomes a Lab task, an exercise goes to practice, a biography is a short story, a summary a recap).
+ROLES = ["teach", "in_text_question", "reader_talk", "activity", "biography", "summary", "exercise", "heading", "caption"]
 DEEP_WHYS = ["", "graph", "numerical", "misconception", "application", "story", "subtle"]
 QA_SCHEMA = _obj({
     "depth": {"type": "integer", "description": "1 for a first question; 2, 3 ... for a deeper why/how on an earlier answer"},
@@ -109,6 +115,7 @@ ITEM_SCHEMA = _obj({
     "unpack": soul.UNPACK_SCHEMA,
     "teach_depth": {"type": "string", "enum": TEACH_DEPTHS},
     "deep_why": {"type": "string", "enum": DEEP_WHYS},
+    "role": {"type": "string", "enum": ROLES},
 })
 PAGE_SCHEMA = _obj({
     "notes": NOTES_SCHEMA,
@@ -208,6 +215,14 @@ How to fill the JSON:
     not teachable.
   - type_note: "" when you agree with BIE's proposal for this item's blocks (or there is none); otherwise one line on why your type fits.
   - teachable: false only for pure headings and containers whose children carry the content.
+  - role: what the item does in the book, so BIE teaches each line the right way: teach (the book's teaching: a statement, a
+    definition, a list point, a table, a figure's content), in_text_question (a question the book puts to the student inside the
+    text, "Can you explain how this conclusion could be drawn?": the film poses it and answers it), reader_talk (the book talking
+    to the reader, "Let us now see how this happens", "This is a question that you may reasonably ask", "Discuss this amongst
+    yourselves": the film says it in the teacher's own words), activity (something the student is asked to do: cut a section,
+    collect leaves, observe under a microscope), biography (a box about a scientist's life), summary (a line of the chapter's
+    summary), exercise (an end-of-chapter exercise or one of its parts), heading, caption. Lines under the SUMMARY and EXERCISES
+    headings are summary and exercise.
   - teacher_understanding: the teacher's questions and answers for this item (S1-06); depth 1 for first questions, 2 and more for
     "why"/"how" on an earlier answer; basis "book" only if the page states it, else "outside"; one answer, one basis: an answer that
     would mix what the book says with an outside explanation becomes two answers, one "book" and one "outside" (S1-14). BIE's code
@@ -326,7 +341,8 @@ PAGE_PATCH_HINT = ("Reply with a patch, not the whole page: replace_items = the 
 def _blocks_text(page):
     if not page.blocks:
         return "(this page has no native text blocks)"
-    return "\n".join(f"{b.id} | {b.text}" for b in page.blocks)
+    return "\n".join(f"{b.id} | {b.text}" if getattr(b, "kind", "text") == "text" else f"{b.id} | ({b.kind}) {b.text}"
+                     for b in page.blocks)
 
 
 def chapter_id(course) -> str:
@@ -341,7 +357,9 @@ def likely_boilerplate(page, neighbours) -> dict:
     out = {}
     heads = {n.blocks[0].text.strip() for n in neighbours if n is not None and n.blocks}
     for index, block in enumerate(page.blocks):
-        if PAGE_NUMBER.match(block.text):
+        if getattr(block, "kind", "text") == "running":
+            out[block.id] = "running head or page line (BIE's code reader: it repeats on other pages, or is only a number)"
+        elif PAGE_NUMBER.match(block.text):
             out[block.id] = "page number"
         elif index == 0 and block.text.strip() in heads:
             out[block.id] = "running header (the same first line as the next or previous page)"
@@ -452,6 +470,8 @@ def check_page(value: dict, page, *, proposals: dict | None = None, card: dict |
         kind = item.get("content_type")
         if item.get("teachable") and kind == ct.NONE and item["kind"] not in ct.ROLE_KINDS:
             problems.append(f"item {iid}: a teachable item needs one of BIE's nine content types, not 'none' (S1-08)")
+        if item.get("role") not in (None, "") and item.get("role") not in ROLES:
+            problems.append(f"item {iid}: role {item.get('role')!r} is not one of {', '.join(ROLES)}")
         depth, why = item.get("teach_depth", "normal"), item.get("deep_why", "")
         if depth == "deep" and not why:
             problems.append(f"item {iid}: a deep item says why it is deep (deep_why: graph, numerical, misconception, application, "
@@ -845,6 +865,23 @@ def passed_pages(previous_chapter: dict) -> dict:
     return reused
 
 
+def _place_in_sections(items: dict, of_block: dict) -> None:
+    """Every item gets the printed section it sits in and its zone, by code (``reading.chapter_structure``): from its
+    first block, or, for an image-only item, from the item before it on the page (Navin, 21 November 2026: the naksha is
+    built on the book's own headings)."""
+    last = {"section": "", "title": "", "zone": "body"}
+    for iid in sorted(items, key=lambda i: (items[i].get("page", 0), _item_number(i))):
+        item = items[iid]
+        place = next((of_block[b] for b in item.get("block_ids") or [] if b in of_block), None) or last
+        item["ncert_section"], item["ncert_title"], item["zone"] = place["section"], place["title"], place["zone"]
+        last = place
+
+
+def _item_number(item_id: str) -> int:
+    found = re.search(r"-i(\d+)$", item_id)
+    return int(found.group(1)) if found else 0
+
+
 def run_chapter(pdf_bytes: bytes, course: Course, runner: SectionRunner, out_dir, *, pages: str | None = None,
                 workers: int = 4, max_rounds: int = 3, with_images: bool = True, previous_chapter: dict | None = None,
                 max_output_tokens: int = DEFAULT_OUTPUT_TOKENS):
@@ -888,6 +925,8 @@ def run_chapter(pdf_bytes: bytes, course: Course, runner: SectionRunner, out_dir
         else:
             results.append((page.number, fresh[page.number]))
     items = _chapter_items(results)
+    structure = reading.chapter_structure(page_list)
+    _place_in_sections(items, structure["of_block"])
     connect = None
     if items:
         step = connect_step(course, items, rulebook=runner.rulebook, max_rounds=max_rounds, max_output_tokens=max_output_tokens)
@@ -926,6 +965,7 @@ def run_chapter(pdf_bytes: bytes, course: Course, runner: SectionRunner, out_dir
             "seconds": result.seconds,
         } for number, result in results],
         "items": items,
+        "ncert_sections": structure["headings"],
         "map": {k: v for k, v in (connect.output or {}).items() if k != "notes"} if connect else {},
         "map_status": connect.status if connect else "not_run",
         "map_record": Path(connect.record_path).name if connect and connect.record_path else None,
@@ -1034,6 +1074,19 @@ def render_markdown(chapter: dict) -> str:
         lines.append(f"- Naksha (the compact map later sections get slices of): {n['items']} items, {n['concepts']} concepts, "
                      f"{n['links']} links, {n['chars']:,} characters, about {n['tokens_estimate']:,} tokens")
     lines.append("")
+    if chapter.get("ncert_sections"):
+        lines += ["## The book's own sections (BIE's code reader)", "",
+                  "Every item sits in the printed section it comes from; the naksha is built on these headings.", ""]
+        items = chapter.get("items") or {}
+        for heading in chapter["ncert_sections"]:
+            inside = [i for i in items.values() if i.get("ncert_section") == heading["number"] and i.get("zone") == heading["zone"]]
+            roles = {}
+            for item in inside:
+                roles[item.get("role") or "-"] = roles.get(item.get("role") or "-", 0) + 1
+            name = f"{heading['number']} {heading['title']}".strip()
+            lines.append(f"- {'  ' * max(0, heading['level'] - 1)}**{name}** (page {heading['page']}): {len(inside)} items"
+                         + (" · " + ", ".join(f"{k} {v}" for k, v in sorted(roles.items())) if inside else ""))
+        lines.append("")
     type_check = chapter.get("type_check") or {}
     if type_check.get("summary"):
         lines += ["## Content types: BIE's code and the AI", "",

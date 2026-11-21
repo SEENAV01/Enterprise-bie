@@ -15,7 +15,7 @@ from . import cards
 from . import content_types as ct
 from . import shots
 
-BLOCK_LINE = re.compile(r"^(p\d{4}-b\d{4}) \| (.*)$", re.MULTILINE)
+BLOCK_LINE = re.compile(r"^(p\d{4}-b\d{4}(?:\.\d+)?) \| (.*)$", re.MULTILINE)
 ITEM_LINE = re.compile(r"^(p\d{3}-[^ |]+) \| (\d+) \| (\w+) \| (\w+) \| (teach|no) \|", re.MULTILINE)
 QUESTION_LINE = re.compile(r"^  (p\d{3}-[^ |#]+#q\d+) \|", re.MULTILINE)
 NOTES = {"about": "offline", "key_questions": ["offline?"], "decisions": [], "uncertain": []}
@@ -76,7 +76,7 @@ def _item(iid, text, *, source="text", block_ids=(), kind="paragraph", parent=""
             "where_on_page": "offline", "content": text, "content_type": content_type, "type_note": "", "teachable": True,
             "teacher_understanding": [dict(q, basis="book") for q in _qa(text, asks)], "prerequisites": [],
             "exam_importance": "medium", "exam_note": "", "tests_item_ids": [], "teach_depth": "normal", "deep_why": "",
-            "unpack": _unpack(text, with_terms=with_terms, real_world=types.needs_real_world(family, content_type))}
+            "role": "teach", "unpack": _unpack(text, with_terms=with_terms, real_world=types.needs_real_world(family, content_type))}
 
 
 def page_answer(user_text: str, system_text: str = ""):

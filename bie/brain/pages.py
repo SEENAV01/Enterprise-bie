@@ -4,6 +4,13 @@ The text comes from ``bie.document_intelligence.real_pdf_text_runtime`` (the sam
 pipeline uses), so block ids such as ``p0003-b0007`` are the pipeline's own source anchors. The
 image is rendered with pypdfium2 (installed with pdfplumber) so a vision model can read tables,
 diagrams, labels and equations that have no text layer.
+
+Since 21 November 2026 the blocks are read again by BIE's code reader (``bie.brain.reading``) before any AI sees
+them: subscripts and superscripts go back into their lines (CO₂, C₄, H⁺), two columns on one printed line are cut
+apart and read one after the other, a figure's words are kept out of the running text, and every block carries its
+kind (text, equation, caption, table, aside, label, running). Ids stay the text layer's; a cut line's further parts
+are ``<id>.2``, ``<id>.3``; a line that was only subscripts is absorbed into its line. ``read=False`` gives the text
+layer's blocks unchanged.
 """
 from __future__ import annotations
 
@@ -21,6 +28,7 @@ class Block:
     id: str
     text: str
     box: tuple              # (x0, y0, x1, y1) as fractions of the page
+    kind: str = "text"      # the code reader's kind: text, equation, caption, table, aside, label (a figure's words), running
 
 
 @dataclass(frozen=True)
@@ -31,6 +39,8 @@ class Page:
     media_type: str = "image/png"
     width: int = 0
     height: int = 0
+    reading: tuple = ()     # what the code reader did to the page (bie.brain.reading notes)
+    absorbed: tuple = ()    # ((block id, id of the block it went into), ...): marks-only lines, a caption's or heading's further lines
 
     @property
     def block_ids(self):
@@ -85,22 +95,33 @@ def render_page_image(pdf_bytes: bytes, number: int, *, max_edge: int = MAX_IMAG
     return data, media, image.width, image.height
 
 
-def load_pages(pdf_bytes: bytes, pages: str | None = None, *, with_images: bool = True):
-    """(source sha256, page count, [Page]) for the selected pages."""
+def load_pages(pdf_bytes: bytes, pages: str | None = None, *, with_images: bool = True, read: bool = True):
+    """(source sha256, page count, [Page]) for the selected pages, read by BIE's code reader unless ``read=False``."""
     from bie.document_intelligence.real_pdf_text_runtime import inspect_real_pdf_text
 
     inspection = inspect_real_pdf_text(pdf_bytes)
     wanted = parse_page_range(pages, inspection.page_count)
-    result = []
+    layer = {}
     for layout in inspection.pages:
-        if layout.page not in wanted:
-            continue
-        ordered = sorted(layout.source_linked_blocks, key=lambda item: item.order_index)
-        blocks = tuple(Block(item.block.block_id, item.block.text, tuple(round(v, 4) for v in item.region.box))
-                       for item in ordered)
-        if with_images:
-            data, media, width, height = render_page_image(pdf_bytes, layout.page)
-            result.append(Page(layout.page, blocks, data, media, width, height))
+        if layout.page in wanted:
+            ordered = sorted(layout.source_linked_blocks, key=lambda item: item.order_index)
+            layer[layout.page] = [(item.block.block_id, item.block.text, tuple(round(v, 4) for v in item.region.box))
+                                  for item in ordered]
+    readings = {}
+    if read and layer:
+        from .reading import read as read_pages
+        readings = read_pages(pdf_bytes, layer)
+    result = []
+    for number in sorted(layer):
+        reading = readings.get(number)
+        if reading is not None:
+            blocks = tuple(Block(p.id, p.text, p.box, p.kind) for p in reading.pieces)
+            notes, absorbed = tuple(reading.notes), tuple(sorted(reading.absorbed.items()))
         else:
-            result.append(Page(layout.page, blocks))
+            blocks, notes, absorbed = tuple(Block(i, t, b) for i, t, b in layer[number]), (), ()
+        if with_images:
+            data, media, width, height = render_page_image(pdf_bytes, number)
+            result.append(Page(number, blocks, data, media, width, height, notes, absorbed))
+        else:
+            result.append(Page(number, blocks, reading=notes, absorbed=absorbed))
     return inspection.source_hash, inspection.page_count, result
