@@ -1,0 +1,2507 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-002",
+ "status": "passed",
+ "instructions_version": "understand-page/5",
+ "rulebook_version": "canvas_profile@2026-11-03.1+content_types@2026-10-27.1+econ_videos@2026-11-05.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-03.1+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.18+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3",
+ "rulebook_digest": "ccdd8deb18353ca78ab2ebc1e00e131071651e643aad28bb56422128202f1478",
+ "rules_used": [
+  "EV-U01",
+  "EV-U02",
+  "EV-U03",
+  "EV-U04",
+  "EV-U05",
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "G-06",
+  "G-07",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11",
+  "S1-13",
+  "S1-14",
+  "S1-15",
+  "S1-16",
+  "S2-11"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "codex-checker",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "gpt-6.1-sol",
+ "reviewer_independence": "same_model_temporary",
+ "inputs_digest": "bd7d0444fab1cb453fa9cca87b1b22f446d1dfda06fbe8d662531635fac6ee3e",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "understand.read_page@11-photosynthesis-in-higher-plants/page-002",
+  "section": "understand",
+  "task": "read_page",
+  "prefix": {
+   "prefix_id": "understand.read_page/4",
+   "rulebook_version": "canvas_profile@2026-11-03.1+content_types@2026-10-27.1+econ_videos@2026-11-05.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-03.1+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.18+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3",
+   "content_types_version": "2026-10-27.1",
+   "schema_id": "bie.brain.understand-page/5",
+   "sha256": "bd22ef70f0210e86673456032e0dc666da4e54dcbc4166a146fa2eb632ead64f"
+  },
+  "unit": {
+   "unit_id": "page-002",
+   "title": "Page 2 of 22",
+   "pages": [
+    2
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "b1",
+    "item_ids": [
+     "p0002-b0001"
+    ],
+    "type": "timeline",
+    "questions": [
+     "when",
+     "why"
+    ],
+    "focus": "BIE proposes timeline (strong): pattern '1911'"
+   },
+   {
+    "part_id": "b2",
+    "item_ids": [
+     "p0002-b0005",
+     "p0002-b0006"
+    ],
+    "type": "process",
+    "questions": [
+     "how",
+     "when"
+    ],
+    "focus": "BIE proposes process (weak): 'after'"
+   },
+   {
+    "part_id": "b3",
+    "item_ids": [
+     "p0002-b0015"
+    ],
+    "type": "timeline",
+    "questions": [
+     "when",
+     "why"
+    ],
+    "focus": "BIE proposes timeline (strong): pattern '1961'"
+   },
+   {
+    "part_id": "b4",
+    "item_ids": [
+     "p0002-b0016"
+    ],
+    "type": "timeline",
+    "questions": [
+     "when",
+     "why"
+    ],
+    "focus": "BIE proposes timeline (weak): 'established'"
+   },
+   {
+    "part_id": "img",
+    "item_ids": [
+     "p0002-image"
+    ],
+    "type": "none",
+    "questions": [
+     "what"
+    ],
+    "focus": "The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show."
+   }
+  ],
+  "rules": [
+   "EV-U01",
+   "EV-U02",
+   "EV-U03",
+   "EV-U04",
+   "EV-U05",
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-05",
+   "G-06",
+   "G-07",
+   "S1-01",
+   "S1-02",
+   "S1-03",
+   "S1-04",
+   "S1-05",
+   "S1-06",
+   "S1-07",
+   "S1-08",
+   "S1-09",
+   "S1-10",
+   "S1-11",
+   "S1-13",
+   "S1-14",
+   "S1-15",
+   "S1-16",
+   "S2-11"
+  ],
+  "output": {
+   "schema_id": "bie.brain.understand-page/5",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p0002-b0001",
+    "p0002-b0002",
+    "p0002-b0003",
+    "p0002-b0004",
+    "p0002-b0005",
+    "p0002-b0006",
+    "p0002-b0007",
+    "p0002-b0008",
+    "p0002-b0009",
+    "p0002-b0010",
+    "p0002-b0011",
+    "p0002-b0012",
+    "p0002-b0013",
+    "p0002-b0014",
+    "p0002-b0015",
+    "p0002-b0016",
+    "p0002-b0017",
+    "p0002-b0018",
+    "p0002-b0019"
+   ],
+   "claim_field": "items[].block_ids or boilerplate_block_ids",
+   "may_skip": [
+    {
+     "item_id": "p0002-b0020",
+     "reason": "running head or page line (BIE's code reader: it repeats on other pages, or is only a number)"
+    }
+   ]
+  },
+  "context": {
+   "map_slice": [],
+   "before": "2024-25",
+   "after": "PHOTOSYNTHESIS IN HIGHER PLANTS 133"
+  },
+  "source": {
+   "block_ids": [
+    "p0002-b0001",
+    "p0002-b0002",
+    "p0002-b0003",
+    "p0002-b0004",
+    "p0002-b0005",
+    "p0002-b0006",
+    "p0002-b0007",
+    "p0002-b0008",
+    "p0002-b0009",
+    "p0002-b0010",
+    "p0002-b0011",
+    "p0002-b0012",
+    "p0002-b0013",
+    "p0002-b0014",
+    "p0002-b0015",
+    "p0002-b0016",
+    "p0002-b0017",
+    "p0002-b0018",
+    "p0002-b0019",
+    "p0002-b0020"
+   ],
+   "page_images": [
+    {
+     "page": 2,
+     "sha256": "570cd8bb2afdeddea27100a46806e6d2a9d834f5581431ece85411e6c64c1063"
+    }
+   ]
+  }
+ },
+ "prefix_sha256": "bd22ef70f0210e86673456032e0dc666da4e54dcbc4166a146fa2eb632ead64f",
+ "review_prefix_sha256": "4283b7bebf555e9d8bd4bc3e00bdb7e0f54637d77542417eb48335a6498fbb75",
+ "inputs": {
+  "system": "BIE task prefix understand.read_page/4 · rulebook canvas_profile@2026-11-03.1+content_types@2026-10-27.1+econ_videos@2026-11-05.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-03.1+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.18+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3 · content types 2026-10-27.1 · schema bie.brain.understand-page/5\n\nYou are BIE's book-understanding section: an expert teacher of Biology (NCERT Class 11) for Class 11 students and NEET aspirants preparing for NEET.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course. Your output is internal to BIE: write it in clear English and keep the\nbook's own terms and spellings.\nCourse: \"11. Photosynthesis in Higher Plants\" · subject: Biology (NCERT Class 11) · learners: Class 11 students and NEET aspirants · exam: NEET · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[EV-U01] Teaching order is not page order: open each concept with the problem, need or puzzle it answers, then name it, then define it. Recall the earlier idea it stands on before using it (half of the reference videos open by recalling the previous idea).\n[EV-U02] Cut a topic with the strategy that fits the concept: an instrument (bond, bill, swap) - follow one of it through its life (issue, promise, risk, resale, return) and bring each term at the step that needs it; a cause or a real-vs-nominal idea - hold one small market or one product fixed and change one thing at a time; a series of rules or tools - problem, answer, its limit, the next problem; a policy goal - ask 'what does this depend on?' backwards until a lever appears, and name control of that lever; a whole and its parts - name the term where the parts disagree with the whole; a new pair of terms - teach it through a pair the learner knows; an exception - build the normal rule first, then the case that breaks it; competing definitions - test each on a small made-up country until its numbers break; a dense official definition - cut it into phrases, each phrase one step of a worked example; a national total - scale up from one person to a family to the country.\n[EV-U03] History of institutions: cut at each law or committee; before each law ask the question it answers; then the law, then the institution or change it made, then the result, all on one running timeline that returns as the recap.\n[EV-U04] Teach in layers and say so: first the everyday picture that is enough for anyone, then the exam layer ('UPSC ke liye thoda aur gehrai mein'); related measures (GDP, GNP, NDP, NNP; CPI, WPI, food index; headline and core) are taught as one world with one running example in which each measure is one filter, addition or subtraction on the same numbers.\n[EV-U05] Successive systems, institutions and reforms (PLR to BPLR to base rate to MCLR; IFCI to the state DFIs, ICICI, IDBI and SIDBI; nationalisation to the 1991 reforms): each one enters as the fix for the previous one's named problem and leaves with the evidence that it fell short (one number: a 1.25-point cut reached loans as 0.6), which is the next one's problem. Give the lens first (a U-turn, a pendulum) before the details, and the map of categories only after the story (E58).\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember. Depth means understanding, not length: lesson narration keeps S2-01's time by cutting repetition and side-tracks, never book content.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never drop or compress away what the book teaches to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, the book's content is complete. Lesson narration has a time target (S2-01), met by cutting repetition and side-tracks, never book content.\n[G-06] BIE is the link between the learner and the book, like a teacher (Navin, 24 October 2026). The book is the base; BIE carries its text, easy or hard, into the learner's mind. Never just read the line out: every book line is opened (what its words mean, why it is so, where it is seen, what follows), at the depth of the level profile.\n[G-07] Two layers, like a film (Navin, 24 October 2026). The writer layer (understanding, plan, script) decides what is said and how deep, following the level profile and the book's own level. The presentation layer (director, video blocks, render) is the same skilled quality for every learner, from class 6 to postgraduate; only the detail shown follows the level, never the craft.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type, one of BIE's nine: process, structure, classification, comparison, timeline, cause_effect, facts_numbers, figure, definition (bie/brain/rulebook/content_types.json). An example takes the type of what it illustrates; a question or an answer option is a role, not a type. BIE's code proposes a type before you read the page; when you choose another, say why. The content type decides the required questions and later how the lesson teaches it, how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n[S1-13] A printed typo stays as printed, with the right word after it in square brackets: 'Cartiage [Cartilage]' (Navin, 23 October 2026). The teacher answers use the right word. Never correct the book silently.\n[S1-14] One answer, one basis (Navin, 23 October 2026): an answer that would mix what the book says with an outside explanation becomes two answers, one with basis 'book' (only what the page states) and one with basis 'outside'.\n[S1-15] Open every teachable item for the learner (Navin, 24 October 2026): in unpack, the terms the learner must hold (each with its plain meaning in simple Hindi and one everyday image), a why chain of 1-4 steps that starts from a need or a problem (each step names its basis, book or standard), an example or the place where it is seen, the consequence, the visual verb the video should show, and what the level profile adds. Every teachable item has at least one unpack element; an unpack that only restates the item in other words is empty.\n[S1-16] Apply every economics concept in the real world first (Navin, 27 October 2026): in a chapter of the economics family, every definition, cause_effect and process item carries in its unpack a real_world_example: a place (bazaar, kirana shop, mandi, bank, factory, petrol pump, farm), actors (shopkeeper, buyers, farmer, worker, bank, RBI, government), real goods or money (sugar, onion, petrol, salary, loan, EMI), numbers that change (before → after) and at least two steps, each mapped to a link of the concept's mechanism; then the sentence that names the term after the story, and one line on where the learner meets it in real life. The example is economically correct (the mechanism it runs is the concept's) and fits the learner's level (UPSC: the real Indian link, for example repo rate → home-loan EMI, only from the book or a dated source). Navin's example: a kirana shop with 3 packets of sugar at ₹50, buyers 2 → 12, the price ₹65, only 3 can buy: demand-pull inflation.\n[S2-11] The content rule for a dense book (Navin, 5 November 2026, his \"Mix\" choice for the Sloman economics book: \"gehra tarika sirf graph maths wale hisse par nahi ho sakta ... kisi page ka subsection ka concept bhi samjhana pade jahan galatfahmi bane, students galtiyan karte ho, kisi concept ka application ... sab thoroughly cover bhi ho jaaye\"). When the course's length_rule is \"content\", narration time comes from what the items need, not from the page count (S2-01 stays the default): Section 1 marks every teachable item's teach_depth, \"deep\" with its deep_why when the video must give it the full treatment (a graph built step by step, a sum worked through, a misconception named and corrected, an application run on a real example, a box told as a story, a subtle point opened slowly), otherwise \"normal\"; a normal item needs about 0.25 spoken minutes, a deep item 0.75, a practice question 0.10. A topic video gets 0.8-1.4 times its items' minutes (at least 4.8-6), a video whose items need more than about 18 minutes is split and one under about 3.6 merged; the prerequisite video stays 5-8 minutes. Nothing the book teaches is dropped to fit (G-05).\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"boilerplate_block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"items\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"content\":{\"type\":\"string\"},\"content_type\":{\"enum\":[\"process\",\"structure\",\"classification\",\"comparison\",\"timeline\",\"cause_effect\",\"facts_numbers\",\"figure\",\"definition\",\"none\"],\"type\":\"string\"},\"deep_why\":{\"enum\":[\"\",\"graph\",\"numerical\",\"misconception\",\"application\",\"story\",\"subtle\"],\"type\":\"string\"},\"exam_importance\":{\"enum\":[\"high\",\"medium\",\"low\"],\"type\":\"string\"},\"exam_note\":{\"type\":\"string\"},\"item_id\":{\"type\":\"string\"},\"kind\":{\"enum\":[\"heading\",\"paragraph\",\"definition\",\"list_point\",\"example\",\"table\",\"table_row\",\"diagram\",\"diagram_label\",\"equation\",\"symbol\",\"box_note\",\"caption\",\"question\",\"answer_option\",\"other\"],\"type\":\"string\"},\"parent_item_id\":{\"type\":\"string\"},\"prerequisites\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"role\":{\"enum\":[\"teach\",\"in_text_question\",\"reader_talk\",\"activity\",\"biography\",\"summary\",\"exercise\",\"heading\",\"caption\"],\"type\":\"string\"},\"source\":{\"enum\":[\"text\",\"image\",\"both\"],\"type\":\"string\"},\"teach_depth\":{\"enum\":[\"normal\",\"deep\"],\"type\":\"string\"},\"teachable\":{\"type\":\"boolean\"},\"teacher_understanding\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answer\":{\"type\":\"string\"},\"ask\":{\"enum\":[\"what\",\"about\",\"where\",\"how\",\"when\",\"who\",\"whom\",\"which\",\"why\",\"compare\",\"difference\",\"evidence\",\"exception\",\"consequence\"],\"type\":\"string\"},\"basis\":{\"enum\":[\"book\",\"outside\"],\"type\":\"string\"},\"depth\":{\"description\":\"1 for a first question; 2, 3 ... for a deeper why/how on an earlier answer\",\"type\":\"integer\"},\"question\":{\"type\":\"string\"}},\"required\":[\"depth\",\"ask\",\"question\",\"answer\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"tests_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"type_note\":{\"type\":\"string\"},\"unpack\":{\"additionalProperties\":false,\"properties\":{\"consequence\":{\"type\":\"string\"},\"example_or_place\":{\"type\":\"string\"},\"level_extra\":{\"type\":\"string\"},\"real_world_example\":{\"additionalProperties\":false,\"properties\":{\"actors\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"goods\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"numbers\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"after\":{\"type\":\"string\"},\"before\":{\"type\":\"string\"},\"what\":{\"type\":\"string\"}},\"required\":[\"what\",\"before\",\"after\"],\"type\":\"object\"},\"type\":\"array\"},\"place\":{\"type\":\"string\"},\"real_life_link\":{\"type\":\"string\"},\"steps\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"mechanism_link\":{\"type\":\"string\"},\"step\":{\"type\":\"string\"}},\"required\":[\"step\",\"mechanism_link\"],\"type\":\"object\"},\"type\":\"array\"},\"term_after\":{\"type\":\"string\"}},\"required\":[\"place\",\"actors\",\"goods\",\"numbers\",\"steps\",\"term_after\",\"real_life_link\"],\"type\":\"object\"},\"terms\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"everyday_image\":{\"type\":\"string\"},\"plain_meaning\":{\"type\":\"string\"},\"term\":{\"type\":\"string\"}},\"required\":[\"term\",\"plain_meaning\",\"everyday_image\"],\"type\":\"object\"},\"type\":\"array\"},\"visual_verb\":{\"type\":\"string\"},\"why_chain\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"basis\":{\"enum\":[\"book\",\"standard\"],\"type\":\"string\"},\"step\":{\"type\":\"string\"}},\"required\":[\"step\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"terms\",\"why_chain\",\"example_or_place\",\"consequence\",\"visual_verb\",\"level_extra\",\"real_world_example\"],\"type\":\"object\"},\"where_on_page\":{\"type\":\"string\"}},\"required\":[\"item_id\",\"kind\",\"parent_item_id\",\"source\",\"block_ids\",\"where_on_page\",\"content\",\"content_type\",\"type_note\",\"teachable\",\"teacher_understanding\",\"prerequisites\",\"exam_importance\",\"exam_note\",\"tests_item_ids\",\"unpack\",\"teach_depth\",\"deep_why\",\"role\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"page_summary\":{\"type\":\"string\"},\"text_image_disagreements\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"block_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"image_shows\":{\"type\":\"string\"},\"text_says\":{\"type\":\"string\"}},\"required\":[\"block_ids\",\"text_says\",\"image_shows\"],\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"notes\",\"page_summary\",\"items\",\"boilerplate_block_ids\",\"text_image_disagreements\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a read_page card:\n- card.parts: BIE's code has already proposed a content type for groups of this page's native text blocks (item_ids are block ids;\n  \"pNNNN-image\" is the page image), with the evidence in \"focus\". It is a proposal from keywords and patterns, not a verdict: give\n  every item its true type (S1-08). When you choose another type than BIE's proposal for an item's blocks, say why in one line in that\n  item's type_note; BIE's code compares every item and sends unexplained differences back to you.\n- card.coverage: every id in must_cover must be in some item's block_ids or in boilerplate_block_ids; may_skip lists blocks BIE thinks are\n  running headers or page numbers. Never list an id that is not on this page.\n- card.context.before and after: one line from the previous and the next page, for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part, a type you chose against BIE's proposal) with a reason each,\n  and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\". When the page\n    starts with the options of a question printed on the previous page, add one question item for that question (content: \"continued\n    from the previous page\" and what the options answer) and make it their parent.\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the card.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree). A printed typo stays as\n    printed with the right word after it in square brackets, \"Cartiage [Cartilage]\" (S1-13); never correct the book silently.\n  - content_type: one of BIE's nine type ids above, by what the content is. An example takes the type of what it illustrates; a table\n    row or a diagram label usually takes its table's or diagram's type. \"none\" only for a question, an answer option or an item that is\n    not teachable.\n  - type_note: \"\" when you agree with BIE's proposal for this item's blocks (or there is none); otherwise one line on why your type fits.\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - role: what the item does in the book, so BIE teaches each line the right way: teach (the book's teaching: a statement, a\n    definition, a list point, a table, a figure's content), in_text_question (a question the book puts to the student inside the\n    text, \"Can you explain how this conclusion could be drawn?\": the film poses it and answers it), reader_talk (the book talking\n    to the reader, \"Let us now see how this happens\", \"This is a question that you may reasonably ask\", \"Discuss this amongst\n    yourselves\": the film says it in the teacher's own words), activity (something the student is asked to do: cut a section,\n    collect leaves, observe under a microscope), biography (a box about a scientist's life), summary (a line of the chapter's\n    summary), exercise (an end-of-chapter exercise or one of its parts), heading, caption. Lines under the SUMMARY and EXERCISES\n    headings are summary and exercise.\n  - teacher_understanding: the teacher's questions and answers for this item (S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\"; one answer, one basis: an answer that\n    would mix what the book says with an outside explanation becomes two answers, one \"book\" and one \"outside\" (S1-14). BIE's code\n    checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\", at least the required questions of its content type, and no answer that only\n    repeats its question or the item's words.\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n  - teach_depth and deep_why (S2-11): \"deep\" when the video must give this item the full treatment, with deep_why = graph (a diagram\n    built step by step), numerical (a sum worked through), misconception (students get it wrong: named and corrected), application (the\n    concept run on a real example), story (a box or case told as a story) or subtle (a fine point that needs slow opening); otherwise\n    \"normal\" with deep_why \"\". Usually a quarter to two fifths of a page's teachable items are deep; a question item is \"normal\".\n  - unpack: how a teacher opens this book line for the learner (S1-15; BIE is the link between the learner and the book, never a\n    reader of the line). For every teachable item, at the depth of the level profile below:\n    terms = the words of the line the learner must own: [{term (as the book spells it), plain_meaning (everyday spoken Hindi in Devanagari\n    with the book's English terms in Roman: \"tissue\", \"cell\", \"epithelium\", \"muscle\", never their textbook Hindi ऊतक, कोशिका, उपकला, मांसपेशी;\n    BIE's code sends an item back for a textbook translation. For example \"absorptive surface\" → \"जहाँ चीज़ें अंदर ली जाती हैं\"),\n    everyday_image (one image from the learner's\n    home or body: \"आँत खाने के पोषक तत्व सोखती है, जैसे कागज़ पानी\")}]; why_chain = the why in steps, starting from a need or a\n    problem (\"पेट में HCl बनता है, इसलिए अंदर एक lining चाहिए\"), each step with its basis: \"book\" when the page says it, \"standard\"\n    when it is standard textbook knowledge; example_or_place = one example, or the place by a zoom from the organ the learner knows;\n    consequence = what follows, and the link to the previous or the next idea of the page; visual_verb = what visibly happens on the\n    screen when this is taught (\"particles cross the thin layer\"); level_extra = what this level adds (the other names, the exam's\n    trap, the memory trick) or \"\". BIE's code checks that every teachable item has at least one unpack element and that every why\n    step names its basis; a locked explanation given with the source is reused as it is. A question item or a pure heading leaves\n    unpack empty.\n  - unpack.real_world_example (S1-16; Navin, 27 October 2026: \"economic concepts ko real world mein apply karke samjhao\"): in a chapter\n    of the economics family, for every definition, cause_effect and process item, the concept APPLIED in an everyday Indian situation\n    before it is named: place (bazaar, kirana shop, mandi, bank, factory, petrol pump, farm); actors (shopkeeper, buyers, farmer,\n    worker, bank, RBI, government); goods (the real goods or money: sugar, onion, petrol, salary, loan, EMI); numbers (each\n    {what, before, after}, written with digits: {\"what\": \"price\", \"before\": \"₹50\", \"after\": \"₹65\"}, {\"what\": \"buyers\", \"before\": \"2\",\n    \"after\": \"12\"}); steps (at least two, each {step, mechanism_link}: the story step by step, and the link of the concept's mechanism\n    that step shows); term_after (the sentence that names the term only after the story: \"isliye ise demand-pull inflation kehte\n    hain\"); real_life_link (one line on where the learner meets it; UPSC: the real Indian link, for example repo rate → home-loan EMI,\n    only from the page or a dated source). The example must be economically correct: the mechanism it runs is the concept's, and the\n    numbers move the way the concept says. Navin's example: a kirana shop with 3 packets of sugar at ₹50; buyers 2 → 12; the price\n    ₹65; only 3 can buy: demand-pull inflation. BIE's code checks the place, an actor, the goods, a number that changes, two steps with\n    their links, term_after and real_life_link. Every other item (another subject family, another type, a question, a heading) leaves\n    it empty (\"\" and []).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.\n\nLevel profile: NEET, class 11-12 (level_profiles.json; learners: class 11-12 students preparing for NEET and the board exam).\n- Terms: the book's terms plus the exam's terms for the same thing (other names, the Latin or Greek root where it helps); every term opened with its meaning and an everyday image on first use.\n- Why: 2-3 step(s); a why chain of two or three steps that starts from a need or a problem and names its basis at every step.\n- Where found: the full 'where found' list the book gives, each place by a zoom from the organ.\n- Exam beats: 'yaad rakhna' exam beats (what NEET asks, the odd one out, the other names) and the traps the exam sets, named directly.\n- Links: the body's organs and the diseases or everyday facts the exam uses as examples.\n\nHow real teachers open a book line (teacher example bank 2026-10-29.1; use these ways, in your own words):\n- One everyday image per shape or function (every term that names a shape, a layer or a job): Chaadar bichhi ho to bistar bacha rehta hai = protective sheet. Cube wala game, har side barabar = cuboidal. Building ka pillar = columnar. Farsh ki tiles = squamous, isliye tessellated bhi kehte hain.\n- The word root where it helps (a term whose parts carry its meaning): Epi yaani upar; epithelium yaani upar ki parat. Slender yaani long aur narrow.\n- Why starts from a need (every why step): Pet mein HCl banta hai, isliye andar ek lining chahiye jo khud na jale. Cells bahar ki taraf hain, tootne ka chance zyada, isliye regeneration zyada.\n- Link to something already known (a new place or a new structure): Peritoneum, jaise lungs ke aas-paas pleura aur heart ke aas-paas pericardium: wahi kaam, pet ke andar.\n- Meaning with two or three real examples (an abstract word in the book): Sensory perception yaani pehchanna: thanda lagna, dard hona, pressure mehsoos karna.\n- Open the book's adjective (Navin's example) (a book line names a kind of surface, job or place without saying what it is): Book: 'epithelium absorptive aur secretive surfaces par milta hai'. Teacher: absorptive surface yaani jahan cheezein andar li jaati hain, jaise aant khane ke poshak tatva sokhti hai; secretive yaani jahan cells kuch bana kar bahar chhodte hain, jaise glands enzyme ya juice. Aur epithelium wahan kyon? Kyunki ek patli, lagi hui parat hi cheezon ko paar jaane de sakti hai aur bana kar chhod sakti hai.\n- Apply it in the real world first, then name it (Navin's sugar shop) (every economics concept (a definition, a cause-and-effect chain, a process): the example runs before the term is named): Ek kirana shop mein chini ke 3 packet hain, ₹50 ka ek. Kal 2 khareedar aaye the, aaj 12 aa gaye; sab ko chini chahiye par packet 3 hi hain. Dukandar daam ₹65 kar deta hai; ab sirf 3 log kharid paate hain, baaki 9 khaali haath. Zyada log, utna hi maal, isliye daam upar. Isliye ise demand-pull inflation kehte hain. Phir book ki definition. Phir: yahi aap Diwali se pehle sabzi mandi mein dekhte hain.",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"understand.read_page@11-photosynthesis-in-higher-plants/page-002\",\"section\":\"understand\",\"task\":\"read_page\",\"prefix\":{\"prefix_id\":\"understand.read_page/4\",\"rulebook_version\":\"canvas_profile@2026-11-03.1+content_types@2026-10-27.1+econ_videos@2026-11-05.1+explanations@2026-10-24.3+level_profiles@2026-10-24.1+places@2026-11-03.1+saanche@2026-11-02.2+simple_hindi@2026-10-28.1+teacher_examples@2026-10-29.1+vision-2026-10-21@2026-10-21.18+visual_grammar@2026-10-31.1+visual_levels@2026-10-26.2+visual_verbs@2026-11-02.3\",\"content_types_version\":\"2026-10-27.1\",\"schema_id\":\"bie.brain.understand-page/5\",\"sha256\":\"bd22ef70f0210e86673456032e0dc666da4e54dcbc4166a146fa2eb632ead64f\"},\"unit\":{\"unit_id\":\"page-002\",\"title\":\"Page 2 of 22\",\"pages\":[2]},\"parts\":[{\"part_id\":\"b1\",\"item_ids\":[\"p0002-b0001\"],\"type\":\"timeline\",\"questions\":[\"when\",\"why\"],\"focus\":\"BIE proposes timeline (strong): pattern '1911'\"},{\"part_id\":\"b2\",\"item_ids\":[\"p0002-b0005\",\"p0002-b0006\"],\"type\":\"process\",\"questions\":[\"how\",\"when\"],\"focus\":\"BIE proposes process (weak): 'after'\"},{\"part_id\":\"b3\",\"item_ids\":[\"p0002-b0015\"],\"type\":\"timeline\",\"questions\":[\"when\",\"why\"],\"focus\":\"BIE proposes timeline (strong): pattern '1961'\"},{\"part_id\":\"b4\",\"item_ids\":[\"p0002-b0016\"],\"type\":\"timeline\",\"questions\":[\"when\",\"why\"],\"focus\":\"BIE proposes timeline (weak): 'established'\"},{\"part_id\":\"img\",\"item_ids\":[\"p0002-image\"],\"type\":\"none\",\"questions\":[\"what\"],\"focus\":\"The page image: capture every table, diagram, label and arrow it shows (S1-01); its items get the type of what they show.\"}],\"rules\":[\"EV-U01\",\"EV-U02\",\"EV-U03\",\"EV-U04\",\"EV-U05\",\"G-01\",\"G-02\",\"G-03\",\"G-05\",\"G-06\",\"G-07\",\"S1-01\",\"S1-02\",\"S1-03\",\"S1-04\",\"S1-05\",\"S1-06\",\"S1-07\",\"S1-08\",\"S1-09\",\"S1-10\",\"S1-11\",\"S1-13\",\"S1-14\",\"S1-15\",\"S1-16\",\"S2-11\"],\"output\":{\"schema_id\":\"bie.brain.understand-page/5\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p0002-b0001\",\"p0002-b0002\",\"p0002-b0003\",\"p0002-b0004\",\"p0002-b0005\",\"p0002-b0006\",\"p0002-b0007\",\"p0002-b0008\",\"p0002-b0009\",\"p0002-b0010\",\"p0002-b0011\",\"p0002-b0012\",\"p0002-b0013\",\"p0002-b0014\",\"p0002-b0015\",\"p0002-b0016\",\"p0002-b0017\",\"p0002-b0018\",\"p0002-b0019\"],\"claim_field\":\"items[].block_ids or boilerplate_block_ids\",\"may_skip\":[{\"item_id\":\"p0002-b0020\",\"reason\":\"running head or page line (BIE's code reader: it repeats on other pages, or is only a number)\"}]},\"context\":{\"map_slice\":[],\"before\":\"2024-25\",\"after\":\"PHOTOSYNTHESIS IN HIGHER PLANTS 133\"},\"source\":{\"block_ids\":[\"p0002-b0001\",\"p0002-b0002\",\"p0002-b0003\",\"p0002-b0004\",\"p0002-b0005\",\"p0002-b0006\",\"p0002-b0007\",\"p0002-b0008\",\"p0002-b0009\",\"p0002-b0010\",\"p0002-b0011\",\"p0002-b0012\",\"p0002-b0013\",\"p0002-b0014\",\"p0002-b0015\",\"p0002-b0016\",\"p0002-b0017\",\"p0002-b0018\",\"p0002-b0019\",\"p0002-b0020\"],\"page_images\":[{\"page\":2,\"sha256\":\"570cd8bb2afdeddea27100a46806e6d2a9d834f5581431ece85411e6c64c1063\"}]}}\n\nNative text blocks of this page (id | text):\np0002-b0001 | MELVIN CALVIN born in Minnesota in April, 1911, received his\np0002-b0002 | Ph.D. in Chemistry from the University of Minnesota. He served\np0002-b0003 | as Professor of Chemistry at the University of California,\np0002-b0004 | Berkeley.\np0002-b0005 | Just after world war II, when the world was under shock\np0002-b0006 | after the Hiroshima-Nagasaki bombings, and seeing the ill-\np0002-b0007 | effects of radio-activity, Calvin and co-workers put radio-\np0002-b0008 | activity to beneficial use. He along with J.A. Bassham studied\np0002-b0009 | reactions in green plants forming sugar and other substances\np0002-b0010 | from raw materials like carbon dioxide, water and minerals\np0002-b0011 | by labelling the carbon dioxide with C¹⁴. Calvin proposed that\np0002-b0012 | plants change light energy to chemical energy by transferring\np0002-b0013 | an electron in an organised array of pigment molecules and\np0002-b0014 | other substances. The mapping of the pathway of carbon\np0002-b0015 | assimilation in photosynthesis earned him Nobel Prize in 1961.\np0002-b0016 | The principles of photosynthesis as established by Calvin\np0002-b0017 | are, at present, being used in studies on renewable resource\np0002-b0018 | for energy and materials and basic studies in solar energy\np0002-b0019 | Melvin Calvin research.\np0002-b0020 | (running) 2024-25"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "84c64f2aa03f87abfaca0a38be0bfc7bf02d5c357e10ca3284ca71c88f6993d5",
+    "base64_chars": 527116
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and answer the card with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1795275703.9434323,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "b330e85afbca37265538e194c9409e9b68d91b5f7500b47ea4b9c340610760eb",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 15908,
+    "output_tokens": 7276,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This biographical page connects Melvin Calvin’s life with radioactive tracing of photosynthetic carbon assimilation, electron transfer and applications in energy research.",
+    "key_questions": [
+     "Who was Calvin, and when and where did he work?",
+     "How did radioactive carbon help researchers follow carbon through photosynthesis?",
+     "How are light-energy conversion and carbon assimilation related but distinct?",
+     "What earned Calvin the Nobel Prize, and where are these principles applied?"
+    ],
+    "decisions": [
+     {
+      "decision": "Split the long biographical paragraph into historical context, tracer investigation, energy conversion and Nobel recognition.",
+      "reason": "These require different explanations and should not be compressed into a list of biographical facts."
+     },
+     {
+      "decision": "Read the portrait caption separately from the final word 'research.'",
+      "reason": "The native block p0002-b0019 merges text from two different page positions."
+     },
+     {
+      "decision": "Treat modern research uses as application rather than timeline.",
+      "reason": "The passage explains uses of principles, not a dated historical event."
+     }
+    ],
+    "uncertain": [
+     "The page gives no experimental protocol or individual labelled intermediates; tracer-method detail below is explicitly marked outside."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This biographical page connects Melvin Calvin’s life with radioactive tracing of photosynthetic carbon assimilation, electron transfer and applications in energy research.",
+     "key_questions": [
+      "Who was Calvin, and when and where did he work?",
+      "How did radioactive carbon help researchers follow carbon through photosynthesis?",
+      "How are light-energy conversion and carbon assimilation related but distinct?",
+      "What earned Calvin the Nobel Prize, and where are these principles applied?"
+     ],
+     "decisions": [
+      {
+       "decision": "Split the long biographical paragraph into historical context, tracer investigation, energy conversion and Nobel recognition.",
+       "reason": "These require different explanations and should not be compressed into a list of biographical facts."
+      },
+      {
+       "decision": "Read the portrait caption separately from the final word 'research.'",
+       "reason": "The native block p0002-b0019 merges text from two different page positions."
+      },
+      {
+       "decision": "Treat modern research uses as application rather than timeline.",
+       "reason": "The passage explains uses of principles, not a dated historical event."
+      }
+     ],
+     "uncertain": [
+      "The page gives no experimental protocol or individual labelled intermediates; tracer-method detail below is explicitly marked outside."
+     ]
+    },
+    "page_summary": "Melvin Calvin and J.A. Bassham used C¹⁴-labelled carbon dioxide to investigate photosynthetic reactions. Calvin proposed electron transfer through organised pigment molecules and other substances as the basis of light-to-chemical energy conversion. Mapping carbon assimilation earned him the Nobel Prize in 1961, and the principles support renewable-resource and solar-energy research.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0001",
+       "p0002-b0002",
+       "p0002-b0003",
+       "p0002-b0004"
+      ],
+      "where_on_page": "Right of portrait, first paragraph",
+      "content": "MELVIN CALVIN born in Minnesota in April, 1911, received his Ph.D. in Chemistry from the University of Minnesota. He served as Professor of Chemistry at the University of California, Berkeley.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "who",
+        "question": "Whose scientific life introduces this page?",
+        "answer": "Melvin Calvin’s: the page follows his chemistry training and academic career before explaining his contribution to photosynthesis.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "When and where was Calvin born?",
+        "answer": "He was born in Minnesota in April, 1911.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Which university trained Calvin, and at which did he serve as professor?",
+        "answer": "He received his Ph.D. in Chemistry from the University of Minnesota and served as Professor of Chemistry at the University of California, Berkeley.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is chemistry training relevant to a question about green plants?",
+        "answer": "Explaining how a plant turns carbon dioxide into organic substances requires identifying chemical compounds and the reactions connecting them. This is a chemical problem within biology.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Photosynthesis forms organic substances in green plants",
+       "Chemical reactions change substances into other substances"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Birth and university details are background; Calvin’s scientific contribution is more important for NEET.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Ph.D. in Chemistry",
+         "plain_meaning": "Chemistry में नया सवाल लेकर research करने की ऊँची degree",
+         "everyday_image": "तैयार जवाब पढ़ने के बजाय प्रयोग करके नया जवाब खोजना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "To understand plant food formation, researchers need to identify its chemical changes.",
+         "basis": "standard"
+        },
+        {
+         "step": "Calvin’s training and professorship were in Chemistry.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Minnesota → University of Minnesota → University of California, Berkeley; dates for the university appointments are not supplied.",
+       "consequence": "The biography leads into a chemical investigation of photosynthesis.",
+       "visual_verb": "Locate Minnesota and Berkeley, then connect training to research.",
+       "level_extra": "Distinguish the university granting his Ph.D. from the university where he served as professor.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "normal",
+      "deep_why": "",
+      "role": "biography"
+     },
+     {
+      "item_id": "i2",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0005",
+       "p0002-b0006",
+       "p0002-b0007",
+       "p0002-b0008"
+      ],
+      "where_on_page": "Right column, beginning of second paragraph",
+      "content": "Just after world war II, when the world was under shock after the Hiroshima-Nagasaki bombings, and seeing the ill-effects of radio-activity, Calvin and co-workers put radio-activity to beneficial use.",
+      "content_type": "timeline",
+      "type_note": "The passage places a scientific change in its post-war historical context; it does not describe stages of a process.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "What historical setting does the book give for this research?",
+        "answer": "It places the work just after world war II, when the Hiroshima-Nagasaki bombings had drawn attention to the harmful effects of radio-activity.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What contrast does the biography make?",
+        "answer": "Against the destructive effects associated with the bombings, it presents Calvin and his co-workers using radio-activity beneficially in scientific investigation.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can radio-activity be useful for studying a reaction even though it can be harmful?",
+        "answer": "Radiation emitted by a radioactive label can be detected, allowing researchers to follow labelled atoms. Its usefulness as a tracer does not mean that radio-activity is harmless.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Atoms can occur as radioactive isotopes",
+       "Scientific instruments can detect radiation"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Historical context supports the tracer story; avoid equating a radioactive tracer with a nuclear explosion.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "radio-activity",
+         "plain_meaning": "कुछ अस्थिर atoms से अपने-आप radiation निकलना",
+         "everyday_image": "छिपी चीज़ से आने वाला detectable signal उसकी मौजूदगी बता दे"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Following atoms inside a plant requires a detectable marker.",
+         "basis": "standard"
+        },
+        {
+         "step": "Radioactive atoms can supply that detectable signal.",
+         "basis": "standard"
+        },
+        {
+         "step": "The book contrasts this beneficial use with the harmful post-war association of radio-activity.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Calvin and co-workers’ investigation of reactions in green plants.",
+       "consequence": "Introduces why labelled carbon dioxide was a useful investigative tool.",
+       "visual_verb": "Contrast destructive use with a detectable tracer in a plant.",
+       "level_extra": "Radio-activity is the investigative tool here, not the energy source driving photosynthesis.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "normal",
+      "deep_why": "",
+      "role": "biography"
+     },
+     {
+      "item_id": "i3",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0008",
+       "p0002-b0009",
+       "p0002-b0010",
+       "p0002-b0011"
+      ],
+      "where_on_page": "Right column, middle of second paragraph",
+      "content": "He along with J.A. Bassham studied reactions in green plants forming sugar and other substances from raw materials like carbon dioxide, water and minerals by labelling the carbon dioxide with C¹⁴.",
+      "content_type": "process",
+      "type_note": "The item describes a tracer-based investigation of plant reactions; the overlapping block’s historical sentence is captured separately.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What puzzle were Calvin and J.A. Bassham investigating?",
+        "answer": "They studied the reactions by which green plants form sugar and other substances from raw materials such as carbon dioxide, water and minerals.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How did they mark the material entering the reactions?",
+        "answer": "They labelled carbon dioxide with C¹⁴, enabling a radioactive form of carbon to be used in studying these reactions.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "At what stage must a carbon tracer be introduced to follow the incoming carbon?",
+        "answer": "The carbon dioxide supplied to a photosynthesising plant is labelled before its carbon becomes incorporated into reaction products.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "what",
+        "question": "What does the printed symbol C¹⁴ mean?",
+        "answer": "C denotes carbon and the superscript 14 is its mass number, the total number of protons and neutrons. Carbon-14 has 6 protons and 8 neutrons and is radioactive. The 14 is not a count of carbon atoms or a physical unit.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why label carbon dioxide rather than merely observe whether sugar forms?",
+        "answer": "Observing sugar formation shows an overall result, not the route taken by carbon atoms. A detectable carbon label can be followed into compounds formed during photosynthesis.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "how",
+        "question": "How can labelled compounds help reconstruct a pathway?",
+        "answer": "Researchers can supply labelled carbon dioxide, stop reactions after different intervals, separate the products and detect which contain radioactive carbon. Comparing the pattern over time helps infer the sequence of carbon-containing intermediates.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Does listing minerals among raw materials mean that minerals supply the carbon skeleton of sugar?",
+        "answer": "No. In this tracer investigation, carbon dioxide supplies the carbon being followed into organic compounds. Minerals support plant metabolism but should not be confused with the source of sugar’s carbon.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Carbon dioxide contains carbon atoms",
+       "Sugars are carbon-containing organic compounds",
+       "Isotopes are forms of an element with different neutron numbers",
+       "Photosynthesis uses light to support formation of organic substances"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Remember Calvin with J.A. Bassham, C¹⁴-labelled carbon dioxide and investigation of carbon assimilation. C¹⁴ is an isotope label, not an energy source.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "labelling",
+         "plain_meaning": "किसी चीज़ पर पहचानने लायक निशान लगाना ताकि आगे उसका रास्ता पता चले",
+         "everyday_image": "एक जैसे डिब्बों में से एक पर sticker लगाकर उसे पहचानना"
+        },
+        {
+         "term": "C¹⁴",
+         "plain_meaning": "carbon का radioactive रूप, जिसका mass number 14 है",
+         "everyday_image": "भीड़ में signal देने वाला पहचान-चिह्न; atom का आकार सचमुच रंगा नहीं जाता"
+        },
+        {
+         "term": "raw materials",
+         "plain_meaning": "जिन शुरुआती चीज़ों से नई चीज़ बनती है",
+         "everyday_image": "रोटी बनाने के लिए आटा और पानी"
+        },
+        {
+         "term": "minerals",
+         "plain_meaning": "पौधे को काम और बढ़त के लिए चाहिए होने वाले inorganic nutrients",
+         "everyday_image": "पौधे को पानी के साथ मिलने वाले घुले हुए nutrients"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Knowing that sugar forms does not reveal the route followed by incoming carbon.",
+         "basis": "standard"
+        },
+        {
+         "step": "Calvin and Bassham labelled carbon dioxide with C¹⁴.",
+         "basis": "book"
+        },
+        {
+         "step": "Detecting labelled carbon in separated products helps reconstruct its route through reactions.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Follow a labelled carbon atom from supplied carbon dioxide into compounds formed in a green plant.",
+       "consequence": "A visible signal from otherwise invisible carbon movement makes pathway mapping possible.",
+       "visual_verb": "Tag carbon, follow it into products and reveal the labelled route.",
+       "level_extra": "For NEET, distinguish radioactive carbon tracing from energy conversion. Experimental separation and timing explain the method but are not described on this page.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "deep",
+      "deep_why": "application",
+      "role": "biography"
+     },
+     {
+      "item_id": "i4",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0011",
+       "p0002-b0012",
+       "p0002-b0013",
+       "p0002-b0014"
+      ],
+      "where_on_page": "Right column, lower-middle portion of second paragraph",
+      "content": "Calvin proposed that plants change light energy to chemical energy by transferring an electron in an organised array of pigment molecules and other substances.",
+      "content_type": "process",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What energy-conversion problem does this proposal address?",
+        "answer": "It addresses how plants change light energy into chemical energy, rather than simply absorbing light.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "What mechanism did Calvin propose?",
+        "answer": "He proposed electron transfer in an organised array of pigment molecules and other substances as the means of converting light energy to chemical energy.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "When does light enter this electron-transfer story?",
+        "answer": "Light absorption excites electrons in photosynthetic pigments; subsequent organised electron transfers help convert that captured energy into chemical forms.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is an organised array more useful than simply having coloured molecules present?",
+        "answer": "An organised arrangement permits energy transfer towards reaction centres and controlled electron transfer to suitable acceptors. Light absorption alone does not explain how usable chemical energy is conserved.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "how",
+        "question": "How does this connect with carbon assimilation without being the same process?",
+        "answer": "Light reactions generate ATP and NADPH, which support the reactions incorporating carbon dioxide into organic compounds. Electron transfer concerns energy conversion; carbon assimilation concerns the fate of carbon.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Pigments absorb light",
+       "Electrons are negatively charged particles in atoms and molecules",
+       "Energy can change form",
+       "Carbon assimilation incorporates carbon dioxide into organic compounds"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not equate electron transfer with the Calvin cycle itself. The page links the scientist to both energy conversion and carbon-pathway research.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "pigment molecules",
+         "plain_meaning": "रंग वाले molecules जो कुछ तरह की light सोखते हैं",
+         "everyday_image": "हरी पत्ती light का कुछ हिस्सा सोखती है और कुछ लौटाती है"
+        },
+        {
+         "term": "organised array",
+         "plain_meaning": "चीज़ों का काम के हिसाब से सही जगह और क्रम में लगा होना",
+         "everyday_image": "relay में सही जगह खड़े खिलाड़ी आगे baton पहुँचाते हैं"
+        },
+        {
+         "term": "electron",
+         "plain_meaning": "atom या molecule का बहुत छोटा negative charge वाला कण",
+         "everyday_image": "relay में आगे जाने वाले baton से transfer समझें; electron सचमुच baton नहीं है"
+        },
+        {
+         "term": "chemical energy",
+         "plain_meaning": "molecules की बनावट और उनकी reactions से मिलने वाली काम करने की ऊर्जा",
+         "everyday_image": "खाने में मौजूद ऊर्जा जिसे शरीर इस्तेमाल कर पाता है"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A plant must make absorbed light energy available for chemical work.",
+         "basis": "standard"
+        },
+        {
+         "step": "Calvin proposed electron transfer through an organised array of pigments and other substances.",
+         "basis": "book"
+        },
+        {
+         "step": "Light reactions provide chemical energy and reducing power used in carbon assimilation.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Zoom from a green leaf to the chloroplast’s thylakoid membrane, the standard textbook location of photosynthetic electron transfer.",
+       "consequence": "Connects capture of light with the energy supply needed for organic-compound formation.",
+       "visual_verb": "Absorb light, excite an electron and transfer it between organised carriers.",
+       "level_extra": "Name the trap directly: the Calvin cycle uses products of light reactions; it is not the pigment electron-transfer chain.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "deep",
+      "deep_why": "misconception",
+      "role": "biography"
+     },
+     {
+      "item_id": "i5",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0014",
+       "p0002-b0015"
+      ],
+      "where_on_page": "Right column, final sentence of second paragraph",
+      "content": "The mapping of the pathway of carbon assimilation in photosynthesis earned him Nobel Prize in 1961.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "When did Calvin receive the Nobel Prize mentioned here?",
+        "answer": "The page dates his Nobel Prize to 1961.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "What achievement earned Calvin this recognition?",
+        "answer": "The book attributes it to mapping the pathway of carbon assimilation in photosynthesis.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "what",
+        "question": "What does carbon assimilation mean?",
+        "answer": "It means incorporating carbon from carbon dioxide into organic compounds through metabolic reactions.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is mapping a pathway more informative than knowing the starting material and final product?",
+        "answer": "A pathway identifies intermediate compounds and their reaction connections, explaining how carbon moves from the starting material towards organic products rather than merely stating that conversion occurs.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Carbon dioxide supplies carbon for photosynthesis",
+       "A reaction pathway connects starting materials, intermediates and products",
+       "Radioactive labels can trace carbon through reactions"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Strong association: Melvin Calvin—mapping carbon assimilation in photosynthesis—Nobel Prize, 1961.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "carbon assimilation",
+         "plain_meaning": "carbon dioxide के carbon को पौधे के organic compounds का हिस्सा बनाना",
+         "everyday_image": "बाहर से आई ईंट को दीवार का हिस्सा बना देना"
+        },
+        {
+         "term": "pathway",
+         "plain_meaning": "एक substance से अगले substance तक पहुँचने वाली reactions का जुड़ा रास्ता",
+         "everyday_image": "घर से स्कूल के रास्ते में आने वाले जुड़े हुए पड़ाव"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Starting and ending substances do not explain the intervening carbon reactions.",
+         "basis": "standard"
+        },
+        {
+         "step": "Mapping carbon assimilation reveals a connected reaction route.",
+         "basis": "standard"
+        },
+        {
+         "step": "This mapping earned Calvin the Nobel Prize in 1961.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "The photosynthetic route incorporating carbon dioxide into organic compounds in green plants.",
+       "consequence": "Gives the scientific contribution and date that anchor this biography.",
+       "visual_verb": "Connect reaction intermediates into a route, then mark 1961.",
+       "level_extra": "Assimilation is incorporation into organic compounds, not simply carbon dioxide entering a leaf through stomata.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "normal",
+      "deep_why": "",
+      "role": "biography"
+     },
+     {
+      "item_id": "i6",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0016",
+       "p0002-b0017",
+       "p0002-b0018",
+       "p0002-b0019"
+      ],
+      "where_on_page": "Right column, final paragraph",
+      "content": "The principles of photosynthesis as established by Calvin are, at present, being used in studies on renewable resource for energy and materials and basic studies in solar energy research.",
+      "content_type": "cause_effect",
+      "type_note": "This is an application link from photosynthetic principles to energy and materials research, not a sequence of dated events.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which research applications does the page name?",
+        "answer": "It names studies on renewable resource for energy and materials, and basic studies in solar energy research.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why can understanding photosynthesis help energy research?",
+        "answer": "Photosynthesis provides a natural example of capturing sunlight and converting its energy into chemical forms. Understanding its principles can guide investigation of energy conversion and renewable biological resources.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do the energy and materials applications connect to plants?",
+        "answer": "Plants use light energy to produce organic matter. That matter can supply materials and can serve as an energy resource, linking photosynthetic production with both applications.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Does renewable mean a resource cannot be depleted?",
+        "answer": "No. A renewable resource can be replenished, but its continued availability depends on replenishment keeping pace with use.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Photosynthesis converts light energy into chemical energy",
+       "Plants produce organic matter",
+       "Resources can be replenished or depleted"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Retain both applications: renewable resources for energy and materials, and basic solar-energy research. No specific technology is named.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "renewable resource",
+         "plain_meaning": "ऐसा साधन जो प्राकृतिक प्रक्रियाओं से फिर बन या बढ़ सकता है",
+         "everyday_image": "फसल फिर उग सकती है, लेकिन उसके उगने के लिए समय और सही हालात चाहिए"
+        },
+        {
+         "term": "solar energy research",
+         "plain_meaning": "सूरज की ऊर्जा को पकड़ने और काम में लाने की research",
+         "everyday_image": "धूप में रखी पत्ती ऊर्जा पकड़ती है; वैज्ञानिक उस प्रक्रिया से सीखते हैं"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Energy and materials research needs ways to use replenishable inputs.",
+         "basis": "standard"
+        },
+        {
+         "step": "Photosynthesis captures solar energy and forms organic matter.",
+         "basis": "standard"
+        },
+        {
+         "step": "The page links Calvin’s principles to renewable-resource and solar-energy studies.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "A growing crop illustrates photosynthetic production of renewable organic matter; this is an explanatory example, not a named project on the page.",
+       "consequence": "Extends the biography from discovery of basic principles to their research value.",
+       "visual_verb": "Link sunlight to plant matter, then branch to energy, materials and research.",
+       "level_extra": "The book states research applications, not that a particular device or commercial technology was invented by Calvin.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "normal",
+      "deep_why": "",
+      "role": "biography"
+     },
+     {
+      "item_id": "i7",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Lower-left central area beside the biography",
+      "content": "Black-and-white photographic portrait of Melvin Calvin, shown from the upper torso upward. The photograph has no scientific labels, arrows or process connections.",
+      "content_type": "figure",
+      "type_note": "The image is an identifying portrait, so figure is appropriate rather than none.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What kind of visual accompanies this biography?",
+        "answer": "A photographic portrait identifies the scientist discussed in the text; it is not a diagram of photosynthesis.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which scientist does the portrait show?",
+        "answer": "The caption identifies him as Melvin Calvin.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the portrait support learning this page?",
+        "answer": "Use it as an identity cue linking Calvin’s name with the carbon-assimilation investigation; the experimental evidence comes from the research, not from his appearance.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Calvin investigated photosynthetic carbon assimilation"
+      ],
+      "exam_importance": "low",
+      "exam_note": "The contribution associated with the scientist matters more than recognition of the portrait.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [
+        {
+         "step": "A biography needs a clear identity for the person whose work is described.",
+         "basis": "standard"
+        },
+        {
+         "step": "The portrait and caption identify Melvin Calvin beside the account of his research.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Portrait beside the biographical text.",
+       "consequence": "Links a named scientist to the chapter’s experimental history.",
+       "visual_verb": "Highlight the portrait and connect it to his name and contribution.",
+       "level_extra": "",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "normal",
+      "deep_why": "",
+      "role": "biography"
+     },
+     {
+      "item_id": "i8",
+      "kind": "caption",
+      "parent_item_id": "i7",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0019"
+      ],
+      "where_on_page": "Immediately below the portrait",
+      "content": "Melvin Calvin",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Identification is taught with the portrait.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": "",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "normal",
+      "deep_why": "",
+      "role": "caption"
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0002-b0020"
+    ],
+    "text_image_disagreements": [
+     {
+      "block_ids": [
+       "p0002-b0019"
+      ],
+      "text_says": "Melvin Calvin research.",
+      "image_shows": "'Melvin Calvin' is the caption under the portrait. 'research.' is the final word of the right-hand paragraph, completing 'solar energy research.'"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] item i4: the unpack uses textbook Hindi for the book's own terms (ऊर्जा → energy); the learner hears the book's English term in Roman, never its Hindi translation (S1-15)",
+    "[code] item i6: the unpack uses textbook Hindi for the book's own terms (ऊर्जा → energy); the learner hears the book's English term in Roman, never its Hindi translation (S1-15)"
+   ],
+   "observed": {
+    "type_check": [
+     {
+      "item_id": "i1",
+      "ai_type": "timeline",
+      "code_type": "timeline",
+      "strength": "strong",
+      "evidence": [
+       "pattern '1911'"
+      ],
+      "status": "agree",
+      "type_note": ""
+     },
+     {
+      "item_id": "i2",
+      "ai_type": "timeline",
+      "code_type": "process",
+      "strength": "weak",
+      "evidence": [
+       "'after'"
+      ],
+      "status": "explained",
+      "type_note": "The passage places a scientific change in its post-war historical context; it does not describe stages of a process."
+     },
+     {
+      "item_id": "i3",
+      "ai_type": "process",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": "The item describes a tracer-based investigation of plant reactions; the overlapping block’s historical sentence is captured separately."
+     },
+     {
+      "item_id": "i4",
+      "ai_type": "process",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i5",
+      "ai_type": "timeline",
+      "code_type": "timeline",
+      "strength": "strong",
+      "evidence": [
+       "pattern '1961'"
+      ],
+      "status": "agree",
+      "type_note": ""
+     },
+     {
+      "item_id": "i6",
+      "ai_type": "cause_effect",
+      "code_type": "timeline",
+      "strength": "weak",
+      "evidence": [
+       "'established'"
+      ],
+      "status": "explained",
+      "type_note": "This is an application link from photosynthetic principles to energy and materials research, not a sequence of dated events."
+     },
+     {
+      "item_id": "i7",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": "The image is an identifying portrait, so figure is appropriate rather than none."
+     },
+     {
+      "item_id": "i8",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     }
+    ],
+    "type_summary": {
+     "agree": 2,
+     "code_silent": 4,
+     "explained": 2
+    }
+   },
+   "passed": false,
+   "finished_at": 1795275854.497027
+  },
+  {
+   "round": 2,
+   "started_at": 1795275854.4973083,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "Targeted language correction to the unpack explanations for energy conversion and research applications.",
+     "key_questions": [
+      "Do the Hindi explanations retain the book’s term energy in Roman script?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replaced ऊर्जा with energy throughout the unpack fields of i4 and i6.",
+       "reason": "S1-15 requires the book’s English terms in Roman script within simple Hindi explanations; all other content is unchanged."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_items": [
+     {
+      "item_id": "i4",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0011",
+       "p0002-b0012",
+       "p0002-b0013",
+       "p0002-b0014"
+      ],
+      "where_on_page": "Right column, lower-middle portion of second paragraph",
+      "content": "Calvin proposed that plants change light energy to chemical energy by transferring an electron in an organised array of pigment molecules and other substances.",
+      "content_type": "process",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What energy-conversion problem does this proposal address?",
+        "answer": "It addresses how plants change light energy into chemical energy, rather than simply absorbing light.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "What mechanism did Calvin propose?",
+        "answer": "He proposed electron transfer in an organised array of pigment molecules and other substances as the means of converting light energy to chemical energy.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "When does light enter this electron-transfer story?",
+        "answer": "Light absorption excites electrons in photosynthetic pigments; subsequent organised electron transfers help convert that captured energy into chemical forms.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is an organised array more useful than simply having coloured molecules present?",
+        "answer": "An organised arrangement permits energy transfer towards reaction centres and controlled electron transfer to suitable acceptors. Light absorption alone does not explain how usable chemical energy is conserved.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "how",
+        "question": "How does this connect with carbon assimilation without being the same process?",
+        "answer": "Light reactions generate ATP and NADPH, which support the reactions incorporating carbon dioxide into organic compounds. Electron transfer concerns energy conversion; carbon assimilation concerns the fate of carbon.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Pigments absorb light",
+       "Electrons are negatively charged particles in atoms and molecules",
+       "Energy can change form",
+       "Carbon assimilation incorporates carbon dioxide into organic compounds"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not equate electron transfer with the Calvin cycle itself. The page links the scientist to both energy conversion and carbon-pathway research.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "pigment molecules",
+         "plain_meaning": "रंग वाले molecules जो कुछ तरह की light सोखते हैं",
+         "everyday_image": "हरी पत्ती light का कुछ हिस्सा सोखती है और कुछ लौटाती है"
+        },
+        {
+         "term": "organised array",
+         "plain_meaning": "चीज़ों का काम के हिसाब से सही जगह और क्रम में लगा होना",
+         "everyday_image": "relay में सही जगह खड़े खिलाड़ी आगे baton पहुँचाते हैं"
+        },
+        {
+         "term": "electron",
+         "plain_meaning": "atom या molecule का बहुत छोटा negative charge वाला कण",
+         "everyday_image": "relay में आगे जाने वाले baton से transfer समझें; electron सचमुच baton नहीं है"
+        },
+        {
+         "term": "chemical energy",
+         "plain_meaning": "molecules की बनावट और उनकी reactions से मिलने वाली काम करने की energy",
+         "everyday_image": "खाने में मौजूद energy जिसे शरीर इस्तेमाल कर पाता है"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A plant must make absorbed light energy available for chemical work.",
+         "basis": "standard"
+        },
+        {
+         "step": "Calvin proposed electron transfer through an organised array of pigments and other substances.",
+         "basis": "book"
+        },
+        {
+         "step": "Light reactions provide chemical energy and reducing power used in carbon assimilation.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Zoom from a green leaf to the chloroplast’s thylakoid membrane, the standard textbook location of photosynthetic electron transfer.",
+       "consequence": "Connects capture of light with the energy supply needed for organic-compound formation.",
+       "visual_verb": "Absorb light, excite an electron and transfer it between organised carriers.",
+       "level_extra": "Name the trap directly: the Calvin cycle uses products of light reactions; it is not the pigment electron-transfer chain.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "deep",
+      "deep_why": "misconception",
+      "role": "biography"
+     },
+     {
+      "item_id": "i6",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0016",
+       "p0002-b0017",
+       "p0002-b0018",
+       "p0002-b0019"
+      ],
+      "where_on_page": "Right column, final paragraph",
+      "content": "The principles of photosynthesis as established by Calvin are, at present, being used in studies on renewable resource for energy and materials and basic studies in solar energy research.",
+      "content_type": "cause_effect",
+      "type_note": "This is an application link from photosynthetic principles to energy and materials research, not a sequence of dated events.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which research applications does the page name?",
+        "answer": "It names studies on renewable resource for energy and materials, and basic studies in solar energy research.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why can understanding photosynthesis help energy research?",
+        "answer": "Photosynthesis provides a natural example of capturing sunlight and converting its energy into chemical forms. Understanding its principles can guide investigation of energy conversion and renewable biological resources.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do the energy and materials applications connect to plants?",
+        "answer": "Plants use light energy to produce organic matter. That matter can supply materials and can serve as an energy resource, linking photosynthetic production with both applications.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Does renewable mean a resource cannot be depleted?",
+        "answer": "No. A renewable resource can be replenished, but its continued availability depends on replenishment keeping pace with use.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Photosynthesis converts light energy into chemical energy",
+       "Plants produce organic matter",
+       "Resources can be replenished or depleted"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Retain both applications: renewable resources for energy and materials, and basic solar-energy research. No specific technology is named.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "renewable resource",
+         "plain_meaning": "ऐसा साधन जो प्राकृतिक प्रक्रियाओं से फिर बन या बढ़ सकता है",
+         "everyday_image": "फसल फिर उग सकती है, लेकिन उसके उगने के लिए समय और सही हालात चाहिए"
+        },
+        {
+         "term": "solar energy research",
+         "plain_meaning": "सूरज की energy को पकड़ने और काम में लाने की research",
+         "everyday_image": "धूप में रखी पत्ती energy पकड़ती है; वैज्ञानिक उस प्रक्रिया से सीखते हैं"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Energy and materials research needs ways to use replenishable inputs.",
+         "basis": "standard"
+        },
+        {
+         "step": "Photosynthesis captures solar energy and forms organic matter.",
+         "basis": "standard"
+        },
+        {
+         "step": "The page links Calvin’s principles to renewable-resource and solar-energy studies.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "A growing crop illustrates photosynthetic production of renewable organic matter; this is an explanatory example, not a named project on the page.",
+       "consequence": "Extends the biography from discovery of basic principles to their research value.",
+       "visual_verb": "Link sunlight to plant matter, then branch to energy, materials and research.",
+       "level_extra": "The book states research applications, not that a particular device or commercial technology was invented by Calvin.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "normal",
+      "deep_why": "",
+      "role": "biography"
+     }
+    ],
+    "remove_item_ids": [],
+    "boilerplate_block_ids": [
+     "p0002-b0020"
+    ],
+    "text_image_disagreements": [
+     {
+      "block_ids": [
+       "p0002-b0019"
+      ],
+      "text_says": "Melvin Calvin research.",
+      "image_shows": "'Melvin Calvin' is the caption under the portrait. 'research.' is the final word of the right-hand paragraph, completing 'solar energy research.'"
+     }
+    ]
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "42861fc012211b89e9f538806aa040df68bd45e595427bc41528cf6425e63a61",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 21463,
+    "output_tokens": 1739,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This biographical page connects Melvin Calvin’s life with radioactive tracing of photosynthetic carbon assimilation, electron transfer and applications in energy research.",
+    "key_questions": [
+     "Who was Calvin, and when and where did he work?",
+     "How did radioactive carbon help researchers follow carbon through photosynthesis?",
+     "How are light-energy conversion and carbon assimilation related but distinct?",
+     "What earned Calvin the Nobel Prize, and where are these principles applied?"
+    ],
+    "decisions": [
+     {
+      "decision": "Split the long biographical paragraph into historical context, tracer investigation, energy conversion and Nobel recognition.",
+      "reason": "These require different explanations and should not be compressed into a list of biographical facts."
+     },
+     {
+      "decision": "Read the portrait caption separately from the final word 'research.'",
+      "reason": "The native block p0002-b0019 merges text from two different page positions."
+     },
+     {
+      "decision": "Treat modern research uses as application rather than timeline.",
+      "reason": "The passage explains uses of principles, not a dated historical event."
+     },
+     {
+      "decision": "Replaced ऊर्जा with energy throughout the unpack fields of i4 and i6.",
+      "reason": "S1-15 requires the book’s English terms in Roman script within simple Hindi explanations; all other content is unchanged."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "This biographical page connects Melvin Calvin’s life with radioactive tracing of photosynthetic carbon assimilation, electron transfer and applications in energy research.",
+     "key_questions": [
+      "Who was Calvin, and when and where did he work?",
+      "How did radioactive carbon help researchers follow carbon through photosynthesis?",
+      "How are light-energy conversion and carbon assimilation related but distinct?",
+      "What earned Calvin the Nobel Prize, and where are these principles applied?"
+     ],
+     "decisions": [
+      {
+       "decision": "Split the long biographical paragraph into historical context, tracer investigation, energy conversion and Nobel recognition.",
+       "reason": "These require different explanations and should not be compressed into a list of biographical facts."
+      },
+      {
+       "decision": "Read the portrait caption separately from the final word 'research.'",
+       "reason": "The native block p0002-b0019 merges text from two different page positions."
+      },
+      {
+       "decision": "Treat modern research uses as application rather than timeline.",
+       "reason": "The passage explains uses of principles, not a dated historical event."
+      },
+      {
+       "decision": "Replaced ऊर्जा with energy throughout the unpack fields of i4 and i6.",
+       "reason": "S1-15 requires the book’s English terms in Roman script within simple Hindi explanations; all other content is unchanged."
+      }
+     ],
+     "uncertain": []
+    },
+    "page_summary": "Melvin Calvin and J.A. Bassham used C¹⁴-labelled carbon dioxide to investigate photosynthetic reactions. Calvin proposed electron transfer through organised pigment molecules and other substances as the basis of light-to-chemical energy conversion. Mapping carbon assimilation earned him the Nobel Prize in 1961, and the principles support renewable-resource and solar-energy research.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0001",
+       "p0002-b0002",
+       "p0002-b0003",
+       "p0002-b0004"
+      ],
+      "where_on_page": "Right of portrait, first paragraph",
+      "content": "MELVIN CALVIN born in Minnesota in April, 1911, received his Ph.D. in Chemistry from the University of Minnesota. He served as Professor of Chemistry at the University of California, Berkeley.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "who",
+        "question": "Whose scientific life introduces this page?",
+        "answer": "Melvin Calvin’s: the page follows his chemistry training and academic career before explaining his contribution to photosynthesis.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "When and where was Calvin born?",
+        "answer": "He was born in Minnesota in April, 1911.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Which university trained Calvin, and at which did he serve as professor?",
+        "answer": "He received his Ph.D. in Chemistry from the University of Minnesota and served as Professor of Chemistry at the University of California, Berkeley.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is chemistry training relevant to a question about green plants?",
+        "answer": "Explaining how a plant turns carbon dioxide into organic substances requires identifying chemical compounds and the reactions connecting them. This is a chemical problem within biology.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Photosynthesis forms organic substances in green plants",
+       "Chemical reactions change substances into other substances"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Birth and university details are background; Calvin’s scientific contribution is more important for NEET.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "Ph.D. in Chemistry",
+         "plain_meaning": "Chemistry में नया सवाल लेकर research करने की ऊँची degree",
+         "everyday_image": "तैयार जवाब पढ़ने के बजाय प्रयोग करके नया जवाब खोजना"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "To understand plant food formation, researchers need to identify its chemical changes.",
+         "basis": "standard"
+        },
+        {
+         "step": "Calvin’s training and professorship were in Chemistry.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Minnesota → University of Minnesota → University of California, Berkeley; dates for the university appointments are not supplied.",
+       "consequence": "The biography leads into a chemical investigation of photosynthesis.",
+       "visual_verb": "Locate Minnesota and Berkeley, then connect training to research.",
+       "level_extra": "Distinguish the university granting his Ph.D. from the university where he served as professor.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "normal",
+      "deep_why": "",
+      "role": "biography"
+     },
+     {
+      "item_id": "i2",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0005",
+       "p0002-b0006",
+       "p0002-b0007",
+       "p0002-b0008"
+      ],
+      "where_on_page": "Right column, beginning of second paragraph",
+      "content": "Just after world war II, when the world was under shock after the Hiroshima-Nagasaki bombings, and seeing the ill-effects of radio-activity, Calvin and co-workers put radio-activity to beneficial use.",
+      "content_type": "timeline",
+      "type_note": "The passage places a scientific change in its post-war historical context; it does not describe stages of a process.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "What historical setting does the book give for this research?",
+        "answer": "It places the work just after world war II, when the Hiroshima-Nagasaki bombings had drawn attention to the harmful effects of radio-activity.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What contrast does the biography make?",
+        "answer": "Against the destructive effects associated with the bombings, it presents Calvin and his co-workers using radio-activity beneficially in scientific investigation.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can radio-activity be useful for studying a reaction even though it can be harmful?",
+        "answer": "Radiation emitted by a radioactive label can be detected, allowing researchers to follow labelled atoms. Its usefulness as a tracer does not mean that radio-activity is harmless.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Atoms can occur as radioactive isotopes",
+       "Scientific instruments can detect radiation"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Historical context supports the tracer story; avoid equating a radioactive tracer with a nuclear explosion.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "radio-activity",
+         "plain_meaning": "कुछ अस्थिर atoms से अपने-आप radiation निकलना",
+         "everyday_image": "छिपी चीज़ से आने वाला detectable signal उसकी मौजूदगी बता दे"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Following atoms inside a plant requires a detectable marker.",
+         "basis": "standard"
+        },
+        {
+         "step": "Radioactive atoms can supply that detectable signal.",
+         "basis": "standard"
+        },
+        {
+         "step": "The book contrasts this beneficial use with the harmful post-war association of radio-activity.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Calvin and co-workers’ investigation of reactions in green plants.",
+       "consequence": "Introduces why labelled carbon dioxide was a useful investigative tool.",
+       "visual_verb": "Contrast destructive use with a detectable tracer in a plant.",
+       "level_extra": "Radio-activity is the investigative tool here, not the energy source driving photosynthesis.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "normal",
+      "deep_why": "",
+      "role": "biography"
+     },
+     {
+      "item_id": "i3",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0008",
+       "p0002-b0009",
+       "p0002-b0010",
+       "p0002-b0011"
+      ],
+      "where_on_page": "Right column, middle of second paragraph",
+      "content": "He along with J.A. Bassham studied reactions in green plants forming sugar and other substances from raw materials like carbon dioxide, water and minerals by labelling the carbon dioxide with C¹⁴.",
+      "content_type": "process",
+      "type_note": "The item describes a tracer-based investigation of plant reactions; the overlapping block’s historical sentence is captured separately.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What puzzle were Calvin and J.A. Bassham investigating?",
+        "answer": "They studied the reactions by which green plants form sugar and other substances from raw materials such as carbon dioxide, water and minerals.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How did they mark the material entering the reactions?",
+        "answer": "They labelled carbon dioxide with C¹⁴, enabling a radioactive form of carbon to be used in studying these reactions.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "At what stage must a carbon tracer be introduced to follow the incoming carbon?",
+        "answer": "The carbon dioxide supplied to a photosynthesising plant is labelled before its carbon becomes incorporated into reaction products.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "what",
+        "question": "What does the printed symbol C¹⁴ mean?",
+        "answer": "C denotes carbon and the superscript 14 is its mass number, the total number of protons and neutrons. Carbon-14 has 6 protons and 8 neutrons and is radioactive. The 14 is not a count of carbon atoms or a physical unit.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why label carbon dioxide rather than merely observe whether sugar forms?",
+        "answer": "Observing sugar formation shows an overall result, not the route taken by carbon atoms. A detectable carbon label can be followed into compounds formed during photosynthesis.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "how",
+        "question": "How can labelled compounds help reconstruct a pathway?",
+        "answer": "Researchers can supply labelled carbon dioxide, stop reactions after different intervals, separate the products and detect which contain radioactive carbon. Comparing the pattern over time helps infer the sequence of carbon-containing intermediates.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Does listing minerals among raw materials mean that minerals supply the carbon skeleton of sugar?",
+        "answer": "No. In this tracer investigation, carbon dioxide supplies the carbon being followed into organic compounds. Minerals support plant metabolism but should not be confused with the source of sugar’s carbon.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Carbon dioxide contains carbon atoms",
+       "Sugars are carbon-containing organic compounds",
+       "Isotopes are forms of an element with different neutron numbers",
+       "Photosynthesis uses light to support formation of organic substances"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Remember Calvin with J.A. Bassham, C¹⁴-labelled carbon dioxide and investigation of carbon assimilation. C¹⁴ is an isotope label, not an energy source.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "labelling",
+         "plain_meaning": "किसी चीज़ पर पहचानने लायक निशान लगाना ताकि आगे उसका रास्ता पता चले",
+         "everyday_image": "एक जैसे डिब्बों में से एक पर sticker लगाकर उसे पहचानना"
+        },
+        {
+         "term": "C¹⁴",
+         "plain_meaning": "carbon का radioactive रूप, जिसका mass number 14 है",
+         "everyday_image": "भीड़ में signal देने वाला पहचान-चिह्न; atom का आकार सचमुच रंगा नहीं जाता"
+        },
+        {
+         "term": "raw materials",
+         "plain_meaning": "जिन शुरुआती चीज़ों से नई चीज़ बनती है",
+         "everyday_image": "रोटी बनाने के लिए आटा और पानी"
+        },
+        {
+         "term": "minerals",
+         "plain_meaning": "पौधे को काम और बढ़त के लिए चाहिए होने वाले inorganic nutrients",
+         "everyday_image": "पौधे को पानी के साथ मिलने वाले घुले हुए nutrients"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Knowing that sugar forms does not reveal the route followed by incoming carbon.",
+         "basis": "standard"
+        },
+        {
+         "step": "Calvin and Bassham labelled carbon dioxide with C¹⁴.",
+         "basis": "book"
+        },
+        {
+         "step": "Detecting labelled carbon in separated products helps reconstruct its route through reactions.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Follow a labelled carbon atom from supplied carbon dioxide into compounds formed in a green plant.",
+       "consequence": "A visible signal from otherwise invisible carbon movement makes pathway mapping possible.",
+       "visual_verb": "Tag carbon, follow it into products and reveal the labelled route.",
+       "level_extra": "For NEET, distinguish radioactive carbon tracing from energy conversion. Experimental separation and timing explain the method but are not described on this page.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "deep",
+      "deep_why": "application",
+      "role": "biography"
+     },
+     {
+      "item_id": "i4",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0011",
+       "p0002-b0012",
+       "p0002-b0013",
+       "p0002-b0014"
+      ],
+      "where_on_page": "Right column, lower-middle portion of second paragraph",
+      "content": "Calvin proposed that plants change light energy to chemical energy by transferring an electron in an organised array of pigment molecules and other substances.",
+      "content_type": "process",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What energy-conversion problem does this proposal address?",
+        "answer": "It addresses how plants change light energy into chemical energy, rather than simply absorbing light.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "What mechanism did Calvin propose?",
+        "answer": "He proposed electron transfer in an organised array of pigment molecules and other substances as the means of converting light energy to chemical energy.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "When does light enter this electron-transfer story?",
+        "answer": "Light absorption excites electrons in photosynthetic pigments; subsequent organised electron transfers help convert that captured energy into chemical forms.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is an organised array more useful than simply having coloured molecules present?",
+        "answer": "An organised arrangement permits energy transfer towards reaction centres and controlled electron transfer to suitable acceptors. Light absorption alone does not explain how usable chemical energy is conserved.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "how",
+        "question": "How does this connect with carbon assimilation without being the same process?",
+        "answer": "Light reactions generate ATP and NADPH, which support the reactions incorporating carbon dioxide into organic compounds. Electron transfer concerns energy conversion; carbon assimilation concerns the fate of carbon.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Pigments absorb light",
+       "Electrons are negatively charged particles in atoms and molecules",
+       "Energy can change form",
+       "Carbon assimilation incorporates carbon dioxide into organic compounds"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not equate electron transfer with the Calvin cycle itself. The page links the scientist to both energy conversion and carbon-pathway research.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "pigment molecules",
+         "plain_meaning": "रंग वाले molecules जो कुछ तरह की light सोखते हैं",
+         "everyday_image": "हरी पत्ती light का कुछ हिस्सा सोखती है और कुछ लौटाती है"
+        },
+        {
+         "term": "organised array",
+         "plain_meaning": "चीज़ों का काम के हिसाब से सही जगह और क्रम में लगा होना",
+         "everyday_image": "relay में सही जगह खड़े खिलाड़ी आगे baton पहुँचाते हैं"
+        },
+        {
+         "term": "electron",
+         "plain_meaning": "atom या molecule का बहुत छोटा negative charge वाला कण",
+         "everyday_image": "relay में आगे जाने वाले baton से transfer समझें; electron सचमुच baton नहीं है"
+        },
+        {
+         "term": "chemical energy",
+         "plain_meaning": "molecules की बनावट और उनकी reactions से मिलने वाली काम करने की energy",
+         "everyday_image": "खाने में मौजूद energy जिसे शरीर इस्तेमाल कर पाता है"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "A plant must make absorbed light energy available for chemical work.",
+         "basis": "standard"
+        },
+        {
+         "step": "Calvin proposed electron transfer through an organised array of pigments and other substances.",
+         "basis": "book"
+        },
+        {
+         "step": "Light reactions provide chemical energy and reducing power used in carbon assimilation.",
+         "basis": "standard"
+        }
+       ],
+       "example_or_place": "Zoom from a green leaf to the chloroplast’s thylakoid membrane, the standard textbook location of photosynthetic electron transfer.",
+       "consequence": "Connects capture of light with the energy supply needed for organic-compound formation.",
+       "visual_verb": "Absorb light, excite an electron and transfer it between organised carriers.",
+       "level_extra": "Name the trap directly: the Calvin cycle uses products of light reactions; it is not the pigment electron-transfer chain.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "deep",
+      "deep_why": "misconception",
+      "role": "biography"
+     },
+     {
+      "item_id": "i5",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0014",
+       "p0002-b0015"
+      ],
+      "where_on_page": "Right column, final sentence of second paragraph",
+      "content": "The mapping of the pathway of carbon assimilation in photosynthesis earned him Nobel Prize in 1961.",
+      "content_type": "timeline",
+      "type_note": "",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "when",
+        "question": "When did Calvin receive the Nobel Prize mentioned here?",
+        "answer": "The page dates his Nobel Prize to 1961.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "What achievement earned Calvin this recognition?",
+        "answer": "The book attributes it to mapping the pathway of carbon assimilation in photosynthesis.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "what",
+        "question": "What does carbon assimilation mean?",
+        "answer": "It means incorporating carbon from carbon dioxide into organic compounds through metabolic reactions.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is mapping a pathway more informative than knowing the starting material and final product?",
+        "answer": "A pathway identifies intermediate compounds and their reaction connections, explaining how carbon moves from the starting material towards organic products rather than merely stating that conversion occurs.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Carbon dioxide supplies carbon for photosynthesis",
+       "A reaction pathway connects starting materials, intermediates and products",
+       "Radioactive labels can trace carbon through reactions"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Strong association: Melvin Calvin—mapping carbon assimilation in photosynthesis—Nobel Prize, 1961.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "carbon assimilation",
+         "plain_meaning": "carbon dioxide के carbon को पौधे के organic compounds का हिस्सा बनाना",
+         "everyday_image": "बाहर से आई ईंट को दीवार का हिस्सा बना देना"
+        },
+        {
+         "term": "pathway",
+         "plain_meaning": "एक substance से अगले substance तक पहुँचने वाली reactions का जुड़ा रास्ता",
+         "everyday_image": "घर से स्कूल के रास्ते में आने वाले जुड़े हुए पड़ाव"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Starting and ending substances do not explain the intervening carbon reactions.",
+         "basis": "standard"
+        },
+        {
+         "step": "Mapping carbon assimilation reveals a connected reaction route.",
+         "basis": "standard"
+        },
+        {
+         "step": "This mapping earned Calvin the Nobel Prize in 1961.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "The photosynthetic route incorporating carbon dioxide into organic compounds in green plants.",
+       "consequence": "Gives the scientific contribution and date that anchor this biography.",
+       "visual_verb": "Connect reaction intermediates into a route, then mark 1961.",
+       "level_extra": "Assimilation is incorporation into organic compounds, not simply carbon dioxide entering a leaf through stomata.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "normal",
+      "deep_why": "",
+      "role": "biography"
+     },
+     {
+      "item_id": "i6",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0016",
+       "p0002-b0017",
+       "p0002-b0018",
+       "p0002-b0019"
+      ],
+      "where_on_page": "Right column, final paragraph",
+      "content": "The principles of photosynthesis as established by Calvin are, at present, being used in studies on renewable resource for energy and materials and basic studies in solar energy research.",
+      "content_type": "cause_effect",
+      "type_note": "This is an application link from photosynthetic principles to energy and materials research, not a sequence of dated events.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which research applications does the page name?",
+        "answer": "It names studies on renewable resource for energy and materials, and basic studies in solar energy research.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why can understanding photosynthesis help energy research?",
+        "answer": "Photosynthesis provides a natural example of capturing sunlight and converting its energy into chemical forms. Understanding its principles can guide investigation of energy conversion and renewable biological resources.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do the energy and materials applications connect to plants?",
+        "answer": "Plants use light energy to produce organic matter. That matter can supply materials and can serve as an energy resource, linking photosynthetic production with both applications.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Does renewable mean a resource cannot be depleted?",
+        "answer": "No. A renewable resource can be replenished, but its continued availability depends on replenishment keeping pace with use.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Photosynthesis converts light energy into chemical energy",
+       "Plants produce organic matter",
+       "Resources can be replenished or depleted"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Retain both applications: renewable resources for energy and materials, and basic solar-energy research. No specific technology is named.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [
+        {
+         "term": "renewable resource",
+         "plain_meaning": "ऐसा साधन जो प्राकृतिक प्रक्रियाओं से फिर बन या बढ़ सकता है",
+         "everyday_image": "फसल फिर उग सकती है, लेकिन उसके उगने के लिए समय और सही हालात चाहिए"
+        },
+        {
+         "term": "solar energy research",
+         "plain_meaning": "सूरज की energy को पकड़ने और काम में लाने की research",
+         "everyday_image": "धूप में रखी पत्ती energy पकड़ती है; वैज्ञानिक उस प्रक्रिया से सीखते हैं"
+        }
+       ],
+       "why_chain": [
+        {
+         "step": "Energy and materials research needs ways to use replenishable inputs.",
+         "basis": "standard"
+        },
+        {
+         "step": "Photosynthesis captures solar energy and forms organic matter.",
+         "basis": "standard"
+        },
+        {
+         "step": "The page links Calvin’s principles to renewable-resource and solar-energy studies.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "A growing crop illustrates photosynthetic production of renewable organic matter; this is an explanatory example, not a named project on the page.",
+       "consequence": "Extends the biography from discovery of basic principles to their research value.",
+       "visual_verb": "Link sunlight to plant matter, then branch to energy, materials and research.",
+       "level_extra": "The book states research applications, not that a particular device or commercial technology was invented by Calvin.",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "normal",
+      "deep_why": "",
+      "role": "biography"
+     },
+     {
+      "item_id": "i7",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Lower-left central area beside the biography",
+      "content": "Black-and-white photographic portrait of Melvin Calvin, shown from the upper torso upward. The photograph has no scientific labels, arrows or process connections.",
+      "content_type": "figure",
+      "type_note": "The image is an identifying portrait, so figure is appropriate rather than none.",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What kind of visual accompanies this biography?",
+        "answer": "A photographic portrait identifies the scientist discussed in the text; it is not a diagram of photosynthesis.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which scientist does the portrait show?",
+        "answer": "The caption identifies him as Melvin Calvin.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the portrait support learning this page?",
+        "answer": "Use it as an identity cue linking Calvin’s name with the carbon-assimilation investigation; the experimental evidence comes from the research, not from his appearance.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Calvin investigated photosynthetic carbon assimilation"
+      ],
+      "exam_importance": "low",
+      "exam_note": "The contribution associated with the scientist matters more than recognition of the portrait.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [
+        {
+         "step": "A biography needs a clear identity for the person whose work is described.",
+         "basis": "standard"
+        },
+        {
+         "step": "The portrait and caption identify Melvin Calvin beside the account of his research.",
+         "basis": "book"
+        }
+       ],
+       "example_or_place": "Portrait beside the biographical text.",
+       "consequence": "Links a named scientist to the chapter’s experimental history.",
+       "visual_verb": "Highlight the portrait and connect it to his name and contribution.",
+       "level_extra": "",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "normal",
+      "deep_why": "",
+      "role": "biography"
+     },
+     {
+      "item_id": "i8",
+      "kind": "caption",
+      "parent_item_id": "i7",
+      "source": "both",
+      "block_ids": [
+       "p0002-b0019"
+      ],
+      "where_on_page": "Immediately below the portrait",
+      "content": "Melvin Calvin",
+      "content_type": "none",
+      "type_note": "",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Identification is taught with the portrait.",
+      "tests_item_ids": [],
+      "unpack": {
+       "terms": [],
+       "why_chain": [],
+       "example_or_place": "",
+       "consequence": "",
+       "visual_verb": "",
+       "level_extra": "",
+       "real_world_example": {
+        "place": "",
+        "actors": [],
+        "goods": [],
+        "numbers": [],
+        "steps": [],
+        "term_after": "",
+        "real_life_link": ""
+       }
+      },
+      "teach_depth": "normal",
+      "deep_why": "",
+      "role": "caption"
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0002-b0020"
+    ],
+    "text_image_disagreements": [
+     {
+      "block_ids": [
+       "p0002-b0019"
+      ],
+      "text_says": "Melvin Calvin research.",
+      "image_shows": "'Melvin Calvin' is the caption under the portrait. 'research.' is the final word of the right-hand paragraph, completing 'solar energy research.'"
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "type_check": [
+     {
+      "item_id": "i1",
+      "ai_type": "timeline",
+      "code_type": "timeline",
+      "strength": "strong",
+      "evidence": [
+       "pattern '1911'"
+      ],
+      "status": "agree",
+      "type_note": ""
+     },
+     {
+      "item_id": "i2",
+      "ai_type": "timeline",
+      "code_type": "process",
+      "strength": "weak",
+      "evidence": [
+       "'after'"
+      ],
+      "status": "explained",
+      "type_note": "The passage places a scientific change in its post-war historical context; it does not describe stages of a process."
+     },
+     {
+      "item_id": "i3",
+      "ai_type": "process",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": "The item describes a tracer-based investigation of plant reactions; the overlapping block’s historical sentence is captured separately."
+     },
+     {
+      "item_id": "i4",
+      "ai_type": "process",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     },
+     {
+      "item_id": "i5",
+      "ai_type": "timeline",
+      "code_type": "timeline",
+      "strength": "strong",
+      "evidence": [
+       "pattern '1961'"
+      ],
+      "status": "agree",
+      "type_note": ""
+     },
+     {
+      "item_id": "i6",
+      "ai_type": "cause_effect",
+      "code_type": "timeline",
+      "strength": "weak",
+      "evidence": [
+       "'established'"
+      ],
+      "status": "explained",
+      "type_note": "This is an application link from photosynthetic principles to energy and materials research, not a sequence of dated events."
+     },
+     {
+      "item_id": "i7",
+      "ai_type": "figure",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": "The image is an identifying portrait, so figure is appropriate rather than none."
+     },
+     {
+      "item_id": "i8",
+      "ai_type": "none",
+      "code_type": null,
+      "strength": "none",
+      "evidence": [],
+      "status": "code_silent",
+      "type_note": ""
+     }
+    ],
+    "type_summary": {
+     "agree": 2,
+     "code_silent": 4,
+     "explained": 2
+    }
+   },
+   "review": {
+    "route": "codex-checker",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "46ab0a9e2403487cbc5fe12d06e274bfe564648046510959a06197fcf8ff527b",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 15714,
+    "output_tokens": 1336,
+    "cost_usd": 0.0,
+    "value": {
+     "notes": {
+      "about": "This page introduces Calvin’s career, radioactive tracing of photosynthetic carbon, his energy-conversion proposal and the significance of his research. The understanding covers both the biography and its scientific connections.",
+      "key_questions": [
+       "How did C¹⁴-labelled carbon dioxide help reveal the carbon-assimilation pathway?",
+       "How does electron transfer differ from carbon assimilation?",
+       "What achievement earned Calvin the Nobel Prize in 1961?",
+       "Which research applications does the page name?"
+      ],
+      "decisions": [
+       {
+        "decision": "Accept the separate historical, experimental, energy-conversion and application items.",
+        "reason": "They preserve the source while giving each scientific idea an appropriate explanation."
+       },
+       {
+        "decision": "Accept the portrait caption as integrated with the figure.",
+        "reason": "Its identifying content is explicitly taught in i7, so the non-teachable caption item does not omit content."
+       },
+       {
+        "decision": "Accept the correction of the merged native-text reading order.",
+        "reason": "The image clearly separates the portrait caption from the final word of the research paragraph."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "missing": [],
+     "wrong": [],
+     "shallow": [],
+     "checklist": [
+      {
+       "rule_id": "EV-U01",
+       "met": true,
+       "note": "Scientific explanations establish the problem and supply concrete prerequisites."
+      },
+      {
+       "rule_id": "EV-U02",
+       "met": true,
+       "note": "Biography proceeds through context, investigation, mechanism, recognition and applications."
+      },
+      {
+       "rule_id": "EV-U03",
+       "met": true,
+       "note": "Historical context and recognition remain ordered; no historical laws are presented."
+      },
+      {
+       "rule_id": "EV-U04",
+       "met": true,
+       "note": "Distinct explanatory layers are clear; no related quantitative measures require a shared example."
+      },
+      {
+       "rule_id": "EV-U05",
+       "met": true,
+       "note": "No sequence of replacement systems is taught."
+      },
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Source claims and standard explanatory additions are distinguished."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "Tracer reasoning, energy conversion and assimilation receive suitable teacher-level explanation."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Maker notes explain scope, decisions, reasons and uncertainty."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "All substantive source statements are retained."
+      },
+      {
+       "rule_id": "G-06",
+       "met": true,
+       "note": "Explanations add meaning, mechanisms, examples and consequences rather than merely paraphrasing."
+      },
+      {
+       "rule_id": "G-07",
+       "met": true,
+       "note": "Depth and explicit exam traps suit Class 11 and NEET."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "Text, portrait and caption are captured."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the edition footer is treated as boilerplate."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "No table is present."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "The portrait and its identifying caption are covered; no scientific arrows or branches occur."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "C¹⁴ is preserved and its isotope notation correctly explained."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": true,
+       "note": "Questions address why and how, including tracer detection and pathway inference."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "Answer bases are appropriate and outside explanations are standard."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "Content types fit the items; departures from proposed types are justified."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites identify concrete biological and chemical concepts."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Scientific contributions appropriately outrank personal details; no unsupported test links are supplied."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "The merged caption and paragraph-ending text is explicitly reported."
+      },
+      {
+       "rule_id": "S1-13",
+       "met": true,
+       "note": "Printed wording is retained; no substantive printed typo is silently corrected."
+      },
+      {
+       "rule_id": "S1-14",
+       "met": true,
+       "note": "Book-based statements and outside mechanistic explanations occupy separate answers."
+      },
+      {
+       "rule_id": "S1-15",
+       "met": true,
+       "note": "Terms, analogies, need-based reasoning and consequences adequately open the teachable content."
+      },
+      {
+       "rule_id": "S1-16",
+       "met": true,
+       "note": "Not applicable: these are biology items, not economics items."
+      },
+      {
+       "rule_id": "S2-11",
+       "met": true,
+       "note": "Both deep items explain why; no topic-video durations are supplied for review."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [],
+   "passed": true,
+   "finished_at": 1795275927.2185843
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.0,
+ "seconds": 223.3,
+ "navin_verdict": null
+}

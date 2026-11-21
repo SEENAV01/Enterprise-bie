@@ -1,0 +1,4388 @@
+# Pages · 11. Photosynthesis in Higher Plants
+
+## Page 1 · passed after 1 round(s)
+
+Unit 4 introduces plant physiology through cellular and molecular explanations connected to whole organisms and their environment. It contrasts this approach with organismic-and-above study leading to ecology, and lists Chapters 11–13 on photosynthesis, respiration, and plant growth and development.
+
+- **p001-i1** · diagram · figure · image · exam medium
+  - Unlabelled botanical illustration: two curved, kidney-shaped cells surround a central lens-shaped opening. Repeated radial lines run across the curved cells, which are enclosed among larger irregular polygonal cells. There are no arrows or printed labels. A faded reflection of the illustration appears below it.
+    - what: What plant structure does this illustration represent? → It represents a stomatal apparatus viewed from the leaf surface: a stomatal pore lies between two guard cells, surrounded by epidermal cells. _(outside the book)_
+    - which: Which visible parts distinguish the central structure from its surroundings? → A paired set of curved cells encloses a narrow central opening, while the surrounding cells are larger and irregularly polygonal. No parts are named in the printed illustration.
+      - how: How does this structure connect a leaf's anatomy with plant physiology? → Changes in guard-cell turgor regulate the stomatal opening. This influences carbon dioxide entry and the loss of water vapour, linking cellular activity with photosynthesis and the plant's interaction with its environment. _(outside the book)_
+  - **khola (unpack):**
+    - guard cells yaani दो cells जो बीच के pore को खोलने-बंद करने में मदद करते हैं · image: दरवाज़े के दो पल्लों के बीच खुली जगह
+    - stomatal pore yaani पत्ती की सतह पर छोटा खुला रास्ता, जिससे gases आ-जा सकती हैं · image: कमरे की छोटी खिड़की
+    - kyon: A leaf needs a route for exchange of gases with the air. _[standard]_ → Stomatal pores provide this route, but water vapour can also leave through them. _[standard]_ → Guard-cell regulation links a cellular change to whole-plant gas exchange and water loss. _[standard]_
+    - example / jagah: Zoom from a leaf to its epidermal surface and then to one stomatal pore.
+    - aage: A visible plant structure becomes an entry point to understanding physiological function.
+    - screen par: Zoom into the leaf surface and highlight the paired cells and central pore.
+    - is level ke liye: Keep anatomical identification separate from printed labels: this figure has none. Do not interpret the radial strokes as individually labelled organelles.
+  - prerequisites: Plant cells have cell walls; Leaves exchange gases with their surroundings
+- **p001-i2** · heading · none · both
+  - UNIT 4
+PLANT PHYSIOLOGY
+- **p001-i3** · heading · none · both
+  - Chapter 11
+Photosynthesis in Higher Plants
+- **p001-i4** · heading · none · both
+  - Chapter 12
+Respiration in Plants
+- **p001-i5** · heading · none · both
+  - Chapter 13
+Plant Growth and Development
+- **p001-i6** · paragraph · comparison · both · exam medium
+  - The description of structure and variation of living organisms over a period of time, ended up as two, apparently irreconcilable perspectives on biology. The two perspectives essentially rested on two levels of organisation of life forms and phenomena. One described at organismic and above level of organisation while the second described at cellular and molecular level of organisation. The first resulted in ecology and related disciplines. The second resulted in physiology and biochemistry.
+    - compare: Can studying a whole plant and studying its cells answer different biological questions? → The page distinguishes an organismic-and-above perspective, associated with ecology and related disciplines, from a cellular-and-molecular perspective, associated with physiology and biochemistry.
+    - difference: What is the actual difference between these perspectives? → Their main difference is the level of organisation being examined: whole organisms and higher levels on one side, and cells and molecules on the other. The passage presents different scales of study, not two different kinds of living material.
+      - what: What do 'organismic and above' and 'cellular and molecular' mean concretely? → Organismic study considers an individual living organism; higher levels include populations, communities and ecosystems. Cellular and molecular study examines cells, their components and the molecules involved in life processes. _(outside the book)_
+      - why: Why does the book say 'apparently irreconcilable' rather than simply 'irreconcilable'? → The perspectives can seem difficult to connect because they ask questions at very different scales. They need not contradict one another: cellular and molecular activities help explain what whole organisms do within their surroundings. _(outside the book)_
+        - how: How can one plant make the connection between the two perspectives clear? → For the same plant, one can ask how environmental light affects its performance and then investigate light-driven reactions inside its cells. These are linked questions about one living system, viewed at different scales. _(outside the book)_
+  - **khola (unpack):**
+    - perspectives yaani एक ही चीज़ को समझने के अलग नज़रिए · image: एक घर को बाहर से देखना और फिर अंदर की wiring देखना
+    - levels of organisation yaani जीवन को छोटे हिस्सों से बड़े जुड़े हुए रूप तक देखने के स्तर · image: ईंट से कमरा, कमरे से पूरा घर
+    - organismic yaani पूरे जीव के स्तर पर · image: सिर्फ एक पत्ती नहीं, पूरा गमले वाला पौधा
+    - cellular and molecular yaani cells और उनके अंदर के molecules के स्तर पर · image: पूरी रसोई से zoom करके अंदर रखी चीज़ों तक पहुँचना
+    - ecology yaani जीवों के आपस में और अपने environment से रिश्तों की पढ़ाई · image: बगीचे में पौधा, कीड़े, धूप और पानी को साथ देखना
+    - physiology yaani जीव के काम कैसे चलते हैं, इसकी पढ़ाई · image: पौधा खाना कैसे बनाता है, यह पूछना
+    - biochemistry yaani जीवों में molecules और उनकी chemical reactions की पढ़ाई · image: खाना बनने के पीछे ingredients में होने वाले बदलाव देखना
+    - apparently irreconcilable yaani ऊपर से ऐसे लगना जैसे दोनों बातों को जोड़ा नहीं जा सकता · image: एक ही जगह की दूर से ली photo और close-up को पहले अलग समझ लेना
+    - kyon: Understanding living organisms raises questions both about whole organisms and about their smaller working components. _[standard]_ → The page distinguishes organismic-and-above explanations from cellular-and-molecular explanations, associating them with different disciplines. _[book]_ → Connecting these scales prevents the mistaken idea that a molecular explanation and an ecological explanation must compete. _[standard]_
+    - example / jagah: Use one garden plant throughout: view it in its surroundings, then zoom into its leaf cells and molecules.
+    - aage: The next paragraph bridges the two perspectives by placing molecular plant processes in cellular, organismic and environmental contexts.
+    - screen par: Zoom between the whole plant, its surroundings, cells and molecules.
+    - is level ke liye: NEET distinction: organismic-and-above → ecology; cellular-and-molecular → physiology and biochemistry in this passage. These are perspectives, not mutually exclusive kinds of biology.
+  - prerequisites: An organism is an individual living thing; Cells form the structural and functional units of living organisms; Molecules are chemical components of cells
+- **p001-i7** · paragraph · facts_numbers · both · exam low
+  - Description of physiological processes, in flowering plants as an example, is what is given in the chapters in this unit. The processes of photosynthesis, respiration and ultimately plant growth and development are described in molecular terms but in the context of cellular activities and even at organism level. Wherever appropriate, the relation of the physiological processes to environment is also discussed.
+    - what: Which working activities must we understand to explain how a plant lives and develops? → This unit selects photosynthesis, respiration, and plant growth and development, using flowering plants as its example.
+    - evidence: What on this page shows that the unit will connect different biological scales? → The paragraph explicitly says that molecular descriptions will be placed in the context of cellular activities and the organism, and that environmental relationships will also be discussed wherever appropriate.
+      - how: How does this approach resolve the separation introduced in the previous paragraph? → Instead of isolating molecules from living plants, the unit relates molecular processes to cell activities, the whole organism and, when appropriate, its environment.
+      - what: What everyday meanings help distinguish the listed processes before their detailed chapters begin? → Photosynthesis uses light energy to support the formation of organic food; respiration releases usable energy through the breakdown of respiratory substrates. Growth concerns irreversible increase, while development includes the broader changes through a plant's life. _(outside the book)_
+        - why: Why should a molecular explanation still refer to the environment? → Plant processes operate under external conditions. For example, light availability influences photosynthesis, so understanding reactions inside cells also requires attention to conditions outside the plant. _(outside the book)_
+  - **khola (unpack):**
+    - physiological processes yaani जीव को चलाए रखने और बढ़ने में मदद करने वाले काम · image: घर चलाने के लिए खाना बनना और बिजली मिलना
+    - flowering plants yaani वे plants जिनमें फूल बनते हैं · image: घर का गुड़हल या सरसों का पौधा
+    - photosynthesis yaani रोशनी की मदद से organic food बनने का process · image: धूप में लगी हरी पत्ती
+    - respiration yaani food जैसे पदार्थों को तोड़कर काम की energy पाने का process · image: घर का काम चलाने के लिए fuel से energy मिलना
+    - growth and development yaani पौधे का बढ़ना और जीवन में उसके रूप व काम में बदलाव आना · image: बीज से निकला छोटा पौधा बढ़कर फूल देने लगता है
+    - environment yaani आसपास की वे conditions जो पौधे पर असर डालती हैं · image: एक ही गमले को धूप या छाँव में रखना
+    - kyon: To understand a living plant, we need more than the names of its parts: we must understand its activities. _[standard]_ → The unit examines photosynthesis, respiration, growth and development in flowering plants through molecular explanations set within cellular and organismic activities. _[book]_ → Environmental relationships are added wherever appropriate, connecting internal activities with the conditions around the plant. _[book]_
+    - example / jagah: Follow a familiar flowering plant from its sunlit leaves to its cells, then back to the growing whole plant.
+    - aage: This establishes the framework for Chapter 11 without prematurely teaching its reaction pathways.
+    - screen par: Connect molecules to cells, the whole plant and its surroundings.
+    - is level ke liye: Respiration is not merely breathing. The process names are a roadmap here; their mechanisms belong to the following chapters.
+  - prerequisites: Cells carry out chemical reactions; A whole plant depends on the activities of its cells; Light, water and air are parts of a plant's environment
+
+## Page 2 · passed after 2 round(s)
+
+Melvin Calvin and J.A. Bassham used C¹⁴-labelled carbon dioxide to investigate photosynthetic reactions. Calvin proposed electron transfer through organised pigment molecules and other substances as the basis of light-to-chemical energy conversion. Mapping carbon assimilation earned him the Nobel Prize in 1961, and the principles support renewable-resource and solar-energy research.
+
+- **p002-i1** · paragraph · timeline · both · exam low
+  - MELVIN CALVIN born in Minnesota in April, 1911, received his Ph.D. in Chemistry from the University of Minnesota. He served as Professor of Chemistry at the University of California, Berkeley.
+    - who: Whose scientific life introduces this page? → Melvin Calvin’s: the page follows his chemistry training and academic career before explaining his contribution to photosynthesis.
+    - when: When and where was Calvin born? → He was born in Minnesota in April, 1911.
+    - where: Which university trained Calvin, and at which did he serve as professor? → He received his Ph.D. in Chemistry from the University of Minnesota and served as Professor of Chemistry at the University of California, Berkeley.
+      - why: Why is chemistry training relevant to a question about green plants? → Explaining how a plant turns carbon dioxide into organic substances requires identifying chemical compounds and the reactions connecting them. This is a chemical problem within biology. _(outside the book)_
+  - **khola (unpack):**
+    - Ph.D. in Chemistry yaani Chemistry में नया सवाल लेकर research करने की ऊँची degree · image: तैयार जवाब पढ़ने के बजाय प्रयोग करके नया जवाब खोजना
+    - kyon: To understand plant food formation, researchers need to identify its chemical changes. _[standard]_ → Calvin’s training and professorship were in Chemistry. _[book]_
+    - example / jagah: Minnesota → University of Minnesota → University of California, Berkeley; dates for the university appointments are not supplied.
+    - aage: The biography leads into a chemical investigation of photosynthesis.
+    - screen par: Locate Minnesota and Berkeley, then connect training to research.
+    - is level ke liye: Distinguish the university granting his Ph.D. from the university where he served as professor.
+  - prerequisites: Photosynthesis forms organic substances in green plants; Chemical reactions change substances into other substances
+- **p002-i2** · paragraph · timeline · both · exam low
+  - Just after world war II, when the world was under shock after the Hiroshima-Nagasaki bombings, and seeing the ill-effects of radio-activity, Calvin and co-workers put radio-activity to beneficial use.
+    - when: What historical setting does the book give for this research? → It places the work just after world war II, when the Hiroshima-Nagasaki bombings had drawn attention to the harmful effects of radio-activity.
+    - what: What contrast does the biography make? → Against the destructive effects associated with the bombings, it presents Calvin and his co-workers using radio-activity beneficially in scientific investigation.
+      - why: Why can radio-activity be useful for studying a reaction even though it can be harmful? → Radiation emitted by a radioactive label can be detected, allowing researchers to follow labelled atoms. Its usefulness as a tracer does not mean that radio-activity is harmless. _(outside the book)_
+  - **khola (unpack):**
+    - radio-activity yaani कुछ अस्थिर atoms से अपने-आप radiation निकलना · image: छिपी चीज़ से आने वाला detectable signal उसकी मौजूदगी बता दे
+    - kyon: Following atoms inside a plant requires a detectable marker. _[standard]_ → Radioactive atoms can supply that detectable signal. _[standard]_ → The book contrasts this beneficial use with the harmful post-war association of radio-activity. _[book]_
+    - example / jagah: Calvin and co-workers’ investigation of reactions in green plants.
+    - aage: Introduces why labelled carbon dioxide was a useful investigative tool.
+    - screen par: Contrast destructive use with a detectable tracer in a plant.
+    - is level ke liye: Radio-activity is the investigative tool here, not the energy source driving photosynthesis.
+  - prerequisites: Atoms can occur as radioactive isotopes; Scientific instruments can detect radiation
+- **p002-i3** · paragraph · process · both · exam high
+  - He along with J.A. Bassham studied reactions in green plants forming sugar and other substances from raw materials like carbon dioxide, water and minerals by labelling the carbon dioxide with C¹⁴.
+    - what: What puzzle were Calvin and J.A. Bassham investigating? → They studied the reactions by which green plants form sugar and other substances from raw materials such as carbon dioxide, water and minerals.
+    - how: How did they mark the material entering the reactions? → They labelled carbon dioxide with C¹⁴, enabling a radioactive form of carbon to be used in studying these reactions.
+    - when: At what stage must a carbon tracer be introduced to follow the incoming carbon? → The carbon dioxide supplied to a photosynthesising plant is labelled before its carbon becomes incorporated into reaction products. _(outside the book)_
+      - what: What does the printed symbol C¹⁴ mean? → C denotes carbon and the superscript 14 is its mass number, the total number of protons and neutrons. Carbon-14 has 6 protons and 8 neutrons and is radioactive. The 14 is not a count of carbon atoms or a physical unit. _(outside the book)_
+      - why: Why label carbon dioxide rather than merely observe whether sugar forms? → Observing sugar formation shows an overall result, not the route taken by carbon atoms. A detectable carbon label can be followed into compounds formed during photosynthesis. _(outside the book)_
+        - how: How can labelled compounds help reconstruct a pathway? → Researchers can supply labelled carbon dioxide, stop reactions after different intervals, separate the products and detect which contain radioactive carbon. Comparing the pattern over time helps infer the sequence of carbon-containing intermediates. _(outside the book)_
+      - exception: Does listing minerals among raw materials mean that minerals supply the carbon skeleton of sugar? → No. In this tracer investigation, carbon dioxide supplies the carbon being followed into organic compounds. Minerals support plant metabolism but should not be confused with the source of sugar’s carbon. _(outside the book)_
+  - **khola (unpack):**
+    - labelling yaani किसी चीज़ पर पहचानने लायक निशान लगाना ताकि आगे उसका रास्ता पता चले · image: एक जैसे डिब्बों में से एक पर sticker लगाकर उसे पहचानना
+    - C¹⁴ yaani carbon का radioactive रूप, जिसका mass number 14 है · image: भीड़ में signal देने वाला पहचान-चिह्न; atom का आकार सचमुच रंगा नहीं जाता
+    - raw materials yaani जिन शुरुआती चीज़ों से नई चीज़ बनती है · image: रोटी बनाने के लिए आटा और पानी
+    - minerals yaani पौधे को काम और बढ़त के लिए चाहिए होने वाले inorganic nutrients · image: पौधे को पानी के साथ मिलने वाले घुले हुए nutrients
+    - kyon: Knowing that sugar forms does not reveal the route followed by incoming carbon. _[standard]_ → Calvin and Bassham labelled carbon dioxide with C¹⁴. _[book]_ → Detecting labelled carbon in separated products helps reconstruct its route through reactions. _[standard]_
+    - example / jagah: Follow a labelled carbon atom from supplied carbon dioxide into compounds formed in a green plant.
+    - aage: A visible signal from otherwise invisible carbon movement makes pathway mapping possible.
+    - screen par: Tag carbon, follow it into products and reveal the labelled route.
+    - is level ke liye: For NEET, distinguish radioactive carbon tracing from energy conversion. Experimental separation and timing explain the method but are not described on this page.
+  - prerequisites: Carbon dioxide contains carbon atoms; Sugars are carbon-containing organic compounds; Isotopes are forms of an element with different neutron numbers; Photosynthesis uses light to support formation of organic substances
+- **p002-i4** · paragraph · process · both · exam high
+  - Calvin proposed that plants change light energy to chemical energy by transferring an electron in an organised array of pigment molecules and other substances.
+    - what: What energy-conversion problem does this proposal address? → It addresses how plants change light energy into chemical energy, rather than simply absorbing light.
+    - how: What mechanism did Calvin propose? → He proposed electron transfer in an organised array of pigment molecules and other substances as the means of converting light energy to chemical energy.
+    - when: When does light enter this electron-transfer story? → Light absorption excites electrons in photosynthetic pigments; subsequent organised electron transfers help convert that captured energy into chemical forms. _(outside the book)_
+      - why: Why is an organised array more useful than simply having coloured molecules present? → An organised arrangement permits energy transfer towards reaction centres and controlled electron transfer to suitable acceptors. Light absorption alone does not explain how usable chemical energy is conserved. _(outside the book)_
+        - how: How does this connect with carbon assimilation without being the same process? → Light reactions generate ATP and NADPH, which support the reactions incorporating carbon dioxide into organic compounds. Electron transfer concerns energy conversion; carbon assimilation concerns the fate of carbon. _(outside the book)_
+  - **khola (unpack):**
+    - pigment molecules yaani रंग वाले molecules जो कुछ तरह की light सोखते हैं · image: हरी पत्ती light का कुछ हिस्सा सोखती है और कुछ लौटाती है
+    - organised array yaani चीज़ों का काम के हिसाब से सही जगह और क्रम में लगा होना · image: relay में सही जगह खड़े खिलाड़ी आगे baton पहुँचाते हैं
+    - electron yaani atom या molecule का बहुत छोटा negative charge वाला कण · image: relay में आगे जाने वाले baton से transfer समझें; electron सचमुच baton नहीं है
+    - chemical energy yaani molecules की बनावट और उनकी reactions से मिलने वाली काम करने की energy · image: खाने में मौजूद energy जिसे शरीर इस्तेमाल कर पाता है
+    - kyon: A plant must make absorbed light energy available for chemical work. _[standard]_ → Calvin proposed electron transfer through an organised array of pigments and other substances. _[book]_ → Light reactions provide chemical energy and reducing power used in carbon assimilation. _[standard]_
+    - example / jagah: Zoom from a green leaf to the chloroplast’s thylakoid membrane, the standard textbook location of photosynthetic electron transfer.
+    - aage: Connects capture of light with the energy supply needed for organic-compound formation.
+    - screen par: Absorb light, excite an electron and transfer it between organised carriers.
+    - is level ke liye: Name the trap directly: the Calvin cycle uses products of light reactions; it is not the pigment electron-transfer chain.
+  - prerequisites: Pigments absorb light; Electrons are negatively charged particles in atoms and molecules; Energy can change form; Carbon assimilation incorporates carbon dioxide into organic compounds
+- **p002-i5** · paragraph · timeline · both · exam high
+  - The mapping of the pathway of carbon assimilation in photosynthesis earned him Nobel Prize in 1961.
+    - when: When did Calvin receive the Nobel Prize mentioned here? → The page dates his Nobel Prize to 1961.
+    - why: What achievement earned Calvin this recognition? → The book attributes it to mapping the pathway of carbon assimilation in photosynthesis.
+      - what: What does carbon assimilation mean? → It means incorporating carbon from carbon dioxide into organic compounds through metabolic reactions. _(outside the book)_
+      - how: How is mapping a pathway more informative than knowing the starting material and final product? → A pathway identifies intermediate compounds and their reaction connections, explaining how carbon moves from the starting material towards organic products rather than merely stating that conversion occurs. _(outside the book)_
+  - **khola (unpack):**
+    - carbon assimilation yaani carbon dioxide के carbon को पौधे के organic compounds का हिस्सा बनाना · image: बाहर से आई ईंट को दीवार का हिस्सा बना देना
+    - pathway yaani एक substance से अगले substance तक पहुँचने वाली reactions का जुड़ा रास्ता · image: घर से स्कूल के रास्ते में आने वाले जुड़े हुए पड़ाव
+    - kyon: Starting and ending substances do not explain the intervening carbon reactions. _[standard]_ → Mapping carbon assimilation reveals a connected reaction route. _[standard]_ → This mapping earned Calvin the Nobel Prize in 1961. _[book]_
+    - example / jagah: The photosynthetic route incorporating carbon dioxide into organic compounds in green plants.
+    - aage: Gives the scientific contribution and date that anchor this biography.
+    - screen par: Connect reaction intermediates into a route, then mark 1961.
+    - is level ke liye: Assimilation is incorporation into organic compounds, not simply carbon dioxide entering a leaf through stomata.
+  - prerequisites: Carbon dioxide supplies carbon for photosynthesis; A reaction pathway connects starting materials, intermediates and products; Radioactive labels can trace carbon through reactions
+- **p002-i6** · paragraph · cause_effect · both · exam medium
+  - The principles of photosynthesis as established by Calvin are, at present, being used in studies on renewable resource for energy and materials and basic studies in solar energy research.
+    - what: Which research applications does the page name? → It names studies on renewable resource for energy and materials, and basic studies in solar energy research.
+    - why: Why can understanding photosynthesis help energy research? → Photosynthesis provides a natural example of capturing sunlight and converting its energy into chemical forms. Understanding its principles can guide investigation of energy conversion and renewable biological resources. _(outside the book)_
+      - how: How do the energy and materials applications connect to plants? → Plants use light energy to produce organic matter. That matter can supply materials and can serve as an energy resource, linking photosynthetic production with both applications. _(outside the book)_
+      - exception: Does renewable mean a resource cannot be depleted? → No. A renewable resource can be replenished, but its continued availability depends on replenishment keeping pace with use. _(outside the book)_
+  - **khola (unpack):**
+    - renewable resource yaani ऐसा साधन जो प्राकृतिक प्रक्रियाओं से फिर बन या बढ़ सकता है · image: फसल फिर उग सकती है, लेकिन उसके उगने के लिए समय और सही हालात चाहिए
+    - solar energy research yaani सूरज की energy को पकड़ने और काम में लाने की research · image: धूप में रखी पत्ती energy पकड़ती है; वैज्ञानिक उस प्रक्रिया से सीखते हैं
+    - kyon: Energy and materials research needs ways to use replenishable inputs. _[standard]_ → Photosynthesis captures solar energy and forms organic matter. _[standard]_ → The page links Calvin’s principles to renewable-resource and solar-energy studies. _[book]_
+    - example / jagah: A growing crop illustrates photosynthetic production of renewable organic matter; this is an explanatory example, not a named project on the page.
+    - aage: Extends the biography from discovery of basic principles to their research value.
+    - screen par: Link sunlight to plant matter, then branch to energy, materials and research.
+    - is level ke liye: The book states research applications, not that a particular device or commercial technology was invented by Calvin.
+  - prerequisites: Photosynthesis converts light energy into chemical energy; Plants produce organic matter; Resources can be replenished or depleted
+- **p002-i7** · diagram · figure · image · exam low
+  - Black-and-white photographic portrait of Melvin Calvin, shown from the upper torso upward. The photograph has no scientific labels, arrows or process connections.
+    - what: What kind of visual accompanies this biography? → A photographic portrait identifies the scientist discussed in the text; it is not a diagram of photosynthesis.
+    - which: Which scientist does the portrait show? → The caption identifies him as Melvin Calvin.
+      - how: How should the portrait support learning this page? → Use it as an identity cue linking Calvin’s name with the carbon-assimilation investigation; the experimental evidence comes from the research, not from his appearance. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A biography needs a clear identity for the person whose work is described. _[standard]_ → The portrait and caption identify Melvin Calvin beside the account of his research. _[book]_
+    - example / jagah: Portrait beside the biographical text.
+    - aage: Links a named scientist to the chapter’s experimental history.
+    - screen par: Highlight the portrait and connect it to his name and contribution.
+  - prerequisites: Calvin investigated photosynthetic carbon assimilation
+- **p002-i8** · caption · none · both
+  - Melvin Calvin
+
+## Page 3 · failed after 3 round(s)
+
+Green plants synthesise food through photosynthesis, using light energy to form organic compounds. This supports food dependence and oxygen release. Earlier experiments establish the requirements of chlorophyll, light and CO₂; variegated and partly covered leaves demonstrate chlorophyll and light requirements through starch formation.
+
+Open problems:
+
+- [reviewer] wrong in text_image_disagreements[p0003-b0026]: The record incorrectly says the image prints 'breathe' and 'focuses'. It prints 'breath' and 'focusses', as the native text does. This also contradicts the maker's note claiming the false disagreement was removed. -> fix: Remove this disagreement record. Retain i7's explicit 'breath [breathe]' correction and i8's printed 'focusses'.
+
+- **p003-i1** · heading · none · both
+  - CHAPTER 11
+PHOTOSYNTHESIS IN HIGHER PLANTS
+- **p003-i2** · heading · none · both
+  - 11.1 What do we Know?
+11.2 Early Experiments
+11.3 Where does Photosynthesis take place?
+11.4 How many Pigments are involved in Photosynthesis?
+11.5 What is Light Reaction?
+11.6 The Electron Transport
+11.7 Where are the ATP and NADPH Used?
+11.8 The C₄ Pathway
+11.9 hotorespiration [Photorespiration]
+11.10 Factors affecting Photosynthesis
+- **p003-i3** · paragraph · cause_effect · both · exam high
+  - All animals including human beings depend on plants for their food. Have you ever wondered from where plants get their food? Green plants, in fact, have to make or rather synthesise the food they need and all other organisms depend on them for their needs. The green plants make or rather synthesise the food they need through photosynthesis and are therefore called autotrophs.
+    - what: Where does the food of a green plant come from? → The green plant synthesises its own food through photosynthesis rather than obtaining ready-made food as animals do.
+    - why: Why are green plants called autotrophs? → They make the food they need themselves; their food-making ability explains this name.
+      - how: How can an animal depend on plants even if it does not eat a plant directly? → A plant-eating animal obtains plant-made food, and a predator obtains that material and energy by eating the plant-eater. Dependence can therefore pass along a food chain. _(outside the book)_
+      - why: Why should students not describe soil as the plant's food? → Soil supplies water and mineral nutrients, but the organic food is synthesised by the plant. Absorbing raw materials is different from obtaining ready-made food. _(outside the book)_
+  - **khola (unpack):**
+    - synthesise yaani छोटी चीज़ों को जोड़कर कोई चीज़ बनाना · image: अलग सामान से रसोई में खाना बनना
+    - autotrophs yaani जो अपना food खुद बनाते हैं · image: एक हरा पौधा, जिसे तैयार रोटी खिलानी नहीं पड़ती
+    - kyon: Animals need food, so the opening puzzle asks who makes the food on which they depend. _[book]_ → Green plants synthesise their food through photosynthesis. _[book]_ → Food dependence extends from plants to plant-eaters and then to their consumers. _[standard]_
+    - example / jagah: A green plant, a grazing animal and a human food chain.
+    - aage: Plant food synthesis provides the starting point for understanding heterotrophic dependence.
+    - screen par: Trace food from a green leaf to consumers.
+    - is level ke liye: Auto means self; troph refers to nourishment. Separate organic food from water and mineral supplies.
+  - prerequisites: Food supplies material and energy; Animals obtain food by eating other organisms
+- **p003-i4** · paragraph · comparison · both · exam high
+  - You have already learnt that the autotrophic nutrition is found only in plants and all other organisms that depend on the green plants for food are heterotrophs.
+    - compare: How are autotrophs and heterotrophs contrasted here? → The page describes green plants as food makers and heterotrophs as organisms dependent on green plants for food.
+    - difference: What is the useful criterion for separating these nutritional modes? → Autotrophic organisms synthesise organic food from inorganic sources, whereas heterotrophs obtain organic food from other organisms. _(outside the book)_
+      - why: Why must 'autotrophic nutrition is found only in plants' not be memorised as a universal rule? → Some bacteria are also autotrophic, including photosynthetic cyanobacteria and chemosynthetic bacteria. This page's plant-centred introduction is narrower than the biological distribution of autotrophy. _(outside the book)_
+  - **khola (unpack):**
+    - heterotrophs yaani जिन्हें food दूसरे organisms से मिलता है · image: अपना खाना खाने के लिए पौधों या जानवरों पर निर्भर इंसान
+    - autotrophic nutrition yaani अपना organic food खुद बनाने का तरीका · image: धूप में food बनाता हरा पौधा
+    - kyon: Organisms need organic food, but they do not all obtain it in the same way. _[standard]_ → Green plants make food; consumers depend on food already made by other organisms. _[book]_ → Classify by nutritional ability, not merely by whether the organism is a plant or an animal. _[standard]_
+    - example / jagah: A green leaf versus an animal feeding on plant-derived food.
+    - aage: The nutritional distinction explains why photosynthesis matters beyond the plant.
+    - screen par: Contrast making food with obtaining food.
+    - is level ke liye: NEET trap: 'only plants are autotrophs' is not a universal biological statement.
+  - prerequisites: Green plants synthesise food; Dependence through a food chain
+- **p003-i5** · definition · process · both · exam high
+  - Green plants carry out ‘photosynthesis’, a physico-chemical process by which they use light energy to drive the synthesis of organic compounds.
+    - what: What is photosynthesis in the terms of this page? → It is a physico-chemical process in which green plants use light energy to drive organic-compound synthesis.
+    - how: How should the energy change in photosynthesis be understood? → The chapter describes reactions that transform light energy into chemical energy, connecting sunlight with the formation of food compounds.
+    - when: When can the light-dependent part of photosynthesis proceed? → It requires available light; the experiments recalled on this page identify light as necessary for photosynthesis.
+      - why: Why is the process called physico-chemical rather than just physical? → Light absorption is a physical interaction, but making organic substances involves chemical reactions. Light is an energy input, not a material ingredient that turns into sugar. _(outside the book)_
+      - what: What are organic compounds in this food-making context? → They are carbon-containing compounds such as carbohydrates that can provide material and chemical energy for the organism. _(outside the book)_
+  - **khola (unpack):**
+    - photosynthesis yaani light की energy लेकर organic food बनाना · image: धूप पड़ती पत्ती में food बनने का दृश्य
+    - physico-chemical yaani जिसमें light का physical असर और chemical reactions दोनों हों · image: पहले light पकड़ना, फिर उससे चीज़ें बनाने की प्रक्रिया चलना
+    - organic compounds yaani carbon वाले compounds, जैसे food में carbohydrates · image: आलू में जमा starch
+    - kyon: Making organic food requires an energy supply. _[standard]_ → Green plants use light energy to drive this synthesis. _[book]_ → The reactions connect light capture to chemical energy in food. _[book]_
+    - example / jagah: Photosynthesis in the green parts of an illuminated leaf.
+    - aage: The definition sets up the later study of photosynthetic machinery and reactions.
+    - screen par: Transform incoming light into chemical-energy storage.
+    - is level ke liye: Distinguish conversion of energy from conversion of matter; sunlight is not the carbon source.
+  - prerequisites: Light carries energy; Chemical reactions form substances; Food contains organic substances
+- **p003-i6** · paragraph · cause_effect · both · exam high
+  - Ultimately, all living forms on earth depend on sunlight for energy. The use of energy from sunlight by plants doing photosynthesis is the basis of life on earth. Photosynthesis is important due to two reasons: it is the primary source of all food on earth. It is also responsible for the release of oxygen into the atmosphere by green plants.
+    - why: What two reasons make photosynthesis important on this page? → It is described as the primary source of food on Earth and as the process responsible for oxygen release into the atmosphere by green plants.
+    - how: How does the page connect sunlight to life beyond plants? → Plants use sunlight to synthesise food, while other organisms depend on plants for their food needs. Photosynthesis therefore connects solar energy with that dependence.
+      - consequence: How do food production and oxygen production support an aerobic consumer? → Food supplies organic material and chemical energy; oxygen supports aerobic respiration that releases usable energy from food. _(outside the book)_
+      - exception: Should dependence on sunlight be extended without qualification to every ecosystem? → No. Chemosynthetic producers can support food chains using energy from inorganic chemical reactions. The page states the dominant photosynthetic basis of life in broad introductory language. _(outside the book)_
+  - **khola (unpack):**
+    - primary source yaani वह शुरुआती source जहाँ से food की supply शुरू होती है · image: एक food chain की शुरुआत में हरा पौधा
+    - atmosphere yaani पृथ्वी के चारों तरफ की हवा · image: वही आसपास की हवा जिसे हम साँस में लेते हैं
+    - kyon: Consumers require food that they do not synthesise themselves. _[standard]_ → Photosynthesis supplies plant-made food and releases oxygen into the atmosphere. _[book]_ → Food and oxygen together support the energy needs of aerobic consumers. _[standard]_
+    - example / jagah: A green plant supplying plant-derived food to animals and oxygen to the surrounding air.
+    - aage: Photosynthesis is an ecosystem-supporting process, not merely a way for a leaf to feed itself.
+    - screen par: Branch plant output into food supply and atmospheric oxygen.
+    - is level ke liye: Keep the two ecological roles distinct; the broader autotrophy exception is chemosynthesis.
+  - prerequisites: Plants synthesise food; Consumers depend on other organisms; Atmosphere contains oxygen
+- **p003-i7** · question · cause_effect · both · exam medium
+  - Have you ever thought what would happen if there were no oxygen to breath [breathe]?
+    - consequence: What would happen to humans if oxygen were unavailable for breathing? → Aerobic respiration could not continue normally, severely limiting usable energy supply to cells and threatening survival. _(outside the book)_
+    - why: Why does the book ask this immediately after describing photosynthesis? → The preceding statement identifies photosynthesis by green plants as responsible for releasing oxygen into the atmosphere.
+      - how: How is breathing connected to food-derived energy? → Breathing supplies oxygen, which is used in aerobic cellular respiration; breathing itself is not the chemical breakdown of food. _(outside the book)_
+  - prerequisites: Breathing takes in oxygen; Cells require usable energy
+- **p003-i8** · paragraph · process · both · exam low
+  - This chapter focusses on the structure of the photosynthetic machinery and the various reactions that transform light energy into chemical energy.
+    - what: What two connected aspects will the chapter examine? → It will examine the structure of the photosynthetic machinery and the reactions that convert light energy into chemical energy.
+    - how: How does the chapter frame the energy transformation to be explained? → It links photosynthetic machinery with reactions through which light energy is transformed into chemical energy.
+    - when: When can the light-capturing reactions receive their energy input? → They require illumination to supply light energy; this does not mean that every photosynthetic reaction directly uses light. _(outside the book)_
+      - why: Why study machinery as well as reactions? → A biological energy-conversion process requires both organised structures and the chemical events taking place within them; learning both links location with function. _(outside the book)_
+  - **khola (unpack):**
+    - photosynthetic machinery yaani photosynthesis चलाने वाले parts और उनका arrangement · image: एक काम पूरा करने के लिए जुड़े हुए machine के parts
+    - kyon: Knowing the result leaves the question of how the plant achieves it. _[standard]_ → The chapter studies both the machinery and the energy-converting reactions. _[book]_
+    - example / jagah: Green plant photosynthetic structures and their associated reactions.
+    - aage: Provides the roadmap from structures to reactions.
+    - screen par: Zoom from the leaf into its working machinery.
+  - prerequisites: Photosynthesis uses light energy to synthesise organic compounds
+- **p003-i9** · heading · none · both
+  - 11.1 WHAT DO WE KNOW?
+- **p003-i10** · paragraph · cause_effect · both · exam high
+  - Let us try to find out what we already know about photosynthesis. Some simple experiments you may have done in the earlier classes have shown that chlorophyll (green pigment of the leaf), light and CO₂ are required for photosynthesis to occur.
+    - what: Which three requirements are recalled from earlier experiments? → Chlorophyll, the green pigment of the leaf, light and CO₂ are required for photosynthesis.
+    - why: Why are chlorophyll, light and CO₂ different kinds of requirements? → Chlorophyll absorbs light, light supplies energy, and carbon dioxide supplies the carbon used to make organic compounds. They are not three interchangeable inputs. _(outside the book)_
+      - how: How can an experiment show that a factor is necessary? → Compare otherwise similar conditions with the factor present and absent, and test for a photosynthetic outcome. Changing multiple factors together would obscure which one caused the difference. _(outside the book)_
+    - evidence: What evidence does this paragraph cite for these requirements? → It cites simple experiments from earlier classes; the following paragraph recalls starch tests on variegated and partly covered leaves.
+      - what: What does CO₂ mean? → CO₂ denotes carbon dioxide: each molecule has one carbon atom and two oxygen atoms. The subscript 2 counts oxygen atoms; it is not a unit of measurement. _(outside the book)_
+  - **khola (unpack):**
+    - chlorophyll yaani पत्ती का हरा pigment जो light पकड़ता है · image: धूप में दिखती पत्ती का हरा हिस्सा
+    - pigment yaani रंग देने वाला पदार्थ जो कुछ light absorb करता है · image: पत्ती को हरा दिखाने वाला पदार्थ
+    - CO₂ yaani carbon dioxide, एक carbon और दो oxygen atoms वाली gas · image: हवा से पत्ती तक आती carbon dioxide
+    - kyon: To explain food synthesis, identify what supplies energy and carbon. _[standard]_ → Chlorophyll captures light energy, while CO₂ supplies carbon. _[standard]_ → Earlier experiments establish chlorophyll, light and CO₂ as requirements. _[book]_
+    - example / jagah: The green pigment in a leaf exposed to light and carbon dioxide.
+    - aage: The next experiment isolates green pigmentation and illumination as testable requirements.
+    - screen par: Separate pigment, light input and carbon input.
+    - is level ke liye: CO₂ is the carbon source; chlorophyll is not a food raw material. The CO₂ requirement is recalled here but not tested by the two leaf comparisons below.
+  - prerequisites: A pigment gives colour and can absorb light; Chemical formula subscripts count atoms; Photosynthesis makes organic food
+- **p003-i11** · example · process · both · exam high
+  - You may have carried out the experiment to look for starch formation in two leaves – a variegated leaf or a leaf that was partially covered with black paper, and exposed to light. On testing these leaves for the presence of starch it was clear that photosynthesis occurred only in the green parts of the leaves in the presence of light.
+    - how: How does the page describe testing photosynthetic activity? → A variegated leaf or a partly black-paper-covered leaf is exposed to light and tested for starch formation. The result associates photosynthesis with green regions receiving light.
+    - when: When is starch tested in the recalled experiment? → The leaves are tested after exposure to light, so the outcome can be related to the illuminated experimental conditions.
+      - what: What is a variegated leaf? → It has differently coloured regions, including green chlorophyll-containing areas and non-green areas lacking chlorophyll. These regions allow a comparison within one leaf. _(outside the book)_
+      - how: How do the two leaf treatments isolate different requirements? → In the variegated leaf, compare green and non-green regions exposed to light to investigate chlorophyll. In the partly covered green leaf, compare illuminated and covered regions to investigate light. _(outside the book)_
+      - why: Why test for starch instead of simply looking at the leaf? → Starch is a stored carbohydrate formed from photosynthetic products. Its appearance provides an indirect indicator of food formation that leaf colour alone cannot establish. _(outside the book)_
+        - how: What standard precautions make the starch evidence meaningful? → Destarch the plant beforehand by keeping it in darkness long enough to use stored starch, then expose it under the experimental conditions. For the starch test, boil the leaf, remove chlorophyll using alcohol heated in a water bath, rinse and add iodine solution. Starch-containing regions become blue-black; alcohol must not be heated over a direct flame. _(outside the book)_
+        - evidence: What pattern should be related to the original leaf markings? → Map the iodine-positive blue-black regions back to the original green regions or uncovered regions. Non-green areas of the variegated leaf and covered areas of the green leaf do not show the corresponding new starch formation under the standard controlled conditions. _(outside the book)_
+      - consequence: What can and cannot be concluded from these particular comparisons? → They support the requirements of chlorophyll and light for photosynthetic starch formation. They do not independently demonstrate the CO₂ requirement because carbon dioxide was not the variable changed. _(outside the book)_
+  - **khola (unpack):**
+    - variegated leaf yaani जिस पत्ती पर हरे और गैर-हरे हिस्से हों · image: हरे और सफेद धब्बों वाली पत्ती
+    - starch yaani food का जमा किया हुआ carbohydrate रूप · image: आलू में जमा food
+    - black paper yaani light रोकने के लिए लगाया गया काला कागज़ · image: खिड़की पर पर्दा लगाकर रोशनी रोकना
+    - kyon: To know whether greenness and light matter, compare regions that differ in one of these conditions. _[standard]_ → Expose the variegated or partly covered leaf to light, then test it for starch. _[book]_ → Starch formation in green illuminated parts supports the requirements of chlorophyll and light. _[book]_
+    - example / jagah: Green versus non-green regions of one leaf; uncovered versus black-paper-covered regions of a green leaf.
+    - aage: The experiment turns the introductory requirements into evidence-based conclusions while leaving CO₂ for a different test.
+    - screen par: Mask, illuminate, test and map starch-positive regions.
+    - is level ke liye: Build the two comparisons separately. Add the standard destarching and iodine-test explanation as outside support, not as steps printed on this page.
+  - prerequisites: Chlorophyll occurs in green leaf regions; Light is an energy source for photosynthesis; Starch is a stored carbohydrate; A controlled comparison changes one factor at a time
+
+## Page 4 · passed after 2 round(s)
+
+A leaf portion deprived of CO₂ fails to form starch in light. Priestley showed that plants restore air affected by breathing and burning; Ingenhousz established the importance of sunlight and oxygen release by green plant parts.
+
+- **p004-i1** · paragraph · cause_effect · both · exam high
+  - Another experiment you may have carried out where a part of a leaf is enclosed in a test tube containing some KOH soaked cotton (which absorbs CO₂), while the other half is exposed to air. The setup is then placed in light for some time. On testing for the presence of starch later in the two parts of the leaf, you must have found that the exposed part of the leaf tested positive for starch while the portion that was in the tube, tested negative. This showed that CO₂ was required for photosynthesis.
+    - why: What problem does this experiment address? → It asks whether an illuminated leaf can form starch when CO₂ is removed from the air surrounding it. _(outside the book)_
+    - how: How is CO₂ availability changed? → One portion of a leaf is enclosed with KOH soaked cotton, which absorbs CO₂, while the other portion remains exposed to air. The setup is kept in light before both portions are tested for starch.
+    - compare: How do the two portions differ in their starch-test results? → The air-exposed portion tests positive for starch, whereas the enclosed portion tests negative.
+      - why: Why does absence of CO₂ prevent new starch formation? → CO₂ supplies carbon for photosynthetic carbohydrate synthesis. Light supplies energy but cannot substitute for that carbon source; some carbohydrate made by photosynthesis can accumulate as starch. _(outside the book)_
+      - how: How would a teacher make the starch test and experimental control explicit? → Start with a destarched plant so stored starch does not obscure the result. After exposure, decolourise the leaf and apply iodine: starch gives a blue-black colour. Keep other relevant conditions comparable so the contrast tests CO₂ availability. _(outside the book)_
+        - why: Why use two portions of the same leaf? → It reduces differences due to leaf age, plant condition and initial reserves, making the comparison more informative than two unrelated leaves. _(outside the book)_
+  - **khola (unpack):**
+    - KOH yaani potassium hydroxide; यहाँ हवा से CO₂ हटाने वाला पदार्थ · image: जैसे डिब्बे में रखा नमी सोखने वाला packet, पर यहाँ हटने वाली चीज़ CO₂ है
+    - CO₂ yaani carbon dioxide; एक carbon और दो oxygen atoms वाली gas · image: साँस छोड़ते समय बाहर आने वाली हवा में मौजूद एक gas
+    - starch yaani खाने में जमा रहने वाला carbohydrate · image: आलू में जमा starch
+    - tested positive yaani जाँच में जिस चीज़ को खोज रहे थे, वह मिली · image: iodine डालने पर starch वाला हिस्सा नीला-काला दिखना
+    - kyon: Need to test CO₂ rather than simply observe a leaf growing: remove CO₂ around one portion using KOH. _[book]_ → After light exposure, the air-exposed portion contains starch but the CO₂-deprived portion does not. _[book]_ → With other relevant conditions controlled, this supports CO₂ being necessary for photosynthetic starch formation. _[standard]_
+    - example / jagah: Two portions of one leaf, one inside the test tube and one outside.
+    - aage: The experiment moves from a visible starch-test result to an invisible requirement for a gas.
+    - screen par: Enclose one leaf portion, remove CO₂, illuminate, and reveal contrasting iodine-test colours.
+    - is level ke liye: NEET trap: KOH absorbs CO₂, not light or oxygen; light alone is insufficient for carbohydrate formation.
+  - prerequisites: Photosynthesis makes carbohydrates; Starch can be stored in a leaf; Light is needed for photosynthesis; A controlled experiment changes one factor
+- **p004-i2** · question · cause_effect · both · exam high
+  - Can you explain how this conclusion could be drawn?
+    - how: How do the observations support the conclusion? → The portion exposed to air forms starch, but the portion enclosed with CO₂-absorbing KOH does not. The page uses this contrast to conclude that CO₂ is required for photosynthesis.
+      - why: Why must the explanation mention controlled conditions? → A difference in starch formation identifies CO₂ as the relevant factor only if other necessary conditions are comparable and pre-existing starch has been removed. _(outside the book)_
+  - prerequisites: KOH removes CO₂; Starch is evidence of photosynthetic carbohydrate formation
+- **p004-i3** · heading · none · both
+  - 11.2 Early Experiments
+- **p004-i4** · paragraph · timeline · both · exam low
+  - It is interesting to learn about those simple experiments that led to a gradual development in our understanding of photosynthesis.
+    - when: Was understanding of photosynthesis established in one step? → The page presents it as a gradual development through simple experiments.
+    - why: Why follow the experiments in sequence? → Each experiment answers a narrower question: whether plants restore air, whether light matters, and which plant parts release oxygen. Their sequence shows how evidence refines an explanation. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: The process is not directly understood just by looking at a plant; simple experiments gradually developed the explanation. _[book]_ → Track the question each experiment answers rather than memorising disconnected names. _[standard]_
+    - example / jagah: Priestley’s bell jars followed by Ingenhousz’s light–dark comparisons.
+    - aage: Provides a running history of evidence for photosynthesis.
+    - screen par: Add successive experimental findings to a timeline.
+    - is level ke liye: Attach each scientist to the precise contribution demonstrated.
+  - prerequisites: Experiments provide evidence for explanations
+- **p004-i5** · paragraph · timeline · both · exam high
+  - Joseph Priestley (1733-1804) in 1770 performed a series of experiments that revealed the essential role of air in the growth of green plants. Priestley, you may recall, discovered oxygen in 1774.
+    - when: Which dates belong to Priestley’s work here? → His lifespan is given as 1733–1804. The air-and-plant experiments are dated 1770, and his discovery of oxygen is dated 1774.
+    - who: Who investigated the role of air in green-plant growth? → Joseph Priestley performed the series of experiments introduced here.
+    - why: Why distinguish 1770 from 1774? → The page associates them with different achievements: experiments on plants and air versus discovery of oxygen. Combining them into one event loses that distinction.
+  - **khola (unpack):**
+    - oxygen yaani हवा की वह gas जो साँस लेने और candle जलने में काम आती है · image: ढकी candle का कुछ देर बाद बुझ जाना
+    - kyon: Need to understand air’s role in plants: Priestley performed experiments in 1770. _[book]_ → The page separately records oxygen discovery in 1774, so observation and gas identification must remain distinct on the timeline. _[book]_
+    - example / jagah: A 1770 → 1774 timeline beside the bell-jar experiment.
+    - aage: Sets up the evidence underlying the historical idea that plants restore air.
+    - screen par: Place two distinct milestones on the timeline.
+    - is level ke liye: NEET association: Priestley—not Ingenhousz—for the air-restoration hypothesis.
+  - prerequisites: Air contains different gases; An observation can precede identification of its cause
+- **p004-i6** · paragraph · cause_effect · both · exam high
+  - Priestley observed that a candle burning in a closed space – a bell jar, soon gets extinguished (Figure 11.1 a, b, c, d). Similarly, a mouse would soon suffocate in a closed space. He concluded that a burning candle or an animal that breathe the air, both somehow, damage the air. But when he placed a mint plant in the same bell jar, he found that the mouse stayed alive and the candle continued to burn. Priestley hypothesised as follows: Plants restore to the air whatever breathing animals and burning candles remove.
+    - why: What puzzle is raised by the candle and mouse in a closed jar? → A candle soon goes out and a mouse soon suffocates, suggesting that burning and breathing change air so it no longer supports them.
+    - how: How did the mint plant change the reported outcome? → With the mint plant in the same bell jar, the mouse stayed alive and the candle continued to burn. Priestley proposed that plants restore whatever burning and breathing remove from air.
+      - why: What does 'damage the air' mean in modern terms? → Combustion and aerobic respiration consume oxygen. In a closed jar its supply is finite, so it can become insufficient to sustain the flame or the animal. _(outside the book)_
+      - how: How can a green plant restore the oxygen supply? → In suitable light a green plant photosynthesises and releases oxygen. When photosynthetic oxygen production exceeds its own respiratory oxygen use, it can replenish oxygen in the surrounding air. _(outside the book)_
+        - exception: Does this mean a plant supplies oxygen in darkness or supports a sealed animal indefinitely? → No. Plants also respire, including in darkness; net oxygen production depends on suitable light and other conditions. A sealed system is not guaranteed to remain balanced indefinitely. _(outside the book)_
+    - evidence: What observation supports Priestley’s hypothesis? → The reported difference is failure of the candle and mouse in closed air versus their continued functioning when a mint plant is present.
+  - **khola (unpack):**
+    - bell jar yaani घंटी जैसे आकार का glass ढक्कन, जो setup को बंद जगह में रखता है · image: cake पर रखा बड़ा glass cover
+    - suffocate yaani साँस के लिए ज़रूरी oxygen कम पड़ने से दम घुटना · image: हवा का रास्ता बंद होने पर साँस लेने में परेशानी
+    - hypothesised yaani देखे हुए नतीजों को समझाने के लिए जाँचने लायक विचार दिया · image: बुझी torch देखकर कहना कि शायद battery खत्म है, फिर जाँचना
+    - restore yaani जो घट गया था उसे फिर से भरना · image: खाली होती पानी की bottle को फिर भरना
+    - kyon: Need to explain why a candle goes out and a mouse suffocates in closed air. _[book]_ → Adding a mint plant changes the reported outcome, leading Priestley to propose restoration of air. _[book]_ → Modern interpretation links oxygen consumption by breathing and burning with oxygen production by photosynthesis in light. _[standard]_
+    - example / jagah: Mint plant, mouse and candle under a closed bell jar.
+    - aage: Raises the next question: under which conditions can the plant restore air?
+    - screen par: Deplete oxygen in one jar and replenish it through an illuminated plant in the comparison jar.
+    - is level ke liye: Correct the misconception that plants only photosynthesise: they also respire. Avoid presenting the historical illustration as an indefinitely self-sustaining system.
+  - prerequisites: A flame needs oxygen; Animals use oxygen in respiration; A closed jar does not freely exchange air; Green plants photosynthesise
+- **p004-i7** · diagram · figure · image · exam high
+  - Figure 11.1 shows four bell-jar panels. Upper row: (a) a mouse and a burning candle are enclosed without a plant; a rightward arrow leads to (b), showing an unlit candle and a collapsed mouse. Lower row: (c) a leafy potted plant, mouse and burning candle are enclosed together; a rightward arrow leads to (d), in which the plant remains, the mouse is upright and the candle is still burning. There is no vertical arrow connecting the two rows.
+    - what: What comparison does the figure encode? → It contrasts a closed jar without a plant with one containing a plant, showing later outcomes for the candle and mouse in each.
+    - which: Which arrows indicate passage to the outcome? → The upper arrow links (a) to (b); the lower arrow links (c) to (d). The figure does not show a single four-stage sequence.
+      - how: How should the figure be used to explain the experiment? → Read each horizontal pair as an initial state and its outcome, then compare the two outcomes. The plant is the conspicuous difference between the rows. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Need to compare what happens with and without a plant: the figure supplies two horizontal pairs. _[book]_ → Follow each arrow before comparing rows so initial conditions and outcomes are not confused. _[standard]_
+    - example / jagah: Left-side Figure 11.1, upper and lower bell-jar pairs.
+    - aage: Makes the evidence for air restoration visible.
+    - screen par: Follow the two horizontal arrows and contrast the flames and mouse postures.
+    - is level ke liye: The drawing does not itself test light versus darkness; that comparison belongs to Ingenhousz.
+  - prerequisites: Meaning of a sequence arrow; Burning and respiration depend on the surrounding air
+- **p004-i8** · diagram_label · figure · both · exam medium
+  - (a): A closed bell jar containing a mouse and a burning candle, without a plant; the arrow points right to panel (b).
+    - what: What initial condition does (a) show? → A mouse and a lit candle share the closed air space without a plant.
+    - which: Which panel gives its later outcome? → Panel (b), reached by the rightward arrow, is the corresponding outcome.
+      - why: Why is the absence of a plant important? → It provides the comparison condition in which oxygen is consumed without photosynthetic replenishment by a plant. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Need a baseline: begin with the candle and mouse but no plant. _[standard]_ → Follow the arrow to see whether this air continues to support them. _[book]_
+    - example / jagah: Figure 11.1(a).
+    - aage: Establishes the starting point for the unsuccessful outcome.
+    - screen par: Enclose the mouse and burning candle.
+  - prerequisites: Closed air space; Oxygen consumption by respiration and combustion
+- **p004-i9** · diagram_label · figure · both · exam medium
+  - (b): The candle is extinguished and the mouse lies collapsed inside the bell jar without a plant; this is the outcome of (a).
+    - what: What outcome is represented in (b)? → The flame is absent and the mouse is shown collapsed, matching the text’s account of extinguishing and suffocation.
+    - which: Which starting panel leads to (b)? → Panel (a), which has the mouse and burning candle without a plant.
+      - why: Why does the closed air stop supporting burning and breathing? → The finite oxygen supply is consumed and can become too low to sustain them. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: The initial jar has a limited oxygen supply used by both occupants. _[standard]_ → The figure shows a lost flame and collapsed mouse as the unsuccessful outcome. _[book]_
+    - example / jagah: Figure 11.1(b).
+    - aage: Prompts the question of whether adding a plant changes the outcome.
+    - screen par: Fade the flame and change the mouse’s posture.
+  - prerequisites: A flame needs oxygen; A mouse needs oxygen for respiration
+- **p004-i10** · diagram_label · figure · both · exam medium
+  - (c): A leafy potted plant is enclosed with the mouse and burning candle; a rightward arrow leads to panel (d).
+    - what: What change appears in the second starting condition? → A potted plant is present alongside the mouse and burning candle.
+    - which: Which outcome belongs to (c)? → Panel (d), connected to it by the lower horizontal arrow.
+      - how: How can this addition alter the air? → Under suitable illumination the plant’s photosynthesis can provide oxygen to the surrounding air. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Need to test whether a plant changes the result: add the leafy plant to the jar. _[book]_ → Compare its later outcome with the no-plant jar rather than treating it as the next stage after (b). _[standard]_
+    - example / jagah: Figure 11.1(c).
+    - aage: Introduces the plant-present comparison.
+    - screen par: Add the potted plant beside the candle and mouse.
+  - prerequisites: Photosynthesis releases oxygen under suitable conditions
+- **p004-i11** · diagram_label · figure · both · exam medium
+  - (d): The plant remains in the bell jar, the mouse is upright and the candle remains alight; this is the plant-present outcome following (c).
+    - what: What successful outcome does (d) show? → With the plant present, the candle still has a flame and the mouse is depicted alive.
+    - which: Which panel provides the contrasting outcome? → Panel (b), where no plant is present and the candle is out and mouse collapsed.
+      - why: Why does this support air restoration? → The plant-present jar supports burning and breathing unlike the plant-absent jar; this contrast underlies Priestley’s restoration hypothesis.
+  - **khola (unpack):**
+    - kyon: Need to see whether the plant matters: compare the outcomes in (b) and (d). _[standard]_ → The successful plant-present outcome supports Priestley’s claim that plants restore air. _[book]_
+    - example / jagah: Figure 11.1(d).
+    - aage: Links the visual evidence to the historical conclusion.
+    - screen par: Keep the flame lit and contrast the two outcome panels.
+    - is level ke liye: Do not infer unlimited survival from a schematic snapshot.
+  - prerequisites: The plant-absent comparison in panels (a) and (b)
+- **p004-i12** · caption · none · both
+  - Figure 11.1 Priestley’s experiment
+- **p004-i13** · question · process · both · exam medium
+  - Can you imagine how Priestley would have conducted the experiment using a candle and a plant? Remember, he would need to rekindle the candle to test whether it burns after a few days. How many different ways can you think of to light the candle without disturbing the set-up?
+    - how: How could the candle be tested again without opening the jar? → Possible methods include focusing strong sunlight onto the wick with a convex lens, or using a suitably positioned electrical heating wire or spark with sealed connections. These are possible designs, not methods specified on this page. _(outside the book)_
+    - when: When does the page suggest checking whether the candle can burn? → After a few days, the candle would need to be rekindled to test the air in the setup.
+      - why: Why must the setup remain undisturbed? → Opening the jar admits fresh air and oxygen. Then a relit candle might burn because of the incoming air rather than because the plant restored the enclosed air. _(outside the book)_
+      - how: How would a candle-and-plant test isolate the plant’s effect? → Compare closed setups with and without the plant under otherwise comparable conditions, wait for the chosen interval and attempt ignition without exchanging air. _(outside the book)_
+  - prerequisites: A burning candle uses oxygen; Opening a jar allows air exchange; A fair comparison keeps other conditions similar
+- **p004-i14** · paragraph · cause_effect · both · exam high
+  - Using a similar setup as the one used by Priestley, but by placing it once in the dark and once in the sunlight, Jan Ingenhousz (1730-1799) showed that sunlight is essential to the plant process that somehow purifies the air fouled by burning candles or breathing animals.
+    - why: What question remained after Priestley’s work? → The next issue is whether a plant restores air under any conditions or whether illumination is essential. _(outside the book)_
+    - how: How did Ingenhousz test the role of illumination? → He used a setup similar to Priestley’s and compared it in darkness and sunlight, showing sunlight to be essential for the air-purifying plant process.
+    - who: Who established this requirement, and what lifespan is given? → Jan Ingenhousz, whose lifespan is given as 1730–1799.
+    - difference: How does his contribution differ from Priestley’s? → Priestley proposed restoration of air by plants; Ingenhousz showed that sunlight is essential for the relevant plant process.
+      - why: Why is the light–dark contrast important mechanistically? → Photosynthetic oxygen production depends on light-driven reactions, whereas plant respiration continues in darkness. A plant’s presence alone therefore does not guarantee net oxygen addition. _(outside the book)_
+  - **khola (unpack):**
+    - purifies the air yaani यहाँ हवा को फिर ऐसा बनाना कि candle जल सके और जानवर साँस ले सके · image: कम हुई supply को फिर भर देना, धूल छानना नहीं
+    - kyon: A plant restores air in Priestley’s account, but the needed conditions remain to be tested. _[standard]_ → Ingenhousz compares darkness with sunlight and establishes the requirement of sunlight. _[book]_ → Interpret restoration as light-dependent photosynthetic oxygen release rather than a plant acting as a passive air filter. _[standard]_
+    - example / jagah: A Priestley-like setup placed in darkness versus sunlight.
+    - aage: Narrows the explanation from plant presence to plant activity in light.
+    - screen par: Switch the illumination while holding the setup comparable.
+    - is level ke liye: NEET trap: 'purification' here refers to the historical oxygen-restoration context, not removal of every air pollutant.
+  - prerequisites: Priestley’s air-restoration hypothesis; Plants respire as well as photosynthesise
+- **p004-i15** · paragraph · cause_effect · both · exam high
+  - Ingenhousz in an elegant experiment with an aquatic plant showed that in bright sunlight, small bubbles were formed around the green parts while in the dark they did not. Later he identified these bubbles to be of oxygen. Hence he showed that it is only the green part of the plants that could release oxygen.
+    - what: What was directly observed in the aquatic-plant experiment? → Small bubbles appeared around the green parts in bright sunlight but not in darkness. Ingenhousz later identified the bubbles as oxygen.
+    - why: Why is an aquatic plant useful for observing gas release? → Gas released underwater can collect into visible bubbles, making release easier to notice than gas mixing invisibly with air around a land plant. _(outside the book)_
+    - how: How do the observations refine the explanation of air restoration? → They associate bubble formation with green parts in sunlight and identify the gas as oxygen, leading to the stated conclusion that green parts release oxygen.
+      - why: Why do the green parts produce oxygen in light? → Green parts contain chlorophyll-bearing chloroplasts that carry out photosynthesis. In its light reactions, water is split and oxygen is released. _(outside the book)_
+      - evidence: Does seeing bubbles by itself prove that the gas is oxygen? → No. Bubble formation demonstrates gas release; gas identity requires separate identification. The page explicitly distinguishes observing bubbles from identifying them later. _(outside the book)_
+      - exception: Does absence of bubbles in darkness mean the plant has stopped respiration? → No. Respiration continues, but light-dependent photosynthetic oxygen production ceases. No visible oxygen bubbles is not the same as no metabolism. _(outside the book)_
+    - where: Which plant parts are associated with oxygen release on this page? → The green parts, not an unrestricted claim about every part of the plant.
+  - **khola (unpack):**
+    - aquatic plant yaani पानी में रहने या उगने वाला plant · image: तालाब के पानी में डूबी हरी टहनियाँ
+    - green parts yaani plant के chlorophyll वाले हरे हिस्से · image: हरी पत्ती और हरा नरम stem, भूरे तने से अलग
+    - bubbles yaani पानी के अंदर gas के छोटे गोले · image: पानी में straw से हवा छोड़ने पर ऊपर उठते गोले
+    - kyon: Need visible evidence of what the plant releases: observe an aquatic plant in bright sunlight and darkness. _[book]_ → Bubbles form around green parts in sunlight, not in darkness; the gas is later identified as oxygen. _[book]_ → Green tissues contain the photosynthetic machinery that uses light and releases oxygen, explaining the observed restriction. _[standard]_
+    - example / jagah: Around the green parts of the aquatic plant submerged in water.
+    - aage: Completes the progression from restoration of air to light-dependent oxygen release by green plant parts.
+    - screen par: Zoom to green tissues, form rising bubbles in light, then stop photosynthetic bubbling in darkness.
+    - is level ke liye: NEET traps: bubbles are evidence of gas release, not automatic proof of gas identity; green parts include more than leaves; respiration does not stop in darkness.
+  - prerequisites: Green parts contain chlorophyll; Gas released underwater may form bubbles; Photosynthesis and respiration are different processes; Ingenhousz’s light–dark comparison
+
+## Page 5 · passed after 2 round(s)
+
+Sachs linked glucose production and starch storage with green plant parts and located chlorophyll in chloroplasts. Engelmann's prism–Cladophora–aerobic bacteria experiment showed greatest oxygen evolution in blue and red light. Van Niel generalised photosynthesis as light-dependent reduction of CO₂ using an oxidisable hydrogen donor, explaining why plant oxygen comes from water and why sulphur bacteria need not evolve oxygen.
+
+- **p005-i1** · paragraph · timeline · both · exam high
+  - It was not until about 1854 that Julius von Sachs provided evidence for production of glucose when plants grow. Glucose is usually stored as starch. His later studies showed that the green substance in plants (chlorophyll as we know it now) is located in special bodies (later called chloroplasts) within plant cells. He found that the green parts in plants is [are] where glucose is made, and that the glucose is usually stored as starch.
+    - why: What puzzle about growing plants does Sachs's work answer? → It identifies a product made as plants grow—glucose—and connects its production with green plant parts and its usual storage with starch.
+    - when: When and by whom was evidence for glucose production supplied? → Julius von Sachs supplied this evidence about 1854; the paragraph places his chlorophyll-location studies later.
+    - where: Where is chlorophyll located, and where did Sachs find glucose production? → Chlorophyll occurs in chloroplasts within plant cells; green plant parts are where glucose is made.
+      - difference: How should a learner distinguish chlorophyll, chloroplast, glucose and starch? → Chlorophyll is a pigment, a chloroplast is the cell compartment containing it, glucose is a sugar, and starch is a storage carbohydrate made from linked glucose units. A pigment is not the same thing as its containing compartment. _(outside the book)_
+      - why: Why is starch useful for storing carbohydrate rather than retaining large quantities as free glucose? → Starch is relatively insoluble and compact, so storing glucose units in it produces a smaller osmotic effect than storing the same units as separate soluble glucose molecules. _(outside the book)_
+  - **khola (unpack):**
+    - chlorophyll yaani पौधे का हरा pigment, जो light पकड़ने में मदद करता है · image: हरी पत्ती का रंग
+    - chloroplasts yaani plant cell के अंदर chlorophyll रखने वाले छोटे हिस्से · image: कमरे के अंदर सामान रखने की अलग अलमारी
+    - starch yaani glucose की जुड़ी इकाइयों में रखा गया carbohydrate का भंडार · image: आलू में जमा खाना
+    - kyon: A growing plant needs a source of newly formed food; Sachs supplied evidence for glucose production. _[book]_ → His findings linked production with green parts and located the green pigment in chloroplasts. _[book]_ → The glucose produced is usually stored as starch, separating immediate sugar production from storage. _[book]_
+    - example / jagah: Zoom from a green leaf to its plant cells and then to chloroplasts containing chlorophyll.
+    - aage: The next question is which components of light drive this food-producing activity most effectively.
+    - screen par: zoom into the leaf and pack glucose units into starch
+    - is level ke liye: NEET trap: chlorophyll is the pigment; chloroplast is its location. Do not invent an experimental procedure not described here.
+  - prerequisites: plant cells contain internal compartments; glucose is a sugar; green plant parts
+- **p005-i2** · paragraph · process · both · exam high
+  - Now consider the interesting experiments done by T.W Engelmann (1843 – 1909). Using a prism he split light into its spectral components and then illuminated a green alga, Cladophora, placed in a suspension of aerobic bacteria. The bacteria were used to detect the sites of O₂ evolution. He observed that the bacteria accumulated mainly in the region of blue and red light of the split spectrum. A first action spectrum of photosynthesis was thus described. It resembles roughly the absorption spectra of chlorophyll a and b (discussed in section 11.4).
+    - why: After linking photosynthesis to green parts, what new question does Engelmann's experiment address? → It asks whether different spectral components of light support photosynthesis equally, using oxygen evolution as an indicator of activity. _(outside the book)_
+    - how: How was the experiment arranged? → Engelmann split light with a prism and illuminated Cladophora in a suspension of aerobic bacteria. Their accumulation identified sites of oxygen evolution, mainly under blue and red light.
+    - when: When were bacterial positions informative, and what do the dates mean? → Their positions were informative during illumination of the alga with the split spectrum. The printed dates 1843–1909 accompany Engelmann's name; the page does not give an experiment year.
+      - why: Why use aerobic bacteria rather than simply observing the alga? → Aerobic bacteria use oxygen in respiration and tend to accumulate where oxygen availability is greater. Their distribution acts as an indirect biological indicator of local oxygen production. _(outside the book)_
+      - how: How does the observation become an action spectrum? → Relating the amount of photosynthetic activity to the colour or wavelength of incident light gives an action spectrum. Here bacterial accumulation indirectly reveals the relative activity at different spectral regions. _(outside the book)_
+      - difference: How is an action spectrum different from an absorption spectrum? → An action spectrum records effectiveness in driving a biological process; an absorption spectrum records how strongly a pigment absorbs different wavelengths. The two measure different things even when their patterns resemble one another. _(outside the book)_
+    - evidence: What result linked photosynthetic activity with chlorophyll? → Bacteria accumulated mainly in blue and red regions, and the first action spectrum roughly resembled the absorption spectra of chlorophyll a and b.
+  - **khola (unpack):**
+    - spectral components yaani light के अलग-अलग रंग या wavelength वाले हिस्से · image: prism से निकली इंद्रधनुष जैसी पट्टी
+    - suspension yaani liquid में तैरते हुए छोटे कण या organisms · image: पानी में तैरते छोटे कण
+    - aerobic bacteria yaani respiration के लिए oxygen इस्तेमाल करने वाले bacteria · image: जहाँ ज़रूरी चीज़ मिले वहाँ जुटती भीड़
+    - O₂ evolution yaani oxygen gas का बनकर बाहर निकलना · image: पानी वाले पौधे से निकलते gas के बुलबुले
+    - action spectrum yaani किस wavelength पर photosynthesis कितना असरदार है, उसका नक्शा · image: अलग काम करने वालों की performance chart
+    - absorption spectra yaani pigment अलग-अलग wavelength की light कितनी पकड़ता है, उसका नक्शा · image: अलग रंगों के लिए अलग ऊँचाई वाली bars
+    - kyon: To compare colours, first separate light into spectral components with a prism. _[book]_ → Aerobic bacteria indicate where the illuminated Cladophora evolves oxygen. _[book]_ → Their blue/red accumulation links those spectral regions with greater photosynthetic activity. _[standard]_
+    - example / jagah: Cladophora illuminated across the split spectrum while suspended aerobic bacteria collect near oxygen-producing regions.
+    - aage: A biological response provides evidence for the wavelengths effective in photosynthesis, roughly matching chlorophyll absorption.
+    - screen par: split light, illuminate the alga and cluster bacteria in blue and red
+    - is level ke liye: Distinguish an activity measurement from pigment absorption. 'Mainly' does not mean photosynthesis is absent at every other wavelength.
+  - prerequisites: photosynthesis can release oxygen; a prism separates light into colours; bacteria are living cells; respiration can require oxygen
+- **p005-i3** · paragraph · timeline · both · exam medium
+  - By the middle of the nineteenth century the key features of plant photosynthesis were known, namely, that plants could use light energy to make carbohydrates from CO₂ and water. The empirical equation representing the total process of photosynthesis for oxygen evolving organisms was then understood as:
+    - when: By when were these key features understood? → By the middle of the nineteenth century, plants were understood to use light energy to make carbohydrates from carbon dioxide and water.
+    - why: Why express this understanding as an empirical equation? → An empirical equation summarises the observed overall inputs and outputs without claiming to show the individual biochemical reactions. _(outside the book)_
+      - what: What is the scope of the equation introduced here? → It summarises photosynthesis in oxygen-evolving organisms, rather than asserting that every photosynthetic organism releases oxygen.
+  - **khola (unpack):**
+    - empirical equation yaani देखे गए कुल inputs और outputs को छोटा करके लिखने वाली equation · image: रसोई में सामग्री और तैयार खाने की छोटी सूची
+    - kyon: Known observations needed a compact summary of what plants consume and produce. _[standard]_ → By the mid-nineteenth century, light-driven carbohydrate formation from CO₂ and water was recognised. _[book]_
+    - example / jagah: Photosynthesis in oxygen-evolving green plants.
+    - aage: The first equation is a historical overall summary, not a complete reaction mechanism.
+    - screen par: collect observations into one input–output arrow
+    - is level ke liye: Recall 'mid-nineteenth century' as context; prioritise the chemical meaning over memorising chronology alone.
+  - prerequisites: carbon dioxide and water are chemical substances; light supplies energy; carbohydrates include sugars
+- **p005-i4** · equation · facts_numbers · both · exam high
+  - CO₂ + H₂O —Light→ [CH₂O] + O₂
+where [CH₂O] represented a carbohydrate (e.g., glucose, a six-carbon sugar).
+    - what: What does each part of this equation mean? → CO₂ denotes carbon dioxide, H₂O water, O₂ oxygen, and [CH₂O] a carbohydrate representation. The plus signs join participants, the arrow indicates conversion, and Light above it identifies the energy condition. Glucose is the six-carbon sugar example given.
+    - evidence: What understanding does the equation summarise? → It summarises the known ability of oxygen-evolving plants to use light energy to form carbohydrate from carbon dioxide and water.
+      - why: Why must [CH₂O] not be read as the molecular formula of glucose? → It expresses a carbohydrate composition unit. Glucose has the molecular formula C₆H₁₂O₆, so its six carbons are not represented by interpreting CH₂O as a complete glucose molecule. _(outside the book)_
+      - how: How should numbers and units in this equation be read? → Subscripts count atoms within a formula; implicit coefficients are one and give relative reaction proportions. There are no physical measurement units printed, and light is an energy input rather than a molecule counted on either side. _(outside the book)_
+  - **khola (unpack):**
+    - [CH₂O] yaani carbohydrate की composition दिखाने वाला छोटा संकेत, पूरा glucose molecule नहीं · image: पूरी दीवार के बजाय उसकी एक दोहराई जाने वाली ईंट
+    - kyon: A general equation needs a compact way to represent carbohydrate. _[standard]_ → The book uses [CH₂O], with six-carbon glucose as an example. _[book]_ → Distinguishing a composition unit from a whole molecule prevents incorrect formula recall. _[standard]_
+    - example / jagah: Glucose: C₆H₁₂O₆, corresponding to six CH₂O composition units.
+    - aage: This short equation does not establish which reactant supplies evolved oxygen.
+    - screen par: expand one carbohydrate composition unit into a six-carbon formula
+    - is level ke liye: Read symbols and subscripts carefully; do not infer oxygen's source merely from a balanced equation.
+  - prerequisites: chemical subscripts count atoms; reactants and products in chemical equations; glucose contains six carbons
+- **p005-i5** · paragraph · cause_effect · both · exam high
+  - A milestone contribution to the understanding of photosynthesis was that made by a microbiologist, Cornelius van Niel (1897-1985), who, based on his studies of purple and green bacteria, demonstrated that photosynthesis is essentially a light-dependent reaction in which hydrogen from a suitable oxidisable compound reduces carbon dioxide to carbohydrates. This can be expressed by:
+    - why: Why is the earlier plant equation insufficient as a general account of photosynthesis? → The page introduces bacterial photosynthesis in which organisms can use hydrogen donors other than water and need not release oxygen.
+    - who: Who proposed the broader account, and from what studies? → Microbiologist Cornelius van Niel, whose lifespan is given as 1897–1985, drew on studies of purple and green bacteria.
+    - how: How did van Niel describe the essential reaction? → Light-dependent photosynthesis uses hydrogen from a suitable oxidisable compound to reduce carbon dioxide to carbohydrate.
+      - how: What does 'reduces carbon dioxide' mean chemically? → Reduction means gain of electrons; converting carbon in CO₂ into carbohydrate requires reducing power. The donor supplies that reducing power and is itself oxidised. 'Hydrogen donor' is the book's overall chemical description, not a claim that free hydrogen gas must be formed. _(outside the book)_
+  - **khola (unpack):**
+    - oxidisable compound yaani ऐसा compound जो electrons देकर खुद oxidised हो सके · image: एक व्यक्ति सामान देता है ताकि दूसरा उसे ले सके
+    - reduces yaani electrons मिलने से chemical हालत बदलती है; यहाँ CO₂ से carbohydrate बनने में मदद मिलती है · image: एक तरफ से निकले सामान का दूसरी तरफ पहुँचना
+    - light-dependent yaani जिसके चलने के लिए light की ज़रूरत हो · image: धूप मिलने पर चलने वाला solar उपकरण
+    - kyon: A general explanation must accommodate photosynthetic bacteria as well as green plants. _[standard]_ → Van Niel identified light-dependent CO₂ reduction using hydrogen from an oxidisable compound. _[book]_ → The donor can vary, so oxygen evolution is not the defining requirement of photosynthesis. _[standard]_
+    - example / jagah: Purple and green bacteria compared with green plants.
+    - aage: The next equation replaces a specific donor with the general symbol H₂A.
+    - screen par: transfer reducing power from donor to carbon dioxide
+    - is level ke liye: Do not confuse reduction of CO₂ with oxidation of the hydrogen donor.
+  - prerequisites: carbon dioxide is converted into carbohydrate; oxidation and reduction are coupled; some bacteria photosynthesise
+- **p005-i6** · equation · facts_numbers · both · exam high
+  - 2H₂A + CO₂ —Light→ 2A + CH₂O + H₂O
+    - what: What do the symbols mean in van Niel's equation? → H₂A is a general hydrogen donor and A represents its oxidised residue; CO₂ is carbon dioxide, CH₂O represents carbohydrate composition, and H₂O is water. Light above the arrow is the energy condition, plus signs join participants, and the arrow indicates the overall conversion. _(outside the book)_
+    - evidence: What evidence underlies this general formulation? → The page attributes it to van Niel's studies of purple and green bacteria, from which he described CO₂ reduction by hydrogen from a suitable oxidisable compound.
+      - how: How do its coefficients and subscripts work? → The coefficient 2 means two relative units of H₂A yield two relative units of A per one CO₂. Subscript 2 in H₂A counts hydrogen atoms in each donor unit. Coefficients are stoichiometric ratios, not printed physical units; A is a placeholder, not a specified element. _(outside the book)_
+      - why: Why introduce H₂A instead of writing only H₂O? → The placeholder makes the equation broad enough to represent different hydrogen donors. It prevents the plant-specific use of water from being mistaken for a requirement of every photosynthetic organism. _(outside the book)_
+  - **khola (unpack):**
+    - H₂A yaani hydrogen देने वाले अलग-अलग compounds के लिए इस्तेमाल किया गया सामान्य संकेत · image: एक खाली नाम-पर्ची जिसमें अलग नाम भरे जा सकते हैं
+    - A yaani donor के oxidised हिस्से का सामान्य संकेत · image: सामान दे देने के बाद बचा हिस्सा
+    - kyon: One fixed donor cannot represent all cases described on the page. _[book]_ → H₂A keeps the donor variable while preserving the CO₂-to-carbohydrate relationship. _[standard]_
+    - example / jagah: The following paragraph supplies H₂O in green plants and H₂S in purple and green sulphur bacteria as donor cases.
+    - aage: Different donor oxidation products explain why photosynthesis does not necessarily release oxygen.
+    - screen par: replace the general donor placeholder with named donor cards
+    - is level ke liye: Use the equation as an overall generalisation, not a detailed single-step mechanism or a universal product formula for every donor.
+  - prerequisites: general symbols can stand for different substances; oxidation of a donor accompanies reduction of carbon dioxide; chemical coefficients give reaction proportions
+- **p005-i7** · paragraph · comparison · both · exam high
+  - In green plants H₂O is the hydrogen donor and is oxidised to O₂. Some organisms do not release O₂ during photosynthesis. When H₂S, instead is the hydrogen donor for purple and green sulphur bacteria, the ‘oxidation’ product is sulphur or sulphate depending on the organism
+    - compare: How do green plants and the sulphur bacteria differ in hydrogen donor? → Green plants use water, H₂O; the purple and green sulphur bacterial cases described use hydrogen sulphide, H₂S.
+    - difference: How do their donor oxidation products differ? → Water in green plants is oxidised to O₂. With H₂S as donor, the bacterial oxidation product is sulphur or sulphate, depending on the organism, rather than O₂.
+      - why: Why does absence of oxygen release not disqualify these bacteria from photosynthesis? → Their light-dependent carbohydrate formation can use a different donor. Oxygen evolution depends on the donor oxidation chemistry, not simply on whether photosynthesis occurs. _(outside the book)_
+      - what: What do H₂O, H₂S and O₂ denote? → H₂O is water, H₂S hydrogen sulphide and O₂ molecular oxygen. Their subscripts indicate atom counts, not quantities of gas or units of measurement. _(outside the book)_
+  - **khola (unpack):**
+    - hydrogen donor yaani CO₂ को reduce करने के लिए hydrogen या reducing power देने वाला compound · image: काम के लिए ज़रूरी सामान देने वाला supplier
+    - H₂S yaani hydrogen sulphide, इन bacteria में इस्तेमाल होने वाला donor · image: उसी काम के लिए बदला हुआ raw material
+    - kyon: First establish the normal plant case: water is oxidised and oxygen is produced. _[book]_ → Change the donor to H₂S in the bacterial case; the oxidation product becomes sulphur or sulphate. _[book]_ → Therefore carbohydrate formation with light need not be accompanied by oxygen evolution. _[standard]_
+    - example / jagah: Side-by-side donor/product pairs: green plants, H₂O → O₂; purple and green sulphur bacteria, H₂S → sulphur or sulphate.
+    - aage: This comparison supplies the reasoning for tracing plant oxygen to water.
+    - screen par: swap the donor and change the oxidation-product branch
+    - is level ke liye: The names oxygenic and anoxygenic photosynthesis are useful standard exam terms for oxygen-evolving and non-oxygen-evolving cases.
+  - prerequisites: van Niel's hydrogen-donor generalisation; chemical oxidation; green plants and bacteria are different organism groups
+- **p005-i8** · paragraph · cause_effect · both · exam high
+  - and not O₂. Hence, he inferred that the O₂ evolved by the green plant comes from H₂O, not from carbon dioxide. This was later proved by using radioisotopic techniques. The correct equation, that would represent the overall process of photosynthesis is therefore:
+    - why: Why did van Niel infer that evolved oxygen comes from water? → The donor/product comparison showed water being oxidised to oxygen in plants, whereas H₂S use in sulphur bacteria gave sulphur or sulphate, not oxygen. He therefore linked the evolved product to donor oxidation rather than to CO₂.
+    - how: How was this inference later supported experimentally, according to the page? → The page says radioisotopic techniques later proved that plant oxygen evolution derives from water rather than carbon dioxide.
+      - how: How does isotope tracing test the source of an atom? → A distinguishable isotope label is placed in a candidate source and tracked into products. In the classic oxygen-source experiment, stable oxygen-18 labelling showed that evolved oxygen follows the oxygen label in water rather than the label in CO₂. _(outside the book)_
+      - difference: Is isotopic tracing necessarily radioactive tracing, and how should the book's terminology be understood here? → No. Radioactive isotopes have unstable nuclei that undergo radioactive decay; stable isotopes do not. The classic photosynthetic oxygen-source experiment used stable oxygen-18, not a radioactive isotope. Therefore 'isotopic tracing' is the scientifically appropriate description here; the book's printed 'radioisotopic techniques' is imprecise. _(outside the book)_
+      - difference: What is the difference between inference and proof in this account? → The bacterial comparison led van Niel to a prediction about the plant oxygen source; the later tracer evidence directly tested that predicted source. _(outside the book)_
+  - **khola (unpack):**
+    - inferred yaani देखे गए नतीजों से अगला निष्कर्ष निकाला · image: गीली सड़क देखकर बारिश का अंदाज़ा लगाना
+    - radioisotopic techniques yaani radioactive isotope के decay से मिलने वाले संकेतों से tracing करने की तकनीक; लेकिन इस प्रयोग के लिए book का यह नाम सटीक नहीं है · image: पहचान की ऐसी पर्ची जो अपने आप संकेत भी छोड़ती है
+    - isotopic tracing yaani अलग पहचान वाले isotope से atoms का रास्ता पता करना; यहाँ stable oxygen-18 इस्तेमाल हुआ था, जो radioactive नहीं है · image: अलग रंग की पर्ची लगे सामान को अगली जगह पहचान लेना
+    - kyon: Both reactants contain oxygen, so a written equation alone cannot identify the source of evolved O₂. _[standard]_ → Van Niel's donor comparison pointed to H₂O rather than CO₂, and the page reports later tracer-based proof. _[book]_ → Stable oxygen-18 provided a distinguishable label without radioactive decay; call this isotopic tracing rather than radioactive tracing. _[standard]_
+    - example / jagah: Trace stable oxygen-18 from labelled water into the oxygen gas released by a green plant.
+    - aage: Tracer evidence identifies water as the source of evolved oxygen; it does not require a radioactive tracer.
+    - screen par: tag water oxygen and follow the stable isotope tag into released O₂
+    - is level ke liye: Keep the printed NCERT wording distinct from the scientific clarification: oxygen-18 is stable. Atom balancing alone cannot establish atom origin.
+  - prerequisites: different donors produce different oxidation products; both CO₂ and water contain oxygen atoms; isotopes can label atoms for tracing
+- **p005-i9** · equation · facts_numbers · both · exam high
+  - 6CO₂ + 12H₂O —Light→ C₆H₁₂O₆ + 6H₂O + 6O₂
+    - what: What does the complete equation state? → With light, six relative units of carbon dioxide and twelve of water yield one glucose, six water and six oxygen. CO₂ is carbon dioxide, H₂O water, C₆H₁₂O₆ glucose and O₂ molecular oxygen; the arrow marks the overall conversion.
+    - evidence: What source evidence must accompany the equation? → The page states that the released O₂ is from water and that this was proved using isotope techniques.
+      - how: How can the equation be checked for atom balance? → Both sides contain 6 carbon atoms, 24 hydrogen atoms and 24 oxygen atoms per stoichiometric reaction unit: on the right, oxygen totals 6 in glucose, 6 in water and 12 in oxygen gas. _(outside the book)_
+      - why: Why should the twelve reactant waters not be confused with net water consumption? → Six waters are also produced. Cancelling equal water terms gives a net consumption of six waters, but the expanded equation preserves the book's fuller overall accounting. Cancellation does not establish where evolved oxygen atoms originated. _(outside the book)_
+      - what: What units do its numbers imply? → Coefficients give ratios of molecules or amounts in moles, not masses in grams. Subscripts give atom counts within one molecule, and light has no numerical unit specified here. _(outside the book)_
+  - **khola (unpack):**
+    - C₆H₁₂O₆ yaani glucose का formula: एक molecule में 6 carbon, 12 hydrogen और 6 oxygen atoms · image: अलग रंग के मोतियों से बनी तय गिनती वाली माला
+    - kyon: An overall reaction must account for all atoms, not just name the substances. _[standard]_ → The printed equation retains twelve reactant waters and six product waters. _[book]_ → Atom counting confirms balance while keeping net consumption distinct from input-side quantity. _[standard]_
+    - example / jagah: An oxygen-evolving green plant forming glucose under light.
+    - aage: Chemical accounting and tracer evidence together prevent confusing oxygen production with oxygen release from CO₂.
+    - screen par: count atoms on both sides and pair six input waters with six output waters
+    - is level ke liye: State the full NCERT equation before showing the net form; do not treat this overall equation as an elementary step.
+  - prerequisites: balancing chemical equations; difference between coefficient and subscript; water supplies evolved oxygen
+- **p005-i10** · paragraph · facts_numbers · both · exam high
+  - where C₆H₁₂O₆ represents glucose. The O₂ released is from water; this was proved using radio isotope techniques. Note that this is not a single
+    - what: What two points are explicitly reinforced below the equation? → C₆H₁₂O₆ denotes glucose, and the oxygen released comes from water.
+    - evidence: What evidence is repeated for the oxygen-source claim? → The text again cites radio isotope techniques as the proof.
+      - difference: What clarification from i8 applies to this repeated reference to radio isotope techniques? → The classic tracer was stable oxygen-18, not a radioactive isotope. As explained in i8, isotopic tracing is the appropriate scientific description; isotope labelling does not necessarily involve radioactivity. _(outside the book)_
+      - why: Why should an overall photosynthesis equation not be read as one elementary event? → Photosynthesis involves multiple linked reactions; a balanced overall equation summarises their net chemical result rather than depicting each event. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: A single written arrow may be mistaken for a single biochemical event. _[standard]_ → Keep the overall result separate from the multiple reactions that produce it. _[standard]_
+    - example / jagah: The final glucose-forming overall equation; for the repeated tracer claim, refer to i8's stable oxygen-18 explanation.
+    - aage: Prepares the learner to study the component reactions without changing the established oxygen source or confusing isotope tracing with radioactivity.
+    - screen par: expand the overall arrow into several linked reaction steps
+    - is level ke liye: The page ends mid-sentence; the explanation of multiple reactions is standard clarification, not a quotation of the unseen continuation. The printed 'radio isotope' wording has the same limitation explained in i8.
+  - prerequisites: glucose molecular formula; overall equations summarise reactions; isotope tracing identifies atom sources; stable isotope tracing differs from radioactive tracing
+
+## Page 6 · passed after 2 round(s)
+
+Photosynthesis occurs in green leaves and other green parts, especially in chloroplast-rich mesophyll cells. Chloroplast positioning helps optimise illumination. Chloroplast membranes capture light and produce ATP and NADPH; stromal reactions use these products to synthesise sugar, which can form starch. Carbon or 'dark' reactions are not directly light driven but are indirectly light-dependent. Figure 11.2 identifies the chloroplast envelope, internal membranes, stroma and inclusions.
+
+- **p006-i1** · paragraph · process · both · exam medium
+  - reaction but description of a multistep process called photosynthesis.
+    - how: How should the overall photosynthesis equation be understood? → It summarises a multistep process rather than describing one reaction occurring in a single step.
+    - when: When do the component reactions operate relative to one another? → Light-driven reactions generate products that support the carbon reactions; the overall equation does not display these linked stages.
+      - why: Why is a balanced overall equation insufficient to explain the mechanism? → Balancing accounts for net reactants and products, but does not specify intermediates, enzymes, energy transfers or cellular locations. _(outside the book)_
+  - **khola (unpack):**
+    - multistep process yaani ऐसा काम जो कई जुड़े हुए चरणों में पूरा होता है · image: रोटी बनने में आटा गूँथना, बेलना और सेंकना अलग चरण हैं
+    - kyon: The overall equation hides how the conversion happens. _[standard]_ → Photosynthesis contains multiple linked reactions rather than one isolated reaction. _[book]_
+    - example / jagah: The membrane and stromal reactions described later on this page.
+    - aage: Ask where each stage happens and what connects the stages.
+    - screen par: expand one overall arrow into linked stages
+    - is level ke liye: Do not infer a single-step mechanism from the summary equation.
+  - prerequisites: reactants and products in a chemical equation
+- **p006-i2** · question · none · both · exam high
+  - Can you explain why twelve molecules of water as substrate are used in the equation given above?
+    - why: Why are twelve water molecules written on the reactant side of the expanded equation? → In the standard expanded equation, 6CO₂ + 12H₂O → C₆H₁₂O₆ + 6H₂O + 6O₂, water supplies the electrons and hydrogen equivalents needed to reduce six carbon dioxide molecules. Oxidation of twelve water molecules supplies 24 electrons and releases six oxygen molecules. _(outside the book)_
+      - how: How can twelve water molecules be substrates while the net consumption is six? → Six water molecules also appear among the products. Cancelling these from both sides leaves a net use of six water molecules per glucose. The expanded equation preserves gross water participation rather than only the net balance. _(outside the book)_
+      - what: What do the symbols and coefficients in this explanatory equation mean? → CO₂ is carbon dioxide, H₂O is water, C₆H₁₂O₆ represents glucose, and O₂ is molecular oxygen. Subscripts count atoms in one molecule; coefficients give relative molecule counts or molar amounts. The arrow indicates the overall conversion, not a single reaction step. _(outside the book)_
+  - prerequisites: balancing chemical equations; oxidation and reduction; water as the source of photosynthetic oxygen
+- **p006-i3** · heading · none · both
+  - 11.3 WHERE DOES PHOTOSYNTHESIS TAKE PLACE?
+- **p006-i4** · paragraph · structure · both · exam high
+  - You would of course answer: in ‘the green leaf’ or ‘in the chloroplasts’, based on what you earlier read in Chapter 8. You are definitely right. Photosynthesis does take place in the green leaves of plants but it does so also in other green parts of the plants.
+    - what: What are the two scales of location recalled here? → The green leaf is an organ-level location, while the chloroplast is the organelle-level location. Both answers identify where photosynthesis occurs, but at different scales. _(outside the book)_
+    - where: Where does the page say photosynthesis occurs? → In green leaves, in chloroplasts, and also in other green parts of plants.
+      - why: Why should 'photosynthesis occurs in leaves' not be treated as an exclusive rule? → A non-leaf green organ can also contain chlorophyll-bearing chloroplasts and carry out photosynthesis. The leaf is a major site, not the definition of a photosynthetic organ. _(outside the book)_
+  - **khola (unpack):**
+    - chloroplasts yaani plant cell के अंदर light पकड़कर food बनाने वाले छोटे हिस्से · image: एक बड़े घर में अलग काम करने वाला छोटा kitchen
+    - kyon: To locate a process, first identify the organ and then the organelle. _[standard]_ → The page identifies green leaves and chloroplasts, but includes other green plant parts too. _[book]_ → The capacity depends on photosynthetic machinery, not simply on being called a leaf. _[standard]_
+    - example / jagah: Plant → green leaf or another green organ → cells → chloroplasts.
+    - aage: The next question asks for green organs other than leaves.
+    - screen par: zoom from plant to leaf to cell to chloroplast
+    - is level ke liye: Keep organ-level and organelle-level answers distinct.
+  - prerequisites: plant organs; cells contain organelles; chlorophyll absorbs light
+- **p006-i5** · question · none · both · exam medium
+  - Can you name some other parts where you think photosynthesis may occur?
+    - which: Which non-leaf parts can perform photosynthesis? → Examples include young green stems, green sepals and green unripe fruits. In plants such as Opuntia, green modified stems are important photosynthetic organs. _(outside the book)_
+      - why: Why can these parts photosynthesise? → Their green cells can contain functional chloroplasts with chlorophyll and the associated photosynthetic machinery. _(outside the book)_
+  - prerequisites: chloroplasts; stem, sepal and fruit
+- **p006-i6** · paragraph · cause_effect · both · exam high
+  - You would recollect from previous unit that the mesophyll cells in the leaves, have a large number of chloroplasts. Usually the chloroplasts align themselves along the walls of the mesophyll cells, such that they get the optimum quantity of the incident light.
+    - where: Where are many leaf chloroplasts found? → Mesophyll cells contain a large number of chloroplasts, usually aligned along their walls.
+    - why: Why does chloroplast alignment matter? → Their positioning helps them receive an optimum quantity of incident light.
+      - how: How does orientation change the light intercepted? → Presenting a broad surface toward incoming rays increases interception; presenting an edge reduces it. Appropriate positioning can improve capture in weak light or limit excessive exposure in strong light. _(outside the book)_
+        - why: Why is 'optimum' different from 'maximum' here? → Too little light restricts light-driven reactions, whereas excessive light can damage photosynthetic machinery. A useful exposure is therefore not necessarily the greatest possible exposure. _(outside the book)_
+  - **khola (unpack):**
+    - mesophyll yaani leaf की ऊपरी और निचली परत के बीच का अंदरूनी हिस्सा · image: sandwich की बाहर की slices के बीच की filling
+    - incident light yaani किसी सतह पर आकर पड़ने वाली light · image: खिड़की से मेज़ पर पड़ती धूप
+    - optimum yaani काम के लिए सबसे ठीक मात्रा, ज़रूरी नहीं सबसे ज़्यादा · image: पौधे को उतना पानी देना जितना ठीक हो, गमला डुबो देना नहीं
+    - kyon: Photosynthesis needs an appropriate light supply. _[standard]_ → Mesophyll cells have many chloroplasts positioned along their walls. _[book]_ → Changing exposure helps achieve optimum incident light. _[book]_
+    - example / jagah: Leaf → mesophyll cell → chloroplasts near the cell periphery.
+    - aage: Orientation must be described relative to the light direction, not by a memorised word alone.
+    - screen par: rotate chloroplasts under dim and strong light beams
+    - is level ke liye: Name the misconception: optimum does not mean maximum.
+  - prerequisites: leaf mesophyll; cell wall; light absorption by chlorophyll
+- **p006-i7** · question · none · both · exam high
+  - When do you think the chloroplasts will be aligned with their flat surfaces parallel to the walls? When would they be perpendicular to the incident light?
+    - when: When are chloroplast flat surfaces favourably perpendicular to incident light? → In weak light, a broad face perpendicular to incoming rays increases light interception. With light arriving through the leaf surface, this commonly corresponds to broad faces parallel to walls lying along that surface. _(outside the book)_
+      - how: How does the arrangement differ under strong illumination? → Chloroplasts can move toward side walls and orient more edge-on to the incident rays, reducing the area exposed and helping avoid excessive light. _(outside the book)_
+      - why: Why can 'parallel to the wall' not by itself identify the light condition? → Mesophyll cells have walls facing different directions. A flat chloroplast against a surface-facing wall and one against a side wall have different orientations to the same light beam. The wall and the beam direction must both be specified. _(outside the book)_
+  - prerequisites: parallel and perpendicular directions; chloroplast flat surface; incident light
+- **p006-i8** · paragraph · structure · both · exam high
+  - You have studied the structure of chloroplast in Chapter 8. Within the chloroplast there is membranous system consisting of grana, the stroma lamellae, and the matrix stroma (Figure 11.2).
+    - what: What internal components must be distinguished? → The page names grana, stroma lamellae and the matrix called stroma.
+    - where: Where are these components arranged? → Inside the chloroplast, grana and connecting lamellae lie within the surrounding stroma matrix.
+      - how: How are grana, lamellae and stroma structurally different? → Grana are stacks of flattened thylakoids; stroma lamellae are unstacked membrane connections between grana. Stroma is the surrounding fluid matrix, not another stack or a membrane. _(outside the book)_
+      - why: Why must the matrix be distinguished from the membrane system? → The page assigns light capture and ATP/NADPH synthesis to the membranes, but sugar synthesis to the stroma. Treating them as the same structure obscures this division of work.
+  - **khola (unpack):**
+    - grana yaani chloroplast के अंदर चपटी membrane थैलियों के ढेर · image: एक के ऊपर एक रखे सिक्के
+    - stroma lamellae yaani grana के बीच जुड़ाव बनाने वाली बिना ढेर वाली membrane पट्टियाँ · image: दो इमारतों को जोड़ता रास्ता
+    - stroma yaani chloroplast के अंदर membranes के आसपास का तरल हिस्सा · image: कटोरे में चीज़ों के आसपास भरा तरल
+    - kyon: Different photosynthetic jobs need distinct working locations. _[standard]_ → The chloroplast contains internal membranes and a surrounding stroma matrix. _[book]_ → These locations allow membrane reactions and stromal reactions to be distinguished. _[book]_
+    - example / jagah: Figure 11.2: stacked membranes connected across the stroma.
+    - aage: The structural map becomes the map of photosynthetic functions.
+    - screen par: build stacks, connect them and fill the surrounding matrix
+    - is level ke liye: Granum is singular; grana is plural. Separate stroma from stromal lamellae.
+  - prerequisites: chloroplast; membrane versus fluid matrix
+- **p006-i9** · paragraph · structure · both · exam high
+  - There is a clear division of labour within the chloroplast. The membrane system is responsible for trapping the light energy and also for the synthesis of ATP and NADPH. In stroma, enzymatic reactions synthesise sugar, which in turn forms starch.
+    - what: What is the division of labour within a chloroplast? → The membrane system traps light energy and synthesises ATP and NADPH. Enzymatic reactions in the stroma synthesise sugar, which in turn forms starch.
+    - where: Where should ATP/NADPH synthesis and sugar synthesis be placed on the diagram? → Place ATP/NADPH synthesis at the internal membrane system and sugar synthesis in the surrounding stroma.
+      - how: How do ATP and NADPH link the two working locations? → ATP supplies usable chemical energy, while NADPH supplies reducing power for the reactions that convert fixed carbon into carbohydrate. _(outside the book)_
+      - what: What do ATP and NADPH stand for? → ATP is adenosine triphosphate. NADPH is the reduced form of nicotinamide adenine dinucleotide phosphate. They are molecular carriers, not units of measurement. _(outside the book)_
+      - why: Why does the page connect sugar production to starch? → Starch is a carbohydrate storage form made from glucose units, so photosynthetically produced carbohydrate can be stored rather than remaining entirely as soluble sugar. _(outside the book)_
+  - **khola (unpack):**
+    - division of labour yaani एक बड़े काम के अलग हिस्से अलग जगहों पर होना · image: घर में एक व्यक्ति खाना पकाए और दूसरा सामान तैयार करे
+    - ATP yaani reactions को खर्च करने लायक energy देने वाला molecule · image: काम चलाने के लिए उपलब्ध charged battery
+    - NADPH yaani reactions को electrons देकर बनाने का काम आगे बढ़ाने वाला carrier · image: ज़रूरी सामान पहुँचाने वाली delivery
+    - enzymatic reactions yaani enzymes की मदद से होने वाले chemical बदलाव · image: काम को तेज़ कराने वाला मददगार
+    - starch yaani glucose units को जोड़कर बनाया गया food का जमा रूप · image: रोज़ के खर्च से अलग रखा अनाज
+    - kyon: Making carbohydrate requires both usable energy and reducing power. _[standard]_ → The membrane system captures light and makes ATP and NADPH. _[book]_ → Stromal enzymatic reactions synthesise sugar, which can form starch. _[book]_
+    - example / jagah: Within one chloroplast: internal membrane system → products → stromal reactions.
+    - aage: The two reaction sets are spatially distinct but functionally connected.
+    - screen par: send ATP and NADPH from membranes to stromal sugar synthesis
+    - is level ke liye: ATP is energy currency; NADPH is reducing power. Do not interchange their roles.
+  - prerequisites: chloroplast internal membranes and stroma; enzymes catalyse reactions; chemical energy
+- **p006-i10** · definition · definition · both · exam high
+  - The former set of reactions, since they are directly light driven are called light reactions (photochemical reactions).
+    - what: What are light reactions? → They are the directly light-driven reactions associated here with membrane-based light capture and ATP/NADPH synthesis; the other name is photochemical reactions.
+    - evidence: What feature does the book use to justify this name? → It explicitly identifies direct driving by light as the reason for calling this set light reactions.
+      - how: How does light directly drive a chemical process? → Absorbed light excites electrons in photosynthetic pigments, initiating electron-transfer processes that support formation of chemical energy carriers. _(outside the book)_
+  - **khola (unpack):**
+    - photochemical reactions yaani light की energy से सीधे चलने वाले chemical बदलाव · image: धूप पड़ते ही काम शुरू करने वाला solar device
+    - kyon: Light energy must be converted into a usable chemical form. _[standard]_ → The membrane reactions are directly driven by light. _[book]_ → They are therefore named light or photochemical reactions. _[book]_
+    - example / jagah: Chloroplast internal membrane system.
+    - aage: Their ATP and NADPH products support carbon reactions.
+    - screen par: shine light on membranes and release carrier symbols
+    - is level ke liye: Photo- refers to light; recognise both names in NEET options.
+  - prerequisites: light absorption; chloroplast membrane system; ATP and NADPH
+- **p006-i11** · paragraph · cause_effect · both · exam high
+  - The latter are not directly light driven but are dependent on the products of light reactions (ATP and NADPH). Hence, to distinguish the latter they are called, by convention, as dark reactions (carbon reactions). However, this should not be construed to mean that they occur in darkness or that they are not light-dependent.
+    - what: What does the term dark reactions denote here? → It denotes the carbon reactions that are not directly light driven but depend on ATP and NADPH produced by the light reactions.
+    - why: Why is 'dark reactions occur in darkness' an incorrect interpretation? → The name distinguishes their lack of direct light driving; the page explicitly warns that it does not mean they occur in darkness or lack light dependence.
+      - how: How can reactions be indirectly light-dependent? → Their immediate requirements include ATP and NADPH rather than direct photon absorption. Since light reactions supply these products, removing light eventually limits their supply and therefore sustained carbon assimilation. _(outside the book)_
+    - compare: How do the two reaction sets compare? → Light or photochemical reactions are directly light driven and produce ATP and NADPH in the membrane system. Dark or carbon reactions use the products of light reactions and synthesise sugar in the stroma.
+  - **khola (unpack):**
+    - dark reactions yaani वे reactions जिन्हें सीधे light नहीं चलाती, लेकिन light reactions के products चाहिए · image: खुद solar panel नहीं, पर उसकी बनाई बिजली से चलने वाला उपकरण
+    - carbon reactions yaani carbon से sugar बनाने से जुड़े reactions · image: छोटे building blocks जोड़कर बड़ी चीज़ बनाना
+    - by convention yaani पहचान के लिए मान लिया गया नाम · image: किसी जगह का प्रचलित नाम, जो उसका पूरा काम नहीं बताता
+    - kyon: Sugar synthesis needs products supplied by the light reactions. _[book]_ → The carbon reactions use ATP and NADPH without being directly light driven. _[book]_ → Their conventional name 'dark' must not be mistaken for a requirement for darkness. _[book]_
+    - example / jagah: Chloroplast stroma receiving products from the membrane system.
+    - aage: Read 'not directly light driven' separately from 'not light-dependent'.
+    - screen par: link carbon reactions to light reactions and cross out a night-only symbol
+    - is level ke liye: NEET statement test: indirect light dependence is compatible with the term dark reaction.
+  - prerequisites: light reactions produce ATP and NADPH; stroma synthesises sugar; direct versus indirect dependence
+- **p006-i12** · diagram · figure · image · exam high
+  - Section of a chloroplast shown as an oval bounded by outer and inner membranes. Inside the stroma are several stacks of flattened membranes, the grana, connected by stromal lamellae. Small dots represent ribosomes; orange concentrically drawn bodies are starch granules; larger brown dots include the labelled lipid droplet. Eight leader lines identify structures; there are no process arrows.
+    - what: What does Figure 11.2 represent? → A diagrammatic representation of an electron micrograph of a section of chloroplast, showing its envelope, internal membrane system, matrix and labelled inclusions.
+    - which: Which eight structures are labelled? → Outer membrane, inner membrane, stromal lamella, grana, stroma, ribosomes, starch granule and lipid droplet.
+      - how: How should the figure be read as an organisation map? → Trace the two boundary membranes first, then distinguish the stacked and connecting internal membranes from the surrounding stroma. Finally identify the small particles and stored inclusions by their leader lines. _(outside the book)_
+  - **khola (unpack):**
+    - section yaani अंदर का बनाव दिखाने के लिए काटकर देखा गया हिस्सा · image: खीरा काटने पर अंदर का हिस्सा दिखना
+    - kyon: The chloroplast's different jobs require a spatial map. _[standard]_ → The section exposes internal membranes and surrounding stroma. _[book]_ → Labels allow each working region and inclusion to be identified separately. _[book]_
+    - example / jagah: Figure 11.2, lower half of the page.
+    - aage: Attach membrane and stromal functions to the correct visible regions.
+    - screen par: trace the envelope and highlight internal structures in layers
+    - is level ke liye: Colours are diagram aids, not evidence for natural organelle colours.
+  - prerequisites: chloroplast compartments; reading diagram leader lines
+- **p006-i13** · diagram_label · structure · both · exam high
+  - Outer membrane — points to the outer boundary of the chloroplast envelope.
+    - what: What does this label identify? → The outer of the two membranes bounding the chloroplast.
+    - where: Where is the outer membrane relative to the inner membrane? → It lies outside the inner membrane, along the external contour of the organelle.
+      - how: How is it different from the internal light-reaction membranes? → It belongs to the chloroplast envelope rather than the internal thylakoid system, so the two membrane systems should not be equated. _(outside the book)_
+  - **khola (unpack):**
+    - Outer membrane yaani chloroplast की दो boundary membranes में बाहर वाली · image: दो परत वाले cover की सबसे बाहरी परत
+    - kyon: The chloroplast needs a boundary separating it from its surroundings. _[standard]_ → The diagram shows an outer membrane as part of its double envelope. _[book]_
+    - example / jagah: Outermost contour of Figure 11.2.
+    - aage: Separates the organelle envelope from its internal working membranes.
+    - screen par: trace the outside contour
+    - is level ke liye: Envelope membrane is not a thylakoid membrane.
+  - prerequisites: membrane; chloroplast envelope
+- **p006-i14** · diagram_label · structure · both · exam high
+  - Inner membrane — points to the inner boundary membrane of the chloroplast envelope.
+    - what: What is the inner membrane? → The inner of the two envelope membranes shown around the chloroplast.
+    - where: Where is it located? → Just inside the outer membrane, surrounding the stroma and internal structures.
+      - why: Why distinguish the inner membrane from stromal lamellae? → The inner membrane is part of the envelope, whereas stromal lamellae belong to the internal thylakoid system connecting grana. _(outside the book)_
+  - **khola (unpack):**
+    - Inner membrane yaani chloroplast की दो boundary membranes में अंदर वाली · image: दो परत वाले cover की अंदर की परत
+    - kyon: A double envelope has two distinct boundaries to identify. _[standard]_ → The inner membrane lies beneath the outer membrane around the chloroplast contents. _[book]_
+    - example / jagah: Inner contour of the envelope in Figure 11.2.
+    - aage: Do not confuse the organelle boundary with membranes inside its matrix.
+    - screen par: highlight the inner contour separately
+    - is level ke liye: The chloroplast envelope and thylakoid system are distinct.
+  - prerequisites: double membrane envelope; stroma
+- **p006-i15** · diagram_label · structure · both · exam high
+  - Stromal lamella — points to an unstacked membrane connection between grana.
+    - what: What is a stromal lamella? → An unstacked part of the internal thylakoid membrane system connecting grana. _(outside the book)_
+    - where: Where is the labelled lamella? → It extends through the stroma between stacked membrane regions in the figure.
+      - how: How does it differ from stroma? → The lamella is a membrane structure; stroma is the surrounding fluid matrix. Similar names do not make them the same component. _(outside the book)_
+  - **khola (unpack):**
+    - Stromal lamella yaani stroma के बीच grana को जोड़ने वाली चपटी membrane पट्टी · image: दो ढेरों के बीच लगा छोटा पुल
+    - kyon: The internal stacks form part of a connected membrane organisation. _[standard]_ → Stromal lamellae provide unstacked connections between grana. _[standard]_
+    - example / jagah: Long connecting membranes within the chloroplast stroma.
+    - aage: Recognise connectors separately from stacks and matrix.
+    - screen par: trace a membrane connection from one stack to another
+    - is level ke liye: The text uses 'stroma lamellae'; the diagram labels the singular 'Stromal lamella'.
+  - prerequisites: grana; membrane versus matrix
+- **p006-i16** · diagram_label · structure · both · exam high
+  - Grana — points to a stack of flattened internal membranes.
+    - what: What are grana? → Grana are stacks of flattened thylakoids; one stack is a granum. _(outside the book)_
+    - where: Where are grana shown? → Several stacks occur inside the chloroplast, surrounded by stroma and linked by lamellae.
+      - why: Why are these membrane stacks relevant to photosynthesis? → Thylakoid membranes carry the machinery for light capture and light-reaction energy conversion; stacking accommodates extensive membrane area within the organelle. _(outside the book)_
+  - **khola (unpack):**
+    - Grana yaani कई चपटी thylakoid थैलियों के ढेर · image: एक के ऊपर एक रखी चपटी plates
+    - kyon: Light reactions need membrane-associated machinery. _[standard]_ → Thylakoids provide membrane area and are arranged into stacks called grana. _[standard]_
+    - example / jagah: Green stacks inside Figure 11.2.
+    - aage: Locate the internal membrane system rather than the outer envelope.
+    - screen par: stack flattened sacs into a granum
+    - is level ke liye: Do not call an individual thylakoid a granum.
+  - prerequisites: thylakoid membranes; chloroplast stroma
+- **p006-i17** · diagram_label · structure · both · exam high
+  - Stroma — points to the matrix surrounding the internal membrane system.
+    - what: What does the stroma label identify? → The chloroplast matrix around the internal membrane system.
+    - where: Where is the stroma? → Inside the chloroplast envelope, surrounding the grana and connecting lamellae.
+      - how: How does stroma contribute to carbohydrate formation? → Enzymatic reactions in the stroma synthesise sugar, which in turn forms starch.
+  - **khola (unpack):**
+    - Stroma yaani chloroplast के अंदर membranes के आसपास भरा तरल matrix · image: बर्तन में रखी चीज़ों के बीच और आसपास भरा तरल
+    - kyon: Carbon reactions require an enzyme-containing working medium. _[standard]_ → The page locates enzymatic sugar synthesis in the stroma. _[book]_
+    - example / jagah: Pale green matrix around the stacks in Figure 11.2.
+    - aage: Place carbon reactions in the matrix, not inside the stack label.
+    - screen par: shade the matrix without colouring the membranes
+    - is level ke liye: Differentiate stroma from stromal lamella and thylakoid lumen.
+  - prerequisites: matrix; internal chloroplast membranes
+- **p006-i18** · diagram_label · structure · both · exam high
+  - Ribosomes — points to small particles in the chloroplast stroma.
+    - what: What are the labelled small particles? → The figure identifies them as ribosomes.
+    - where: Where are the ribosomes shown? → Within the chloroplast stroma, including the cluster indicated near the lower right.
+      - how: How do chloroplast ribosomes contribute to organelle function? → They translate messenger RNA to synthesise proteins. Chloroplast ribosomes are of the 70S type, helping the organelle make some of its own proteins. _(outside the book)_
+  - **khola (unpack):**
+    - Ribosomes yaani protein बनाने वाले छोटे particles · image: छोटे पुर्ज़े जोड़कर सामान बनाने वाली machine
+    - kyon: A chloroplast needs proteins for its working machinery. _[standard]_ → Its ribosomes synthesise some of these proteins within the organelle. _[standard]_
+    - example / jagah: Tiny dots dispersed in the stroma of Figure 11.2.
+    - aage: Not every dot represents stored carbohydrate or lipid.
+    - screen par: magnify tiny stromal particles and show a protein chain forming
+    - is level ke liye: 70S identifies the sedimentation class; S values are not simple additive sizes.
+  - prerequisites: ribosomes synthesise proteins; chloroplast stroma
+- **p006-i19** · diagram_label · structure · both · exam high
+  - Starch granule — points to an orange oval inclusion drawn with concentric contours in the stroma.
+    - what: What is the labelled oval inclusion? → A starch granule, representing accumulated starch within the chloroplast.
+    - where: Where is the starch granule shown? → In the stroma, separate from the green membrane stacks.
+      - how: How does it connect with the text on sugar synthesis? → The text states that stromal enzymatic reactions synthesise sugar, which in turn forms starch; the granule depicts that carbohydrate product in stored form.
+      - why: Why store carbohydrate as starch rather than keeping it all as free sugar? → Starch packages many glucose units into an insoluble storage polymer, reducing the osmotic effect compared with the same units present as separate soluble molecules. _(outside the book)_
+  - **khola (unpack):**
+    - Starch granule yaani starch के जमा होने से बना छोटा दाना · image: अलग रखी गई food की छोटी गठरी
+    - kyon: Photosynthetic carbohydrate can be retained for later use. _[standard]_ → Stromal sugar production can lead to starch formation. _[book]_ → The figure shows starch as granules distinct from membranes. _[book]_
+    - example / jagah: Orange oval near the bottom of Figure 11.2.
+    - aage: Links the structural figure to carbohydrate production and storage.
+    - screen par: gather sugar units into a starch granule
+    - is level ke liye: The concentric drawing is an illustration convention, not a membrane stack.
+  - prerequisites: sugar and starch; chloroplast stroma
+- **p006-i20** · diagram_label · structure · both · exam medium
+  - Lipid droplet — points to a small brown rounded inclusion near the lower part of the chloroplast.
+    - what: What does this label identify? → A lipid droplet, distinct from the starch granule and ribosome labels.
+    - where: Where is the indicated droplet? → Inside the chloroplast near the lower starch granule, at the end of the bent leader line.
+      - how: How is a lipid droplet chemically different from a starch granule? → A lipid droplet contains lipid-rich material, whereas starch is a carbohydrate polymer. These are different classes of biological material even though both appear as inclusions. _(outside the book)_
+  - **khola (unpack):**
+    - Lipid droplet yaani lipid वाले पदार्थ की छोटी गोल बूंद जैसा हिस्सा · image: पानी में अलग दिखती तेल की बूंद
+    - kyon: The organelle contains chemically different inclusions that must be distinguished. _[standard]_ → The figure labels a lipid droplet separately from starch and ribosomes. _[book]_
+    - example / jagah: Brown rounded body indicated by the lowest leader line in Figure 11.2.
+    - aage: Use label endpoints, not just colour or shape, to identify inclusions.
+    - screen par: follow the bent leader line to the droplet
+    - is level ke liye: This page identifies its presence but does not state a specific metabolic role.
+  - prerequisites: lipids versus carbohydrates; diagram leader lines
+- **p006-i21** · caption · figure · both · exam low
+  - Figure 11.2 Diagrammatic representation of an electron micrograph of a section of chloroplast
+    - what: What kind of image does this caption describe? → A diagrammatic representation based on an electron micrograph of a chloroplast section, rather than the micrograph itself.
+    - which: Which biological structure is sectioned? → A chloroplast; the section reveals its internal organisation as well as its boundary.
+      - why: Why use a diagrammatic representation of a micrograph? → A diagram simplifies visual detail and makes structures easier to distinguish and label. Its colours and outlines are explanatory choices rather than a literal reproduction of microscopic appearance. _(outside the book)_
+  - **khola (unpack):**
+    - electron micrograph yaani electron microscope से बनी बहुत छोटे बनाव की तस्वीर · image: साधारण आँख से न दिखने वाले अंदरूनी detail को बड़ा करके देखना
+    - Diagrammatic representation yaani असल बनाव को साफ़ समझाने के लिए बनाया गया सरल drawing · image: घर की photo की जगह कमरों का साफ़ नक्शा
+    - kyon: Internal chloroplast structures are too small to inspect with the unaided eye. _[standard]_ → An electron micrograph provides detailed structural information. _[standard]_ → The caption identifies this drawing as a diagrammatic representation of such a section. _[book]_
+    - example / jagah: Caption of Figure 11.2.
+    - aage: Interpret the drawing as a structural model, not a natural-colour photograph.
+    - screen par: transition from a section view to a labelled schematic
+    - is level ke liye: Do not infer organelle dimensions or real colours from this unscaled schematic.
+  - prerequisites: microscopy; section reveals internal structure
+
+## Page 7 · passed after 2 round(s)
+
+Leaf chromatography reveals chlorophyll a, chlorophyll b, xanthophylls and carotenoids. Pigments absorb selected wavelengths. Chlorophyll a absorbs strongly in blue and red light, where photosynthesis is also high. However, its absorption spectrum does not completely coincide with the action spectrum, indicating that photosynthesis is not explained by chlorophyll a absorption alone.
+
+- **p007-i1** · heading · none · both
+  - 11.4 How many Types of Pigments are Involved in Photosynthesis?
+- **p007-i2** · paragraph · cause_effect · both · exam high
+  - Looking at plants have you ever wondered why and how there are so many shades of green in their leaves – even in the same plant? We can look for an answer to this question by trying to separate the leaf pigments of any green plant through paper chromatography. A chromatographic separation of the leaf pigments shows that the colour that we see in leaves is not due to a single pigment but due to four
+    - why: Why begin with differently shaded leaves? → Their apparently simple green colour raises the question of whether one substance or several substances contribute to leaf colour. The page answers this with pigment separation.
+    - how: How does paper chromatography provide evidence of several pigments? → It separates the leaf pigments, revealing that the visible leaf colour is associated with four listed pigments rather than a single pigment.
+      - how: How can pigments mixed in one leaf become separated on paper? → In paper chromatography, components travel different distances because their interactions with the moving solvent and stationary phase differ. Separated coloured bands make components of the mixture visible. _(outside the book)_
+      - why: Why should the chromatography result not be used as a complete explanation of every shade difference? → It establishes a mixture of pigments. Differences in their relative amounts can contribute to shade differences, but this page does not experimentally account for every variation between leaves. _(outside the book)_
+  - **khola (unpack):**
+    - paper chromatography yaani paper पर मिले हुए pigments को अलग-अलग जगह तक पहुँचाकर अलग करना · image: एक मिली हुई स्याही से कागज़ पर अलग रंगों की पट्टियाँ उभरना
+    - kyon: A green leaf looks like one colour, so ask whether it contains just one pigment. _[book]_ → Separate its pigments by paper chromatography. _[book]_ → Several separated pigments show that the visible colour comes from a mixture. _[book]_
+    - example / jagah: Pigments extracted from a green leaf.
+    - aage: The next task is to identify each separated pigment rather than call the entire mixture chlorophyll.
+    - screen par: separate a green mixture into coloured bands
+    - is level ke liye: Do not infer that all green leaves have identical pigment proportions.
+  - prerequisites: leaves contain chloroplasts; a mixture can contain several substances
+- **p007-i3** · paragraph · classification · both · exam high
+  - pigments: Chlorophyll a (bright or blue green in the chromatogram), chlorophyll b (yellow green), xanthophylls (yellow) and carotenoids (yellow to yellow-orange). Let us now see what roles various pigments play in photosynthesis.
+    - which: Which four pigments does the page list? → Chlorophyll a, chlorophyll b, xanthophylls and carotenoids are the four entries in the page's list.
+    - difference: How are their colours distinguished? → Chlorophyll a is bright or blue green in the chromatogram; chlorophyll b is yellow green; xanthophylls are yellow; carotenoids are yellow to yellow-orange.
+      - why: Why can a green leaf also contain yellow or orange pigments? → The observed leaf colour is the combined result of its pigments; abundant green chlorophylls can mask the appearance of yellow and orange components. _(outside the book)_
+      - difference: Does listing xanthophylls and carotenoids separately imply that they are unrelated chemical groups? → No. In broader biochemical classification, xanthophylls are oxygen-containing carotenoids. Retain the page's four-entry list for this passage without interpreting it as four mutually exclusive biochemical classes. _(outside the book)_
+  - **khola (unpack):**
+    - Chlorophyll a yaani पत्ती का वह green pigment जो chromatogram में bright या blue green दिखता है · image: हरे रंग में नीलेपन वाली पट्टी
+    - chlorophyll b yaani पत्ती का yellow green दिखने वाला pigment · image: हरे रंग में पीलेपन वाली पट्टी
+    - xanthophylls yaani पत्ती में मौजूद yellow pigments · image: पीली रंगीन पट्टी
+    - carotenoids yaani यहाँ yellow से yellow-orange दिखने वाले pigments · image: पीले से नारंगी रंग की पट्टी
+    - kyon: Once a mixture is separated, its components need names. _[standard]_ → The page identifies four entries using their chromatogram colours. _[book]_
+    - example / jagah: Separated pigment bands from a green leaf.
+    - aage: Several pigments can contribute to light absorption in the same leaf.
+    - screen par: label four coloured pigment bands
+    - is level ke liye: Keep the book's list and colour pairs; distinguish this list from the broader carotenoid family classification.
+  - prerequisites: paper chromatography separates leaf pigments
+- **p007-i4** · definition · definition · both · exam high
+  - Pigments are substances that have an ability to absorb light, at specific wavelengths.
+    - what: What makes a substance a pigment in this discussion? → Its ability to absorb light at specific wavelengths is the defining property used here.
+    - evidence: What on this page demonstrates wavelength-selective absorption? → Figure 11.3a shows peaks and troughs rather than equal absorbance at all wavelengths.
+      - how: How does selective absorption relate to the colour we see? → Wavelengths that are not absorbed may be reflected or transmitted to the eye. Thus appearing green is not evidence of absorbing green most strongly. _(outside the book)_
+  - **khola (unpack):**
+    - pigments yaani ऐसे substances जो कुछ wavelengths की light अपने अंदर लेते हैं · image: रंगीन शीशा कुछ रंग रोकता है और कुछ आगे जाने देता है
+    - wavelength yaani light की लगातार दो तरंग-चोटियों के बीच की दूरी · image: पानी की दो पास-पास लहरों की चोटियों के बीच का फासला
+    - absorb yaani light की energy को अपने अंदर लेना · image: धूप में काली चीज़ का गरम होना
+    - kyon: Photosynthesis needs captured light energy. _[standard]_ → Pigments absorb particular wavelengths rather than absorbing all equally. _[book]_ → Plotting absorption against wavelength reveals which colours a pigment captures well. _[standard]_
+    - example / jagah: Pigments in leaf chloroplasts.
+    - aage: A pigment's function can be investigated using an absorption spectrum.
+    - screen par: absorb selected coloured light beams
+    - is level ke liye: Separate absorbed colour from observed colour.
+  - prerequisites: light contains different colours; colour corresponds to wavelength
+- **p007-i5** · question · none · both · exam high
+  - Can you guess which is the most abundant plant pigment in the world?
+    - which: What answer should the teacher supply? → Chlorophyll a is the expected answer. _(outside the book)_
+      - why: Why does this question lead into the graphs? → The page next examines chlorophyll a absorption and compares it with photosynthesis, ultimately identifying chlorophyll a as the chief pigment.
+  - prerequisites: names of leaf pigments
+- **p007-i6** · paragraph · figure · both · exam medium
+  - Let us study the graph showing the ability of chlorophyll a pigment to absorb lights of different wavelengths (Figure 11.3 a). Of course, you are familiar with the wavelength of the visible spectrum of light as well as the VIBGYOR.
+    - what: What relationship will the graph display? → It shows how the absorption of light by chlorophyll a varies with wavelength.
+    - which: Which familiar sequence helps interpret the colour axis? → VIBGYOR refers to violet, indigo, blue, green, yellow, orange and red in increasing wavelength order. _(outside the book)_
+      - how: How should a learner read an absorption graph? → Choose a wavelength on the horizontal axis, move vertically to the pigment curve, and compare its height with the curve at other wavelengths. A higher point means more absorption on the plotted scale. _(outside the book)_
+  - **khola (unpack):**
+    - VIBGYOR yaani visible light के रंगों का क्रम: violet, indigo, blue, green, yellow, orange, red · image: इंद्रधनुष की रंगीन पट्टी
+    - kyon: To connect a peak with a light colour, first recall the visible colour sequence. _[standard]_ → Read wavelength horizontally and absorption vertically. _[standard]_
+    - example / jagah: Figure 11.3a.
+    - aage: The learner can interpret the graph rather than memorise two peak colours.
+    - screen par: sweep across the visible colour strip
+    - is level ke liye: Shorter wavelengths lie toward the violet-blue side; longer wavelengths toward red.
+  - prerequisites: horizontal and vertical graph axes; visible light has different wavelengths
+- **p007-i7** · question · none · both · exam high
+  - From Figure 11.3a can you determine the wavelength (colour of light) at which chlorophyll a shows the maximum absorption? Does it show another absorption peak at any other wavelengths too? If yes, which one?
+    - which: Where is the highest chlorophyll a absorption peak? → The plotted chlorophyll a curve has its highest peak in the blue region, approximately 420–430 nm by the drawing.
+    - which: Where is its other prominent peak? → A second prominent peak occurs in the red region, approximately 660–670 nm by the drawing.
+      - how: How do we avoid reading chlorophyll b instead? → Follow the printed Chlorophyll a leader to the cyan curve and trace that same curve to both peaks; the green curve with a taller blue-region peak is labelled chlorophyll b.
+  - prerequisites: reading an absorption spectrum; identifying labelled graph curves
+- **p007-i8** · paragraph · comparison · both · exam high
+  - Now look at Figure 11.3b showing the wavelengths at which maximum photosynthesis occurs in a plant. Can you see that the wavelengths at which there is maximum absorption by chlorophyll a, i.e., in the blue and the red regions, also shows higher rate of photosynthesis.
+    - compare: What is compared between Figures 11.3a and 11.3b? → The colours strongly absorbed by chlorophyll a are compared with the colours producing higher photosynthetic rates. Both show high responses in blue and red regions.
+    - difference: How do the two measurements differ? → An absorption spectrum plots a pigment's light absorption against wavelength; an action spectrum plots the effectiveness of wavelengths in producing photosynthesis. _(outside the book)_
+      - how: How does the figure measure photosynthesis? → The vertical label in Figure 11.3b specifies photosynthetic rate measured by O₂ release.
+      - why: Why is this comparison biologically meaningful? → Light energy must first be captured to support photosynthesis, so agreement between high absorption and high photosynthetic activity supports the pigment's functional importance. _(outside the book)_
+  - **khola (unpack):**
+    - absorption spectrum yaani किस wavelength की light pigment कितना लेता है, उसका graph · image: अलग रंगों की light लेने का scorecard
+    - action spectrum yaani किस wavelength पर photosynthesis कितना होता है, उसका graph · image: अलग रंगों में काम की रफ्तार का scorecard
+    - kyon: Absorption alone does not measure the actual photosynthetic output. _[standard]_ → Compare it with photosynthetic rate at corresponding wavelengths. _[standard]_ → Both responses are high in blue and red light. _[book]_
+    - example / jagah: Figures 11.3a and 11.3b viewed at the same horizontal wavelength positions.
+    - aage: This comparison supplies evidence for chlorophyll a's central role.
+    - screen par: align matching blue and red peak regions
+    - is level ke liye: The action spectrum is a biological response, not an absorption curve with another name.
+  - prerequisites: pigments absorb light; photosynthesis releases oxygen; reading graph peaks
+- **p007-i9** · paragraph · cause_effect · both · exam high
+  - Hence, we can conclude that chlorophyll a is the chief pigment associated with photosynthesis.
+    - why: Why does the page identify chlorophyll a as the chief pigment? → The blue and red regions where chlorophyll a absorbs strongly also show higher photosynthetic rates.
+    - how: How should 'chief' be interpreted without overclaiming? → It identifies a principal role, not exclusivity. Figure 11.3c asks the reader to test whether chlorophyll a absorption explains the whole action spectrum.
+      - why: Why is chlorophyll a central at the mechanism level? → Special chlorophyll a molecules participate in reaction centres where light-driven charge separation initiates electron transfer; accessory pigments can transfer excitation energy toward these centres. _(outside the book)_
+  - **khola (unpack):**
+    - chief pigment yaani मुख्य भूमिका वाला pigment, यह नहीं कि बाकी कोई काम नहीं करते · image: टीम का मुख्य खिलाड़ी अकेला पूरी टीम नहीं होता
+    - kyon: Ask which pigment's absorption tracks high photosynthetic activity. _[standard]_ → Chlorophyll a and photosynthesis both show strong blue and red responses. _[book]_ → The page concludes that chlorophyll a is the chief pigment. _[book]_
+    - example / jagah: Leaf chloroplasts; reaction-centre explanation is standard textbook context.
+    - aage: The next question tests the limit of attributing photosynthesis to chlorophyll a alone.
+    - screen par: connect coinciding peak regions to the conclusion
+    - is level ke liye: NEET trap: chief does not mean the only photosynthetic pigment.
+  - prerequisites: absorption spectrum; action spectrum; blue and red peaks
+- **p007-i10** · question · none · both · exam high
+  - But by looking at Figure 11.3c can you say that there is a complete one-to-one overlap between the absorption spectrum of chlorophyll a and the action spectrum of photosynthesis?
+    - compare: Do the two curves completely overlap? → No. Both have strong blue and red regions, but the black action curve and cyan chlorophyll a absorption curve differ substantially elsewhere and are not identical.
+      - why: Why is incomplete overlap important? → Other photosynthetic pigments absorb additional wavelengths and can transfer excitation energy to chlorophyll a, contributing to the action spectrum beyond chlorophyll a's own absorption profile. _(outside the book)_
+      - how: How should the vertical separation be interpreted cautiously? → The curves represent different quantities and the plot gives no common numerical vertical scale. Compare shapes and wavelength regions, not a numerical difference obtained by subtracting their heights. _(outside the book)_
+  - prerequisites: chief does not mean sole; absorption and action spectra
+- **p007-i11** · diagram · figure · image · exam high
+  - Figure 11.3a: three absorption curves against wavelength. The cyan chlorophyll a curve has a major blue-region peak near 420–430 nm and a red-region peak near 660–670 nm, with low absorption across much of the intervening region. The green chlorophyll b curve has a tall peak near 460 nm and a smaller red-region peak near 645 nm. The yellow carotenoid curve absorbs mainly in the blue region, with broad peaks around 450–480 nm, and falls to near baseline beyond about 520 nm. The vertical axis reads 'Absorbance of light by chloroplast pigments'. The wavelength scale is shared with the lower panels.
+    - what: What does panel (a) show? → It compares the wavelength-dependent absorption profiles of chlorophyll a, chlorophyll b and carotenoids.
+    - which: Which curve absorbs strongly mainly in the blue region? → The carotenoid curve is concentrated mainly in the blue region, unlike the two chlorophyll curves, which also show red-region peaks.
+      - how: How should the graph be built for a first-time learner? → Start with wavelength horizontally and absorbance vertically, trace chlorophyll a first, then add chlorophyll b and carotenoids at the same wavelengths to reveal their differing absorption ranges. _(outside the book)_
+      - why: Why can multiple pigment profiles help light harvesting? → Different profiles allow a pigment system to capture a wider range of wavelengths than a single pigment profile alone. _(outside the book)_
+  - **khola (unpack):**
+    - absorbance yaani pigment light को कितना absorb करता है, उसका माप · image: किस रंग की light का कितना हिस्सा रोक लिया गया
+    - kyon: Different pigments may capture different parts of visible light. _[standard]_ → Plot all pigment profiles on the same wavelength axis. _[book]_ → Their different peak positions reveal complementary absorption. _[standard]_
+    - example / jagah: Figure 11.3a, right upper panel.
+    - aage: Provides the absorption side of the comparison with photosynthetic action.
+    - screen par: trace and overlay three absorption curves
+    - is level ke liye: Do not read the tallest green curve as chlorophyll a; follow its label.
+  - prerequisites: pigment names; wavelength and visible colours; graph axes
+- **p007-i12** · diagram_label · figure · image · exam medium
+  - Absorbance of light by chloroplast pigments — vertical axis representing light absorption by the plotted pigments; no numerical vertical scale is supplied.
+    - what: What does upward movement mean on this axis? → A higher curve position indicates greater plotted absorbance.
+    - which: Which pigments does this axis serve? → It serves the chlorophyll a, chlorophyll b and carotenoid curves in panel (a).
+      - how: How should missing vertical numbers affect interpretation? → Use relative curve shapes and peak positions, not invented absorbance values. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Before interpreting a peak, identify what height measures: here it is pigment absorbance. _[standard]_
+    - example / jagah: Panel (a) vertical axis.
+    - aage: Prevents confusing absorption with oxygen production.
+    - screen par: highlight the vertical axis
+  - prerequisites: vertical graph axis
+- **p007-i13** · diagram_label · figure · image · exam high
+  - Chlorophyll a — leader line points to the cyan absorption curve, with prominent blue and red peaks.
+    - what: What does this label identify? → It identifies the cyan curve as chlorophyll a's absorption profile.
+    - which: Which regions have its prominent peaks? → Blue and red light regions.
+      - how: How should this curve be tracked? → Follow the leader to the curve and trace the same continuous cyan line to both peaks, rather than choosing a line because it is green.
+  - **khola (unpack):**
+    - kyon: Curve colours can mislead, so use the printed leader to identify chlorophyll a before reading its peaks. _[standard]_
+    - example / jagah: Cyan curve in panel (a).
+    - aage: Correctly answers the maximum-absorption question.
+    - screen par: follow the leader and trace cyan
+  - prerequisites: chlorophyll a; graph leader lines
+- **p007-i14** · diagram_label · figure · image · exam high
+  - Chlorophyll b — leader line points to the green absorption curve with a tall blue-region peak and a smaller red-region peak.
+    - what: What does this label identify? → The green curve is chlorophyll b's absorption profile.
+    - which: Which features distinguish it from the chlorophyll a curve here? → Its prominent blue peak is shifted toward a longer wavelength, while its red peak lies at a shorter wavelength than chlorophyll a's red peak.
+      - why: Why is this shift useful to notice? → It shows that the two chlorophylls do not have identical wavelength preferences and can contribute complementary absorption. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: To test whether the two chlorophylls behave identically, compare peak positions on the same axis. _[standard]_ → Their shifted peaks show different absorption profiles. _[book]_
+    - example / jagah: Green curve in panel (a).
+    - aage: Supports the idea of a multi-pigment light-harvesting system.
+    - screen par: compare the two chlorophyll peak positions
+  - prerequisites: chlorophyll b; reading wavelength along an axis
+- **p007-i15** · diagram_label · figure · image · exam high
+  - Carotenoids — leader line points to the yellow curve, showing absorption mainly in the blue region and little plotted absorption in the red region.
+    - what: What does the yellow curve represent? → It represents the carotenoid absorption spectrum.
+    - which: Which region is prominent in this profile? → The blue region has strong absorption; the red-region peak seen in chlorophylls is absent from this plotted curve.
+      - why: Why does a yellow-orange pigment absorb blue light? → A pigment's visible colour comes largely from light not absorbed; absorbing blue wavelengths is consistent with a yellow-orange appearance. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Ask whether a yellow pigment absorbs yellow most strongly. _[standard]_ → The curve instead shows strong blue-region absorption, distinguishing appearance from absorption. _[book]_
+    - example / jagah: Yellow curve in panel (a).
+    - aage: Provides another wavelength-dependent contribution to light capture.
+    - screen par: highlight the carotenoid blue-region band
+  - prerequisites: pigment colour differs from absorbed colour
+- **p007-i16** · caption · figure · both
+  - Figure 11.3a Graph showing the absorption spectrum of chlorophyll a, b and the carotenoids
+- **p007-i17** · diagram · figure · image · exam high
+  - Figure 11.3b: black action-spectrum curve shows photosynthetic rate measured by O₂ release against wavelength. The curve is high in the blue region, falls toward a broad minimum in the green to yellow-green region around 550–570 nm, rises again to a red-region maximum around 680 nm, and drops steeply near 700 nm. It is not zero across the intermediate visible region. Horizontal positions align with the shared wavelength scale below.
+    - what: What is plotted in panel (b)? → The rate of photosynthesis measured by oxygen release is plotted against light wavelength.
+    - which: Which colours give high activity and which give lower activity? → Blue and red regions give high activity, whereas the intervening green to yellow-green region shows lower activity.
+      - how: How does oxygen release serve as a rate indicator? → Under controlled conditions, oxygen released per unit time provides an indicator of photosynthetic activity because oxygen is a product of oxygenic photosynthesis. _(outside the book)_
+      - why: Why is it wrong to say photosynthesis is absent in green light from this graph? → The action curve has a trough but remains above its baseline through the intermediate region; lower rate is not the same as zero rate.
+  - **khola (unpack):**
+    - rate of photosynthesis yaani तय समय में photosynthesis कितना हुआ · image: एक मिनट में कितना काम पूरा हुआ
+    - kyon: Absorbed light must be linked to actual photosynthetic performance. _[standard]_ → Measure photosynthesis through O₂ release at different wavelengths. _[book]_ → The curve reveals higher activity in blue and red light. _[book]_
+    - example / jagah: Panel (b), action spectrum.
+    - aage: Allows comparison between light capture and biological action.
+    - screen par: trace oxygen-release rate across wavelengths
+    - is level ke liye: For a fair experimental comparison, other limiting conditions and incident light must be controlled; this is explanatory context.
+  - prerequisites: photosynthesis releases oxygen; wavelength and colour; reading maxima and minima
+- **p007-i18** · diagram_label · figure · image · exam high
+  - Rate of photosynthesis (measured by O₂ release) — vertical axis. O₂ denotes molecular oxygen; the subscript 2 indicates two oxygen atoms per molecule. No numerical rate scale or rate unit is printed.
+    - what: What does O₂ mean in this axis label? → It denotes molecular oxygen, whose release is used to measure photosynthesis in the graph.
+    - which: Which plotted quantity rises with curve height? → The rate of photosynthesis measured by oxygen release, not pigment absorbance.
+      - how: How is release converted to a rate in principle? → Measure an amount or volume of released oxygen over a defined time interval. The graph itself does not specify numerical units. _(outside the book)_
+  - **khola (unpack):**
+    - O₂ release yaani oxygen gas का बाहर निकलना · image: पानी में रखे पौधे से निकलते gas के बुलबुले
+    - kyon: To measure photosynthetic activity, follow an observable output. _[standard]_ → The graph uses oxygen release as that output. _[book]_
+    - example / jagah: Vertical axis of panel (b).
+    - aage: Identifies this as an action spectrum rather than an absorption spectrum.
+    - screen par: count oxygen output over time
+    - is level ke liye: The subscript in O₂ is not a coefficient or a rate unit.
+  - prerequisites: chemical subscripts; rate means quantity per time
+- **p007-i19** · caption · figure · both
+  - Figure 11.3b Graph showing action spectrum of photosynthesis
+- **p007-i20** · diagram · figure · image · exam high
+  - Figure 11.3c superimposes a black rate-of-photosynthesis curve and a cyan chlorophyll a absorption curve. Both have prominent blue- and red-region responses, but they do not overlap completely. The black curve retains a broad intermediate response where chlorophyll a absorption is low. Legend: black line 'Rate of photosynthesis'; cyan line 'Absorption'. Vertical axis: 'Light absorbed'. Horizontal axis: 'Wavelength of light in nanometres (nm)', with ticks 400, 500, 600 and 700. No common numerical vertical scale is given for the two different quantities.
+    - what: What is the purpose of superimposing the curves? → It allows direct comparison of the wavelength patterns of photosynthetic action and chlorophyll a absorption.
+    - which: Which features agree and which differ? → Both show high responses in blue and red regions. Their detailed shapes differ, especially across the intervening wavelengths where the black curve remains substantial but the cyan curve is low.
+      - why: Why does the mismatch not contradict chlorophyll a being chief? → A chief pigment can act within a system containing accessory pigments that absorb other wavelengths and pass excitation energy into photosynthetic reaction centres. _(outside the book)_
+      - how: How can the graph be misused? → Treating a vertical gap as an exact amount of accessory-pigment contribution would be unjustified: the quantities differ and no common numerical vertical calibration is supplied. _(outside the book)_
+  - **khola (unpack):**
+    - superimposed yaani तुलना के लिए दो graphs को एक ही जगह ऊपर-नीचे रखकर दिखाना · image: दो transparent sheets की रेखाएँ एक-दूसरे पर रखना
+    - kyon: Ask whether chlorophyll a absorption alone matches the whole photosynthetic response. _[book]_ → Overlay the absorption and action curves at corresponding wavelengths. _[book]_ → Incomplete overlap points toward contributions beyond chlorophyll a's own absorption. _[standard]_
+    - example / jagah: Panel (c).
+    - aage: Sets up the role of accessory pigments without weakening chlorophyll a's chief role.
+    - screen par: overlay curves and highlight unmatched regions
+    - is level ke liye: Preserve the printed vertical label but explain that the black curve represents rate, not light absorbed.
+  - prerequisites: absorption versus action spectrum; chief pigment is not sole pigment
+- **p007-i21** · diagram_label · figure · image · exam medium
+  - Rate of photosynthesis — black line in the legend identifies the action-spectrum curve.
+    - what: What does the black line encode? → Photosynthetic rate across wavelengths.
+    - which: Which earlier panel supplies this type of curve? → Panel (b), the action spectrum of photosynthesis.
+      - how: How does the legend prevent confusion? → It assigns the black line to photosynthetic action even though the panel's printed vertical label says Light absorbed.
+  - **khola (unpack):**
+    - kyon: Two curves share one frame, so use the legend to identify the biological response before comparing them. _[standard]_
+    - example / jagah: Panel (c), black line.
+    - aage: Prevents exchanging action and absorption.
+    - screen par: highlight the black legend key and curve
+  - prerequisites: graph legends; action spectrum
+- **p007-i22** · diagram_label · figure · image · exam high
+  - Absorption — cyan line in the legend identifies the absorption spectrum of chlorophyll a.
+    - what: What does Absorption refer to here? → It refers to the cyan chlorophyll a absorption curve, as specified by the figure caption.
+    - which: Which pigment is represented rather than the combined absorption of all pigments? → Chlorophyll a.
+      - why: Why does specifying the pigment matter? → The comparison tests whether the response of a whole photosynthetic system is fully matched by the absorption of this one pigment. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Ask whether one pigment explains the complete response. _[standard]_ → Identify the cyan curve specifically as chlorophyll a absorption. _[book]_
+    - example / jagah: Panel (c), cyan line.
+    - aage: Makes the incomplete-overlap inference meaningful.
+    - screen par: highlight the cyan legend key and curve
+  - prerequisites: chlorophyll a absorption spectrum
+- **p007-i23** · diagram_label · figure · image · exam medium
+  - Light absorbed — printed vertical-axis label in panel (c). The cyan curve represents absorption; the black curve separately represents photosynthetic rate according to the legend.
+    - what: What is the printed vertical label? → Light absorbed.
+    - which: Which curve directly corresponds to that label? → The cyan absorption curve; the legend identifies the black curve as rate of photosynthesis.
+      - how: How should the combined display be read? → As a qualitative comparison of wavelength-dependent patterns, not as proof that absorption and rate have identical physical units. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: An overlaid display can conceal that its curves measure different things. _[standard]_ → Use the axis together with the legend and caption, not in isolation. _[standard]_
+    - example / jagah: Panel (c) left side.
+    - aage: Avoids a units and interpretation error.
+    - screen par: contrast axis wording with both legend entries
+  - prerequisites: different graph quantities have different units
+- **p007-i24** · diagram_label · figure · image · exam high
+  - Wavelength of light in nanometres (nm) — horizontal axis, labelled 400, 500, 600 and 700. Corresponding wavelength positions align vertically across panels (a), (b) and (c). nm means nanometre; 1 nm = 10⁻⁹ m.
+    - what: What quantity and unit are printed horizontally? → Wavelength of light in nanometres, abbreviated nm, with ticks at 400, 500, 600 and 700.
+    - which: Which direction takes us toward red light? → Toward the longer wavelengths on the right. _(outside the book)_
+      - how: How does the shared scale help compare panels? → The same horizontal position corresponds to the same wavelength, so peak regions in the absorption and action plots can be aligned.
+      - what: What does the unit nm mean? → One nanometre equals 10⁻⁹ metre, or one billionth of a metre. _(outside the book)_
+  - **khola (unpack):**
+    - nanometres (nm) yaani दूरी की बहुत छोटी unit; 1 metre का एक अरबवाँ हिस्सा · image: metre की पट्टी को कल्पना में एक अरब बराबर हिस्सों में बाँटना
+    - kyon: To compare responses to the same light, use a common wavelength scale. _[standard]_ → The horizontal ticks align the three panels from shorter to longer visible wavelengths. _[book]_
+    - example / jagah: Shared horizontal wavelength axis.
+    - aage: Makes cross-panel spectral comparison possible.
+    - screen par: drop vertical guides through all three panels
+    - is level ke liye: The unit conversion is standard explanatory knowledge, not a printed equation on this page.
+  - prerequisites: length units; wavelength and visible colour
+- **p007-i25** · caption · figure · both
+  - Figure 11.3c Graph showing action spectrum of photosynthesis superimposed on absorption spectrum of chlorophyll a
+
+## Page 8 · passed after 1 round(s)
+
+Accessory pigments broaden light utilisation and protect chlorophyll a. The photochemical phase produces ATP and NADPH and includes water splitting and oxygen release. Protein-bound antenna pigments feed energy to reaction-centre chlorophyll a: P700 in PS I and P680 in PS II. Excitation of PS II begins electron transfer to an acceptor.
+
+- **p008-i1** · paragraph · cause_effect · both · exam high
+  - These graphs, together, show that most of the photosynthesis takes place in the blue and red regions of the spectrum; some photosynthesis does take place at the other wavelengths of the visible spectrum. Let us see how this happens. Though chlorophyll is the major pigment responsible for trapping light, other thylakoid pigments like chlorophyll b, xanthophylls and carotenoids, which are called accessory pigments, also absorb light and transfer the energy to chlorophyll a. Indeed, they not only enable a wider range of wavelength of incoming light to be utilised for photosynthesis but also protect chlorophyll a from photo-oxidation.
+    - evidence: What conclusion does the text draw from the preceding graphs? → Most photosynthesis occurs in blue and red regions, but some occurs at other visible wavelengths. The graphs themselves are on an earlier page.
+    - what: Which pigments are called accessory pigments here? → Chlorophyll b, xanthophylls and carotenoids are named as other thylakoid pigments that assist light harvesting.
+      - how: How can these pigments support photosynthesis rather than merely colour the leaf? → They absorb light and pass its energy to chlorophyll a, making a wider range of incoming wavelengths usable.
+      - why: Why are accessory pigments useful beyond increasing light capture? → They also protect chlorophyll a against photo-oxidation.
+        - what: What does photo-oxidation mean in this context? → It means light-associated oxidative damage to pigment molecules; carotenoids can help dissipate excess excitation and limit damaging reactive species. _(outside the book)_
+  - **khola (unpack):**
+    - accessory pigments yaani मुख्य pigment की मदद करने वाले दूसरे pigments · image: एक खिलाड़ी तक गेंद पहुँचाने वाले साथी
+    - photo-oxidation yaani रोशनी से जुड़ा oxidation जो pigment को नुकसान पहुँचा सकता है · image: काम में मदद करने वाली तेज रोशनी ही बहुत बढ़ जाए तो नुकसान का खतरा
+    - kyon: Light harvesting must use more than a narrow part of incoming visible light. _[standard]_ → Accessory pigments absorb light and transfer energy to chlorophyll a. _[book]_ → This broadens usable wavelengths and also protects chlorophyll a. _[book]_
+    - example / jagah: Leaf → chloroplast → thylakoid pigments.
+    - aage: Leads to the need for an organised light-harvesting antenna.
+    - screen par: absorb, funnel and shield
+    - is level ke liye: NEET trap: transfer of excitation energy is not the same event as transfer of an electron to an acceptor.
+  - prerequisites: visible light and wavelength; chlorophyll as a light-absorbing pigment; chloroplast thylakoids
+- **p008-i2** · heading · none · both
+  - 11.5 What is Light Reaction?
+- **p008-i3** · paragraph · process · both · exam high
+  - Light reactions or the ‘Photochemical’ phase include light absorption, water splitting, oxygen release, and the formation of high-energy chemical intermediates, ATP and NADPH.
+    - what: What problem does the photochemical phase solve? → It connects absorbed light with the formation of high-energy chemical intermediates, ATP and NADPH, while including water splitting and oxygen release.
+    - how: Which events belong to the light reactions? → Light absorption, water splitting, release of oxygen, and formation of ATP and NADPH belong to this phase.
+    - when: When can this phase operate? → It operates when suitable light drives excitation in the photosynthetic apparatus. _(outside the book)_
+      - why: Why make ATP and NADPH rather than use light directly for all later chemistry? → ATP supplies usable chemical energy and NADPH supplies reducing power for subsequent carbon assimilation. _(outside the book)_
+      - what: What do ATP and NADPH stand for? → ATP is adenosine triphosphate; NADPH is the reduced form of nicotinamide adenine dinucleotide phosphate. _(outside the book)_
+  - **khola (unpack):**
+    - Photochemical yaani रोशनी से शुरू होने वाले chemical बदलावों से जुड़ा · image: रोशनी पड़ने पर चलने वाला solar उपकरण
+    - ATP yaani cell के काम में इस्तेमाल होने वाली energy देने वाला molecule · image: काम के लिए तैयार छोटा energy packet
+    - NADPH yaani आगे की reactions को electrons देने वाला reduced carrier · image: सामान लेकर अगली जगह पहुँचने वाला delivery वाहन
+    - kyon: Absorbed light energy must be converted into a chemically usable form. _[standard]_ → The light phase includes water splitting and formation of ATP and NADPH. _[book]_ → These intermediates support later carbon-assimilation reactions. _[standard]_
+    - example / jagah: Leaf chloroplast, at its thylakoid photosynthetic machinery.
+    - aage: Introduces the pigment–protein complexes responsible for the light-driven events.
+    - screen par: convert
+    - is level ke liye: Do not equate the light reaction with direct glucose formation.
+  - prerequisites: light absorption by pigments; water as a molecule; chemical energy
+- **p008-i4** · paragraph · structure · both · exam high
+  - Several protein complexes are involved in the process. The pigments are organised into two discrete photochemical light harvesting complexes (LHC) within the Photosystem I (PS I) and Photosystem II (PS II). These are named in the sequence of their discovery, and not in the sequence in which they function during the light reaction.
+    - what: How are pigments organised instead of acting as scattered independent molecules? → They form photochemical light harvesting complexes associated with Photosystem I and Photosystem II; several protein complexes participate in the light reaction.
+    - where: Where does the page place the LHC? → Within Photosystem I and Photosystem II.
+      - why: Why must the names I and II not be read as their working order? → The numbering follows discovery order, not the order in which the photosystems function during the light reaction.
+      - how: How does organisation into pigment–protein complexes help light harvesting? → It positions pigments so absorbed excitation energy can be passed towards a reaction centre. _(outside the book)_
+  - **khola (unpack):**
+    - light harvesting complexes (LHC) yaani रोशनी पकड़ने वाले pigments और proteins की जुड़ी हुई टोली · image: अलग-अलग जगह की रोशनी जुटाने वाले collectors
+    - Photosystem yaani रोशनी पकड़ने और photochemical काम शुरू करने वाला व्यवस्थित समूह · image: कई हिस्सों से बनी एक काम करने वाली machine
+    - kyon: Absorbed light must be directed to a site that initiates photochemistry. _[standard]_ → Pigments are organised in LHC within PS I and PS II. _[book]_ → Their labels record discovery rather than operational order. _[book]_
+    - example / jagah: Chloroplast → thylakoid membrane → photosystem complexes.
+    - aage: Sets up the distinction between an antenna and its reaction centre.
+    - screen par: assemble
+    - is level ke liye: Name the numbering trap before asking students to memorise P700 and P680.
+  - prerequisites: pigments absorb light; proteins can form molecular complexes; chloroplast thylakoids
+- **p008-i5** · paragraph · structure · both · exam high
+  - The LHC are made up of hundreds of pigment molecules bound to proteins. Each photosystem has all the pigments (except one molecule of chlorophyll a) forming a light harvesting system also called antennae (Figure 11.4). These pigments help to make photosynthesis more efficient by absorbing different wavelengths of light.
+    - what: What makes up an LHC? → Hundreds of pigment molecules bound to proteins form the light-harvesting assembly.
+    - where: Which part of a photosystem is called the antennae? → The pigments other than the single chlorophyll a molecule designated as the reaction centre form its light-harvesting antenna system.
+      - how: How does the antenna improve photosynthetic efficiency? → Its pigments absorb different wavelengths, increasing the range of light that can contribute to photosynthesis.
+      - why: Why does 'except one chlorophyll a' not mean that the antenna contains no chlorophyll a? → The exception distinguishes the reaction-centre chlorophyll a from the collecting pigments; antenna chlorophyll a molecules can also occur. _(outside the book)_
+  - **khola (unpack):**
+    - antennae yaani अलग wavelengths की रोशनी पकड़कर energy पहुँचाने वाला pigment समूह · image: कई छतों से पानी जुटाकर एक tank तक ले जाने वाली व्यवस्था
+    - kyon: One collecting site cannot exploit incoming light as broadly as many different pigments. _[standard]_ → Hundreds of protein-bound pigments form the light-harvesting antenna. _[book]_ → Absorption of different wavelengths makes photosynthesis more efficient. _[book]_
+    - example / jagah: The green pigment cluster in Figure 11.4.
+    - aage: Collected excitation energy is directed towards the reaction centre.
+    - screen par: collect and funnel
+    - is level ke liye: The antenna is not synonymous with accessory pigments alone.
+  - prerequisites: photosystem organisation; accessory-pigment energy transfer; pigment–protein binding
+- **p008-i6** · diagram · figure · image · exam high
+  - The light harvesting complex is drawn as a cluster of green pigment molecules. A red incoming photon strikes a peripheral pigment. A red zigzag route passes through the pigment cluster towards the reaction centre. A broad upward blue arrow leads from the reaction centre to the yellow oval labelled Primary acceptor. Leader lines identify the reaction centre and several pigment molecules.
+    - what: What overall relationship does the diagram show? → Light is received by the pigment cluster, energy is directed to a reaction centre, and the reaction centre is connected to a primary acceptor.
+    - which: Which visual features distinguish the successive parts? → The red incoming mark identifies the photon, green ovals represent pigments, the labelled central site is the reaction centre, and the yellow upper oval is the primary acceptor.
+      - how: How should the two stages in the drawing be explained without suggesting a photon travels through every pigment? → The antenna passes excitation energy between pigments; the excited reaction centre can then donate an electron to the primary acceptor. Energy transfer and electron transfer are distinct. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Light captured away from the reaction centre must still contribute to photochemistry. _[standard]_ → The diagram funnels the incoming excitation towards the reaction centre. _[book]_ → Electron donation to the acceptor converts excitation into charge separation. _[standard]_
+    - example / jagah: Figure 11.4, leaf chloroplast light-harvesting apparatus.
+    - aage: Provides the visual bridge to electron transport in section 11.6.
+    - screen par: trace, funnel and lift
+    - is level ke liye: Build the red excitation route separately from the reaction-centre-to-acceptor electron step.
+  - prerequisites: antenna pigments; reaction-centre chlorophyll; light excites electrons
+- **p008-i7** · diagram_label · figure · both · exam high
+  - Primary acceptor — the yellow oval above the pigment cluster, reached by the upward blue arrow from the reaction centre.
+    - what: What does the primary acceptor label identify? → It identifies the upper receiving component connected to the reaction centre.
+    - which: Which arrow reaches it? → The large upward blue arrow from the reaction-centre region ends at this oval.
+      - how: How does it receive the output of reaction-centre excitation? → It accepts an electron donated by the excited reaction centre, rather than receiving a whole pigment molecule. _(outside the book)_
+  - **khola (unpack):**
+    - Primary acceptor yaani reaction centre से निकला electron सबसे पहले लेने वाला · image: relay में अगले खिलाड़ी का baton पकड़ना
+    - kyon: An excited electron needs a receiving component to enter electron transfer. _[standard]_ → The acceptor receives it from the reaction centre. _[standard]_
+    - example / jagah: Yellow oval at the top of Figure 11.4.
+    - aage: Starts transfer beyond the pigment cluster.
+    - screen par: receive
+    - is level ke liye: An acceptor receives electrons; it is not another name for an antenna.
+  - prerequisites: electron excitation; reaction centre
+- **p008-i8** · diagram_label · figure · both · exam high
+  - Reaction centre — leader line points to the chlorophyll site at the base of the upward blue arrow in the pigment cluster.
+    - what: What does this labelled site represent? → It represents the reaction-centre chlorophyll a distinguished from the surrounding collecting pigments.
+    - which: Which two routes meet at this site in the drawing? → The red route through the antenna converges here, and the upward blue arrow begins here.
+      - how: How is its role different from that of an antenna pigment? → It couples collected excitation to electron donation, whereas antenna pigments principally collect and pass on excitation energy. _(outside the book)_
+  - **khola (unpack):**
+    - Reaction centre yaani वह खास chlorophyll a जहाँ से photochemical electron transfer शुरू होता है · image: कई रास्तों का एक काम शुरू करने वाली जगह पर मिलना
+    - kyon: Collected energy needs a photochemical output site. _[standard]_ → The labelled reaction centre links the antenna to the primary acceptor. _[book]_
+    - example / jagah: Base of the blue arrow in Figure 11.4.
+    - aage: Distinguishes collecting light from initiating electron transfer.
+    - screen par: converge
+    - is level ke liye: Relate this site to P700 or P680 according to the photosystem.
+  - prerequisites: antenna system; chlorophyll a
+- **p008-i9** · diagram_label · figure · both · exam medium
+  - Photon — label beside the incoming red mark directed at a peripheral green pigment.
+    - what: What is a photon? → A photon is a quantum, or packet, of light energy. _(outside the book)_
+    - which: Which part of the drawing marks the incoming light? → The red mark approaching a peripheral green pigment is labelled Photon.
+      - how: How does photon absorption begin the process? → Absorption can raise a pigment electron to a higher-energy state, creating excitation that the antenna can transfer. _(outside the book)_
+  - **khola (unpack):**
+    - Photon yaani रोशनी की energy का एक packet · image: एक-एक छोटे packet में आने वाली energy
+    - kyon: A pigment requires incoming energy to become excited. _[standard]_ → The incoming photon supplies this energy when absorbed. _[standard]_
+    - example / jagah: Incoming red symbol in Figure 11.4.
+    - aage: Begins the antenna excitation route.
+    - screen par: strike and excite
+    - is level ke liye: Distinguish photon, excitation energy and electron.
+  - prerequisites: light as energy; pigment absorption
+- **p008-i10** · diagram_label · figure · both · exam medium
+  - Pigment molecules — several leader lines point to green oval molecules in the light-harvesting cluster.
+    - what: What do the green ovals represent? → They represent the pigment molecules of the light-harvesting assembly.
+    - which: Which labelled part forms the collecting cluster? → The group identified by the multiple Pigment molecules leader lines forms the collecting region around the reaction centre.
+      - how: How does having different pigments help the cluster? → Different pigments absorb different wavelengths, making photosynthesis more efficient.
+  - **khola (unpack):**
+    - Pigment molecules yaani रोशनी सोखने वाले molecules · image: अलग रंग की रोशनी पकड़ने वाले छोटे collectors
+    - kyon: Incoming light contains different wavelengths. _[standard]_ → Different pigment molecules capture different wavelengths. _[book]_ → Their collecting function improves photosynthetic efficiency. _[book]_
+    - example / jagah: Green cluster in Figure 11.4; thylakoid pigment–protein complexes.
+    - aage: Feeds the reaction centre with harvested excitation energy.
+    - screen par: collect
+    - is level ke liye: The picture is schematic, not a molecular count or a true-colour map.
+  - prerequisites: light-absorbing pigments; antenna system
+- **p008-i11** · caption · figure · both
+  - Figure 11.4 The light harvesting complex
+- **p008-i12** · paragraph · comparison · both · exam high
+  - The single chlorophyll a molecule forms the reaction centre. The reaction centre is different in both the photosystems. In PS I the reaction centre chlorophyll a has an absorption peak at 700 nm, hence is called P700, while in PS II it has absorption maxima at 680 nm, and is called P680.
+    - compare: How do the reaction centres of PS I and PS II compare? → Both are described as chlorophyll a, but PS I has its characteristic peak at 700 nm and is P700, while PS II has its peak at 680 nm and is P680.
+    - difference: What difference do the numbers 700 and 680 express? → They identify the respective absorption-peak wavelengths, measured in nanometres, not the number of pigment molecules.
+      - why: Why can chlorophyll a have different peak positions in the two centres? → Its interaction with surrounding proteins and other pigments changes its absorption properties. _(outside the book)_
+      - what: What is the unit nm? → nm means nanometre, a unit of length equal to one billionth of a metre; here it measures light wavelength. _(outside the book)_
+  - **khola (unpack):**
+    - absorption peak yaani वह wavelength जहाँ pigment का light absorption सबसे ज्यादा होता है · image: graph की सबसे ऊँची चोटी
+    - P700 yaani PS I का reaction centre जिसका peak 700 nm पर है · image: नाम पर लगा wavelength का पहचान tag
+    - P680 yaani PS II का reaction centre जिसका peak 680 nm पर है · image: दूसरे centre पर लगा 680 वाला पहचान tag
+    - kyon: Two photosystems need distinguishable reaction-centre identities. _[standard]_ → Their chlorophyll a centres have different characteristic absorption peaks. _[book]_ → The peak wavelengths give the names P700 and P680. _[book]_
+    - example / jagah: PS I and PS II in chloroplast thylakoid membranes.
+    - aage: Explains why the next paragraph begins with PS II absorbing 680 nm red light.
+    - screen par: pair and contrast
+    - is level ke liye: Do not replace chlorophyll a with chlorophyll b merely because the two peak wavelengths differ.
+  - prerequisites: reaction centre versus antenna; wavelength; absorption peak
+- **p008-i13** · heading · none · both
+  - 11.6 The Electron Transport
+- **p008-i14** · paragraph · process · both · exam high
+  - In photosystem II the reaction centre chlorophyll a absorbs 680 nm wavelength of red light causing electrons to become excited and jump into an orbit farther from the atomic nucleus. These electrons are picked up by an electron acceptor which passes them to an electrons [electron] transport
+    - how: How does PS II initiate electron transfer in this passage? → Reaction-centre chlorophyll a absorbs 680 nm red light, its electrons become excited, and an electron acceptor receives them and passes them onward to electron transport.
+    - when: When does electron excitation occur in the described sequence? → It follows absorption of 680 nm light by PS II reaction-centre chlorophyll a and precedes capture by the electron acceptor.
+      - why: Why can absorbed light make an electron available for transfer? → The absorbed energy raises the electron to a higher-energy state, from which transfer to a suitable acceptor becomes possible. _(outside the book)_
+      - what: How should 'an orbit farther from the atomic nucleus' be understood at this level? → It is a simplified picture of electronic excitation. In chlorophyll, electrons occupy molecular electronic states; the key idea is increased energy, not a literal planetary path around a single nucleus. _(outside the book)_
+      - consequence: What follows excitation according to the visible text? → An acceptor picks up the excited electrons and passes them towards electron transport; the sentence continues beyond this page.
+  - **khola (unpack):**
+    - excited yaani energy मिलने से electron का ज्यादा energy वाली state में पहुँचना · image: सीढ़ी पर नीचे से ऊपर पहुँचना
+    - electron acceptor yaani दूसरे molecule से electron लेने वाला · image: relay में baton लेने वाला अगला खिलाड़ी
+    - kyon: Electron transfer requires light energy to excite the reaction centre. _[standard]_ → PS II chlorophyll a absorbs 680 nm red light and its electrons become excited. _[book]_ → An acceptor receives these electrons and passes them towards electron transport. _[book]_
+    - example / jagah: Leaf chloroplast → thylakoid membrane → PS II reaction centre.
+    - aage: Begins the electron-transport account continued on the next page.
+    - screen par: absorb, raise and hand over
+    - is level ke liye: Keep the excitation-energy transfer through antenna pigments distinct from actual electron transfer from the reaction centre.
+  - prerequisites: PS II and P680; electron and atomic nucleus; photon absorption; electron acceptor
+
+## Page 9 · passed after 2 round(s)
+
+Light-driven electron transfer proceeds from PS II through an electron transport system to PS I and ultimately reduces NADP⁺. This Z scheme includes two excitations and ATP formation. Water splitting associated with PS II supplies replacement electrons and produces protons and oxygen; the page then introduces ATP as an energy carrier.
+
+- **p009-i1** · paragraph · process · both · exam high
+  - system consisting of cytochromes (Figure 11.5). This movement of electrons is downhill, in terms of an oxidation-reduction or redox potential scale. The electrons are not used up as they pass through the electron transport chain, but are passed on to the pigments of photosystem PS I. Simultaneously, electrons in the reaction centre of PS I are also excited when they receive red light of wavelength 700 nm and are transferred to another accepter [acceptor] molecule that has a greater redox potential.
+    - how: How do electrons reach PS I after leaving PS II? → They pass through an electron transport chain containing cytochromes; they are transferred onward rather than consumed by the chain.
+    - when: When are electrons in the PS I reaction centre excited? → When the reaction centre receives red light of wavelength 700 nm, its electrons are excited and transferred to an acceptor.
+      - why: Why is a second excitation needed instead of simply sending electrons from the transport chain to NADP⁺? → Electron transfer through the chain releases usable energy. Light absorption at PS I provides another energy boost, enabling the later reduction of NADP⁺. _(outside the book)_
+      - what: What does downhill mean here, and what should not be inferred from the diagram? → It means energetically favourable electron transfer, not electrons physically falling through the chloroplast. More positive reduction potential corresponds to greater electron-accepting tendency; vertical height in a simplified energy sketch should not be read as a literal spatial position or an explicitly calibrated potential axis. _(outside the book)_
+    - what: What does 700 nm specify? → It specifies the wavelength of the red light exciting PS I; nm means nanometre, a unit of length equal to 10⁻⁹ metre. _(outside the book)_
+  - **khola (unpack):**
+    - cytochromes yaani electron को लेकर आगे देने वाले proteins · image: कतार में लोग एक गेंद आगे देते हैं
+    - redox potential yaani electron लेने या देने की प्रवृत्ति बताने वाला माप · image: अलग-अलग हाथों की गेंद पकड़ने की अलग पकड़
+    - reaction centre yaani photosystem की वह जगह जहाँ से excited electron आगे जाता है · image: टीम में गेंद आगे फेंकने वाला मुख्य खिलाड़ी
+    - kyon: PS II से निकले electrons को आगे पहुँचाना है; cytochrome-containing chain उन्हें PS I तक देती है. _[book]_ → Chain में electron energy का कुछ भाग निकलता है, इसलिए अगली reduction के लिए नया energy boost चाहिए. _[standard]_ → PS I में 700 nm light electron को फिर excite करती है. _[book]_
+    - example / jagah: Leaf → chloroplast → thylakoid membrane → electron carriers between PS II and PS I.
+    - aage: Electron flow continues without consumption of the electrons in the chain and reaches a second light-driven step.
+    - screen par: Pass an electron token through carriers, then lift it again at PS I.
+    - is level ke liye: NEET trap: downhill transfer is not physical downward motion; P700 belongs to PS I.
+  - prerequisites: Light absorption by reaction-centre pigments; Electrons and oxidation-reduction; PS II and PS I
+- **p009-i2** · paragraph · process · both · exam high
+  - These electrons then are moved downhill again, this time to a molecule of energy-rich NADP⁺. The addition of these electrons reduces NADP⁺
+    - how: How does the electron pathway end after PS I excitation? → Electrons pass from the PS I acceptor onward to NADP⁺, reducing it; the following line names the reduced product as NADPH + H⁺.
+    - when: When is NADP⁺ reduced in the sequence? → After electrons have been excited in PS I and transferred to its acceptor.
+      - why: Why is addition of electrons called reduction? → Reduction means gain of electrons. NADP⁺ is the oxidised electron acceptor and NADPH is its reduced, reducing-power-carrying form. _(outside the book)_
+      - difference: How should the phrase 'energy-rich NADP⁺' be understood without confusing the two forms? → Keep the printed wording, but distinguish their roles: NADP⁺ accepts electrons, whereas the resulting NADPH carries reducing power for subsequent reactions. _(outside the book)_
+  - **khola (unpack):**
+    - NADP⁺ yaani electron लेने के लिए तैयार carrier · image: सामान लेने के लिए खाली थैला
+    - NADPH yaani electron मिलने के बाद reducing power ले जाने वाला carrier · image: सामान से भरा थैला
+    - kyon: PS I से निकले electrons को अंतिम acceptor चाहिए. _[standard]_ → NADP⁺ electrons लेता है और reduced product बनता है. _[book]_
+    - example / jagah: Terminal part of the light-reaction electron pathway in the chloroplast.
+    - aage: Light reactions supply reducing power rather than merely transferring electrons without an end product.
+    - screen par: Load electrons onto NADP⁺ and change its label to NADPH.
+    - is level ke liye: Separate the book's phrase from the exam distinction between oxidised NADP⁺ and reduced NADPH.
+  - prerequisites: Electron gain as reduction; PS I excitation
+- **p009-i3** · definition · definition · both · exam high
+  - to NADPH + H⁺. This whole scheme of transfer of electrons, starting from the PS II, uphill to the acceptor, down the electron transport chain to PS I, excitation of electrons, transfer to another acceptor, and finally down hill to NADP⁺ reducing it to NADPH + H⁺ is called the Z scheme, due to its characteristic shape (Figure 11.5). This shape is formed when all the carriers are placed in a sequence on a redox potential scale.
+    - what: What is the Z scheme? → It is the full electron-transfer arrangement from PS II through an acceptor and transport chain to PS I, then through another acceptor to NADP⁺, including excitation at both photosystems.
+    - evidence: What on the page explains its name? → The text says that arranging the carriers sequentially on a redox potential scale gives the characteristic Z shape, illustrated in Figure 11.5.
+      - why: Why does the pathway rise twice? → The two rises represent separate light-driven electron excitations, first at PS II and then at PS I; they are not two layers of membrane. _(outside the book)_
+      - how: How should a learner follow the scheme without memorising just its shape? → Trace PS II → acceptor → electron transport chain → PS I → acceptor → NADP⁺ and mark the two excitations and final reduction.
+  - **khola (unpack):**
+    - Z scheme yaani दो बार light से ऊपर उठते electron का पूरा रास्ता · image: दो चढ़ाइयों और बीच की ढलान वाला रास्ता
+    - carrier yaani electron लेकर अगले साथी को देने वाला substance · image: relay में baton आगे देने वाला खिलाड़ी
+    - kyon: पूरे electron रास्ते को एक साथ समझना है. _[standard]_ → Carriers को क्रम में रखने पर दो excitation और downhill transfers दिखते हैं. _[book]_ → इसकी characteristic shape के कारण इसे Z scheme कहते हैं. _[book]_
+    - example / jagah: Figure 11.5, chloroplast light reactions.
+    - aage: Provides the framework linking electron replacement, ATP formation and NADPH formation.
+    - screen par: Trace and highlight the complete zigzag pathway.
+    - is level ke liye: Do not read the Z as the physical arrangement of photosystems in a chloroplast.
+  - prerequisites: Electron transport between photosystems; Light-driven electron excitation; NADP⁺ reduction
+- **p009-i4** · diagram · figure · image · exam high
+  - Z scheme of light reaction. Photosystem II is shown on the left and Photosystem I on the right. Dashed yellow arrows from Light reach both LHC ovals. A red arrow rises from the PS II LHC to its e⁻ acceptor; red arrows then descend through an Electron transport system to the PS I LHC. ADP + iP → ATP is drawn above this transport system. A second red arrow rises from the PS I LHC to its e⁻ acceptor, followed by transfer toward NADP⁺ reduction to NADPH. Beneath PS II, H₂O → 2e⁻ + 2H⁺ + [O] is shown, with an arrow supplying electrons to its LHC.
+    - what: What information does the complete diagram combine? → It combines light absorption by two photosystems, electron transfer between them, ATP formation, NADP⁺ reduction and the water source of replacement electrons.
+    - which: Which arrows distinguish light input from electron transfer? → Dashed yellow arrows indicate light reaching the LHCs; red arrows trace the principal electron-transfer pathway.
+      - how: How should the diagram be built for understanding? → First trace water-to-PS II electron supply, then the first excitation, the transport chain and ATP indication, the second excitation, and finally NADPH formation.
+  - **khola (unpack):**
+    - LHC yaani light पकड़कर reaction centre तक energy पहुँचाने वाला pigment समूह · image: कई लोग मिलकर एक जगह सामान पहुँचाते हैं
+    - kyon: Electron का स्रोत और मंजिल एक साथ देखनी है. _[standard]_ → Water से शुरू करके दो light boosts और अंतिम NADPH तक arrows जोड़ते हैं. _[book]_
+    - example / jagah: Thylakoid light-reaction system, represented schematically rather than spatially.
+    - aage: Connects the next subsection on water splitting to the completed electron-transfer scheme.
+    - screen par: Build arrows one by one and pulse the two light inputs.
+    - is level ke liye: The ATP arrow indicates coupling, not ATP being the electron acceptor.
+  - prerequisites: Photosystems; Electron transfer; ATP and NADPH as light-reaction products
+- **p009-i5** · diagram_label · figure · both · exam high
+  - Photosystem II — bracket over the left photosystem and its electron acceptor.
+    - what: What does Photosystem II label? → The left-hand light-driven electron-donating system at the start of the illustrated pathway.
+    - which: Which photosystem receives replacement electrons from water? → PS II receives the electrons made available by water splitting.
+      - how: How is its place in the sequence recognised? → Its LHC sends electrons upward to the first acceptor, then toward the transport system and PS I.
+  - **khola (unpack):**
+    - Photosystem II yaani इस रास्ते में पहले electron excite करने वाला photosystem · image: रास्ते का पहला lifting station
+    - kyon: Water के electrons को आगे भेजने के लिए पहला light-driven step चाहिए. _[standard]_ → Figure में यह PS II से शुरू होता है. _[book]_
+    - example / jagah: Left-hand photosystem in Figure 11.5.
+    - aage: Starts the electron path leading to PS I.
+    - screen par: Highlight the left bracket.
+    - is level ke liye: II is not the second system encountered by electrons here.
+  - prerequisites: Photosystems as pigment-protein systems
+- **p009-i6** · diagram_label · figure · both · exam high
+  - Photosystem I — bracket over the right photosystem and its electron acceptor.
+    - what: What does Photosystem I identify? → The right-hand system where a second light-driven electron excitation occurs.
+    - which: Which photosystem passes electrons toward NADP⁺? → PS I transfers excited electrons to its acceptor and then onward toward NADP⁺ reduction.
+      - how: How does PS I obtain replacement electrons? → Electrons from PS II reach it through the electron transport chain.
+  - **khola (unpack):**
+    - Photosystem I yaani electron को दूसरी बार light से energy देने वाला photosystem · image: रास्ते का दूसरा lifting station
+    - kyon: Chain से आने वाले electron को फिर energy चाहिए. _[standard]_ → PS I में light excitation के बाद वह NADP⁺ की ओर जाता है. _[book]_
+    - example / jagah: Right-hand system in Figure 11.5.
+    - aage: Provides the second excitation before NADP⁺ reduction.
+    - screen par: Highlight the right bracket and second rise.
+    - is level ke liye: Associate PS I with 700 nm.
+  - prerequisites: Electron transfer from PS II
+- **p009-i7** · diagram_label · figure · both · exam high
+  - Light — yellow circle with dashed yellow arrows to both LHCs.
+    - what: What does the yellow Light symbol supply? → It represents the light input reaching both photosystems.
+    - which: Which structures receive its dashed arrows? → Both the PS II and PS I LHC ovals.
+      - how: How is light different from the electron source? → Light supplies energy for excitation; water supplies the replacement electrons. The dashed light arrows are not streams of electrons. _(outside the book)_
+  - **khola (unpack):**
+    - Light yaani electron को excite करने की energy · image: झूले को ऊपर उठाने वाला धक्का
+    - kyon: Electron को ऊँची energy अवस्था में पहुँचाना है. _[standard]_ → दोनों photosystems light लेते हैं. _[book]_
+    - example / jagah: Dashed yellow arrows in the figure.
+    - aage: Explains the two upward electron-transfer steps.
+    - screen par: Flash both dashed arrows.
+    - is level ke liye: Water supplies electrons; light supplies energy.
+  - prerequisites: Light supplies energy; Electrons are particles transferred between carriers
+- **p009-i8** · diagram_label · figure · both · exam high
+  - e⁻ acceptor — pink oval above PS II LHC, receiving the upward electron arrow and passing electrons toward the electron transport system.
+    - what: What is the left e⁻ acceptor? → It is the receiver of the electron excited at PS II; e⁻ denotes an electron with negative charge. _(outside the book)_
+    - which: Which pathway leaves this acceptor? → The red arrow goes into the electron transport system leading toward PS I.
+      - how: How does it connect excitation to transport? → It receives the upward arrow from PS II and sends the next arrow down toward the transport chain.
+  - **khola (unpack):**
+    - e⁻ acceptor yaani excited electron को लेने वाला substance · image: ऊपर फेंकी गेंद पकड़ने वाला साथी
+    - kyon: Excited electron को आगे लेने वाला चाहिए. _[standard]_ → PS II acceptor उसे transport system को देता है. _[book]_
+    - example / jagah: Left pink oval in Figure 11.5.
+    - aage: Starts downhill transport toward PS I.
+    - screen par: Catch and pass an electron token.
+    - is level ke liye: The minus sign belongs to e⁻, not to the word acceptor.
+  - prerequisites: Electron excitation at PS II
+- **p009-i9** · diagram_label · figure · both · exam high
+  - e⁻ acceptor — pink oval above PS I LHC, receiving its upward electron arrow and transferring electrons toward the NADP⁺/NADPH end of the pathway.
+    - what: What does the right acceptor receive? → Electrons excited at the PS I LHC and reaction-centre system.
+    - which: Which product is associated with its outgoing pathway? → NADPH, shown at the terminal reduction step.
+      - how: How is this acceptor distinguished from the left one? → It follows the second excitation and leads toward NADP⁺ reduction rather than toward the inter-photosystem transport box.
+  - **khola (unpack):**
+    - e⁻ acceptor yaani PS I से excited electron लेने वाला substance · image: दूसरी चढ़ाई के ऊपर गेंद पकड़ने वाला साथी
+    - kyon: PS I से निकले electron को अंतिम reduction तक पहुँचाना है. _[standard]_ → Right acceptor का arrow NADPH formation की ओर जाता है. _[book]_
+    - example / jagah: Right pink oval in Figure 11.5.
+    - aage: Connects PS I excitation to reducing-power formation.
+    - screen par: Pass the second excited electron to the terminal pathway.
+    - is level ke liye: Do not route this arrow back through the drawn transport box.
+  - prerequisites: PS I excitation; NADP⁺ reduction
+- **p009-i10** · diagram_label · figure · both · exam high
+  - NADP⁺ — oxidised acceptor at the terminal curved arrow.
+    - what: What role does NADP⁺ have at the figure's right end? → It receives electrons and is reduced in the terminal step.
+    - which: Which label shows the resulting reduced carrier? → NADPH above it.
+      - how: How should the superscript plus be read? → It belongs to the conventional name of the oxidised coenzyme form; it is not an instruction to add NADP to something. _(outside the book)_
+  - **khola (unpack):**
+    - NADP⁺ yaani electron स्वीकार करने वाला carrier का रूप · image: भरने से पहले खाली थैला
+    - kyon: Electron flow के अंत में receiver चाहिए. _[standard]_ → NADP⁺ electron लेकर reduced होता है. _[book]_
+    - example / jagah: Far right of Figure 11.5.
+    - aage: Changes into the reduced carrier NADPH.
+    - screen par: Turn NADP⁺ into NADPH.
+    - is level ke liye: NADP means nicotinamide adenine dinucleotide phosphate; expansion is standard background.
+  - prerequisites: Reduction as electron gain
+- **p009-i11** · diagram_label · figure · both · exam high
+  - NADPH — reduced product at the terminal curved arrow above NADP⁺.
+    - what: What does NADPH indicate? → The reduced product formed after NADP⁺ receives electrons.
+    - which: Which photosystem's acceptor feeds this terminal pathway? → The acceptor of PS I.
+      - how: How is NADPH functionally different from ATP? → NADPH supplies reducing power, whereas ATP supplies energy through coupled reactions; they are distinct outputs of the light reactions. _(outside the book)_
+  - **khola (unpack):**
+    - NADPH yaani electron लेकर reducing power पहुँचाने वाला रूप · image: आगे पहुँचाने के लिए सामान से भरा थैला
+    - kyon: स्वीकार किए electrons को आगे उपयोग के लिए रखना है. _[standard]_ → NADP⁺ reduction का product NADPH है. _[book]_
+    - example / jagah: Terminal product label in the light-reaction scheme.
+    - aage: Carries reducing power beyond the illustrated pathway.
+    - screen par: Fill and move a carrier token.
+    - is level ke liye: The figure labels NADPH; the prose writes NADPH + H⁺.
+  - prerequisites: NADP⁺ reduction
+- **p009-i12** · diagram_label · figure · both · exam high
+  - ADP + iP — substrates shown for ATP formation.
+    - what: What do ADP and iP mean? → ADP is adenosine diphosphate and iP denotes inorganic phosphate; the plus sign indicates their combination as ATP precursors, not electric charge. _(outside the book)_
+    - which: Which product does their curved arrow reach? → ATP, above the electron transport system.
+      - how: How is this label related to electron transport? → The diagram places ADP + iP to ATP conversion alongside the transport system, indicating coupled ATP formation.
+  - **khola (unpack):**
+    - ADP + iP yaani ATP बनाने के लिए ADP और अलग inorganic phosphate · image: दो जुड़े मोतियों में तीसरा मोती जोड़ना
+    - kyon: Energy को ATP के रूप में रखने के लिए उसके precursors चाहिए. _[standard]_ → Figure ADP और iP से ATP बनना दिखाती है. _[book]_
+    - example / jagah: Curved phosphorylation arrow above the transport box.
+    - aage: Introduces the ATP-forming side of the light reaction.
+    - screen par: Join a phosphate token to ADP.
+    - is level ke liye: The page prints iP; Pᵢ is another common notation.
+  - prerequisites: ATP and phosphate groups
+- **p009-i13** · diagram_label · figure · both · exam high
+  - ATP — product of the ADP + iP curved arrow.
+    - what: What is ATP? → ATP, adenosine triphosphate, is an energy-carrying molecule. _(outside the book)_
+    - which: Which inputs lead to ATP in the diagram? → ADP and inorganic phosphate, labelled ADP + iP.
+      - how: How should the nearby ATP arrow not be misread? → It indicates ATP synthesis coupled to electron transport, not electrons entering ATP as the terminal acceptor. _(outside the book)_
+  - **khola (unpack):**
+    - ATP yaani काम कराने के लिए energy देने वाला molecule · image: छोटे कामों के लिए तैयार energy coupon
+    - kyon: Light reaction की energy को उपयोगी रूप में पकड़ना है. _[standard]_ → Diagram transport के साथ ATP formation दिखाती है. _[book]_
+    - example / jagah: Above the transport system in Figure 11.5.
+    - aage: Prepares for photo-phosphorylation.
+    - screen par: Convert ADP into ATP beside the electron stream.
+    - is level ke liye: Distinguish ATP's energy-transfer role from NADPH's reducing role.
+  - prerequisites: ADP and inorganic phosphate
+- **p009-i14** · diagram_label · figure · both · exam high
+  - Electron transport system — rectangle on the descending pathway between the PS II acceptor and PS I LHC.
+    - what: What does the central rectangle represent? → The electron transport system connecting the first acceptor to PS I.
+    - which: Which components does it connect? → The acceptor following PS II and the LHC/reaction-centre system of PS I.
+      - how: How does electron passage affect the electrons themselves? → They are passed onward rather than used up; the text identifies cytochromes in this system.
+  - **khola (unpack):**
+    - Electron transport system yaani electron आगे देने वाले carriers की कड़ी · image: हाथों की कतार में गेंद आगे जाना
+    - kyon: दो photosystems के बीच electron पहुँचाना है. _[standard]_ → Transport system उसे PS I को देता है, खत्म नहीं करता. _[book]_
+    - example / jagah: Central purple box in the figure.
+    - aage: Links the two excitations and the ATP indication.
+    - screen par: Relay electron tokens through the box.
+    - is level ke liye: Do not identify the transport box itself as PS I or PS II.
+  - prerequisites: Electron carriers; Two photosystems
+- **p009-i15** · diagram_label · figure · both · exam high
+  - LHC — light-harvesting complex of PS I; receives light and electrons from the transport system, with an upward arrow to its acceptor.
+    - what: What does LHC stand for? → Light-harvesting complex: the pigment-protein assembly that collects light energy for a photosystem's reaction centre. _(outside the book)_
+    - which: Which LHC is the right oval? → The one belonging to PS I.
+      - how: How are its inputs and output shown? → A dashed light arrow and descending transport-chain arrow reach it; a red arrow rises to the PS I acceptor.
+  - **khola (unpack):**
+    - light-harvesting complex yaani light energy इकट्ठी करके reaction centre को देने वाला समूह · image: कई रास्तों से सामान एक counter पर पहुँचना
+    - kyon: Reaction centre तक light energy पहुँचानी है. _[standard]_ → LHC pigments energy collect करके उसे पहुँचाते हैं. _[standard]_
+    - example / jagah: Right oval beneath the PS I acceptor.
+    - aage: Feeds the second excitation.
+    - screen par: Gather light pulses into the right oval.
+    - is level ke liye: The schematic oval stands for the photosystem's light-harvesting/reaction-centre input region; do not assign electron donation to every antenna pigment.
+  - prerequisites: Light absorption by pigments; PS I
+- **p009-i16** · diagram_label · figure · both · exam high
+  - LHC — light-harvesting complex of PS II; receives light and replacement electrons from water, with an upward arrow to its acceptor.
+    - what: What does the left LHC oval represent? → The light-harvesting region of the PS II system in the schematic.
+    - which: Which electron source feeds this side? → Water splitting supplies replacement electrons to PS II.
+      - how: How is this oval connected to the first acceptor? → A vertical red arrow rises from it to the left acceptor, indicating the first light-driven transfer.
+  - **khola (unpack):**
+    - LHC yaani PS II के लिए light energy जमा करने वाला pigment समूह · image: एक जगह रोशनी इकट्ठी करने वाले कई छोटे collectors
+    - kyon: PS II को excitation energy और replacement electrons चाहिए. _[standard]_ → Figure light तथा water-derived electron input को इस oval से जोड़ती है. _[book]_
+    - example / jagah: Lower-left oval in Figure 11.5.
+    - aage: Starts the first upward transfer.
+    - screen par: Bring light and electron inputs into the left oval.
+    - is level ke liye: Energy source and electron source are different.
+  - prerequisites: LHC meaning; PS II excitation
+- **p009-i17** · diagram_label · figure · both · exam high
+  - H₂O — water at the start of the splitting arrow.
+    - what: What does H₂O name? → Water; the subscript 2 indicates two hydrogen atoms per oxygen atom. _(outside the book)_
+    - which: Which photosystem is linked to this water input? → PS II.
+      - how: How does water support continuous electron flow? → Its splitting supplies electrons to replace those removed from PS II.
+  - **khola (unpack):**
+    - H₂O yaani पानी, जिससे replacement electrons मिलते हैं · image: पौधे की जड़ों से आने वाला पानी
+    - kyon: PS II से electron निकलने पर उसकी जगह भरनी है. _[book]_ → Water splitting electron देती है. _[book]_
+    - example / jagah: Water input drawn below PS II.
+    - aage: Links the Z scheme to oxygen evolution.
+    - screen par: Split a water symbol and route its electrons upward.
+    - is level ke liye: Water is the electron donor in this oxygenic pathway.
+  - prerequisites: Chemical formula subscripts; Electron loss from PS II
+- **p009-i18** · diagram_label · figure · both · exam high
+  - 2e⁻ + 2H⁺ + [O] — products in the figure's one-water shorthand; an arrow routes electrons toward PS II.
+    - what: What do the three product terms mean? → 2e⁻ means two electrons, 2H⁺ means two protons, and [O] is the schematic oxygen equivalent derived from one water molecule; these are particle counts, not measured concentrations. _(outside the book)_
+    - which: Which product replaces PS II electrons? → The electrons, represented by 2e⁻.
+      - how: How does [O] relate to the O₂ in the full equation below? → Two oxygen equivalents from two water molecules give one O₂ molecule. The shorthand does not require free atomic oxygen to be released as the stable product. _(outside the book)_
+  - **khola (unpack):**
+    - 2H⁺ yaani दो protons, यानी positive charge वाले hydrogen के भाग · image: दो छोटे '+' निशान वाले tokens
+    - [O] yaani एक water से मिले oxygen का हिसाब दिखाने वाला shorthand · image: पूरा जोड़ा बनने से पहले एक हिस्से का हिसाब
+    - kyon: Water से मिलने वाले तीन तरह के products अलग दिखाने हैं. _[standard]_ → Electrons PS II को जाते हैं; oxygen का पूरा molecular हिसाब नीचे O₂ से मिलता है. _[book]_
+    - example / jagah: Water-splitting annotation beneath the figure.
+    - aage: Prepares the balanced equation and lumen question.
+    - screen par: Separate electron, proton and oxygen-equivalent tokens.
+    - is level ke liye: Do not memorise [O] as released free atomic oxygen.
+  - prerequisites: Electron and proton charges; Water splitting
+- **p009-i19** · caption · figure · both
+  - Figure 11.5 Z scheme of light reaction
+- **p009-i20** · heading · none · both
+  - 11.6.1 Splitting of Water
+- **p009-i21** · question · cause_effect · both · exam high
+  - You would then ask, How does PS II supply electrons continuously? The
+    - why: Why does continuous electron flow create a replacement problem? → Electrons moved out of PS II must be replaced if it is to keep supplying electrons.
+    - how: How is that problem solved? → Electrons made available by splitting water replenish PS II.
+  - prerequisites: Electrons leaving PS II during excitation
+- **p009-i22** · paragraph · cause_effect · both · exam high
+  - electrons that were moved from photosystem II must be replaced. This is achieved by electrons available due to splitting of water. The splitting of water is associated with the PS II; water is split into 2H⁺, [O] and electrons. This creates oxygen, one of the net products of photosynthesis. The electrons needed to replace those removed from photosystem I are provided by photosystem II.
+    - why: Why is water splitting essential to sustained PS II activity? → PS II loses electrons into the pathway; water splitting makes electrons available to replace them.
+    - how: How are replacement electrons supplied to the two photosystems? → Water splitting replenishes PS II, while PS II supplies electrons that replace those lost from PS I.
+      - consequence: What other important product results from splitting water? → Oxygen, identified as one of the net products of photosynthesis, is produced along with protons and electrons.
+      - difference: How do the immediate electron donors to PS II and PS I differ? → PS II is replenished by water-derived electrons; PS I receives electrons coming from PS II through the transport pathway. Water is not shown directly replenishing PS I.
+  - **khola (unpack):**
+    - splitting of water yaani water से electrons, protons और oxygen मिलने की प्रक्रिया · image: एक packet खोलकर उसके अलग हिस्से निकालना
+    - net products yaani पूरी प्रक्रिया के बाद कुल मिलाकर मिलने वाले substances · image: सारे आने-जाने का हिसाब करने के बाद बचा सामान
+    - kyon: PS II लगातार electrons बाहर भेजता है, इसलिए उन्हें लौटाना जरूरी है. _[book]_ → Water splitting PS II की कमी पूरी करती है. _[book]_ → PS II आगे PS I की electron कमी पूरी करता है और oxygen भी बनती है. _[book]_
+    - example / jagah: Leaf chloroplast → PS II-associated water-splitting machinery.
+    - aage: Explains both continuous electron supply and oxygen evolution.
+    - screen par: Refill PS II from water, then refill PS I from PS II.
+    - is level ke liye: Standard exam term: photolysis of water; retain the immediate-versus-ultimate donor distinction.
+  - prerequisites: Electron loss from excited reaction centres; Electron transport from PS II to PS I
+- **p009-i23** · equation · facts_numbers · both · exam high
+  - 2H₂O → 4H⁺ + O₂ + 4e⁻
+    - what: What does the balanced equation state? → Two water molecules produce four protons, one oxygen molecule and four electrons.
+    - evidence: How can the equation be checked for atom and charge balance? → Both sides contain four hydrogen atoms and two oxygen atoms. Four positive proton charges and four negative electron charges cancel, matching neutral water. _(outside the book)_
+      - how: How should each symbol and number be read? → H₂O is water, H⁺ a proton, O₂ molecular oxygen and e⁻ an electron. The arrow means produces; plus signs separate products. Leading coefficients count particles or moles in the stated ratio, subscripts count atoms within a molecule, and superscripts indicate charge. No physical unit is attached to the coefficients. _(outside the book)_
+      - consequence: How many water molecules and electrons correspond to one O₂ molecule? → Two water molecules are split and four electrons are released per O₂ molecule formed.
+  - **khola (unpack):**
+    - O₂ yaani दो oxygen atoms से बना oxygen molecule · image: दो साथ जुड़े oxygen के गोले
+    - 4e⁻ yaani चार negative-charge वाले electrons · image: चार छोटे '-' वाले tokens
+    - kyon: एक O₂ बनाने के लिए दो oxygen atoms चाहिए. _[standard]_ → दो H₂O से दो oxygen atoms और चार hydrogen आते हैं. _[standard]_ → Equation चार H⁺ और चार e⁻ दिखाकर atoms और charge दोनों का हिसाब रखती है. _[standard]_
+    - example / jagah: PS II-associated water oxidation in the thylakoid system.
+    - aage: Quantifies electron supply and proton production per oxygen molecule.
+    - screen par: Split two water models and count all products.
+    - is level ke liye: One O₂ corresponds to four released electrons, not two.
+  - prerequisites: Chemical equation coefficients and subscripts; Electric charges on electrons and protons
+- **p009-i24** · paragraph · structure · both · exam high
+  - We need to emphasise here that the water splitting complex is associated with the PS II, which itself is physically located on the inner side of the membrane of the thylakoid.
+    - what: What machinery is associated with PS II? → The water splitting complex.
+    - where: Where does the page locate the PS II-associated machinery? → On the inner side of the thylakoid membrane.
+      - how: How should this location be pictured accurately? → PS II is a membrane-spanning protein complex, with the water-oxidising machinery on its lumen-facing side. The page's inner-side wording should not be taken to mean the entire PS II lies freely inside the lumen. _(outside the book)_
+  - **khola (unpack):**
+    - water splitting complex yaani water को split करने वाली PS II से जुड़ी machinery · image: दीवार पर लगा छोटा काम करने वाला उपकरण
+    - inner side yaani thylakoid के अंदर के खाली हिस्से की तरफ वाला रुख · image: थैली की अंदर की तरफ वाली सतह
+    - kyon: Products कहाँ निकलेंगे, जानने के लिए machinery का रुख जानना है. _[standard]_ → Water splitting complex PS II से जुड़ा और inner side पर है. _[book]_ → यह inner side lumen की ओर है. _[standard]_
+    - example / jagah: Leaf → chloroplast → thylakoid membrane → lumen-facing PS II machinery.
+    - aage: Sets up the question of proton and oxygen release.
+    - screen par: Zoom through the membrane and mark its lumen-facing surface.
+    - is level ke liye: Standard synonym: oxygen-evolving complex; distinguish membrane-embedded PS II from its lumen-side catalytic region.
+  - prerequisites: Thylakoid membrane and enclosed lumen; Water splitting at PS II
+- **p009-i25** · question · structure · both · exam high
+  - Then, where are the protons and O₂ formed likely to be released – in the lumen? or on the outer side of the membrane?
+    - what: What location choice is being tested? → Whether products of water splitting initially appear on the lumen side or on the outer side of the thylakoid membrane.
+    - where: Where are the protons and oxygen initially released? → On the lumen side, because water oxidation occurs at the lumen-facing water-splitting complex. Oxygen can subsequently diffuse away. _(outside the book)_
+      - how: How does proton release here connect to ATP formation? → Adding protons to the lumen contributes to the transmembrane proton gradient used to drive ATP synthesis. _(outside the book)_
+  - prerequisites: Lumen-facing water-splitting complex; Thylakoid lumen versus outer stroma
+- **p009-i26** · heading · none · both
+  - 11.6.2 Cyclic and Non-cyclic Photo-phosphorylation
+- **p009-i27** · paragraph · process · both · exam medium
+  - Living organisms have the capability of extracting energy from oxidisable substances and store this in the form of bond energy. Special substances like ATP, carry this energy in their chemical bonds. The process through which
+    - how: How can organisms retain extracted energy in a useful form? → They store it as chemical bond energy in substances such as ATP.
+    - when: When is energy captured in the sequence introduced here? → When organisms extract energy from oxidisable substances and store that energy in chemical form.
+    - what: What does oxidisable mean? → It means capable of undergoing oxidation, involving loss of electrons; coupled biological reactions can capture part of the released energy. _(outside the book)_
+      - why: Why should 'energy in bonds' not be explained as energy released merely by breaking a bond? → Breaking a chemical bond requires energy. Net energy release depends on the complete reaction, including formation of new bonds and the relative free energies of reactants and products. ATP hydrolysis can release usable free energy overall. _(outside the book)_
+  - **khola (unpack):**
+    - oxidisable substances yaani ऐसे substances जिनसे oxidation में electrons निकल सकते हैं · image: काम के लिए अपना जमा सामान देने वाला स्रोत
+    - bond energy yaani molecules की chemical बनावट से जुड़ी energy का हिसाब · image: दो अलग बनी चीज़ों की अलग stored capacity
+    - kyon: Organisms को मिली energy आगे के कामों के लिए रखनी है. _[standard]_ → वे extracted energy को chemical form में store करते हैं. _[book]_ → ATP जैसी substances energy carry करती हैं. _[book]_
+    - example / jagah: Cellular energy transfer; on this page ATP formation is also indicated beside the electron transport system.
+    - aage: Leads into the next page's explanation of phosphorylation.
+    - screen par: Capture energy in an ATP token and carry it toward cellular work.
+    - is level ke liye: Avoid the misconception that isolated bond breaking releases energy; ATP's useful energy concerns the net reaction.
+  - prerequisites: Oxidation and reduction; Chemical bonds; ATP as an energy carrier
+
+## Page 10 · passed after 1 round(s)
+
+Non-cyclic photophosphorylation uses PS II followed by PS I and produces ATP and NADPH + H⁺. Cyclic flow uses PS I, returns electrons through the electron transport chain and produces ATP without NADPH + H⁺; stroma lamellae and light beyond 680 nm are highlighted. Chemiosmosis links ATP synthesis to a proton gradient, with protons accumulating in the thylakoid lumen, partly through water splitting.
+
+- **p010-i1** · definition · definition · both · exam high
+  - ATP is synthesised by cells (in mitochondria and chloroplasts) is named phosphorylation. Photo-phosphorylation is the synthesis of ATP from ADP and inorganic phosphate in the presence of light.
+    - what: What energy-storage problem does photophosphorylation solve? → It forms ATP from ADP and inorganic phosphate in the presence of light. The page calls ATP synthesis in cells, including mitochondria and chloroplasts, phosphorylation.
+    - evidence: Which ingredients and condition distinguish the definition of photophosphorylation? → ADP and inorganic phosphate are the starting materials, ATP is the product, and light is the specified condition.
+      - how: How should a learner understand ATP, ADP and inorganic phosphate? → ATP is adenosine triphosphate and ADP is adenosine diphosphate. Adding inorganic phosphate, Pi, to ADP requires energy and forms ATP, which can supply energy to cellular reactions. These are molecule names, not measurement units. _(outside the book)_
+  - **khola (unpack):**
+    - phosphorylation yaani यहाँ ADP में phosphate जोड़कर ATP बनाना · image: खाली होती battery को दोबारा charge करना
+    - Photo-phosphorylation yaani रोशनी की मदद से ADP और inorganic phosphate से ATP बनाना · image: धूप से battery charge होना
+    - inorganic phosphate yaani अलग मौजूद phosphate, जिसे ADP के साथ जोड़ा जा सकता है · image: जोड़ने के लिए तैयार अलग पुर्जा
+    - kyon: Cells need an energy carrier for their reactions. _[standard]_ → ADP and inorganic phosphate can be used to form ATP. _[book]_ → When this synthesis occurs in the presence of light it is photophosphorylation. _[book]_
+    - example / jagah: Leaf → chloroplast; phosphorylation also occurs in mitochondria.
+    - aage: The next question is which electron-flow route supplies the energy for ATP synthesis.
+    - screen par: join phosphate to ADP
+    - is level ke liye: Photo- means light; do not equate every phosphorylation with photophosphorylation.
+  - prerequisites: ATP as a cellular energy carrier; chloroplasts and mitochondria
+- **p010-i2** · paragraph · process · both · exam high
+  - When the two photosystems work in a series, first PS II and then the PS I, a process called non-cyclic photo-phosphorylation occurs. The two photosystems are connected through an electron transport chain, as seen earlier – in the Z scheme. Both ATP and NADPH + H⁺ are synthesised by this kind of electron flow (Figure 11.5).
+    - how: How are the two photosystems used in non-cyclic photophosphorylation? → PS II acts first and PS I follows; an electron transport chain connects them in series, as represented in the Z scheme.
+    - when: When is this electron-flow mode described as non-cyclic photophosphorylation? → When both photosystems work in series, with PS II preceding PS I; this mode synthesises both ATP and NADPH + H⁺.
+      - why: Why is 'PS I first' an exam trap? → The numerical names are not the order of operation in this sequence: the page explicitly places PS II before PS I.
+      - what: What do NADPH + H⁺ and the photosystem abbreviations mean? → PS means photosystem. NADPH is the reduced form of nicotinamide adenine dinucleotide phosphate; H⁺ denotes a proton. The plus sign separates NADPH from the additional proton, not a positive charge on NADPH. These symbols have no measurement units here. _(outside the book)_
+  - **khola (unpack):**
+    - non-cyclic yaani electron का रास्ता घूमकर उसी शुरुआत पर वापस नहीं आता · image: एक तरफ जाने वाला रास्ता
+    - electron transport chain yaani electron को आगे देने वाले carriers की कड़ी · image: कतार में लोग एक-दूसरे को गेंद देते हैं
+    - kyon: Light reactions must make ATP and reducing power. _[standard]_ → PS II and PS I work in sequence through an electron transport chain. _[book]_ → This electron flow yields ATP and NADPH + H⁺. _[book]_
+    - example / jagah: Chloroplast photosynthetic membranes; recall the earlier Z scheme.
+    - aage: Provides the normal two-photosystem route against which cyclic flow is compared.
+    - screen par: pass electrons from PS II towards PS I
+    - is level ke liye: Do not infer functional sequence from photosystem numbering.
+  - prerequisites: photosystems and reaction centres; electron transport chain; ATP and NADP⁺
+- **p010-i3** · diagram · figure · image · exam high
+  - Cyclic photophosphorylation: a dashed yellow arrow carries Light to Chlorophyll P 700. A straight pink arrow rises from P 700 to the e⁻ acceptor. A curved pink arrow leads from the acceptor down to the Electron transport system, and another pink arrow returns from that system to P 700. Beside the transport system, a curved black arrow indicates ADP + Pi → ATP. The Photosystem I bracket identifies the PSI pathway. No PS II or NADP⁺-reduction branch is shown.
+    - what: What is the central message of the loop in Figure 11.6? → The electron leaving chlorophyll P 700 reaches an acceptor, passes through the electron transport system and returns to P 700; ATP formation accompanies the route.
+    - which: Which arrows represent light input, electron transfer and ATP formation? → The dashed yellow arrow represents light reaching P 700. Pink arrows form the electron loop. The small black curved arrow beside the transport system indicates ADP + Pi becoming ATP.
+      - how: How should the upward arrow be understood without mistaking it for electron motion to a higher place in the chloroplast? → It represents excitation and transfer of an electron to an acceptor. The diagram is a functional pathway, not a scaled spatial map of the chloroplast. _(outside the book)_
+  - **khola (unpack):**
+    - cyclic yaani घूमकर फिर उसी शुरुआत पर लौटने वाला · image: गोल चक्कर लगाकर घर लौटना
+    - kyon: Ask what happens to an electron excited from P 700. _[book]_ → Follow it through acceptor and transport system back to P 700. _[book]_ → The loop is associated with ATP synthesis. _[book]_
+    - example / jagah: Figure 11.6, PSI electron-flow pathway.
+    - aage: The route can make ATP without sending the electron to NADP⁺.
+    - screen par: trace and close the electron loop
+    - is level ke liye: Build the figure one arrow at a time; a return route is the defining visual clue.
+  - prerequisites: PS I reaction centre; light excitation of electrons; ADP to ATP conversion
+- **p010-i4** · diagram_label · figure · both · exam high
+  - Photosystem I — bracket above the PSI pathway.
+    - what: What system does this bracket identify? → It identifies Photosystem I, the photosystem used in the depicted cyclic pathway.
+    - which: Which reaction-centre chlorophyll belongs to this pathway? → The figure labels its reaction centre Chlorophyll P 700.
+      - how: How does PSI operate without PSII in the depicted mode? → The electron is returned to the PSI complex through the electron transport chain rather than being passed to NADP⁺.
+  - **khola (unpack):**
+    - Photosystem I yaani P 700 वाला light पकड़ने और electron देने वाला system · image: रोशनी लेकर काम शुरू करने वाला एक station
+    - kyon: Only PSI is functional in the cyclic mode described. _[book]_ → Its electron is circulated back through the transport chain. _[book]_
+    - example / jagah: Chloroplast; stroma lamellae are a possible location.
+    - aage: PSII need not be included in this loop.
+    - screen par: highlight PSI
+    - is level ke liye: PSI is not synonymous with the whole pair of photosystems.
+  - prerequisites: photosystem as a light-harvesting functional unit
+- **p010-i5** · diagram_label · figure · both · exam medium
+  - e⁻ acceptor — receives the electron from Chlorophyll P 700 and sends it towards the electron transport system.
+    - what: What does e⁻ acceptor mean? → It is the electron-receiving component shown above P 700; e⁻ denotes an electron and its negative charge. _(outside the book)_
+    - which: Which two components connect to the acceptor by arrows? → An arrow arrives from Chlorophyll P 700 and an arrow leaves towards the Electron transport system.
+      - how: How does its outgoing arrow support cyclic flow? → It sends the electron into the return pathway through the transport system, which reconnects to P 700.
+  - **khola (unpack):**
+    - e⁻ acceptor yaani electron लेने वाला हिस्सा · image: गेंद पकड़कर आगे देने वाला खिलाड़ी
+    - kyon: An excited electron must be received after leaving P 700. _[standard]_ → The acceptor directs it towards the transport system in this diagram. _[book]_
+    - example / jagah: Upper pink oval in Figure 11.6.
+    - aage: Electron transfer continues into the loop.
+    - screen par: receive and pass the electron
+    - is level ke liye: e⁻ is a particle symbol, not an energy unit.
+  - prerequisites: electrons and electron transfer
+- **p010-i6** · diagram_label · figure · both · exam medium
+  - Light — dashed yellow arrow points to Chlorophyll P 700.
+    - what: What input does the yellow circle represent? → It represents light reaching chlorophyll P 700.
+    - which: Which arrow should not be traced as an electron-return arrow? → The dashed yellow arrow from Light to P 700 represents the light input, unlike the pink electron arrows.
+      - how: How does light initiate the depicted electron transfer? → Absorption of light excites an electron in the reaction-centre chlorophyll, enabling transfer to an electron acceptor. _(outside the book)_
+  - **khola (unpack):**
+    - Light yaani electron को excite करने की energy देने वाली रोशनी · image: धूप पड़ते ही solar device चलना
+    - kyon: The electron needs energy for excitation. _[standard]_ → Light supplies this energy to the reaction centre. _[standard]_
+    - example / jagah: Light incident on chlorophyll in a leaf chloroplast.
+    - aage: The electron can be transferred to the acceptor.
+    - screen par: illuminate P 700
+    - is level ke liye: Light is an energy input; it is not a replacement electron.
+  - prerequisites: chlorophyll absorbs light
+- **p010-i7** · diagram_label · figure · both · exam high
+  - ATP — product shown beside the electron transport system.
+    - what: What product is indicated by ATP here? → ATP is the product of phosphorylation shown alongside cyclic electron transport.
+    - which: Which substrate label feeds this product arrow? → The curved arrow links ADP + Pi to ATP.
+      - how: How should the proximity of ATP to the transport system be interpreted? → Electron transport is coupled to ATP formation; the placement does not mean an electron itself turns into ATP. _(outside the book)_
+  - **khola (unpack):**
+    - ATP yaani cell के कामों में energy देने वाला molecule · image: काम के लिए तैयार charged battery
+    - kyon: Light energy needs to be captured in a usable chemical form. _[standard]_ → Cyclic flow supports ATP synthesis from ADP and phosphate. _[book]_
+    - example / jagah: Product arrow beside the electron transport system.
+    - aage: Cyclic flow supplies ATP but not NADPH + H⁺.
+    - screen par: form ATP
+    - is level ke liye: ATP stands for adenosine triphosphate; no unit is attached to this label.
+  - prerequisites: ATP and ADP; phosphorylation
+- **p010-i8** · diagram_label · figure · both · exam high
+  - ADP + Pi — substrates for ATP formation; Pi is inorganic phosphate.
+    - what: What does ADP + Pi identify? → It identifies ADP and inorganic phosphate, the materials used for ATP synthesis.
+    - which: Which arrow connects this label with its product? → The small curved black arrow rises from the ADP + Pi side towards ATP beside the transport system.
+      - how: How should the plus sign and subscript i be read? → The plus sign means ADP together with phosphate; the subscript i identifies inorganic phosphate. It does not mean a positive ion charge. ADP means adenosine diphosphate. _(outside the book)_
+  - **khola (unpack):**
+    - ADP + Pi yaani ADP और अलग inorganic phosphate, जिनसे ATP बनता है · image: दो अलग पुर्जे जुड़ने के लिए रखे हैं
+    - kyon: ATP synthesis needs ADP and a phosphate source. _[book]_ → The diagram places their conversion beside electron transport. _[book]_
+    - example / jagah: Small black conversion arrow in Figure 11.6.
+    - aage: Explains the substrates behind the word phosphorylation.
+    - screen par: combine ADP and Pi
+    - is level ke liye: ADP, Pi and ATP are chemical species, not numerical quantities with units here.
+  - prerequisites: ADP and ATP; inorganic phosphate
+- **p010-i9** · diagram_label · figure · both · exam high
+  - Electron transport system — receives electrons from the e⁻ acceptor and returns them towards Chlorophyll P 700.
+    - what: What role does the grey box represent? → It represents the electron transport system in the return route between the electron acceptor and P 700.
+    - which: Which arrows identify its input and output? → A pink curved arrow arrives from the acceptor; a pink slanting arrow leaves towards P 700.
+      - how: How does this box complete the cyclic route? → It links the acceptor back to the reaction centre rather than directing the electron to NADP⁺.
+  - **khola (unpack):**
+    - Electron transport system yaani electron को एक carrier से दूसरे तक पहुँचाने वाला system · image: गेंद आगे पहुँचाने वाली relay team
+    - kyon: The excited electron needs a return route to PSI. _[book]_ → The electron transport system provides that route and ATP formation accompanies the flow. _[book]_
+    - example / jagah: Chloroplast photosynthetic membrane electron carriers.
+    - aage: Closes the electron loop.
+    - screen par: relay the electron back
+    - is level ke liye: The single box summarises multiple carriers; it is not one isolated electron.
+  - prerequisites: electron carriers; PS I reaction centre
+- **p010-i10** · diagram_label · figure · both · exam high
+  - Chlorophyll P 700 — receives light, transfers an electron to the acceptor and receives the returning electron from the transport system.
+    - what: What does the green oval represent? → It represents the chlorophyll P 700 of Photosystem I at the beginning and end of the electron loop.
+    - which: Which three connections meet at this oval? → Light arrives by the dashed yellow arrow, an electron-transfer arrow rises to the acceptor, and the return arrow arrives from the electron transport system.
+      - why: Why is this reaction centre named P 700? → Its name refers to the PSI reaction-centre chlorophyll with an absorption maximum around 700 nm. The number refers to wavelength, not a count of chlorophyll molecules. _(outside the book)_
+  - **khola (unpack):**
+    - Chlorophyll P 700 yaani PS I का reaction centre, जिसका नाम लगभग 700 nm की light से जुड़ा है · image: खास signal पर काम शुरू करने वाला receiver
+    - kyon: Light must excite the reaction-centre electron. _[standard]_ → P 700 gives the electron to the acceptor and receives it back through the transport system. _[book]_
+    - example / jagah: PSI reaction centre in chloroplast photosynthetic membranes.
+    - aage: The same reaction centre anchors the cyclic pathway.
+    - screen par: excite and return
+    - is level ke liye: nm means nanometre, a wavelength unit; 1 nm = 10⁻⁹ m.
+  - prerequisites: reaction-centre chlorophyll; light wavelength
+- **p010-i11** · caption · figure · both
+  - Figure 11.6 Cyclic photophosphorylation
+- **p010-i12** · paragraph · cause_effect · both · exam high
+  - When only PS I is functional, the electron is circulated within the photosystem and the phosphorylation occurs due to cyclic flow of electrons (Figure 11.6). A possible location where this could be happening is in the stroma lamellae. While the membrane or lamellae of the grana have both PS I and PS II the stroma lamellae membranes lack PS II as well as NADP reductase enzyme. The excited electron does not pass on to NADP⁺ but is cycled back to the PS I complex through the electron transport chain (Figure 11.6). The cyclic flow hence, results only in the synthesis of ATP, but not of NADPH + H⁺. Cyclic photophosphorylation also occurs when only light of wavelengths beyond 680 nm are available for excitation.
+    - what: What alternative is available when only PS I is functional? → Its electron can circulate through the electron transport chain and return to the PSI complex, producing cyclic photophosphorylation.
+    - how: How does the electron's destination determine the products? → The excited electron returns to PSI instead of passing to NADP⁺. The stated outcome is ATP synthesis but no NADPH + H⁺ synthesis.
+      - why: Why does the return pathway fail to provide NADPH? → Reduction of NADP⁺ requires delivery of electrons to it. Returning the electrons to PSI instead does not supply that reduction step. _(outside the book)_
+    - compare: How do grana membranes and stroma lamellae differ on this page? → Grana membranes have both PS I and PS II. Stroma lamellae membranes lack PS II and NADP reductase; stroma lamellae are identified as a possible site of cyclic flow.
+      - where: Where are stroma lamellae relative to the chloroplast structures students already know? → Inside a chloroplast, grana are stacks of thylakoids. Stroma lamellae are unstacked membrane regions connecting grana, not the surrounding fluid stroma itself. _(outside the book)_
+    - when: What light condition is explicitly associated with cyclic photophosphorylation? → It also occurs when only light of wavelengths beyond 680 nm is available for excitation.
+      - why: Why does the wavelength condition help explain PSI-only operation? → Longer-wavelength light beyond the effective PSII red-light range can favour PSI excitation without effective participation of PSII. This is not a claim that every wavelength above 680 nm can drive photosynthesis. _(outside the book)_
+    - difference: What is the exam-ready comparison with non-cyclic flow? → Non-cyclic flow uses PS II followed by PS I and produces ATP and NADPH + H⁺. Cyclic flow involves only functional PS I, returns its electron through the transport chain and produces ATP but not NADPH + H⁺.
+      - what: What do NADP⁺ and NADP reductase mean? → NADP⁺ is the oxidised electron-accepting form of nicotinamide adenine dinucleotide phosphate. NADP reductase catalyses its reduction to NADPH; the superscript plus belongs to the chemical species, not a numerical addition. _(outside the book)_
+  - **khola (unpack):**
+    - stroma lamellae yaani chloroplast के अंदर grana को जोड़ने वाली बिना stack की membrane पट्टियाँ · image: दो इमारतों को जोड़ने वाला गलियारा
+    - grana yaani chloroplast के अंदर thylakoids के ढेर · image: एक के ऊपर एक रखे सिक्के
+    - NADP reductase yaani NADP⁺ को electron दिलाकर NADPH बनाने में मदद करने वाला enzyme · image: चार्ज पहुँचाने वाला आखिरी connector
+    - wavelength yaani light की लहर में एक चोटी से अगली चोटी की दूरी · image: रस्सी की दो लगातार लहरों के बीच का फासला
+    - kyon: Ask whether ATP can still be formed when only PSI is functional. _[book]_ → The electron returns through the transport chain instead of going to NADP⁺. _[book]_ → ATP is synthesised, but NADPH + H⁺ is not; stroma lamellae provide a possible location. _[book]_
+    - example / jagah: Leaf → chloroplast → stroma lamellae; compare with grana membranes.
+    - aage: Electron cycling separates ATP production from NADP⁺ reduction and raises the question of how electron transport powers ATP synthesis.
+    - screen par: block the NADP⁺ branch and close the return loop
+    - is level ke liye: The text says a possible location, not the exclusive location. Beyond 680 nm means longer wavelength; nm is nanometre.
+  - prerequisites: non-cyclic electron flow; PSI and PSII; grana and stroma; NADP⁺ reduction; light wavelength
+- **p010-i13** · heading · none · both
+  - 11.6.3 Chemiosmotic Hypothesis
+- **p010-i14** · paragraph · comparison · both · exam high
+  - Let us now try and understand how actually ATP is synthesised in the chloroplast. The chemiosmotic hypothesis has been put forward to explain the mechanism. Like in respiration, in photosynthesis too, ATP synthesis is linked to development of a proton gradient across a membrane. This time these are the membranes of thylakoid. There is one difference though, here the proton accumulation is towards the inside of the membrane, i.e., in the lumen. In respiration, protons accumulate in the intermembrane space of the mitochondria when electrons move through the ETS (Chapter 12).
+    - what: What puzzle does the chemiosmotic hypothesis address? → It explains how ATP is synthesised in the chloroplast by linking ATP synthesis to development of a proton gradient across the thylakoid membrane.
+    - compare: What principle do photosynthetic and respiratory ATP synthesis share? → Both link ATP synthesis to the development of a proton gradient across a membrane.
+    - difference: Where do protons accumulate in each organelle? → In chloroplasts they accumulate inside the thylakoids, in the lumen. In mitochondria during respiration they accumulate in the intermembrane space as electrons move through the ETS.
+      - how: How can a proton gradient help make ATP? → A membrane separates regions with different proton electrochemical potentials. Proton movement back down that gradient through ATP synthase can power ATP formation from ADP and phosphate. _(outside the book)_
+        - why: Why must the membrane and the two sides be identified before learning the mechanism? → A gradient is a difference across a barrier, not simply a large number of protons somewhere. Naming lumen and stroma prevents reversing the direction of proton accumulation and later proton return. _(outside the book)_
+      - where: What exactly are the lumen and mitochondrial intermembrane space? → The lumen is the enclosed internal space of a thylakoid. The mitochondrial intermembrane space lies between the outer and inner mitochondrial membranes; it is not the matrix. _(outside the book)_
+  - **khola (unpack):**
+    - chemiosmotic hypothesis yaani membrane के आर-पार H⁺ के फर्क से ATP बनना समझाने वाला विचार · image: बाँध के दो तरफ पानी के फर्क से काम करवाना
+    - proton gradient yaani membrane के दोनों तरफ H⁺ की हालत और मात्रा में फर्क · image: एक तरफ भीड़ ज्यादा, दूसरी तरफ कम
+    - lumen yaani thylakoid की membrane से घिरी अंदर की जगह · image: बंद थैली के भीतर की जगह
+    - intermembrane space yaani mitochondria की दो membranes के बीच की जगह · image: दो दीवारों के बीच की खाली पट्टी
+    - kyon: Electron flow has been linked to ATP synthesis, but the coupling mechanism needs explanation. _[book]_ → ATP synthesis is linked to a proton gradient across a membrane. _[book]_ → In photosynthesis the membrane is thylakoid membrane and protons accumulate in its lumen. _[book]_
+    - example / jagah: Leaf → chloroplast → thylakoid membrane → lumen; compare cell → mitochondrion → intermembrane space.
+    - aage: The next task is to identify the processes that establish the lumen-side proton accumulation.
+    - screen par: separate compartments and accumulate protons
+    - is level ke liye: H⁺ means hydrogen ion/proton, not a hydrogen atom. ATP synthase-mediated return is explanatory background here, not yet detailed by this page.
+  - prerequisites: thylakoid membrane, lumen and stroma; mitochondrial inner and outer membranes; ATP and ADP; hydrogen ions
+- **p010-i15** · paragraph · cause_effect · both · exam medium
+  - Let us understand what causes the proton gradient across the membrane. We need to consider again the processes that take place during the activation of electrons and their transport to determine the steps that cause a proton gradient to develop (Figure 11.7).
+    - why: Why revisit electron activation and transport after introducing chemiosmosis? → Those processes must be examined to identify the steps responsible for developing the proton gradient across the membrane.
+    - how: How should the learner investigate the gradient rather than just memorise its location? → Track which light-reaction processes change proton availability on either side of the thylakoid membrane, beginning with the water-splitting step given next. _(outside the book)_
+  - **khola (unpack):**
+    - activation of electrons yaani light की energy मिलने से electron का excited होना · image: energy देकर गेंद को ऊँचे पायदान पर पहुँचाना
+    - kyon: Knowing that a gradient powers ATP formation leaves its origin unexplained. _[standard]_ → Re-examine electron activation and transport for gradient-building steps. _[book]_
+    - example / jagah: Thylakoid membrane; the first contribution follows as point (a).
+    - aage: Changes the teaching question from where protons accumulate to why they accumulate there.
+    - screen par: track proton sources on each side
+    - is level ke liye: Do not treat the Figure 11.7 reference as a figure present on this page.
+  - prerequisites: proton gradient; electron excitation and transport; thylakoid compartments
+- **p010-i16** · list_point · cause_effect · both · exam high
+  - (a) Since splitting of the water molecule takes place on the inner side of the membrane, the protons or hydrogen ions that are produced by the splitting of water accumulate within the lumen of the thylakoids.
+    - why: Why does water splitting contribute protons specifically to the lumen? → Water splitting occurs on the inner side of the thylakoid membrane, so the hydrogen ions it produces accumulate in the lumen.
+    - how: How does this step contribute to the proton gradient? → It adds protons directly to the enclosed lumen-side compartment, contributing to the proton accumulation described for photosynthesis.
+      - where: Which side is meant by the inner side of this membrane? → It means the lumen-facing side of the thylakoid membrane, not the chloroplast envelope or the fluid stroma outside the thylakoid. _(outside the book)_
+      - consequence: Does this first contribution require these protons to be pumped from the stroma? → No. This contribution releases protons directly into the lumen by water splitting; it should be distinguished from proton-transfer contributions to the gradient. _(outside the book)_
+  - **khola (unpack):**
+    - splitting of water yaani water को तोड़कर electron और H⁺ मिलने की प्रक्रिया · image: पैकेट खोलकर उसके हिस्से बाहर निकालना
+    - inner side yaani यहाँ thylakoid की अंदर वाली, lumen की तरफ की सतह · image: थैली की अंदर वाली दीवार
+    - protons or hydrogen ions yaani H⁺, यानी positive charge वाले hydrogen ions · image: अंदर की तरफ जमा होते छोटे positive निशान
+    - kyon: The lumen needs proton accumulation for the photosynthetic gradient. _[book]_ → Water splitting occurs on the inner, lumen-facing side of the membrane. _[book]_ → The protons released therefore accumulate directly in the lumen. _[book]_
+    - example / jagah: Leaf → chloroplast → thylakoid → lumen-facing water-splitting site.
+    - aage: Supplies the first stated contribution to the proton gradient needed for ATP synthesis.
+    - screen par: split water and release protons inside
+    - is level ke liye: Distinguish local proton production in the lumen from pumping protons across the membrane.
+  - prerequisites: water splitting in light reactions; hydrogen ions; thylakoid lumen versus stroma
+
+## Page 11 · passed after 1 round(s)
+
+Electron transport moves protons from stroma to lumen, water oxidation supplies lumen protons, and stromal NADP reduction consumes protons. The resulting high-H⁺ lumen and low-H⁺ stroma establish an electrochemical gradient. Proton return through ATP synthase couples gradient dissipation to ATP synthesis.
+
+- **p011-i1** · diagram · figure · image · exam high
+  - A closed thylakoid membrane encloses a lumen with high H⁺; the surrounding stroma has low H⁺. Light reaches P680 PS II and P700 PS I. Electron flow is shown from PS II through plastoquinone, cytochrome B6f and plastocyanin to PS I, then through Fd and FNR to NADP⁺ reduction. Water oxidation at PS II supplies lumen H⁺ and releases ½O₂. Proton movement from the stroma through the carrier pathway adds H⁺ to the lumen. Green arrows converge on lumen H⁺ and show its return through the CF₀–CF₁ ATP synthase to the stroma, accompanying ADP + Pᵢ → ATP. A wedge marks a high-to-low electrochemical potential gradient from lumen to stroma.
+    - what: What problem does the figure solve? → It connects light-driven electron transport to ATP synthesis through an intermediate proton gradient rather than showing electrons directly producing ATP.
+    - which: Which two routes must be followed separately? → Electrons follow the photosystems and electron carriers toward NADP⁺, while H⁺ accumulates in the lumen and returns through ATP synthase toward the stroma.
+      - how: How should the figure be built for a first-time learner? → Locate the membrane and its two sides first, trace electrons next, then mark proton accumulation and finally proton return with ATP formation. _(outside the book)_
+  - **khola (unpack):**
+    - chemiosmosis yaani membrane के दोनों तरफ H⁺ का फर्क बनाकर, उनके वापस बहने से ATP बनाना · image: ऊपर जमा पानी नीचे आते हुए turbine चलाता है
+    - kyon: ATP formation needs a link to the energy captured by the photosystems. _[standard]_ → Electron transport establishes a proton gradient across the thylakoid membrane. _[book]_ → Return of protons through ATP synthase couples gradient breakdown to ATP formation. _[book]_
+    - example / jagah: Leaf → chloroplast → thylakoid membrane, separating lumen from stroma.
+    - aage: The gradient, not a direct electron-to-ADP transfer, connects the two processes.
+    - screen par: trace electrons, accumulate protons, then channel protons outward
+    - is level ke liye: NEET: lumen is proton-rich; ATP formation is on the stromal side.
+  - prerequisites: chloroplast stroma and thylakoid lumen; electron transport; ATP as an energy carrier
+- **p011-i2** · diagram_label · structure · image · exam high
+  - Stroma (low H⁺); Stroma: the region outside the thylakoid membrane.
+    - what: What does stroma name here? → The compartment outside the thylakoid, contrasted with its enclosed lumen.
+    - where: Where is the low-H⁺ side? → Outside the pink membrane, on the stromal side.
+      - why: Why does stromal H⁺ decrease? → Protons are taken up during carrier transport and are used for NADP⁺ reduction on this side.
+  - **khola (unpack):**
+    - stroma yaani chloroplast में thylakoid के बाहर का तरल हिस्सा · image: पानी में रखी बंद थैली के बाहर का पानी
+    - kyon: To orient the gradient, identify the compartment losing protons. _[book]_ → Stromal proton removal makes this the low-H⁺ side. _[book]_
+    - example / jagah: Inside a chloroplast but outside its thylakoids.
+    - aage: Returning protons move toward this compartment.
+    - screen par: shade the surrounding compartment
+    - is level ke liye: Low H⁺ means relatively higher pH, not absence of protons.
+  - prerequisites: thylakoid membrane
+- **p011-i3** · diagram_label · structure · image · exam high
+  - Thylakoid membrane: the pink boundary containing the photosystems, electron carriers and ATP synthase.
+    - what: What does the pink boundary represent? → The membrane separating the lumen from the stroma and containing the machinery illustrated.
+    - where: Where is the proton gradient established? → Across this membrane, with high H⁺ inside and low H⁺ outside.
+      - why: Why must the membrane limit free proton leakage? → If protons could freely equilibrate across it, a gradient capable of driving ATP synthase would not be maintained. _(outside the book)_
+  - **khola (unpack):**
+    - thylakoid membrane yaani thylakoid की सीमा बनाने वाली पतली परत · image: पानी रोककर रखने वाली थैली की दीवार
+    - kyon: A useful gradient needs two separated compartments. _[standard]_ → The thylakoid membrane separates lumen and stroma. _[book]_
+    - example / jagah: Membrane of a chloroplast thylakoid.
+    - aage: Proton return can be channelled through ATP synthase.
+    - screen par: outline the separating boundary
+    - is level ke liye: Distinguish the thylakoid membrane from the chloroplast envelope.
+  - prerequisites: membranes separate compartments
+- **p011-i4** · diagram_label · process · image · exam high
+  - Light: orange arrows entering P680 PS II and P700 PS I.
+    - how: How does light enter the illustrated mechanism? → Light is shown reaching both photosystems before electron transfer proceeds along their carrier pathways.
+    - when: When does a photosystem electron gain energy? → When absorbed light energy reaches the reaction centre and excites an electron. _(outside the book)_
+  - **khola (unpack):**
+    - Light yaani photosystems को energy देने वाली रोशनी · image: धूप से चलने वाला solar device
+    - kyon: Electron transport needs an energy input. _[standard]_ → Both photosystems receive light in the diagram. _[book]_
+    - example / jagah: Photosystems in the thylakoid membrane.
+    - aage: Energy input supports electron movement and gradient formation.
+    - screen par: flash light onto both reaction centres
+    - is level ke liye: Do not interpret the two light arrows as proton arrows.
+  - prerequisites: light absorption by chlorophyll
+- **p011-i5** · diagram_label · structure · image · exam high
+  - P680; PS II: the light-receiving photosystem associated with water oxidation and electron transfer to plastoquinone.
+    - what: What do PS II and P680 identify? → PS II is photosystem II; P680 names its reaction-centre chlorophyll, with an absorption maximum near 680 nm. _(outside the book)_
+    - where: Where is PS II placed relative to the illustrated pathway? → In the thylakoid membrane before plastoquinone, beside the water-oxidation site.
+      - how: How are electrons lost by PS II replaced? → Water oxidation supplies replacement electrons. _(outside the book)_
+  - **khola (unpack):**
+    - P680 PS II yaani PS II का light पकड़ने वाला reaction centre; 680 उसकी खास wavelength बताता है · image: काम शुरू करने वाला पहला energy station
+    - kyon: The pathway needs an initial light-driven electron supply. _[standard]_ → PS II receives light and passes electrons onward while water is oxidised nearby. _[book]_
+    - example / jagah: Thylakoid membrane, beside the lumen-side water-oxidation system.
+    - aage: Electron flow enters the plastoquinone pathway.
+    - screen par: excite and pass an electron
+    - is level ke liye: 680 denotes wavelength in nanometres; PS numbering is not the flow order.
+  - prerequisites: photosystem reaction centre; oxidation releases electrons
+- **p011-i6** · diagram_label · process · image · exam high
+  - H₂O; ½O₂ + H⁺; Oxidation of water: water enters the PS II-associated reaction and oxygen and lumen protons are shown as products.
+    - how: How does water oxidation help build the gradient? → It releases H⁺ on the lumen side of the membrane, adding to lumen proton accumulation.
+    - when: When is water oxidation needed in this pathway? → During light-driven PS II operation, to replace electrons passed onward. _(outside the book)_
+      - what: How should the chemical labels be read without mistaking the schematic for a balanced equation? → H₂O means water, O₂ molecular oxygen, ½O₂ half a molecule-equivalent of oxygen, and H⁺ a proton. A balanced one-water oxidation half-reaction is H₂O → ½O₂ + 2H⁺ + 2e⁻; e⁻ denotes an electron. _(outside the book)_
+  - **khola (unpack):**
+    - Oxidation of water yaani water से electrons निकलना, जिससे oxygen और H⁺ भी मिलते हैं · image: एक चीज़ टूटकर अलग-अलग हिस्से देना
+    - kyon: PS II needs replacement electrons after transferring electrons onward. _[standard]_ → Water oxidation supplies them and releases lumen protons. _[standard]_ → The figure shows these protons joining the lumen pool. _[book]_
+    - example / jagah: Lumen-facing side of the PS II water-oxidation machinery.
+    - aage: Water oxidation is another contributor to the proton gradient.
+    - screen par: split water and add protons inside
+    - is level ke liye: Oxygen released during photosynthesis comes from water; distinguish schematic labels from stoichiometry.
+  - prerequisites: water oxidation; chemical formulae and charges
+- **p011-i7** · diagram_label · process · image · exam high
+  - PQ; PQH₂; Plastoquinone: the membrane carrier shown taking up stromal H⁺ and connecting PS II with cytochrome B6f.
+    - how: How does plastoquinone link electron transfer to proton transfer? → It accepts electrons and stromal protons, and its reduced form carries them toward the cytochrome complex, where protons are released toward the lumen. _(outside the book)_
+    - when: When does PQ become PQH₂? → When plastoquinone accepts two electrons and two protons, forming reduced plastoquinone or plastoquinol. _(outside the book)_
+      - what: What do PQ and PQH₂ mean? → PQ abbreviates plastoquinone; PQH₂ denotes its reduced, proton-carrying form. The subscript 2 refers to two hydrogen equivalents, not a unit of measurement. _(outside the book)_
+  - **khola (unpack):**
+    - Plastoquinone yaani membrane में चलने वाला carrier जो electrons के साथ H⁺ भी लेता है · image: एक ferry जो दो तरह का सामान साथ ले जाती है
+    - kyon: Electron movement must be coupled to moving protons between compartments. _[book]_ → The H carrier takes protons from the stroma while carrying electrons. _[book]_ → Protons are released on the lumen side when the electron is passed onward. _[book]_
+    - example / jagah: Within the thylakoid membrane between PS II and cytochrome B6f.
+    - aage: Electron flow increases lumen H⁺ while lowering stromal H⁺.
+    - screen par: load, shuttle and unload
+    - is level ke liye: PQH₂ is plastoquinol; do not confuse this carrier with plastocyanin.
+  - prerequisites: electron carriers; oxidation and reduction
+- **p011-i8** · diagram_label · structure · image · exam high
+  - Cytochrome B6f: the membrane complex between plastoquinone and plastocyanin, with a proton arrow directed into the lumen.
+    - what: What is the labelled cytochrome complex's place in the chain? → It connects the plastoquinone portion of the pathway with plastocyanin.
+    - where: Where does the nearby H⁺ arrow point? → From the complex toward the lumen, showing proton delivery to the inside.
+      - how: How is this complex connected to ATP synthesis? → Its electron-transfer reactions contribute to proton translocation and thus to the gradient used by ATP synthase. _(outside the book)_
+  - **khola (unpack):**
+    - Cytochrome B6f yaani electron रास्ते का membrane complex, जो H⁺ के अंदर जमा होने से जुड़ा है · image: रास्ते का transfer station
+    - kyon: Electrons must move from the quinone carrier toward PS I. _[standard]_ → The diagram places cytochrome B6f between PQ and PC and shows lumen-directed H⁺ movement. _[book]_
+    - example / jagah: Thylakoid membrane between plastoquinone and plastocyanin.
+    - aage: Electron transport helps store energy as a gradient.
+    - screen par: relay electrons and deliver protons
+    - is level ke liye: Conventional notation is cytochrome b₆f; this is not ATP synthase.
+  - prerequisites: plastoquinone; thylakoid electron transport
+- **p011-i9** · diagram_label · structure · image · exam medium
+  - PC; Plastocyanin: the electron carrier connecting cytochrome B6f to P700 PS I.
+    - what: What does PC stand for? → Plastocyanin, the carrier between the cytochrome complex and PS I.
+    - where: Where does plastocyanin operate? → On the lumen side of the thylakoid membrane, carrying electrons to PS I. _(outside the book)_
+      - how: How is PC different from PQ in this mechanism? → PC transfers electrons to PS I; PQ is the quinone carrier that also takes up and releases protons during its redox cycle. _(outside the book)_
+  - **khola (unpack):**
+    - Plastocyanin yaani cytochrome complex से PS I तक electron पहुँचाने वाला carrier · image: अगले station तक संदेश पहुँचाने वाला runner
+    - kyon: PS I needs electrons arriving from the preceding chain. _[standard]_ → PC bridges cytochrome B6f and PS I in the diagram. _[book]_
+    - example / jagah: Thylakoid lumen side.
+    - aage: Electron transport reaches PS I.
+    - screen par: hand an electron to PS I
+    - is level ke liye: PC is a copper-containing protein; keep this standard detail separate from the page labels.
+  - prerequisites: electron carrier; PS I
+- **p011-i10** · diagram_label · structure · image · exam high
+  - P700; PS I: the light-receiving photosystem connected to PC on its input side and Fd on its output side.
+    - what: What do PS I and P700 identify? → PS I means photosystem I; P700 is its reaction-centre chlorophyll with an absorption maximum near 700 nm. _(outside the book)_
+    - where: Where is PS I in this electron pathway? → After plastocyanin and before ferredoxin and NADP reduction.
+      - how: How does PS I help the final reduction step? → Light re-energises electrons at PS I, enabling their onward transfer toward NADP⁺ reduction. _(outside the book)_
+  - **khola (unpack):**
+    - P700 PS I yaani PS I का reaction centre; 700 उसकी खास light wavelength बताता है · image: रास्ते में energy फिर बढ़ाने वाला दूसरा station
+    - kyon: Electrons need sufficient energy for the terminal reduction pathway. _[standard]_ → PS I receives light and sends electrons toward Fd and FNR. _[book]_
+    - example / jagah: Thylakoid membrane, between PC and the stromal acceptor pathway.
+    - aage: Electron flow reaches NADP reductase.
+    - screen par: re-excite and transfer
+    - is level ke liye: 700 is a wavelength in nm, not the position of PS I in the chain.
+  - prerequisites: reaction-centre chlorophyll; electron excitation
+- **p011-i11** · diagram_label · structure · image · exam medium
+  - Fd: the carrier between PS I and FNR on the stromal side.
+    - what: What does Fd denote? → Ferredoxin, an electron carrier associated with the acceptor side of PS I. _(outside the book)_
+    - where: Where is Fd shown? → Above PS I, linking it to FNR on the stromal side.
+      - how: How does Fd support NADPH production? → Reduced ferredoxin supplies electrons to ferredoxin–NADP⁺ reductase. _(outside the book)_
+  - **khola (unpack):**
+    - Fd yaani ferredoxin, PS I के बाद electron आगे ले जाने वाला carrier · image: अंतिम counter तक सामान पहुँचाने वाला courier
+    - kyon: Electrons leaving PS I must reach the reduction enzyme. _[standard]_ → Fd connects PS I to FNR in the figure. _[book]_
+    - example / jagah: Stromal side of the thylakoid.
+    - aage: Electrons become available for NADP⁺ reduction.
+    - screen par: relay to FNR
+    - is level ke liye: Expand Fd as ferredoxin; do not confuse it with FNR.
+  - prerequisites: PS I electron acceptor pathway
+- **p011-i12** · diagram_label · structure · image · exam high
+  - FNR: the enzyme connecting the Fd electron pathway with NADP⁺ reduction.
+    - what: What enzyme does FNR identify? → Ferredoxin–NADP⁺ reductase, the enzyme referred to in the prose as NADP reductase. _(outside the book)_
+    - where: Where is NADP reductase located? → On the stroma side of the thylakoid membrane.
+      - how: How does its reaction contribute to the gradient? → It uses protons from the stroma during NADP⁺ reduction, reducing the stromal proton pool.
+  - **khola (unpack):**
+    - NADP reductase yaani NADP⁺ को electrons और H⁺ की मदद से reduce करने वाला enzyme · image: अंतिम assembly counter जहाँ हिस्से जोड़कर product बनता है
+    - kyon: The terminal acceptor needs both electrons and protons for reduction. _[book]_ → The stromal enzyme uses stromal protons, helping deplete them. _[book]_
+    - example / jagah: Stromal side near the PS I acceptor pathway.
+    - aage: NADPH formation reinforces the proton difference.
+    - screen par: consume stromal protons
+    - is level ke liye: Recognise FNR and NADP reductase as names for the same enzyme here.
+  - prerequisites: enzyme catalysis; NADP⁺ reduction
+- **p011-i13** · diagram_label · process · image · exam high
+  - NADP⁺ + H⁺; NADPH: substrate-side and product-side labels joined by the FNR pathway.
+    - how: How should the diagram's reduction labels be interpreted? → NADP⁺ receives reducing electrons through the PS I–Fd–FNR pathway and uses stromal H⁺ to form NADPH.
+    - when: When is NADPH formed in this pathway? → At the terminal reduction step after electrons have passed through PS I and its acceptor pathway.
+      - what: What do NADP⁺, NADPH and H⁺ represent? → NADP⁺ is oxidised nicotinamide adenine dinucleotide phosphate, NADPH its reduced form, and H⁺ a proton. The balanced reduction half-reaction is NADP⁺ + 2e⁻ + H⁺ → NADPH. _(outside the book)_
+  - **khola (unpack):**
+    - NADPH yaani electrons लेकर reduced बना carrier, जो आगे reducing power देता है · image: energy से भरी rechargeable battery
+    - kyon: Electrons at the end of the chain need an acceptor. _[standard]_ → NADP⁺ reduction uses electrons and stromal protons. _[book]_ → NADPH is formed while stromal H⁺ decreases. _[book]_
+    - example / jagah: Stromal FNR reaction.
+    - aage: Reducing power is produced alongside the gradient-forming process.
+    - screen par: reduce the carrier
+    - is level ke liye: NADPH is reducing power, whereas ATP is the product of proton-driven phosphorylation.
+  - prerequisites: oxidised and reduced carriers; chemical charges
+- **p011-i14** · diagram_label · structure · image · exam high
+  - Lumen (high H⁺); repeated H⁺ labels inside the thylakoid, at carrier uptake/release sites, and along the ATP synthase return path identify protons and their movement.
+    - what: What does lumen mean in the figure? → The enclosed internal space of the thylakoid, where protons accumulate.
+    - where: Where is H⁺ relatively abundant? → Inside the thylakoid lumen, not in the surrounding stroma.
+      - how: How are the repeated H⁺ symbols related? → They represent the same proton species at different stages: stromal uptake, lumen accumulation and return to the stroma through ATP synthase.
+  - **khola (unpack):**
+    - lumen yaani thylakoid की बंद थैली के अंदर की जगह · image: बंद पानी की थैली का अंदर वाला हिस्सा
+    - H⁺ yaani positive charge वाला hydrogen ion, यानी proton · image: एक तरफ इकट्ठे होते छोटे charged dots
+    - kyon: To locate stored gradient energy, identify where protons collect. _[standard]_ → Water oxidation and carrier delivery add protons to the lumen. _[book]_
+    - example / jagah: Thylakoid interior.
+    - aage: The lumen becomes the proton source for ATP synthase return flow.
+    - screen par: collect dots inside
+    - is level ke liye: Lumen is not the space between the two chloroplast envelope membranes.
+  - prerequisites: proton as H⁺; thylakoid compartments
+- **p011-i15** · diagram_label · cause_effect · image · exam high
+  - High Electrochemical Potential Gradient; Low: the wedge indicates the high-to-low direction from lumen toward stroma.
+    - why: Why does the gradient provide an energy source? → The unequal proton distribution establishes an electrochemical difference; proton movement down it can be coupled to ATP synthesis. _(outside the book)_
+    - how: How does the wedge establish the direction of useful proton flow? → It marks high potential on the lumen side and low potential on the stroma side, matching proton return through ATP synthase.
+      - what: What does electrochemical mean here? → It includes the effects of both proton concentration difference and electrical potential difference across the membrane. _(outside the book)_
+  - **khola (unpack):**
+    - Electrochemical Potential Gradient yaani H⁺ की मात्रा और charge के फर्क से बना energy का ढलान · image: ऊँचाई पर जमा पानी नीचे बहने की क्षमता रखता है
+    - kyon: ATP synthesis needs an energy source. _[standard]_ → Proton accumulation establishes an electrochemical gradient. _[book]_ → Gradient breakdown is coupled to ATP synthesis. _[book]_
+    - example / jagah: Across the thylakoid membrane.
+    - aage: Down-gradient proton movement can perform useful work.
+    - screen par: lower protons down an energy slope
+    - is level ke liye: Do not equate 'electrochemical' with concentration alone.
+  - prerequisites: concentration gradient; electrical charge
+- **p011-i16** · diagram_label · structure · image · exam high
+  - CF₀: the membrane-embedded part of the ATP synthase complex, traversed by the proton-return arrow.
+    - what: What is CF₀? → The membrane-embedded proton-conducting component of chloroplast ATP synthase. _(outside the book)_
+    - where: Where is CF₀ drawn? → Across the thylakoid membrane, above the stromal CF₁ head.
+      - how: How does this component contribute to ATP synthesis? → Proton passage through it drives rotation and associated changes in the catalytic complex that enable ATP formation. _(outside the book)_
+  - **khola (unpack):**
+    - CF₀ yaani ATP synthase का membrane में लगा H⁺ गुजरने वाला हिस्सा · image: बाँध में लगा पानी का नियंत्रित रास्ता
+    - kyon: Protons need a controlled return route across the membrane. _[standard]_ → The arrow crosses CF₀ before reaching the stromal side. _[book]_
+    - example / jagah: Embedded in the thylakoid membrane.
+    - aage: Proton flow is linked to the ATP-producing machinery.
+    - screen par: channel protons through the membrane
+    - is level ke liye: Read the subscript as zero; it distinguishes the membrane portion from CF₁.
+  - prerequisites: ATP synthase; membrane-spanning proteins
+- **p011-i17** · diagram_label · structure · image · exam high
+  - CF₁; ATP synthase: the stromal head attached to CF₀, beside the ADP + Pᵢ to ATP arrow.
+    - what: What is CF₁? → The catalytic head of chloroplast ATP synthase, where ATP is formed from ADP and inorganic phosphate. _(outside the book)_
+    - where: Which way does the head face? → It projects into the stroma, outside the lumen.
+      - how: How does the head use proton movement? → Proton-driven rotation in the enzyme causes conformational changes in catalytic sites, coupling the gradient's energy to ATP formation. _(outside the book)_
+  - **khola (unpack):**
+    - CF₁ yaani ATP synthase का stroma की ओर निकला ATP बनाने वाला head · image: flow से चलने वाली machine का काम करने वाला head
+    - kyon: Proton movement must be coupled to a chemical reaction. _[standard]_ → The stromal CF₁ head is positioned beside the ATP-formation arrow. _[book]_ → Its catalytic changes enable ATP production. _[standard]_
+    - example / jagah: Stroma-facing surface of the thylakoid membrane.
+    - aage: ATP is made on the stromal side.
+    - screen par: turn the complex and form ATP
+    - is level ke liye: Do not put the catalytic head inside the lumen.
+  - prerequisites: enzyme catalytic site; ADP and ATP
+- **p011-i18** · diagram_label · process · image · exam high
+  - ADP + Pᵢ; ATP: labels on the substrate-to-product arrow beside ATP synthase.
+    - how: How is the diagram's final product formed? → ATP synthase couples proton return toward the stroma to formation of ATP from ADP and Pᵢ.
+    - when: When does this ATP formation occur? → As protons flow down the established gradient through ATP synthase.
+      - what: What do ADP, Pᵢ and ATP stand for? → ADP is adenosine diphosphate, Pᵢ is inorganic phosphate, and ATP is adenosine triphosphate. The plus sign indicates reactants used together; these labels are chemical species, not measurement units. _(outside the book)_
+  - **khola (unpack):**
+    - Pᵢ yaani अलग उपलब्ध inorganic phosphate, जो ADP के साथ ATP बनाने में काम आता है · image: दो हिस्सों में जुड़ने वाला तीसरा छोटा हिस्सा
+    - kyon: Making ATP from ADP and phosphate requires energy coupling. _[standard]_ → Proton return through ATP synthase supplies the driving force. _[book]_
+    - example / jagah: Stromal face of thylakoid ATP synthase.
+    - aage: The proton gradient is converted into a usable chemical energy product.
+    - screen par: join phosphate to ADP
+    - is level ke liye: This is photophosphorylation, not substrate-level phosphorylation.
+  - prerequisites: phosphate addition; ATP and ADP
+- **p011-i19** · caption · figure · both
+  - Figure 11.7 ATP synthesis through chemiosmosis
+- **p011-i20** · list_point · cause_effect · both · exam high
+  - (b) As electrons move through the photosystems, protons are transported across the membrane. This happens because the primary acceptor of electron which is located towards the outer side of the membrane transfers its electron not to an electron carrier but to an H carrier. Hence, this molecule removes a proton from the stroma while transporting an electron. When this molecule passes on its electron to the electron carrier on the inner side of the membrane, the proton is released into the inner side or the lumen side of the membrane.
+    - why: Why should moving electrons cause protons to cross the membrane? → The electron is transferred to an H carrier that takes up a proton from the stroma. When it passes the electron onward on the inner side, it releases that proton into the lumen.
+    - how: How can one carrier's journey be followed? → Start at stromal proton uptake, follow electron carriage through the membrane pathway, then mark electron handover and proton release on the lumen side.
+      - where: What do outer and inner mean here? → Outer is toward the stroma; inner is toward the lumen of the thylakoid. They do not mean outside and inside the entire chloroplast.
+      - how: Why is the H carrier not merely a passive pore? → Its proton uptake and release are coupled to its reduction and oxidation during electron transport, unlike a pore through which protons simply diffuse. _(outside the book)_
+      - consequence: What two changes result from this single transport mechanism? → A proton is removed from the stromal side and delivered to the lumen side, increasing the separation of the two proton pools.
+  - **khola (unpack):**
+    - primary acceptor yaani reaction centre से निकला electron सबसे पहले लेने वाला molecule · image: relay में पहला receiver
+    - H carrier yaani electron के साथ hydrogen के हिस्से को भी ले जाने वाला carrier · image: एक यात्री के साथ उसका सामान भी ले जाने वाली गाड़ी
+    - inner side yaani thylakoid के अंदर lumen की ओर वाला side · image: थैली की दीवार का अंदर की ओर वाला चेहरा
+    - kyon: To explain proton accumulation, identify how electron flow can remove stromal H⁺. _[book]_ → The H carrier takes up a stromal proton while carrying an electron. _[book]_ → Electron handover on the inner side releases the proton into the lumen. _[book]_
+    - example / jagah: The plastoquinone-linked pathway in the thylakoid membrane.
+    - aage: Electron transport strengthens the proton gradient used for ATP synthesis.
+    - screen par: pick up a proton outside and release it inside
+    - is level ke liye: NEET trap: outer/inner refer to thylakoid orientation, not chloroplast envelope orientation.
+  - prerequisites: primary electron acceptor; electron carrier and hydrogen carrier; stroma versus thylakoid lumen
+- **p011-i21** · list_point · cause_effect · both · exam high
+  - (c) The NADP reductase enzyme is located on the stroma side of the membrane. Along with electrons that come from the acceptor of electrons of PS I, protons are necessary for the reduction of NADP⁺ to NADPH+ H⁺. These protons are also removed from the stroma.
+    - why: Why does the location of NADP reductase matter to chemiosmosis? → Because the enzyme lies on the stromal side, the protons required for NADP⁺ reduction are removed from the stroma.
+    - how: How are electron supply and proton supply brought together? → Electrons arrive from the acceptor pathway of PS I, and protons from the stroma participate in reduction by NADP reductase.
+      - difference: Does this reaction pump its consumed proton into the lumen? → No. In the described reaction, proton removal from the stroma contributes by lowering stromal H⁺, rather than by delivering that proton across the membrane.
+      - how: How should the printed 'NADPH+ H⁺' wording be handled in chemical reasoning? → Keep it as the book's product notation, but use NADP⁺ + 2e⁻ + H⁺ → NADPH when a balanced reduction half-reaction is needed. A product label alone does not specify net proton consumption. _(outside the book)_
+  - **khola (unpack):**
+    - reduction yaani electron लेना; यहाँ NADP⁺ electrons लेकर NADPH बनता है · image: खाली carrier का सामान लेकर भर जाना
+    - stroma side yaani membrane का वह चेहरा जो stroma की ओर है · image: थैली की बाहर वाली सतह
+    - kyon: The gradient can increase by reducing H⁺ on the stromal side as well as adding H⁺ to the lumen. _[standard]_ → Stromal NADP reductase uses electrons from PS I and protons for NADP⁺ reduction. _[book]_ → These protons are removed from the stroma, reinforcing the difference. _[book]_
+    - example / jagah: Stroma-facing FNR associated with the PS I acceptor pathway.
+    - aage: NADPH production and proton-gradient formation are linked.
+    - screen par: remove stromal protons into the reduction reaction
+    - is level ke liye: NEET: proton consumption is not the same as proton pumping; retain the book's wording without treating it as a balanced equation.
+  - prerequisites: PS I electron acceptor pathway; NADP⁺ versus NADPH; reduction involves electron gain
+- **p011-i22** · paragraph · cause_effect · both · exam high
+  - Hence, within the chloroplast, protons in the stroma decrease in number, while in the lumen there is accumulation of protons. This creates a proton gradient across the thylakoid membrane as well as a measurable decrease in pH in the lumen.
+    - why: Why does a gradient arise across the thylakoid membrane? → Protons are depleted from the stroma while accumulating in the lumen, leaving different proton levels on the two sides.
+    - how: How does lumen proton accumulation affect pH? → The page states that the lumen shows a measurable decrease in pH as protons accumulate.
+      - why: Why does more H⁺ mean lower, not higher, pH? → pH varies inversely with hydrogen-ion concentration: increasing H⁺ lowers the pH value. Thus a proton-rich lumen is relatively more acidic. _(outside the book)_
+    - compare: How do lumen and stroma compare during gradient formation? → The lumen accumulates protons and its pH falls; the stroma loses protons.
+      - evidence: What observable consequence is specified on this page? → A measurable decrease in lumen pH is specified; no numerical pH value is given.
+  - **khola (unpack):**
+    - proton gradient yaani membrane के एक तरफ H⁺ ज्यादा और दूसरी तरफ कम होने का फर्क · image: एक दरवाज़े के एक तरफ भीड़, दूसरी तरफ खाली जगह
+    - pH yaani किसी घोल में acidity बताने वाला scale; H⁺ बढ़े तो pH घटता है · image: नींबू जैसे acidic घोल का pH कम होता है
+    - kyon: The earlier reactions change the two proton pools in opposite directions. _[book]_ → Lumen accumulation and stromal depletion establish a gradient across the membrane. _[book]_ → More lumen H⁺ means a lower lumen pH. _[standard]_
+    - example / jagah: Across the chloroplast thylakoid membrane, not across the whole chloroplast envelope.
+    - aage: A proton gradient is available to drive ATP synthase.
+    - screen par: increase inside dots while lowering the lumen pH indicator
+    - is level ke liye: Relative acidity is sufficient here; avoid inventing exact lumen or stroma pH values.
+  - prerequisites: proton concentration gradient; pH and acidity; lumen and stroma
+- **p011-i23** · question · none · both · exam high
+  - Why are we so interested in the proton gradient?
+    - why: Why does the text pause to ask about the gradient? → The gradient is important because its breakdown leads to ATP synthesis.
+      - how: How does the following figure-based answer resolve the puzzle? → Protons return toward the stroma through ATP synthase, connecting the gradient to ATP formation.
+  - prerequisites: proton gradient
+- **p011-i24** · paragraph · cause_effect · both · exam high
+  - This gradient is important because it is the breakdown of this gradient that leads to the synthesis of ATP. The gradient is broken down due to the movement of protons across the membrane to the stroma through the transmembrane
+    - why: Why is forming a proton gradient not the final step in making ATP? → The text identifies breakdown of the gradient as the event that leads to ATP synthesis; the stored difference must be used.
+    - how: How is the gradient broken down? → Protons move across the membrane toward the stroma; the figure shows their return through ATP synthase with ADP and Pᵢ converted to ATP.
+      - difference: How does gradient formation differ from gradient use? → Formation increases the proton difference by lumen accumulation and stromal depletion; use allows proton return to the stroma and reduces that difference while ATP is made.
+      - why: Would unrestricted proton leakage be equivalent to ATP synthase-mediated return? → No. Leakage would dissipate the gradient without the enzyme's energy coupling, so gradient loss alone does not guarantee ATP production. _(outside the book)_
+      - consequence: What happens if a gradient is allowed to dissipate without being rebuilt? → Its driving force declines, so sustained ATP synthesis requires continued gradient-generating activity. _(outside the book)_
+  - **khola (unpack):**
+    - breakdown of this gradient yaani H⁺ के दोनों तरफ का फर्क कम होना, H⁺ का नष्ट होना नहीं · image: ऊपर की tank से पानी निकलने पर उसका level का फर्क घटना
+    - transmembrane yaani membrane के आर-पार फैला हुआ · image: दीवार को पार करती pipe
+    - kyon: A stored gradient must be used to make ATP. _[book]_ → Protons return across the membrane toward the stroma, reducing the gradient. _[book]_ → The figure couples this return through ATP synthase to ATP production. _[book]_
+    - example / jagah: Lumen → membrane ATP synthase → stroma.
+    - aage: Chemiosmosis links light-driven gradient formation to ATP synthesis; the unfinished sentence continues on the next page.
+    - screen par: release the gradient through ATP synthase and form ATP
+    - is level ke liye: Name the trap: a gradient stores energy; controlled dissipation through ATP synthase uses it.
+  - prerequisites: electrochemical gradient; ATP synthase; ADP and inorganic phosphate
+
+## Page 12 · passed after 1 round(s)
+
+Protons return through membrane-embedded CF₀, driving conformational changes in stromal-facing CF₁ and ATP synthesis. ATP and NADPH support stromal sugar synthesis, which depends indirectly on light. Calvin's radioactive ¹⁴C studies in algae identified the three-carbon compound PGA as the first CO₂ fixation product.
+
+- **p012-i1** · paragraph · structure · both · exam high
+  - channel of the CF₀ of the ATP synthase. The ATP synthase enzyme consists of two parts: one called the CF₀ is embedded in the thylakoid membrane and forms a transmembrane channel that carries out facilitated diffusion of protons across the membrane. The other portion is called CF₁ and protrudes on the outer surface of the thylakoid membrane on the side that faces the stroma.
+    - what: What arrangement allows a proton gradient to be linked to ATP production? → ATP synthase has a membrane-embedded CF₀ channel and a CF₁ portion projecting towards the stroma.
+    - where: Where are CF₀ and CF₁ relative to the thylakoid membrane? → CF₀ lies within the membrane; CF₁ protrudes from its outer, stroma-facing surface.
+      - how: How does CF₀ permit proton movement? → It provides a channel spanning the membrane through which protons undergo facilitated diffusion.
+        - why: Why is a channel needed rather than free passage through the membrane? → Charged H⁺ ions cross the lipid interior poorly. A protein pathway permits controlled movement down their electrochemical gradient. _(outside the book)_
+  - **khola (unpack):**
+    - CF₀ yaani ATP synthase का membrane में धँसा proton रास्ता · image: दीवार के आर-पार लगा छोटा रास्ता
+    - CF₁ yaani ATP synthase का stroma की तरफ निकला हिस्सा · image: दीवार के बाहर निकला मशीन का सिरा
+    - facilitated diffusion yaani protein के रास्ते gradient की दिशा में पार जाना · image: भीड़ का खुले दरवाज़े से बाहर निकलना
+    - stroma yaani chloroplast में thylakoids के बाहर का तरल हिस्सा · image: डिब्बे में रखी थैलियों के आसपास की जगह
+    - kyon: A proton gradient needs a route through the membrane to release its stored energy. _[standard]_ → CF₀ supplies the membrane-spanning route and CF₁ projects towards the stroma. _[book]_
+    - example / jagah: Leaf → chloroplast → thylakoid membrane, with lumen inside and stroma outside.
+    - aage: The spatial arrangement prepares the explanation of gradient-driven ATP synthesis.
+    - screen par: embed CF₀ and project CF₁ towards the stroma
+    - is level ke liye: Subscripts 0 and 1 distinguish enzyme components; they are not quantities or units.
+  - prerequisites: thylakoid membrane separating lumen from stroma; diffusion down a gradient; proteins embedded in membranes
+- **p012-i2** · paragraph · cause_effect · both · exam high
+  - The break down of the gradient provides enough energy to cause a conformational change in the CF₁ particle of the ATP synthase, which makes the enzyme synthesise several molecules of energy-packed ATP.
+    - why: Why can gradient breakdown lead to ATP formation? → It supplies energy for a conformational change in CF₁, enabling ATP synthase to synthesise ATP.
+      - how: How should a student understand 'conformational change'? → It is a change in the three-dimensional shape of a protein. Changes in ATP synthase's catalytic sites help couple proton flow to ATP formation from ADP and inorganic phosphate. _(outside the book)_
+      - difference: Does 'break down of the gradient' mean the membrane breaks? → No. It means the proton imbalance decreases as protons move down their gradient; the membrane remains the barrier that directs their passage through ATP synthase. _(outside the book)_
+  - **khola (unpack):**
+    - conformational change yaani protein की तीन-dimensional बनावट में बदलाव · image: हाथ की पकड़ खुलने और बंद होने से उसका काम बदलना
+    - ATP yaani adenosine triphosphate, काम चलाने के लिए energy देने वाला molecule · image: काम के समय इस्तेमाल होने वाला charged battery pack
+    - kyon: ATP synthesis needs an energy input. _[standard]_ → Gradient breakdown supplies energy to change CF₁'s conformation. _[book]_ → This change enables ATP synthase to produce ATP. _[book]_
+    - example / jagah: The stroma-facing ATP synthase complex of a chloroplast thylakoid.
+    - aage: Stored gradient energy is coupled to ATP production rather than merely lost by uncontrolled diffusion.
+    - screen par: flow protons, reshape CF₁, and form ATP
+    - is level ke liye: Do not confuse conformational change with a change in the protein's amino-acid sequence.
+  - prerequisites: CF₀ and CF₁ arrangement; proton concentration gradient; ATP as an energy carrier
+- **p012-i3** · paragraph · process · both · exam high
+  - Chemiosmosis requires a membrane, a proton pump, a proton gradient and ATP synthase. Energy is used to pump protons across a membrane, to create a gradient or a high concentration of protons within the thylakoid lumen. ATP synthase has a channel that allows diffusion of protons back across the membrane; this releases enough energy to activate ATP synthase enzyme that catalyses the formation of ATP.
+    - how: How does chemiosmosis convert an initial energy input into ATP? → Energy pumps protons across the membrane, building a high concentration in the thylakoid lumen. Their return through ATP synthase releases energy that drives ATP formation.
+    - when: When can proton return drive ATP synthesis? → After an energy-dependent pumping process has established a proton gradient across the membrane.
+      - which: Which four requirements must be present? → A membrane, a proton pump, a proton gradient and ATP synthase are required.
+      - why: Why must the membrane maintain separation between the two sides? → If protons freely leaked across, the gradient would dissipate without being efficiently coupled to ATP synthase. Separation permits an energy-storing imbalance. _(outside the book)_
+      - where: In which direction do protons return through chloroplast ATP synthase? → They move from the proton-rich lumen towards the stroma. _(outside the book)_
+  - **khola (unpack):**
+    - chemiosmosis yaani protons के gradient से लौटने की energy को ATP बनाने से जोड़ना · image: ऊँचाई पर जमा पानी को turbine से नीचे छोड़ना
+    - proton pump yaani energy लगाकर H⁺ को membrane के पार जमा करने वाला तंत्र · image: पानी को ऊपर tank में चढ़ाने वाला pump
+    - thylakoid lumen yaani thylakoid की थैली के अंदर की जगह · image: बंद थैली का भीतरी कमरा
+    - proton gradient yaani membrane के दोनों तरफ H⁺ का फर्क · image: दो जुड़े कमरों में एक तरफ ज्यादा भीड़
+    - kyon: ATP production requires usable energy, so energy first builds a proton imbalance. _[book]_ → Pumping produces a high proton concentration in the lumen. _[book]_ → Return flow through ATP synthase couples gradient dissipation to ATP formation. _[book]_
+    - example / jagah: Across the thylakoid membrane inside a leaf chloroplast.
+    - aage: ATP becomes available to the biosynthetic phase.
+    - screen par: pump inward, accumulate, then channel outward
+    - is level ke liye: Distinguish energy-consuming pumping from energy-releasing facilitated return; the channel does not itself establish the gradient.
+  - prerequisites: thylakoid lumen and stroma; active pumping versus diffusion; ATP synthase parts
+- **p012-i4** · paragraph · process · both · exam high
+  - Along with the NADPH produced by the movement of electrons, the ATP will be used immediately in the biosynthetic reaction taking place in the stroma, responsible for fixing CO₂, and synthesis of sugars.
+    - how: How are the products of electron movement and chemiosmosis connected to sugar synthesis? → NADPH and ATP are used in biosynthetic reactions that fix CO₂ and synthesise sugars.
+    - when: When and where are ATP and NADPH used according to this passage? → They are used immediately in the biosynthetic reactions in the stroma.
+      - difference: What different needs do ATP and NADPH meet? → ATP supplies energy, while NADPH supplies reducing power for converting fixed carbon into carbohydrate. _(outside the book)_
+      - what: What does fixing CO₂ mean? → It means incorporating carbon from inorganic CO₂ into organic compounds. _(outside the book)_
+  - **khola (unpack):**
+    - NADPH yaani reduced nicotinamide adenine dinucleotide phosphate; reducing power पहुँचाने वाला carrier · image: ज़रूरी सामान लेकर अगली जगह पहुँचने वाली delivery गाड़ी
+    - fixing CO₂ yaani CO₂ के carbon को organic molecule में जोड़ना · image: अलग पड़े मोती को माला में पिरोना
+    - kyon: Sugar synthesis needs energy and reducing power. _[standard]_ → ATP and NADPH from the light reaction support stromal biosynthesis. _[book]_
+    - example / jagah: Chloroplast stroma surrounding the thylakoid system.
+    - aage: The light reaction supplies resources for carbon fixation instead of directly making the final sugars.
+    - screen par: transfer ATP and NADPH from thylakoids to stromal reactions
+    - is level ke liye: CO₂ denotes carbon dioxide: one carbon and two oxygen atoms per molecule; no measurement unit is attached to the formula.
+  - prerequisites: ATP formation by chemiosmosis; light-driven electron movement; chloroplast stroma
+- **p012-i5** · heading · none · both
+  - 11.7 WHERE ARE THE ATP AND NADPH USED?
+- **p012-i6** · paragraph · comparison · both · exam high
+  - We learnt that the products of light reaction are ATP, NADPH and O₂. Of these O₂ diffuses out of the chloroplast while ATP and NADPH are used to drive the processes leading to the synthesis of food, more accurately, sugars.
+    - compare: Compare the fates of the three light-reaction products. → O₂ diffuses out of the chloroplast; ATP and NADPH are used to drive sugar synthesis.
+    - difference: How does oxygen differ from ATP and NADPH in the stated biosynthetic role? → Oxygen is described as leaving the chloroplast, whereas ATP and NADPH support the food-producing processes.
+      - why: Why are ATP and NADPH not themselves the sugars made by photosynthesis? → They are energy and reducing-power carriers used to build carbohydrate, rather than the carbohydrate product itself. _(outside the book)_
+  - **khola (unpack):**
+    - O₂ yaani दो oxygen atoms से बना oxygen molecule · image: साथ जुड़े दो एक जैसे मोती
+    - kyon: After the light reaction, its products have different destinations. _[book]_ → O₂ diffuses out, while ATP and NADPH drive sugar synthesis. _[book]_
+    - example / jagah: At the chloroplast boundary and within its stroma.
+    - aage: The products that connect the two phases are ATP and NADPH.
+    - screen par: split three product arrows into outward oxygen and inward biosynthetic use
+    - is level ke liye: O₂ is molecular oxygen; the subscript 2 counts atoms and is not a unit.
+  - prerequisites: products of the light reaction; diffusion; sugars as carbohydrates
+- **p012-i7** · paragraph · cause_effect · both · exam high
+  - This is the biosynthetic phase of photosynthesis. This process does not directly depend on the presence of light but is dependent on the products of the light reaction, i.e., ATP and NADPH, besides CO₂ and H₂O. You may wonder how this could be verified; it is simple: immediately after light becomes unavailable, the biosynthetic process continues for some time, and then stops. If then, light is made available, the synthesis starts again.
+    - why: Why is biosynthesis not directly light-dependent yet still linked to light? → It depends on ATP and NADPH produced by the light reaction, in addition to CO₂ and H₂O, rather than directly on the presence of light.
+    - how: How does switching light off and on demonstrate this dependence? → Biosynthesis continues briefly after light becomes unavailable, then stops; it starts again when light is restored.
+      - why: Why is there a delay before synthesis stops in darkness? → Previously produced ATP and NADPH can support synthesis briefly. Without the light reaction replenishing them, their availability becomes limiting. _(outside the book)_
+      - evidence: What does continued synthesis immediately after light removal show? → The reported continuation shows that immediate illumination is not required for the biosynthetic reactions to proceed for a short time.
+  - **khola (unpack):**
+    - biosynthetic phase yaani photosynthesis का sugars बनाने वाला हिस्सा · image: सामान और बिजली मिलने पर खाना तैयार करती रसोई
+    - H₂O yaani water; एक molecule में दो hydrogen और एक oxygen atom · image: पानी की बूँद
+    - kyon: Making sugars requires ATP and NADPH, as well as CO₂ and H₂O. _[book]_ → Light removal does not instantly remove the ATP and NADPH already present. _[standard]_ → Synthesis therefore continues briefly, stops, and resumes when light returns. _[book]_
+    - example / jagah: A chloroplast observed across light-on → light-off → light-on conditions.
+    - aage: The phrase 'dark reaction' must not be interpreted as a requirement for darkness.
+    - screen par: switch light off, let synthesis continue briefly, stop, then restart
+    - is level ke liye: No duration is specified; do not invent a number of seconds or minutes.
+  - prerequisites: ATP and NADPH as light-reaction products; biosynthesis of sugars; direct versus indirect dependence
+- **p012-i8** · question · none · both · exam high
+  - Can we, hence, say that calling the biosynthetic phase as the dark reaction is a misnomer? Discuss this amongst yourselves.
+    - what: Is 'dark reaction' a misleading name? → Yes, if it is understood to mean reactions that require darkness. The biosynthetic phase does not directly require light but depends on light-reaction products. _(outside the book)_
+      - why: Why does the book's observation challenge that interpretation? → Synthesis restarts when light is made available, so the described phase is not presented as a process prevented by light.
+  - prerequisites: indirect light dependence of biosynthesis
+- **p012-i9** · paragraph · process · both · exam medium
+  - Let us now see how the ATP and NADPH are used in the biosynthetic phase. We saw earlier that CO₂ is combined with H₂O to produce (CH₂O)ₙ or sugars. It was of interest to scientists to find out how this reaction proceeded, or rather what was the first product formed when CO₂ is taken into a reaction or fixed.
+    - how: How does the overall sugar-making statement lead to a new scientific problem? → Knowing that CO₂ and H₂O yield sugars does not identify the pathway. Scientists therefore sought the first product formed when CO₂ is fixed.
+    - when: At what stage were scientists trying to identify a product? → At the initial incorporation or fixation of CO₂ into the reaction pathway, rather than merely at final sugar production.
+      - what: What does (CH₂O)ₙ represent here? → It is a generalised carbohydrate composition: C is carbon, H hydrogen, O oxygen, and n a multiplier. The atomic ratio represented is C:H:O = 1:2:1; n is dimensionless. _(outside the book)_
+      - why: Why should this statement not be read as one elementary reaction producing sugar immediately? → An overall input-output summary can conceal many intermediate reactions. Identifying an early fixation product helps uncover that pathway. _(outside the book)_
+  - **khola (unpack):**
+    - (CH₂O)ₙ yaani carbohydrate की सामान्य composition दिखाने वाला formula; n बताता है यह अनुपात कितनी बार लिया गया · image: एक ही pattern वाले मोतियों के कई समूह
+    - first product yaani CO₂ जुड़ने के बाद शुरुआत में मिलने वाला compound · image: खाना बनने से पहले तैयार होने वाली पहली सामग्री
+    - kyon: The overall sugar formula does not reveal the intermediate pathway. _[standard]_ → Scientists asked which product appears first when CO₂ is fixed. _[book]_ → That question motivates Calvin's tracer investigation. _[book]_
+    - example / jagah: Sugar synthesis in chloroplasts; the next investigation uses algae.
+    - aage: The first fixation product becomes a clue to the complete biosynthetic pathway.
+    - screen par: expand an input-output arrow into an unknown series of intermediates
+    - is level ke liye: The printed statement is not a complete balanced photosynthesis equation; no numerical stoichiometry is supplied.
+  - prerequisites: CO₂ fixation; chemical formula subscripts; overall reaction versus intermediate steps
+- **p012-i10** · paragraph · cause_effect · both · exam high
+  - Just after world war II, among the several efforts to put radioisotopes to beneficial use, the work of Melvin Calvin is exemplary. The use of radioactive ¹⁴C by him in algal photosynthesis studies led to the discovery that the first CO₂ fixation product was a 3-carbon organic acid. He also contributed to working out the complete biosynthetic pathway; hence it was called Calvin cycle after him. The first product identified was 3-phosphoglyceric acid or in short PGA.
+    - why: Why was a tracer investigation useful for the first-product problem? → A labelled carbon atom can be followed as it moves from CO₂ into organic compounds, helping identify the early products of fixation. _(outside the book)_
+    - how: How did Calvin investigate photosynthetic carbon fixation? → He used radioactive ¹⁴C in algal photosynthesis studies, leading to identification of a three-carbon organic acid as the first fixation product.
+    - what: What was the first product identified? → It was 3-phosphoglyceric acid, abbreviated PGA, a three-carbon organic acid.
+    - when: When does the page place this work? → Just after world war II, during efforts to put radioisotopes to beneficial use.
+      - why: Why is the pathway called the Calvin cycle? → It was named after Melvin Calvin because he contributed to working out the complete biosynthetic pathway.
+      - what: Does ¹⁴C mean carbon with fourteen carbon atoms? → No. C is carbon and 14 is the isotope's mass number, the total number of protons and neutrons in its nucleus. It labels a carbon isotope, not the carbon count of PGA. _(outside the book)_
+      - difference: Is the '3' in 3-phosphoglyceric acid itself the reason PGA has three carbon atoms? → No. The 3 in the name specifies the phosphate group's position on glyceric acid; the glyceric-acid skeleton contains three carbons. _(outside the book)_
+  - **khola (unpack):**
+    - radioisotopes yaani element के radioactive रूप जिन्हें पहचान के निशान की तरह इस्तेमाल कर सकते हैं · image: सामान पर लगा पहचानने योग्य tag
+    - ¹⁴C yaani carbon का radioactive isotope जिसका mass number 14 है · image: एक खास निशान वाला मोती जिसे माला में ढूँढ़ सकें
+    - PGA yaani 3-phosphoglyceric acid का छोटा नाम; तीन carbon वाला organic acid · image: तीन मोतियों की छोटी लड़
+    - Calvin cycle yaani Calvin के नाम पर रखा गया sugar बनाने से जुड़ा biosynthetic pathway · image: घूमकर फिर शुरू की जगह लौटने वाला रास्ता
+    - kyon: Scientists needed to locate the first compound receiving fixed carbon. _[book]_ → Calvin used radioactive ¹⁴C in algal photosynthesis studies. _[book]_ → These studies identified three-carbon PGA and helped establish the pathway named after him. _[book]_
+    - example / jagah: Algal photosynthesis studies, in the period just after world war II.
+    - aage: PGA provides the first identified fixation product for the pathway developed on subsequent pages.
+    - screen par: trace labelled carbon from CO₂ into PGA and reveal the pathway name
+    - is level ke liye: NEET distinction: ¹⁴C is the tracer, PGA is the product, and Calvin cycle is the pathway. Avoid extending this finding into a claim about every photosynthetic carbon-fixation pathway.
+  - prerequisites: CO₂ incorporation into organic compounds; isotopes as forms of an element; first intermediate versus final sugar
+- **p012-i11** · question · none · both · exam high
+  - How many carbon atoms does it have?
+    - what: How many carbon atoms does PGA have? → PGA has three carbon atoms; the page identifies the first fixation product as a three-carbon organic acid.
+      - how: How can the answer be obtained from the paragraph rather than guessed from the name? → The paragraph first describes the product as a three-carbon organic acid and then identifies that same product as PGA.
+  - prerequisites: PGA as the identified first CO₂ fixation product
+
+## Page 13 · passed after 1 round(s)
+
+C₃ plants first form PGA, whereas C₄ plants first form oxaloacetic acid (OAA). The Calvin-cycle CO₂ acceptor is the five-carbon ketose sugar RuBP, not the initially suspected two-carbon compound. Calvin and co-workers established a cyclic pathway that regenerates RuBP and occurs in all photosynthetic plants. Its stages are carboxylation, reduction and regeneration. RuBisCO catalyses RuBP carboxylation to yield two molecules of 3-PGA and also has oxygenation activity.
+
+- **p013-i1** · paragraph · classification · both · exam high
+  - Scientists also tried to know whether all plants have PGA as the first product of CO₂ fixation, or whether any other product was formed in other plants. Experiments conducted over a wide range of plants led to the discovery of another group of plants, where the first stable product of CO₂ fixation was again an organic acid, but one which had 4 carbon atoms in it. This acid was identified to be oxaloacetic acid or OAA. Since then CO₂ assimilation during photosynthesis was said to be of two main types: those plants in which the first product of CO₂ fixation is a C₃ acid (PGA), i.e., the C₃ pathway, and those in which the first product was a C₄ acid (OAA), i.e., the C₄ pathway. These two groups of plants showed other associated characteristics that we will discuss later.
+    - which: What question led to recognition of two main types of CO₂ assimilation? → Scientists tested whether PGA was the first fixation product in every plant. Experiments across many plants revealed another group whose first stable product was the four-carbon organic acid oxaloacetic acid, or OAA.
+    - difference: On what basis are the C₃ and C₄ pathways distinguished here? → The basis is the carbon number of the first fixation product: PGA is the C₃ acid in the C₃ pathway, whereas OAA is the C₄ acid in the C₄ pathway. Both products are organic acids.
+      - why: Why should students focus on 'first stable product' rather than total carbon fixed or the final sugar? → The labels identify an early product of fixation, not the size of the final carbohydrate or how many CO₂ molecules the plant ultimately uses. Confusing these levels gives the wrong basis of classification. _(outside the book)_
+    - evidence: What evidence for this grouping does the page report? → It reports experiments over a wide range of plants and identification of the alternative four-carbon product as OAA; it does not provide experimental protocols or numerical data.
+  - **khola (unpack):**
+    - CO₂ fixation yaani CO₂ के carbon को organic compound में जोड़ना · image: जैसे खुली मोती को धागे की माला में जोड़ देना
+    - PGA yaani तीन carbon वाला phosphoglyceric acid; यहाँ C₃ pathway का पहला stable product · image: तीन मोतियों की एक छोटी लड़ी
+    - oxaloacetic acid or OAA yaani चार carbon वाला organic acid; यहाँ C₄ pathway का पहला stable product · image: चार मोतियों की दूसरी लड़ी
+    - CO₂ assimilation yaani CO₂ के carbon को पौधे के organic पदार्थों का हिस्सा बनाना · image: जैसे बाहर से आया सामान घर की बनी चीज़ में शामिल हो जाए
+    - first stable product yaani fixation के बाद मिलने वाला पहला स्थिर compound · image: बनाने की प्रक्रिया में सबसे पहले तैयार होकर मिलने वाला हिस्सा
+    - kyon: The question was whether the same first product appeared in every plant. _[book]_ → Experiments revealed PGA in one group and four-carbon OAA in another. _[book]_ → The first-product carbon number therefore supplies the C₃/C₄ classification. _[book]_
+    - example / jagah: Compare the first fixation products of the two plant groups described on this page.
+    - aage: Different first products do not mean that the two groups lack a shared Calvin pathway.
+    - screen par: branch plants into PGA–3-carbon and OAA–4-carbon routes
+    - is level ke liye: NEET trap: C₃/C₄ describe first stable products, not the carbon number of the CO₂ acceptor or final sugar.
+  - prerequisites: CO₂ fixation incorporates carbon into organic compounds; Carbon atoms can be counted in a molecule; PGA is an early product of photosynthetic carbon fixation
+- **p013-i2** · heading · none · both
+  - 11.7.1 The Primary Acceptor of CO₂
+- **p013-i3** · question · none · both · exam high
+  - Let us now ask ourselves a question that was asked by the scientists who were struggling to understand the ‘dark reaction’. How many carbon atoms would a molecule have which after accepting (fixing) CO₂, would have 3 carbons (of PGA)?
+    - what: What answer might simple subtraction suggest, and what answer does the page subsequently establish? → The apparently obvious answer is a two-carbon acceptor, which scientists initially expected. The actual acceptor identified by studies was five-carbon RuBP.
+      - why: Why is subtracting one carbon from one PGA molecule misleading? → It assumes fixation produces just one three-carbon molecule. In the Calvin-cycle reaction, a five-carbon acceptor combines with one-carbon CO₂ and yields two three-carbon PGA molecules: 5 + 1 = 2 × 3. _(outside the book)_
+      - how: How should 'dark reaction' be interpreted when introducing this puzzle? → It names the carbon-assimilation reactions rather than a requirement that they occur only at night. They do not directly use light as the photochemical reactions do, but depend on products of the light reactions. _(outside the book)_
+  - prerequisites: CO₂ contains one carbon atom per molecule; PGA contains three carbon atoms
+- **p013-i4** · paragraph · facts_numbers · both · exam high
+  - The studies very unexpectedly showed that the acceptor molecule was a 5-carbon ketose sugar – ribulose bisphosphate (RuBP).
+    - what: Which molecule is the primary acceptor discussed here, and what properties identify it? → It is ribulose bisphosphate, abbreviated RuBP, a ketose sugar with five carbon atoms.
+    - evidence: How was this unexpected identity established according to the page? → The page attributes the identity to studies and explains that scientists took a long time and performed many experiments to reach the conclusion.
+      - how: How do the words 'ketose' and 'bisphosphate' help identify RuBP? → Ketose identifies a sugar whose open-chain form has a ketone group. Bisphosphate indicates two separate phosphate groups attached to the sugar; in RuBP these are at carbons 1 and 5. The phosphates do not increase its five-carbon count. _(outside the book)_
+  - **khola (unpack):**
+    - primary acceptor yaani वह molecule जो fixation में CO₂ को पहले स्वीकार करता है · image: जैसे relay में अगली चीज़ लेने के लिए तैयार खिलाड़ी
+    - ribulose bisphosphate (RuBP) yaani पाँच carbon वाला sugar, जिस पर दो अलग phosphate groups लगे हैं · image: पाँच मोतियों की लड़ी पर दो अलग tags
+    - ketose sugar yaani ऐसा sugar जिसकी खुली chain में ketone group होता है · image: एक जैसी दिखने वाली चाबियों को उनके अलग निशान से पहचानना
+    - kyon: To explain fixation, the molecule receiving CO₂ had to be identified rather than guessed. _[standard]_ → Studies identified a five-carbon ketose sugar, RuBP. _[book]_ → Its five-carbon identity sets up the need to account for two three-carbon products. _[standard]_
+    - example / jagah: Outside clarification: in a leaf, zoom into a chloroplast and its stroma, where Calvin-cycle RuBP accepts CO₂.
+    - aage: The acceptor and the first stable product have different carbon numbers.
+    - screen par: label five carbon beads and two phosphate tags
+    - is level ke liye: Remember ketose, five carbons, and ribulose-1,5-bisphosphate together; the positional name is standard clarification.
+  - prerequisites: Carbon number of PGA; A sugar has a carbon skeleton; A CO₂ acceptor is different from its reaction product
+- **p013-i5** · paragraph · cause_effect · both · exam high
+  - Did any of you think of this possibility? Do not worry; the scientists also took a long time and conducted many experiments to reach this conclusion. They also believed that since the first product was a C₃ acid, the primary acceptor would be a 2-carbon compound; they spent many years trying to identify a 2-carbon compound before they discovered the 5-carbon RuBP.
+    - why: Why did scientists search for a two-carbon acceptor? → Because the first product was a three-carbon acid, they believed that its primary acceptor would be a two-carbon compound. This belief guided years of searching before discovery of five-carbon RuBP.
+      - how: How can five-carbon RuBP produce a three-carbon first stable product without losing carbon? → RuBP's five carbons and the one carbon of CO₂ form an unstable six-carbon intermediate, which splits into two molecules of three-carbon PGA. Counting both products conserves all six carbons. _(outside the book)_
+        - consequence: What general reasoning mistake does this correct? → The carbon count of one product cannot by itself reveal the acceptor's size. The number of product molecules and possible splitting of intermediates must also be considered. _(outside the book)_
+  - **khola (unpack):**
+    - 2-carbon compound yaani दो carbon वाला compound, जिसे पहले acceptor समझकर खोजा गया था · image: तीन मोतियों को देखकर मान लेना कि पहले दो ही मोती रहे होंगे
+    - kyon: Scientists needed to explain how a C₃ acid arose after CO₂ acceptance. _[book]_ → The assumed two-carbon acceptor sent the search in the wrong direction for years. _[book]_ → Counting both PGA molecules resolves the apparent contradiction with five-carbon RuBP. _[standard]_
+    - example / jagah: Use six counters: group five as RuBP, add one as CO₂, then divide into two groups of three.
+    - aage: First stable product is not the same as the primary acceptor or a transient intermediate.
+    - screen par: join five and one counters, then split six into two threes
+    - is level ke liye: Name the misconception explicitly: 'C₃ product means C₂ acceptor' is false.
+  - prerequisites: RuBP contains five carbon atoms; CO₂ contributes one carbon atom; Atoms are conserved in chemical reactions
+- **p013-i6** · heading · none · both
+  - 11.7.2 The Calvin Cycle
+- **p013-i7** · paragraph · process · both · exam high
+  - Calvin and his co-workers then worked out the whole pathway and showed that the pathway operated in a cyclic manner; the RuBP was regenerated.
+    - how: What makes the pathway a cycle rather than a one-way chain? → RuBP is regenerated during the pathway. Thus the acceptor used in fixation is formed again rather than simply being exhausted at the end of a one-way sequence.
+    - when: When is regeneration needed for continued fixation? → After RuBP has been used in carboxylation, it must be replenished through subsequent cycle reactions so that more CO₂ can be accepted. _(outside the book)_
+    - who: Who established the complete cyclic pathway according to the page? → Calvin and his co-workers worked out the pathway and demonstrated regeneration of RuBP.
+  - **khola (unpack):**
+    - regenerated yaani इस्तेमाल होने के बाद फिर से बनाया गया · image: खाली हुई पानी की बोतल फिर भरकर इस्तेमाल के लिए तैयार करना
+    - kyon: Continuing fixation needs a renewed supply of acceptor. _[standard]_ → The pathway regenerates RuBP. _[book]_ → This regeneration closes the pathway into a cycle. _[book]_
+    - example / jagah: Follow one labelled RuBP pool from CO₂ acceptance back to replenishment.
+    - aage: Regeneration belongs to carbon assimilation, not merely disposal of a used molecule.
+    - screen par: close an arrow loop back to RuBP
+    - is level ke liye: A cycle regenerates its acceptor while allowing net organic-product formation; it is not a reaction with no net output.
+  - prerequisites: RuBP is a CO₂ acceptor; A cycle returns to a starting component
+- **p013-i8** · paragraph · facts_numbers · both · exam high
+  - Let us now see how the Calvin pathway operates and where the sugar is synthesised. Let us at the outset understand very clearly that the Calvin pathway occurs in all photosynthetic plants; it does not matter whether they have C₃ or C₄ (or any other) pathways (Figure 11.8).
+    - what: Which plants carry out the Calvin pathway? → All photosynthetic plants carry out the Calvin pathway, whether they have C₃, C₄ or other pathways.
+    - evidence: How does the page emphasise this scope? → It explicitly says 'all photosynthetic plants' and specifically includes both C₃ and C₄ pathways. It refers to Figure 11.8, which is not displayed on this page.
+      - why: Why does a C₄ first product not exclude the Calvin cycle? → In C₄ plants, initial fixation into a four-carbon compound precedes delivery of CO₂ to the Calvin cycle. The initial fixation route and the subsequent Calvin cycle are different parts of carbon assimilation, not mutually exclusive alternatives. _(outside the book)_
+  - **khola (unpack):**
+    - Calvin pathway yaani carbon assimilation का वह चक्कर जो C₃ और C₄ दोनों plants में चलता है · image: अलग रास्तों से आकर एक साझा काम की जगह पहुँचना
+    - kyon: Different first fixation products can suggest that the entire pathways are unrelated. _[standard]_ → The page explicitly places the Calvin pathway in all photosynthetic plants. _[book]_ → Therefore, C₄ classification must not be interpreted as absence of the Calvin cycle. _[standard]_
+    - example / jagah: Place C₃ and C₄ routes above a shared Calvin-cycle loop; this is an explanatory visual, not a printed diagram.
+    - aage: Initial fixation classification and shared sugar-forming carbon metabolism must be kept distinct.
+    - screen par: converge two entry routes onto one cycle
+    - is level ke liye: For NEET, test 'Calvin cycle only in C₃ plants' as a false statement.
+  - prerequisites: C₃ and C₄ classification by first product; Calvin cycle regenerates RuBP
+- **p013-i9** · paragraph · process · both · exam high
+  - For ease of understanding, the Calvin cycle can be described under three stages: carboxylation, reduction and regeneration.
+    - how: How is the Calvin cycle organised for study? → It is described in three stages in sequence: carboxylation, reduction and regeneration.
+    - when: When do the three stages enter the teaching sequence? → Carboxylation introduces CO₂ fixation first, reduction follows, and regeneration restores the acceptor for continued cycling. _(outside the book)_
+      - why: Why is this three-stage map useful? → It separates three different jobs: bringing carbon into the pathway, converting the fixed carbon toward carbohydrate, and restoring the acceptor. Students can then attach individual reactions to their job instead of memorising an unstructured list. _(outside the book)_
+  - **khola (unpack):**
+    - reduction yaani इस stage में fixed carbon को electrons की मदद से carbohydrate बनाने की दिशा में बदला जाता है · image: अधबने सामान को अगली processing से काम की चीज़ बनाना
+    - kyon: A whole cyclic pathway is easier to follow when its jobs are separated. _[standard]_ → The book groups it into carboxylation, reduction and regeneration. _[book]_
+    - example / jagah: Three labelled sections around the same Calvin-cycle loop.
+    - aage: Carboxylation is the first stage, not a synonym for the entire cycle.
+    - screen par: divide a loop into three ordered stages
+    - is level ke liye: Keep names and order clear without importing later-page ATP/NADPH accounting here.
+  - prerequisites: CO₂ fixation; RuBP regeneration makes a cycle
+- **p013-i10** · list_point · process · both · exam high
+  - 1. Carboxylation – Carboxylation is the fixation of CO₂ into a stable organic intermediate. Carboxylation is the most crucial step of the Calvin cycle where CO₂ is utilised for the carboxylation of RuBP. This reaction is catalysed by the enzyme RuBP carboxylase which results in the formation of two molecules of 3-PGA. Since this enzyme also has an oxygenation activity it would be more correct to call it RuBP carboxylase-oxygenase or RuBisCO.
+    - what: What is carboxylation, and why is it crucial in this cycle? → Carboxylation fixes CO₂ into a stable organic intermediate. In the Calvin cycle it is the step at which CO₂ is used to carboxylate RuBP, so it is the carbon-fixing entry step.
+    - how: How does the carboxylation reaction proceed as described here? → RuBP carboxylase catalyses carboxylation of RuBP using CO₂, resulting in two molecules of 3-PGA.
+    - when: When does carboxylation occur within the three-stage sequence? → It is the first of the three stages, preceding reduction and regeneration.
+      - how: How is the two-PGA yield consistent with the carbon numbers? → Five-carbon RuBP receives the one carbon of CO₂. The resulting unstable six-carbon intermediate splits into two three-carbon 3-PGA molecules. Thus the first stable product can be C₃ even though six carbons pass through the immediate intermediate. _(outside the book)_
+    - why: Why is RuBisCO a more complete name than RuBP carboxylase? → The same enzyme also has oxygenation activity, so RuBP carboxylase-oxygenase, abbreviated RuBisCO, names both activities rather than just carboxylation.
+      - difference: Does oxygenase activity mean that oxygenation and carboxylation are the same reaction? → No. Carboxylation uses CO₂, whereas oxygenation uses O₂ with RuBP. The enzyme can catalyse alternative reactions; saying that it has both activities does not mean both gases are incorporated in the carboxylation reaction. _(outside the book)_
+    - what: What do CO₂, RuBP and 3-PGA denote in this account? → CO₂ is carbon dioxide, with one carbon and two oxygen atoms per molecule. RuBP is ribulose bisphosphate, the five-carbon acceptor. 3-PGA is 3-phosphoglyceric acid, a three-carbon product; the '3' before PGA indicates phosphate position, not the coefficient two specifying product molecules. These are molecular identities and counts, not quantities with physical units. _(outside the book)_
+  - **khola (unpack):**
+    - Carboxylation yaani CO₂ को जोड़कर उसके carbon को organic compound में लाने वाला step · image: बाहर से आया एक मोती पहले से बनी लड़ी में जोड़ना
+    - stable organic intermediate yaani रास्ते में बनने वाला ऐसा carbon compound जो आगे के reactions का शुरुआती पदार्थ बन सके · image: रसोई में तैयार हुआ मसाला जो आगे खाना बनाने में लगेगा
+    - RuBP carboxylase-oxygenase or RuBisCO yaani वही enzyme जो RuBP के साथ CO₂ वाला reaction और O₂ वाला अलग reaction करा सकता है · image: एक औज़ार जिसके दो अलग काम हों
+    - 3-PGA yaani तीन carbon वाला 3-phosphoglyceric acid; एक carboxylation से इसके दो molecules बनते हैं · image: छह मोतियों को बाँटकर बनी तीन-तीन की दो लड़ियाँ
+    - catalysed yaani enzyme की मदद से reaction का तेज़ होना · image: काम को आसान रास्ता दिखाने वाला सहायक
+    - oxygenation activity yaani O₂ के साथ RuBP का अलग reaction कराने की क्षमता · image: एक ही औज़ार का दूसरी तरह इस्तेमाल
+    - kyon: To bring atmospheric carbon into organic metabolism, CO₂ must be fixed into an organic intermediate. _[book]_ → RuBP carboxylase catalyses RuBP carboxylation, producing two 3-PGA molecules. _[book]_ → Because the enzyme also catalyses oxygenation, its fuller name includes carboxylase and oxygenase. _[book]_
+    - example / jagah: Outside location clarification: leaf → photosynthetic cell → chloroplast → stroma. Follow one RuBP through one carboxylation.
+    - aage: Fixed carbon proceeds toward reduction, while later regeneration restores RuBP; dual enzyme activity anticipates the distinction between carboxylation and oxygenation.
+    - screen par: dock CO₂ onto RuBP at RuBisCO, then split into two labelled 3-PGA molecules
+    - is level ke liye: Distinguish first stable 3-PGA from the transient six-carbon intermediate. Keep the coefficient two separate from the positional '3' in 3-PGA.
+  - prerequisites: RuBP is a five-carbon acceptor; CO₂ contains one carbon atom; An enzyme catalyses a chemical reaction; Carbon atoms are conserved; The Calvin cycle has three stages
+
+## Page 14 · passed after 1 round(s)
+
+The Calvin cycle has carboxylation, reduction and regeneration stages. CO₂ combines with RuBP to yield 3-phosphoglycerate; ATP and NADPH support reduction to triose phosphate. Triose phosphate contributes to sucrose and starch synthesis, while regeneration uses ATP to renew RuBP. Reduction uses 2 ATP and 2 NADPH per CO₂ fixed; six CO₂ and six turns yield one glucose equivalent.
+
+- **p014-i1** · diagram · figure · image · exam high
+  - Calvin cycle: atmospheric CO₂ + H₂O enters stage 1, Carboxylation, with ribulose-1,5-bisphosphate. The clockwise path proceeds to 3-phosphoglycerate, then stage 2, Reduction, then triose phosphate. ATP + NADPH enter reduction; ADP + Pᵢ + NADP⁺ leave it. A downward branch from triose phosphate leads to sucrose, starch. The continuing cycle passes through stage 3, Regeneration, where ATP enters and ADP leaves, and returns to ribulose-1,5-bisphosphate.
+    - what: What problem does the cyclic pathway solve? → It links carbohydrate formation to re-formation of the CO₂ acceptor, allowing further CO₂ fixation rather than ending after one use of RuBP.
+    - which: Which three stages and branches must be followed? → Follow carboxylation to 3-phosphoglycerate, reduction to triose phosphate, and regeneration back to RuBP; distinguish the sucrose/starch output branch from the returning path.
+      - how: How do the arrows distinguish carbon flow from energy support? → The main loop joins carbon compounds, whereas side arrows bring ATP and NADPH into reduction and ATP into regeneration, with spent carriers leaving.
+      - where: Where in a photosynthetic plant cell does this cycle occur? → The Calvin cycle occurs in the chloroplast stroma. _(outside the book)_
+  - **khola (unpack):**
+    - Calvin cycle yaani CO₂ से carbohydrate बनाने और CO₂ पकड़ने वाला molecule फिर तैयार करने का चक्र · image: काम पूरा करके फिर शुरुआती जगह लौटती गोल राह
+    - kyon: Continued carbon fixation needs an available CO₂ acceptor. _[standard]_ → Reduction forms carbohydrate using ATP and NADPH. _[book]_ → Regeneration renews the acceptor so the cycle continues. _[book]_
+    - example / jagah: Leaf → photosynthetic cell → chloroplast → stroma (standard textbook location).
+    - aage: Carbon can leave toward sugars while the CO₂ acceptor is replenished.
+    - screen par: Trace the loop, then split the triose phosphate output arrow from the returning arrow.
+    - is level ke liye: Build the carbon route first, then overlay ATP/NADPH arrows; do not read the loop as a glucose molecule travelling around.
+  - prerequisites: CO₂ as a carbon source; ATP as an energy carrier; NADPH as a reducing agent
+- **p014-i2** · diagram_label · figure · both · exam medium
+  - Atmosphere — arrow points toward the CO₂ input.
+    - what: What does Atmosphere identify? → It identifies the external source from which CO₂ enters the depicted pathway.
+    - which: Which incoming substance supplies carbon? → CO₂ supplies the incoming carbon, not the ATP or NADPH side inputs. _(outside the book)_
+      - how: How does atmospheric CO₂ reach the chloroplast? → CO₂ diffuses through stomata and internal leaf spaces to photosynthetic cells and their chloroplasts. _(outside the book)_
+  - **khola (unpack):**
+    - Atmosphere yaani पौधे के आसपास की हवा · image: पत्ते के चारों ओर मौजूद हवा
+    - kyon: The plant needs an external carbon supply. _[standard]_ → The figure connects atmospheric CO₂ to carboxylation. _[book]_
+    - example / jagah: Air surrounding a leaf.
+    - aage: Links an environmental gas to organic carbon formation.
+    - screen par: Move CO₂ from air toward the cycle.
+  - prerequisites: CO₂ in air; leaf stomata
+- **p014-i3** · diagram_label · figure · both · exam high
+  - CO₂ + H₂O — inputs shown entering carboxylation.
+    - what: What do the chemical symbols mean? → CO₂ is carbon dioxide and H₂O is water; subscripts indicate atoms per molecule, and + groups the inputs rather than giving an electrical charge. These are formulas, not quantities with physical units. _(outside the book)_
+    - which: Which stage receives the indicated inputs? → The arrow enters carboxylation alongside the RuBP path.
+      - how: How is water involved in the overall carboxylation reaction? → CO₂ addition produces an unstable six-carbon intermediate whose cleavage involves water and yields two molecules of 3-phosphoglycerate. _(outside the book)_
+  - **khola (unpack):**
+    - CO₂ yaani एक carbon और दो oxygen वाला gas molecule · image: एक गोले से जुड़े दो छोटे गोले
+    - kyon: Carbon must enter the pathway before carbohydrate can be built. _[standard]_ → CO₂ enters the carboxylation stage with RuBP. _[book]_
+    - example / jagah: Input arrow at the top of Figure 11.8.
+    - aage: Connects atmospheric carbon with the first carbon product shown.
+    - screen par: Join CO₂ to the RuBP route.
+    - is level ke liye: Water at this arrow should not be confused with oxygen release during the light reaction.
+  - prerequisites: chemical formula subscripts; carbon fixation
+- **p014-i4** · diagram_label · figure · both · exam high
+  - Ribulose-1,5-bisphosphate — regenerated compound entering carboxylation.
+    - what: What job does ribulose-1,5-bisphosphate perform? → RuBP is the CO₂ acceptor and is re-formed during regeneration.
+    - which: Which stages meet at this compound? → Regeneration produces it and carboxylation uses it.
+      - how: How does its name describe its structure? → It is a five-carbon sugar with phosphate groups at carbon positions 1 and 5; bisphosphate indicates two separately attached phosphate groups. _(outside the book)_
+  - **khola (unpack):**
+    - Ribulose-1,5-bisphosphate yaani CO₂ पकड़ने वाला पाँच-carbon sugar, जिसके 1 और 5 स्थान पर phosphate लगे हैं · image: पाँच कड़ियों की पट्टी के दोनों सिरों पर निशान
+    - kyon: Incoming CO₂ needs an acceptor. _[standard]_ → RuBP accepts CO₂ and is formed again to sustain the cycle. _[book]_
+    - example / jagah: Top junction between regeneration and carboxylation.
+    - aage: Explains why a cycle needs regeneration rather than only sugar production.
+    - screen par: Return the acceptor to the starting junction.
+    - is level ke liye: Distinguish bisphosphate from a diphosphate chain; 1,5 are positions, not molecule counts.
+  - prerequisites: carbon skeletons of sugars; phosphate groups
+- **p014-i5** · diagram_label · figure · both · exam high
+  - 1 Carboxylation — first stage, between RuBP plus CO₂ input and 3-phosphoglycerate.
+    - what: What is carboxylation in this figure? → It is the stage during which CO₂ combines with RuBP.
+    - which: Which product follows this stage? → The next labelled compound is 3-phosphoglycerate.
+      - how: How does five-carbon RuBP give a three-carbon product after accepting CO₂? → One carbon is added to five-carbon RuBP; the unstable six-carbon intermediate splits into two three-carbon 3-phosphoglycerate molecules. _(outside the book)_
+  - **khola (unpack):**
+    - Carboxylation yaani CO₂ को किसी molecule में जोड़ने का कदम · image: पाँच टुकड़ों की कतार में एक नया टुकड़ा जोड़ना
+    - kyon: Atmospheric carbon must become part of an organic compound. _[standard]_ → CO₂ combines with RuBP at carboxylation. _[book]_ → The figure then leads to 3-phosphoglycerate. _[book]_
+    - example / jagah: Stage 1 of the Calvin cycle.
+    - aage: Produces the substrate for reduction.
+    - screen par: Add one carbon, then split the six-carbon intermediate.
+    - is level ke liye: Standard NEET support: RuBisCO catalyses the reaction; do not add ATP consumption to this stage in this account.
+  - prerequisites: RuBP as CO₂ acceptor; carbon atom conservation
+- **p014-i6** · diagram_label · figure · both · exam medium
+  - ADP — leaves the regeneration stage.
+    - what: What does ADP mean? → ADP is adenosine diphosphate, the nucleotide remaining when ATP transfers a phosphate group in this phosphorylation step. _(outside the book)_
+    - which: Which stage releases this ADP? → This upper-left ADP arrow leaves regeneration.
+      - how: How is this output connected with ATP use? → ATP supplies a phosphate in the regeneration reaction and becomes ADP. _(outside the book)_
+  - **khola (unpack):**
+    - ADP yaani दो phosphate वाला adenosine molecule · image: तीन निशानों वाले कार्ड से एक निशान निकलने पर दो बचना
+    - kyon: RuBP formation requires phosphorylation using ATP. _[book]_ → The regeneration arrow consequently shows ADP leaving. _[book]_
+    - example / jagah: Outgoing arrow above regeneration.
+    - aage: Shows that regeneration has an energy cost.
+    - screen par: Change ATP to ADP as phosphate transfers.
+    - is level ke liye: ADP is a molecule abbreviation, not a measurement unit.
+  - prerequisites: ATP and phosphate transfer
+- **p014-i7** · diagram_label · figure · both · exam high
+  - 3 Regeneration — returning route from triose phosphate to RuBP.
+    - what: What is regenerated here? → The CO₂ acceptor RuBP is formed again.
+    - which: Which side-input distinguishes this stage? → ATP enters, while ADP leaves.
+      - why: Why must carbon return along this route? → If the acceptor were not renewed, repeated fixation would deplete the available RuBP and the cycle could not continue. _(outside the book)_
+  - **khola (unpack):**
+    - Regeneration yaani इस्तेमाल हो चुका CO₂ acceptor फिर तैयार करना · image: अगली बार काम के लिए औज़ार फिर तैयार करना
+    - kyon: The cycle needs its acceptor again for another CO₂ entry. _[standard]_ → Regeneration re-forms RuBP using ATP. _[book]_
+    - example / jagah: Left return arc of Figure 11.8.
+    - aage: Connects the end of one turn to the next carboxylation.
+    - screen par: Rearrange carbon and close the loop.
+    - is level ke liye: The carbon returning to RuBP must be distinguished from net carbohydrate output.
+  - prerequisites: RuBP as CO₂ acceptor; triose phosphate
+- **p014-i8** · diagram_label · figure · both · exam high
+  - 3-phosphoglycerate — compound following carboxylation and entering reduction.
+    - what: What is the position of 3-phosphoglycerate in the cycle? → It lies between carboxylation and reduction, receiving the carbon flow from the first stage.
+    - which: Which common exam name refers to this compound? → It is commonly called 3-PGA, the three-carbon first stable product of CO₂ fixation in the Calvin cycle. _(outside the book)_
+      - how: How should the initial 3 in its name be interpreted? → It specifies the phosphate group's carbon position; it is not a coefficient meaning three molecules. _(outside the book)_
+  - **khola (unpack):**
+    - 3-phosphoglycerate yaani तीन-carbon वाला compound जिसके तीसरे carbon पर phosphate है · image: तीन डिब्बों की कतार के तीसरे डिब्बे पर झंडी
+    - kyon: Fixed carbon must be processed toward carbohydrate. _[standard]_ → 3-phosphoglycerate feeds into the reduction stage. _[book]_
+    - example / jagah: Right side of the cycle before ATP/NADPH input.
+    - aage: Provides the starting substrate for the reduction account below.
+    - screen par: Highlight the compound between stages 1 and 2.
+    - is level ke liye: The name's positional 3 and the molecule's three-carbon skeleton are distinct facts.
+  - prerequisites: carboxylation; numbered carbon positions
+- **p014-i9** · diagram_label · figure · both · exam high
+  - ATP — enters regeneration.
+    - what: What does ATP stand for? → ATP is adenosine triphosphate, a molecule used to couple energy supply with reactions such as phosphorylation. _(outside the book)_
+    - which: Which reaction uses this ATP input? → Regeneration uses ATP for phosphorylation to form RuBP.
+      - how: How does this arrow prevent an incomplete energy budget? → It shows that ATP expenditure is not confined to reduction; regeneration also consumes ATP.
+  - **khola (unpack):**
+    - ATP yaani तीन phosphate वाला molecule जो reaction के लिए energy और phosphate दे सकता है · image: काम चलाने के लिए इस्तेमाल होने वाला charged pack
+    - kyon: The CO₂ acceptor must be formed again. _[book]_ → This formation requires ATP-dependent phosphorylation. _[book]_
+    - example / jagah: ATP input on the left of the cycle.
+    - aage: Adds the regeneration cost to the reduction cost.
+    - screen par: Insert an ATP token at regeneration.
+    - is level ke liye: One ATP per CO₂ fixed is the regeneration cost in the standard cycle account.
+  - prerequisites: ATP; regeneration
+- **p014-i10** · diagram_label · figure · both · exam high
+  - ATP + NADPH — enter reduction.
+    - what: What are the paired inputs? → ATP and NADPH made photochemically are spent during carbohydrate formation in reduction.
+    - which: Which different jobs do they perform? → ATP is used for phosphorylation; NADPH is used for reduction.
+      - how: How does NADPH support reduction? → NADPH, reduced nicotinamide adenine dinucleotide phosphate, supplies reducing equivalents and is oxidised to NADP⁺. _(outside the book)_
+  - **khola (unpack):**
+    - NADPH yaani reduction के लिए electron देने वाला carrier · image: सामान पहुँचाकर खाली लौटता carrier
+    - kyon: Fixed carbon needs energy input and reduction to form carbohydrate. _[standard]_ → ATP supports phosphorylation and NADPH supports reduction. _[book]_
+    - example / jagah: Input to stage 2.
+    - aage: Links photochemical products to carbon assimilation.
+    - screen par: Feed separate ATP and NADPH tokens into reduction.
+    - is level ke liye: The + between ATP and NADPH joins inputs; it does not indicate molecular charge or a unit.
+  - prerequisites: ATP; oxidation and reduction
+- **p014-i11** · diagram_label · figure · both · exam high
+  - 2 Reduction — stage leading from 3-phosphoglycerate to triose phosphate. The adjacent + belongs to the ATP + NADPH input.
+    - what: What does this labelled stage accomplish? → The figure shows conversion toward triose phosphate with expenditure of ATP and NADPH.
+    - which: Which two carbon compounds bracket reduction? → 3-phosphoglycerate precedes it and triose phosphate follows it.
+      - how: How should reduction be distinguished from direct glucose release? → Reduction produces triose phosphate in the immediate pathway; further metabolism of net triose phosphate yields hexose sugars. _(outside the book)_
+  - **khola (unpack):**
+    - Reduction yaani electron मिलने से compound का अधिक reduced रूप बनना · image: carrier से electron की खेप लेना
+    - kyon: Fixed carbon must be converted toward carbohydrate. _[standard]_ → Reduction spends ATP and NADPH and leads to triose phosphate. _[book]_
+    - example / jagah: Stage 2 between 3-PGA and triose phosphate.
+    - aage: Supplies both the output branch and the returning carbon route.
+    - screen par: Transform 3-PGA into triose phosphate.
+    - is level ke liye: Separate immediate product from eventual glucose formation.
+  - prerequisites: 3-phosphoglycerate; NADPH
+- **p014-i12** · diagram_label · figure · both · exam high
+  - Triose phosphate — receives the reduction arrow; branches toward sucrose, starch and toward regeneration.
+    - what: What does triose phosphate mean? → It is a phosphorylated three-carbon sugar; triose indicates a three-carbon sugar. _(outside the book)_
+    - which: Which two fates does the diagram show? → One branch leads to sucrose and starch, while the other continues toward regeneration of RuBP.
+      - why: Why can the whole triose phosphate pool not be treated as net sugar output? → A substantial portion must replenish RuBP; otherwise the cycle would lose its CO₂ acceptor. _(outside the book)_
+  - **khola (unpack):**
+    - Triose phosphate yaani phosphate जुड़ा तीन-carbon sugar · image: तीन डिब्बों की छोटी गाड़ी, जिस पर phosphate की झंडी लगी हो
+    - kyon: Sugar production must leave enough carbon to renew the acceptor. _[standard]_ → The figure gives triose phosphate both an output branch and a returning route. _[book]_
+    - example / jagah: Bottom branching point in Figure 11.8.
+    - aage: Explains simultaneous net carbohydrate formation and cyclic operation.
+    - screen par: Split the carbon stream into output and recycling.
+    - is level ke liye: Standard carbon balance: per three CO₂, one net triose phosphate is available while five are used to regenerate three RuBP.
+  - prerequisites: three-carbon sugars; RuBP regeneration
+- **p014-i13** · diagram_label · figure · both · exam high
+  - ADP + Pᵢ + NADP⁺ — products leaving after use of ATP and NADPH during reduction.
+    - what: What do these symbols name? → ADP is adenosine diphosphate; Pᵢ is inorganic phosphate, with i meaning inorganic; NADP⁺ is the oxidised form of nicotinamide adenine dinucleotide phosphate. The separators + join substances, while the superscript + belongs to NADP⁺. No measurement units are implied. _(outside the book)_
+    - which: Which stage has this output arrow? → It leaves reduction, opposite the ATP + NADPH input.
+      - how: How do the carrier changes relate to their jobs? → ATP-dependent phosphorylation and subsequent reduction yield ADP and inorganic phosphate; NADPH donates reducing equivalents and returns as NADP⁺. _(outside the book)_
+  - **khola (unpack):**
+    - Pᵢ yaani अलग मौजूद inorganic phosphate · image: बड़ी जोड़ से अलग निकला छोटा टुकड़ा
+    - NADP⁺ yaani electron देने के बाद NADPH का oxidised रूप · image: खेप उतारकर लौटता carrier
+    - kyon: Reduction requires usable energy and reducing equivalents. _[standard]_ → ATP and NADPH enter, and the figure shows ADP, Pᵢ and NADP⁺ leaving. _[book]_
+    - example / jagah: Downward side arrow from reduction.
+    - aage: Makes the expenditure of photochemical products visible.
+    - screen par: Exchange incoming carriers for their outgoing forms.
+    - is level ke liye: Do not mistake subscript i for a separate reactant.
+  - prerequisites: ATP to ADP; NADPH oxidation
+- **p014-i14** · diagram_label · figure · both · exam medium
+  - Sucrose, starch — carbohydrate products reached by the downward branch from triose phosphate.
+    - what: What does this label represent? → It represents carbohydrate formation from the triose phosphate output branch.
+    - which: Which two carbohydrates are named? → Sucrose and starch are named as downstream products.
+      - how: How do these products serve different plant needs? → Sucrose is a major transport sugar in plants, while starch serves as a storage carbohydrate. _(outside the book)_
+  - **khola (unpack):**
+    - Sucrose yaani पौधे में एक जगह से दूसरी जगह भेजी जाने वाली प्रमुख sugar · image: घर में इस्तेमाल होने वाली चीनी
+    - starch yaani कई glucose जोड़कर बना जमा रखने वाला carbohydrate · image: आलू में जमा starch
+    - kyon: Assimilated carbon must support plant use and storage. _[standard]_ → Triose phosphate feeds the sucrose and starch branch. _[book]_
+    - example / jagah: Output branch below the Calvin cycle.
+    - aage: Connects biochemical fixation to usable plant carbohydrates.
+    - screen par: Send carbon out of the loop toward carbohydrate products.
+    - is level ke liye: Transport and storage roles are standard supporting knowledge.
+  - prerequisites: triose phosphate; sugars and polysaccharides
+- **p014-i15** · caption · process · both · exam high
+  - Figure 11.8 The Calvin cycle proceeds in three stages : (1) carboxylation, during which CO₂ combines with ribulose-1,5-bisphosphate; (2) reduction, during which carbohydrate is formed at the expense of the photochemically made ATP and NADPH; and (3) regeneration during which the CO₂ acceptor ribulose-1,5-bisphosphate is formed again so that the cycle continues
+    - how: How does each stage solve a different need? → Carboxylation incorporates CO₂ with RuBP, reduction forms carbohydrate using ATP and NADPH, and regeneration renews the acceptor for continued operation.
+    - when: When is regeneration needed in the sequence? → It is the third stage, following reduction and renewing RuBP for the next carboxylation.
+      - why: Why is photochemically made significant? → It links the energy and reducing power used in carbon assimilation to ATP and NADPH produced by the light reactions. _(outside the book)_
+  - **khola (unpack):**
+    - photochemically made yaani light से चलने वाली reactions में बना हुआ · image: धूप से charge हुआ pack आगे काम चलाए
+    - kyon: Carbon assimilation needs both inputs and repeated acceptor supply. _[standard]_ → Reduction spends photochemically made ATP and NADPH. _[book]_ → Regeneration re-forms RuBP so the cycle continues. _[book]_
+    - example / jagah: Three-stage overview accompanying Figure 11.8.
+    - aage: Unifies light-reaction support, carbohydrate formation and cyclic renewal.
+    - screen par: Reveal each stage's job along one loop.
+    - is level ke liye: Do not interpret a light-independent reaction as one that must occur only in darkness.
+  - prerequisites: light reactions produce ATP and NADPH; CO₂ acceptor
+- **p014-i16** · list_point · process · both · exam high
+  - 2. Reduction – These are a series of reactions that lead to the formation of glucose. The steps involve utilisation of 2 molecules of ATP for phosphorylation and two of NADPH for reduction per CO₂ molecule fixed. The fixation of six molecules of CO₂ and 6 turns of the cycle are required for the formation of one molecule of glucose from the pathway.
+    - how: How are ATP and NADPH used during reduction? → For each CO₂ fixed, two ATP molecules are used for phosphorylation and two NADPH molecules for reduction in the series leading to glucose formation.
+    - when: When in the cycle do these reduction reactions occur? → They are stage 2, following formation of 3-phosphoglycerate by carboxylation and preceding regeneration.
+      - why: Why does the per-CO₂ reduction cost involve two ATP and two NADPH? → Fixing one CO₂ with one RuBP yields two 3-PGA molecules; each requires one ATP-dependent phosphorylation and one NADPH-dependent reduction on the way to triose phosphate. _(outside the book)_
+    - what: What fixation and turn count does the book give for one glucose molecule? → Six CO₂ molecules must be fixed in six turns of the cycle to form one glucose molecule from the pathway.
+      - why: Why are six turns needed rather than one? → Glucose contains six carbon atoms, whereas one turn fixes one incoming CO₂ carbon. Regeneration recycles existing acceptor carbon, so it is not an additional net carbon source. _(outside the book)_
+      - how: How is the reduction cost scaled to one glucose, and how does it differ from the total cycle cost? → Reduction alone requires 6 × 2 = 12 ATP and 6 × 2 = 12 NADPH. Adding 6 ATP for regeneration gives 18 ATP and 12 NADPH for one glucose equivalent in the standard account. _(outside the book)_
+  - **khola (unpack):**
+    - phosphorylation yaani किसी molecule में phosphate जोड़ना · image: किसी चीज़ पर नया tag लगाना
+    - per CO₂ molecule fixed yaani जितना खर्च एक CO₂ को pathway में जोड़ने पर होता है · image: एक सामान का खर्च जानकर छह का खर्च निकालना
+    - turns yaani cycle के उतने चक्कर जितनी बार एक CO₂ fix हो · image: गोल रास्ते पर छह चक्कर गिनना
+    - kyon: The fixed carbon must be converted toward carbohydrate, not merely attached to RuBP. _[standard]_ → Each fixed CO₂ requires two ATP for phosphorylation and two NADPH for reduction. _[book]_ → Six CO₂ and six turns supply the requirement for one glucose molecule. _[book]_
+    - example / jagah: One CO₂: 2 ATP + 2 NADPH in reduction; six CO₂: 12 ATP + 12 NADPH in reduction (derived).
+    - aage: Leads directly to adding the separate ATP cost of regeneration.
+    - screen par: Count two 3-PGA molecules, assign one ATP and one NADPH to each, then scale the account sixfold.
+    - is level ke liye: Use a two-column budget: reduction 12 ATP/12 NADPH; regeneration 6 ATP/0 NADPH; total 18 ATP/12 NADPH per glucose equivalent. This is a derived standard account.
+  - prerequisites: 3-PGA formation; phosphorylation; NADPH-dependent reduction; glucose has six carbons; one CO₂ fixed per cycle turn
+- **p014-i17** · list_point · process · both · exam high
+  - 3. Regeneration – Regeneration of the CO₂ acceptor molecule RuBP is crucial if the cycle is to continue uninterrupted. The regeneration steps require one ATP for phosphorylation to form RuBP.
+    - how: How does regeneration keep carbon fixation going? → It forms the CO₂ acceptor RuBP again, using one ATP for phosphorylation, so the cycle can continue uninterrupted.
+    - when: When does regeneration fit into the sequence? → It is stage 3, after reduction and before the renewed RuBP participates in another carboxylation.
+      - why: Why does making carbohydrate alone not ensure continued fixation? → RuBP is consumed as an acceptor during carboxylation; without its replenishment, additional CO₂ would lack the acceptor needed for entry into this cycle. _(outside the book)_
+      - how: How should the one-ATP requirement be used in numerical questions? → In the standard per-CO₂ account, regeneration adds one ATP to the two used in reduction: three ATP and two NADPH per CO₂, or eighteen ATP and twelve NADPH per glucose equivalent. _(outside the book)_
+  - **khola (unpack):**
+    - CO₂ acceptor yaani वह molecule जिससे आने वाला CO₂ जुड़ता है · image: नई चीज़ लेने के लिए फिर तैयार किया गया holder
+    - uninterrupted yaani अगला चक्कर रुकने न पाए · image: अगली बारी के लिए सामान पहले से तैयार रखना
+    - kyon: Another CO₂ fixation needs another available RuBP molecule. _[standard]_ → Regeneration re-forms RuBP and requires ATP for phosphorylation. _[book]_ → This renewal allows the cycle to continue uninterrupted. _[book]_
+    - example / jagah: Return route from triose phosphate to the top RuBP box.
+    - aage: Completes both the cycle's carbon logic and its ATP budget.
+    - screen par: Rebuild RuBP, spend ATP, then admit the next CO₂.
+    - is level ke liye: The paragraph gives one ATP for RuBP formation; the standard scaled account is six regeneration ATP per glucose equivalent.
+  - prerequisites: RuBP accepts CO₂; ATP-dependent phosphorylation; triose phosphate recycling
+
+## Page 15 · passed after 1 round(s)
+
+Each CO₂ fixed through the Calvin cycle requires 3 ATP and 2 NADPH; one glucose requires six turns, 18 ATP and 12 NADPH. C₄ plants initially form oxaloacetic acid but retain the Calvin cycle for biosynthesis. Their adaptations include characteristic Kranz anatomy with large, chloroplast-rich bundle sheath cells around vascular bundles.
+
+- **p015-i1** · paragraph · cause_effect · both · exam high
+  - Hence for every CO₂ molecule entering the Calvin cycle, 3 molecules of ATP and 2 of NADPH are required. It is probably to meet this difference in number of ATP and NADPH used in the dark reaction that the cyclic phosphorylation takes place.
+    - what: What does fixation of one CO₂ cost in the Calvin cycle? → It requires 3 ATP molecules and 2 NADPH molecules, so the ATP:NADPH demand is 3:2.
+    - why: Why does the page connect this requirement with cyclic phosphorylation? → The page proposes that cyclic phosphorylation probably meets the difference between the ATP and NADPH requirements of the dark reaction.
+      - how: How does cyclic photophosphorylation help meet a relatively greater ATP demand? → Cyclic electron flow generates ATP without producing NADPH. It can therefore supplement ATP without adding more NADPH at the same time. _(outside the book)_
+      - why: Why are both ATP and NADPH required rather than one replacing the other? → ATP supplies energy for phosphorylation and RuBP regeneration, whereas NADPH supplies reducing power for converting the reduced carbon intermediates towards carbohydrate. Their roles are different. _(outside the book)_
+      - what: What do the chemical abbreviations mean, and does 'dark reaction' mean a night-only reaction? → CO₂ is carbon dioxide; ATP is adenosine triphosphate; NADPH is reduced nicotinamide adenine dinucleotide phosphate. The numbers here count molecules, not mass. The Calvin cycle does not directly use light, but depends on products of the light reactions; 'dark reaction' does not mean it operates only at night. _(outside the book)_
+  - **khola (unpack):**
+    - ATP yaani काम कराने के लिए इस्तेमाल होने वाला energy carrier · image: काम करते समय खर्च होने वाली charged battery
+    - NADPH yaani बनते carbohydrate को electrons देने वाला carrier · image: ज़रूरी सामान लेकर आने वाली delivery गाड़ी
+    - cyclic phosphorylation yaani electrons के चक्कर लगाकर वापस आने से ATP बनना · image: एक ही रास्ते का चक्कर लगाकर लौटती गाड़ी
+    - CO₂ yaani carbon dioxide, जिससे carbohydrate का carbon मिलता है · image: निर्माण के लिए आती carbon की ईंटें
+    - kyon: Carbon fixation needs both energy and reducing power. _[standard]_ → For each CO₂, the cycle consumes 3 ATP but 2 NADPH. _[book]_ → Cyclic electron flow supplies ATP without NADPH and can help meet the extra ATP demand. _[standard]_
+    - example / jagah: Calvin cycle in the chloroplast stroma, supplied by light reactions at thylakoid membranes.
+    - aage: Scale the per-CO₂ budget to six carbon atoms to obtain the glucose-equivalent requirement.
+    - screen par: Feed three ATP tokens and two NADPH tokens into the cycle; add ATP from a separate returning electron loop.
+    - is level ke liye: Preserve the book's tentative 'probably'; do not describe cyclic flow as producing NADPH or oxygen.
+  - prerequisites: ATP as an energy carrier; NADPH as a reducing-power carrier; Calvin-cycle reduction and RuBP regeneration; cyclic and non-cyclic electron flow
+- **p015-i2** · paragraph · facts_numbers · both · exam high
+  - To make one molecule of glucose 6 turns of the cycle are required.
+    - what: How many Calvin-cycle turns correspond to one glucose? → Six turns are required for one molecule of glucose.
+    - evidence: Which entry in the page's table supports the six-turn total? → The table places six CO₂ under 'In' against one glucose under 'Out'.
+      - why: Why are six turns needed rather than one? → One turn fixes one CO₂, contributing one carbon atom. Glucose has six carbon atoms, so its net carbon requirement is six CO₂. The immediate exported carbohydrate is triose phosphate; glucose is a convenient six-carbon accounting unit. _(outside the book)_
+  - **khola (unpack):**
+    - turn yaani cycle का एक पूरा चक्कर · image: गोल track का एक चक्कर
+    - kyon: A glucose molecule needs six carbon atoms. _[standard]_ → Each Calvin-cycle turn adds one CO₂ carbon to the net account. _[standard]_ → Six turns therefore provide one glucose-equivalent carbon total. _[book]_
+    - example / jagah: Six successive CO₂ entries into the Calvin cycle.
+    - aage: Multiply both ATP and NADPH costs by six.
+    - screen par: Accumulate six carbon dots across six turns.
+    - is level ke liye: Net glucose-equivalent output does not mean a glucose molecule exits after each turn.
+  - prerequisites: one CO₂ fixed per Calvin-cycle turn; glucose is a six-carbon carbohydrate
+- **p015-i3** · question · none · both · exam high
+  - Work out how many ATP and NADPH molecules will be required to make one molecule of glucose through the Calvin pathway.
+    - what: What is the answer? → One glucose requires 18 ATP and 12 NADPH, as also shown in the table.
+      - how: How should a student calculate this rather than recall it? → Use six turns and multiply each per-turn requirement separately: ATP = 6 × 3 = 18 molecules; NADPH = 6 × 2 = 12 molecules. The ratio remains 3:2. _(outside the book)_
+  - prerequisites: 3 ATP and 2 NADPH per CO₂; six Calvin-cycle turns per glucose
+- **p015-i4** · paragraph · process · both · exam low
+  - It might help you to understand all of this if we look at what goes in and what comes out of the Calvin cycle.
+    - how: How does an input–output account simplify the cycle? → It separates substances supplied to the Calvin cycle from the products and spent carriers listed after their use. _(outside the book)_
+    - when: At what accounting scale is the following table read? → It is read for the production of one glucose, with six CO₂ entering.
+  - **khola (unpack):**
+    - kyon: A cyclic pathway can make net consumption difficult to track. _[standard]_ → A one-glucose input–output account separates what is used from what remains after use. _[standard]_
+    - example / jagah: The two-column Calvin-cycle table directly below.
+    - aage: Read the table as a net account rather than as the order of individual reactions.
+    - screen par: Sort tokens into In and Out columns.
+  - prerequisites: reactants and products; Calvin-cycle energy requirement
+- **p015-i5** · table · facts_numbers · both
+  - Calvin-cycle input–output table. Columns: In | Out. Rows: Six CO₂ | One glucose; 18 ATP | 18 ADP; 12 NADPH | 12 NADP.
+- **p015-i6** · table_row · facts_numbers · both · exam high
+  - In: Six CO₂ | Out: One glucose
+    - what: What carbon input corresponds to one glucose output? → The table gives six CO₂ as input for one glucose.
+    - evidence: What numerical relation is recorded in this row? → The 'In' and 'Out' cells give a six-to-one CO₂:glucose molecular account.
+      - why: Why does six CO₂ fit the carbon requirement? → Each CO₂ contains one carbon atom, whereas glucose, C₆H₁₂O₆, contains six. This checks carbon accounting, not the complete hydrogen, oxygen, water or phosphate balance. _(outside the book)_
+  - **khola (unpack):**
+    - glucose yaani छह carbon वाला sugar · image: छह मोतियों से बना एक गुच्छा
+    - kyon: A six-carbon product needs six carbon contributions. _[standard]_ → Six CO₂ supply those six carbons. _[standard]_
+    - example / jagah: First data row of the Calvin-cycle table.
+    - aage: Links the six-turn count to the energy budget.
+    - screen par: Gather six individual carbon dots into one six-carbon group.
+    - is level ke liye: Do not infer that this row alone is a balanced photosynthesis equation.
+  - prerequisites: carbon atoms in CO₂ and glucose
+- **p015-i7** · table_row · facts_numbers · both · exam high
+  - In: 18 ATP | Out: 18 ADP
+    - what: What happens to the ATP input in this account? → Eighteen ATP enter and eighteen ADP are listed as output per glucose.
+    - evidence: How is the total of eighteen supported by the page? → The page states three ATP per CO₂ and six turns per glucose, and its table lists eighteen ATP.
+      - how: How does ATP become ADP while supporting the cycle? → ATP, adenosine triphosphate, supplies energy through reactions involving loss or transfer of a phosphate group, leaving ADP, adenosine diphosphate. Per glucose equivalent, twelve ATP support the reduction phase and six support RuBP regeneration. _(outside the book)_
+  - **khola (unpack):**
+    - ADP yaani ATP के एक phosphate देने के बाद बचने वाला carrier · image: काम में energy दे चुकी, फिर charge होने वाली battery
+    - kyon: Carbon reduction and acceptor regeneration require energy. _[standard]_ → Six CO₂ at three ATP each require eighteen ATP. _[book]_ → After supplying energy, eighteen ADP appear in the output account. _[book]_
+    - example / jagah: ATP use in the chloroplast stroma.
+    - aage: ADP can return to light-reaction machinery for ATP formation.
+    - screen par: Turn eighteen ATP tokens into eighteen ADP tokens.
+    - is level ke liye: These totals describe the Calvin pathway; they are not the full additional energy budget of the C₄ concentrating mechanism.
+  - prerequisites: ATP and ADP; Calvin-cycle reduction and regeneration
+- **p015-i8** · table_row · facts_numbers · both · exam high
+  - In: 12 NADPH | Out: 12 NADP
+    - what: What reducing-carrier total does the table give? → Twelve NADPH enter and twelve NADP are listed as output.
+    - evidence: What page quantities support twelve NADPH? → The page gives two NADPH per CO₂ and six turns per glucose; the table records twelve NADPH.
+      - how: How does NADPH use differ from ATP use? → NADPH donates reducing equivalents and becomes oxidised NADP⁺, whereas ATP supplies energy through phosphate-related reactions. The printed table abbreviates the oxidised carrier as NADP. _(outside the book)_
+  - **khola (unpack):**
+    - NADP yaani reducing power देने के बाद NADPH का बचा carrier · image: सामान पहुँचाकर खाली लौटी delivery गाड़ी
+    - kyon: Fixed carbon must be reduced towards carbohydrate. _[standard]_ → Six CO₂ at two NADPH each require twelve NADPH. _[book]_ → The carrier returns in its oxidised form after donating reducing equivalents. _[standard]_
+    - example / jagah: Calvin-cycle reduction reactions.
+    - aage: Oxidised carriers can be reduced again through light reactions.
+    - screen par: Unload reducing-power tokens from twelve NADPH carriers.
+    - is level ke liye: Keep printed NADP in the source account; explain NADP⁺ as the standard oxidised notation.
+  - prerequisites: oxidation and reduction; NADPH as an electron carrier
+- **p015-i9** · heading · none · both
+  - 11.8 THE C₄ PATHWAY
+- **p015-i10** · paragraph · comparison · both · exam high
+  - Plants that are adapted to dry tropical regions have the C₄ pathway mentioned earlier. Though these plants have the C₄ oxaloacetic acid as the first CO₂ fixation product they use the C₃ pathway or the Calvin cycle
+    - compare: How do the initial product and the main biosynthetic pathway of C₄ plants compare? → Their first CO₂ fixation product is the four-carbon oxaloacetic acid, but their main biosynthetic pathway is the C₃ pathway or Calvin cycle.
+    - difference: What does C₄ mean that differs from the C₃ designation? → C₄ refers to the four-carbon first stable fixation product, oxaloacetic acid; C₃ refers to the three-carbon first stable product of Calvin-cycle fixation, 3-phosphoglyceric acid. _(outside the book)_
+      - why: Why is 'C₄ plants do not use the Calvin cycle' incorrect? → The page explicitly says that they use the C₃ pathway or Calvin cycle as the main biosynthetic pathway.
+      - how: How can the two pathways work in the same plant? → Initial fixation in mesophyll cells produces a four-carbon acid. Transfer and decarboxylation of four-carbon acids supply CO₂ to the Calvin cycle in bundle sheath cells. Initial capture and carbohydrate biosynthesis are linked, not rival alternatives. _(outside the book)_
+    - where: What habitat association does this page give? → It introduces the C₄ pathway in plants adapted to dry tropical regions.
+  - **khola (unpack):**
+    - C₄ oxaloacetic acid yaani पहली CO₂ fixation से बनने वाला चार carbon का पदार्थ; OAA भी कहते हैं · image: चार मोतियों की छोटी माला
+    - biosynthetic pathway yaani छोटे पदार्थों से शरीर के काम के बड़े पदार्थ बनाने के steps · image: कच्चे सामान से चीज़ बनाने वाली assembly line
+    - dry tropical regions yaani गरम इलाके जहाँ पानी कम मिल सकता है · image: तेज़ धूप में सूखती ज़मीन
+    - kyon: In hot, dry conditions, conserving water can restrict CO₂ entry through stomata. _[standard]_ → C₄ plants use an initial capture system that concentrates CO₂ for the Calvin cycle. _[standard]_ → A four-carbon first product therefore coexists with Calvin-cycle carbohydrate synthesis. _[standard]_
+    - example / jagah: Maize and sorghum, named later on this page.
+    - aage: The next question is what anatomical arrangement allows initial capture and the Calvin cycle to cooperate.
+    - screen par: Connect a four-carbon capture route to a shared Calvin-cycle loop.
+    - is level ke liye: NEET trap: the C₄ pathway does not replace the Calvin cycle. OAA is the first stable product, not glucose.
+  - prerequisites: CO₂ fixation; Calvin cycle; carbon number of an organic compound; mesophyll and bundle sheath cells
+- **p015-i11** · question · comparison · both · exam high
+  - as the main biosynthetic pathway. Then, in what way are they different from C₃ plants? This is a question that you may reasonably ask.
+    - compare: If the Calvin cycle is shared, what should the comparison examine? → The page directs attention to distinctive leaf anatomy, tolerance of higher temperatures, response to high light intensities, lack of photorespiration and greater biomass productivity in C₄ plants.
+    - difference: Which distinction should not be used to separate C₃ and C₄ plants? → Presence versus absence of the Calvin cycle is not the distinction: C₄ plants also use it as their main biosynthetic pathway.
+      - why: Why is this question important before learning leaf anatomy? → It replaces a misleading either–or picture of the pathways with the real problem: how special initial fixation and leaf organisation change photosynthetic performance. _(outside the book)_
+  - prerequisites: C₄ plants also use the Calvin cycle
+- **p015-i12** · paragraph · comparison · both · exam high
+  - C₄ plants are special: They have a special type of leaf anatomy, they tolerate higher temperatures, they show a response to high light intensities, they lack a process called photorespiration and have greater productivity of biomass. Let us understand these one by one.
+    - compare: What combination of traits makes C₄ plants special in this account? → They have special leaf anatomy, tolerate higher temperatures, respond to high light intensities, lack photorespiration and have greater biomass productivity.
+    - difference: Does greater biomass productivity mean only greater glucose concentration in a leaf? → No. Biomass productivity concerns the rate at which plant organic material accumulates, not merely the concentration of one sugar. _(outside the book)_
+      - why: Why does suppressing photorespiration help productivity? → Rubisco's oxygenase activity leads to photorespiration, which consumes resources and releases previously fixed carbon without net sugar production. Concentrating CO₂ near Rubisco strongly suppresses this loss and favours carboxylation. _(outside the book)_
+      - how: How should the heat and high-light advantages be interpreted? → High temperature can increase the relative importance of photorespiration in C₃ leaves. The C₄ concentrating mechanism limits that penalty, while high light can support its additional energy demand. This is an advantage under suitable conditions, not a claim that every C₄ plant outperforms every C₃ plant in every environment. _(outside the book)_
+  - **khola (unpack):**
+    - leaf anatomy yaani leaf के अंदर parts और cells की बनावट · image: घर का अंदरूनी नक्शा
+    - photorespiration yaani Rubisco के O₂ से काम करने पर शुरू होने वाला, fixed carbon और energy खर्च करने वाला रास्ता · image: बनी चीज़ का कुछ हिस्सा फिर खो देने वाली factory
+    - productivity of biomass yaani एक समय में नया plant material बनने की दर · image: समय के साथ फसल का वज़न बढ़ना
+    - kyon: In heat and limited CO₂, Rubisco oxygenation can waste fixed carbon and energy. _[standard]_ → The C₄ system concentrates CO₂ and suppresses photorespiration. _[standard]_ → The page associates C₄ plants with heat tolerance, high-light response and greater biomass productivity. _[book]_
+    - example / jagah: Leaf photosynthesis in maize and sorghum.
+    - aage: The special leaf anatomy is the next feature to inspect.
+    - screen par: Contrast carbon retained for growth with carbon lost through a side route.
+    - is level ke liye: NEET feature-matching: special anatomy, higher-temperature tolerance, high-light response, absent photorespiration, greater biomass productivity.
+  - prerequisites: Rubisco carboxylase and oxygenase activities; photosynthesis builds organic matter; temperature and light affect photosynthesis
+- **p015-i13** · question · comparison · both · exam high
+  - Study vertical sections of leaves, one of a C₃ plant and the other of a C₄ plant. Do you notice the differences? Do both have the same types of mesophylls? Do they have similar cells around the vascular bundle sheath?
+    - compare: What should students compare in the two leaf sections? → They should compare mesophyll organisation and the cells surrounding the vascular bundles, especially the large bundle sheath cells described for C₄ plants.
+    - difference: What typical anatomical difference should a standard C₃–C₄ comparison reveal? → A typical C₄ section shows conspicuous chloroplast-rich bundle sheath cells encircling vascular bundles, with mesophyll surrounding that sheath. Many C₃ dicot leaves show palisade and spongy mesophyll differentiation instead; this mesophyll distinction should not be universalised to all C₃ leaves. _(outside the book)_
+      - how: How does a vertical section make these differences visible? → A thin cut through the leaf thickness exposes the internal positions of mesophyll, vascular bundles and surrounding sheath cells for side-by-side microscopic comparison. _(outside the book)_
+  - prerequisites: leaf epidermis and mesophyll; vascular bundles contain xylem and phloem; thin sections for microscopy
+- **p015-i14** · definition · definition · both · exam high
+  - The particularly large cells around the vascular bundles of the C₄ plants are called bundle sheath cells, and the leaves which have such anatomy are said to have ‘Kranz’ anatomy. ‘Kranz’ means ‘wreath’ and is a reflection of the arrangement of cells.
+    - what: What are bundle sheath cells and Kranz anatomy? → The particularly large cells around C₄ vascular bundles are called bundle sheath cells. Leaves with this characteristic arrangement have Kranz anatomy.
+    - evidence: What visible arrangement explains the name Kranz? → Kranz means 'wreath', referring to the arrangement of cells around the vascular bundles.
+      - where: Where should a student look to find the wreath? → Inside a leaf section, locate a vascular bundle and inspect the large cells encircling it.
+      - why: Why is the wreath arrangement useful beyond being an identification feature? → It places mesophyll and bundle sheath cells close together for transfer of four-carbon compounds, allowing initial CO₂ capture and Calvin-cycle reactions to operate in different but neighbouring cell types. _(outside the book)_
+  - **khola (unpack):**
+    - vascular bundles yaani leaf के अंदर पानी और बना खाना ले जाने वाले रास्तों के समूह · image: एक साथ बँधी पानी और सामान की pipes
+    - bundle sheath cells yaani vascular bundle को चारों तरफ से घेरने वाले cells · image: pipe के चारों तरफ लगी मोटी sleeve
+    - Kranz anatomy yaani bundle के चारों तरफ माला जैसे बड़े cells की खास बनावट · image: बीच की चीज़ को घेरे फूलों की माला
+    - kyon: Initial capture and the Calvin cycle need a coordinated arrangement of neighbouring cells. _[standard]_ → Large bundle sheath cells surround vascular bundles in the characteristic C₄ leaf pattern. _[book]_ → The wreath-like appearance gives this pattern its name, Kranz anatomy. _[book]_
+    - example / jagah: Leaf → vascular bundle → surrounding bundle sheath in maize or sorghum.
+    - aage: Identify the sheath first, then inspect chloroplast abundance, walls and cell packing.
+    - screen par: Zoom into a vascular bundle and encircle it with a wreath of large cells.
+    - is level ke liye: Kranz names leaf organisation, not a separate carbon-fixation enzyme.
+  - prerequisites: vascular bundle; mesophyll cells; two linked fixation locations in typical C₄ leaves
+- **p015-i15** · paragraph · structure · both · exam high
+  - The bundle sheath cells may form several layers around the vascular bundles; they are characterised by having a large number of chloroplasts, thick walls impervious to gaseous exchange and no intercellular spaces.
+    - what: Which structural features characterise these bundle sheath cells? → They may form several layers; they contain many chloroplasts, have thick walls impervious to gaseous exchange and have no intercellular spaces.
+    - where: Where are these layers located? → They surround the vascular bundles of C₄ leaves.
+      - why: Why do many chloroplasts matter here? → In typical C₄ leaves the Calvin cycle operates in bundle sheath chloroplasts, so this cell compartment needs abundant photosynthetic machinery. _(outside the book)_
+      - how: How do tight packing and the wall barrier support the carbon-concentrating system? → They restrict gaseous diffusion and reduce escape of CO₂ released in the bundle sheath, helping maintain a CO₂-rich environment around Rubisco. 'Impervious' should not be taken to mean these living cells cannot exchange metabolites with neighbouring cells. _(outside the book)_
+  - **khola (unpack):**
+    - chloroplasts yaani plant cell के अंदर photosynthesis करने वाले छोटे parts · image: एक कमरे में काम करती कई छोटी factories
+    - impervious to gaseous exchange yaani जिनसे gases आसानी से आर-पार नहीं निकलतीं · image: हवा का निकलना रोकती मोटी दीवार
+    - intercellular spaces yaani पास के cells के बीच खाली जगहें · image: ईंटों के बीच बची दरारें
+    - kyon: Concentrated CO₂ must be retained close to Calvin-cycle machinery. _[standard]_ → The bundle sheath has thick walls and no intercellular spaces, limiting gaseous escape. _[standard]_ → Numerous chloroplasts provide the compartment in which the Calvin cycle uses the available CO₂. _[standard]_
+    - example / jagah: Bundle sheath around each vascular bundle in a typical maize leaf section.
+    - aage: The anatomical barrier helps suppress photorespiration by favouring Rubisco carboxylation.
+    - screen par: Pack chloroplast-rich cells tightly around the bundle and block outward gas arrows.
+    - is level ke liye: Do not turn 'may form several layers' into 'always multilayered', or confuse no intercellular spaces with no intracellular space.
+  - prerequisites: chloroplasts contain photosynthetic machinery; diffusion of gases; intercellular spaces; CO₂ concentration near Rubisco
+- **p015-i16** · paragraph · process · both · exam high
+  - You may like to cut a section of the leaves of C₄ plants – maize or sorghum – to observe the Kranz anatomy and the distribution of mesophyll cells.
+    - how: How can students observe the anatomical pattern using named examples? → Cut a section of a maize or sorghum leaf and inspect Kranz anatomy together with the distribution of mesophyll cells.
+    - when: At which stage of the investigation is this useful? → After identifying vascular bundles and the meaning of bundle sheath, a thin leaf section lets students check whether the predicted wreath-like arrangement is present. _(outside the book)_
+      - why: Why observe mesophyll as well as the sheath? → The defining organisation involves neighbouring cell types, not an isolated ring: mesophyll performs initial fixation and bundle sheath supports the Calvin cycle in typical C₄ leaves. _(outside the book)_
+    - which: Which C₄ plant examples must students retain? → Maize and sorghum are the two examples explicitly named on this page.
+  - **khola (unpack):**
+    - mesophyll cells yaani leaf की बाहरी layers के बीच photosynthesis करने वाले cells · image: दो बाहरी परतों के बीच की काम करने वाली भराई
+    - kyon: Surface appearance does not reveal internal cell arrangement. _[standard]_ → A thin leaf section exposes vascular bundles, sheath and mesophyll for inspection. _[standard]_ → Maize or sorghum provides a named C₄ example in which to observe Kranz anatomy. _[book]_
+    - example / jagah: Maize and sorghum leaves.
+    - aage: Connect the two-cell photosynthetic system to an actual tissue arrangement.
+    - screen par: Slice a leaf, zoom to a bundle and trace the surrounding mesophyll.
+    - is level ke liye: Prepare sections under teacher supervision; focus the exam recall on the plant examples and spatial arrangement.
+  - prerequisites: Kranz anatomy; mesophyll location; thin-section microscopy
+- **p015-i17** · paragraph · process · both · exam medium
+  - It would be interesting for you to collect leaves of diverse species of plants around you and cut vertical sections of the leaves. Observe under the microscope – look for the bundle sheath around the vascular bundles. The presence of the bundle sheath would help you identify the C₄ plants.
+    - how: How does the suggested identification activity proceed? → Collect leaves from different species, cut vertical sections, observe them under a microscope and look for bundle sheath cells around vascular bundles.
+    - when: When should the identifying judgement be made? → After microscopy reveals the internal arrangement around the vascular bundles, rather than from external leaf appearance alone. _(outside the book)_
+      - why: Why should 'presence of the bundle sheath' be interpreted using the preceding description? → Bundle sheaths also occur in C₃ leaves. In this activity the useful identifying feature is the characteristic prominent, chloroplast-rich Kranz sheath and associated organisation, not the mere existence of any sheath. _(outside the book)_
+      - evidence: What observations would support identifying a leaf as a typical C₄ leaf? → A wreath-like arrangement of particularly large cells surrounding vascular bundles, abundant chloroplasts in those cells, thick walls and tightly packed cells match the characteristics described on this page.
+  - **khola (unpack):**
+    - vertical sections yaani leaf की ऊपर से नीचे की मोटाई दिखाने वाले पतले cuts · image: sandwich काटकर उसकी अंदर की layers देखना
+    - kyon: Different species need comparison using internal features rather than an assumed identity. _[standard]_ → Vertical sections and microscopy reveal cells around vascular bundles. _[book]_ → Match the observed sheath to the characteristic Kranz pattern rather than treating any sheath as proof. _[standard]_
+    - example / jagah: Microscopic sections of locally collected leaves, compared with maize or sorghum.
+    - aage: Students apply the definition of Kranz anatomy as observable evidence.
+    - screen par: Compare several leaf sections and highlight the characteristic wreath.
+    - is level ke liye: Do not classify all plants with bundle sheaths as C₄; use the specific anatomical features just described.
+  - prerequisites: microscope observation; vertical leaf sections; Kranz bundle sheath characteristics
+
+## Page 16 · passed after 2 round(s)
+
+In mesophyll cells, PEP (3C) accepts carbon through PEP carboxylase to form OAA (4C). Malic acid or aspartic acid carries carbon to bundle sheath cells, where decarboxylation supplies CO₂ to the Calvin pathway. A 3C molecule returns to mesophyll cells and regenerates PEP.
+
+- **p016-i1** · paragraph · process · both · exam high
+  - Now study the pathway shown in Figure 11.9. This pathway that has been named the Hatch and Slack Pathway, is again a cyclic process. Let us study the pathway by listing the steps.
+    - what: What problem should introduce this pathway? → Recall that the Calvin pathway uses CO₂; now ask how another set of reactions can first capture carbon in one cell and deliver it to another. _(outside the book)_
+    - how: How is the Hatch and Slack pathway cyclic? → Its returning 3-carbon molecule is converted back to PEP, restoring the primary acceptor.
+    - when: When is one turn complete? → When the 3-carbon molecule has returned to the mesophyll and PEP has been regenerated.
+  - **khola (unpack):**
+    - cyclic process yaani ऐसा क्रम जिसमें शुरू में काम आने वाली चीज़ फिर बन जाती है · image: खाली डिब्बा वापस आकर फिर भरने के काम आता है
+    - kyon: A continuing fixation pathway needs its acceptor restored. _[standard]_ → The returning 3-carbon molecule regenerates PEP and closes the cycle. _[book]_
+    - example / jagah: Leaf: mesophyll cells connected with bundle sheath cells.
+    - aage: Track carbon delivery and acceptor regeneration as two connected arms.
+    - screen par: close the loop
+    - is level ke liye: Introduce the everyday carrier-return picture before the NEET enzyme and carbon-count layer.
+  - prerequisites: CO₂ fixation; Calvin pathway; regeneration in a biochemical cycle
+- **p016-i2** · paragraph · process · both · exam high
+  - The primary CO₂ acceptor is a 3-carbon molecule phosphoenol pyruvate (PEP) and is present in the mesophyll cells. The enzyme responsible for this fixation is PEP carboxylase or PEPcase. It is important to register that the mesophyll cells lack RuBisCO enzyme. The C₄ acid OAA is formed in the mesophyll cells.
+    - how: How does primary fixation begin? → In mesophyll cells, the 3-carbon acceptor PEP participates in fixation catalysed by PEP carboxylase, producing the 4-carbon acid OAA.
+    - when: When is OAA formed in this sequence? → At primary fixation, before formation and transfer of malic acid or aspartic acid.
+      - why: Why is the first product a C₄ compound although PEP has three carbons? → Adding one inorganic carbon to a 3-carbon acceptor produces a 4-carbon skeleton. OAA means oxaloacetic acid; the diagram represents the inorganic substrate as bicarbonate, HCO₃⁻. _(outside the book)_
+    - which: Which enzyme-location trap must be avoided? → For the C₄ pathway described here, mesophyll cells use PEP carboxylase or PEPcase and lack RuBisCO. Do not assign initial fixation to RuBisCO.
+  - **khola (unpack):**
+    - phosphoenol pyruvate (PEP) yaani 3 carbon वाला molecule जो शुरुआत में carbon पकड़ने के काम आता है · image: तीन हिस्सों वाली ट्रॉली में एक और हिस्सा जुड़ना
+    - PEP carboxylase or PEPcase yaani PEP के साथ carbon जुड़वाने वाला enzyme · image: दो हिस्से जोड़ने वाला कारीगर
+    - OAA yaani oxaloacetic acid, शुरुआत में बनने वाला 4 carbon का acid · image: तीन मोतियों की डोरी में चौथा मोती जुड़ना
+    - mesophyll cells yaani पत्ते के अंदर के cells जहाँ यह पहली पकड़ होती है · image: कारखाने का पहला काम करने वाला कमरा
+    - RuBisCO yaani Calvin pathway में CO₂ fixation कराने वाला enzyme · image: दूसरे कमरे में काम करने वाला अलग कारीगर
+    - kyon: Carbon must first be captured before it can be delivered onward. _[standard]_ → PEPcase enables primary fixation in mesophyll cells, forming OAA. _[book]_ → A 3-carbon skeleton gains one carbon, explaining the C₄ product. _[standard]_
+    - example / jagah: Leaf → mesophyll cell → initial carbon-fixation step.
+    - aage: OAA provides the starting material for the transported C₄ acids.
+    - screen par: attach one carbon
+    - is level ke liye: Separate acceptor, enzyme and product; distinguish PEP from RuBP and PEPcase from RuBisCO.
+  - prerequisites: enzyme catalysis; carbon atoms in organic molecules; mesophyll cells; RuBisCO and Calvin fixation
+- **p016-i3** · paragraph · process · both · exam high
+  - It then forms other 4-carbon compounds like malic acid or aspartic acid in the mesophyll cells itself, which are transported to the bundle sheath cells. In the bundle sheath cells these C₄ acids are broken down to release CO₂ and a 3-carbon molecule.
+    - how: How does the captured carbon reach bundle sheath cells? → OAA forms other 4-carbon compounds such as malic acid or aspartic acid in mesophyll cells; these compounds are transported to bundle sheath cells.
+    - when: When is CO₂ released? → After the C₄ acids reach bundle sheath cells, their breakdown releases CO₂ and a 3-carbon molecule.
+      - why: Why do the products include both CO₂ and a 3-carbon molecule? → Decarboxylation removes one carbon as CO₂ from a four-carbon skeleton, leaving a three-carbon remainder. _(outside the book)_
+      - how: How should the two alternative compounds be taught? → Malic acid and aspartic acid are examples of C₄ carriers; the text does not require them to be consecutive compulsory steps in one chain. _(outside the book)_
+  - **khola (unpack):**
+    - malic acid or aspartic acid yaani 4 carbon वाले compounds जो पकड़ा हुआ carbon आगे ले जाते हैं · image: भरा पैकेट अगले कमरे तक पहुँचाना
+    - bundle sheath cells yaani पत्ते की नसों के bundle को घेरे हुए cells · image: तारों के गट्ठर के चारों ओर चढ़ा घेरा
+    - kyon: Captured carbon must reach the site where CO₂ will enter the Calvin pathway. _[standard]_ → C₄ acids travel from mesophyll to bundle sheath cells. _[book]_ → Their breakdown releases CO₂ and a 3-carbon remainder there. _[book]_
+    - example / jagah: Leaf → mesophyll → bundle sheath around a vascular bundle.
+    - aage: CO₂ can enter Calvin fixation while the 3-carbon remainder can return.
+    - screen par: carry then split
+    - is level ke liye: Carbon bookkeeping: 4C → CO₂ + 3C; do not release the CO₂ prematurely in mesophyll.
+  - prerequisites: OAA formation; carbon counting; mesophyll and bundle sheath cells
+- **p016-i4** · paragraph · process · both · exam high
+  - The 3-carbon molecule is transported back to the mesophyll where it is converted to PEP again, thus, completing the cycle.
+    - how: How is the primary acceptor restored? → The 3-carbon molecule travels back from bundle sheath cells to mesophyll cells and is converted there to PEP.
+    - when: When is the cycle complete? → After PEP is regenerated in the mesophyll, not merely when the C₄ acid releases CO₂.
+      - why: Why is a return route necessary? → Without restoration of the acceptor, repeated primary fixation would use up the available PEP rather than sustain a cycle. _(outside the book)_
+  - **khola (unpack):**
+    - regeneration yaani काम में लग चुकी शुरुआती चीज़ को फिर बनाना · image: डिलीवरी के बाद खाली डिब्बा लौटाकर दोबारा तैयार करना
+    - kyon: Each new fixation needs an available primary acceptor. _[standard]_ → The 3-carbon remainder returns to mesophyll. _[book]_ → It becomes PEP again, closing the cycle. _[book]_
+    - example / jagah: Bundle sheath → mesophyll return arm.
+    - aage: Another turn of initial fixation can begin.
+    - screen par: return and regenerate
+    - is level ke liye: The diagram calls the return cargo 'C₃ acid'; this is not the Calvin pathway itself.
+  - prerequisites: PEP as primary acceptor; C₄ acid decarboxylation
+- **p016-i5** · paragraph · process · both · exam high
+  - The CO₂ released in the bundle sheath cells enters the C₃ or the Calvin pathway, a pathway common to all plants. The bundle sheath cells are
+    - how: How are the Hatch and Slack and Calvin pathways connected? → CO₂ released from C₄ acids in bundle sheath cells enters the C₃, or Calvin, pathway.
+    - when: When does the delivered carbon enter the Calvin pathway? → After it is released as CO₂ in bundle sheath cells.
+      - why: Why is it wrong to say C₄ plants do not use the Calvin pathway? → The page explicitly describes the Calvin pathway as common to all plants and shows released CO₂ entering it in bundle sheath cells.
+  - **khola (unpack):**
+    - C₃ or the Calvin pathway yaani CO₂ से organic पदार्थ बनाने वाला आगे का fixation क्रम · image: कच्चा माल पहुँचने के बाद काम करने वाली अगली मशीन
+    - kyon: Initial carbon capture must connect to carbon assimilation. _[standard]_ → C₄ acids release CO₂ in bundle sheath cells. _[book]_ → That CO₂ enters the Calvin pathway there. _[book]_
+    - example / jagah: Leaf → bundle sheath cell → Calvin fixation.
+    - aage: Both pathways operate in the C₄ system described.
+    - screen par: feed into
+    - is level ke liye: Distinguish C₃ acid returning to mesophyll from the C₃ pathway receiving CO₂.
+  - prerequisites: Calvin pathway fixes CO₂; C₄ acid decarboxylation
+- **p016-i6** · diagram · figure · image · exam high
+  - Two connected cells show the Hatch and Slack pathway. The upper mesophyll cell receives atmospheric CO₂, shown as HCO₃⁻ joining phosphoenol-pyruvate at Fixation. A downward arrow leads to C₄ acid, then Transport through the connection labelled Plasmodesmata into the lower bundle sheath cell. Its C₄ acid undergoes Decarboxylation. One branch releases CO₂ upward to Fixation by Calvin cycle; the other produces C₃ acid, which moves upward through Transport back to the mesophyll cell. There C₃ acid passes through Regeneration to phosphoenol-pyruvate. Plasma membrane and Cell wall are identified at the upper cell boundary.
+    - what: What is the diagram's organising idea? → It separates carbon capture in the upper mesophyll cell from CO₂ release and Calvin fixation in the lower bundle sheath cell, while joining them by outward and return transport.
+    - which: Which arrows close the loop? → C₄ acid moves down to bundle sheath cells, while C₃ acid returns upward and regenerates phosphoenol-pyruvate in mesophyll.
+      - how: How should the figure be built for a beginner? → First identify the two cells, then follow one captured carbon down the C₄ arm to released CO₂; finally follow the 3-carbon remainder upward to regeneration. _(outside the book)_
+      - why: Why must the CO₂ branch and C₃ return branch remain distinct? → They have different destinations: released CO₂ enters Calvin fixation, whereas the 3-carbon skeleton returns to regenerate the initial acceptor.
+  - **khola (unpack):**
+    - Hatch and Slack Pathway yaani दो तरह के cells के बीच carbon पकड़ने, पहुँचाने और acceptor फिर बनाने का क्रम · image: दो कमरों के बीच भरा पैकेट जाना और खाली ढाँचा लौटना
+    - kyon: The learner must distinguish where each reaction occurs. _[standard]_ → The diagram places initial fixation and regeneration in mesophyll, and decarboxylation and Calvin fixation in bundle sheath. _[book]_ → Opposite transport arrows connect these complementary roles. _[book]_
+    - example / jagah: Two-cell organisation within a C₄ leaf.
+    - aage: A spatial map prevents mixing the two fixation events.
+    - screen par: trace the two-cell loop
+    - is level ke liye: Use separate colours for the released one-carbon CO₂ and the returning three-carbon skeleton.
+  - prerequisites: cell wall and plasma membrane; PEP fixation; carbon counting; Calvin pathway
+- **p016-i7** · diagram_label · figure · image · exam medium
+  - Atmospheric CO₂ — source arrow enters the mesophyll cell and leads to HCO₃⁻.
+    - what: What does CO₂ mean? → Carbon dioxide: one carbon atom with two oxygen atoms; the formula has no unit. _(outside the book)_
+    - which: Which cell first receives this input in the figure? → The upper mesophyll cell.
+      - how: How is the external carbon connected to fixation visually? → A downward arrow leads from atmospheric CO₂ to the HCO₃⁻ label above the fixation step.
+  - **khola (unpack):**
+    - Atmospheric CO₂ yaani हवा से आने वाली carbon dioxide · image: बाहर से कारखाने में आता कच्चा माल
+    - kyon: The pathway requires an external carbon source. _[standard]_ → Atmospheric CO₂ is shown entering the mesophyll side. _[book]_
+    - example / jagah: Air → leaf mesophyll.
+    - aage: Provides carbon for primary fixation.
+    - screen par: enter
+    - is level ke liye: CO₂ is an input here and a released intermediate lower in the figure.
+  - prerequisites: chemical formula subscripts
+- **p016-i8** · diagram_label · figure · image · exam high
+  - Mesophyll cell — identifies the upper green cell containing Fixation and Regeneration.
+    - what: What does this cell label identify? → The upper compartment where primary fixation and PEP regeneration are drawn.
+    - which: Which incoming and returning materials reach it? → Atmospheric carbon enters from above, and C₃ acid returns from bundle sheath below.
+      - how: How does its role differ from the lower cell? → It captures carbon initially and regenerates PEP, while the lower cell releases CO₂ and carries out Calvin fixation.
+  - **khola (unpack):**
+    - kyon: Initial capture needs a defined cellular location. _[standard]_ → The upper mesophyll cell holds fixation and regeneration. _[book]_
+    - example / jagah: Interior of the leaf.
+    - aage: Assign initial fixation to the correct cell.
+    - screen par: highlight upper cell
+    - is level ke liye: Mesophyll lacks RuBisCO in the C₄ system described here.
+  - prerequisites: leaf mesophyll
+- **p016-i9** · diagram_label · figure · image · exam low
+  - Plasma membrane — pointer identifies the inner boundary of the mesophyll cell.
+    - what: What boundary is identified? → The plasma membrane, lying inside the cell wall. _(outside the book)_
+    - which: Which pointer distinguishes it from the cell wall? → The upper-right plasma membrane pointer ends on the inner boundary.
+      - how: How does this boundary help explain a cell compartment? → The membrane encloses the living cell contents and regulates exchange with the surroundings. _(outside the book)_
+  - **khola (unpack):**
+    - Plasma membrane yaani cell के अंदर-बाहर आने-जाने को सँभालने वाली पतली सीमा · image: घर का आने-जाने पर निगरानी रखने वाला दरवाज़ा
+    - kyon: Cell contents need an enclosing selective boundary. _[standard]_ → The plasma membrane provides that boundary inside the wall. _[standard]_
+    - example / jagah: Mesophyll cell surface.
+    - aage: Distinguishes the living boundary from the outer wall.
+    - screen par: outline inner boundary
+  - prerequisites: plant cell boundaries
+- **p016-i10** · diagram_label · figure · image · exam low
+  - Cell wall — pointer identifies the outer boundary around the mesophyll cell.
+    - what: What does the outer pointer name? → The cell wall surrounding the plant cell.
+    - which: Which boundary lies outside the plasma membrane? → The cell wall. _(outside the book)_
+      - why: Why distinguish wall from membrane? → The wall supplies structural support, whereas the membrane is the selective living boundary; they are not interchangeable structures. _(outside the book)_
+  - **khola (unpack):**
+    - Cell wall yaani plant cell के बाहर की सहारा देने वाली मज़बूत परत · image: घर की बाहरी दीवार
+    - kyon: A plant cell needs mechanical support. _[standard]_ → The wall forms an external supporting layer. _[standard]_
+    - example / jagah: Outer edge of both illustrated plant cells.
+    - aage: Provides spatial orientation for the cell connection.
+    - screen par: outline outer boundary
+  - prerequisites: plant cell structure
+- **p016-i11** · diagram_label · figure · image · exam high
+  - HCO₃⁻ — bicarbonate input beneath atmospheric CO₂, joined with phosphoenol-pyruvate by the line leading to Fixation.
+    - what: What does HCO₃⁻ represent? → Bicarbonate ion: one hydrogen, one carbon, three oxygen atoms and one negative charge; the formula has no unit. _(outside the book)_
+    - which: Which substrate is paired with it in the figure? → Phosphoenol-pyruvate, with both leading into Fixation.
+      - how: How does this clarify the text's phrase CO₂ fixation? → PEP carboxylase uses bicarbonate as its inorganic-carbon substrate; CO₂ can be converted to bicarbonate in the cell. _(outside the book)_
+  - **khola (unpack):**
+    - HCO₃⁻ yaani bicarbonate ion, carbon देने वाला negative charge वाला रूप · image: वही सामान अगले काम के लिए अलग पैकिंग में होना
+    - kyon: The enzyme needs inorganic carbon in a usable form. _[standard]_ → Bicarbonate supplies that carbon to PEP carboxylase. _[standard]_
+    - example / jagah: Mesophyll primary fixation.
+    - aage: Explains why the text names CO₂ while the diagram shows HCO₃⁻.
+    - screen par: join inputs
+    - is level ke liye: The superscript minus is a charge, not subtraction.
+  - prerequisites: ions and charge notation; PEP as acceptor
+- **p016-i12** · diagram_label · figure · image · exam high
+  - Phosphoenol-pyruvate — participates in Fixation and receives the curved arrow from Regeneration.
+    - what: What molecule occupies the cycle's starting and restored position? → PEP, the three-carbon primary acceptor.
+    - which: Which arrows identify its dual position? → One line connects it to fixation; the curved regeneration arrow returns to it.
+      - why: Why show the regeneration arrow ending here? → The cycle must restore its acceptor for further fixation. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Repeated fixation needs the starting acceptor again. _[standard]_ → The regeneration arrow terminates at PEP. _[book]_
+    - example / jagah: Upper mesophyll cell.
+    - aage: Visually closes the cycle.
+    - screen par: restore acceptor
+    - is level ke liye: PEP contains 3 carbons.
+  - prerequisites: PEP and regeneration
+- **p016-i13** · diagram_label · figure · image · exam high
+  - Fixation — box receiving the PEP and HCO₃⁻ inputs and pointing downward to C₄ acid.
+    - what: What does fixation signify here? → The initial incorporation of inorganic carbon into a four-carbon organic product. _(outside the book)_
+    - which: Which enzyme belongs at this box? → PEP carboxylase or PEPcase.
+      - how: How is this box different from the lower fixation label? → This is primary fixation in mesophyll; the lower label is fixation by the Calvin cycle after CO₂ release in bundle sheath.
+  - **khola (unpack):**
+    - Fixation yaani बाहर से आए carbon को organic molecule का हिस्सा बनाना · image: अलग मोती को डोरी में जोड़ देना
+    - kyon: Incoming inorganic carbon must be incorporated into an organic carrier. _[standard]_ → Primary fixation leads to C₄ acid in mesophyll. _[book]_
+    - example / jagah: Mesophyll.
+    - aage: Begins the outgoing C₄ arm.
+    - screen par: incorporate
+    - is level ke liye: First product is OAA.
+  - prerequisites: inorganic and organic carbon; PEPcase
+- **p016-i14** · diagram_label · figure · image · exam high
+  - C₄ acid — product below Fixation, moving toward the upper Transport box.
+    - what: What does C₄ specify? → A compound with four carbon atoms; 4 is a carbon count, not a unit or charge. _(outside the book)_
+    - which: Which named acids explain this label? → OAA is formed first; malic acid or aspartic acid forms in mesophyll and is transported.
+      - how: How does the arrow position explain its role? → It lies between fixation and transport, marking the captured carbon's organic carrier before transfer.
+  - **khola (unpack):**
+    - C₄ acid yaani 4 carbon वाला acid · image: चार मोतियों का जुड़ा समूह
+    - kyon: Captured carbon needs an organic carrier. _[standard]_ → The C₄ product lies on the route to transport. _[book]_
+    - example / jagah: Mesophyll outgoing arm.
+    - aage: Carries carbon toward bundle sheath.
+    - screen par: move downward
+    - is level ke liye: OAA, malic acid and aspartic acid are all 4C compounds here.
+  - prerequisites: carbon counts; OAA
+- **p016-i15** · diagram_label · figure · image · exam high
+  - Transport — upper box on the downward C₄-acid route from mesophyll to bundle sheath cell.
+    - what: What is transported at this box? → C₄ acids formed in mesophyll.
+    - which: Which direction does the arrow show? → Downward from mesophyll into bundle sheath.
+      - why: Why is this transfer needed? → It delivers the captured carbon to the compartment where the C₄ acids release CO₂.
+  - **khola (unpack):**
+    - Transport yaani एक जगह से दूसरी जगह पहुँचाना · image: एक कमरे से दूसरे कमरे तक पैकेट ले जाना
+    - kyon: Capture and release occur in different cells. _[book]_ → C₄ acids move between them. _[book]_
+    - example / jagah: Mesophyll → bundle sheath.
+    - aage: Connects primary fixation with decarboxylation.
+    - screen par: transfer downward
+    - is level ke liye: Do not reverse the C₄ and C₃ cargo directions.
+  - prerequisites: C₄ acid formation; two cell types
+- **p016-i16** · diagram_label · figure · image · exam medium
+  - Plasmo-desmata [Plasmodesmata] — printed over two lines; pointer identifies the channels connecting the two cells.
+    - what: What are plasmodesmata? → Cytoplasmic connections through the walls of neighbouring plant cells. _(outside the book)_
+    - which: Which cells are connected here? → The mesophyll and bundle sheath cells.
+      - how: How do these connections support the pathway? → They provide intercellular routes through which metabolites can move between adjacent cells. _(outside the book)_
+  - **khola (unpack):**
+    - Plasmodesmata yaani पास-पास के plant cells को जोड़ने वाले छोटे रास्ते · image: दो कमरों के बीच छोटी जोड़ने वाली सुरंग
+    - kyon: The two-cell cycle needs exchange across cell boundaries. _[standard]_ → Plasmodesmata provide connections between adjacent cells. _[standard]_
+    - example / jagah: Shared boundary between the illustrated cells.
+    - aage: Supports metabolite exchange linking the two compartments.
+    - screen par: pass through channels
+    - is level ke liye: Read the line-wrapped label as one term.
+  - prerequisites: plant cell walls; cytoplasm; intercellular transport
+- **p016-i17** · diagram_label · figure · image · exam high
+  - Bundle sheath cell — identifies the lower cell containing C₄-acid decarboxylation and fixation by Calvin cycle.
+    - what: What compartment does the label identify? → The lower cell receiving C₄ acids from mesophyll.
+    - which: Which two central processes occur here? → Decarboxylation and fixation by the Calvin cycle.
+      - how: How does it connect to mesophyll? → It receives C₄ acid and returns C₃ acid through the connecting routes.
+  - **khola (unpack):**
+    - kyon: Delivered carbon must be released where it can enter Calvin fixation. _[standard]_ → Both steps appear in the bundle sheath cell. _[book]_
+    - example / jagah: Leaf → cells surrounding vascular bundles.
+    - aage: Keep this role separate from initial mesophyll fixation.
+    - screen par: highlight lower cell
+    - is level ke liye: Do not infer completion of the unfinished prose sentence from this label.
+  - prerequisites: bundle sheath around leaf vascular bundles
+- **p016-i18** · diagram_label · figure · image · exam high
+  - C₄ acid — incoming acid in the bundle sheath cell, with a downward arrow to Decarboxylation.
+    - what: What stage does this repeated C₄-acid label mark? → The carrier after it has entered bundle sheath cells.
+    - which: Which process follows it? → Decarboxylation.
+      - how: How does its location differ from the upper C₄ label? → The upper label precedes intercellular transport; this one follows transport and precedes carbon release.
+  - **khola (unpack):**
+    - kyon: The carrier must reach its destination before releasing CO₂ there. _[book]_ → The lower C₄ label leads to decarboxylation. _[book]_
+    - example / jagah: Bundle sheath incoming arm.
+    - aage: Links transport with CO₂ release.
+    - screen par: arrive and descend
+    - is level ke liye: The repeated label represents movement, not another fixation event.
+  - prerequisites: C₄ acid transport
+- **p016-i19** · diagram_label · figure · image · exam high
+  - Decarboxylation — C₄ acid enters this box; outgoing branches lead to CO₂ and C₃ acid.
+    - what: What is decarboxylation? → Removal of carbon from a compound as CO₂. _(outside the book)_
+    - which: Which products are shown? → CO₂ and a C₃ acid.
+      - how: How is carbon conserved? → The four carbons of the incoming skeleton are accounted for by one in CO₂ and three in the remaining molecule. _(outside the book)_
+  - **khola (unpack):**
+    - Decarboxylation yaani molecule से CO₂ निकालना · image: चार जुड़े हिस्सों में से एक अलग कर देना
+    - kyon: Carbon held in the carrier must be made available as CO₂. _[standard]_ → C₄-acid breakdown releases CO₂ and leaves a 3-carbon molecule. _[book]_
+    - example / jagah: Bundle sheath cell.
+    - aage: Creates separate Calvin-input and return branches.
+    - screen par: split four into one plus three
+    - is level ke liye: Do not confuse decarboxylation with initial carboxylation.
+  - prerequisites: carbon counting; C₄ acid
+- **p016-i20** · diagram_label · figure · image · exam high
+  - CO₂ — released carbon dioxide, with an upward arrow to Fixation by Calvin cycle.
+    - what: What is the source of this CO₂? → Breakdown of C₄ acids in bundle sheath cells.
+    - which: Which pathway receives it? → The Calvin pathway.
+      - how: How does it differ from the returning C₃ acid? → CO₂ goes to Calvin fixation locally, whereas C₃ acid travels back to mesophyll.
+  - **khola (unpack):**
+    - kyon: Calvin fixation needs CO₂. _[standard]_ → Decarboxylation supplies it inside bundle sheath cells. _[book]_
+    - example / jagah: Bundle sheath cell, local branch.
+    - aage: Connects the C₄ delivery mechanism with the Calvin pathway.
+    - screen par: release upward
+    - is level ke liye: Same chemical formula as the atmospheric input, different position in the mechanism.
+  - prerequisites: decarboxylation; Calvin pathway
+- **p016-i21** · diagram_label · figure · image · exam high
+  - Fixation by Calvin cycle — label above the arrow receiving released CO₂.
+    - what: What does the label identify? → The destination of CO₂ released by decarboxylation: Calvin fixation in bundle sheath cells.
+    - which: Which earlier fixation should not be confused with it? → PEPcase-mediated primary fixation in mesophyll.
+      - how: How does this label counter a common misconception? → It shows that C₄ carbon capture does not remove the need for the Calvin pathway.
+  - **khola (unpack):**
+    - kyon: Delivered CO₂ still needs assimilation. _[standard]_ → The diagram sends it to Calvin fixation. _[book]_
+    - example / jagah: Bundle sheath cell.
+    - aage: Completes the carbon-delivery story but is not the PEP-return arm.
+    - screen par: feed Calvin fixation
+    - is level ke liye: Calvin pathway is common to all plants according to the text.
+  - prerequisites: Calvin pathway; primary PEP fixation
+- **p016-i22** · diagram_label · figure · image · exam high
+  - C₃ acid — 3-carbon product beside Decarboxylation, with an upward arrow toward Transport.
+    - what: What does C₃ specify here? → The three-carbon acid remaining after release of CO₂; the numeral is a carbon count. _(outside the book)_
+    - which: Which route receives this product? → The upward return transport route to mesophyll.
+      - how: How is C₃ acid different from the C₃ pathway? → The acid is a returning molecule; the C₃ or Calvin pathway is a reaction sequence receiving released CO₂.
+  - **khola (unpack):**
+    - C₃ acid yaani CO₂ निकलने के बाद बचा 3 carbon वाला acid · image: एक हिस्सा देने के बाद लौटता तीन हिस्सों का ढाँचा
+    - kyon: The remaining carbon skeleton must be recycled. _[standard]_ → C₃ acid enters the upward return arm. _[book]_
+    - example / jagah: Bundle sheath cell.
+    - aage: Provides material for PEP regeneration.
+    - screen par: turn upward
+    - is level ke liye: The page does not name the specific 3-carbon compound.
+  - prerequisites: decarboxylation products
+- **p016-i23** · diagram_label · figure · image · exam high
+  - Transport — lower box on the upward C₃-acid return route from bundle sheath to mesophyll.
+    - what: What cargo moves through this transport step? → The three-carbon product of C₄-acid breakdown.
+    - which: Which direction distinguishes this transport box? → Upward from bundle sheath to mesophyll, opposite to outgoing C₄-acid transport.
+      - why: Why must this cargo return? → It is converted back to PEP in mesophyll, completing the cycle.
+  - **khola (unpack):**
+    - kyon: PEP regeneration takes place in mesophyll. _[book]_ → The 3-carbon product must be transported back there. _[book]_
+    - example / jagah: Bundle sheath → mesophyll.
+    - aage: Returns the carbon skeleton for reuse.
+    - screen par: transfer upward
+    - is level ke liye: Pair the two transport boxes: 4C out, 3C back.
+  - prerequisites: C₃ remainder; PEP regeneration
+- **p016-i24** · diagram_label · figure · image · exam high
+  - C₃ acid — returned 3-carbon acid in mesophyll, with an upward arrow to Regeneration.
+    - what: What stage does this repeated C₃ label mark? → The returning molecule after entry into mesophyll.
+    - which: Which step follows? → Regeneration of PEP.
+      - how: How do the two C₃ labels connect? → The lower label marks production in bundle sheath and the upper label marks arrival in mesophyll along the return arrow.
+  - **khola (unpack):**
+    - kyon: The starting acceptor must be restored in mesophyll. _[book]_ → Returned C₃ acid supplies the regeneration step. _[book]_
+    - example / jagah: Mesophyll return arm.
+    - aage: Leads directly to acceptor restoration.
+    - screen par: arrive and regenerate
+    - is level ke liye: Arrival alone is not completion; conversion to PEP closes the cycle.
+  - prerequisites: return transport
+- **p016-i25** · diagram_label · figure · image · exam high
+  - Regeneration — receives the upward C₃-acid arrow and sends a curved arrow to phosphoenol-pyruvate.
+    - what: What is restored at this box? → PEP, the primary carbon acceptor.
+    - which: Which cell contains this box? → The mesophyll cell.
+      - why: Why is this the closing step? → It returns the pathway to an available starting acceptor rather than leaving the skeleton as the transported C₃ molecule. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: Further fixation requires PEP. _[standard]_ → Returned 3-carbon material is converted to PEP in mesophyll. _[book]_
+    - example / jagah: Upper cell right-hand arm.
+    - aage: Closes the Hatch and Slack loop.
+    - screen par: curve back to PEP
+    - is level ke liye: The diagram does not show enzymes or energy inputs for this conversion.
+  - prerequisites: cyclic pathways; PEP
+- **p016-i26** · caption · figure · both
+  - Figure 11.9 Diagrammatic representation of the Hatch and Slack Pathway
+
+## Page 17 · passed after 1 round(s)
+
+Both C₃ and C₄ plants use the Calvin pathway, but in different cells. RuBisCO can catalyse carboxylation or oxygenation. Photorespiration reduces carbon fixation, consumes ATP and releases CO₂ without making sugars, ATP or NADPH. C₄ plants concentrate CO₂ around RuBisCO, minimise oxygenase activity and show better productivity and high-temperature tolerance.
+
+- **p017-i1** · paragraph · cause_effect · both · exam high
+  - rich in an enzyme Ribulose bisphosphate carboxylase-oxygenase (RuBisCO), but lack PEPcase. Thus, the basic pathway that results in the formation of the sugars, the Calvin pathway, is common to the C₃ and C₄ plants.
+    - what: Does the C₄ pathway replace the Calvin pathway? → No. The page explicitly says the sugar-forming Calvin pathway is common to C₃ and C₄ plants.
+    - how: How does the enzyme statement connect to the shared pathway? → The continuation describes cells rich in RuBisCO but lacking PEPcase, then identifies the Calvin pathway as the common sugar-forming route.
+      - why: Why does having a C₄ pathway not remove the need for the Calvin pathway? → C₄ fixation initially captures and delivers carbon; the Calvin pathway incorporates the delivered CO₂ into carbohydrate precursors. These are complementary jobs, not alternative final sugar-making routes. _(outside the book)_
+  - **khola (unpack):**
+    - RuBisCO yaani RuBP के साथ CO₂ या O₂ की reaction कराने वाला enzyme · image: एक मशीन जो दो अलग तरह के काम कर सकती है
+    - PEPcase yaani PEP carboxylase; C₄ की शुरुआती carbon पकड़ने वाली reaction का enzyme · image: मुख्य कमरे से पहले सामान पकड़ने वाला दरवाज़ा
+    - Calvin pathway yaani CO₂ के carbon से sugar बनाने की साझा reaction-श्रृंखला · image: अलग रास्तों से आया सामान एक ही कारखाने में बनता है
+    - kyon: A C₄ plant still needs a pathway that makes carbohydrate precursors. _[standard]_ → Its preliminary carbon-capture route supplies carbon to the Calvin pathway rather than replacing it. _[standard]_ → The book therefore identifies the Calvin pathway as common to C₃ and C₄ plants. _[book]_
+    - example / jagah: Leaf → C₄ bundle sheath cells, inferred subject of the opening continuation.
+    - aage: Next distinguish the location of the shared pathway from its identity.
+    - screen par: merge two carbon-delivery routes into one Calvin pathway
+    - is level ke liye: NEET: common final pathway does not mean identical initial acceptors or fixation sites.
+  - prerequisites: CO₂ fixation; enzymes as catalysts; C₄ mesophyll and bundle sheath cells
+- **p017-i2** · paragraph · comparison · both · exam high
+  - Did you note that the Calvin pathway occurs in all the mesophyll cells of the C₃ plants? In the C₄ plants it does not take place in the mesophyll cells but does so only in the bundle sheath cells.
+    - compare: Compare the Calvin pathway's location in C₃ and C₄ leaves. → In C₃ plants it occurs in mesophyll cells; in C₄ plants it occurs only in bundle sheath cells, not mesophyll cells.
+    - difference: What location error should students avoid? → The presence of mesophyll cells in a C₄ leaf does not mean that its Calvin pathway occurs there. The page restricts that pathway to bundle sheath cells.
+      - why: Why is locating the Calvin pathway important for the next topic? → Later on this page, C₄ acids release CO₂ in bundle sheath cells, concentrating CO₂ where RuBisCO carries out carboxylation.
+  - **khola (unpack):**
+    - mesophyll cells yaani पत्ती के अंदर के photosynthetic cells · image: पत्ती के अंदर काम करने वाले छोटे कमरे
+    - bundle sheath cells yaani पत्ती की नसों के vascular bundles को घेरे हुए cells · image: पाइप के चारों ओर लगी घेरने वाली परत
+    - kyon: The same pathway in two plants need not occupy the same cell type. _[standard]_ → C₃ leaves use mesophyll for the Calvin pathway, whereas C₄ leaves use bundle sheath cells. _[book]_ → This C₄ location matches the site where C₄ acids release concentrated CO₂. _[book]_
+    - example / jagah: Leaf interior → mesophyll versus the sheath around a vascular bundle.
+    - aage: Spatial separation helps explain C₄ suppression of photorespiration.
+    - screen par: highlight different cell compartments in two leaves
+    - is level ke liye: Recall the question's location explicitly; do not confuse initial C₄ fixation with Calvin fixation.
+  - prerequisites: leaf mesophyll cells; bundle sheath cells around vascular bundles; Calvin pathway
+- **p017-i3** · heading · none · both
+  - 11.9 PHOTORESPIRATION
+- **p017-i4** · paragraph · process · both · exam high
+  - Let us try and understand one more process that creates an important difference between C₃ and C₄ plants – Photorespiration. To understand photorespiration we have to know a little bit more about the first step of the Calvin pathway – the first CO₂ fixation step. This is the reaction where RuBP combines with CO₂ to form 2 molecules of 3PGA, that is catalysed by RuBisCO.
+    - how: How does normal CO₂ fixation begin in the Calvin pathway? → RuBP combines with CO₂ in a reaction catalysed by RuBisCO, producing two molecules of 3PGA.
+    - when: At what stage does this reaction occur? → It is the first CO₂-fixation step of the Calvin pathway.
+      - why: Why recall this normal reaction before photorespiration? → Photorespiration begins when O₂ takes the competing route involving RuBisCO and RuBP instead of the normal CO₂-fixing route. Knowing the normal products makes the diversion understandable.
+  - **khola (unpack):**
+    - CO₂ fixation yaani CO₂ के carbon को organic molecule में जोड़ना · image: खुला मोती पकड़कर माला में जोड़ना
+    - RuBP yaani ribulose bisphosphate; CO₂ लेने वाला पाँच-carbon molecule · image: पाँच डिब्बों वाली छोटी गाड़ी
+    - 3PGA yaani 3-phosphoglyceric acid; तीन-carbon वाला product · image: तीन-तीन डिब्बों वाली दो गाड़ियाँ
+    - kyon: To see what goes wrong, first recall how carbon normally enters the Calvin pathway. _[standard]_ → RuBisCO catalyses RuBP combining with CO₂ to produce two 3PGA molecules. _[book]_ → Changing the gas involved changes the reaction's products and carbon gain. _[standard]_
+    - example / jagah: Calvin pathway in C₃ mesophyll or C₄ bundle sheath cells.
+    - aage: Provides the reference reaction against which oxygenation is compared.
+    - screen par: join carbon and split into two products
+    - is level ke liye: RuBP is the Calvin CO₂ acceptor even in C₄ plants; PEP belongs to their preliminary fixation.
+  - prerequisites: Calvin pathway; CO₂ as a carbon source; enzyme catalysis
+- **p017-i5** · equation · facts_numbers · both · exam high
+  - RuBP + CO₂ ⟶[RuBisCo] 2 × 3PGA
+    - what: What does each part of the displayed equation mean? → RuBP is ribulose bisphosphate; CO₂ is carbon dioxide; RuBisCo above the arrow is the enzyme; the arrow shows conversion; 2 × 3PGA means two molecules of 3-phosphoglyceric acid. The plus sign joins reactants. These are molecular identities and counts, not measured units. _(outside the book)_
+    - evidence: What in the printed equation identifies the catalyst and product number? → RuBisCo is written above the reaction arrow, and the product side explicitly reads 2 × 3PGA.
+      - how: How does the carbon count explain two three-carbon products? → Five-carbon RuBP plus one carbon from CO₂ gives six carbons; an unstable six-carbon intermediate splits into two three-carbon molecules. _(outside the book)_
+  - **khola (unpack):**
+    - 2 × 3PGA yaani 3PGA के दो molecules, हर एक में तीन carbon · image: छह मोतियों को तीन-तीन की दो लड़ियों में बाँटना
+    - kyon: A reaction's products must account for its incoming carbon. _[standard]_ → RuBP supplies five carbons and CO₂ adds one. _[standard]_ → The equation shows the resulting two 3PGA molecules. _[book]_
+    - example / jagah: The yellow box depicts Calvin carboxylation, not oxygenation.
+    - aage: The two-product carbon balance becomes the baseline for the photorespiratory reaction.
+    - screen par: count five plus one and divide six into three plus three
+    - is level ke liye: This is a simplified textbook reaction; do not interpret the catalyst as a reactant.
+  - prerequisites: chemical reaction arrows; carbon atoms in organic molecules; enzyme catalysis
+- **p017-i6** · paragraph · cause_effect · both · exam high
+  - RuBisCO that is the most abundant enzyme in the world (Do you wonder why?) is characterised by the fact that its active site can bind to both CO₂ and O₂ – hence the name. Can you think how this could be possible? RuBisCO has a much greater affinity for CO₂ when the CO₂: O₂
+    - what: What unusual property and abundance does the page assign to RuBisCO? → It calls RuBisCO the most abundant enzyme in the world and states that its active site can bind both CO₂ and O₂.
+    - why: Why does its name contain both carboxylase and oxygenase? → The name reflects its ability to participate in reactions involving either CO₂ or O₂ at its active site.
+      - how: How can one enzyme have these two activities? → The active site catalyses alternative reactions of bound RuBP with CO₂ or O₂. It is not necessary to imagine separate enzymes, or that the two gases react there simultaneously. _(outside the book)_
+      - why: Why is RuBisCO so abundant? → Photosynthetic organisms require extensive carbon fixation, and RuBisCO has relatively slow catalytic turnover, so large quantities support the required fixation rate. _(outside the book)_
+  - **khola (unpack):**
+    - active site yaani enzyme का वह छोटा हिस्सा जहाँ reactants की reaction होती है · image: मशीन का काम करने वाला खाँचा
+    - carboxylase-oxygenase yaani CO₂ जोड़ने और O₂ के साथ reaction कराने, दोनों काम करने वाला · image: एक मशीन के दो अलग काम
+    - affinity yaani किसी molecule के साथ जुड़ने का झुकाव · image: दो चीज़ों में से एक को ज़्यादा पसंद करना
+    - kyon: Normal fixation requires CO₂ to react through RuBisCO, but another gas can compete. _[standard]_ → RuBisCO's active site can bind both CO₂ and O₂. _[book]_ → Its dual activity explains its name and creates the possibility of photorespiration. _[book]_
+    - example / jagah: RuBisCO at the site of Calvin fixation in leaf cells.
+    - aage: The next issue is which gas wins access under different relative concentrations.
+    - screen par: alternate two gas routes through one active site
+    - is level ke liye: Distinguish enzyme abundance from catalytic speed; the abundance explanation is outside the page.
+  - prerequisites: enzyme active site; RuBP carboxylation
+- **p017-i7** · paragraph · cause_effect · both · exam high
+  - is nearly equal. Imagine what would happen if this were not so! This binding is competitive. It is the relative concentration of O₂ and CO₂ that determines which of the two will bind to the enzyme.
+    - why: Why does stronger affinity for CO₂ not eliminate oxygenase activity? → The page says binding is competitive and depends on relative O₂ and CO₂ concentrations. It states the stronger affinity for CO₂ under the condition that CO₂:O₂ is nearly equal.
+    - how: How would changing only the relative CO₂ supply affect the competing routes? → At a fixed O₂ level, increasing CO₂ favours carboxylation relative to oxygenation; decreasing CO₂ makes oxygenation relatively more likely. Affinity is a preference, not an absolute exclusion of O₂. _(outside the book)_
+      - consequence: What if RuBisCO did not have greater affinity for CO₂ at comparable gas concentrations? → CO₂ fixation would have less of a competitive advantage, allowing more diversion into oxygenation and reducing effective carbon gain. _(outside the book)_
+  - **khola (unpack):**
+    - competitive yaani एक ही enzyme की reaction में CO₂ और O₂ के बीच मुकाबला · image: एक काउंटर पर दो कतारों का मुकाबला
+    - relative concentration yaani एक gas की मात्रा दूसरी के मुकाबले कितनी है · image: एक कटोरे में लाल और नीली गोलियों का अनुपात
+    - CO₂:O₂ yaani CO₂ की concentration का O₂ की concentration से अनुपात · image: दो टीमों में खिलाड़ियों की संख्या की तुलना
+    - kyon: A preference for CO₂ might misleadingly suggest that oxygenation cannot happen. _[standard]_ → The book instead describes competitive binding controlled by relative gas concentrations. _[book]_ → Raising CO₂ locally can therefore favour carboxylation without removing O₂. _[standard]_
+    - example / jagah: Compare one RuBisCO environment before and after raising CO₂ while holding O₂ fixed.
+    - aage: Provides the lever used by the C₄ CO₂-concentrating mechanism.
+    - screen par: hold O₂ fixed and increase CO₂ particles
+    - is level ke liye: Affinity and concentration are different variables; do not teach preference as a guarantee.
+  - prerequisites: RuBisCO dual activity; relative concentration; affinity
+- **p017-i8** · paragraph · cause_effect · both · exam high
+  - In C₃ plants some O₂ does bind to RuBisCO, and hence CO₂ fixation is decreased. Here the RuBP instead of being converted to 2 molecules of PGA binds with O₂ to form one molecule of phosphoglycerate and phosphoglycolate (2 Carbon) in a pathway called photorespiration.
+    - why: Why does O₂ binding decrease CO₂ fixation? → RuBP is diverted from the CO₂-fixing reaction into the oxygenation route, so it no longer yields the normal pair of PGA molecules through carboxylation.
+    - how: How does the initial photorespiratory reaction differ from carboxylation? → Instead of RuBP reacting with CO₂ to yield two PGA molecules, RuBP reacts with O₂ and produces one phosphoglycerate and phosphoglycolate, the latter containing two carbons.
+      - how: How does carbon counting distinguish the routes? → Oxygenation adds no carbon to five-carbon RuBP, so its products divide the original five carbons into three-carbon phosphoglycerate and two-carbon phosphoglycolate. Carboxylation adds one carbon and gives two three-carbon products. _(outside the book)_
+      - when: Under what conditions is photorespiration favoured in C₃ plants? → It is favoured when CO₂ availability relative to O₂ at RuBisCO falls; hot conditions and stomatal closure can contribute by restricting CO₂ entry. _(outside the book)_
+  - **khola (unpack):**
+    - photorespiration yaani RuBisCO की O₂ वाली reaction से शुरू होने वाला carbon बचाने का रास्ता, जिसमें CO₂ भी निकलती है · image: मुख्य रास्ते से सामान हटकर खर्च वाली वापसी-लेन में जाना
+    - phosphoglycolate (2 Carbon) yaani oxygenation से बना दो-carbon वाला molecule · image: पाँच मोतियों की माला टूटे तो दो मोतियों वाला टुकड़ा
+    - kyon: The problem is loss of opportunities for normal CO₂ fixation. _[standard]_ → Some O₂ binds to RuBisCO in C₃ plants and diverts RuBP to oxygenation. _[book]_ → One phosphoglycerate and one two-carbon phosphoglycolate replace the normal two PGA products. _[book]_
+    - example / jagah: Leaf → C₃ mesophyll → RuBisCO reaction site.
+    - aage: The diversion introduces a pathway with energy costs and carbon release.
+    - screen par: branch RuBP into CO₂ and O₂ routes and count product carbons
+    - is level ke liye: The opening oxygenation does not itself release CO₂; CO₂ is released later in the photorespiratory pathway.
+  - prerequisites: RuBP has five carbons; competitive RuBisCO activity; normal carboxylation products
+- **p017-i9** · paragraph · process · both · exam high
+  - In the photorespiratory pathway, there is neither synthesis of sugars, nor of ATP. Rather it results in the release of CO₂ with the utilisation of ATP. In the photorespiratory pathway there is no synthesis of ATP or NADPH. The biological function of photorespiration is not known yet.
+    - how: How does photorespiration affect carbon and energy? → It releases CO₂ and utilises ATP, while producing neither sugars nor ATP nor NADPH.
+    - when: When do these costs arise relative to RuBP oxygenation? → They arise during the photorespiratory processing that follows the initial formation of phosphoglycolate; they should not all be assigned to the first oxygenation reaction. _(outside the book)_
+      - why: Why is the word respiration potentially misleading here? → Students may associate respiration with ATP production, but the page explicitly says photorespiration uses ATP and does not synthesise it.
+    - what: What does this page say about its biological function? → It states that the biological function of photorespiration is not known yet.
+      - how: How can its pathway be explained without treating it as wholly pointless? → Standard textbook explanation describes recovery of some carbon from phosphoglycolate into usable metabolism, although recovery carries an energy cost and loses some carbon as CO₂. This explanatory role is distinct from the page's statement about its biological function. _(outside the book)_
+  - **khola (unpack):**
+    - utilisation of ATP yaani ATP से energy खर्च होना, ATP बनना नहीं · image: बैटरी चार्ज होने के बजाय खर्च होना
+    - NADPH yaani बनाने वाली reactions को electrons देने वाला carrier · image: काम की जगह सामान पहुँचाने वाली भरी गाड़ी
+    - kyon: After oxygenation, the plant must process the diverted carbon compounds. _[standard]_ → The photorespiratory pathway uses ATP and releases CO₂. _[book]_ → Without sugar, ATP or NADPH synthesis, it lowers productive carbon gain compared with carboxylation. _[book]_
+    - example / jagah: A C₃ leaf cell's photorespiratory carbon-processing route.
+    - aage: Avoiding this cost helps explain the productivity advantage described for C₄ plants.
+    - screen par: subtract ATP and send CO₂ outward while crossing out product boxes
+    - is level ke liye: NEET trap: no ATP synthesis is not the same as no ATP involvement. Keep NCERT's function statement identifiable.
+  - prerequisites: ATP as an energy carrier; NADPH as reducing power; RuBP oxygenation products; CO₂ fixation
+- **p017-i10** · paragraph · process · both · exam high
+  - In C₄ plants photorespiration does not occur. This is because they have a mechanism that increases the concentration of CO₂ at the enzyme site. This takes place when the C₄ acid from the mesophyll is broken down in the bundle sheath cells to release CO₂ – this results in increasing the intracellular concentration of CO₂. In turn, this ensures that the RuBisCO functions as a carboxylase minimising the oxygenase activity.
+    - how: How do C₄ plants prevent the photorespiratory loss described here? → C₄ acid from mesophyll cells is broken down in bundle sheath cells and releases CO₂. The increased CO₂ concentration at RuBisCO favours carboxylase activity and minimises oxygenase activity.
+    - when: When and where is the local CO₂ concentration raised? → It rises when the C₄ acid arriving from mesophyll is broken down in bundle sheath cells.
+      - why: Why must the CO₂ increase occur at the enzyme site rather than elsewhere? → The page says the relative concentrations of O₂ and CO₂ determine competitive binding. Raising CO₂ where RuBisCO functions therefore favours the carboxylation route.
+      - difference: Do C₄ plants avoid photorespiration because their RuBisCO lacks oxygenase activity? → No. The page explains suppression through high local CO₂ and minimised oxygenase activity, not through loss of RuBisCO's ability to react with O₂.
+        - exception: How should the categorical absence statement be handled? → For the NCERT comparison retain its wording. Mechanistically, C₄ concentration strongly suppresses oxygenation; it should not be interpreted as a universally absolute chemical impossibility under every condition. _(outside the book)_
+  - **khola (unpack):**
+    - C₄ acid yaani चार-carbon वाला organic acid जो mesophyll से carbon आगे ले जाता है · image: सामान लेकर सही कमरे तक पहुँचता डिब्बा
+    - intracellular concentration yaani cell के अंदर किसी चीज़ की मौजूद मात्रा प्रति जगह · image: एक कमरे में लोगों की भीड़
+    - minimising the oxygenase activity yaani O₂ वाली reaction बहुत कम कर देना · image: दो रास्तों में एक पर traffic बहुत घटाना
+    - kyon: RuBisCO needs a high local CO₂ supply to favour productive fixation over oxygenation. _[standard]_ → C₄ acids release CO₂ inside bundle sheath cells. _[book]_ → CO₂ rises at RuBisCO, favouring carboxylase and minimising oxygenase activity. _[book]_
+    - example / jagah: Leaf → mesophyll source of C₄ acid → bundle sheath cell → RuBisCO site.
+    - aage: The plant avoids the major photorespiratory carbon and energy loss highlighted for C₃ plants.
+    - screen par: transport C₄ acid, release CO₂ locally and widen the carboxylation arrow
+    - is level ke liye: Build the mechanism by compartment; do not imply that C₄ plants remove O₂ or possess a different single-function RuBisCO.
+  - prerequisites: C₄ acid formation in mesophyll; bundle sheath cells; Calvin pathway location; competitive CO₂/O₂ binding
+- **p017-i11** · paragraph · cause_effect · both · exam high
+  - Now that you know that the C₄ plants lack photorespiration, you probably can understand why productivity and yields are better in these plants. In addition these plants show tolerance to higher temperatures.
+    - why: Why does suppressing photorespiration help productivity and yield? → The page links better C₄ productivity and yield to lack of photorespiration, a pathway it has described as releasing CO₂ and consuming ATP without synthesising sugar.
+    - how: How does avoiding that pathway improve the carbon budget? → Less carbon is lost through photorespiratory CO₂ release and less energy is diverted to that pathway, leaving a greater share available for productive growth under favourable conditions. _(outside the book)_
+    - what: What additional tolerance is stated for C₄ plants? → They show tolerance to higher temperatures.
+      - why: Why is that high-temperature advantage biologically sensible? → Hot conditions can increase the photorespiratory disadvantage of C₃ plants. Maintaining concentrated CO₂ around RuBisCO helps C₄ plants retain effective carboxylation. _(outside the book)_
+      - exception: Does this mean any C₄ crop must outyield any C₃ crop in every environment? → No. Actual yield also depends on light, water, nutrients, temperature and crop traits. The page gives a physiological advantage, not a universal ranking for every growing condition. _(outside the book)_
+  - **khola (unpack):**
+    - productivity yaani एक तय समय में plant कितना नया organic material बनाता है · image: कारखाने का एक दिन का तैयार माल
+    - yield yaani फसल से मिलने वाली उपयोगी उपज · image: कटाई के बाद जमा अनाज
+    - tolerance to higher temperatures yaani ज़्यादा गर्मी में भी काम जारी रखने की क्षमता · image: गर्मी बढ़े फिर भी मशीन ठीक चले
+    - kyon: Growth depends on retaining useful carbon and energy rather than losing them. _[standard]_ → C₄ plants avoid the photorespiratory losses highlighted here. _[book]_ → The book links this to better productivity and yield and adds higher-temperature tolerance. _[book]_
+    - example / jagah: Compare C₃ and C₄ leaf performance under warm conditions, without assigning invented numerical yields.
+    - aage: Completes the link from enzyme competition to whole-plant performance.
+    - screen par: retain carbon in a growth budget instead of losing it as CO₂
+    - is level ke liye: Keep the stated general advantage separate from a claim of universally higher crop yield.
+  - prerequisites: photorespiratory ATP use and CO₂ release; C₄ CO₂ concentration
+- **p017-i12** · question · comparison · both · exam high
+  - Based on the above discussion can you compare plants showing the C₃ and the C₄ pathway? Use the table format given in table 11.1 and fill in the information.
+    - compare: Which comparison entries can be supplied directly from this page? → Both groups use the Calvin pathway. Its site is mesophyll in C₃ and bundle sheath in C₄ plants. C₃ plants show photorespiration; the page says C₄ plants lack it. C₄ plants concentrate CO₂ at RuBisCO, have better productivity and yield, and tolerate higher temperatures.
+    - difference: What key difference explains several other entries? → C₄ acid breakdown raises CO₂ in bundle sheath cells, minimising RuBisCO oxygenase activity. This explains the photorespiration difference and the productivity link.
+      - how: How should students complete the comparison without guessing the unseen table? → Organise the stated contrasts by pathway shared, Calvin location, local CO₂ mechanism, photorespiration and plant performance; use the actual Table 11.1 elsewhere for its remaining row headings. _(outside the book)_
+  - prerequisites: C₃ versus C₄ Calvin locations; RuBisCO competition; photorespiration costs; C₄ CO₂ concentration
+
+## Page 18 · passed after 1 round(s)
+
+An unfilled C₃–C₄ comparison table covers Calvin-cycle location, initial carboxylation, carbon acceptors and products, enzyme distribution, high-light fixation, photorespiration, temperature optima and microscopic identification by Kranz anatomy.
+
+- **p018-i1** · heading · comparison · both
+  - TABLE 11.1 Fill in the Columns 2 and 3 in this table to highlight the differences between C₃ and C₄ Plants
+- **p018-i2** · table · comparison · both
+  - Characteristics | C₃ Plants | C₄ Plants | Choose from. Columns 2 and 3 are blank throughout. Seventeen characteristic rows follow.
+- **p018-i3** · table_row · comparison · both · exam high
+  - Characteristics: Cell type in which the Calvin cycle takes place | C₃ Plants: blank | C₄ Plants: blank | Choose from: Mesophyll/Bundle sheath/both
+    - compare: Where should the Calvin cycle be placed in each column? → C₃: mesophyll cells. C₄: bundle sheath cells in the standard C₄ pathway. _(outside the book)_
+    - difference: Does the C₄ pathway replace the Calvin cycle? → No. C₄ plants add a preliminary CO₂-concentrating pathway; carbon still enters carbohydrate synthesis through the Calvin cycle. _(outside the book)_
+      - why: Why locate the C₄ Calvin cycle in bundle sheath cells? → C₄ acids deliver CO₂ to these cells. Their decarboxylation raises CO₂ around RuBisCO, favouring carboxylation over oxygenation. _(outside the book)_
+  - **khola (unpack):**
+    - Mesophyll yaani leaf के अंदर का photosynthesis करने वाला हिस्सा · image: पत्ती की दो सतहों के बीच भरी हरी जगह
+    - Bundle sheath yaani leaf की vascular bundle के चारों ओर घेरा बनाने वाले cells · image: तार के चारों ओर चढ़ी परत
+    - Calvin cycle yaani CO₂ के carbon को sugar बनाने की दिशा में जोड़ने वाला cycle · image: बार-बार चलती assembly line
+    - kyon: RuBisCO must receive CO₂ without excessive competition from O₂. _[standard]_ → C₄ acids release CO₂ in bundle sheath cells, where the Calvin cycle uses it. _[standard]_
+    - example / jagah: Leaf → vascular bundle → surrounding bundle sheath in maize.
+    - aage: The next row must distinguish this location from the site of initial fixation.
+    - screen par: zoom into the leaf and relocate the Calvin-cycle loop
+    - is level ke liye: NEET trap: both pathways use the Calvin cycle.
+  - prerequisites: Calvin cycle fixes CO₂ using RuBisCO; mesophyll and bundle sheath positions in a leaf
+- **p018-i4** · table_row · comparison · both · exam high
+  - Characteristics: Cell type in which the initial carboxylation reaction occurs | C₃ Plants: blank | C₄ Plants: blank | Choose from: Mesophyll/Bundle sheath /both
+    - compare: Where does initial carboxylation occur in the two pathways? → It occurs in mesophyll cells in both C₃ and C₄ plants. _(outside the book)_
+    - difference: What differs even though the cell type is shared? → C₃ initial fixation uses RuBisCO and RuBP; C₄ initial fixation uses PEP carboxylase and PEP. _(outside the book)_
+      - how: How does initial carboxylation differ from the later C₄ Calvin-cycle fixation? → In C₄ mesophyll, inorganic carbon first enters a four-carbon compound. After transport and decarboxylation, released CO₂ is fixed by RuBisCO in bundle sheath cells. _(outside the book)_
+  - **khola (unpack):**
+    - initial carboxylation yaani शुरुआत में inorganic carbon को organic molecule में जोड़ना · image: रास्ते का पहला entry gate
+    - kyon: Carbon must first enter an organic compound. _[standard]_ → Both pathways begin in mesophyll, but use different acceptors and enzymes. _[standard]_
+    - example / jagah: Mesophyll of wheat and maize leaves.
+    - aage: Separates a shared entry location from different downstream routes.
+    - screen par: send carbon through two mesophyll entry gates
+    - is level ke liye: Initial carboxylation and Calvin-cycle carboxylation coincide in C₃, not in C₄.
+  - prerequisites: addition of inorganic carbon to an organic acceptor; Calvin-cycle location
+- **p018-i5** · table_row · comparison · both · exam high
+  - Characteristics: How many cell types does the leaf have that fix CO₂. | C₃ Plants: blank | C₄ Plants: blank | Choose from: Two: Bundle sheath and mesophyll; One: Mesophyll; Three: Bundle sheath, palisade, spongy mesophyll
+    - compare: How many functional cell types fix carbon in the table's scheme? → C₃: one, mesophyll. C₄: two, mesophyll and bundle sheath. _(outside the book)_
+    - difference: Why is the three-cell-type option not the intended C₄ answer? → Palisade and spongy mesophyll are subdivisions of mesophyll; the pathway comparison concerns mesophyll versus bundle sheath compartments. _(outside the book)_
+      - why: Why do both C₄ compartments count as fixing CO₂? → Mesophyll performs initial fixation, while bundle sheath performs Calvin-cycle fixation of the CO₂ released from transported C₄ acids. _(outside the book)_
+  - **khola (unpack):**
+    - cell types that fix CO₂ yaani वे अलग तरह के cells जहाँ inorganic carbon organic molecule में जुड़ता है · image: एक काम के दो अलग workstations
+    - kyon: Ask whether carbon fixation is handled at one station or split between two. _[standard]_ → C₄ plants split initial fixation and Calvin-cycle fixation between mesophyll and bundle sheath. _[standard]_
+    - example / jagah: Maize leaf mesophyll and bundle sheath.
+    - aage: Explains the functional importance of Kranz anatomy.
+    - screen par: highlight one compartment versus two
+    - is level ke liye: The table groups palisade and spongy tissue under mesophyll.
+  - prerequisites: mesophyll subdivisions; C₄ initial and Calvin-cycle fixation
+- **p018-i6** · table_row · comparison · both · exam high
+  - Characteristics: Which is the primary CO₂ acceptor | C₃ Plants: blank | C₄ Plants: blank | Choose from: RuBP/PEP/PGA
+    - compare: Which primary acceptor belongs to each pathway? → C₃: RuBP, ribulose bisphosphate. C₄: PEP, phosphoenolpyruvate. _(outside the book)_
+    - difference: Why is PGA not an acceptor answer here? → PGA is the first stable fixation product of the C₃ pathway, not the primary acceptor. _(outside the book)_
+      - how: How should students distinguish an acceptor from a product? → The acceptor is present before fixation and receives inorganic carbon; the product is formed after the reaction. _(outside the book)_
+  - **khola (unpack):**
+    - primary CO₂ acceptor yaani शुरुआती fixation में carbon लेने वाला molecule · image: आने वाला सामान लेने वाला खाली holder
+    - RuBP yaani ribulose bisphosphate; C₃ में carbon लेने वाला 5-carbon molecule · image: पाँच हिस्सों वाला holder
+    - PEP yaani phosphoenolpyruvate; C₄ में शुरुआती carbon लेने वाला 3-carbon molecule · image: तीन हिस्सों वाला holder
+    - kyon: Incoming inorganic carbon needs an organic acceptor. _[standard]_ → Different initial enzymes use RuBP in C₃ and PEP in C₄. _[standard]_
+    - example / jagah: Initial fixation in leaf mesophyll.
+    - aage: The acceptor's carbon count predicts the fixation product.
+    - screen par: attach incoming carbon to each acceptor
+    - is level ke liye: PEP carboxylase uses bicarbonate as its immediate inorganic-carbon substrate.
+  - prerequisites: reactant versus product; initial carbon fixation
+- **p018-i7** · table_row · comparison · both · exam high
+  - Characteristics: Number of carbons in the primary CO₂ acceptor | C₃ Plants: blank | C₄ Plants: blank | Choose from: 5 / 4 / 3
+    - compare: How many carbons occur in the two primary acceptors? → C₃ RuBP has five carbons; C₄ PEP has three. _(outside the book)_
+    - difference: Do C₃ and C₄ name the carbon counts of their acceptors? → No. The names refer to their first stable fixation products, not their acceptors. _(outside the book)_
+      - how: How does carbon counting help predict the next step? → Five-carbon RuBP plus one carbon gives an unstable six-carbon intermediate that splits into two three-carbon molecules; three-carbon PEP gains one carbon to form a four-carbon product. _(outside the book)_
+  - **khola (unpack):**
+    - Number of carbons yaani एक molecule में carbon atoms की गिनती · image: माला में मोतियों को गिनना
+    - kyon: The pathway names can tempt students to assign 3C and 4C to acceptors. _[standard]_ → Count acceptor carbons separately: RuBP 5C and PEP 3C. _[standard]_ → Add one incoming carbon before following product formation. _[standard]_
+    - example / jagah: Carbon bookkeeping during mesophyll fixation.
+    - aage: Prevents confusion between naming criteria and reactant size.
+    - screen par: count carbon dots and add one
+    - is level ke liye: Use 5 + 1 → 2 × 3 and 3 + 1 → 4 as carbon bookkeeping, not full chemical equations.
+  - prerequisites: RuBP and PEP; conservation of carbon atoms
+- **p018-i8** · table_row · comparison · both · exam high
+  - Characteristics: Which is the primary CO₂ fixation product | C₃ Plants: blank | C₄ Plants: blank | Choose from: PGA/OAA/RuBP/PEP
+    - compare: What are the primary stable fixation products? → C₃: PGA, 3-phosphoglyceric acid. C₄: OAA, oxaloacetic acid. _(outside the book)_
+    - difference: How do these differ from RuBP and PEP? → PGA and OAA are products formed after fixation; RuBP and PEP are the respective acceptors used before fixation. _(outside the book)_
+      - why: Why specify the first stable product for C₃? → The initial six-carbon intermediate formed from RuBP and CO₂ is unstable and splits, so PGA is the first stable product used to identify the pathway. _(outside the book)_
+  - **khola (unpack):**
+    - PGA yaani 3-phosphoglyceric acid; C₃ fixation का पहला stable product · image: पहले gate से निकला तैयार packet
+    - OAA yaani oxaloacetic acid; C₄ fixation का पहला 4-carbon product · image: चार हिस्सों वाला नया packet
+    - kyon: To identify a route, track the first stable compound after carbon enters. _[standard]_ → C₃ yields PGA, while C₄ initial fixation yields OAA. _[standard]_
+    - example / jagah: Initial carboxylation reactions in leaf mesophyll.
+    - aage: Product identity leads directly to pathway naming.
+    - screen par: transform acceptor cards into product cards
+    - is level ke liye: PGA is also called 3-PGA; OAA is oxaloacetate.
+  - prerequisites: primary acceptors; stable versus unstable reaction products
+- **p018-i9** · table_row · comparison · both · exam high
+  - Characteristics: No. of carbons in the primary CO₂ fixation product | C₃ Plants: blank | C₄ Plants: blank | Choose from: 3 / 4 / 5
+    - compare: What carbon counts complete the product row? → C₃: three carbons in PGA. C₄: four carbons in OAA. _(outside the book)_
+    - difference: How does this naming criterion differ from acceptor size? → The products match the names C₃ and C₄, whereas the acceptors contain five and three carbons respectively. _(outside the book)_
+      - why: Why are the routes named C₃ and C₄? → The first stable products of their initial fixation contain three and four carbons respectively. _(outside the book)_
+  - **khola (unpack):**
+    - C₃ and C₄ yaani पहले stable fixation product में 3 या 4 carbon होने के नाम · image: packet पर उसकी अंदर की गिनती का label
+    - kyon: Two pathways need a distinguishing label. _[standard]_ → Their first stable products differ in carbon count, giving C₃ and C₄ their names. _[standard]_
+    - example / jagah: PGA in wheat; OAA in maize.
+    - aage: Links pathway names to chemistry rather than leaf shape or acceptor count.
+    - screen par: label three-dot and four-dot products
+    - is level ke liye: Carbon counts are unitless counts of atoms per molecule.
+  - prerequisites: PGA and OAA identities; carbon count of acceptors
+- **p018-i10** · table_row · comparison · both · exam high
+  - Characteristics: Does the plant have RuBisCO? | C₃ Plants: blank | C₄ Plants: blank | Choose from: Yes/No/Not always
+    - compare: Do both plant types possess RuBisCO? → Yes in both columns. _(outside the book)_
+    - difference: What differs if enzyme presence is shared? → RuBisCO performs the initial fixation in C₃ plants, but acts after the preliminary C₄ concentrating steps in C₄ plants. _(outside the book)_
+      - why: Why do C₄ plants still need RuBisCO? → The preliminary pathway delivers CO₂; the Calvin cycle still requires RuBisCO to incorporate that CO₂ into its organic products. _(outside the book)_
+  - **khola (unpack):**
+    - RuBisCO yaani ribulose bisphosphate carboxylase-oxygenase; RuBP के साथ CO₂ या O₂ की reaction कराने वाला enzyme · image: दो तरह के सामान स्वीकार कर सकने वाली machine
+    - kyon: Concentrating CO₂ does not itself complete the Calvin cycle. _[standard]_ → Both plant types therefore need RuBisCO for Calvin-cycle carboxylation. _[standard]_
+    - example / jagah: Mesophyll chloroplasts in C₃; bundle sheath chloroplasts in standard C₄ leaves.
+    - aage: Enzyme location, rather than its absence, explains much of the contrast.
+    - screen par: retain RuBisCO in both pathway maps
+    - is level ke liye: RuBisCO has both carboxylase and oxygenase activities.
+  - prerequisites: Calvin cycle; C₄ CO₂-concentrating pathway
+- **p018-i11** · table_row · comparison · both · exam high
+  - Characteristics: Does the plant have PEP Case? | C₃ Plants: blank | C₄ Plants: blank | Choose from: Yes/No/Not always
+    - compare: What is the conventional completion in this photosynthetic comparison? → C₃: No; C₄: Yes, interpreting the question as use of PEP carboxylase for primary photosynthetic fixation. _(outside the book)_
+    - difference: Does that mean C₃ plants lack PEP carboxylase everywhere? → No. C₃ plants can possess PEP carboxylase for other metabolic functions; it is not their primary photosynthetic carboxylase. _(outside the book)_
+      - how: How does PEP carboxylase assist C₄ fixation? → It fixes bicarbonate with PEP to form OAA and lacks RuBisCO's competing oxygenase activity, supporting efficient initial carbon capture. _(outside the book)_
+  - **khola (unpack):**
+    - PEP Case yaani PEP carboxylase; PEP में inorganic carbon जोड़ने वाला enzyme · image: पहले gate पर carbon पकड़ने वाली machine
+    - kyon: C₄ initial fixation needs a carbon-capturing enzyme distinct from RuBisCO. _[standard]_ → PEP carboxylase produces OAA in mesophyll without oxygenase competition. _[standard]_ → Its role in this pathway must not be confused with its presence in other metabolism. _[standard]_
+    - example / jagah: C₄ mesophyll cytosol.
+    - aage: Explains why C₄ plants use two carboxylases rather than abandoning RuBisCO.
+    - screen par: place PEP carboxylase at the first gate
+    - is level ke liye: PEP Case and PEP carboxylase refer to the same enzyme; avoid an absolute absence claim for C₃ plants.
+  - prerequisites: PEP as C₄ acceptor; enzyme role versus whole-plant enzyme presence
+- **p018-i12** · table_row · comparison · both · exam high
+  - Characteristics: Which cells in the plant have Rubisco? | C₃ Plants: blank | C₄ Plants: blank | Choose from: Mesophyll/Bundle sheath/none
+    - compare: Which cells contain photosynthetic RuBisCO in this standard comparison? → C₃: mesophyll. C₄: bundle sheath. _(outside the book)_
+    - difference: How does RuBisCO distribution distinguish the pathways? → C₃ initial fixation and Calvin-cycle activity occur together in mesophyll; standard C₄ leaves spatially separate PEP-carboxylase fixation in mesophyll from RuBisCO activity in bundle sheath. _(outside the book)_
+      - why: Why should this row agree with the Calvin-cycle location row? → RuBisCO catalyses the carboxylation step of the Calvin cycle, so its functional location follows that cycle. _(outside the book)_
+  - **khola (unpack):**
+    - Rubisco yaani इसी page के RuBisCO enzyme की दूसरी लिखावट · image: एक machine के नाम की दो लिखावटें
+    - kyon: The Calvin cycle needs its carboxylating enzyme at the reaction site. _[standard]_ → Place RuBisCO with the Calvin cycle in mesophyll for C₃ and bundle sheath for C₄. _[standard]_
+    - example / jagah: Leaf → photosynthetic cell → chloroplast stroma.
+    - aage: Connects anatomy, enzyme distribution and suppression of photorespiration.
+    - screen par: overlay enzyme markers on the cell map
+    - is level ke liye: The table concerns photosynthetic leaf cells, not a survey of every organ.
+  - prerequisites: RuBisCO function; Calvin-cycle cellular location
+- **p018-i13** · table_row · comparison · both · exam high
+  - Characteristics: CO₂ fixation rate under high light conditions | C₃ Plants: blank | C₄ Plants: blank | Choose from: Low/ high/ medium
+    - compare: What is the intended high-light fixation contrast? → C₄ plants have a high rate; C₃ plants have a lower rate, conventionally entered as low in a simplified contrast. _(outside the book)_
+    - difference: Is this a universal ranking under every high-light condition? → No. Temperature, water supply, CO₂ and other limitations also matter; the row summarises the typical C₄ advantage under favourable high-light conditions. _(outside the book)_
+      - why: Why can C₄ plants exploit high light effectively? → High light can support the extra energy cost of concentrating CO₂, while the concentrated CO₂ reduces photorespiratory losses around RuBisCO. _(outside the book)_
+  - **khola (unpack):**
+    - CO₂ fixation rate yaani एक तय समय में कितनी CO₂ organic compounds में जुड़ती है · image: एक मिनट में machine से निकले packets की गिनती
+    - kyon: More light is useful only if carbon fixation can use the supplied energy. _[standard]_ → The C₄ concentrating mechanism reduces losses and can use strong light effectively. _[standard]_
+    - example / jagah: Maize compared with wheat under suitable bright, warm conditions.
+    - aage: Links the pathway mechanism to its ecological performance.
+    - screen par: compare carbon-flow arrow widths under one bright lamp
+    - is level ke liye: The page gives qualitative choices and no units or measured rates.
+  - prerequisites: light supplies energy for photosynthesis; photorespiration; C₄ CO₂ concentration
+- **p018-i14** · table_row · comparison · both · exam medium
+  - Characteristics: Whether photorespiration is present at low light intensities | C₃ Plants: blank | C₄ Plants: blank | Choose from: High/negligible/sometimes
+    - compare: How should photorespiration under low light be compared? → C₄ photorespiration remains negligible in the standard comparison. C₃ photorespiration is reduced and is commonly entered as negligible for this simplified row; it may still occur depending on other conditions. _(outside the book)_
+    - difference: Does negligible mean that low light switches C₃ plants into a C₄ pathway? → No. Their fixation pathway is unchanged; low light reduces overall photosynthetic turnover and can reduce the absolute photorespiratory flux. _(outside the book)_
+      - why: Why should light alone not be treated as a complete predictor? → RuBisCO oxygenation also depends on CO₂ relative to O₂ and temperature. Low light does not by itself guarantee zero oxygenation. _(outside the book)_
+  - **khola (unpack):**
+    - photorespiration yaani RuBisCO के O₂ लेने से शुरू होने वाला रास्ता जिसमें fixed carbon का कुछ हिस्सा CO₂ बनकर निकलता है · image: बनाए सामान का कुछ हिस्सा दोबारा बाहर निकल जाना
+    - negligible yaani इतना कम कि इस तुलना में लगभग न के बराबर मानें · image: भरी बाल्टी के मुकाबले एक छोटी बूँद
+    - kyon: Ask how much photorespiratory loss accompanies reduced photosynthetic activity. _[standard]_ → Low light often lowers absolute flux, while C₄ CO₂ concentration further suppresses oxygenation. _[standard]_
+    - example / jagah: Dimly lit C₃ and C₄ leaves.
+    - aage: Sets up the contrasting high-light row without treating light as the only control.
+    - screen par: dim the lamp and shrink flux arrows
+    - is level ke liye: Sometimes is biologically possible for C₃; the page does not supply a keyed answer.
+  - prerequisites: RuBisCO oxygenase activity; light-dependent supply of ATP and NADPH
+- **p018-i15** · table_row · comparison · both · exam high
+  - Characteristics: Whether photorespiration is present at high light intensities | C₃ Plants: blank | C₄ Plants: blank | Choose from: High/negligible/sometimes
+    - compare: What is the intended high-light photorespiration comparison? → C₃: high; C₄: negligible, as a simplified comparison under conditions favouring photorespiration. _(outside the book)_
+    - difference: Why do two plants under the same strong light lose different amounts of carbon? → C₄ plants maintain high CO₂ around bundle sheath RuBisCO, whereas C₃ plants lack that concentrating mechanism. _(outside the book)_
+      - why: Why can strong light fail to give a matching increase in C₃ net fixation? → When CO₂ availability limits carboxylation, RuBisCO oxygenation and photorespiratory carbon loss can reduce the net gain despite abundant light. _(outside the book)_
+  - **khola (unpack):**
+    - high light intensities yaani leaf पर तेज रोशनी पड़ना · image: दोपहर की तेज धूप
+    - kyon: A brightly lit leaf may still be limited by available CO₂. _[standard]_ → Without CO₂ concentration, C₃ RuBisCO can divert more flux into oxygenation. _[standard]_ → C₄ bundle sheath CO₂ concentration keeps that loss small. _[standard]_
+    - example / jagah: Sunlit C₃ and C₄ crop leaves.
+    - aage: Helps explain the high-light fixation-rate contrast.
+    - screen par: split C₃ carbon flow into productive and loss branches
+    - is level ke liye: Photorespiration consumes energy without producing sugar through that route.
+  - prerequisites: photorespiration; C₄ bundle sheath CO₂ concentration
+- **p018-i16** · table_row · comparison · both · exam high
+  - Characteristics: Whether photorespiration would be present at low CO₂ concentrations | C₃ Plants: blank | C₄ Plants: blank | Choose from: High/negligible/sometimes
+    - compare: How does low CO₂ affect the expected comparison? → C₃: high photorespiration; C₄: negligible in the standard comparison because CO₂ is concentrated around RuBisCO. _(outside the book)_
+    - difference: How can low external CO₂ coexist with reduced C₄ photorespiration? → External CO₂ and the local CO₂ concentration at bundle sheath RuBisCO are not identical; the C₄ mechanism elevates the latter. _(outside the book)_
+      - why: Why does low CO₂ favour C₃ photorespiration? → With less CO₂ competing for RuBisCO, oxygenation becomes more likely relative to carboxylation, initiating photorespiration. _(outside the book)_
+  - **khola (unpack):**
+    - low CO₂ concentrations yaani आसपास की gas में CO₂ का हिस्सा कम होना · image: एक भीड़ में CO₂ वाले cards बहुत कम होना
+    - kyon: RuBisCO faces competition between CO₂ and O₂. _[standard]_ → Lower CO₂ favours relative oxygenation in C₃ leaves. _[standard]_ → C₄ delivery raises local CO₂ and suppresses that competition. _[standard]_
+    - example / jagah: Leaf interior when CO₂ entry is restricted.
+    - aage: Explains why carbon concentration is useful rather than merely an extra pathway.
+    - screen par: reduce external CO₂ dots but accumulate them around C₄ RuBisCO
+    - is level ke liye: Do not claim that C₄ plants fix carbon with no available inorganic carbon.
+  - prerequisites: competition between CO₂ and O₂ at RuBisCO; C₄ carbon concentration
+- **p018-i17** · table_row · comparison · both · exam high
+  - Characteristics: Whether photorespiration would be present at high CO₂ concentrations | C₃ Plants: blank | C₄ Plants: blank | Choose from: High/negligible/sometimes
+    - compare: What completes the high-CO₂ photorespiration row? → Negligible for both C₃ and C₄ in the simplified table. _(outside the book)_
+    - difference: Why does the difference between pathways narrow for this criterion? → High CO₂ suppresses RuBisCO oxygenation even in C₃ plants, while C₄ plants already maintain elevated local CO₂. _(outside the book)_
+      - why: Why does supplying more CO₂ reduce photorespiration? → CO₂ competes more effectively with O₂ at RuBisCO, shifting reaction flux toward carboxylation. _(outside the book)_
+  - **khola (unpack):**
+    - high CO₂ concentrations yaani gas में CO₂ का हिस्सा ज्यादा होना · image: उसी gate पर अब CO₂ वाले ज्यादा cards पहुँचना
+    - kyon: Ask whether C₃ photorespiration can be reduced without changing its pathway. _[standard]_ → Increasing CO₂ favours carboxylation and suppresses oxygenation. _[standard]_
+    - example / jagah: A C₃ leaf supplied with elevated CO₂.
+    - aage: Confirms that enzyme environment, not the pathway name alone, controls photorespiration.
+    - screen par: increase CO₂ dots and shrink the oxygenation branch
+    - is level ke liye: Negligible is a comparative simplification, not a universal zero-flux statement.
+  - prerequisites: RuBisCO carboxylase and oxygenase activities
+- **p018-i18** · table_row · comparison · both · exam high
+  - Characteristics: Temperature optimum | C₃ Plants: blank | C₄ Plants: blank | Choose from: 30-40 C/20-25C/above 40 C
+    - compare: Which temperature optima match the pathways? → C₃: 20–25 °C. C₄: 30–40 °C. _(outside the book)_
+    - difference: Does an optimum specify a survival limit? → No. It indicates a temperature range favourable for maximal photosynthetic performance in this simplified comparison, not the highest survivable temperature. _(outside the book)_
+      - why: Why do C₄ plants generally have a warmer optimum? → Photorespiratory disadvantages of C₃ photosynthesis become more important at higher temperatures; C₄ CO₂ concentration suppresses those losses and supports performance in warm conditions. _(outside the book)_
+  - **khola (unpack):**
+    - Temperature optimum yaani वह temperature range जहाँ photosynthesis सबसे अच्छा चलता है · image: machine की सबसे अच्छी working setting
+    - kyon: Changing temperature changes photosynthetic performance and photorespiratory loss. _[standard]_ → C₄ carbon concentration helps maintain performance in warmer conditions. _[standard]_
+    - example / jagah: Typical cool-favouring C₃ versus warm-favouring C₄ crop comparison.
+    - aage: Connects biochemical differences to climatic adaptation.
+    - screen par: mark two optimum bands on a temperature scale
+    - is level ke liye: Printed C denotes degrees Celsius; the ranges are general textbook optima, not fixed values for every species.
+  - prerequisites: temperature affects enzyme activity; photorespiration and CO₂ concentration
+- **p018-i19** · table_row · process · both · exam high
+  - Characteristics: Examples | C₃ Plants: blank | C₄ Plants: blank | Choose from: Cut vertical sections of leaves of different plants and observe under the microscope for Kranz anatomy and list them in the appropriate columns.
+    - how: How does the page ask students to obtain examples? → Cut vertical leaf sections of different plants, inspect them under a microscope for Kranz anatomy and list the plants in the appropriate columns.
+    - when: When should a specimen be assigned to a column? → After examining its section for the anatomical feature specified in the activity.
+      - what: What is Kranz anatomy and what would students look for? → Kranz means wreath: prominent bundle sheath cells surround vascular bundles, with mesophyll arranged around them in the typical C₄ leaf. The spatial organisation supports the two-cell pathway. _(outside the book)_
+      - why: Why cut a vertical section instead of inspecting an intact leaf surface? → A thin section exposes internal cell arrangements around the vascular bundles, which are not evident from the outer surface. _(outside the book)_
+      - which: Which standard examples can support the completed table? → C₃ examples include wheat and rice; C₄ examples include maize, sugarcane and sorghum. These examples are supplied for explanation, not printed in the blank cells. _(outside the book)_
+  - **khola (unpack):**
+    - vertical sections yaani leaf की मोटाई के आर-पार काटी गई पतली slices · image: भरवाँ sandwich काटकर अंदर की layers देखना
+    - Kranz anatomy yaani vascular bundle के चारों ओर bundle sheath और उसके आसपास mesophyll का घेरा · image: बीच की चीज़ के चारों ओर फूलों की माला
+    - kyon: A leaf's outer surface does not reveal where the two fixation compartments lie. _[standard]_ → The page asks for vertical sections and microscopic inspection for Kranz anatomy. _[book]_ → The observed cell arrangement links a specimen to the standard C₄ two-cell organisation. _[standard]_
+    - example / jagah: Maize leaf → thin section → vascular bundle surrounded by bundle sheath and mesophyll.
+    - aage: Turns the biochemical comparison into visible anatomical evidence and a list of plant examples.
+    - screen par: section, magnify, trace rings and sort specimens
+    - is level ke liye: For NEET, link Kranz to the typical C₄ leaf; absence of a visible ring in a poor section is not reliable biochemical proof.
+  - prerequisites: leaf vascular bundles; mesophyll and bundle sheath cells; use of a microscope to view thin sections
+
+## Page 19 · passed after 1 round(s)
+
+Photosynthesis depends on internal plant characteristics and external sunlight, temperature, CO₂ and water. Blackman’s law identifies the factor nearest its minimum as rate-limiting. Increasing light raises CO₂ fixation at low intensity, but the rate plateaus when other factors limit it; the text states light saturation occurs at 10 per cent of full sunlight.
+
+- **p019-i1** · heading · none · both
+  - 11.10 Factors affecting Photosynthesis
+- **p019-i2** · paragraph · classification · both · exam high
+  - An understanding of the factors that affect photosynthesis is necessary. The rate of photosynthesis is very important in determining the yield of plants including crop plants. Photosynthesis is under the influence of several factors, both internal (plant) and external. The plant factors include the number, size, age and orientation of leaves, mesophyll cells and chloroplasts, internal CO₂ concentration and the amount of chlorophyll. The plant or internal factors are dependent on the genetic predisposition and the growth of the plant.
+    - why: Why study what controls photosynthetic rate rather than merely knowing that plants photosynthesise? → The rate is important in determining plant yield, including the yield of crops.
+    - which: Which internal factors does the page identify? → It lists the number, size, age and orientation of leaves, mesophyll cells and chloroplasts, internal CO₂ concentration, and the amount of chlorophyll.
+    - difference: What distinguishes internal plant factors from external factors? → Internal factors concern the plant’s own photosynthetic equipment and condition; external factors concern conditions around it, such as incoming sunlight and temperature. _(outside the book)_
+      - how: How can leaf orientation, mesophyll and chloroplasts influence photosynthesis? → Leaf orientation affects interception of light. Mesophyll is the internal leaf tissue containing photosynthetic cells, and chloroplasts are the sites of photosynthesis. Their development and abundance influence the plant’s capacity to use light and fix carbon. _(outside the book)_
+      - how: Why does chlorophyll amount matter? → Chlorophyll absorbs light used in photosynthesis, so pigment availability can affect light capture. _(outside the book)_
+    - what: What determines the internal factors? → They depend on the genetic predisposition and growth of the plant.
+      - why: How do genetic predisposition and growth differ as influences? → Inherited characteristics set developmental tendencies, while growth changes features such as leaf area, leaf age and the development of photosynthetic tissues. _(outside the book)_
+  - **khola (unpack):**
+    - yield yaani पौधे या फसल से मिलने वाली उपज · image: खेत से कटाई के बाद मिले अनाज की मात्रा
+    - orientation yaani पत्ती किस दिशा में और किस कोण पर है · image: धूप की ओर या धूप से दूर झुकी प्लेट
+    - mesophyll cells yaani पत्ती के अंदर के वे cells जिनमें photosynthesis होता है · image: पत्ती की ऊपर और नीचे की परत के बीच काम करने वाला हिस्सा
+    - chloroplasts yaani cell के अंदर photosynthesis करने वाले हरे हिस्से · image: एक कमरे के अंदर लगी छोटी काम की मशीनें
+    - chlorophyll yaani रोशनी सोखने वाला हरा pigment · image: हरी पत्ती का रोशनी पकड़ने वाला रंग
+    - genetic predisposition yaani माता-पिता से मिले गुणों की वजह से पौधे की बनावट और काम की प्रवृत्ति · image: एक ही किस्म के बीजों से मिलते-जुलते पौधे
+    - CO₂ yaani carbon dioxide; photosynthesis में carbon देने वाली gas · image: हवा से पत्ती तक पहुँचने वाला कच्चा माल
+    - kyon: To understand differences in crop yield, examine the rate of photosynthesis. _[book]_ → That rate is influenced by internal plant features as well as external conditions. _[book]_ → Different amounts and arrangements of photosynthetic equipment change how effectively a leaf captures light and fixes carbon. _[standard]_
+    - example / jagah: Zoom from a crop plant to its leaves, then mesophyll cells, then chloroplasts.
+    - aage: The external environment alone cannot fully describe a plant’s photosynthetic capacity.
+    - screen par: zoom into and group
+    - is level ke liye: Distinguish internal CO₂ concentration from external CO₂ availability; do not equate photosynthesis with yield alone.
+  - prerequisites: photosynthesis produces organic matter; leaf contains mesophyll and chloroplasts; chlorophyll absorbs light
+- **p019-i3** · paragraph · cause_effect · both · exam high
+  - The external factors would include the availability of sunlight, temperature, CO₂ concentration and water. As a plant photosynthesises, all these factors will simultaneously affect its rate. Hence, though several factors interact and simultaneously affect photosynthesis or CO₂ fixation, usually one factor is the major cause or is the one that limits the rate. Hence, at any point the rate will be determined by the factor available at sub-optimal levels.
+    - which: Which external factors affect photosynthesis? → Availability of sunlight, temperature, CO₂ concentration and water.
+    - why: Why can several factors affect photosynthesis while one determines the rate? → The factors act together, but usually one is available at a sub-optimal level and limits the rate.
+      - how: How should a student understand sub-optimal rather than simply smallest? → A factor is inadequate relative to what the process needs under those conditions. It is not meaningful to compare the raw numerical values of temperature, light and CO₂ because these have different units. _(outside the book)_
+      - consequence: What follows if a non-limiting factor is increased while the limiting one remains inadequate? → The bottleneck can remain, so increasing the non-limiting factor need not increase the photosynthetic rate. _(outside the book)_
+  - **khola (unpack):**
+    - sub-optimal yaani काम के लिए जितना ठीक चाहिए, उससे कम अनुकूल · image: खाना बनाने की सारी चीज़ें हैं, पर आँच बहुत धीमी है
+    - CO₂ fixation yaani CO₂ के carbon को organic पदार्थ में जोड़ना · image: बाहर से आए कच्चे माल को बनी चीज़ का हिस्सा बनाना
+    - limiting factor yaani वह कमी या हालत जो अभी काम की रफ्तार रोक रही है · image: भीड़ का रास्ता रोकता सँकरा दरवाज़ा
+    - kyon: A leaf needs several environmental conditions together for photosynthesis. _[book]_ → One condition is usually sub-optimal and restricts the rate despite the presence of the others. _[book]_ → Therefore identify the bottleneck before deciding which condition to improve. _[standard]_
+    - example / jagah: A leaf with abundant light but inadequate CO₂ illustrates why one resource cannot replace another.
+    - aage: Leads to Blackman’s law and later to the light-response plateau.
+    - screen par: restrict at a bottleneck
+    - is level ke liye: A limiting factor is condition-dependent, not permanently the same factor.
+  - prerequisites: photosynthesis requires light and carbon dioxide; internal versus external plant factors
+- **p019-i4** · definition · definition · both · exam high
+  - When several factors affect any [bio] chemical process, Blackman’s (1905) Law of Limiting Factors comes into effect. This states the following: If a chemical process is affected by more than one factor, then its rate will be determined by the factor which is nearest to its minimal value: it is the factor which directly affects the process if its quantity is changed.
+    - what: What problem does Blackman’s law answer? → It identifies what determines the rate of a chemical process when more than one factor affects it: the factor nearest to its minimal value.
+    - evidence: What operational clue does the printed law provide for identifying the limiting factor? → Changing the quantity of that factor directly affects the process.
+    - who: Whose law is this, and which year is given? → Blackman’s law, dated 1905.
+      - how: How can this law guide a controlled investigation? → Hold the other relevant conditions fixed and improve the suspected limiting condition. A rise in rate supports its limiting role over that range; eventually another condition may become limiting. _(outside the book)_
+      - why: Why does nearest to minimal value not mean the lowest displayed number? → Different factors are measured on different scales. The comparison is their adequacy for the process, not their numerical magnitudes across unlike units. _(outside the book)_
+  - **khola (unpack):**
+    - Law of Limiting Factors yaani कई जरूरतों में जो अभी सबसे ज्यादा रोक रही है, वही रफ्तार तय करती है · image: साइकिल ठीक है, पर कम हवा वाला tyre चलने की रफ्तार रोकता है
+    - minimal value yaani प्रक्रिया की जरूरत के हिसाब से सबसे कम अनुकूल स्तर · image: बाकी सामान भरपूर, पर पानी जरूरत के मुकाबले बहुत कम
+    - kyon: Several factors affect one chemical process, so knowing that all matter does not identify the immediate constraint. _[book]_ → Blackman’s law identifies the factor nearest its minimal value as the rate-determining factor. _[book]_ → Changing that limiting condition provides a way to test the explanation. _[book]_
+    - example / jagah: Apply the law to the green leaf with optimal light and CO₂ but very low temperature.
+    - aage: Predicts which change can improve rate under specified conditions.
+    - screen par: change one control and trace the response
+    - is level ke liye: Use the law conditionally; improving one factor may transfer limitation to another.
+  - prerequisites: rate of a reaction; multiple requirements can jointly constrain a process; sub-optimal conditions
+- **p019-i5** · example · cause_effect · both · exam high
+  - For example, despite the presence of a green leaf and optimal light and CO₂ conditions, the plant may not photosynthesise if the temperature is very low. This leaf, if given the optimal temperature, will start photosynthesising.
+    - why: Why may a green leaf fail to photosynthesise despite optimal light and CO₂? → The temperature may be very low, making temperature the limiting condition in this example.
+    - how: How does the example demonstrate the limiting-factor law? → The same leaf starts photosynthesising when given optimal temperature, despite already having optimal light and CO₂.
+      - why: Why can low temperature restrict photosynthesis even though the leaf can receive light? → Photosynthesis includes enzyme-mediated biochemical reactions. Very low temperature can slow these reactions, so light capture alone cannot ensure rapid carbon fixation. _(outside the book)_
+      - exception: Does this example mean that any rise in temperature improves photosynthesis indefinitely? → No. The example specifies adjustment to an optimal temperature; it does not claim that unlimited warming is beneficial. _(outside the book)_
+  - **khola (unpack):**
+    - optimal temperature yaani वह temperature जिस पर काम के लिए हालत सबसे अनुकूल हो · image: खाना पकाने के लिए ठीक आँच, न बहुत धीमी न बहुत तेज
+    - kyon: A green leaf already has optimal light and CO₂, yet may not photosynthesise at very low temperature. _[book]_ → Temperature can restrict enzyme-mediated reactions needed for photosynthesis. _[standard]_ → Providing optimal temperature allows the leaf in the example to begin photosynthesising. _[book]_
+    - example / jagah: Keep one green leaf’s light and CO₂ conditions fixed; change temperature from very low to optimal.
+    - aage: More light is not the appropriate remedy for this stated bottleneck.
+    - screen par: hold two controls fixed and adjust temperature
+    - is level ke liye: Read the word optimal carefully; the conclusion is not 'hotter is always better'.
+  - prerequisites: Blackman’s law; enzymes catalyse biochemical reactions
+- **p019-i6** · heading · none · both
+  - 11.10.1 Light
+- **p019-i7** · paragraph · comparison · both · exam medium
+  - We need to distinguish between light quality, light intensity and the duration of exposure to light, while discussing light as a factor that affects photosynthesis.
+    - compare: Which three aspects of light must be distinguished? → Light quality, light intensity and duration of exposure.
+    - difference: How are these three aspects different? → Quality concerns wavelength or colour, intensity concerns how much light reaches a surface per unit time, and duration concerns how long exposure lasts. _(outside the book)_
+      - why: Why should they not be treated as interchangeable? → A light can be bright but used briefly, or dim but used for longer; changing its colour is a different change again. A response to one variable cannot automatically be attributed to another. _(outside the book)_
+  - **khola (unpack):**
+    - light quality yaani रोशनी किस wavelength या रंग की है · image: लाल और नीली बत्ती
+    - light intensity yaani एक जगह पर हर समय कितनी रोशनी पहुँचती है · image: एक ही lamp को dim और bright करना
+    - duration of exposure yaani कितनी देर तक रोशनी मिलती है · image: lamp पाँच मिनट या एक घंटे जलाना
+    - kyon: To explain a light response, first identify what aspect of light changed. _[standard]_ → Separate quality, intensity and exposure duration. _[book]_ → Then interpret the graph specifically as an intensity response. _[standard]_
+    - example / jagah: Compare a lamp’s colour, brightness setting and time switched on.
+    - aage: Prevents confusion about the graph’s horizontal axis.
+    - screen par: separate three controls
+    - is level ke liye: The wavelength meaning of quality is an explanatory addition, not defined on this page.
+  - prerequisites: light supplies energy for photosynthesis; colour and brightness differ
+- **p019-i8** · paragraph · cause_effect · both · exam high
+  - There is a linear relationship between incident light and CO₂ fixation rates at low light intensities. At higher light intensities, gradually the rate does not show further increase as other factors become limiting (Figure 11.10).
+    - how: How does increasing incident light affect CO₂ fixation at low light intensity? → The relationship is linear: the fixation rate increases with incident light over the low-intensity range.
+    - why: Why does the rate eventually stop increasing as light increases? → At higher light intensities other factors become limiting.
+      - why: Why is light effective at raising the rate initially? → When light supply constrains the process, more absorbed light supports more photochemical activity and consequently greater carbon fixation, provided the other requirements can support it. _(outside the book)_
+      - consequence: Does a plateau mean photosynthesis has stopped? → No. The rate remains positive; it is the additional increase in rate with added light that has stopped. _(outside the book)_
+  - **khola (unpack):**
+    - incident light yaani पत्ती पर पड़ने वाली रोशनी · image: खिड़की से पत्ती तक आती धूप
+    - linear relationship yaani ऐसा संबंध जो graph पर सीधी रेखा जैसा दिखे · image: बराबर कदम दाएँ चलने पर लगभग बराबर ऊपर जाना
+    - kyon: At low intensity the light supply constrains the photosynthetic response. _[standard]_ → Increasing incident light initially produces a linear increase in CO₂ fixation. _[book]_ → At higher intensity other factors limit the process, so further light does not further raise its rate. _[book]_
+    - example / jagah: Follow the same leaf from low incident light toward the plateau in Figure 11.10.
+    - aage: Provides a graphical application of Blackman’s law.
+    - screen par: raise then flatten
+    - is level ke liye: Do not infer a decline from this graph; the illustrated high-light response is a plateau.
+  - prerequisites: Blackman’s law; horizontal and vertical axes; linear relationship
+- **p019-i9** · paragraph · cause_effect · both · exam high
+  - What is interesting to note is that light saturation occurs at 10 per cent of the full sunlight. Hence, except for plants in shade or in dense forests, light is rarely a limiting factor in nature.
+    - what: What light-saturation value does the page state? → 10 per cent of full sunlight.
+    - why: Why is light rarely a limiting factor in nature according to the page? → Light saturation occurs at 10 per cent of full sunlight, so further available light commonly does not increase the rate.
+    - exception: Which plants are exceptions to this general statement? → Plants in shade or in dense forests.
+      - how: How can shade make light limiting despite the saturation statement? → Leaves under shade or a dense canopy may receive insufficient light to reach the saturation level, so greater light availability can still raise their rate. _(outside the book)_
+    - evidence: What evidence on this page supports the statement? → The text explicitly gives the 10 per cent value, while Figure 11.10 qualitatively shows a plateau. The graph itself has no numerical intensity scale.
+  - **khola (unpack):**
+    - light saturation yaani रोशनी का वह स्तर जिसके बाद और रोशनी से rate नहीं बढ़ता · image: पूरा भर चुके गिलास में और पानी डालने से भरा हिस्सा नहीं बढ़ता
+    - kyon: Ask whether natural light usually lies below the level needed to saturate photosynthesis. _[standard]_ → The page states saturation at 10 per cent of full sunlight. _[book]_ → Therefore light is rarely limiting in nature, except for plants in shade or dense forests. _[book]_
+    - example / jagah: Contrast an exposed leaf with a leaf beneath a dense forest canopy.
+    - aage: Light abundance does not imply an indefinitely increasing photosynthetic rate.
+    - screen par: compare exposed and shaded leaves
+    - is level ke liye: The 10 per cent is relative to full sunlight, not a percentage efficiency of photosynthesis.
+  - prerequisites: light-response plateau; limiting factor
+- **p019-i10** · other · none · both
+  - Increase in
+- **p019-i11** · diagram · figure · image · exam high
+  - Graph of rate of photosynthesis against light intensity. Both axes have arrowheads in their positive directions and no numerical scale. The response rises approximately linearly from the origin, bends through a transition near B, and becomes horizontal toward C. A marks the rising region. A dashed horizontal line at E projects the plateau rate to the vertical axis; a dashed vertical line at D projects the saturation-region intensity to the horizontal axis. Thin directional arrows alongside the rising and plateau portions distinguish A, B and C regions.
+    - what: What relationship does Figure 11.10 show? → Photosynthetic rate initially rises with light intensity and then approaches a constant plateau.
+    - which: Which features identify the transition from light response to saturation? → The upward sloping part changes into a bend and then a horizontal line; dashed projections mark the corresponding intensity and plateau rate.
+      - how: How should a learner read the graph step by step? → Choose a position on the light-intensity axis, move vertically to the response curve, then horizontally to read the rate. Repeat at higher intensities: the height increases initially but no longer increases on the plateau. _(outside the book)_
+      - why: Why does the plateau illustrate a change in limitation? → The accompanying text explains that other factors become limiting at higher light intensities.
+  - **khola (unpack):**
+    - plateau yaani graph का सपाट हिस्सा जहाँ x बढ़ने पर y नहीं बढ़ता · image: सीढ़ी चढ़ने के बाद एक सपाट मंज़िल पर चलना
+    - kyon: Ask whether each increase in light still increases photosynthesis. _[standard]_ → Build the rising line at low intensity, then the bend and plateau at higher intensity. _[book]_ → Use the plateau to recognise that another factor now limits the response. _[book]_
+    - example / jagah: Figure 11.10, lower-right corner.
+    - aage: Connects the abstract limiting-factor law to a visible response curve.
+    - screen par: draw axes, grow the curve, project dashed lines
+    - is level ke liye: The graph is schematic; it does not display the stated 10 per cent as a numbered tick.
+  - prerequisites: reading a two-axis graph; Blackman’s law; light intensity
+- **p019-i12** · diagram_label · figure · both · exam medium
+  - Rate of photosynthesis — vertical axis, increasing upward.
+    - what: What is plotted vertically? → The rate of photosynthesis.
+    - which: Which position represents a greater rate? → A higher point on the vertical axis represents a greater rate. _(outside the book)_
+      - how: How is a plateau rate read on this axis? → Project horizontally from the plateau to the vertical axis, as the dashed line toward E illustrates.
+  - **khola (unpack):**
+    - rate of photosynthesis yaani एक तय समय में कितना photosynthesis हुआ · image: एक मिनट में कितना काम पूरा हुआ
+    - kyon: To compare responses, a measure of photosynthetic activity must be plotted. _[standard]_ → The figure places rate on the vertical axis. _[book]_
+    - example / jagah: Vertical axis of Figure 11.10.
+    - aage: A horizontal curve indicates an unchanged rate, not absence of activity.
+    - screen par: project left
+    - is level ke liye: Do not confuse accumulated product with production rate.
+  - prerequisites: vertical graph axis; rate means amount per time
+- **p019-i13** · diagram_label · figure · both · exam medium
+  - Light intensity — horizontal axis, increasing to the right.
+    - what: What variable is plotted horizontally? → Light intensity.
+    - which: Which direction represents increasing intensity? → Toward the right along the arrowed horizontal axis.
+      - how: How is this different from plotting exposure duration? → Moving right means brighter incident light, not a longer time in the light. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: To isolate the response to brightness, choose intensity as the changing variable. _[standard]_ → The figure increases light intensity from left to right. _[book]_
+    - example / jagah: Horizontal axis of Figure 11.10.
+    - aage: Read changes in rate as responses to intensity, not time.
+    - screen par: move right
+    - is level ke liye: Keep quality and duration conceptually separate.
+  - prerequisites: light intensity differs from duration
+- **p019-i14** · diagram_label · figure · both · exam high
+  - A — marks the approximately linear rising region at low light intensity.
+    - what: What part of the curve is beside A? → The initial rising part of the graph.
+    - which: Which factor is interpreted as limiting in this region? → Light availability, because raising intensity raises the rate in this part of the response. _(outside the book)_
+      - why: Why does this region rise rather than remain horizontal? → The text states that CO₂ fixation is linearly related to incident light at low light intensity.
+  - **khola (unpack):**
+    - kyon: Ask where extra light still improves the response. _[standard]_ → A lies beside the rising low-light region. _[book]_
+    - example / jagah: Initial sloping section of Figure 11.10.
+    - aage: Contrasts with the saturated region C.
+    - screen par: trace upward slope
+    - is level ke liye: Interpret the slope before naming the limiting factor.
+  - prerequisites: low-light linear response
+- **p019-i15** · diagram_label · figure · both · exam medium
+  - B — marks the transition region where the rising response bends toward the plateau.
+    - what: What feature is indicated by B? → The bend between the steeply rising region and the plateau.
+    - which: Which response is changing in this region? → The rate gain produced by further light becomes progressively smaller as the curve flattens. _(outside the book)_
+      - why: Why does this bend occur? → The text explains that at higher light intensities other factors become limiting.
+  - **khola (unpack):**
+    - kyon: Ask how the rising line becomes a plateau rather than assuming an abrupt numerical boundary. _[standard]_ → B marks the bend as other factors become limiting. _[book]_
+    - example / jagah: Bend near the top of Figure 11.10.
+    - aage: Links the low-light and saturated portions.
+    - screen par: bend and flatten
+    - is level ke liye: B is not an explicitly named biochemical stage.
+  - prerequisites: graph slope; limiting factor
+- **p019-i16** · diagram_label · figure · both · exam high
+  - C — marks the high-light plateau region extending to the right.
+    - what: What does C mark? → The horizontal high-light portion of the response.
+    - which: Which quantity remains approximately unchanged across C? → The rate of photosynthesis, although light intensity continues to increase.
+      - why: Why does more light not raise the rate here? → Other factors have become limiting.
+  - **khola (unpack):**
+    - kyon: Ask whether increasing light still removes the bottleneck. _[standard]_ → The rate stays flat in C because other factors limit further increase. _[book]_
+    - example / jagah: Right-hand plateau in Figure 11.10.
+    - aage: Increasing another limiting condition, not simply light, would be the relevant test.
+    - screen par: extend horizontally
+    - is level ke liye: No decline or photodamage is illustrated here.
+  - prerequisites: light saturation; horizontal curve
+- **p019-i17** · diagram_label · figure · both · exam high
+  - D — marks the horizontal-axis position beneath the onset of the plateau, connected to the curve by a vertical dashed line.
+    - what: Where is D placed? → On the light-intensity axis below a vertical dashed line reaching the saturation region.
+    - which: Which variable does D represent? → A light-intensity coordinate associated with saturation, not a photosynthetic-rate coordinate. _(outside the book)_
+      - how: How does the dashed line help interpret D? → It projects the curve’s saturation-region position down to the intensity axis. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: To locate the intensity associated with the plateau, project vertically to the horizontal axis. _[standard]_ → The figure marks this projected position as D. _[book]_
+    - example / jagah: Foot of the dashed vertical line.
+    - aage: Separates saturation intensity from plateau rate E.
+    - screen par: drop a vertical projection
+    - is level ke liye: D and E are different variables, not two rates.
+  - prerequisites: graph projections; light saturation
+- **p019-i18** · diagram_label · figure · both · exam high
+  - E — marks the vertical-axis level of the plateau rate, connected to the curve by a horizontal dashed line.
+    - what: What does the position of E identify? → The rate level corresponding to the plateau, shown by the horizontal dashed projection.
+    - which: Which variable is represented at E? → Photosynthetic rate, rather than light intensity. _(outside the book)_
+      - how: How should the apparent maximum at E be qualified? → It is the plateau rate under the conditions represented. Changing another limiting condition can change the attainable rate; E is not necessarily an absolute maximum for the plant. _(outside the book)_
+  - **khola (unpack):**
+    - kyon: To read the plateau’s rate, project horizontally to the vertical axis. _[standard]_ → The figure marks that level E. _[book]_
+    - example / jagah: Left end of the horizontal dashed line.
+    - aage: Allows the plateau rate to be distinguished from saturation intensity D.
+    - screen par: project horizontally left
+    - is level ke liye: Qualify the maximum as applying under the represented conditions.
+  - prerequisites: vertical axis represents rate; limiting conditions
+- **p019-i19** · caption · none · both
+  - Figure 11.10 Graph of light intensity on the rate of photosynthesis
+
+## Page 20 · passed after 1 round(s)
+
+Excess light damages chlorophyll. CO₂ enrichment increases photosynthesis when light permits, with C₃ plants responding beyond the C₄ saturation level; this supports greenhouse crop production. Temperature effects reflect enzyme activity and habitat adaptation. Water stress mainly limits photosynthesis indirectly through stomatal closure, wilting and reduced metabolic activity.
+
+- **p020-i1** · paragraph · cause_effect · both · exam high
+  - incident light beyond a point causes the breakdown of chlorophyll and a decrease in photosynthesis.
+    - why: Why does supplying more light not keep increasing photosynthesis? → Beyond a point, incident light causes chlorophyll breakdown, so photosynthesis decreases instead of continuing to rise.
+      - how: How does losing chlorophyll impair photosynthesis? → Chlorophyll captures light energy for photochemical reactions. Damage to this pigment reduces the functional light-harvesting machinery. _(outside the book)_
+  - **khola (unpack):**
+    - incident light yaani पत्ती पर पड़ने वाली light · image: खिड़की से आकर पत्ते पर पड़ती धूप
+    - kyon: A leaf needs light energy, but increasing its supply has a limit. _[standard]_ → Beyond a point, light breaks down chlorophyll and photosynthesis decreases. _[book]_
+    - example / jagah: Chlorophyll-containing tissues of an excessively illuminated leaf.
+    - aage: A beneficial factor can become damaging in excess.
+    - screen par: Increase illumination, fade chlorophyll and lower the photosynthesis indicator.
+    - is level ke liye: NEET trap: do not extend a rising light-response relationship indefinitely.
+  - prerequisites: chlorophyll captures light energy; light reactions of photosynthesis
+- **p020-i2** · heading · none · both
+  - 11.10.2 Carbon dioxide Concentration
+- **p020-i3** · paragraph · facts_numbers · both · exam high
+  - Carbon dioxide is the major limiting factor for photosynthesis. The concentration of CO₂ is very low in the atmosphere (between 0.03 and 0.04 per cent). Increase in concentration upto 0.05 per cent can cause an increase in CO₂ fixation rates; beyond this the levels can become damaging over longer periods.
+    - what: Which CO₂ concentrations and effects does the book specify? → Atmospheric CO₂ is stated as 0.03–0.04 per cent. Raising it upto 0.05 per cent can increase CO₂ fixation; levels beyond this can become damaging over longer periods. CO₂ is identified as the major limiting factor.
+    - evidence: What stated response supports calling CO₂ a limiting factor? → The book reports an increase in CO₂ fixation when CO₂ concentration is raised upto 0.05 per cent, showing that its existing supply can restrict the rate.
+      - why: Why can low CO₂ restrict photosynthesis even when a leaf receives light? → CO₂ supplies carbon for carbohydrate formation. Light provides energy, but that energy cannot substitute for an insufficient carbon supply. _(outside the book)_
+      - what: What do CO₂ and CO₂ fixation mean? → CO₂ is carbon dioxide, with one carbon atom and two oxygen atoms per molecule. CO₂ fixation means incorporating carbon from CO₂ into organic compounds. _(outside the book)_
+  - **khola (unpack):**
+    - limiting factor yaani जिसकी कम उपलब्धता काम की रफ्तार रोक रही हो · image: आटा बहुत है पर पानी कम होने से कम रोटियाँ बनना
+    - CO₂ fixation yaani CO₂ के carbon को organic compounds में जोड़ना · image: बाहर से आई ईंट को दीवार का हिस्सा बनाना
+    - concentration yaani कुल हवा में CO₂ का कितना हिस्सा है · image: एक गिलास पानी में घुली चीनी की मात्रा
+    - kyon: Making carbohydrates requires a supply of carbon from CO₂. _[standard]_ → The book describes atmospheric CO₂ as low and a major limiting factor. _[book]_ → Enrichment upto 0.05% can increase fixation, but still higher levels can damage over long periods. _[book]_
+    - example / jagah: Atmosphere supplying CO₂ to a photosynthesising leaf.
+    - aage: CO₂ enrichment has a useful range rather than unlimited benefit.
+    - screen par: Enrich the air around a leaf and show fixation increasing within the stated range.
+    - is level ke liye: Use the book's numerical values; do not turn the prolonged-damage qualification into an immediate universal threshold.
+  - prerequisites: carbon dioxide as a photosynthetic reactant; meaning of a limiting factor; percentage concentration
+- **p020-i4** · paragraph · comparison · both · exam high
+  - The C₃ and C₄ plants respond differently to CO₂ concentrations. At low light conditions neither group responds to high CO₂ conditions. At high light intensities, both C₃ and C₄ plants show increase in the rates of photosynthesis. What is important to note is that the C₄ plants show saturation at about 360 µlL⁻¹ while C₃ responds to increased CO₂ concentration and saturation is seen only beyond 450 µlL⁻¹. Thus, current availability of CO₂ levels is limiting to the C₃ plants.
+    - compare: How do C₃ and C₄ plants respond to CO₂ enrichment under low and high light? → Under low light neither group responds to high CO₂. Under high light, both groups show increased photosynthetic rates as CO₂ increases, but their saturation levels differ.
+    - difference: Where do their CO₂ saturation levels differ? → C₄ plants saturate at about 360 µlL⁻¹, whereas C₃ saturation occurs only beyond 450 µlL⁻¹. The book therefore identifies the available CO₂ level as limiting to C₃ plants.
+      - why: Why does adding CO₂ fail to increase photosynthesis in low light? → When light restricts energy supply, extra carbon substrate cannot remove that restriction. The limiting factor must be relieved before enrichment can produce its expected response. _(outside the book)_
+      - how: How does the C₄ pathway help explain its lower external CO₂ saturation level? → C₄ plants concentrate CO₂ around RuBisCO in bundle sheath cells. Their carbon-fixing machinery can therefore become adequately supplied at a lower external CO₂ concentration than in C₃ plants. _(outside the book)_
+      - what: What do saturation, C₃, C₄ and µlL⁻¹ mean here? → Saturation means further CO₂ addition gives little or no further rate increase under the given conditions. C₃ and C₄ refer to pathways whose first stable fixation products have three and four carbons respectively. µlL⁻¹ means microlitres of CO₂ per litre of air, numerically equivalent to parts per million by volume. _(outside the book)_
+  - **khola (unpack):**
+    - saturation yaani अब और CO₂ देने पर rate का खास न बढ़ना · image: सारी सीटें भरने के बाद और यात्रियों से बैठने वालों की संख्या न बढ़ना
+    - µlL⁻¹ yaani हर litre हवा में CO₂ के microlitres · image: एक बड़े डिब्बे में छोटे हिस्से का माप
+    - C₃ and C₄ plants yaani carbon fixation के अलग रास्तों वाले plants, जिनके पहले stable products में 3 या 4 carbon होते हैं · image: एक मंज़िल तक जाने वाले दो अलग रास्ते
+    - kyon: Ask whether extra CO₂ helps when light itself is scarce. _[standard]_ → Neither group responds under low light; both respond under high light. _[book]_ → C₄ saturates near 360 µlL⁻¹ while C₃ continues responding beyond that, saturating only beyond 450 µlL⁻¹. _[book]_
+    - example / jagah: Compare C₃ and C₄ leaves under the same light conditions while changing CO₂.
+    - aage: CO₂ limitation depends on both the plant pathway and the availability of light.
+    - screen par: Hold light fixed, raise CO₂ and flatten the C₄ response before the C₃ response.
+    - is level ke liye: Build the response comparison in two stages: low light first, high light next. Do not confuse a plateau with zero photosynthesis.
+  - prerequisites: C₃ and C₄ carbon-fixation pathways; limiting-factor principle; light reactions supply energy for carbon fixation
+- **p020-i5** · example · cause_effect · both · exam high
+  - The fact that C₃ plants respond to higher CO₂ concentration by showing increased rates of photosynthesis leading to higher productivity has been used for some greenhouse crops such as tomatoes and bell pepper. They are allowed to grow in carbon dioxide enriched atmosphere that leads to higher yields.
+    - how: How is the C₃ response to CO₂ used in crop production? → Greenhouse crops such as tomatoes and bell pepper are grown in CO₂-enriched air. Their increased photosynthesis leads to higher productivity and yields.
+      - why: Why can enrichment increase yield, and what limits this application? → More available CO₂ can support greater carbon assimilation and biomass formation. The benefit depends on other requirements, such as adequate light, water and suitable temperature, not becoming limiting. _(outside the book)_
+  - **khola (unpack):**
+    - carbon dioxide enriched atmosphere yaani ऐसी हवा जिसमें CO₂ की मात्रा बढ़ाई गई हो · image: greenhouse के अंदर हवा की बनावट को नियंत्रित करना
+    - yield yaani फसल से मिलने वाली उपयोगी पैदावार · image: कटाई पर इकट्ठे हुए टमाटरों की टोकरियाँ
+    - kyon: The grower wants more useful crop production. _[standard]_ → C₃ crops respond to higher CO₂ with increased photosynthesis. _[book]_ → Tomatoes and bell pepper grown in enriched greenhouse air give higher yields. _[book]_
+    - example / jagah: Tomatoes and bell pepper in greenhouses.
+    - aage: A limiting-factor principle becomes a cultivation technique.
+    - screen par: Enrich greenhouse air, increase carbon assimilation and fill more harvest baskets.
+    - is level ke liye: Recall both named crops and avoid claiming unlimited benefit from enrichment.
+  - prerequisites: C₃ response to increased CO₂; photosynthesis supplies organic material for growth; limiting-factor principle
+- **p020-i6** · heading · none · both
+  - 11.10.3 Temperature
+- **p020-i7** · paragraph · cause_effect · both · exam high
+  - The dark reactions being enzymatic are temperature controlled. Though the light reactions are also temperature sensitive they are affected to a much lesser extent.
+    - why: Why are dark reactions temperature controlled? → The page attributes this to their enzymatic nature and states that light reactions are temperature sensitive to a much lesser extent.
+      - how: How does temperature affect enzyme-controlled reactions? → Warming within a suitable range can increase enzyme-catalysed reaction rates. Excessive heat can impair enzyme structure and activity, so the response is not an unlimited increase. _(outside the book)_
+      - what: Does the name dark reactions mean they need darkness? → No. It refers to carbon-fixation reactions that do not directly use light as their driving input; they depend on products of the light reactions. It does not mean they must occur at night. _(outside the book)_
+  - **khola (unpack):**
+    - enzymatic yaani enzyme की मदद से होने वाला काम · image: काम की रफ्तार बढ़ाने वाला मददगार
+    - dark reactions yaani carbon fixation की reactions जो सीधे light इस्तेमाल नहीं करतीं · image: पहले जमा की गई energy से आगे चलता काम
+    - kyon: Carbon fixation needs enzymes to carry out its reactions. _[standard]_ → Enzyme activity changes with temperature. _[standard]_ → Dark reactions are temperature controlled; light reactions are affected less. _[book]_
+    - example / jagah: Carbon-fixation reactions in the chloroplast stroma, contrasted with light reactions at thylakoid membranes.
+    - aage: Changing temperature can alter carbon assimilation even if light remains unchanged.
+    - screen par: Change a thermometer and vary enzyme reaction speed.
+    - is level ke liye: Trap: less temperature sensitive does not mean insensitive; dark does not mean night-only.
+  - prerequisites: enzymes catalyse biochemical reactions; light reactions and carbon-fixation reactions
+- **p020-i8** · paragraph · comparison · both · exam high
+  - The C₄ plants respond to higher temperatures and show higher rate of photosynthesis while C₃ plants have a much lower temperature optimum.
+    - compare: How do C₃ and C₄ plants compare in temperature response? → C₄ plants respond to higher temperatures with higher photosynthetic rates, whereas C₃ plants have a much lower temperature optimum.
+    - difference: What differs: the optimum temperature or an unlimited ability to withstand heat? → The stated difference is in the temperature range giving favourable photosynthetic performance: C₄ plants have the higher optimum, C₃ plants the lower one.
+      - why: Why can the C₄ pathway favour photosynthesis at higher temperatures? → At higher temperatures photorespiration can increasingly reduce net carbon gain in C₃ plants. The CO₂-concentrating mechanism of C₄ plants suppresses this loss and contributes to their advantage. _(outside the book)_
+  - **khola (unpack):**
+    - temperature optimum yaani वह temperature जिस पर photosynthesis सबसे अच्छा चलता है · image: काम करने के लिए सबसे आरामदेह गर्मी, न बहुत ठंड न बहुत गरम
+    - kyon: Different pathways need not perform best at the same temperature. _[standard]_ → C₄ plants perform favourably at higher temperatures; C₃ plants have a lower optimum. _[book]_ → CO₂ concentration in C₄ plants helps reduce photorespiratory loss at higher temperatures. _[standard]_
+    - example / jagah: Compare the photosynthetic temperature responses of C₃ and C₄ leaves.
+    - aage: The photosynthetic pathway helps determine environmental performance.
+    - screen par: Place the C₄ temperature-response peak to the warmer side of the C₃ peak.
+    - is level ke liye: Do not invent numerical temperature optima or assume C₄ photosynthesis rises indefinitely with heat.
+  - prerequisites: C₃ and C₄ pathways; meaning of optimum temperature; photorespiration
+- **p020-i9** · paragraph · comparison · both · exam high
+  - The temperature optimum for photosynthesis of different plants also depends on the habitat that they are adapted to. Tropical plants have a higher temperature optimum than the plants adapted to temperate climates.
+    - compare: How do tropical and temperate-adapted plants compare? → Tropical plants have a higher photosynthetic temperature optimum than plants adapted to temperate climates.
+    - difference: What additional basis for different optima does this paragraph introduce? → Besides the C₃–C₄ distinction, the habitat to which a plant is adapted influences its temperature optimum.
+      - why: Why should habitat adaptation influence the optimum? → Plants adapted to different thermal environments have physiological machinery suited to those environments. Consequently, one temperature need not give the best photosynthetic performance in plants from different climates. _(outside the book)_
+  - **khola (unpack):**
+    - habitat yaani वह जगह और हालात जहाँ plant रहता है · image: घर के साथ आसपास का मौसम
+    - Tropical yaani धरती के गर्म tropical इलाकों से जुड़ा · image: साल के बड़े हिस्से में गर्म रहने वाला इलाका
+    - temperate climates yaani tropical इलाकों से आम तौर पर ठंडे, मौसम बदलने वाले इलाकों का climate · image: जहाँ गर्मी और सर्दी का फर्क साफ दिखता है
+    - kyon: Plants from different habitats experience different temperature conditions. _[standard]_ → Photosynthetic temperature optima depend on habitat adaptation. _[book]_ → Tropical plants have higher optima than temperate-adapted plants. _[book]_
+    - example / jagah: Tropical habitats compared with temperate climates; no particular species are named here.
+    - aage: There is no single photosynthetic optimum applicable to all plants.
+    - screen par: Compare warmer and cooler habitat backgrounds and shift the optimum marker.
+    - is level ke liye: Keep habitat adaptation distinct from the C₃–C₄ classification.
+  - prerequisites: temperature optimum; adaptation to habitat; tropical and temperate climates
+- **p020-i10** · heading · none · both
+  - 11.10.4 Water
+- **p020-i11** · paragraph · cause_effect · both · exam high
+  - Even though water is one of the reactants in the light reaction, the effect of water as a factor is more through its effect on the plant, rather than directly on photosynthesis. Water stress causes the stomata to close hence reducing the CO₂ availability. Besides, water stress also makes leaves wilt, thus, reducing the surface area of the leaves and their metabolic activity as well.
+    - why: Why is water limitation not explained mainly as a shortage of a light-reaction reactant? → Although water is a reactant, the page emphasises its effects on the whole plant: water stress closes stomata and causes wilting, reducing CO₂ availability, leaf surface area and metabolic activity.
+    - how: How does water stress restrict CO₂ supply? → Water stress causes stomatal closure, which reduces the CO₂ available for photosynthesis.
+      - why: Why does stomatal closure conserve water but restrict photosynthesis? → Stomatal pores provide a route both for water vapour to escape and for CO₂ to diffuse into the leaf. Closing them reduces water loss but also restricts carbon entry. _(outside the book)_
+    - consequence: What additional effects follow from wilting? → The page states that wilting reduces the surface area of leaves and their metabolic activity as well.
+      - how: How does water shortage produce wilting? → Loss of water lowers cell turgor, so leaves lose firmness and droop. This reduces their effectively exposed surface; it need not mean that leaf tissue instantly disappears. _(outside the book)_
+  - **khola (unpack):**
+    - water stress yaani plant की ज़रूरत के मुकाबले पानी कम पड़ना · image: पानी न मिलने पर गमले का plant झुकना
+    - stomata yaani पत्ती के छोटे pores जिनसे gases आती-जाती हैं · image: हवा आने-जाने की छोटी खिड़कियाँ
+    - wilt yaani पानी कम होने से पत्ती का ढीला पड़कर झुकना · image: धूप में पानी बिना रखा मुरझाया पौधा
+    - metabolic activity yaani plant के अंदर चलने वाली chemical reactions का काम · image: घर के अंदर साथ-साथ चल रहे कई काम
+    - kyon: A water-stressed plant must limit further water loss. _[standard]_ → Stomata close, reducing CO₂ availability. _[book]_ → Water stress also causes wilting, reducing leaf surface area and metabolic activity. _[book]_
+    - example / jagah: A water-stressed potted plant: zoom from drooping leaves to their stomatal pores.
+    - aage: Water shortage can impose a carbon-supply limitation as well as impair leaf functioning.
+    - screen par: Split water stress into two branches: close stomata and droop the leaf.
+    - is level ke liye: Correct the misconception that water limits photosynthesis chiefly by directly running out as a substrate; retain the book's emphasis on indirect effects.
+  - prerequisites: water as a reactant in light reactions; stomata allow gas exchange; transpiration; cell turgor supports leaves
+
+## Page 21 · passed after 1 round(s)
+
+Photosynthesis links chloroplast light reactions to carbon fixation. Antenna pigments supply energy to reaction centres; electron transport and water splitting support NADPH and ATP formation. The Calvin cycle fixes CO₂ through RuBisCO and regenerates RuBP. C₄ plants separate initial mesophyll fixation from the bundle sheath Calvin cycle. Three exercises test identification and productivity of C₃ and C₄ plants.
+
+- **p021-i1** · heading · none · both
+  - SUMMARY
+- **p021-i2** · paragraph · process · both · exam high
+  - Green plants make their own food by photosynthesis. During this process carbon dioxide from the atmosphere is taken in by leaves through stomata and used for making carbohydrates, principally glucose and starch.
+    - how: How does atmospheric carbon become part of plant food? → Leaves take in atmospheric carbon dioxide through stomata and use it in photosynthesis to make carbohydrates, principally glucose and starch.
+    - when: When is incoming CO₂ incorporated into organic material? → It is incorporated during the carbon-fixing reactions of photosynthesis, rather than by light absorption alone.
+      - why: Why must a plant take in carbon dioxide even when it receives sunlight? → Light supplies energy, not carbon atoms. CO₂ supplies carbon that can be incorporated into organic compounds. _(outside the book)_
+      - what: What does the symbol CO₂ mean? → CO₂ is carbon dioxide: each molecule contains one carbon atom and two oxygen atoms. It is a chemical formula, not a measurement with a unit. _(outside the book)_
+  - **khola (unpack):**
+    - photosynthesis yaani रोशनी की मदद से अपना organic food बनाने की प्रक्रिया · image: धूप में लगी पत्ती food बनाने की छोटी factory जैसी
+    - stomata yaani पत्ती की सतह के छोटे pores जिनसे gases आती-जाती हैं · image: कमरे में हवा आने की छोटी खिड़कियाँ
+    - carbohydrates yaani glucose और starch जैसे carbon वाले food compounds · image: चीनी में sugar और आलू में जमा starch
+    - kyon: A plant needs both carbon material and energy to make organic food. _[standard]_ → Atmospheric CO₂ enters leaves through stomata. _[book]_ → Photosynthesis uses this carbon to produce carbohydrates. _[book]_
+    - example / jagah: Atmosphere → leaf stomata → photosynthetic cells.
+    - aage: Carbon entry must be linked to the chloroplast reactions that incorporate it.
+    - screen par: Trace CO₂ entering a pore and its carbon joining carbohydrate.
+    - is level ke liye: Glucose is a sugar; starch is a storage carbohydrate. Do not treat sunlight as a material source of carbon.
+  - prerequisites: carbohydrates as organic food; gases entering leaves through stomata; energy versus matter
+- **p021-i3** · paragraph · structure · both · exam high
+  - Photosynthesis takes place only in the green parts of the plants, mainly the leaves. Within the leaves, the mesophyll cells have a large number of chloroplasts that are responsible for CO₂ fixation. Within the chloroplasts, the membranes are sites for the light reaction, while the chemosynthetic pathway [biosynthetic carbon-fixing pathway] occurs in the stroma.
+    - what: What is the spatial organisation of the photosynthetic apparatus? → Green plant parts, mainly leaves, contain mesophyll cells with many chloroplasts. Chloroplast membranes host light reactions, while the stroma hosts the carbon-fixing pathway.
+    - where: Where should the two reaction sets be placed in a chloroplast? → Place light reactions at the chloroplast membranes and carbon-fixing reactions in the stroma.
+      - why: Why is the membrane location important for light reactions? → Thylakoid membranes organise photosystems, electron carriers and ATP synthase, and separate two regions so that a proton gradient can form. _(outside the book)_
+      - what: What does 'chemosynthetic pathway' mean in this passage? → Here it refers to the biosynthetic carbon-fixing reactions of photosynthesis. It should not be confused with chemosynthesis, in which certain organisms obtain energy from chemical oxidation. _(outside the book)_
+  - **khola (unpack):**
+    - mesophyll yaani पत्ती के अंदर का photosynthesis करने वाला tissue · image: पत्ती की दो बाहरी परतों के बीच का हरा हिस्सा
+    - chloroplasts yaani हरे cell के अंदर photosynthesis के काम करने वाले छोटे organelles · image: एक factory के अंदर छोटी काम करने वाली units
+    - stroma yaani chloroplast के अंदर membranes के बाहर का fluid वाला हिस्सा · image: कमरे में रखी shelves के चारों ओर की जगह
+    - kyon: Photosynthesis needs organised sites for different jobs. _[standard]_ → Mesophyll cells contain many chloroplasts. _[book]_ → Membranes and stroma provide different locations for light reactions and carbon fixation. _[book]_
+    - example / jagah: Green leaf → mesophyll cell → chloroplast → thylakoid membrane or stroma.
+    - aage: Products made at membranes must become available to carbon-fixing reactions in the stroma.
+    - screen par: Zoom inward and colour-code membrane and stroma.
+    - is level ke liye: Green stems can also photosynthesise; the page says mainly leaves, not leaves alone.
+  - prerequisites: leaf mesophyll; chloroplast as an organelle; membrane enclosing a compartment
+- **p021-i4** · paragraph · classification · both · exam high
+  - Photosynthesis has two stages: the light reaction and the carbon fixing reactions.
+    - which: Which two stages organise photosynthesis? → The light reaction and the carbon-fixing reactions are the two stages named here.
+    - difference: How do their immediate tasks differ? → Light reactions absorb light and generate ATP and NADPH; carbon-fixing reactions use ATP and NADPH while incorporating CO₂ into the carbohydrate-forming pathway.
+      - why: Why should they be taught as connected rather than independent processes? → The carbon fixation cycle utilises ATP and NADPH synthesised in the light reaction, so the products of one stage support the other.
+  - **khola (unpack):**
+    - carbon fixing reactions yaani CO₂ के carbon को organic compounds में जोड़ने वाले reactions · image: खुले सामान को किसी तैयार ढाँचे में जोड़ना
+    - kyon: Making carbohydrate needs usable energy and incorporation of carbon. _[standard]_ → The light reaction supplies ATP and NADPH. _[book]_ → Carbon-fixing reactions use these supplies. _[book]_
+    - example / jagah: Two linked reaction sets inside one chloroplast.
+    - aage: The next concepts explain energy capture first and its use in carbon fixation later.
+    - screen par: Connect two labelled stages with ATP and NADPH arrows.
+    - is level ke liye: Separate direct use of photons from dependence on products of light reactions.
+  - prerequisites: light as an energy source; CO₂ as a carbon source; chloroplast compartments
+- **p021-i5** · paragraph · process · both · exam high
+  - In the light reaction the light energy is absorbed by the pigments present in the antenna, and funnelled to special chlorophyll a molecules called reaction centre chlorophylls.
+    - how: How does captured light energy reach the reaction centre? → Antenna pigments absorb light energy and funnel it to special chlorophyll a molecules at the reaction centre.
+    - when: When does this energy funnel operate? → It operates during the light reaction when antenna pigments absorb light.
+      - why: Why collect light with an antenna rather than rely on a reaction centre alone? → A collection of pigment molecules increases the opportunity to capture light and transfer excitation energy to the reaction centre, where charge separation can begin. _(outside the book)_
+      - difference: What should not be confused during antenna energy transfer? → Transfer of excitation energy among antenna pigments is not the same as an electron travelling through the electron transport chain. Reaction-centre excitation initiates the electron-transfer step. _(outside the book)_
+  - **khola (unpack):**
+    - antenna yaani कई pigments का light पकड़कर energy पहुँचाने वाला समूह · image: कई लोग अलग-अलग जगह से सामान एक counter तक पहुँचाएँ
+    - reaction centre chlorophylls yaani खास chlorophyll a molecules जहाँ light energy electron transfer शुरू कराती है · image: कई रास्तों से आया सामान एक मुख्य dispatch counter पर पहुँचे
+    - kyon: A reaction centre needs a supply of captured light energy. _[standard]_ → Antenna pigments absorb light and funnel energy to it. _[book]_ → Excitation at the reaction centre supports electron transfer. _[standard]_
+    - example / jagah: A photosystem embedded in a thylakoid membrane.
+    - aage: Energy harvesting prepares the reaction centre for the electron-transfer sequence.
+    - screen par: Converge excitation flashes from antenna pigments onto chlorophyll a.
+    - is level ke liye: Show energy moving through the antenna, not the same electron hopping through all antenna pigments.
+  - prerequisites: pigments absorb light; chlorophyll a; energy transfer versus particle transfer
+- **p021-i6** · paragraph · comparison · both · exam high
+  - There are two photosystems, PS I and PS II. PS I has a 700 nm absorbing chlorophyll a P700 molecule at its reaction centre, while PS II has a P680 reaction centre that absorbs red light at 680 nm.
+    - compare: Compare the reaction centres of the two photosystems. → PS I has the chlorophyll a reaction centre P700, associated with absorption at 700 nm; PS II has P680, associated with absorption of red light at 680 nm.
+    - difference: What is the numerical distinction between P700 and P680? → Their named absorption wavelengths differ by 20 nm: 700 nm for PS I and 680 nm for PS II. _(outside the book)_
+      - what: What do PS, P and nm mean here? → PS abbreviates photosystem. P700 and P680 name the reaction-centre chlorophyll systems by their characteristic absorption wavelengths. nm means nanometre, a length unit equal to 10⁻⁹ metre; the numbers describe wavelength, not pigment quantity. _(outside the book)_
+      - why: Why does PS II come before PS I in the electron-transfer sequence despite the numerals? → The numbering reflects their order of discovery, not the order of non-cyclic electron flow. _(outside the book)_
+  - **khola (unpack):**
+    - photosystems yaani light पकड़ने और electron transfer शुरू करने वाली pigment-protein units · image: एक ही factory की दो अलग light-powered workstations
+    - nm yaani wavelength नापने की बहुत छोटी length unit, nanometre · image: ruler की unit से भी बेहद छोटी दूरी की unit
+    - kyon: The two reaction centres must be distinguished without confusing their roles. _[standard]_ → PS I is associated with P700 and PS II with P680. _[book]_ → Their numerals must not be mistaken for the order of electron flow. _[standard]_
+    - example / jagah: PS I and PS II in the chloroplast thylakoid membrane.
+    - aage: The next sequence must be read as PS II → PS I.
+    - screen par: Pair each photosystem with its reaction-centre label and wavelength.
+    - is level ke liye: The wavelengths refer to characteristic reaction-centre absorption, not to the only light absorbed by the entire antenna.
+  - prerequisites: reaction-centre chlorophyll a; wavelength and light absorption
+- **p021-i7** · paragraph · process · both · exam high
+  - After absorbing light, electrons are excited and transferred through PS II and PS I and finally to NAD [NADP⁺] forming NADH [NADPH].
+    - how: How does light absorption lead to a reduced electron carrier? → Excited electrons pass through the photosystem sequence PS II → PS I and ultimately reduce NADP⁺ to NADPH. _(outside the book)_
+    - when: When are electrons excited for this transfer? → The page places excitation after absorption of light, during the light reaction.
+      - why: Why must the printed NAD/NADH wording be corrected? → The reducing product of the standard photosynthetic light reaction is NADPH, formed from NADP⁺, not NADH from NAD. The page later correctly identifies NADPH as a product used in carbon fixation. _(outside the book)_
+      - what: What are NADP⁺ and NADPH doing in this mechanism? → NADP⁺ is the oxidised electron acceptor, and NADPH is its reduced form carrying reducing power. NADP stands for nicotinamide adenine dinucleotide phosphate; the plus sign denotes the oxidised form's charge notation. _(outside the book)_
+  - **khola (unpack):**
+    - excited yaani energy मिलने पर electron का ऊँची energy वाली हालत में जाना · image: गेंद को नीचे से ऊँची shelf तक उठाना
+    - NADPH yaani electrons लेकर carbon fixation को reducing power देने वाला carrier · image: charge लेकर अगले काम तक पहुँचने वाली rechargeable battery
+    - kyon: Carbon fixation requires a supply of reducing power. _[standard]_ → Light excites electrons that pass through PS II and PS I. _[book]_ → Their transfer to NADP⁺ produces NADPH for biosynthesis. _[standard]_
+    - example / jagah: Thylakoid electron transport, ending with NADPH formation on the stromal side.
+    - aage: NADPH links light capture to the reduction steps of the Calvin cycle.
+    - screen par: Trace electrons from PS II through PS I to NADP⁺.
+    - is level ke liye: Name the NADH/NADPH trap explicitly; use the correct carrier in all teaching answers.
+  - prerequisites: light excitation; electron transfer and reduction; PS II and PS I identities
+- **p021-i8** · paragraph · cause_effect · both · exam high
+  - During this process a proton gradient is created across the membrane of the thylakoid. The breakdown of the protons [proton] gradient due to movement through the F₀ part of the ATPase enzyme releases enough energy for synthesis of ATP.
+    - why: Why can a proton gradient support ATP synthesis? → The page states that breakdown of the gradient as protons move through the F₀ part of ATPase releases enough energy for ATP synthesis.
+    - how: How does proton movement couple to ATP production? → Protons accumulate in the thylakoid lumen and return towards the stroma through the membrane-spanning F₀ component. This flow drives ATP synthase, whose F₁ catalytic component forms ATP from ADP and inorganic phosphate. _(outside the book)_
+      - why: Why is an intact thylakoid membrane necessary? → It limits uncontrolled proton equilibration. A freely leaking membrane would dissipate the gradient without coupling its energy efficiently to ATP synthesis. _(outside the book)_
+      - what: What do the chemical and enzyme labels mean? → A proton is H⁺, a hydrogen ion. ATP is adenosine triphosphate; ADP is adenosine diphosphate. F₀ denotes the membrane proton-conducting component of ATP synthase; the subscript is a component label, not a concentration or unit. _(outside the book)_
+  - **khola (unpack):**
+    - proton gradient yaani membrane के दो तरफ H⁺ की मात्रा और electrical condition में फर्क · image: बाँध के दोनों तरफ पानी के level में फर्क
+    - F₀ yaani ATP synthase का membrane में लगा H⁺ जाने का रास्ता · image: बाँध में turbine तक पानी ले जाने वाला रास्ता
+    - ATP yaani cell के कामों में सीधे energy देने वाला molecule · image: काम चलाने के लिए तुरन्त खर्च किया जा सकने वाला छोटा energy token
+    - kyon: The cell needs captured energy in usable ATP form. _[standard]_ → Light-linked electron transport creates a proton gradient across the thylakoid membrane. _[book]_ → Proton return through ATP synthase couples gradient dissipation to ATP formation. _[standard]_
+    - example / jagah: Chloroplast → thylakoid membrane separating lumen from stroma.
+    - aage: ATP joins NADPH as a light-reaction supply used by the Calvin cycle.
+    - screen par: Accumulate H⁺ inside the lumen, then channel it through ATP synthase.
+    - is level ke liye: Distinguish gradient formation from its controlled breakdown; ATP synthesis is coupled to the latter.
+  - prerequisites: membrane-separated compartments; concentration gradient; ATP and ADP; electron transport
+- **p021-i9** · paragraph · process · both · exam high
+  - Splitting of water molecules is associated with PS II resulting in the release of O₂, protons and transfer of electrons to PS II.
+    - how: How does water splitting support the light reaction? → Water splitting is associated with PS II and provides electrons to PS II while releasing oxygen and protons.
+    - when: When does water supply replacement electrons? → During light-driven electron transport, after PS II has lost electrons, water oxidation supplies replacements through the oxygen-evolving machinery. _(outside the book)_
+      - why: Why is a replacement source of electrons needed? → A reaction centre that donates an electron must regain one to continue repeated charge separation. Water is the electron source for this photosynthetic flow. _(outside the book)_
+      - what: What does O₂ identify, and where does photosynthetic oxygen originate? → O₂ is molecular oxygen, with two oxygen atoms per molecule and no measurement unit. The released oxygen originates from water rather than CO₂. _(outside the book)_
+  - **khola (unpack):**
+    - Splitting of water yaani water से electrons निकालना, जिससे H⁺ और O₂ मिलते हैं · image: एक source से तीन अलग outputs निकलना
+    - kyon: PS II needs replacement electrons after electron donation. _[standard]_ → Water splitting supplies electrons to PS II and releases protons and O₂. _[book]_ → Electron replacement permits continued light-driven transport. _[standard]_
+    - example / jagah: The water-splitting system associated with PS II on the lumenal side of the thylakoid.
+    - aage: Water contributes electrons, lumenal protons and the oxygen released by photosynthesis.
+    - screen par: Split water into labelled electron, proton and oxygen outputs.
+    - is level ke liye: The term photolysis is commonly used for water splitting; do not place the process at PS I.
+  - prerequisites: PS II electron donation; water as a molecule; protons and electrons
+- **p021-i10** · paragraph · process · both · exam high
+  - In the carbon fixation cycle, CO₂ is added by the enzyme, RuBisCO, to a 5-carbon compound RuBP that is converted to 2 molecules of 3-carbon PGA. This is then converted to sugar by the Calvin cycle, and the RuBP is regenerated. During this process ATP and NADPH synthesised in the light reaction are utilised.
+    - how: How is CO₂ incorporated and the carbon acceptor reused? → RuBisCO adds CO₂ to five-carbon RuBP, leading to two molecules of three-carbon PGA. The Calvin cycle converts fixed carbon towards sugar, uses ATP and NADPH from the light reaction and regenerates RuBP.
+    - when: When are ATP and NADPH used? → They are utilised during the carbon fixation cycle after being synthesised in the light reaction.
+      - how: How does the first fixation step conserve carbon atoms? → One carbon from CO₂ combines with the five-carbon acceptor, giving six carbons in total. The unstable six-carbon intermediate yields two three-carbon PGA molecules: 1 + 5 = 2 × 3. _(outside the book)_
+      - why: Why must RuBP be regenerated rather than all fixed carbon becoming exported sugar? → RuBP is the acceptor for another incoming CO₂ molecule. Regenerating it lets fixation continue; only part of the reduced carbon can leave the cycle for carbohydrate synthesis. _(outside the book)_
+      - difference: What different contributions do ATP and NADPH make? → ATP supplies energy for phosphorylation and regeneration steps; NADPH supplies reducing power for reduction of the fixed-carbon intermediate. _(outside the book)_
+    - what: What are RuBisCO, RuBP and PGA? → RuBisCO is ribulose-1,5-bisphosphate carboxylase/oxygenase. RuBP is ribulose-1,5-bisphosphate, the five-carbon CO₂ acceptor. PGA here means 3-phosphoglycerate or 3-phosphoglyceric acid, a three-carbon product; the carbon counts are atoms per molecule, not units of mass. _(outside the book)_
+  - **khola (unpack):**
+    - RuBisCO yaani CO₂ को RuBP से जोड़ने वाला enzyme, जो oxygenation भी कर सकता है · image: जोड़ बनाने वाला worker जिसके पास दो तरह की reactions का विकल्प हो
+    - RuBP yaani पाँच carbon वाला CO₂ लेने का molecule, जिसे cycle फिर बनाती है · image: अगला सामान लेने के लिए बार-बार लौटती खाली tray
+    - PGA yaani CO₂ fixation के बाद मिलने वाला तीन carbon का compound · image: छह मोतियों को दो तीन-तीन के हिस्सों में बाँटना
+    - regenerated yaani इस्तेमाल के बाद फिर बन जाना ताकि अगला round चल सके · image: काम के बाद tray फिर counter पर लौट आए
+    - kyon: Incoming CO₂ needs an organic acceptor and its fixed carbon needs reduction. _[standard]_ → RuBisCO-mediated fixation produces PGA, and ATP and NADPH support further conversion. _[book]_ → Regeneration of RuBP keeps the carbon fixation cycle running. _[standard]_
+    - example / jagah: Leaf chloroplast stroma; trace one CO₂ into the Calvin cycle.
+    - aage: Carbohydrate synthesis depends on both light-reaction supplies and continuous acceptor regeneration.
+    - screen par: Join one carbon to five, split into two threes, and loop carbon back to RuBP.
+    - is level ke liye: The cycle does not turn each PGA directly into one glucose molecule; show reduction, partial carbon exit and regeneration without implying complete export.
+  - prerequisites: enzymes catalyse reactions; carbon atom counting; ATP and NADPH from light reactions; chloroplast stroma
+- **p021-i11** · paragraph · cause_effect · both · exam high
+  - RuBisCO also catalyses a wasteful oxygenation reaction in C₃ plants: photorespiration.
+    - why: Why is RuBisCO not simply a beneficial CO₂-fixing enzyme in every reaction? → The page states that it also catalyses a wasteful oxygenation reaction in C₃ plants, called photorespiration.
+    - how: How does oxygenation reduce the efficiency of carbon assimilation? → RuBisCO reacts RuBP with O₂ rather than CO₂. Recovery of the resulting carbon compounds consumes energy and releases some previously fixed carbon as CO₂, without the sugar gain provided by carboxylation. _(outside the book)_
+      - when: When is RuBisCO oxygenation favoured relative to carboxylation? → It becomes more important when the CO₂-to-O₂ availability around RuBisCO is low; warm conditions and stomatal closure can promote this situation in C₃ leaves. _(outside the book)_
+      - difference: How does photorespiration differ from ordinary cellular respiration? → Photorespiration begins with RuBisCO oxygenation and recovers products through a pathway that costs energy; it is not the ATP-producing breakdown of food that characterises cellular respiration. _(outside the book)_
+  - **khola (unpack):**
+    - oxygenation yaani RuBisCO का RuBP के साथ CO₂ की जगह O₂ की reaction कराना · image: सही input की जगह दूसरा input लगकर काम दूसरी दिशा में चला जाए
+    - photorespiration yaani light से जुड़ा वह pathway जिसमें oxygenation के बाद carbon और energy का नुकसान होता है · image: factory में तैयार माल का कुछ हिस्सा वापस खो जाना
+    - kyon: Efficient sugar production needs RuBisCO to fix CO₂. _[standard]_ → RuBisCO can instead catalyse oxygenation in C₃ plants. _[book]_ → This route reduces net carbon gain and motivates a CO₂-concentrating solution. _[standard]_
+    - example / jagah: C₃ leaf cells; oxygenation begins at RuBisCO in the chloroplast.
+    - aage: The C₄ pathway can be introduced as a way to supply concentrated CO₂ to the Calvin cycle.
+    - screen par: Branch RuBP towards CO₂ fixation or O₂-dependent carbon loss.
+    - is level ke liye: C₃ denotes a three-carbon first stable fixation product; it does not count the number of cycle steps.
+  - prerequisites: RuBisCO carboxylation; RuBP; CO₂ versus O₂; energy investment in carbon fixation
+- **p021-i12** · paragraph · process · both · exam high
+  - Some tropical plants show a special type of photosynthesis called C₄ pathway. In these plants the first product of CO₂ fixation that takes place in the mesophyll, is a 4-carbon compound. In the bundle sheath cells the Calvin pathway is carried out for the synthesis of carbohydrates.
+    - how: How is carbon fixation divided between cell types in a C₄ leaf? → Initial CO₂ fixation takes place in mesophyll cells and yields a four-carbon compound. The Calvin pathway operates in bundle sheath cells to synthesise carbohydrates.
+    - when: When does the Calvin pathway operate relative to initial mesophyll fixation? → In the standard C₄ mechanism, initial fixation produces a four-carbon acid that carries carbon to bundle sheath cells; released CO₂ then enters their Calvin cycle. _(outside the book)_
+      - why: Why is this spatial division useful? → Delivery and decarboxylation of four-carbon acids raise CO₂ around bundle sheath RuBisCO. This favours carboxylation and suppresses photorespiration. _(outside the book)_
+      - which: Which first acceptor, enzyme and product distinguish the C₄ initial step? → PEP, phosphoenolpyruvate, is the three-carbon acceptor; PEP carboxylase catalyses fixation to form the four-carbon oxaloacetic acid, OAA. This is distinct from RuBP and RuBisCO in the Calvin cycle. _(outside the book)_
+      - difference: Does being C₄ mean a plant lacks the Calvin cycle? → No. The page explicitly places the Calvin pathway in bundle sheath cells of C₄ plants.
+  - **khola (unpack):**
+    - C₄ pathway yaani वह pathway जिसमें शुरुआती CO₂ fixation का पहला stable product चार carbon वाला होता है · image: चार हिस्सों वाला carrier carbon को अगले काम की जगह तक ले जाए
+    - bundle sheath cells yaani leaf की vascular bundles के चारों तरफ की cells · image: बीच की pipe के चारों ओर लगी घेरती ring
+    - kyon: RuBisCO benefits from an increased local CO₂ supply to limit oxygenation. _[standard]_ → C₄ plants initially fix carbon into a four-carbon compound in mesophyll cells. _[book]_ → Carbon delivery to bundle sheath cells supports their Calvin cycle and suppresses photorespiration. _[standard]_
+    - example / jagah: C₄ leaf → mesophyll initial fixation → bundle sheath Calvin cycle; maize is a standard example.
+    - aage: Cell specialisation explains why a relatively small set of Calvin-cycle cells can support high productivity.
+    - screen par: Move a four-carbon carrier from mesophyll to bundle sheath and release CO₂ beside RuBisCO.
+    - is level ke liye: Name the trap: C₄ is an additional CO₂-concentrating route, not a replacement for the Calvin cycle. It also has an extra ATP cost.
+  - prerequisites: mesophyll and bundle sheath cells; Calvin cycle; RuBisCO oxygenation; carbon count in compounds
+- **p021-i13** · heading · none · both
+  - EXERCISES
+- **p021-i14** · question · comparison · both · exam high
+  - 1. By looking at a plant externally can you tell whether a plant is C₃ or C₄? Why and how?
+    - compare: Can external inspection reliably distinguish C₃ and C₄ plants? → No. General external appearance does not reliably reveal which biochemical carbon-fixation pathway a plant uses. _(outside the book)_
+    - difference: What is the relevant distinction that appearance does not establish? → C₃ plants initially form a three-carbon stable product through RuBisCO fixation; C₄ plants first form a four-carbon product in mesophyll cells and concentrate CO₂ for the bundle sheath Calvin cycle. _(outside the book)_
+      - why: Why is an external visual guess insufficient? → The defining differences concern internal leaf organisation, cell-specific enzymes and carbon-fixation chemistry, not a universal visible feature of overall plant shape. _(outside the book)_
+      - how: How should identification be pursued instead? → Examine appropriate leaf anatomy for Kranz organisation and, when confirmation is needed, use evidence of the carbon-fixation pathway rather than external appearance alone. _(outside the book)_
+  - prerequisites: C₃ and C₄ first stable products; external morphology versus internal anatomy
+- **p021-i15** · question · structure · both · exam high
+  - 2. By looking at which internal structure of a plant can you tell whether a plant is C₃ or C₄? Explain.
+    - what: What internal structure is examined for the expected C₃/C₄ anatomical distinction? → Examine a transverse section of the leaf for Kranz anatomy: conspicuous chloroplast-rich bundle sheath cells arranged around vascular bundles, with mesophyll organised around them, characteristic of typical C₄ leaves. _(outside the book)_
+    - where: Where is the diagnostic organisation located? → It is centred on leaf vascular bundles: bundle sheath cells surround each bundle and mesophyll lies outside the sheath. _(outside the book)_
+      - how: How does this arrangement support the C₄ mechanism? → Neighbouring mesophyll and bundle sheath cells provide sites for initial carbon fixation and the Calvin cycle, allowing four-carbon compounds to deliver CO₂ to bundle sheath RuBisCO. _(outside the book)_
+      - difference: How should a typical C₃ leaf be contrasted without making an anatomical error? → A typical C₃ leaf lacks the specialised chloroplast-rich Kranz organisation of a typical C₄ leaf. Do not claim that C₃ leaves have no bundle sheath cells at all. _(outside the book)_
+  - prerequisites: leaf transverse section; vascular bundles; bundle sheath and mesophyll; C₄ spatial division
+- **p021-i16** · question · cause_effect · both · exam high
+  - 3. Even though a very few cells in a C₄ plant carry out the biosynthetic – Calvin pathway, yet they are highly productive. Can you discuss why?
+    - why: Why can C₄ plants be highly productive although the Calvin cycle is restricted to relatively few cells? → Mesophyll cells capture carbon and deliver it as four-carbon acids to bundle sheath cells. Their decarboxylation concentrates CO₂ around RuBisCO, suppressing photorespiration and supporting efficient Calvin-cycle carbon gain in those specialised cells. _(outside the book)_
+    - how: How do cells not carrying out the Calvin cycle contribute to productivity? → Mesophyll cells are active partners: their initial fixation and carbon delivery supply CO₂ to the bundle sheath. Productivity depends on the coordinated pathway, not simply the fraction of cells directly performing the Calvin cycle. _(outside the book)_
+      - why: Why does concentrating CO₂ improve net carbon gain? → It favours RuBisCO carboxylation over oxygenation, so less previously fixed carbon and energy are lost through photorespiration. _(outside the book)_
+      - exception: Does this mean C₄ photosynthesis is cost-free or superior under every condition? → No. The CO₂-concentrating mechanism requires extra ATP. Its productivity advantage is particularly relevant under conditions favouring photorespiration, rather than being an unconditional advantage in every environment. _(outside the book)_
+  - prerequisites: C₄ mesophyll fixation; bundle sheath Calvin cycle; RuBisCO oxygenation; photorespiratory carbon loss
+
+## Page 22 · passed after 3 round(s)
+
+Exercises 4–9 assess C₄ suppression of photorespiration, chlorophyll and accessory pigments, leaf colour in darkness and shade, interpretation of a light-response graph, and three major photosynthesis comparisons.
+
+- **p022-i1** · question · cause_effect · both · exam high
+  - 4. RuBisCO is an enzyme that acts both as a carboxylase and oxygenase. Why do you think RuBisCO carries out more carboxylation in C₄ plants?
+    - what: Which two activities does the question attribute to RuBisCO? → The question states that RuBisCO acts as both a carboxylase and an oxygenase.
+    - how: What earlier idea makes these two enzyme activities understandable? → Recall RuBP, the five-carbon CO₂ acceptor of the Calvin cycle. RuBisCO can catalyse addition of CO₂ to RuBP: this is carboxylation, producing an unstable intermediate that splits into two three-carbon PGA molecules. It can instead catalyse addition of O₂ to RuBP: this is oxygenation, producing one PGA and one two-carbon phosphoglycolate. Picture the same workbench receiving either a CO₂ package or an O₂ package, with different products resulting. _(outside the book)_
+      - why: Why is oxygenation a disadvantage for carbon gain? → The two-carbon phosphoglycolate must be processed through the photorespiratory pathway. This recovery process consumes energy and releases some previously fixed carbon as CO₂ without producing sugar. Photorespiration therefore reduces the efficiency of photosynthetic carbon gain; it is not another name for ordinary mitochondrial respiration. _(outside the book)_
+    - how: How does a C₄ leaf deliver CO₂ to RuBisCO? → Recall that mesophyll is the photosynthetic tissue within the leaf, while bundle sheath cells surround its vascular bundles. In mesophyll cells, PEP carboxylase initially captures bicarbonate to form four-carbon oxaloacetic acid. Four-carbon acids then move to bundle sheath cells, where decarboxylation releases CO₂ beside RuBisCO. Like packing carbon at an outer collection desk and unpacking it at an inner workbench, this delivers a concentrated CO₂ supply to the Calvin cycle. _(outside the book)_
+      - why: Why does that delivery favour carboxylation in C₄ plants? → High CO₂ availability around bundle sheath RuBisCO favours its carboxylase reaction over its competing oxygenase reaction, strongly suppressing photorespiration. The mechanism changes the enzyme's surroundings; it does not require a different RuBisCO that has lost oxygenase activity. _(outside the book)_
+  - **khola (unpack):**
+    - carboxylase yaani CO₂ जोड़ने वाली reaction करवाने वाला enzyme · image: काम की मेज पर CO₂ वाला packet जोड़ना।
+    - oxygenase yaani O₂ जोड़ने वाली reaction करवाने वाला enzyme · image: उसी मेज पर दूसरा, O₂ वाला packet पहुँचना।
+    - photorespiration yaani RuBP की oxygenation के बाद बना compound सँभालने का रास्ता, जिसमें energy खर्च होती है और कुछ fixed carbon CO₂ बनकर निकलता है · image: गलत बने सामान को सुधारने में मेहनत लगे और कुछ सामान भी खो जाए।
+    - bundle sheath yaani leaf की vein के transport bundle को घेरने वाली cells की परत · image: तारों के गुच्छे के चारों ओर लगी sleeve।
+    - kyon: Carbon gain suffers when RuBisCO oxygenates RuBP and photorespiratory recovery loses carbon. _[standard]_ → Mesophyll cells package captured carbon into four-carbon acids that deliver CO₂ to bundle sheath cells. _[standard]_ → CO₂ released beside RuBisCO favours carboxylation and suppresses oxygenation. _[standard]_
+    - example / jagah: A maize leaf: trace carbon from mesophyll into the bundle sheath surrounding a vein.
+    - aage: The C₄ delivery mechanism reduces photorespiratory loss while retaining the Calvin cycle.
+    - screen par: Pack carbon, deliver it inward, release CO₂, and contrast CO₂ versus O₂ addition to RuBP.
+    - is level ke liye: Distinguish photorespiration from mitochondrial respiration and CO₂ concentration from an altered RuBisCO.
+  - prerequisites: RuBP as the Calvin-cycle CO₂ acceptor; enzyme-catalysed reactions; mesophyll and bundle sheath cells
+- **p022-i2** · question · cause_effect · both · exam high
+  - 5. Suppose there were plants that had a high concentration of Chlorophyll b, but lacked chlorophyll a, would it carry out photosynthesis? Then why do plants have chlorophyll b and other accessory pigments?
+    - what: Which earlier idea should be recalled before comparing chlorophyll a and b? → Recall a photosystem: a pigment–protein unit in the chloroplast's thylakoid membrane. Its antenna is a group of light-collecting pigments surrounding a reaction centre. Think of collectors passing their collected energy toward one working centre, rather than each collector independently running the whole process. _(outside the book)_
+      - how: What do excitation energy and charge separation mean here? → Absorbing light raises a pigment to a higher-energy, or excited, state. Antenna pigments pass this excitation energy toward the reaction centre; this is not the same as passing one electron through the entire antenna. At the reaction centre, excited chlorophyll a donates an electron to an acceptor, leaving positive and negative charges separated. This starts photochemical electron transfer. _(outside the book)_
+    - why: Why would abundant chlorophyll b not compensate for missing chlorophyll a? → In higher plants, the reaction-centre special pairs are chlorophyll a molecules. Chlorophyll b helps collect light but cannot simply replace these centres that initiate electron transfer. More collectors cannot compensate for the missing working centre, so normal photosynthesis would not proceed without chlorophyll a. _(outside the book)_
+      - why: Why retain accessory pigments if chlorophyll a initiates photochemistry? → Chlorophyll b and other accessory pigments absorb additional wavelengths and transfer excitation toward reaction-centre chlorophyll a, increasing useful light capture. Carotenoids also help dissipate excess excitation and protect the apparatus from photo-oxidative damage. Chlorophyll a itself also occurs among antenna pigments; it is not confined to the reaction centre. _(outside the book)_
+  - **khola (unpack):**
+    - photosystem yaani thylakoid membrane में pigments और proteins की मिलकर काम करने वाली unit · image: कई collectors और एक काम शुरू करने वाला centre, एक ही टीम में।
+    - antenna yaani रोशनी पकड़कर उसकी energy reaction centre तक पहुँचाने वाले pigments का समूह · image: कई लोग सामान इकट्ठा करके एक काम की मेज तक पहुँचाते हैं।
+    - reaction centre yaani वह हिस्सा जहाँ excited chlorophyll a से electron निकलकर acceptor तक जाता है · image: सामान इकट्ठा करने की जगह से अलग, वह मेज जहाँ असली काम शुरू होता है।
+    - excitation energy yaani रोशनी मिलने पर pigment में आई अतिरिक्त energy · image: झूले को धक्का देने पर वह ऊँचा उठता है; pigment की energy भी बढ़ती है।
+    - charge separation yaani electron देने वाला हिस्सा और electron लेने वाला हिस्सा अलग charges वाले हो जाते हैं · image: एक जगह से सिक्का दूसरी जगह गया: पहली जगह कमी, दूसरी जगह बढ़त।
+    - accessory pigments yaani chlorophyll a की मदद के लिए अलग wavelengths की रोशनी पकड़ने वाले pigments · image: अलग आकार की छलनियाँ अलग चीज़ें पकड़ती हैं; pigments अलग रंगों की रोशनी पकड़ते हैं।
+    - kyon: A plant needs both effective light collection and a way to turn that excitation into electron transfer. _[standard]_ → Antenna pigments broaden light capture and funnel excitation toward reaction-centre chlorophyll a. _[standard]_ → Without that chlorophyll a centre, more chlorophyll b supplies collection capacity but cannot restore the missing photochemical step. _[standard]_
+    - example / jagah: Zoom from a green leaf to a chloroplast, then to a photosystem embedded in its thylakoid membrane.
+    - aage: Accessory pigments complement chlorophyll a rather than replace its reaction-centre function.
+    - screen par: Collect light across an antenna, funnel excitation inward, then transfer an electron to an acceptor.
+    - is level ke liye: NEET trap: energy transfer through antenna pigments is distinct from reaction-centre electron transfer; chlorophyll a is also an antenna pigment.
+  - prerequisites: chloroplast thylakoid membrane; light absorption by pigments; electrons and electron acceptors
+- **p022-i3** · question · cause_effect · both · exam medium
+  - 6. Why is the colour of a leaf kept in the dark frequently yellow, or pale green? Which pigment do you think is more stable?
+    - what: Which pigments must be recalled before explaining the colour change? → Chlorophyll supplies the dominant green appearance of a healthy leaf. Carotenoids are accessory pigments including yellow xanthophylls and yellow-orange carotenes. Yellow pigments can already be present in a green leaf even though their colour is not prominent. _(outside the book)_
+    - how: What does pigment masking mean? → The strong visible contribution of chlorophyll can conceal the yellow contribution of other pigments. Imagine a yellow sheet hidden by a green cover: removing the green cover reveals yellow that was there already. The image represents visual dominance, not actual separate pigment layers within a leaf. _(outside the book)_
+      - why: Why can prolonged darkness make the leaf yellow or pale green? → Prolonged darkness impairs chlorophyll replenishment and can lead to chlorophyll loss. As its green contribution weakens, persistent yellow carotenoids, especially xanthophylls, become visible. If appreciable chlorophyll remains, the leaf may appear pale green rather than yellow. _(outside the book)_
+      - which: Which pigments are relatively more stable in this situation? → The yellow carotenoid pigments are relatively more stable than chlorophyll under the conditions described. Their visibility does not imply that darkness converted chlorophyll into carotenoids or created yellow pigment from nothing. _(outside the book)_
+  - **khola (unpack):**
+    - carotenoids yaani chlorophyll की मदद करने वाले pigments का समूह, जिसमें पीले xanthophylls और पीले-नारंगी carotenes आते हैं · image: हरे रंग के साथ मौजूद पीले और नारंगी रंग।
+    - xanthophylls yaani carotenoids में आने वाले पीले pigments · image: हरे cover के पीछे पहले से मौजूद पीली sheet।
+    - pigment masking yaani एक pigment का रंग इतना उभरना कि दूसरे का रंग साफ न दिखे · image: पीली sheet को ढकता हरा cover; यह रंग समझाने की मिसाल है।
+    - kyon: A green leaf may contain yellow pigments whose colour is concealed by chlorophyll's dominance. _[standard]_ → In prolonged darkness chlorophyll replenishment is impaired and chlorophyll can decline. _[standard]_ → The relatively persistent yellow pigments become visible; remaining chlorophyll can instead give pale green. _[standard]_
+    - example / jagah: Compare a green leaf before and after prolonged darkness.
+    - aage: The colour change reveals relative pigment persistence rather than newly formed yellow pigment.
+    - screen par: Fade green to reveal an already-present yellow contribution.
+    - is level ke liye: Distinguish complete darkness from shade acclimation in question 7.
+  - prerequisites: light absorption by leaf pigments; chlorophyll and green leaf colour
+- **p022-i4** · question · comparison · both · exam medium
+  - 7. Look at leaves of the same plant on the shady side and compare it with the leaves on the sunny side. Or, compare the potted plants kept in the sunlight with those in the shade. Which of them has leaves that are darker green ? Why?
+    - compare: What observation is commonly expected when healthy shade and sun leaves are compared? → Shade leaves commonly appear darker green than sun-exposed leaves of the same kind of plant. This is a usual shade response, not a guarantee for every species, leaf age or growing condition. _(outside the book)_
+    - what: What are shade acclimation and light-harvesting antenna complexes? → Acclimation means adjustment of a plant's functioning and structure to its available conditions; shade acclimation is adjustment to lower light. Recall that a photosystem's antenna is a group of pigments held by proteins that collect light and pass excitation energy toward the reaction centre. Think of several collectors feeding one working centre: more collection capacity can help when light is scarce. _(outside the book)_
+    - difference: What does a lower chlorophyll a:b ratio in shade leaves mean? → The ratio compares the amount of chlorophyll a with chlorophyll b. A lower a:b ratio means more b relative to a, not necessarily less a in absolute amount. As a purely illustrative example, 3 units of a to 1 of b gives a ratio of 3; 3 units of a to 2 of b gives 1.5. The second mixture has relatively more b. These are not measured values from this page. _(outside the book)_
+      - why: How do these adjustments help explain darker shade leaves? → With fewer incoming photons, investment in light-harvesting pigments helps intercept available light. Shade leaves commonly have more chlorophyll relative to tissue mass and relatively more chlorophyll b in antenna complexes. Greater pigment investment can give a darker-green appearance; the lower a:b ratio indicates antenna adjustment rather than independently proving a darker colour or a higher photosynthetic rate. _(outside the book)_
+      - how: How should the comparison distinguish shade from darkness? → Compare healthy leaves receiving lower and higher light, preferably on the same plant or comparable plants. Shade still provides light for photosynthesis and adjustment, whereas prolonged complete darkness can cause chlorophyll loss and yellowing. _(outside the book)_
+  - **khola (unpack):**
+    - shade acclimation yaani कम रोशनी के हिसाब से plant का अपना काम और बनावट ढालना · image: कम रोशनी में पढ़ने के लिए किताब की जगह बदलकर उपलब्ध उजाला लेना।
+    - antenna complex yaani pigments और proteins की टोली जो रोशनी पकड़कर energy reaction centre तक पहुँचाती है · image: कई collectors एक काम की मेज तक सामान पहुँचाते हैं।
+    - chlorophyll a:b ratio yaani chlorophyll a की मात्रा को b की मात्रा से तुलना करके बताना · image: तीन हरे tokens के साथ एक की जगह दो दूसरे tokens हों तो उनका आपसी अनुपात बदलता है।
+    - kyon: Shade supplies fewer photons, creating a need to capture available light effectively. _[standard]_ → Leaves can adjust their antenna investment and pigment composition, commonly increasing chlorophyll relative to tissue mass and b relative to a. _[standard]_ → Greater pigment investment can make shade leaves appear darker without implying a higher photosynthetic rate. _[standard]_
+    - example / jagah: Compare healthy shaded and sun-exposed leaves on the same plant.
+    - aage: Shade adjustment and prolonged-darkness yellowing are different responses.
+    - screen par: Reduce incoming photons, enlarge the collecting antenna, and compare a and b token groups.
+    - is level ke liye: A ratio reports relative composition, not absolute pigment amount.
+  - prerequisites: chlorophyll a and chlorophyll b; light absorption by photosynthetic pigments; ratios as relative amounts
+- **p022-i5** · question · none · both
+  - 8. Figure 11.10 shows the effect of light on the rate of photosynthesis. Based on the graph, answer the following questions:
+  - prerequisites: reading axes and slopes on a graph; light intensity and photosynthesis rate
+- **p022-i6** · question · cause_effect · both · exam high
+  - (a) At which point/s (A, B or C) in the curve is light a limiting factor?
+    - what: What should be recalled before deciding whether light limits a plotted rate? → On a typical light-response graph, the horizontal axis shows light intensity and the vertical axis shows photosynthetic rate. A limiting factor is a requirement whose shortage constrains the rate under the current conditions. It resembles the slowest service counter holding up a queue: increasing another counter's capacity does not remove that bottleneck. _(outside the book)_
+    - how: How do the rising segment, slope and plateau reveal the response to light? → Move rightward to increase light and check how far the curve rises. Slope means the change in rate for a change in light. A rising segment has a positive slope: extra light raises the rate. A nearly horizontal plateau has little slope: extra light produces little further increase. Light saturation describes this latter condition, in which light is no longer the main constraint. _(outside the book)_
+      - how: Can a small example make this test concrete without reconstructing Figure 11.10? → Purely illustrative values in arbitrary units: if light increases from 10 to 20 and rate rises from 2 to 4 while other conditions remain fixed, the response shows light limitation in that interval. If a further light increase from 40 to 50 leaves rate at 6, that interval is light-saturated. These invented teaching values are not observations or letter positions from the missing figure. _(outside the book)_
+      - why: Why is response to added light more useful than the rate alone? → A rate can be low for several reasons. Its increase after adding light demonstrates that insufficient light was constraining it; a rate value alone cannot identify the limiting requirement. _(outside the book)_
+    - which: Can the answer among A, B and C be verified here? → No. Figure 11.10 is absent. Inspect the referenced figure and choose labelled locations on its light-responsive rising segment rather than assigning letters from the exercise wording alone. _(outside the book)_
+  - **khola (unpack):**
+    - limiting factor yaani जिस जरूरत की कमी इस समय rate को आगे बढ़ने से रोक रही है · image: सबसे धीमे counter पर अटकी पूरी queue।
+    - slope yaani light में बदलाव पर rate कितना बदलता है, इसका माप · image: दाईं ओर चलते हुए रास्ता कितना ऊपर चढ़ता है।
+    - light saturation yaani इतनी light मिलना कि और light बढ़ाने पर rate खास न बढ़े · image: काम की मेज भर चुकी हो तो और सामान भेजने से काम तेज न होना।
+    - kyon: A low rate alone does not identify which requirement is insufficient. _[standard]_ → Increase light with other conditions fixed and observe the vertical change in rate. _[standard]_ → A rise shows light responsiveness; a plateau directs attention to other constraints. _[standard]_
+    - example / jagah: Illustrative arbitrary-unit comparison only: light 10→20, rate 2→4; at saturation light 40→50, rate 6→6.
+    - aage: The curve's response identifies light limitation without guessing missing labels.
+    - screen par: Move right along the light axis, rise with the curve, then flatten into a plateau.
+    - is level ke liye: These illustrative numbers do not reconstruct Figure 11.10.
+  - prerequisites: horizontal and vertical graph axes; photosynthetic rate; changing one experimental condition while holding others fixed
+- **p022-i7** · question · cause_effect · both · exam high
+  - (b) What could be the limiting factor/s in region A?
+    - what: What might limit the rate if region A is the light-saturated plateau? → If the referenced figure confirms that A is the plateau, CO₂ availability, temperature-dependent enzyme activity or the capacity of carbon-fixation reactions could constrain the rate. Water shortage can also restrict photosynthesis. A plateau alone does not identify one unique limiting factor. _(outside the book)_
+    - how: What does biochemical capacity mean, and why can enzymes impose a limit? → Biochemical capacity is how much processing the leaf's reactions can perform per unit time. Carbon fixation requires enzymes, which are protein catalysts with finite working rates. Their activity depends on conditions such as temperature: warming may help below the optimum, whereas excessive heat can impair activity. Think of a kitchen with ample electricity but only a few cooks: extra electricity cannot make preparation exceed the cooks' current capacity. _(outside the book)_
+      - why: How can water shortage restrict CO₂ fixation even when light is abundant? → Stomata are small pores in the leaf epidermis whose opening is regulated by guard cells. CO₂ enters through these pores, while water vapour can escape. Water shortage promotes stomatal closure to conserve water; narrower pores reduce CO₂ entry, decreasing the carbon supply for fixation. This is the chain water shortage → pore closure → reduced CO₂ entry → restricted photosynthesis. _(outside the book)_
+      - why: Why does extra light fail to remove these limits? → More light cannot itself supply missing CO₂ or remove an enzyme-processing bottleneck. Once the light-dependent energy supply is sufficient under the prevailing conditions, another requirement controls the throughput. _(outside the book)_
+      - how: How could an experiment identify the limiting requirement? → Hold light constant and change one candidate factor at a time, such as raising CO₂ or moving temperature toward the optimum. An increased rate indicates that the changed factor had constrained photosynthesis. Verify A's position in the missing figure before applying this plateau interpretation. _(outside the book)_
+  - **khola (unpack):**
+    - biochemical capacity yaani leaf की reactions एक समय में जितना काम कर सकती हैं · image: बिजली पूरी है, पर कुछ ही रसोइये खाना बना सकते हैं।
+    - stomata yaani leaf की बाहरी परत के छोटे pores जिनसे CO₂ अंदर और water vapour बाहर जा सकती है · image: दरवाजा छोटा बंद हो तो अंदर आने वाला सामान भी कम हो जाए।
+    - kyon: Even with abundant light, carbon fixation needs CO₂ and functioning enzymes. _[standard]_ → Finite enzyme activity or restricted CO₂ entry can become the bottleneck; water shortage can close stomata and reduce that entry. _[standard]_ → Adding light cannot remove this bottleneck, so test another requirement while holding light fixed. _[standard]_
+    - example / jagah: A water-stressed leaf with partly closed stomata under strong sunlight.
+    - aage: A light-saturated rate can rise only if a relevant non-light constraint is relieved.
+    - screen par: Narrow a leaf pore, reduce entering CO₂ particles, and hold the light beam constant.
+    - is level ke liye: Interpret A as a plateau only after checking Figure 11.10; temperature increases do not improve rate indefinitely.
+  - prerequisites: enzyme activity and temperature; CO₂ as a substrate for carbon fixation; leaf epidermis and gas exchange
+- **p022-i8** · question · cause_effect · both · exam high
+  - (c) What do C and D represent on the curve?
+    - what: Can C and D be assigned meanings from this page? → No. The curve, axes and positions of C and D are absent. Their meanings must be checked against Figure 11.10 rather than inferred from their letters. _(outside the book)_
+    - what: What is the distinction between gross fixation and net exchange? → Gross photosynthesis counts CO₂ fixed by photosynthesis before subtracting respiratory CO₂ release. Net exchange is the balance measured between uptake and release, taking uptake as positive. Like money received minus money spent, a zero balance need not mean that neither flow occurred. For this introductory balance, net uptake equals gross photosynthetic fixation minus respiratory release. _(outside the book)_
+      - how: How does a numerical balance explain the light compensation point? → Use purely illustrative rates in μmol CO₂ m⁻² s⁻¹, meaning micromoles of CO₂ per square metre of leaf per second. If gross fixation is 2 and respiratory release is 2, net uptake is 2−2=0. The light intensity producing this balance is the light compensation point. If added light raises gross fixation to 5 while release remains 2 in this example, net uptake becomes 3. These numbers are teaching examples, not data from Figure 11.10. _(outside the book)_
+      - how: What does the zero-light case show? → At zero light, sustained light-driven photosynthetic fixation is absent, while mitochondrial respiration can continue. If gross fixation is 0 and respiratory release is 2 in the same illustrative units, net uptake is 0−2=−2. The negative value denotes CO₂ leaving the leaf, not negative gross photosynthesis. _(outside the book)_
+      - why: How should compensation and dark respiration be recognised on a suitable graph? → On a graph of net CO₂ uptake against light intensity, the zero crossing at a positive light intensity marks compensation, where gross fixation balances respiration. The negative intercept at zero light represents respiratory CO₂ release in darkness. Only after inspecting the actual plotted positions should either feature be assigned to C or D. _(outside the book)_
+  - **khola (unpack):**
+    - gross photosynthesis yaani respiration में निकलने वाला CO₂ घटाने से पहले photosynthesis में fix हुआ पूरा CO₂ · image: खर्च घटाने से पहले मिली पूरी रकम।
+    - net photosynthesis yaani photosynthesis में लिया CO₂ और respiration में छोड़ा CO₂, इनका बचा हुआ balance · image: आमदनी में से खर्च घटाकर बची रकम।
+    - light compensation point yaani वह light intensity जहाँ CO₂ fixation और respiratory release बराबर हों · image: दो बराबर पलड़ों वाला तराजू; दोनों तरफ चीजें हैं, पर balance शून्य है।
+    - dark respiration yaani अँधेरे में भी जारी रहने वाली respiration से CO₂ निकलना · image: आमदनी रुकी हो, फिर भी जरूरी खर्च चलता रहे।
+    - kyon: A gas-exchange measurement combines CO₂ uptake and release, so zero exchange needs explanation. _[standard]_ → Equal gross fixation and respiratory release cancel in the net balance even though both occur. _[standard]_ → At zero light, fixation is absent but respiration can continue, producing negative net uptake. _[standard]_
+    - example / jagah: Illustrative rates: fixation 2 minus respiration 2 gives 0 at compensation; in darkness 0 minus 2 gives −2.
+    - aage: A zero crossing and a negative dark intercept represent different physiological conditions.
+    - screen par: Balance inward and outward CO₂ arrows, then remove the inward arrow at zero light.
+    - is level ke liye: The illustrative balance explains graph features but does not establish the missing C/D label assignments.
+  - prerequisites: CO₂ uptake during photosynthesis; CO₂ release during respiration; positive and negative graph values
+- **p022-i9** · question · none · both
+  - 9. Give comparison between the following:
+- **p022-i10** · question · comparison · both · exam high
+  - (a) C₃ and C₄ pathways
+    - what: How should acceptor, enzyme and product be distinguished before comparing the pathways? → Imagine incoming carbon arriving at a workbench. The acceptor is the existing molecule that receives the carbon; the enzyme is the catalyst that enables the reaction; the product is the molecule formed afterward. The enzyme is neither the acceptor nor the product. C₃ and C₄ name the carbon count of the first stable fixation product, not the initial acceptor. _(outside the book)_
+    - compare: What receives carbon, which enzyme acts, and what appears first in each pathway? → In C₃ fixation, ribulose bisphosphate (RuBP), a five-carbon sugar with two phosphate groups, receives CO₂ through RuBisCO activity. The unstable six-carbon intermediate splits into two molecules of three-carbon 3-phosphoglyceric acid (3-PGA). In initial C₄ fixation, phosphoenolpyruvate (PEP), a three-carbon acceptor, combines with bicarbonate through PEP carboxylase activity to form four-carbon oxaloacetic acid (OAA), the first stable product. _(outside the book)_
+    - difference: How do location and photorespiration differ? → In typical C₃ leaves, initial fixation and the Calvin cycle occur in mesophyll chloroplasts. Oxygenation by RuBisCO can cause appreciable photorespiration, especially when warm conditions and stomatal closure restrict CO₂. In typical C₄ leaves, initial fixation occurs in mesophyll cells and four-carbon acids deliver carbon to bundle sheath cells. CO₂ released there supplies the Calvin cycle and strongly suppresses RuBisCO oxygenation. _(outside the book)_
+      - why: Why is C₄ not an alternative that eliminates the Calvin cycle? → The initial C₄ reactions act like a carbon delivery and concentration system. After delivery, CO₂ still enters the Calvin cycle through RuBisCO and produces 3-PGA. C₄ plants therefore use the Calvin cycle as well as their preliminary four-carbon pathway. _(outside the book)_
+    - compare: What do ATP and NADPH contribute, and how do energy costs compare? → ATP, adenosine triphosphate, provides usable energy for reaction steps, like a rechargeable energy token. NADPH, reduced nicotinamide adenine dinucleotide phosphate, carries high-energy electrons used to reduce fixed carbon toward carbohydrate, like a loaded delivery carrier. The Calvin cycle uses 3 ATP and 2 NADPH per CO₂ fixed. Standard C₄ operation adds about 2 ATP equivalents per CO₂ for regenerating PEP, giving about 5 ATP equivalents and 2 NADPH overall. _(outside the book)_
+      - why: Why can the extra energy expenditure be worthwhile? → Concentrating CO₂ reduces the waste associated with photorespiration. In warm, bright conditions this benefit can outweigh the extra ATP cost. C₄ plants generally have higher temperature optima and better water-use efficiency than C₃ plants; wheat and rice illustrate C₃ plants, while maize and sugarcane illustrate C₄ plants. _(outside the book)_
+  - **khola (unpack):**
+    - CO₂ acceptor yaani पहले से मौजूद molecule जो आने वाला carbon पकड़ता है · image: आए हुए सामान को रखने वाली खाली ट्रे।
+    - RuBP yaani ribulose bisphosphate: पाँच carbon वाला sugar, जिस पर दो phosphate groups हैं; Calvin cycle का CO₂ acceptor · image: पाँच खाने वाली ट्रे पर एक नया carbon आता है, फिर बनी चीज़ दो हिस्सों में बँटती है।
+    - PEP yaani phosphoenolpyruvate: तीन carbon वाला molecule, जो C₄ की शुरुआती fixation में carbon लेता है · image: तीन जुड़े डिब्बों में एक डिब्बा और जोड़ना।
+    - OAA yaani oxaloacetic acid: C₄ fixation का पहला टिकने वाला चार-carbon product · image: तीन डिब्बों में एक जुड़ा, अब चार का समूह बना।
+    - 3-PGA yaani 3-phosphoglyceric acid: Calvin cycle में fixation के बाद मिलने वाला तीन-carbon product · image: छह टुकड़ों का समूह टूटकर तीन-तीन के दो समूह बनता है।
+    - ATP yaani adenosine triphosphate: reactions चलाने के लिए इस्तेमाल होने वाली energy देने वाला molecule · image: काम में खर्च होने और फिर charge होने वाला energy token।
+    - NADPH yaani reduced nicotinamide adenine dinucleotide phosphate: carbon को carbohydrate की ओर बदलने के लिए electrons पहुँचाने वाला carrier · image: ज़रूरी सामान लेकर पहुँची हुई delivery गाड़ी।
+    - kyon: Incoming carbon must be captured before it can be built into carbohydrate; distinguish the receiver, catalyst and resulting product. _[standard]_ → C₃ fixation feeds the Calvin cycle directly, whereas initial C₄ fixation packages carbon into four-carbon acids for delivery near RuBisCO. _[standard]_ → Delivery raises local CO₂ and reduces photorespiration, but regenerating the initial PEP acceptor costs extra ATP. _[standard]_
+    - example / jagah: Compare a wheat leaf with a maize leaf: trace carbon from initial capture to the chloroplast where the Calvin cycle operates.
+    - aage: C₄ is a CO₂-concentrating addition to, not a replacement for, the Calvin cycle.
+    - screen par: Receive carbon, label the catalyst, count product carbons, then deliver carbon to the Calvin cycle.
+    - is level ke liye: NEET: C₃ acceptor has five carbons; C₄ acceptor has three. Initial C₄ fixation uses PEP carboxylase, but its Calvin cycle still uses RuBisCO.
+  - prerequisites: carbon atoms in organic molecules; enzymes as catalysts; mesophyll and bundle sheath cells; Calvin cycle and photorespiration
+- **p022-i11** · question · comparison · both · exam high
+  - (b) Cyclic and non-cyclic photophosphorylation
+    - what: Which compartments and terms should be recalled before tracing electrons? → Inside a chloroplast, the stroma is the fluid outside the flattened thylakoid sacs; the lumen is the space inside each sac. The thylakoid membrane separates them and contains electron carriers, photosystems and ATP synthase. Photosystems I and II (PSI and PSII) are light-capturing pigment–protein units with reaction centres P700 and P680 respectively; their numbers are not their order in non-cyclic flow. Photophosphorylation means using light-driven processes to add inorganic phosphate to ADP and form ATP. _(outside the book)_
+    - compare: How do photosystem participation and electron routes compare? → Cyclic photophosphorylation uses PSI: excited electrons pass through carriers and return to PSI, like a circular route. Non-cyclic flow uses both photosystems: electrons move from water through PSII, carriers and PSI to NADP⁺, forming NADPH. This is a source-to-destination route rather than a return to the original reaction centre. _(outside the book)_
+    - difference: How do products and water splitting differ? → Cyclic flow supports ATP formation without net NADPH formation, water splitting or O₂ evolution. Non-cyclic flow supports ATP and NADPH formation; splitting water replaces electrons lost by PSII and releases O₂. NADP⁺ is the unloaded electron acceptor, whereas NADPH is its reduced, electron-carrying form. _(outside the book)_
+      - how: How does a proton gradient connect electron transport to ATP production? → Light-driven electron transport supports H⁺ accumulation inside the thylakoid lumen relative to the stroma. This difference, together with the electrical contribution, stores energy across the membrane: imagine water held at different levels on opposite sides of a barrier. H⁺ return from lumen to stroma through ATP synthase, a membrane-spanning molecular machine. That flow powers ATP formation from ADP and inorganic phosphate, rather as controlled water flow powers a turbine. _(outside the book)_
+        - why: Why can cyclic flow make ATP even though its electrons return? → The electron circuit can drive proton movement and build the gradient before the electrons return to PSI. The gradient, not the mere return of an electron to chlorophyll, powers ATP synthase. Cyclic flow can therefore supplement ATP without also producing NADPH. _(outside the book)_
+    - where: Where do stroma lamellae fit into the comparison? → Grana are stacks of thylakoids; stroma lamellae are the unstacked membrane connections between them, like bridges between stacks. In the NCERT account, stroma lamellae lack PSII and NADP reductase, favouring cyclic PSI flow there. Non-cyclic flow requires the coordinated PSII–PSI machinery. _(outside the book)_
+  - **khola (unpack):**
+    - photophosphorylation yaani रोशनी से चलने वाली प्रक्रिया के सहारे ADP में phosphate जोड़कर ATP बनाना · image: धूप से मिली energy से rechargeable token दोबारा तैयार करना।
+    - PSI and PSII yaani रोशनी पकड़कर electron transfer शुरू करने वाली दो photosystem units; इनके centres P700 और P680 हैं · image: एक रास्ते पर दो energy देने वाले पड़ाव; non-cyclic flow में II पहले आता है।
+    - stroma and lumen yaani stroma thylakoid के बाहर का fluid है; lumen thylakoid की थैली के अंदर की जगह है · image: पानी में रखी बंद थैली: बाहर का पानी और थैली के अंदर की जगह अलग हैं।
+    - proton gradient yaani membrane के दोनों ओर H⁺ की मात्रा और charge में ऐसा फर्क जिसमें energy जमा है · image: बाँध के दोनों ओर पानी का अलग स्तर।
+    - ATP synthase yaani membrane में लगी protein machine जो H⁺ के बहाव से ATP बनाती है · image: पानी के बहाव से घूमकर काम करने वाली turbine।
+    - stroma lamellae yaani grana के thylakoid stacks को जोड़ने वाली बिना stack की membrane · image: सिक्कों के दो ढेरों को जोड़ता पतला पुल।
+    - kyon: The chloroplast needs ATP, so light energy must be converted into a form that ATP-making machinery can use. _[standard]_ → Electron transport builds a proton gradient across the thylakoid membrane, storing energy like water held behind a barrier. _[standard]_ → Protons return through ATP synthase to power ATP production; cyclic flow builds this energy store without net NADPH formation. _[standard]_
+    - example / jagah: Zoom into a chloroplast: mark stroma outside a thylakoid, lumen inside it, and ATP synthase spanning the boundary.
+    - aage: Both electron routes can support ATP synthesis, but only non-cyclic flow supplies net NADPH and releases O₂.
+    - screen par: Trace a loop versus a through-route, accumulate H⁺ in the lumen, then let H⁺ return through ATP synthase.
+    - is level ke liye: NEET traps: PSI numbering does not indicate the first step; cyclic flow does not split water; ATP synthesis is driven by H⁺ return into the stroma.
+  - prerequisites: chloroplast and thylakoid membranes; electron transfer and electron acceptors; ADP, phosphate and ATP; ions moving across a membrane
+- **p022-i12** · question · comparison · both · exam high
+  - (c) Anatomy of leaf in C₃ and C₄ plants
+    - where: How can the student locate the relevant tissues starting from a familiar leaf? → Begin with a leaf and its visible veins, then imagine cutting across a vein. Inside is a vascular bundle containing xylem and phloem, the transport tissues. Bundle sheath cells surround this bundle like a sleeve around cables. Farther outward lies the mesophyll, the photosynthetic tissue between the leaf's upper and lower epidermis. In a typical C₄ cross-section, read outward as vascular bundle, bundle sheath, then surrounding mesophyll. _(outside the book)_
+    - compare: How do typical C₃ and C₄ leaves compare around the vascular bundle? → Typical C₄ leaves show Kranz anatomy: conspicuous, large bundle sheath cells form a wreath-like ring around the vascular bundle, with mesophyll arranged around them. Kranz means wreath. Typical C₃ leaves lack this specialised arrangement; they may still have bundle sheath cells, but not the comparably developed chloroplast-rich C₄ compartment. _(outside the book)_
+    - difference: Which bundle sheath features distinguish the standard C₄ description? → C₄ bundle sheath cells have numerous chloroplasts, thick walls restricting gas exchange, and no intercellular spaces between them. Their chloroplasts house the Calvin cycle. In typical C₃ leaves, Calvin-cycle activity is mainly in mesophyll chloroplasts rather than concentrated in this specialised sheath. _(outside the book)_
+      - how: How does the spatial arrangement support carbon delivery? → Mesophyll cells initially fix carbon into four-carbon compounds, which are transferred to nearby bundle sheath cells. Decarboxylation there releases CO₂ close to RuBisCO. The close arrangement supports transfer, while restricted outward diffusion helps retain CO₂, favouring carboxylation and suppressing photorespiration. _(outside the book)_
+      - why: Why should other leaf features not be used as universal C₃/C₄ tests? → Palisade–spongy differentiation and the degree of chloroplast granal development vary with plant group and C₄ subtype. The central comparison here is the specialised bundle sheath and its relationship with mesophyll, not an absolute claim that C₃ leaves have no sheath or that every C₄ chloroplast has the same internal structure. _(outside the book)_
+  - **khola (unpack):**
+    - vascular bundle yaani leaf की vein के अंदर xylem और phloem का साथ लगा transport समूह · image: एक ही रास्ते में साथ रखी पानी की पाइप और सामान ले जाने की लाइन।
+    - bundle sheath yaani vascular bundle के चारों ओर लगी cells की घेरने वाली परत · image: तारों के गुच्छे के चारों ओर चढ़ी sleeve।
+    - mesophyll yaani leaf की ऊपर और नीचे की epidermis के बीच का photosynthesis करने वाला tissue · image: sandwich की दोनों बाहरी परतों के बीच की भराई; इसमें veins भी गुजरती हैं।
+    - Kranz anatomy yaani vascular bundle के चारों ओर बड़ी bundle sheath cells और बाहर mesophyll की खास wreath-जैसी बनावट · image: बीच में गुच्छा, उसके चारों ओर माला, और माला के बाहर दूसरा घेरा।
+    - decarboxylation yaani किसी compound से CO₂ निकलना · image: delivery packet खोलकर उसके अंदर का सामान काम की जगह पर निकालना।
+    - kyon: C₄ photosynthesis needs to deliver captured carbon to a protected site near RuBisCO. _[standard]_ → Mesophyll surrounds the bundle sheath, allowing four-carbon compounds to reach neighbouring sheath cells and release CO₂ there. _[standard]_ → The chloroplast-rich sheath and restricted gas escape help maintain local CO₂, linking Kranz structure to reduced photorespiration. _[standard]_
+    - example / jagah: A maize leaf cross-section: zoom from a visible vein to its vascular bundle, surrounding bundle sheath and outer mesophyll.
+    - aage: An anatomical arrangement enables cooperation between two cell types; C₃ leaves should not be described as lacking bundle sheaths altogether.
+    - screen par: Cut across a vein, reveal nested tissues, and move four-carbon compounds from mesophyll into the sheath.
+    - is level ke liye: NEET: identify Kranz anatomy from spatial arrangement and bundle sheath features; avoid universal claims about grana or palisade–spongy differentiation.
+  - prerequisites: leaf veins and epidermis; xylem and phloem transport; chloroplasts as sites of photosynthesis; C₄ initial fixation and Calvin cycle
