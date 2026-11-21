@@ -166,6 +166,14 @@ with a process written inside a box instead of happening on screen):
   its context and basics are still clear here: what goes in, what comes out, why it matters for this question, shown
   slowly; its step-by-step details stay in its own film. A process that comes back to where it began (the Calvin cycle
   making RuBP again) is shown as a wheel (cycles), so the learner sees it return.
+- THE WHOLE MECHANISM. A machine that turns is shown turning: a spin effect on the part that turns, in the sentence that
+  says so (ATP synthase: H+ flowing through CF0 turns the central stalk, and the turning stalk changes the shape of CF1's
+  catalytic parts). A sentence that says something is made again (RuBP dobara banta hai) has a wheel in its shot.
+- MOLECULES MEETING (Navin, 21 November 2026: "achhe coordination ke saath, khichdi si na pake"). Where molecules meet
+  (ADP + Pi → ATP at CF1's catalytic head; CO2 + RuBP → 3-PGA at Rubisco), show one meeting at a time: one react per
+  sentence; every molecule that flies in or comes out is named in that sentence; the inputs come from where they really
+  are and meet on the enzyme's site in the picture; besides the meeting, at most one other flow moves in that sentence.
+  BIE times the flash to the moment the sentence names the product.
 - ONE THING AT A TIME. At most {kinds} different molecules on screen at once (a swarm of one kind, such as many H+, counts
   as one); a step that needs more is split over sentences or shots, so the learner always sees what is happening. A
   wheel (cycles) with n stations is started by one sentence that names it and its stations, then keeps turning for n
@@ -197,6 +205,10 @@ with a process written inside a box instead of happening on screen):
     behind a dam (baandh), or a battery's higher and lower potential; and he points the learner's attention: "Par gaur
     karne wali baat hai ...", "Dekhiye kaise ...".
   - The recap opens "Is video se aapko yeh baatein yaad rakhni hain: ...".
+  - From his film A, which he judged the most natural (21 November 2026): every shot that shows a mechanism (molecules
+    meeting, a turning machine, a wheel) asks a question before it happens, so the voice pauses there; an everyday
+    picture comes every two or three shots, not once in the film; cause and effect stay in one flowing sentence
+    ("jisse ...", "jiske kaaran ...") instead of short cut-up pieces.
 - Shots: {shots} shots for this film ({length}). Each shot has one visual and 2 to 6 short sentences spoken over it, about
   {shot_chars} characters of roman at most (about 40 seconds); a longer shot is split into a closer look. A structure seen
   in two pictures keeps its side (left or right) in both: write its place into each image_prompt, and pin it there.
@@ -235,7 +247,7 @@ with a process written inside a box instead of happening on screen):
   and gives (molecules that leave here, e.g. ADP, NADP+, G3P). Example for the Calvin cycle: stations at 300 "fixation"
   (becomes 3-PGA, takes CO2), 90 "reduction" (becomes G3P, takes ATP and NADPH, gives ADP, NADP+ and G3P), 200
   "regeneration" (becomes RuBP, takes ATP, gives ADP).
-  effects can also be spin (a turning rotor, such as the head of ATP synthase; the box is where it turns).
+  effects can also be spin (a turning rotor, such as the central stalk of ATP synthase; the box is where it turns).
   Use [] when nothing moves in that sentence. EVERY shot moves in at least one sentence, and in a long film at least half
   of all sentences move (moves, grows, fuses, reacts or cycles).
 - At most 3 pins per sentence and at most 6 on a picture overall; labels of 1 to 3 words; two pins of one sentence are
@@ -285,7 +297,8 @@ THE PICTURE CUPBOARD (almaari). These pictures were made before and kept, each j
 approved keeping the best pictures, 21 November 2026). When a shot needs one of these scenes, use the kept picture: set
 visual.library to its id, keep visual.type as given, and copy its description into visual.image_prompt; place pins,
 moves, reacts and the rest on what it shows (its labelled places are listed). Draw a new picture (visual.library "")
-only when no kept picture shows what the shot needs; a new picture keeps the kept pictures' colours and layout.
+only when no kept picture shows what the shot needs; a new picture keeps the kept pictures' colours and layout. Close-ups
+of one structure in one film come from one set (the set is listed), so the machine keeps one look from shot to shot.
 
 {entries}"""
 
@@ -295,7 +308,7 @@ def _library_part(question: dict) -> str:
     entries = question.get("library") or []
     if not entries:
         return ""
-    text = "\n".join(f"- {e.get('id')} ({e.get('type', 'cutaway')}, scale: {e.get('scale', '')}): {e.get('shows', '')}"
+    text = "\n".join(f"- {e.get('id')} ({e.get('type', 'cutaway')}, set {e.get('set') or '-'}, scale: {e.get('scale', '')}): {e.get('shows', '')}"
                      + (f"\n  labelled places: " + ", ".join(f"{p.get('label')} ({p.get('x')},{p.get('y')})" for p in e.get("places") or [])
                         if e.get("places") else "") for e in entries)
     return LIBRARY_PART.format(entries=text)
@@ -315,6 +328,15 @@ def library_problems(film: dict, question: dict) -> list:
                        "(visual.library \"\")")
         elif (shot.get("visual") or {}).get("type") not in ("photo", "cutaway"):
             out.append(f"{sid}: a kept picture is a photo or cutaway visual, not {(shot.get('visual') or {}).get('type')!r}")
+    used = {}
+    for number, shot in enumerate(film.get("shots") or [], 1):
+        e = kept.get(((shot.get("visual") or {}).get("library") or "").strip())
+        if e and ":" in (e.get("scale") or "") and e.get("set"):
+            group = e["scale"].split(":", 1)[0].strip().lower()
+            first = used.setdefault(group, (shot.get("id") or f"shot {number}", e["set"]))
+            if first[1] != e["set"]:
+                out.append(f"{shot.get('id') or f'shot {number}'}: {group} comes from set {e['set']!r} here and from set "
+                           f"{first[1]!r} in {first[0]}; close-ups of one structure in one film come from one set (one look)")
     return out
 
 
@@ -599,7 +621,7 @@ def problems(film, question: dict) -> list:
     if missing_points:
         out.append("no shot covers the question's points " + ", ".join(map(str, missing_points)))
     return (out + book_problems(film, question) + screen_problems(film, question) + layout_problems(film)
-            + teacher_problems(film, question) + library_problems(film, question))
+            + teacher_problems(film, question) + library_problems(film, question) + mechanism_problems(film))
 
 
 QUESTION_WORD = re.compile(r"\b(kyun|kyon|kyu|kaise|kya|kab|kahan|kaun|kitna|kitne|kitni)\b", re.I)
@@ -659,6 +681,59 @@ def teacher_problems(film: dict, question: dict) -> list:
                 start = " ".join((line.get("roman") or "").split()[:6])
                 out.append(f"{where} is not the teacher's line L{n} (\"{start} ...\"; {kept:.0%} of his words kept): keep "
                            "his words, fixing only spelling slips")
+    return out
+
+
+TURNING = re.compile(r"\b(ghoom\w*|ghuma\w*|rotor|rotate\w*|spin\w*)\b", re.I)
+AGAIN = re.compile(r"\b(dobara|phir se|regenerat\w*)\b", re.I)
+EVERYDAY = re.compile(r"\b(jaise|jaisa|jaisi|samajhiye|samjhiye|misaal|ki tarah|baandh|dam|motor|battery|turbine|conveyor)\b", re.I)
+
+
+def mechanism_problems(film: dict) -> list:
+    """Navin's choice after comparing every Q14 film (21 November 2026): the whole mechanism shown (a turning machine
+    turns, a returning process is a wheel), molecules meeting one at a time and named as they meet, a question before
+    every mechanism, and everyday pictures through the film, as in his film A."""
+    out, shots = [], film.get("shots") or []
+    asked = 0
+    for number, shot in enumerate(shots, 1):
+        sid = shot.get("id") or f"shot {number}"
+        sentences = shot.get("sentences") or []
+        has_wheel = any(s.get("cycles") for s in sentences)
+        mechanism = any((s.get("reacts") or s.get("cycles") or any((e.get("type") == "spin") for e in s.get("effects") or []))
+                        and s.get("part") != "recap" for s in sentences)
+        has_question = any("?" in (s.get("voice") or "") for s in sentences)
+        asked += has_question
+        if mechanism and not has_question:
+            out.append(f"{sid}: a mechanism is shown here but no question is asked before it; ask one (it ends with ? in "
+                       "voice) so the voice pauses before the answer")
+        for k, s in enumerate(sentences, 1):
+            where, roman = f"{sid} sentence {k}", s.get("roman") or ""
+            if TURNING.search(roman) and not s.get("cycles") and not any(e.get("type") == "spin" for e in s.get("effects") or []):
+                out.append(f"{where}: the line says something turns ({TURNING.search(roman).group(0)!r}); show it turning "
+                           "with a spin effect on the turning part")
+            if AGAIN.search(roman) and not has_wheel:
+                out.append(f"{where}: the line says something is made again; show the return as a wheel (cycles) in this shot")
+            reacts = s.get("reacts") or []
+            if len(reacts) > 1:
+                out.append(f"{where}: {len(reacts)} meetings in one sentence; one meeting at a time")
+            if reacts and len(s.get("moves") or []) > 1:
+                out.append(f"{where}: a meeting and {len(s.get('moves'))} other flows in one sentence; besides the meeting, "
+                           "at most one flow moves")
+            spoken = _tokens(roman) | _tokens(s.get("voice") or "")
+            for r in reacts:
+                for x in (r.get("inputs") or []) + (r.get("outputs") or []):
+                    what = str(x.get("what") or "")
+                    if KIT["molecules"].get(what) and not _tokens(KIT["molecules"][what].get("name") or what) & spoken \
+                            and not _tokens(what) & spoken:
+                        out.append(f"{where}: {what} takes part in the meeting but the line does not name it; name every "
+                                   "molecule as it meets")
+    if len(shots) >= 4:
+        if asked * 2 < len(shots):
+            out.append(f"questions in {asked} of {len(shots)} shots; ask in at least half of them, as a teacher does")
+        pictures = sum(bool(EVERYDAY.search(s.get("roman") or "")) for shot in shots for s in shot.get("sentences") or [])
+        if pictures < max(2, len(shots) // 3):
+            out.append(f"{pictures} everyday picture(s) in the film; give one every two or three shots (a motor, a dam, a "
+                       "battery, a turbine)")
     return out
 
 
@@ -923,7 +998,8 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
                               "focus": sentence.get("focus") or [], "zoom": sentence.get("zoom") or {},
                               "moves": held(sentence.get("moves") or [], clip.get("dur") or max(2.5, 0.075 * len(text))),
                               "grows": sentence.get("grows") or [],
-                              "fuses": sentence.get("fuses") or [], "reacts": sentence.get("reacts") or [],
+                              "fuses": sentence.get("fuses") or [],
+                              "reacts": timed(sentence.get("reacts") or [], text, clip.get("dur") or max(2.5, 0.075 * len(text))),
                               "cycles": sentence.get("cycles") or []})
         dive = shot.get("dive") or {}
         shots.append({"id": shot.get("id"), "title": shot.get("title"), "key": shot.get("key"),
@@ -932,6 +1008,27 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
                       "svg": visual.get("svg", "") if visual.get("type") == "diagram" else "", "sentences": sentences})
     return {"title": film.get("title") or question.get("question"), "question": question.get("question"),
             "qid": question.get("id"), "chapter": chapter, "tint": tint, "shots": shots, "kit": kit_for(shots)}
+
+
+def timed(reacts: list, roman: str, seconds: float) -> list:
+    """Each meeting's start, so its flash (at 45% of the meeting) comes when the line names its product, after the
+    inputs are named (Navin, 21 November 2026: molecules meeting "achhe coordination ke saath"). ``delay`` is seconds
+    after the sentence starts; without a product word the player keeps its own order."""
+    low, out = (roman or "").lower(), []
+    for r in reacts:
+        r = dict(r)
+        names = lambda xs: [str((KIT["molecules"].get(str(x.get("what"))) or {}).get("name") or x.get("what") or "").lower()
+                            for x in xs]
+        ins = [low.rfind(n) for n in names(r.get("inputs") or []) if n and low.rfind(n) >= 0]
+        start = max(ins) if ins else 0
+        found = [m.start() for n in names(r.get("outputs") or []) if n
+                 for m in re.finditer(re.escape(n) + r"(?! synthase)", low) if m.start() >= start]
+        if found and low:
+            ms = max(1500, min(9000, float(r.get("ms") or 4000)))
+            at = min(found) / len(low) * seconds
+            r["delay"] = round(max(0.3, min(at - 0.45 * ms / 1000, seconds - 0.6 * ms / 1000)), 2)
+        out.append(r)
+    return out
 
 
 def held(moves: list, seconds: float) -> list:
@@ -1095,6 +1192,15 @@ def place_items(shot: dict, next_shot: dict | None = None) -> list:
         for j, f in enumerate(s.get("fuses") or []):
             add(f"s{k}.fuse{j}", f"where two parts become {f.get('label')}", said, [[f.get("x", 50), f.get("y", 50)]],
                 lambda pts, f=f: f.update(x=pts[0][0], y=pts[0][1]))
+        for j, e in enumerate(s.get("effects") or []):
+            if e.get("type") in ("glow", "spin") and all(k in e for k in ("x0", "x1", "y0", "y1")):
+                kind = "the turning part (a spin)" if e["type"] == "spin" else "the glowing part"
+                add(f"s{k}.effect{j}", f"centre of {kind} this sentence talks about", said,
+                    [[(e["x0"] + e["x1"]) / 2, (e["y0"] + e["y1"]) / 2]],
+                    lambda pts, e=e: e.update(x0=e["x0"] + pts[0][0] - (e["x0"] + e["x1"]) / 2,
+                                              x1=e["x1"] + pts[0][0] - (e["x0"] + e["x1"]) / 2,
+                                              y0=e["y0"] + pts[0][1] - (e["y0"] + e["y1"]) / 2,
+                                              y1=e["y1"] + pts[0][1] - (e["y0"] + e["y1"]) / 2))
         z = s.get("zoom") or {}
         if float(z.get("scale") or 1) > 1.05:
             add(f"s{k}.zoom", "camera target: the part this sentence talks about", said, [[z.get("x", 50), z.get("y", 50)]],

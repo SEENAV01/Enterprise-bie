@@ -2349,3 +2349,25 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   `tests/test_studio_films.py`. IMPLEMENTED.
 - **Measured:** in the stage test a kept scene draws no picture (0 image calls). On the next Q14 run: pictures drawn
   against kept, rounds, and Navin's verdict. Canonical brain tests: 433 passed, 0 skips.
+
+## Entry · every Q14 film compared, and what BIE learns from film A, 21 November 2026
+
+- **Run:** VM job `studio-photosynthesis-q14-final` (film B's script, all 8 pictures from the cupboard, none drawn; ok,
+  ₹0, 10.7 minutes, 2 rounds), then Claude's comparison of all eight Q14 films, measured from the films themselves.
+- **Taught:** Navin found the final film fast and paragraph-like though its speech is byte for byte film B's (22 lines,
+  189.6 s): the feel came from the screen. Its pictures were made for other lines, so a meeting of ADP and Pi played in
+  the sentence after the one that names them (B's S6 sentence 3 too), its spin and glow sat on empty stroma (effects were
+  never placed by looking), and the machine changed look between S5 (set A) and S6 (set B). Film A, which Navin judged
+  most natural, paused after a question 7 times (B: 2), used 3 everyday pictures (B: 1) and joined cause and effect in
+  long sentences; only films 2/3 showed the rotor turning and the Calvin wheel returning RuBP.
+- **Changed in BIE:** `bie/brain/studio_film.py`: the maker's rules from film A, THE WHOLE MECHANISM and MOLECULES MEETING;
+  `mechanism_problems` (a question in every mechanism shot and in half the shots, everyday pictures every two or three
+  shots, spin where a line says something turns, a wheel where it says something is made again, one meeting per
+  sentence with its molecules named and at most one other flow); `timed` (each meeting's flash on the word that names its
+  product); glow and spin in the placement pass; picture sets in the cupboard, one set per structure's close-ups.
+  `bie/brain/studio_player.html` honours a meeting's `delay`. `tools/picture_library.py` records the set. Tests in
+  `tests/test_studio_films.py`. IMPLEMENTED.
+- **Measured:** on the earlier films the new checks name the faults Navin and Gemini saw: the final film's two meetings
+  in sentences that do not name their molecules (S4, S6), mechanism shots without a question (final 2, B 1, third film 2,
+  A 0 outside its recap), and too few everyday pictures (final 1, B 1, third film 0; A passes with 3). First-try rounds
+  and Navin's verdict are measured on the next Q14. Canonical brain tests: 440 passed, 0 skips.

@@ -123,7 +123,7 @@ def kept_pictures(source: str) -> list:
         if e.get("id") and file.startswith("library/") and ".." not in file and file.endswith((".png", ".jpg", ".webp")):
             out.append({"id": str(e["id"]), "type": str(e.get("type") or "cutaway"), "scale": str(e.get("scale") or ""),
                         "shows": str(e.get("shows") or ""), "places": [p for p in e.get("places") or [] if isinstance(p, dict)][:8],
-                        "file": file})
+                        "file": file, "set": str(e.get("set") or "")})
     return out
 
 
