@@ -254,11 +254,16 @@ function placeLabels(){const now=performance.now();for(const l of labels){const 
       l.box.style.top=(ly/56.25*100)+'%';if(right){l.box.style.left=lx+'%';l.box.style.right='';}else{l.box.style.right=(100-lx)+'%';l.box.style.left='';}
       l.dot.style.opacity=l.lead.style.opacity=on?1:0;}
     l.box.style.opacity=on?1:0;l.dy=0;}
-  // keep label boxes apart: a later label that overlaps an earlier one moves down (its leader line follows)
-  const H=$('stage').getBoundingClientRect().height||1,shown=labels.filter(l=>l.box.style.opacity==='1'&&!l.math);
-  for(let i=1;i<shown.length;i++){const a=shown[i].box.getBoundingClientRect();for(let j=0;j<i;j++){const b=shown[j].box.getBoundingClientRect();
-      if(a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top){const push=(b.bottom-a.top+4)/H*100;const top=parseFloat(shown[i].box.style.top)+push;
-        shown[i].box.style.top=top+'%';shown[i].lead.setAttribute('y2',top*.5625);break;}}}}
+  // keep label boxes apart: a later label that overlaps an earlier one moves down (its leader line follows). A wheel's
+  // name sits fixed in its centre, so a pin that would cover it moves too (Photosynthesis q05, 21 November 2026: the
+  // "6 H2O" pin sat on "Water-hisaab"); a few passes, so a label pushed onto another moves on past it.
+  const H=$('stage').getBoundingClientRect().height||1,shown=labels.filter(l=>l.box.style.opacity==='1'&&!l.math),
+    fixed=labels.filter(l=>l.box.style.opacity==='1'&&l.math);
+  for(let i=0;i<shown.length;i++){for(let pass=0;pass<4;pass++){const a=shown[i].box.getBoundingClientRect();
+      const b=[...fixed,...shown.slice(0,i)].map(l=>l.box.getBoundingClientRect())
+        .find(b=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top);
+      if(!b)break;const push=(b.bottom-a.top+4)/H*100;const top=parseFloat(shown[i].box.style.top)+push;
+      shown[i].box.style.top=top+'%';shown[i].lead.setAttribute('y2',top*.5625);}}}
 
 // --- arrows and effects (world space: they zoom with the picture) ----------------------------------------------------------
 function fxAdd(arrows,effects){arrows.forEach(a=>{const P=a.points.map(p=>[p[0],p[1]*.5625]);let d='M'+P[0][0]+' '+P[0][1];for(let i=1;i<P.length;i++)d+=' L'+P[i][0]+' '+P[i][1];
