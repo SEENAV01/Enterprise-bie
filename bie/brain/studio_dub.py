@@ -39,8 +39,7 @@ LATIN_WORD = re.compile(r"[A-Za-z][A-Za-z0-9+\-]*")
 NUMBER = re.compile(r"\d+")
 DEVANAGARI = re.compile(r"[ऀ-ॿ]")
 # Hindi words that are not Marathi: a Marathi line holding them was said in Hindi
-HINDI_ONLY = {"है", "हैं", "और", "में", "का", "की", "के", "नहीं", "क्यों", "कैसे", "यह", "वह", "होता", "होती", "जाता", "जाती",
-              "करता", "करती", "लेकिन", "इसलिए"}
+HINDI_ONLY = {"है", "हैं", "और", "में", "नहीं", "क्यों", "कैसे", "यह", "वह", "लेकिन", "इसलिए", "इसका", "इसकी"}
 # Hinglish words that are not English: an English line holding them was not translated
 HINGLISH = {"hai", "hain", "ke", "ki", "ka", "ko", "mein", "aur", "toh", "yeh", "ye", "woh", "kya", "kyun", "kaise", "nahi",
             "nahin", "hota", "hoti", "jaata", "jaati", "isliye", "aaiye", "chaliye", "dekhiye", "yahaan", "ab", "par", "se"}

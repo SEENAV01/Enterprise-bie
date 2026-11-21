@@ -100,3 +100,26 @@ STT check per sentence) comes with Navin's clip.
 2. **Google Drive access** for the voiced videos (above).
 
 Until the clip is on the VM and the voice is measured, every video stays captions-only.
+
+## 21 November 2026: Navin's recording, Kokoro + OpenVoice, and autodub
+
+Navin's cards (21 November 2026):
+
+- **How his voice is made:** "Seedha Kokoro + OpenVoice". The base voice is a free engine (Kokoro for Hindi/Hinglish and
+  English; AI4Bharat Indic-TTS for Tamil, Telugu, Malayalam and Marathi) and OpenVoice V2's tone-colour converter (MyShell,
+  MIT) turns it into his timbre. Chatterbox stays measured but unused (about 2 hours of CPU per video).
+- **How the recording reaches BIE:** "Is chat mein bhej doon". He sent a 5 min 18 s reading of the Q14 script in the
+  planning chat. It is kept only in Claude's private cloud workspace (folder mode 700, file mode 600), never in the
+  repository, a run folder, GitHub Actions or a review page. This replaces the "VM only" rule of 5 November for this one
+  recording, by his choice on the card (the card said so). Voice made from it reaches him only as files in the private
+  chat. Production on the VM needs his tone file there too: a separate decision for him.
+- **Autodub languages:** Tamil, Telugu, Malayalam, Marathi and English (his answer, typed).
+- **His words about the recording:** "bahut galtiyan hai us voice mein par clone krne ke liye kaam mein laa sakte ho ...
+  bolne ka niyam isse mat lena, isko polish karna hai voice ke taur par bhi aur teacher ki tarah kahan pause kaisa tone".
+  So only his timbre is taken from it. How a line is said is BIE's teacher rule (`bie/brain/studio_voice.py`: a question
+  on its own with 0.45 s after it and said a little slower; a short breath at ";", ":" and "—"; the rest in one flow).
+
+What the recording holds (measured by code, numbers only): 318 s; Whisper (large-v3-turbo, MIT) heard 510 words, 96
+words a minute, speech 81% of the time, 24 pauses over 0.8 s (the longest 9.2 s), one word said twice, 6 unsure words;
+noise floor about −72 dB, one clipped sample. 32 clean stretches (3–10 s, no gap over 0.45 s, no restart, every word heard
+clearly) total 227 s; only these make his tone colour.
