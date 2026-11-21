@@ -8,6 +8,11 @@ run folder. Chatterbox marks its audio with its Perth watermark (an inaudible ma
 
 Request (JSON): {"sentences": [{"key", "text"}], "language": "hi", "reference": path or null, "pitch_semitones": float,
 "audio_dir": path, "model_revision": sha, "threads": int or null, "seed": int}
+
+Convert request (Navin, 21 November 2026, card "6: Kokoro + Chatterbox badlaav"): {"convert": [{"key", "wav"}],
+"target": path of his clip, "audio_dir", "model_revision", "threads"}. Chatterbox's voice conversion (S3Gen, MIT) turns
+each base-voice WAV (Kokoro, Indic-TTS) into his timbre; the words and their timing stay the base voice's. Each WAV goes
+to the private folder only; the result holds numbers.
 """
 from __future__ import annotations
 
@@ -59,6 +64,8 @@ def main(argv=None) -> int:
     req = json.loads(args.request.read_text(encoding="utf-8"))
     audio_dir = Path(req["audio_dir"])
     audio_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
+    if req.get("convert"):
+        return convert(req, audio_dir, args.result)
     result = {"status": "failed", "sentences": [], "error": None}
 
     def save():
@@ -106,6 +113,49 @@ def main(argv=None) -> int:
         import traceback
         result["error"] = f"{type(exc).__name__}: {str(exc)[:400]}"
         result["trace"] = traceback.format_exc()[-1500:]       # where it died, for the next fix (file paths only, no audio)
+    result["peak_ram_mb"] = round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024)
+    save()
+    return 0 if result["status"] == "ok" else 1
+
+
+def convert(req: dict, audio_dir: Path, result_path: Path) -> int:
+    """Each base-voice WAV of ``req["convert"]`` in the voice of ``req["target"]`` (Chatterbox voice conversion)."""
+    result = {"status": "failed", "converted": [], "error": None}
+
+    def save():
+        result_path.write_text(json.dumps(result, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+
+    try:
+        import numpy as np
+        import torch
+        from huggingface_hub import hf_hub_download
+        from chatterbox.vc import ChatterboxVC
+        if req.get("threads"):
+            torch.set_num_threads(int(req["threads"]))
+        t0 = time.perf_counter()
+        folder = Path(hf_hub_download(repo_id="ResembleAI/chatterbox", filename="s3gen.safetensors",
+                                      revision=req["model_revision"])).parent
+        result["download_s"] = round(time.perf_counter() - t0, 1)
+        t0 = time.perf_counter()
+        model = ChatterboxVC.from_local(folder, "cpu")
+        model.set_target_voice(str(to_wav(Path(req["target"]), audio_dir)))
+        result["load_s"] = round(time.perf_counter() - t0, 1)
+        result.update(sample_rate=model.sr, threads=torch.get_num_threads(), torch=torch.__version__)
+        for item in req["convert"]:
+            t0 = time.perf_counter()
+            wav = model.generate(str(item["wav"])).squeeze(0).numpy()
+            compute = time.perf_counter() - t0
+            samples = (np.clip(wav, -1.0, 1.0) * 32767).astype("int16")
+            write_wav(audio_dir / f"{item['key']}.wav", samples, model.sr)
+            audio_s = len(samples) / model.sr
+            result["converted"].append({"key": item["key"], "audio_s": round(audio_s, 2), "compute_s": round(compute, 2),
+                                        "rtf": round(compute / audio_s, 2) if audio_s else None})
+            save()
+        result["status"] = "ok"
+    except Exception as exc:                         # the error goes to the result; the folder keeps what was made
+        import traceback
+        result["error"] = f"{type(exc).__name__}: {str(exc)[:400]}"
+        result["trace"] = traceback.format_exc()[-1500:]
     result["peak_ram_mb"] = round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024)
     save()
     return 0 if result["status"] == "ok" else 1

@@ -220,7 +220,7 @@ def _tone_from_env() -> "Tone":
 
 class Voice:
     def __init__(self, path: Path | None = None, *, fetch: bool = True, language: str = "hi", who: str | None = None,
-                 tone: "Tone | None" = None):
+                 tone: "Tone | None" = None, base_only: bool = False):
         who = who or narrator()
         if language in INDIC:
             self.engine = IndicEngine(language, who)
@@ -229,11 +229,17 @@ class Voice:
         else:
             raise LookupError(f"no voice engine for {language!r} on this machine yet")
         self.language, self.who = language, who
-        self.tone = tone if tone is not None or who != "navin" else _tone_from_env()
+        # base_only: the base voice alone (its timbre is changed later in one batch, ``tools/studio_revoice.py``)
+        self.tone = None if base_only else (tone if tone is not None or who != "navin" else _tone_from_env())
         self.label = self.engine.label + (" · Navin ki tone" if self.tone else "")
 
     def say(self, text: str) -> dict:
         """{"uri": data URI (mp3 when ffmpeg is here, else wav), "dur": seconds}, said by BIE's teacher rules (``parts``)."""
+        samples, rate = self.render(text)
+        return clip(samples, rate)
+
+    def render(self, text: str):
+        """(samples, rate) of the line, said by BIE's teacher rules, in Navin's tone when a tone is set."""
         import numpy as np
         chunks, rate = [], 24000
         for part, pause in parts(text):
@@ -245,10 +251,15 @@ class Voice:
         if self.tone is not None and len(samples) > rate // 2:
             samples, rate = self.tone.convert(samples, rate, self.engine.label,
                                               lambda: self.engine.speak(TONE_SAMPLE.get(self.language, TONE_SAMPLE["en"]), SPEED))
-        wav = wav_bytes(samples, rate)
-        mp3 = to_mp3(wav)
-        data, mime = (mp3, "audio/mpeg") if mp3 else (wav, "audio/wav")
-        return {"uri": f"data:{mime};base64," + base64.b64encode(data).decode("ascii"), "dur": round(len(samples) / rate, 3)}
+        return samples, rate
+
+
+def clip(samples, rate: int) -> dict:
+    """{"uri": data URI (mp3 when ffmpeg is here, else wav), "dur": seconds} for the film player."""
+    wav = wav_bytes(samples, rate)
+    mp3 = to_mp3(wav)
+    data, mime = (mp3, "audio/mpeg") if mp3 else (wav, "audio/wav")
+    return {"uri": f"data:{mime};base64," + base64.b64encode(data).decode("ascii"), "dur": round(len(samples) / rate, 3)}
 
 
 def wav_bytes(samples, rate: int) -> bytes:

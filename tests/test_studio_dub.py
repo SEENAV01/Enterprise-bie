@@ -281,8 +281,48 @@ class Revoice(unittest.TestCase):
         self.assertEqual((data["chapter"], data["tint"], data["qid"]), ("Photosynthesis", "#3f7d4e", "q01"))
         self.assertEqual((report["lines"], report["voice_seconds"]), (2, 15.0))
 
+    def test_his_voice_comes_from_one_batch_conversion_of_the_base_lines(self):
+        from bie.brain import studio_film
+        import numpy as np
+        template = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        dubbed = studio_dub.dubbed(film(), tamil())
+        page = studio_film.html(studio_film.player_data(dubbed, images={}, audio={}, chapter="P", question=QUESTION), template)
+
+        class Base:
+            label = "base"
+
+            def render(self, text):
+                return np.zeros(8000, dtype="float32"), 8000          # 1 s each
+
+        fake = Path(tempfile.mkdtemp())
+        worker = fake / "worker.py"
+        # a stand-in for the voice environment's worker: "converts" by doubling each line's length
+        worker.write_text("import json,sys,wave\nfrom pathlib import Path\na=sys.argv\nreq=json.load(open(a[2]))\n"
+                          "out=Path(req['audio_dir']);out.mkdir(parents=True,exist_ok=True)\nrows=[]\n"
+                          "for it in req['convert']:\n"
+                          "    r=wave.open(it['wav']);fr=r.readframes(r.getnframes());rate=r.getframerate();r.close()\n"
+                          "    w=wave.open(str(out/(it['key']+'.wav')),'wb');w.setnchannels(1);w.setsampwidth(2);w.setframerate(rate)\n"
+                          "    w.writeframes(fr+fr);w.close();rows.append({'key':it['key'],'compute_s':0.5})\n"
+                          "json.dump({'status':'ok','converted':rows,'target':req['target']},open(a[4],'w'))\n")
+        private = fake / "private"
+        private.mkdir()
+
+        def convert(files):
+            return studio_revoice.chatterbox_convert(files, target=fake / "his.wav", private=private, python=sys.executable,
+                                                     worker=worker, revision="pinned")
+        new_page, report = studio_revoice.revoice(page, {"film": dubbed}, Base(), template=template, convert=convert,
+                                                  private=private)
+        data = studio_revoice.page_data(new_page)
+        self.assertEqual([s["dur"] for s in data["shots"][0]["sentences"]], [2.0, 2.0])
+        self.assertEqual(report["not_converted"], [])
+        self.assertEqual(report["convert_seconds"], 1.0)
+        request = json.loads((private / "request.json").read_text(encoding="utf-8"))
+        self.assertEqual((request["model_revision"], [x["key"] for x in request["convert"]]), ("pinned", ["s1-0", "s1-1"]))
+
     def test_navin_pages_stay_out_of_the_repository(self):
         for extra in (["--narrator", "navin", "--tone", "/nonexistent.npy", "--out", str(ROOT / "x.html")],
+                      ["--narrator", "navin", "--converter", "openvoice", "--out", "/tmp/x.html"],
+                      ["--narrator", "navin", "--out", "/tmp/x.html", "--private", str(ROOT / "work")],
                       ["--narrator", "navin", "--out", "/tmp/x.html"]):
             with self.assertRaises(SystemExit):
                 studio_revoice.main(["--page", "p.html", "--film", "f.json", "--language", "hi"] + extra)
@@ -314,6 +354,14 @@ class DubStage(unittest.TestCase):
             self.assertEqual(record["language"], "ta")
             self.assertIn("Tamil", (out / "DUB.md").read_text(encoding="utf-8"))
             self.assertEqual(summary["voice"], {"ta": "no voice (no engine)"})
+
+    def test_language_codes_may_be_separated_by_spaces(self):
+        with tempfile.TemporaryDirectory() as folder:
+            args = SimpleNamespace(stage="dub", source="", from_run=folder, videos="", out=str(Path(folder) / "out"),
+                                   pages="", course="", language="ta te", model="", max_rounds=1)
+            (Path(folder) / "questions.json").write_text(json.dumps({"questions": []}), encoding="utf-8")
+            summary = vm_studio.run(args, client=FakeClient([]), load=None, voice_maker=lambda language="hi": (None, "x"))
+            self.assertEqual(summary["voice"], {"ta": "no voice (x)", "te": "no voice (x)"})
 
     def test_the_stage_needs_language_codes(self):
         with tempfile.TemporaryDirectory() as folder:
