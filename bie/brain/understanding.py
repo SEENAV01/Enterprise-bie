@@ -984,6 +984,9 @@ def run_chapter(pdf_bytes: bytes, course: Course, runner: SectionRunner, out_dir
     (out / "chapter_map.json").write_text(json.dumps(chapter, ensure_ascii=False, indent=1), encoding="utf-8")
     (out / "MAP.md").write_text(render_markdown(chapter), encoding="utf-8")
     (out / "PAGES.md").write_text(render_pages(chapter), encoding="utf-8")
+    from . import chapter_file          # the chapter file for the planner, and the "samajh ka page" for Navin
+    (out / "CHAPTER.md").write_text(chapter_file.markdown(chapter), encoding="utf-8")
+    (out / "SAMAJH.html").write_text(chapter_file.html(chapter), encoding="utf-8")
     return chapter
 
 

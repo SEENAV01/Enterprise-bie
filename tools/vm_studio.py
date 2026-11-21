@@ -63,7 +63,7 @@ sys.path.insert(0, str(ROOT))
 
 from bie.brain import studio  # noqa: E402
 
-STAGES = ("questions", "films", "games", "book", "pyq", "dub")
+STAGES = ("questions", "naksha", "films", "games", "book", "pyq", "dub")
 MAX_IMAGES_PER_FILM = 12
 PLAYER = ROOT / "bie" / "brain" / "studio_player.html"
 GAME_PLAYER = ROOT / "bie" / "brain" / "studio_game_player.html"
@@ -147,10 +147,47 @@ def image_uri(path, width: int = 1600) -> str:
     return "data:image/webp;base64," + base64.b64encode(buffer.getvalue()).decode("ascii")
 
 
+def naksha(args, client, model, out: Path, summary: dict):
+    """Stage ``naksha`` (Navin, 21 November 2026): from Section 1's chapter map (``from_run``: an understand run) BIE
+    writes the chapter file and asks for the two naksha, shape A (films by student question inside each heading) and
+    shape B (one heading, one film), each checked by code; their films become this run's questions (a01..., b01...)."""
+    from bie.brain import chapter_file, studio_naksha
+    chapter = read_json(args.from_run, "chapter_map.json")
+    course = dict(chapter.get("course") or {})
+    for pair in filter(None, (part.strip() for part in (args.course or "").split(";"))):
+        if "=" in pair:
+            key, value = pair.split("=", 1)
+            course[key.strip()] = value.strip()
+    (out / "CHAPTER.md").write_text(chapter_file.markdown(chapter), encoding="utf-8")
+    (out / "SAMAJH.html").write_text(chapter_file.html(chapter), encoding="utf-8")
+    (out / "chapter_file.json").write_text(json.dumps(chapter_file.build(chapter), ensure_ascii=False, indent=1), encoding="utf-8")
+    records, usage = [], {"input_tokens": 0, "output_tokens": 0}
+    for shape in studio_naksha.SHAPES:
+        record = studio_naksha.plan(client, model, chapter, shape, course=course, language=args.language,
+                                    max_rounds=args.max_rounds)
+        records.append(record)
+        for key in usage:
+            usage[key] += record["usage"].get(key, 0)
+    (out / "naksha.json").write_text(studio_naksha.dump({r["shape"]: r["answer"] for r in records}), encoding="utf-8")
+    (out / "record.json").write_text(studio_naksha.dump(records), encoding="utf-8")
+    questions = [q for r in records if isinstance(r.get("answer"), dict) for q in studio_naksha.questions(chapter, r["answer"])]
+    plan = {"chapter_title": (chapter.get("map") or {}).get("chapter_title") or course.get("title", ""), "naksha": True,
+            "questions": questions}
+    (out / "questions.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
+    (out / "NAKSHA.md").write_text(studio_naksha.markdown(chapter, records), encoding="utf-8")
+    left = [p for r in records for p in r["problems"]]
+    summary.update(status="ok" if not left else "needs_fix", usage=usage, model=model,
+                   shapes={r["shape"]: {"films": len((r.get("answer") or {}).get("films") or []), "rounds": len(r["rounds"]),
+                                        "problems": r["problems"][:10],
+                                        "minutes": sum(f.get("minutes") or 0 for f in (r.get("answer") or {}).get("films") or [])}
+                           for r in records},
+                   coverable=len(studio_naksha.coverable(chapter)))
+
+
 def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=None):
     from bie.brain import studio_film, studio_voice
     plan = read_json(args.from_run, "questions.json")
-    if pages:                                       # an older question list: the unit's opening page moves to its overview
+    if pages and not plan.get("naksha"):            # an older question list: the unit's opening page moves to its overview
         plan = studio.with_unit_overview(plan, pages)
     wanted = [q.strip() for q in (args.videos or "").split(",") if q.strip()]
     questions = [q for q in plan.get("questions") or [] if not wanted or q.get("id") in wanted]
@@ -169,8 +206,8 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
         if pages:                                   # every book line taught, checked sentence by sentence (20 Nov 2026)
             q["book_lines"] = studio.book_lines(pages, ids)
             q["chapter_terms"] = terms
-        q["other_questions"] = [f"{o.get('id')}: {o.get('question')}" for o in plan.get("questions") or []
-                                if o.get("id") != q.get("id")]
+        q["other_questions"] = [] if q.get("naksha") else [f"{o.get('id')}: {o.get('question')}" for o in plan.get("questions") or []
+                                                           if o.get("id") != q.get("id")]
         # the teacher's own script (Navin, 20 November 2026): teacher/<qid>.json in the from-run folder holds his lines
         # (and notes) and the earlier film; the film is made again with his lines as its narration
         teacher = maybe_json(args.from_run, f"teacher/{q['id']}.json")
@@ -508,8 +545,10 @@ def run(args, *, client=None, load=None, voice_maker=None, read=None) -> dict:
         if args.source:
             source_hash, page_count, pages = load((read or read_pdf)(args.source), args.pages or None, with_images=False)
             summary.update(source_sha256=source_hash, page_count=page_count, pages_read=[p.number for p in pages])
-        if args.stage in ("films", "games", "book", "pyq", "dub"):
-            if args.stage == "dub":
+        if args.stage in ("naksha", "films", "games", "book", "pyq", "dub"):
+            if args.stage == "naksha":
+                naksha(args, client, model, out, summary)
+            elif args.stage == "dub":
                 dub(args, client, model, pages, out, summary, voice_maker=voice_maker)
             elif args.stage == "pyq":
                 pyq(args, client, model, pages, out, summary, voice_maker=voice_maker)
@@ -559,7 +598,8 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--stage", choices=STAGES, default="questions")
     parser.add_argument("--source", default="")
-    parser.add_argument("--from-run", default="", help="films, games, book: the earlier run (folder or https URL) with questions.json")
+    parser.add_argument("--from-run", default="", help="naksha: an understand run (chapter_map.json); films, games, book: the "
+                        "earlier run (folder or https URL) with questions.json")
     parser.add_argument("--videos", default="", help="films, games, book: only these question ids, for example q01,q02")
     parser.add_argument("--pyqs", default="", help="pyq: the questions JSON (https URL or file)")
     parser.add_argument("--out", required=True)
@@ -574,7 +614,7 @@ def main(argv=None):
         parser.error("--source is needed for questions")
     if args.stage == "pyq" and not (args.source and args.pyqs):
         parser.error("--source and --pyqs are needed for pyq")
-    if args.stage in ("films", "games", "book", "dub") and not args.from_run:
+    if args.stage in ("naksha", "films", "games", "book", "dub") and not args.from_run:
         parser.error(f"--from-run is needed for {args.stage}")
     summary = run(args)
     print(json.dumps({k: summary.get(k) for k in ("status", "questions", "coverage", "voice", "error")}, ensure_ascii=False))

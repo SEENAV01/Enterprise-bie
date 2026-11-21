@@ -305,6 +305,31 @@ question, `u<unit>`, the unit's overview: a short film made only from that page,
 The course folder for Navin is the four runs' pages side by side. Every maker answer is checked by code and the exact
 problems go back (at most `max_rounds`); a stage with problems left is reported as `needs_fix`.
 
+14. **The chapter file and the teaching naksha (21 November 2026).** Navin: "codex ko ek output file do jisse wo asani se
+   content ko samjh paaye aur fir hamare niyam to lage hi hai" (the whole chapter planned from one file: how to teach,
+   script, analogies, examples, real-world uses, saman ki list, terms, what to add from outside the book), and on the
+   pictures: "teacher jo bol raha hai usko samjhane ke liye uske hisab se alag kuchh banana pade to banaya jaaye".
+   `bie/brain/chapter_file.py` builds, by code from Section 1's chapter map, `CHAPTER.md` (the file the planner reads
+   whole), `SAMAJH.html` (the "samajh ka page" for Navin) and `chapter_file.json`; Section 1 writes the first two into
+   its run. New studio stage `naksha` (`bie/brain/studio_naksha.py`, `tools/vm_studio.py`, VM runner stage list): from an
+   understand run it asks for two naksha, shape A (inside each heading, films by student question) and shape B (one
+   heading, one film), each checked by code: every teachable body item in exactly one film, exercises to practice and
+   the summary to recaps, the book's order, builds_on and recalls only backwards, one analogy per film never repeated,
+   every film its own opening picture (no reuse), a saman ki list per film, 2–12 minutes. Its films (`a01`…, `b01`…) are
+   the run's `questions.json`; the films stage makes them with their naksha row and what the films before them taught
+   (`studio_film._naksha_part`), and without the picture cupboard (a naksha run has none). The voice says formulas by
+   name and short forms the way a teacher does (`studio_voice.spoken`: CO₂ → कार्बन डाइऑक्साइड, PSII → पी एस टू,
+   NADPH → एन ए डी पी एच; spelled after the word formula); the screen keeps the book's spelling. IMPLEMENTED
+   (`tests/test_studio_naksha.py`, `tests/test_studio_dub.py`).
+   **The almaari rule (Navin, 21 November 2026, 20:18):** the content of the film, notes or game decides, never the
+   cupboard ("almari se poora hota hai to utha le warna naya bana de"); no rule forces a kept picture in. For now Codex
+   makes what each line needs. After Class 11 and 12 NCERT (and Campbell) the cupboard is arranged by concept (each
+   picture with its concept, scale, what it shows and its labelled parts), and every saman item is matched to it with a
+   look at the picture: it explains the line fully → take it; partly → change it (zoom, a part added, labels); not at
+   all → make a new one, with the reason recorded. A detailed book (a doctor's text) still gets new and changed pictures.
+   Quality is BIE's layers around the AI: clean input (both eyes), a fixed schema, code checks with exact problems sent
+   back, a second look, the NCERT page beside each film, Navin's verdict, passed outputs locked.
+
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
 Navin asked for one Unit 10 (Geography of India) topic at the Chapter 17 golden-benchmark level, as a film, a Living

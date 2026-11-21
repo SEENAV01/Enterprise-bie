@@ -251,6 +251,49 @@ class TeacherVoice(unittest.TestCase):
                 os.environ.pop(k, None) if v is None else os.environ.__setitem__(k, v)
 
 
+class FormulasAreSaidByName(unittest.TestCase):
+    """Navin, 21 November 2026: "co2 kehne ki bajaye carbon dioxide bol de"; the screen keeps the book's spelling."""
+
+    def test_a_molecule_is_said_by_its_name(self):
+        say = studio_voice.spoken
+        self.assertEqual(say("इसका जवाब है सीओ₂, जो एन्ज़ाइम्स तक पहुँचती है"), "इसका जवाब है कार्बन डाइऑक्साइड, जो एन्ज़ाइम्स तक पहुँचती है")
+        self.assertEqual(say("CO2 प्लस H2O से [CH2O] प्लस O2"), "कार्बन डाइऑक्साइड प्लस पानी से सी एच टू ओ प्लस ऑक्सीजन")
+        self.assertEqual(say("Plants take in CO₂ and give out O₂.", "en"), "Plants take in carbon dioxide and give out oxygen.")
+
+    def test_right_after_the_word_formula_it_is_spelled(self):
+        self.assertEqual(studio_voice.spoken("जिसका फ़ॉर्मूला C6H12O6 है"), "जिसका फ़ॉर्मूला सी सिक्स एच ट्वेल्व ओ सिक्स है")
+
+    def test_short_forms_are_said_the_way_a_teacher_says_them(self):
+        say = studio_voice.spoken
+        self.assertEqual(say("PSII से PSI तक, फिर NADP+ से NADPH"), "पी एस टू से पी एस वन तक, फिर एन ए डी पी प्लस से एन ए डी पी एच")
+        self.assertEqual(say("C3 और C₄ पौधे, सी₃ एसिड"), "सी थ्री और सी फ़ोर पौधे, सी थ्री एसिड")
+        self.assertEqual(say("RuBisCO पर RuBP, फिर 2H+ और P680"), "रूबिस्को पर आर यू बी पी, फिर 2 एच प्लस और पी सिक्स एटी")
+        self.assertEqual(say("मेज़ोफ़िल की PEPकेस"), "मेज़ोफ़िल की पी ई पी केस")
+
+    def test_other_languages_keep_their_own_lines(self):
+        self.assertEqual(studio_voice.spoken("ஒளிச்சேர்க்கையில் CO2 தேவை", "ta"), "ஒளிச்சேர்க்கையில் CO2 தேவை")
+
+    def test_ordinary_words_are_left_alone(self):
+        for line in ("पौधा खाना खाता नहीं, तो हमारी थाली का खाना आता कहाँ से है?", "Calvin ने chlorophyll a देखा।",
+                     "Aaiye jaante hain."):
+            self.assertEqual(studio_voice.spoken(line), line)
+
+    def test_the_voice_says_the_spoken_form(self):
+        class Engine:
+            label = "fake"
+            said = []
+
+            def speak(self, text, pace):
+                import numpy as np
+                self.said.append(text)
+                return np.zeros(240, dtype="float32"), 24000
+
+        voice = studio_voice.Voice.__new__(studio_voice.Voice)
+        voice.engine, voice.language, voice.who, voice.tone, voice.label = Engine(), "hi", "female", None, "fake"
+        voice.render("पत्ता CO2 लेता है।")
+        self.assertEqual(Engine.said, ["पत्ता कार्बन डाइऑक्साइड लेता है।"])
+
+
 class ToneFromHisRecording(unittest.TestCase):
     """Only the clean stretches of Navin's reading make his tone colour (his slips are left out)."""
 
