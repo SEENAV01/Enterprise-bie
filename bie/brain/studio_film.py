@@ -831,9 +831,12 @@ def book_problems(film: dict, question: dict) -> list:
                 out.append(f"{where}: part must be one of {', '.join(PARTS)}")
     for line in lines:
         said = claims.get(line["n"])
+        words = _content_words(line["text"])
         if not said:
             out.append(f"book line B{line['n']} is not taught: {line['text'][:160]}")
-        elif not _content_words(line["text"]) & _spoken_words(" ".join(said)):
+        # a follow-up line with no key word of its own ("If yes, which one?", Photosynthesis q08, 21 November 2026) is
+        # taught by the sentence that lists it; asking for its key words could never be met and spent 3 extra rounds
+        elif words and not words & _spoken_words(" ".join(said)):
             out.append(f"book line B{line['n']} is listed in teaches, but none of its key words is spoken there: "
                        f"{line['text'][:120]}")
     if lines or parts:

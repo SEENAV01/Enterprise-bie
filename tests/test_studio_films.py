@@ -383,6 +383,14 @@ class BookLines(unittest.TestCase):
         self.assertEqual([line["n"] for line in lines], list(range(1, len(lines) + 1)))
         self.assertEqual(studio.book_lines(PAGES, []), [])
 
+    def test_a_follow_up_line_without_key_words_is_taught_by_the_sentence_that_lists_it(self):
+        # Photosynthesis q08 (batch 2, 21 November 2026): "If yes, which one?" has no key word, so asking for its key
+        # words could never be met; the film spent all 5 rounds on it
+        self.assertEqual(studio_film._content_words("If yes, which one?"), set())
+        question = dict(BOOK_Q, book_lines=[dict(BOOK_Q["book_lines"][0]), {"n": 2, "text": "If yes, which one?", "page": "1"}])
+        self.assertEqual(studio_film.book_problems(taught_film([[], [1], [], [2]]), question), [])
+        self.assertIn("book line B2 is not taught", " | ".join(studio_film.book_problems(taught_film([[], [1], [], []]), question)))
+
     def test_terms_the_chapter_never_uses(self):
         known = studio.chapter_terms(PAGES)
         self.assertEqual(studio.unknown_terms("G3P banta hai; CO2, H2O, CF0 aur ATP chapter ke hain, Pi bhi", known), ["G3P"])

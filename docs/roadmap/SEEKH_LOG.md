@@ -2451,3 +2451,14 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   from inside the chapters). Tests in `tests/test_studio_questions.py`. IMPLEMENTED.
 - **Measured** (Chapter 11, the batch 1 question list): unit page found (Unit 4, Plant Physiology, chapters 11, 12, 13);
   25 → 26 questions; q01's book lines 20 → 12, the overview's 8; every block covered before is still covered.
+
+## A follow-up book line with no key word, 21 November 2026
+
+- **Runs:** VM job `studio-photosynthesis-films-b2` (q06–q09; 59 minutes, ₹0, plan meter still 46%; 418,758 input
+  and 104,333 output tokens). q06, q07, q09 passed in 2 rounds; q08 used all 5 rounds and ended `needs_fix`.
+- **Taught:** q08's book line B3 is "If yes, which one?" (after "Does it show another absorption peak ...?"). It has no
+  key word of its own, so the check "a sentence that lists a book line speaks one of its key words" could never be met.
+- **Changed in BIE:** `bie/brain/studio_film.py` (`book_problems`): a book line with no key word is taught by the
+  sentence that lists it. Test in `tests/test_studio_films.py`. IMPLEMENTED.
+- **Measured:** q08's film now has 0 problems (was 1 after 5 rounds); batches 1 and 2: 1 of 117 book lines has no key
+  word.
