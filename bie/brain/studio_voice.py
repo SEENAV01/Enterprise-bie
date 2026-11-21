@@ -44,6 +44,13 @@ QUESTION_PAUSE = 0.45     # seconds of silence after a question (question and an
 CLAUSE_PAUSE = 0.22       # a short breath at ";", ":" and "—" inside a statement (one long flow sounded like a paragraph)
 QUESTION_SPEED = 0.92     # a question is asked a little slower than the answer is told
 CLAUSE = re.compile(r"\s*(?:;|:|—|–)\s*")
+# Navin's Q14 verdict (21 November 2026): "aayiye jaante hai ... thoda ruko, pehle yaad kijiye bolo": every sentence of a
+# line is said on its own, with a pause after its full stop, a longer one after an invitation
+SENTENCE_PAUSE = 0.35
+INVITE_PAUSE = 0.55
+SENTENCE_END = re.compile(r"(?<=[.।!])\s+(?=[^\s\d])")
+INVITE = re.compile(r"^(?:aaiye|aayiye|aaie|chaliye|dekhiye|आइए|आइये|आईए|आइयें|चलिए|चलिये|देखिए|देखिये|let's|let us)\b"
+                    r"|^(?:आइए|आइये|आईए|चलिए|चलिये)", re.I)
 CONVERT_TAU = 0.3         # OpenVoice's strength of the tone change (its default)
 
 
@@ -62,7 +69,8 @@ def narrator() -> str:
 
 def parts(text: str) -> list:
     """The pieces a line is spoken in, with the silence after each: a question on its own with QUESTION_PAUSE after it;
-    a statement in one flow, with a short breath (CLAUSE_PAUSE) at ";", ":" and "—".
+    a statement in one flow, with a short breath (CLAUSE_PAUSE) at ";", ":" and "—"; every sentence on its own, with
+    SENTENCE_PAUSE after its full stop (INVITE_PAUSE after an invitation: "Aaiye jaante hain.").
     "Band membrane kyun chahiye? Iska seedha sa jawab hai: jamav." -> [("Band membrane kyun chahiye?", 0.45),
     ("Iska seedha sa jawab hai", 0.22), ("jamav.", 0.0)]."""
     out = []
@@ -70,8 +78,14 @@ def parts(text: str) -> list:
         if piece.endswith("?"):
             out.append((piece, QUESTION_PAUSE))
             continue
-        bits = [b.strip() for b in CLAUSE.split(piece) if b.strip()]
-        out.extend((b, CLAUSE_PAUSE if j < len(bits) - 1 else 0.0) for j, b in enumerate(bits))
+        sentences = [x.strip() for x in SENTENCE_END.split(piece) if x.strip()]
+        for n, sentence in enumerate(sentences):
+            bits = [b.strip() for b in CLAUSE.split(sentence) if b.strip()]
+            out.extend((b, CLAUSE_PAUSE) for b in bits[:-1])
+            last = n == len(sentences) - 1
+            out.append((bits[-1], 0.0 if last else (INVITE_PAUSE if INVITE.search(sentence) else SENTENCE_PAUSE)))
+    if out and out[-1][1] and not (text or "").strip().endswith("?"):
+        out[-1] = (out[-1][0], 0.0)
     return out or [((text or "").strip() or ".", 0.0)]
 
 

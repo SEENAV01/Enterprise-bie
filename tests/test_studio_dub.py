@@ -173,6 +173,15 @@ class TeacherVoice(unittest.TestCase):
                           ("aur kuch nahi.", 0.0)])
         self.assertLess(studio_voice.speed("Kyun?"), studio_voice.speed("Isliye."))
 
+    def test_each_sentence_on_its_own_and_a_longer_pause_after_an_invitation(self):
+        # Navin's Q14 verdict: "aayiye jaante hai ... thoda ruko, pehle yaad kijiye bolo"
+        self.assertEqual(studio_voice.parts("आइए जानते हैं। पहले याद कीजिए कि पत्ते में आती लाइट की एनर्जी काम करती है।"),
+                         [("आइए जानते हैं।", studio_voice.INVITE_PAUSE),
+                          ("पहले याद कीजिए कि पत्ते में आती लाइट की एनर्जी काम करती है।", 0.0)])
+        self.assertEqual(studio_voice.parts("Yeh CO2 3.5 guna hai. Ab aage chalte hain."),
+                         [("Yeh CO2 3.5 guna hai.", studio_voice.SENTENCE_PAUSE), ("Ab aage chalte hain.", 0.0)])
+        self.assertGreater(studio_voice.INVITE_PAUSE, studio_voice.SENTENCE_PAUSE)
+
     def test_the_line_is_said_part_by_part_then_turned_to_his_tone(self):
         import numpy as np
 

@@ -2407,3 +2407,28 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   sample page did not play in Navin's viewer (its `<audio>` elements were refused, as with the first films); it now plays
   through BIE's voice player and the mp3 files went with it. His listening verdict is pending. Canonical brain tests:
   462 passed, 0 skips.
+
+## Entry · Q14 passed; a pause at every full stop; Navin's voice by Chatterbox conversion, 21 November 2026
+
+- **Runs:** VM job `studio-photosynthesis-q14-learned` (after PR #183; ok, ₹0, 13 minutes, 2 rounds, no problems) and the
+  voice samples in Claude's private workspace (numbers only here).
+- **Taught:** the learned film passed (Navin: "isko pass maankar") with one fault: two sentences of one line ("Aaiye jaante
+  hain. Pehle yaad kijiye ...") were said in one breath, because the voice split a line only at "?" and at ";" ":" "—".
+  On the voice: OpenVoice changes only the timbre, so the base voice's flat way of speaking stayed ("voice artificial
+  hai"). The base voice already lifts question words as much as he does (6–9 against his 8 semitones), so reshaping its
+  pitch (WORLD) changed little; Chatterbox's conversion brought the likeness to 0.94 and Chatterbox speaking to 0.96 (his
+  ceiling 0.97). The VM refused the first dub jobs: its runner did not list stage `dub`, and `language` allows only
+  letters and spaces.
+- **Changed in BIE:** `bie/brain/studio_voice.py`: each sentence of a line on its own, 0.35 s after a full stop and
+  0.55 s after an invitation; `Voice.render` and `base_only` for batch conversion. `tools/vm_voice_worker.py`: a convert
+  request (Chatterbox voice conversion, the pinned model). `tools/studio_revoice.py --converter chatterbox`.
+  `tools/codex_vm.py`: studio stage `dub` (needs from_run and language). `tools/vm_studio.py`: dub language codes may be
+  separated by spaces. The passed Q14 film is kept in `tests/fixtures/passed_outputs/studio/` and checked in
+  `tests/test_studio_films.py`. Tests in `tests/test_studio_dub.py`. IMPLEMENTED.
+- **Measured:** the Q14 line now splits into "आइए जानते हैं।" + 0.55 s + the rest; the passed film passes every code check;
+  likeness to his reading (same 4 lines): OpenVoice 0.87, Kokoro + Chatterbox conversion 0.94, Chatterbox speaking 0.96
+  (his own reading half against half 0.97); CPU per second of voice on 2 CPUs: about 1.6, 4.5 and 8. Tamil through the
+  conversion: likeness 0.71 → 0.91, Whisper heard 82% of the words (97% before). The clip that sets his voice, chosen by code from four clean 10–12 s stretches of his reading
+  (likeness / Whisper's words kept from the base): "chaliye dekhte hain ki ATP synthase yeh kaam karta kaise hai" 0.950 /
+  1.00 (chosen), the CF0 question and answer 0.938 / 0.98, the opening question 0.927 / 0.98, "yahaan pe kya hota hai" 0.924
+  / 1.00.
