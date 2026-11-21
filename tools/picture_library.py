@@ -10,7 +10,8 @@ from-run folder holds that cupboard lets the maker use them (``visual.library``,
         --keep "<run folder>|q14|s4|thylakoid-closed-sac|closed thylakoid sac" ...
 
 Each --keep is ``run folder|question id|shot id|picture id|scale``. The entry takes the shot's visual type and picture
-description from the run's film, and its labelled places from the pins the film placed on that picture.
+description from the run's film, and its labelled places from the pins the film placed on that picture. Its set is the
+run it came from: close-ups of one structure in one film come from one set ("ATP synthase close up: ..." groups them).
 """
 from __future__ import annotations
 
@@ -44,7 +45,8 @@ def entry(run: Path, qid: str, shot_id: str, picture_id: str, scale: str, note: 
     visual = shot.get("visual") or {}
     return ({"id": picture_id, "type": visual.get("type") or "cutaway", "scale": scale,
              "shows": (visual.get("image_prompt") or "").strip(), "places": places[:8],
-             "file": f"library/{picture_id}{picture.suffix}", "from": f"{run.name} {qid} {shot_id}", "note": note}, picture)
+             "file": f"library/{picture_id}{picture.suffix}", "from": f"{run.name} {qid} {shot_id}", "set": run.name,
+             "note": note}, picture)
 
 
 def build(out: Path, keeps: list[str], approved: str = "") -> dict:

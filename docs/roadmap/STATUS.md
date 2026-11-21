@@ -172,6 +172,24 @@ Decision cards in the planning chat, 18 November 2026:
    `tools/picture_library.py` (copies chosen pictures from finished runs into a cupboard). The first cupboard holds 8
    Q14 pictures (A: leaf, closed thylakoid, ATP synthase channel, leak; B: cell, CF1 close-up, stroma; third film:
    chloroplast); the final Q14 is to be made from film B's script with these pictures.
+   INTEGRATED (PR #181): VM job `studio-photosynthesis-q14-final` (ok, ₹0, 10.7 minutes; 8 shots, 22 sentences, 3.2
+   minutes, 2 rounds; all 8 pictures from the cupboard, none drawn; NCERT 12/12). Played in Chromium, no errors. Navin's
+   verdict (21 November 2026): some pictures basic, clarity low in places, "cheezen phir se fast aur paragraph padhne
+   jaisi", A and B spoke more naturally; with it, a review by Gemini (the final film the most balanced; S6 spin and glow
+   off the machine, the stalk changing look from S5 to S6, a thin lumen in S3). He asked Claude to watch every Q14 film as
+   the teacher showing it in class and as a student, and to choose. Claude's comparison (measured from the films: speech
+   letters per second, pauses after questions, joined questions, orders, everyday pictures, label stacks; and every
+   sentence's frame seen): A leads on script, voice (7 pauses after questions against B's 2), joins between shots and the
+   process; the final film on picture correctness; films 2/3 alone show the rotor turning and the Calvin wheel with RuBP
+   returning. The final film's speech is byte for byte B's, so its feel came from its borrowed pictures. On the card Navin
+   chose "BIE naye sire se, A jaisa" and all four lessons, adding that molecules meeting be shown "achhe coordination ke
+   saath, khichdi si na pake". Changes on branch `studio-teach-like-a`: maker rules from film A (a question before every
+   mechanism, everyday pictures through the film, cause and effect in one flowing sentence), THE WHOLE MECHANISM (a
+   turning part shown turning; a return shown as a wheel), MOLECULES MEETING (one meeting per sentence, every molecule
+   named as it meets, at most one other flow); `mechanism_problems` checks them; `timed` starts each meeting so its flash
+   comes when the line names the product (the player honours `delay`); the placement pass now also moves glow and spin
+   onto their structure; the cupboard records each picture's set, and close-ups of one structure in one film come from
+   one set.
    Learning track (Claude's demos, not BIE output, not in `tests/fixtures/passed_outputs/`): after Navin's card "Jet
    engine demo", a 22-second jet engine film from four AI pictures (VM image job `demo-jet-engine-20261120`, ₹0) whose
    parts move by code (fan spinning up, air through the core changing colour, flames, exhaust haze), with a comparison

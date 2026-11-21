@@ -295,7 +295,7 @@ function sentence(k){const s=F.shots[si];const t=s.sentences[k];if(!t)return;ki=
   const zm=t.zoom||{};camTo(zm.x==null?50:zm.x,zm.y==null?50:zm.y,Math.min(2.2,Math.max(1,zm.scale||1)),1700);
   (t.pins||[]).forEach(p=>addLabel(p.t,p.x,p.y,'pin new',now));fxAdd(t.arrows||[],t.effects||[]);
   handOff(t.moves||[],now+300);(t.moves||[]).forEach(m=>addMove(m,now+300,now+300+(t.dur||0)*1000));(t.grows||[]).forEach(g=>addGrow(g,now+300));(t.fuses||[]).forEach((f,i)=>addFuse(f,now+400+i*1200));
-  (t.reacts||[]).forEach((r,i)=>addReact(r,now+300+i*1400));(t.cycles||[]).forEach(c=>addCycle(c,now+300));
+  (t.reacts||[]).forEach((r,i)=>addReact(r,now+300+(r.delay!=null?r.delay*1000:i*1400)));(t.cycles||[]).forEach(c=>addCycle(c,now+300));
   const w=$('world');w.querySelectorAll('.lit').forEach(e=>e.classList.remove('lit'));(t.focus||[]).forEach(id=>{const q=CSS.escape(id);w.querySelectorAll('#'+q+',[data-oid="'+q+'"]').forEach(e=>e.classList.add('lit'));});
   if(playing)speak(t);}
 function speak(t){clearTimeout(timer);const my=token;const later=ms=>{timer=setTimeout(()=>{if(my===token)next();},ms);};

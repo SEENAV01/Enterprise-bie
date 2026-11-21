@@ -192,7 +192,8 @@ def living_film():
     f["shots"][1]["visual"] = {"type": "cutaway", "image_prompt": "The inside of a chloroplast: stacked thylakoid discs at the "
                                "left, open fluid stroma in the centre and right, membranes with depth", "svg": ""}
     f["shots"][1]["sentences"] = [
-        sentence("Stroma mein CO2 aata hai aur RuBP se judkar 3-PGA banta hai.", "स्ट्रोमा में CO2 आता है और RuBP से जुड़कर 3-PGA बनता है।"),
+        sentence("Stroma mein CO2 aata hai, par 3-PGA kaise banta hai? Dekhiye, RuBP se judkar 3-PGA banta hai.",
+                 "स्ट्रोमा में CO2 आता है, पर 3-PGA कैसे बनता है? देखिए, RuBP से जुड़कर 3-PGA बनता है।"),
         sentence("Calvin cycle ghoomta hai: fixation, reduction aur regeneration.", "केल्विन साइकिल घूमता है: फ़िक्सेशन, रिडक्शन और रीजनरेशन।"),
         sentence("Fixation par CO2 judta hai aur 3-PGA banta hai.", "फ़िक्सेशन पर CO2 जुड़ता है और 3-PGA बनता है।"),
         sentence("Reduction par ATP lagta hai aur G3P banta hai.", "रिडक्शन पर ATP लगता है और G3P बनता है।"),
@@ -836,7 +837,7 @@ class PictureCupboard(unittest.TestCase):
                                      "places": [{"label": "Ghat", "x": 40, "y": 55}], "file": "library/ghat-wall.png"}])
         user = studio_film.messages(q, course="Class 9", language="Hinglish")[1]["content"]
         self.assertIn("THE PICTURE CUPBOARD", user)
-        self.assertIn("- ghat-wall (cutaway, scale: wall): Mountain wall in rain\n  labelled places: Ghat (40,55)", user)
+        self.assertIn("- ghat-wall (cutaway, set -, scale: wall): Mountain wall in rain\n  labelled places: Ghat (40,55)", user)
         made = film()
         made["shots"][0]["visual"]["library"] = "ghat-wall"
         self.assertEqual(studio_film.library_problems(made, q), [])
@@ -859,3 +860,79 @@ class PictureCupboard(unittest.TestCase):
             self.assertEqual(summary["films"][0]["kept_pictures"], 1)
             self.assertEqual(client.images, 0)                          # nothing was drawn for the kept scene
             self.assertIn("almaari se 1 tasveer", (Path(folder) / "out" / "FILMS.md").read_text(encoding="utf-8"))
+
+
+class LearnedFromFilmA(unittest.TestCase):
+    """Navin compared every Q14 film (21 November 2026) and chose that BIE learn from his film A: a question before every
+    mechanism, everyday pictures through the film, the whole mechanism shown (a turning machine turns, a returning process
+    is a wheel), molecules meeting one at a time, named as they meet and timed to the word ("achhe coordination ke saath,
+    khichdi si na pake"), and one picture set per machine."""
+
+    def shot_with(self, roman, voice, **extra):
+        made = film()
+        line = made["shots"][1]["sentences"][0]
+        line.update(roman=roman, voice=voice, **extra)
+        return made
+
+    def test_a_turning_machine_turns(self):
+        made = self.shot_with("H+ ke flow se stalk ghoomta hai aur CF1 ki shape badalti hai.", "एच प्लस के फ़्लो से स्टॉक घूमता है।")
+        self.assertIn("show it turning with a spin effect", " ".join(studio_film.mechanism_problems(made)))
+        made["shots"][1]["sentences"][0]["effects"] = [{"type": "spin", "x0": 40, "x1": 60, "y0": 30, "y1": 60}]
+        self.assertNotIn("show it turning", " ".join(studio_film.mechanism_problems(made)))
+
+    def test_made_again_needs_a_wheel(self):
+        made = self.shot_with("Akhir mein RuBP dobara banta hai.", "आख़िर में आरयूबीपी दोबारा बनता है।")
+        self.assertIn("show the return as a wheel", " ".join(studio_film.mechanism_problems(made)))
+
+    def test_molecules_meet_one_at_a_time_and_named(self):
+        meeting = dict(REACT)
+        made = self.shot_with("Pehle CO2 aata hai, phir kuch banta hai.", "पहले CO2 आता है।", reacts=[meeting, dict(REACT)],
+                              moves=[dict(CLOUDS), dict(CLOUDS)])
+        found = " ".join(studio_film.mechanism_problems(made))
+        self.assertIn("2 meetings in one sentence; one meeting at a time", found)
+        self.assertIn("a meeting and 2 other flows", found)
+        self.assertIn("RuBP takes part in the meeting but the line does not name it", found)
+        self.assertIn("a mechanism is shown here but no question is asked", found)
+        good = self.shot_with("Par 3-PGA kaise banta hai? Dekhiye, CO2 RuBP se judkar 3-PGA banata hai.",
+                              "पर 3-PGA कैसे बनता है? देखिए, CO2 RuBP से जुड़कर 3-PGA बनाता है।", reacts=[meeting])
+        self.assertEqual([p for p in studio_film.mechanism_problems(good) if "s2" in p], [])
+
+    def test_the_flash_comes_when_the_product_is_named(self):
+        meeting = {"inputs": [{"what": "ADP", "from": [10, 40]}, {"what": "Pi", "from": [10, 60]}], "at": [50, 40],
+                   "outputs": [{"what": "ATP", "to": [80, 30]}], "label": "", "ms": 4000, "loop": False}
+        roman = "ATP synthase ke CF1 par ADP aur Pi aate hain, aur aakhir mein yahan ATP banta hai."
+        delay = studio_film.timed([meeting], roman, 10.0)[0]["delay"]
+        word = roman.lower().index("yahan atp") + len("yahan ") 
+        self.assertAlmostEqual(delay + 0.45 * 4.0, word / len(roman) * 10.0, places=1)     # the flash on "ATP", not "ATP synthase"
+        self.assertNotIn("delay", studio_film.timed([meeting], "Kuch hota hai.", 5.0)[0])
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        self.assertIn("addReact(r,now+300+(r.delay!=null?r.delay*1000:i*1400))", page)
+
+    def test_a_question_in_half_the_shots_and_everyday_pictures(self):
+        made = film()
+        extra = json.loads(json.dumps(made["shots"][1]))
+        for n in range(3, 6):
+            made["shots"].append(dict(json.loads(json.dumps(extra)), id=f"s{n}"))
+        found = " ".join(studio_film.mechanism_problems(made))
+        self.assertIn("questions in 1 of 5 shots", found)
+        self.assertIn("everyday picture(s) in the film", found)
+
+    def test_glow_and_spin_are_placed_by_looking(self):
+        shot = {"id": "s6", "sentences": [{"roman": "Stalk ghoomta hai.", "effects": [{"type": "spin", "x0": 70, "x1": 90, "y0": 20, "y1": 40}]}]}
+        items = studio_film.place_items(shot)
+        spin = [i for i in items if i["id"] == "s0.effect0"][0]
+        self.assertEqual(spin["points"], [[80.0, 30.0]])
+        studio_film.apply_places(items, {"items": [{"id": "s0.effect0", "visible": True, "points": [[50, 45]]}]})
+        self.assertEqual(shot["sentences"][0]["effects"][0], {"type": "spin", "x0": 40, "x1": 60, "y0": 35, "y1": 55})
+
+    def test_one_machine_keeps_one_picture_set(self):
+        library = [{"id": "a-channel", "set": "A", "scale": "ATP synthase close up: channel"},
+                   {"id": "b-head", "set": "B", "scale": "ATP synthase close up: head"},
+                   {"id": "a-head", "set": "A", "scale": "ATP synthase close up: head"}]
+        made = film()
+        made["shots"][0]["visual"].update(type="cutaway", library="a-channel")
+        made["shots"][1]["visual"].update(type="cutaway", library="b-head")
+        self.assertIn("atp synthase close up comes from set 'B' here and from set 'A' in s1",
+                      " ".join(studio_film.library_problems(made, {"library": library})))
+        made["shots"][1]["visual"]["library"] = "a-head"
+        self.assertEqual(studio_film.library_problems(made, {"library": library}), [])
