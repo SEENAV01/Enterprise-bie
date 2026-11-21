@@ -51,6 +51,7 @@ INVITE_PAUSE = 0.55
 SENTENCE_END = re.compile(r"(?<=[.।!])\s+(?=[^\s\d])")
 INVITE = re.compile(r"^(?:aaiye|aayiye|aaie|chaliye|dekhiye|आइए|आइये|आईए|आइयें|चलिए|चलिये|देखिए|देखिये|let's|let us)\b"
                     r"|^(?:आइए|आइये|आईए|चलिए|चलिये)", re.I)
+INVITE_WORDS = 4          # "आइए जानते हैं", "चलिए पास से देखते हैं": an invitation, not a whole statement
 CONVERT_TAU = 0.3         # OpenVoice's strength of the tone change (its default)
 
 
@@ -67,10 +68,17 @@ def narrator() -> str:
     return "navin" if os.environ.get("BIE_NARRATOR", "").strip().lower() == "navin" else "female"
 
 
+def _clause_pause(bit: str) -> float:
+    """The breath after a clause. A short invitation ("आइए जानते हैं;", "Chaliye dekhte hain:") gets INVITE_PAUSE whatever
+    mark ends it: the makers write "Aaiye jaante hain;" as often as "Aaiye jaante hain." (Photosynthesis films q01, q02,
+    q04 and q05, 21 November 2026), and Navin's Q14 verdict asks for the pause either way."""
+    return INVITE_PAUSE if INVITE.search(bit) and len(bit.split()) <= INVITE_WORDS else CLAUSE_PAUSE
+
+
 def parts(text: str) -> list:
     """The pieces a line is spoken in, with the silence after each: a question on its own with QUESTION_PAUSE after it;
     a statement in one flow, with a short breath (CLAUSE_PAUSE) at ";", ":" and "—"; every sentence on its own, with
-    SENTENCE_PAUSE after its full stop (INVITE_PAUSE after an invitation: "Aaiye jaante hain.").
+    SENTENCE_PAUSE after its full stop (INVITE_PAUSE after an invitation: "Aaiye jaante hain." or "Aaiye jaante hain;").
     "Band membrane kyun chahiye? Iska seedha sa jawab hai: jamav." -> [("Band membrane kyun chahiye?", 0.45),
     ("Iska seedha sa jawab hai", 0.22), ("jamav.", 0.0)]."""
     out = []
@@ -81,7 +89,7 @@ def parts(text: str) -> list:
         sentences = [x.strip() for x in SENTENCE_END.split(piece) if x.strip()]
         for n, sentence in enumerate(sentences):
             bits = [b.strip() for b in CLAUSE.split(sentence) if b.strip()]
-            out.extend((b, CLAUSE_PAUSE) for b in bits[:-1])
+            out.extend((b, _clause_pause(b)) for b in bits[:-1])
             last = n == len(sentences) - 1
             out.append((bits[-1], 0.0 if last else (INVITE_PAUSE if INVITE.search(sentence) else SENTENCE_PAUSE)))
     if out and out[-1][1] and not (text or "").strip().endswith("?"):
