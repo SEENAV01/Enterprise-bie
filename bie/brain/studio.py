@@ -108,13 +108,23 @@ PROBLEMS_PROMPT = ("BIE's code checked your question list and found these proble
                    "again, changing only what the problems need:\n- ")
 
 
+NOT_TAUGHT = ("running", "label")     # the code reader's running heads and a figure's words (bie.brain.reading)
+OWN_LINE = ("heading", "caption", "table", "aside", "equation")    # kinds that are a book line of their own, never inside a sentence
+ENTRY = re.compile(r"^(?:Chapter\s+\d+|\d+\.\d+|\d+\.\s|[•●▪-]\s)")    # a side column's new entry ("Chapter 12", "11.3")
+
+
+def _kind(block) -> str:
+    return getattr(block, "kind", "text") or "text"
+
+
 def teachable(pages) -> dict:
-    """{block id: text} for every block long enough to carry a teachable idea."""
+    """{block id: text} for every block long enough to carry a teachable idea (not a running head, a heading or a figure's
+    words)."""
     out = {}
     for page in pages:
         for block in page.blocks:
             text = " ".join((block.text or "").split())
-            if len(text) >= TEACHABLE_CHARS:
+            if len(text) >= TEACHABLE_CHARS and _kind(block) not in NOT_TAUGHT + ("heading",):
                 out[block.id] = text
     return out
 
@@ -176,22 +186,34 @@ def _pieces(page) -> list:
 
 def book_lines(pages, block_ids) -> list:
     """The question's book lines: every whole sentence (across lines and page breaks) most of whose letters lie in the
-    question's blocks, in reading order, as [{"n", "text", "page", "blocks"}]. Running heads, footers and lone
-    subscripts are left out; a figure caption is a line of its own and never cuts the sentence it sits inside."""
+    question's blocks, in reading order, as [{"n", "text", "page", "blocks"}]. Running heads, footers, lone subscripts
+    and a figure's words are left out; a heading, a figure caption, a table (one line), a side-column entry and an
+    equation are lines of their own and never cut the sentence they sit inside. A block id a question names also stands for the further
+    parts the code reader cut from that printed line (``<id>.2``), and an id the reader absorbed stands for the block it
+    went into (``Page.absorbed``): a plan made before the reader keeps its lines."""
     wanted = set(block_ids or [])
     if not wanted:
         return []
+    wanted |= {host for page in pages for gone, host in getattr(page, "absorbed", ()) if gone in wanted}
+    wanted |= {block.id for page in pages for block in page.blocks if block.id.split(".")[0] in wanted}
     text, owner, page_of, order, captions = "", [], {}, {}, []
     for page in pages:
         printed = printed_page(page)
         for index, (block, piece) in enumerate(_pieces(page)):
             order[block.id] = len(order)
-            if not piece or LONE_MARK.match(piece) or _running_head(page, index, piece):
+            if not piece or LONE_MARK.match(piece) or _running_head(page, index, piece) or _kind(block) in NOT_TAUGHT:
                 continue
             page_of[block.id] = printed
-            if CAPTION.match(piece):
+            if CAPTION.match(piece) or _kind(block) in OWN_LINE:
                 if block.id in wanted:
-                    captions.append((block.id, piece))
+                    last = captions[-1] if captions else None
+                    if (last and _kind(block) in ("table", "aside") and last[2] == _kind(block)
+                            and order[last[0][-1]] == order[block.id] - 1
+                            and not (_kind(block) == "aside" and ENTRY.match(piece))):
+                        last[0].append(block.id)         # one table, or one side-column entry, is one book line
+                        last[1] += (" / " if _kind(block) == "table" else " ") + piece
+                    else:
+                        captions.append([[block.id], piece, _kind(block)])
                 continue
             if text:
                 joint = "" if text.endswith("-") and piece[:1].islower() else " "
@@ -206,7 +228,7 @@ def book_lines(pages, block_ids) -> list:
         if ids and sum(1 for o in ids if o in wanted) * 2 > len(ids) and len(sentence) >= 12:
             found.append((list(dict.fromkeys(o for o in ids if o in wanted)), sentence))
         start = end + 1
-    found += [([bid], piece) for bid, piece in captions]
+    found += [(bids, piece) for bids, piece, _ in captions]
     found.sort(key=lambda item: order.get(item[0][0], 0))
     return [{"n": n, "text": sentence, "page": page_of.get(blocks[0], ""), "blocks": blocks}
             for n, (blocks, sentence) in enumerate(found, 1)]
@@ -337,8 +359,13 @@ def chapter_text(pages) -> str:
         for block in page.blocks:
             text = " ".join((block.text or "").split())
             if text:
-                lines.append(f"[{block.id}] {text}")
+                kind = _kind(block)
+                lines.append(f"[{block.id}] {text}" if kind == "text" else f"[{block.id}] ({KIND_WORDS.get(kind, kind)}) {text}")
     return "\n".join(lines)
+
+
+KIND_WORDS = {"heading": "heading", "equation": "equation", "caption": "figure caption", "table": "table row", "aside": "side column",
+              "label": "a figure's words, not running text", "running": "running head or page line"}
 
 
 def messages(pages, *, course: str, language: str) -> list:

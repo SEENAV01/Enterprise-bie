@@ -326,7 +326,8 @@ PAGE_PATCH_HINT = ("Reply with a patch, not the whole page: replace_items = the 
 def _blocks_text(page):
     if not page.blocks:
         return "(this page has no native text blocks)"
-    return "\n".join(f"{b.id} | {b.text}" for b in page.blocks)
+    return "\n".join(f"{b.id} | {b.text}" if getattr(b, "kind", "text") == "text" else f"{b.id} | ({b.kind}) {b.text}"
+                     for b in page.blocks)
 
 
 def chapter_id(course) -> str:
@@ -341,7 +342,9 @@ def likely_boilerplate(page, neighbours) -> dict:
     out = {}
     heads = {n.blocks[0].text.strip() for n in neighbours if n is not None and n.blocks}
     for index, block in enumerate(page.blocks):
-        if PAGE_NUMBER.match(block.text):
+        if getattr(block, "kind", "text") == "running":
+            out[block.id] = "running head or page line (BIE's code reader: it repeats on other pages, or is only a number)"
+        elif PAGE_NUMBER.match(block.text):
             out[block.id] = "page number"
         elif index == 0 and block.text.strip() in heads:
             out[block.id] = "running header (the same first line as the next or previous page)"

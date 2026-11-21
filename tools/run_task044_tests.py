@@ -23,7 +23,8 @@ from run_task043_tests import NEW as TASK043  # noqa: E402
 # and the course studio (Navin, 18 November 2026): VM job section "studio", stage "questions"
 NEW = ("tests/test_task044_codex.py", "tests/test_task046_vm_image.py", "tests/test_task046_vm_voice.py",
        "tests/test_studio_questions.py", "tests/test_studio_films.py", "tests/test_studio_games.py",
-       "tests/test_studio_book.py", "tests/test_studio_pyq.py", "tests/test_studio_dub.py")
+       "tests/test_studio_book.py", "tests/test_studio_pyq.py", "tests/test_studio_dub.py",
+       "tests/test_brain_reading.py")      # BIE's code reader (Navin, 21 November 2026: "book ko dekh bhi sake")
 
 
 def main(argv=None):

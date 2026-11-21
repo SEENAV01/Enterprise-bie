@@ -284,6 +284,22 @@ How a chapter runs (one VM job per stage; each later stage reads the earlier run
 A chapter PDF that begins with its unit's opening page ("UNIT 4 / PLANT PHYSIOLOGY / Chapter 11, 12, 13") gets one more
 question, `u<unit>`, the unit's overview: a short film made only from that page, whose blocks leave the chapter questions
 (Navin, 21 November 2026). It has notes but no game stage.
+
+13. **Book understanding first: the code reader (21 November 2026).** Navin, after the Chapter 11 audit (NCERT text against
+   BIE's map and the film scripts): book understanding and coverage first ("book ko dekh bhi sake"), then how to teach,
+   then one chapter-wide script plan (no broken progression, no repetition, NCERT line by line, no hallucination); on
+   the cards: the naksha on NCERT headings, shown two ways (A: question-wise films inside each heading; B: one heading
+   one video), "Naksha pehle", "Mukabla nahi, BIE banao", and "saare sudhaar kar do bie ko ek teacher banane ke liye".
+   Step 1 is `bie/brain/reading.py`, BIE's code reader, used by `bie/brain/pages.py` (`load_pages`, `read=True` by
+   default) for every brain section and the studio: subscripts and superscripts back into their lines (CO₂, C₄, H⁺),
+   two columns on one printed line read one after the other, a figure's words kept out of the text, small-capital
+   titles joined, and a kind on every block (text, heading, equation, caption, table, aside, label, running). The studio
+   leaves running heads and figure words out of the book lines, keeps headings, captions, tables, side entries and
+   equations as lines of their own, and keeps an older question list's lines (a cut line's `<id>.2` parts and absorbed
+   ids follow their id). IMPLEMENTED (tests: `tests/test_brain_reading.py`). Measured on Chapter 11's question list:
+   book lines with a lost subscript 29 → 1, figure words inside a sentence 6 → 0, the unit page's two columns mixed
+   1 → 0, all 21 NCERT headings found (11.1 … 11.10.4); every teachable block still in a question. Next: step 2, Section 1
+   (`bie/brain/understanding.py`, both eyes: page image and the reader's text) on Chapter 11 through Codex.
 The course folder for Navin is the four runs' pages side by side. Every maker answer is checked by code and the exact
 problems go back (at most `max_rounds`); a stage with problems left is reported as `needs_fix`.
 
