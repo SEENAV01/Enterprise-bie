@@ -2444,3 +2444,13 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   that only starts with such a word keeps the breath. Tests in `tests/test_studio_dub.py`, including one that the passed
   Q14 film is said exactly as before. IMPLEMENTED.
 - **Measured:** batch 1: 4 of 114 lines change (the four openings); the passed Q14 film: 0 of 28 lines change.
+
+## A pin label moves off a wheel's name, 21 November 2026
+
+- **Runs:** VM job `studio-photosynthesis-films-b1`, film q05 played in Chromium.
+- **Taught:** in the water-accounting wheel the "6 H2O" pin sat on the wheel's name "Water-hisaab" for about 15
+  seconds: the player kept pin labels apart from each other, but not from a wheel's centre name.
+- **Changed in BIE:** `bie/brain/studio_player.html` (`placeLabels`): centre (math) labels are fixed obstacles; a pin
+  that overlaps one, or an earlier pin, moves down, with up to four passes so it moves on past the next one too. Test
+  in `tests/test_studio_films.py`. IMPLEMENTED.
+- **Measured** (Chromium, every 0.4 s, visible label boxes that overlap): q05 38 samples → 0; q01 0 → 0; q04 0 → 0.
