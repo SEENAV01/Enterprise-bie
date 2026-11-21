@@ -2371,3 +2371,39 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   in sentences that do not name their molecules (S4, S6), mechanism shots without a question (final 2, B 1, third film 2,
   A 0 outside its recap), and too few everyday pictures (final 1, B 1, third film 0; A passes with 3). First-try rounds
   and Navin's verdict are measured on the next Q14. Canonical brain tests: 440 passed, 0 skips.
+
+## Entry · Navin's voice and autodub, 21 November 2026
+
+- **Asked (Navin, 21 November 2026):** "maine voice record ki hai apni isi chapter ki script ko padhkar ... bahut galtiyan
+  hai us voice mein par clone krne ke liye kaam mein laa sakte ho ... bolne ka niyam isse mat lena, isko polish karna hai
+  voice ke taur par bhi aur teacher ki tarah kahan pause kaisa tone" and "autodub ka feature chahiye: video ke neeche
+  chalne wali script, bolne wali voice autodub ho jaaye dusri bhasha ke mix mein, wo bhasha plus technical terms in
+  English ... bina kisi kharche ke". Cards: Kokoro + OpenVoice; the recording sent in the chat; Tamil, Telugu,
+  Malayalam, Marathi and English.
+- **Taught:** his 5 min 18 s reading (numbers in `VOICE_CLIP_METHOD.md`) has 32 clean stretches (227 s), enough for a
+  tone colour; his pace (96 words a minute) and pauses (24 over 0.8 s) are not a rule for BIE. A Whisper round trip of
+  the base voice showed that Kokoro must get the film's Devanagari voice line, never the Roman subtitle: on Roman text its
+  Hindi reader speaks its own language-switch marks (Whisper heard "इन ... ही" around every word).
+- **Changed in BIE:** `bie/brain/studio_dub.py` (new): the maker re-says every line, title, shot title, key and everyday
+  label as a teacher of the language would, with a screen line (that script, English terms in Latin letters) and a voice
+  line (wholly in that script, for the engines that read only their own letters; English with formulas spoken); code
+  checks: every short form, formula and technical label kept in English, no English invented, the language's own script
+  (no Hindi words in Marathi, no Devanagari in Tamil, Telugu or Malayalam), questions kept, numbers kept, length within a
+  band, technical labels unchanged. `tools/vm_studio.py` stage `dub` (`--language ta,te,ml,mr,en`).
+  `bie/brain/studio_voice.py`: one voice per language (Kokoro for Hindi and English; AI4Bharat Indic-TTS for Tamil,
+  Telugu, Malayalam and Marathi), BIE's teacher rules (a question on its own, 0.45 s after it and said a little slower; a
+  0.22 s breath at ";", ":" and "—"), and Navin's tone colour (OpenVoice V2) when `BIE_NARRATOR=navin` and a private
+  tone file are set. `tools/voice_tone.py` makes the tone file from the clean stretches only; `tools/studio_revoice.py`
+  says a finished film again with another voice. Both refuse to write his voice into the repository. Licences: OpenVoice
+  MIT, Indic-TTS MIT (IIT Madras database licence: royalty-free, no field-of-use limit), Coqui TTS MPL-2.0 (unmodified
+  library), faster-whisper MIT, Resemblyzer Apache-2.0. Tests in `tests/test_studio_dub.py`. IMPLEMENTED; the dub stage
+  becomes INTEGRATED with the first VM dub run, the Indian-language voices when the VM has their engine.
+- **Measured:** his tone colour from the 32 clean stretches took 1.0 s of CPU. On four Q14 lines (the film's
+  Devanagari voice lines) the likeness to his reading (Resemblyzer, an encoder independent of the converter) rose from
+  0.80 (Kokoro `hm_omega`) to 0.875 after conversion; his own reading, half against half, scores 0.97, and the
+  conversion strength (0.0 to 1.0) moved it only between 0.866 and 0.877, so the converter, not the setting, is the limit.
+  Whisper heard the converted lines as well as the base ones (one weak spot: "सी एफ" heard as "C ape"). CPU per second
+  of voice on 2 CPUs: base 0.83 + conversion 0.74 (Chatterbox: 9.7), so a 3-minute film takes about 5 minutes. The first
+  sample page did not play in Navin's viewer (its `<audio>` elements were refused, as with the first films); it now plays
+  through BIE's voice player and the mp3 files went with it. His listening verdict is pending. Canonical brain tests:
+  462 passed, 0 skips.
