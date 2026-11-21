@@ -61,6 +61,9 @@ KINDS = ("text", "heading", "equation", "caption", "table", "aside", "label", "r
 SECTION = re.compile(r"^\d{1,2}(?:\.\d{1,2}){1,3}\.?\s+\S")      # "11.6.1 Splitting of Water", "11.2 EARLY EXPERIMENTS"
 TITLE = 1.25            # a line this much larger than the text is a title ("CHAPTER 11", "PLANT PHYSIOLOGY")
 HEADING_CHARS = 90
+# The parts of a chapter after its sections (NCERT prints them in capitals): their lines are summary or exercises, not teaching.
+ZONES = {"SUMMARY": "summary", "EXERCISES": "exercise", "EXERCISE": "exercise", "QUESTIONS": "exercise",
+         "POINTS TO PONDER": "points_to_ponder"}
 SECTION_NUMBER = re.compile(r"^\d{1,2}(?:\.\d{1,2}){1,3}\.?$")
 
 
@@ -484,6 +487,8 @@ def read_page(page, number: int, blocks, *, repeated=frozenset(), running_texts=
             return "caption"
         if ARROW.search(text):
             return "equation"
+        if whole and text.strip() in ZONES:
+            return "heading"
         if whole and len(text) <= HEADING_CHARS and (size >= TITLE * body or (
                 SECTION.match(text) and (size > body + 0.4 or _upper_share(text) >= 0.6))):
             return "heading"
@@ -649,3 +654,29 @@ def read(pdf_bytes: bytes, blocks_by_page: dict) -> dict:
         for number, blocks in blocks_by_page.items():
             out[number] = read_page(pdf.pages[number - 1], number, blocks, repeated=repeated, running_texts=heads)
     return out
+
+
+def chapter_structure(pages) -> dict:
+    """The chapter's printed structure from the reader's headings, by code: ``headings`` in reading order (the numbered
+    sections "11.6", "11.6.1" ... and the zones SUMMARY, EXERCISES) and ``of_block``: {block id: {"section", "title",
+    "zone"}} for every block (section "" before the first numbered heading: the unit page, the chapter's opening;
+    zone "body", "summary", "exercise" or "points_to_ponder")."""
+    current = {"section": "", "title": "", "zone": "body"}
+    headings, of_block = [], {}
+    for page in pages:
+        for block in page.blocks:
+            kind = getattr(block, "kind", "text") or "text"
+            text = " ".join((block.text or "").split())
+            if kind == "heading" and SECTION.match(text):
+                number = text.split()[0].rstrip(".")
+                current = {"section": number, "title": text[len(text.split()[0]):].strip(), "zone": "body"}
+                headings.append({"block_id": block.id, "page": page.number, "number": number, "title": current["title"],
+                                 "level": number.count("."), "zone": "body"})
+            elif kind == "heading" and text in ZONES:
+                current = {"section": current["section"], "title": text.title(), "zone": ZONES[text]}
+                headings.append({"block_id": block.id, "page": page.number, "number": "", "title": text.title(), "level": 0,
+                                 "zone": ZONES[text]})
+            if kind != "running":
+                of_block[block.id] = dict(current)
+    return {"headings": headings, "of_block": of_block}
+

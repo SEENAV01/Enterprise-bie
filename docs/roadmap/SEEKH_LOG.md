@@ -2507,10 +2507,15 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   set on two lines are joined, "Light" over an arrow joins its equation. `bie/brain/pages.py` uses it by default
   (`Block.kind`, `Page.reading`, `Page.absorbed`); `bie/brain/studio.py` (`teachable`, `book_lines`, `chapter_text`)
   and `bie/brain/understanding.py` (running heads as boilerplate, kinds on the page's block list) follow the kinds.
-  Tests in `tests/test_brain_reading.py` (PDFs built by hand). IMPLEMENTED.
+  Section 1 now also places every item in the printed section it comes from, by code (`reading.chapter_structure`:
+  the numbered headings and the SUMMARY and EXERCISES zones; `item.ncert_section`, `item.zone`,
+  `chapter_map.ncert_sections`, a section list in MAP.md), and the maker names each item's role in the book (`role`:
+  teach, in_text_question, reader_talk, activity, biography, summary, exercise, heading, caption), so that later
+  sections teach a line by what it does. Tests in `tests/test_brain_reading.py` (PDFs built by hand). IMPLEMENTED.
 - **Measured:** Chapter 11 with the batch 1 question list: book lines with a lost subscript 29 → 1, figure words inside a
   sentence 6 → 0, mixed columns 1 → 0; book lines 364 → 380 (headings, captions, tables and side entries are now lines
   of their own); every teachable block still in a question. Across the six input books: 0 pages left unread; physics
   Chapter 3's two-column pages are read left column, then right (they were read across both columns line by line).
-  Reading time 2–11 s per book. The passed outputs (`tests/fixtures/passed_outputs/`) still pass; 487 tests.
+  Reading time 2–11 s per book. Chapter 11's structure by code: 19 numbered sections (11.1 … 11.10.4), Summary and
+  Exercises, every block placed. The passed outputs (`tests/fixtures/passed_outputs/`) still pass; 489 + 700 tests.
 

@@ -298,7 +298,9 @@ question, `u<unit>`, the unit's overview: a short film made only from that page,
    equations as lines of their own, and keeps an older question list's lines (a cut line's `<id>.2` parts and absorbed
    ids follow their id). IMPLEMENTED (tests: `tests/test_brain_reading.py`). Measured on Chapter 11's question list:
    book lines with a lost subscript 29 → 1, figure words inside a sentence 6 → 0, the unit page's two columns mixed
-   1 → 0, all 21 NCERT headings found (11.1 … 11.10.4); every teachable block still in a question. Next: step 2, Section 1
+   1 → 0, all 21 NCERT headings found (11.1 … 11.10.4); every teachable block still in a question. Section 1 places every
+   item in its printed section by code (`ncert_section`, `zone`: body, summary, exercise) and the maker gives each item
+   its `role` in the book (teach, in_text_question, reader_talk, activity, biography, summary, exercise). Next: step 2, Section 1
    (`bie/brain/understanding.py`, both eyes: page image and the reader's text) on Chapter 11 through Codex.
 The course folder for Navin is the four runs' pages side by side. Every maker answer is checked by code and the exact
 problems go back (at most `max_rounds`); a stage with problems left is reported as `needs_fix`.

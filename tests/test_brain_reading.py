@@ -191,5 +191,39 @@ class PlansMadeBefore(unittest.TestCase):
         self.assertIn("[p0001-b0003] Priestley showed", text)
 
 
+class Structure(unittest.TestCase):
+    def test_the_chapters_sections_and_zones_come_from_its_headings(self):
+        def b(i, text, kind="text"):
+            return Block(f"p0001-b{i:04d}", text, (0, 0, 1, 1), kind)
+        page = Page(1, (b(1, "PHOTOSYNTHESIS IN HIGHER PLANTS 139", "running"), b(2, "Plants make food."),
+                        b(3, "11.6 THE ELECTRON TRANSPORT", "heading"), b(4, "Electrons move downhill."),
+                        b(5, "11.6.1 Splitting of Water", "heading"), b(6, "Water is split."),
+                        b(7, "11.1 What do we Know?", "aside"), b(8, "SUMMARY", "heading"), b(9, "Plants make food in light."),
+                        b(10, "EXERCISES", "heading"), b(11, "1. By looking at a plant can you tell C3 or C4?")))
+        found = reading.chapter_structure([page])
+        self.assertEqual([(h["number"], h["zone"]) for h in found["headings"]],
+                         [("11.6", "body"), ("11.6.1", "body"), ("", "summary"), ("", "exercise")])
+        where = found["of_block"]
+        self.assertEqual(where["p0001-b0002"]["section"], "")
+        self.assertEqual(where["p0001-b0004"]["section"], "11.6")
+        self.assertEqual((where["p0001-b0006"]["section"], where["p0001-b0006"]["title"]), ("11.6.1", "Splitting of Water"))
+        self.assertEqual(where["p0001-b0007"]["section"], "11.6.1")      # a contents entry in a side column is no heading
+        self.assertEqual(where["p0001-b0009"]["zone"], "summary")
+        self.assertEqual(where["p0001-b0011"]["zone"], "exercise")
+        self.assertNotIn("p0001-b0001", where)
+
+    def test_section_one_places_every_item_and_checks_its_role(self):
+        from bie.brain import understanding
+        items = {"p001-i1": {"page": 1, "block_ids": ["p0001-b0004"]}, "p001-i2": {"page": 1, "block_ids": []},
+                 "p001-i3": {"page": 1, "block_ids": ["p0001-b0011"]}}
+        of_block = {"p0001-b0004": {"section": "11.6", "title": "THE ELECTRON TRANSPORT", "zone": "body"},
+                    "p0001-b0011": {"section": "11.10.4", "title": "Exercises", "zone": "exercise"}}
+        understanding._place_in_sections(items, of_block)
+        self.assertEqual([(i["ncert_section"], i["zone"]) for i in items.values()],
+                         [("11.6", "body"), ("11.6", "body"), ("11.10.4", "exercise")])   # an image item follows the one before
+        self.assertIn("exercise", understanding.ROLES)
+        self.assertEqual(understanding.ITEM_SCHEMA["properties"]["role"]["enum"], understanding.ROLES)
+
+
 if __name__ == "__main__":
     unittest.main()
