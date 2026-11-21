@@ -239,6 +239,21 @@ Decision cards in the planning chat, 18 November 2026:
    the player was fixed (SEEKH_LOG) and the re-walk passes all 17 gates. INTEGRATED for physics and chemistry (real
    chapter PDF → VM → lesson played); biology waits for its re-run.
 
+11. **Navin's voice and autodub (21 November 2026):** he recorded the Q14 script in his voice ("bahut galtiyan hai ...
+   clone karne ke liye kaam mein laa sakte ho ... bolne ka niyam isse mat lena") and asked for autodub: the subtitles and
+   the voice in another language mix, technical terms in English, at no cost. Cards: Kokoro + OpenVoice; the recording
+   sent in the chat (kept only in Claude's private workspace, never in the repository; `VOICE_CLIP_METHOD.md`); Tamil,
+   Telugu, Malayalam, Marathi and English. Built on branch `studio-autodub`: studio stage `dub`
+   (`bie/brain/studio_dub.py`, `tools/vm_studio.py --stage dub --language ta,te,ml,mr,en`): the maker re-says every line,
+   title and everyday label as a teacher of that language; code keeps every short form, formula and technical label in
+   English and the rest in the language's own script, keeps questions and numbers, and gives each line a voice form the
+   engine can read. `bie/brain/studio_voice.py`: one voice per language (Kokoro for Hindi and English, AI4Bharat
+   Indic-TTS for the four others), BIE's teacher pauses (a question on its own with 0.45 s after it, a 0.22 s breath at
+   ";", ":" and "—") and Navin's timbre through OpenVoice V2 when its private tone file is set; `tools/voice_tone.py`
+   (his tone from the clean stretches only) and `tools/studio_revoice.py` (a finished film said again with another
+   voice). IMPLEMENTED with 22 offline tests; first sample: likeness to his reading 0.80 → 0.875 (his own ceiling 0.97),
+   about 1.6 s of CPU per second of voice. His listening verdict and the first VM dub run are next.
+
 Checked the same day: VM job `img-check-20261118` (two test pictures through the plan, 3 minutes, ₹0); Codex's weekly
 plan window was 43 % used before it (resets about 21 November).
 
@@ -250,6 +265,8 @@ How a chapter runs (one VM job per stage; each later stage reads the earlier run
    so right and wrong choices both visibly do something, then "Kya hua" explains.
 4. `book` (from_run = the films run): `BOOK.html`, note cards covering every point, the film's picture with its pins,
    the class moment (Asha, Dev, Teacher), "yaad rakho" and a check, linked to `films/<qid>.html` and `GAME.html#<qid>`.
+5. `dub` (from_run = the films run, source = the same PDF, language = target codes such as `ta,te,ml,mr,en`):
+   `dub/<lang>/<qid>.html`, the same film in each language, and `DUB.md`.
 The course folder for Navin is the four runs' pages side by side. Every maker answer is checked by code and the exact
 problems go back (at most `max_rounds`); a stage with problems left is reported as `needs_fix`.
 
