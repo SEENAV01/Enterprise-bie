@@ -113,6 +113,20 @@ def maybe_json(source: str, name: str):
         return None
 
 
+def kept_pictures(source: str) -> list:
+    """The picture cupboard (almaari): ``library.json`` in the from-run folder lists kept pictures, each with an id, its
+    scale, what it shows, its labelled places and its file under ``library/`` in the same folder."""
+    found = maybe_json(source, "library.json") if source else None
+    out = []
+    for e in (found or {}).get("pictures") or [] if isinstance(found, dict) else []:
+        file = str(e.get("file") or "") if isinstance(e, dict) else ""
+        if e.get("id") and file.startswith("library/") and ".." not in file and file.endswith((".png", ".jpg", ".webp")):
+            out.append({"id": str(e["id"]), "type": str(e.get("type") or "cutaway"), "scale": str(e.get("scale") or ""),
+                        "shows": str(e.get("shows") or ""), "places": [p for p in e.get("places") or [] if isinstance(p, dict)][:8],
+                        "file": file})
+    return out
+
+
 def image_uri(path, width: int = 1600) -> str:
     """The picture as a WebP data URI, at most ``width`` px wide (the film is one file that works offline)."""
     import base64
@@ -155,12 +169,13 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
             q["teacher_lines"] = [{"roman": str(x.get("roman") or ""), "note": str(x.get("note") or "")}
                                   for x in teacher["lines"] if isinstance(x, dict)]
             q["earlier_film"] = teacher.get("film") if isinstance(teacher.get("film"), dict) else {}
+        q["library"] = kept_pictures(args.from_run)
         record = studio_film.write(client, model, q, course=args.course, language=args.language,
                                    chapter=plan.get("chapter_title", ""), max_rounds=args.max_rounds)
         for key in usage:
             usage[key] += record["usage"].get(key, 0)
         film = record.get("film") if isinstance(record.get("film"), dict) else {}
-        images, audio, made, files, placed = {}, {}, 0, {}, {}
+        images, audio, made, files, placed, kept = {}, {}, 0, {}, {}, 0
         shots = film.get("shots") or []
         for number, shot in enumerate(shots):
             if (shot.get("visual") or {}).get("type") in ("photo", "cutaway") and made < MAX_IMAGES_PER_FILM \
@@ -168,10 +183,20 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                 target = out / "films" / "img" / f"{q['id']}-{shot.get('id')}.png"
                 target.parent.mkdir(parents=True, exist_ok=True)
                 try:
-                    done = client.generate_image(studio_film.image_prompt(shot, film.get("look", "")), target)
-                    saved = target.with_name(done["file"]) if isinstance(done, dict) and done.get("file") else target
-                    saved = saved if saved.exists() else target
-                    made += 1
+                    entry = {e["id"]: e for e in q.get("library") or []}.get(((shot.get("visual") or {}).get("library") or "").strip())
+                    saved = None
+                    if entry:                        # a kept picture from the cupboard (Navin, 21 November 2026)
+                        try:
+                            target.write_bytes(read_bytes(args.from_run, entry["file"]))
+                            saved, kept = target, kept + 1
+                        except Exception as exc:
+                            record["problems"] = record["problems"] + [f"{shot.get('id')}: kept picture {entry['id']} not read "
+                                                                       f"({str(exc)[:80]}); a new one was drawn"]
+                    if saved is None:
+                        done = client.generate_image(studio_film.image_prompt(shot, film.get("look", "")), target)
+                        saved = target.with_name(done["file"]) if isinstance(done, dict) and done.get("file") else target
+                        saved = saved if saved.exists() else target
+                        made += 1
                     # the labels go where the picture really shows their structure (Navin's Q14 review, 20 Nov 2026)
                     nxt = shots[number + 1] if number + 1 < len(shots) else None
                     placed[shot.get("id")] = studio_film.place(client, model, shot, nxt, vision_part(saved))
@@ -206,6 +231,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                      "book_lines": f"{covered['taught']}/{covered['total']}", "beyond": len(covered["beyond"]),
                      "points_moved": sum(p.get("moved", 0) for p in placed.values()),
                      "teacher_lines": len(q.get("teacher_lines") or []),
+                     "kept_pictures": kept,
                      "not_in_picture": [m for p in placed.values() for m in p.get("missing", [])]})
     lines = ["# Filmein", "", f"Awaaz: {summary['voice']}", ""]
     for row in rows:
@@ -213,6 +239,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                      f"{row['minutes']} min · NCERT lines {row['book_lines']} · NCERT se bahar {row['beyond']} · "
                      f"tasveer dekhkar khiske points {row['points_moved']}"
                      + (f" · teacher ki {row['teacher_lines']} lines" if row.get("teacher_lines") else "")
+                     + (f" · almaari se {row['kept_pictures']} tasveer" if row.get("kept_pictures") else "")
                      + (f" · kamiyan: {len(row['problems'])}" if row["problems"] else ""))
     (out / "FILMS.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     summary.update(films=rows, usage=usage, model=model,

@@ -111,7 +111,7 @@ SCHEMA = _obj({
     "title": S, "look": S,
     "shots": _arr(_obj({
         "id": S, "title": S, "key": S, "covers": _arr({"type": "integer"}),
-        "visual": _obj({"type": {"type": "string", "enum": list(VISUALS)}, "image_prompt": S, "svg": S}),
+        "visual": _obj({"type": {"type": "string", "enum": list(VISUALS)}, "image_prompt": S, "svg": S, "library": S}),
         "dive": _obj({"x": N, "y": N}),
         "sentences": _arr(SENTENCE),
     })),
@@ -259,7 +259,7 @@ def messages(question: dict, *, course: str, language: str, chapter: str = "") -
                                                               molecules=", ".join(MOLECULES),
                                                               kinds=MAX_KINDS, shot_chars=MAX_SHOT_CHARS,
                                                               pin_gap=PIN_GAP)},
-            {"role": "user", "content": user + _teacher_part(question)}]
+            {"role": "user", "content": user + _teacher_part(question) + _library_part(question)}]
 
 
 TEACHER_PART = """
@@ -277,6 +277,45 @@ His lines:
 
 The earlier film (JSON):
 {film}"""
+
+
+LIBRARY_PART = """
+
+THE PICTURE CUPBOARD (almaari). These pictures were made before and kept, each judged the best at its scale (Navin
+approved keeping the best pictures, 21 November 2026). When a shot needs one of these scenes, use the kept picture: set
+visual.library to its id, keep visual.type as given, and copy its description into visual.image_prompt; place pins,
+moves, reacts and the rest on what it shows (its labelled places are listed). Draw a new picture (visual.library "")
+only when no kept picture shows what the shot needs; a new picture keeps the kept pictures' colours and layout.
+
+{entries}"""
+
+
+def _library_part(question: dict) -> str:
+    """The kept pictures the maker may use instead of drawing new ones (``visual.library``)."""
+    entries = question.get("library") or []
+    if not entries:
+        return ""
+    text = "\n".join(f"- {e.get('id')} ({e.get('type', 'cutaway')}, scale: {e.get('scale', '')}): {e.get('shows', '')}"
+                     + (f"\n  labelled places: " + ", ".join(f"{p.get('label')} ({p.get('x')},{p.get('y')})" for p in e.get("places") or [])
+                        if e.get("places") else "") for e in entries)
+    return LIBRARY_PART.format(entries=text)
+
+
+def library_problems(film: dict, question: dict) -> list:
+    """A shot that names a kept picture names one that is in the cupboard, of a type that is a picture."""
+    kept = {e.get("id"): e for e in question.get("library") or []}
+    out = []
+    for number, shot in enumerate(film.get("shots") or [], 1):
+        name = ((shot.get("visual") or {}).get("library") or "").strip()
+        if not name:
+            continue
+        sid = shot.get("id") or f"shot {number}"
+        if name not in kept:
+            out.append(f"{sid}: no kept picture {name!r}; use one of {sorted(kept) or 'none'} or draw a new picture "
+                       "(visual.library \"\")")
+        elif (shot.get("visual") or {}).get("type") not in ("photo", "cutaway"):
+            out.append(f"{sid}: a kept picture is a photo or cutaway visual, not {(shot.get('visual') or {}).get('type')!r}")
+    return out
 
 
 def _teacher_part(question: dict) -> str:
@@ -495,14 +534,17 @@ def problems(film, question: dict) -> list:
             pins = sentence.get("pins") or []
             if len(pins) > 3:
                 out.append(f"{where}: {len(pins)} pins; at most 3 per sentence")
-            for a, b in ((a, b) for i, a in enumerate(pins) for b in pins[i + 1:]):
+            marks = pins + [{"label": m.get("label"), "x": (m.get("points") or [[None]])[-1][0],
+                             "y": (m.get("points") or [[None, None]])[-1][-1]}
+                            for m in sentence.get("moves") or [] if (m.get("label") or "").strip()]
+            for a, b in ((a, b) for i, a in enumerate(marks) for b in marks[i + 1:]):
                 try:
                     apart = ((float(a["x"]) - float(b["x"])) ** 2 + (float(a["y"]) - float(b["y"])) ** 2) ** 0.5
                 except (KeyError, TypeError, ValueError):
                     continue
                 if apart < PIN_GAP and a.get("label") != b.get("label"):
-                    out.append(f"{where}: pins {a.get('label')!r} and {b.get('label')!r} are {apart:.0f}% apart, on top of each "
-                               f"other; pin two structures at least {PIN_GAP}% apart")
+                    out.append(f"{where}: labels {a.get('label')!r} and {b.get('label')!r} are {apart:.0f}% apart, on top of each "
+                               f"other; keep two labels (pins, and the end of a labelled move) at least {PIN_GAP}% apart")
             for pin in pins:
                 labels.add(pin.get("label"))
                 if not (3 <= float(pin.get("x", -1)) <= 97 and 3 <= float(pin.get("y", -1)) <= 97):
@@ -557,7 +599,7 @@ def problems(film, question: dict) -> list:
     if missing_points:
         out.append("no shot covers the question's points " + ", ".join(map(str, missing_points)))
     return (out + book_problems(film, question) + screen_problems(film, question) + layout_problems(film)
-            + teacher_problems(film, question))
+            + teacher_problems(film, question) + library_problems(film, question))
 
 
 QUESTION_WORD = re.compile(r"\b(kyun|kyon|kyu|kaise|kya|kab|kahan|kaun|kitna|kitne|kitni)\b", re.I)
@@ -811,9 +853,18 @@ STYLE_WORDS = {"and", "aur", "camera", "cinematic", "colour", "colours", "color"
                "realistic", "same", "scale", "scientific", "shadow", "shadows", "soft", "structural", "the", "volumetric", "with"}
 
 
+GENERIC_WORDS = {"above", "back", "behind", "below", "beside", "biological", "bottom", "center", "central", "centre", "consistent",
+                 "facing", "far", "front", "inside", "large", "leave", "left", "lower", "many", "middle", "near", "one", "open",
+                 "orientation", "outside", "previous", "right", "selected", "several", "side", "small", "target", "top", "two",
+                 "upper"}
+
+
 def _structure_words(text: str) -> set:
+    """The words that name structures: not colours, style, places in the frame or sizes (the second Q14 remake: "proton
+    pump copper left" matched a cell picture's "upper left open", and ATP synthase was drawn on the cell again)."""
     return {_stem(w.lower()) for w in re.findall(r"[A-Za-z][A-Za-z0-9+]*", text or "")
-            if w.lower() not in COLOUR_WORDS | STYLE_WORDS and (len(w) >= 3 or "+" in w or w.lower() not in SHORT_STOP)}
+            if w.lower() not in COLOUR_WORDS | STYLE_WORDS | GENERIC_WORDS
+            and (len(w) >= 3 or "+" in w or w.lower() not in SHORT_STOP)}
 
 
 def look_for(prompt: str, look: str) -> str:
@@ -830,10 +881,18 @@ def look_for(prompt: str, look: str) -> str:
             if _structure_words(name) & shown:
                 kept.append(clause)
             continue
-        parts = [f.strip() for f in clause.split(",") if f.strip()]
-        parts = [f for f in parts if not _structure_words(f) or _structure_words(f) & shown]
-        if parts:
-            kept.append(", ".join(parts))
+        keep, last = [], None
+        for part in (f.strip() for f in clause.split(",") if f.strip()):
+            first = (re.findall(r"[A-Za-z]+", part) or [""])[0].lower()
+            if last is not None and first in COLOUR_WORDS:      # "silver central stalk ..." describes the structure before it
+                ok = last
+            else:
+                ok = not _structure_words(part) or bool(_structure_words(part) & shown)
+            if ok:
+                keep.append(part)
+            last = ok
+        if keep:
+            kept.append(", ".join(keep))
     return "; ".join(kept)
 
 

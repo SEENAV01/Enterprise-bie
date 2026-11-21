@@ -737,7 +737,7 @@ class ReviewFindings(unittest.TestCase):
         line["roman"] = "Thylakoid ke andar lumen hai aur hawa barasti hai."
         line["pins"] = [{"label": "thylakoid", "x": 64, "y": 58}, {"label": "lumen", "x": 65, "y": 61}]
         found = " | ".join(studio_film.problems(bad, QUESTION))
-        self.assertIn("pins 'thylakoid' and 'lumen' are 3% apart", found)
+        self.assertIn("labels 'thylakoid' and 'lumen' are 3% apart", found)
         line["pins"][1].update(x=72, y=70)
         self.assertNotIn("apart, on top of each other", " | ".join(studio_film.problems(bad, QUESTION)))
 
@@ -770,3 +770,92 @@ class ReviewFindings(unittest.TestCase):
         page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
         for hook in ("until:m.hold&&!m.loop&&until?until:0", "addMove(m,now+300,now+300+(t.dur||0)*1000)", "if(!rep&&ac.until)"):
             self.assertIn(hook, page)
+
+
+class LookWordsAndLabelGaps(unittest.TestCase):
+    """The two Q14 remakes of 20 November 2026: a look line with "copper left" and "central stalk" matched a cell picture's
+    "upper left open" and "central vacuole", so ATP synthase was drawn on the cell again; and a move's label ended on a
+    pin ("Patta" and "Dhoop" on one spot)."""
+
+    LOOK = ("16:9 realistic journey, golden light aur teal shadows; leaf emerald, mesophyll cell translucent jade, chloroplast "
+            "envelope sage green, thylakoid membrane dark green, stroma ivory-teal; proton pump copper left, ATP synthase right "
+            "with amber CF0 ring, silver central stalk and violet six-lobed CF1 head facing stroma; H+ gold")
+
+    def test_place_and_size_words_do_not_bring_a_structure_in(self):
+        cell = ("Transparent cutaway of one mesophyll cell, large central vacuole, chloroplasts along the wall. Selected "
+                "chloroplast right at 70,52. No molecular proteins. Leave upper left open for light.")
+        grana = "Inside one chloroplast: thylakoid membrane stacks and the stroma around them, no proteins."
+        membrane = "The thylakoid membrane with a proton pump at left and ATP synthase at right, stroma above."
+        for prompt in (cell, grana):
+            shared = studio_film.look_for(prompt, self.LOOK)
+            for absent in ("ATP synthase", "proton pump", "central stalk", "CF1 head"):
+                self.assertNotIn(absent, shared, (prompt[:30], shared))
+        self.assertIn("mesophyll cell translucent jade", studio_film.look_for(cell, self.LOOK))
+        self.assertIn("stroma ivory-teal", studio_film.look_for(grana, self.LOOK))
+        shared = studio_film.look_for(membrane, self.LOOK)
+        for present in ("proton pump copper left", "ATP synthase right with amber CF0 ring", "silver central stalk"):
+            self.assertIn(present, shared)
+
+    def test_a_move_label_ending_on_a_pin_is_sent_back(self):
+        bad = film()
+        line = bad["shots"][0]["sentences"][1]
+        line["roman"] = "Yeh patta dhoop le raha hai aur hawa barasti hai."
+        line["pins"] = [{"label": "Patta", "x": 60, "y": 50}]
+        line["moves"] = [dict(CLOUDS, label="Dhoop", points=[[10, 10], [60, 50]])]
+        self.assertIn("labels 'Patta' and 'Dhoop' are 0% apart", " ".join(studio_film.problems(bad, QUESTION)))
+        line["moves"][0]["points"] = [[10, 10], [30, 20]]
+        self.assertNotIn("'Patta' and 'Dhoop'", " ".join(studio_film.problems(bad, QUESTION)))
+
+
+class PictureCupboard(unittest.TestCase):
+    """The almaari (Navin, 21 November 2026): the best picture of a scene is kept and used again; a new one is drawn only
+    when no kept picture fits."""
+
+    def cupboard(self, folder):
+        run = Path(folder) / "run"
+        (run / "films" / "img").mkdir(parents=True)
+        made = film()
+        made["shots"][0]["sentences"][1]["pins"] = [{"label": "Ghat", "x": 40, "y": 55}]
+        (run / "films" / "q01.json").write_text(json.dumps({"film": made, "images": {"s1": "q01-s1.png"}}), encoding="utf-8")
+        (run / "films" / "img" / "q01-s1.png").write_bytes(png_bytes())
+        sys.path.insert(0, str(ROOT / "tools"))
+        import picture_library
+        return picture_library.build(Path(folder) / "qrun", [f"{run}|q01|s1|ghat-wall|mountain wall"], approved="Navin, 21 Nov 2026")
+
+    def test_a_kept_picture_carries_what_it_shows_and_where(self):
+        with tempfile.TemporaryDirectory() as folder:
+            library = self.cupboard(folder)
+            kept = library["pictures"][0]
+            self.assertEqual((kept["id"], kept["file"], kept["scale"]), ("ghat-wall", "library/ghat-wall.png", "mountain wall"))
+            self.assertIn({"label": "Ghat", "x": 40, "y": 30}, kept["places"])          # the first place a label is pinned
+            self.assertTrue((Path(folder) / "qrun" / "library" / "ghat-wall.png").exists())
+            self.assertEqual(vm_studio.kept_pictures(str(Path(folder) / "qrun"))[0]["id"], "ghat-wall")
+
+    def test_the_maker_sees_the_cupboard_and_names_only_what_is_in_it(self):
+        q = dict(QUESTION, library=[{"id": "ghat-wall", "type": "cutaway", "scale": "wall", "shows": "Mountain wall in rain",
+                                     "places": [{"label": "Ghat", "x": 40, "y": 55}], "file": "library/ghat-wall.png"}])
+        user = studio_film.messages(q, course="Class 9", language="Hinglish")[1]["content"]
+        self.assertIn("THE PICTURE CUPBOARD", user)
+        self.assertIn("- ghat-wall (cutaway, scale: wall): Mountain wall in rain\n  labelled places: Ghat (40,55)", user)
+        made = film()
+        made["shots"][0]["visual"]["library"] = "ghat-wall"
+        self.assertEqual(studio_film.library_problems(made, q), [])
+        made["shots"][0]["visual"]["library"] = "sea-wall"
+        self.assertIn("s1: no kept picture 'sea-wall'", " ".join(studio_film.library_problems(made, q)))
+        self.assertNotIn("PICTURE CUPBOARD", studio_film.messages(QUESTION, course="Class 9", language="Hinglish")[1]["content"])
+
+    def test_the_stage_uses_a_kept_picture_instead_of_drawing(self):
+        with tempfile.TemporaryDirectory() as folder:
+            self.cupboard(folder)
+            run_dir = Path(folder) / "qrun"
+            (run_dir / "questions.json").write_text(json.dumps({"chapter_title": "Monsoon", "questions": [QUESTION]}), encoding="utf-8")
+            made = film()
+            made["shots"][0]["visual"].update(type="cutaway", library="ghat-wall", image_prompt="Mountain wall in monsoon rain, clouds climbing the western slope, wet green forest, painterly 3D.")
+            client = FakeClient([made])
+            args = SimpleNamespace(stage="films", source="", from_run=str(run_dir), videos="q01", out=str(Path(folder) / "out"),
+                                   pages="", course="Class 9", language="Hinglish", model="", max_rounds=2)
+            summary = vm_studio.run(args, client=client, load=None, voice_maker=lambda: (FakeVoice(), None))
+            self.assertEqual(summary["status"], "ok", summary)
+            self.assertEqual(summary["films"][0]["kept_pictures"], 1)
+            self.assertEqual(client.images, 0)                          # nothing was drawn for the kept scene
+            self.assertIn("almaari se 1 tasveer", (Path(folder) / "out" / "FILMS.md").read_text(encoding="utf-8"))

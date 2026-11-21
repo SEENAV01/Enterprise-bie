@@ -2314,3 +2314,38 @@ needs about 2 hours of CPU, a 12-video chapter about a day.
 budget decision, agreement of 3 November) is the route for whole books. The measure job stays as the yardstick: the
 same job with `"reference": "navin"` measures his clone once his clip is on the VM. Sound quality is not judged yet.
 
+## Entry · Q14 made two ways (Navin's lines, and BIE in his way), 20 November 2026
+
+- **Run:** VM jobs `studio-photosynthesis-q14-teacher-lines` (A) and `studio-photosynthesis-q14-bie-style` (B) after
+  PR #179, Codex on the ChatGPT plan, ₹0, 14.1 and 15.5 minutes on the VM. A: 9 shots, 9 pictures, 4.0 minutes, 1 round, no
+  findings, 28 of 87 points placed by looking. B: 8 shots, 8 pictures, 3.2 minutes, 2 rounds (3 findings, then none), 44 of
+  70 points placed. NCERT lines 12/12 in both.
+- **Taught:** the teacher's way can be taught from his own edits: B, never shown his Q14 lines, opened with his
+  invitation, asked questions and opened their answers with his bridges, used the dam picture he asked for, and closed
+  with his recap opening; A kept all 22 of his lines in his order on the first try. Two faults came from code: the
+  look filter counted "left", "right" and "central" as structure words, so a look line naming "proton pump copper left"
+  and "silver central stalk" reached A's cell picture through "upper left open" and "central vacuole" (ATP synthase drawn
+  at cell scale again); and the label gap ignored the label a move carries to its path's end.
+- **Changed in BIE:** `bie/brain/studio_film.py`: `GENERIC_WORDS` (places and sizes in the frame) never decide a
+  structure in `look_for`; a part of the look that starts with a colour follows the structure before it ("silver central
+  stalk ..." after "ATP synthase ..."); the label gap counts the end of a labelled move. Tests in
+  `tests/test_studio_films.py`. IMPLEMENTED.
+- **Measured:** on A's own look line its cell and chloroplast pictures now get no ATP synthase, pump, stalk or CF1 head
+  (before: all of them); the three films' membrane pictures keep them. On the two new films the label gap names B's
+  "Patta"/"Dhoop" and "Chloroplast"/"Dhoop" and A's ADP/Pi/CF1 and ATP/NADPH stacks. First-try rounds: A 1, B 2 (the
+  run before: 2). Canonical brain tests: 428 passed, 0 skips.
+
+## Entry · the picture cupboard (almaari), 21 November 2026
+
+- **Run:** no new run: the five Q14 films' pictures compared shot by shot.
+- **Taught:** every run draws every picture again, so a film's quality depends on the draw: the same scale came out
+  right in one run and wrong in the next (the cell picture with ATP synthase drawn on it in two of three runs), and the
+  best picture of each scale was spread over three films. Navin asked whether pictures will differ every time (they
+  will) and chose to let BIE keep the best picture of each scale.
+- **Changed in BIE:** `bie/brain/studio_film.py`: `visual.library` in the film schema, the cupboard shown to the maker
+  (what each kept picture shows and its labelled places), `library_problems`. `tools/vm_studio.py`: `kept_pictures` reads
+  `library.json` from the from-run folder; a shot naming a kept picture uses it instead of drawing (placement still looks
+  at it); the report counts kept pictures. `tools/picture_library.py` keeps chosen pictures from finished runs. Tests in
+  `tests/test_studio_films.py`. IMPLEMENTED.
+- **Measured:** in the stage test a kept scene draws no picture (0 image calls). On the next Q14 run: pictures drawn
+  against kept, rounds, and Navin's verdict. Canonical brain tests: 433 passed, 0 skips.
