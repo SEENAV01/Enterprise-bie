@@ -1,0 +1,119 @@
+{
+ "schema": "bie.studio-run/1",
+ "section": "studio",
+ "stage": "dub",
+ "status": "ok",
+ "maker": "codex on the ChatGPT plan (read-only, no shell)",
+ "cost": {
+  "total_inr": 0.0
+ },
+ "error": null,
+ "plan_usage_before": {
+  "rateLimits.primary.usedPercent": 48,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1795275033,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 48,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1795275033,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 0
+ },
+ "source_sha256": "e2dbdb1ec7793daa87101e8264dfe039f7d277ad6153b904ec078d65ed1adbc8",
+ "page_count": 22,
+ "pages_read": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22
+ ],
+ "voice": {
+  "ta": "no voice (FileNotFoundError: /var/lib/bie/models/indic-tts/ta/fastpitch/best_model.pth is missing)",
+  "te": "no voice (FileNotFoundError: /var/lib/bie/models/indic-tts/te/fastpitch/best_model.pth is missing)",
+  "ml": "no voice (FileNotFoundError: /var/lib/bie/models/indic-tts/ml/fastpitch/best_model.pth is missing)",
+  "mr": "no voice (FileNotFoundError: /var/lib/bie/models/indic-tts/mr/fastpitch/best_model.pth is missing)",
+  "en": "kokoro bf_emma"
+ },
+ "dubs": [
+  {
+   "qid": "q14",
+   "language": "ta",
+   "lines": 28,
+   "rounds": 1,
+   "problems": [],
+   "voice": "nahi (text se samay)",
+   "voiced_lines": 0
+  },
+  {
+   "qid": "q14",
+   "language": "te",
+   "lines": 28,
+   "rounds": 2,
+   "problems": [],
+   "voice": "nahi (text se samay)",
+   "voiced_lines": 0
+  },
+  {
+   "qid": "q14",
+   "language": "ml",
+   "lines": 28,
+   "rounds": 2,
+   "problems": [],
+   "voice": "nahi (text se samay)",
+   "voiced_lines": 0
+  },
+  {
+   "qid": "q14",
+   "language": "mr",
+   "lines": 28,
+   "rounds": 1,
+   "problems": [],
+   "voice": "nahi (text se samay)",
+   "voiced_lines": 0
+  },
+  {
+   "qid": "q14",
+   "language": "en",
+   "lines": 28,
+   "rounds": 2,
+   "problems": [],
+   "voice": "kokoro bf_emma",
+   "voiced_lines": 28
+  }
+ ],
+ "usage": {
+  "input_tokens": 53486,
+  "output_tokens": 26997
+ },
+ "model": "gpt-6.1-sol",
+ "plan_usage_after": {
+  "rateLimits.primary.usedPercent": 48,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1795275033,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 48,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1795275033,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 0
+ },
+ "minutes": 10.9
+}
