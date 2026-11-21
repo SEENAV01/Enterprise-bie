@@ -2432,3 +2432,22 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   (likeness / Whisper's words kept from the base): "chaliye dekhte hain ki ATP synthase yeh kaam karta kaise hai" 0.950 /
   1.00 (chosen), the CF0 question and answer 0.938 / 0.98, the opening question 0.927 / 0.98, "yahaan pe kya hota hai" 0.924
   / 1.00.
+
+## The unit's opening page becomes the unit's overview film, 21 November 2026
+
+- **Runs:** VM job `studio-photosynthesis-films-b1`, film q01 ("Paudha khana khata nahi, toh hamara khana aakhir aata
+  kahan se hai?").
+- **Taught:** the Chapter 11 PDF opens with Unit 4's page ("UNIT 4 / PLANT PHYSIOLOGY", the three chapters, and a
+  paragraph on two ways of looking at life). The question stage put that page into q01, so 2 of q01's 10 shots spoke of
+  "biology ke do nazariye", away from its question. Navin: "Ise unit ka overview naam se bna do jisme us unit ke sbhi
+  chapters mein hum kya samjhenge jaisa overview mil jaaye"; then, on the card, "Sirf Unit page se banao" (BIE has only
+  Chapter 11's PDF).
+- **Changed in BIE:** `bie/brain/studio.py`: `unit_pages` finds a unit's opening page by code (its first blocks spell
+  UNIT and a number, even when the text layer splits small caps into "U 4" + "NIT", and it names at least two
+  chapters); `with_unit_overview` moves that page's blocks out of every chapter question into one short overview
+  question `u<unit>`, first in the list, idempotent, no block lost. Applied after the question stage and when the films,
+  games and book stages read an older question list; the overview has no game stage. `bie/brain/studio_film.py`: the
+  maker is told it is the unit's overview, made only from that page (2 to 4 shots, chapters by number and title, nothing
+  from inside the chapters). Tests in `tests/test_studio_questions.py`. IMPLEMENTED.
+- **Measured** (Chapter 11, the batch 1 question list): unit page found (Unit 4, Plant Physiology, chapters 11, 12, 13);
+  25 → 26 questions; q01's book lines 20 → 12, the overview's 8; every block covered before is still covered.

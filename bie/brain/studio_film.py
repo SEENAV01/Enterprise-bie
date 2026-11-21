@@ -271,7 +271,25 @@ def messages(question: dict, *, course: str, language: str, chapter: str = "") -
                                                               molecules=", ".join(MOLECULES),
                                                               kinds=MAX_KINDS, shot_chars=MAX_SHOT_CHARS,
                                                               pin_gap=PIN_GAP)},
-            {"role": "user", "content": user + _teacher_part(question) + _library_part(question)}]
+            {"role": "user", "content": user + _overview_part(question) + _teacher_part(question) + _library_part(question)}]
+
+
+OVERVIEW_PART = """
+
+THE UNIT'S OVERVIEW. This is not a chapter question: it is the overview film of Unit {unit}{title}, made only from the
+unit's opening page (Navin, 21 November 2026: "us unit ke sabhi chapters mein hum kya samjhenge jaisa overview mil
+jaaye"). Its chapters: {chapters}. Show, in 2 to 4 shots, what this unit will help the learner understand, as the page
+says it: its way of looking at life and what its chapters take up. Name each chapter by its number and title as the page
+gives them. Teach nothing from inside the chapters that the page does not say (no light reaction, no Calvin cycle, no
+Krebs cycle); the chapters' own films do that. End by leading into the first chapter."""
+
+
+def _overview_part(question: dict) -> str:
+    if not question.get("overview"):
+        return ""
+    unit = question.get("unit") or {}
+    return OVERVIEW_PART.format(unit=unit.get("unit", ""), title=f" ({unit['title']})" if unit.get("title") else "",
+                                chapters=", ".join(f"Chapter {c}" for c in unit.get("chapters") or []) or "as the page lists")
 
 
 TEACHER_PART = """

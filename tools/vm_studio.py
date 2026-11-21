@@ -150,6 +150,8 @@ def image_uri(path, width: int = 1600) -> str:
 def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=None):
     from bie.brain import studio_film, studio_voice
     plan = read_json(args.from_run, "questions.json")
+    if pages:                                       # an older question list: the unit's opening page moves to its overview
+        plan = studio.with_unit_overview(plan, pages)
     wanted = [q.strip() for q in (args.videos or "").split(",") if q.strip()]
     questions = [q for q in plan.get("questions") or [] if not wanted or q.get("id") in wanted]
     blocks = studio.all_blocks(pages) if pages else {}
@@ -256,8 +258,11 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
 def games(args, client, model, pages, out: Path, summary: dict):
     from bie.brain import studio_game
     plan = read_json(args.from_run, "questions.json")
+    if pages:
+        plan = studio.with_unit_overview(plan, pages)
     wanted = [q.strip() for q in (args.videos or "").split(",") if q.strip()]
-    questions = [q for q in plan.get("questions") or [] if not wanted or q.get("id") in wanted]
+    # the unit's overview is seen, not revised: no game stage of its own
+    questions = [q for q in plan.get("questions") or [] if (not wanted or q.get("id") in wanted) and not q.get("overview")]
     blocks = studio.all_blocks(pages) if pages else {}
     (out / "games").mkdir(exist_ok=True)
     (out / "questions.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -310,6 +315,8 @@ def games(args, client, model, pages, out: Path, summary: dict):
 def book(args, client, model, pages, out: Path, summary: dict):
     from bie.brain import studio_book
     plan = read_json(args.from_run, "questions.json")
+    if pages:
+        plan = studio.with_unit_overview(plan, pages)
     wanted = [q.strip() for q in (args.videos or "").split(",") if q.strip()]
     questions = [q for q in plan.get("questions") or [] if not wanted or q.get("id") in wanted]
     blocks = studio.all_blocks(pages) if pages else {}

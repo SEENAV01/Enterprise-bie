@@ -212,6 +212,87 @@ def book_lines(pages, block_ids) -> list:
             for n, (blocks, sentence) in enumerate(found, 1)]
 
 
+# --- the page that opens a unit (Navin, 21 November 2026, on film Q01 of Photosynthesis: "Ise unit ka overview naam se bna
+# do jisme us unit ke sbhi chapters mein hum kya samjhenge jaisa overview mil jaaye"; card: "Sirf Unit page se banao").
+# A chapter PDF may begin with its unit's opening page ("UNIT 4 / PLANT PHYSIOLOGY / Chapter 11 ... Chapter 12 ...
+# Chapter 13" beside a paragraph on the whole unit). That page is no chapter question's matter: its blocks leave every
+# chapter question and make one short film of their own, the unit's overview, made only from that page.
+
+UNIT_SPELLED = re.compile(r"^(?:UNIT(\d{1,2})|U(\d{1,2})NIT)")       # the text layer may split small caps: "U 4" + "NIT"
+CHAPTER_MENTION = re.compile(r"\bChapter\s+(\d{1,2})\b")
+UNIT_TITLE = re.compile(r"^[A-Z][A-Z ,&\-]{3,}$")
+
+
+def unit_pages(pages) -> dict:
+    """{page number: {"unit", "title", "chapters"}} for each page that opens a unit: its first blocks spell UNIT and a
+    number, and it names at least two chapters."""
+    found = {}
+    for page in pages:
+        texts = [" ".join((block.text or "").split()) for block in page.blocks]
+        head = re.sub(r"\s+", "", " ".join(texts[:3])).upper()
+        spelled = UNIT_SPELLED.match(head)
+        chapters = list(dict.fromkeys(m.group(1) for t in texts for m in CHAPTER_MENTION.finditer(t)))
+        if not spelled or len(chapters) < 2:
+            continue
+        title = next((t for t in texts[:5] if UNIT_TITLE.match(t) and t.replace(" ", "") not in ("UNIT", "NIT")), "")
+        found[page.number] = {"unit": spelled.group(1) or spelled.group(2), "title": title.title(), "chapters": chapters}
+    return found
+
+
+def with_unit_overview(plan: dict, pages) -> dict:
+    """The question plan with the unit's opening page moved into its own overview question (id ``u<unit>``, first in the
+    list): every point's blocks from that page leave the chapter questions (a point left with none is dropped, and so
+    is a question left with no point) and become the overview's points, with one more point for the page's remaining
+    lines (the unit's name and its chapters). Running it again changes nothing; a plan without such a page is returned
+    as it is."""
+    units = unit_pages(pages)
+    if not units or not isinstance(plan, dict):
+        return plan
+    number = min(units)
+    unit = units[number]
+    page_blocks = [(block, " ".join((block.text or "").split())) for page in pages if page.number in units
+                   for block in page.blocks]
+    on_page = {block.id for block, text in page_blocks if text and not FOOTER.match(text)}
+    qid = f"u{unit['unit']}"
+    questions = [dict(q) for q in plan.get("questions") or [] if isinstance(q, dict)]
+    overview = next((q for q in questions if q.get("id") == qid), None)
+    moved, kept_questions = [], []
+    for q in questions:
+        if q is overview:
+            continue
+        points = []
+        for p in q.get("points") or []:
+            ids = list(p.get("block_ids") or [])
+            away = [i for i in ids if i in on_page]
+            if away:
+                moved.append({"block_ids": away, "point": p.get("point", ""), "kind": p.get("kind", "facts_numbers")})
+            stay = [i for i in ids if i not in on_page]
+            if stay:
+                points.append(dict(p, block_ids=stay))
+        if points:
+            kept_questions.append(dict(q, points=points))
+    if overview is None and not moved:
+        return plan
+    if overview is None:
+        chapters = ", ".join(f"Chapter {c}" for c in unit["chapters"])
+        name = f"Unit {unit['unit']}" + (f" ({unit['title']})" if unit["title"] else "")
+        overview = {"id": qid, "pillar": "unit", "overview": True, "unit": unit,
+                    "question": f"{name} ke chapters mein hum kya samjhenge?",
+                    "hook": f"{chapters}: ek hi unit ke chapter, ek hi badi kahani.",
+                    "points": [], "film": {"length": "short", "showing_moment": ""},
+                    "game_stage": {"mechanic": "sort_groups", "idea": ""}}
+    overview = dict(overview, points=list(overview.get("points") or []) + moved)
+    used = {i for p in overview["points"] for i in p.get("block_ids") or []}
+    rest = [block.id for block, text in page_blocks if block.id in on_page and block.id not in used]
+    if rest:
+        overview["points"].append({"block_ids": rest, "kind": "classification",
+                                   "point": f"Unit {unit['unit']} {unit['title']} ke chapters: "
+                                            + ", ".join(f"Chapter {c}" for c in unit["chapters"])})
+    out = dict(plan, questions=[overview] + kept_questions)
+    out["unit_overview"] = qid
+    return out
+
+
 TERM = re.compile(r"[A-Za-z0-9+]+")
 
 
@@ -369,6 +450,8 @@ def plan(client, model: str, pages, *, course: str = "", language: str = "Hingli
             break
         convo = convo + [{"role": "assistant", "content": reply.get("content", "")},
                          {"role": "user", "content": PROBLEMS_PROMPT + "\n- ".join(found)}]
+    if isinstance(answer, dict):
+        answer = with_unit_overview(answer, pages)     # the unit's opening page gets its own overview film
     return {"answer": answer, "problems": found, "rounds": rounds, "usage": usage, "teachable": teach,
             "coverage": coverage(answer, teach) if isinstance(answer, dict) else None}
 

@@ -157,3 +157,74 @@ class StudioJob(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+# --- the page that opens a unit (Navin, 21 November 2026, on film Q01 of Photosynthesis: "Ise unit ka overview naam se
+# bna do ..."; card: "Sirf Unit page se banao") -----------------------------------------------------------------------
+
+def unit_chapter():
+    """A chapter PDF that begins with its unit's opening page, the way the NCERT text layer gives it: "UNIT" split into
+    "U 4" + "NIT", the chapter list in the left column merged into the lines of the unit's paragraph."""
+    unit = [("U 4", (0.1, 0.05, 0.2, 0.08)), ("NIT", (0.2, 0.05, 0.3, 0.08)), ("PLANT PHYSIOLOGY", (0.1, 0.1, 0.5, 0.13)),
+            ("Chapter 11 The description of structure and variation of living organisms over a", (0.1, 0.2, 0.9, 0.22)),
+            ("Photosynthesis in Higher period of time, ended up as two, apparently irreconcilable perspectives",
+             (0.1, 0.22, 0.9, 0.24)),
+            ("Plants on biology. The first resulted in ecology and related disciplines.", (0.1, 0.24, 0.9, 0.26)),
+            ("Chapter 12", (0.1, 0.3, 0.3, 0.32)), ("Respiration in Plants", (0.1, 0.32, 0.3, 0.34)),
+            ("Chapter 13", (0.1, 0.4, 0.3, 0.42)),
+            ("The processes of photosynthesis, respiration and ultimately plant growth and development are described.",
+             (0.4, 0.4, 0.9, 0.42)),
+            ("2024-25", (0.4, 0.95, 0.6, 0.97))]
+    chapter = [("PHOTOSYNTHESIS IN HIGHER PLANTS 133", (0.1, 0.02, 0.9, 0.04)),
+               ("All animals including human beings depend on plants for their food.", (0.1, 0.1, 0.9, 0.12)),
+               ("Green plants carry out photosynthesis, a physico-chemical process.", (0.1, 0.12, 0.9, 0.14))]
+    return [Page(n, tuple(Block(f"p{n:04d}-b{i:04d}", t, box) for i, (t, box) in enumerate(rows, 1)))
+            for n, rows in ((1, unit), (2, chapter))]
+
+
+def unit_plan():
+    q01 = question("q01", "p1", ["p0001-b0004", "p0001-b0005", "p0001-b0006"], "comparison")
+    q01["points"].append({"block_ids": ["p0001-b0010", "p0002-b0002", "p0002-b0003"], "kind": "definition",
+                          "point": "Hare paudhe apna khana khud banate hain."})
+    return {"chapter_title": "Photosynthesis", "big_question": "?", "pillars": [{"id": "p1", "title": "t", "line": "l"}],
+            "questions": [q01, question("q02", "p1", ["p0002-b0002"])]}
+
+
+class UnitOverview(unittest.TestCase):
+    def test_the_unit_page_is_found_even_with_unit_split_by_the_text_layer(self):
+        self.assertEqual(studio.unit_pages(unit_chapter()),
+                         {1: {"unit": "4", "title": "Plant Physiology", "chapters": ["11", "12", "13"]}})
+        self.assertEqual(studio.unit_pages(pages()), {})                  # an ordinary chapter: nothing
+
+    def test_its_blocks_leave_the_chapter_questions_for_the_overview(self):
+        plan = studio.with_unit_overview(unit_plan(), unit_chapter())
+        self.assertEqual([q["id"] for q in plan["questions"]], ["u4", "q01", "q02"])
+        self.assertEqual(plan["unit_overview"], "u4")
+        q01 = plan["questions"][1]
+        self.assertEqual([p["block_ids"] for p in q01["points"]], [["p0002-b0002", "p0002-b0003"]])
+        u4 = plan["questions"][0]
+        self.assertTrue(u4["overview"])
+        self.assertEqual(u4["question"], "Unit 4 (Plant Physiology) ke chapters mein hum kya samjhenge?")
+        self.assertEqual(u4["film"]["length"], "short")
+        ids = [i for p in u4["points"] for i in p["block_ids"]]
+        self.assertEqual(sorted(ids), [f"p0001-b{i:04d}" for i in range(1, 11)])     # every line of the page but its footer
+        self.assertIn("Chapter 11, Chapter 12, Chapter 13", u4["points"][-1]["point"])
+
+    def test_no_block_is_lost_and_running_it_again_changes_nothing(self):
+        before = unit_plan()
+        plan = studio.with_unit_overview(before, unit_chapter())
+        covered = lambda p: {i for q in p["questions"] for x in q["points"] for i in x["block_ids"]}
+        self.assertLessEqual(covered(before), covered(plan))
+        self.assertEqual(studio.with_unit_overview(plan, unit_chapter()), plan)
+        self.assertEqual(studio.with_unit_overview(answer(), pages()), answer())    # no unit page: unchanged
+
+    def test_the_planning_stage_and_the_film_maker_know_the_overview(self):
+        record = studio.plan(FakeClient([unit_plan()]), "fake", unit_chapter(), max_rounds=1)
+        self.assertEqual(record["answer"]["questions"][0]["id"], "u4")
+        from bie.brain import studio_film
+        u4 = record["answer"]["questions"][0]
+        text = studio_film.messages(u4, course="NEET", language="Hinglish", chapter="Photosynthesis")[1]["content"]
+        self.assertIn("THE UNIT'S OVERVIEW", text)
+        self.assertIn("Unit 4 (Plant Physiology)", text)
+        self.assertNotIn("THE UNIT'S OVERVIEW",
+                         studio_film.messages(record["answer"]["questions"][1], course="", language="Hinglish")[1]["content"])
