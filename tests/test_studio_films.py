@@ -805,3 +805,57 @@ class LookWordsAndLabelGaps(unittest.TestCase):
         self.assertIn("labels 'Patta' and 'Dhoop' are 0% apart", " ".join(studio_film.problems(bad, QUESTION)))
         line["moves"][0]["points"] = [[10, 10], [30, 20]]
         self.assertNotIn("'Patta' and 'Dhoop'", " ".join(studio_film.problems(bad, QUESTION)))
+
+
+class PictureCupboard(unittest.TestCase):
+    """The almaari (Navin, 21 November 2026): the best picture of a scene is kept and used again; a new one is drawn only
+    when no kept picture fits."""
+
+    def cupboard(self, folder):
+        run = Path(folder) / "run"
+        (run / "films" / "img").mkdir(parents=True)
+        made = film()
+        made["shots"][0]["sentences"][1]["pins"] = [{"label": "Ghat", "x": 40, "y": 55}]
+        (run / "films" / "q01.json").write_text(json.dumps({"film": made, "images": {"s1": "q01-s1.png"}}), encoding="utf-8")
+        (run / "films" / "img" / "q01-s1.png").write_bytes(png_bytes())
+        sys.path.insert(0, str(ROOT / "tools"))
+        import picture_library
+        return picture_library.build(Path(folder) / "qrun", [f"{run}|q01|s1|ghat-wall|mountain wall"], approved="Navin, 21 Nov 2026")
+
+    def test_a_kept_picture_carries_what_it_shows_and_where(self):
+        with tempfile.TemporaryDirectory() as folder:
+            library = self.cupboard(folder)
+            kept = library["pictures"][0]
+            self.assertEqual((kept["id"], kept["file"], kept["scale"]), ("ghat-wall", "library/ghat-wall.png", "mountain wall"))
+            self.assertIn({"label": "Ghat", "x": 40, "y": 30}, kept["places"])          # the first place a label is pinned
+            self.assertTrue((Path(folder) / "qrun" / "library" / "ghat-wall.png").exists())
+            self.assertEqual(vm_studio.kept_pictures(str(Path(folder) / "qrun"))[0]["id"], "ghat-wall")
+
+    def test_the_maker_sees_the_cupboard_and_names_only_what_is_in_it(self):
+        q = dict(QUESTION, library=[{"id": "ghat-wall", "type": "cutaway", "scale": "wall", "shows": "Mountain wall in rain",
+                                     "places": [{"label": "Ghat", "x": 40, "y": 55}], "file": "library/ghat-wall.png"}])
+        user = studio_film.messages(q, course="Class 9", language="Hinglish")[1]["content"]
+        self.assertIn("THE PICTURE CUPBOARD", user)
+        self.assertIn("- ghat-wall (cutaway, scale: wall): Mountain wall in rain\n  labelled places: Ghat (40,55)", user)
+        made = film()
+        made["shots"][0]["visual"]["library"] = "ghat-wall"
+        self.assertEqual(studio_film.library_problems(made, q), [])
+        made["shots"][0]["visual"]["library"] = "sea-wall"
+        self.assertIn("s1: no kept picture 'sea-wall'", " ".join(studio_film.library_problems(made, q)))
+        self.assertNotIn("PICTURE CUPBOARD", studio_film.messages(QUESTION, course="Class 9", language="Hinglish")[1]["content"])
+
+    def test_the_stage_uses_a_kept_picture_instead_of_drawing(self):
+        with tempfile.TemporaryDirectory() as folder:
+            self.cupboard(folder)
+            run_dir = Path(folder) / "qrun"
+            (run_dir / "questions.json").write_text(json.dumps({"chapter_title": "Monsoon", "questions": [QUESTION]}), encoding="utf-8")
+            made = film()
+            made["shots"][0]["visual"].update(type="cutaway", library="ghat-wall", image_prompt="Mountain wall in monsoon rain, clouds climbing the western slope, wet green forest, painterly 3D.")
+            client = FakeClient([made])
+            args = SimpleNamespace(stage="films", source="", from_run=str(run_dir), videos="q01", out=str(Path(folder) / "out"),
+                                   pages="", course="Class 9", language="Hinglish", model="", max_rounds=2)
+            summary = vm_studio.run(args, client=client, load=None, voice_maker=lambda: (FakeVoice(), None))
+            self.assertEqual(summary["status"], "ok", summary)
+            self.assertEqual(summary["films"][0]["kept_pictures"], 1)
+            self.assertEqual(client.images, 0)                          # nothing was drawn for the kept scene
+            self.assertIn("almaari se 1 tasveer", (Path(folder) / "out" / "FILMS.md").read_text(encoding="utf-8"))

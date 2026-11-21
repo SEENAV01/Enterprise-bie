@@ -160,6 +160,18 @@ Decision cards in the planning chat, 18 November 2026:
    branch `studio-look-generic-words`: words for places and sizes in the frame never decide a structure, a colour-first
    part of the look follows the structure before it, and the label gap counts the end of a labelled move. Both films
    are sent to Navin for his verdict.
+   **His verdict (20–21 November 2026):** "B behtar hai, kam se kam script ke maamle mein"; which film's pictures are best
+   he left to Claude ("yeh faisla main tum par chhodta hoon"). Claude's look (comparison sheet, shot by shot): no film
+   leads in every shot; A's leaf, closed thylakoid, ATP synthase channel and leak are the clearest, B's cell is the only
+   one at the right scale, the third film's chloroplast is the cleanest, B's stroma shows the chloroplast around it. Asked
+   on a card whether BIE should keep the best picture of each scale and use it again ("almaari"; a new picture only when
+   none fits or the kept one is wrong; can be switched off), Navin chose "Haan, BIE mein banao". Changes on the same branch:
+   `visual.library` (the maker may name a kept picture), `library_problems`, the cupboard shown to the maker with what each
+   picture shows and its labelled places, `kept_pictures` in `tools/vm_studio.py` (a `library.json` and `library/` in the
+   from-run folder; a kept picture is used instead of drawing, then placed by looking as usual) and
+   `tools/picture_library.py` (copies chosen pictures from finished runs into a cupboard). The first cupboard holds 8
+   Q14 pictures (A: leaf, closed thylakoid, ATP synthase channel, leak; B: cell, CF1 close-up, stroma; third film:
+   chloroplast); the final Q14 is to be made from film B's script with these pictures.
    Learning track (Claude's demos, not BIE output, not in `tests/fixtures/passed_outputs/`): after Navin's card "Jet
    engine demo", a 22-second jet engine film from four AI pictures (VM image job `demo-jet-engine-20261120`, ₹0) whose
    parts move by code (fan spinning up, air through the core changing colour, flames, exhaust haze), with a comparison

@@ -111,7 +111,7 @@ SCHEMA = _obj({
     "title": S, "look": S,
     "shots": _arr(_obj({
         "id": S, "title": S, "key": S, "covers": _arr({"type": "integer"}),
-        "visual": _obj({"type": {"type": "string", "enum": list(VISUALS)}, "image_prompt": S, "svg": S}),
+        "visual": _obj({"type": {"type": "string", "enum": list(VISUALS)}, "image_prompt": S, "svg": S, "library": S}),
         "dive": _obj({"x": N, "y": N}),
         "sentences": _arr(SENTENCE),
     })),
@@ -259,7 +259,7 @@ def messages(question: dict, *, course: str, language: str, chapter: str = "") -
                                                               molecules=", ".join(MOLECULES),
                                                               kinds=MAX_KINDS, shot_chars=MAX_SHOT_CHARS,
                                                               pin_gap=PIN_GAP)},
-            {"role": "user", "content": user + _teacher_part(question)}]
+            {"role": "user", "content": user + _teacher_part(question) + _library_part(question)}]
 
 
 TEACHER_PART = """
@@ -277,6 +277,45 @@ His lines:
 
 The earlier film (JSON):
 {film}"""
+
+
+LIBRARY_PART = """
+
+THE PICTURE CUPBOARD (almaari). These pictures were made before and kept, each judged the best at its scale (Navin
+approved keeping the best pictures, 21 November 2026). When a shot needs one of these scenes, use the kept picture: set
+visual.library to its id, keep visual.type as given, and copy its description into visual.image_prompt; place pins,
+moves, reacts and the rest on what it shows (its labelled places are listed). Draw a new picture (visual.library "")
+only when no kept picture shows what the shot needs; a new picture keeps the kept pictures' colours and layout.
+
+{entries}"""
+
+
+def _library_part(question: dict) -> str:
+    """The kept pictures the maker may use instead of drawing new ones (``visual.library``)."""
+    entries = question.get("library") or []
+    if not entries:
+        return ""
+    text = "\n".join(f"- {e.get('id')} ({e.get('type', 'cutaway')}, scale: {e.get('scale', '')}): {e.get('shows', '')}"
+                     + (f"\n  labelled places: " + ", ".join(f"{p.get('label')} ({p.get('x')},{p.get('y')})" for p in e.get("places") or [])
+                        if e.get("places") else "") for e in entries)
+    return LIBRARY_PART.format(entries=text)
+
+
+def library_problems(film: dict, question: dict) -> list:
+    """A shot that names a kept picture names one that is in the cupboard, of a type that is a picture."""
+    kept = {e.get("id"): e for e in question.get("library") or []}
+    out = []
+    for number, shot in enumerate(film.get("shots") or [], 1):
+        name = ((shot.get("visual") or {}).get("library") or "").strip()
+        if not name:
+            continue
+        sid = shot.get("id") or f"shot {number}"
+        if name not in kept:
+            out.append(f"{sid}: no kept picture {name!r}; use one of {sorted(kept) or 'none'} or draw a new picture "
+                       "(visual.library \"\")")
+        elif (shot.get("visual") or {}).get("type") not in ("photo", "cutaway"):
+            out.append(f"{sid}: a kept picture is a photo or cutaway visual, not {(shot.get('visual') or {}).get('type')!r}")
+    return out
 
 
 def _teacher_part(question: dict) -> str:
@@ -560,7 +599,7 @@ def problems(film, question: dict) -> list:
     if missing_points:
         out.append("no shot covers the question's points " + ", ".join(map(str, missing_points)))
     return (out + book_problems(film, question) + screen_problems(film, question) + layout_problems(film)
-            + teacher_problems(film, question))
+            + teacher_problems(film, question) + library_problems(film, question))
 
 
 QUESTION_WORD = re.compile(r"\b(kyun|kyon|kyu|kaise|kya|kab|kahan|kaun|kitna|kitne|kitni)\b", re.I)

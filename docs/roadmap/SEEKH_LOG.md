@@ -2334,3 +2334,18 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   (before: all of them); the three films' membrane pictures keep them. On the two new films the label gap names B's
   "Patta"/"Dhoop" and "Chloroplast"/"Dhoop" and A's ADP/Pi/CF1 and ATP/NADPH stacks. First-try rounds: A 1, B 2 (the
   run before: 2). Canonical brain tests: 428 passed, 0 skips.
+
+## Entry · the picture cupboard (almaari), 21 November 2026
+
+- **Run:** no new run: the five Q14 films' pictures compared shot by shot.
+- **Taught:** every run draws every picture again, so a film's quality depends on the draw: the same scale came out
+  right in one run and wrong in the next (the cell picture with ATP synthase drawn on it in two of three runs), and the
+  best picture of each scale was spread over three films. Navin asked whether pictures will differ every time (they
+  will) and chose to let BIE keep the best picture of each scale.
+- **Changed in BIE:** `bie/brain/studio_film.py`: `visual.library` in the film schema, the cupboard shown to the maker
+  (what each kept picture shows and its labelled places), `library_problems`. `tools/vm_studio.py`: `kept_pictures` reads
+  `library.json` from the from-run folder; a shot naming a kept picture uses it instead of drawing (placement still looks
+  at it); the report counts kept pictures. `tools/picture_library.py` keeps chosen pictures from finished runs. Tests in
+  `tests/test_studio_films.py`. IMPLEMENTED.
+- **Measured:** in the stage test a kept scene draws no picture (0 image calls). On the next Q14 run: pictures drawn
+  against kept, rounds, and Navin's verdict. Canonical brain tests: 433 passed, 0 skips.
