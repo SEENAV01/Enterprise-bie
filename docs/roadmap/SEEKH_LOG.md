@@ -2582,3 +2582,17 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   (`tests/test_look_test.py`). Jobs `s4c-look-116-matte` and `s4d-look-116-structure` draw four shots (a13 s1, a14 s2,
   a15 s4, a16 s3) in both styles; Navin chooses by eye.
 
+## Entry · Navin's look: structures for molecular close-ups, matte overviews, a controlled sheen, 22 November 2026
+
+- **Run:** the look test (`s4c-look-116-matte`, `s4d-look-116-structure`: four 11.6 shots, ChatGPT plan, ₹0, 6 min each).
+  Matte and structure both lost the glassy shine and light rays; the structure style drew ATP synthases on the
+  chloroplast overview, one scale too early, while matte kept the scale.
+- **Navin (open ended, "baad mein mai apni choice badal bhi sakta hun"):** "proteins aur molecular machinery ke close-ups
+  mein Structure; poore chloroplast jaise overview shots mein Matte. Structure ki surface par halki, controlled sheen achhi
+  rahegi ... chloroplast ke matte structure ko controlled chamak deke achha kiya ja sakta hai".
+- **Changed in BIE:** `studio_film.FILM_STYLE = "mixed"`: `style_for` draws a cutaway that names proteins or molecular
+  machinery as `close_up` (structure, smooth surfaces, a light satin sheen) and any other cutaway as `overview` (matte,
+  a light satin sheen, no single proteins at that scale); "glossy" stays one word away. The film maker's cutaway
+  instruction no longer asks for glossy cells and volumetric light. IMPLEMENTED (`tests/test_look_test.py`,
+  `tests/test_studio_films.py`). Job `s4e-look-116-mixed` draws the same four shots in the tuned look for Navin's eye.
+
