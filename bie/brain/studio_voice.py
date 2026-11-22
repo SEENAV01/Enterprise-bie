@@ -94,6 +94,11 @@ SAID = {"PSII": ("पी एस टू", "P S two"), "PSI": ("पी एस व�
 FORMULA_WORD = re.compile(r"(?:फ़ॉर्मूला|फार्मूला|फ़ार्मूला|फॉर्मूला|formula)\s*$", re.I)
 DEVANAGARI_FORMULA = {"सीओ₂": "CO2", "सीओ2": "CO2", "सीओ टू": "CO2", "सीओटू": "CO2", "एच₂ओ": "H2O", "ओ₂": "O2",
                       "सी₃": "C3", "सी₄": "C4"}
+# the film maker sometimes writes a reaction centre's number out in Hindi (films a13, a14, 22 November 2026: "पी छह सौ
+# अस्सी", "पी सात सौ"); a teacher says "पी सिक्स एटी", so the name goes back to its short form before SAID reads it
+DEVANAGARI_SAID = ((re.compile(r"पी\s*(?:छह सौ अस्सी|६८०|680)(?![०-९0-9])"), "P680"),
+                   (re.compile(r"पी\s*(?:सात सौ|७००|700)(?![०-९0-9])(?!\s*(?:एक|दो|तीन|चार|पाँच|पांच|छह|सात|आठ|नौ|दस|बीस|तीस|चालीस|पचास|साठ|सत्तर|अस्सी|नब्बे))"),
+                    "P700"))
 TOKEN = re.compile(r"(?<![A-Za-z])(?:PS ?II|PS ?I(?![A-Za-z])|\[?[A-Z][A-Za-z]{0,6}(?:[0-9₀-₉⁰-⁹+⁺\-⁻]*[A-Za-z]*)*\]?)"
                    r"(?![A-Za-z])")
 DEVANAGARI_LETTER = re.compile(r"[ऀ-ॿ]")
@@ -122,6 +127,8 @@ def spoken(text: str, language: str = "hi") -> str:
     english = language == "en"
     for written, formula in DEVANAGARI_FORMULA.items():
         text = text.replace(written, formula)
+    for pattern, short in DEVANAGARI_SAID:
+        text = pattern.sub(short, text)
 
     def say(match):
         raw = match.group(0)

@@ -2555,3 +2555,14 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
 - **Measured (on the first naksha, offline):** films with an example A 0/28, B 0/20; study-task real-world entries A 8,
   B 6 (all now sent back to the maker). After: waits for the next naksha run.
 
+## Entry · P680 is "पी सिक्स एटी" even when the film writes it in Hindi, 22 November 2026
+
+- **Run:** `s3-photosynthesis-films-116-a` (films a12–a16 from the naksha, Codex, ₹0, 60 min): every NCERT line taught
+  (10/10, 9/9, 13/13, 18/18, 10/10), no sentence repeated across the five films, 28 different pictures.
+- **Taught:** the film maker wrote "पी छह सौ अस्सी" and "पी सात सौ" in 6 of 125 voice lines, so the lexicon (which reads
+  P680 and P700) never saw them and the voice said "P six hundred eighty".
+- **Changed in BIE:** `studio_voice.DEVANAGARI_SAID` turns those Hindi readings back into P680 and P700 before `SAID`
+  reads them; "छह सौ अस्सी नैनोमीटर" (a wavelength) and other numbers are left alone. IMPLEMENTED
+  (`tests/test_studio_dub.py`).
+- **Measured:** 6 of 125 voice lines of a12–a16 change, all of them P680 or P700.
+
