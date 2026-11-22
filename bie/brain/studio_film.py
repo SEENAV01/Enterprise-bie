@@ -985,6 +985,24 @@ CUTAWAY_SUFFIX = (" Scientific cutaway illustration: transparent cross-section, 
                   "calm dark teal background, painterly 3D look, 16:9 landscape. No text, no letters, no numbers, no labels, "
                   "no arrows or symbols, no loose molecules or balls floating in the scene (BIE animates those over the "
                   "picture), no logos, no watermark.")
+NO_MARKS = (" No text, no letters, no numbers, no labels, no arrows or symbols, no loose molecules or balls floating in the "
+            "scene (BIE animates those over the picture), no logos, no watermark.")
+# how a cutaway looks (Navin, 22 November 2026, on the 11.6 films: "visuals asli banane the, unki quality mein girawat aayi
+# hai, ab cheezen zyada banawati lag rahi hain"; what he liked: where a thing binds and where it flows, "H⁺ ko membrane se
+# paas karane wala receptor achhe se present kiya hai"). "glossy" is the look the films had; the look test puts the others
+# beside it on the same shots, and Navin's eye chooses.
+CUTAWAY_STYLES = {
+    "glossy": CUTAWAY_SUFFIX,
+    "matte": (" Realistic scientific render, not a cartoon: matte non-reflective surfaces with fine natural texture, true "
+              "relative sizes, soft natural light with ambient occlusion in the creases, gentle depth of field, muted natural "
+              "colours. No glossy or plastic sheen, no glow, no neon, no painterly haze, no volumetric light rays, whatever "
+              "the words above say about light. 16:9 landscape." + NO_MARKS),
+    "structure": (" Rendered like a structural-biology figure made from real atomic structures (cryo-EM and PDB models in a "
+                  "physically based renderer): each protein a matte atomic-surface model with its real shape, the membrane as "
+                  "densely packed lipid heads and tails, neutral studio light, strong ambient occlusion, photographic depth of "
+                  "field, colours only as tints on the real shapes. No glossy plastic, no glow, no volumetric light rays, "
+                  "whatever the words above say about light. 16:9 landscape." + NO_MARKS),
+}
 
 
 COLOUR_WORDS = {"amber", "black", "blue", "bright", "brown", "copper", "cool", "dark", "deep", "emerald", "glow", "glowing",
@@ -1038,11 +1056,12 @@ def look_for(prompt: str, look: str) -> str:
     return "; ".join(kept)
 
 
-def image_prompt(shot: dict, look: str = "") -> str:
+def image_prompt(shot: dict, look: str = "", style: str = "glossy") -> str:
     """The shot's picture prompt; ``look`` (the film's shared art direction) keeps every picture in one world, with a
-    structure's colours only on the pictures that show it (look_for)."""
+    structure's colours only on the pictures that show it (look_for); ``style`` is how a cutaway is rendered
+    (CUTAWAY_STYLES)."""
     visual = shot.get("visual") or {}
-    suffix = CUTAWAY_SUFFIX if visual.get("type") == "cutaway" else IMAGE_SUFFIX
+    suffix = CUTAWAY_STYLES.get(style, CUTAWAY_SUFFIX) if visual.get("type") == "cutaway" else IMAGE_SUFFIX
     prompt = visual.get("image_prompt", "").strip()
     shared = look_for(prompt, look)
     shared = f" Same look as the other pictures of this film: {shared.rstrip('.')}." if shared else ""

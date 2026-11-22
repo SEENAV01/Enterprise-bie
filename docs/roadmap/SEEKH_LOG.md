@@ -2553,7 +2553,10 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   `NAKSHA.md` shows examples and real-world uses on separate lines; `compare()` and `html()` write `NAKSHA.html`, the two
   shapes heading by heading with where they differ. IMPLEMENTED (`tests/test_studio_naksha.py`).
 - **Measured (on the first naksha, offline):** films with an example A 0/28, B 0/20; study-task real-world entries A 8,
-  B 6 (all now sent back to the maker). After: waits for the next naksha run.
+  B 6 (all now sent back to the maker). **After** (job `s4-photosynthesis-naksha-v2`, same input, Codex, ₹0, 30 min, 371k
+  input tokens against 291k): films with an example A 28/28, B 20/20; study-task real-world entries 0 and 0; films with a
+  real-world use A 16/28, B 13/20 (the others left empty, no honest link); rounds A 1 → 2, B 3 → 3; all 156 items still
+  taught once.
 
 ## Entry · P680 is "पी सिक्स एटी" even when the film writes it in Hindi, 22 November 2026
 
@@ -2565,6 +2568,19 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   reads them; "छह सौ अस्सी नैनोमीटर" (a wavelength) and other numbers are left alone. IMPLEMENTED
   (`tests/test_studio_dub.py`).
 - **Measured:** 6 of 125 voice lines of a12–a16 change, all of them P680 or P700.
+
+## Entry · The look test: the same 11.6 shots in other cutaway styles, 22 November 2026
+
+- **Run:** films a12–a16 and b07–b10 (`s3-photosynthesis-films-116-a`, `-b`). Navin: "visuals asli banane the, unki quality
+  mein girawat aayi hai, ab cheezen zyada banawati lag rahi hain"; liked: where a thing binds and where it flows ("H⁺ ko
+  membrane se paas karane wala receptor achhe se present kiya hai").
+- **Taught:** 11.6 is all at the molecular scale, so every picture was a cutaway, and the cutaway style asked for "glossy
+  cells, soft volumetric light, painterly 3D look": the plastic look Navin saw. No film had a real photo to anchor it.
+- **Changed in BIE:** `studio_film.CUTAWAY_STYLES` ("glossy", the films' look and still the default; "matte"; "structure",
+  rendered like real atomic structures), `image_prompt(..., style=)`, and `tools/look_test.py` (a shot's own prompt and
+  look with another style, as a `bie.image-prompts/1` file for the VM's image section). IMPLEMENTED
+  (`tests/test_look_test.py`). Jobs `s4c-look-116-matte` and `s4d-look-116-structure` draw four shots (a13 s1, a14 s2,
+  a15 s4, a16 s3) in both styles; Navin chooses by eye.
 
 ## Entry · The chapter's script, round 1: every line, but no analogy and the book named, 22 November 2026
 
