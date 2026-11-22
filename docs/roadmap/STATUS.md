@@ -354,7 +354,11 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    point, no caution lines); saved after every heading. Outputs `script.json` (knowledge points `11.6.1-k3`),
    `SCRIPT.md`, `SCRIPT.html` (Navin's script page: the script beside the NCERT lines). The naksha run now keeps
    `chapter_map.json` so the script reads one run. IMPLEMENTED (`tests/test_studio_script.py`); the cut, notes and games
-   from the script come next, after Navin reads the 11.6 part.
+   from the script come next, after Navin reads the 11.6 part. Round 1 (job `s5-photosynthesis-script`, 22 November
+   2026): 156/156 items, 154 points, about 126 minutes, every heading passed; but 0 analogies, 1 real-world use, the book
+   named in 24 sentences and points of up to 16 sentences, so round 2 adds those checks and code repairs (SEEKH_LOG). The
+   teacher's voice and pacing will be learned from Navin's four Chapter 11 teacher videos (private; only rules in our
+   words enter BIE).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
@@ -2516,6 +2520,10 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   same PR (it already touches only this workflow): both steps now download through `tools/ci_apt_prefetch.sh` (one
   480 s budget, mirror fail-over, an `::error` annotation instead of a silent cancel) and install from the local
   cache. Not rerun; the push that adds this note starts the new run (rule CI-2).
+- F-11 again (22 November 2026, PR #195, head `52f3a080`, job 137161286358): `native-render` stopped in "Provision
+  unchanged governed native toolchain", before any test ran: "apt downloads did not finish within the 480 s budget"
+  after "regional mirror too slow; using the image's next listed mirror". The same head's earlier run (`f951fabc`)
+  passed this job. Rerun once under rule CI-2: the push that adds this note starts the new run.
 - F-11 again (18 November 2026, PR #166): on head `097e436e` five jobs and on the CI-2 rerun (head `9b3c9281`, runs
   44370640506 and 44370639963, 18:31–18:40 UTC) three jobs (`wrappers`, `native-render`, `canonical-regression`) stopped in
   their apt step, before any test ran, with "apt downloads did not finish within the 480 s budget" and "no second mirror

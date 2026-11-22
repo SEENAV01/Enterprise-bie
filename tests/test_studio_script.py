@@ -26,17 +26,21 @@ def parts():
     return [
         {"section": "", "bridge": "Ab dekhte hain electrons ka safar.", "points": [
             point("0-k1", "explain", ["p001-i1"], ["Plants apna food khud banate hain, dhoop ki madad se."]),
-            point("0-k2", "real_world", [], ["Hum jo chawal aur dal khate hain, uski shuruaat bhi ek patti se hoti hai."])]},
+            point("0-k2", "real_world", [], ["Hum jo chawal aur dal khate hain, uski shuruaat bhi ek patti se hoti hai."]),
+            point("0-k3", "analogy", [], ["Socho patti ek chhoti rasoi hai jahan dhoop se khana pakta hai."])]},
         {"section": "11.6", "bridge": "Ab sawaal: electrons ki kami kaun bharta hai?", "points": [
             point("11.6-k1", "explain", ["p001-i3"], ["Electrons PS II se PS I ki taraf move karte hain, ek line mein."],
                   terms=["PS II"], recalls=["0-k1"]),
             point("11.6-k2", "question", ["p001-i4"], ["Yeh kaise happens hota hai? Chaliye ek-ek kadam dekhte hain."]),
-            point("11.6-k3", "analogy", [], ["Socho ek seedhi hai jis par gend neeche ludhakti hai, har kadam par thodi energy deti hai."])]},
+            point("11.6-k3", "analogy", [], ["Socho ek seedhi hai jis par gend neeche ludhakti hai, har kadam par thodi energy deti hai."]),
+            point("11.6-k4", "real_world", [], ["Kheton mein subah dhoop milte hi fasal ki pattiyan kaam shuru kar deti hain."])]},
         {"section": "11.6.1", "bridge": "", "points": [
             point("11.6.1-k1", "explain", ["p002-i1"], ["Water split hota hai aur PS II ke khoye electrons replace hote hain."],
                   terms=["lumen"]),
             point("11.6.1-k2", "question", ["p002-i2"], ["Protons kahan released hote hain? Thylakoid ke andar, lumen mein."]),
-            point("11.6.1-k3", "figure", ["p002-i5"], ["Ab Z scheme figure dekho: har label ek station hai."])]},
+            point("11.6.1-k3", "figure", ["p002-i5"], ["Ab Z scheme figure dekho: har label ek station hai."]),
+            point("11.6.1-k4", "example", [], ["Do water molecules gino: inse chaar protons, chaar electrons aur ek oxygen milti hai."]),
+            point("11.6.1-k5", "real_world", [], ["Hum jo oxygen saans mein lete hain, uska bada hissa paudhon ke pani todne se aata hai."])]},
     ]
 
 
@@ -78,7 +82,7 @@ class Script(unittest.TestCase):
         self.assertEqual(saved, [1, 2, 3])                       # saved after every heading
         counts = studio_script.counts(chapter(), record["parts"])
         self.assertEqual((counts["covered"], counts["coverable"]), (6, 6))
-        self.assertEqual((counts["analogies"], counts["real_world"]), (1, 1))
+        self.assertEqual((counts["analogies"], counts["real_world"]), (2, 3))
 
     def test_every_call_sees_the_whole_chapter_and_the_script_so_far(self):
         client = Client(parts())
@@ -149,6 +153,35 @@ class Script(unittest.TestCase):
         part = copy.deepcopy(parts()[1])
         part["points"][0]["recalls"] = ["11.6.1-k1"]
         self.assertIn("recalls '11.6.1-k1', which is not a point of an earlier heading", check(1, part))
+
+    def test_round_two_rules_from_the_first_chapter_11_script(self):
+        # round 1 of Chapter 11 (22 Nov 2026): 0 analogies, 24 lines naming the book, points of up to 16 sentences
+        part = copy.deepcopy(parts()[2])
+        part["points"][0]["says"].append("Book ise water splitting kehti hai.")
+        part["points"][1]["says"] += [f"Protons ka ek aur pehlu number {n} dekho." for n in range(8)]
+        part["points"] = [p for p in part["points"] if p["kind"] != "example"]
+        found = check(2, part)
+        self.assertIn("11.6.1-k1 sentence 2: names the book ('Book')", found)
+        self.assertIn("11.6.1-k2: 9 sentences; a knowledge point holds one idea in at most 8", found)
+        self.assertIn("this heading needs at least one worked example", found)
+        ch = chapter()
+        heads = studio_script.headings(ch)
+        part = copy.deepcopy(parts()[1])
+        part["points"] = [p for p in part["points"] if p["kind"] not in ("analogy", "real_world")]
+        found = " | ".join(studio_script.problems(part, heads[1], ch, parts()[:1], [], {"analogy": True, "real_world": True}))
+        self.assertIn("the plan offers an analogy for this heading", found)
+        self.assertIn("the plan offers a real-world use for this heading", found)
+        self.assertEqual(studio_script.ideas({"A": good("A")}, "11.6"), {"analogy": True, "real_world": True})
+
+    def test_code_repairs_the_section_and_a_recall_of_an_item(self):
+        heads = studio_script.headings(chapter())
+        part = copy.deepcopy(parts()[2])
+        part["section"] = "11.6.1 Splitting of Water"
+        part["points"][0]["recalls"] = ["p001-i3", "11.6.1-k2", "11.6-k3"]
+        fixed = studio_script.repair(part, heads[2], parts()[:2])
+        self.assertEqual(fixed["section"], "11.6.1")
+        self.assertEqual(fixed["points"][0]["recalls"], ["11.6-k1", "11.6-k3"])   # item -> the point that taught it
+        self.assertEqual(check(2, fixed), "")
 
     def test_navins_script_page(self):
         record = {"parts": [dict(p, title=t) for p, t in zip(parts(), ("Opening", "THE ELECTRON TRANSPORT", "Splitting of Water"))],

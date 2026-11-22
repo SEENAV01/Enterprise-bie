@@ -2582,6 +2582,23 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   (`tests/test_look_test.py`). Jobs `s4c-look-116-matte` and `s4d-look-116-structure` draw four shots (a13 s1, a14 s2,
   a15 s4, a16 s3) in both styles; Navin chooses by eye.
 
+## Entry · The chapter's script, round 1: every line, but no analogy and the book named, 22 November 2026
+
+- **Run:** `s5-photosynthesis-script` (the whole Chapter 11 script from `s4-photosynthesis-naksha-v2`; Codex, ₹0, 40 min,
+  3.29M input and 110k output tokens): 20 headings, 154 knowledge points, 1,067 sentences, about 126 spoken minutes,
+  156/156 items taught, every heading passed the code checks.
+- **Taught:** 0 analogies and 1 real-world use in 154 points (the naksha had offered an analogy for every heading and a
+  real-world use in 13 of them), worked examples in 8 of 20 headings; 24 sentences name the book to the learner ("Book ise
+  ... kehti hai", "book ka sawaal"); points of up to 16 sentences (29 over 8); the voice reads like a textbook. Every
+  heading went back once for things code can set: the section's number (20) and recalls naming an item id (136).
+- **Changed in BIE:** `studio_script.repair` (code sets the section, turns a recalled item id into the earlier point that
+  taught it and drops a recall of the heading's own point); new checks: the book never named (`BOOK_NAMED`), at most 8
+  sentences per point, a worked example in every heading of three or more items, an analogy and a real-world use
+  wherever the plan offered one (`ideas`). IMPLEMENTED (`tests/test_studio_script.py`).
+- **Measured (on round 1, offline):** the new checks find 24 book lines, 29 long points, 12 headings without an example,
+  20 without the offered analogy and 12 without the offered real-world use; the repairs leave no other problem. After:
+  the round-2 run. The teacher's voice waits for Navin's four teacher videos.
+
 ## Entry · Navin's look: structures for molecular close-ups, matte overviews, a controlled sheen, 22 November 2026
 
 - **Run:** the look test (`s4c-look-116-matte`, `s4d-look-116-structure`: four 11.6 shots, ChatGPT plan, ₹0, 6 min each).
