@@ -251,7 +251,8 @@ class Stage(unittest.TestCase):
             plan = json.loads((out / "questions.json").read_text(encoding="utf-8"))
             self.assertTrue(plan["naksha"])
             self.assertEqual([q["id"] for q in plan["questions"]], ["a01", "a02", "a03", "b01", "b02", "b03"])
-            for name in ("CHAPTER.md", "SAMAJH.html", "NAKSHA.md", "NAKSHA.html", "naksha.json", "chapter_file.json"):
+            for name in ("CHAPTER.md", "SAMAJH.html", "NAKSHA.md", "NAKSHA.html", "naksha.json", "chapter_file.json",
+                         "chapter_map.json"):                      # chapter_map.json: the script stage reads this run
                 self.assertTrue((out / name).exists(), name)
 
     def test_the_vm_runner_accepts_the_naksha_stage(self):
