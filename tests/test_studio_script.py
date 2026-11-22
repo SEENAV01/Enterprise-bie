@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import copy
 import json
+import re
 import tempfile
 import unittest
 from pathlib import Path
@@ -28,28 +29,35 @@ def point(pid, kind, teaches, says, *, terms=(), recalls=(), screen="a picture t
 
 def parts():
     return [
-        {"section": "", "bridge": "Ab dekhte hain electrons ka safar.", "points": [
+        {"section": "", "goal": "Plants apna food khud banate hain, dhoop ki madad se.",
+         "bridge": "Ab dekhte hain electrons ka safar.", "points": [
             point("0-k1", "explain", ["p001-i1"], ["Plants apna food khud banate hain, dhoop ki madad se."]),
             point("0-k2", "real_world", [], ["Hum jo chawal aur dal khate hain, uski shuruaat bhi ek patti se hoti hai."]),
             point("0-k3", "analogy", [], ["Socho patti ek chhoti rasoi hai jahan dhoop se khana pakta hai."])]},
-        {"section": "11.6", "bridge": "Ab sawaal: electrons ki kami kaun bharta hai?", "points": [
+        {"section": "11.6", "goal": "Electrons PS II se PS I ki taraf move karte hain.",
+         "bridge": "Ab sawaal: electrons ki kami kaun bharta hai?", "points": [
             point("11.6-k1", "explain", ["p001-i3"], ["Electrons PS II se PS I ki taraf move karte hain, ek line mein."],
                   terms=["PS II"], recalls=["0-k1"]),
             point("11.6-k2", "question", ["p001-i4"], ["Yeh kaise happens hota hai? Chaliye ek-ek kadam dekhte hain."]),
             point("11.6-k3", "analogy", [], ["Socho ek seedhi hai jis par gend neeche ludhakti hai, har kadam par thodi energy deti hai."]),
             point("11.6-k4", "real_world", [], ["Kheton mein subah dhoop milte hi fasal ki pattiyan kaam shuru kar deti hain."])]},
-        {"section": "11.6.1", "bridge": "", "points": [
-            point("11.6.1-k1", "explain", ["p002-i1"], ["Water split hota hai aur PS II ke khoye electrons replace hote hain."],
+        {"section": "11.6.1", "goal": "Ab dekhenge ki PS II ke khoye electrons ki kami kaun bharta hai.",
+         "bridge": "Ab dekhte hain yeh sab milkar aage kya banata hai.", "points": [
+            point("11.6.1-k1", "overview", [], ["Ab dekhenge ki PS II ke khoye electrons ki kami kaun bharta hai.",
+                                                "Pani kyun tootta hai, aur usse teen cheezein kya milti hain?"]),
+            point("11.6.1-k2", "explain", ["p002-i1"], ["Water split hota hai aur PS II ke khoye electrons replace hote hain."],
                   terms=["lumen"]),
-            point("11.6.1-k2", "question", ["p002-i2"], ["Protons kahan released hote hain? Thylakoid ke andar, lumen mein."]),
-            point("11.6.1-k3", "figure", ["p002-i5"], ["Ab Z scheme figure dekho: har label ek station hai."],
+            point("11.6.1-k3", "question", ["p002-i2"], ["Protons kahan released hote hain? Thylakoid ke andar, lumen mein."]),
+            point("11.6.1-k4", "figure", ["p002-i5"], ["Ab Z scheme figure dekho: har label ek station hai."],
                   prepares=["p002-i4"]),
-            point("11.6.1-k4", "example", [], ["Do water molecules gino: inse chaar protons, chaar electrons aur ek oxygen milti hai."]),
-            point("11.6.1-k5", "real_world", [], ["Hum jo oxygen saans mein lete hain, uska bada hissa paudhon ke pani todne se aata hai."]),
-            point("11.6.1-k6", "checkpoint", [], ["Socho: agar pani tootna band ho jaye, to PS II ka kya hoga?"],
+            point("11.6.1-k5", "example", [], ["Do water molecules gino: inse chaar protons, chaar electrons aur ek oxygen milti hai."]),
+            point("11.6.1-k6", "real_world", [], ["Hum jo oxygen saans mein lete hain, uska bada hissa paudhon ke pani todne se aata hai."]),
+            point("11.6.1-k7", "checkpoint", [], ["Socho: agar pani tootna band ho jaye, to PS II ka kya hoga?"],
                   answer="PS II ki khali jagah nahi bharegi, aur electron ka safar ruk jayega",
-                  watch_out="PS I pani se seedha electron nahi leta")]},
-        {"section": "recap", "bridge": "", "points": [
+                  watch_out="PS I pani se seedha electron nahi leta"),
+            point("11.6.1-k8", "retell", [], ["Poori baat ek saath: roshni PS II ka electron uchhalti hai, pani tootkar uski "
+                                              "kami bharta hai, protons lumen mein jama hote hain aur oxygen bahar jaati hai."])]},
+        {"section": "recap", "goal": "Light reactions ATP aur NADPH banati hain.", "bridge": "", "points": [
             point("recap-k1", "summary", ["p002-i3"], ["Ant mein yaad rakho: light reactions ATP aur NADPH banati hain, "
                                                         "jo aage sugar banane mein kaam aate hain."], recalls=["11.6-k1"])]},
     ]
@@ -114,14 +122,14 @@ class Script(unittest.TestCase):
 
     def test_ncert_line_by_line(self):
         part = copy.deepcopy(parts()[2])
-        part["points"][0]["teaches"] = ["p001-i3"]
-        part["points"][2]["teaches"] = ["p002-i2", "p002-i5"]
+        part["points"][1]["teaches"] = ["p001-i3"]
+        part["points"][3]["teaches"] = ["p002-i2", "p002-i5"]
         found = check(2, part)
         self.assertIn("teaches p001-i3, which is not an item of this heading", found)
         self.assertIn("p002-i2 is taught twice", found)
         self.assertIn("1 items of this heading are in no point's teaches: p002-i1", found)
         part = copy.deepcopy(parts()[2])
-        part["points"][0]["says"] = ["Ab ek naya kadam aata hai jo bahut zaroori hai."]
+        part["points"][1]["says"] = ["Ab ek naya kadam aata hai jo bahut zaroori hai."]
         self.assertIn("teaches p002-i1, but none of its key words is said there", check(2, part))
 
     def test_terms_open_once_at_first_use_and_never_early(self):
@@ -173,12 +181,12 @@ class Script(unittest.TestCase):
     def test_round_two_rules_from_the_first_chapter_11_script(self):
         # round 1 of Chapter 11 (22 Nov 2026): 0 analogies, 24 lines naming the book, points of up to 16 sentences
         part = copy.deepcopy(parts()[2])
-        part["points"][0]["says"].append("Book ise water splitting kehti hai.")
-        part["points"][1]["says"] += [f"Protons ka ek aur pehlu number {n} dekho." for n in range(8)]
+        part["points"][1]["says"].append("Book ise water splitting kehti hai.")
+        part["points"][2]["says"] += [f"Protons ka ek aur pehlu number {n} dekho." for n in range(8)]
         part["points"] = [p for p in part["points"] if p["kind"] != "example"]
         found = check(2, part)
-        self.assertIn("11.6.1-k1 sentence 2: names the book ('Book')", found)
-        self.assertIn("11.6.1-k2: 9 sentences; a knowledge point holds one idea in at most 8", found)
+        self.assertIn("11.6.1-k2 sentence 2: names the book ('Book')", found)
+        self.assertIn("11.6.1-k3: 9 sentences; a knowledge point holds one idea in at most 8", found)
         self.assertIn("this heading needs at least one worked example", found)
         ch = chapter()
         heads = studio_script.headings(ch)
@@ -206,7 +214,7 @@ class Script(unittest.TestCase):
         ch = chapter()
         heads = studio_script.headings(ch)
         written = copy.deepcopy(parts()[:3])
-        written[2]["points"][2]["prepares"] = []
+        written[2]["points"][3]["prepares"] = []
         self.assertEqual(studio_script.unprepared(ch, written), ["p002-i4"])
         found = " | ".join(studio_script.problems(parts()[3], heads[3], ch, written, [], None, ["p002-i4"]))
         self.assertIn("1 exercises are prepared by no point of the script: p002-i4", found)
@@ -217,6 +225,67 @@ class Script(unittest.TestCase):
         rules = studio_script.messages(ch, heads[0], [], course=ch["course"])[0]["content"]
         for words in ("never describe decoration", "carbon by carbon", "NAD/NADH", "done and filled here",
                       "told fully and vividly", "never said in the telling", "built on the same realistic picture step by"):
+            self.assertIn(words, rules)
+
+    def test_teacher_study_rules(self):
+        # four teachers of Chapter 11 read line by line (Navin, 22 Nov 2026, card "Haan, isi kram se"): goal first,
+        # questions about one in five with a "kyun", a process told as overview, steps and retell with its counts
+        part = copy.deepcopy(parts()[2])
+        part["goal"] = ""
+        self.assertIn('"goal" is empty', check(2, part))
+        part["goal"] = "Chloroplast ke andar ribosomes ki ginti samjhenge."
+        self.assertIn("11.6.1-k1: open the heading with its goal", check(2, part))
+        part = copy.deepcopy(parts()[2])
+        for p in part["points"]:
+            p["says"] = [s.replace("?", ".") for s in p["says"]]
+        found = check(2, part)
+        self.assertIn("0 of 10 sentences ask the learner something", found)
+        self.assertIn('no "kyun" question in this heading', found)
+        part = copy.deepcopy(parts()[2])
+        part["points"] = [p for p in part["points"] if p["kind"] not in ("overview", "retell")]
+        part["points"][0]["says"] = [part["goal"]] + part["points"][0]["says"]
+        part["points"] = [dict(p, says=[re.sub(r"\b(chaar|ek)\b", "kuch", s) for s in p["says"]]) for p in part["points"]]
+        found = check(2, part)
+        self.assertIn('an "overview" point names the steps', found)
+        self.assertIn('a "retell" point tells the whole of it again', found)
+        self.assertIn("this process heading says no count", found)
+        part = copy.deepcopy(parts()[2])
+        part["points"] = part["points"][1:] + part["points"][:1]               # the overview after the steps
+        self.assertIn('before its steps, an "overview" point', check(2, part))
+
+    def test_flowing_answers_and_no_teacher_slip(self):
+        # Navin heard "पानी से।" said alone (22 Nov 2026): "chhote vakya se baat tooti tooti lagegi"
+        part = copy.deepcopy(parts()[2])
+        part["points"][2]["says"] = ["Protons kahan released hote hain? Lumen mein."]
+        self.assertIn("11.6.1-k3 sentence 2: 'Lumen mein.' is a fragment", check(2, part))
+        part = copy.deepcopy(parts()[2])
+        part["points"][4]["says"].append("Is experiment mein oxygen-18 radioactive tracer tha.")
+        self.assertIn("this says a known slip (oxygen-18 called radioactive)", check(2, part))
+        part["points"][4]["says"][-1] = "Is experiment mein oxygen-18 tha, jo radioactive nahi hai."
+        self.assertNotIn("known slip", check(2, part))                          # BIE's round 1 said it right
+        part["points"][4]["says"][-1] = "Calvin cycle har chakkar mein ek CO2 nikalta hai, isliye yeh yaad rakho."
+        self.assertIn("the Calvin cycle releasing CO2", check(2, part))
+        part["points"][4]["says"][-1] = "Light reaction par temperature ka koi asar nahi hota, yeh pakka hai."
+        self.assertIn("temperature not affecting the light reaction", check(2, part))   # here the negation is the slip
+
+    def test_a_marked_misconception_is_said_and_the_bridge_names_the_link(self):
+        ch = chapter()
+        ch["items"]["p002-i1"].update(teach_depth="deep", deep_why="misconception")
+        heads = studio_script.headings(ch)
+        found = " | ".join(studio_script.problems(parts()[2], heads[2], ch, parts()[:2], []))
+        self.assertIn("the chapter file marks a common wrong idea here (p002-i1)", found)
+        part = copy.deepcopy(parts()[2])
+        part["points"][1]["says"].append("Aksar log sochte hain ki oxygen CO2 se aati hai, par asal mein woh pani se aati hai.")
+        self.assertEqual(studio_script.problems(part, heads[2], ch, parts()[:2], []), [])
+        part["bridge"] = ""
+        self.assertIn('"bridge" is empty', " | ".join(studio_script.problems(part, heads[2], ch, parts()[:2], [])))
+        self.assertEqual(studio_script.problems(parts()[3], heads[3], ch, parts()[:3], [], None, []), [])   # last heading
+        counts = studio_script.counts(ch, parts())
+        self.assertEqual((counts["retells"], counts["fragments"], counts["goals"]), (1, 0, 4))
+        self.assertGreater(counts["question_share"], 0.15)
+        rules = studio_script.messages(ch, heads[0], [], course=ch["course"])[0]["content"]
+        for words in ("about one sentence in five is a question", '"overview" point', '"retell" point',
+                      "never a sentence of three words or fewer", "oxygen-18 is radioactive", "names the link"):
             self.assertIn(words, rules)
 
     def test_code_repairs_the_section_and_a_recall_of_an_item(self):

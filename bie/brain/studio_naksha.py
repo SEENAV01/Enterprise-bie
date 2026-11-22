@@ -61,7 +61,7 @@ def _arr(items: dict) -> dict:
 FILM = _obj({
     "id": S, "section": S, "title": S, "question": S,
     "teaches": _arr(S), "recalls": _arr(S), "builds_on": _arr(S),
-    "prerequisite": S, "opens_with": S, "story": _arr(S),
+    "prerequisite": S, "opens_with": S, "recall_line": S, "next_question": S, "story": _arr(S),
     "analogy": _obj({"for": S, "picture": S, "why_it_fits": S}),
     "examples": _arr(S), "real_world": _arr(S), "terms": _arr(S),
     "outside_book": _arr(_obj({"what": S, "why": S})),
@@ -114,6 +114,10 @@ Navin's rules for the plan (21 November 2026):
   Make a new picture for what a line needs; name an earlier film's picture in "reuse_of" only when the very same thing is
   shown again (a reminder). No two films open on the same picture.
 - Length follows the content: 2 to 12 minutes; a process or structure gets time, a light point a short film.
+- The film's door (Navin, 22 November 2026, after four teachers of the chapter were studied): "recall_line" is the one line
+  a film starts with to remind the learner where the last film left them (empty only for the first film); "next_question"
+  is the question this film leaves the learner with, the one the next film answers (empty only for the last film). Code
+  tells each film where it stands in the chapter ("hum kahan hain"), so the learner always knows the map.
 - The unit's opening page, when the chapter file begins with one (UNIT, its name and its chapters), is the first film:
   the unit's overview, made only from that page's items.
 
@@ -169,6 +173,20 @@ def _words(text: str) -> set:
     return {w for w in re.findall(r"[a-zA-Zऀ-ॿ]{3,}", (text or "").lower()) if w not in FILLER}
 
 
+def position(plan: dict, film_id: str) -> dict:
+    """Where a film stands in the chapter ("hum kahan hain", the teacher study, 22 November 2026): its place among all
+    the films and among its heading's films."""
+    films = [f for f in (plan or {}).get("films") or [] if isinstance(f, dict)]
+    ids = [f.get("id") for f in films]
+    if film_id not in ids:
+        return {}
+    n = ids.index(film_id)
+    section = films[n].get("section") or ""
+    same = [f.get("id") for f in films if (f.get("section") or "") == section]
+    return {"film": n + 1, "films": len(films), "section": section, "in_section": same.index(film_id) + 1,
+            "section_films": len(same), "percent": round(100 * (n + 1) / len(films))}
+
+
 def problems(answer, chapter: dict, shape: str) -> list:
     """What the naksha gets wrong, in words the maker can act on."""
     if not isinstance(answer, dict):
@@ -211,6 +229,11 @@ def problems(answer, chapter: dict, shape: str) -> list:
             out.append(f"{fid}: minutes must be between {MIN_MINUTES} and {MAX_MINUTES}")
         if not f.get("opens_with") or len(f.get("story") or []) < 2:
             out.append(f"{fid}: needs opens_with and a story of at least two steps")
+        n = films.index(f)
+        if n and not (f.get("recall_line") or "").strip():
+            out.append(f"{fid}: needs recall_line (one line on where the last film left the learner)")
+        if n < len(films) - 1 and not (f.get("next_question") or "").strip():
+            out.append(f"{fid}: needs next_question (the question this film leaves, which the next film answers)")
         if not f.get("saman"):
             out.append(f"{fid}: needs its saman ki list (what the screen must show)")
         if not [x for x in f.get("examples") or [] if str(x).strip()]:
