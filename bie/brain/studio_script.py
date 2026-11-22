@@ -25,7 +25,10 @@ before the next is written (problems go back, at most ``max_rounds``):
 * No repetition: no sentence says again what an earlier sentence of the script said; an analogy or an example is used
   once in the chapter; a real-world use is a thing in life, not a study task.
 * The teacher's voice: Roman script, sentences under 40 words, a screen line per point (what explains the words), never a
-  caution line.
+  caution line, never the book named to the learner; knowledge points of at most 8 sentences.
+* Examples, analogies, real world (round 1 of Chapter 11 had 0 analogies and 1 real-world use in 154 points): a worked
+  example in every heading of three or more items; an analogy and a real-world use wherever the plan offered one.
+* Code repairs what it can before checking (the section, a recall that names an item id).
 
 Output: ``script.json`` (the parts, each point with its id "11.6.1-k3": the knowledge points that video, notes and games
 will account for), ``SCRIPT.md`` and ``SCRIPT.html`` (Navin's script page: each heading's script beside the NCERT lines
@@ -48,6 +51,10 @@ SAME_SENTENCE = 0.6            # share of shared words above which a sentence sa
 SAME_ANALOGY = studio_naksha.SAME_ANALOGY
 SAME_EXAMPLE = 0.6
 WORDS_PER_MINUTE = 130         # spoken Hinglish
+MAX_SENTENCES = 8              # sentences in one knowledge point (round 1 of Chapter 11: up to 16 in one point)
+EXAMPLE_FROM = 3               # a heading with this many items needs at least one worked example
+# the book named on the learner's screen (round 1 of Chapter 11: 24 lines such as "Book ise ... kehti hai")
+BOOK_NAMED = re.compile(r"(?i)\b(book|books|textbook|ncert|kitab|kitaab|lekhak|campbell|according to the (text|author))\b")
 DEVANAGARI = re.compile(r"[ऀ-ॿ]")
 FORWARD = re.compile(r"\b(aage|baad mein|baad me|agle|aane wale|later|next)\b", re.I)
 WORD = re.compile(r"[A-Za-z]{3,}")
@@ -97,15 +104,22 @@ Rules:
   words; an activity is a task the learner can do or watch; a biography is a short story moment; a figure is walked
   through, label by label (kind "figure"). Use the book's key words when you teach its line.
 - Explain, do not restate: the why steps, cause and effect, what must come first. When an earlier point taught what is
-  needed, remind in one short sentence and name it in "recalls" (its id); when nothing earlier taught it, teach it briefly
-  and say so in outside_book.
+  needed, remind in one short sentence and name it in "recalls": the id of a point of an earlier heading as THE SCRIPT SO
+  FAR shows it (like 11.5-k4), never an item id; when nothing earlier taught it, teach it briefly and say so in
+  outside_book.
 - Terms: open each term marked ★ in this heading's items at its first use, with its meaning in simple words ("terms").
   Never define again a term the script already opened: remind in a few words. Do not use a technical term of a later
   heading before it is opened, except as a pointer ("isko aage dekhenge").
 - Examples (kind "example"): a concrete case worked through: a named plant or experiment, a number, one molecule followed.
-  Analogies (kind "analogy"): at most one per idea, never one the script already used. Real-world uses (kind
-  "real_world"): a real thing, place or happening in food, farming, health, weather or technology; never a study task or
-  an exam trap; leave it out when there is no honest link, never invent one.
+  Every heading with three or more items has at least one. Analogies (kind "analogy"): an everyday picture for a hard
+  idea, never one the script already used; when the plan's ideas for this heading offer an analogy, the heading has one
+  (that one or a better one). Real-world uses (kind "real_world"): a real thing, place or happening in food, farming,
+  health, weather or technology; never a study task or an exam trap; when the plan's ideas offer one, the heading has
+  one; otherwise leave it out rather than invent one.
+- Knowledge points are small: one idea each, at most {max_sentences} sentences; split a long explanation into several
+  points.
+- Never name the book, NCERT or an author to the learner ("book kehti hai", "NCERT mein likha hai"): say it as your own
+  teaching.
 - Depth: NEET depth where the chapter file marks exam high or deep; a sound base everywhere.
 - Outside the book is welcome where it makes the concept clearer; name what you added in outside_book.
 - "screen": for every point, what the screen shows while it is said (a photo, a diagram, a table, an equation): what
@@ -199,17 +213,39 @@ def memory(parts: list) -> dict:
     return out
 
 
-def problems(answer, heading: dict, chapter: dict, earlier: list, later_terms: list) -> list:
+def repair(answer, heading: dict, earlier: list):
+    """What code can put right without asking again (round 1 of Chapter 11: every heading went back once, 136 times for a
+    recall naming an item id and 20 times for the section's own number): the section is set to the heading, a recall of
+    an item id becomes the earlier point that taught that item, and a recall of this heading's own point is dropped."""
+    if not isinstance(answer, dict):
+        return answer
+    taught_by = {i: p.get("id") for part in earlier for p in part.get("points") or [] for i in p.get("teaches") or []}
+    earlier_points = memory(earlier)["points"]
+    own = f"{tag(heading['number'])}-k"
+    for p in answer.get("points") or []:
+        if not isinstance(p, dict):
+            continue
+        fixed = []
+        for r in p.get("recalls") or []:
+            r = taught_by.get(r, r) if r not in earlier_points else r
+            if isinstance(r, str) and r.startswith(own):
+                continue
+            if r not in fixed:
+                fixed.append(r)
+        p["recalls"] = fixed
+    return dict(answer, section=heading["number"])
+
+
+def problems(answer, heading: dict, chapter: dict, earlier: list, later_terms: list, ideas: dict | None = None) -> list:
     """What this heading's part gets wrong, in words the maker can act on. ``earlier``: the parts already written;
-    ``later_terms``: the technical terms the chapter opens in later headings."""
+    ``later_terms``: the technical terms the chapter opens in later headings; ``ideas``: what the plan offered for this
+    heading ({"analogy": bool, "real_world": bool})."""
     if not isinstance(answer, dict):
         return ["the answer is not one JSON object"]
     items = chapter.get("items") or {}
     number = heading["number"]
     points = [p for p in answer.get("points") or [] if isinstance(p, dict)]
     out = []
-    if (answer.get("section") or "") != number:
-        out.append(f"section must be {number!r}")
     if not points:
         return out + ["no points"]
     ids = [p.get("id") for p in points]
@@ -235,7 +271,13 @@ def problems(answer, heading: dict, chapter: dict, earlier: list, later_terms: l
                                f"{items[iid].get('content', '')[:110]}")
         if not p.get("says"):
             out.append(f"{pid}: says nothing")
+        if len(p.get("says") or []) > MAX_SENTENCES:
+            out.append(f"{pid}: {len(p['says'])} sentences; a knowledge point holds one idea in at most {MAX_SENTENCES}: "
+                       "split it into several points")
         for k, sentence in enumerate(p.get("says") or [], 1):
+            if BOOK_NAMED.search(sentence or ""):
+                out.append(f"{pid} sentence {k}: names the book ({BOOK_NAMED.search(sentence).group(0)!r}); say it as your "
+                           "own teaching")
             if DEVANAGARI.search(sentence or ""):
                 out.append(f"{pid} sentence {k}: write it in Roman script")
             if len((sentence or "").split()) > MAX_WORDS:
@@ -257,6 +299,16 @@ def problems(answer, heading: dict, chapter: dict, earlier: list, later_terms: l
     missing = [iid for iid in heading["items"] if iid not in taught]
     if missing:
         out.append(f"{len(missing)} items of this heading are in no point's teaches: " + ", ".join(missing))
+    kinds = {p.get("kind") for p in points}
+    if len(heading["items"]) >= EXAMPLE_FROM and "example" not in kinds:
+        out.append("this heading needs at least one worked example (kind example): a named plant or experiment, a number, "
+                   "one molecule followed")
+    if (ideas or {}).get("analogy") and "analogy" not in kinds:
+        out.append("the plan offers an analogy for this heading; give the heading one (that one or a better one, kind "
+                   "analogy), never one the script already used")
+    if (ideas or {}).get("real_world") and "real_world" not in kinds:
+        out.append("the plan offers a real-world use for this heading; give the heading one (kind real_world): where the "
+                   "learner meets it in life")
     # terms: opened here when the chapter opens them here; never defined twice; not used before they are opened
     opened_here = {}
     for p in points:
@@ -332,6 +384,14 @@ def script_so_far(parts: list, chapter: dict) -> str:
     return "\n".join(out)
 
 
+def ideas(naksha: dict | None, number: str) -> dict:
+    """Whether the plan offers an analogy or a real-world use for this heading (in either shape)."""
+    films = [f for plan in (naksha or {}).values() if isinstance(plan, dict) for f in plan.get("films") or []
+             if isinstance(f, dict) and (f.get("section") or "") == number]
+    return {"analogy": any((f.get("analogy") or {}).get("picture") for f in films),
+            "real_world": any(f.get("real_world") for f in films)}
+
+
 def plan_ideas(naksha: dict | None, number: str) -> str:
     """The teaching plan's ideas for one heading (both shapes when both exist): student questions, openings, analogies,
     examples, real-world uses and pictures. Ideas only: the cut into videos comes later."""
@@ -353,7 +413,7 @@ def messages(chapter: dict, heading: dict, parts: list, *, course: dict, naksha:
              language: str = "Hinglish", next_title: str = "") -> list:
     system = RULES.format(subject=course.get("subject") or "the subject", learners=course.get("learners") or "the learners",
                           exam=course.get("exam") or "their exam", language=language or "Hinglish", max_words=MAX_WORDS,
-                          tag=tag(heading["number"]))
+                          max_sentences=MAX_SENTENCES, tag=tag(heading["number"]))
     items = chapter.get("items") or {}
     stars = [f"{term} (in {iid})" for term, iid in first_terms(heading)]
     lines = "\n".join(f"- {iid}: {items[iid].get('content', '')[:300]}" for iid in heading["items"])
@@ -384,8 +444,8 @@ def write(client, model: str, chapter: dict, *, course: dict, naksha: dict | Non
             reply = client.chat(model=model, messages=convo, schema=SCHEMA)
             for key in usage:
                 usage[key] += int((reply.get("usage") or {}).get(key) or 0)
-            answer = parse(reply.get("content", ""))
-            found = problems(answer, heading, chapter, parts, later[n])
+            answer = repair(parse(reply.get("content", "")), heading, parts)
+            found = problems(answer, heading, chapter, parts, later[n], ideas(naksha, heading["number"]))
             these.append({"round": number, "problems": found})
             if not found:
                 break

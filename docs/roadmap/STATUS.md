@@ -354,7 +354,11 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    point, no caution lines); saved after every heading. Outputs `script.json` (knowledge points `11.6.1-k3`),
    `SCRIPT.md`, `SCRIPT.html` (Navin's script page: the script beside the NCERT lines). The naksha run now keeps
    `chapter_map.json` so the script reads one run. IMPLEMENTED (`tests/test_studio_script.py`); the cut, notes and games
-   from the script come next, after Navin reads the 11.6 part.
+   from the script come next, after Navin reads the 11.6 part. Round 1 (job `s5-photosynthesis-script`, 22 November
+   2026): 156/156 items, 154 points, about 126 minutes, every heading passed; but 0 analogies, 1 real-world use, the book
+   named in 24 sentences and points of up to 16 sentences, so round 2 adds those checks and code repairs (SEEKH_LOG). The
+   teacher's voice and pacing will be learned from Navin's four Chapter 11 teacher videos (private; only rules in our
+   words enter BIE).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
