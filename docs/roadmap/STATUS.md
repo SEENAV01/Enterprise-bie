@@ -2520,6 +2520,10 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
   same PR (it already touches only this workflow): both steps now download through `tools/ci_apt_prefetch.sh` (one
   480 s budget, mirror fail-over, an `::error` annotation instead of a silent cancel) and install from the local
   cache. Not rerun; the push that adds this note starts the new run (rule CI-2).
+- F-11 again (22 November 2026, PR #195, head `52f3a080`, job 137161286358): `native-render` stopped in "Provision
+  unchanged governed native toolchain", before any test ran: "apt downloads did not finish within the 480 s budget"
+  after "regional mirror too slow; using the image's next listed mirror". The same head's earlier run (`f951fabc`)
+  passed this job. Rerun once under rule CI-2: the push that adds this note starts the new run.
 - F-11 again (18 November 2026, PR #166): on head `097e436e` five jobs and on the CI-2 rerun (head `9b3c9281`, runs
   44370640506 and 44370639963, 18:31–18:40 UTC) three jobs (`wrappers`, `native-render`, `canonical-regression`) stopped in
   their apt step, before any test ran, with "apt downloads did not finish within the 480 s budget" and "no second mirror
