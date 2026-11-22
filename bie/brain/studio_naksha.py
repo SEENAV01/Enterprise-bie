@@ -41,6 +41,10 @@ MAX_FILMS_PER_HEADING_A = 4
 SAME_ANALOGY = 0.5            # share of shared words above which two analogies are one analogy told twice
 FILLER = {"the", "a", "an", "of", "and", "or", "to", "in", "on", "for", "with", "like", "as", "is", "are", "jaise", "ki",
           "ka", "ke", "ek", "se", "mein", "aur", "hai", "hain", "wala", "wali", "jo", "par"}
+# a "real-world use" that is really a study task (the first naksha of Chapter 11, 22 November 2026: "Incomplete Z-scheme
+# diagrams mein arrows identify karna", "NEET numerical traps", "Interpreting experimental controls")
+STUDY_TASK = re.compile(r"\b(diagrams?|identif\w*|labels?|labell?ing|trace|tracing|interpret\w*|distinguish\w*|"
+                        r"differentiat\w*|neet|numericals?|exams?|traps?|stoichiometr\w*|padhna|likhna|worksheet)\b", re.I)
 
 S = {"type": "string"}
 N = {"type": "number"}
@@ -94,6 +98,13 @@ Navin's rules for the plan (21 November 2026):
   life, an experiment, a number), has at most one analogy and never one another film uses (a dam, a kitchen, a battery, a
   factory, a relay race: once each in the whole chapter), and its own examples and real-world uses (NEET depth where it
   matters).
+- "examples" (at least one per film, never the same as another film's): a concrete case the teacher works through while
+  teaching this film's lines: a named plant or experiment, a number worked out, one molecule followed step by step (the
+  book's own example first; one from outside the book is also named under outside_book).
+- "real_world": where the learner meets this concept in life, food, farming, health, the weather or technology: a real
+  thing, place or happening (greenhouse tomatoes given extra CO2, a potted plant drooping in the heat, sugarcane and
+  maize as C4 crops). A study skill, a diagram task or an exam trap is not a real-world use: it belongs in practice.
+  Leave real_world empty when the film's lines have no honest real-world link; never invent one.
 - Each line is taught by what it does: an in_text_question is posed and answered; reader_talk ("Let us see how this
   happens") is said in the teacher's own words; an activity becomes a task the learner can do or watch; a biography is a
   short story moment.
@@ -202,6 +213,14 @@ def problems(answer, chapter: dict, shape: str) -> list:
             out.append(f"{fid}: needs opens_with and a story of at least two steps")
         if not f.get("saman"):
             out.append(f"{fid}: needs its saman ki list (what the screen must show)")
+        if not [x for x in f.get("examples") or [] if str(x).strip()]:
+            out.append(f"{fid}: needs at least one example (a concrete case the teacher works through)")
+        for use in f.get("real_world") or []:
+            task = STUDY_TASK.search(str(use))
+            if task:
+                out.append(f"{fid}: real_world {str(use)[:80]!r} is a study task ({task.group(0)!r}), not a use in life: name "
+                           "where the learner meets this concept (food, farming, health, weather, technology), or leave it "
+                           "empty; study tasks go to practice")
         for s in f.get("saman") or []:
             bad = [i for i in s.get("for_items") or [] if i not in (f.get("teaches") or []) and i not in (f.get("recalls") or [])]
             if bad:
@@ -252,6 +271,13 @@ def problems(answer, chapter: dict, shape: str) -> list:
                 out.append(f"{f.get('id')}: its analogy ({picture!r}) repeats {other}'s; choose another or none")
                 break
         analogies.append((f.get("id"), words))
+    examples = {}
+    for f in films:
+        for example in f.get("examples") or []:
+            key = " ".join(sorted(_words(str(example))))
+            if key and key in examples and examples[key] != f.get("id"):
+                out.append(f"{f.get('id')}: example {str(example)[:80]!r} repeats {examples[key]}'s; give this film its own")
+            examples.setdefault(key, f.get("id"))
     openings = {}
     for f in films:
         first = next(iter(f.get("saman") or []), None)
@@ -346,8 +372,10 @@ def markdown(chapter: dict, records: list) -> str:
                 + (" …" if len(f.get("teaches") or []) > 6 else ""))
             if f.get("terms"):
                 out.append(f"- **Terms:** {', '.join(f['terms'])}")
-            if f.get("examples") or f.get("real_world"):
-                out.append(f"- **Examples / real world:** {'; '.join((f.get('examples') or []) + (f.get('real_world') or []))}")
+            if f.get("examples"):
+                out.append(f"- **Examples:** {'; '.join(f['examples'])}")
+            if f.get("real_world"):
+                out.append(f"- **Asli duniya mein:** {'; '.join(f['real_world'])}")
             if f.get("outside_book"):
                 out.append(f"- **Kitaab se bahar:** {'; '.join(o.get('what', '') for o in f['outside_book'])}")
             out.append("- **Saman ki list:** " + "; ".join(
@@ -355,6 +383,106 @@ def markdown(chapter: dict, records: list) -> str:
                 for s in f.get("saman") or []))
             out.append("")
     return "\n".join(out).rstrip() + "\n"
+
+
+def compare(chapter: dict, records: list) -> dict:
+    """The two shapes heading by heading (for NAKSHA.html): per shape its totals and, for every heading of the book, its
+    films; ``differs`` marks the headings where the shapes cut the lines differently."""
+    wanted = coverable(chapter)
+    wanted_set = set(wanted)
+    shapes = {}
+    for record in records:
+        films = [f for f in (record.get("answer") or {}).get("films") or [] if isinstance(f, dict)]
+        taught = {i for f in films for i in f.get("teaches") or []}
+        shapes[record["shape"]] = {
+            "films": len(films), "minutes": sum(f.get("minutes") or 0 for f in films),
+            "problems": list(record.get("problems") or []), "rounds": len(record.get("rounds") or []),
+            "covered": sum(1 for i in wanted if i in taught), "coverable": len(wanted),
+            "with_examples": sum(1 for f in films if f.get("examples")),
+            "with_real_world": sum(1 for f in films if f.get("real_world")),
+            "flow": (record.get("answer") or {}).get("chapter_flow", ""), "by_section": {}}
+        for f in films:
+            shapes[record["shape"]]["by_section"].setdefault(f.get("section") or "", []).append(f)
+    titles = {h.get("number"): h.get("title") for h in chapter.get("ncert_sections") or [] if h.get("number")}
+    rows = []
+    for number in sections(chapter):
+        cells = {shape: data["by_section"].get(number, []) for shape, data in shapes.items()}
+        if not any(cells.values()):
+            continue
+        cuts = {shape: frozenset(frozenset(i for i in f.get("teaches") or [] if i in wanted_set) for f in films)
+                for shape, films in cells.items()}
+        rows.append({"number": number, "title": titles.get(number, "") if number else "Shuruaat (pehli heading se pehle)",
+                     "films": cells, "differs": len(set(cuts.values())) > 1})
+    return {"shapes": shapes, "sections": rows}
+
+
+def html(chapter: dict, records: list) -> str:
+    """NAKSHA.html for Navin (a review page, never the learner's): the two shapes heading by heading on one screen, so he
+    can compare them on his tablet before choosing (Navin, 21 November 2026: "dikhao phir choose karunga")."""
+    import html as html_module
+    e = html_module.escape
+    data = compare(chapter, records)
+    title = (chapter.get("map") or {}).get("chapter_title") or chapter.get("course", {}).get("title", "")
+    parts = [f"""<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Padhane ka naksha · {e(title)}</title><style>
+body{{font:16px/1.55 system-ui,sans-serif;margin:0;padding:16px;background:#faf8f3;color:#222}}main{{max-width:1100px;margin:auto}}
+h1{{font-size:22px;margin:.2em 0}}h2{{font-size:18px;margin:1.4em 0 .4em}}.sum{{color:#555}}
+.tot{{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:10px 0}}
+.box{{background:#fff;border:1px solid #ddd6c8;border-radius:10px;padding:10px 12px}}.box b{{font-size:18px}}
+details.h{{background:#fff;border:1px solid #ddd6c8;border-radius:10px;margin:8px 0;padding:6px 12px}}
+details.h>summary{{cursor:pointer;font-weight:600}}.diff{{display:inline-block;font-size:12px;border-radius:6px;padding:0 6px;
+margin-left:6px;background:#fdeee6;color:#7a3413}}.two{{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0}}
+@media (max-width:720px){{.two{{grid-template-columns:1fr}}}}.col h3{{font-size:14px;margin:4px 0;color:#2f4d1f}}
+.film{{border-top:1px solid #eee;padding:8px 0}}.film .t{{font-weight:600}}.k{{color:#555;font-size:14px}}
+.k b{{color:#333}}details.more>summary{{cursor:pointer;font-size:14px;color:#2f4d1f}}.none{{color:#999;font-size:14px}}
+</style></head><body><main>
+<p class="sum">BIE · padhane ka naksha (review page, learner ko nahi dikhta)</p><h1>{e(title)}</h1>
+<p>Do roop: <b>A</b> = har heading ke andar sawaal-wise films · <b>B</b> = ek heading, ek film.</p><div class="tot">"""]
+    for shape, s in data["shapes"].items():
+        parts.append(f'<div class="box">Roop {e(shape)}: <b>{s["films"]} films · lagbhag {s["minutes"]:g} min</b><br>'
+                     f'<span class="k">NCERT items {s["covered"]}/{s["coverable"]} · examples wali films {s["with_examples"]} · '
+                     f'asli duniya wali films {s["with_real_world"]} · code ki kamiyan {len(s["problems"])} · '
+                     f'{s["rounds"]} round</span></div>')
+    parts.append("</div><h2>Har heading par dono roop</h2>")
+    for row in data["sections"]:
+        counts = " · ".join(f"{shape}: {len(films)} film, {sum(f.get('minutes') or 0 for f in films):g} min"
+                            for shape, films in row["films"].items())
+        parts.append(f'<details class="h"><summary>{e(row["number"] + " " if row["number"] else "")}{e(row["title"])} · '
+                     f'{e(counts)}{"<span class=diff>yahan farq hai</span>" if row["differs"] else ""}</summary><div class="two">')
+        for shape, films in row["films"].items():
+            parts.append(f'<div class="col"><h3>Roop {e(shape)}</h3>')
+            if not films:
+                parts.append('<div class="none">is heading ki koi film nahi</div>')
+            for f in films:
+                analogy = (f.get("analogy") or {}).get("picture") or ""
+                lines = [f'<div class="film"><div class="t">{e(f.get("id") or "")} · {e(f.get("title") or "")} '
+                         f'({f.get("minutes")} min)</div>',
+                         f'<div class="k"><b>Sawaal:</b> {e(f.get("question") or "")}</div>',
+                         f'<div class="k"><b>Shuruaat:</b> {e(f.get("opens_with") or "")}</div>']
+                if analogy:
+                    lines.append(f'<div class="k"><b>Analogy:</b> {e(analogy)}</div>')
+                if f.get("examples"):
+                    lines.append(f'<div class="k"><b>Examples:</b> {e("; ".join(f["examples"]))}</div>')
+                if f.get("real_world"):
+                    lines.append(f'<div class="k"><b>Asli duniya mein:</b> {e("; ".join(f["real_world"]))}</div>')
+                lines.append(f'<div class="k"><b>NCERT items:</b> {len(f.get("teaches") or [])} · <b>tasveerein:</b> '
+                             f'{len(f.get("saman") or [])}</div><details class="more"><summary>kahani aur saman</summary>'
+                             f'<div class="k"><b>Kahani:</b> {e(" → ".join(f.get("story") or []))}</div>'
+                             + "".join(f'<div class="k">• {e(s.get("id") or "")} {e(s.get("kind") or "")}: {e(s.get("shows") or "")}'
+                                       + (f' (dobara: {e(s["reuse_of"])})' if s.get("reuse_of") else "") + "</div>"
+                                       for s in f.get("saman") or [])
+                             + (f'<div class="k"><b>Kitaab se bahar:</b> '
+                                f'{e("; ".join(o.get("what", "") for o in f.get("outside_book") or []))}</div>'
+                                if f.get("outside_book") else "")
+                             + "</details></div>")
+                parts.append("".join(lines))
+            parts.append("</div>")
+        parts.append("</div></details>")
+    parts.append("<h2>Poore chapter ka flow</h2>")
+    parts += [f'<div class="box"><b>Roop {e(shape)}</b><div class="k">{e(s["flow"])}</div></div>'
+              for shape, s in data["shapes"].items()]
+    parts.append("</main></body></html>")
+    return "\n".join(parts)
 
 
 def dump(value) -> str:
