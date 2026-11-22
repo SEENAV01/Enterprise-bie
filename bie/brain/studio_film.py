@@ -222,9 +222,10 @@ with a process written inside a box instead of happening on screen):
   gradients and soft shading, rounded natural shapes, depth, short labels with leader lines; at least one gradient and at
   least 12 drawn shapes; viewBox; no script, no images, no style element; give every part you will light up an id);
   image_prompt is "". Use diagram for graphs, cycles, flow charts and comparisons.
-  visual.type "cutaway": an AI picture drawn as a transparent scientific cutaway or cross-section (glossy cells, soft
-  volumetric light, depth, a calm dark background), for the inside of things a camera cannot see: the inside of a leaf,
-  a chloroplast, an ovule, a root. image_prompt describes it fully like a photo prompt; svg is "".
+  visual.type "cutaway": an AI picture drawn as a realistic scientific cutaway or cross-section (true shapes and
+  textures, soft natural light, depth; never glassy or plastic), for the inside of things a camera cannot see: the inside
+  of a leaf, a chloroplast, an ovule, a root, a membrane and its proteins. image_prompt describes it fully like a photo
+  prompt (what is where; BIE adds how it is rendered); svg is "".
 - dive: {{"x": 0-100, "y": 0-100}} when this shot is a close-up INSIDE a point of the previous picture (the camera dives
   into that point, then this shot opens); {{"x": -1, "y": -1}} otherwise (and always for the first shot).
 - Every sentence says what appears WHILE it is spoken ("dikhaya = bola"): pins (a short label at x,y in percent of the
@@ -1002,7 +1003,38 @@ CUTAWAY_STYLES = {
                   "densely packed lipid heads and tails, neutral studio light, strong ambient occlusion, photographic depth of "
                   "field, colours only as tints on the real shapes. No glossy plastic, no glow, no volumetric light rays, "
                   "whatever the words above say about light. 16:9 landscape." + NO_MARKS),
+    # Navin's choice after the look test (22 November 2026, open ended: "baad mein mai apni choice badal bhi sakta hun"):
+    # "proteins aur molecular machinery ke close-ups mein Structure; poore chloroplast jaise overview shots mein Matte.
+    # Structure ki surface par halki, controlled sheen achhi rahegi ... chloroplast ke matte structure ko controlled chamak
+    # deke achha kiya ja sakta hai"
+    "close_up": (" Rendered like a structural-biology figure made from real atomic structures (cryo-EM and PDB models in a "
+                 "physically based renderer): each protein a smooth atomic-surface model with its real shape and a light, "
+                 "controlled satin sheen (never glossy plastic, never gritty or sandpaper-rough), the membrane as densely "
+                 "packed lipid heads and tails, soft neutral studio light with ambient occlusion, photographic depth of "
+                 "field, colours as tints on the real shapes. No glow, no volumetric light rays, whatever the words above "
+                 "say about light. 16:9 landscape." + NO_MARKS),
+    "overview": (" Realistic scientific render of the whole structure at this scale, not a cartoon: natural textures, true "
+                 "relative sizes, soft natural light with ambient occlusion, a light controlled satin sheen on membranes "
+                 "and envelopes (never glassy or plastic, no sparkle), gentle depth of field, muted natural colours. Draw "
+                 "no individual proteins or molecules at this scale unless the words above name them. No glow, no "
+                 "volumetric light rays, whatever the words above say about light. 16:9 landscape." + NO_MARKS),
 }
+# the films' cutaways: "mixed" draws a close-up of proteins and molecular machinery as "close_up" and a whole-structure
+# view as "overview"; "glossy" brings back the look the films had until 22 November 2026
+FILM_STYLE = "mixed"
+MACHINERY = re.compile(r"(?i)\b(proteins?|complex(es)?|enzymes?|ps ?ii?\b|photosystems?|atp synthase|cf[0₀1₁]|cytochromes?|"
+                       r"plastoquinone|plastocyanin|ferredoxin|rubisco|reaction cent(re|er)|molecules?|molecular|carriers?|"
+                       r"channels?|pumps?|antenna)")
+NO_MACHINERY = re.compile(r"(?i)\bno (individual |molecular )?(proteins?|molecules)\b")
+
+
+def style_for(shot: dict) -> str:
+    """How a cutaway is drawn under FILM_STYLE "mixed": a close-up of proteins or molecular machinery as a structure, a
+    whole-structure view (a chloroplast, a leaf, a cell) as an overview."""
+    prompt = (shot.get("visual") or {}).get("image_prompt", "")
+    if NO_MACHINERY.search(prompt):
+        return "overview"
+    return "close_up" if MACHINERY.search(prompt) else "overview"
 
 
 COLOUR_WORDS = {"amber", "black", "blue", "bright", "brown", "copper", "cool", "dark", "deep", "emerald", "glow", "glowing",
@@ -1056,11 +1088,14 @@ def look_for(prompt: str, look: str) -> str:
     return "; ".join(kept)
 
 
-def image_prompt(shot: dict, look: str = "", style: str = "glossy") -> str:
+def image_prompt(shot: dict, look: str = "", style: str | None = None) -> str:
     """The shot's picture prompt; ``look`` (the film's shared art direction) keeps every picture in one world, with a
     structure's colours only on the pictures that show it (look_for); ``style`` is how a cutaway is rendered
-    (CUTAWAY_STYLES)."""
+    (CUTAWAY_STYLES, or "mixed"; FILM_STYLE when not given)."""
     visual = shot.get("visual") or {}
+    style = style or FILM_STYLE
+    if style == "mixed":
+        style = style_for(shot)
     suffix = CUTAWAY_STYLES.get(style, CUTAWAY_SUFFIX) if visual.get("type") == "cutaway" else IMAGE_SUFFIX
     prompt = visual.get("image_prompt", "").strip()
     shared = look_for(prompt, look)
