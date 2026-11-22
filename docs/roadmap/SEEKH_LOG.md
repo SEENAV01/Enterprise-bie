@@ -2613,3 +2613,25 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   instruction no longer asks for glossy cells and volumetric light. IMPLEMENTED (`tests/test_look_test.py`,
   `tests/test_studio_films.py`). Job `s4e-look-116-mixed` draws the same four shots in the tuned look for Navin's eye.
 
+## Entry · ChatGPT's teacher audit of round 1, filtered for the vision: exercises, recap, checkpoints, 22 November 2026
+
+- **Input:** Navin's ChatGPT review of `SCRIPT-ch11-v1.html` against the NCERT chapter (a classroom-teacher audit:
+  20 heading blocks, Table 11.1's 17 rows, all 9 exercises, 162 knowledge probes). It judged the script as a teacher
+  standing in class; for BIE the script is the knowledge that video, notes and games present, so each point was
+  filtered (Claude's table to Navin, his cards).
+- **Taken:** the knowledge for every exercise must be in the script (exercises 5–7 needed concepts the body never
+  teaches); an activity or table the book asks the learner to fill is filled with reasons; a closing recap from the
+  summary's lines (without the book's NAD/NADH slip); "ruko, socho" checkpoints (predict, reason, a common wrong idea);
+  an analogy that states what maps to what and where it breaks; matter as well as energy for every cycle (the
+  three-CO₂ carbon ledger); figures taught by their labels, never by decoration; the page reports body lines, summary
+  and exercises separately (156/156 counted body lines only).
+- **Not taken:** reordering the chapter around a "big map" (Navin's naksha keeps the book's headings); solving the nine
+  exercises in the script (Navin: "Gyan script mein, hal game/notes mein"); giving low-yield lines less time (Navin
+  chose equal time so the choice never becomes selective; only the decoration of figures is left out).
+- **Changed in BIE:** `studio_script`: kind `checkpoint`; point fields `prepares`, `answer`, `watch_out`; the `recap`
+  heading from the summary's items; `exercises()`, `unprepared()`; checks: a checkpoint in every heading of three or more
+  items, answer and watch_out for checkpoints and analogies, `prepares` names exercise items, and the recap prepares
+  every exercise still open; rules for activities, tables, matter ledgers, figures and the book's slips; counts and
+  pages show summary, exercises and checkpoints. IMPLEMENTED (`tests/test_studio_script.py`). Measured after the final
+  round, which waits for Navin's teacher videos, their transcripts and his Gemini notes.
+

@@ -45,7 +45,10 @@ from .studio import parse
 from .studio_book import CAUTION
 from .studio_film import _content_words, _spoken_words
 
-KINDS = ("explain", "question", "example", "analogy", "real_world", "recall", "activity", "story", "figure", "summary")
+KINDS = ("explain", "question", "checkpoint", "example", "analogy", "real_world", "recall", "activity", "story", "figure",
+         "summary")
+RECAP = "recap"                # the chapter's closing heading, from the summary's items (ChatGPT's audit of round 1)
+CHECKPOINT_FROM = 3            # a heading with this many items stops once for the learner to think (predict, then reason)
 MAX_WORDS = 40                 # words in one spoken sentence (Navin's Hinglish rule, Task 045)
 SAME_SENTENCE = 0.6            # share of shared words above which a sentence says again what another said
 SAME_ANALOGY = studio_naksha.SAME_ANALOGY
@@ -81,6 +84,9 @@ POINT = _obj({
     "screen": S,
     "terms": _arr(_obj({"term": S, "meaning": S})),
     "outside_book": S,
+    "prepares": _arr(S),
+    "answer": S,
+    "watch_out": S,
 })
 SCHEMA = _obj({"section": S, "points": _arr(POINT), "bridge": S})
 
@@ -116,6 +122,25 @@ Rules:
   (that one or a better one). Real-world uses (kind "real_world"): a real thing, place or happening in food, farming,
   health, weather or technology; never a study task or an exam trap; when the plan's ideas offer one, the heading has
   one; otherwise leave it out rather than invent one.
+  An analogy is told fully and vividly, the way a good teacher tells it, for the hard ideas (not in every point), and it
+  says its mapping in plain words as part of the telling ("H⁺ ions yahan paani hain, aur membrane hamara baandh");
+  that is enough for the learner (Navin, 22 November 2026: "analogy ko sahi tarike se bolna hi kaafi hai"). "answer"
+  records the mapping; "watch_out" records where the picture stops being true, for notes, games and checks only: it is
+  never said in the telling.
+- Checkpoints (kind "checkpoint"): every heading with three or more items stops at least once for the learner to think:
+  ask what will happen or why ("socho, phir aage badhenge"), then reason it out; "answer" holds the reasoning the learner
+  should reach and "watch_out" a common wrong idea and why it is wrong. Videos pause there, games ask it, notes keep the
+  wrong idea. At least one per such heading, not many: the video should not stop all the time.
+- Exercises (THE CHAPTER'S EXERCISES below): the script does not solve them (games and notes do), but it holds the
+  knowledge to answer every one of them. When a point gives that knowledge, list the exercise ids in "prepares"; when an
+  exercise needs something the body of the book never teaches (why a leaf kept in the dark turns yellow, why a shade leaf
+  is darker green), teach it in the heading where it belongs and mark it in outside_book.
+- An activity or a table the book asks the learner to do or fill is done and filled here, with the reason for each
+  answer; the game turns it into a task later.
+- A cycle or pathway is accounted for in matter as well as energy: what goes in, what comes out, what is regenerated
+  (carbon by carbon), as a worked ledger.
+- A figure is taught by its teaching labels; never describe decoration, clothing or how a portrait looks.
+- The book's slips are not copied (for example NAD/NADH where the chapter means NADP/NADPH): teach the correct form.
 - Knowledge points are small: one idea each, at most {max_sentences} sentences; split a long explanation into several
   points.
 - Never name the book, NCERT or an author to the learner ("book kehti hai", "NCERT mein likha hai"): say it as your own
@@ -123,10 +148,16 @@ Rules:
 - Depth: NEET depth where the chapter file marks exam high or deep; a sound base everywhere.
 - Outside the book is welcome where it makes the concept clearer; name what you added in outside_book.
 - "screen": for every point, what the screen shows while it is said (a photo, a diagram, a table, an equation): what
-  explains the words. Never a caution line ("assume", "illustrative", "the source does not say") in says or screen.
+  explains the words. A process or cycle taught over several points is built on the same realistic picture step by
+  step, as it is followed: each point adds only its own step and the earlier steps stay quiet, never a finished
+  crowded picture first (Navin, 22 November 2026: the Calvin cycle drawn as it is followed, on the photorealistic
+  picture, not a flat 2D diagram, so the last screen is never a khichdi of molecules). Never a caution line ("assume", "illustrative", "the source does not say") in says or screen.
 - Voice: {language} in Roman script with the book's English terms; a warm spoken teacher (questions, "socho", "dekho");
   every sentence under {max_words} words.
 - "bridge": one line that leads into the next heading (empty for the last heading).
+- The last heading, "recap", is the chapter's closing: it teaches the summary's lines as one connected picture (energy,
+  electrons, protons and carbon, each traced end to end), recalls the points it rests on, and prepares every exercise no
+  earlier point prepared.
 
 Ids: points {tag}-k1, {tag}-k2 ... in order. Answer with the JSON object only."""
 
@@ -135,7 +166,7 @@ PROBLEMS_PROMPT = ("BIE's code checked this heading's script and found these pro
 
 
 def tag(section: str) -> str:
-    return section or "0"
+    return section or "0"           # the recap heading's points are recap-k1, recap-k2 ...
 
 
 def headings(chapter: dict) -> list:
@@ -149,7 +180,17 @@ def headings(chapter: dict) -> list:
         if ids:
             out.append({"number": section["number"], "title": section["title"] or ("Opening" if not section["number"] else ""),
                         "items": ids, "rows": section["items"]})
+    summary = studio_naksha.zone_items(chapter, "summary")
+    if summary:
+        rows = [row for section in chapter_file.build(chapter)["sections"] if section["zone"] == "summary"
+                for row in section["items"] if row["id"] in summary]
+        out.append({"number": RECAP, "title": "Poore chapter ki tasveer (summary)", "items": summary, "rows": rows})
     return out
+
+
+def exercises(chapter: dict) -> list:
+    """The chapter's exercise items, the knowledge for which the script must hold."""
+    return studio_naksha.zone_items(chapter, "exercise")
 
 
 def first_terms(heading: dict) -> list:
@@ -195,6 +236,12 @@ def _same_term(a: str, b: str) -> bool:
     return bool(a) and bool(b) and (a == b or (len(a) >= 4 and len(b) >= 4 and (a in b or b in a)))
 
 
+def unprepared(chapter: dict, parts: list) -> list:
+    """The exercises no point of ``parts`` prepares."""
+    done = {x for part in parts for p in part.get("points") or [] for x in p.get("prepares") or []}
+    return [x for x in exercises(chapter) if x not in done]
+
+
 def memory(parts: list) -> dict:
     """What the script so far has used: terms opened, sentences said, analogies and examples, point ids."""
     out = {"terms": {}, "sentences": [], "analogies": [], "examples": [], "points": set()}
@@ -236,10 +283,12 @@ def repair(answer, heading: dict, earlier: list):
     return dict(answer, section=heading["number"])
 
 
-def problems(answer, heading: dict, chapter: dict, earlier: list, later_terms: list, ideas: dict | None = None) -> list:
+def problems(answer, heading: dict, chapter: dict, earlier: list, later_terms: list, ideas: dict | None = None,
+             open_exercises: list | None = None) -> list:
     """What this heading's part gets wrong, in words the maker can act on. ``earlier``: the parts already written;
     ``later_terms``: the technical terms the chapter opens in later headings; ``ideas``: what the plan offered for this
-    heading ({"analogy": bool, "real_world": bool})."""
+    heading ({"analogy": bool, "real_world": bool}); ``open_exercises``: for the recap, the exercises no earlier point
+    prepared."""
     if not isinstance(answer, dict):
         return ["the answer is not one JSON object"]
     items = chapter.get("items") or {}
@@ -252,6 +301,7 @@ def problems(answer, heading: dict, chapter: dict, earlier: list, later_terms: l
     if ids != [f"{tag(number)}-k{n}" for n in range(1, len(points) + 1)]:
         out.append(f"point ids must be {tag(number)}-k1, {tag(number)}-k2 ... in order")
     before = memory(earlier)
+    exercise_ids = set(exercises(chapter))
     taught = {}
     for p in points:
         pid = p.get("id")
@@ -291,6 +341,17 @@ def problems(answer, heading: dict, chapter: dict, earlier: list, later_terms: l
         for r in p.get("recalls") or []:
             if r not in before["points"]:
                 out.append(f"{pid}: recalls {r!r}, which is not a point of an earlier heading")
+        bad = [x for x in p.get("prepares") or [] if x not in exercise_ids]
+        if bad:
+            out.append(f"{pid}: prepares {bad}, which are not exercise items of the chapter")
+        if p.get("kind") in ("checkpoint", "analogy"):
+            what = ("the reasoning the learner should reach" if p.get("kind") == "checkpoint" else "what maps to what")
+            limit = ("a common wrong idea and why it is wrong" if p.get("kind") == "checkpoint"
+                     else "where the picture stops being true")
+            if not (p.get("answer") or "").strip():
+                out.append(f"{pid}: a {p.get('kind')} needs \"answer\": {what}")
+            if not (p.get("watch_out") or "").strip():
+                out.append(f"{pid}: a {p.get('kind')} needs \"watch_out\": {limit}")
         if p.get("kind") == "real_world":
             task = studio_naksha.STUDY_TASK.search(" ".join(p.get("says") or []))
             if task:
@@ -300,7 +361,16 @@ def problems(answer, heading: dict, chapter: dict, earlier: list, later_terms: l
     if missing:
         out.append(f"{len(missing)} items of this heading are in no point's teaches: " + ", ".join(missing))
     kinds = {p.get("kind") for p in points}
-    if len(heading["items"]) >= EXAMPLE_FROM and "example" not in kinds:
+    if number == RECAP:
+        prepared = {x for p in points for x in p.get("prepares") or []}
+        left = [x for x in open_exercises or [] if x not in prepared]
+        if left:
+            out.append(f"{len(left)} exercises are prepared by no point of the script: {', '.join(left)}; give each the "
+                       "knowledge it needs here (outside_book where the book's body never teaches it) and list it in prepares")
+    elif len(heading["items"]) >= CHECKPOINT_FROM and "checkpoint" not in kinds:
+        out.append("this heading needs at least one checkpoint (kind checkpoint): ask the learner to predict or reason, "
+                   "then reason it out, with answer and watch_out")
+    if number != RECAP and len(heading["items"]) >= EXAMPLE_FROM and "example" not in kinds:
         out.append("this heading needs at least one worked example (kind example): a named plant or experiment, a number, "
                    "one molecule followed")
     if (ideas or {}).get("analogy") and "analogy" not in kinds:
@@ -417,9 +487,12 @@ def messages(chapter: dict, heading: dict, parts: list, *, course: dict, naksha:
     items = chapter.get("items") or {}
     stars = [f"{term} (in {iid})" for term, iid in first_terms(heading)]
     lines = "\n".join(f"- {iid}: {items[iid].get('content', '')[:300]}" for iid in heading["items"])
+    exercise_lines = "\n".join(f"- {iid}: {items[iid].get('content', '')[:240]}" for iid in exercises(chapter)) or "(none)"
     user = (f"THE CHAPTER FILE\n\n{chapter_file.markdown(chapter)}\n\nTHE SCRIPT SO FAR\n\n{script_so_far(parts, chapter)}\n\n"
             f"IDEAS FROM THE TEACHING PLAN FOR THIS HEADING (use what serves; not the cut into videos)\n\n"
             f"{plan_ideas(naksha, heading['number'])}\n\n"
+            f"THE CHAPTER'S EXERCISES (the script holds the knowledge for each; list a point's in prepares)\n{exercise_lines}\n"
+            f"Not yet prepared by any point: {', '.join(unprepared(chapter, parts)) or '(none)'}\n\n"
             f"NOW WRITE THE SCRIPT OF THIS HEADING: {heading['number'] or 'the opening'} {heading['title']}\n"
             f"Its items (each in exactly one point's teaches):\n{lines}\n"
             f"Terms the chapter opens here: {', '.join(stars) if stars else '(none)'}\n"
@@ -445,7 +518,8 @@ def write(client, model: str, chapter: dict, *, course: dict, naksha: dict | Non
             for key in usage:
                 usage[key] += int((reply.get("usage") or {}).get(key) or 0)
             answer = repair(parse(reply.get("content", "")), heading, parts)
-            found = problems(answer, heading, chapter, parts, later[n], ideas(naksha, heading["number"]))
+            found = problems(answer, heading, chapter, parts, later[n], ideas(naksha, heading["number"]),
+                             unprepared(chapter, parts) if heading["number"] == RECAP else None)
             these.append({"round": number, "problems": found})
             if not found:
                 break
@@ -468,7 +542,12 @@ def counts(chapter: dict, parts: list) -> dict:
     taught = {i for part in parts for p in part.get("points") or [] for i in p.get("teaches") or []}
     sentences = [s for part in parts for p in part.get("points") or [] for s in p.get("says") or []]
     words = sum(len(s.split()) for s in sentences)
+    summary = studio_naksha.zone_items(chapter, "summary")
+    prepared = {x for part in parts for p in part.get("points") or [] for x in p.get("prepares") or []}
     return {"headings": len(parts), "points": sum(len(part.get("points") or []) for part in parts),
+            "summary_taught": sum(1 for i in summary if i in taught), "summary": len(summary),
+            "exercises_prepared": sum(1 for i in exercises(chapter) if i in prepared), "exercises": len(exercises(chapter)),
+            "checkpoints": sum(1 for part in parts for p in part.get("points") or [] if p.get("kind") == "checkpoint"),
             "sentences": len(sentences), "words": words, "minutes": round(words / WORDS_PER_MINUTE),
             "covered": sum(1 for i in wanted if i in taught), "coverable": len(wanted),
             "analogies": sum(1 for part in parts for p in part.get("points") or [] if p.get("kind") == "analogy"),
@@ -477,7 +556,7 @@ def counts(chapter: dict, parts: list) -> dict:
             "outside_book": sum(1 for part in parts for p in part.get("points") or [] if (p.get("outside_book") or "").strip())}
 
 
-KIND_WORDS = {"explain": "samjhana", "question": "sawaal", "example": "example", "analogy": "analogy",
+KIND_WORDS = {"explain": "samjhana", "question": "sawaal", "checkpoint": "ruko, socho", "example": "example", "analogy": "analogy",
               "real_world": "asli duniya", "recall": "yaad", "activity": "activity", "story": "kahani", "figure": "figure",
               "summary": "saar"}
 
@@ -488,7 +567,8 @@ def markdown(chapter: dict, record: dict) -> str:
     c = counts(chapter, record.get("parts") or [])
     out = [f"# Chapter ki script · {title}", "",
            f"{c['headings']} headings · {c['points']} gyan-bindu · {c['sentences']} lines · lagbhag {c['minutes']} minute bolna · "
-           f"NCERT items {c['covered']}/{c['coverable']}", ""]
+           f"padhai ki NCERT lines {c['covered']}/{c['coverable']} · summary {c['summary_taught']}/{c['summary']} · "
+           f"exercises ka gyan {c['exercises_prepared']}/{c['exercises']} · ruko-socho {c['checkpoints']}", ""]
     for part in record.get("parts") or []:
         out += [f"## {part.get('section') or 'Shuruaat'} {part.get('title') or ''}".rstrip(), ""]
         for p in part.get("points") or []:
@@ -500,6 +580,12 @@ def markdown(chapter: dict, record: dict) -> str:
                 out.append("  - NCERT: " + "; ".join(f"{i} {items.get(i, {}).get('content', '')[:80]}" for i in p["teaches"]))
             if (p.get("outside_book") or "").strip():
                 out.append(f"  - kitaab se bahar: {p['outside_book']}")
+            if (p.get("answer") or "").strip():
+                out.append(f"  - {'jawab' if p.get('kind') == 'checkpoint' else 'kya kis jaisa'}: {p['answer']}")
+            if (p.get("watch_out") or "").strip():
+                out.append(f"  - {'aam galti' if p.get('kind') == 'checkpoint' else 'kahan tootti hai'}: {p['watch_out']}")
+            if p.get("prepares"):
+                out.append(f"  - exercise ke liye: {', '.join(p['prepares'])}")
         if part.get("bridge"):
             out += ["", f"_→ {part['bridge']}_"]
         left = (record.get("problems") or {}).get(part.get("section") or "opening")
@@ -525,14 +611,15 @@ padding:6px 12px}}details.h>summary{{cursor:pointer;font-weight:600}}.pt{{displa
 border-top:1px solid #eee;padding:10px 0}}@media (max-width:720px){{.pt{{grid-template-columns:1fr}}}}
 .tag{{display:inline-block;font-size:12px;border-radius:6px;padding:0 6px;margin-right:6px;background:#eef2e8;color:#2f4d1f}}
 .k-analogy,.k-example,.k-real_world{{background:#fbf3df;color:#6b4a07}}.k-question{{background:#e7eefb;color:#1d3d7a}}
-.k-recall{{background:#f1f1f1;color:#555}}.says{{margin:4px 0}}.k{{color:#555;font-size:14px}}.k b{{color:#333}}
+.k-recall{{background:#f1f1f1;color:#555}}.k-checkpoint{{background:#fde7ea;color:#7a1f2b}}.says{{margin:4px 0}}.k{{color:#555;font-size:14px}}.k b{{color:#333}}
 .book{{background:#f6f3ec;border-radius:8px;padding:6px 10px;font-size:14px;color:#444}}.book div{{margin:3px 0}}
 .left{{color:#7a3413;font-size:14px}}.bridge{{color:#2f4d1f;font-style:italic;margin:6px 0}}.id{{color:#888;font-size:12px}}
 </style></head><body><main>
 <p class="sum">BIE · chapter ki script (review page, learner ko nahi dikhta)</p><h1>{e(title)}</h1>
-<p>{c['headings']} headings · {c['points']} gyan-bindu · {c['sentences']} lines · lagbhag {c['minutes']} minute bolna ·
-NCERT items {c['covered']}/{c['coverable']} · analogy {c['analogies']} · example {c['examples']} · asli duniya {c['real_world']} ·
-kitaab se bahar {c['outside_book']} · code ki kamiyan {left_total}</p>"""]
+<p>{c['headings']} headings · {c['points']} gyan-bindu · {c['sentences']} lines · lagbhag {c['minutes']} minute bolna<br>
+padhai ki NCERT lines {c['covered']}/{c['coverable']} · summary {c['summary_taught']}/{c['summary']} · exercises ka gyan
+{c['exercises_prepared']}/{c['exercises']}<br>analogy {c['analogies']} · example {c['examples']} · asli duniya {c['real_world']} ·
+ruko-socho {c['checkpoints']} · kitaab se bahar {c['outside_book']} · code ki kamiyan {left_total}</p>"""]
     for part in record.get("parts") or []:
         points = part.get("points") or []
         left = (record.get("problems") or {}).get(part.get("section") or "opening") or []
@@ -552,6 +639,11 @@ kitaab se bahar {c['outside_book']} · code ki kamiyan {left_total}</p>"""]
                 + (f'<div class="k"><b>Terms:</b> {terms}</div>' if terms else "")
                 + (f'<div class="k"><b>Kitaab se bahar:</b> {e(p.get("outside_book"))}</div>' if (p.get("outside_book") or "").strip() else "")
                 + (f'<div class="k"><b>Yaad:</b> {e(", ".join(p.get("recalls") or []))}</div>' if p.get("recalls") else "")
+                + (f'<div class="k"><b>{"Jawab" if p.get("kind") == "checkpoint" else "Kya kis jaisa"}:</b> {e(p.get("answer"))}</div>'
+                   if (p.get("answer") or "").strip() else "")
+                + (f'<div class="k"><b>{"Aam galti" if p.get("kind") == "checkpoint" else "Kahan tootti hai"}:</b> '
+                   f'{e(p.get("watch_out"))}</div>' if (p.get("watch_out") or "").strip() else "")
+                + (f'<div class="k"><b>Exercise ke liye:</b> {e(", ".join(p.get("prepares") or []))}</div>' if p.get("prepares") else "")
                 + f'</div><div class="book">{book or "<span class=k>(NCERT line nahi: jodne wali baat)</span>"}</div></div>')
         if part.get("bridge"):
             parts.append(f'<div class="bridge">→ {e(part["bridge"])}</div>')

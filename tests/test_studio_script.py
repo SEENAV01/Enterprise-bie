@@ -17,9 +17,13 @@ from bie.model_gateway.live.messages import strict_ready
 from tests.test_studio_naksha import chapter, good
 
 
-def point(pid, kind, teaches, says, *, terms=(), recalls=(), screen="a picture that explains it", outside=""):
+def point(pid, kind, teaches, says, *, terms=(), recalls=(), screen="a picture that explains it", outside="", prepares=(),
+          answer=None, watch_out=None):
+    thinking = kind in ("analogy", "checkpoint")
     return {"id": pid, "kind": kind, "teaches": list(teaches), "recalls": list(recalls), "says": list(says),
-            "screen": screen, "terms": [{"term": t, "meaning": f"{t} ka matlab"} for t in terms], "outside_book": outside}
+            "screen": screen, "terms": [{"term": t, "meaning": f"{t} ka matlab"} for t in terms], "outside_book": outside,
+            "prepares": list(prepares), "answer": answer if answer is not None else ("the reasoning" if thinking else ""),
+            "watch_out": watch_out if watch_out is not None else ("a common wrong idea" if thinking else "")}
 
 
 def parts():
@@ -38,9 +42,16 @@ def parts():
             point("11.6.1-k1", "explain", ["p002-i1"], ["Water split hota hai aur PS II ke khoye electrons replace hote hain."],
                   terms=["lumen"]),
             point("11.6.1-k2", "question", ["p002-i2"], ["Protons kahan released hote hain? Thylakoid ke andar, lumen mein."]),
-            point("11.6.1-k3", "figure", ["p002-i5"], ["Ab Z scheme figure dekho: har label ek station hai."]),
+            point("11.6.1-k3", "figure", ["p002-i5"], ["Ab Z scheme figure dekho: har label ek station hai."],
+                  prepares=["p002-i4"]),
             point("11.6.1-k4", "example", [], ["Do water molecules gino: inse chaar protons, chaar electrons aur ek oxygen milti hai."]),
-            point("11.6.1-k5", "real_world", [], ["Hum jo oxygen saans mein lete hain, uska bada hissa paudhon ke pani todne se aata hai."])]},
+            point("11.6.1-k5", "real_world", [], ["Hum jo oxygen saans mein lete hain, uska bada hissa paudhon ke pani todne se aata hai."]),
+            point("11.6.1-k6", "checkpoint", [], ["Socho: agar pani tootna band ho jaye, to PS II ka kya hoga?"],
+                  answer="PS II ki khali jagah nahi bharegi, aur electron ka safar ruk jayega",
+                  watch_out="PS I pani se seedha electron nahi leta")]},
+        {"section": "recap", "bridge": "", "points": [
+            point("recap-k1", "summary", ["p002-i3"], ["Ant mein yaad rakho: light reactions ATP aur NADPH banati hain, "
+                                                        "jo aage sugar banane mein kaam aate hain."], recalls=["11.6-k1"])]},
     ]
 
 
@@ -71,7 +82,9 @@ class Script(unittest.TestCase):
     def test_the_headings_follow_the_book_and_hold_only_teachable_body_items(self):
         heads = studio_script.headings(chapter())
         self.assertEqual([(h["number"], h["items"]) for h in heads],
-                         [("", ["p001-i1"]), ("11.6", ["p001-i3", "p001-i4"]), ("11.6.1", ["p002-i1", "p002-i2", "p002-i5"])])
+                         [("", ["p001-i1"]), ("11.6", ["p001-i3", "p001-i4"]), ("11.6.1", ["p002-i1", "p002-i2", "p002-i5"]),
+                          ("recap", ["p002-i3"])])                                     # the summary closes the chapter
+        self.assertEqual(studio_script.exercises(chapter()), ["p002-i4"])
         self.assertEqual(studio_script.first_terms(heads[1]), [("PS II", "p001-i3")])
 
     def test_a_good_script_passes_and_covers_every_line(self):
@@ -79,9 +92,12 @@ class Script(unittest.TestCase):
         saved = []
         record = studio_script.write(client, "fake", chapter(), course=chapter()["course"], on_part=lambda r: saved.append(len(r["parts"])))
         self.assertEqual(record["problems"], {})
-        self.assertEqual(saved, [1, 2, 3])                       # saved after every heading
+        self.assertEqual(saved, [1, 2, 3, 4])                    # saved after every heading
         counts = studio_script.counts(chapter(), record["parts"])
         self.assertEqual((counts["covered"], counts["coverable"]), (6, 6))
+        self.assertEqual((counts["summary_taught"], counts["summary"], counts["exercises_prepared"], counts["exercises"]),
+                         (1, 1, 1, 1))
+        self.assertEqual(counts["checkpoints"], 1)
         self.assertEqual((counts["analogies"], counts["real_world"]), (2, 3))
 
     def test_every_call_sees_the_whole_chapter_and_the_script_so_far(self):
@@ -173,6 +189,36 @@ class Script(unittest.TestCase):
         self.assertIn("the plan offers a real-world use for this heading", found)
         self.assertEqual(studio_script.ideas({"A": good("A")}, "11.6"), {"analogy": True, "real_world": True})
 
+    def test_final_round_rules_from_the_teacher_audit(self):
+        # ChatGPT's audit of round 1 (22 Nov 2026), filtered with Navin: the knowledge for every exercise, a closing recap,
+        # a stop for the learner to think, an analogy that says what maps to what and where it breaks
+        part = copy.deepcopy(parts()[2])
+        part["points"] = [p for p in part["points"] if p["kind"] != "checkpoint"]
+        part["points"][2]["prepares"] = ["p002-i9"]
+        self.assertIn("this heading needs at least one checkpoint", check(2, part))
+        self.assertIn("prepares ['p002-i9'], which are not exercise items", check(2, part))
+        part = copy.deepcopy(parts()[1])
+        part["points"][2]["answer"] = ""
+        part["points"][2]["watch_out"] = ""
+        found = check(1, part)
+        self.assertIn('11.6-k3: a analogy needs "answer": what maps to what', found)
+        self.assertIn('11.6-k3: a analogy needs "watch_out": where the picture stops being true', found)
+        ch = chapter()
+        heads = studio_script.headings(ch)
+        written = copy.deepcopy(parts()[:3])
+        written[2]["points"][2]["prepares"] = []
+        self.assertEqual(studio_script.unprepared(ch, written), ["p002-i4"])
+        found = " | ".join(studio_script.problems(parts()[3], heads[3], ch, written, [], None, ["p002-i4"]))
+        self.assertIn("1 exercises are prepared by no point of the script: p002-i4", found)
+        self.assertEqual(studio_script.problems(parts()[3], heads[3], ch, parts()[:3], [], None, []), [])
+        user = studio_script.messages(ch, heads[3], written, course=ch["course"])[1]["content"]
+        self.assertIn("THE CHAPTER'S EXERCISES", user)
+        self.assertIn("Not yet prepared by any point: p002-i4", user)
+        rules = studio_script.messages(ch, heads[0], [], course=ch["course"])[0]["content"]
+        for words in ("never describe decoration", "carbon by carbon", "NAD/NADH", "done and filled here",
+                      "told fully and vividly", "never said in the telling", "built on the same realistic picture step by"):
+            self.assertIn(words, rules)
+
     def test_code_repairs_the_section_and_a_recall_of_an_item(self):
         heads = studio_script.headings(chapter())
         part = copy.deepcopy(parts()[2])
@@ -184,12 +230,15 @@ class Script(unittest.TestCase):
         self.assertEqual(check(2, fixed), "")
 
     def test_navins_script_page(self):
-        record = {"parts": [dict(p, title=t) for p, t in zip(parts(), ("Opening", "THE ELECTRON TRANSPORT", "Splitting of Water"))],
+        record = {"parts": [dict(p, title=t) for p, t in zip(parts(), ("Opening", "THE ELECTRON TRANSPORT", "Splitting of Water",
+                                                                         "Poore chapter ki tasveer"))],
                   "problems": {"11.6.1": ["one left"]}}
         page = studio_script.html(chapter(), record)
         self.assertTrue(page.startswith("<!doctype html>"))
         self.assertIn("review page", page)
-        self.assertIn("NCERT items 6/6", page)
+        self.assertIn("padhai ki NCERT lines 6/6", page)
+        self.assertIn("exercises ka gyan\n1/1", page)
+        self.assertIn("Aam galti:", page)
         self.assertIn("Water is split to replace the electrons.", page)       # the NCERT line beside the script
         self.assertIn("1 kamiyan bachi", page)
         text = studio_script.markdown(chapter(), record)
@@ -214,13 +263,13 @@ class Stage(unittest.TestCase):
             for name in ("script.json", "SCRIPT.md", "SCRIPT.html", "record.json"):
                 self.assertTrue((out / name).exists(), name)
             data = json.loads((out / "script.json").read_text(encoding="utf-8"))
-            self.assertEqual([p["section"] for p in data["parts"]], ["", "11.6", "11.6.1"])
+            self.assertEqual([p["section"] for p in data["parts"]], ["", "11.6", "11.6.1", "recap"])
 
     def test_a_heading_left_with_problems_is_kept_and_reported(self):
         import tools.vm_studio as vm_studio
         bad = copy.deepcopy(parts()[1])
         bad["points"][0]["terms"] = []
-        answers = [parts()[0], bad, bad, parts()[2]]
+        answers = [parts()[0], bad, bad, parts()[2], parts()[3]]
         with tempfile.TemporaryDirectory() as folder:
             run_dir = Path(folder) / "naksha"
             run_dir.mkdir()
@@ -229,7 +278,7 @@ class Stage(unittest.TestCase):
                                    pages="", course="", language="Hinglish", model="", max_rounds=2, pyqs="")
             summary = vm_studio.run(args, client=Client(answers), load=None)
             self.assertEqual(summary["status"], "needs_fix")
-            self.assertEqual(summary["rounds"], {"opening": 1, "11.6": 2, "11.6.1": 1})
+            self.assertEqual(summary["rounds"], {"opening": 1, "11.6": 2, "11.6.1": 1, "recap": 1})
             self.assertIn("11.6", summary["problems"])
 
     def test_the_vm_runner_accepts_the_script_stage(self):

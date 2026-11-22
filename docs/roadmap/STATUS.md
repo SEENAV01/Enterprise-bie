@@ -358,7 +358,14 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    2026): 156/156 items, 154 points, about 126 minutes, every heading passed; but 0 analogies, 1 real-world use, the book
    named in 24 sentences and points of up to 16 sentences, so round 2 adds those checks and code repairs (SEEKH_LOG). The
    teacher's voice and pacing will be learned from Navin's four Chapter 11 teacher videos (private; only rules in our
-   words enter BIE).
+   words enter BIE). Navin's cards on ChatGPT's audit of round 1 (22 November 2026): every NCERT line keeps equal time ("kahi phir
+   choice selective na ho jaaye"); exercises: "Gyan script mein, hal game/notes mein". The final round adds exercise
+   readiness, a closing recap, checkpoints and analogy limits (SEEKH_LOG) and runs after his teacher videos, transcripts
+   and Gemini notes arrive. Navin, 22 November 2026, 15:47: an analogy said well with its mapping in plain words is enough ("H⁺ ions paani
+   hain, membrane hamara baandh"); its limit stays a record for notes and games, never said in the telling. And a
+   process or cycle is drawn as it is followed, step by step **on the same photorealistic picture** (not a flat 2D
+   diagram), so the last screen is never a khichdi of molecules: the script's screen lines ask for it now; the video
+   step (cut and shots) must build it: each sentence adds only its own step, earlier steps stay quiet.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
