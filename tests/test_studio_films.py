@@ -15,7 +15,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 import codex_vm  # noqa: E402
 import vm_studio  # noqa: E402
-from bie.brain import studio, studio_film  # noqa: E402
+from bie.brain import studio, studio_film, studio_script  # noqa: E402
 from bie.brain.pages import Block, Page  # noqa: E402
 from bie.model_gateway.live.messages import strict_ready  # noqa: E402
 
@@ -754,6 +754,143 @@ class TeacherVoice(unittest.TestCase):
             self.assertIn("NOTE: baadal ki misaal do", seen["user"])
             self.assertEqual(summary["films"][0]["teacher_lines"], 4)
             self.assertIn("teacher ki 4 lines", (Path(folder) / "out" / "FILMS.md").read_text(encoding="utf-8"))
+
+
+class TeacherStudyDrawing(unittest.TestCase):
+    """The teacher study (22 November 2026; Navin's yes to F1, F2, F3, judged on a BIE video): a process built step by step
+    on one picture, amounts counted with beads, an analogy on its own everyday picture, and films cut from the script."""
+
+    def stepped(self):
+        made = film()
+        made["shots"][0]["sentences"] += [sentence("Phir hawa thandi hoti hai aur baadal bante hain.", "फिर हवा ठंडी होती है और बादल बनते हैं।"),
+                                          sentence("Aakhir mein baadal Ghat par baraste hain.", "आख़िर में बादल घाट पर बरसते हैं।")]
+        for n, line in enumerate(made["shots"][0]["sentences"][1:], 1):
+            line["step"] = n
+        return made
+
+    def test_a_process_is_numbered_in_order_on_one_picture(self):
+        made = self.stepped()
+        self.assertTrue(studio_film.stepped_shot(made["shots"][0]))
+        self.assertEqual(studio_film.teaching_problems(made, QUESTION), [])
+        made["shots"][0]["sentences"][2]["step"] = 3
+        found = " | ".join(studio_film.teaching_problems(made, QUESTION))
+        self.assertIn("s1 sentence 3: step 3 comes where step 2 is due", found)
+        made = self.stepped()
+        bare = made["shots"][0]["sentences"][2]
+        for key in ("arrows", "pins", "moves", "grows", "fuses", "focus"):
+            bare[key] = []
+        self.assertIn("s1 sentence 3: step 2 adds nothing to the picture", " | ".join(studio_film.teaching_problems(made, QUESTION)))
+
+    def test_a_process_question_needs_its_steps_and_a_stepped_shot_may_be_longer(self):
+        many = dict(QUESTION, points=[dict(QUESTION["points"][0]) for _ in range(3)])
+        self.assertIn("the question has 3 process points; tell the process on one picture",
+                      " | ".join(studio_film.teaching_problems(film(), many)))
+        made = self.stepped()
+        self.assertEqual([p for p in studio_film.teaching_problems(made, many) if "process points" in p], [])
+        extra = [sentence(f"Yeh kadam {n} hai, jahan hawa aage badhti hai.", f"यह कदम {n} है, जहाँ हवा आगे बढ़ती है।") for n in range(4, 8)]
+        for n, line in enumerate(extra, 4):
+            line["step"] = n
+        made["shots"][0]["sentences"] += extra
+        found = " | ".join(studio_film.problems(made, QUESTION))
+        self.assertNotIn("sentences; write 2 to", found)                   # 8 sentences, allowed on a stepped shot
+        plain = film()
+        plain["shots"][0]["sentences"] += [dict(x, step=0) for x in extra + extra[:1]]
+        self.assertIn("s1: 7 sentences; write 2 to 6", " | ".join(studio_film.problems(plain, QUESTION)))
+
+    def test_a_count_is_seen_and_keeps_its_atoms(self):
+        made = film()
+        line = made["shots"][1]["sentences"][1]
+        line["roman"] = "Paanch carbon aur ek naya carbon: five plus one equals three plus three."
+        self.assertIn("s2 sentence 2: the sentence counts (five plus one equals)", " | ".join(studio_film.teaching_problems(made, QUESTION)))
+        line["count"] = {"x": 50, "y": 86, "groups": [{"n": 5, "label": "RuBP", "colour": "green"}, {"n": 1, "label": "CO2", "colour": "red"}],
+                         "then": [{"n": 3, "label": "PGA", "colour": "green"}, {"n": 2, "label": "PGA", "colour": "green"}]}
+        self.assertIn("the count has 6 beads before = and 5 after", " | ".join(studio_film.teaching_problems(made, QUESTION)))
+        line["count"]["then"][1]["n"] = 3
+        self.assertEqual(studio_film.teaching_problems(made, QUESTION), [])
+        data = studio_film.player_data(made, images={}, audio={}, chapter="", question=QUESTION)
+        self.assertEqual(data["shots"][1]["sentences"][1]["count"]["groups"][1]["n"], 1)
+        self.assertEqual(data["shots"][0]["sentences"][0]["step"], 0)
+        template = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        for part in ("function quiet()", "function stepMark(t)", "function countAdd(c)", ".ar.old", ".beads"):
+            self.assertIn(part, template)
+
+    def test_an_analogy_has_its_own_picture_and_cuts_out_and_back(self):
+        made = film()
+        aside = {"id": "a1", "title": "Baandh", "key": "Baandh paani rokta hai, jaise Ghat hawa", "covers": [], "aside": True,
+                 "visual": {"type": "photo", "image_prompt": "Photorealistic wide view of a concrete dam holding back a deep "
+                            "blue reservoir in the monsoon, water spilling through one open gate", "svg": ""},
+                 "dive": {"x": -1, "y": -1},
+                 "sentences": [sentence("Ghat ko ek baandh samajhiye jo hawa rokta hai.", "घाट को एक बाँध समझिए जो हवा रोकता है।", ["baandh = Ghat"], moves=[CLOUDS]),
+                               sentence("Jaise baandh paani rokta hai, waise Ghat hawa ko rokta hai.", "जैसे बाँध पानी रोकता है, वैसे घाट हवा को रोकता है।")]}
+        made["shots"].insert(1, aside)
+        made["shots"][2]["dive"] = {"x": -1, "y": -1}
+        found = " | ".join(studio_film.problems(made, QUESTION))
+        self.assertNotIn("shots cut instead of diving", found)
+        self.assertEqual(studio_film.teaching_problems(made, QUESTION), [])
+        made["shots"][1]["sentences"][0]["pins"] = [{"label": "baandh", "x": 40, "y": 30}]
+        made["shots"][2]["dive"] = {"x": 50, "y": 40}
+        found = " | ".join(studio_film.teaching_problems(made, QUESTION))
+        self.assertIn("a1: the aside maps the analogy in a pin", found)
+        self.assertIn("s2: after an aside the film cuts back to its world", found)
+
+    def test_the_script_is_cut_into_heading_films(self):
+        chapter = {"items": {"i1": {"content": "Hawa chadhti hai", "content_type": "process", "block_ids": ["b1"]},
+                             "i2": {"content": "Vrishti chhaya", "content_type": "cause_effect", "block_ids": ["b2"]}}}
+        says = [f"Yeh line {n} hai jo hawa ke baare mein baat karti hai." for n in range(60)]
+        script = {"chapter_title": "Monsoon", "parts": [
+            {"section": "1.2", "title": "Ghat", "bridge": "Ab dekhte hain doosri taraf kya hota hai.",
+             "points": [{"id": f"1.2-k{n}", "kind": "analogy" if n == 1 else "explain", "teaches": ["i1" if n < 3 else "i2"],
+                         "says": says[n * 10:(n + 1) * 10], "screen": f"screen {n}"} for n in range(6)]}]}
+        naksha = {"A": {"films": [{"id": "a1", "section": "1.2", "question": "Ghat par baarish kyun hoti hai?", "teaches": ["i1"]},
+                                  {"id": "a2", "section": "1.2", "question": "Doosri taraf sookha kyun?", "teaches": ["i2"]}]}}
+        plan = studio_script.film_questions(script, chapter, naksha)
+        self.assertEqual([q["id"] for q in plan["questions"]], ["h1-2a", "h1-2b"])
+        first, second = plan["questions"]
+        self.assertEqual(first["teacher_lines"][0], {"roman": "Ghat par baarish kyun hoti hai?", "note": "the film's opening question",
+                                                     "kind": "question", "point": ""})
+        self.assertEqual(second["question"], "Doosri taraf sookha kyun?")
+        self.assertEqual(first["teacher_lines"][1]["note"], "explain · screen: screen 0")
+        self.assertEqual(second["teacher_lines"][-1]["roman"], "Ab dekhte hain doosri taraf kya hota hai.")
+        self.assertNotIn("Ab dekhte hain", first["teacher_lines"][-1]["roman"])
+        self.assertTrue(first["script_lines"] and first["naksha"] is True)
+        self.assertEqual(len(first["teacher_lines"]) - 1 + len(second["teacher_lines"]) - 2, 60)
+        self.assertEqual([q["id"] for q in studio_script.film_questions(script, chapter, naksha, ["h1-2b"])["questions"]], ["h1-2b"])
+        self.assertEqual(len(studio_script.film_questions(script, chapter, naksha, ["1.2"])["questions"]), 2)
+        self.assertIn("THE CHAPTER'S SCRIPT", studio_film.messages(first, course="Class 9", language="Hinglish")[1]["content"])
+        # an analogy line of the script is said on an aside shot
+        made = film()
+        lines = [{"roman": x["roman"], "kind": "analogy" if k == 1 else "explain", "point": "1.2-k1" if k == 1 else "1.2-k0"}
+                 for k, x in enumerate(s for shot in made["shots"] for s in shot["sentences"])]
+        q = dict(QUESTION, teacher_lines=lines, script_lines=True)
+        self.assertIn("the script's analogy 1.2-k1 is not on its own picture", " | ".join(studio_film.teaching_problems(made, q)))
+
+    def test_the_films_stage_reads_a_script_run(self):
+        with tempfile.TemporaryDirectory() as folder:
+            run_dir, map_dir = Path(folder) / "srun", Path(folder) / "nrun"
+            run_dir.mkdir()
+            map_dir.mkdir()
+            lines = [s["roman"] for shot in film()["shots"] for s in shot["sentences"]]
+            (run_dir / "script.json").write_text(json.dumps({"chapter_title": "Monsoon", "parts": [
+                {"section": "1", "title": "Ghat", "bridge": "", "points": [
+                    {"id": "1-k1", "kind": "explain", "teaches": ["i1", "i2"], "says": lines, "screen": "Ghat aur baadal"}]}]}),
+                encoding="utf-8")
+            (map_dir / "chapter_map.json").write_text(json.dumps({"items": {
+                "i1": {"content": "Hawa chadhti hai", "content_type": "process", "block_ids": ["b1"]},
+                "i2": {"content": "Vrishti chhaya", "content_type": "cause_effect", "block_ids": ["b2"]}}}), encoding="utf-8")
+            args = SimpleNamespace(stage="films", source="", from_run=str(run_dir), chapter_map=str(map_dir), videos="h1",
+                                   out=str(Path(folder) / "out"), pages="", course="Class 9", language="Hinglish", model="",
+                                   max_rounds=1)
+            seen = {}
+
+            class Client(FakeClient):
+                def chat(self, *, model, messages, schema=None):
+                    seen.setdefault("user", messages[1]["content"])
+                    return super().chat(model=model, messages=messages, schema=schema)
+
+            summary = vm_studio.run(args, client=Client([film()]), load=None, voice_maker=lambda: (FakeVoice(), None))
+            self.assertIn("THE CHAPTER'S SCRIPT", seen["user"])
+            self.assertIn("NOTE: explain · screen: Ghat aur baadal", seen["user"])
+            self.assertEqual((summary["films"][0]["qid"], summary["films"][0]["teacher_lines"]), ("h1", 5))   # the opening line is two sentences
 
 
 class ReviewFindings(unittest.TestCase):

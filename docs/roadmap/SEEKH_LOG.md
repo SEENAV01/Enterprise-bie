@@ -2697,3 +2697,26 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   0.45 s in its voice plus 0.45 s in the player (0.9 s, the "artificial" gap Navin heard), now 0.30 s; pauses of a second
   or more about 1.8 → 2.0 a minute, nearly all at a new picture (teachers: one or two a minute). 59 of 59 lines sayable,
   so the gate refuses none of them; every line of the passed Q14 film sayable too.
+
+## Entry · Films from the script: one picture per process, beads that count, an analogy's own picture, 22 November 2026
+
+- **From:** the teacher study (SEEKH_LOG entry above): teachers build one diagram step by step (the Calvin wheel in three
+  parts, the Z scheme carrier by carrier, arrow by arrow), count carbon with beads (5 + 1 = 6, then 3 + 3) and give an
+  analogy its own picture (a classroom passing a book bench to bench, a wreath for Kranz). Navin's cards: F1 and F3 a
+  provisional yes ("video dekhkar hi samjh aayega ki shi hai ya galat"), F2 yes; his F1 question (earlier steps stay lit
+  or go quiet?) unanswered, so the teacher's way: earlier steps stay, quiet, and the new step glows.
+- **Changed in BIE:** `studio_film`: sentence fields `step` (1, 2, 3 on one picture; 0 for none) and `count` (bead groups
+  before and after "="), shot field `aside` (an analogy's everyday photo, mapped in pins such as "baandh = membrane";
+  it cuts out and back without counting as the film's one cut); checks (`teaching_problems`): steps in order on one
+  picture and each adding something to it, a question with three or more process points told as a stepped shot, a
+  count's beads the same before and after, a sentence that counts ("five plus one equals ...") shows its beads, an aside
+  is a photo with a mapping pin and the film cuts back after it, the script's analogy lines on an aside. A stepped shot
+  may hold 10 sentences and 1,120 characters, because each step changes the picture. `studio_player.html`: a new step
+  quiets the earlier arrows, labels, step numbers and counts and numbers itself on the picture; beads draw the count and
+  then its regrouping. The first slice of the cut: `studio_script.film_questions` makes one film per heading (a long
+  heading cut between points into films of at most 48 lines, `h11-2a`, `h11-2b` ...), its narration the script's lines
+  in order with each point's kind and screen line as the note, opened by the plan's question for those items; the films
+  stage reads a script run (`--chapter-map`, or the script run's own copy of the chapter map and plan from now on).
+  IMPLEMENTED (`tests/test_studio_films.py`); not yet INTEGRATED: the first heading film waits for the final script.
+- **Checked:** every passed film still passes every check (`PassedFilms`); a test page of four sentences on one BIE
+  picture showed the steps numbering, the old steps going quiet and the beads regrouping (Claude's check page, not a film).

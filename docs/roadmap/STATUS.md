@@ -378,6 +378,11 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    --pace 1.05` for his ear), 0.30 s after a question answered at once, 0.90 s after a think question, about a second
    before a new idea or picture (`studio_voice.gaps`, the player's `after`), units and signs in words, a line with a sign
    the voice cannot say refused and reported, a Devanagari spelling list for the voice; room tone stays off. IMPLEMENTED.
+   Film rules (next PR): a process built step by step on one picture (`step`; the new step glows, earlier steps stay quiet),
+   counts as beads (`count`), an analogy's own everyday picture (`aside`), checks in `studio_film.teaching_problems`;
+   and the first slice of the cut, `studio_script.film_questions` (one film per heading, a long heading cut between
+   points, the script's lines as the narration), read by the films stage from a script run. IMPLEMENTED; one heading's
+   test video next.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

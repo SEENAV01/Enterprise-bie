@@ -683,6 +683,86 @@ def write(client, model: str, chapter: dict, *, course: dict, naksha: dict | Non
     return {"parts": parts, "rounds": rounds, "usage": usage, "problems": left}
 
 
+FILM_LINES = 48               # script lines in one film at most (about 8 shots); a longer heading is cut into films
+
+
+def film_id(section: str, part: int = 0, parts: int = 1) -> str:
+    """A heading's film id, as a VM job's videos field can carry it: "11.6.1" -> "h11-6-1", the opening "h0"; a heading cut
+    into several films: "h11-2a", "h11-2b" ..."""
+    return "h" + (section or "0").replace(".", "-") + ("abcdefghijklmnopqrstuvwxyz"[part] if parts > 1 else "")
+
+
+def _cut(points: list) -> list:
+    """The heading's points in films of at most FILM_LINES lines, cut only between points, the parts as even as they can be."""
+    sizes = [len(sentences(p)) for p in points]
+    total = sum(sizes)
+    count = max(1, -(-total // FILM_LINES))
+    target = total / count
+    out, current, size = [], [], 0
+    for point, n in zip(points, sizes):
+        if current and (size + n > FILM_LINES or (size >= target and len(out) < count - 1)):
+            out.append(current)
+            current, size = [], 0
+        current.append(point)
+        size += n
+    return out + ([current] if current else [])
+
+
+def film_questions(script: dict, chapter: dict, naksha: dict | None = None, wanted: list | None = None) -> dict:
+    """The script cut into films, first slice (Navin, 22 November 2026: "phir video maker us script ke hisab se poore
+    chapter ko video ke tukdon mein baantega"): one film per heading, its narration the heading's script lines in order
+    (the films stage's teacher lines, with each point's kind and screen line as the note), its points the heading's items
+    (their blocks give the book lines). A film opens on a question: the plan's question for the heading (shape B, one
+    heading one film; else shape A's first) when the script's first line is not one. ``wanted``: film ids or headings."""
+    items = chapter.get("items") or {}
+    shape_a, shape_b = {}, {}
+    for f in ((naksha or {}).get("A") or {}).get("films") or []:              # shape A: question-wise films in a heading
+        if isinstance(f, dict) and f.get("question"):
+            shape_a.setdefault(f.get("section") or "", []).append(f)
+    for f in ((naksha or {}).get("B") or {}).get("films") or []:              # shape B: one heading, one film
+        if isinstance(f, dict) and f.get("question"):
+            shape_b.setdefault(f.get("section") or "", f)
+    wanted = {w.strip() for w in wanted or [] if w.strip()}
+    out = []
+    for part in script.get("parts") or []:
+        section = part.get("section") or ""
+        pieces = _cut([p for p in part.get("points") or [] if sentences(p)])
+        for number, chunk in enumerate(pieces):
+            fid = film_id(section, number, len(pieces))
+            if wanted and fid not in wanted and section not in wanted and film_id(section) not in wanted:
+                continue
+            lines = []
+            for point in chunk:
+                kind, screen = point.get("kind") or "explain", (point.get("screen") or "").strip()
+                for n, said in enumerate(sentences(point)):
+                    lines.append({"roman": said, "note": f"{kind} · screen: {screen}" if n == 0 and screen else kind,
+                                  "kind": kind, "point": point.get("id") or ""})
+            taught = list(dict.fromkeys(i for point in chunk for i in point.get("teaches") or [] if i in items))
+            # the plan's film that teaches most of this film's items (shape B when the heading is one film)
+            planned = sorted(shape_a.get(section) or [], key=lambda f: -len(set(f.get("teaches") or []) & set(taught)))
+            plan = (shape_b.get(section) if len(pieces) == 1 else None) or (planned[0] if planned else None) or \
+                shape_b.get(section) or {}
+            question = (plan.get("question") or "").strip()
+            if not lines[0]["roman"].rstrip().endswith("?"):
+                opening = question if question.endswith("?") else next(
+                    (x["roman"] for x in lines if x["roman"].rstrip().endswith("?")), (part.get("title") or section) + "?")
+                lines.insert(0, {"roman": opening, "note": "the film's opening question", "kind": "question", "point": ""})
+            if number == len(pieces) - 1 and (part.get("bridge") or "").strip():
+                lines.append({"roman": part["bridge"].strip(), "note": "bridge to the next heading's film", "kind": "bridge",
+                              "point": ""})
+            points = [{"block_ids": list(items[i].get("block_ids") or []), "point": items[i].get("content", "")[:200],
+                       "kind": items[i].get("content_type") or "facts_numbers", "item_id": i} for i in taught]
+            out.append({"id": fid, "pillar": section or "opening", "question": lines[0]["roman"],
+                        "hook": plan.get("opens_with", ""), "points": points,
+                        "film": {"length": "long",
+                                 "showing_moment": next((x.get("shows") for x in plan.get("saman") or []), "")},
+                        "game_stage": {"mechanic": "choose_and_see", "idea": ""}, "naksha": True, "script_lines": True,
+                        "teacher_lines": lines, "heading": {"section": section, "title": part.get("title") or "",
+                                                            "film": number + 1, "films": len(pieces)}})
+    return {"chapter_title": script.get("chapter_title") or (chapter.get("map") or {}).get("chapter_title", ""),
+            "naksha": True, "script": True, "questions": out}
+
+
 def counts(chapter: dict, parts: list) -> dict:
     wanted = studio_naksha.coverable(chapter)
     taught = {i for part in parts for p in part.get("points") or [] for i in p.get("teaches") or []}
