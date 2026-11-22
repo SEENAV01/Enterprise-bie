@@ -2635,3 +2635,42 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   pages show summary, exercises and checkpoints. IMPLEMENTED (`tests/test_studio_script.py`). Measured after the final
   round, which waits for Navin's teacher videos, their transcripts and his Gemini notes.
 
+
+## Entry · Four Chapter 11 teachers, studied in full: how the script and naksha teach, 22 November 2026
+
+- **Input (private, never in the repo):** Navin's four YouTube teacher videos of NCERT Chapter 11 (10.5 hours, 1,15,679
+  transcript words, 3,774 frames), their transcripts read end to end, their audio measured, and his Gemini chat checked
+  line by line against the book. Claude's report to Navin: `TEACHER_SEEKH_CH11.html` (private). No teacher line enters
+  BIE; only rules in BIE's own words.
+- **What the run taught (numbers):** teachers' median sentence is 8–9 words (BIE round 1: 15); 18–35 % of their
+  sentences are questions (BIE: 4 %, 43 of 1,067); every process is told as aim → list of steps → each step → the whole
+  story again (BIE had no overview and no retell); amounts are counted aloud (carbon 5 + 1 = 6 → 3 + 3); a common wrong
+  idea is named and corrected; the four teachers made 40+ science slips between them (oxygen-18 called radioactive, the
+  dark reaction "at night", the Calvin cycle "releasing" CO₂, pigments separated by weight), which BIE's round 1 did
+  not make. Voice: teachers speak 175–200 words a minute (Kokoro 137), pause 24–27 times a minute and hold about
+  1–2 pauses a minute of a second or more (Kokoro never does); pitch range is already close (about 10 vs 9 semitones).
+  Screen: one diagram built step by step (Calvin wheel, Z scheme), an analogy given its own picture, beads to count.
+- **Navin's decisions (22 November 2026):** S1 (shorter sentences) dropped: "Chhote vakya se baat tooti tooti lagegi",
+  the 40-word limit stays. New rule S11, the flowing answer: a question is answered in a sentence that carries its
+  reason ("Dekho kuchh bacteria hydrogen sulphide lete hain aur wo [oxygen] chhodte hi nhi jiska matlab hai oxygen paani
+  se hi aati hai"), not a two-word reply. The voice's new pauses are accepted (A1, "Naye wala sahi hai"); pace 1.00 for
+  now, with a 1.05 copy of the next videos for his ear (A3). F1 (one picture per process, steps drawn on it by code) and
+  F3 (counting beads) are a provisional yes, to be judged on a BIE video.
+- **Changed in BIE (this entry: script and naksha):** `studio_script`: point kinds `overview` and `retell`; a `goal`
+  per heading, said in its first point; checks by code (`teacher_problems`): in a heading of eight or more sentences at
+  least 15 % are questions and one asks kyun; no fragment of three words or fewer; ten known teacher slips caught by
+  pattern (with a negation guard, so "stable oxygen-18 … not radioactive" passes); a process heading (three or more
+  process items) opens with an overview and closes with a retell that counts; a deep misconception item says the wrong
+  idea and corrects it; every heading but the last has a bridge that names the link. The rules tell the writer how good
+  teachers of this chapter teach (goal, questions, overview and retell, counts, name decoding, misconceptions, the
+  experiment as a story, a numeric analogy, the flowing answer S11). The page shows question share, retells, fragments
+  and each heading's goal (Maqsad). `studio_naksha`: every film has its door, `recall_line` (but the first) and
+  `next_question` (but the last); `position()` tells a film where it stands (film n of N, its section, percent).
+  IMPLEMENTED (`tests/test_studio_script.py`, `tests/test_studio_naksha.py`).
+- **Measured before (round 1, offline, on these checks):** 20 headings without a goal, 20 with too few questions, 15
+  without a kyun, 16 deep misconceptions not said, 6 process headings without an overview and 6 without a retell
+  (opening, 11.2, 11.6, 11.7.2, 11.8, 11.9), 4 fragments, 1 bridge empty, 0 teacher slips. Two of the four fragments were
+  the check's own error (an initial, "J.A. Bassham", "T.W. Engelmann", read as a sentence end) and one was a teacher's
+  one-word "Kyun?"; the sentence split keeps initials together and a short question is not a fragment, so 1 real
+  fragment remains ("Teen carbon atoms."). After: the final script round.
+  The voice (A1 pauses, A3 pace, units, Devanagari list) and film rules (F1, F2, F3) follow in their own PRs.

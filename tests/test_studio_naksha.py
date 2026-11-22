@@ -68,6 +68,8 @@ EXAMPLES = {"01": "one rice grain traced back to sunlight", "02": "one electron 
 def film(fid, section, teaches, *, recalls=(), builds_on=(), analogy="", opening="", reuse=""):
     return {"id": fid, "section": section, "title": f"Film {fid}", "question": "Kyun?", "teaches": list(teaches),
             "recalls": list(recalls), "builds_on": list(builds_on), "prerequisite": "", "opens_with": "Ek sawaal se",
+            "recall_line": "Pichhli baar humne dekha tha ki patti khana banati hai.",
+            "next_question": "Ab sawaal: yeh electron aage kahan jaata hai?",
             "story": ["pehle yeh", "phir woh"], "analogy": {"for": "flow", "picture": analogy, "why_it_fits": "fits"},
             "examples": [EXAMPLES[fid[1:]]], "real_world": ["greenhouse"], "terms": ["PS II"], "outside_book": [],
             "saman": [{"id": "s1", "shows": opening or OPENINGS[fid[1:]], "kind": "cutaway",
@@ -119,6 +121,21 @@ class Naksha(unittest.TestCase):
     def test_a_good_naksha_of_either_shape_passes(self):
         for shape in studio_naksha.SHAPES:
             self.assertEqual(studio_naksha.problems(good(shape), chapter(), shape), [], shape)
+
+    def test_every_film_has_its_door_and_knows_where_it_stands(self):
+        # the teacher study (22 Nov 2026): a video opens with where the last one left off and leaves a question for the next
+        answer = good("A")
+        answer["films"][0]["recall_line"] = ""                    # the first film has nothing to recall
+        answer["films"][2]["next_question"] = ""                  # the last film leaves no question
+        self.assertEqual(studio_naksha.problems(answer, chapter(), "A"), [])
+        answer["films"][1]["recall_line"] = ""
+        answer["films"][1]["next_question"] = ""
+        found = " | ".join(studio_naksha.problems(answer, chapter(), "A"))
+        self.assertIn("a02: needs recall_line", found)
+        self.assertIn("a02: needs next_question", found)
+        self.assertEqual(studio_naksha.position(good("A"), "a02"),
+                         {"film": 2, "films": 3, "section": "11.6", "in_section": 1, "section_films": 1, "percent": 67})
+        self.assertEqual(studio_naksha.position(good("A"), "z9"), {})
 
     def test_coverage_is_line_by_line_once(self):
         answer = good("A")

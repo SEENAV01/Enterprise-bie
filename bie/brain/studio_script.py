@@ -29,6 +29,14 @@ before the next is written (problems go back, at most ``max_rounds``):
 * Examples, analogies, real world (round 1 of Chapter 11 had 0 analogies and 1 real-world use in 154 points): a worked
   example in every heading of three or more items; an analogy and a real-world use wherever the plan offered one.
 * Code repairs what it can before checking (the section, a recall that names an item id).
+* The teacher study (Navin, 22 November 2026, after four YouTube teachers of Chapter 11 were read line by line and
+  measured: their sentences are questions 18-35 % of the time, BIE's round 1 4 %; every process is told as steps first,
+  then each step, then the whole again; card "Haan, isi kram se"): every heading opens with its goal, about one sentence
+  in five asks the learner something (at least one "kyun"), a process heading has an overview and a retell and says the
+  counts that change, a misconception the chapter file marks is said and corrected, the bridge names the link to the next
+  heading, no known teacher slip is said, and no sentence is a fragment of three words or fewer (Navin, 22 November 2026,
+  after hearing "पानी से।" said alone: "chhote vakya se baat tooti tooti lagegi"; an answer repeats its subject and a
+  thinking question's answer flows from cause to conclusion in one sentence).
 
 Output: ``script.json`` (the parts, each point with its id "11.6.1-k3": the knowledge points that video, notes and games
 will account for), ``SCRIPT.md`` and ``SCRIPT.html`` (Navin's script page: each heading's script beside the NCERT lines
@@ -38,6 +46,7 @@ from __future__ import annotations
 
 import html as html_module
 import json
+import math
 import re
 
 from . import chapter_file, studio_naksha
@@ -46,7 +55,7 @@ from .studio_book import CAUTION
 from .studio_film import _content_words, _spoken_words
 
 KINDS = ("explain", "question", "checkpoint", "example", "analogy", "real_world", "recall", "activity", "story", "figure",
-         "summary")
+         "summary", "overview", "retell")
 RECAP = "recap"                # the chapter's closing heading, from the summary's items (ChatGPT's audit of round 1)
 CHECKPOINT_FROM = 3            # a heading with this many items stops once for the learner to think (predict, then reason)
 MAX_WORDS = 40                 # words in one spoken sentence (Navin's Hinglish rule, Task 045)
@@ -63,6 +72,51 @@ FORWARD = re.compile(r"\b(aage|baad mein|baad me|agle|aane wale|later|next)\b", 
 WORD = re.compile(r"[A-Za-z]{3,}")
 FILLER = studio_naksha.FILLER | {"hum", "hai", "hain", "toh", "tho", "yeh", "woh", "kya", "nahi", "bhi", "kar", "karta",
                                  "karte", "karti", "hota", "hoti", "hote", "this", "that", "here"}
+# The teacher study of Chapter 11 (22 November 2026): four teachers' sentences were questions 18-35 % of the time
+# (Roshni 35 %, 31 %, Vipin 18 %); BIE's round 1 was 4 %.
+QUESTION_SHARE = 0.15          # at least this share of a heading's sentences asks the learner something
+QUESTIONS_FROM = 8             # ... in a heading of at least this many sentences
+WHY = re.compile(r"\b(kyun|kyon|kyu|kyoon|why)\b", re.I)
+FRAGMENT = 3                   # a sentence of this many words or fewer is a fragment (Navin, 22 Nov: "tooti tooti lagegi")
+PROCESS_FROM = 3               # a heading with this many teachable process items is a process heading: overview, retell
+SENTENCE = re.compile(r"(?<=[.?!])(?<!\b[A-Z]\.)\s+")   # never after an initial ("J.A. Bassham", "T.W. Engelmann")
+COUNT = re.compile(r"\d|\b(ek|teen|chaar|char|paanch|panch|chhe|chhah|chheh|saat|aath|nau|das|baarah|barah|athaarah|"
+                   r"atharah|one|two|three|four|five|six|seven|eight|nine|ten|twelve|eighteen|dono|teeno|chaaron)\b", re.I)
+MISCONCEPTION = re.compile(r"\b(log|aksar|zyadatar|bahut se|kai)\b.{0,60}\b(sochte|samajhte|maante|lagta)\b|galat ?fa?h?e?mi|"
+                           r"galat samajh|aisa nahi|asal mein|asli baat|confus|misconception", re.I)
+NEGATION = re.compile(r"\b(nahi|nahin|na|not|never|galat|stable|sthir)\b", re.I)
+# slips the four teachers made that BIE must never make (the teacher study): (name, pattern, flagged only when the
+# sentence has no negation, the correct form)
+TRAPS = (
+    ("oxygen-18 called radioactive", re.compile(r"(o-?18|oxygen-?18|18o|¹⁸o|o¹⁸).{0,60}radioactiv|radioactiv.{0,40}(o-?18|"
+                                                 r"oxygen-?18|¹⁸o|o¹⁸)", re.I), True,
+     "oxygen-18 is a heavy, stable isotope, not radioactive"),
+    ("the dark reaction put at night", re.compile(r"\b(dark reaction|biosynthetic phase)\b.{0,60}\b(raat|night)\b", re.I), True,
+     "it does not need darkness; it runs on the light reaction's ATP and NADPH"),
+    ("the Calvin cycle releasing CO2", re.compile(r"\bcalvin\b.{0,80}\b(co2|co₂|carbon dioxide)\b.{0,30}\b(nikal|release|chhod)",
+                                                  re.I), True,
+     "the Calvin cycle releases no CO2; the fixed carbon leaves as a triose phosphate sugar"),
+    ("pigments separated by weight", re.compile(r"\b(chromatograph\w*|pigment\w*)\b.{0,80}\b(bhaari|bhari|heavy|heavier|weight|"
+                                                 r"wazan|vazan)\b", re.I), True,
+     "they separate by how they dissolve in the solvent and stick to the paper, not by weight"),
+    ("C4 plants storing CO2 and opening stomata once", re.compile(r"\bc4\b.{0,80}\b(store|jama karke|jamaa)\b.{0,40}\b(co2|co₂)|"
+                                                                  r"\bc4\b.{0,80}\bstomata\b.{0,40}\b(ek baar|once)\b", re.I),
+     True, "that is CAM; C4 plants concentrate CO2 around RuBisCO in the bundle sheath"),
+    ("light saturation at 1 % of sunlight", re.compile(r"\b1 ?(?:%|percent\b|pratishat\b)", re.I), True,
+     "light saturates at about 10 per cent of full sunlight"),
+    ("temperature not affecting the light reaction", re.compile(r"\blight reactions?\b.{0,60}\b(temperature|taapmaan|tapman)\b"
+                                                                 r".{0,40}\b(asar nahi|farak nahi|fark nahi|affect nahi|no effect)",
+                                                                 re.I), False,
+     "the light reaction is temperature sensitive too, only much less than the enzyme reactions"),
+    ("360 and 450 called compensation points", re.compile(r"compensation.{0,60}\b(360|450)\b|\b(360|450)\b.{0,60}compensation",
+                                                          re.I), False,
+     "360 and 450 µL/L are where C4 and C3 photosynthesis saturate"),
+    ("pheophytin called a protein", re.compile(r"\bpheophytin\b.{0,40}\b(protein|chlorophyll b)\b", re.I), True,
+     "pheophytin is chlorophyll a without its magnesium"),
+    ("NADP reductase giving the electron", re.compile(r"\bnadp\+? reductase\b.{0,40}\belectrons?\b.{0,20}\b(deta|deti|de deta|"
+                                                      r"donate)", re.I), True,
+     "the electron comes from ferredoxin; the enzyme only makes the reaction go"),
+)
 
 S = {"type": "string"}
 
@@ -88,7 +142,7 @@ POINT = _obj({
     "answer": S,
     "watch_out": S,
 })
-SCHEMA = _obj({"section": S, "points": _arr(POINT), "bridge": S})
+SCHEMA = _obj({"section": S, "goal": S, "points": _arr(POINT), "bridge": S})
 
 RULES = """You are BIE's teacher: the best {subject} teacher for {learners} ({exam}). You have read the whole chapter and
 you now write its script: everything the learner must come to know, taught once, in your own words, in the book's order,
@@ -154,7 +208,32 @@ Rules:
   picture, not a flat 2D diagram, so the last screen is never a khichdi of molecules). Never a caution line ("assume", "illustrative", "the source does not say") in says or screen.
 - Voice: {language} in Roman script with the book's English terms; a warm spoken teacher (questions, "socho", "dekho");
   every sentence under {max_words} words.
-- "bridge": one line that leads into the next heading (empty for the last heading).
+- How good teachers of this chapter teach (Navin, 22 November 2026, after four teachers were studied line by line):
+  - "goal": the line this heading opens with: what we want to find or make here, and how it follows from what came
+    before. Say it as the first sentence of the first point.
+  - Ask the learner: about one sentence in five is a question, at least one a "kyun"; answer it at once, or after
+    "socho" when the learner should think first. Voice the learner's own doubt ("ab aap sochoge, phir NADPH ka kya?").
+  - A process (several steps): first an "overview" point that names the steps with their count ("yahan teen kaam hote
+    hain: …"), then the steps, then a "retell" point that tells the whole process again in order, in a few sentences.
+    Say the counts that change (carbons, electrons, protons, ATP and NADPH) before and after.
+  - Open a compound name by its parts when the parts help the learner (photo + lysis = light + splitting; Kranz =
+    wreath).
+  - Where the chapter file marks a line "deep: misconception", say the common wrong idea and correct it in your words
+    ("aksar log sochte hain ki …, par asal mein …").
+  - An experiment is a story: the question the scientist asked, the setup, what was seen, what it proved. Before the
+    experiments, say what will count as proof (oxygen bubbles, starch turning blue-black).
+  - For an idea about amounts (a limiting factor, a ratio), choose an everyday analogy with numbers (a factory where
+    the scarcest part decides how many finished pieces come out).
+  - Flowing answers (Navin, 22 November 2026, on hearing "Paani se." said alone: "chhote vakya se baat tooti tooti
+    lagegi"): never a sentence of three words or fewer. An answer repeats its subject ("Woh aati hai paani se", not
+    "Paani se."). The answer to a thinking question starts with "Dekho," and joins cause to conclusion in one sentence
+    ("…, aur woh oxygen chhodte hi nahi, jiska matlab hai ki oxygen paani se hi aati hai").
+  - Never say these slips, which teachers of this chapter make: oxygen-18 is radioactive; the dark reaction happens at
+    night; the Calvin cycle releases CO2; pigments separate by weight; C4 plants store CO2 and open their stomata once;
+    light saturates at 1 % of sunlight; temperature does not affect the light reaction; 360 and 450 are compensation
+    points; pheophytin is a protein; NADP reductase gives the electron.
+- "bridge": one line that leads into the next heading and names the link: a problem and its cure, a need and what meets
+  it (empty only for the last heading).
 - The last heading, "recap", is the chapter's closing: it teaches the summary's lines as one connected picture (energy,
   electrons, protons and carbon, each traced end to end), recalls the points it rests on, and prepares every exercise no
   earlier point prepared.
@@ -283,6 +362,70 @@ def repair(answer, heading: dict, earlier: list):
     return dict(answer, section=heading["number"])
 
 
+def sentences(point: dict) -> list:
+    """The spoken sentences of a point: a "says" line may hold more than one ("Protons kahan jaate hain? Lumen mein.")."""
+    return [s.strip() for line in point.get("says") or [] for s in SENTENCE.split(line or "") if s.strip()]
+
+
+def process_items(heading: dict, chapter: dict) -> list:
+    items = chapter.get("items") or {}
+    return [i for i in heading["items"] if (items.get(i) or {}).get("content_type") == "process"]
+
+
+def teacher_problems(answer: dict, heading: dict, chapter: dict, points: list) -> list:
+    """The teacher study's rules (Navin, 22 November 2026): goal first, questions, a process told as overview, steps and
+    retell with its counts, a marked misconception said and corrected, a bridge that names the link, no fragment, no
+    known teacher slip."""
+    out = []
+    items = chapter.get("items") or {}
+    number = heading["number"]
+    goal = (answer.get("goal") or "").strip()
+    if not goal:
+        out.append("\"goal\" is empty: the line this heading opens with (what we find or make here and how it follows "
+                   "from what came before)")
+    elif _words(goal) and len(_words(goal) & _words(" ".join(points[0].get("says") or []))) < 0.6 * len(_words(goal)):
+        out.append(f"{points[0].get('id')}: open the heading with its goal (say \"{goal[:90]}\" as the first sentence)")
+    said = [(p.get("id"), k, s) for p in points for k, s in enumerate(sentences(p), 1)]
+    if len(said) >= QUESTIONS_FROM:
+        asked = [s for _, _, s in said if s.endswith("?")]
+        if len(asked) < QUESTION_SHARE * len(said):
+            out.append(f"{len(asked)} of {len(said)} sentences ask the learner something; a teacher asks about one in five "
+                       f"(at least {math.ceil(QUESTION_SHARE * len(said))} here): pose the learner's question, then "
+                       "answer it")
+        if not any(WHY.search(s) for s in asked):
+            out.append("no \"kyun\" question in this heading: ask why at least once, then reason it out")
+    for pid, k, s in said:
+        if len(s.split()) <= FRAGMENT and not s.rstrip().endswith("?"):      # "Kyun?" is a teacher's question
+            out.append(f"{pid} sentence {k}: {s!r} is a fragment; say a full sentence (an answer repeats its subject: "
+                       "\"Woh aati hai paani se\", not \"Paani se.\")")
+        for name, pattern, plain_only, right in TRAPS:
+            if pattern.search(s) and not (plain_only and NEGATION.search(s)):
+                out.append(f"{pid} sentence {k}: this says a known slip ({name}); correct: {right}")
+    steps = process_items(heading, chapter)
+    at = [n for n, p in enumerate(points) if set(p.get("teaches") or []) & set(steps)]
+    if number != RECAP and len(steps) >= PROCESS_FROM and at:
+        kinds = [p.get("kind") for p in points]
+        if "overview" not in kinds or kinds.index("overview") > min(at):
+            out.append("this heading teaches a process: before its steps, an \"overview\" point names the steps with their "
+                       "count")
+        if "retell" not in kinds or len(kinds) - 1 - kinds[::-1].index("retell") < max(at):
+            out.append("this heading teaches a process: after its steps, a \"retell\" point tells the whole of it again in "
+                       "order, in a few sentences")
+        if not any(COUNT.search(s) for _, _, s in said):
+            out.append("this process heading says no count: say what changes, before and after (carbons, electrons, "
+                       "protons, ATP and NADPH)")
+    marked = [i for i in heading["items"] if (items.get(i) or {}).get("teach_depth") == "deep"
+              and (items.get(i) or {}).get("deep_why") == "misconception"]
+    if marked and not any(MISCONCEPTION.search(s) for _, _, s in said):
+        out.append(f"the chapter file marks a common wrong idea here ({', '.join(marked[:4])}); say it and correct it "
+                   "(\"aksar log sochte hain ki …, par asal mein …\")")
+    last = headings(chapter)[-1]["number"]
+    if number != last and not (answer.get("bridge") or "").strip():
+        out.append("\"bridge\" is empty: one line into the next heading that names the link (a problem and its cure, a need "
+                   "and what meets it)")
+    return out
+
+
 def problems(answer, heading: dict, chapter: dict, earlier: list, later_terms: list, ideas: dict | None = None,
              open_exercises: list | None = None) -> list:
     """What this heading's part gets wrong, in words the maker can act on. ``earlier``: the parts already written;
@@ -360,6 +503,7 @@ def problems(answer, heading: dict, chapter: dict, earlier: list, later_terms: l
     missing = [iid for iid in heading["items"] if iid not in taught]
     if missing:
         out.append(f"{len(missing)} items of this heading are in no point's teaches: " + ", ".join(missing))
+    out += teacher_problems(answer, heading, chapter, points)
     kinds = {p.get("kind") for p in points}
     if number == RECAP:
         prepared = {x for p in points for x in p.get("prepares") or []}
@@ -443,6 +587,8 @@ def script_so_far(parts: list, chapter: dict) -> str:
     out = []
     for part in parts:
         out.append(f"### {part.get('section') or 'Opening'}")
+        if part.get("goal"):
+            out.append(f"(goal) {part['goal']}")
         for p in part.get("points") or []:
             terms = "; ".join(f"{t.get('term')} = {t.get('meaning')}" for t in p.get("terms") or [])
             out.append(f"[{p.get('id')} · {p.get('kind')}] " + " ".join(p.get("says") or [])
@@ -540,25 +686,31 @@ def write(client, model: str, chapter: dict, *, course: dict, naksha: dict | Non
 def counts(chapter: dict, parts: list) -> dict:
     wanted = studio_naksha.coverable(chapter)
     taught = {i for part in parts for p in part.get("points") or [] for i in p.get("teaches") or []}
-    sentences = [s for part in parts for p in part.get("points") or [] for s in p.get("says") or []]
-    words = sum(len(s.split()) for s in sentences)
+    lines = [s for part in parts for p in part.get("points") or [] for s in p.get("says") or []]
+    words = sum(len(s.split()) for s in lines)
+    spoken = [s for part in parts for p in part.get("points") or [] for s in sentences(p)]
     summary = studio_naksha.zone_items(chapter, "summary")
     prepared = {x for part in parts for p in part.get("points") or [] for x in p.get("prepares") or []}
     return {"headings": len(parts), "points": sum(len(part.get("points") or []) for part in parts),
             "summary_taught": sum(1 for i in summary if i in taught), "summary": len(summary),
             "exercises_prepared": sum(1 for i in exercises(chapter) if i in prepared), "exercises": len(exercises(chapter)),
             "checkpoints": sum(1 for part in parts for p in part.get("points") or [] if p.get("kind") == "checkpoint"),
-            "sentences": len(sentences), "words": words, "minutes": round(words / WORDS_PER_MINUTE),
+            "sentences": len(lines), "words": words, "minutes": round(words / WORDS_PER_MINUTE),
             "covered": sum(1 for i in wanted if i in taught), "coverable": len(wanted),
             "analogies": sum(1 for part in parts for p in part.get("points") or [] if p.get("kind") == "analogy"),
             "examples": sum(1 for part in parts for p in part.get("points") or [] if p.get("kind") == "example"),
             "real_world": sum(1 for part in parts for p in part.get("points") or [] if p.get("kind") == "real_world"),
-            "outside_book": sum(1 for part in parts for p in part.get("points") or [] if (p.get("outside_book") or "").strip())}
+            "outside_book": sum(1 for part in parts for p in part.get("points") or [] if (p.get("outside_book") or "").strip()),
+            "questions": sum(1 for s in spoken if s.endswith("?")),
+            "question_share": round(sum(1 for s in spoken if s.endswith("?")) / max(1, len(spoken)), 3),
+            "fragments": sum(1 for s in spoken if len(s.split()) <= FRAGMENT and not s.rstrip().endswith("?")),
+            "retells": sum(1 for part in parts for p in part.get("points") or [] if p.get("kind") == "retell"),
+            "goals": sum(1 for part in parts if (part.get("goal") or "").strip())}
 
 
 KIND_WORDS = {"explain": "samjhana", "question": "sawaal", "checkpoint": "ruko, socho", "example": "example", "analogy": "analogy",
               "real_world": "asli duniya", "recall": "yaad", "activity": "activity", "story": "kahani", "figure": "figure",
-              "summary": "saar"}
+              "summary": "saar", "overview": "pehle poori jhalak", "retell": "poori kahani dobara"}
 
 
 def markdown(chapter: dict, record: dict) -> str:
@@ -568,9 +720,12 @@ def markdown(chapter: dict, record: dict) -> str:
     out = [f"# Chapter ki script · {title}", "",
            f"{c['headings']} headings · {c['points']} gyan-bindu · {c['sentences']} lines · lagbhag {c['minutes']} minute bolna · "
            f"padhai ki NCERT lines {c['covered']}/{c['coverable']} · summary {c['summary_taught']}/{c['summary']} · "
-           f"exercises ka gyan {c['exercises_prepared']}/{c['exercises']} · ruko-socho {c['checkpoints']}", ""]
+           f"exercises ka gyan {c['exercises_prepared']}/{c['exercises']} · ruko-socho {c['checkpoints']} · "
+           f"sawaal {round(100 * c['question_share'])}% · poori kahani dobara {c['retells']} · tukde {c['fragments']}", ""]
     for part in record.get("parts") or []:
         out += [f"## {part.get('section') or 'Shuruaat'} {part.get('title') or ''}".rstrip(), ""]
+        if part.get("goal"):
+            out += [f"_Maqsad: {part['goal']}_", ""]
         for p in part.get("points") or []:
             out.append(f"**{p.get('id')}** · {KIND_WORDS.get(p.get('kind'), p.get('kind'))} · " + " ".join(p.get("says") or []))
             if p.get("terms"):
@@ -611,7 +766,7 @@ padding:6px 12px}}details.h>summary{{cursor:pointer;font-weight:600}}.pt{{displa
 border-top:1px solid #eee;padding:10px 0}}@media (max-width:720px){{.pt{{grid-template-columns:1fr}}}}
 .tag{{display:inline-block;font-size:12px;border-radius:6px;padding:0 6px;margin-right:6px;background:#eef2e8;color:#2f4d1f}}
 .k-analogy,.k-example,.k-real_world{{background:#fbf3df;color:#6b4a07}}.k-question{{background:#e7eefb;color:#1d3d7a}}
-.k-recall{{background:#f1f1f1;color:#555}}.k-checkpoint{{background:#fde7ea;color:#7a1f2b}}.says{{margin:4px 0}}.k{{color:#555;font-size:14px}}.k b{{color:#333}}
+.k-recall{{background:#f1f1f1;color:#555}}.k-overview,.k-retell{{background:#e8f3f1;color:#1f5a4e}}.k-checkpoint{{background:#fde7ea;color:#7a1f2b}}.says{{margin:4px 0}}.k{{color:#555;font-size:14px}}.k b{{color:#333}}
 .book{{background:#f6f3ec;border-radius:8px;padding:6px 10px;font-size:14px;color:#444}}.book div{{margin:3px 0}}
 .left{{color:#7a3413;font-size:14px}}.bridge{{color:#2f4d1f;font-style:italic;margin:6px 0}}.id{{color:#888;font-size:12px}}
 </style></head><body><main>
@@ -619,7 +774,8 @@ border-top:1px solid #eee;padding:10px 0}}@media (max-width:720px){{.pt{{grid-te
 <p>{c['headings']} headings · {c['points']} gyan-bindu · {c['sentences']} lines · lagbhag {c['minutes']} minute bolna<br>
 padhai ki NCERT lines {c['covered']}/{c['coverable']} · summary {c['summary_taught']}/{c['summary']} · exercises ka gyan
 {c['exercises_prepared']}/{c['exercises']}<br>analogy {c['analogies']} · example {c['examples']} · asli duniya {c['real_world']} ·
-ruko-socho {c['checkpoints']} · kitaab se bahar {c['outside_book']} · code ki kamiyan {left_total}</p>"""]
+ruko-socho {c['checkpoints']} · kitaab se bahar {c['outside_book']} · code ki kamiyan {left_total}<br>
+sawaal {round(100 * c['question_share'])}% vaakya · poori kahani dobara {c['retells']} · chhote tukde {c['fragments']}</p>"""]
     for part in record.get("parts") or []:
         points = part.get("points") or []
         left = (record.get("problems") or {}).get(part.get("section") or "opening") or []
@@ -627,6 +783,8 @@ ruko-socho {c['checkpoints']} · kitaab se bahar {c['outside_book']} · code ki 
         parts.append(f'<details class="h"><summary>{e(part.get("section") or "Shuruaat")} {e(part.get("title") or "")} · '
                      f'{len(points)} gyan-bindu · lagbhag {round(words / WORDS_PER_MINUTE)} min'
                      + (f' · <span class="left">{len(left)} kamiyan bachi</span>' if left else "") + "</summary>")
+        if part.get("goal"):
+            parts.append(f'<div class="bridge">Maqsad: {e(part["goal"])}</div>')
         for p in points:
             terms = "; ".join(f"<b>{e(t.get('term') or '')}</b> = {e(t.get('meaning') or '')}" for t in p.get("terms") or [])
             book = "".join(f'<div><span class="id">{e(i)}</span> {e(items.get(i, {}).get("content", ""))}</div>'

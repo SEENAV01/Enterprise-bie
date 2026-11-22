@@ -1,6 +1,6 @@
 # BIE Status
 
-Updated: 18 November 2026 (evening) · Read this first in every new session, then show Navin the current task card.
+Updated: 22 November 2026 (teacher study) · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
@@ -365,7 +365,15 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    hain, membrane hamara baandh"); its limit stays a record for notes and games, never said in the telling. And a
    process or cycle is drawn as it is followed, step by step **on the same photorealistic picture** (not a flat 2D
    diagram), so the last screen is never a khichdi of molecules: the script's screen lines ask for it now; the video
-   step (cut and shots) must build it: each sentence adds only its own step, earlier steps stay quiet.
+   step (cut and shots) must build it: each sentence adds only its own step, earlier steps stay quiet. **Teacher study
+   (22 November 2026):** Navin's four Chapter 11 teacher videos, transcripts and Gemini chat studied in full (private
+   report `TEACHER_SEEKH_CH11.html`; SEEKH_LOG). Navin's cards: S1 (shorter sentences) dropped, the 40-word limit stays;
+   S11, a question is answered in a flowing sentence with its reason; A1 the new pauses yes; A3 pace 1.00 now, a 1.05
+   copy of the next videos for his ear; F1 (one picture per process, steps drawn on it by code) and F3 (counting beads)
+   a provisional yes, judged on a BIE video. His order: script + naksha rules (this PR: goals, questions with a kyun,
+   overview and retell, counts, misconceptions said, slips caught, bridges, each film's recall line and next question,
+   IMPLEMENTED) → the final script round, which he reads → voice rules → film rules F1/F3/F2 → one heading's test video
+   (the cost asked first if pictures cost money).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
