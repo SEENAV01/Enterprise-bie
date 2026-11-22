@@ -122,12 +122,15 @@ Rules:
   (that one or a better one). Real-world uses (kind "real_world"): a real thing, place or happening in food, farming,
   health, weather or technology; never a study task or an exam trap; when the plan's ideas offer one, the heading has
   one; otherwise leave it out rather than invent one.
-  An analogy says what maps to what in "answer" ("lumen = the reservoir, ATP synthase = the controlled outlet") and
-  where the picture stops being true in "watch_out".
+  An analogy is told fully and vividly, the way a good teacher tells it, for the hard ideas (not in every point); it
+  says what maps to what in "answer" ("lumen = the reservoir, ATP synthase = the controlled outlet") and where the
+  picture stops being true in "watch_out". "watch_out" is a record for notes, games and checks: say it to the learner
+  only when a wrong idea is likely, in one short line after the analogy has done its work (Navin, 22 November 2026:
+  "analogies ka bhi apna role hai, kahin yeh cheez kharab na ho jaaye").
 - Checkpoints (kind "checkpoint"): every heading with three or more items stops at least once for the learner to think:
   ask what will happen or why ("socho, phir aage badhenge"), then reason it out; "answer" holds the reasoning the learner
   should reach and "watch_out" a common wrong idea and why it is wrong. Videos pause there, games ask it, notes keep the
-  wrong idea.
+  wrong idea. At least one per such heading, not many: the video should not stop all the time.
 - Exercises (THE CHAPTER'S EXERCISES below): the script does not solve them (games and notes do), but it holds the
   knowledge to answer every one of them. When a point gives that knowledge, list the exercise ids in "prepares"; when an
   exercise needs something the body of the book never teaches (why a leaf kept in the dark turns yellow, why a shade leaf
