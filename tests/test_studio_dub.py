@@ -263,6 +263,13 @@ class FormulasAreSaidByName(unittest.TestCase):
     def test_right_after_the_word_formula_it_is_spelled(self):
         self.assertEqual(studio_voice.spoken("जिसका फ़ॉर्मूला C6H12O6 है"), "जिसका फ़ॉर्मूला सी सिक्स एच ट्वेल्व ओ सिक्स है")
 
+    def test_a_reaction_centre_written_out_in_hindi_is_said_the_teachers_way(self):
+        # films a13 and a14 (22 November 2026) wrote "पी छह सौ अस्सी" and "पी सात सौ" in their voice lines
+        say = studio_voice.spoken
+        self.assertEqual(say("पी छह सौ अस्सी का इलेक्ट्रॉन निकल गया"), "पी सिक्स एटी का इलेक्ट्रॉन निकल गया")
+        self.assertEqual(say("फिर पी सात सौ को दूसरा boost मिलता है"), "फिर पी सेवन हंड्रेड को दूसरा boost मिलता है")
+        self.assertEqual(say("पी सात सौ बीस नहीं"), "पी सात सौ बीस नहीं")          # another number is left alone
+
     def test_short_forms_are_said_the_way_a_teacher_says_them(self):
         say = studio_voice.spoken
         self.assertEqual(say("PSII से PSI तक, फिर NADP+ से NADPH"), "पी एस टू से पी एस वन तक, फिर एन ए डी पी प्लस से एन ए डी पी एच")
