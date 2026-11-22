@@ -1,0 +1,1183 @@
+{
+ "film": {
+  "title": "Water splitting: khaali electron ki jagah kaun bharta hai?",
+  "look": "16:9 realistic molecular cutaways, navy background and soft volumetric light; olive thylakoid bilayer, deep teal lumen below, pale blue stroma above; PS II forest-green on left, P680 gold, water splitting complex ivory with purple manganese-calcium cluster on its lumen-facing underside; PS I turquoise on right; colours and sides remain consistent.",
+  "shots": [
+   {
+    "id": "s1",
+    "title": "Electron supply ka sawaal",
+    "key": "Water → PS II → electron transport → PS I",
+    "covers": [
+     0,
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 realistic molecular cutaway of a closed flattened thylakoid sac, its curved olive bilayer rim visible around an optically sectioned front. Deep teal enclosed lumen below, pale blue external stroma above. Resolve membrane proteins: forest-green PS II left at 28,45, gold P680 within; ivory water splitting complex with purple manganese-calcium cluster underneath at 28,65; turquoise PS I right at 80,45 and intervening realistic transport proteins. Two water molecules near the lumen-facing complex. Leave clear space below for counted product overlays and above for electron paths. Navy background, soft volumetric lighting, no text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "P680 ka electron nikal gaya, toh agla photon aane se pehle khaali jagah kaun bharega?",
+      "voice": "पी छह सौ अस्सी का इलेक्ट्रॉन निकल गया, तो अगला फोटॉन आने से पहले खाली जगह कौन भरेगा?",
+      "pins": [
+       {
+        "label": "P680",
+        "x": 28.7,
+        "y": 39.3
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 28,
+       "y": 45,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "electron",
+        "points": [
+         [
+          28.7,
+          39.3
+         ],
+         [
+          39.0,
+          40.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "hook"
+     },
+     {
+      "roman": "Aaiye jaante hain; yaad kijiye, band thylakoid ke andar lumen hai aur bahar stroma hai.",
+      "voice": "आइए जानते हैं; याद कीजिए, बंद थाइलाकॉइड के अंदर ल्यूमेन है और बाहर स्ट्रोमा है।",
+      "pins": [
+       {
+        "label": "lumen",
+        "x": 58,
+        "y": 77
+       },
+       {
+        "label": "stroma",
+        "x": 58,
+        "y": 18
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Lumen aur stroma ki location ka prerequisite.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Ab sawaal banta hai, PS II lagataar electrons kaise deta rahega?",
+      "voice": "अब सवाल बनता है, पी एस टू लगातार इलेक्ट्रॉन्स कैसे देता रहेगा?",
+      "pins": [
+       {
+        "label": "PS II",
+        "x": 24,
+        "y": 40
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 28.0,
+       "y": 40.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       1
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Pehle raasta pehchaan lete hain: PS I se nikle electrons ki jagah PS II ke electrons transport chain se pahunchte hain; ab PS II ke paas chalte hain.",
+      "voice": "पहले रास्ता पहचान लेते हैं: पी एस वन से निकले इलेक्ट्रॉन्स की जगह पी एस टू के इलेक्ट्रॉन्स ट्रांसपोर्ट चेन से पहुँचते हैं; अब पी एस टू के पास चलते हैं।",
+      "pins": [
+       {
+        "label": "PS II",
+        "x": 24,
+        "y": 40
+       },
+       {
+        "label": "PS I",
+        "x": 80,
+        "y": 40
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 28.0,
+       "y": 40.0,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          28.7,
+          39.3
+         ],
+         [
+          39.0,
+          40.0
+         ],
+         [
+          51.0,
+          43.0
+         ],
+         [
+          63.0,
+          43.0
+         ],
+         [
+          76.0,
+          40.0
+         ]
+        ],
+        "count": 2,
+        "ms": 5000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       6
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "title": "Replacement ka source",
+    "key": "PS II ke replacement electrons water se aate hain",
+    "covers": [
+     0,
+     1,
+     3
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer molecular cutaway inside the previous left PS II patch. Olive thylakoid bilayer across upper middle, pale blue stroma above, deep teal enclosed lumen below, curved sac rim visible left. Realistic forest-green PS II left of centre, gold P680 at 36,38. Ivory lumen-facing water splitting complex underneath at 36,64, purple manganese-calcium cluster at 36,68. Leave clear lumen space left and below for water overlays, and a route through PS II to P680 for replacement electrons. Navy background, soft volumetric lighting, realistic protein surfaces, no text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 27.7,
+     "y": 54.4
+    },
+    "sentences": [
+     {
+      "roman": "Yahan PS II se nikle electrons replace hone zaroori hain, jaise khaali seat ko phir bharna padta hai.",
+      "voice": "यहाँ पी एस टू से निकले इलेक्ट्रॉन्स रिप्लेस होने ज़रूरी हैं, जैसे खाली सीट को फिर भरना पड़ता है।",
+      "pins": [
+       {
+        "label": "PS II",
+        "x": 30,
+        "y": 43
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 36,
+       "y": 40,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "electrons",
+        "points": [
+         [
+          39.5,
+          37.0
+         ],
+         [
+          44.0,
+          16.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       2
+      ],
+      "beyond": "Khaali seat ki analogy se replacement ki zaroorat samjhayi.",
+      "part": "concept"
+     },
+     {
+      "roman": "Par is khaali jagah ko bharne wale electrons aate kahan se hain?",
+      "voice": "पर इस खाली जगह को भरने वाले इलेक्ट्रॉन्स आते कहाँ से हैं?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 39.5,
+       "y": 37.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Iska seedha sa jawab hai, splitting of water se electrons milte hain, jo PS II ke P680 ki khaali jagah bharte hain.",
+      "voice": "इसका सीधा सा जवाब है, स्प्लिटिंग ऑफ़ वॉटर से इलेक्ट्रॉन्स मिलते हैं, जो पी एस टू के पी छह सौ अस्सी की खाली जगह भरते हैं।",
+      "pins": [
+       {
+        "label": "P680",
+        "x": 39.5,
+        "y": 37.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 37.0,
+       "y": 55.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          35.5,
+          73.0
+         ],
+         [
+          37.0,
+          55.0
+         ],
+         [
+          39.5,
+          37.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2300,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       3
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Yeh water splitting complex PS II se juda hai aur membrane ki inner side, yaani lumen ki taraf hai; aaiye iske paas chalte hain.",
+      "voice": "यह वॉटर स्प्लिटिंग कॉम्प्लेक्स पी एस टू से जुड़ा है और मेम्ब्रेन की इनर साइड, यानी ल्यूमेन की तरफ है; आइए इसके पास चलते हैं।",
+      "pins": [
+       {
+        "label": "water splitting complex",
+        "x": 39.0,
+        "y": 62.0
+       },
+       {
+        "label": "inner side",
+        "x": 65.0,
+        "y": 41.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 38.0,
+       "y": 65.0,
+       "scale": 1.6
+      },
+      "moves": [
+       {
+        "what": "H2O",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          17.0,
+          81.0
+         ],
+         [
+          28.0,
+          79.0
+         ],
+         [
+          35.5,
+          73.0
+         ]
+        ],
+        "count": 2,
+        "ms": 2600,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       8
+      ],
+      "beyond": "Inner side ko lumen-facing ke roop mein spasht kiya.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "title": "Do water molecules ka hisaab",
+    "key": "2H₂O → 4H⁺ + O₂ + 4e⁻",
+    "covers": [
+     1,
+     2
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer molecular view inside the same ivory water splitting complex left of centre at 38,48, attached below forest-green PS II embedded in olive bilayer across upper edge. Purple manganese-calcium catalytic cluster at 38,55, a structurally realistic metal-oxygen cluster within protein. Deep teal lumen below, pale blue stroma above bilayer. Open aqueous catalytic pocket and generous clear space for two-water inputs and counted proton, oxygen and electron overlays, with electron route upward into PS II. Navy background, soft volumetric light, no prepainted molecules or equations.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 35.5,
+     "y": 73.0
+    },
+    "sentences": [
+     {
+      "roman": "Ab complex ke paas hain; do water molecules split hon, toh kitne products milenge?",
+      "voice": "अब कॉम्प्लेक्स के पास हैं; दो वॉटर मॉलेक्यूल्स स्प्लिट हों, तो कितने प्रॉडक्ट्स मिलेंगे?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 38,
+       "y": 55,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "PS II se judi splitting mein ek H2O ka hisaab do H+, ek [O] oxygen equivalent aur electrons hai; [O] alag stable product nahi hai.",
+      "voice": "पी एस टू से जुड़ी स्प्लिटिंग में एक एच टू ओ का हिसाब दो एच प्लस, एक ब्रैकेट ओ ऑक्सीजन इक्विवेलेंट और इलेक्ट्रॉन्स है; ब्रैकेट ओ अलग स्टेबल प्रॉडक्ट नहीं है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 33.0,
+       "y": 54.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "H2O",
+        "colour": "blue",
+        "label": "H2O",
+        "points": [
+         [
+          29.0,
+          80.0
+         ],
+         [
+          30.0,
+          66.0
+         ],
+         [
+          33.0,
+          54.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       4
+      ],
+      "beyond": "[O] ko oxygen equivalent bataya, free stable atomic oxygen nahi.",
+      "part": "concept"
+     },
+     {
+      "roman": "Poora net hisaab hai: do H2O se chaar H+, ek O2 aur chaar electrons, yaani 4e−, milte hain.",
+      "voice": "पूरा नेट हिसाब है: दो एच टू ओ से चार एच प्लस, एक ओ टू और चार इलेक्ट्रॉन्स, यानी फोर ई माइनस, मिलते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 38,
+       "y": 55,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "H2O",
+          "from": [
+           26.0,
+           73.0
+          ]
+         },
+         {
+          "what": "H2O",
+          "from": [
+           32.0,
+           80.0
+          ]
+         }
+        ],
+        "at": [
+         33.0,
+         54.0
+        ],
+        "outputs": [
+         {
+          "what": "H+",
+          "to": [
+           54,
+           76
+          ]
+         },
+         {
+          "what": "O2",
+          "to": [
+           72,
+           65
+          ]
+         },
+         {
+          "what": "e-",
+          "to": [
+           38,
+           25
+          ]
+         }
+        ],
+        "label": "2H₂O → 4H⁺ + O₂ + 4e⁻",
+        "ms": 7000,
+        "loop": false
+       }
+      ],
+      "cycles": [],
+      "teaches": [
+       7
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Yeh O2 molecular oxygen hai, jo photosynthesis ke net products, yaani kul milakar banne wale padarthon, mein se ek hai.",
+      "voice": "यह ओ टू मॉलेक्यूलर ऑक्सीजन है, जो फोटोसिंथेसिस के नेट प्रॉडक्ट्स, यानी कुल मिलाकर बनने वाले पदार्थों, में से एक है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 59,
+       "y": 65,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "O2",
+        "colour": "white",
+        "label": "O2",
+        "points": [
+         [
+          33.0,
+          54.0
+         ],
+         [
+          58.0,
+          63.0
+         ],
+         [
+          72.0,
+          65.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       5
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "title": "Atoms aur charge giniye",
+    "key": "Har O₂ ke saath 4H⁺ aur 4e⁻",
+    "covers": [
+     2
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer view inside the same aqueous catalytic pocket. Ivory water splitting complex on left, purple manganese-calcium cluster at 30,40. Attached forest-green PS II and olive bilayer retained along top edge; pale blue stroma above and deep teal lumen below maintain orientation. Large clear right and lower spaces for counted proton, oxygen and electron overlays. Realistic protein surfaces and soft navy volumetric lighting. No text, static particle swarms or process boxes.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 33.0,
+     "y": 54.0
+    },
+    "sentences": [
+     {
+      "roman": "Isi lumen-facing jagah par ginti karte hain; equation ke coefficients aur charges kaise padhenge?",
+      "voice": "इसी ल्यूमेन फेसिंग जगह पर गिनती करते हैं; इक्वेशन के कोएफ़िशिएंट्स और चार्जेज़ कैसे पढ़ेंगे?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 45,
+       "y": 55,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Equation padhne ka prerequisite sawaal.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Aage ka do, do H2O molecules batata hai, jinke andar kul chaar hydrogen atoms aur do oxygen atoms hain.",
+      "voice": "आगे का दो, दो एच टू ओ मॉलेक्यूल्स बताता है, जिनके अंदर कुल चार हाइड्रोजन ऐटम्स और दो ऑक्सीजन ऐटम्स हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 19.0,
+       "y": 66.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "H2O",
+        "colour": "blue",
+        "label": "H2O",
+        "points": [
+         [
+          14.0,
+          75.0
+         ],
+         [
+          17.0,
+          71.0
+         ],
+         [
+          19.0,
+          66.0
+         ]
+        ],
+        "count": 2,
+        "ms": 2500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       7
+      ],
+      "beyond": "Coefficient aur atom conservation ka hisaab khola.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Har ek O2 par chaar H+ lumen mein aur chaar electrons PS II ko milte hain, jaise chaar khaali seats ke liye chaar replacements.",
+      "voice": "हर एक ओ टू पर चार एच प्लस ल्यूमेन में और चार इलेक्ट्रॉन्स पी एस टू को मिलते हैं, जैसे चार खाली सीट्स के लिए चार रिप्लेसमेंट्स।",
+      "pins": [
+       {
+        "label": "lumen",
+        "x": 82,
+        "y": 80
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 45,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "red",
+        "label": "H+",
+        "points": [
+         [
+          19.0,
+          66.0
+         ],
+         [
+          47.0,
+          72.0
+         ],
+         [
+          67.0,
+          77.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2800,
+        "loop": false
+       },
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "electrons",
+        "points": [
+         [
+          19.0,
+          66.0
+         ],
+         [
+          21.0,
+          46.0
+         ],
+         [
+          24.0,
+          25.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2800,
+        "loop": false
+       },
+       {
+        "what": "O2",
+        "colour": "white",
+        "label": "O2",
+        "points": [
+         [
+          19.0,
+          66.0
+         ],
+         [
+          53.0,
+          58.0
+         ],
+         [
+          76.0,
+          53.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       7
+      ],
+      "beyond": "Per O2 account ko khaali-seat analogy se dobara joda.",
+      "part": "use"
+     },
+     {
+      "roman": "Charge bhi milta hai: chaar H+ ka plus chaar aur chaar electrons ka minus chaar judkar zero hai; ab release ki jagah paas se dekhte hain.",
+      "voice": "चार्ज भी मिलता है: चार एच प्लस का प्लस चार और चार इलेक्ट्रॉन्स का माइनस चार जुड़कर ज़ीरो है; अब रिलीज़ की जगह पास से देखते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 19.0,
+       "y": 66.0,
+       "scale": 1.4
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       7
+      ],
+      "beyond": "Neutral water ke saath net charge conservation check kiya.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "title": "Release kis taraf?",
+    "key": "H⁺ aur O₂ pehle lumen mein release hote hain",
+    "covers": [
+     3,
+     4
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 intimate molecular cross-section inside the same lumen-facing catalytic pocket. Ivory water splitting complex left at 28,39, purple manganese-calcium cluster at 31,46; forest-green PS II above embedded in olive bilayer across upper quarter. Pale blue external stroma above, deep teal lumen below. A clear aqueous exit opens from catalytic pocket toward lower right lumen. Leave large clear lumen space for four proton trajectories and a separate oxygen trajectory. Continuous realistic lipid bilayer without invented pore, allowing oxygen diffusion across lipid at far right. Navy background, soft volumetric lighting, no prepainted labels or particles.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 19.0,
+     "y": 66.0
+    },
+    "sentences": [
+     {
+      "roman": "Yahan complex lumen ki taraf khulta hai; toh H+ aur O2 lumen mein release honge ya bahar stroma mein?",
+      "voice": "यहाँ कॉम्प्लेक्स ल्यूमेन की तरफ खुलता है; तो एच प्लस और ओ टू ल्यूमेन में रिलीज़ होंगे या बाहर स्ट्रोमा में?",
+      "pins": [
+       {
+        "label": "lumen",
+        "x": 68,
+        "y": 76
+       },
+       {
+        "label": "stroma",
+        "x": 68,
+        "y": 12
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 38,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       8,
+       9
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Iska seedha sa jawab hai, H+ aur O2 pehle lumen mein release hote hain, kyunki water splitting complex membrane ki isi inner side par hai.",
+      "voice": "इसका सीधा सा जवाब है, एच प्लस और ओ टू पहले ल्यूमेन में रिलीज़ होते हैं, क्योंकि वॉटर स्प्लिटिंग कॉम्प्लेक्स मेम्ब्रेन की इसी इनर साइड पर है।",
+      "pins": [
+       {
+        "label": "inner side",
+        "x": 43.0,
+        "y": 36.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 23.0,
+       "y": 46.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "red",
+        "label": "H+",
+        "points": [
+         [
+          24.0,
+          48.0
+         ],
+         [
+          43.0,
+          62.0
+         ],
+         [
+          59.0,
+          76.0
+         ]
+        ],
+        "count": 4,
+        "ms": 3000,
+        "loop": false
+       },
+       {
+        "what": "O2",
+        "colour": "white",
+        "label": "O2",
+        "points": [
+         [
+          24.0,
+          48.0
+         ],
+         [
+          51.0,
+          53.0
+         ],
+         [
+          73.0,
+          61.0
+         ]
+        ],
+        "count": 1,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       8,
+       9
+      ],
+      "beyond": "Release-side sawaal ka lumen jawab diya.",
+      "part": "concept"
+     },
+     {
+      "roman": "O2 baad mein diffuse karke bahar ja sakta hai, lekin uska pehla release lumen mein hi hota hai.",
+      "voice": "ओ टू बाद में डिफ़्यूज़ करके बाहर जा सकता है, लेकिन उसका पहला रिलीज़ ल्यूमेन में ही होता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 69,
+       "y": 40,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "O2",
+        "colour": "white",
+        "label": "O2",
+        "points": [
+         [
+          73,
+          61
+         ],
+         [
+          82,
+          49
+         ],
+         [
+          84,
+          28
+         ],
+         [
+          85,
+          13
+         ]
+        ],
+        "count": 1,
+        "ms": 4500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Initial release aur baad ke oxygen diffusion ko alag kiya.",
+      "part": "use"
+     },
+     {
+      "roman": "Is video se aapko yeh baatein yaad rakhni hain: do water se chaar H+, ek O2 aur chaar electrons milte hain; electrons PS II ko refill karte hain aur H+, O2 lumen mein release hote hain.",
+      "voice": "इस वीडियो से आपको यह बातें याद रखनी हैं: दो वॉटर से चार एच प्लस, एक ओ टू और चार इलेक्ट्रॉन्स मिलते हैं; इलेक्ट्रॉन्स पी एस टू को रीफ़िल करते हैं और एच प्लस, ओ टू ल्यूमेन में रिलीज़ होते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 44,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "recap"
+     }
+    ]
+   }
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "s1 sentence 4: labels 'PS I' and 'electrons' are 5% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s2 sentence 3: labels 'P680' and 'electrons' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s2 sentence 4: labels 'water splitting complex' and 'water' are 4% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s4 sentence 3: labels 'lumen' and 'H+' are 7% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s5 sentence 2: move label 'H+' is not spoken in this sentence (dikhaya = bola)",
+    "s5 sentence 2: move label 'O2' is not spoken in this sentence (dikhaya = bola)",
+    "1 everyday picture(s) in the film; give one every two or three shots (a motor, a dam, a battery, a turbine)"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "images": {
+  "s1": "a13-s1.png",
+  "s2": "a13-s2.png",
+  "s3": "a13-s3.png",
+  "s4": "a13-s4.png",
+  "s5": "a13-s5.png"
+ },
+ "book_lines": [
+  {
+   "n": 1,
+   "text": "You would then ask, How does PS II supply electrons continuously?",
+   "page": "139",
+   "blocks": [
+    "p0009-b0031"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "The electrons that were moved from photosystem II must be replaced.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0031",
+    "p0009-b0032"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "This is achieved by electrons available due to splitting of water.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0032",
+    "p0009-b0033"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "The splitting of water is associated with the PS II; water is split into 2H⁺, [O] and electrons.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0033",
+    "p0009-b0034"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "This creates oxygen, one of the net products of photosynthesis.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0035"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "The electrons needed to replace those removed from photosystem I are provided by photosystem II.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0035",
+    "p0009-b0036",
+    "p0009-b0037"
+   ]
+  },
+  {
+   "n": 7,
+   "text": "2H₂O →4H⁺ +O₂ +4e⁻",
+   "page": "139",
+   "blocks": [
+    "p0009-b0038"
+   ]
+  },
+  {
+   "n": 8,
+   "text": "We need to emphasise here that the water splitting complex is associated with the PS II, which itself is physically located on the inner side of the membrane of the thylakoid.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0040",
+    "p0009-b0041",
+    "p0009-b0042"
+   ]
+  },
+  {
+   "n": 9,
+   "text": "Then, where are the protons and O₂ formed likely to be released – in the lumen? or on the outer side of the membrane?",
+   "page": "139",
+   "blocks": [
+    "p0009-b0042",
+    "p0009-b0044"
+   ]
+  }
+ ],
+ "placement": {
+  "s1": {
+   "items": 11,
+   "moved": 6,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5671,
+    "output_tokens": 256,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 0
+   }
+  },
+  "s2": {
+   "items": 11,
+   "moved": 10,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5652,
+    "output_tokens": 353,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 98
+   }
+  },
+  "s3": {
+   "items": 11,
+   "moved": 7,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5728,
+    "output_tokens": 324,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 75
+   }
+  },
+  "s4": {
+   "items": 8,
+   "moved": 7,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5502,
+    "output_tokens": 243,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 46
+   }
+  },
+  "s5": {
+   "items": 7,
+   "moved": 4,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5383,
+    "output_tokens": 280,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 103
+   }
+  }
+ }
+}

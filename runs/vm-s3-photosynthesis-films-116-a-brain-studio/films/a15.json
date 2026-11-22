@@ -1,0 +1,1892 @@
+{
+ "film": {
+  "title": "Electron transport proton gradient kyun banata hai?",
+  "look": "Calm teal scientific world, warm volumetric light and realistic membrane depth; stroma pale teal above, lumen dark turquoise below, membrane olive-gold; PS II emerald left, PQ amber, cytochrome b6f copper to its right, PC cyan lumen-side, PS I blue farther right, Fd lavender and FNR rose stroma-side, ATP synthase violet six-lobed head with amber membrane ring; electrons gold and H+ red throughout.",
+  "shots": [
+   {
+    "id": "s1",
+    "title": "Do taraf, do counts",
+    "key": "Light ke saath lumen mein H+ jama hota hai.",
+    "covers": [
+     0,
+     3
+    ],
+    "visual": {
+     "type": "diagram",
+     "image_prompt": "",
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1200 675\"><defs><linearGradient id=\"bg\" x2=\"0\" y2=\"1\"><stop stop-color=\"#cce8df\"/><stop offset=\"1\" stop-color=\"#123e49\"/></linearGradient><linearGradient id=\"mem\" x2=\"0\" y2=\"1\"><stop stop-color=\"#c5bc68\"/><stop offset=\"1\" stop-color=\"#68763e\"/></linearGradient></defs><rect width=\"1200\" height=\"675\" fill=\"url(#bg)\"/><path id=\"membrane\" d=\"M140 300H1060Q1155 300 1155 410V470Q1155 565 1060 565H140Q45 565 45 470V410Q45 300 140 300Z\" fill=\"url(#mem)\"/><path id=\"lumen\" d=\"M145 337H1055Q1120 337 1120 410V465Q1120 527 1055 527H145Q80 527 80 465V410Q80 337 145 337Z\" fill=\"#225d69\"/><rect id=\"ps2\" x=\"155\" y=\"272\" width=\"85\" height=\"105\" rx=\"24\" fill=\"#25835f\"/><ellipse id=\"water\" cx=\"185\" cy=\"394\" rx=\"35\" ry=\"19\" fill=\"#a2d6e8\"/><ellipse id=\"acceptor\" cx=\"265\" cy=\"255\" rx=\"24\" ry=\"13\" fill=\"#84ac6b\"/><ellipse id=\"pq\" cx=\"345\" cy=\"320\" rx=\"28\" ry=\"16\" fill=\"#d6a649\"/><rect id=\"b6f\" x=\"420\" y=\"277\" width=\"75\" height=\"102\" rx=\"20\" fill=\"#ae704a\"/><ellipse id=\"pc\" cx=\"560\" cy=\"397\" rx=\"25\" ry=\"15\" fill=\"#6bc4d4\"/><rect id=\"ps1\" x=\"635\" y=\"272\" width=\"80\" height=\"105\" rx=\"24\" fill=\"#4c85b3\"/><ellipse id=\"fd\" cx=\"775\" cy=\"235\" rx=\"25\" ry=\"17\" fill=\"#ada0d8\"/><ellipse id=\"fnr\" cx=\"870\" cy=\"248\" rx=\"40\" ry=\"27\" fill=\"#cc8a9d\"/><rect id=\"channel\" x=\"1000\" y=\"295\" width=\"34\" height=\"70\" rx=\"10\" fill=\"#d3a444\"/><rect id=\"stalk\" x=\"1011\" y=\"247\" width=\"12\" height=\"54\" rx=\"5\" fill=\"#9b83bc\"/><ellipse id=\"head\" cx=\"1017\" cy=\"227\" rx=\"46\" ry=\"29\" fill=\"#9773bb\"/><g fill=\"#e56a69\"><circle cx=\"310\" cy=\"445\" r=\"8\"/><circle cx=\"365\" cy=\"460\" r=\"8\"/><circle cx=\"430\" cy=\"445\" r=\"8\"/><circle cx=\"650\" cy=\"465\" r=\"8\"/><circle cx=\"745\" cy=\"440\" r=\"8\"/><circle cx=\"920\" cy=\"455\" r=\"8\"/><circle cx=\"520\" cy=\"175\" r=\"8\"/></g><g font-family=\"sans-serif\" font-size=\"17\" fill=\"#163d42\"><text x=\"45\" y=\"45\">Stroma · low H+ · count ↓</text><text x=\"150\" y=\"255\">P680 · PS II</text><text x=\"220\" y=\"213\">Primary acceptor</text><text x=\"310\" y=\"285\">PQ / PQH₂</text><text x=\"405\" y=\"260\">Cytochrome b6f</text><text x=\"620\" y=\"255\">P700 · PS I</text><text x=\"750\" y=\"202\">Fd · ferredoxin</text><text x=\"855\" y=\"175\">FNR · NADP reductase</text><text x=\"960\" y=\"205\">ATP synthase</text><text x=\"970\" y=\"150\">ADP + Pi → ATP</text><text x=\"810\" y=\"85\">③ NADP+ → NADPH + H+</text><text x=\"100\" y=\"620\">Thylakoid membrane</text><text x=\"155\" y=\"110\">Light</text><text x=\"640\" y=\"110\">Light</text><text x=\"320\" y=\"145\">② H+ transport</text></g><g font-family=\"sans-serif\" font-size=\"18\" fill=\"#e0efeb\"><text x=\"470\" y=\"495\">Lumen · high H+ · count ↑</text><text x=\"100\" y=\"435\">① H₂O → O₂ + H+</text><text x=\"535\" y=\"435\">PC</text></g><g fill=\"none\" stroke-width=\"4\"><path d=\"M195 130L195 250M675 130L675 250\" stroke=\"#e4bc55\"/><path d=\"M235 285L265 255L345 300L455 300L560 390L675 335L775 235L835 245\" stroke=\"#e4bc55\"/><path d=\"M345 175L345 320L455 410M1017 440L1017 250\" stroke=\"#e56a69\"/></g></svg>",
+     "library": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "Thylakoid ke dono taraf H+ counters hain; light on karte hi kis taraf count badhega?",
+      "voice": "थायलाकोइड के दोनों तरफ़ H+ काउंटर्स हैं; लाइट ऑन करते ही किस तरफ़ काउंट बढ़ेगा?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "lumen",
+       "membrane"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "light",
+        "points": [
+         [
+          16,
+          18
+         ],
+         [
+          16,
+          40
+         ]
+        ],
+        "count": 2,
+        "ms": 1600,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "hook"
+     },
+     {
+      "roman": "Aaiye jaante hain: chloroplast mein ATP kaise banta hai, ise chemiosmotic hypothesis samjhati hai.",
+      "voice": "आइए जानते हैं: क्लोरोप्लास्ट में ATP कैसे बनता है, इसे केमिऑस्मॉटिक हाइपोथेसिस समझाती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "head",
+       "channel"
+      ],
+      "zoom": {
+       "x": 84,
+       "y": 40,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       1,
+       2
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Pehle samajhiye: membrane ke across H+ concentration ka farq proton gradient hai; zyada H+ ka matlab kam pH hai.",
+      "voice": "पहले समझिए: मेम्ब्रेन के अक्रॉस H+ कॉन्सन्ट्रेशन का फ़र्क प्रोटॉन ग्रेडिएंट है; ज़्यादा H+ का मतलब कम pH है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "lumen",
+       "membrane"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 55,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "red",
+        "label": "H+",
+        "points": [
+         [
+          25,
+          68
+         ],
+         [
+          45,
+          68
+         ]
+        ],
+        "count": 5,
+        "ms": 2300,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Gradient concentration ka farq hai; H+ aur pH ka inverse relation kholta hai.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Golden electron track aur red proton track ko alag trace karte hain; ab isi thylakoid membrane ke andar chalte hain.",
+      "voice": "गोल्डन इलेक्ट्रॉन ट्रैक और रेड प्रोटॉन ट्रैक को अलग ट्रेस करते हैं; अब इसी थायलाकोइड मेम्ब्रेन के अंदर चलते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "membrane"
+      ],
+      "zoom": {
+       "x": 48,
+       "y": 47,
+       "scale": 1.5
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "electron",
+        "points": [
+         [
+          23,
+          38
+         ],
+         [
+          29,
+          45
+         ],
+         [
+          38,
+          45
+         ]
+        ],
+        "count": 2,
+        "ms": 2400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Electron aur proton routes independently trace karna sikhata hai.",
+      "part": "use"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "title": "Band lumen mein jama energy",
+    "key": "Gradient thylakoid membrane ke across banta hai.",
+    "covers": [
+     0,
+     1,
+     3
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 scientific structural cutaway inside the diagram's thylakoid membrane region, calm teal volumetric light. Closed flattened thylakoid sac with olive-gold bilayer, dark turquoise lumen below and pale teal stroma above and around it. Molecular structural-model scale, not whole-organelle scale. Emerald PS II left at 18%, amber PQ 32%, copper cytochrome b6f 43%, cyan PC lumen-side 52%, blue PS I 62%, lavender Fd stromal 71%, rose FNR stromal 79%, ATP synthase far right 91% with amber membrane ring, central stalk and violet six-lobed stromal head. Proteins have credible structural geometry, not boxes. Sac boundary continues around the lower edge; cutaway is not a physical leak. Open aqueous space for motion above and below, no text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 48,
+     "y": 47
+    },
+    "sentences": [
+     {
+      "roman": "Yahan band thylakoid ke andar lumen hai aur bahar stroma; respiration ki tarah ATP synthesis membrane ke proton gradient se linked hai.",
+      "voice": "यहाँ बंद थायलाकोइड के अंदर ल्यूमेन है और बाहर स्ट्रोमा; रेस्पिरेशन की तरह ATP सिंथेसिस मेम्ब्रेन के प्रोटॉन ग्रेडिएंट से लिंक्ड है।",
+      "pins": [
+       {
+        "label": "lumen",
+        "x": 48,
+        "y": 70
+       },
+       {
+        "label": "stroma",
+        "x": 48,
+        "y": 18
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       3,
+       4,
+       5
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Par mitochondria mein ETS ke electrons chalne par H+ intermembrane space mein jama hote hain; yahan lumen mein.",
+      "voice": "पर माइटोकॉन्ड्रिया में ETS के इलेक्ट्रॉन्स चलने पर H+ इंटरमेम्ब्रेन स्पेस में जमा होते हैं; यहाँ ल्यूमेन में।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 48,
+       "y": 65,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "red",
+        "label": "H+",
+        "points": [
+         [
+          38.0,
+          30.0
+         ],
+         [
+          38.0,
+          72.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2300,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       6
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Yeh farq baandh ke do taraf unequal water levels jaisi stored energy hai, jise controlled return kaam mein la sakta hai.",
+      "voice": "यह फ़र्क बाँध के दो तरफ़ अनईक्वल वॉटर लेवल्स जैसी स्टोर्ड एनर्जी है, जिसे कंट्रोल्ड रिटर्न काम में ला सकता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 70,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Baandh analogy gradient ki stored energy aur controlled return samjhati hai.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Ab sawaal banta hai ki gradient banta kaise hai?",
+      "voice": "अब सवाल बनता है कि ग्रेडिएंट बनता कैसे है?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 25,
+       "y": 48,
+       "scale": 1.3
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       7
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Iske liye activation of electrons aur unka transport dekhte hain; light P680 PS II aur P700 PS I ko activate karti hai.",
+      "voice": "इसके लिए ऐक्टिवेशन ऑफ़ इलेक्ट्रॉन्स और उनका ट्रांसपोर्ट देखते हैं; लाइट P680 PS II और P700 PS I को ऐक्टिवेट करती है।",
+      "pins": [
+       {
+        "label": "P680 PS II",
+        "x": 18,
+        "y": 47
+       },
+       {
+        "label": "P700 PS I",
+        "x": 62,
+        "y": 47
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 42,
+       "y": 45,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          12,
+          15
+         ],
+         [
+          18,
+          43
+         ]
+        ],
+        "count": 2,
+        "ms": 1500,
+        "loop": false
+       },
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          56,
+          15
+         ],
+         [
+          62,
+          43
+         ]
+        ],
+        "count": 2,
+        "ms": 1500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       8
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "title": "Pehla source: water",
+    "key": "Water splitting seedhe lumen mein H+ jodti hai.",
+    "covers": [
+     2,
+     3
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer structural cutaway of previous left membrane region. Pale teal stroma above, olive-gold bilayer middle, dark turquoise lumen below; distant curved closed sac boundary. Emerald PS II left at 22%, authentic transmembrane complex with oxygen-evolving complex projecting into lumen at 23%,65%. Primary acceptor stromal at 35%,32%. Amber PQ embedded at 54%,48%; copper cytochrome b6f right at 78%,48%. Open aqueous spaces at 12%,78% for water and 42%,78% for products; open stroma above PQ. Realistic molecular surfaces and soft teal light, no text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 15.0,
+     "y": 57.0
+    },
+    "sentences": [
+     {
+      "roman": "Ab PS II ke lumen-facing water-splitting complex ke paas hain; pehla H+ yahin kyun judta hai?",
+      "voice": "अब PS II के ल्यूमेन-फेसिंग वॉटर-स्प्लिटिंग कॉम्प्लेक्स के पास हैं; पहला H+ यहीं क्यों जुड़ता है?",
+      "pins": [
+       {
+        "label": "PS II",
+        "x": 22,
+        "y": 47
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 15.5,
+       "y": 66.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Dekhiye, inner side par do H2O split hote hain, jisse chaar H+, ek O2 aur chaar electrons nikalte hain.",
+      "voice": "देखिए, इनर साइड पर दो H2O स्प्लिट होते हैं, जिससे चार H+, एक O2 और चार इलेक्ट्रॉन्स निकलते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 15.5,
+       "y": 66.0,
+       "scale": 1.4
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "H2O",
+          "from": [
+           12,
+           78
+          ]
+         },
+         {
+          "what": "H2O",
+          "from": [
+           15,
+           84
+          ]
+         }
+        ],
+        "at": [
+         15.5,
+         66.0
+        ],
+        "outputs": [
+         {
+          "what": "H+",
+          "to": [
+           43,
+           78
+          ]
+         },
+         {
+          "what": "O2",
+          "to": [
+           12,
+           90
+          ]
+         },
+         {
+          "what": "e-",
+          "to": [
+           22,
+           44
+          ]
+         }
+        ],
+        "label": "2H2O → 4H+ + O2 + 4e-",
+        "ms": 5000,
+        "loop": false
+       }
+      ],
+      "cycles": [],
+      "teaches": [
+       9
+      ],
+      "beyond": "Pehle padhi water-splitting stoichiometry ka ek-sentence recall.",
+      "part": "concept"
+     },
+     {
+      "roman": "Yeh protons, ya hydrogen ions, lumen mein hi accumulate hote hain, isliye pehli entry lumen ke H+ count mein hoti hai.",
+      "voice": "ये प्रोटॉन्स, या हाइड्रोजन आयन्स, ल्यूमेन में ही अक्यूम्युलेट होते हैं, इसलिए पहली एंट्री ल्यूमेन के H+ काउंट में होती है।",
+      "pins": [
+       {
+        "label": "lumen",
+        "x": 54,
+        "y": 83
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 43,
+       "y": 74,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "red",
+        "label": "",
+        "points": [
+         [
+          15.5,
+          69.0
+         ],
+         [
+          35.0,
+          77.0
+         ],
+         [
+          55.0,
+          79.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       9
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Ab electron ko primary acceptor tak jaate dekhiye; agla proton source samajhne ke liye isi PQ ke paas chalte hain.",
+      "voice": "अब इलेक्ट्रॉन को प्राइमरी एक्सेप्टर तक जाते देखिए; अगला प्रोटॉन सोर्स समझने के लिए इसी PQ के पास चलते हैं।",
+      "pins": [
+       {
+        "label": "primary acceptor",
+        "x": 24.5,
+        "y": 30.5
+       },
+       {
+        "label": "PQ",
+        "x": 33.0,
+        "y": 48.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 33.0,
+       "y": 48.0,
+       "scale": 1.4
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          22.0,
+          44.0
+         ],
+         [
+          24.5,
+          30.5
+         ]
+        ],
+        "count": 2,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "title": "Doosra source: H carrier ki loading",
+    "key": "PQ electrons ke saath stroma se H+ leta hai.",
+    "covers": [
+     3,
+     4
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 molecular close-up within preceding PQ membrane patch. Pale teal stroma top, thick olive-gold lipid bilayer middle, enclosed dark turquoise lumen below with distant curved boundary. Emerald PS II edge far left, stromal primary acceptor at 20%,30%, amber small molecular plastoquinone at 46%,48% with accessible stromal binding area. Copper cytochrome b6f authentic membrane dimer at right 76%,48%, lumen-facing site 75%,65%. Open membrane corridor and aqueous space for protons and electron paths. PQ is a small quinone molecule, not a protein. Calm teal light, no text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 33.0,
+     "y": 48.0
+    },
+    "sentences": [
+     {
+      "roman": "Yahan primary acceptor stroma wali outer side par hai; electron aage badhe toh H+ membrane kaise paar karega?",
+      "voice": "यहाँ प्राइमरी एक्सेप्टर स्ट्रोमा वाली आउटर साइड पर है; इलेक्ट्रॉन आगे बढ़े तो H+ मेम्ब्रेन कैसे पार करेगा?",
+      "pins": [
+       {
+        "label": "primary acceptor",
+        "x": 20,
+        "y": 30
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 42,
+       "y": 46,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       11
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Isme H carrier kaam aata hai: primary acceptor electron ko sirf electron carrier nahi, plastoquinone, yani PQ, ko deta hai.",
+      "voice": "इसमें H कैरियर काम आता है: प्राइमरी एक्सेप्टर इलेक्ट्रॉन को सिर्फ़ इलेक्ट्रॉन कैरियर नहीं, प्लास्टोक्विनोन, यानी PQ, को देता है।",
+      "pins": [
+       {
+        "label": "PQ",
+        "x": 46,
+        "y": 48
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 43,
+       "y": 44,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          20,
+          30
+         ],
+         [
+          34,
+          36
+         ],
+         [
+          46,
+          48
+         ]
+        ],
+        "count": 2,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       11
+      ],
+      "beyond": "H carrier ko figure ke plastoquinone naam se jodta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "PQ do electrons ke saath stroma se do H+ leta hai aur PQH2 banta hai, jisse stroma ke protons ghatte hain.",
+      "voice": "PQ दो इलेक्ट्रॉन्स के साथ स्ट्रोमा से दो H+ लेता है और PQH2 बनता है, जिससे स्ट्रोमा के प्रोटॉन्स घटते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 42.7,
+       "y": 47.5,
+       "scale": 1.4
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "red",
+        "label": "",
+        "points": [
+         [
+          47,
+          17
+         ],
+         [
+          44,
+          30
+         ],
+         [
+          46,
+          48
+         ]
+        ],
+        "count": 2,
+        "ms": 2500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [
+       {
+        "x": 46,
+        "y": 48,
+        "label": "PQH2"
+       }
+      ],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       12
+      ],
+      "beyond": "PQ/PQH2 ke do-electron, do-proton loading ko kholta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Ab isi membrane ke andar b6f ke paas chalte hain, taaki carried H+ ki agli manzil dekh sakein.",
+      "voice": "अब इसी मेम्ब्रेन के अंदर b6f के पास चलते हैं, ताकि कैरिड H+ की अगली मंज़िल देख सकें।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 70,
+       "y": 51,
+       "scale": 1.6
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s4b",
+    "title": "H carrier ki unloading",
+    "key": "Electron aage jaata hai, carried H+ lumen mein chhoot ta hai.",
+    "covers": [
+     3,
+     4
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer molecular cutaway within the previous b6f region. Pale teal stroma above, olive-gold bilayer middle, dark turquoise enclosed lumen below with distant curved wall. Amber PQH2 molecule left at 32%,48%; copper cytochrome b6f membrane dimer right at 70%,48%, its lumen-side quinol oxidation site at 65%,60%, realistic structural geometry and cofactor positions. Keep b6f right and quinone left as before. Open lipid corridor from 32%,48% to 63%,55%; open lumen under the oxidation site for released proton paths. Soft volumetric light, no text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 70,
+     "y": 51
+    },
+    "sentences": [
+     {
+      "roman": "Yahan b6f ka lumen-facing site paas hai; PQH2 apne electrons aur H+ ab kahan chhodega?",
+      "voice": "यहाँ b6f का ल्यूमेन-फेसिंग साइट पास है; PQH2 अपने इलेक्ट्रॉन्स और H+ अब कहाँ छोड़ेगा?",
+      "pins": [
+       {
+        "label": "b6f",
+        "x": 70,
+        "y": 48
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 62,
+       "y": 53,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Dekhiye, PQH2 membrane mein cytochrome b6f tak pahunchta hai, jahan inner-side electron carrier ko electrons milte hain.",
+      "voice": "देखिए, PQH2 मेम्ब्रेन में साइटोक्रोम b6f तक पहुँचता है, जहाँ इनर-साइड इलेक्ट्रॉन कैरियर को इलेक्ट्रॉन्स मिलते हैं।",
+      "pins": [
+       {
+        "label": "cytochrome b6f",
+        "x": 70,
+        "y": 48
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 60,
+       "y": 53,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          21.0,
+          50.0
+         ],
+         [
+          43.0,
+          55.0
+         ],
+         [
+          60.0,
+          62.0
+         ]
+        ],
+        "count": 1,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       13
+      ],
+      "beyond": "Inner-side transfer ko b6f ki location se jodta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Saath hi H+ lumen mein release hote hain; isliye photosystems ke electron transport ke saath protons bhi across membrane pahunchte hain.",
+      "voice": "साथ ही H+ ल्यूमेन में रिलीज़ होते हैं; इसलिए फोटोसिस्टम्स के इलेक्ट्रॉन ट्रांसपोर्ट के साथ प्रोटॉन्स भी अक्रॉस मेम्ब्रेन पहुँचते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 65,
+       "y": 65,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "red",
+        "label": "H+",
+        "points": [
+         [
+          60.0,
+          62.0
+         ],
+         [
+          65.0,
+          67.0
+         ],
+         [
+          52.0,
+          84.0
+         ]
+        ],
+        "count": 2,
+        "ms": 2400,
+        "loop": false
+       },
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "electrons",
+        "points": [
+         [
+          60.0,
+          62.0
+         ],
+         [
+          71.0,
+          77.0
+         ]
+        ],
+        "count": 2,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       10,
+       13
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "title": "Teesra source: stroma se removal",
+    "key": "NADP+ reduction stromal H+ istemal karti hai.",
+    "covers": [
+     3,
+     5
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 cut to right half of same thylakoid membrane. Pale teal stroma above olive-gold bilayer, dark turquoise closed lumen below. Copper cytochrome b6f left at 12%,48%; cyan plastocyanin PC lumen-side 26%,65%; blue PS I 43%,48% with stromal primary acceptor 49%,29%; lavender ferredoxin Fd 59%,23%; rose two-domain FNR stromal 70%,28%, substrate cleft 71%,25%. Far-right ATP synthase 90%,48%, amber membrane ring, central stalk and violet six-lobed stromal head 90%,24%. Open stroma around FNR for separate arrivals. Credible structural models, teal light, no text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "Ab right side par hain; electron b6f se PC, yani plastocyanin, ke through PS I tak jaata hai.",
+      "voice": "अब राइट साइड पर हैं; इलेक्ट्रॉन b6f से PC, यानी प्लास्टोसायनिन, के थ्रू PS I तक जाता है।",
+      "pins": [
+       {
+        "label": "PC",
+        "x": 22.0,
+        "y": 76.0
+       },
+       {
+        "label": "PS I",
+        "x": 43,
+        "y": 48
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 34,
+       "y": 53,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          12.0,
+          56.0
+         ],
+         [
+          22.0,
+          76.0
+         ],
+         [
+          43.0,
+          49.0
+         ]
+        ],
+        "count": 2,
+        "ms": 3200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Figure ke b6f-PC-PS I labels aur electron route kholta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "PS I ke acceptor se electrons Fd, yani ferredoxin, tak aate hain; par NADP+ ko reduce karne ke liye aur kya chahiye?",
+      "voice": "PS I के एक्सेप्टर से इलेक्ट्रॉन्स Fd, यानी फेरेडॉक्सिन, तक आते हैं; पर NADP+ को रिड्यूस करने के लिए और क्या चाहिए?",
+      "pins": [
+       {
+        "label": "acceptor",
+        "x": 42.0,
+        "y": 36.0
+       },
+       {
+        "label": "Fd",
+        "x": 53.5,
+        "y": 32.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 49.0,
+       "y": 34.0,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          43.0,
+          45.0
+         ],
+         [
+          42.0,
+          36.0
+         ],
+         [
+          53.5,
+          32.0
+         ]
+        ],
+        "count": 2,
+        "ms": 2400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       15
+      ],
+      "beyond": "Fd ko ferredoxin naam aur location se pehchaan deta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Iska jawab hai H+; FNR, yani NADP reductase, stroma side par hai aur Fd ke electrons leta hai.",
+      "voice": "इसका जवाब है H+; FNR, यानी NADP रिडक्टेज़, स्ट्रोमा साइड पर है और Fd के इलेक्ट्रॉन्स लेता है।",
+      "pins": [
+       {
+        "label": "FNR",
+        "x": 66.5,
+        "y": 34.0
+       },
+       {
+        "label": "stroma side",
+        "x": 79,
+        "y": 12
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 66.5,
+       "y": 34.0,
+       "scale": 1.4
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          53.5,
+          32.0
+         ],
+         [
+          60.0,
+          33.0
+         ],
+         [
+          66.5,
+          34.0
+         ]
+        ],
+        "count": 2,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       14,
+       15
+      ],
+      "beyond": "FNR label ko NADP-reducing enzyme se jodta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Ab isi enzyme ke paas jaakar dekhte hain ki reduction, yani electrons milne, mein stromal protons kaise lagte hain.",
+      "voice": "अब इसी एन्ज़ाइम के पास जाकर देखते हैं कि रिडक्शन, यानी इलेक्ट्रॉन्स मिलने, में स्ट्रोमल प्रोटॉन्स कैसे लगते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 66.5,
+       "y": 34.0,
+       "scale": 1.6
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Reduction ka electron-gain arth kholta hai.",
+      "part": "prerequisite"
+     }
+    ]
+   },
+   {
+    "id": "s6",
+    "title": "FNR par proton accounting",
+    "key": "NADPH banne par stroma ka H+ pool ghatta hai.",
+    "covers": [
+     5,
+     6
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer view within previous stromal FNR region. Pale teal stroma upper two-thirds, olive-gold thylakoid membrane lower third, enclosed dark turquoise lumen beneath. Rose two-domain FNR stromal at 47%,48%, substrate cleft 48%,40%; lavender Fd left 24%,34%. ATP synthase remains right at 84%, amber membrane ring 84%,72%, central stalk and violet six-lobed head 84%,43%. Open stroma left and above FNR for reactant arrivals and upper right for product departure. Realistic protein surfaces, soft teal volumetric light, no text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 66.5,
+     "y": 34.0
+    },
+    "sentences": [
+     {
+      "roman": "Yahan FNR ka reaction site hai; kya NADP+ ko sirf electrons de dena kaafi hai?",
+      "voice": "यहाँ FNR का रिएक्शन साइट है; क्या NADP+ को सिर्फ़ इलेक्ट्रॉन्स दे देना काफ़ी है?",
+      "pins": [
+       {
+        "label": "FNR",
+        "x": 47,
+        "y": 48
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 48,
+       "y": 40,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Nahi, NADP+ aur do electrons ke saath stromal H+ bhi lagta hai, jisse NADPH banta hai.",
+      "voice": "नहीं, NADP+ और दो इलेक्ट्रॉन्स के साथ स्ट्रोमल H+ भी लगता है, जिससे NADPH बनता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 48,
+       "y": 40,
+       "scale": 1.4
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "NADP+",
+          "from": [
+           40,
+           15
+          ]
+         },
+         {
+          "what": "e-",
+          "from": [
+           17.0,
+           46.0
+          ]
+         },
+         {
+          "what": "H+",
+          "from": [
+           62,
+           18
+          ]
+         }
+        ],
+        "at": [
+         48,
+         40
+        ],
+        "outputs": [
+         {
+          "what": "NADPH",
+          "to": [
+           65,
+           26
+          ]
+         }
+        ],
+        "label": "NADP+ + 2e- + H+ → NADPH",
+        "ms": 6000,
+        "loop": false
+       }
+      ],
+      "cycles": [],
+      "teaches": [
+       15,
+       16
+      ],
+      "beyond": "Net FNR reaction se stromal H+ consumption saaf dikhata hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "NADPH + H+ wali notation mein bhi net baat yahi hai ki reduction ke liye protons stroma se liye jaate hain.",
+      "voice": "NADPH + H+ वाली नोटेशन में भी नेट बात यही है कि रिडक्शन के लिए प्रोटॉन्स स्ट्रोमा से लिए जाते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 48,
+       "y": 40,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "red",
+        "label": "protons",
+        "points": [
+         [
+          61.0,
+          19.0
+         ],
+         [
+          60.0,
+          29.0
+         ],
+         [
+          48.0,
+          40.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       15,
+       16
+      ],
+      "beyond": "NADPH + H+ notation ko net stromal proton consumption se jodta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Isliye lumen mein H+ addition aur stroma se H+ removal, dono milkar across-membrane farq badhate hain.",
+      "voice": "इसलिए ल्यूमेन में H+ एडिशन और स्ट्रोमा से H+ रिमूवल, दोनों मिलकर अक्रॉस-मेम्ब्रेन फ़र्क बढ़ाते हैं।",
+      "pins": [
+       {
+        "label": "stroma",
+        "x": 36,
+        "y": 20
+       },
+       {
+        "label": "lumen",
+        "x": 49,
+        "y": 87
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 67,
+       "y": 65,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "red",
+        "label": "H+",
+        "points": [
+         [
+          35,
+          86
+         ],
+         [
+          57,
+          87
+         ],
+         [
+          73,
+          85
+         ]
+        ],
+        "count": 5,
+        "ms": 2600,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       17
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s7",
+    "title": "Stored gradient aur return route",
+    "key": "Lumen: H+ zyada, pH kam; stroma: H+ kam.",
+    "covers": [
+     3,
+     6
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 close-up within preceding ATP-synthase membrane region. Pale teal stroma above, olive-gold membrane lower-middle, enclosed dark turquoise lumen below, distant opposite wall visible. ATP synthase remains right at 73%: amber membrane c-ring 73%,62%, adjacent proton-access half-channel region, central stalk rising to violet six-lobed stromal head 73%,29%. Rose edge of FNR far left only. Broad empty aqueous areas left of synthase above and below for sparse stromal and dense luminal red proton animation. Controlled proton path through synthase's membrane portion, not through catalytic head; intact lipid elsewhere. Structural-model accuracy, soft teal light, no text or ATP substrates.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 84,
+     "y": 63
+    },
+    "sentences": [
+     {
+      "roman": "Ab membrane ke is patch mein lumen ka H+ count zyada aur stroma ka kam hai; pH par kya asar padega?",
+      "voice": "अब मेम्ब्रेन के इस पैच में ल्यूमेन का H+ काउंट ज़्यादा और स्ट्रोमा का कम है; pH पर क्या असर पड़ेगा?",
+      "pins": [
+       {
+        "label": "lumen",
+        "x": 39,
+        "y": 83
+       },
+       {
+        "label": "stroma",
+        "x": 39,
+        "y": 23
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 57,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "red",
+        "label": "H+",
+        "points": [
+         [
+          24,
+          84
+         ],
+         [
+          42,
+          88
+         ],
+         [
+          58,
+          83
+         ]
+        ],
+        "count": 8,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       17
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Iska seedha sa jawab hai: H+ badhne se lumen ka pH measurably girta hai, aur thylakoid membrane ke across proton gradient banta hai.",
+      "voice": "इसका सीधा सा जवाब है: H+ बढ़ने से ल्यूमेन का pH मेज़रबली गिरता है, और थायलाकोइड मेम्ब्रेन के अक्रॉस प्रोटॉन ग्रेडिएंट बनता है।",
+      "pins": [
+       {
+        "label": "pH",
+        "x": 41,
+        "y": 82
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 44.0,
+       "y": 59.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "red",
+        "label": "H+",
+        "points": [
+         [
+          20,
+          79
+         ],
+         [
+          35,
+          86
+         ],
+         [
+          53,
+          83
+         ]
+        ],
+        "count": 6,
+        "ms": 2400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       18
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Baandh jaisa yeh farq controlled return ko drive karta hai; H+ ATP synthase se lumen se stroma lautte hain, jise chemiosmosis kehte hain.",
+      "voice": "बाँध जैसा यह फ़र्क कंट्रोल्ड रिटर्न को ड्राइव करता है; H+ ATP सिंथेस से ल्यूमेन से स्ट्रोमा लौटते हैं, जिसे केमिऑस्मोसिस कहते हैं।",
+      "pins": [
+       {
+        "label": "ATP synthase",
+        "x": 73,
+        "y": 29
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 73,
+       "y": 57,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "red",
+        "label": "H+",
+        "points": [
+         [
+          58.0,
+          84.0
+         ],
+         [
+          65.0,
+          72.0
+         ],
+         [
+          67.0,
+          60.0
+         ],
+         [
+          68.0,
+          46.0
+         ],
+         [
+          72.0,
+          41.0
+         ]
+        ],
+        "count": 4,
+        "ms": 3500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Chemiosmosis aur controlled return route identify karta hai; ATP coupling ki detail agle film mein hai.",
+      "part": "use"
+     },
+     {
+      "roman": "Is video se aapko yeh baatein yaad rakhni hain: water H+ jodta hai, H carrier unhe laata hai, aur NADP+ reduction stroma se unhe hataati hai.",
+      "voice": "इस वीडियो से आपको ये बातें याद रखनी हैं: वॉटर H+ जोड़ता है, H कैरियर उन्हें लाता है, और NADP+ रिडक्शन स्ट्रोमा से उन्हें हटाती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 55,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "recap"
+     }
+    ]
+   }
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "s2 sentence 5: labels 'P680 PS II' and 'light' are 4% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s2 sentence 5: labels 'P700 PS I' and 'light' are 4% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s3 sentence 3: labels 'lumen' and 'H+' are 4% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s3 sentence 4: labels 'primary acceptor' and 'electron' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s4 sentence 2: labels 'PQ' and 'electron' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s4 sentence 4: labels 'cytochrome b6f' and 'PQH2' are 3% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s4: 588 characters of narration (about 46 seconds) on one picture; at most 560: split it into two shots, the second a closer look",
+    "s5 sentence 1: labels 'PS I' and 'electron' are 1% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s5 sentence 2: labels 'Fd' and 'electrons' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s5 sentence 3: labels 'FNR' and 'electrons' are 3% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "images": {
+  "s2": "a15-s2.png",
+  "s3": "a15-s3.png",
+  "s4": "a15-s4.png",
+  "s4b": "a15-s4b.png",
+  "s5": "a15-s5.png",
+  "s6": "a15-s6.png",
+  "s7": "a15-s7.png"
+ },
+ "book_lines": [
+  {
+   "n": 1,
+   "text": "Let us now try and understand how actually ATP is synthesised in the chloroplast.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0032",
+    "p0010-b0033"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "The chemiosmotic hypothesis has been put forward to explain the mechanism.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0033",
+    "p0010-b0034"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "Like in respiration, in photosynthesis too, ATP synthesis is linked to development of a proton gradient across a membrane.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0034",
+    "p0010-b0035"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "This time these are the membranes of thylakoid.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0035",
+    "p0010-b0036"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "There is one difference though, here the proton accumulation is towards the inside of the membrane, i.e., in the lumen.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0036",
+    "p0010-b0037",
+    "p0010-b0038"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "In respiration, protons accumulate in the intermembrane space of the mitochondria when electrons move through the ETS (Chapter 12).",
+   "page": "140",
+   "blocks": [
+    "p0010-b0038",
+    "p0010-b0039"
+   ]
+  },
+  {
+   "n": 7,
+   "text": "Let us understand what causes the proton gradient across the membrane.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0040",
+    "p0010-b0041"
+   ]
+  },
+  {
+   "n": 8,
+   "text": "We need to consider again the processes that take place during the activation of electrons and their transport to determine the steps that cause a proton gradient to develop (Figure 11.7).",
+   "page": "140",
+   "blocks": [
+    "p0010-b0041",
+    "p0010-b0042",
+    "p0010-b0043"
+   ]
+  },
+  {
+   "n": 9,
+   "text": "(a) Since splitting of the water molecule takes place on the inner side of the membrane, the protons or hydrogen ions that are produced by the splitting of water accumulate within the lumen of the thylakoids.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0044",
+    "p0010-b0045",
+    "p0010-b0046"
+   ]
+  },
+  {
+   "n": 10,
+   "text": "(b) As electrons move through the photosystems, protons are transported across the membrane.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0003",
+    "p0011-b0004"
+   ]
+  },
+  {
+   "n": 11,
+   "text": "This happens because the primary accepter of electron which is located towards the outer side of the membrane transfers its electron not to an electron carrier but to an H carrier.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0004",
+    "p0011-b0005",
+    "p0011-b0006"
+   ]
+  },
+  {
+   "n": 12,
+   "text": "Hence, this molecule removes a proton from the stroma while transporting an electron.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0007",
+    "p0011-b0008"
+   ]
+  },
+  {
+   "n": 13,
+   "text": "When this molecule passes on its electron to the electron carrier on the inner side of the membrane, the proton is released into the inner side or the lumen side of the membrane.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0008",
+    "p0011-b0009",
+    "p0011-b0010"
+   ]
+  },
+  {
+   "n": 14,
+   "text": "(c) The NADP reductase enzyme is located on the stroma side of the membrane.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0011",
+    "p0011-b0012"
+   ]
+  },
+  {
+   "n": 15,
+   "text": "Along with electrons that come from the acceptor of electrons of PS I, protons are necessary for the reduction of NADP⁺ to NADPH+ H⁺.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0012",
+    "p0011-b0013",
+    "p0011-b0014"
+   ]
+  },
+  {
+   "n": 16,
+   "text": "These protons are also removed from the stroma.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0014"
+   ]
+  },
+  {
+   "n": 17,
+   "text": "Hence, within the chloroplast, protons in the stroma decrease in number, while in the lumen there is accumulation of protons.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0015",
+    "p0011-b0016"
+   ]
+  },
+  {
+   "n": 18,
+   "text": "This creates a proton gradient across the thylakoid membrane as well as a measurable decrease in pH in the lumen.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0016",
+    "p0011-b0017",
+    "p0011-b0018"
+   ]
+  }
+ ],
+ "placement": {
+  "s2": {
+   "items": 10,
+   "moved": 2,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5549,
+    "output_tokens": 405,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 190
+   }
+  },
+  "s3": {
+   "items": 17,
+   "moved": 9,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 6099,
+    "output_tokens": 425,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 52
+   }
+  },
+  "s4": {
+   "items": 9,
+   "moved": 1,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5526,
+    "output_tokens": 411,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 207
+   }
+  },
+  "s4b": {
+   "items": 7,
+   "moved": 3,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5371,
+    "output_tokens": 300,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 132
+   }
+  },
+  "s5": {
+   "items": 13,
+   "moved": 11,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5808,
+    "output_tokens": 297,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 0
+   }
+  },
+  "s6": {
+   "items": 14,
+   "moved": 2,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5839,
+    "output_tokens": 492,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 189
+   }
+  },
+  "s7": {
+   "items": 9,
+   "moved": 2,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5567,
+    "output_tokens": 294,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 76
+   }
+  }
+ }
+}
