@@ -2519,3 +2519,21 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   Reading time 2–11 s per book. Chapter 11's structure by code: 19 numbered sections (11.1 … 11.10.4), Summary and
   Exercises, every block placed. The passed outputs (`tests/fixtures/passed_outputs/`) still pass; 489 + 700 tests.
 
+## Entry · One chapter file, one naksha, and the voice says carbon dioxide, 21 November 2026
+
+- **Runs:** the Chapter 11 audit and the 24 films of batches 1–6 (`studio-photosynthesis-films-b1` … `-b6`).
+- **Taught:** each film was planned and written alone, from its question's lines and the other 24 questions' titles, so
+  26% of the films' lines retold the leaf-to-chloroplast journey, the dam analogy came back in 4 films, ATP synthase in 8,
+  and 13 of 17 films opened on the same cupboard pictures: the rule was "use the kept picture when the cupboard shows the
+  scene", and the films all started from the leaf. Kokoro's own phonemizer said "सीओ₂" as "सीओ दो", PSII as "साई" and
+  NADPH as "नाड्फ". Navin: the whole chapter planned first from one file Codex can read; what the teacher says decides
+  the picture; "co2 kehne ki bajaye carbon dioxide".
+- **Changed in BIE:** `bie/brain/chapter_file.py` (the chapter file by code: the book's sections, every item with its role,
+  type, exam weight, first terms, why steps, what to show, what comes first, a figure with its labels; then concepts,
+  links, prerequisites, exam focus); studio stage `naksha` (`bie/brain/studio_naksha.py`: shapes A and B, the code checks
+  above); the films stage gives each naksha film its plan and the earlier films' lessons, analogies and openings; no
+  cupboard for naksha films; `studio_voice.spoken` (names for molecules, a teacher's way for short forms, the screen
+  unchanged). IMPLEMENTED.
+- **Measured:** on the 634 voice lines of batches 1–6, 168 lines change, every change a formula or a short form
+  (सीओ₂ 80, CO2 30, C4 25, C3 19, H+ 16, PEP 10 …). The naksha and its films wait for Section 1 on Chapter 11.
+

@@ -68,6 +68,92 @@ def narrator() -> str:
     return "navin" if os.environ.get("BIE_NARRATOR", "").strip().lower() == "navin" else "female"
 
 
+# --- what the voice says for a formula or a short form (Navin, 21 November 2026: "teacher ki voice jo video mein aati hai
+# wo molecules ke formula bolti hai usme galti karti hai co2 kehne ki bajaye carbon diaoxide bol de"). Measured with
+# Kokoro's own phonemizer the same day: "सीओ₂" was said "सीओ दो", PSII "साई", NADPH "नाड्फ", H2O "एच दो ओ". The screen
+# keeps the book's spelling; only the voice changes. A molecule with a name is said by its name, except right after the
+# word formula ("jiska formula C6H12O6 hai"), where it is spelled; every other short form is spelled letter by letter.
+LETTERS = {"A": "ए", "B": "बी", "C": "सी", "D": "डी", "E": "ई", "F": "एफ़", "G": "जी", "H": "एच", "I": "आई", "J": "जे",
+           "K": "के", "L": "एल", "M": "एम", "N": "एन", "O": "ओ", "P": "पी", "Q": "क्यू", "R": "आर", "S": "एस", "T": "टी",
+           "U": "यू", "V": "वी", "W": "डब्ल्यू", "X": "एक्स", "Y": "वाई", "Z": "ज़ेड"}
+NUMBER_WORDS = {"0": "ज़ीरो", "1": "वन", "2": "टू", "3": "थ्री", "4": "फ़ोर", "5": "फ़ाइव", "6": "सिक्स", "7": "सेवन",
+                "8": "एट", "9": "नाइन", "10": "टेन", "11": "इलेवन", "12": "ट्वेल्व", "14": "फ़ोर्टीन", "16": "सिक्सटीन",
+                "18": "एटीन"}
+SCRIPTS = str.maketrans("₀₁₂₃₄₅₆₇₈₉⁰¹²³⁴⁵⁶⁷⁸⁹₊₋⁺⁻", "01234567890123456789+-+-")
+# named molecules: (the formula as written, without sub- or superscripts) -> (Hindi name, English name)
+NAMED = {"CO2": ("कार्बन डाइऑक्साइड", "carbon dioxide"), "O2": ("ऑक्सीजन", "oxygen"), "H2O": ("पानी", "water"),
+         "C6H12O6": ("ग्लूकोज़", "glucose"), "H2S": ("हाइड्रोजन सल्फ़ाइड", "hydrogen sulphide"),
+         "NH3": ("अमोनिया", "ammonia"), "CH4": ("मीथेन", "methane"), "HCO3-": ("बाइकार्बोनेट", "bicarbonate"),
+         "N2": ("नाइट्रोजन", "nitrogen"), "H2": ("हाइड्रोजन", "hydrogen")}
+# short forms a teacher says in their own way (the rest are spelled)
+SAID = {"PSII": ("पी एस टू", "P S two"), "PSI": ("पी एस वन", "P S one"), "PS II": ("पी एस टू", "P S two"),
+        "PS I": ("पी एस वन", "P S one"), "RuBisCO": ("रूबिस्को", "rubisco"), "RuBisCo": ("रूबिस्को", "rubisco"),
+        "Rubisco": ("रूबिस्को", "rubisco"), "RUBISCO": ("रूबिस्को", "rubisco"), "P680": ("पी सिक्स एटी", "P six eighty"),
+        "P700": ("पी सेवन हंड्रेड", "P seven hundred"), "NEET": ("नीट", "NEET"), "Pi": ("पी आई", "P i"),
+        "PEPcase": ("पेप केस", "pep case"), "PEPCase": ("पेप केस", "pep case")}
+FORMULA_WORD = re.compile(r"(?:फ़ॉर्मूला|फार्मूला|फ़ार्मूला|फॉर्मूला|formula)\s*$", re.I)
+DEVANAGARI_FORMULA = {"सीओ₂": "CO2", "सीओ2": "CO2", "सीओ टू": "CO2", "सीओटू": "CO2", "एच₂ओ": "H2O", "ओ₂": "O2",
+                      "सी₃": "C3", "सी₄": "C4"}
+TOKEN = re.compile(r"(?<![A-Za-z])(?:PS ?II|PS ?I(?![A-Za-z])|\[?[A-Z][A-Za-z]{0,6}(?:[0-9₀-₉⁰-⁹+⁺\-⁻]*[A-Za-z]*)*\]?)"
+                   r"(?![A-Za-z])")
+DEVANAGARI_LETTER = re.compile(r"[ऀ-ॿ]")
+
+
+def _spell(token: str, english: bool) -> str:
+    """C6H12O6 -> "सी सिक्स एच ट्वेल्व ओ सिक्स"; NADP+ -> "एन ए डी पी प्लस"; 3-PGA -> handled by the caller."""
+    out = []
+    for piece in re.findall(r"[A-Z][a-z]?|[a-z]|\d+|\+|-", token):
+        if piece.isdigit():
+            out.append(piece if english else NUMBER_WORDS.get(piece, piece))
+        elif piece == "+":
+            out.append("plus" if english else "प्लस")
+        elif piece == "-":
+            out.append("minus" if english else "माइनस")
+        else:
+            out.append(" ".join(piece.upper()) if english else " ".join(LETTERS.get(c.upper(), c) for c in piece))
+    return " ".join(out)
+
+
+def spoken(text: str, language: str = "hi") -> str:
+    """The line as the voice should say it: formulas by their names, short forms the way a teacher says them. Hindi and
+    English only: a Tamil, Telugu, Malayalam or Marathi line is said by its own engine as the dub wrote it."""
+    if language not in ("hi", "en"):
+        return text
+    english = language == "en"
+    for written, formula in DEVANAGARI_FORMULA.items():
+        text = text.replace(written, formula)
+
+    def say(match):
+        raw = match.group(0)
+        after = text[match.end():match.end() + 1]
+        joiner = raw.endswith("-") and after.isalpha()          # "H-कैरियर": a hyphen, not a minus
+        said = _say(raw[:-1] if joiner else raw, match.start())
+        if said == raw:
+            return raw
+        if joiner or DEVANAGARI_LETTER.match(after):
+            said += " "
+        if match.start() and text[match.start() - 1].isdigit():  # "2H+": the count, then the formula
+            said = " " + said
+        return said
+
+    def _say(raw, start):
+        token = raw.strip("[]").translate(SCRIPTS)
+        before = text[:start]
+        if token in SAID or raw in SAID:
+            return SAID.get(token, SAID.get(raw))[1 if english else 0]
+        bare = token.rstrip("+-")
+        if token in NAMED and not FORMULA_WORD.search(before):
+            return NAMED[token][1 if english else 0]
+        if bare in NAMED and token.endswith(("+", "-")) and not FORMULA_WORD.search(before):
+            return NAMED[bare][1 if english else 0] + (" आयन" if not english else " ion")
+        uppers = sum(c.isupper() for c in token)
+        if uppers >= 2 or (uppers == 1 and any(c.isdigit() or c in "+-" for c in token)):
+            return _spell(token, english)
+        return raw
+
+    return TOKEN.sub(say, text)
+
+
 def _clause_pause(bit: str) -> float:
     """The breath after a clause. A short invitation ("आइए जानते हैं;", "Chaliye dekhte hain:") gets INVITE_PAUSE whatever
     mark ends it: the makers write "Aaiye jaante hain;" as often as "Aaiye jaante hain." (Photosynthesis films q01, q02,
@@ -264,7 +350,7 @@ class Voice:
         """(samples, rate) of the line, said by BIE's teacher rules, in Navin's tone when a tone is set."""
         import numpy as np
         chunks, rate = [], 24000
-        for part, pause in parts(text):
+        for part, pause in parts(spoken(text, self.language)):
             made, rate = self.engine.speak(part, speed(part))
             chunks.append(made)
             if pause:

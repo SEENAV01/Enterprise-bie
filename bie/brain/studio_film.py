@@ -273,7 +273,51 @@ def messages(question: dict, *, course: str, language: str, chapter: str = "") -
                                                               molecules=", ".join(MOLECULES),
                                                               kinds=MAX_KINDS, shot_chars=MAX_SHOT_CHARS,
                                                               pin_gap=PIN_GAP)},
-            {"role": "user", "content": user + _overview_part(question) + _teacher_part(question) + _library_part(question)}]
+            {"role": "user", "content": user + _overview_part(question) + _naksha_part(question) + _teacher_part(question)
+             + _library_part(question)}]
+
+
+NAKSHA_PART = """
+
+THE CHAPTER'S NAKSHA (Navin, 21 November 2026: the whole chapter is planned before any film is written, so that the
+progression never breaks, nothing is repeated and not everything looks the same). This film is {id}, section {section}.
+- Open with: {opens_with}
+- The story, step by step: {story}
+- Tell first (prerequisite): {prerequisite}
+- Its one analogy: {analogy} No other film of the chapter uses it; use no other analogy.
+- Examples and real-world uses: {examples}
+- Terms to open here, each at the moment it is first needed: {terms}
+- From outside the book, welcome here: {outside}
+- What the screen must show (saman ki list), made for this film: {saman}
+  The first shot opens on {first}; the camera goes from there into what the story needs. Do not begin from the leaf
+  unless that is this film's own opening.
+- The learner already knows, from the films before this one (never teach these again; at most one sentence to remind):
+{before}
+- Coming in later films (do not teach them here; at most a one-line bridge to the next film at the end):
+{after}"""
+
+
+def _naksha_part(question: dict) -> str:
+    plan = question.get("naksha")
+    if not isinstance(plan, dict):
+        return ""
+    analogy = plan.get("analogy") or {}
+    saman = plan.get("saman") or []
+    before = "\n".join(f"  {b.get('id')} ({b.get('title')}): " + "; ".join(b.get("taught") or [])
+                       + (f" · its analogy: {b['analogy']}" if b.get("analogy") else "")
+                       + (f" · it opened on: {b['opening']}" if b.get("opening") else "")
+                       for b in plan.get("before") or []) or "  (this is the first film)"
+    return NAKSHA_PART.format(
+        id=plan.get("id", ""), section=plan.get("section") or "the chapter's opening", opens_with=plan.get("opens_with", ""),
+        story=" → ".join(plan.get("story") or []), prerequisite=plan.get("prerequisite") or "-",
+        analogy=(f"{analogy.get('picture')} for {analogy.get('for')} ({analogy.get('why_it_fits')})." if analogy.get("picture")
+                 else "none: this film needs no analogy."),
+        examples="; ".join((plan.get("examples") or []) + (plan.get("real_world") or [])) or "-",
+        terms=", ".join(plan.get("terms") or []) or "-",
+        outside="; ".join(f"{o.get('what')} ({o.get('why')})" for o in plan.get("outside_book") or []) or "-",
+        saman="; ".join(f"{s.get('id')} {s.get('kind')}: {s.get('shows')}" for s in saman) or "-",
+        first=(saman[0].get("shows") if saman else "this film's own picture"),
+        before=before, after="\n".join(f"  {a}" for a in plan.get("after") or []) or "  (this is the last film)")
 
 
 OVERVIEW_PART = """
