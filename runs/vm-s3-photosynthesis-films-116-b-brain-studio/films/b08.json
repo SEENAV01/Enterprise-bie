@@ -1,0 +1,1338 @@
+{
+ "film": {
+  "title": "PS II ke electrons ka refill kahan se aata hai?",
+  "look": "Ek hi thylakoid ki realistic structural-biology journey, 16:9, dark teal background aur soft volumetric light; membrane olive bilayer, lumen cyan neeche, stroma pale teal upar, PS II emerald left, P680 gold, water splitting complex ivory lumen-facing, PS I turquoise right; H2O blue, H+ gold, e- white aur O2 red.",
+  "shots": [
+   {
+    "id": "s1",
+    "title": "Missing electron",
+    "key": "Electron nikalta hai, toh replacement chahiye.",
+    "covers": [
+     0,
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 realistic structural-biology cutaway of a closed flattened thylakoid sac. Olive bilayer encloses cyan lumen below its upper membrane; pale teal stroma above. Emerald PS II left at 30,40 with gold P680, ivory lumen-facing water splitting complex at 30,57; turquoise PS I right at 80,40. Real multisubunit protein surfaces, membrane depth, lower return membrane visibly closes sac. Leave open lumen fluid for animated two-water splitting into four protons, four electrons and one oxygen molecule; do not bake molecules or arrows into image. Dark teal environment, soft volumetric light, label space.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "P680 se electron nikal gaya, toh ab uski jagah kaun bharega?",
+      "voice": "पी छह सौ अस्सी से इलेक्ट्रॉन निकल गया, तो अब उसकी जगह कौन भरेगा?",
+      "pins": [
+       {
+        "label": "P680",
+        "x": 27.5,
+        "y": 39.5
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 30,
+       "y": 40,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          27.5,
+          39.5
+         ],
+         [
+          37.0,
+          28.0
+         ],
+         [
+          46.0,
+          29.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "hook"
+     },
+     {
+      "roman": "Aaiye jaante hain; pehle samajhiye ki H+ positive proton hai, e- negative electron hai aur O2 do oxygen atoms se bani molecule hai.",
+      "voice": "आइए जानते हैं; पहले समझिए कि एच प्लस पॉज़िटिव प्रोटॉन है, ई माइनस नेगेटिव इलेक्ट्रॉन है और ओ टू दो ऑक्सीजन ऐटम्स से बनी मॉलिक्यूल है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 55,
+       "y": 60,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H+",
+        "points": [
+         [
+          43,
+          70
+         ],
+         [
+          43,
+          60
+         ]
+        ],
+        "count": 1,
+        "ms": 1600,
+        "loop": false
+       },
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "e-",
+        "points": [
+         [
+          56,
+          70
+         ],
+         [
+          56,
+          60
+         ]
+        ],
+        "count": 1,
+        "ms": 1600,
+        "loop": false
+       },
+       {
+        "what": "O2",
+        "colour": "red",
+        "label": "O2",
+        "points": [
+         [
+          70,
+          70
+         ],
+         [
+          70,
+          60
+         ]
+        ],
+        "count": 1,
+        "ms": 1600,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Proton, electron aur molecular oxygen ki prerequisite pehchaan.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Dekhiye, PS II se nikle electrons replace hona zaroori hai; ab sawaal banta hai ki PS II lagataar electrons kaise deta rahega?",
+      "voice": "देखिए, पी एस टू से निकले इलेक्ट्रॉन्स रिप्लेस होना ज़रूरी है; अब सवाल बनता है कि पी एस टू लगातार इलेक्ट्रॉन्स कैसे देता रहेगा?",
+      "pins": [
+       {
+        "label": "PS II",
+        "x": 30,
+        "y": 40
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 30,
+       "y": 48,
+       "scale": 1.6
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       1,
+       2
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "title": "Water se refill",
+    "key": "Splitting of water replacement electrons deti hai.",
+    "covers": [
+     1,
+     3
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer view inside previous left PS II region. Olive bilayer horizontally y35, pale teal stroma above, cyan lumen below with distant lower sac wall. Emerald PS II left x32, gold P680 at 32,32, ivory water splitting complex projecting into lumen at 32,55. Realistic oxygen-evolving protein surface and catalytic cluster, no invented pipes. Leave fluid at right and below empty for water arrivals and electron transfer toward P680. Dark teal, soft volumetric light, no baked labels or molecules.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 30,
+     "y": 52
+    },
+    "sentences": [
+     {
+      "roman": "Ab isi PS II ke paas chalte hain; iske electrons ka refill kahan se aata hai?",
+      "voice": "अब इसी पी एस टू के पास चलते हैं; इसके इलेक्ट्रॉन्स का रिफिल कहाँ से आता है?",
+      "pins": [
+       {
+        "label": "PS II",
+        "x": 32,
+        "y": 32
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 32,
+       "y": 45,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Iska seedha sa jawab hai splitting of water, yaani paani ka tootna, jisse mile electrons PS II ki kami bharte hain.",
+      "voice": "इसका सीधा सा जवाब है स्प्लिटिंग ऑफ़ वॉटर, यानी पानी का टूटना, जिससे मिले इलेक्ट्रॉन्स पी एस टू की कमी भरते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 28.0,
+       "y": 63.0,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "electrons",
+        "points": [
+         [
+          28.0,
+          63.0
+         ],
+         [
+          29.0,
+          46.0
+         ],
+         [
+          32.0,
+          32.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       3
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Ticket dispenser se tickets nikalte rehne ke liye peeche refill roll chahiye; yahan water electron supply ka source banta hai.",
+      "voice": "टिकट डिस्पेंसर से टिकट्स निकलते रहने के लिए पीछे रिफिल रोल चाहिए; यहाँ वॉटर इलेक्ट्रॉन सप्लाई का सोर्स बनता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 32,
+       "y": 55,
+       "scale": 1.4
+      },
+      "moves": [
+       {
+        "what": "H2O",
+        "colour": "blue",
+        "label": "water",
+        "points": [
+         [
+          65.0,
+          70.0
+         ],
+         [
+          48.0,
+          64.0
+         ],
+         [
+          28.0,
+          63.0
+         ]
+        ],
+        "count": 2,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Ticket dispenser ke refill roll se continuous replacement samjhaya.",
+      "part": "concept"
+     },
+     {
+      "roman": "Ab isi PS II ke water splitting complex ko aur paas se dekhte hain.",
+      "voice": "अब इसी पी एस टू के वॉटर स्प्लिटिंग कॉम्प्लेक्स को और पास से देखते हैं।",
+      "pins": [
+       {
+        "label": "water splitting complex",
+        "x": 32,
+        "y": 55
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 32,
+       "y": 55,
+       "scale": 2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "title": "Inner side ka matlab",
+    "key": "Water splitting complex lumen-facing hai.",
+    "covers": [
+     1,
+     3
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer structural cutaway inside previous ivory complex region. Emerald PS II left x32 spans olive bilayer y24-39; gold P680 at 32,29, pale teal stroma above, cyan lumen below. Ivory water splitting complex projects down at 32,55 with realistic manganese-calcium catalytic cluster at 37,59. Broad empty lumen right and below for water arrival. Faint lower sac wall maintains enclosed compartment context. Real protein molecular surfaces, dark teal volumetric light, no baked icons or text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 32,
+     "y": 55
+    },
+    "sentences": [
+     {
+      "roman": "Yahan water splitting complex PS II se juda hai; par iska kaam membrane ki kis taraf hota hai?",
+      "voice": "यहाँ वॉटर स्प्लिटिंग कॉम्प्लेक्स पी एस टू से जुड़ा है; पर इसका काम मेम्ब्रेन की किस तरफ़ होता है?",
+      "pins": [
+       {
+        "label": "water splitting complex",
+        "x": 24.5,
+        "y": 68.5
+       },
+       {
+        "label": "PS II",
+        "x": 32,
+        "y": 30
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 35,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Dekhiye, PS II thylakoid membrane mein baitha hai, aur inner side, yaani lumen ki taraf, iska water splitting complex paani leta hai.",
+      "voice": "देखिए, पी एस टू थायलाकोइड मेम्ब्रेन में बैठा है, और इनर साइड, यानी ल्यूमेन की तरफ़, इसका वॉटर स्प्लिटिंग कॉम्प्लेक्स पानी लेता है।",
+      "pins": [
+       {
+        "label": "inner side",
+        "x": 53,
+        "y": 41
+       },
+       {
+        "label": "lumen",
+        "x": 68,
+        "y": 70
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 25.0,
+       "y": 68.0,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "H2O",
+        "colour": "blue",
+        "label": "paani",
+        "points": [
+         [
+          68.0,
+          70.0
+         ],
+         [
+          45.0,
+          73.0
+         ],
+         [
+          25.0,
+          68.0
+         ]
+        ],
+        "count": 2,
+        "ms": 3200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       8
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "PS II se judi splitting of water mein ek H2O ke hisaab se do H+, [O] aur electrons milte hain; [O] oxygen ka shorthand hai.",
+      "voice": "पी एस टू से जुड़ी स्प्लिटिंग ऑफ़ वॉटर में एक एच टू ओ के हिसाब से दो एच प्लस, ब्रैकेट ओ और इलेक्ट्रॉन्स मिलते हैं; ब्रैकेट ओ ऑक्सीजन का शॉर्टहैंड है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 20.0,
+        "x1": 30.0,
+        "y0": 63.0,
+        "y1": 73.0
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 25.0,
+       "y": 68.0,
+       "scale": 1.8
+      },
+      "moves": [
+       {
+        "what": "H2O",
+        "colour": "blue",
+        "label": "H2O",
+        "points": [
+         [
+          55.0,
+          70.0
+         ],
+         [
+          25.0,
+          68.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       4
+      ],
+      "beyond": "[O] oxygen accounting ka shorthand hai, free atom intermediate nahi.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "title": "Do paani ka hisaab",
+    "key": "2H₂O → 4H⁺ + O₂ + 4e⁻",
+    "covers": [
+     2
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 magnified neighbourhood inside previous ivory catalytic pocket on left. Realistic Mn4Ca oxygen-evolving cluster at 38,48, ivory protein attached to emerald PS II upward left in olive bilayer y12-24; pale teal stroma above, cyan lumen lower and right. Exposed pocket and empty fluid product destinations at 62,65 and 75,75, electron destination upward left at 30,28. Dark teal soft volumetric structural-biology rendering. No baked molecules, arrows or text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 25.0,
+     "y": 68.0
+    },
+    "sentences": [
+     {
+      "roman": "Ab catalytic jagah par hain; poori O2 molecule banane ke liye kitni H2O chahiye?",
+      "voice": "अब कैटेलिटिक जगह पर हैं; पूरी ओ टू मॉलिक्यूल बनाने के लिए कितनी एच टू ओ चाहिए?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 38,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Dekhiye, do H2O se chaar H+, ek O2 aur chaar e- milte hain; yeh kai steps ka net hisaab hai.",
+      "voice": "देखिए, दो एच टू ओ से चार एच प्लस, एक ओ टू और चार ई माइनस मिलते हैं; यह कई स्टेप्स का नेट हिसाब है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 28.5,
+       "y": 60.0,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "H2O",
+          "from": [
+           65,
+           66
+          ]
+         },
+         {
+          "what": "H2O",
+          "from": [
+           72,
+           54
+          ]
+         }
+        ],
+        "at": [
+         28.5,
+         60.0
+        ],
+        "outputs": [
+         {
+          "what": "H+",
+          "to": [
+           62,
+           65
+          ]
+         },
+         {
+          "what": "O2",
+          "to": [
+           75,
+           75
+          ]
+         },
+         {
+          "what": "e-",
+          "to": [
+           30,
+           28
+          ]
+         }
+        ],
+        "label": "2H2O → 4H+ + O2 + 4e-",
+        "ms": 7000,
+        "loop": false
+       }
+      ],
+      "cycles": [],
+      "teaches": [
+       7
+      ],
+      "beyond": "Multi-step water oxidation ka net hisaab.",
+      "part": "concept"
+     },
+     {
+      "roman": "Dono taraf chaar hydrogen aur do oxygen hain; chaar positive H+ aur chaar negative e- ka total charge zero hai.",
+      "voice": "दोनों तरफ़ चार हाइड्रोजन और दो ऑक्सीजन हैं; चार पॉज़िटिव एच प्लस और चार नेगेटिव ई माइनस का टोटल चार्ज ज़ीरो है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 47,
+       "y": 52,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H+",
+        "points": [
+         [
+          28.5,
+          60.0
+         ],
+         [
+          46.0,
+          65.0
+         ],
+         [
+          62.0,
+          65.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2800,
+        "loop": false
+       },
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "e-",
+        "points": [
+         [
+          28.5,
+          60.0
+         ],
+         [
+          30.0,
+          43.0
+         ],
+         [
+          30.0,
+          28.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       7
+      ],
+      "beyond": "Atom aur charge conservation se equation verify ki.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Wahi ticket dispenser samajhiye: refill roll se tickets aate rehte hain, waise hi water se mile electrons PS II ko refill karte hain.",
+      "voice": "वही टिकट डिस्पेंसर समझिए: रिफिल रोल से टिकट्स आते रहते हैं, वैसे ही वॉटर से मिले इलेक्ट्रॉन्स पी एस टू को रिफिल करते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 30.0,
+       "y": 28.0,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "electrons",
+        "points": [
+         [
+          28.5,
+          60.0
+         ],
+         [
+          30.0,
+          43.0
+         ],
+         [
+          30.0,
+          28.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Wahi ticket-refill analogy dobara electron replacement se jodi.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "title": "Products kis taraf?",
+    "key": "H⁺ aur O₂ pehle lumen side par nikalte hain.",
+    "covers": [
+     4
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer view inside previous cyan lumen product-release region. Ivory water splitting complex remains left x24,45, emerald PS II above left embedded in olive bilayer y17-30; pale teal stroma above. Cyan lumen lower and right, distant lower membrane visibly enclosing it. Empty fluid paths from complex into lumen and across upper membrane at right for oxygen diffusion. Real protein surfaces, no invented channels, no baked molecules or text, dark teal soft volumetric light.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 62,
+     "y": 65
+    },
+    "sentences": [
+     {
+      "roman": "Ab product nikalne ki jagah par hain; H+ aur O2 lumen mein release honge ya membrane ki outer side par?",
+      "voice": "अब प्रॉडक्ट निकलने की जगह पर हैं; एच प्लस और ओ टू ल्यूमेन में रिलीज़ होंगे या मेम्ब्रेन की आउटर साइड पर?",
+      "pins": [
+       {
+        "label": "lumen",
+        "x": 65,
+        "y": 68
+       },
+       {
+        "label": "outer side",
+        "x": 66,
+        "y": 12
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 43,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       9
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Iska seedha sa jawab hai lumen, kyunki complex inner side par hai, jisse chaar H+ aur O2 pehle lumen side par nikalte hain.",
+      "voice": "इसका सीधा सा जवाब है ल्यूमेन, क्योंकि कॉम्प्लेक्स इनर साइड पर है, जिससे चार एच प्लस और ओ टू पहले ल्यूमेन साइड पर निकलते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 24.0,
+       "y": 58.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H+",
+        "points": [
+         [
+          30.0,
+          64.0
+         ],
+         [
+          42.0,
+          59.0
+         ],
+         [
+          58.0,
+          70.0
+         ]
+        ],
+        "count": 4,
+        "ms": 3000,
+        "loop": false
+       },
+       {
+        "what": "O2",
+        "colour": "red",
+        "label": "O2",
+        "points": [
+         [
+          30.0,
+          64.0
+         ],
+         [
+          43.0,
+          50.0
+         ],
+         [
+          70.0,
+          57.0
+         ]
+        ],
+        "count": 1,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       9
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Yeh oxygen photosynthesis ke net products mein se ek hai, yaani kul milakar milne wala utpaad, aur O2 aage diffuse kar sakti hai.",
+      "voice": "यह ऑक्सीजन फोटोसिन्थेसिस के नेट प्रॉडक्ट्स में से एक है, यानी कुल मिलाकर मिलने वाला उत्पाद, और ओ टू आगे डिफ्यूज़ कर सकती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 70.0,
+       "y": 57.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "O2",
+        "colour": "red",
+        "label": "O2",
+        "points": [
+         [
+          70.0,
+          57.0
+         ],
+         [
+          82.0,
+          43.0
+         ],
+         [
+          84.0,
+          25.0
+         ],
+         [
+          86.0,
+          10.0
+         ]
+        ],
+        "count": 1,
+        "ms": 4500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       5
+      ],
+      "beyond": "Lumen mein bani oxygen ka aage diffusion.",
+      "part": "concept"
+     },
+     {
+      "roman": "Isi water oxidation se bani oxygen bahar pahunchkar atmosphere ki photosynthetic oxygen mein yogdaan deti hai.",
+      "voice": "इसी वॉटर ऑक्सिडेशन से बनी ऑक्सीजन बाहर पहुँचकर ऐटमॉस्फ़ियर की फोटोसिन्थेटिक ऑक्सीजन में योगदान देती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 78,
+       "y": 24,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "O2",
+        "colour": "red",
+        "label": "oxygen",
+        "points": [
+         [
+          86.0,
+          18.0
+         ],
+         [
+          90.0,
+          12.0
+         ],
+         [
+          94.0,
+          5.0
+         ]
+        ],
+        "count": 2,
+        "ms": 3500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "Water oxidation ko atmospheric photosynthetic oxygen se joda.",
+      "part": "use"
+     }
+    ]
+   },
+   {
+    "id": "s6",
+    "title": "Refill aage pahunchta hai",
+    "key": "Water → PS II → electron chain → PS I",
+    "covers": [
+     0,
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 return wide structural cutaway of same closed thylakoid sac. Olive bilayer enclosing cyan lumen below, pale teal stroma above; emerald PS II left 30,40, gold P680 within, ivory water splitting complex at 30,57 facing lumen. Turquoise PS I right 80,40. Real electron-transfer complexes between them, with open fluid above for animated carrier route. Lower return membrane closes sac. No unrelated proteins highlighted, no baked arrows or molecular icons. Dark teal soft volumetric light.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "sentences": [
+     {
+      "roman": "Ab poori membrane par lautkar dekhiye; PS I se nikle electron ki jagah kaun bharta hai?",
+      "voice": "अब पूरी मेम्ब्रेन पर लौटकर देखिए; पी एस वन से निकले इलेक्ट्रॉन की जगह कौन भरता है?",
+      "pins": [
+       {
+        "label": "PS I",
+        "x": 80,
+        "y": 40
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 65,
+       "y": 40,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Isme kaam aata hai PS II, jiske electrons electron transport chain se PS I tak pahunchkar uski kami bharte hain.",
+      "voice": "इसमें काम आता है पी एस टू, जिसके इलेक्ट्रॉन्स इलेक्ट्रॉन ट्रांसपोर्ट चेन से पी एस वन तक पहुँचकर उसकी कमी भरते हैं।",
+      "pins": [
+       {
+        "label": "PS II",
+        "x": 23.0,
+        "y": 51.0
+       },
+       {
+        "label": "PS I",
+        "x": 80,
+        "y": 51
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50.0,
+       "y": 48.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          23.0,
+          45.0
+         ],
+         [
+          37.0,
+          47.0
+         ],
+         [
+          44.0,
+          51.0
+         ],
+         [
+          50.0,
+          47.0
+         ],
+         [
+          63.0,
+          47.0
+         ],
+         [
+          80.0,
+          45.0
+         ]
+        ],
+        "count": 4,
+        "ms": 5500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       6
+      ],
+      "beyond": "PS II se PS I tak replacement ka chain-mediated route.",
+      "part": "concept"
+     },
+     {
+      "roman": "Isliye water splitting PS II se judi hai, PS I par alag se paani todkar refill nahi hota.",
+      "voice": "इसलिए वॉटर स्प्लिटिंग पी एस टू से जुड़ी है, पी एस वन पर अलग से पानी तोड़कर रिफिल नहीं होता।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 22.0,
+       "y": 60.0,
+       "scale": 1.4
+      },
+      "moves": [
+       {
+        "what": "H2O",
+        "colour": "blue",
+        "label": "paani",
+        "points": [
+         [
+          49.0,
+          71.0
+         ],
+         [
+          35.0,
+          66.0
+         ],
+         [
+          22.0,
+          61.0
+         ]
+        ],
+        "count": 2,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [
+       3,
+       4,
+       6
+      ],
+      "beyond": "PS I par independent photolysis wali galatfahmi door ki.",
+      "part": "concept"
+     },
+     {
+      "roman": "Is video se aapko yeh baatein yaad rakhni hain: water PS II ko electrons deta hai, aur H+ aur O2 pehle lumen mein milte hain.",
+      "voice": "इस वीडियो से आपको ये बातें याद रखनी हैं: वॉटर पी एस टू को इलेक्ट्रॉन्स देता है, और एच प्लस और ओ टू पहले ल्यूमेन में मिलते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 40,
+       "y": 54,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "electrons",
+        "points": [
+         [
+          22.0,
+          61.0
+         ],
+         [
+          22.0,
+          49.0
+         ],
+         [
+          22.0,
+          40.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "teaches": [],
+      "beyond": "",
+      "part": "recap"
+     }
+    ]
+   }
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "s6 sentence 2: labels 'PS I' and 'electrons' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "1 everyday picture(s) in the film; give one every two or three shots (a motor, a dam, a battery, a turbine)"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "images": {
+  "s1": "b08-s1.png",
+  "s2": "b08-s2.png",
+  "s3": "b08-s3.png",
+  "s4": "b08-s4.png",
+  "s5": "b08-s5.png",
+  "s6": "b08-s6.png"
+ },
+ "book_lines": [
+  {
+   "n": 1,
+   "text": "You would then ask, How does PS II supply electrons continuously?",
+   "page": "139",
+   "blocks": [
+    "p0009-b0031"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "The electrons that were moved from photosystem II must be replaced.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0031",
+    "p0009-b0032"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "This is achieved by electrons available due to splitting of water.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0032",
+    "p0009-b0033"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "The splitting of water is associated with the PS II; water is split into 2H⁺, [O] and electrons.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0033",
+    "p0009-b0034"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "This creates oxygen, one of the net products of photosynthesis.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0035"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "The electrons needed to replace those removed from photosystem I are provided by photosystem II.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0035",
+    "p0009-b0036",
+    "p0009-b0037"
+   ]
+  },
+  {
+   "n": 7,
+   "text": "2H₂O →4H⁺ +O₂ +4e⁻",
+   "page": "139",
+   "blocks": [
+    "p0009-b0038"
+   ]
+  },
+  {
+   "n": 8,
+   "text": "We need to emphasise here that the water splitting complex is associated with the PS II, which itself is physically located on the inner side of the membrane of the thylakoid.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0040",
+    "p0009-b0041",
+    "p0009-b0042"
+   ]
+  },
+  {
+   "n": 9,
+   "text": "Then, where are the protons and O₂ formed likely to be released – in the lumen? or on the outer side of the membrane?",
+   "page": "139",
+   "blocks": [
+    "p0009-b0042",
+    "p0009-b0044"
+   ]
+  }
+ ],
+ "placement": {
+  "s1": {
+   "items": 8,
+   "moved": 2,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5459,
+    "output_tokens": 302,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 108
+   }
+  },
+  "s2": {
+   "items": 8,
+   "moved": 3,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5412,
+    "output_tokens": 365,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 185
+   }
+  },
+  "s3": {
+   "items": 10,
+   "moved": 7,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5596,
+    "output_tokens": 217,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 0
+   }
+  },
+  "s4": {
+   "items": 12,
+   "moved": 6,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5804,
+    "output_tokens": 284,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 0
+   }
+  },
+  "s5": {
+   "items": 8,
+   "moved": 6,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5482,
+    "output_tokens": 406,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 203
+   }
+  },
+  "s6": {
+   "items": 8,
+   "moved": 6,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5457,
+    "output_tokens": 201,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 0
+   }
+  }
+ }
+}
