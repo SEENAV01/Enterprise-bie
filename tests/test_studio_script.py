@@ -258,6 +258,12 @@ class Script(unittest.TestCase):
         part = copy.deepcopy(parts()[2])
         part["points"][2]["says"] = ["Protons kahan released hote hain? Lumen mein."]
         self.assertIn("11.6.1-k3 sentence 2: 'Lumen mein.' is a fragment", check(2, part))
+        # round 1 (22 Nov 2026): an initial is not a sentence end, and a teacher's one-word question is not a fragment
+        self.assertEqual(studio_script.sentences({"says": ["Calvin ne J.A. Bassham ke saath reactions dhoondhi. Kyun?"]}),
+                         ["Calvin ne J.A. Bassham ke saath reactions dhoondhi.", "Kyun?"])
+        part["points"][2]["says"] = ["Protons kahan released hote hain? Kyun? Woh lumen mein release hote hain, jahan "
+                                     "unki ginti badhti hai."]
+        self.assertNotIn("is a fragment", check(2, part))
         part = copy.deepcopy(parts()[2])
         part["points"][4]["says"].append("Is experiment mein oxygen-18 radioactive tracer tha.")
         self.assertIn("this says a known slip (oxygen-18 called radioactive)", check(2, part))

@@ -79,7 +79,7 @@ QUESTIONS_FROM = 8             # ... in a heading of at least this many sentence
 WHY = re.compile(r"\b(kyun|kyon|kyu|kyoon|why)\b", re.I)
 FRAGMENT = 3                   # a sentence of this many words or fewer is a fragment (Navin, 22 Nov: "tooti tooti lagegi")
 PROCESS_FROM = 3               # a heading with this many teachable process items is a process heading: overview, retell
-SENTENCE = re.compile(r"(?<=[.?!])\s+")
+SENTENCE = re.compile(r"(?<=[.?!])(?<!\b[A-Z]\.)\s+")   # never after an initial ("J.A. Bassham", "T.W. Engelmann")
 COUNT = re.compile(r"\d|\b(ek|teen|chaar|char|paanch|panch|chhe|chhah|chheh|saat|aath|nau|das|baarah|barah|athaarah|"
                    r"atharah|one|two|three|four|five|six|seven|eight|nine|ten|twelve|eighteen|dono|teeno|chaaron)\b", re.I)
 MISCONCEPTION = re.compile(r"\b(log|aksar|zyadatar|bahut se|kai)\b.{0,60}\b(sochte|samajhte|maante|lagta)\b|galat ?fa?h?e?mi|"
@@ -395,7 +395,7 @@ def teacher_problems(answer: dict, heading: dict, chapter: dict, points: list) -
         if not any(WHY.search(s) for s in asked):
             out.append("no \"kyun\" question in this heading: ask why at least once, then reason it out")
     for pid, k, s in said:
-        if len(s.split()) <= FRAGMENT:
+        if len(s.split()) <= FRAGMENT and not s.rstrip().endswith("?"):      # "Kyun?" is a teacher's question
             out.append(f"{pid} sentence {k}: {s!r} is a fragment; say a full sentence (an answer repeats its subject: "
                        "\"Woh aati hai paani se\", not \"Paani se.\")")
         for name, pattern, plain_only, right in TRAPS:
@@ -703,7 +703,7 @@ def counts(chapter: dict, parts: list) -> dict:
             "outside_book": sum(1 for part in parts for p in part.get("points") or [] if (p.get("outside_book") or "").strip()),
             "questions": sum(1 for s in spoken if s.endswith("?")),
             "question_share": round(sum(1 for s in spoken if s.endswith("?")) / max(1, len(spoken)), 3),
-            "fragments": sum(1 for s in spoken if len(s.split()) <= FRAGMENT),
+            "fragments": sum(1 for s in spoken if len(s.split()) <= FRAGMENT and not s.rstrip().endswith("?")),
             "retells": sum(1 for part in parts for p in part.get("points") or [] if p.get("kind") == "retell"),
             "goals": sum(1 for part in parts if (part.get("goal") or "").strip())}
 

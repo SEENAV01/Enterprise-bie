@@ -2669,5 +2669,8 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   IMPLEMENTED (`tests/test_studio_script.py`, `tests/test_studio_naksha.py`).
 - **Measured before (round 1, offline, on these checks):** 20 headings without a goal, 20 with too few questions, 15
   without a kyun, 16 deep misconceptions not said, 6 process headings without an overview and 6 without a retell
-  (opening, 11.2, 11.6, 11.7.2, 11.8, 11.9), 4 fragments, 1 bridge empty, 0 teacher slips. After: the final script round.
+  (opening, 11.2, 11.6, 11.7.2, 11.8, 11.9), 4 fragments, 1 bridge empty, 0 teacher slips. Two of the four fragments were
+  the check's own error (an initial, "J.A. Bassham", "T.W. Engelmann", read as a sentence end) and one was a teacher's
+  one-word "Kyun?"; the sentence split keeps initials together and a short question is not a fragment, so 1 real
+  fragment remains ("Teen carbon atoms."). After: the final script round.
   The voice (A1 pauses, A3 pace, units, Devanagari list) and film rules (F1, F2, F3) follow in their own PRs.
