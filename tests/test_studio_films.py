@@ -165,7 +165,8 @@ class FilmMotion(unittest.TestCase):
 
     def test_cutaway_is_an_ai_picture_in_cutaway_style(self):
         shot = {"visual": {"type": "cutaway", "image_prompt": "The inside of a mature ovule", "svg": ""}}
-        self.assertIn("transparent cross-section", studio_film.image_prompt(shot))
+        self.assertIn("Realistic scientific render", studio_film.image_prompt(shot))     # Navin's mixed look (22 Nov 2026)
+        self.assertIn("transparent cross-section", studio_film.image_prompt(shot, "", "glossy"))
         data = studio_film.player_data(film(), images={}, audio={}, chapter="Monsoon", question=QUESTION)
         self.assertEqual(data["shots"][1]["dive"], {"x": 55, "y": 25})
         self.assertIsNone(data["shots"][0]["dive"])

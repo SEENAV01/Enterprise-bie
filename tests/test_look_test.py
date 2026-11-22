@@ -22,8 +22,17 @@ PHOTO = {"id": "s1", "visual": {"type": "photo", "image_prompt": "a green leaf i
 
 
 class Styles(unittest.TestCase):
-    def test_the_films_keep_their_look_unless_a_style_is_asked(self):
-        self.assertTrue(studio_film.image_prompt(SHOT).endswith(studio_film.CUTAWAY_SUFFIX))
+    def test_navins_mixed_look_is_the_films_default(self):
+        # Navin after the look test (22 Nov 2026): molecular machinery close-ups as structures, overviews matte, both with
+        # a light controlled sheen; open ended, so "glossy" (the earlier films' look) stays one word away
+        self.assertEqual(studio_film.FILM_STYLE, "mixed")
+        self.assertTrue(studio_film.image_prompt(SHOT).endswith(studio_film.CUTAWAY_STYLES["close_up"]))
+        overview = {"visual": {"type": "cutaway", "image_prompt": "a whole chloroplast with its grana stacks; no proteins at "
+                                                                   "this scale"}}
+        self.assertTrue(studio_film.image_prompt(overview).endswith(studio_film.CUTAWAY_STYLES["overview"]))
+        self.assertIn("controlled satin sheen", studio_film.CUTAWAY_STYLES["close_up"])
+        self.assertIn("never gritty", studio_film.CUTAWAY_STYLES["close_up"])
+        self.assertTrue(studio_film.image_prompt(SHOT, "", "glossy").endswith(studio_film.CUTAWAY_SUFFIX))
         self.assertEqual(studio_film.CUTAWAY_STYLES["glossy"], studio_film.CUTAWAY_SUFFIX)
 
     def test_a_style_replaces_only_how_the_cutaway_is_rendered(self):
@@ -57,5 +66,6 @@ class LookTest(unittest.TestCase):
                 look_test.prompts(run, [("a15", "s1")], "matte")                    # a photo, not a cutaway
             with self.assertRaises(ValueError):
                 look_test.prompts(run, [("a15", "s2")], "neon")                     # no such style
+            self.assertEqual(look_test.prompts(run, [("a15", "s2")], "mixed")["prompts"][0]["id"], "a15-s2-mixed")
             with self.assertRaises(ValueError):
                 look_test.prompts(run, [("a15", "s2")] * 5, "matte")                # the image section takes 4
