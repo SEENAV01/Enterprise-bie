@@ -2537,3 +2537,21 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
 - **Measured:** on the 634 voice lines of batches 1–6, 168 lines change, every change a formula or a short form
   (सीओ₂ 80, CO2 30, C4 25, C3 19, H+ 16, PEP 10 …). The naksha and its films wait for Section 1 on Chapter 11.
 
+## Entry · Every film gets an example, and real-world uses come from life, 22 November 2026
+
+- **Run:** `s2-photosynthesis-naksha` (Section 1's Chapter 11 map → the chapter file → shapes A and B; Codex on the
+  ChatGPT plan, ₹0, 24 min, 291k input and 71k output tokens).
+- **Taught:** the code checks held (all 156 teachable items taught once in both shapes, the book's order, one analogy per
+  film), but the examples were empty in all 48 films, and "real world" held study tasks: 14 of 48 entries name a diagram,
+  identification, NEET trap or stoichiometry exercise, and most of the rest are abstract ("Membrane integrity ki ATP
+  synthesis mein necessity"). Navin asked for "analogies examples real world use case" planned with the chapter. The
+  review page was a 110 kB markdown file, hard to compare on a tablet.
+- **Changed in BIE:** `studio_naksha.RULES` defines an example (a concrete case worked through: a named plant or
+  experiment, a number, one molecule followed) and a real-world use (a real thing, place or happening in food, farming,
+  health, weather or technology; empty when there is no honest link, never invented); `problems()` asks for at least
+  one example per film, flags a repeated example and flags study-task wording in real_world (`STUDY_TASK`);
+  `NAKSHA.md` shows examples and real-world uses on separate lines; `compare()` and `html()` write `NAKSHA.html`, the two
+  shapes heading by heading with where they differ. IMPLEMENTED (`tests/test_studio_naksha.py`).
+- **Measured (on the first naksha, offline):** films with an example A 0/28, B 0/20; study-task real-world entries A 8,
+  B 6 (all now sent back to the maker). After: waits for the next naksha run.
+

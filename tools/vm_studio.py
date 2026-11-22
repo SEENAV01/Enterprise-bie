@@ -175,6 +175,7 @@ def naksha(args, client, model, out: Path, summary: dict):
             "questions": questions}
     (out / "questions.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
     (out / "NAKSHA.md").write_text(studio_naksha.markdown(chapter, records), encoding="utf-8")
+    (out / "NAKSHA.html").write_text(studio_naksha.html(chapter, records), encoding="utf-8")
     left = [p for r in records for p in r["problems"]]
     summary.update(status="ok" if not left else "needs_fix", usage=usage, model=model,
                    shapes={r["shape"]: {"films": len((r.get("answer") or {}).get("films") or []), "rounds": len(r["rounds"]),

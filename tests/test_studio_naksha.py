@@ -61,13 +61,15 @@ def chapter():
 
 OPENINGS = {"01": "a thali of rice and dal on a kitchen table", "02": "the thylakoid membrane with its two photosystems",
             "03": "a water molecule breaking apart beside the membrane", "04": "protons crowding inside the lumen"}
+EXAMPLES = {"01": "one rice grain traced back to sunlight", "02": "one electron followed from P680",
+            "03": "two water molecules counted atom by atom", "04": "maize leaf section"}
 
 
 def film(fid, section, teaches, *, recalls=(), builds_on=(), analogy="", opening="", reuse=""):
     return {"id": fid, "section": section, "title": f"Film {fid}", "question": "Kyun?", "teaches": list(teaches),
             "recalls": list(recalls), "builds_on": list(builds_on), "prerequisite": "", "opens_with": "Ek sawaal se",
             "story": ["pehle yeh", "phir woh"], "analogy": {"for": "flow", "picture": analogy, "why_it_fits": "fits"},
-            "examples": ["a leaf"], "real_world": ["greenhouse"], "terms": ["PS II"], "outside_book": [],
+            "examples": [EXAMPLES[fid[1:]]], "real_world": ["greenhouse"], "terms": ["PS II"], "outside_book": [],
             "saman": [{"id": "s1", "shows": opening or OPENINGS[fid[1:]], "kind": "cutaway",
                        "for_items": list(teaches[:1]), "why": "shows it", "reuse_of": reuse}],
             "minutes": 4}
@@ -162,6 +164,39 @@ class Naksha(unittest.TestCase):
         self.assertIn("a03: its opening picture reuses 'a02 s1'; open on a picture of its own",
                       studio_naksha.problems(answer, chapter(), "A"))
 
+    def test_every_film_has_its_own_example_and_real_uses_from_life(self):
+        # the first naksha of Chapter 11 (22 Nov 2026): no film had an example and "real world" held study tasks
+        answer = good("A")
+        answer["films"][0]["examples"] = []
+        answer["films"][1]["real_world"] = ["Incomplete Z-scheme diagrams mein arrows identify karna."]
+        answer["films"][2]["examples"] = list(answer["films"][1]["examples"])
+        found = " | ".join(studio_naksha.problems(answer, chapter(), "A"))
+        self.assertIn("a01: needs at least one example", found)
+        self.assertIn("a02: real_world 'Incomplete Z-scheme diagrams mein arrows identify karna.' is a study task", found)
+        self.assertIn("a03: example 'one electron followed from P680' repeats a02's", found)
+        answer = good("A")
+        answer["films"][1]["real_world"] = []                       # no honest real-world link: left empty, no problem
+        answer["films"][2]["real_world"] = ["Sugarcane and maize are C4 crops grown in hot fields."]
+        self.assertEqual(studio_naksha.problems(answer, chapter(), "A"), [])
+        self.assertIn("never invent one", studio_naksha.RULES)
+
+    def test_navins_page_compares_the_two_shapes_heading_by_heading(self):
+        records = [{"shape": s, "answer": good(s), "problems": [], "rounds": [{}]} for s in studio_naksha.SHAPES]
+        records[0]["answer"]["films"].insert(2, film("a03", "11.6", ["p001-i4"], builds_on=["a02"], opening="a battery"))
+        records[0]["answer"]["films"][1]["teaches"] = ["p001-i3"]
+        records[0]["answer"]["films"][3]["id"] = "a04"
+        data = studio_naksha.compare(chapter(), records)
+        self.assertEqual([(r["number"], r["differs"]) for r in data["sections"]], [("", False), ("11.6", True), ("11.6.1", False)])
+        self.assertEqual(data["shapes"]["A"]["covered"], data["shapes"]["A"]["coverable"])
+        page = studio_naksha.html(chapter(), records)
+        self.assertTrue(page.startswith("<!doctype html>"))
+        self.assertIn("review page", page)
+        self.assertEqual(page.count("yahan farq hai"), 1)
+        self.assertIn("Asli duniya mein:", page)
+        self.assertIn("Roop A", page)
+        self.assertIn("Roop B", page)
+        self.assertIn("Shuruaat (pehli heading se pehle)", page)
+
     def test_shape_b_makes_one_film_per_heading(self):
         answer = good("B")
         answer["films"].append(film("b04", "11.6.1", ["p002-i2"], analogy=""))
@@ -216,7 +251,7 @@ class Stage(unittest.TestCase):
             plan = json.loads((out / "questions.json").read_text(encoding="utf-8"))
             self.assertTrue(plan["naksha"])
             self.assertEqual([q["id"] for q in plan["questions"]], ["a01", "a02", "a03", "b01", "b02", "b03"])
-            for name in ("CHAPTER.md", "SAMAJH.html", "NAKSHA.md", "naksha.json", "chapter_file.json"):
+            for name in ("CHAPTER.md", "SAMAJH.html", "NAKSHA.md", "NAKSHA.html", "naksha.json", "chapter_file.json"):
                 self.assertTrue((out / name).exists(), name)
 
     def test_the_vm_runner_accepts_the_naksha_stage(self):

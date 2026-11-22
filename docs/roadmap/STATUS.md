@@ -329,6 +329,14 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    all → make a new one, with the reason recorded. A detailed book (a doctor's text) still gets new and changed pictures.
    Quality is BIE's layers around the AI: clean input (both eyes), a fixed schema, code checks with exact problems sent
    back, a second look, the NCERT page beside each film, Navin's verdict, passed outputs locked.
+   **First naksha run (22 November 2026, job `s2-photosynthesis-naksha`, Codex, ₹0, 24 min):** shape A 28 films
+   (198 min, 1 round), shape B 20 films (147 min, 3 rounds), both with no code problems left and all 156 teachable items
+   taught once. The shapes cut the lines differently only at the opening, 11.2, 11.4, 11.6.3, 11.7.2 and 11.8. Seekh: no film
+   had an example, and the "real world" field held study tasks ("Z-scheme diagrams mein arrows identify karna", "NEET
+   numerical traps"). Now: at least one example per film (never another film's), real-world uses must be things in life
+   (empty when there is no honest link) and code flags study-task wording; `NAKSHA.html` (the two shapes heading by
+   heading for Navin's tablet). The 11.6 films of both shapes are being made from this first naksha (jobs
+   `s3-photosynthesis-films-116-a` and `-b`); Navin chooses the shape after seeing them.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
