@@ -201,6 +201,87 @@ class TeacherVoice(unittest.TestCase):
                     if pause == studio_voice.INVITE_PAUSE:          # only after a full stop, as when Navin passed it
                         self.assertRegex(bit, r"[.।!]$", sentence["voice"])
 
+    def test_a_think_question_waits_longer_than_one_answered_at_once(self):
+        # teacher study and Navin's ear (22 November 2026): "Naye wala sahi hai"
+        self.assertEqual(studio_voice.parts("Oxygen aati kahan se hai? Woh aati hai paani se."),
+                         [("Oxygen aati kahan se hai?", studio_voice.QUESTION_PAUSE), ("Woh aati hai paani se.", 0.0)])
+        self.assertEqual(studio_voice.parts("Ruko, pehle khud socho: paani na ho to kya hoga? Dekho, kuch bacteria H2S lete hain."),
+                         [("Ruko, pehle khud socho: paani na ho to kya hoga?", studio_voice.THINK_PAUSE),
+                          ("Dekho, kuch bacteria H2S lete hain.", 0.0)])
+        self.assertEqual(studio_voice.parts("रुको, पहले खुद सोचो, पानी न हो तो क्या होगा?")[0][1], studio_voice.THINK_PAUSE)
+        self.assertEqual((studio_voice.QUESTION_PAUSE, studio_voice.THINK_PAUSE), (0.30, 0.90))
+
+    def test_the_pace_is_one_and_a_copy_can_be_faster(self):
+        # Navin, 22 November 2026: "Mujhe 1.00 wala shi lga abhi ke liye isko use krenge"; a 1.05 copy for his ear
+        import os
+        from unittest import mock
+        with mock.patch.dict(os.environ, {studio_voice.PACE_ENV: ""}):
+            self.assertEqual(studio_voice.pace(), 1.00)
+            self.assertEqual(studio_voice.speed("Isliye."), 1.00)
+            self.assertEqual(studio_voice.speed("Kyun?"), 0.97)
+        with mock.patch.dict(os.environ, {studio_voice.PACE_ENV: "1.05"}):
+            self.assertEqual(studio_voice.pace(), 1.05)
+            self.assertEqual(studio_voice.speed("Kyun?"), round(1.05 * 0.97, 3))
+            self.assertIn("raftaar 1.05", studio_voice.name("hi"))
+        for wrong in ("fast", "3"):
+            with mock.patch.dict(os.environ, {studio_voice.PACE_ENV: wrong}):
+                self.assertEqual(studio_voice.pace(), 1.00)
+        self.assertEqual(studio_voice.speed("Isliye.", 1.05), 1.05)
+
+    def test_the_gaps_between_lines(self):
+        line = lambda text, dur=4.0, **kw: dict({"text": text, "dur": dur}, **kw)
+        found = studio_voice.gaps([line("Oxygen aati kahan se hai?"), line("Woh aati hai paani se."),
+                                   line("Paani tootta hai."), line("Ab dekhte hain yeh kahan hota hai."),
+                                   line("Thylakoid ke andar."), line("Ab is H+ ko dekhiye."),
+                                   line("Naya chitra.", shot_start=True, dive=True), line("Aur ek.", shot_start=True),
+                                   line("Aakhri baat.")])
+        self.assertEqual(found[0], 0.0)                                   # the question's pause is in its own voice
+        self.assertEqual(found[1], studio_voice.SENTENCE_PAUSE)
+        self.assertEqual(found[2], studio_voice.REVEAL_PAUSE)             # a new idea, the film's first long pause
+        self.assertEqual(found[4], studio_voice.SENTENCE_PAUSE)           # another new idea 8 s later: no long pause
+        self.assertEqual(found[5], studio_voice.SENTENCE_PAUSE)           # a dive already waits 1.6 s
+        self.assertEqual(found[6], round(studio_voice.REVEAL_PAUSE - studio_voice.SHOT_WAIT["fade"], 2))
+        self.assertEqual(found[-1], 0.0)
+        later = studio_voice.gaps([line("Paani tootta hai.", 31.0), line("Ab dekhte hain aage.")])
+        self.assertEqual(later[0], studio_voice.REVEAL_PAUSE)
+
+    def test_units_and_signs_are_said_in_words_and_the_rest_refused(self):
+        self.assertEqual(studio_voice.spoken("680 nm par, 25°C aur 360 µL/L; 3:2; ADP → ATP; ~10 guna; 3 × 6"),
+                         "680 नैनोमीटर par, 25 डिग्री सेल्सियस aur 360 माइक्रोलीटर प्रति लीटर; 3 अनुपात 2; ए डी पी से ए टी पी; "
+                         "लगभग 10 guna; 3 गुणा 6")
+        self.assertEqual(studio_voice.spoken("680 nm; 35 °C; 3:2; ADP → ATP", "en"),
+                         "680 nanometres; 35 degrees Celsius; 3 to 2; A D P gives A T P")
+        self.assertEqual(studio_voice.spoken("Jawab hai: 3 cheezein"), "Jawab hai: 3 cheezein")   # a clause, not a ratio
+        self.assertEqual(studio_voice.unsaid("कार्बन की गिनती 5 + 1 = 3 + 3 रहती है।"), [])
+        self.assertEqual(studio_voice.unsaid("[CH2O] प्लस O2; H+ ions, 1% light"), [])
+        self.assertEqual(studio_voice.unsaid("ATP/NADPH * 10⁶"), ["/", "*", "⁶"])
+        self.assertEqual(studio_voice.unsaid("ATP/NADPH", "ta"), [])        # the Indic engines read their own script
+
+        class Engine:
+            label = "fake"
+
+            def speak(self, text, pace):
+                import numpy as np
+                return np.ones(10, dtype="float32"), 1000
+        voice = studio_voice.Voice.__new__(studio_voice.Voice)
+        voice.engine, voice.tone, voice.language, voice.who, voice.pace = Engine(), None, "hi", "female", 1.0
+        with self.assertRaisesRegex(ValueError, "cannot say /"):
+            voice.say("3 ATP/2 NADPH")
+
+    def test_the_spelling_list_is_for_the_voice_only(self):
+        self.assertEqual(studio_voice.spoken("थायलाकोइड के अंदर फियोफाइटिन"), "थायलाकॉइड के अंदर फ़ियोफ़ाइटिन")
+        self.assertEqual(studio_voice.spoken("थायलाकोइड्स", "en"), "थायलाकोइड्स")
+        for written, better in studio_voice.SPELLING:
+            self.assertNotEqual(written, better)
+            self.assertEqual(studio_voice.spoken(better), better)           # a respelled word stays as it is
+
+    def test_the_passed_q14_film_is_never_refused(self):
+        import gzip
+        film = json.load(gzip.open(ROOT / "tests" / "fixtures" / "passed_outputs" / "studio" / "photosynthesis-q14.json.gz"))["film"]
+        for shot in film["shots"]:
+            for sentence in shot["sentences"]:
+                self.assertEqual(studio_voice.unsaid(sentence["voice"]), [], sentence["voice"])
+
     def test_the_line_is_said_part_by_part_then_turned_to_his_tone(self):
         import numpy as np
 

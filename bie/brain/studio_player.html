@@ -305,7 +305,7 @@ function sentence(k){const s=F.shots[si];const t=s.sentences[k];if(!t)return;ki=
   if(playing)speak(t);}
 function speak(t){clearTimeout(timer);const my=token;const later=ms=>{timer=setTimeout(()=>{if(my===token)next();},ms);};
   if(!t.audio){later(t.dur*1000);return;}
-  BIEVoice.play(t.audio,{done:()=>later(450),fail:()=>later(t.dur*1000)});
+  BIEVoice.play(t.audio,{done:()=>later(t.after!=null?t.after*1000:450),fail:()=>later(t.dur*1000)});
   const s=F.shots[si],n=s.sentences[ki+1]||((F.shots[si+1]||{}).sentences||[])[0];if(n)BIEVoice.prefetch(n.audio);}
 function next(){if(!playing)return;const s=F.shots[si];if(ki+1<s.sentences.length){sentence(ki+1);return;}if(si+1<F.shots.length){show(si+1,0,true);return;}stop();}
 BIEVoice.onState=v=>{$('vnote').hidden=v!=='blocked';};

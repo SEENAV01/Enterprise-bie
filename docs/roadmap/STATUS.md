@@ -373,7 +373,11 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    a provisional yes, judged on a BIE video. His order: script + naksha rules (this PR: goals, questions with a kyun,
    overview and retell, counts, misconceptions said, slips caught, bridges, each film's recall line and next question,
    IMPLEMENTED) → the final script round, which he reads → voice rules → film rules F1/F3/F2 → one heading's test video
-   (the cost asked first if pictures cost money).
+   (the cost asked first if pictures cost money). Script + naksha rules merged (PR #198, `d1e3569f`); the final script round
+   runs as job `s6-photosynthesis-script-final`. Voice rules (this PR): pace 1.00 (`BIE_VOICE_PACE`, `studio_revoice.py
+   --pace 1.05` for his ear), 0.30 s after a question answered at once, 0.90 s after a think question, about a second
+   before a new idea or picture (`studio_voice.gaps`, the player's `after`), units and signs in words, a line with a sign
+   the voice cannot say refused and reported, a Devanagari spelling list for the voice; room tone stays off. IMPLEMENTED.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
