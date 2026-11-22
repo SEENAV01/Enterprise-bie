@@ -338,6 +338,24 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    heading for Navin's tablet). The 11.6 films of both shapes are being made from this first naksha (jobs
    `s3-photosynthesis-films-116-a` and `-b`); Navin chooses the shape after seeing them.
 
+15. **The chapter's script (22 November 2026).** Navin: "maan lo maine chapter ko poora padh liya hai, mai BIE hun ... mai
+   apni ek script banaunga poore chapter par ... phir video maker us script ke hisab se poore chapter ko video ke tukdon
+   mein baantega aur har video ke liye kya lagega wo material decide karega" and "script wo poora gyan hai jo hume bache
+   ko dena hai; notes us gyan ko behtar dhang se organise karke present karne ka tarika hai" (Ch 17 notes as the
+   standard; games may need their own script; the script's knowledge stays the reference); "aage wo koi deep book bhi
+   padhe to wo book use samajh aa jaaye". Card: "Poora chapter ek saath". New order: chapter understanding → chapter file
+   → naksha (ideas) → **one script for the whole chapter** → cut into videos (shape A or B is chosen here) → per video its
+   shots and pictures; notes and games present the same script in their own ways, each checked against the script's
+   knowledge points. New studio stage `script` (`bie/brain/studio_script.py`, `tools/vm_studio.py`, VM runner stage
+   list): heading by heading in the book's order, every call with the whole chapter file, the whole script so far and the
+   plan's ideas for the heading; each heading checked by code before the next (every teachable item once with its key
+   words, short forms opened with their meaning at first use and never early, nothing defined twice, no sentence,
+   analogy or example repeated, real-world uses from life, Roman script, sentences under 40 words, a screen line per
+   point, no caution lines); saved after every heading. Outputs `script.json` (knowledge points `11.6.1-k3`),
+   `SCRIPT.md`, `SCRIPT.html` (Navin's script page: the script beside the NCERT lines). The naksha run now keeps
+   `chapter_map.json` so the script reads one run. IMPLEMENTED (`tests/test_studio_script.py`); the cut, notes and games
+   from the script come next, after Navin reads the 11.6 part.
+
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
 Navin asked for one Unit 10 (Geography of India) topic at the Chapter 17 golden-benchmark level, as a film, a Living

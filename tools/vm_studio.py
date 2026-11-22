@@ -45,6 +45,11 @@ again in each language (the screen lines, title and everyday labels in that lang
 by code line by line; ``dub/<lang>/<qid>.html`` plays it with the same pictures and motion, voiced when the machine has
 that language's voice engine, with ``dub/<lang>/<qid>.json`` and ``DUB.md``.
 
+    python -B tools/vm_studio.py --stage script --from-run <naksha run (or understand run)> --out <folder>
+
+Stage ``script`` (``bie.brain.studio_script``, Navin, 22 November 2026): the whole chapter's script in one teacher's words,
+heading by heading, each heading checked by code before the next (``script.json``, ``SCRIPT.md``, ``SCRIPT.html``).
+
 Stage ``book`` (``bie.brain.studio_book``): the Living Book. Per question the maker writes the note cards (together they
 cover every point), a class moment with Asha, Dev and the Teacher, a "yaad rakho" line and a check question; code adds
 the film's picture with its pins, its diagram and its takeaway lines. ``BOOK.html`` is the chapter's notes for a phone
@@ -63,7 +68,7 @@ sys.path.insert(0, str(ROOT))
 
 from bie.brain import studio  # noqa: E402
 
-STAGES = ("questions", "naksha", "films", "games", "book", "pyq", "dub")
+STAGES = ("questions", "naksha", "script", "films", "games", "book", "pyq", "dub")
 MAX_IMAGES_PER_FILM = 12
 PLAYER = ROOT / "bie" / "brain" / "studio_player.html"
 GAME_PLAYER = ROOT / "bie" / "brain" / "studio_game_player.html"
@@ -158,6 +163,7 @@ def naksha(args, client, model, out: Path, summary: dict):
         if "=" in pair:
             key, value = pair.split("=", 1)
             course[key.strip()] = value.strip()
+    (out / "chapter_map.json").write_text(json.dumps(chapter, ensure_ascii=False), encoding="utf-8")   # for the script stage
     (out / "CHAPTER.md").write_text(chapter_file.markdown(chapter), encoding="utf-8")
     (out / "SAMAJH.html").write_text(chapter_file.html(chapter), encoding="utf-8")
     (out / "chapter_file.json").write_text(json.dumps(chapter_file.build(chapter), ensure_ascii=False, indent=1), encoding="utf-8")
@@ -183,6 +189,36 @@ def naksha(args, client, model, out: Path, summary: dict):
                                         "minutes": sum(f.get("minutes") or 0 for f in (r.get("answer") or {}).get("films") or [])}
                            for r in records},
                    coverable=len(studio_naksha.coverable(chapter)))
+
+
+def script(args, client, model, out: Path, summary: dict):
+    """Stage ``script`` (Navin, 22 November 2026: "poore chapter ki ek script, phir video ke tukde"): from a naksha run (its
+    ``chapter_map.json`` and, as ideas, its ``naksha.json``) or an understand run, the whole chapter's script, heading by
+    heading, each heading checked by code before the next; saved after every heading so a stopped run keeps its work."""
+    from bie.brain import studio_script
+    chapter = read_json(args.from_run, "chapter_map.json")
+    plans = maybe_json(args.from_run, "naksha.json")
+    course = dict(chapter.get("course") or {})
+    for pair in filter(None, (part.strip() for part in (args.course or "").split(";"))):
+        if "=" in pair:
+            key, value = pair.split("=", 1)
+            course[key.strip()] = value.strip()
+
+    def save(record):
+        (out / "script.json").write_text(studio_script.dump({"chapter_title": (chapter.get("map") or {}).get("chapter_title", ""),
+                                                             "parts": record["parts"]}), encoding="utf-8")
+        (out / "record.json").write_text(studio_script.dump({"rounds": record["rounds"], "problems": record["problems"],
+                                                             "usage": record["usage"]}), encoding="utf-8")
+        (out / "SCRIPT.md").write_text(studio_script.markdown(chapter, record), encoding="utf-8")
+        (out / "SCRIPT.html").write_text(studio_script.html(chapter, record), encoding="utf-8")
+
+    record = studio_script.write(client, model, chapter, course=course, naksha=plans if isinstance(plans, dict) else None,
+                                 language=args.language, max_rounds=args.max_rounds, on_part=save)
+    save(record)
+    summary.update(status="ok" if not record["problems"] else "needs_fix", usage=record["usage"], model=model,
+                   script=studio_script.counts(chapter, record["parts"]),
+                   rounds={r["section"] or "opening": len(r["rounds"]) for r in record["rounds"]},
+                   problems={k: v[:5] for k, v in record["problems"].items()})
 
 
 def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=None):
@@ -546,9 +582,11 @@ def run(args, *, client=None, load=None, voice_maker=None, read=None) -> dict:
         if args.source:
             source_hash, page_count, pages = load((read or read_pdf)(args.source), args.pages or None, with_images=False)
             summary.update(source_sha256=source_hash, page_count=page_count, pages_read=[p.number for p in pages])
-        if args.stage in ("naksha", "films", "games", "book", "pyq", "dub"):
+        if args.stage in ("naksha", "script", "films", "games", "book", "pyq", "dub"):
             if args.stage == "naksha":
                 naksha(args, client, model, out, summary)
+            elif args.stage == "script":
+                script(args, client, model, out, summary)
             elif args.stage == "dub":
                 dub(args, client, model, pages, out, summary, voice_maker=voice_maker)
             elif args.stage == "pyq":
@@ -615,7 +653,7 @@ def main(argv=None):
         parser.error("--source is needed for questions")
     if args.stage == "pyq" and not (args.source and args.pyqs):
         parser.error("--source and --pyqs are needed for pyq")
-    if args.stage in ("naksha", "films", "games", "book", "dub") and not args.from_run:
+    if args.stage in ("naksha", "script", "films", "games", "book", "dub") and not args.from_run:
         parser.error(f"--from-run is needed for {args.stage}")
     summary = run(args)
     print(json.dumps({k: summary.get(k) for k in ("status", "questions", "coverage", "voice", "error")}, ensure_ascii=False))
