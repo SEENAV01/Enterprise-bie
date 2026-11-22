@@ -216,7 +216,7 @@ class Script(unittest.TestCase):
         self.assertIn("Not yet prepared by any point: p002-i4", user)
         rules = studio_script.messages(ch, heads[0], [], course=ch["course"])[0]["content"]
         for words in ("never describe decoration", "carbon by carbon", "NAD/NADH", "done and filled here",
-                      "told fully and vividly", "only when a wrong idea is likely"):
+                      "told fully and vividly", "never said in the telling", "built on the same realistic picture step by"):
             self.assertIn(words, rules)
 
     def test_code_repairs_the_section_and_a_recall_of_an_item(self):

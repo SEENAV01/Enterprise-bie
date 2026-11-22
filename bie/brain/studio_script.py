@@ -122,11 +122,11 @@ Rules:
   (that one or a better one). Real-world uses (kind "real_world"): a real thing, place or happening in food, farming,
   health, weather or technology; never a study task or an exam trap; when the plan's ideas offer one, the heading has
   one; otherwise leave it out rather than invent one.
-  An analogy is told fully and vividly, the way a good teacher tells it, for the hard ideas (not in every point); it
-  says what maps to what in "answer" ("lumen = the reservoir, ATP synthase = the controlled outlet") and where the
-  picture stops being true in "watch_out". "watch_out" is a record for notes, games and checks: say it to the learner
-  only when a wrong idea is likely, in one short line after the analogy has done its work (Navin, 22 November 2026:
-  "analogies ka bhi apna role hai, kahin yeh cheez kharab na ho jaaye").
+  An analogy is told fully and vividly, the way a good teacher tells it, for the hard ideas (not in every point), and it
+  says its mapping in plain words as part of the telling ("H⁺ ions yahan paani hain, aur membrane hamara baandh");
+  that is enough for the learner (Navin, 22 November 2026: "analogy ko sahi tarike se bolna hi kaafi hai"). "answer"
+  records the mapping; "watch_out" records where the picture stops being true, for notes, games and checks only: it is
+  never said in the telling.
 - Checkpoints (kind "checkpoint"): every heading with three or more items stops at least once for the learner to think:
   ask what will happen or why ("socho, phir aage badhenge"), then reason it out; "answer" holds the reasoning the learner
   should reach and "watch_out" a common wrong idea and why it is wrong. Videos pause there, games ask it, notes keep the
@@ -148,7 +148,10 @@ Rules:
 - Depth: NEET depth where the chapter file marks exam high or deep; a sound base everywhere.
 - Outside the book is welcome where it makes the concept clearer; name what you added in outside_book.
 - "screen": for every point, what the screen shows while it is said (a photo, a diagram, a table, an equation): what
-  explains the words. Never a caution line ("assume", "illustrative", "the source does not say") in says or screen.
+  explains the words. A process or cycle taught over several points is built on the same realistic picture step by
+  step, as it is followed: each point adds only its own step and the earlier steps stay quiet, never a finished
+  crowded picture first (Navin, 22 November 2026: the Calvin cycle drawn as it is followed, on the photorealistic
+  picture, not a flat 2D diagram, so the last screen is never a khichdi of molecules). Never a caution line ("assume", "illustrative", "the source does not say") in says or screen.
 - Voice: {language} in Roman script with the book's English terms; a warm spoken teacher (questions, "socho", "dekho");
   every sentence under {max_words} words.
 - "bridge": one line that leads into the next heading (empty for the last heading).

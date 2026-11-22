@@ -361,7 +361,11 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    words enter BIE). Navin's cards on ChatGPT's audit of round 1 (22 November 2026): every NCERT line keeps equal time ("kahi phir
    choice selective na ho jaaye"); exercises: "Gyan script mein, hal game/notes mein". The final round adds exercise
    readiness, a closing recap, checkpoints and analogy limits (SEEKH_LOG) and runs after his teacher videos, transcripts
-   and Gemini notes arrive.
+   and Gemini notes arrive. Navin, 22 November 2026, 15:47: an analogy said well with its mapping in plain words is enough ("H⁺ ions paani
+   hain, membrane hamara baandh"); its limit stays a record for notes and games, never said in the telling. And a
+   process or cycle is drawn as it is followed, step by step **on the same photorealistic picture** (not a flat 2D
+   diagram), so the last screen is never a khichdi of molecules: the script's screen lines ask for it now; the video
+   step (cut and shots) must build it: each sentence adds only its own step, earlier steps stay quiet.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
