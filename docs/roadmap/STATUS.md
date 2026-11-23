@@ -409,6 +409,18 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    Learning track (Claude's demos, not BIE output): after the ATP synthase parts test, Navin asked to see the machinery
    working step by step; card "Teeno tarike se banake dikhao", then two or more samples each of way 1 (AI picture + code
    machine), way 3 (AI picture per state) and way 4 (both); samples ATP synthase, PS II water splitting, Z-scheme.
+   **routeS chosen (Navin, 23 November 2026, card "routeS: AI tasveer + SAM 2"):** routes A and B were too transparent
+   and B's top view showed no opening; he wants option 3's way with SAM 2 effects (pressure, rotating, opening and
+   closing like swallowing or gripping, sticking), made into BIE's rules and code and checked on other videos ("ek video
+   mein to sudhaar ... agli par fail ho gaya to kya fayda"). Picture parts (this PR): the film lists the parts of a photo
+   or cutaway that move (`visual.parts`) and what each sentence does to them (`acts`: turn, spin with riders, stop, open,
+   loose, tight with pressure rings, stick with a bond glow, leave, arrive, glow); the layout checker points at each part
+   on the made picture; `bie/brain/picture_parts.py` cuts it with SAM 2.1 tiny (Meta, Apache-2.0, Hugging Face revision
+   pinned, safetensors, CPU, in the VM's voice environment through `tools/picture_parts_worker.py`), cleans and checks the
+   cut, writes the part as a layer and fills a shaded plate under what moves away; the player moves the layers while
+   the line names the part; `parts_problems` checks every act (a listed part, a point where one is needed, spoken while
+   it happens, drawn by the prompt, one thing at a time). IMPLEMENTED (`tests/test_film_parts.py`); not yet INTEGRATED:
+   the first VM run with parts is the seven 11.6 films again, then PS II and the Z-scheme.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

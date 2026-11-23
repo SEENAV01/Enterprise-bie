@@ -2813,3 +2813,32 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   (`tests/test_studio_films.py`, `StuckCalls`).
 - **Measured:** offline only so far (a timed-out first call then an answer: one film; two failures then answers for the
   next film: one failed row, one film, status needs_fix). g1 runs again after this merges.
+
+## Entry · A picture's parts that move (routeS), 23 November 2026
+
+- **Run (learning track, Claude's demos, not BIE output):** ATP synthase shown four ways (routes A–D) and then routeS
+  (AI pictures with parts cut by SAM 2) and route A2 (a solid three.js machine). Navin: A and B "kuchh jyada hi
+  transparent", B's top view shows no opening; option 3 with SAM 2 effects "will be the best"; card "routeS: AI tasveer +
+  SAM 2"; whatever is chosen becomes BIE's rules and code and is checked on other videos.
+- **What the demo taught:** (1) a part is found reliably only on the made picture, so the layout checker (which already
+  moves labels onto the picture) now also points at each part: points inside it, points on the neighbours that touch
+  it, a tight box; (2) SAM 2 with other parts' points added as "not it" lost its way (score 0.09, a beta took its
+  neighbour), and a molecule cut with its box took the whole pocket: SAM is asked with and without the box and its most
+  confident mask kept, a molecule never with its box; (3) a part that holds a molecule must not carry a copy of it when
+  it moves: what it holds is painted over from the part's own colours; (4) a plate filled from the neighbours read as a
+  pale smear when the stalk turned: what a moving part uncovers is shaded, so it reads as a gap or an empty pocket.
+- **Changed in BIE:** `bie/brain/picture_parts.py` (SAM 2.1 tiny through transformers, no torchvision: Meta's
+  `facebook/sam2.1-hiera-tiny` at revision `de431c40`, Apache-2.0, safetensors; the PyPI package `sam2` is not Meta's
+  and is not used), `tools/picture_parts_worker.py` (runs in the VM's voice environment: chatterbox-tts 0.1.7 pins torch
+  2.6.0 and transformers 5.2.0), film schema `visual.parts` and sentence `acts`, the maker's instruction "MACHINE PARTS
+  THAT MOVE", `parts_problems`, the layout checker's `parts` answer, `part_requests`, `act_times` (an act starts as the
+  line names its part, at least 1.2 s after the one before), the films section's `cut_parts` (one cutter call per film;
+  the report lists parts wanted and cut), and the player's act engine (poses with slide, jaw, turn, scale and opacity;
+  pressure rings, a bond glow, riders; a jump into a shot replays the earlier acts). A turning line is satisfied by a
+  turn or spin act on the picture's own part. The picture prompt asks for the moving parts solid, opaque and separate
+  (`SOLID_PARTS`; Navin on routes A and B: "kuchh jyada hi transparent"), and each film gets a review page of its parts
+  and acts (`<qid>-hisse.html`).
+- **Measured:** on the ATP top-view demo picture with six parts: model load 3.7 s, 4.3 s for the picture, all six cut
+  (areas 0.3–5.5 %, SAM scores 0.77–0.97); the act engine played four sentences in Chromium without errors. Offline tests
+  21 new; every passed film still passes. Quality, first-try pass rate and rounds wait for the first VM run with parts.
+

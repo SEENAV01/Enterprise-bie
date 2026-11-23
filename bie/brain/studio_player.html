@@ -47,6 +47,19 @@
 .spin{position:absolute;aspect-ratio:1;border-radius:50%;border:.25vw dashed rgba(255,226,160,.85);transform:translate(-50%,-50%);animation:inn .6s both}
 .spin i{position:absolute;inset:0;border-radius:50%;animation:spin 1.8s linear infinite}.spin i::after{content:'';position:absolute;top:-6%;left:44%;width:12%;height:12%;border-radius:50%;background:#ffe9a8;box-shadow:0 0 10px #ffd27a}
 @keyframes spin{to{transform:rotate(360deg)}}
+/* parts cut from the AI picture (bie/brain/picture_parts.py) and moved by the sentences' acts (Navin, 23 November 2026,
+   routeS: "pressure moving rotating khulna band hona jaise nigalna pakdna kisi jagah par chipkana"): each part lies exactly
+   where it was in the picture, over a plate where the picture is filled in under it, so it can turn, open, close, slide */
+.part{position:absolute;inset:0;pointer-events:none;will-change:transform,opacity}
+.part .pb{position:absolute}.part .pb img{width:100%;height:100%;display:block}
+.part .sheen{position:absolute;inset:0;overflow:hidden;mix-blend-mode:overlay;-webkit-mask-size:100% 100%;mask-size:100% 100%;opacity:0;transition:opacity .4s}
+.part .sheen i{position:absolute;top:0;bottom:0;left:0;width:200%;background:repeating-linear-gradient(90deg,rgba(0,0,0,.45) 0,rgba(255,255,255,.5) 3%,rgba(0,0,0,.45) 6%)}
+.part.p-spin .sheen{opacity:1}.part.p-spin .sheen i{animation:roll .7s linear infinite}
+.part.p-glow .pb{filter:brightness(1.3) drop-shadow(0 0 .8vw rgba(255,220,140,.95))}
+@keyframes roll{to{transform:translateX(-3%)}}
+.rider{position:absolute;width:2.2%;aspect-ratio:1;margin:-1.1% 0 0 -1.1%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#dfe9f1 55%,#8aa3b5);box-shadow:0 0 6px rgba(255,255,255,.8);color:#33475a;font:800 clamp(7px,1vw,12px)/1 system-ui;display:flex;align-items:center;justify-content:center;opacity:0}
+.pring{fill:none;stroke:#ff8a5c;stroke-width:.4}
+.bond{position:absolute;width:7%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%) scale(0);background:radial-gradient(circle,rgba(255,246,200,.95) 0,rgba(255,200,90,.6) 35%,transparent 70%);pointer-events:none}
 .world.ghost{pointer-events:none}
 .mtag{transition:opacity .25s}
 .vnote{margin-top:8px;padding:9px 12px;border-radius:9px;background:var(--gold);color:#17140a;font-weight:700;font-size:.92rem}
@@ -236,7 +249,50 @@ function stepCycle(ac,t,now){if(t<0||!ac.st.length)return;
   ac.fly=ac.fly.filter(m=>{const u=(now-m.t0)/m.ms;if(u<0){m.g.style.opacity=0;return true;}if(u>=1.25){m.g.remove();return false;}
     const e=ease(Math.min(1,u));place(m.g,m.f[0]+(m.to[0]-m.f[0])*e,m.f[1]+(m.to[1]-m.f[1])*e,m.inn&&u>.85?Math.max(.2,1-(u-.85)*3):1,
       m.inn?Math.min(1,u*6,u<.9?1:Math.max(0,1-(u-.9)/.12)):Math.min(1,u*6,u<1?1:Math.max(0,1-(u-1)/.25)));return true;});}
-function tick(now){camStep(now);edgeCut(now);
+// --- parts of the picture that move (routeS) ------------------------------------------------------------------------------
+// a part's pose: slide (tx, ty: percent of the frame), jaw (jx, jy, jr: open, loose, tight), turn (rot), scale and opacity
+let parts={},riders=[];
+const POSE={open:{d:2.8,s:1.06,r:7},loose:{d:0,s:1,r:0},tight:{d:-1.7,s:.92,r:-3}};
+const REST=()=>({tx:0,ty:0,jx:0,jy:0,jr:0,rot:0,s:1,op:1});
+function partEl(p){const d=el('div','part');d.dataset.part=p.id;const b=el('div','pb');
+  b.style.left=p.box[0]+'%';b.style.top=p.box[1]+'%';b.style.width=(p.box[2]-p.box[0])+'%';b.style.height=(p.box[3]-p.box[1])+'%';
+  const im=el('img');im.alt='';im.src=p.img;b.appendChild(im);const sh=el('div','sheen');sh.style.maskImage=sh.style.webkitMaskImage='url("'+p.img+'")';
+  sh.appendChild(el('i'));b.appendChild(sh);d.appendChild(b);const c=p.centre||[(p.box[0]+p.box[2])/2,(p.box[1]+p.box[3])/2];
+  d.style.transformOrigin=c[0]+'% '+c[1]+'%';parts[p.id]={id:p.id,el:d,box:p.box,c,now:REST(),from:null,to:null,t0:0,ms:1,chew:0,jawT:null,riders:[]};return d;}
+function drawPart(P,now){const n=P.now,chew=now<P.chew?1+.018*Math.sin((P.chew-now)/70):1;
+  P.el.style.transform=`translate(${(n.tx+n.jx).toFixed(3)}%,${(n.ty+n.jy).toFixed(3)}%) rotate(${(n.rot+n.jr).toFixed(2)}deg) scale(${(n.s*chew).toFixed(4)})`;
+  P.el.style.opacity=n.op.toFixed(3);}
+function partsStep(now){for(const id in parts){const P=parts[id];if(P.to){const u=ease((now-P.t0)/P.ms);
+    for(const k in P.to)P.now[k]=P.from[k]+(P.to[k]-P.from[k])*u;if(u>=1)P.to=null;}drawPart(P,now);}}
+// the jaw moves along the line from the point it closes onto (toward) to its own centre: open moves away, tight moves in
+function jaw(P,T,q){if(!T)return{jx:0,jy:0};const vx=P.c[0]-T[0],vy=(P.c[1]-T[1])*.5625,l=Math.hypot(vx,vy)||1;
+  return{jx:vx/l*q.d,jy:vy/l*q.d/.5625};}
+function doAct(a,now,instant){const P=parts[a.part];if(!P)return;const n=P.now,to=Object.assign({},n),T=a.toward&&a.toward.length===2?a.toward:null;let ms=1200;
+  if(a.do==='spin'){P.el.classList.add('p-spin');addRiders(P,a.rider);return;}
+  if(a.do==='stop'){P.el.classList.remove('p-spin');P.riders.forEach(r=>r.el.remove());riders=riders.filter(r=>r.P!==P);P.riders=[];return;}
+  if(a.do==='glow'){if(!instant){P.el.classList.add('p-glow');const my=token;setTimeout(()=>{if(my===token)P.el.classList.remove('p-glow');},1800);}return;}
+  if(a.do==='turn'){to.rot=n.rot+(+a.turns||0);ms=1500;}
+  else if(POSE[a.do]){if(T)P.jawT=T;const q=POSE[a.do],j=jaw(P,P.jawT,q);to.jx=j.jx;to.jy=j.jy;to.jr=q.r;to.s=q.s;ms=1100;
+    if(a.do==='tight'&&!instant){pressure(P.c,now+450);P.chew=now+1100+1300;}}
+  else if(a.do==='stick'&&T){to.tx=T[0]-P.c[0];to.ty=T[1]-P.c[1];ms=1500;if(!instant)bond(T,now+1350);}
+  else if(a.do==='leave'&&T){to.tx=T[0]-P.c[0];to.ty=T[1]-P.c[1];to.op=0;ms=1800;}
+  else if(a.do==='arrive'&&T){n.tx=T[0]-P.c[0];n.ty=T[1]-P.c[1];n.op=0;to.tx=0;to.ty=0;to.op=1;ms=1600;}
+  else return;
+  if(instant){P.now=to;P.to=null;return;}P.from=Object.assign({},P.now);P.to=to;P.t0=now;P.ms=reduced?1:ms;}
+// riders go round with a spinning part seen from the side: across the front (x = centre + half width x sin), hidden behind
+function addRiders(P,what){if(!what||P.riders.length)return;const label=what==='H+'?'H\u207a':what;
+  for(let i=0;i<3;i++){const r=el('div','rider',label);P.el.appendChild(r);const o={el:r,P,phase:i/3*Math.PI*2};P.riders.push(o);riders.push(o);}}
+function ridersStep(now){for(const r of riders){const b=r.P.box,a=now/2600*Math.PI*2+r.phase,cx=(b[0]+b[2])/2,hw=(b[2]-b[0])/2*.9,front=Math.cos(a);
+  r.el.style.left=(cx+hw*Math.sin(a)).toFixed(2)+'%';r.el.style.top=((b[1]+b[3])/2).toFixed(2)+'%';
+  r.el.style.opacity=front>0?Math.min(1,front*3).toFixed(2):0;r.el.style.transform='scale('+(.75+.25*Math.max(0,front)).toFixed(2)+')';}}
+// pressure: rings close in on the point where the part presses; a bond: a glow where two parts join
+function pressure(T,born){const x=T[0],y=T[1]*.5625,rings=[0,1,2].map(()=>{const c=sv('circle',{cx:x,cy:y,r:7,class:'pring'},wsvg);c.style.opacity=0;return c;});
+  actors.push({kind:'press',rings,born});}
+function bond(T,born){const b=el('div','bond');b.style.left=T[0]+'%';b.style.top=T[1]+'%';fxBox.appendChild(b);actors.push({kind:'bond',b,born});}
+// a jump into the middle of a shot first puts every part where the earlier sentences left it
+function partsReplay(k){const s=F.shots[si];for(let j=0;j<k;j++)for(const a of (s.sentences[j]||{}).acts||[])doAct(a,performance.now(),true);}
+
+function tick(now){camStep(now);edgeCut(now);partsStep(now);ridersStep(now);
   for(const ac of actors){const t=now-ac.born;
     if(ac.kind==='move'){ac.items.forEach((g,i)=>{const hide=()=>{g.style.opacity=0;(ac.tails[i]||[]).forEach(c=>c.style.opacity=0);};
         const local=t-i*ac.gap;if(local<0){hide();return;}let u=local/ac.ms,rep=ac.loop;
@@ -253,7 +309,12 @@ function tick(now){camStep(now);edgeCut(now);
       const v=Math.max(0,(t-1000)/900);ac.a.style.opacity=ac.b.style.opacity=u<1?1:0;ac.made.style.opacity=u<1?0:1;ac.made.setAttribute('transform',`translate(${ac.x} ${ac.y}) scale(${(1.25+.08*Math.sin(now/240)).toFixed(2)})`);
       ac.ring.setAttribute('r',(.5+v*6).toFixed(2));ac.ring.setAttribute('opacity',v>0&&v<1?(1-v).toFixed(2):0);}
     else if(ac.kind==='react')stepReact(ac,t,now);
-    else if(ac.kind==='cycle')stepCycle(ac,t,now);}
+    else if(ac.kind==='cycle')stepCycle(ac,t,now);
+    else if(ac.kind==='act'){if(!ac.done&&t>=0){ac.done=true;doAct(ac.a,now);}}
+    else if(ac.kind==='press')ac.rings.forEach((c,i)=>{const u=(t-i*230)/900;if(u<0||u>1){c.style.opacity=0;return;}
+      c.setAttribute('r',(1.2+5.8*(1-ease(u))).toFixed(2));c.style.opacity=(Math.sin(Math.PI*u)*.95).toFixed(2);});
+    else if(ac.kind==='bond'){const u=t/1400;if(u<0){ac.b.style.opacity=0;}else{const v=Math.min(1,u);
+      ac.b.style.transform=`translate(-50%,-50%) scale(${(.2+1.1*ease(Math.min(1,u*2))).toFixed(2)})`;ac.b.style.opacity=(u<.5?1:Math.max(.25,1-(u-.5)*1.5)).toFixed(2);}}}
   placeLabels();declutter(now);requestAnimationFrame(tick);}
 requestAnimationFrame(tick);
 
@@ -312,9 +373,10 @@ function fxAdd(arrows,effects){arrows.forEach(a=>{const P=a.points.map(p=>[p[0],
     if(f.type==='rise')for(let i=0;i<12;i++){const ii=el('i');ii.style.left=(4+i*8)+'%';ii.style.animationDelay=(i*.37%2.6)+'s';e.appendChild(ii);}fxBox.appendChild(e);});}
 
 // --- shots and sentences -------------------------------------------------------------------------------------------------
-function clearShot(){actors=[];labels=[];texts=[];$('world').innerHTML='';$('ssvg').innerHTML='';$('labels').innerHTML='';}
+function clearShot(){actors=[];labels=[];texts=[];parts={};riders=[];$('world').innerHTML='';$('ssvg').innerHTML='';$('labels').innerHTML='';}
 function build(i){const s=F.shots[i];clearShot();
   if(s.type==='diagram'){const d=el('div','svg base');d.innerHTML=s.svg;$('world').appendChild(d);}else{const im=el('img');im.alt='';im.src=s.img||'';$('world').appendChild(im);}
+  (s.parts||[]).forEach(p=>{if(p.img&&p.box)$('world').appendChild(partEl(p));});
   worldLayers();if(s.type==='diagram')textLayer();$('key').textContent=s.key||'';$('sc').textContent=s.title||'';}
 function show(i,k,viaDive){const my=++token;const s=F.shots[i];si=i;ki=0;
   // the next picture opens inside the dive point while the old picture zooms past and fades (one world, no slide cut);
@@ -332,7 +394,7 @@ function show(i,k,viaDive){const my=++token;const s=F.shots[i];si=i;ki=0;
       if(deep)lens(u<.78?18+ease(u/.78)*22:40+(u-.78)/.22*105);
       if(u<1)requestAnimationFrame(step);else{ghost.remove();cam.fade=1;lens(999);}};
     requestAnimationFrame(step);setTimeout(()=>{if(my===token)sentence(k||0);},deep?ms:200);return;}
-  build(i);cam.to=null;cam.ox=50;cam.oy=50;cam.s=1;cam.fade=1;sentence(k||0);}
+  build(i);cam.to=null;cam.ox=50;cam.oy=50;cam.s=1;cam.fade=1;partsReplay(k||0);sentence(k||0);}
 function sentence(k){const s=F.shots[si];const t=s.sentences[k];if(!t)return;ki=k;labelRound++;$('sub').textContent=t.text;const now=performance.now();bar(si,k,playing);
   const zm=t.zoom||{};camTo(zm.x==null?50:zm.x,zm.y==null?50:zm.y,Math.min(2.2,Math.max(1,zm.scale||1)),1700);
   // a new step: what earlier steps sent moving goes quiet too, so the new step's flow is the one that glows (F1)
@@ -340,6 +402,7 @@ function sentence(k){const s=F.shots[si];const t=s.sentences[k];if(!t)return;ki=
   (t.pins||[]).forEach(p=>addLabel(p.t,p.x,p.y,'pin new',now));fxAdd(t.arrows||[],t.effects||[]);
   handOff(t.moves||[],now+300);(t.moves||[]).forEach(m=>addMove(m,now+300,now+300+(t.dur||0)*1000));(t.grows||[]).forEach(g=>addGrow(g,now+300));(t.fuses||[]).forEach((f,i)=>addFuse(f,now+400+i*1200));
   (t.reacts||[]).forEach((r,i)=>addReact(r,now+300+(r.delay!=null?r.delay*1000:i*1400)));(t.cycles||[]).forEach(c=>addCycle(c,now+300));
+  (t.acts||[]).forEach((a,i)=>actors.push({kind:'act',a,born:now+(a.at!=null?a.at*1000:400+i*1400),done:false}));
   const w=$('world');w.querySelectorAll('.lit').forEach(e=>e.classList.remove('lit'));(t.focus||[]).forEach(id=>{const q=CSS.escape(id);w.querySelectorAll('#'+q+',[data-oid="'+q+'"]').forEach(e=>e.classList.add('lit'));});
   if(playing)speak(t);}
 function speak(t){clearTimeout(timer);const my=token;const later=ms=>{timer=setTimeout(()=>{if(my===token)next();},ms);};
@@ -351,6 +414,7 @@ BIEVoice.onState=v=>{$('vnote').hidden=v!=='blocked';};
 function stop(){playing=false;clearTimeout(timer);BIEVoice.stop();freezeBar();$('play').innerHTML='&#9654; Film chalaiye';}
 $('play').onclick=()=>{BIEVoice.unlock();if(playing){stop();return;}playing=true;$('play').innerHTML='&#10074;&#10074; Rokiye';bar(si,ki,true);speak(F.shots[si].sentences[ki]);};
 $('again').onclick=()=>{stop();show(0,0);};
-window.BIEFilm={state:()=>({shot:si,sentence:ki,playing,camera:{ox:cam.ox,oy:cam.oy,s:cam.s},actors:actors.map(a=>a.kind),labels:labels.length,voice:BIEVoice.state,words:texts.length,cut:texts.filter(t=>t.classList.contains('cut')).length})};
+window.BIEFilm={state:()=>({shot:si,sentence:ki,playing,camera:{ox:cam.ox,oy:cam.oy,s:cam.s},actors:actors.map(a=>a.kind),labels:labels.length,voice:BIEVoice.state,words:texts.length,cut:texts.filter(t=>t.classList.contains('cut')).length,
+  parts:Object.values(parts).map(P=>Object.assign({id:P.id,spin:P.el.classList.contains('p-spin'),riders:P.riders.length},P.now)),go:(i,k)=>{stop();show(i,k);}})};
 show(0,0);
 </script></body></html>

@@ -62,6 +62,13 @@ MOLECULES = tuple(KIT["molecules"])
 ACTORS = SPRITES + MOLECULES                 # what can travel, react or ride a cycle
 COLOURS = ("gold", "green", "blue", "red", "white", "purple")
 VISUALS = ("photo", "cutaway", "diagram")
+# what a sentence does to a part cut out of its AI picture (Navin, 23 November 2026, routeS: "pressure moving rotating khulna
+# band hona jaise nigalna pakdna kisi jagah par chipkana"); bie/brain/picture_parts.py cuts the parts, the player moves them
+DOES = ("turn", "spin", "stop", "open", "loose", "tight", "stick", "leave", "arrive", "glow")
+TOWARD = ("open", "tight", "stick", "leave", "arrive")      # acts that need a point: where the part closes, slides or goes
+UNCOVERS = ("turn", "open", "tight", "stick", "leave", "arrive")   # acts that uncover what lay under the part (a plate)
+MAX_PARTS = 6                 # parts cut from one picture
+MAX_ACTS = 3                  # acts in one sentence: one thing at a time
 ZOOM_MAX = 2.2
 I = {"type": "integer"}
 B = {"type": "boolean"}
@@ -127,6 +134,8 @@ SENTENCE = _obj({
     "cycles": _arr(_obj({"x": N, "y": N, "rx": N, "ry": N, "label": S, "carriers": I, "ms": N,
                          "stations": _arr(_obj({"at": N, "label": S, "becomes": WHAT, "takes": _arr(WHAT),
                                                 "gives": _arr(WHAT)}))})),
+    "acts": _arr(_obj({"part": S, "do": {"type": "string", "enum": list(DOES)}, "toward": _arr(N), "turns": N,
+                       "rider": {"type": "string", "enum": [""] + list(ACTORS)}})),
     "step": I,
     "count": _obj({"x": N, "y": N, "groups": BEADS, "then": BEADS}),
     "teaches": _arr(I), "beyond": S, "part": {"type": "string", "enum": list(PARTS)},
@@ -135,7 +144,8 @@ SCHEMA = _obj({
     "title": S, "look": S,
     "shots": _arr(_obj({
         "id": S, "title": S, "key": S, "covers": _arr({"type": "integer"}),
-        "visual": _obj({"type": {"type": "string", "enum": list(VISUALS)}, "image_prompt": S, "svg": S, "library": S}),
+        "visual": _obj({"type": {"type": "string", "enum": list(VISUALS)}, "image_prompt": S, "svg": S, "library": S,
+                        "parts": _arr(_obj({"id": S, "name": S, "looks": S}))}),
         "dive": _obj({"x": N, "y": N}),
         "aside": B,
         "sentences": _arr(SENTENCE),
@@ -192,9 +202,28 @@ with a process written inside a box instead of happening on screen):
   its context and basics are still clear here: what goes in, what comes out, why it matters for this question, shown
   slowly; its step-by-step details stay in its own film. A process that comes back to where it began (the Calvin cycle
   making RuBP again) is shown as a wheel (cycles), so the learner sees it return.
-- THE WHOLE MECHANISM. A machine that turns is shown turning: a spin effect on the part that turns, in the sentence that
-  says so (ATP synthase: H+ flowing through CF0 turns the central stalk, and the turning stalk changes the shape of CF1's
-  catalytic parts). A sentence that says something is made again (RuBP dobara banta hai) has a wheel in its shot.
+- THE WHOLE MECHANISM. A machine that turns is shown turning, in the sentence that says so (ATP synthase: H+ flowing
+  through CF0 turns the central stalk, and the turning stalk changes the shape of CF1's catalytic parts): on a photo or
+  cutaway the turning part itself turns (acts, below); a spin effect only on a diagram. A sentence that says something
+  is made again (RuBP dobara banta hai) has a wheel in its shot.
+- MACHINE PARTS THAT MOVE (Navin, 23 November 2026, after the ATP synthase demos: "pressure, moving, rotating, khulna band
+  hona jaise nigalna pakdna, kisi jagah par chipkana"). On a photo or cutaway where a machine works (a rotor turning, a
+  catalytic site opening and closing, a channel opening, an enzyme gripping and joining molecules), BIE cuts the parts
+  that move out of the AI picture and moves them while the narration says so. visual.parts lists them ([] when nothing
+  in the picture moves): id (short, a-z and _), name (what the narration calls the part, spoken in every sentence that
+  acts on it), looks (how it looks in this picture, so it can be found: colour, shape, place). The image_prompt draws
+  every listed part as one clearly separate solid shape with a clean edge and its own colour, not hidden behind another
+  part, with the opening drawn where something opens and room around a part that moves; a molecule that will be moved is
+  drawn as one compact ball-and-stick group. Each sentence's acts show what its words say happens to a part, while it is
+  said: turn (the part turns about its centre by turns degrees, -360 to 360: -120 for one step of the stalk seen from
+  above), spin (a part seen from the side keeps turning until stop or the shot ends; rider: a molecule riding on it, such
+  as H+ on the ring, or ""), stop, open (the site opens away from toward), loose (back to rest), tight (it closes onto
+  toward with pressure: where a bond is pressed together), stick (the part slides to toward and joins there, with a glow
+  at the joint: Pi joining ADP), leave (the part drifts to toward and is gone: ATP released), arrive (the part comes in
+  from toward to its place), glow (the part lights up while it is named). toward is [x, y] in percent for open, tight,
+  stick, leave and arrive, else []; turns is 0 except for turn; rider is "" except for spin. At most {max_parts} parts on
+  a picture and {max_acts} acts in a sentence; every listed part is acted on. A molecule that is not in the picture still
+  comes as a move or a react.
 - MOLECULES MEETING (Navin, 21 November 2026: "achhe coordination ke saath, khichdi si na pake"). Where molecules meet
   (ADP + Pi → ATP at CF1's catalytic head; CO2 + RuBP → 3-PGA at Rubisco), show one meeting at a time: one react per
   sentence; every molecule that flies in or comes out is named in that sentence; the inputs come from where they really
@@ -320,7 +349,8 @@ def messages(question: dict, *, course: str, language: str, chapter: str = "") -
                                                               molecules=", ".join(MOLECULES),
                                                               kinds=MAX_KINDS, shot_chars=MAX_SHOT_CHARS,
                                                               pin_gap=PIN_GAP, step_sentences=STEP_SHOT_SENTENCES,
-                                                              step_chars=STEP_SHOT_CHARS, beads=BEADS_MAX)},
+                                                              step_chars=STEP_SHOT_CHARS, beads=BEADS_MAX,
+                                                              max_parts=MAX_PARTS, max_acts=MAX_ACTS)},
             {"role": "user", "content": user + _overview_part(question) + _naksha_part(question) + _teacher_part(question)
              + _library_part(question)}]
 
@@ -551,7 +581,7 @@ def svg_ids(svg: str) -> set:
         return set()
 
 
-MOTION = ("moves", "grows", "fuses", "reacts", "cycles")
+MOTION = ("moves", "grows", "fuses", "reacts", "cycles", "acts")
 
 
 def moves(sentence: dict) -> bool:
@@ -783,10 +813,98 @@ def problems(film, question: dict) -> list:
     missing_points = [i for i in points if i not in covered]
     if missing_points:
         out.append("no shot covers the question's points " + ", ".join(map(str, missing_points)))
-    out += picture_problems(film)
+    out += picture_problems(film) + parts_problems(film)
     return (out + book_problems(film, question) + screen_problems(film, question) + layout_problems(film)
             + teacher_problems(film, question) + library_problems(film, question) + mechanism_problems(film, question)
             + teaching_problems(film, question))
+
+
+def _turning_on(shot: dict, k: int) -> bool:
+    """A part set spinning by an earlier sentence of this shot is still spinning at sentence ``k`` (1-based)."""
+    on = set()
+    for s in (shot.get("sentences") or [])[:k]:
+        for a in s.get("acts") or []:
+            if a.get("do") == "spin":
+                on.add(a.get("part"))
+            elif a.get("do") == "stop":
+                on.discard(a.get("part"))
+    return bool(on)
+
+
+PART_ID = re.compile(r"^[a-z][a-z0-9_]{0,23}$")
+TOUCHING = re.compile(r"\b(khul\w*|band ho\w*|band kar\w*|kas\w*|dab\w*|dabaa?v|pakad\w*|jud\w*|jod\w*|chipak\w*|nikal\w*|"
+                      r"chhoot\w*|chhod\w*|ghoom\w*|ghuma\w*|opens?|clos\w*|grips?|squeez\w*|press\w*|binds?|releas\w*)\b", re.I)
+
+
+def _point(value) -> bool:
+    return isinstance(value, list) and len(value) == 2 and all(isinstance(v, (int, float)) and 0 <= v <= 100 for v in value)
+
+
+def parts_problems(film: dict) -> list:
+    """Parts cut from an AI picture move as the narration says (Navin's routeS choice, 23 November 2026): every act names
+    a listed part of its own picture, says what it does in a way the player can draw, and is spoken while it happens;
+    every listed part is drawn in the picture and acted on; one thing at a time."""
+    out = []
+    for number, shot in enumerate(film.get("shots") or [], 1):
+        sid = shot.get("id") or f"shot {number}"
+        visual = shot.get("visual") or {}
+        parts = [p for p in visual.get("parts") or [] if isinstance(p, dict)]
+        sentences = shot.get("sentences") or []
+        acted = [a for s in sentences for a in s.get("acts") or []]
+        if parts and visual.get("type") not in ("photo", "cutaway"):
+            out.append(f"{sid}: parts are cut from an AI picture (photo or cutaway); on a diagram light up its SVG ids (focus)")
+            continue
+        if len(parts) > MAX_PARTS:
+            out.append(f"{sid}: {len(parts)} parts on one picture; at most {MAX_PARTS}")
+        names, seen = {}, set()
+        prompt = _content_words(visual.get("image_prompt") or "")
+        for part in parts:
+            pid = str(part.get("id") or "")
+            if not PART_ID.match(pid) or pid in seen:
+                out.append(f"{sid}: part id {pid!r} must be short, unique, a-z, digits and _")
+            seen.add(pid)
+            names[pid] = str(part.get("name") or "")
+            if len((part.get("looks") or "").strip()) < 8:
+                out.append(f"{sid}: part {pid!r} needs looks: how it looks in this picture (colour, shape, place)")
+            if not (_content_words(f"{part.get('name') or ''} {part.get('looks') or ''}") & prompt):
+                out.append(f"{sid}: part {pid!r} ({part.get('name')}) is not drawn by the image_prompt; describe it there as "
+                           "its own clearly separate shape")
+        for pid in names:
+            if not any(a.get("part") == pid for a in acted):
+                out.append(f"{sid}: part {pid!r} is listed but nothing happens to it; act on it or leave it out")
+        for k, sentence in enumerate(sentences, 1):
+            where = f"{sid} sentence {k}"
+            acts = sentence.get("acts") or []
+            if len(acts) > MAX_ACTS:
+                out.append(f"{where}: {len(acts)} acts in one sentence; at most {MAX_ACTS}, one thing at a time")
+            spoken = _spoken_words(f"{sentence.get('roman') or ''} {sentence.get('voice') or ''}")
+            for act in acts:
+                pid, do = act.get("part"), act.get("do")
+                if pid not in names:
+                    out.append(f"{where}: an act names part {pid!r}, which this shot's visual.parts does not list")
+                    continue
+                if do not in DOES:
+                    out.append(f"{where}: act {do!r} on {pid!r}; it is one of {', '.join(DOES)}")
+                    continue
+                toward = act.get("toward") or []
+                if do in TOWARD and not _point(toward):
+                    out.append(f"{where}: {do} on {pid!r} needs toward [x, y] in 0..100 (where it closes, slides or goes)")
+                if do not in TOWARD and toward:
+                    out.append(f"{where}: {do} on {pid!r} takes no toward; write []")
+                turns = act.get("turns") or 0
+                if do == "turn" and not (isinstance(turns, (int, float)) and 5 <= abs(turns) <= 360):
+                    out.append(f"{where}: turn on {pid!r} needs turns in degrees, 5 to 360 either way (-120 for one step)")
+                if do != "turn" and turns:
+                    out.append(f"{where}: {do} on {pid!r} takes turns 0")
+                if act.get("rider") and do != "spin":
+                    out.append(f"{where}: only spin takes a rider; {do} on {pid!r} has rider \"\"")
+                if do not in ("stop", "loose") and not (_spoken_words(names[pid]) & spoken):
+                    out.append(f"{where}: part {names[pid]!r} {do}s here but the line does not name it (dikhaya = bola)")
+            if parts and TOUCHING.search(sentence.get("roman") or "") and not acts and not moves(sentence) \
+                    and sentence.get("part") not in ("hook", "recap"):
+                out.append(f"{where}: the line says a part {TOUCHING.search(sentence.get('roman')).group(0)!r} but nothing "
+                           "moves; show it on the part (acts)")
+    return out
 
 
 def picture_problems(film: dict) -> list:
@@ -1004,8 +1122,8 @@ def mechanism_problems(film: dict, question: dict | None = None) -> list:
         sid = shot.get("id") or f"shot {number}"
         sentences = shot.get("sentences") or []
         has_wheel = any(s.get("cycles") for s in sentences)
-        mechanism = any((s.get("reacts") or s.get("cycles") or any((e.get("type") == "spin") for e in s.get("effects") or []))
-                        and s.get("part") != "recap" for s in sentences)
+        mechanism = any((s.get("reacts") or s.get("cycles") or any((e.get("type") == "spin") for e in s.get("effects") or [])
+                         or s.get("acts")) and s.get("part") != "recap" for s in sentences)
         has_question = any("?" in (s.get("voice") or "") for s in sentences)
         asked += has_question
         if mechanism and not has_question:
@@ -1013,9 +1131,10 @@ def mechanism_problems(film: dict, question: dict | None = None) -> list:
                        "voice) so the voice pauses before the answer")
         for k, s in enumerate(sentences, 1):
             where, roman = f"{sid} sentence {k}", s.get("roman") or ""
-            if TURNING.search(roman) and not s.get("cycles") and not any(e.get("type") == "spin" for e in s.get("effects") or []):
-                out.append(f"{where}: the line says something turns ({TURNING.search(roman).group(0)!r}); show it turning "
-                           "with a spin effect on the turning part")
+            if TURNING.search(roman) and not s.get("cycles") and not any(e.get("type") == "spin" for e in s.get("effects") or []) \
+                    and not any(a.get("do") in ("turn", "spin") for a in s.get("acts") or []) and not _turning_on(shot, k):
+                out.append(f"{where}: the line says something turns ({TURNING.search(roman).group(0)!r}); show it turning: "
+                           "the turning part of the picture turns (acts: turn or spin), or a spin effect on a diagram")
             if AGAIN.search(roman) and not has_wheel:
                 out.append(f"{where}: the line says something is made again; show the return as a wheel (cycles) in this shot")
             reacts = s.get("reacts") or []
@@ -1306,6 +1425,11 @@ CUTAWAY_STYLES = {
 # Navin, 23 November 2026, after the first heading film: "Is baar matte with controlled roshni nhi pehale wale chamakdaar
 # tarike se hi banao video" (his 22 November choice was open ended)
 FILM_STYLE = "glossy"
+# the parts that move are solid, so they can be cut and so the mechanism reads (Navin, 23 November 2026, on routes A and B:
+# "kuchh jyada hi transparent hai ... bahut hi transparent beta aur na dikhne wali dandi"): whatever the cutaway style
+# says about transparency, these parts are opaque, separate and fully in view
+SOLID_PARTS = (" These parts are drawn solid and opaque, each one a clearly separate shape with a clean edge, fully in view, "
+               "not behind glass or a see-through layer, not overlapping each other: {parts}.")
 MACHINERY = re.compile(r"(?i)\b(proteins?|complex(es)?|enzymes?|ps ?ii?\b|photosystems?|atp synthase|cf[0₀1₁]|cytochromes?|"
                        r"plastoquinone|plastocyanin|ferredoxin|rubisco|reaction cent(re|er)|molecules?|molecular|carriers?|"
                        r"channels?|pumps?|antenna)")
@@ -1401,12 +1525,18 @@ def image_prompt(shot: dict, look: str = "", style: str | None = None) -> str:
     if style == "glossy":                    # a glossy picture is not asked to be matte as well (Navin, 23 November 2026)
         prompt, shared = (UNGLOSSY.sub("", text) for text in (prompt, shared))
     shared = f" Same look as the other pictures of this film: {shared.rstrip('.').strip(' ,;')}." if shared.strip(" ,;.") else ""
+    moving = acted_parts(shot)
+    if moving:                               # parts BIE cuts out and moves are solid (routeS, 23 November 2026)
+        suffix = SOLID_PARTS.format(parts="; ".join(f"{p.get('name')} ({p.get('looks')})" for p in moving)) + suffix
     return prompt + shared + suffix
 
 
-def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question: dict, tint: str = "#2c6e87") -> dict:
+def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question: dict, tint: str = "#2c6e87",
+                parts: dict | None = None) -> dict:
     """The JSON the film player reads: shots with their visual (image data URI or SVG) and timed sentences. A voiced
-    sentence carries ``after``, the silence before the next one (``studio_voice.gaps``: the teacher study's pauses)."""
+    sentence carries ``after``, the silence before the next one (``studio_voice.gaps``: the teacher study's pauses).
+    ``parts`` ({shot id: [{id, img, box, centre}]}) are the parts cut from that shot's picture; the sentences' acts move
+    them, and an act on a part that was not cut is left out."""
     from .studio_voice import gaps
     shots, lines = [], []
     for shot in film.get("shots") or []:
@@ -1418,6 +1548,9 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
     after = iter(gaps(lines))
     for shot in film.get("shots") or []:
         visual = shot.get("visual") or {}
+        layers = [dict(p) for p in (parts or {}).get(shot.get("id")) or [] if p.get("img") and p.get("box")]
+        cut = {p.get("id") for p in layers}
+        names = {p.get("id"): p.get("name") or "" for p in visual.get("parts") or [] if isinstance(p, dict)}
         sentences = []
         for k, sentence in enumerate(shot.get("sentences") or []):
             clip = audio.get((shot.get("id"), k)) or {}
@@ -1432,7 +1565,11 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
                               "fuses": sentence.get("fuses") or [],
                               "reacts": timed(sentence.get("reacts") or [], text, clip.get("dur") or max(2.5, 0.075 * len(text))),
                               "cycles": sentence.get("cycles") or [],
-                              "step": _int(sentence.get("step")), "count": sentence.get("count") or {}})
+                              "step": _int(sentence.get("step")), "count": sentence.get("count") or {},
+                              "acts": act_times([{"part": a.get("part"), "do": a.get("do"), "toward": a.get("toward") or [],
+                                                  "turns": a.get("turns") or 0, "rider": a.get("rider") or ""}
+                                                 for a in sentence.get("acts") or [] if a.get("part") in cut],
+                                                names, text, clip.get("dur") or max(2.5, 0.075 * len(text)))})
             gap = next(after, 0.0)
             if clip.get("uri"):
                 sentences[-1]["after"] = gap
@@ -1440,7 +1577,8 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
         shots.append({"id": shot.get("id"), "title": shot.get("title"), "key": shot.get("key"),
                       "type": visual.get("type"), "img": images.get(shot.get("id"), ""),
                       "dive": dive if dive.get("x", -1) != -1 else None,
-                      "svg": visual.get("svg", "") if visual.get("type") == "diagram" else "", "sentences": sentences})
+                      "svg": visual.get("svg", "") if visual.get("type") == "diagram" else "", "sentences": sentences,
+                      "parts": layers})
     return {"title": film.get("title") or question.get("question"), "question": question.get("question"),
             "qid": question.get("id"), "chapter": chapter, "tint": tint, "shots": shots, "kit": kit_for(shots)}
 
@@ -1463,6 +1601,26 @@ def timed(reacts: list, roman: str, seconds: float) -> list:
             at = min(found) / len(low) * seconds
             r["delay"] = round(max(0.3, min(at - 0.45 * ms / 1000, seconds - 0.6 * ms / 1000)), 2)
         out.append(r)
+    return out
+
+
+def act_times(acts: list, names: dict, roman: str, seconds: float) -> list:
+    """When each act starts, in seconds after its sentence starts: as the line names the part (a jaw closes as the voice
+    says "beta kasta hai"), each act at least 1.2 s after the one before it (one thing at a time), and every act early
+    enough to finish inside the sentence. Without the part's name in the line the acts are spread over the sentence."""
+    low, out, last, cursor = _plain(roman or "").lower(), [], -1.2, 0
+    n = max(1, len(acts))
+    for i, act in enumerate(acts):
+        act = dict(act)
+        words = [w for w in _content_words(names.get(act.get("part")) or "") if len(w) > 2]
+        found = [m.start() for w in words for m in re.finditer(re.escape(w), low) if m.start() >= cursor]
+        guess = min(found) / max(1, len(low)) * seconds - 0.2 if found and low else seconds * (0.1 + 0.7 * i / n)
+        if found:
+            cursor = min(found) + 1
+        at = min(max(0.3, guess, last + 1.2), max(0.3, seconds - 1.6))
+        act["at"] = round(at, 2)
+        last = at
+        out.append(act)
     return out
 
 
@@ -1492,6 +1650,7 @@ def kit_for(shots: list) -> dict:
             for cycle in sentence.get("cycles") or []:
                 for station in cycle.get("stations") or []:
                     used.update([station.get("becomes")] + list(station.get("takes") or []) + list(station.get("gives") or []))
+            used.update(a.get("rider") for a in sentence.get("acts") or [] if a.get("rider"))
     return {"elements": KIT["elements"], "molecules": {k: v for k, v in KIT["molecules"].items() if k in used}}
 
 
@@ -1586,9 +1745,16 @@ neighbour), a path along the real route through the real structures with the sam
 the named part is, a camera target on the part the sentence talks about, the dive point on the structure the next shot
 shows close up. Keep a point that is already right; keep labels 3 to 97; two labels of one sentence never point at the
 same spot (a part inside another, such as the lumen inside a thylakoid, gets its own inner space). visible is false only
-when the named structure is not in the picture at all. Answer with the JSON object only."""
+when the named structure is not in the picture at all.
+BIE will also cut some parts out of the picture and move them (listed under "parts", with their name and how they were
+meant to look). For each part give: inside, 2 to 5 points well inside the part itself (on its body, not on its edge,
+spread over it; for a molecule drawn as separate balls, one point on each ball or group); outside, 1 to 3 points on the
+neighbours that touch the part but are not it ([] when nothing touches it); box, [x0, y0, x1, y1] tight around the part
+alone; visible false (and inside, outside, box []) when the part is not in the picture. Answer with the JSON object only."""
 
-PLACE_SCHEMA = _obj({"items": _arr(_obj({"id": S, "points": _arr(_arr(N)), "visible": B}))})
+PLACE_SCHEMA = _obj({"items": _arr(_obj({"id": S, "points": _arr(_arr(N)), "visible": B})),
+                     "parts": _arr(_obj({"id": S, "inside": _arr(_arr(N)), "outside": _arr(_arr(N)), "box": _arr(N),
+                                         "visible": B}))})
 
 
 def place_items(shot: dict, next_shot: dict | None = None) -> list:
@@ -1636,6 +1802,14 @@ def place_items(shot: dict, next_shot: dict | None = None) -> list:
                                               x1=e["x1"] + pts[0][0] - (e["x0"] + e["x1"]) / 2,
                                               y0=e["y0"] + pts[0][1] - (e["y0"] + e["y1"]) / 2,
                                               y1=e["y1"] + pts[0][1] - (e["y0"] + e["y1"]) / 2))
+        names = {p.get("id"): p.get("name") for p in (shot.get("visual") or {}).get("parts") or [] if isinstance(p, dict)}
+        for j, a in enumerate(s.get("acts") or []):
+            if a.get("do") in TOWARD and _point(a.get("toward")):
+                where = {"open": "the point the part opens away from (the centre it closes onto)",
+                         "tight": "the point the part closes onto", "stick": "the point the part slides to and joins",
+                         "leave": "where the part goes as it leaves", "arrive": "where the part comes in from"}[a["do"]]
+                add(f"s{k}.act{j}", f"{where}: part '{names.get(a.get('part'), a.get('part'))}'", said, [a["toward"]],
+                    lambda pts, a=a: a.update(toward=pts[0]))
         z = s.get("zoom") or {}
         if float(z.get("scale") or 1) > 1.05:
             add(f"s{k}.zoom", "camera target: the part this sentence talks about", said, [[z.get("x", 50), z.get("y", 50)]],
@@ -1648,10 +1822,22 @@ def place_items(shot: dict, next_shot: dict | None = None) -> list:
     return items
 
 
-def place_messages(items: list, image_part: dict) -> list:
+def acted_parts(shot: dict) -> list:
+    """The parts of this shot's picture that some sentence acts on: the ones worth cutting."""
+    acted = {a.get("part") for s in shot.get("sentences") or [] for a in s.get("acts") or []}
+    if (shot.get("visual") or {}).get("type") not in ("photo", "cutaway"):
+        return []
+    return [p for p in (shot.get("visual") or {}).get("parts") or [] if isinstance(p, dict) and p.get("id") in acted]
+
+
+def place_messages(items: list, image_part: dict, parts: list = ()) -> list:
     listed = [{k: v for k, v in it.items() if k != "set"} for it in items]
     text = ("The picture is attached. The items BIE will draw over it, with the points BIE guessed:\n"
             + json.dumps(listed, ensure_ascii=False))
+    if parts:
+        text += ("\nThe parts BIE will cut out and move:\n"
+                 + json.dumps([{"id": p.get("id"), "name": p.get("name"), "looks": p.get("looks")} for p in parts],
+                              ensure_ascii=False))
     return [{"role": "system", "content": PLACE_INSTRUCTIONS},
             {"role": "user", "content": [{"type": "text", "text": text}, image_part]}]
 
@@ -1684,15 +1870,120 @@ def apply_places(items: list, answer) -> dict:
     return {"items": len(items), "moved": moved, "refused": refused, "missing": missing}
 
 
+def pointed_parts(parts: list, answer) -> dict:
+    """The checker's points for each part to cut, where they are sound: {id: {inside, outside, box}}; a part it could
+    not see, or pointed at with no point inside the picture, is left out (the film plays it uncut)."""
+    wanted = {p.get("id") for p in parts}
+    found = {}
+    for got in (answer or {}).get("parts") or []:
+        pid = got.get("id")
+        if pid not in wanted or got.get("visible") is False:
+            continue
+        inside = [list(map(float, q)) for q in got.get("inside") or [] if _point(q)][:6]
+        outside = [list(map(float, q)) for q in got.get("outside") or [] if _point(q)][:4]
+        box = got.get("box") or []
+        box = [float(v) for v in box] if isinstance(box, list) and len(box) == 4 and all(
+            isinstance(v, (int, float)) and 0 <= v <= 100 for v in box) and box[0] < box[2] and box[1] < box[3] else []
+        if inside or box:
+            found[pid] = {"inside": inside, "outside": outside, "box": box}
+    return found
+
+
+MOLECULE_WORDS = re.compile(r"\b(molecules?|ions?|atoms?|phosphates?)\b", re.I)
+
+
+def _molecule_part(part: dict) -> bool:
+    """A part that is a molecule (ADP + Pi, an ATP, an H+): cut from its points alone (bie/brain/picture_parts.py)."""
+    words = {w.lower() for w in re.findall(r"[A-Za-z0-9+\-]+", _plain(f"{part.get('id') or ''} {part.get('name') or ''}"))}
+    kit = {m.lower() for m in MOLECULES}
+    return bool(words & kit) or bool(MOLECULE_WORDS.search(part.get("name") or ""))
+
+
+def part_requests(shot: dict, pointed: dict) -> list:
+    """What the cutter needs for each acted part the checker found: its points and box, whether it moves away from its
+    place (so the picture needs a plate under it) and whether it is a molecule."""
+    out = []
+    for part in acted_parts(shot):
+        got = (pointed or {}).get(part.get("id"))
+        if not got:
+            continue
+        does = {a.get("do") for s in shot.get("sentences") or [] for a in s.get("acts") or [] if a.get("part") == part.get("id")}
+        out.append({"id": part["id"], "inside": got.get("inside") or [], "outside": got.get("outside") or [],
+                    "box": got.get("box") or [], "moves": bool(does & set(UNCOVERS)), "molecule": _molecule_part(part)})
+    return out
+
+
 def place(client, model: str, shot: dict, next_shot: dict | None, image_part: dict) -> dict:
-    """One vision call: move this shot's points onto its picture. A failed call keeps the maker's points."""
+    """One vision call: move this shot's points onto its picture, and point at the parts to cut. A failed call keeps the
+    maker's points (and cuts no part)."""
     items = place_items(shot, next_shot)
-    if not items:
+    parts = acted_parts(shot)
+    if not items and not parts:
         return {"items": 0, "moved": 0, "refused": 0, "missing": [], "usage": {}}
     try:
-        reply = client.chat(model=model, messages=place_messages(items, image_part), schema=PLACE_SCHEMA)
-        result = apply_places(items, parse(reply.get("content", "")))
+        reply = client.chat(model=model, messages=place_messages(items, image_part, parts), schema=PLACE_SCHEMA)
+        answer = parse(reply.get("content", ""))
+        result = apply_places(items, answer)
+        if parts:
+            result["parts"] = pointed_parts(parts, answer)
         result["usage"] = reply.get("usage") or {}
     except Exception as exc:                          # the film still plays with the maker's points; the report says so
         result = {"items": len(items), "moved": 0, "refused": 0, "missing": [], "error": str(exc)[:160], "usage": {}}
     return result
+
+
+ACT_WORDS = {"turn": "ghoomta hai", "spin": "ghoomta rehta hai", "stop": "rukta hai", "open": "khulta hai",
+             "loose": "dheela hota hai", "tight": "kasta hai (dabaav)", "stick": "khisak kar judta hai (jod par chamak)",
+             "leave": "bahar nikal jaata hai", "arrive": "andar aata hai", "glow": "chamakta hai"}
+
+
+def acts_page(film: dict, report: dict | None = None, *, question: dict | None = None, chapter: str = "") -> str:
+    """Navin's review page of the parts that move (routeS, 23 November 2026: "har film ke har asar ki suchi"): for every
+    picture with parts, each part and whether BIE cut it, then each line with what happens to which part while it is
+    said. A review page: it never reaches the learner's screen."""
+    import html as _h
+    e = _h.escape
+    report = report or {}
+    cut = report.get("parts") or {}
+    blocks, total, shown = [], 0, 0
+    for number, shot in enumerate(film.get("shots") or [], 1):
+        sid = shot.get("id") or f"shot {number}"
+        parts = [p for p in (shot.get("visual") or {}).get("parts") or [] if isinstance(p, dict)]
+        if not parts:
+            continue
+        names = {p.get("id"): p.get("name") or p.get("id") for p in parts}
+        rows = []
+        for p in parts:
+            got = cut.get(f"{sid}.{p.get('id')}")
+            if got is None:
+                state = '<b class="no">nahi kata (tasveer mein nahi mila)</b>' if report else '<span class="sum">—</span>'
+            elif got.get("problems"):
+                state = f'<b class="no">saaf nahi kata: {e("; ".join(got["problems"]))}</b>'
+            else:
+                state = f'<b class="ok">kata</b> <span class="sum">{got.get("area")}% tasveer</span>'
+                shown += 1
+            total += 1
+            rows.append(f'<li><b>{e(str(p.get("name")))}</b> <span class="sum">({e(str(p.get("looks") or ""))})</span> · {state}</li>')
+        lines = []
+        for k, sentence in enumerate(shot.get("sentences") or [], 1):
+            acts = sentence.get("acts") or []
+            what = "; ".join(f"{names.get(a.get('part'), a.get('part'))} {ACT_WORDS.get(a.get('do'), a.get('do'))}"
+                             + (f" ({a.get('turns'):+g}°)" if a.get("do") == "turn" else "")
+                             + (f", savaar {a.get('rider')}" if a.get("rider") else "") for a in acts)
+            lines.append(f'<tr><td class="pg">{k}</td><td>{e(sentence.get("roman") or "")}</td>'
+                         f'<td>{e(what) if what else "<span class=sum>—</span>"}</td></tr>')
+        blocks.append(f'<h2>{e(sid)} · {e(shot.get("title") or "")}</h2><ul>{"".join(rows)}</ul>'
+                      f'<table><tr><td class="pg">#</td><td><b>Line</b></td><td><b>Kya hilta hai</b></td></tr>{"".join(lines)}</table>')
+    body = "".join(blocks) or "<p>Is film mein koi hissa nahi hilta.</p>"
+    title = f'{(question or {}).get("id", "")} · {(question or {}).get("question", film.get("title", ""))}'
+    return f"""<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hilte hisse</title><style>
+:root{{--bg:#f7f5ef;--ink:#1d2326;--soft:#5d676b;--line:#ddd8cc;--ok:#1d7a46;--no:#b3261e;--card:#fff}}
+@media (prefers-color-scheme:dark){{:root{{--bg:#111719;--ink:#e8ecea;--soft:#9aa6a8;--line:#2a3538;--ok:#5cc98a;--no:#ff8a80;--card:#182023}}}}
+body{{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif}}main{{max-width:980px;margin:0 auto;padding:16px}}
+h1{{font-size:1.25rem;margin:.2em 0}}h2{{font-size:1.05rem;margin:1.4em 0 .4em}}.sum{{color:var(--soft)}}
+table{{width:100%;border-collapse:collapse;background:var(--card)}}td{{border-top:1px solid var(--line);padding:8px;vertical-align:top}}
+td.pg{{white-space:nowrap;color:var(--soft);width:2em}}.ok{{color:var(--ok)}}.no{{color:var(--no)}}ul{{padding-left:1.1em}}
+</style></head><body><main><p class="sum">{e(chapter)} · review page (learner ko nahi dikhta)</p><h1>Hilte hisse: {e(title)}</h1>
+<p class="sum">Tasveeron se kate hisse: {shown} / {total}</p>{body}</main></body></html>"""
+
