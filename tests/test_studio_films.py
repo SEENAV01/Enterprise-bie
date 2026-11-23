@@ -1028,6 +1028,15 @@ class TwoFilmsOf1163b(unittest.TestCase):
         self.assertNotIn("glossy ATP", studio_film.image_prompt(cut, "", "mixed"))      # another look is not also glossy
         self.assertIn("glossy ATP", studio_film.image_prompt(cut, "", "glossy"))
 
+    def test_a_picture_leaves_room_for_the_checklist_and_never_draws_it(self):
+        made = film()
+        made["shots"][0]["visual"]["image_prompt"] = "a membrane; open space for an upper-center four-item checklist"
+        self.assertIn("four-item", " ".join(studio_film.overlay_problems(made)))
+        made["shots"][0]["visual"]["image_prompt"] = "a membrane; the upper centre is left clear"
+        self.assertEqual(studio_film.overlay_problems(made), [])
+        text = studio_film.messages(QUESTION, course="Geography", language="Hinglish")[0]["content"]
+        self.assertIn("checklist, a panel or", text)
+
 
 class LookWordsAndLabelGaps(unittest.TestCase):
     """The two Q14 remakes of 20 November 2026: a look line with "copper left" and "central stalk" matched a cell picture's

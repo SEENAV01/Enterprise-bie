@@ -2879,3 +2879,9 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   pictures and presents them better (voice and screen together). Changed: the parts that move are no longer asked to be
   "a clearly separate solid shape with a clean edge" (that made toy shapes); they are opaque, fully in view and as real
   and detailed as the rest of the picture (`SOLID_PARTS` and the maker's instruction).
+- **Look test (job `l3b-look-116-3b-mixed`, 3 pictures, 6.8 minutes, ₹0):** the mixed look gives proteins a truer
+  atomic-surface shape; glossy stays (Navin: `g3`'s pictures were very good). In both looks the maker's "upper-center
+  four-item checklist" came back as four empty bars painted into the picture: `overlay_problems` now refuses a picture
+  asked to draw a checklist, a panel or empty boxes for BIE's overlays (1 of the 11.6 films). Voice: `studio_revoice
+  --base female` lets the female voice say the lines and Chatterbox turn them into his timbre (a two-line test kept the
+  female's pauses; pitch about 110–124 Hz); his choice waits on the samples.

@@ -297,7 +297,8 @@ with a process written inside a box instead of happening on screen):
   A photo shows the real thing where it is, at its real size, in natural light (a real dam and its turbine, never a
   teaching model, a toy or a glossy render of them).
   No picture draws loose molecules, ions or a crowd of them (BIE moves a few over it): never "proton population",
-  "dense H⁺" or "many tokens"; write that the space is left clear.
+  "dense H⁺" or "many tokens"; write that the space is left clear. Nor does a picture draw a checklist, a panel or
+  empty boxes for what BIE draws over it (counts, lists, labels): leave that space clear too.
   visual.type "diagram": you draw it as one SVG illustration in the style of BIE's Pollen Lab (a calm background colour,
   gradients and soft shading, rounded natural shapes, depth, short labels with leader lines; at least one gradient and at
   least 12 drawn shapes; viewBox; no script, no images, no style element; give every part you will light up an id);
@@ -820,7 +821,8 @@ def problems(film, question: dict) -> list:
     missing_points = [i for i in points if i not in covered]
     if missing_points:
         out.append("no shot covers the question's points " + ", ".join(map(str, missing_points)))
-    out += picture_problems(film) + parts_problems(film) + photo_problems(film) + crowd_problems(film)
+    out += (picture_problems(film) + parts_problems(film) + photo_problems(film) + crowd_problems(film)
+            + overlay_problems(film))
     return (out + book_problems(film, question) + screen_problems(film, question) + layout_problems(film)
             + teacher_problems(film, question) + library_problems(film, question) + mechanism_problems(film, question)
             + teaching_problems(film, question))
@@ -1544,6 +1546,22 @@ def crowd_problems(film: dict) -> list:
             out.append(f"{shot.get('id') or f'shot {number}'}: the image_prompt asks for a crowd of molecules or ions "
                        f"(\"...{prompt[max(0, found.start() - 20):found.end() + 30].strip()}...\"); the picture draws none, BIE "
                        "moves a few over it: write that the space is left clear")
+    return out
+
+
+OVERLAY_ASK = re.compile(r"(?i)\b(check-?lists?|(two|three|four|five|six)-item|list panels?|ui panels?|empty (bars|boxes|slots))\b")
+
+
+def overlay_problems(film: dict) -> list:
+    """A picture leaves room for what BIE draws over it (a count, a checklist, labels) and never draws it itself: the
+    second 11.6.3b film's "upper-center four-item checklist" came back as four empty bars painted into the picture, in
+    both looks (look test, 23 November 2026)."""
+    out = []
+    for number, shot in enumerate(film.get("shots") or [], 1):
+        found = OVERLAY_ASK.search((shot.get("visual") or {}).get("image_prompt") or "")
+        if found:
+            out.append(f"{shot.get('id') or f'shot {number}'}: the image_prompt asks the picture for a {found.group(0)!r}; BIE "
+                       "draws counts and lists over the picture, so write only that the space is left clear")
     return out
 
 
