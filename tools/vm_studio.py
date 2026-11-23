@@ -225,6 +225,97 @@ def script(args, client, model, out: Path, summary: dict):
                    problems={k: v[:5] for k, v in record["problems"].items()})
 
 
+PARTS_WORKER = ROOT / "tools" / "picture_parts_worker.py"
+PARTS_TIMEOUT = 900
+
+
+def parts_python():
+    """The python that can cut parts: BIE_PARTS_PYTHON, else the studio machine's voice environment (torch and
+    transformers at tools/vm_voice.py's pinned versions; the first voice job made it). None when neither is here: the film
+    then plays uncut and its report says so; it never installs torch by itself."""
+    import os
+    named = os.environ.get("BIE_PARTS_PYTHON")
+    if named:
+        return named if Path(named).exists() else None
+    python = Path(os.environ.get("BIE_HOME") or "/var/lib/bie") / "voice-venv" / "bin" / "python"
+    return str(python) if python.exists() else None
+
+
+def layer_uri(path, scale: float = 1.0) -> str:
+    """A cut part as a data URI that keeps its transparency (WEBP with alpha), at the scale its picture is shown."""
+    import base64
+    import io
+    from PIL import Image
+    image = Image.open(path).convert("RGBA")
+    if scale < 1:
+        image = image.resize((max(1, round(image.width * scale)), max(1, round(image.height * scale))))
+    buffer = io.BytesIO()
+    image.save(buffer, "WEBP", quality=85)
+    return "data:image/webp;base64," + base64.b64encode(buffer.getvalue()).decode("ascii")
+
+
+def cut_parts(film: dict, placed: dict, paths: dict, folder: Path, *, python=None, run=None):
+    """Cut every acted part of the film's pictures (bie/brain/picture_parts.py, in the voice environment, the model loaded
+    once per film). Returns ({shot id: [{id, img, box, centre}]}, {shot id: plate path}, report); a part that was not
+    found or not cut cleanly is named in the report's problems and plays uncut."""
+    import os
+    import subprocess
+    from PIL import Image
+    from bie.brain import studio_film
+    report = {"wanted": 0, "cut": 0, "problems": [], "parts": {}}
+    shots = []
+    for shot in film.get("shots") or []:
+        sid = shot.get("id")
+        acted = studio_film.acted_parts(shot)
+        if not acted:
+            continue
+        report["wanted"] += len(acted)
+        wanted = studio_film.part_requests(shot, (placed.get(sid) or {}).get("parts") or {})
+        missing = [p.get("id") for p in acted if p.get("id") not in {w["id"] for w in wanted}]
+        if missing:
+            report["problems"].append(f"{sid}: parts not found in the picture: {', '.join(map(str, missing))}")
+        if wanted and paths.get(sid):
+            shots.append({"id": sid, "image": str(paths[sid]), "parts": wanted})
+    if not shots:
+        return {}, {}, report
+    python = python or parts_python()
+    if not python:
+        report["problems"].append("parts not cut: the cutting environment (torch and transformers) is not on this machine")
+        return {}, {}, report
+    folder.mkdir(parents=True, exist_ok=True)
+    request, result_path = folder / "request.json", folder / "result.json"
+    request.write_text(json.dumps({"threads": os.cpu_count(), "out": str(folder), "shots": shots}, indent=1), encoding="utf-8")
+    env = dict(os.environ, HF_HOME=str(Path(os.environ.get("BIE_HOME") or "/var/lib/bie") / "parts-models"),
+               HF_HUB_DISABLE_TELEMETRY="1")
+    try:
+        (run or subprocess.run)([python, "-B", str(PARTS_WORKER), "--request", str(request), "--result", str(result_path)],
+                                env=env, timeout=PARTS_TIMEOUT, check=False)
+    except subprocess.TimeoutExpired:
+        pass
+    result = json.loads(result_path.read_text(encoding="utf-8")) if result_path.exists() else {"error": "the cutter wrote no result"}
+    if result.get("error"):
+        report["problems"].append(f"parts not cut: {str(result['error'])[:160]}")
+    layers, plates = {}, {}
+    for row in result.get("shots") or []:
+        sid = row.get("id")
+        if row.get("error"):
+            report["problems"].append(f"{sid}: parts not cut ({str(row['error'])[:120]})")
+            continue
+        width = Image.open(paths[sid]).width if paths.get(sid) else 1600
+        scale = min(1.0, 1600 / max(1, width))
+        for got in row.get("layers") or []:
+            report["parts"][f"{sid}.{got.get('id')}"] = {k: got.get(k) for k in ("area", "score", "box", "problems")}
+            if got.get("problems"):
+                report["problems"].append(f"{sid}: part {got.get('id')} not cut cleanly ({'; '.join(got['problems'])})")
+            elif got.get("file") and Path(got["file"]).exists():
+                layers.setdefault(sid, []).append({"id": got["id"], "img": layer_uri(got["file"], scale), "box": got["box"],
+                                                   "centre": got.get("centre")})
+                report["cut"] += 1
+        if row.get("plate") and Path(row["plate"]).exists():
+            plates[sid] = Path(row["plate"])
+    return layers, plates, report
+
+
 def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=None):
     from bie.brain import studio_film, studio_voice
     wanted = [q.strip() for q in (args.videos or "").split(",") if q.strip()]
@@ -272,7 +363,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
         for key in usage:
             usage[key] += record["usage"].get(key, 0)
         film = record.get("film") if isinstance(record.get("film"), dict) else {}
-        images, audio, made, files, placed, kept = {}, {}, 0, {}, {}, 0
+        images, audio, made, files, placed, kept, paths = {}, {}, 0, {}, {}, 0, {}
         shots = film.get("shots") or []
         for number, shot in enumerate(shots):
             if (shot.get("visual") or {}).get("type") in ("photo", "cutaway") and made < MAX_IMAGES_PER_FILM \
@@ -301,6 +392,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                         usage[key] += int((placed[shot.get("id")].get("usage") or {}).get(key) or 0)
                     images[shot.get("id")] = image_uri(saved)
                     files[shot.get("id")] = saved.name
+                    paths[shot.get("id")] = saved
                 except Exception as exc:             # one failed picture does not stop the film; the report names it
                     record["problems"] = record["problems"] + [f"{shot.get('id')}: image not made ({str(exc)[:120]})"]
             for k, sentence in enumerate(shot.get("sentences") or []):
@@ -310,14 +402,18 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                     except Exception as exc:         # a line left unvoiced is timed by its text; the report names it
                         record["problems"] = record["problems"] + [f"{shot.get('id')} sentence {k + 1}: not voiced "
                                                                    f"({type(exc).__name__}: {str(exc)[:80]})"]
+        # the parts that move, cut out of their pictures (Navin's routeS choice, 23 November 2026)
+        layers, plates, cut_report = cut_parts(film, placed, paths, out / "films" / "parts" / q["id"])
+        record["problems"] = record["problems"] + cut_report["problems"]
+        images.update({sid: image_uri(path) for sid, path in plates.items()})
         data = studio_film.player_data(film, images=images, audio=audio, chapter=plan.get("chapter_title", ""), question=q,
-                                       tint=studio.subject_tint(args.course))
+                                       tint=studio.subject_tint(args.course), parts=layers)
         (out / "films" / f"{q['id']}.html").write_text(studio_film.html(data, template), encoding="utf-8")
         covered = studio_film.coverage(film, q)
         (out / "films" / f"{q['id']}.json").write_text(json.dumps({"film": film, "problems": record["problems"],
                                                                    "rounds": record["rounds"], "images": files,
                                                                    "book_lines": q.get("book_lines") or [],
-                                                                   "placement": placed},
+                                                                   "placement": placed, "parts": cut_report},
                                                                   ensure_ascii=False, indent=1),
                                                        encoding="utf-8")
         if q.get("book_lines"):                     # Navin's NCERT-to-film page (a review page, never the learner's)
@@ -330,6 +426,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                      "points_moved": sum(p.get("moved", 0) for p in placed.values()),
                      "teacher_lines": len(q.get("teacher_lines") or []),
                      "kept_pictures": kept,
+                     "parts_cut": cut_report["cut"], "parts_wanted": cut_report["wanted"],
                      "not_in_picture": [m for p in placed.values() for m in p.get("missing", [])]})
 
     for q in questions:
@@ -347,6 +444,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
         lines.append(f"- **{row['qid']}** {row['question']} · {row['shots']} shots · {row['images']} tasveerein · "
                      f"{row['minutes']} min · NCERT lines {row['book_lines']} · NCERT se bahar {row['beyond']} · "
                      f"tasveer dekhkar khiske points {row['points_moved']}"
+                     + (f" · hilte hisse {row['parts_cut']}/{row['parts_wanted']}" if row.get("parts_wanted") else "")
                      + (f" · teacher ki {row['teacher_lines']} lines" if row.get("teacher_lines") else "")
                      + (f" · almaari se {row['kept_pictures']} tasveer" if row.get("kept_pictures") else "")
                      + (f" · kamiyan: {len(row['problems'])}" if row["problems"] else ""))

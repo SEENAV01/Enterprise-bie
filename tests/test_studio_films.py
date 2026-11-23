@@ -1079,8 +1079,12 @@ class LearnedFromFilmA(unittest.TestCase):
 
     def test_a_turning_machine_turns(self):
         made = self.shot_with("H+ ke flow se stalk ghoomta hai aur CF1 ki shape badalti hai.", "एच प्लस के फ़्लो से स्टॉक घूमता है।")
-        self.assertIn("show it turning with a spin effect", " ".join(studio_film.mechanism_problems(made)))
+        self.assertIn("show it turning: the turning part of the picture turns", " ".join(studio_film.mechanism_problems(made)))
         made["shots"][1]["sentences"][0]["effects"] = [{"type": "spin", "x0": 40, "x1": 60, "y0": 30, "y1": 60}]
+        self.assertNotIn("show it turning", " ".join(studio_film.mechanism_problems(made)))
+        # on a photo or cutaway the stalk itself turns (routeS, 23 November 2026): a turn act shows it as well
+        made["shots"][1]["sentences"][0]["effects"] = []
+        made["shots"][1]["sentences"][0]["acts"] = [{"part": "stalk", "do": "turn", "toward": [], "turns": -120, "rider": ""}]
         self.assertNotIn("show it turning", " ".join(studio_film.mechanism_problems(made)))
 
     def test_made_again_needs_a_wheel(self):

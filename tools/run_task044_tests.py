@@ -27,7 +27,8 @@ NEW = ("tests/test_task044_codex.py", "tests/test_task046_vm_image.py", "tests/t
        "tests/test_brain_reading.py",      # BIE's code reader (Navin, 21 November 2026: "book ko dekh bhi sake")
        "tests/test_studio_naksha.py",      # the chapter file and the teaching naksha ("Naksha pehle")
        "tests/test_studio_script.py",      # the chapter's script ("poore chapter ki ek script")
-       "tests/test_look_test.py")          # cutaway styles and the look test ("visuals asli banane the")
+       "tests/test_look_test.py",          # cutaway styles and the look test ("visuals asli banane the")
+       "tests/test_film_parts.py")         # a picture's parts that move (routeS: "AI tasveer + SAM 2")
 
 
 def main(argv=None):
