@@ -165,8 +165,8 @@ class FilmMotion(unittest.TestCase):
 
     def test_cutaway_is_an_ai_picture_in_cutaway_style(self):
         shot = {"visual": {"type": "cutaway", "image_prompt": "The inside of a mature ovule", "svg": ""}}
-        self.assertIn("Realistic scientific render", studio_film.image_prompt(shot))     # Navin's mixed look (22 Nov 2026)
-        self.assertIn("transparent cross-section", studio_film.image_prompt(shot, "", "glossy"))
+        self.assertIn("transparent cross-section", studio_film.image_prompt(shot))       # glossy again (Navin, 23 Nov 2026)
+        self.assertIn("Realistic scientific render", studio_film.image_prompt(shot, "", "mixed"))   # his 22 Nov look
         data = studio_film.player_data(film(), images={}, audio={}, chapter="Monsoon", question=QUESTION)
         self.assertEqual(data["shots"][1]["dive"], {"x": 55, "y": 25})
         self.assertIsNone(data["shots"][0]["dive"])
@@ -1228,6 +1228,39 @@ class FirstHeadingFilms(unittest.TestCase):
                      "Math.hypot(l.x-x,l.y-y)<12", "l.k!==labelRound", "labelRound++", "a.dim=true", "if(ac.dim)",
                      "fxBox.querySelectorAll('.beads').forEach(o=>"):
             self.assertIn(part, page)
+
+
+class SectionFilmsLook(unittest.TestCase):
+    """Navin on the first heading film (23 November 2026): "starting mein chamkti arrow line agar kis cheej ki taraf flow ya
+    movement ka raasta hi dikhana hai to dusra mechanism ho" (card: "Cheez khud chale"), "kheechdi si pak gayi ... wo kadi
+    nhi ban paati", and "pehale wale chamakdaar tarike se hi banao video"."""
+
+    def test_a_route_is_the_thing_itself_moving_not_a_growing_line(self):
+        grow = {"points": [[20, 70], [50, 50], [80, 40]], "label": "", "ms": 3000}
+        route = {"roman": "Lumen ke H⁺ ATP synthase se stroma ki taraf lautte hain.", "voice": "एच प्लस लौटते हैं।", "grows": [grow]}
+        self.assertIn("show the moving thing itself travelling on the route (moves), with no line",
+                      " ".join(studio_film.motion_problems(route, set(), "s2 sentence 1")))
+        tube = dict(route, roman="Pollen tube style se hokar ovule ki taraf badhti hai.")
+        self.assertNotIn("growing line", " ".join(studio_film.motion_problems(tube, set(), "s2 sentence 1")))
+        self.assertIn('"Cheez khud chale"', studio_film.INSTRUCTIONS)
+        self.assertNotIn("a root tip, a signal", studio_film.INSTRUCTIONS)
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        for part in ("const TAIL=[", "tails.push(TAIL.map(", "(ac.tails[i]||[]).forEach((c,j)=>", "const hide=()=>"):
+            self.assertIn(part, page)
+
+    def test_a_picture_shows_what_its_lines_talk_about(self):
+        made = film()
+        made["shots"][0]["visual"].update(type="cutaway", image_prompt="Leaf mesophyll cutaway, cellulose walls, a large "
+                                          "vacuole and chloroplasts along the wall, soft light.")
+        line = made["shots"][0]["sentences"][1]
+        line["roman"] = "Lumen ke H⁺ ka ATP synthase se stroma ki taraf return energy deta hai."
+        self.assertIn("s1: its lines talk about ATP synthase but its picture is a whole-structure view",
+                      " ".join(studio_film.picture_problems(made)))
+        made["shots"][0]["visual"]["image_prompt"] = "Close molecular cutaway of the thylakoid membrane with ATP synthase right."
+        self.assertEqual(studio_film.picture_problems(made), [])
+        made["shots"][0]["visual"]["image_prompt"] = "Leaf mesophyll cutaway, cellulose walls, a large vacuole, soft light."
+        line["part"] = "hook"                       # the opening question may ask before the journey
+        self.assertEqual(studio_film.picture_problems(made), [])
 
 
 class PassedFilms(unittest.TestCase):

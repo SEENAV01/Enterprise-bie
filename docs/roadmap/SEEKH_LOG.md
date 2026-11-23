@@ -2774,3 +2774,26 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   passed film still passes every check (`PassedFilms`).
 - **Next:** 11.7.2 part a made again on the fixed BIE (₹0), then its 1.05 copy; both films to Navin for his F1, F3 and
   pace verdicts.
+
+## Entry · Navin watches 11.6.3 part b: the thing itself moves, the picture shows what is said, glossy again, 23 November 2026
+
+- **Navin (on `h11-6-3b`, pace 1.00 and 1.05):** "starting mein chamkti arrow line agar kis cheej ki taraf flow ya movement
+  ka raasta hi dikhana hai to dusra mechanism ho"; "kheechdi si pak gayi dekhte aur sunte waqt mujhe khud hi concept
+  samjh nhi aaya wo kadi nhi ban paati. pure 11.6 section ki videos banao"; "Is baar matte with controlled roshsni nhi
+  pehale wale chamakdaar tarike se hi banao video". Card on the route: "Cheez khud chale" (the thing itself travels, a
+  short tail that fades at once, no line stays).
+- **What Claude found in the film:** shots 1–4 each drew a growing line (a route shown as a line, used as "a signal");
+  shots 1–3 dived leaf → mesophyll cell → chloroplast while the voice already spoke of ATP synthase, H+ and the return
+  route, so the eye and the ear were at different scales; and the film was part b of a heading, begun without part a.
+- **Changed in BIE:** `studio_film.FILM_STYLE = "glossy"` and the maker's cutaway instruction glossy again (glossy
+  cells, soft volumetric light, a calm dark background); the 22 November "mixed" look stays one word away. The maker's
+  rules: a route or a flow is the thing itself travelling on it (moves), never a line along the route; grows only for
+  something that really grows. Check: a growing line in a sentence that says nothing grows is sent back (`GROWING`).
+  `picture_problems`: a shot whose lines name molecular machinery (`MACHINERY`) over a whole-structure picture is sent
+  back ("draw that part close up here, or say these lines on the shot that shows it"); the opening question is free.
+  `studio_player.html`: every moving thing draws a short tail of three fading dots behind it (`TAIL`), hidden when it
+  stops. IMPLEMENTED (`tests/test_studio_films.py` `SectionFilmsLook`, `tests/test_look_test.py`).
+- **Measured on the stored film:** `picture_problems` sends back shot 2 (ATP synthase over the leaf mesophyll); the
+  growing-line check sends back all four growing lines (shots 1–4); the stored Calvin film has neither. Every passed film
+  still passes every check (`PassedFilms`).
+- **Next:** the seven 11.6 films in order (₹0), so the chain can be judged across the section.
