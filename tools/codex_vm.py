@@ -171,8 +171,9 @@ def argv(job: dict, out: Path, python: str = sys.executable) -> list:
     if job["section"] == "studio":
         cmd = [python, "-B", str(ROOT / "tools" / "vm_studio.py"), "--stage", job.get("stage") or "questions",
                "--out", str(out), "--max-rounds", str(job["max_rounds"])]
-        for name in ("source", "chapter_map", "from_run", "pages", "course", "language", "videos", "pyqs"):
-            if job.get(name):                       # chapter_map: films from a script run (the naksha run it was written from)
+        for name in ("source", "chapter_map", "from_run", "library", "pages", "course", "language", "videos", "pyqs"):
+            if job.get(name):                       # chapter_map: films from a script run (the naksha run it was written from);
+                                                    # library: a picture cupboard of its own (Navin, 24 November 2026)
                 cmd += ["--" + name.replace("_", "-"), str(job[name])]
         return cmd
     if job["section"] == "voice":

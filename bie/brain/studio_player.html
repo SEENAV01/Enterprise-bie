@@ -55,7 +55,10 @@
 .part .pb{position:absolute}.part .pb img{width:100%;height:100%;display:block}
 .part .sheen{position:absolute;inset:0;overflow:hidden;mix-blend-mode:overlay;-webkit-mask-size:100% 100%;mask-size:100% 100%;opacity:0;transition:opacity .4s}
 .part .sheen i{position:absolute;top:0;bottom:0;left:0;width:200%;background:repeating-linear-gradient(90deg,rgba(0,0,0,.45) 0,rgba(255,255,255,.5) 3%,rgba(0,0,0,.45) 6%)}
-.part.p-spin .sheen{opacity:1}.part.p-spin .sheen i{animation:roll .7s linear infinite}
+.part.p-spin .sheen{opacity:1}.part.p-spin .sheen i{animation:roll .45s linear infinite}
+/* a wheel that faces the camera turns for real; a rod seen from the side rolls its sheen (Navin, 24 November 2026, on the
+   remade 11.6.3b: "photorealistic hisse abhi bhi nahi hilte": the turbine's sheen rolled, its wheel never turned) */
+.part.p-wheel .pb{animation:spin 2.2s linear infinite}.part.p-wheel .sheen{opacity:0}
 .part.p-glow .pb{filter:brightness(1.3) drop-shadow(0 0 .8vw rgba(255,220,140,.95))}
 @keyframes roll{to{transform:translateX(-3%)}}
 .rider{position:absolute;width:2.2%;aspect-ratio:1;margin:-1.1% 0 0 -1.1%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#dfe9f1 55%,#8aa3b5);box-shadow:0 0 6px rgba(255,255,255,.8);color:#33475a;font:800 clamp(7px,1vw,12px)/1 system-ui;display:flex;align-items:center;justify-content:center;opacity:0}
@@ -284,16 +287,21 @@ function jaw(P,T,q){if(!T)return{jx:0,jy:0};const vx=P.c[0]-T[0],vy=(P.c[1]-T[1]
 // a jaw closes onto a point at its own edge; a point beyond the part (a lid told to close onto its box, 11.6.1 on the VM,
 // 23 November 2026: the jaw pulsed where it lay and the box never closed) is reached by travelling there, then pressing
 const REACH=3;
+// a part about as wide as it is tall (on screen) is a wheel or a head facing us: it turns in the picture's plane
+function wheelLike(P){const w=(P.box[2]-P.box[0])*16,h=(P.box[3]-P.box[1])*9,r=w/Math.max(1e-6,h);return r>.62&&r<1.6;}
+// a jaw moves in proportion to its part, so a big part's change is seen (a 19% wide CF1 head moved 1.7% and looked still)
+function jawScale(P){const size=Math.max(P.box[2]-P.box[0],(P.box[3]-P.box[1])*.5625);return Math.max(1,Math.min(2.4,size/10));}
 function beyondReach(P,T){const b=P.box,x=T[0]-P.now.tx,y=T[1]-P.now.ty;
   return x<b[0]-REACH||x>b[2]+REACH||y<b[1]-REACH||y>b[3]+REACH;}
 function doAct(a,now,instant){const P=parts[a.part];if(!P)return;const n=P.now,to=Object.assign({},n),T=a.toward&&a.toward.length===2?a.toward:null;let ms=1200;
-  if(a.do==='spin'){P.el.classList.add('p-spin');addRiders(P,a.rider);return;}
-  if(a.do==='stop'){P.el.classList.remove('p-spin');P.riders.forEach(r=>r.el.remove());riders=riders.filter(r=>r.P!==P);P.riders=[];return;}
+  if(a.do==='spin'){P.el.classList.add('p-spin');if(wheelLike(P))P.el.classList.add('p-wheel');addRiders(P,a.rider);return;}
+  if(a.do==='stop'){P.el.classList.remove('p-spin','p-wheel');P.riders.forEach(r=>r.el.remove());riders=riders.filter(r=>r.P!==P);P.riders=[];return;}
   if(a.do==='glow'){if(!instant){P.el.classList.add('p-glow');const my=token;setTimeout(()=>{if(my===token)P.el.classList.remove('p-glow');},1800);}return;}
   if(a.do==='turn'){to.rot=n.rot+(+a.turns||0);ms=1500;}
   else if(a.do==='tight'&&T&&beyondReach(P,T)){P.jawT=T;to.tx=T[0]-P.c[0];to.ty=T[1]-P.c[1];to.jx=0;to.jy=0;to.jr=0;to.s=.97;ms=1500;
     if(!instant){pressure(T,now+1250);P.chew=now+1500+1100;}}
-  else if(POSE[a.do]){if(T)P.jawT=T;const q=POSE[a.do],j=jaw(P,P.jawT,q);to.jx=j.jx;to.jy=j.jy;to.jr=q.r;to.s=q.s;ms=1100;
+  else if(POSE[a.do]){if(T)P.jawT=T;const k=jawScale(P),q0=POSE[a.do],q={d:q0.d*k,s:1+(q0.s-1)*Math.min(1.6,k),r:q0.r*Math.min(1.6,k)},
+    j=jaw(P,P.jawT,q);to.jx=j.jx;to.jy=j.jy;to.jr=q.r;to.s=q.s;ms=1100;
     if(a.do==='tight'&&!instant){pressure(P.c,now+450);P.chew=now+1100+1300;}}
   else if(a.do==='stick'&&T){to.tx=T[0]-P.c[0];to.ty=T[1]-P.c[1];ms=1500;if(!instant)bond(T,now+1350);}
   else if(a.do==='leave'&&T){to.tx=T[0]-P.c[0];to.ty=T[1]-P.c[1];to.op=0;ms=1800;}

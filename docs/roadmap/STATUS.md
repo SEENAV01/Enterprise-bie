@@ -454,6 +454,11 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    `tools/lock_aatma.py`, `rulebook/aatma.json`), locked only after Navin's yes, given to every subject's next film and
    used to measure it. IMPLEMENTED, empty: its first entry waits for Navin's pass of the 11.6.3b remake. Next after it:
    the film instruction's biology examples move into the subject kits, then one Money chapter film (his card).
+   Merged (PR #206, `0b1f2244`). **The remake (job `r1`, 24 November 2026):** 11 shots, 0 problems, parts 3 of 3; Navin:
+   not better than 7-h11 (the first film's real dam was not reused, realism still missing, the parts did not visibly
+   move). Fixed here: a job names its own picture cupboard (`library`), kept pictures keep their words, a wheel-like part
+   turns for real, a jaw moves with its part's size; cupboard `c116-3b` holds the 7-h11 pictures and the first film's dam.
+   Next: job `r2` (his card "7-h11 ki tasveerein + naya talmel").
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
