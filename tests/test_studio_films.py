@@ -622,6 +622,12 @@ class FilmStage(unittest.TestCase):
         cmd = codex_vm.argv(job, Path("/tmp/o"), "python")
         self.assertEqual(cmd[cmd.index("--from-run") + 1], job["from_run"])
         self.assertEqual(cmd[cmd.index("--videos") + 1], "q01,q02")
+        self.assertNotIn("--chapter-map", cmd)
+        heading = codex_vm.validate(dict(job, id="studio-films-h", videos="h11-7-2a,h11-6-3b",
+                                         chapter_map="https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/blindtest-results/runs/n"))
+        cmd = codex_vm.argv(heading, Path("/tmp/o"), "python")       # films from a script run: the naksha run's chapter map
+        self.assertEqual(cmd[cmd.index("--chapter-map") + 1], heading["chapter_map"])
+        self.assertEqual(cmd[cmd.index("--videos") + 1], "h11-7-2a,h11-6-3b")
         with self.assertRaises(codex_vm.JobError):
             codex_vm.validate({"job": "bie.vm-job/1", "id": "studio-films-x", "section": "studio", "stage": "films"})
 
