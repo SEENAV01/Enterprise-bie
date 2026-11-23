@@ -2835,7 +2835,9 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   line names its part, at least 1.2 s after the one before), the films section's `cut_parts` (one cutter call per film;
   the report lists parts wanted and cut), and the player's act engine (poses with slide, jaw, turn, scale and opacity;
   pressure rings, a bond glow, riders; a jump into a shot replays the earlier acts). A turning line is satisfied by a
-  turn or spin act on the picture's own part.
+  turn or spin act on the picture's own part. The picture prompt asks for the moving parts solid, opaque and separate
+  (`SOLID_PARTS`; Navin on routes A and B: "kuchh jyada hi transparent"), and each film gets a review page of its parts
+  and acts (`<qid>-hisse.html`).
 - **Measured:** on the ATP top-view demo picture with six parts: model load 3.7 s, 4.3 s for the picture, all six cut
   (areas 0.3–5.5 %, SAM scores 0.77–0.97); the act engine played four sentences in Chromium without errors. Offline tests
   21 new; every passed film still passes. Quality, first-try pass rate and rounds wait for the first VM run with parts.

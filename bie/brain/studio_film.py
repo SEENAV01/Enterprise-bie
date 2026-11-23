@@ -1425,6 +1425,11 @@ CUTAWAY_STYLES = {
 # Navin, 23 November 2026, after the first heading film: "Is baar matte with controlled roshni nhi pehale wale chamakdaar
 # tarike se hi banao video" (his 22 November choice was open ended)
 FILM_STYLE = "glossy"
+# the parts that move are solid, so they can be cut and so the mechanism reads (Navin, 23 November 2026, on routes A and B:
+# "kuchh jyada hi transparent hai ... bahut hi transparent beta aur na dikhne wali dandi"): whatever the cutaway style
+# says about transparency, these parts are opaque, separate and fully in view
+SOLID_PARTS = (" These parts are drawn solid and opaque, each one a clearly separate shape with a clean edge, fully in view, "
+               "not behind glass or a see-through layer, not overlapping each other: {parts}.")
 MACHINERY = re.compile(r"(?i)\b(proteins?|complex(es)?|enzymes?|ps ?ii?\b|photosystems?|atp synthase|cf[0₀1₁]|cytochromes?|"
                        r"plastoquinone|plastocyanin|ferredoxin|rubisco|reaction cent(re|er)|molecules?|molecular|carriers?|"
                        r"channels?|pumps?|antenna)")
@@ -1520,6 +1525,9 @@ def image_prompt(shot: dict, look: str = "", style: str | None = None) -> str:
     if style == "glossy":                    # a glossy picture is not asked to be matte as well (Navin, 23 November 2026)
         prompt, shared = (UNGLOSSY.sub("", text) for text in (prompt, shared))
     shared = f" Same look as the other pictures of this film: {shared.rstrip('.').strip(' ,;')}." if shared.strip(" ,;.") else ""
+    moving = acted_parts(shot)
+    if moving:                               # parts BIE cuts out and moves are solid (routeS, 23 November 2026)
+        suffix = SOLID_PARTS.format(parts="; ".join(f"{p.get('name')} ({p.get('looks')})" for p in moving)) + suffix
     return prompt + shared + suffix
 
 

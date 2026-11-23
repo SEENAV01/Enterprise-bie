@@ -264,6 +264,14 @@ class FilmParts(unittest.TestCase):
         self.assertGreaterEqual(timed[1]["at"] - timed[0]["at"], 1.2)          # one thing at a time
         self.assertLessEqual(timed[1]["at"], 6.0 - 1.6)
 
+    def test_moving_parts_are_drawn_solid(self):
+        shot = acts_film()["shots"][0]
+        prompt = studio_film.image_prompt(shot, "glossy violet heads")
+        self.assertIn("solid and opaque", prompt)
+        self.assertIn("dandi (copper central stalk in the middle)", prompt)
+        shot["sentences"] = [dict(s, acts=[]) for s in shot["sentences"]]
+        self.assertNotIn("solid and opaque", studio_film.image_prompt(shot, "glossy violet heads"))
+
     def test_review_page_lists_every_act(self):
         page = studio_film.acts_page(acts_film(), {"wanted": 3, "cut": 1, "parts": {
             "s1.stalk": {"area": 2.1, "problems": []}, "s1.beta_top": {"area": 0.01, "problems": ["the cut is a speck"]}}},
