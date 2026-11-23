@@ -155,7 +155,8 @@ with a process written inside a box instead of happening on screen):
   the colour of every structure that is seen in more than one picture (for example "ATP synthase: violet head, amber
   channel"), and each image_prompt draws that structure in those colours (a part that changed colour between shots
   read as a different thing). BIE adds a structure's colours only to the pictures whose image_prompt names it, so a
-  structure appears only on the pictures at its own scale.
+  structure appears only on the pictures at its own scale. The pictures are glossy (Navin, 23 November 2026): never
+  write matte, non-reflective or a muted sheen into the look or an image_prompt.
 - REAL PLACES, LIVING PROCESSES. Places and processes are shown on AI pictures (photo or cutaway) that look like the real
   structure as electron micrographs and structural models show it (for a chloroplast: stacked thylakoid discs, the fluid
   stroma between them, membranes with depth; a protein in its known shape, such as ATP synthase: a ring in the membrane, a
@@ -1364,6 +1365,9 @@ def look_for(prompt: str, look: str, aside: bool | None = None) -> str:
     return "; ".join(kept)
 
 
+UNGLOSSY = re.compile(r"(?i)\b(matte|non-reflective|muted|controlled (satin )?sheen|satin sheen)\b ?")
+
+
 def image_prompt(shot: dict, look: str = "", style: str | None = None) -> str:
     """The shot's picture prompt; ``look`` (the film's shared art direction) keeps every picture in one world, with a
     structure's colours only on the pictures that show it (look_for); ``style`` is how a cutaway is rendered
@@ -1375,7 +1379,9 @@ def image_prompt(shot: dict, look: str = "", style: str | None = None) -> str:
     suffix = CUTAWAY_STYLES.get(style, CUTAWAY_SUFFIX) if visual.get("type") == "cutaway" else IMAGE_SUFFIX
     prompt = visual.get("image_prompt", "").strip()
     shared = look_for(prompt, look, aside=bool(shot.get("aside")))
-    shared = f" Same look as the other pictures of this film: {shared.rstrip('.')}." if shared else ""
+    if style == "glossy":                    # a glossy picture is not asked to be matte as well (Navin, 23 November 2026)
+        prompt, shared = (UNGLOSSY.sub("", text) for text in (prompt, shared))
+    shared = f" Same look as the other pictures of this film: {shared.rstrip('.').strip(' ,;')}." if shared.strip(" ,;.") else ""
     return prompt + shared + suffix
 
 

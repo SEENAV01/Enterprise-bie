@@ -1248,6 +1248,17 @@ class SectionFilmsLook(unittest.TestCase):
         for part in ("const TAIL=[", "tails.push(TAIL.map(", "(ac.tails[i]||[]).forEach((c,j)=>", "const hide=()=>"):
             self.assertIn(part, page)
 
+    def test_a_glossy_picture_is_not_asked_to_be_matte(self):
+        look = "16:9 macro journey, warm soft light and matte hydrated textures; stroma cream"
+        shot = {"visual": {"type": "cutaway", "image_prompt": "Stroma close up, matte non-reflective proteins, cream fluid."}}
+        made = studio_film.image_prompt(shot, look)
+        self.assertNotIn("matte", made.lower())
+        self.assertNotIn("non-reflective", made)
+        self.assertIn("warm soft light and hydrated textures", made)
+        self.assertTrue(made.endswith(studio_film.CUTAWAY_SUFFIX))
+        self.assertIn("matte", studio_film.image_prompt(shot, look, "mixed"))      # his 22 Nov look keeps its words
+        self.assertIn("never\n  write matte", studio_film.INSTRUCTIONS)
+
     def test_a_picture_shows_what_its_lines_talk_about(self):
         made = film()
         made["shots"][0]["visual"].update(type="cutaway", image_prompt="Leaf mesophyll cutaway, cellulose walls, a large "

@@ -2792,7 +2792,9 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   `picture_problems`: a shot whose lines name molecular machinery (`MACHINERY`) over a whole-structure picture is sent
   back ("draw that part close up here, or say these lines on the shot that shows it"); the opening question is free.
   `studio_player.html`: every moving thing draws a short tail of three fading dots behind it (`TAIL`), hidden when it
-  stops. IMPLEMENTED (`tests/test_studio_films.py` `SectionFilmsLook`, `tests/test_look_test.py`).
+  stops. The maker writes no matte into the look, and a glossy picture's prompt drops "matte", "non-reflective",
+  "muted" and "controlled sheen" (`UNGLOSSY`; the Calvin film's look had "matte hydrated textures", which would fight
+  the glossy instruction). IMPLEMENTED (`tests/test_studio_films.py` `SectionFilmsLook`, `tests/test_look_test.py`).
 - **Measured on the stored film:** `picture_problems` sends back shot 2 (ATP synthase over the leaf mesophyll); the
   growing-line check sends back all four growing lines (shots 1–4); the stored Calvin film has neither. Every passed film
   still passes every check (`PassedFilms`).
