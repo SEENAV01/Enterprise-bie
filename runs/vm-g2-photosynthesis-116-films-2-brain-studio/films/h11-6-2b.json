@@ -1,0 +1,2410 @@
+{
+ "film": {
+  "title": "Electron ka return ticket: cyclic vs non-cyclic",
+  "look": "Glossy scientific realism, turquoise fluid and gold excitation light; grana dark emerald, stroma lamellae pale emerald, PS I teal with gold P700, PS II forest green, carriers copper, NADP reductase rose, ATP synthase violet six-lobed head with amber ring and stalk. P700 stays left of NADP⁺ wherever both appear.",
+  "shots": [
+   {
+    "id": "s1",
+    "title": "Return ticket",
+    "key": "Electron transport system se P700 par laut aata hai.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 glossy molecular cutaway of a pale emerald unstacked thylakoid membrane, turquoise stroma above and closed flattened lumen below with sealed curved edge. Teal PS I left at 25,55 with gold P700; primary acceptor 35,30; copper transport proteins 65,40 and 70,60. Violet six-lobed ATP synthase head with amber stalk and membrane ring right at 85,58, facing stroma. Open electron return path via 45,67. Reserve upper right for product ledger and NADP position 88,18. No PS II or NADP reductase. Realistic protein structures, membrane depth, soft volumetric light, no baked-in text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Cyclic aur non-cyclic photophosphorylation mein kya difference hai?",
+      "voice": "साइक्लिक और नॉन-साइक्लिक फोटोफॉस्फोराइलेशन में क्या डिफरेंस है?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "",
+      "part": "hook"
+     },
+     {
+      "roman": "Ab P700 se nikle ek marked electron ko follow karo: light excitation ke baad woh acceptor aur transport system se hokar P700 par laut aata hai.",
+      "voice": "अब पी सेवन हंड्रेड से निकले एक मार्क्ड इलेक्ट्रॉन को फॉलो करो: लाइट एक्साइटेशन के बाद वह एक्सेप्टर और ट्रांसपोर्ट सिस्टम से होकर पी सेवन हंड्रेड पर लौट आता है।",
+      "pins": [
+       {
+        "label": "P700",
+        "x": 25,
+        "y": 55
+       },
+       {
+        "label": "Acceptor",
+        "x": 35,
+        "y": 30
+       },
+       {
+        "label": "Transport system",
+        "x": 63.0,
+        "y": 46.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 47,
+       "y": 45,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          10,
+          12
+         ],
+         [
+          25,
+          55
+         ]
+        ],
+        "count": 1,
+        "ms": 1000,
+        "loop": false
+       },
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          25.0,
+          55.0
+         ],
+         [
+          35.0,
+          30.0
+         ],
+         [
+          63.0,
+          46.0
+         ],
+         [
+          70.0,
+          62.0
+         ],
+         [
+          45.0,
+          67.0
+         ],
+         [
+          25.0,
+          55.0
+         ]
+        ],
+        "count": 1,
+        "ms": 7000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       4
+      ],
+      "beyond": "Marked electron se return route track karte hain.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "title": "Electron ka hisaab",
+    "key": "Return route ATP support karta hai, NADPH aur O₂ nahi.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer glossy cutaway inside previous membrane region at 50,50. Preserve teal PS I with gold P700 left 25,55, acceptor 35,30, copper transport proteins 65,40 and 70,60. Pale emerald membrane encloses turquoise lumen below, stroma above. Violet six-lobed ATP synthase with amber ring and stalk right 85,58. Clear upper right for NADP at 88,18 and zero-product ledger. Open return path via 45,67. Realistic compact proteins, membrane depth, sealed sac edge. No PS II, water-splitting site or NADP reductase.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 50,
+     "y": 50
+    },
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Starting P700 ne ek electron diya aur loop complete hone par ek electron wapas paaya.",
+      "voice": "स्टार्टिंग पी सेवन हंड्रेड ने एक इलेक्ट्रॉन दिया और लूप कम्प्लीट होने पर एक इलेक्ट्रॉन वापस पाया।",
+      "pins": [
+       {
+        "label": "P700",
+        "x": 22.0,
+        "y": 63.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 22.0,
+       "y": 63.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          22.0,
+          63.0
+         ],
+         [
+          30.5,
+          30.5
+         ],
+         [
+          55.5,
+          45.0
+         ],
+         [
+          65.0,
+          64.0
+         ],
+         [
+          36.0,
+          69.0
+         ],
+         [
+          22.0,
+          63.0
+         ]
+        ],
+        "count": 1,
+        "ms": 6500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 1,
+      "count": {
+       "x": 48,
+       "y": 82,
+       "groups": [
+        {
+         "n": 1,
+         "label": "P700 se",
+         "colour": "white"
+        }
+       ],
+       "then": [
+        {
+         "n": 1,
+         "label": "P700 ko",
+         "colour": "white"
+        }
+       ]
+      },
+      "teaches": [],
+      "beyond": "P700 ka minus-one phir plus-one electron hisaab.",
+      "part": "concept"
+     },
+     {
+      "roman": "Is batch se NADP⁺ ko kitne net electrons mile?",
+      "voice": "इस बैच से एनएडीपी प्लस को कितने नेट इलेक्ट्रॉन्स मिले?",
+      "pins": [
+       {
+        "label": "NADP⁺",
+        "x": 88,
+        "y": 18
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 70,
+       "y": 30,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Net electron delivery ka prediction.",
+      "part": "concept"
+     },
+     {
+      "roman": "Iska seedha sa jawab hai, electron return route mein raha, isliye NADP⁺ ko zero net electrons mile aur NADPH nahi bana.",
+      "voice": "इसका सीधा सा जवाब है, इलेक्ट्रॉन रिटर्न रूट में रहा, इसलिए एनएडीपी प्लस को ज़ीरो नेट इलेक्ट्रॉन्स मिले और एनएडीपीएच नहीं बना।",
+      "pins": [
+       {
+        "label": "Net NADPH 0",
+        "x": 83,
+        "y": 30
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 45,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          55.5,
+          45.0
+         ],
+         [
+          65.0,
+          64.0
+         ],
+         [
+          36.0,
+          69.0
+         ],
+         [
+          22.0,
+          63.0
+         ]
+        ],
+        "count": 1,
+        "ms": 3500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 2,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       4,
+       5
+      ],
+      "beyond": "Zero delivery ko product ledger se jodte hain.",
+      "part": "concept"
+     },
+     {
+      "roman": "Electron flow ATP synthesis support karta hai, lekin ek loop ko exactly ek ATP ke barabar nahi maan sakte.",
+      "voice": "इलेक्ट्रॉन फ्लो एटीपी सिंथेसिस सपोर्ट करता है, लेकिन एक लूप को एग्ज़ैक्टली एक एटीपी के बराबर नहीं मान सकते।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 86.0,
+       "y": 55.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "ATP",
+        "points": [
+         [
+          86.0,
+          36.0
+         ],
+         [
+          91.0,
+          26.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 3,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1,
+       5
+      ],
+      "beyond": "Loop aur ATP ki fixed one-to-one stoichiometry nahi hoti.",
+      "part": "concept"
+     },
+     {
+      "roman": "Is cyclic route mein water splitting nahi judi, isliye isse net O₂ production bhi nahi hoti.",
+      "voice": "इस साइक्लिक रूट में वॉटर स्प्लिटिंग नहीं जुड़ी, इसलिए इससे नेट ओ टू प्रोडक्शन भी नहीं होती।",
+      "pins": [
+       {
+        "label": "Net O₂ 0",
+        "x": 83,
+        "y": 78
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 4,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Water splitting absent hone se oxygen output zero.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "title": "Do bus routes",
+    "key": "Circular trip lautata hai; onward trip delivery karta hai.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "photo",
+     "image_prompt": "16:9 photorealistic glossy miniature transport training yard in warm daylight. Left circular asphalt road with depot 20,65 and stops 12,40 29,23 45,40 39,65. Right separate onward road from terminal 58,70 through 65,55 and 78,44 to terminal 90,25. Empty roads for moving bus tokens, reflective windows, realistic buildings. Open space beside depot for explicit depot = starting supply mapping pin; open upper space for labels. Both destinations visible.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "aside": true,
+    "sentences": [
+     {
+      "roman": "Socho, ek bus depot se nikal kar circular route par stations se guzarti hai aur usi depot par laut aati hai.",
+      "voice": "सोचो, एक बस डिपो से निकल कर सर्कुलर रूट पर स्टेशन्स से गुज़रती है और उसी डिपो पर लौट आती है।",
+      "pins": [
+       {
+        "label": "Depot",
+        "x": 11.0,
+        "y": 39.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 34.0,
+       "y": 51.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "dot",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          19.0,
+          44.0
+         ],
+         [
+          27.0,
+          34.0
+         ],
+         [
+          47.0,
+          42.0
+         ],
+         [
+          44.0,
+          65.0
+         ],
+         [
+          22.0,
+          61.0
+         ],
+         [
+          19.0,
+          44.0
+         ]
+        ],
+        "count": 1,
+        "ms": 6500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Circular bus trip electron return ki analogy hai.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Doosri bus onward route lekar alag terminal tak pahunchti hai; woh is trip mein starting depot par nahi lautti.",
+      "voice": "दूसरी बस ऑनवर्ड रूट लेकर अलग टर्मिनल तक पहुँचती है; वह इस ट्रिप में स्टार्टिंग डिपो पर नहीं लौटती।",
+      "pins": [
+       {
+        "label": "Alag terminal",
+        "x": 89.0,
+        "y": 73.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 75.0,
+       "y": 57.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "dot",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          57.0,
+          35.0
+         ],
+         [
+          76.0,
+          55.0
+         ],
+         [
+          75.0,
+          70.0
+         ],
+         [
+          87.0,
+          77.0
+         ]
+        ],
+        "count": 1,
+        "ms": 5000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Onward trip net delivery samjhata hai.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Dono trips mein movement hai, lekin unki destination ka farq kya hai?",
+      "voice": "दोनों ट्रिप्स में मूवमेंट है, लेकिन उनकी डेस्टिनेशन का फ़र्क क्या है?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Movement aur net transfer ka farq.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Hota yeh hai ki circular trip starting supply ko wapas deti hai, jabki onward trip passenger ko alag final destination tak pahunchati hai.",
+      "voice": "होता यह है कि सर्कुलर ट्रिप स्टार्टिंग सप्लाई को वापस देती है, जबकि ऑनवर्ड ट्रिप पैसेंजर को अलग फाइनल डेस्टिनेशन तक पहुँचाती है।",
+      "pins": [
+       {
+        "label": "Depot = starting supply",
+        "x": 11.0,
+        "y": 39.0
+       },
+       {
+        "label": "Final destination",
+        "x": 89.0,
+        "y": 73.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "dot",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          20.0,
+          54.0
+         ],
+         [
+          19.0,
+          44.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       },
+       {
+        "what": "dot",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          79.0,
+          78.0
+         ],
+         [
+          87.0,
+          77.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Depot ko starting supply aur terminal ko final destination se map karte hain.",
+      "part": "prerequisite"
+     }
+    ]
+   },
+   {
+    "id": "s3b",
+    "title": "Bus se electron tak",
+    "key": "Depot P700 hai; onward terminal NADP⁺ hai.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "photo",
+     "image_prompt": "16:9 close photograph of the same glossy miniature transport training yard. Circular road left with depot 20,65 and stops 12,40 29,23 45,40 39,65. Onward road right from 58,70 via 65,55 and 78,44 to terminal 90,25. Reflective windows, warm daylight, empty roads for animated tokens. Leave clear space for explicit depot=P700 and token=electron mapping pins beside circular route and water-to-NADP mapping beside onward route. No baked-in text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "aside": true,
+    "sentences": [
+     {
+      "roman": "Yahaan travelling token electron hai, circular route PS I ka cyclic flow hai, aur depot P700 hai.",
+      "voice": "यहाँ ट्रैवलिंग टोकन इलेक्ट्रॉन है, सर्कुलर रूट पीएस वन का साइक्लिक फ्लो है, और डिपो पी सेवन हंड्रेड है।",
+      "pins": [
+       {
+        "label": "Token = electron",
+        "x": 29,
+        "y": 23
+       },
+       {
+        "label": "Depot = P700",
+        "x": 23.5,
+        "y": 41.0
+       },
+       {
+        "label": "PS I cyclic",
+        "x": 43,
+        "y": 44
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 28,
+       "y": 48,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "dot",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          20.0,
+          65.0
+         ],
+         [
+          5.5,
+          40.0
+         ],
+         [
+          29.0,
+          23.0
+         ],
+         [
+          40.0,
+          40.0
+         ],
+         [
+          39.0,
+          58.0
+         ],
+         [
+          20.0,
+          65.0
+         ]
+        ],
+        "count": 1,
+        "ms": 6000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "Bus analogy ko biological parts se map karte hain.",
+      "part": "concept"
+     },
+     {
+      "roman": "Onward route water se photosystems ke through NADP⁺ tak non-cyclic flow hai; dono routes ATP formation support karte hain, par NADP⁺ ko delivery sirf onward route deta hai.",
+      "voice": "ऑनवर्ड रूट वॉटर से फोटोसिस्टम्स के थ्रू एनएडीपी प्लस तक नॉन-साइक्लिक फ्लो है; दोनों रूट्स एटीपी फॉर्मेशन सपोर्ट करते हैं, पर एनएडीपी प्लस को डिलिवरी सिर्फ़ ऑनवर्ड रूट देता है।",
+      "pins": [
+       {
+        "label": "Water",
+        "x": 80.0,
+        "y": 21.0
+       },
+       {
+        "label": "NADP⁺",
+        "x": 90.0,
+        "y": 47.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 72,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "dot",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          41.5,
+          33.0
+         ],
+         [
+          53.0,
+          30.5
+         ],
+         [
+          66.0,
+          42.0
+         ],
+         [
+          85.5,
+          48.0
+         ]
+        ],
+        "count": 1,
+        "ms": 5000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Non-cyclic delivery aur shared ATP output ka mapping.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "title": "Chloroplast mein jagah",
+    "key": "Stroma lamellae cyclic flow ki possible location hain.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 glossy chloroplast interior, dark emerald grana stacks left and pale emerald unstacked stroma lamellae connecting toward right, turquoise stroma around them. Structural membrane scale, no giant proteins. Closed flattened thylakoids with lumen exposed only by scientific cut surface. Open space for grana-versus-lamellae annotations. Gold excitation light reaches right lamella 70,53, next molecular dive target. Soft volumetric light and membrane depth.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Sirf PS I functional ho, toh excited electron transport chain se PS I par laut sakta hai aur ATP-only cyclic photophosphorylation hoti hai.",
+      "voice": "सिर्फ़ पीएस वन फंक्शनल हो, तो एक्साइटेड इलेक्ट्रॉन ट्रांसपोर्ट चेन से पीएस वन पर लौट सकता है और एटीपी-ओनली साइक्लिक फोटोफॉस्फोराइलेशन होती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 72.5,
+        "x1": 97.5,
+        "y0": 36.0,
+        "y1": 54.0
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 70.0,
+       "y": 45.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          95.0,
+          8.0
+         ],
+         [
+          85.0,
+          45.0
+         ]
+        ],
+        "count": 3,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1,
+       5
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Stroma lamellae, wahi unstacked membrane connections, is flow ki possible location hain; inhe exclusive location mat samjho.",
+      "voice": "स्ट्रोमा लैमेली, वही अनस्टैक्ड मेम्ब्रेन कनेक्शन्स, इस फ्लो की पॉसिबल लोकेशन हैं; इन्हें एक्सक्लूसिव लोकेशन मत समझो।",
+      "pins": [
+       {
+        "label": "Stroma lamellae",
+        "x": 58.0,
+        "y": 46.0
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 55.0,
+        "x1": 85.0,
+        "y0": 39.5,
+        "y1": 50.5
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 70.0,
+       "y": 45.0,
+       "scale": 1.4
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       2
+      ],
+      "beyond": "Possible ko exclusive location se alag rakhte hain.",
+      "part": "concept"
+     },
+     {
+      "roman": "Grana membranes mein PS I aur PS II dono hote hain, jabki stroma lamellae mein PS II aur NADP reductase absent hote hain.",
+      "voice": "ग्राना मेम्ब्रेन्स में पीएस वन और पीएस टू दोनों होते हैं, जबकि स्ट्रोमा लैमेली में पीएस टू और एनएडीपी रिडक्टेज़ ऐब्सेंट होते हैं।",
+      "pins": [
+       {
+        "label": "Grana: PS I + II",
+        "x": 25,
+        "y": 38
+       },
+       {
+        "label": "PS II absent",
+        "x": 63.0,
+        "y": 28.0
+       },
+       {
+        "label": "NADP reductase absent",
+        "x": 77,
+        "y": 72
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       3
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "title": "Carrier aur enzyme",
+    "key": "Ferredoxin supplies; NADP reductase catalyses.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 glossy molecular cutaway within previous lamella and neighbouring grana margin. Pale emerald unstacked membrane across centre, turquoise stroma above and closed lumen below. Teal PS I with gold P700 left 25,60, acceptor 35,32, copper ferredoxin 52,27 and copper return carriers 65,42 and 60,65. Rose NADP reductase far right 84,30 belongs to a distinct neighbouring grana-associated membrane margin, not the unstacked lamella. Open right stroma for NADP and NADPH reaction, open return path to left P700. Realistic protein structures and membrane depth. No PS II on unstacked connection.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 58.0,
+     "y": 46.0
+    },
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "NADP reductase woh enzyme hai jo supplied electrons se NADP⁺ ko NADPH banane mein madad karta hai.",
+      "voice": "एनएडीपी रिडक्टेज़ वह एन्ज़ाइम है जो सप्लाइड इलेक्ट्रॉन्स से एनएडीपी प्लस को एनएडीपीएच बनाने में मदद करता है।",
+      "pins": [
+       {
+        "label": "NADP reductase",
+        "x": 84,
+        "y": 30
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 78,
+        "x1": 90,
+        "y0": 23,
+        "y1": 37
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 84.0,
+       "y": 30.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "NADP+",
+          "from": [
+           95,
+           14
+          ]
+         },
+         {
+          "what": "e-",
+          "from": [
+           50.0,
+           31.0
+          ]
+         },
+         {
+          "what": "e-",
+          "from": [
+           51.0,
+           33.0
+          ]
+         }
+        ],
+        "at": [
+         84,
+         30
+        ],
+        "outputs": [
+         {
+          "what": "NADPH",
+          "to": [
+           94.0,
+           28.0
+          ]
+         }
+        ],
+        "label": "",
+        "ms": 6500,
+        "loop": false
+       }
+      ],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "NADP reductase ka basic catalytic role.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Ab aap sochoge, NADP⁺ reduction ke electrons kis carrier se milte hain?",
+      "voice": "अब आप सोचोगे, एनएडीपी प्लस रिडक्शन के इलेक्ट्रॉन्स किस कैरियर से मिलते हैं?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 60,
+       "y": 28,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Carrier aur enzyme ke roles ka sawaal.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Hota yeh hai ki ferredoxin naam ka carrier electrons supply karta hai aur NADP reductase reaction catalyse karta hai; aksar log dono roles ko ek samajhte hain, par asal mein yeh alag hain.",
+      "voice": "होता यह है कि फेरेडॉक्सिन नाम का कैरियर इलेक्ट्रॉन्स सप्लाई करता है और एनएडीपी रिडक्टेज़ रिएक्शन कैटेलाइज़ करता है; अक्सर लोग दोनों रोल्स को एक समझते हैं, पर असल में ये अलग हैं।",
+      "pins": [
+       {
+        "label": "Ferredoxin",
+        "x": 50.0,
+        "y": 32.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50.0,
+       "y": 32.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          50.0,
+          32.0
+         ],
+         [
+          68.0,
+          28.0
+         ],
+         [
+          84.0,
+          30.0
+         ]
+        ],
+        "count": 2,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Ferredoxin donor aur reductase catalyst ke alag roles.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s5b",
+    "title": "Return route ki excitation",
+    "key": "Beyond 680 nm light mein bhi cyclic flow ho sakta hai.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer glossy molecular cutaway into previous unstacked membrane at 45,51. Teal PS I with gold P700 stays left 25,60, primary acceptor 35,32, copper ferredoxin 52,27 and copper return carriers 65,42 and 60,65. Pale emerald membrane encloses turquoise lumen below, turquoise stroma above; visible sealed curved edge and realistic protein structures. Rose NADP reductase belongs outside this crop to neighbouring grana margin, not this lamella. No PS II or water-splitting site. Leave upper left clear for incoming far-red light and fluid space for electron return via 43,69. Membrane patch 45,51 remains the next dive target.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 45,
+     "y": 51
+    },
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Cyclic flow mein NADP⁺ reduction ke bajay return route chalta hai, isliye net NADPH ya O₂ nahi banti.",
+      "voice": "साइक्लिक फ्लो में एनएडीपी प्लस रिडक्शन के बजाय रिटर्न रूट चलता है, इसलिए नेट एनएडीपीएच या ओ टू नहीं बनती।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 45,
+       "y": 48,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          21.5,
+          58.0
+         ],
+         [
+          36.0,
+          30.0
+         ],
+         [
+          53.5,
+          28.0
+         ],
+         [
+          68.5,
+          46.0
+         ],
+         [
+          63.5,
+          72.0
+         ],
+         [
+          21.5,
+          58.0
+         ]
+        ],
+        "count": 1,
+        "ms": 6000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       4,
+       5
+      ],
+      "beyond": "Oxygen absence ko return-route comparison se jodte hain.",
+      "part": "concept"
+     },
+     {
+      "roman": "Jab excitation ke liye sirf 680 nm se beyond wavelengths available hon, tab bhi cyclic photophosphorylation ho sakti hai.",
+      "voice": "जब एक्साइटेशन के लिए सिर्फ़ छह सौ अस्सी नैनोमीटर से बियॉन्ड वेवलेंथ्स अवेलेबल हों, तब भी साइक्लिक फोटोफॉस्फोराइलेशन हो सकती है।",
+      "pins": [
+       {
+        "label": ">680 nm",
+        "x": 14.0,
+        "y": 10.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 35,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "red",
+        "label": "",
+        "points": [
+         [
+          25.0,
+          10.0
+         ],
+         [
+          21.5,
+          58.0
+         ]
+        ],
+        "count": 3,
+        "ms": 1700,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       6
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s6",
+    "title": "Product prediction",
+    "key": "ATP yes; net NADPH no; O₂ no.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer glossy view inside previous membrane at 45,51. Teal PS I with gold P700 left 28,57, acceptor 35,29, copper carriers 58,36 and 64,61 returning via 45,69. Pale emerald membrane encloses turquoise lumen below, stroma above. Violet six-lobed ATP synthase with amber ring and stalk right 79,57, head facing stroma. Upper right open for product annotations. No PS II, NADP reductase or water splitting. Realistic protein structure, membrane depth, sealed sac edge and open space for electron and ATP movement.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 45,
+     "y": 51
+    },
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Socho, phir aage badhenge: PS I ka electron acceptor aur carriers se P700 par laut raha hai; kya ATP ke saath NADPH aur oxygen bhi zaroor banengi?",
+      "voice": "सोचो, फिर आगे बढ़ेंगे: पीएस वन का इलेक्ट्रॉन एक्सेप्टर और कैरियर्स से पी सेवन हंड्रेड पर लौट रहा है; क्या एटीपी के साथ एनएडीपीएच और ऑक्सीजन भी ज़रूर बनेंगी?",
+      "pins": [
+       {
+        "label": "P700",
+        "x": 20.0,
+        "y": 60.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 48,
+       "y": 46,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          29.0,
+          38.0
+         ],
+         [
+          48.0,
+          52.0
+         ],
+         [
+          61.0,
+          70.0
+         ],
+         [
+          34.0,
+          73.0
+         ],
+         [
+          20.0,
+          60.0
+         ]
+        ],
+        "count": 1,
+        "ms": 6000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Return route se products predict karne ka checkpoint.",
+      "part": "use"
+     },
+     {
+      "roman": "Apna jawab electron ki destination aur water-splitting requirement se jodo.",
+      "voice": "अपना जवाब इलेक्ट्रॉन की डेस्टिनेशन और वॉटर-स्प्लिटिंग रिक्वायरमेंट से जोड़ो।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 20.0,
+       "y": 60.0,
+       "scale": 1.3
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Destination aur oxygen source se reasoning.",
+      "part": "use"
+     },
+     {
+      "roman": "Iska seedha sa jawab hai, returning electron NADP⁺ ko reduce nahi karta aur is route mein PS II-associated water splitting nahi chalti, isliye cyclic flow ATP deta hai, net NADPH aur O₂ nahi.",
+      "voice": "इसका सीधा सा जवाब है, रिटर्निंग इलेक्ट्रॉन एनएडीपी प्लस को रिड्यूस नहीं करता और इस रूट में पीएस टू-असोसिएटेड वॉटर स्प्लिटिंग नहीं चलती, इसलिए साइक्लिक फ्लो एटीपी देता है, नेट एनएडीपीएच और ओ टू नहीं।",
+      "pins": [
+       {
+        "label": "ATP yes",
+        "x": 79.0,
+        "y": 39.0
+       },
+       {
+        "label": "Net NADPH no",
+        "x": 83,
+        "y": 33
+       },
+       {
+        "label": "O₂ no",
+        "x": 83,
+        "y": 44
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 55,
+       "y": 46,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          61.0,
+          70.0
+         ],
+         [
+          34.0,
+          73.0
+         ],
+         [
+          20.0,
+          60.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2500,
+        "loop": false
+       },
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          79.0,
+          33.0
+         ],
+         [
+          92.0,
+          12.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       4,
+       5
+      ],
+      "beyond": "PS II-associated splitting absent hone se O2 nahi milta.",
+      "part": "use"
+     },
+     {
+      "roman": "Aksar log ATP bante dekhkar saare light-reaction products maan lete hain, par product list electron route par depend karti hai.",
+      "voice": "अक्सर लोग एटीपी बनते देखकर सारे लाइट-रिएक्शन प्रोडक्ट्स मान लेते हैं, पर प्रोडक्ट लिस्ट इलेक्ट्रॉन रूट पर डिपेंड करती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          79.0,
+          33.0
+         ],
+         [
+          90.0,
+          15.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "ATP se saare products infer karne ki common mistake.",
+      "part": "use"
+     }
+    ]
+   },
+   {
+    "id": "s7",
+    "title": "Dono routes",
+    "key": "Non-cyclic: ATP, NADPH, O₂; cyclic: ATP only.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 glossy molecular comparison on continuous realistic thylakoid membrane, two routes vertically arranged without boxes. Upper dark emerald grana-associated region: forest-green PS II 12,40, copper carriers 27,35, teal PS I with gold P700 42,40, copper ferredoxin 62,22, rose NADP reductase 82,22 and NADP destination 92,18. Lower pale emerald unstacked region: teal PS I with gold P700 left 28,70, acceptor 38,54, copper return proteins 58,60 and 62,78, return via 43,82. P700 always left of NADP. Violet six-lobed ATP synthase heads with amber rings and stalks 72,70 and 70,40 face turquoise stroma. Closed turquoise lumen pockets, membrane depth, water-oxidation site on lumen side of upper PS II 12,47. Open fluid paths and product annotation space. No baked-in text.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Ab dono routes order mein jodo: non-cyclic flow mein water electrons deta hai, PS II aur PS I successive light boosts dete hain, aur electrons NADP⁺ tak pahunchte hain.",
+      "voice": "अब दोनों रूट्स ऑर्डर में जोड़ो: नॉन-साइक्लिक फ्लो में वॉटर इलेक्ट्रॉन्स देता है, पीएस टू और पीएस वन सक्सेसिव लाइट बूस्ट्स देते हैं, और इलेक्ट्रॉन्स एनएडीपी प्लस तक पहुँचते हैं।",
+      "pins": [
+       {
+        "label": "PS II",
+        "x": 17.0,
+        "y": 30.0
+       },
+       {
+        "label": "PS I",
+        "x": 54.0,
+        "y": 31.0
+       },
+       {
+        "label": "NADP⁺",
+        "x": 91.0,
+        "y": 30.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 32,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          17.0,
+          44.0
+         ],
+         [
+          17.0,
+          30.0
+         ],
+         [
+          32.0,
+          32.0
+         ],
+         [
+          54.0,
+          31.0
+         ],
+         [
+          79.0,
+          31.0
+         ],
+         [
+          91.0,
+          30.0
+         ]
+        ],
+        "count": 2,
+        "ms": 7500,
+        "loop": false
+       },
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          8.0,
+          10.0
+         ],
+         [
+          17.0,
+          30.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1600,
+        "loop": false
+       },
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          38.0,
+          10.0
+         ],
+         [
+          54.0,
+          31.0
+         ]
+        ],
+        "count": 1,
+        "ms": 3500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 1,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Non-cyclic source, photosystems aur destination ka contrast.",
+      "part": "recap"
+     },
+     {
+      "roman": "Isse ATP aur NADPH milte hain, aur water oxidation O₂ release karti hai.",
+      "voice": "इससे एटीपी और एनएडीपीएच मिलते हैं, और वॉटर ऑक्सिडेशन ओ टू रिलीज़ करती है।",
+      "pins": [
+       {
+        "label": "ATP + NADPH",
+        "x": 75,
+        "y": 9
+       },
+       {
+        "label": "O₂",
+        "x": 8,
+        "y": 52
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 32,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          70.0,
+          9.0
+         ],
+         [
+          71.0,
+          1.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2500,
+        "loop": false
+       },
+       {
+        "what": "NADPH",
+        "colour": "purple",
+        "label": "",
+        "points": [
+         [
+          91.0,
+          30.0
+         ],
+         [
+          94.0,
+          15.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2500,
+        "loop": false
+       },
+       {
+        "what": "O2",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          17.0,
+          44.0
+         ],
+         [
+          8.0,
+          48.0
+         ]
+        ],
+        "count": 1,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 2,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Non-cyclic products aur oxygen ka water source.",
+      "part": "recap"
+     },
+     {
+      "roman": "Cyclic flow mein P700 excite hota hai, electron acceptor aur transport system se guzarta hai, phir P700 par laut aata hai.",
+      "voice": "साइक्लिक फ्लो में पी सेवन हंड्रेड एक्साइट होता है, इलेक्ट्रॉन एक्सेप्टर और ट्रांसपोर्ट सिस्टम से गुज़रता है, फिर पी सेवन हंड्रेड पर लौट आता है।",
+      "pins": [
+       {
+        "label": "P700",
+        "x": 22.3,
+        "y": 73.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 40.0,
+       "y": 74.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          22.3,
+          73.0
+         ],
+         [
+          35.5,
+          61.0
+         ],
+         [
+          52.5,
+          65.0
+         ],
+         [
+          56.0,
+          80.0
+         ],
+         [
+          38.0,
+          85.0
+         ],
+         [
+          22.3,
+          73.0
+         ]
+        ],
+        "count": 1,
+        "ms": 6500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 3,
+      "count": {
+       "x": 50,
+       "y": 90,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1,
+       4
+      ],
+      "beyond": "",
+      "part": "recap"
+     },
+     {
+      "roman": "Is return route ka net product ATP hai; NADPH aur O₂ nahi.",
+      "voice": "इस रिटर्न रूट का नेट प्रोडक्ट एटीपी है; एनएडीपीएच और ओ टू नहीं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 54,
+       "y": 68,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "ATP",
+        "points": [
+         [
+          70.5,
+          53.0
+         ],
+         [
+          77.0,
+          49.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 4,
+      "count": {
+       "x": 50,
+       "y": 90,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       5
+      ],
+      "beyond": "O2 absence bhi final comparison mein hai.",
+      "part": "recap"
+     }
+    ]
+   },
+   {
+    "id": "s8",
+    "title": "ATP ka agla sawaal",
+    "key": "Electron flow ka ATP se energy link proton gradient hai.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer glossy cutaway inside lower membrane fold 72,70 of preceding image. Pale emerald thylakoid membrane across middle, sealed curved sac edge right, turquoise lumen below and stroma above. Realistic ATP synthase right 68,50: amber membrane ring and central stalk, violet round six-lobed catalytic head facing stroma. No rotation yet. Broad clear fluid space above and below for proton particles, many in lumen and few in stroma, no membrane crossing. Soft gold volumetric light, membrane depth and glossy molecular surfaces.",
+     "svg": "",
+     "library": ""
+    },
+    "dive": {
+     "x": 70.5,
+     "y": 67.0
+    },
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Ab dono mein ATP banta kaise hai?",
+      "voice": "अब दोनों में एटीपी बनता कैसे है?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 68,
+       "y": 45,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Shared ATP output ke mechanism ka agla sawaal.",
+      "part": "use"
+     },
+     {
+      "roman": "Hota yeh hai ki electron route aur products pehchaan liye hain; ab thylakoid membrane ke across proton arrangement se ATP formation ka actual connection kholenge.",
+      "voice": "होता यह है कि इलेक्ट्रॉन रूट और प्रोडक्ट्स पहचान लिए हैं; अब थायलाकोइड मेम्ब्रेन के अक्रॉस प्रोटॉन अरेंजमेंट से एटीपी फॉर्मेशन का ऐक्चुअल कनेक्शन खोलेंगे।",
+      "pins": [
+       {
+        "label": "Thylakoid membrane",
+        "x": 32,
+        "y": 52
+       },
+       {
+        "label": "Proton arrangement",
+        "x": 33,
+        "y": 77
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 54,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          18,
+          75
+         ],
+         [
+          36,
+          79
+         ],
+         [
+          49,
+          71
+         ]
+        ],
+        "count": 10,
+        "ms": 4000,
+        "loop": true
+       },
+       {
+        "what": "H+",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          20,
+          25
+         ],
+         [
+          36,
+          28
+         ]
+        ],
+        "count": 2,
+        "ms": 4000,
+        "loop": true
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Separated compartments mein proton distribution ka introduction.",
+      "part": "use"
+     },
+     {
+      "roman": "Electron flow ATP formation support karta hai, lekin beech ka energy link abhi chhupa hai; chemiosmotic hypothesis proton gradient se yeh link samjhayegi.",
+      "voice": "इलेक्ट्रॉन फ्लो एटीपी फॉर्मेशन सपोर्ट करता है, लेकिन बीच का एनर्जी लिंक अभी छुपा है; केमिऑस्मॉटिक हाइपोथिसिस प्रोटॉन ग्रेडिएंट से यह लिंक समझाएगी।",
+      "pins": [
+       {
+        "label": "Proton gradient",
+        "x": 37,
+        "y": 65
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 51,
+       "y": 52,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          23,
+          76
+         ],
+         [
+          37,
+          73
+         ],
+         [
+          48,
+          78
+         ]
+        ],
+        "count": 8,
+        "ms": 4000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Chemiosmotic hypothesis ke agle film ka bridge.",
+      "part": "recap"
+     }
+    ]
+   }
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "s1: 1 sentences; write 2 to 6",
+    "s2 sentence 1: labels 'P700' and 'Light' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s2 sentence 1: labels 'P700' and 'Marked electron' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s2 sentence 1: labels 'Light' and 'Marked electron' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s2: 7 different pins on one picture; at most 6",
+    "s3 sentence 1: labels 'Depot' and 'Bus' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s3 sentence 2: labels 'Alag terminal' and 'Bus' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s3 sentence 5: labels 'Depot = P700' and 'Electron' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s3 sentence 6: labels 'NADP⁺' and 'Electron' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s3 sentence 6: move label 'Electron' is not spoken in this sentence (dikhaya = bola)",
+    "s3: 7 different pins on one picture; at most 6",
+    "s3: 695 characters of narration (about 54 seconds) on one picture; at most 560: split it into two shots, the second a closer look",
+    "s5 sentence 4: move label 'Electron' is not spoken in this sentence (dikhaya = bola)",
+    "s6 sentence 1: labels 'P700' and 'Electron' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s6 sentence 3: labels 'ATP yes' and 'ATP' are 7% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s7 sentence 1: labels 'PS II' and 'Light' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s7 sentence 1: labels 'PS I' and 'Light' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s7 sentence 1: labels 'NADP⁺' and 'Electrons' are 6% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s7 sentence 2: labels 'ATP + NADPH' and 'ATP' are 8% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s7 sentence 3: labels 'P700' and 'Electron' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s7: 'p700' is left of 'nadp⁺' in s2 but right of it here; keep the same left-right layout in every picture (write it into image_prompt and pin it there)",
+    "s5 sentence 3: NADPH takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s7 sentence 2: a meeting and 2 other flows in one sentence; besides the meeting, at most one flow moves",
+    "s7 sentence 2: H2O takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s7 sentence 2: H2O takes part in the meeting but the line does not name it; name every molecule as it meets"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": [
+    "s5: 579 characters of narration (about 45 seconds) on one picture; at most 560: split it into two shots, the second a closer look",
+    "s3: the aside maps the analogy in a pin (\"baandh = membrane\")",
+    "s3b: after an aside the film cuts back to its world (dive -1, -1)",
+    "s3b: an aside cuts in (dive -1, -1); it is outside the film's world"
+   ]
+  },
+  {
+   "round": 3,
+   "problems": [
+    "s3: the aside maps the analogy in a pin (\"baandh = membrane\")"
+   ]
+  },
+  {
+   "round": 4,
+   "problems": []
+  }
+ ],
+ "images": {
+  "s1": "h11-6-2b-s1.png",
+  "s2": "h11-6-2b-s2.png",
+  "s3": "h11-6-2b-s3.png",
+  "s3b": "h11-6-2b-s3b.png",
+  "s4": "h11-6-2b-s4.png",
+  "s5": "h11-6-2b-s5.png",
+  "s5b": "h11-6-2b-s5b.png",
+  "s6": "h11-6-2b-s6.png",
+  "s7": "h11-6-2b-s7.png",
+  "s8": "h11-6-2b-s8.png"
+ },
+ "book_lines": [
+  {
+   "n": 1,
+   "text": "When only PS I is functional, the electron is circulated within the photosystem and the phosphorylation occurs due to cyclic flow of electrons (Figure 11.6).",
+   "page": "140",
+   "blocks": [
+    "p0010-b0019.2",
+    "p0010-b0020.2",
+    "p0010-b0021",
+    "p0010-b0022.2"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "A possible location where this could be happening is in the stroma lamellae.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0022.2",
+    "p0010-b0023",
+    "p0010-b0024"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "While the membrane or lamellae of the grana have both PS I and PS II the stroma lamellae membranes lack PS II as well as NADP reductase enzyme.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0024",
+    "p0010-b0025",
+    "p0010-b0026"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "The excited electron does not pass on to NADP⁺ but is cycled back to the PS I complex through the electron transport chain (Figure 11.6).",
+   "page": "140",
+   "blocks": [
+    "p0010-b0026",
+    "p0010-b0027",
+    "p0010-b0028"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "The cyclic flow hence, results only in the synthesis of ATP, but not of NADPH + H⁺.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0028",
+    "p0010-b0029"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "Cyclic photophosphorylation also occurs when only light of wavelengths beyond 680 nm are available for excitation.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0029",
+    "p0010-b0030"
+   ]
+  }
+ ],
+ "placement": {
+  "s1": {
+   "items": 6,
+   "moved": 2,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5350,
+    "output_tokens": 151,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 0
+   }
+  },
+  "s2": {
+   "items": 10,
+   "moved": 6,
+   "refused": 0,
+   "missing": [
+    "label 'NADP⁺'",
+    "camera target: the part this sentence talks about",
+    "label 'Net NADPH 0'",
+    "label 'Net O₂ 0'"
+   ],
+   "usage": {
+    "input_tokens": 5521,
+    "output_tokens": 322,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 74
+   }
+  },
+  "s3": {
+   "items": 10,
+   "moved": 10,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5604,
+    "output_tokens": 562,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 317
+   }
+  },
+  "s3b": {
+   "items": 8,
+   "moved": 5,
+   "refused": 0,
+   "missing": [
+    "label 'Token = electron'"
+   ],
+   "usage": {
+    "input_tokens": 5451,
+    "output_tokens": 332,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 122
+   }
+  },
+  "s4": {
+   "items": 10,
+   "moved": 8,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5575,
+    "output_tokens": 315,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 108
+   }
+  },
+  "s5": {
+   "items": 12,
+   "moved": 7,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5749,
+    "output_tokens": 430,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 172
+   }
+  },
+  "s5b": {
+   "items": 5,
+   "moved": 3,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5263,
+    "output_tokens": 234,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 89
+   }
+  },
+  "s6": {
+   "items": 9,
+   "moved": 7,
+   "refused": 0,
+   "missing": [
+    "label 'Net NADPH no'",
+    "label 'O₂ no'"
+   ],
+   "usage": {
+    "input_tokens": 5612,
+    "output_tokens": 278,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 59
+   }
+  },
+  "s7": {
+   "items": 16,
+   "moved": 14,
+   "refused": 0,
+   "missing": [
+    "label 'ATP + NADPH'",
+    "label 'O₂'"
+   ],
+   "usage": {
+    "input_tokens": 6098,
+    "output_tokens": 480,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 84
+   }
+  },
+  "s8": {
+   "items": 7,
+   "moved": 0,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5379,
+    "output_tokens": 320,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 151
+   }
+  }
+ }
+}
