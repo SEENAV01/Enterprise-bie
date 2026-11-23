@@ -1274,6 +1274,64 @@ class SectionFilmsLook(unittest.TestCase):
         self.assertEqual(studio_film.picture_problems(made), [])
 
 
+class StuckCalls(unittest.TestCase):
+    """The first 11.6 section job (23 November 2026) failed whole: one codex call did not finish in 30 minutes, and the
+    films stage stopped with no film made."""
+
+    def test_a_stuck_call_is_asked_once_more_and_a_later_failure_keeps_the_last_round(self):
+        from bie.model_gateway.live.errors import ProviderError
+
+        class Flaky(FakeClient):
+            def __init__(self, answers, fail):
+                super().__init__(answers); self.fail = list(fail); self.calls = 0
+            def chat(self, *, model, messages, schema=None):
+                self.calls += 1
+                if self.fail and self.fail.pop(0):
+                    raise ProviderError("timeout", "codex exec did not finish within 1800 s", provider="codex")
+                return super().chat(model=model, messages=messages, schema=schema)
+
+        once = Flaky([film()], [True, False])
+        record = studio_film.write(once, "m", QUESTION, max_rounds=1)
+        self.assertEqual(once.calls, 2)
+        self.assertIsNotNone(record["film"])
+        bad = film(); bad["shots"][0]["key"] = ""
+        later = Flaky([bad], [False, True, True])
+        record = studio_film.write(later, "m", QUESTION, max_rounds=3)
+        self.assertEqual(record["film"]["shots"][0]["key"], "")
+        self.assertIn("round 2: the maker's call failed", " ".join(record["problems"]))
+        never = Flaky([], [True, True])
+        with self.assertRaises(ProviderError):
+            studio_film.write(never, "m", QUESTION, max_rounds=1)
+        refused = Flaky([], [False]); refused.chat = lambda **k: (_ for _ in ()).throw(ProviderError("auth", "no", provider="codex"))
+        with self.assertRaises(ProviderError):
+            studio_film.write(refused, "m", QUESTION, max_rounds=1)
+
+    def test_one_failed_film_does_not_stop_the_others(self):
+        from bie.model_gateway.live.errors import ProviderError
+        with tempfile.TemporaryDirectory() as folder:
+            run_dir = Path(folder) / "qrun"; run_dir.mkdir()
+            second = dict(QUESTION, id="q02")
+            (run_dir / "questions.json").write_text(json.dumps({"chapter_title": "Monsoon", "questions": [QUESTION, second]}), encoding="utf-8")
+            args = SimpleNamespace(stage="films", source="", from_run=str(run_dir), videos="q01,q02", out=str(Path(folder) / "out"),
+                                   pages="", course="Class 9", language="Hinglish", model="", max_rounds=1)
+
+            class Client(FakeClient):
+                def chat(self, *, model, messages, schema=None):
+                    if "Ek hi hawa" in messages[1]["content"] and not hasattr(self, "q2"):
+                        if not getattr(self, "n", 0) >= 2:
+                            self.n = getattr(self, "n", 0) + 1
+                            raise ProviderError("timeout", "codex exec did not finish within 1800 s", provider="codex")
+                    return super().chat(model=model, messages=messages, schema=schema)
+
+            summary = vm_studio.run(args, client=Client([film(), film()]), load=None, voice_maker=lambda: (FakeVoice(), None))
+            rows = {r["qid"]: r for r in summary["films"]}
+            self.assertTrue(rows["q01"].get("failed"))
+            self.assertIn("the film was not made", rows["q01"]["problems"][0])
+            self.assertFalse(rows["q02"].get("failed"))
+            self.assertEqual(summary["status"], "needs_fix")
+            self.assertTrue((Path(folder) / "out" / "films" / "q02.html").exists())
+
+
 class PassedFilms(unittest.TestCase):
     """Seekh → BIE (CLAUDE.md): a film Navin passed must still pass every code check after any change. The first is Q14
     "A jaisi" (Navin, 21 November 2026: "isko pass maankar")."""

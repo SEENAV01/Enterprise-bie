@@ -250,7 +250,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
     (out / "films").mkdir(exist_ok=True)
     (out / "questions.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
     rows, usage = [], {"input_tokens": 0, "output_tokens": 0}
-    for q in questions:
+    def one(q):
         q = dict(q)
         ids = [i for p in q.get("points") or [] for i in p.get("block_ids") or []]
         q["source_text"] = "\n".join(f"[{i}] {blocks[i]}" for i in dict.fromkeys(ids) if i in blocks)
@@ -331,6 +331,17 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                      "teacher_lines": len(q.get("teacher_lines") or []),
                      "kept_pictures": kept,
                      "not_in_picture": [m for p in placed.values() for m in p.get("missing", [])]})
+
+    for q in questions:
+        try:
+            one(q)
+        except Exception as exc:                    # one film that fails does not stop the others; its row says why
+            if getattr(exc, "kind", None) == "plan_limit":
+                raise
+            rows.append({"qid": q.get("id"), "question": q.get("question"), "shots": 0, "images": 0, "minutes": 0, "rounds": 0,
+                         "problems": [f"the film was not made: {type(exc).__name__}: {str(exc)[:200]}"], "book_lines": "0/0",
+                         "beyond": 0, "points_moved": 0, "teacher_lines": 0, "kept_pictures": 0, "not_in_picture": [],
+                         "failed": True})
     lines = ["# Filmein", "", f"Awaaz: {summary['voice']}", ""]
     for row in rows:
         lines.append(f"- **{row['qid']}** {row['question']} · {row['shots']} shots · {row['images']} tasveerein · "
@@ -341,7 +352,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                      + (f" · kamiyan: {len(row['problems'])}" if row["problems"] else ""))
     (out / "FILMS.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     summary.update(films=rows, usage=usage, model=model,
-                   status="ok" if rows and not any(r["problems"] for r in rows) else ("needs_fix" if rows else "failed"))
+                   status="ok" if rows and not any(r["problems"] for r in rows) else ("needs_fix" if any(not r.get("failed") for r in rows) else "failed"))
 
 
 def games(args, client, model, pages, out: Path, summary: dict):
@@ -511,7 +522,7 @@ def dub(args, client, model, pages, out: Path, summary: dict, *, voice_maker=Non
     (out / "DUB.md").write_text(studio_dub.markdown(rows), encoding="utf-8")
     (out / "questions.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
     summary.update(dubs=rows, usage=usage, model=model,
-                   status="ok" if rows and not any(r["problems"] for r in rows) else ("needs_fix" if rows else "failed"))
+                   status="ok" if rows and not any(r["problems"] for r in rows) else ("needs_fix" if any(not r.get("failed") for r in rows) else "failed"))
 
 
 def read_pyqs(source: str) -> list:
@@ -575,7 +586,7 @@ def pyq(args, client, model, pages, out: Path, summary: dict, *, voice_maker=Non
              "key": (r["question"]["answer"] + 1) if isinstance(r["question"].get("answer"), int) else None,
              "verified": r["model"].get("verified"), "rounds": len(r["rounds"]), "problems": r["problems"]} for r in records]
     summary.update(pyq=rows, coverage=cover["chapter"], usage=usage, model=model,
-                   status="ok" if rows and not any(r["problems"] for r in rows) else ("needs_fix" if rows else "failed"))
+                   status="ok" if rows and not any(r["problems"] for r in rows) else ("needs_fix" if any(not r.get("failed") for r in rows) else "failed"))
 
 
 def run(args, *, client=None, load=None, voice_maker=None, read=None) -> dict:

@@ -401,8 +401,14 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    light. Section look (this PR): `FILM_STYLE` glossy again and the maker's cutaway instruction glossy; a route is the
    moving thing itself with a short fading tail (player `TAIL`), a growing line only where something really grows
    (`GROWING`); `picture_problems`: lines that name molecular machinery are not said over a whole-structure picture.
-   IMPLEMENTED. Next: the seven 11.6 films in order (h11-6a, h11-6b, h11-6-1, h11-6-2a, h11-6-2b, h11-6-3a, h11-6-3b),
-   ₹0, to Navin together; 11.7.2 part a waits.
+   IMPLEMENTED (PR #202, merged `5ed0faae`). The 11.6 films run as jobs g1 (h11-6a, h11-6b, h11-6-1), g2 (h11-6-2a,
+   h11-6-2b) and g3 (h11-6-3a, h11-6-3b). g1 failed whole after 34 minutes: one codex call did not finish in 30 minutes
+   and the films stage stopped with no film. Robust films (this PR): a maker call that fails in a retryable way is asked
+   once more, a later round's failure keeps the round before, and one failed film no longer stops the others (its row
+   says why). IMPLEMENTED. Next: g1 again after this merges; the seven films to Navin together, with copies in his voice.
+   Learning track (Claude's demos, not BIE output): after the ATP synthase parts test, Navin asked to see the machinery
+   working step by step; card "Teeno tarike se banake dikhao", then two or more samples each of way 1 (AI picture + code
+   machine), way 3 (AI picture per state) and way 4 (both); samples ATP synthase, PS II water splitting, Z-scheme.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
