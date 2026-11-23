@@ -445,6 +445,10 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    the difference was the voice and its timing with the screen: the female voice's pattern goes onto his voice (a test:
    the female lines turned into his voice by Chatterbox's conversion; `studio_revoice --base female`). Look test done:
    glossy stays; a picture never draws a checklist or boxes for BIE's overlays (`overlay_problems`).
+   Navin at 20:31: the female voice stays for the films; the talmel rules are taken from the ATP synthase demo he
+   passed (the player now dims the rest of the picture around the zoom point, `spotlight`); the final rules and the
+   work left are in his doc "BIE film: final niyam aur kaam ki suchi"; card: the 11.6.3b remake keeps the moving parts
+   (drawn as real). Next: merge, then job `r1` remakes 11.6.3b (glossy, female voice, the new rules).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

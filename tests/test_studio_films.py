@@ -1028,6 +1028,17 @@ class TwoFilmsOf1163b(unittest.TestCase):
         self.assertNotIn("glossy ATP", studio_film.image_prompt(cut, "", "mixed"))      # another look is not also glossy
         self.assertIn("glossy ATP", studio_film.image_prompt(cut, "", "glossy"))
 
+    def test_the_rest_dims_when_the_camera_closes_in(self):
+        """Navin, 23 November 2026: "zoom sahi jagah, roshni sahi jagah"; the ATP synthase demo he passed dimmed all but
+        the part in its close-up. The light is centred on the zoom point and grows with the zoom."""
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        self.assertIn('<div class="spot" id="spot"></div>', page)
+        cam = page[page.index("function camStep("):page.index("function toScreen(")]
+        self.assertIn("spotlight();", cam)
+        spot = page[page.index("function spotlight("):]
+        self.assertIn("(cam.s-1.15)/.35", spot)                                  # no dimming on a wide view
+        self.assertIn("'+cam.ox.toFixed(1)+'% '+cam.oy.toFixed(1)+'%", spot)    # centred on the zoom point
+
     def test_a_picture_leaves_room_for_the_checklist_and_never_draws_it(self):
         made = film()
         made["shots"][0]["visual"]["image_prompt"] = "a membrane; open space for an upper-center four-item checklist"

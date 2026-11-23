@@ -2884,4 +2884,12 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   four-item checklist" came back as four empty bars painted into the picture: `overlay_problems` now refuses a picture
   asked to draw a checklist, a panel or empty boxes for BIE's overlays (1 of the 11.6 films). Voice: `studio_revoice
   --base female` lets the female voice say the lines and Chatterbox turn them into his timbre (a two-line test kept the
-  female's pauses; pitch about 110–124 Hz); his choice waits on the samples.
+  female's pauses; pitch about 110–124 Hz). Navin heard it: the female voice itself is still better, so films keep the
+  female voice.
+- **Navin, 23 November 2026, 20:31 ("ek baar sort out kar lo"):** the talmel he wants is a picture that builds in the
+  mind step by step like a diagram: zoom and light in the right place, things flowing right, nothing crowding in at
+  once, stillness in the right place; learn it from the ATP synthase demo he passed. From that demo: the camera held one
+  framing for a whole line and moved only at a line's start, the ring turned on the words "baith jaata hai", and the
+  close-up of a beta dimmed everything else. Changed: the player dims the rest of the picture around the zoom point as
+  the camera closes in (`spotlight`, none below 1.15× zoom). The final rules and the work left are in Navin's doc "BIE
+  film: final niyam aur kaam ki suchi". His card: the 11.6.3b remake keeps the moving parts, drawn as real.

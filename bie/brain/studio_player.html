@@ -22,6 +22,7 @@
 .svg.base svg text{visibility:hidden}
 .wsvg,.ssvg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .labels{position:absolute;inset:0;pointer-events:none}
+.spot{position:absolute;inset:0;pointer-events:none;opacity:0}
 .pin{position:absolute;transform:translateY(-50%);background:rgba(8,26,33,.9);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:6px;padding:3px 9px;font-size:clamp(.62rem,1.3vw,.9rem);font-weight:600;white-space:nowrap;animation:inn .5s both}
 .pin.new{background:var(--gold);color:#17140a;border-color:var(--gold)}
 .pin.math{font-size:clamp(.8rem,2.2vw,1.35rem);font-weight:700;background:rgba(8,26,33,.75);border-color:var(--gold);color:var(--gold)}
@@ -75,7 +76,7 @@
 </style></head>
 <body><div class="film">
 <div class="top"><span class="mark" id="mark">BIE</span><span class="sc" id="sc"></span></div>
-<div class="stage" id="stage"><div class="world" id="world"></div><svg class="ssvg" id="ssvg" viewBox="0 0 100 56.25" preserveAspectRatio="none"></svg><div class="labels" id="labels"></div></div>
+<div class="stage" id="stage"><div class="world" id="world"></div><div class="spot" id="spot"></div><svg class="ssvg" id="ssvg" viewBox="0 0 100 56.25" preserveAspectRatio="none"></svg><div class="labels" id="labels"></div></div>
 <div class="band"><div class="key" id="key"></div><div class="sub" id="sub"></div></div>
 <div class="ctl"><button class="play" id="play">&#9654; Film chalaiye</button><button id="again">&#8634; Shuru se</button><div class="bar" id="bar" role="progressbar" aria-label="Film kitni chal chuki hai"><i id="barfill"></i></div></div>
 <div class="vnote" id="vnote" hidden>Awaaz band hai: tablet ki awaaz/volume dekhiye, ya file ko Chrome mein kholiye. Film captions ke saath chal rahi hai.</div>
@@ -114,7 +115,15 @@ const cam={ox:50,oy:50,s:1,from:null,to:null,t0:0,ms:1600,fade:1};
 function camTo(x,y,s,ms){cam.from={ox:cam.ox,oy:cam.oy,s:cam.s};cam.to={ox:x,oy:y,s:s};cam.t0=performance.now();cam.ms=reduced?1:ms;}
 function camStep(now){if(cam.to){const t=ease((now-cam.t0)/cam.ms);cam.ox=cam.from.ox+(cam.to.ox-cam.from.ox)*t;cam.oy=cam.from.oy+(cam.to.oy-cam.from.oy)*t;
     cam.s=cam.from.s+(cam.to.s-cam.from.s)*t;if(t>=1)cam.to=null;}
-  const w=$('world');w.style.transformOrigin=cam.ox+'% '+cam.oy+'%';w.style.transform='scale('+cam.s.toFixed(4)+')';w.style.opacity=cam.fade;}
+  const w=$('world');w.style.transformOrigin=cam.ox+'% '+cam.oy+'%';w.style.transform='scale('+cam.s.toFixed(4)+')';w.style.opacity=cam.fade;
+  spotlight();}
+// light in the right place: as the camera closes in on a part, the rest of the picture dims around it (Navin, 23 November
+// 2026: "zoom sahi jagah, roshni sahi jagah"; the ATP synthase demo he passed dimmed all but the beta in its close-up).
+// The zoom point stays where it is on screen, so the light is centred there.
+let spotKey='';
+function spotlight(){const k=Math.max(0,Math.min(1,(cam.s-1.15)/.35))*(cam.fade>=.98?1:0),key=k.toFixed(2)+' '+cam.ox.toFixed(1)+' '+cam.oy.toFixed(1);
+  if(key===spotKey)return;spotKey=key;const e=$('spot');e.style.opacity=(k*.85).toFixed(3);
+  if(k>0)e.style.background='radial-gradient(ellipse 34% 46% at '+cam.ox.toFixed(1)+'% '+cam.oy.toFixed(1)+'%,rgba(4,10,12,0) 52%,rgba(4,10,12,.62) 100%)';}
 function toScreen(x,y){return[cam.ox+(x-cam.ox)*cam.s,cam.oy+(y-cam.oy)*cam.s];}   // percent of the frame
 
 // --- world layers -------------------------------------------------------------------------------------------------------
