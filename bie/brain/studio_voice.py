@@ -32,18 +32,28 @@ from pathlib import Path
 
 FILES = {"kokoro-v1.0.onnx": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx",
          "voices-v1.0.bin": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin"}
-VOICE, SPEED, LANG = "hf_alpha", 0.95, "hi"
+# pace (Navin, 22 November 2026, after hearing 0.95, 1.00, 1.05 and 1.15 of the same lines: "Mujhe 1.00 wala shi lga abhi
+# ke liye isko use krenge"; a 1.05 copy of the next films for his ear: ``BIE_VOICE_PACE`` or ``Voice(pace=...)``)
+VOICE, SPEED, LANG = "hf_alpha", 1.00, "hi"
+PACE_ENV = "BIE_VOICE_PACE"
+PACE_RANGE = (0.8, 1.25)
 # narrator -> language -> (Kokoro voice, Kokoro language). "navin" uses male base voices for his tone colour.
 KOKORO_VOICES = {"female": {"hi": (VOICE, LANG), "en": ("bf_emma", "en-gb")},
                  "navin": {"hi": ("hm_omega", "hi"), "en": ("bm_george", "en-gb")}}
 INDIC = ("ta", "te", "ml", "mr")                      # AI4Bharat Indic-TTS; speakers "female" and "male"
 INDIC_SPEAKER = {"female": "female", "navin": "male"}
 
-# BIE's teacher rules for saying a line (Navin, 20 and 21 November 2026), not taken from any recording:
-QUESTION_PAUSE = 0.45     # seconds of silence after a question (question and answer sounded alike)
+# BIE's teacher rules for saying a line (Navin, 20, 21 and 22 November 2026), not taken from any recording. The numbers of
+# 22 November come from the teacher study (four Chapter 11 teachers, measured: a question that is answered at once is
+# followed by about a quarter second, a full stop by about 0.38 s, and a pause of a second or more comes once or twice a
+# minute); Navin heard them on the same lines ("Naye wala sahi hai", "Hmm yeh sahi baitha"):
+QUESTION_PAUSE = 0.30     # after a question that is answered at once ("...aati kahan se hai?" "Woh aati hai paani se.")
+THINK_PAUSE = 0.90        # after a question the learner is asked to think about first ("Ruko, pehle khud socho: ...?")
 CLAUSE_PAUSE = 0.22       # a short breath at ";", ":" and "—" inside a statement (one long flow sounded like a paragraph)
-QUESTION_SPEED = 0.92     # a question is asked a little slower than the answer is told
+QUESTION_SPEED = 0.97     # a question is asked a little slower than the answer is told (0.92 at the old pace 0.95)
 CLAUSE = re.compile(r"\s*(?:;|:|—|–)\s*")
+THINK = re.compile(r"\b(?:ruko|rukiye|ruk kar|socho|sochiye|sochie|sochein|sochen|soch kar|andaza|andaaza|anuman|guess|"
+                   r"think|predict)\b|(?:रुको|रुकिए|रुकिये|रुककर|सोचो|सोचिए|सोचिये|सोचें|सोचकर|अंदाज़ा|अंदाजा|अनुमान)", re.I)
 # Navin's Q14 verdict (21 November 2026): "aayiye jaante hai ... thoda ruko, pehle yaad kijiye bolo": every sentence of a
 # line is said on its own, with a pause after its full stop, a longer one after an invitation
 SENTENCE_PAUSE = 0.35
@@ -53,6 +63,14 @@ INVITE = re.compile(r"^(?:aaiye|aayiye|aaie|chaliye|dekhiye|आइए|आइय�
                     r"|^(?:आइए|आइये|आईए|चलिए|चलिये)", re.I)
 INVITE_WORDS = 4          # "आइए जानते हैं", "चलिए पास से देखते हैं": an invitation, not a whole statement
 CONVERT_TAU = 0.3         # OpenVoice's strength of the tone change (its default)
+# the silence between two lines of a film (the player waits ``after`` seconds once a line's voice ends; 0.45 before this):
+# a full stop's pause between lines, about a second before a new idea, and the shot change's own wait counted in
+REVEAL_PAUSE = 1.0        # before a new idea inside a shot ("Ab dekhte hain ...") and, with the picture's own move, a new shot
+REVEAL_EVERY = 30.0       # seconds of film between two long pauses at most once (teachers: one or two a minute)
+SHOT_WAIT = {"dive": 1.6, "fade": 0.2}   # how long the player itself waits before a new shot's first line (studio_player)
+NEW_IDEA = re.compile(r"^(?:ab\s+(?:dekh|jaan|samajh|samjh|baat|chal|aage|agl|is\b|yeh\b|ye\b)|aaiye|aayiye|chaliye|"
+                      r"to\s+ab\b|next\b|now\s+(?:let|we)|let'?s\b)"
+                      r"|^(?:अब\s+(?:देख|जान|समझ|बात|चल|आगे|अगल|इस|यह|ये)|आइए|आइये|आईए|चलिए|चलिये|तो\s+अब)", re.I)
 
 
 def folder() -> Path:
@@ -102,6 +120,34 @@ DEVANAGARI_SAID = ((re.compile(r"पी\s*(?:छह सौ अस्सी|६�
 TOKEN = re.compile(r"(?<![A-Za-z])(?:PS ?II|PS ?I(?![A-Za-z])|\[?[A-Z][A-Za-z]{0,6}(?:[0-9₀-₉⁰-⁹+⁺\-⁻]*[A-Za-z]*)*\]?)"
                    r"(?![A-Za-z])")
 DEVANAGARI_LETTER = re.compile(r"[ऀ-ॿ]")
+# units and signs said in words (teacher study, 22 November 2026; measured with Kokoro's own phonemizer that day: "680 nm"
+# was said "en em", "25°C" lost its degree, "360 µL/L" was "micro L slash L", "3 × 6" and an arrow were dropped and "~"
+# was "tilde"). "+", "=" and "%" it already says as plus, barabar and pratishat.
+UNITS = ((r"[µμu][Ll]\s?/\s?[Ll]", "माइक्रोलीटर प्रति लीटर", "microlitres per litre"),
+         (r"°\s?C|ºC|℃", "डिग्री सेल्सियस", "degrees Celsius"), (r"°\s?F", "डिग्री फ़ारेनहाइट", "degrees Fahrenheit"),
+         (r"°|º", "डिग्री", "degrees"), (r"nm", "नैनोमीटर", "nanometres"), (r"[µμ]m", "माइक्रोमीटर", "micrometres"),
+         (r"mm", "मिलीमीटर", "millimetres"), (r"cm", "सेंटीमीटर", "centimetres"), (r"km", "किलोमीटर", "kilometres"),
+         (r"mg", "मिलीग्राम", "milligrams"), (r"kg", "किलोग्राम", "kilograms"), (r"m[Ll]", "मिलीलीटर", "millilitres"),
+         (r"ppm", "पी पी एम", "parts per million"), (r"kJ", "किलोजूल", "kilojoules"), (r"kcal", "किलोकैलोरी", "kilocalories"))
+UNIT = [(re.compile(r"(?<=\d)\s?(?:" + pattern + r")(?![A-Za-z])"), hi, en) for pattern, hi, en in UNITS]
+SIGNS = ((re.compile(r"(?<=\d)\s?:\s?(?=\d)"), " अनुपात ", " to "),                 # 3:2, a ratio (not a clause's colon)
+         (re.compile(r"\s*(?:→|⟶|->|⇒|➝)\s*"), " से ", " gives "),
+         (re.compile(r"(?:≈|~|∼)\s*(?=\d)"), "लगभग ", "about "),
+         (re.compile(r"\s*×\s*"), " गुणा ", " times "), (re.compile(r"\s*÷\s*"), " भाग ", " divided by "),
+         (re.compile(r"\s*±\s*"), " प्लस माइनस ", " plus or minus "))
+# Devanagari spellings Kokoro says better (A6; Navin's yes, 22 November 2026): the same word as the film maker writes it,
+# respelled so the vowel or sound comes out as a teacher says it (phonemizer: "थायलाकोइड" ends "koːɪɖ", "थायलाकॉइड" ends
+# "kɔɪɖ" as in thylakoid; "फियो" starts with an aspirated p, "फ़ियो" with f). The screen keeps the maker's spelling.
+SPELLING = (("थाइलाकोइड", "थायलाकॉइड"), ("थायलाकोइड", "थायलाकॉइड"), ("थायलेकोइड", "थायलाकॉइड"), ("थाइलेकोइड", "थायलाकॉइड"),
+            ("थायलाकोयड", "थायलाकॉइड"), ("कैरोटिनोइड", "कैरोटिनॉइड"), ("कैरोटेनोइड", "कैरोटिनॉइड"),
+            ("कैरोटीनोइड", "कैरोटिनॉइड"), ("फियोफाइटिन", "फ़ियोफ़ाइटिन"), ("फ़ियोफाइटिन", "फ़ियोफ़ाइटिन"),
+            ("फियोफ़ाइटिन", "फ़ियोफ़ाइटिन"), ("फेओफाइटिन", "फ़ियोफ़ाइटिन"), ("फ़ेओफ़ाइटिन", "फ़ियोफ़ाइटिन"),
+            ("फैरेडॉक्सिन", "फ़ेरेडॉक्सिन"), ("फेरेडॉक्सिन", "फ़ेरेडॉक्सिन"), ("फेरेडोक्सिन", "फ़ेरेडॉक्सिन"),
+            ("केमिओस्मोसिस", "केमिऑस्मोसिस"), ("कीमिओस्मोसिस", "केमिऑस्मोसिस"), ("ज़ैंथोफिल", "ज़ैंथोफ़िल"),
+            ("जैंथोफिल", "ज़ैंथोफ़िल"), ("ऑक्सैलोएसिटिक", "ऑक्ज़ैलोएसिटिक"), ("ऑक्सालोएसिटिक", "ऑक्ज़ैलोएसिटिक"))
+# what the voice may still meet once ``spoken`` has said a line: letters and marks of any script, digits, spaces, and the
+# signs the engine says or pauses on. Anything else (a leftover arrow, slash, star, superscript ...) is skipped or misread.
+SAYABLE = set(".,;:!?'\"()[]-–—।॥…‘’“”+=%")
 
 
 def _spell(token: str, english: bool) -> str:
@@ -125,6 +171,13 @@ def spoken(text: str, language: str = "hi") -> str:
     if language not in ("hi", "en"):
         return text
     english = language == "en"
+    if not english:
+        for written, better in SPELLING:
+            text = text.replace(written, better)
+    for pattern, hi, en in UNIT:
+        text = pattern.sub(" " + (en if english else hi), text)
+    for pattern, hi, en in SIGNS:
+        text = pattern.sub(en if english else hi, text)
     for written, formula in DEVANAGARI_FORMULA.items():
         text = text.replace(written, formula)
     for pattern, short in DEVANAGARI_SAID:
@@ -161,6 +214,22 @@ def spoken(text: str, language: str = "hi") -> str:
     return TOKEN.sub(say, text)
 
 
+def unsaid(text: str, language: str = "hi") -> list:
+    """The signs of a line the voice cannot say (A5, Navin's yes, 22 November 2026: "bacha nishaan mila to voice step ruk
+    jaaye"): what is left once ``spoken`` has put formulas, units and signs into words. Hindi and English only."""
+    if language not in ("hi", "en"):
+        return []
+    import unicodedata
+    left = []
+    for char in spoken(text or "", language):
+        kind = unicodedata.category(char)
+        if kind[0] in "LMZ" or kind == "Nd" or char in SAYABLE or char.isspace():
+            continue
+        if char not in left:
+            left.append(char)
+    return left
+
+
 def _clause_pause(bit: str) -> float:
     """The breath after a clause. A short invitation ("आइए जानते हैं;", "Chaliye dekhte hain:") gets INVITE_PAUSE whatever
     mark ends it: the makers write "Aaiye jaante hain;" as often as "Aaiye jaante hain." (Photosynthesis films q01, q02,
@@ -172,12 +241,14 @@ def parts(text: str) -> list:
     """The pieces a line is spoken in, with the silence after each: a question on its own with QUESTION_PAUSE after it;
     a statement in one flow, with a short breath (CLAUSE_PAUSE) at ";", ":" and "—"; every sentence on its own, with
     SENTENCE_PAUSE after its full stop (INVITE_PAUSE after an invitation: "Aaiye jaante hain." or "Aaiye jaante hain;").
-    "Band membrane kyun chahiye? Iska seedha sa jawab hai: jamav." -> [("Band membrane kyun chahiye?", 0.45),
-    ("Iska seedha sa jawab hai", 0.22), ("jamav.", 0.0)]."""
+    A question the learner is asked to think about first ("Ruko, pehle khud socho: ...?") gets THINK_PAUSE.
+    "Band membrane kyun chahiye? Iska seedha sa jawab hai: jamav." -> [("Band membrane kyun chahiye?", 0.30),
+    ("Iska seedha sa jawab hai", 0.22), ("jamav.", 0.0)]. A line that ends with its question keeps the question's pause
+    at its end; ``gaps`` then adds nothing after it."""
     out = []
     for piece in [p.strip() for p in re.split(r"(?<=\?)\s*", (text or "").strip()) if p.strip()]:
         if piece.endswith("?"):
-            out.append((piece, QUESTION_PAUSE))
+            out.append((piece, THINK_PAUSE if THINK.search(piece) else QUESTION_PAUSE))
             continue
         sentences = [x.strip() for x in SENTENCE_END.split(piece) if x.strip()]
         for n, sentence in enumerate(sentences):
@@ -190,8 +261,51 @@ def parts(text: str) -> list:
     return out or [((text or "").strip() or ".", 0.0)]
 
 
-def speed(part: str) -> float:
-    return QUESTION_SPEED if part.endswith("?") else SPEED
+def pace() -> float:
+    """The voice's base pace: ``BIE_VOICE_PACE`` when it is set to a number in PACE_RANGE (a 1.05 copy for Navin's ear),
+    else SPEED (1.00, his choice of 22 November 2026)."""
+    try:
+        value = float(os.environ.get(PACE_ENV, "") or SPEED)
+    except ValueError:
+        return SPEED
+    return value if PACE_RANGE[0] <= value <= PACE_RANGE[1] else SPEED
+
+
+def speed(part: str, base: float | None = None) -> float:
+    """The pace a part is said at: the base pace, a question a little slower (QUESTION_SPEED / SPEED of it)."""
+    base = base or pace()
+    return round(base * QUESTION_SPEED / SPEED, 3) if part.endswith("?") else base
+
+
+def gaps(lines: list) -> list:
+    """The silence after each line of a film before the next line starts (the player's ``after``), from the lines in
+    order: [{"text": the voice line, "dur": seconds, "shot_start": the first line of a shot, "dive": that shot opens by a
+    dive}]. After a question nothing more (its pause is at the end of its own voice); before a new shot, what makes about a
+    second with the shot's own wait (SHOT_WAIT), never less than a full stop's pause; before a new idea inside a shot
+    ("Ab dekhte hain ...", "Aaiye ..."), REVEAL_PAUSE, but at most once in REVEAL_EVERY seconds; else SENTENCE_PAUSE."""
+    out, since = [], REVEAL_EVERY                        # the film's opening counts as a long pause
+    for n, line in enumerate(lines):
+        text = (line.get("text") or "").strip()
+        since += float(line.get("dur") or 0)
+        nxt = lines[n + 1] if n + 1 < len(lines) else None
+        if nxt is None:
+            out.append(0.0)
+            continue
+        if text.endswith("?"):
+            gap = 0.0
+            if THINK.search(text):                       # a think question's pause is a long one too
+                since = 0.0
+        elif nxt.get("shot_start"):
+            wait = SHOT_WAIT["dive" if nxt.get("dive") else "fade"]
+            gap = max(SENTENCE_PAUSE, round(REVEAL_PAUSE - wait, 2))
+            since = 0.0
+        elif NEW_IDEA.search((nxt.get("text") or "").strip()) and since >= REVEAL_EVERY:
+            gap, since = REVEAL_PAUSE, 0.0
+        else:
+            gap = SENTENCE_PAUSE
+        since += gap
+        out.append(gap)
+    return out
 
 
 class KokoroEngine:
@@ -335,8 +449,9 @@ def _tone_from_env() -> "Tone":
 
 class Voice:
     def __init__(self, path: Path | None = None, *, fetch: bool = True, language: str = "hi", who: str | None = None,
-                 tone: "Tone | None" = None, base_only: bool = False):
+                 tone: "Tone | None" = None, base_only: bool = False, pace: float | None = None):
         who = who or narrator()
+        self.pace = pace if pace and PACE_RANGE[0] <= pace <= PACE_RANGE[1] else globals()["pace"]()
         if language in INDIC:
             self.engine = IndicEngine(language, who)
         elif language in KOKORO_VOICES[who]:
@@ -346,10 +461,15 @@ class Voice:
         self.language, self.who = language, who
         # base_only: the base voice alone (its timbre is changed later in one batch, ``tools/studio_revoice.py``)
         self.tone = None if base_only else (tone if tone is not None or who != "navin" else _tone_from_env())
-        self.label = self.engine.label + (" · Navin ki tone" if self.tone else "")
+        self.label = self.engine.label + (" · Navin ki tone" if self.tone else "") + \
+            (f" · raftaar {self.pace:.2f}" if abs(self.pace - SPEED) > 0.001 else "")
 
     def say(self, text: str) -> dict:
-        """{"uri": data URI (mp3 when ffmpeg is here, else wav), "dur": seconds}, said by BIE's teacher rules (``parts``)."""
+        """{"uri": data URI (mp3 when ffmpeg is here, else wav), "dur": seconds}, said by BIE's teacher rules (``parts``).
+        A line with a sign the voice cannot say is refused (``unsaid``), never said wrong; the film step reports it."""
+        left = unsaid(text, self.language)
+        if left:
+            raise ValueError(f"the voice cannot say {' '.join(left)}")
         samples, rate = self.render(text)
         return clip(samples, rate)
 
@@ -357,8 +477,9 @@ class Voice:
         """(samples, rate) of the line, said by BIE's teacher rules, in Navin's tone when a tone is set."""
         import numpy as np
         chunks, rate = [], 24000
+        base = getattr(self, "pace", None) or pace()
         for part, pause in parts(spoken(text, self.language)):
-            made, rate = self.engine.speak(part, speed(part))
+            made, rate = self.engine.speak(part, speed(part, base))
             chunks.append(made)
             if pause:
                 chunks.append(np.zeros(int(rate * pause), dtype="float32"))
@@ -415,7 +536,8 @@ def name(language: str = "hi") -> str:
     if language in INDIC:
         return f"indic-tts {language} {INDIC_SPEAKER[who]}"
     voice = KOKORO_VOICES[who].get(language)
-    return f"kokoro {voice[0]}" if voice else "none"
+    at = pace()
+    return (f"kokoro {voice[0]}" + (f" · raftaar {at:.2f}" if abs(at - SPEED) > 0.001 else "")) if voice else "none"
 
 
 def make(fetch: bool = True, language: str = "hi"):

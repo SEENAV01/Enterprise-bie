@@ -293,8 +293,9 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                 if voice:
                     try:
                         audio[(shot.get("id"), k)] = voice.say(sentence.get("voice") or sentence.get("roman") or "")
-                    except Exception:
-                        pass
+                    except Exception as exc:         # a line left unvoiced is timed by its text; the report names it
+                        record["problems"] = record["problems"] + [f"{shot.get('id')} sentence {k + 1}: not voiced "
+                                                                   f"({type(exc).__name__}: {str(exc)[:80]})"]
         data = studio_film.player_data(film, images=images, audio=audio, chapter=plan.get("chapter_title", ""), question=q,
                                        tint=studio.subject_tint(args.course))
         (out / "films" / f"{q['id']}.html").write_text(studio_film.html(data, template), encoding="utf-8")
@@ -480,8 +481,9 @@ def dub(args, client, model, pages, out: Path, summary: dict, *, voice_maker=Non
                     for k, sentence in enumerate(shot.get("sentences") or []):
                         try:
                             audio[(shot.get("id"), k)] = voice.say(sentence.get("voice") or sentence.get("roman") or "")
-                        except Exception:
-                            pass
+                        except Exception as exc:     # timed by its text; the record names it
+                            record["problems"] = list(record.get("problems") or []) + [
+                                f"{shot.get('id')} sentence {k + 1}: not voiced ({type(exc).__name__}: {str(exc)[:80]})"]
             if record["film"]:
                 data = studio_film.player_data(record["film"], images=images, audio=audio, chapter=plan.get("chapter_title", ""),
                                                question=record["question"], tint=studio.subject_tint(args.course))
@@ -541,8 +543,9 @@ def pyq(args, client, model, pages, out: Path, summary: dict, *, voice_maker=Non
                 if voice:
                     try:
                         audio[(q["id"], stage.get("key"), k)] = voice.say(beat.get("voice") or beat.get("say") or "")
-                    except Exception:
-                        pass
+                    except Exception as exc:         # timed by its text; the record names it
+                        record["problems"] = list(record.get("problems") or []) + [
+                            f"{stage.get('key')} beat {k + 1}: not voiced ({type(exc).__name__}: {str(exc)[:80]})"]
         saved = {k: v for k, v in record.items() if k != "model"}
         saved["model"] = {k: (sorted(v) if isinstance(v, set) else v) for k, v in record["model"].items() if k != "data"}
         (out / "pyq" / f"{q['id']}.json").write_text(json.dumps(saved, ensure_ascii=False, indent=1, default=str),

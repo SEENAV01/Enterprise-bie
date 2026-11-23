@@ -47,6 +47,7 @@ from pathlib import Path
 
 from . import studio as studio_terms
 from .studio import SOURCE_WORDS, parse
+from .studio_voice import unsaid
 
 N = {"type": "number"}
 S = {"type": "string"}
@@ -719,6 +720,10 @@ def teacher_problems(film: dict, question: dict) -> list:
         if asks and "?" not in voice:
             out.append(f"{where}: the line asks a question; in voice end the question with ? and start its answer as a new "
                        "sentence (the voice pauses there)")
+        left = unsaid(voice or roman)
+        if left:
+            out.append(f"{where}: the voice cannot say {' '.join(left)}; write it in words in voice (\"per\", \"aur\", "
+                       "\"guna\", \"se banta hai\"), the screen keeps the sign")
         if teacher:                               # the teacher's own words are his call
             continue
         for before, after in _asked_then(roman):
@@ -1104,8 +1109,17 @@ def image_prompt(shot: dict, look: str = "", style: str | None = None) -> str:
 
 
 def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question: dict, tint: str = "#2c6e87") -> dict:
-    """The JSON the film player reads: shots with their visual (image data URI or SVG) and timed sentences."""
-    shots = []
+    """The JSON the film player reads: shots with their visual (image data URI or SVG) and timed sentences. A voiced
+    sentence carries ``after``, the silence before the next one (``studio_voice.gaps``: the teacher study's pauses)."""
+    from .studio_voice import gaps
+    shots, lines = [], []
+    for shot in film.get("shots") or []:
+        dive = shot.get("dive") or {}
+        for k, sentence in enumerate(shot.get("sentences") or []):
+            clip = audio.get((shot.get("id"), k)) or {}
+            lines.append({"text": sentence.get("voice") or sentence.get("roman") or "", "dur": clip.get("dur") or 0,
+                          "shot_start": k == 0 and bool(lines), "dive": dive.get("x", -1) != -1})
+    after = iter(gaps(lines))
     for shot in film.get("shots") or []:
         visual = shot.get("visual") or {}
         sentences = []
@@ -1122,6 +1136,9 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
                               "fuses": sentence.get("fuses") or [],
                               "reacts": timed(sentence.get("reacts") or [], text, clip.get("dur") or max(2.5, 0.075 * len(text))),
                               "cycles": sentence.get("cycles") or []})
+            gap = next(after, 0.0)
+            if clip.get("uri"):
+                sentences[-1]["after"] = gap
         dive = shot.get("dive") or {}
         shots.append({"id": shot.get("id"), "title": shot.get("title"), "key": shot.get("key"),
                       "type": visual.get("type"), "img": images.get(shot.get("id"), ""),

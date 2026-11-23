@@ -2674,3 +2674,26 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   one-word "Kyun?"; the sentence split keeps initials together and a short question is not a fragment, so 1 real
   fragment remains ("Teen carbon atoms."). After: the final script round.
   The voice (A1 pauses, A3 pace, units, Devanagari list) and film rules (F1, F2, F3) follow in their own PRs.
+
+## Entry · The voice learns the teachers' pauses and pace, 22 November 2026
+
+- **From:** the teacher study (entry above): an answered question is followed by about a quarter second, a full stop by
+  about 0.38 s, and a pause of a second or more comes once or twice a minute (V3, V4 measured); teachers speak 175–200
+  words a minute, Kokoro at 0.95 said 137. Navin heard the same lines before and after: "Naye wala sahi hai", "Hmm yeh
+  sahi baitha"; pace 0.95, 1.00, 1.05, 1.15 of one passage: "Mujhe 1.00 wala shi lga abhi ke liye isko use krenge", a
+  1.05 copy of the next films for his ear. A4 (room tone) stays off until he has heard it.
+- **Changed in BIE:** `studio_voice`: SPEED 1.00 (a question 0.97); `BIE_VOICE_PACE` or `Voice(pace=...)` and
+  `tools/studio_revoice.py --pace 1.05` for the second copy; QUESTION_PAUSE 0.30 after a question answered at once and
+  THINK_PAUSE 0.90 after "ruko, pehle khud socho ...?"; `gaps`: the player waits SENTENCE_PAUSE between lines, nothing
+  more after a question (its pause is in its own voice), about a second before a new idea ("Ab dekhte hain ...") at most
+  once in 30 s, and about a second at a new picture counting the picture's own move (`studio_player.html` reads
+  `after`; films without it keep 0.45 s). A5: units and signs said in words (nm, °C, µL/L, 3:2, →, ×, ~), and a line with
+  a sign the voice cannot say is refused, never said wrong (`unsaid`: the film check sends it back; a refused line is
+  named in the run's problems instead of the old silent skip). A6: a Devanagari spelling list for the voice only
+  (थायलाकॉइड, फ़ियोफ़ाइटिन, फ़ेरेडॉक्सिन ...), measured with Kokoro's own phonemizer. IMPLEMENTED (`tests/test_studio_dub.py`,
+  `tests/test_studio_films.py`).
+- **Measured (BIE's Photosynthesis films q01 and q02, 59 lines, Kokoro offline, before → after):** voice 135 → 140 words a
+  minute, the whole film with its pauses 123 → 130; a question that ends a line and is answered by the next one waited
+  0.45 s in its voice plus 0.45 s in the player (0.9 s, the "artificial" gap Navin heard), now 0.30 s; pauses of a second
+  or more about 1.8 → 2.0 a minute, nearly all at a new picture (teachers: one or two a minute). 59 of 59 lines sayable,
+  so the gate refuses none of them; every line of the passed Q14 film sayable too.

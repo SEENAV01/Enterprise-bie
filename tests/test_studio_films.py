@@ -708,6 +708,23 @@ class TeacherVoice(unittest.TestCase):
         self.assertNotIn("orders the learner", found)
         self.assertIn("s1 sentence 2: the line asks a question; in voice end the question with ?", found)
 
+    def test_a_voiced_line_carries_its_gap_and_a_sign_the_voice_cannot_say_is_caught(self):
+        from bie.brain import studio_voice
+        audio = {("s1", 0): {"uri": "data:audio/mpeg;base64,AA", "dur": 3.0}, ("s1", 1): {"uri": "data:audio/mpeg;base64,AA", "dur": 4.0},
+                 ("s2", 0): {"uri": "data:audio/mpeg;base64,AA", "dur": 3.0}}
+        data = studio_film.player_data(film(), images={}, audio=audio, chapter="Monsoon", question=QUESTION)
+        said = [t for shot in data["shots"] for t in shot["sentences"]]
+        self.assertEqual(said[0]["after"], studio_voice.SENTENCE_PAUSE)        # "...kyun rokti hai? Aaiye jaante hain."
+        self.assertEqual(said[1]["after"], studio_voice.SENTENCE_PAUSE)        # before s2, which opens by a dive (1.6 s)
+        self.assertEqual(said[2]["after"], studio_voice.SENTENCE_PAUSE)
+        self.assertNotIn("after", said[3])                                     # not voiced: timed by its text
+        template = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        self.assertIn("t.after!=null?t.after*1000:450", template)
+        made = film()
+        made["shots"][0]["sentences"][1]["voice"] = "हवा 3 ATP/2 NADPH के हिसाब से चढ़ती है।"
+        found = " | ".join(studio_film.teacher_problems(made, QUESTION))
+        self.assertIn("s1 sentence 2: the voice cannot say /", found)
+
     def test_the_voice_speaks_a_question_on_its_own_with_a_pause(self):
         from bie.brain import studio_voice
         self.assertEqual(studio_voice.parts("बंद मेम्ब्रेन क्यों चाहिए? इसका सीधा सा जवाब है जमाव।"),
