@@ -2873,3 +2873,9 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   none in `f1`; the photo check finds the two `g3` dam pictures and the glossy miniature yard of 11.6.2b. Studio lane
   594 tests, 0 failures, 0 skips; every passed film still passes. Quality, first-try pass rate and rounds wait for the
   11.6.3b remake.
+- **Navin, 23 November 2026, 20:03:** the moving-parts 11.6.3b pictures look "ekdum nakli"; the second film's
+  (`g3`) pictures were very good apart from one or two things such as the turbine; "sara kamal aawaaz ka hai aur
+  screen ke saath uske talmel ka": the female voice's pattern is to be put on his voice, and the remake keeps `g3`'s
+  pictures and presents them better (voice and screen together). Changed: the parts that move are no longer asked to be
+  "a clearly separate solid shape with a clean edge" (that made toy shapes); they are opaque, fully in view and as real
+  and detailed as the rest of the picture (`SOLID_PARTS` and the maker's instruction).

@@ -213,8 +213,10 @@ with a process written inside a box instead of happening on screen):
   that move out of the AI picture and moves them while the narration says so. visual.parts lists them ([] when nothing
   in the picture moves): id (short, a-z and _), name (what the narration calls the part, spoken in every sentence that
   acts on it), looks (how it looks in this picture, so it can be found: colour, shape, place). The image_prompt draws
-  every listed part as one clearly separate solid shape with a clean edge and its own colour, not hidden behind another
-  part, with the opening drawn where something opens and room around a part that moves; a molecule that will be moved is
+  every listed part in its own colour, opaque and fully in view, not hidden behind another part, with the opening drawn
+  where something opens and room around a part that moves, and as real and detailed as the rest of the picture (its true
+  structure and surface, never a simplified or toy shape: Navin on the first parts film, 23 November 2026, "ekdum
+  nakli"); a molecule that will be moved is
   drawn as one compact ball-and-stick group. Each sentence's acts show what its words say happens to a part, while it is
   said: turn (the part turns about its centre by turns degrees, -360 to 360: -120 for one step of the stalk seen from
   above), spin (a part seen from the side keeps turning until stop or the shot ends; rider: a molecule riding on it, such
@@ -1432,9 +1434,11 @@ CUTAWAY_STYLES = {
 FILM_STYLE = "glossy"
 # the parts that move are solid, so they can be cut and so the mechanism reads (Navin, 23 November 2026, on routes A and B:
 # "kuchh jyada hi transparent hai ... bahut hi transparent beta aur na dikhne wali dandi"): whatever the cutaway style
-# says about transparency, these parts are opaque, separate and fully in view
-SOLID_PARTS = (" These parts are drawn solid and opaque, each one a clearly separate shape with a clean edge, fully in view, "
-               "not behind glass or a see-through layer, not overlapping each other: {parts}.")
+# says about transparency, these parts are opaque and fully in view; "solid, separate, clean edge" made toy shapes (the
+# first parts film of 11.6.3b, Navin, 23 November 2026: "ekdum nakli"), so they stay as real as the rest of the picture
+SOLID_PARTS = (" These parts are opaque and fully in view, not behind glass or a see-through layer and not covered by another "
+               "part, and drawn exactly as real and detailed as everything else in the picture (their true structure and "
+               "surface, never a simplified, cartoon or toy shape): {parts}.")
 MACHINERY = re.compile(r"(?i)\b(proteins?|complex(es)?|enzymes?|ps ?ii?\b|photosystems?|atp synthase|cf[0₀1₁]|cytochromes?|"
                        r"plastoquinone|plastocyanin|ferredoxin|rubisco|reaction cent(re|er)|molecules?|molecular|carriers?|"
                        r"channels?|pumps?|antenna)")

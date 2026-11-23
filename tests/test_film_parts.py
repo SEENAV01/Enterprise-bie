@@ -279,10 +279,12 @@ class FilmParts(unittest.TestCase):
     def test_moving_parts_are_drawn_solid(self):
         shot = acts_film()["shots"][0]
         prompt = studio_film.image_prompt(shot, "glossy violet heads")
-        self.assertIn("solid and opaque", prompt)
+        self.assertIn("opaque and fully in view", prompt)
+        self.assertIn("never a simplified, cartoon or toy shape", prompt)   # "ekdum nakli" (Navin, 23 November 2026)
+        self.assertNotIn("clean edge", prompt)
         self.assertIn("dandi (copper central stalk in the middle)", prompt)
         shot["sentences"] = [dict(s, acts=[]) for s in shot["sentences"]]
-        self.assertNotIn("solid and opaque", studio_film.image_prompt(shot, "glossy violet heads"))
+        self.assertNotIn("opaque and fully in view", studio_film.image_prompt(shot, "glossy violet heads"))
 
     def test_review_page_lists_every_act(self):
         page = studio_film.acts_page(acts_film(), {"wanted": 3, "cut": 1, "parts": {

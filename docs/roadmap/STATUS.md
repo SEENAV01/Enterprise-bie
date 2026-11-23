@@ -440,6 +440,10 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    on a question (`steady_camera`); no picture draws a crowd of molecules (`crowd_problems`); a photo shows the real
    thing, never a model, and is never glossy (`photo_problems`, `GLOSSY_WORDS`); a molecule with its own tag gets no
    second label, a line's labels leave after the next line, five at most (player). IMPLEMENTED.
+   Navin at 20:03: the moving-parts pictures look "ekdum nakli" (the parts are now asked to stay as real as the rest of
+   the picture, not "separate solid shapes with a clean edge"); `g3`'s pictures were very good apart from the turbine;
+   the difference was the voice and its timing with the screen: the female voice's pattern goes onto his voice (a test:
+   the female lines turned into his voice by Chatterbox's conversion).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
