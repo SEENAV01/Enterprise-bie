@@ -2799,3 +2799,17 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   growing-line check sends back all four growing lines (shots 1–4); the stored Calvin film has neither. Every passed film
   still passes every check (`PassedFilms`).
 - **Next:** the seven 11.6 films in order (₹0), so the chain can be judged across the section.
+
+## Entry · One stuck call lost a whole section job, 23 November 2026
+
+- **Run:** job `g1-photosynthesis-116-films-1` (h11-6a, h11-6b, h11-6-1; Navin: "pure 11.6 section ki videos banao")
+  failed after 34 minutes with `codex:timeout: codex exec did not finish within 1800 s`: one maker call hung, the
+  exception left `studio_film.write`, and the films stage stopped with no film made (the f1 job's twenty calls averaged
+  about seven minutes each).
+- **Changed in BIE:** `studio_film._ask` asks a maker call once more when it fails in a retryable way (timeout, rate
+  limit, provider unavailable, server error); if a later round still fails, `write` keeps the film of the round before
+  and names the failure among its findings; `tools/vm_studio.py` makes each film on its own (`one(q)`), so a film that
+  fails becomes a row that says why and the next film is made; a used-up plan still stops the stage. IMPLEMENTED
+  (`tests/test_studio_films.py`, `StuckCalls`).
+- **Measured:** offline only so far (a timed-out first call then an answer: one film; two failures then answers for the
+  next film: one failed row, one film, status needs_fix). g1 runs again after this merges.

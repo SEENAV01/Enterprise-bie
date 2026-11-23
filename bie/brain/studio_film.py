@@ -1228,7 +1228,15 @@ def write(client, model: str, question: dict, *, course: str = "", language: str
     convo = messages(question, course=course, language=language, chapter=chapter)
     rounds, usage, film, found = [], {"input_tokens": 0, "output_tokens": 0}, None, ["no answer yet"]
     for number in range(1, max_rounds + 1):
-        reply = client.chat(model=model, messages=convo, schema=SCHEMA)
+        try:
+            reply = _ask(client, model, convo)
+        except Exception as exc:
+            if film is None or getattr(exc, "kind", None) == "plan_limit":
+                raise
+            # a later round's call failed twice: the film of the round before stands, with its findings and why it stopped
+            found = list(found) + [f"round {number}: the maker's call failed ({str(exc)[:120]}); the film of round {number - 1} is kept"]
+            rounds.append({"round": number, "problems": found, "failed": str(exc)[:200]})
+            break
         for key in usage:
             usage[key] += int((reply.get("usage") or {}).get(key) or 0)
         film = without_empty_cupboard(parse(reply.get("content", "")), question)
@@ -1239,6 +1247,17 @@ def write(client, model: str, question: dict, *, course: str = "", language: str
         convo = convo + [{"role": "assistant", "content": reply.get("content", "")},
                          {"role": "user", "content": PROBLEMS_PROMPT + "\n- ".join(found)}]
     return {"film": film, "problems": found, "rounds": rounds, "usage": usage}
+
+
+def _ask(client, model: str, convo: list) -> dict:
+    """One maker call, asked once more if it fails in a way a retry can help (a stuck or timed-out call): the first
+    11.6 section job (23 November 2026) lost all three films to one codex call that did not finish in 30 minutes."""
+    try:
+        return client.chat(model=model, messages=convo, schema=SCHEMA)
+    except Exception as exc:
+        if not getattr(exc, "retryable", False):
+            raise
+        return client.chat(model=model, messages=convo, schema=SCHEMA)
 
 
 IMAGE_SUFFIX = (" Photorealistic, natural colours, documentary quality, 16:9 landscape. No text, no letters, no numbers, "
