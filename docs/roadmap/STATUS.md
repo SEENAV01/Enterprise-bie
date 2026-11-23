@@ -449,6 +449,11 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    passed (the player now dims the rest of the picture around the zoom point, `spotlight`); the final rules and the
    work left are in his doc "BIE film: final niyam aur kaam ki suchi"; card: the 11.6.3b remake keeps the moving parts
    (drawn as real). Next: merge, then job `r1` remakes 11.6.3b (glossy, female voice, the new rules).
+   **Aatma ki almaari (Navin, 23 November 2026, card "Abhi, 11.6.3b ke saath"):** a passed film's ways of teaching and
+   showing are kept as forms with blanks that each subject fills with its own words (`bie/brain/aatma.py`,
+   `tools/lock_aatma.py`, `rulebook/aatma.json`), locked only after Navin's yes, given to every subject's next film and
+   used to measure it. IMPLEMENTED, empty: its first entry waits for Navin's pass of the 11.6.3b remake. Next after it:
+   the film instruction's biology examples move into the subject kits, then one Money chapter film (his card).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
