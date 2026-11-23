@@ -1922,3 +1922,60 @@ def place(client, model: str, shot: dict, next_shot: dict | None, image_part: di
     except Exception as exc:                          # the film still plays with the maker's points; the report says so
         result = {"items": len(items), "moved": 0, "refused": 0, "missing": [], "error": str(exc)[:160], "usage": {}}
     return result
+
+
+ACT_WORDS = {"turn": "ghoomta hai", "spin": "ghoomta rehta hai", "stop": "rukta hai", "open": "khulta hai",
+             "loose": "dheela hota hai", "tight": "kasta hai (dabaav)", "stick": "khisak kar judta hai (jod par chamak)",
+             "leave": "bahar nikal jaata hai", "arrive": "andar aata hai", "glow": "chamakta hai"}
+
+
+def acts_page(film: dict, report: dict | None = None, *, question: dict | None = None, chapter: str = "") -> str:
+    """Navin's review page of the parts that move (routeS, 23 November 2026: "har film ke har asar ki suchi"): for every
+    picture with parts, each part and whether BIE cut it, then each line with what happens to which part while it is
+    said. A review page: it never reaches the learner's screen."""
+    import html as _h
+    e = _h.escape
+    report = report or {}
+    cut = report.get("parts") or {}
+    blocks, total, shown = [], 0, 0
+    for number, shot in enumerate(film.get("shots") or [], 1):
+        sid = shot.get("id") or f"shot {number}"
+        parts = [p for p in (shot.get("visual") or {}).get("parts") or [] if isinstance(p, dict)]
+        if not parts:
+            continue
+        names = {p.get("id"): p.get("name") or p.get("id") for p in parts}
+        rows = []
+        for p in parts:
+            got = cut.get(f"{sid}.{p.get('id')}")
+            if got is None:
+                state = '<b class="no">nahi kata (tasveer mein nahi mila)</b>' if report else '<span class="sum">—</span>'
+            elif got.get("problems"):
+                state = f'<b class="no">saaf nahi kata: {e("; ".join(got["problems"]))}</b>'
+            else:
+                state = f'<b class="ok">kata</b> <span class="sum">{got.get("area")}% tasveer</span>'
+                shown += 1
+            total += 1
+            rows.append(f'<li><b>{e(str(p.get("name")))}</b> <span class="sum">({e(str(p.get("looks") or ""))})</span> · {state}</li>')
+        lines = []
+        for k, sentence in enumerate(shot.get("sentences") or [], 1):
+            acts = sentence.get("acts") or []
+            what = "; ".join(f"{names.get(a.get('part'), a.get('part'))} {ACT_WORDS.get(a.get('do'), a.get('do'))}"
+                             + (f" ({a.get('turns'):+g}°)" if a.get("do") == "turn" else "")
+                             + (f", savaar {a.get('rider')}" if a.get("rider") else "") for a in acts)
+            lines.append(f'<tr><td class="pg">{k}</td><td>{e(sentence.get("roman") or "")}</td>'
+                         f'<td>{e(what) if what else "<span class=sum>—</span>"}</td></tr>')
+        blocks.append(f'<h2>{e(sid)} · {e(shot.get("title") or "")}</h2><ul>{"".join(rows)}</ul>'
+                      f'<table><tr><td class="pg">#</td><td><b>Line</b></td><td><b>Kya hilta hai</b></td></tr>{"".join(lines)}</table>')
+    body = "".join(blocks) or "<p>Is film mein koi hissa nahi hilta.</p>"
+    title = f'{(question or {}).get("id", "")} · {(question or {}).get("question", film.get("title", ""))}'
+    return f"""<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hilte hisse</title><style>
+:root{{--bg:#f7f5ef;--ink:#1d2326;--soft:#5d676b;--line:#ddd8cc;--ok:#1d7a46;--no:#b3261e;--card:#fff}}
+@media (prefers-color-scheme:dark){{:root{{--bg:#111719;--ink:#e8ecea;--soft:#9aa6a8;--line:#2a3538;--ok:#5cc98a;--no:#ff8a80;--card:#182023}}}}
+body{{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif}}main{{max-width:980px;margin:0 auto;padding:16px}}
+h1{{font-size:1.25rem;margin:.2em 0}}h2{{font-size:1.05rem;margin:1.4em 0 .4em}}.sum{{color:var(--soft)}}
+table{{width:100%;border-collapse:collapse;background:var(--card)}}td{{border-top:1px solid var(--line);padding:8px;vertical-align:top}}
+td.pg{{white-space:nowrap;color:var(--soft);width:2em}}.ok{{color:var(--ok)}}.no{{color:var(--no)}}ul{{padding-left:1.1em}}
+</style></head><body><main><p class="sum">{e(chapter)} · review page (learner ko nahi dikhta)</p><h1>Hilte hisse: {e(title)}</h1>
+<p class="sum">Tasveeron se kate hisse: {shown} / {total}</p>{body}</main></body></html>"""
+

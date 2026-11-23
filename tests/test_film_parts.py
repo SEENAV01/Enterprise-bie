@@ -264,6 +264,14 @@ class FilmParts(unittest.TestCase):
         self.assertGreaterEqual(timed[1]["at"] - timed[0]["at"], 1.2)          # one thing at a time
         self.assertLessEqual(timed[1]["at"], 6.0 - 1.6)
 
+    def test_review_page_lists_every_act(self):
+        page = studio_film.acts_page(acts_film(), {"wanted": 3, "cut": 1, "parts": {
+            "s1.stalk": {"area": 2.1, "problems": []}, "s1.beta_top": {"area": 0.01, "problems": ["the cut is a speck"]}}},
+            question={"id": "q", "question": "ATP kaise banta hai?"})
+        for said in ("dandi ghoomta hai (-120°)", "beta kasta hai (dabaav)", "ADP aur Pi khisak kar judta hai",
+                     "saaf nahi kata: the cut is a speck", "nahi kata (tasveer mein nahi mila)", "1 / 3"):
+            self.assertIn(said, page)
+
     def test_player_moves_parts(self):
         html = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
         for name in ("function doAct", "function partsReplay", "function pressure", "function bond", "function ridersStep",

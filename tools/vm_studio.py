@@ -416,6 +416,9 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                                                                    "placement": placed, "parts": cut_report},
                                                                   ensure_ascii=False, indent=1),
                                                        encoding="utf-8")
+        if cut_report["wanted"]:                    # Navin's page of the parts that move (a review page)
+            (out / "films" / f"{q['id']}-hisse.html").write_text(
+                studio_film.acts_page(film, cut_report, question=q, chapter=plan.get("chapter_title", "")), encoding="utf-8")
         if q.get("book_lines"):                     # Navin's NCERT-to-film page (a review page, never the learner's)
             (out / "films" / f"{q['id']}-ncert.html").write_text(
                 studio_film.coverage_page(film, q, chapter=plan.get("chapter_title", "")), encoding="utf-8")
