@@ -1141,6 +1141,95 @@ class LearnedFromFilmA(unittest.TestCase):
         self.assertEqual(studio_film.library_problems(made, {"library": library}), [])
 
 
+class FirstHeadingFilms(unittest.TestCase):
+    """The first two films cut from the chapter's script (11.7.2 part a, 11.6.3 part b, 23 November 2026) ended
+    needs_fix after five rounds. Most rounds went to BIE's own misreadings: CO₂ and CF₀ written with subscripts were not
+    found, a wheel station that became a 'dot' waited for "dot", the script's workshop analogy on two asides counted as
+    0 everyday pictures, a plain "dobara" forced a wheel, a 'motor' kept picture that never existed, and the look's
+    workshop clause put a motor into the chloroplast picture. The player ran an 18-carbon count off both sides and
+    showed a pin and a wheel station of one name twice."""
+
+    def wheel_shot(self, stations, *lines):
+        cycle = {"x": 50, "y": 50, "rx": 20, "ry": 20, "label": "", "carriers": 1, "ms": 14000, "stations": stations}
+        first = {"roman": "H⁺ CF₀ se lumen se stroma ko jaate hain.", "voice": "एच प्लस सीएफ़ ज़ीरो से जाते हैं।", "cycles": [cycle]}
+        return {"shots": [{"id": "s5", "sentences": [first] + [{"roman": r, "voice": "कुछ।"} for r in lines]}]}
+
+    def test_a_subscript_names_what_it_writes(self):
+        self.assertEqual(studio_film._tokens("CO₂ aur CF₀"), studio_film._tokens("CO2 aur CF0"))
+        self.assertIn("proton", studio_film._spoken_words("H⁺ jama hote hain"))
+        made = LearnedFromFilmA().shot_with("Par 3-PGA kaise banta hai? Ek RuBP aur ek CO₂ milkar 3-PGA banate hain.",
+                                            "पर 3-PGA कैसे बनता है? एक आरयूबीपी और एक सीओटू मिलकर 3-PGA बनाते हैं।", reacts=[dict(REACT)])
+        self.assertNotIn("takes part in the meeting", " ".join(studio_film.mechanism_problems(made)))
+
+    def test_a_wheel_station_with_a_short_name_or_a_plain_dot(self):
+        stations = [{"at": 180, "label": "", "becomes": "H+", "takes": [], "gives": []},
+                    {"at": 0, "label": "CF₀", "becomes": "H+", "takes": [], "gives": []}]
+        made = self.wheel_shot(stations, "Return ke liye dobara proton pumping kyun nahi?", "Isliye CF₀ se return downhill hai.")
+        self.assertEqual([p for p in studio_film.screen_problems(made, {}) if "station" in p], [])
+        dot = [{"at": 0, "label": "RuBP", "becomes": "RuBP", "takes": [], "gives": []},
+               {"at": 180, "label": "", "becomes": "dot", "takes": [], "gives": []}]
+        found = " ".join(studio_film.screen_problems(self.wheel_shot(dot, "RuBP pool dobara banta hai.", "Aage badhte hain."), {}))
+        self.assertNotIn("station 'dot'", found)
+        self.assertIn("a station of the wheel is a plain dot with no label; label it", found)
+
+    def test_an_aside_is_an_everyday_picture_and_a_script_film_keeps_the_scripts(self):
+        made = film()
+        extra = json.loads(json.dumps(made["shots"][1]))
+        for n in range(3, 7):
+            made["shots"].append(dict(json.loads(json.dumps(extra)), id=f"s{n}"))
+        self.assertIn("0 everyday picture(s)", " ".join(studio_film.mechanism_problems(made)))
+        self.assertNotIn("everyday picture(s)", " ".join(studio_film.mechanism_problems(made, {"script_lines": True})))
+        made["shots"][3]["aside"] = made["shots"][4]["aside"] = True
+        self.assertNotIn("everyday picture(s)", " ".join(studio_film.mechanism_problems(made)))
+
+    def test_made_again_needs_a_making_word(self):
+        shot = LearnedFromFilmA().shot_with
+        for line in ("Lekin acceptor dobara kaise milta hai?", "Ab RuBP pool dobara banata hai.", "Pathway RuBP ko regenerate karta hai."):
+            self.assertIn("show the return as a wheel", " ".join(studio_film.mechanism_problems(shot(line, "दोबारा।"))), line)
+        self.assertNotIn("show the return as a wheel", " ".join(studio_film.mechanism_problems(
+            shot("Return ke liye dobara proton pumping ki energy kyun nahi lagani?", "दोबारा प्रोटॉन पम्पिंग क्यों नहीं?"))))
+
+    def test_the_everyday_look_stays_on_the_aside(self):
+        look = ("16:9 realistic macro journey, warm soft light and matte hydrated textures; stroma cream, Rubisco teal; "
+                "everyday workshop has a matte steel reusable mould and a charcoal electric motor.")
+        world = "Chloroplast cutaway, cream stroma, matte biological textures, open centre for a bookkeeping wheel."
+        aside = "Photorealistic everyday workshop: a steel reusable mould on a bench and an electric motor, warm light."
+        self.assertNotIn("motor", studio_film.look_for(world, look))
+        self.assertIn("stroma cream", studio_film.look_for(world, look))
+        self.assertNotIn("motor", studio_film.look_for(world + " A workshop mould is drawn later.", look, aside=False))
+        self.assertIn("reusable mould and a charcoal electric motor", studio_film.look_for(aside, look, aside=True))
+        made = {"visual": {"type": "photo", "image_prompt": world + " Workshop mould shape."}, "aside": False}
+        self.assertNotIn("electric motor", studio_film.image_prompt(made, look))
+
+    def test_an_empty_cupboard_clears_a_named_picture(self):
+        made = film()
+        made["shots"][0]["visual"]["library"] = "motor"
+        record = studio_film.write(FakeClient([made]), "m", QUESTION, max_rounds=1)
+        self.assertEqual(record["film"]["shots"][0]["visual"]["library"], "")
+        self.assertNotIn("no kept picture", " ".join(record["problems"]))
+        kept = film()
+        kept["shots"][0]["visual"]["library"] = "motor"
+        self.assertIn("no kept picture 'motor'", " ".join(studio_film.library_problems(
+            studio_film.without_empty_cupboard(kept, {"library": [{"id": "ghat"}]}), {"library": [{"id": "ghat"}]})))
+
+    def test_a_wheel_moved_by_looking_stays_inside_the_picture(self):
+        made = self.wheel_shot([{"at": 0, "label": "CF₀", "becomes": "H+", "takes": [], "gives": []}], "CF₀ se.")
+        shot = made["shots"][0]
+        items = studio_film.place_items(shot)
+        wheel = [i for i in items if i["id"].endswith(".cycle0")][0]
+        studio_film.apply_places(items, {"items": [{"id": wheel["id"], "visible": True, "points": [[90, 95]]}]})
+        cycle = shot["sentences"][0]["cycles"][0]
+        self.assertEqual((cycle["x"], cycle["y"]), (78.0, 78.0))
+        self.assertNotIn("must sit inside the picture", " ".join(studio_film.motion_problems(shot["sentences"][0], set(), "s5")))
+
+    def test_the_player_fits_a_count_and_keeps_one_label_per_name(self):
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        for part in ("function fitBeads(box)", "scale(var(--fit,1))", ".beads.wrap", "!like(g,groups[i+1])",
+                     "Math.hypot(l.x-x,l.y-y)<12", "l.k!==labelRound", "labelRound++", "a.dim=true", "if(ac.dim)",
+                     "fxBox.querySelectorAll('.beads').forEach(o=>"):
+            self.assertIn(part, page)
+
+
 class PassedFilms(unittest.TestCase):
     """Seekh → BIE (CLAUDE.md): a film Navin passed must still pass every code check after any change. The first is Q14
     "A jaisi" (Navin, 21 November 2026: "isko pass maankar")."""
