@@ -52,7 +52,7 @@ import re
 from . import chapter_file, studio_naksha
 from .studio import parse
 from .studio_book import CAUTION
-from .studio_film import _content_words, _spoken_words
+from .studio_film import SENTENCE_END as SENTENCE, TEACHER_OPENERS, _content_words, _spoken_words, opener_habit
 
 KINDS = ("explain", "question", "checkpoint", "example", "analogy", "real_world", "recall", "activity", "story", "figure",
          "summary", "overview", "retell")
@@ -79,7 +79,6 @@ QUESTIONS_FROM = 8             # ... in a heading of at least this many sentence
 WHY = re.compile(r"\b(kyun|kyon|kyu|kyoon|why)\b", re.I)
 FRAGMENT = 3                   # a sentence of this many words or fewer is a fragment (Navin, 22 Nov: "tooti tooti lagegi")
 PROCESS_FROM = 3               # a heading with this many teachable process items is a process heading: overview, retell
-SENTENCE = re.compile(r"(?<=[.?!])(?<!\b[A-Z]\.)\s+")   # never after an initial ("J.A. Bassham", "T.W. Engelmann")
 COUNT = re.compile(r"\d|\b(ek|teen|chaar|char|paanch|panch|chhe|chhah|chheh|saat|aath|nau|das|baarah|barah|athaarah|"
                    r"atharah|one|two|three|four|five|six|seven|eight|nine|ten|twelve|eighteen|dono|teeno|chaaron)\b", re.I)
 MISCONCEPTION = re.compile(r"\b(log|aksar|zyadatar|bahut se|kai)\b.{0,60}\b(sochte|samajhte|maante|lagta)\b|galat ?fa?h?e?mi|"
@@ -226,8 +225,10 @@ Rules:
     the scarcest part decides how many finished pieces come out).
   - Flowing answers (Navin, 22 November 2026, on hearing "Paani se." said alone: "chhote vakya se baat tooti tooti
     lagegi"): never a sentence of three words or fewer. An answer repeats its subject ("Woh aati hai paani se", not
-    "Paani se."). The answer to a thinking question starts with "Dekho," and joins cause to conclusion in one sentence
-    ("…, aur woh oxygen chhodte hi nahi, jiska matlab hai ki oxygen paani se hi aati hai").
+    "Paani se."). The answer to a thinking question joins cause to conclusion in one sentence ("…, aur woh oxygen
+    chhodte hi nahi, jiska matlab hai ki oxygen paani se hi aati hai"), and its opener varies as a teacher's does
+    ({openers}): no one opener for more than half the answers of a heading (Navin, 23 November 2026, on "Dekho,"
+    opening nearly every answer of the final round: the voice stays, the openers vary).
   - Never say these slips, which teachers of this chapter make: oxygen-18 is radioactive; the dark reaction happens at
     night; the Calvin cycle releases CO2; pigments separate by weight; C4 plants store CO2 and open their stomata once;
     light saturates at 1 % of sunlight; temperature does not affect the light reaction; 360 and 450 are compensation
@@ -394,6 +395,10 @@ def teacher_problems(answer: dict, heading: dict, chapter: dict, points: list) -
                        "answer it")
         if not any(WHY.search(s) for s in asked):
             out.append("no \"kyun\" question in this heading: ask why at least once, then reason it out")
+    habit = opener_habit([s for _, _, s in said])
+    if habit:
+        out.append(f"{habit[1]} of {habit[2]} answers open with \"{habit[0].capitalize()}\"; vary the opener as a teacher "
+                   f"does ({TEACHER_OPENERS}), no one opener for more than half")
     for pid, k, s in said:
         if len(s.split()) <= FRAGMENT and not s.rstrip().endswith("?"):      # "Kyun?" is a teacher's question
             out.append(f"{pid} sentence {k}: {s!r} is a fragment; say a full sentence (an answer repeats its subject: "
@@ -629,7 +634,7 @@ def messages(chapter: dict, heading: dict, parts: list, *, course: dict, naksha:
              language: str = "Hinglish", next_title: str = "") -> list:
     system = RULES.format(subject=course.get("subject") or "the subject", learners=course.get("learners") or "the learners",
                           exam=course.get("exam") or "their exam", language=language or "Hinglish", max_words=MAX_WORDS,
-                          max_sentences=MAX_SENTENCES, tag=tag(heading["number"]))
+                          max_sentences=MAX_SENTENCES, tag=tag(heading["number"]), openers=TEACHER_OPENERS)
     items = chapter.get("items") or {}
     stars = [f"{term} (in {iid})" for term, iid in first_terms(heading)]
     lines = "\n".join(f"- {iid}: {items[iid].get('content', '')[:300]}" for iid in heading["items"])

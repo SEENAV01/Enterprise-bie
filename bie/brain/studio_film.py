@@ -43,6 +43,7 @@ from __future__ import annotations
 import json
 import re
 import xml.etree.ElementTree as ET
+from collections import Counter
 from pathlib import Path
 
 from . import studio as studio_terms
@@ -81,6 +82,13 @@ NUMBER = (r"(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten|twelve|ek|do
           r"saat|aath|nau|das|baarah)")
 COUNT_SAID = re.compile(rf"\b{NUMBER}\s*(?:\+|plus)\s*{NUMBER}\s*(?:=|equals|barabar|ke barabar)", re.I)
 MAPPING = re.compile(r"\S\s*=\s*\S")
+OPENERS_FROM = 4              # answers (a sentence said right after a question) before their first words are counted
+OPENER_SHARE = 0.5            # one opener on more than this share of them is a habit, not a teacher (final script round,
+                              # 22 November 2026: "Dekho," opened most of 244 answers; Navin, 23 November: "Tum wali
+                              # chalegi", the voice stays and only the openers vary)
+SENTENCE_END = re.compile(r"(?<=[.?!])(?<!\b[A-Z]\.)\s+")   # never after an initial ("J.A. Bassham", "T.W. Engelmann")
+TEACHER_OPENERS = ('"Dekho, …", "Iska seedha sa jawab hai …", "Aisa isliye hai kyunki …", "Hota yeh hai ki …", '
+                   '"Wajah yeh hai ki …"')
 PARTS = ("hook", "prerequisite", "concept", "use", "recap")   # the film's whole picture (Navin, 20 November 2026)
 PART_NAMES = {"hook": "sawaal", "prerequisite": "pehle ki baat", "concept": "concept", "use": "kahan kaam aata hai / asar",
               "recap": "yaad rakhiye"}
@@ -214,7 +222,8 @@ with a process written inside a box instead of happening on screen):
   - In voice every question ends with ? and its answer starts a new sentence, so the voice pauses and the question sounds
     like a question.
   - He speaks with respect and takes the learner along: "aaiye", "chaliye", "dekhiye", "samajhiye", "pehchaan lete hain",
-    "paas se dekhte hain", "aapko yaad rakhni hain"; never orders such as "dekho", "pehchaan lo", "yaad rakho".
+    "paas se dekhte hain", "aapko yaad rakhni hain"; never orders such as "dekho", "pehchaan lo", "yaad rakho". (A film
+    made from the chapter's script keeps the script's own voice, "dekho" and "socho" included: Navin, 23 November 2026.)
   - After the opening question he invites: "Aaiye jaante hain." Between shots he builds a bridge ("ab isi chloroplast ke
     andar chalte hain aur cheezon ko aur detail mein samajhte hain"), and a new picture opens with where we are
     ("Chloroplast ke andar yeh thylakoid ek band chapti thaili jaisa dikhta hai").
@@ -444,7 +453,10 @@ SCRIPT_PART = """
 
 THE CHAPTER'S SCRIPT. BIE wrote the whole chapter's script first (Navin, 22 November 2026: "script wo poora gyan hai jo
 hume bache ko dena hai"); this film tells one heading of it. The film's sentences are the script's lines below, every
-one, in their order, and nothing else is spoken; keep their words, fixing only a spelling slip. A NOTE under a line is the
+one, in their order, and nothing else is spoken; keep their words and their voice ("dekho", "socho" stay: Navin, 23
+November 2026, "Tum wali chalegi"), fixing only a spelling slip. One change is yours: where most answers open alike
+("Dekho, ..."), open some of them with another teacher's opener ("Iska seedha sa jawab hai ...", "Aisa isliye hai kyunki
+...", "Hota yeh hai ki ..."), so that no opener starts more than half the answers. A NOTE under a line is the
 script's instruction for the screen (the point's kind and what the screen shows), never words to speak: follow it. A line
 of kind analogy is said on an aside shot (its own everyday picture); the lines of a process are told on one picture,
 step by step. Write each line's voice in Devanagari, ending every question with ? and starting its answer as a new
@@ -762,6 +774,26 @@ def _adds(sentence: dict) -> bool:
                                               "focus")) or bool((sentence.get("count") or {}).get("groups"))
 
 
+def answer_openers(sentences: list) -> list:
+    """The first word of every answer: a sentence said right after a question, itself no question."""
+    out = []
+    for asked, said in zip(sentences, sentences[1:]):
+        if asked.rstrip().endswith("?") and not said.rstrip().endswith("?"):
+            words = re.findall(r"[^\W\d_]+", said.lower())
+            if words:
+                out.append(words[0])
+    return out
+
+
+def opener_habit(sentences: list):
+    """(opener, times, answers) when one first word opens more than OPENER_SHARE of at least OPENERS_FROM answers."""
+    openers = answer_openers(sentences)
+    if len(openers) < OPENERS_FROM:
+        return None
+    word, times = Counter(openers).most_common(1)[0]
+    return (word, times, len(openers)) if times > OPENER_SHARE * len(openers) else None
+
+
 def teaching_problems(film: dict, question: dict) -> list:
     """The teacher study's ways of drawing (22 November 2026; Navin's yes to F1, F2 and F3, judged on a BIE video):
     a process built step by step on one picture, amounts counted with beads, an analogy on its own everyday picture."""
@@ -826,6 +858,13 @@ def teaching_problems(film: dict, question: dict) -> list:
         for point, placed in on_aside.items():
             if not any(placed):
                 out.append(f"the script's analogy {point} is not on its own picture; say it on an aside shot")
+    if not (lines and not question.get("script_lines")):               # Navin's own lines are his call
+        spoken = [s for _where, _shot, sentence in _sentences(film)
+                  for s in SENTENCE_END.split(sentence.get("roman") or "") if s.strip()]
+        habit = opener_habit(spoken)
+        if habit:
+            out.append(f"{habit[1]} of the film's {habit[2]} answers open with \"{habit[0].capitalize()}\"; open some with "
+                       f"another teacher's opener ({TEACHER_OPENERS}), no one opener for more than half")
     return out
 
 

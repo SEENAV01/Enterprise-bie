@@ -833,6 +833,29 @@ class TeacherStudyDrawing(unittest.TestCase):
         self.assertIn("a1: the aside maps the analogy in a pin", found)
         self.assertIn("s2: after an aside the film cuts back to its world", found)
 
+    def test_answers_do_not_all_open_alike(self):
+        # the final script round (22 Nov 2026): "Dekho," opened nearly every answer; Navin, 23 Nov: "Tum wali chalegi",
+        # the voice stays, only the openers vary
+        def asked(opener):
+            return sentence(f"Yeh hawa kyun ruk jaati hai? {opener} Ghat use upar dhakel deta hai, aur woh thandi hoti hai.",
+                            "यह हवा क्यों रुक जाती है? घाट उसे ऊपर धकेल देता है, और वह ठंडी होती है।")
+        made = film()
+        made["shots"][0]["sentences"] += [asked("Dekho,") for _ in range(3)]
+        made["shots"][1]["sentences"] += [asked("Dekho,"), asked("Iska seedha sa jawab hai,")]
+        found = " | ".join(studio_film.teaching_problems(made, QUESTION))
+        self.assertIn("4 of the film's 6 answers open with \"Dekho\"; open some with another teacher's opener", found)
+        made["shots"][0]["sentences"][-1] = asked("Aisa isliye hai kyunki")
+        self.assertEqual(studio_film.teaching_problems(made, QUESTION), [])                 # 3 of 6: not more than half
+        self.assertEqual(studio_film.answer_openers(["Kyun?", "Kaise?", "Dekho, aisa hai.", "Ruko.", "Iska jawab hai."]),
+                         ["dekho"])                                               # a question after a question is no answer
+        script = dict(QUESTION, script_lines=True, teacher_lines=[{"roman": "x"}])
+        navin = dict(QUESTION, teacher_lines=[{"roman": "x"}])
+        made["shots"][0]["sentences"][-1] = asked("Dekho,")
+        self.assertTrue(any("answers open with" in p for p in studio_film.teaching_problems(made, script)))
+        self.assertFalse(any("answers open with" in p for p in studio_film.teaching_problems(made, navin)))  # his own lines
+        self.assertIn("so that no opener starts more than half the answers", studio_film._teacher_part(
+            dict(QUESTION, script_lines=True, teacher_lines=[{"roman": "Dekho, aisa hai.", "note": "explain"}])))
+
     def test_the_script_is_cut_into_heading_films(self):
         chapter = {"items": {"i1": {"content": "Hawa chadhti hai", "content_type": "process", "block_ids": ["b1"]},
                              "i2": {"content": "Vrishti chhaya", "content_type": "cause_effect", "block_ids": ["b2"]}}}

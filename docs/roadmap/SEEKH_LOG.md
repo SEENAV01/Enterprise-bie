@@ -2720,3 +2720,17 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   IMPLEMENTED (`tests/test_studio_films.py`); not yet INTEGRATED: the first heading film waits for the final script.
 - **Checked:** every passed film still passes every check (`PassedFilms`); a test page of four sentences on one BIE
   picture showed the steps numbering, the old steps going quiet and the beads regrouping (Claude's check page, not a film).
+- **Measured after (the final script round, `s6-photosynthesis-script-final`, 65 minutes, ₹0, Codex on the ChatGPT
+  plan):** 21 of 21 headings end with no finding (4 first try, 44 rounds; round 1 of the old rules: 0 first try, 41
+  rounds). Before → after: questions 46 of 1,070 sentences (4 %) → 244 of 1,401 (17 %); kyun questions 5 → 69; goals
+  0 → 21 of 21; overview points 0 → 21 and retells 0 → 18; misconception lines 1 → 28; real fragments 1 → 0; empty
+  bridges 1 → 0; teacher slips 0 → 0 (one, "the Calvin cycle releases CO2" in 11.8, written in round 1 and caught by
+  the check). The median sentence grew from 15 to 18 words (S11, the flowing answer; all under 40), the script from 126
+  to 187 spoken minutes. Navin has the page to read (step 2).
+- **What it taught next:** "Dekho," opened most answers (231 times; 21 of 21 headings had one opener on more than half
+  their answers), because the rule told the writer to open a thinking answer with it. Navin, 23 November 2026, card
+  "Tum wali chalegi": the voice ("dekho", "socho") stays, the openers vary. Changed: `studio_film.opener_habit` (one
+  first word on more than half of at least four answers) is checked in every script heading and in every film but one
+  of Navin's own lines; the script rule names five teacher openers instead of one; a film from the script keeps the
+  script's voice and may change an answer's opener. On round 1's script: 0 headings with the habit (too few
+  questions); the passed Q14 film: none (its openers: aaiye, iska, isme, dekhiye, aisa, iska, dekhiye).
