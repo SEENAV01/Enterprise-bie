@@ -2893,3 +2893,29 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   close-up of a beta dimmed everything else. Changed: the player dims the rest of the picture around the zoom point as
   the camera closes in (`spotlight`, none below 1.15× zoom). The final rules and the work left are in Navin's doc "BIE
   film: final niyam aur kaam ki suchi". His card: the 11.6.3b remake keeps the moving parts, drawn as real.
+
+## Entry · Aatma ki almaari: a passed film's ways, kept without its subject's words, 23 November 2026
+
+- **Navin's idea (23 November 2026, 21:50–22:06):** BIE gives his rules to the AI as a prompt, but the rules carry
+  biology examples, so an economics film's prompt would carry them too; "bie ke code mein ek memory unit daalna jisme
+  passed output ke features, wo kin general baaton se bana tha jo subject specific words par depend nahi karti, matlab
+  har passed output ki aatma na ki keval structure"; with, for each kind of point, why it was understood (a process told
+  step by step with moving parts; in economics a living scene: a cow walking, money changing hands, people walking, a
+  counter opening, real coins, a story moving and talking); "ek form ki tarah hai jisme us subject ke words aa
+  jaayenge"; card "Abhi, 11.6.3b ke saath".
+- **Measured before:** the film maker's instruction for an economics question carried 111 biology words (molecule 19,
+  ATP 14, RuBP 8) and no economics word.
+- **Changed in BIE:** `bie/brain/aatma.py` finds by code how a film taught and showed, as forms with blanks in five
+  drawers (process, structure, scene, story, reason): a thing that moves as it is named, through the machine, after the
+  two sides are shown, a part that acts as the line says, one step at a time on one picture, the camera still until a
+  step is done, the whole place first then inside, an everyday example in its own picture, a small question before the
+  answer; with the film's measures (camera moves, things moving per line, questions, steps, words). `page` is Navin's
+  review page "Is film ki aatma"; `tools/lock_aatma.py` locks a film's forms into `bie/brain/rulebook/aatma.json` only
+  after his yes (never a demo); `prompt_part` gives every new film the locked forms with their blanks explained in no
+  subject's words and the subject's own things to fill them (its kit: the film kit's molecules for the sciences, the
+  places, people and goods of the economics examples he locked on 29 October); `aatma_problems` measures a new film
+  against the passed ones. While the almaari is empty nothing changes for a film.
+- **Measured (offline):** the first 11.6.3b film (the one Navin understood better) shows 8 forms, camera 38 % of
+  lines, 41 % of lines adding a step; the second shows 7 forms, camera 56 %, steps 21 %; a locked test film's prompt part
+  for an economics course carries no biology word and names "Kirana shop". Studio lane 606 tests, 0 failures, 0 skips.
+  The almaari's first real entry waits for Navin to pass the 11.6.3b remake.

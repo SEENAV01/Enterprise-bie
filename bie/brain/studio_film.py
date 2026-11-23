@@ -358,9 +358,17 @@ def messages(question: dict, *, course: str, language: str, chapter: str = "") -
                                                               kinds=MAX_KINDS, shot_chars=MAX_SHOT_CHARS,
                                                               pin_gap=PIN_GAP, step_sentences=STEP_SHOT_SENTENCES,
                                                               step_chars=STEP_SHOT_CHARS, beads=BEADS_MAX,
-                                                              max_parts=MAX_PARTS, max_acts=MAX_ACTS)},
+                                                              max_parts=MAX_PARTS, max_acts=MAX_ACTS)
+             + _aatma_part(course)},
             {"role": "user", "content": user + _overview_part(question) + _naksha_part(question) + _teacher_part(question)
              + _library_part(question)}]
+
+
+def _aatma_part(course: str) -> str:
+    """The ways of teaching and showing that films Navin passed used, as forms whose blanks this subject fills (the
+    aatma ki almaari, ``bie/brain/aatma.py``); nothing while the almaari is empty."""
+    from . import aatma
+    return aatma.prompt_part(course)
 
 
 NAKSHA_PART = """
@@ -822,7 +830,7 @@ def problems(film, question: dict) -> list:
     if missing_points:
         out.append("no shot covers the question's points " + ", ".join(map(str, missing_points)))
     out += (picture_problems(film) + parts_problems(film) + photo_problems(film) + crowd_problems(film)
-            + overlay_problems(film))
+            + overlay_problems(film) + _aatma_problems(film))
     return (out + book_problems(film, question) + screen_problems(film, question) + layout_problems(film)
             + teacher_problems(film, question) + library_problems(film, question) + mechanism_problems(film, question)
             + teaching_problems(film, question))
@@ -1563,6 +1571,12 @@ def overlay_problems(film: dict) -> list:
             out.append(f"{shot.get('id') or f'shot {number}'}: the image_prompt asks the picture for a {found.group(0)!r}; BIE "
                        "draws counts and lists over the picture, so write only that the space is left clear")
     return out
+
+
+def _aatma_problems(film: dict) -> list:
+    """The film measured against the films Navin passed (``aatma.aatma_problems``); nothing while the almaari is empty."""
+    from . import aatma
+    return aatma.aatma_problems(film)
 
 
 def photo_problems(film: dict) -> list:
