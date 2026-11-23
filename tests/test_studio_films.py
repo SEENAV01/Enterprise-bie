@@ -319,6 +319,21 @@ class LivingFilm(unittest.TestCase):
         self.assertIn("camTo(50,50,1,ms*.78)", show)   # the picture fills the frame before the lens opens to the corners
         self.assertIn("lens(u<.78?18+ease(u/.78)*22:", show)
 
+    def test_player_names_only_what_is_said_now(self):
+        """Navin on 11.6.2a (23 November 2026, "steps clear na dikhe ... to kya khichdi pakti hai"): thirteen names stood on
+        one line's picture, ATP, NADPH and O2 twice each (the molecule's own tag and a pin at the end of its move). A
+        molecule that carries its name gets no second label; a line's labels leave after the next line; five at most."""
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        move = page[page.index("function addMove("):page.index("function addGrow(")]
+        self.assertIn("m.label&&!tagSays(m.what,m.label)", move)
+        self.assertIn("function tagSays(what,label)", page)
+        self.assertIn("const MAX_LABELS=5;", page)
+        add = page[page.index("function addLabel("):page.index("function placeLabels(")]
+        self.assertIn("labels.length<=MAX_LABELS", add)
+        self.assertIn("!l.math&&l.k<labelRound-1", add)                    # a wheel's name and a reaction stay
+        sentence = page[page.index("function sentence(k)"):page.index("function speak(")]
+        self.assertLess(sentence.index("labelRound++;retireLabels();"), sentence.index("addLabel(p.t"))
+
     def test_maker_names_the_colours_of_repeated_structures(self):
         self.assertIn("names\n  the colour of every structure that is seen in more than one picture", studio_film.INSTRUCTIONS)
 
@@ -963,8 +978,55 @@ class ReviewFindings(unittest.TestCase):
         data = studio_film.player_data(made, images={}, audio={("s1", 1): {"uri": "", "dur": 9.0}}, chapter="", question=QUESTION)
         self.assertTrue(data["shots"][0]["sentences"][1]["moves"][0]["hold"])
         page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
-        for hook in ("until:m.hold&&!m.loop&&until?until:0", "addMove(m,now+300,now+300+(t.dur||0)*1000)", "if(!rep&&ac.until)"):
+        for hook in ("until:m.hold&&!m.loop&&until?until:0", "addMove(m,now+(m.at!=null?m.at*1000:300),now+300+(t.dur||0)*1000)", "if(!rep&&ac.until)"):
             self.assertIn(hook, page)
+
+
+class TwoFilmsOf1163b(unittest.TestCase):
+    """Navin on the two 11.6.3b films (23 November 2026): the first explained the mechanism better ("bolte huye screen par
+    wahi step par dhyan jata hai jo ho rha hai"), its turbine was a real one, the second felt more khichdi."""
+
+    def test_a_pin_and_a_move_start_as_their_name_is_said(self):
+        roman = "Pehle pump kaam karta hai, phir H⁺ CF₀ se stroma mein lautte hain."
+        self.assertIsNone(studio_film.said_at(["NADPH"], roman, 6.0))
+        early, late = studio_film.said_at(["pump"], roman, 6.0), studio_film.said_at(["H+"], roman, 6.0)
+        self.assertLess(early, late)
+        self.assertLessEqual(studio_film.said_at(["stroma"], roman, 6.0), 6.0 - 1.5)     # room to finish in its line
+        said = studio_film.word_times({"pins": [{"label": "stroma", "x": 50, "y": 20}, {"label": "lumen", "x": 50, "y": 80}],
+                                       "moves": [{"what": "H+", "points": [[1, 1], [2, 2]]}]}, roman, 6.0)
+        self.assertIn("at", said["pins"][0])
+        self.assertNotIn("at", said["pins"][1])                  # never said: the player starts it with the line
+        self.assertIn("at", said["moves"][0])
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        self.assertIn("addLabel(p.t,p.x,p.y,'pin new',now+(p.at!=null?p.at*1000:0))", page)
+        self.assertIn("born=now+(m.at!=null?m.at*1000:300)", page[page.index("function handOff("):])
+
+    def test_the_camera_stays_unless_the_line_brings_something_new(self):
+        z = lambda x, y, s: {"x": x, "y": y, "scale": s}
+        lines = [{"roman": "Dekho CF0.", "zoom": z(60, 60, 1.6), "pins": [{"label": "CF0"}]},
+                 {"roman": "Kyun?", "zoom": z(30, 30, 1.4), "pins": [{"label": "x"}]},              # a question: still
+                 {"roman": "Iska jawab aage.", "zoom": z(20, 20, 2.0)},                              # nothing new: still
+                 {"roman": "Ab H+ chalta hai.", "zoom": z(62, 61, 1.65), "moves": [{"what": "H+"}]},  # a tiny shift: still
+                 {"roman": "Ab stroma.", "zoom": z(40, 20, 1.2), "pins": [{"label": "stroma"}]}]
+        got = [(c["x"], c["y"], c["scale"]) for c in studio_film.steady_camera(lines)]
+        self.assertEqual(got, [(60, 60, 1.6)] * 4 + [(40, 20, 1.2)])
+        data = studio_film.player_data(film(), images={}, audio={}, chapter="", question=QUESTION)
+        self.assertTrue(all(set(s["zoom"]) == {"x", "y", "scale"} for s in data["shots"][0]["sentences"]))
+
+    def test_a_picture_draws_no_crowd_and_a_photo_no_model(self):
+        made = film()
+        made["shots"][0]["visual"]["image_prompt"] = "a thylakoid with visibly higher proton population space below"
+        self.assertIn("crowd of molecules", " ".join(studio_film.crowd_problems(made)))
+        made["shots"][0]["visual"]["image_prompt"] = "a thylakoid; leave the lumen clear for the protons BIE moves"
+        self.assertEqual(studio_film.crowd_problems(made), [])
+        dam = {"id": "s6", "visual": {"type": "photo", "image_prompt": "16:9 photoreal glossy hydroelectric teaching model"}}
+        self.assertIn("not a model", " ".join(studio_film.photo_problems({"shots": [dam]})))
+        self.assertNotIn("glossy", studio_film.image_prompt(dam, "Glossy scientific realism, warm light"))
+        real = {"id": "s7", "visual": {"type": "photo", "image_prompt": "a real dam; small scientific model inset upper right"}}
+        self.assertEqual(studio_film.photo_problems({"shots": [real]}), [])
+        cut = {"id": "s2", "visual": {"type": "cutaway", "image_prompt": "glossy ATP synthase in a membrane"}}
+        self.assertNotIn("glossy ATP", studio_film.image_prompt(cut, "", "mixed"))      # another look is not also glossy
+        self.assertIn("glossy ATP", studio_film.image_prompt(cut, "", "glossy"))
 
 
 class LookWordsAndLabelGaps(unittest.TestCase):

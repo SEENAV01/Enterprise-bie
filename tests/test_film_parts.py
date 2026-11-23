@@ -298,6 +298,18 @@ class FilmParts(unittest.TestCase):
                      "kind:'act'", "p-spin"):
             self.assertIn(name, html)
 
+    def test_a_far_close_travels_before_it_presses(self):
+        # 11.6.1 on the VM (23 November 2026): "Supply box band ho jaaye" put tight on a lid lying 30% below its box; the
+        # jaw pulsed where the lid lay and the box never closed. A point beyond the part's reach is now reached by travel.
+        html = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        self.assertIn("function beyondReach(P,T)", html)
+        act = html[html.index("function doAct"):html.index("function addRiders")]
+        travel = act.index("a.do==='tight'&&T&&beyondReach(P,T)")
+        self.assertLess(travel, act.index("else if(POSE[a.do])"))             # tried before the jaw
+        branch = act[travel:act.index("else if(POSE[a.do])")]
+        for said in ("to.tx=T[0]-P.c[0]", "to.ty=T[1]-P.c[1]", "pressure(T,"):
+            self.assertIn(said, branch)
+
 
 class SectionCutting(unittest.TestCase):
     def test_cut_parts_reads_the_cutter(self):

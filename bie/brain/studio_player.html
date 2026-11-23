@@ -191,7 +191,12 @@ function addMove(m,born,until){const path=spline(m.points||[]);const n=Math.max(
   for(let i=0;i<n;i++){tails.push(TAIL.map((d,j)=>{const c=sv('circle',{r:(.62-j*.14).toFixed(2),fill:tc,class:'tail'},wsvg);c.style.opacity=0;return c;}));
     const g=pri(sprite(m.what,m.colour,wsvg),1);g.style.opacity=0;items.push(g);}
   actors.push({kind:'move',path,items,tails,ms:Math.max(800,m.ms||2400),loop:!!m.loop,until:m.hold&&!m.loop&&until?until:0,born,gap:(m.ms||2400)/n*.85,rot:m.what==='light'||m.what==='drop',mol:!!KIT.molecules[m.what]});
-  if(m.label){const end=m.points[m.points.length-1];addLabel(m.label,end[0],end[1],'pin',born+600);}}
+  if(m.label&&!tagSays(m.what,m.label)){const end=m.points[m.points.length-1];addLabel(m.label,end[0],end[1],'pin',born+600);}}
+// a molecule that carries its own name tag needs no second label of the same name (11.6.2a in Navin's voice, 23 November
+// 2026: ATP, NADPH and O₂ each on screen twice, a tag under the molecule and a pin at the end of its move)
+const SUBS={'₀':'0','₁':'1','₂':'2','₃':'3','₄':'4','₅':'5','₆':'6','₇':'7','₈':'8','₉':'9','⁺':'+','⁻':'-'};
+function plain(s){return String(s||'').replace(/[₀-₉⁺⁻]/g,c=>SUBS[c]).replace(/\s+/g,'').toLowerCase();}
+function tagSays(what,label){const spec=KIT.molecules[what];return !!(spec&&spec.tag&&plain(spec.tag)===plain(label));}
 function addGrow(g,born){const path=spline(g.points||[]);const tube=sv('path',{d:path.d,fill:'none',stroke:'#f3e3a6','stroke-width':.9,'stroke-linecap':'round',opacity:.95},wsvg);
   const core=sv('path',{d:path.d,fill:'none',stroke:'#c8a24a','stroke-width':.35,'stroke-linecap':'round'},wsvg);
   [tube,core].forEach(p=>{p.style.strokeDasharray=path.total;p.style.strokeDashoffset=path.total;});
@@ -210,7 +215,7 @@ function addReact(r,born){const at=W(r.at[0],r.at[1]),ms=Math.max(1500,Math.min(
   if(r.label)addLabel(r.label,r.at[0],Math.max(5,r.at[1]-12),'pin math',born+ms*.45);}
 // a product that a later sentence moves on from where it was made is the same molecule: the resting copy hides when the
 // move starts (the first living film showed two ATPs for a moment)
-function handOff(moves,born){for(const m of moves){const p=(m.points||[])[0];if(!p||!KIT.molecules[m.what])continue;const s=W(p[0],p[1]);
+function handOff(moves,now){for(const m of moves){const p=(m.points||[])[0];if(!p||!KIT.molecules[m.what])continue;const s=W(p[0],p[1]),born=now+(m.at!=null?m.at*1000:300);
   for(const ac of actors)if(ac.kind==='react')for(const o of ac.outs)if(o.what===m.what&&!o.goneAt&&Math.hypot(o.to[0]-s[0],o.to[1]-s[1])<5)o.goneAt=born;}}
 function stepReact(ac,t,now){const period=ac.ms+1200;if(t<0)return;const tt=ac.loop?t%period:t,u=tt/ac.ms;
   ac.ins.forEach((o,i)=>{const n=ac.ins.length,off=(i-(n-1)/2)*3,e=ease(Math.min(1,u/.42)),m=Math.min(1,Math.max(0,(u-.42)/.08));
@@ -267,11 +272,18 @@ function partsStep(now){for(const id in parts){const P=parts[id];if(P.to){const 
 // the jaw moves along the line from the point it closes onto (toward) to its own centre: open moves away, tight moves in
 function jaw(P,T,q){if(!T)return{jx:0,jy:0};const vx=P.c[0]-T[0],vy=(P.c[1]-T[1])*.5625,l=Math.hypot(vx,vy)||1;
   return{jx:vx/l*q.d,jy:vy/l*q.d/.5625};}
+// a jaw closes onto a point at its own edge; a point beyond the part (a lid told to close onto its box, 11.6.1 on the VM,
+// 23 November 2026: the jaw pulsed where it lay and the box never closed) is reached by travelling there, then pressing
+const REACH=3;
+function beyondReach(P,T){const b=P.box,x=T[0]-P.now.tx,y=T[1]-P.now.ty;
+  return x<b[0]-REACH||x>b[2]+REACH||y<b[1]-REACH||y>b[3]+REACH;}
 function doAct(a,now,instant){const P=parts[a.part];if(!P)return;const n=P.now,to=Object.assign({},n),T=a.toward&&a.toward.length===2?a.toward:null;let ms=1200;
   if(a.do==='spin'){P.el.classList.add('p-spin');addRiders(P,a.rider);return;}
   if(a.do==='stop'){P.el.classList.remove('p-spin');P.riders.forEach(r=>r.el.remove());riders=riders.filter(r=>r.P!==P);P.riders=[];return;}
   if(a.do==='glow'){if(!instant){P.el.classList.add('p-glow');const my=token;setTimeout(()=>{if(my===token)P.el.classList.remove('p-glow');},1800);}return;}
   if(a.do==='turn'){to.rot=n.rot+(+a.turns||0);ms=1500;}
+  else if(a.do==='tight'&&T&&beyondReach(P,T)){P.jawT=T;to.tx=T[0]-P.c[0];to.ty=T[1]-P.c[1];to.jx=0;to.jy=0;to.jr=0;to.s=.97;ms=1500;
+    if(!instant){pressure(T,now+1250);P.chew=now+1500+1100;}}
   else if(POSE[a.do]){if(T)P.jawT=T;const q=POSE[a.do],j=jaw(P,P.jawT,q);to.jx=j.jx;to.jy=j.jy;to.jr=q.r;to.s=q.s;ms=1100;
     if(a.do==='tight'&&!instant){pressure(P.c,now+450);P.chew=now+1100+1300;}}
   else if(a.do==='stick'&&T){to.tx=T[0]-P.c[0];to.ty=T[1]-P.c[1];ms=1500;if(!instant)bond(T,now+1350);}
@@ -326,7 +338,15 @@ function addLabel(text,x,y,cls,showAt){const same=labels.find(l=>l.text===text&&
   labels.filter(l=>l.text===text&&l.k!==labelRound).forEach(l=>{l.box.remove();l.dot.remove();l.lead.remove();});labels=labels.filter(l=>l.box.isConnected);
   const b=el('div',cls,text);b.style.opacity=0;$('labels').appendChild(b);
   const dot=sv('ellipse',{class:'dot',rx:1.6,ry:1.6},$('ssvg')),lead=sv('line',{class:'lead'},$('ssvg'));dot.style.opacity=lead.style.opacity=0;
-  labels.forEach(l=>l.box.classList.remove('new'));labels.push({box:b,dot,lead,x,y,text,showAt:showAt||0,math:/math/.test(cls),k:labelRound});}
+  labels.forEach(l=>l.box.classList.remove('new'));labels.push({box:b,dot,lead,x,y,text,showAt:showAt||0,math:/math/.test(cls),k:labelRound});
+  for(const l of labels.filter(l=>!l.math&&l.k<labelRound)){if(labels.length<=MAX_LABELS)break;dropLabel(l);}
+  labels=labels.filter(l=>l.box.isConnected);}
+// the picture names what the voice says now: a line's labels stay through the next line and then leave (a name said again
+// comes back), at most MAX_LABELS at once; a wheel's name and a reaction stay (Navin, 23 November 2026, on 11.6.2a: "steps
+// clear na dikhe ... to kya khichdi pakti hai": thirteen labels stood on the last line of one shot)
+const MAX_LABELS=5;
+function dropLabel(l){l.box.remove();l.dot.remove();l.lead.remove();}
+function retireLabels(){labels.filter(l=>!l.math&&l.k<labelRound-1).forEach(dropLabel);labels=labels.filter(l=>l.box.isConnected);}
 function placeLabels(){const now=performance.now();for(const l of labels){const on=now>=l.showAt&&cam.fade>=.98&&cam.s>=.98;const [sx,sy]=toScreen(l.x,l.y);const y=sy*.5625;
     const right=sx<62,lx=right?sx+5:sx-5,ly=Math.max(3,Math.min(53,y-4));
     if(l.math){l.box.style.left=sx+'%';l.box.style.top=(sy/1)+'%';l.box.style.transform='translate(-50%,-50%)';l.dot.style.opacity=l.lead.style.opacity=0;}
@@ -395,12 +415,14 @@ function show(i,k,viaDive){const my=++token;const s=F.shots[i];si=i;ki=0;
       if(u<1)requestAnimationFrame(step);else{ghost.remove();cam.fade=1;lens(999);}};
     requestAnimationFrame(step);setTimeout(()=>{if(my===token)sentence(k||0);},deep?ms:200);return;}
   build(i);cam.to=null;cam.ox=50;cam.oy=50;cam.s=1;cam.fade=1;partsReplay(k||0);sentence(k||0);}
-function sentence(k){const s=F.shots[si];const t=s.sentences[k];if(!t)return;ki=k;labelRound++;$('sub').textContent=t.text;const now=performance.now();bar(si,k,playing);
+function sentence(k){const s=F.shots[si];const t=s.sentences[k];if(!t)return;ki=k;labelRound++;retireLabels();$('sub').textContent=t.text;const now=performance.now();bar(si,k,playing);
   const zm=t.zoom||{};camTo(zm.x==null?50:zm.x,zm.y==null?50:zm.y,Math.min(2.2,Math.max(1,zm.scale||1)),1700);
   // a new step: what earlier steps sent moving goes quiet too, so the new step's flow is the one that glows (F1)
   if(t.step||((t.arrows||[]).length&&k))quiet();if(t.step){actors.forEach(a=>{if(a.kind==='move')a.dim=true;});stepMark(t);}countAdd(t.count);
-  (t.pins||[]).forEach(p=>addLabel(p.t,p.x,p.y,'pin new',now));fxAdd(t.arrows||[],t.effects||[]);
-  handOff(t.moves||[],now+300);(t.moves||[]).forEach(m=>addMove(m,now+300,now+300+(t.dur||0)*1000));(t.grows||[]).forEach(g=>addGrow(g,now+300));(t.fuses||[]).forEach((f,i)=>addFuse(f,now+400+i*1200));
+  // a pin or a move starts as the voice says its name (at, seconds; Navin on the first 11.6.3b film, 23 November 2026:
+  // "bolte huye screen par wahi step par dhyan jata hai jo ho rha hai"); one the line never names starts with the line
+  (t.pins||[]).forEach(p=>addLabel(p.t,p.x,p.y,'pin new',now+(p.at!=null?p.at*1000:0)));fxAdd(t.arrows||[],t.effects||[]);
+  handOff(t.moves||[],now);(t.moves||[]).forEach(m=>addMove(m,now+(m.at!=null?m.at*1000:300),now+300+(t.dur||0)*1000));(t.grows||[]).forEach(g=>addGrow(g,now+300));(t.fuses||[]).forEach((f,i)=>addFuse(f,now+400+i*1200));
   (t.reacts||[]).forEach((r,i)=>addReact(r,now+300+(r.delay!=null?r.delay*1000:i*1400)));(t.cycles||[]).forEach(c=>addCycle(c,now+300));
   (t.acts||[]).forEach((a,i)=>actors.push({kind:'act',a,born:now+(a.at!=null?a.at*1000:400+i*1400),done:false}));
   const w=$('world');w.querySelectorAll('.lit').forEach(e=>e.classList.remove('lit'));(t.focus||[]).forEach(id=>{const q=CSS.escape(id);w.querySelectorAll('#'+q+',[data-oid="'+q+'"]').forEach(e=>e.classList.add('lit'));});
