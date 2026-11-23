@@ -22,14 +22,18 @@ PHOTO = {"id": "s1", "visual": {"type": "photo", "image_prompt": "a green leaf i
 
 
 class Styles(unittest.TestCase):
-    def test_navins_mixed_look_is_the_films_default(self):
-        # Navin after the look test (22 Nov 2026): molecular machinery close-ups as structures, overviews matte, both with
-        # a light controlled sheen; open ended, so "glossy" (the earlier films' look) stays one word away
-        self.assertEqual(studio_film.FILM_STYLE, "mixed")
-        self.assertTrue(studio_film.image_prompt(SHOT).endswith(studio_film.CUTAWAY_STYLES["close_up"]))
+    def test_the_glossy_look_is_the_films_default_and_mixed_stays_one_word_away(self):
+        # Navin, 23 November 2026, after the first heading film: "Is baar matte with controlled roshni nhi pehale wale
+        # chamakdaar tarike se hi banao video"; his 22 November "mixed" look (structure close-ups, matte overviews, a light
+        # controlled sheen) stays one word away
+        self.assertEqual(studio_film.FILM_STYLE, "glossy")
+        self.assertTrue(studio_film.image_prompt(SHOT).endswith(studio_film.CUTAWAY_SUFFIX))
+        self.assertIn("glossy cells, soft volumetric light", studio_film.CUTAWAY_SUFFIX)
+        self.assertIn("glossy cells, soft\n  volumetric light", studio_film.INSTRUCTIONS)
+        self.assertTrue(studio_film.image_prompt(SHOT, "", "mixed").endswith(studio_film.CUTAWAY_STYLES["close_up"]))
         overview = {"visual": {"type": "cutaway", "image_prompt": "a whole chloroplast with its grana stacks; no proteins at "
                                                                    "this scale"}}
-        self.assertTrue(studio_film.image_prompt(overview).endswith(studio_film.CUTAWAY_STYLES["overview"]))
+        self.assertTrue(studio_film.image_prompt(overview, "", "mixed").endswith(studio_film.CUTAWAY_STYLES["overview"]))
         self.assertIn("controlled satin sheen", studio_film.CUTAWAY_STYLES["close_up"])
         self.assertIn("never gritty", studio_film.CUTAWAY_STYLES["close_up"])
         self.assertTrue(studio_film.image_prompt(SHOT, "", "glossy").endswith(studio_film.CUTAWAY_SUFFIX))

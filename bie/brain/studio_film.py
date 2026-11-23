@@ -155,7 +155,8 @@ with a process written inside a box instead of happening on screen):
   the colour of every structure that is seen in more than one picture (for example "ATP synthase: violet head, amber
   channel"), and each image_prompt draws that structure in those colours (a part that changed colour between shots
   read as a different thing). BIE adds a structure's colours only to the pictures whose image_prompt names it, so a
-  structure appears only on the pictures at its own scale.
+  structure appears only on the pictures at its own scale. The pictures are glossy (Navin, 23 November 2026): never
+  write matte, non-reflective or a muted sheen into the look or an image_prompt.
 - REAL PLACES, LIVING PROCESSES. Places and processes are shown on AI pictures (photo or cutaway) that look like the real
   structure as electron micrographs and structural models show it (for a chloroplast: stacked thylakoid discs, the fluid
   stroma between them, membranes with depth; a protein in its known shape, such as ATP synthase: a ring in the membrane, a
@@ -265,10 +266,10 @@ with a process written inside a box instead of happening on screen):
   gradients and soft shading, rounded natural shapes, depth, short labels with leader lines; at least one gradient and at
   least 12 drawn shapes; viewBox; no script, no images, no style element; give every part you will light up an id);
   image_prompt is "". Use diagram for graphs, cycles, flow charts and comparisons.
-  visual.type "cutaway": an AI picture drawn as a realistic scientific cutaway or cross-section (true shapes and
-  textures, soft natural light, depth; never glassy or plastic), for the inside of things a camera cannot see: the inside
-  of a leaf, a chloroplast, an ovule, a root, a membrane and its proteins. image_prompt describes it fully like a photo
-  prompt (what is where; BIE adds how it is rendered); svg is "".
+  visual.type "cutaway": an AI picture drawn as a transparent scientific cutaway or cross-section (glossy cells, soft
+  volumetric light, depth, a calm dark background), for the inside of things a camera cannot see: the inside of a leaf,
+  a chloroplast, an ovule, a root, a membrane and its proteins. image_prompt describes it fully like a photo prompt (what
+  is where; BIE adds how it is rendered); svg is "".
 - dive: {{"x": 0-100, "y": 0-100}} when this shot is a close-up INSIDE a point of the previous picture (the camera dives
   into that point, then this shot opens); {{"x": -1, "y": -1}} otherwise (and always for the first shot).
 - Every sentence says what appears WHILE it is spoken ("dikhaya = bola"): pins (a short label at x,y in percent of the
@@ -281,8 +282,10 @@ with a process written inside a box instead of happening on screen):
   from BIE's kit: {molecules}), colour (gold,
   green, blue, red, white, purple), label (1 to 3 spoken words, or ""), points (2 to 6 [x, y] in percent, the path in
   order), count (1 to 12 copies, one after another), ms (how long one trip takes, 800 to 8000) and loop (keep moving
-  until the shot ends). grows: a living line that grows along points (a pollen tube, a root tip, a signal): points (2 to 8),
-  label, ms (1000 to 8000). fuses: two parts become one at x, y, with label ("n + n → 2n", "glucose").
+  until the shot ends). A route or a flow (protons through a channel, electrons from carrier to carrier, water, sugar)
+  is shown by the thing itself travelling on it (moves), never by a line drawn along the route (Navin, 23 November
+  2026: "Cheez khud chale"). grows: only something that really grows (a pollen tube, a root tip), a living line along
+  points (2 to 8), label, ms (1000 to 8000), in a sentence that says it grows. fuses: two parts become one at x, y, with label ("n + n → 2n", "glucose").
   reacts: a reaction seen happening: inputs (1 to 3, each what + from [x, y]) fly to "at" [x, y], a flash, and the outputs
   (1 to 3, each what + to [x, y]) appear there and travel to where they go, where they stay; label is the spoken equation
   ("CO2 + RuBP → 3-PGA") or ""; ms 1500 to 9000; loop true repeats it while the shot lasts (a steady process).
@@ -560,6 +563,10 @@ def _inside(points, low: int, high: int) -> bool:
         isinstance(p, list) and len(p) == 2 and all(isinstance(v, (int, float)) and 0 <= v <= 100 for v in p) for p in points)
 
 
+# a sentence in which something really grows (a pollen tube, a root): only there may a line grow along points
+GROWING = re.compile(r"\b(grow\w*|elongat\w*|ug(t|n|aa?)\w*|lamb\w*\s+ho\w*|nalika|nali|tubes?|roots?|jad(ein|en)?)\b", re.I)
+
+
 def motion_problems(sentence: dict, spoken: set, where: str) -> list:
     """moves, grows and fuses: inside the picture, in time ranges a learner can follow, labels spoken (dikhaya = bola)."""
     out = []
@@ -574,6 +581,9 @@ def motion_problems(sentence: dict, spoken: set, where: str) -> list:
             out.append(f"{where}: a move's ms is 800 to 8000")
         if move.get("label") and not _tokens(move["label"]) & spoken:
             out.append(f"{where}: move label {move['label']!r} is not spoken in this sentence (dikhaya = bola)")
+    if sentence.get("grows") and not GROWING.search(_plain(sentence.get("roman") or "")):
+        out.append(f"{where}: a growing line shows a route here, but nothing grows in this line; show the moving thing "
+                   "itself travelling on the route (moves), with no line (Navin, 23 November 2026: \"Cheez khud chale\")")
     for grow in sentence.get("grows") or []:
         if not _inside(grow.get("points"), 2, 8):
             out.append(f"{where}: a grow needs 2 to 8 points [x, y] in 0..100")
@@ -773,9 +783,29 @@ def problems(film, question: dict) -> list:
     missing_points = [i for i in points if i not in covered]
     if missing_points:
         out.append("no shot covers the question's points " + ", ".join(map(str, missing_points)))
+    out += picture_problems(film)
     return (out + book_problems(film, question) + screen_problems(film, question) + layout_problems(film)
             + teacher_problems(film, question) + library_problems(film, question) + mechanism_problems(film, question)
             + teaching_problems(film, question))
+
+
+def picture_problems(film: dict) -> list:
+    """A picture shows what its lines talk about: lines that name molecular machinery (ATP synthase, a photosystem, a
+    pump) are not said over a whole-structure picture (a leaf, a cell, a chloroplast). The first heading film (11.6.3
+    part b, 23 November 2026) dived leaf → cell → chloroplast while the voice already spoke of ATP synthase and H+, and
+    Navin: "kheechdi si pak gayi ... wo kadi nhi ban paati". The opening question may ask before the journey."""
+    out = []
+    for number, shot in enumerate(film.get("shots") or [], 1):
+        visual = shot.get("visual") or {}
+        if shot.get("aside") or visual.get("type") not in ("photo", "cutaway") or style_for(shot) != "overview":
+            continue
+        named = [MACHINERY.search(_plain(s.get("roman") or "")) for s in shot.get("sentences") or [] if s.get("part") != "hook"]
+        named = list(dict.fromkeys(m.group(0) for m in named if m))
+        if named:
+            out.append(f"{shot.get('id') or f'shot {number}'}: its lines talk about {', '.join(named[:3])} but its picture is a "
+                       f"whole-structure view (\"{(visual.get('image_prompt') or '')[:70].strip()} ...\"); a picture shows what "
+                       "its lines talk about: draw that part close up here, or say these lines on the shot that shows it")
+    return out
 
 
 def _int(value) -> int:
@@ -1254,7 +1284,9 @@ CUTAWAY_STYLES = {
 }
 # the films' cutaways: "mixed" draws a close-up of proteins and molecular machinery as "close_up" and a whole-structure
 # view as "overview"; "glossy" brings back the look the films had until 22 November 2026
-FILM_STYLE = "mixed"
+# Navin, 23 November 2026, after the first heading film: "Is baar matte with controlled roshni nhi pehale wale chamakdaar
+# tarike se hi banao video" (his 22 November choice was open ended)
+FILM_STYLE = "glossy"
 MACHINERY = re.compile(r"(?i)\b(proteins?|complex(es)?|enzymes?|ps ?ii?\b|photosystems?|atp synthase|cf[0₀1₁]|cytochromes?|"
                        r"plastoquinone|plastocyanin|ferredoxin|rubisco|reaction cent(re|er)|molecules?|molecular|carriers?|"
                        r"channels?|pumps?|antenna)")
@@ -1333,6 +1365,9 @@ def look_for(prompt: str, look: str, aside: bool | None = None) -> str:
     return "; ".join(kept)
 
 
+UNGLOSSY = re.compile(r"(?i)\b(matte|non-reflective|muted|controlled (satin )?sheen|satin sheen)\b ?")
+
+
 def image_prompt(shot: dict, look: str = "", style: str | None = None) -> str:
     """The shot's picture prompt; ``look`` (the film's shared art direction) keeps every picture in one world, with a
     structure's colours only on the pictures that show it (look_for); ``style`` is how a cutaway is rendered
@@ -1344,7 +1379,9 @@ def image_prompt(shot: dict, look: str = "", style: str | None = None) -> str:
     suffix = CUTAWAY_STYLES.get(style, CUTAWAY_SUFFIX) if visual.get("type") == "cutaway" else IMAGE_SUFFIX
     prompt = visual.get("image_prompt", "").strip()
     shared = look_for(prompt, look, aside=bool(shot.get("aside")))
-    shared = f" Same look as the other pictures of this film: {shared.rstrip('.')}." if shared else ""
+    if style == "glossy":                    # a glossy picture is not asked to be matte as well (Navin, 23 November 2026)
+        prompt, shared = (UNGLOSSY.sub("", text) for text in (prompt, shared))
+    shared = f" Same look as the other pictures of this film: {shared.rstrip('.').strip(' ,;')}." if shared.strip(" ,;.") else ""
     return prompt + shared + suffix
 
 

@@ -394,8 +394,15 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    plain dot, asides counted as everyday pictures and the count left to the script in a script film, "made again" needs
    a making word, the everyday look only on an aside, an unknown kept picture cleared when the cupboard is empty, a
    placed wheel kept inside the picture; the player fits a count to the picture, labels a run of like groups once,
-   replaces a count written over an earlier one, keeps one label per name and quiets earlier steps' flows. IMPLEMENTED.
-   Next: 11.7.2 part a made again on the fixed BIE, then at 1.05, to Navin; his verdicts on F1, F3 and the pace.
+   replaces a count written over an earlier one, keeps one label per name and quiets earlier steps' flows. IMPLEMENTED
+   (PR #201, merged `8e485634`). Navin on 11.6.3 part b (23 November 2026): the glowing line that shows a route should
+   be another mechanism (card: "Cheez khud chale"), the film felt like khichdi and the chain did not form, the whole
+   11.6 section is to be made so he can see it clearly, and the pictures glossy as before, not matte with a controlled
+   light. Section look (this PR): `FILM_STYLE` glossy again and the maker's cutaway instruction glossy; a route is the
+   moving thing itself with a short fading tail (player `TAIL`), a growing line only where something really grows
+   (`GROWING`); `picture_problems`: lines that name molecular machinery are not said over a whole-structure picture.
+   IMPLEMENTED. Next: the seven 11.6 films in order (h11-6a, h11-6b, h11-6-1, h11-6-2a, h11-6-2b, h11-6-3a, h11-6-3b),
+   ₹0, to Navin together; 11.7.2 part a waits.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
