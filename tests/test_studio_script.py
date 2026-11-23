@@ -274,6 +274,22 @@ class Script(unittest.TestCase):
         part["points"][4]["says"][-1] = "Light reaction par temperature ka koi asar nahi hota, yeh pakka hai."
         self.assertIn("temperature not affecting the light reaction", check(2, part))   # here the negation is the slip
 
+    def test_answers_do_not_all_open_with_dekho(self):
+        # the final round (22 Nov 2026): "Dekho," opened nearly every answer, as the old rule told the writer; Navin,
+        # 23 Nov 2026, card "Tum wali chalegi": the voice ("dekho", "socho") stays, the openers vary
+        part = copy.deepcopy(parts()[2])
+        extra = [f"Yeh kadam {n} kyun zaroori hai? Dekho, iske bina electron ka raasta ruk jaata hai aur kaam band hota hai."
+                 for n in range(4)]
+        part["points"][1]["says"] = part["points"][1]["says"] + extra[:2]
+        part["points"][5]["says"] = part["points"][5]["says"] + extra[2:]
+        found = check(2, part)
+        self.assertIn('4 of 7 answers open with "Dekho"; vary the opener as a teacher does', found)
+        part["points"][5]["says"][-1] = part["points"][5]["says"][-1].replace("Dekho,", "Iska seedha sa jawab hai ki")
+        part["points"][5]["says"][-2] = part["points"][5]["says"][-2].replace("Dekho,", "Aisa isliye hai kyunki")
+        self.assertNotIn("answers open with", check(2, part))
+        self.assertIn("no one opener for more than half the answers", studio_script.messages(
+            chapter(), studio_script.headings(chapter())[2], parts()[:2], course={})[0]["content"])
+
     def test_a_marked_misconception_is_said_and_the_bridge_names_the_link(self):
         ch = chapter()
         ch["items"]["p002-i1"].update(teach_depth="deep", deep_why="misconception")

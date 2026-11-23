@@ -52,7 +52,7 @@ import re
 from . import chapter_file, studio_naksha
 from .studio import parse
 from .studio_book import CAUTION
-from .studio_film import _content_words, _spoken_words
+from .studio_film import SENTENCE_END as SENTENCE, TEACHER_OPENERS, _content_words, _spoken_words, opener_habit
 
 KINDS = ("explain", "question", "checkpoint", "example", "analogy", "real_world", "recall", "activity", "story", "figure",
          "summary", "overview", "retell")
@@ -79,7 +79,6 @@ QUESTIONS_FROM = 8             # ... in a heading of at least this many sentence
 WHY = re.compile(r"\b(kyun|kyon|kyu|kyoon|why)\b", re.I)
 FRAGMENT = 3                   # a sentence of this many words or fewer is a fragment (Navin, 22 Nov: "tooti tooti lagegi")
 PROCESS_FROM = 3               # a heading with this many teachable process items is a process heading: overview, retell
-SENTENCE = re.compile(r"(?<=[.?!])(?<!\b[A-Z]\.)\s+")   # never after an initial ("J.A. Bassham", "T.W. Engelmann")
 COUNT = re.compile(r"\d|\b(ek|teen|chaar|char|paanch|panch|chhe|chhah|chheh|saat|aath|nau|das|baarah|barah|athaarah|"
                    r"atharah|one|two|three|four|five|six|seven|eight|nine|ten|twelve|eighteen|dono|teeno|chaaron)\b", re.I)
 MISCONCEPTION = re.compile(r"\b(log|aksar|zyadatar|bahut se|kai)\b.{0,60}\b(sochte|samajhte|maante|lagta)\b|galat ?fa?h?e?mi|"
@@ -226,8 +225,10 @@ Rules:
     the scarcest part decides how many finished pieces come out).
   - Flowing answers (Navin, 22 November 2026, on hearing "Paani se." said alone: "chhote vakya se baat tooti tooti
     lagegi"): never a sentence of three words or fewer. An answer repeats its subject ("Woh aati hai paani se", not
-    "Paani se."). The answer to a thinking question starts with "Dekho," and joins cause to conclusion in one sentence
-    ("…, aur woh oxygen chhodte hi nahi, jiska matlab hai ki oxygen paani se hi aati hai").
+    "Paani se."). The answer to a thinking question joins cause to conclusion in one sentence ("…, aur woh oxygen
+    chhodte hi nahi, jiska matlab hai ki oxygen paani se hi aati hai"), and its opener varies as a teacher's does
+    ({openers}): no one opener for more than half the answers of a heading (Navin, 23 November 2026, on "Dekho,"
+    opening nearly every answer of the final round: the voice stays, the openers vary).
   - Never say these slips, which teachers of this chapter make: oxygen-18 is radioactive; the dark reaction happens at
     night; the Calvin cycle releases CO2; pigments separate by weight; C4 plants store CO2 and open their stomata once;
     light saturates at 1 % of sunlight; temperature does not affect the light reaction; 360 and 450 are compensation
@@ -394,6 +395,10 @@ def teacher_problems(answer: dict, heading: dict, chapter: dict, points: list) -
                        "answer it")
         if not any(WHY.search(s) for s in asked):
             out.append("no \"kyun\" question in this heading: ask why at least once, then reason it out")
+    habit = opener_habit([s for _, _, s in said])
+    if habit:
+        out.append(f"{habit[1]} of {habit[2]} answers open with \"{habit[0].capitalize()}\"; vary the opener as a teacher "
+                   f"does ({TEACHER_OPENERS}), no one opener for more than half")
     for pid, k, s in said:
         if len(s.split()) <= FRAGMENT and not s.rstrip().endswith("?"):      # "Kyun?" is a teacher's question
             out.append(f"{pid} sentence {k}: {s!r} is a fragment; say a full sentence (an answer repeats its subject: "
@@ -629,7 +634,7 @@ def messages(chapter: dict, heading: dict, parts: list, *, course: dict, naksha:
              language: str = "Hinglish", next_title: str = "") -> list:
     system = RULES.format(subject=course.get("subject") or "the subject", learners=course.get("learners") or "the learners",
                           exam=course.get("exam") or "their exam", language=language or "Hinglish", max_words=MAX_WORDS,
-                          max_sentences=MAX_SENTENCES, tag=tag(heading["number"]))
+                          max_sentences=MAX_SENTENCES, tag=tag(heading["number"]), openers=TEACHER_OPENERS)
     items = chapter.get("items") or {}
     stars = [f"{term} (in {iid})" for term, iid in first_terms(heading)]
     lines = "\n".join(f"- {iid}: {items[iid].get('content', '')[:300]}" for iid in heading["items"])
@@ -681,6 +686,86 @@ def write(client, model: str, chapter: dict, *, course: dict, naksha: dict | Non
         if on_part:
             on_part(record)
     return {"parts": parts, "rounds": rounds, "usage": usage, "problems": left}
+
+
+FILM_LINES = 48               # script lines in one film at most (about 8 shots); a longer heading is cut into films
+
+
+def film_id(section: str, part: int = 0, parts: int = 1) -> str:
+    """A heading's film id, as a VM job's videos field can carry it: "11.6.1" -> "h11-6-1", the opening "h0"; a heading cut
+    into several films: "h11-2a", "h11-2b" ..."""
+    return "h" + (section or "0").replace(".", "-") + ("abcdefghijklmnopqrstuvwxyz"[part] if parts > 1 else "")
+
+
+def _cut(points: list) -> list:
+    """The heading's points in films of at most FILM_LINES lines, cut only between points, the parts as even as they can be."""
+    sizes = [len(sentences(p)) for p in points]
+    total = sum(sizes)
+    count = max(1, -(-total // FILM_LINES))
+    target = total / count
+    out, current, size = [], [], 0
+    for point, n in zip(points, sizes):
+        if current and (size + n > FILM_LINES or (size >= target and len(out) < count - 1)):
+            out.append(current)
+            current, size = [], 0
+        current.append(point)
+        size += n
+    return out + ([current] if current else [])
+
+
+def film_questions(script: dict, chapter: dict, naksha: dict | None = None, wanted: list | None = None) -> dict:
+    """The script cut into films, first slice (Navin, 22 November 2026: "phir video maker us script ke hisab se poore
+    chapter ko video ke tukdon mein baantega"): one film per heading, its narration the heading's script lines in order
+    (the films stage's teacher lines, with each point's kind and screen line as the note), its points the heading's items
+    (their blocks give the book lines). A film opens on a question: the plan's question for the heading (shape B, one
+    heading one film; else shape A's first) when the script's first line is not one. ``wanted``: film ids or headings."""
+    items = chapter.get("items") or {}
+    shape_a, shape_b = {}, {}
+    for f in ((naksha or {}).get("A") or {}).get("films") or []:              # shape A: question-wise films in a heading
+        if isinstance(f, dict) and f.get("question"):
+            shape_a.setdefault(f.get("section") or "", []).append(f)
+    for f in ((naksha or {}).get("B") or {}).get("films") or []:              # shape B: one heading, one film
+        if isinstance(f, dict) and f.get("question"):
+            shape_b.setdefault(f.get("section") or "", f)
+    wanted = {w.strip() for w in wanted or [] if w.strip()}
+    out = []
+    for part in script.get("parts") or []:
+        section = part.get("section") or ""
+        pieces = _cut([p for p in part.get("points") or [] if sentences(p)])
+        for number, chunk in enumerate(pieces):
+            fid = film_id(section, number, len(pieces))
+            if wanted and fid not in wanted and section not in wanted and film_id(section) not in wanted:
+                continue
+            lines = []
+            for point in chunk:
+                kind, screen = point.get("kind") or "explain", (point.get("screen") or "").strip()
+                for n, said in enumerate(sentences(point)):
+                    lines.append({"roman": said, "note": f"{kind} · screen: {screen}" if n == 0 and screen else kind,
+                                  "kind": kind, "point": point.get("id") or ""})
+            taught = list(dict.fromkeys(i for point in chunk for i in point.get("teaches") or [] if i in items))
+            # the plan's film that teaches most of this film's items (shape B when the heading is one film)
+            planned = sorted(shape_a.get(section) or [], key=lambda f: -len(set(f.get("teaches") or []) & set(taught)))
+            plan = (shape_b.get(section) if len(pieces) == 1 else None) or (planned[0] if planned else None) or \
+                shape_b.get(section) or {}
+            question = (plan.get("question") or "").strip()
+            if not lines[0]["roman"].rstrip().endswith("?"):
+                opening = question if question.endswith("?") else next(
+                    (x["roman"] for x in lines if x["roman"].rstrip().endswith("?")), (part.get("title") or section) + "?")
+                lines.insert(0, {"roman": opening, "note": "the film's opening question", "kind": "question", "point": ""})
+            if number == len(pieces) - 1 and (part.get("bridge") or "").strip():
+                lines.append({"roman": part["bridge"].strip(), "note": "bridge to the next heading's film", "kind": "bridge",
+                              "point": ""})
+            points = [{"block_ids": list(items[i].get("block_ids") or []), "point": items[i].get("content", "")[:200],
+                       "kind": items[i].get("content_type") or "facts_numbers", "item_id": i} for i in taught]
+            out.append({"id": fid, "pillar": section or "opening", "question": lines[0]["roman"],
+                        "hook": plan.get("opens_with", ""), "points": points,
+                        "film": {"length": "long",
+                                 "showing_moment": next((x.get("shows") for x in plan.get("saman") or []), "")},
+                        "game_stage": {"mechanic": "choose_and_see", "idea": ""}, "naksha": True, "script_lines": True,
+                        "teacher_lines": lines, "heading": {"section": section, "title": part.get("title") or "",
+                                                            "film": number + 1, "films": len(pieces)}})
+    return {"chapter_title": script.get("chapter_title") or (chapter.get("map") or {}).get("chapter_title", ""),
+            "naksha": True, "script": True, "questions": out}
 
 
 def counts(chapter: dict, parts: list) -> dict:

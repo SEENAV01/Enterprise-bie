@@ -204,6 +204,10 @@ def script(args, client, model, out: Path, summary: dict):
             key, value = pair.split("=", 1)
             course[key.strip()] = value.strip()
 
+    (out / "chapter_map.json").write_text(json.dumps(chapter, ensure_ascii=False), encoding="utf-8")   # for the films
+    if isinstance(plans, dict):
+        (out / "naksha.json").write_text(json.dumps(plans, ensure_ascii=False), encoding="utf-8")
+
     def save(record):
         (out / "script.json").write_text(studio_script.dump({"chapter_title": (chapter.get("map") or {}).get("chapter_title", ""),
                                                              "parts": record["parts"]}), encoding="utf-8")
@@ -223,15 +227,25 @@ def script(args, client, model, out: Path, summary: dict):
 
 def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=None):
     from bie.brain import studio_film, studio_voice
-    plan = read_json(args.from_run, "questions.json")
+    wanted = [q.strip() for q in (args.videos or "").split(",") if q.strip()]
+    script = maybe_json(args.from_run, "script.json")
+    if isinstance(script, dict) and script.get("parts"):
+        # a script run (Navin, 22 November 2026): one film per heading, its narration the script's lines; the chapter map
+        # and the plan come from the script run, else from --chapter-map (the naksha run the script was written from)
+        base = args.chapter_map or args.from_run
+        from bie.brain import studio_script
+        plans = maybe_json(base, "naksha.json")
+        plan = studio_script.film_questions(script, read_json(base, "chapter_map.json"),
+                                            plans if isinstance(plans, dict) else None, wanted)
+    else:
+        plan = read_json(args.from_run, "questions.json")
     if pages and not plan.get("naksha"):            # an older question list: the unit's opening page moves to its overview
         plan = studio.with_unit_overview(plan, pages)
-    wanted = [q.strip() for q in (args.videos or "").split(",") if q.strip()]
     questions = [q for q in plan.get("questions") or [] if not wanted or q.get("id") in wanted]
     blocks = studio.all_blocks(pages) if pages else {}
     terms = frozenset(studio.chapter_terms(pages)) if pages else frozenset()
     voice, why = (voice_maker or studio_voice.make)()
-    summary["voice"] = "kokoro hf_alpha" if voice else f"no voice ({why})"
+    summary["voice"] = studio_voice.name() if voice else f"no voice ({why})"
     template = PLAYER.read_text(encoding="utf-8")
     (out / "films").mkdir(exist_ok=True)
     (out / "questions.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -247,7 +261,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                                                            if o.get("id") != q.get("id")]
         # the teacher's own script (Navin, 20 November 2026): teacher/<qid>.json in the from-run folder holds his lines
         # (and notes) and the earlier film; the film is made again with his lines as its narration
-        teacher = maybe_json(args.from_run, f"teacher/{q['id']}.json")
+        teacher = None if q.get("script_lines") else maybe_json(args.from_run, f"teacher/{q['id']}.json")
         if isinstance(teacher, dict) and teacher.get("lines"):
             q["teacher_lines"] = [{"roman": str(x.get("roman") or ""), "note": str(x.get("note") or "")}
                                   for x in teacher["lines"] if isinstance(x, dict)]
@@ -640,6 +654,8 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--stage", choices=STAGES, default="questions")
     parser.add_argument("--source", default="")
+    parser.add_argument("--chapter-map", default="", help="films from a script run: the run whose chapter_map.json and "
+                        "naksha.json the script was written from (when the script run does not keep them)")
     parser.add_argument("--from-run", default="", help="naksha: an understand run (chapter_map.json); films, games, book: the "
                         "earlier run (folder or https URL) with questions.json")
     parser.add_argument("--videos", default="", help="films, games, book: only these question ids, for example q01,q02")

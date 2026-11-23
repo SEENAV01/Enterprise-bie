@@ -43,6 +43,7 @@ from __future__ import annotations
 import json
 import re
 import xml.etree.ElementTree as ET
+from collections import Counter
 from pathlib import Path
 
 from . import studio as studio_terms
@@ -71,6 +72,23 @@ MAX_KINDS = 5                 # different molecules on screen at once (the Q14 e
 MAX_SHOT_CHARS = 560          # roman per shot, about 40 seconds of voice (the Q14 review: two shots of 54 s on one picture)
 PIN_GAP = 8                   # percent between two pins of one sentence (the Q14 review: thylakoid and lumen stacked)
 TEACHER_MATCH = 0.7           # share of a teacher's line's words the film's sentence keeps (spelling slips fixed)
+# the teacher study (four Chapter 11 teachers, 22 November 2026; Navin's yes to F1, F2 and F3, judged on a BIE video):
+PROCESS_FROM = 3              # a question with this many process points tells the process step by step on one picture (F1)
+STEPS_FROM = 3                # numbered steps that make a shot a process built on one picture
+STEP_SHOT_SENTENCES = 10      # a stepped shot may hold more sentences, because every step changes the picture
+STEP_SHOT_CHARS = 2 * MAX_SHOT_CHARS
+BEADS_MAX = 12                # beads in one group of a count (F3: "5 + 1 = 6 → 3 + 3", carbon counted as beads)
+NUMBER = (r"(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten|twelve|ek|do|teen|chaar|char|paanch|panch|chhah|chhe|"
+          r"saat|aath|nau|das|baarah)")
+COUNT_SAID = re.compile(rf"\b{NUMBER}\s*(?:\+|plus)\s*{NUMBER}\s*(?:=|equals|barabar|ke barabar)", re.I)
+MAPPING = re.compile(r"\S\s*=\s*\S")
+OPENERS_FROM = 4              # answers (a sentence said right after a question) before their first words are counted
+OPENER_SHARE = 0.5            # one opener on more than this share of them is a habit, not a teacher (final script round,
+                              # 22 November 2026: "Dekho," opened most of 244 answers; Navin, 23 November: "Tum wali
+                              # chalegi", the voice stays and only the openers vary)
+SENTENCE_END = re.compile(r"(?<=[.?!])(?<!\b[A-Z]\.)\s+")   # never after an initial ("J.A. Bassham", "T.W. Engelmann")
+TEACHER_OPENERS = ('"Dekho, …", "Iska seedha sa jawab hai …", "Aisa isliye hai kyunki …", "Hota yeh hai ki …", '
+                   '"Wajah yeh hai ki …"')
 PARTS = ("hook", "prerequisite", "concept", "use", "recap")   # the film's whole picture (Navin, 20 November 2026)
 PART_NAMES = {"hook": "sawaal", "prerequisite": "pehle ki baat", "concept": "concept", "use": "kahan kaam aata hai / asar",
               "recap": "yaad rakhiye"}
@@ -91,6 +109,7 @@ def _arr(items: dict) -> dict:
 
 
 WHAT = {"type": "string", "enum": list(ACTORS)}
+BEADS = _arr(_obj({"n": I, "label": S, "colour": {"type": "string", "enum": list(COLOURS)}}))
 SENTENCE = _obj({
     "roman": S, "voice": S,
     "pins": _arr(_obj({"label": S, "x": N, "y": N})),
@@ -108,6 +127,8 @@ SENTENCE = _obj({
     "cycles": _arr(_obj({"x": N, "y": N, "rx": N, "ry": N, "label": S, "carriers": I, "ms": N,
                          "stations": _arr(_obj({"at": N, "label": S, "becomes": WHAT, "takes": _arr(WHAT),
                                                 "gives": _arr(WHAT)}))})),
+    "step": I,
+    "count": _obj({"x": N, "y": N, "groups": BEADS, "then": BEADS}),
     "teaches": _arr(I), "beyond": S, "part": {"type": "string", "enum": list(PARTS)},
 })
 SCHEMA = _obj({
@@ -116,6 +137,7 @@ SCHEMA = _obj({
         "id": S, "title": S, "key": S, "covers": _arr({"type": "integer"}),
         "visual": _obj({"type": {"type": "string", "enum": list(VISUALS)}, "image_prompt": S, "svg": S, "library": S}),
         "dive": _obj({"x": N, "y": N}),
+        "aside": B,
         "sentences": _arr(SENTENCE),
     })),
 })
@@ -200,7 +222,8 @@ with a process written inside a box instead of happening on screen):
   - In voice every question ends with ? and its answer starts a new sentence, so the voice pauses and the question sounds
     like a question.
   - He speaks with respect and takes the learner along: "aaiye", "chaliye", "dekhiye", "samajhiye", "pehchaan lete hain",
-    "paas se dekhte hain", "aapko yaad rakhni hain"; never orders such as "dekho", "pehchaan lo", "yaad rakho".
+    "paas se dekhte hain", "aapko yaad rakhni hain"; never orders such as "dekho", "pehchaan lo", "yaad rakho". (A film
+    made from the chapter's script keeps the script's own voice, "dekho" and "socho" included: Navin, 23 November 2026.)
   - After the opening question he invites: "Aaiye jaante hain." Between shots he builds a bridge ("ab isi chloroplast ke
     andar chalte hain aur cheezon ko aur detail mein samajhte hain"), and a new picture opens with where we are
     ("Chloroplast ke andar yeh thylakoid ek band chapti thaili jaisa dikhta hai").
@@ -212,8 +235,27 @@ with a process written inside a box instead of happening on screen):
     meeting, a turning machine, a wheel) asks a question before it happens, so the voice pauses there; an everyday
     picture comes every two or three shots, not once in the film; cause and effect stay in one flowing sentence
     ("jisse ...", "jiske kaaran ...") instead of short cut-up pieces.
+- HOW GOOD TEACHERS OF THIS CHAPTER DRAW (BIE's teacher study, 22 November 2026; Navin's yes):
+  - A PROCESS IS BUILT ON ONE PICTURE. A process of three or more steps (the Z scheme, the Calvin cycle, chemiosmosis, the
+    C4 pathway) is told on ONE shot whose picture stays: each sentence adds only its own step on that same picture (an
+    arrow, a pin, a move, a react) and sets "step" to its number (1, 2, 3, ... in order; 0 for a sentence that is not a
+    step). BIE numbers the step on the picture; the new step glows and the earlier steps stay, quiet, so the learner sees
+    the whole path grow and the last screen is never a khichdi. The picture leaves room for every step. The shot's last
+    sentence may tell the whole path again over the finished picture (step 0). Such a stepped shot may have up to
+    {step_sentences} sentences. Never a new picture for each step.
+  - AMOUNTS ARE COUNTED. When a sentence counts (carbon atoms: 5 + 1 = 6, then 3 + 3; "teen CO2 ke liye nau ATP"), the
+    count is seen: "count" puts beads on the picture at x, y (percent): groups (each n beads, 1 to {beads}, with a short
+    label such as "RuBP" and a colour; the new atom in a different colour) and then, after "=", the groups they become
+    ([] when nothing regroups); the beads before and after are the same number. A sentence that does not count has
+    count {{"x": 50, "y": 86, "groups": [], "then": []}}.
+  - AN ANALOGY GETS ITS OWN PICTURE. A shot with aside true is an everyday picture outside the film's world (a dam holding
+    water, a classroom passing a book bench to bench): a photo, where the analogy is said and mapped in pins ("baandh =
+    membrane", "paani = H+"); the film cuts to it and cuts back (both shots dive -1, -1), and these two cuts do not count
+    as the film's one cut. aside is false for every other shot. The mapping is said in plain words; where it breaks is
+    never said.
 - Shots: {shots} shots for this film ({length}). Each shot has one visual and 2 to 6 short sentences spoken over it, about
-  {shot_chars} characters of roman at most (about 40 seconds); a longer shot is split into a closer look. A structure seen
+  {shot_chars} characters of roman at most (about 40 seconds); a longer shot is split into a closer look (a stepped
+  process shot: up to {step_sentences} sentences and {step_chars} characters, because each step changes the picture). A structure seen
   in two pictures keeps its side (left or right) in both: write its place into each image_prompt, and pin it there.
   shot.key is the one-line takeaway shown in the bottom band; shot.covers lists the indexes (0-based) of the question's
   points this shot teaches; together the shots cover every point.
@@ -274,7 +316,8 @@ def messages(question: dict, *, course: str, language: str, chapter: str = "") -
                                                               shots=f"{low} to {high}", length=length,
                                                               molecules=", ".join(MOLECULES),
                                                               kinds=MAX_KINDS, shot_chars=MAX_SHOT_CHARS,
-                                                              pin_gap=PIN_GAP)},
+                                                              pin_gap=PIN_GAP, step_sentences=STEP_SHOT_SENTENCES,
+                                                              step_chars=STEP_SHOT_CHARS, beads=BEADS_MAX)},
             {"role": "user", "content": user + _overview_part(question) + _naksha_part(question) + _teacher_part(question)
              + _library_part(question)}]
 
@@ -406,12 +449,31 @@ def library_problems(film: dict, question: dict) -> list:
     return out
 
 
+SCRIPT_PART = """
+
+THE CHAPTER'S SCRIPT. BIE wrote the whole chapter's script first (Navin, 22 November 2026: "script wo poora gyan hai jo
+hume bache ko dena hai"); this film tells one heading of it. The film's sentences are the script's lines below, every
+one, in their order, and nothing else is spoken; keep their words and their voice ("dekho", "socho" stay: Navin, 23
+November 2026, "Tum wali chalegi"), fixing only a spelling slip. One change is yours: where most answers open alike
+("Dekho, ..."), open some of them with another teacher's opener ("Iska seedha sa jawab hai ...", "Aisa isliye hai kyunki
+...", "Hota yeh hai ki ..."), so that no opener starts more than half the answers. A NOTE under a line is the
+script's instruction for the screen (the point's kind and what the screen shows), never words to speak: follow it. A line
+of kind analogy is said on an aside shot (its own everyday picture); the lines of a process are told on one picture,
+step by step. Write each line's voice in Devanagari, ending every question with ? and starting its answer as a new
+sentence. Group the lines into shots so that every rule here holds; set teaches, beyond and part for every line.
+
+The script's lines:
+{lines}"""
+
+
 def _teacher_part(question: dict) -> str:
     lines = question.get("teacher_lines") or []
     if not lines:
         return ""
     text = "\n".join(f"L{n}: {line.get('roman', '').strip()}" + (f"\n    NOTE: {line['note'].strip()}" if (line.get("note") or "").strip()
                                                                    else "") for n, line in enumerate(lines, 1))
+    if question.get("script_lines"):
+        return SCRIPT_PART.format(lines=text)
     return TEACHER_PART.format(lines=text, film=json.dumps(question.get("earlier_film") or {}, ensure_ascii=False))
 
 
@@ -605,11 +667,14 @@ def problems(film, question: dict) -> list:
             out.append(f"{sid}: dive is x, y in 0..100, or -1, -1 for no dive")
         if number == 1 and dive.get("x", -1) != -1:
             out.append(f"{sid}: the first shot cannot dive (there is no picture before it)")
-        if number > 1 and dive.get("x", -1) == -1:
+        aside = bool(shot.get("aside")) or (number > 1 and bool(shots[number - 2].get("aside")))
+        if number > 1 and dive.get("x", -1) == -1 and not aside:     # an analogy's own picture cuts out and back (F2)
             cuts += 1
         sentences = shot.get("sentences") or []
-        if not 2 <= len(sentences) <= 6:
-            out.append(f"{sid}: {len(sentences)} sentences; write 2 to 6")
+        stepped = stepped_shot(shot)
+        most = STEP_SHOT_SENTENCES if stepped else 6
+        if not 2 <= len(sentences) <= most:
+            out.append(f"{sid}: {len(sentences)} sentences; write 2 to {most}")
         labels = set()
         for k, sentence in enumerate(sentences, 1):
             where = f"{sid} sentence {k}"
@@ -660,9 +725,10 @@ def problems(film, question: dict) -> list:
         if len(labels) > 6:
             out.append(f"{sid}: {len(labels)} different pins on one picture; at most 6")
         chars = sum(len((sentence.get("roman") or "").strip()) for sentence in sentences)
-        if chars > MAX_SHOT_CHARS:
+        most_chars = STEP_SHOT_CHARS if stepped else MAX_SHOT_CHARS
+        if chars > most_chars:
             out.append(f"{sid}: {chars} characters of narration (about {chars * 0.078:.0f} seconds) on one picture; at most "
-                       f"{MAX_SHOT_CHARS}: split it into two shots, the second a closer look")
+                       f"{most_chars}: split it into two shots, the second a closer look")
     still = [shot.get("id") or f"shot {n}" for n, shot in enumerate(shots, 1)
              if (shot.get("id") or f"shot {n}") not in moving_shots]
     if shots and still:
@@ -687,7 +753,119 @@ def problems(film, question: dict) -> list:
     if missing_points:
         out.append("no shot covers the question's points " + ", ".join(map(str, missing_points)))
     return (out + book_problems(film, question) + screen_problems(film, question) + layout_problems(film)
-            + teacher_problems(film, question) + library_problems(film, question) + mechanism_problems(film))
+            + teacher_problems(film, question) + library_problems(film, question) + mechanism_problems(film)
+            + teaching_problems(film, question))
+
+
+def _int(value) -> int:
+    try:
+        return int(value or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def stepped_shot(shot: dict) -> bool:
+    """A shot that builds a process on its one picture: STEPS_FROM or more numbered steps (F1)."""
+    return sum(1 for sentence in shot.get("sentences") or [] if _int(sentence.get("step")) > 0) >= STEPS_FROM
+
+
+def _adds(sentence: dict) -> bool:
+    return any(sentence.get(key) for key in ("arrows", "pins", "moves", "grows", "fuses", "reacts", "cycles", "effects",
+                                              "focus")) or bool((sentence.get("count") or {}).get("groups"))
+
+
+def answer_openers(sentences: list) -> list:
+    """The first word of every answer: a sentence said right after a question, itself no question."""
+    out = []
+    for asked, said in zip(sentences, sentences[1:]):
+        if asked.rstrip().endswith("?") and not said.rstrip().endswith("?"):
+            words = re.findall(r"[^\W\d_]+", said.lower())
+            if words:
+                out.append(words[0])
+    return out
+
+
+def opener_habit(sentences: list):
+    """(opener, times, answers) when one first word opens more than OPENER_SHARE of at least OPENERS_FROM answers."""
+    openers = answer_openers(sentences)
+    if len(openers) < OPENERS_FROM:
+        return None
+    word, times = Counter(openers).most_common(1)[0]
+    return (word, times, len(openers)) if times > OPENER_SHARE * len(openers) else None
+
+
+def teaching_problems(film: dict, question: dict) -> list:
+    """The teacher study's ways of drawing (22 November 2026; Navin's yes to F1, F2 and F3, judged on a BIE video):
+    a process built step by step on one picture, amounts counted with beads, an analogy on its own everyday picture."""
+    out, shots = [], film.get("shots") or []
+    for number, shot in enumerate(shots, 1):
+        sid = shot.get("id") or f"shot {number}"
+        expected = 1
+        for k, sentence in enumerate(shot.get("sentences") or [], 1):
+            where = f"{sid} sentence {k}"
+            step = _int(sentence.get("step"))
+            if step:
+                if step != expected:
+                    out.append(f"{where}: step {step} comes where step {expected} is due; number a shot's steps 1, 2, 3 in "
+                               "order on its one picture")
+                expected = step + 1
+                if not _adds(sentence):
+                    out.append(f"{where}: step {step} adds nothing to the picture; each step draws its own arrow, pin or "
+                               "motion on it")
+            count = sentence.get("count") or {}
+            groups, then = list(count.get("groups") or []), list(count.get("then") or [])
+            if groups:
+                sizes = [_int(g.get("n")) for g in groups + then]
+                if any(not 1 <= n <= BEADS_MAX for n in sizes):
+                    out.append(f"{where}: a bead group has 1 to {BEADS_MAX} beads")
+                if then and sum(_int(g.get("n")) for g in groups) != sum(_int(g.get("n")) for g in then):
+                    out.append(f"{where}: the count has {sum(_int(g.get('n')) for g in groups)} beads before = and "
+                               f"{sum(_int(g.get('n')) for g in then)} after; the same atoms regroup, so both are the same")
+                try:
+                    inside = 3 <= float(count.get("x")) <= 97 and 3 <= float(count.get("y")) <= 97
+                except (TypeError, ValueError):
+                    inside = False
+                if not inside:
+                    out.append(f"{where}: the count's x, y are in 3..97")
+            elif COUNT_SAID.search(sentence.get("roman") or ""):
+                before = (shot.get("sentences") or [])[k - 2] if k > 1 else {}
+                if not ((before.get("count") or {}).get("groups")):
+                    out.append(f"{where}: the sentence counts ({COUNT_SAID.search(sentence.get('roman') or '').group(0)}); "
+                               "show the count with beads (count) while it is said")
+        if shot.get("aside"):
+            visual = shot.get("visual") or {}
+            if visual.get("type") != "photo":
+                out.append(f"{sid}: an aside is an everyday picture, a photo of the analogy's own thing")
+            pins = [p.get("label") or "" for sentence in shot.get("sentences") or [] for p in sentence.get("pins") or []]
+            if not any(MAPPING.search(label) for label in pins):
+                out.append(f"{sid}: the aside maps the analogy in a pin (\"baandh = membrane\")")
+            if (shot.get("dive") or {}).get("x", -1) != -1:
+                out.append(f"{sid}: an aside cuts in (dive -1, -1); it is outside the film's world")
+            if number < len(shots) and (shots[number].get("dive") or {}).get("x", -1) != -1:
+                out.append(f"{shots[number].get('id') or f'shot {number + 1}'}: after an aside the film cuts back to its "
+                           "world (dive -1, -1)")
+    process = sum(1 for point in question.get("points") or [] if isinstance(point, dict) and point.get("kind") == "process")
+    if shots and process >= PROCESS_FROM and not any(stepped_shot(shot) for shot in shots):
+        out.append(f"the question has {process} process points; tell the process on one picture, step by step (at least "
+                   f"{STEPS_FROM} sentences with step 1, 2, 3 on one shot)")
+    lines = question.get("teacher_lines") or []
+    if question.get("script_lines") and lines:
+        found = list(_sentences(film))
+        on_aside = {}
+        for line, (_where, shot, _sentence) in zip(lines, found):
+            if (line.get("kind") or "") == "analogy":
+                on_aside.setdefault(line.get("point") or "", []).append(bool(shot.get("aside")))
+        for point, placed in on_aside.items():
+            if not any(placed):
+                out.append(f"the script's analogy {point} is not on its own picture; say it on an aside shot")
+    if not (lines and not question.get("script_lines")):               # Navin's own lines are his call
+        spoken = [s for _where, _shot, sentence in _sentences(film)
+                  for s in SENTENCE_END.split(sentence.get("roman") or "") if s.strip()]
+        habit = opener_habit(spoken)
+        if habit:
+            out.append(f"{habit[1]} of the film's {habit[2]} answers open with \"{habit[0].capitalize()}\"; open some with "
+                       f"another teacher's opener ({TEACHER_OPENERS}), no one opener for more than half")
+    return out
 
 
 QUESTION_WORD = re.compile(r"\b(kyun|kyon|kyu|kaise|kya|kab|kahan|kaun|kitna|kitne|kitni)\b", re.I)
@@ -1135,7 +1313,8 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
                               "grows": sentence.get("grows") or [],
                               "fuses": sentence.get("fuses") or [],
                               "reacts": timed(sentence.get("reacts") or [], text, clip.get("dur") or max(2.5, 0.075 * len(text))),
-                              "cycles": sentence.get("cycles") or []})
+                              "cycles": sentence.get("cycles") or [],
+                              "step": _int(sentence.get("step")), "count": sentence.get("count") or {}})
             gap = next(after, 0.0)
             if clip.get("uri"):
                 sentences[-1]["after"] = gap

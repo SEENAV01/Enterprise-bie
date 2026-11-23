@@ -374,10 +374,19 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    overview and retell, counts, misconceptions said, slips caught, bridges, each film's recall line and next question,
    IMPLEMENTED) → the final script round, which he reads → voice rules → film rules F1/F3/F2 → one heading's test video
    (the cost asked first if pictures cost money). Script + naksha rules merged (PR #198, `d1e3569f`); the final script round
-   runs as job `s6-photosynthesis-script-final`. Voice rules (this PR): pace 1.00 (`BIE_VOICE_PACE`, `studio_revoice.py
+   ran as job `s6-photosynthesis-script-final` (21 of 21 headings clean, questions 4 % → 17 %, kyun 5 → 69, goals 21,
+   overview 21, retell 18, 187 spoken minutes, ₹0); Navin has its page to read. Voice rules (PR #199, merged
+   `e3110e8b`): pace 1.00 (`BIE_VOICE_PACE`, `studio_revoice.py
    --pace 1.05` for his ear), 0.30 s after a question answered at once, 0.90 s after a think question, about a second
    before a new idea or picture (`studio_voice.gaps`, the player's `after`), units and signs in words, a line with a sign
    the voice cannot say refused and reported, a Devanagari spelling list for the voice; room tone stays off. IMPLEMENTED.
+   Film rules (this PR): a process built step by step on one picture (`step`; the new step glows, earlier steps stay quiet),
+   counts as beads (`count`), an analogy's own everyday picture (`aside`), checks in `studio_film.teaching_problems`;
+   and the first slice of the cut, `studio_script.film_questions` (one film per heading, a long heading cut between
+   points, the script's lines as the narration), read by the films stage from a script run; and the answer openers
+   varied (Navin, 23 November 2026, card "Tum wali chalegi": "dekho", "socho" stay, but "Dekho," no longer opens most
+   answers; `studio_film.opener_habit` checked in script and film). IMPLEMENTED. Next: two test videos (Navin's card
+   "1 and 3": 11.7.2 Calvin part a and 11.6.3 Chemiosmosis part b), each at pace 1.00 and 1.05, pictures ₹0 on the plan.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
