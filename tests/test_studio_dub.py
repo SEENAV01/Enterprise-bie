@@ -479,6 +479,32 @@ class Revoice(unittest.TestCase):
         request = json.loads((private / "request.json").read_text(encoding="utf-8"))
         self.assertEqual((request["model_revision"], [x["key"] for x in request["convert"]]), ("pinned", ["s1-0", "s1-1"]))
 
+    def test_his_copy_can_keep_the_female_voices_way_of_speaking(self):
+        """Navin, 23 November 2026: "female voice ... uske pattern ko pakdo wo meri aawaj par lagao": with --base female
+        the female voice says the lines and Chatterbox turns them into his timbre; the default stays the male base."""
+        from unittest import mock
+        from bie.brain import studio_voice
+        seen = []
+
+        class FakeVoice:
+            label = "fake"
+
+            def __init__(self, **kw):
+                seen.append((kw.get("who"), kw.get("base_only")))
+
+        with tempfile.TemporaryDirectory() as folder:
+            f = Path(folder)
+            for name in ("p.html", "f.json", "his.wav"):
+                (f / name).write_text("{}", encoding="utf-8")
+            args = ["--page", str(f / "p.html"), "--film", str(f / "f.json"), "--language", "hi", "--narrator", "navin",
+                    "--target", str(f / "his.wav"), "--voice-python", sys.executable, "--private", str(f / "work"),
+                    "--out", str(f / "out.html")]
+            with mock.patch.object(studio_voice, "Voice", FakeVoice), \
+                    mock.patch.object(studio_revoice, "revoice", return_value=("<html></html>", {"lines": 0})):
+                studio_revoice.main(args + ["--base", "female"])
+                studio_revoice.main(args)
+        self.assertEqual(seen, [("female", True), ("navin", True)])
+
     def test_navin_pages_stay_out_of_the_repository(self):
         for extra in (["--narrator", "navin", "--tone", "/nonexistent.npy", "--out", str(ROOT / "x.html")],
                       ["--narrator", "navin", "--converter", "openvoice", "--out", "/tmp/x.html"],

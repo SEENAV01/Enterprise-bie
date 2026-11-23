@@ -41,6 +41,7 @@ Navin reads beside the book.
 from __future__ import annotations
 
 import json
+import math
 import re
 import xml.etree.ElementTree as ET
 from collections import Counter
@@ -212,8 +213,10 @@ with a process written inside a box instead of happening on screen):
   that move out of the AI picture and moves them while the narration says so. visual.parts lists them ([] when nothing
   in the picture moves): id (short, a-z and _), name (what the narration calls the part, spoken in every sentence that
   acts on it), looks (how it looks in this picture, so it can be found: colour, shape, place). The image_prompt draws
-  every listed part as one clearly separate solid shape with a clean edge and its own colour, not hidden behind another
-  part, with the opening drawn where something opens and room around a part that moves; a molecule that will be moved is
+  every listed part in its own colour, opaque and fully in view, not hidden behind another part, with the opening drawn
+  where something opens and room around a part that moves, and as real and detailed as the rest of the picture (its true
+  structure and surface, never a simplified or toy shape: Navin on the first parts film, 23 November 2026, "ekdum
+  nakli"); a molecule that will be moved is
   drawn as one compact ball-and-stick group. Each sentence's acts show what its words say happens to a part, while it is
   said: turn (the part turns about its centre by turns degrees, -360 to 360: -120 for one step of the stalk seen from
   above), spin (a part seen from the side keeps turning until stop or the shot ends; rider: a molecule riding on it, such
@@ -291,6 +294,11 @@ with a process written inside a box instead of happening on screen):
   points this shot teaches; together the shots cover every point.
 - visual.type "photo": a photorealistic picture made by an image model. image_prompt describes it fully (place, subject,
   camera, light, 16:9) and must leave room for labels; svg is "". Use photo for real things, places, organisms, machines.
+  A photo shows the real thing where it is, at its real size, in natural light (a real dam and its turbine, never a
+  teaching model, a toy or a glossy render of them).
+  No picture draws loose molecules, ions or a crowd of them (BIE moves a few over it): never "proton population",
+  "dense H⁺" or "many tokens"; write that the space is left clear. Nor does a picture draw a checklist, a panel or
+  empty boxes for what BIE draws over it (counts, lists, labels): leave that space clear too.
   visual.type "diagram": you draw it as one SVG illustration in the style of BIE's Pollen Lab (a calm background colour,
   gradients and soft shading, rounded natural shapes, depth, short labels with leader lines; at least one gradient and at
   least 12 drawn shapes; viewBox; no script, no images, no style element; give every part you will light up an id);
@@ -813,7 +821,8 @@ def problems(film, question: dict) -> list:
     missing_points = [i for i in points if i not in covered]
     if missing_points:
         out.append("no shot covers the question's points " + ", ".join(map(str, missing_points)))
-    out += picture_problems(film) + parts_problems(film)
+    out += (picture_problems(film) + parts_problems(film) + photo_problems(film) + crowd_problems(film)
+            + overlay_problems(film))
     return (out + book_problems(film, question) + screen_problems(film, question) + layout_problems(film)
             + teacher_problems(film, question) + library_problems(film, question) + mechanism_problems(film, question)
             + teaching_problems(film, question))
@@ -1427,9 +1436,11 @@ CUTAWAY_STYLES = {
 FILM_STYLE = "glossy"
 # the parts that move are solid, so they can be cut and so the mechanism reads (Navin, 23 November 2026, on routes A and B:
 # "kuchh jyada hi transparent hai ... bahut hi transparent beta aur na dikhne wali dandi"): whatever the cutaway style
-# says about transparency, these parts are opaque, separate and fully in view
-SOLID_PARTS = (" These parts are drawn solid and opaque, each one a clearly separate shape with a clean edge, fully in view, "
-               "not behind glass or a see-through layer, not overlapping each other: {parts}.")
+# says about transparency, these parts are opaque and fully in view; "solid, separate, clean edge" made toy shapes (the
+# first parts film of 11.6.3b, Navin, 23 November 2026: "ekdum nakli"), so they stay as real as the rest of the picture
+SOLID_PARTS = (" These parts are opaque and fully in view, not behind glass or a see-through layer and not covered by another "
+               "part, and drawn exactly as real and detailed as everything else in the picture (their true structure and "
+               "surface, never a simplified, cartoon or toy shape): {parts}.")
 MACHINERY = re.compile(r"(?i)\b(proteins?|complex(es)?|enzymes?|ps ?ii?\b|photosystems?|atp synthase|cf[0₀1₁]|cytochromes?|"
                        r"plastoquinone|plastocyanin|ferredoxin|rubisco|reaction cent(re|er)|molecules?|molecular|carriers?|"
                        r"channels?|pumps?|antenna)")
@@ -1509,6 +1520,64 @@ def look_for(prompt: str, look: str, aside: bool | None = None) -> str:
 
 
 UNGLOSSY = re.compile(r"(?i)\b(matte|non-reflective|muted|controlled (satin )?sheen|satin sheen)\b ?")
+# a picture in another look is not asked to be glossy as well, and a photo is a real photograph, never glossy (Navin, 23
+# November 2026, on the two 11.6.3b films: the first film's "photorealistic hydroelectric dam" read better than the
+# second's "photoreal glossy hydroelectric teaching model")
+GLOSSY_WORDS = re.compile(r"(?i)\b(high-gloss|glossy|glassy|shiny)\b ?")
+# an everyday photo shows the real thing where it is, at its real size: a dam, not a model of one
+PHOTO_MODEL = re.compile(r"(?i)(?<!ball-and-stick )(?<!space-filling )(?<!3d )(?<!atomic )(?<!structural )(?<!scientific )"
+                         r"(?<!everyday )(?<!mental )\b(models?|miniatures?|toys?|dioramas?|replicas?)\b")
+
+
+_SWARM = r"(population|populations|dense|densely|sparse|crowd|crowded|many|packed|swarm|swarms)"
+_LOOSE = r"(protons?|h\+|h⁺|ions?|electrons?|molecules?|particles?|tokens?)"
+CROWD = re.compile(rf"(?i)\b{_LOOSE}(?=[^.;,]{{0,30}}\b{_SWARM}\b)|\b{_SWARM}\b(?=[^.;,]{{0,30}}{_LOOSE}(?![a-z]))")
+
+
+def crowd_problems(film: dict) -> list:
+    """A picture draws no crowd of loose molecules or ions: BIE animates a few over it. The second 11.6.3b film's
+    "visibly higher proton population space" became a lumen carpeted with H⁺ beads, and Navin found that film the more
+    khichdi of the two (23 November 2026)."""
+    out = []
+    for number, shot in enumerate(film.get("shots") or [], 1):
+        prompt = (shot.get("visual") or {}).get("image_prompt") or ""
+        found = CROWD.search(prompt)
+        if found:
+            out.append(f"{shot.get('id') or f'shot {number}'}: the image_prompt asks for a crowd of molecules or ions "
+                       f"(\"...{prompt[max(0, found.start() - 20):found.end() + 30].strip()}...\"); the picture draws none, BIE "
+                       "moves a few over it: write that the space is left clear")
+    return out
+
+
+OVERLAY_ASK = re.compile(r"(?i)\b(check-?lists?|(two|three|four|five|six)-item|list panels?|ui panels?|empty (bars|boxes|slots))\b")
+
+
+def overlay_problems(film: dict) -> list:
+    """A picture leaves room for what BIE draws over it (a count, a checklist, labels) and never draws it itself: the
+    second 11.6.3b film's "upper-center four-item checklist" came back as four empty bars painted into the picture, in
+    both looks (look test, 23 November 2026)."""
+    out = []
+    for number, shot in enumerate(film.get("shots") or [], 1):
+        found = OVERLAY_ASK.search((shot.get("visual") or {}).get("image_prompt") or "")
+        if found:
+            out.append(f"{shot.get('id') or f'shot {number}'}: the image_prompt asks the picture for a {found.group(0)!r}; BIE "
+                       "draws counts and lists over the picture, so write only that the space is left clear")
+    return out
+
+
+def photo_problems(film: dict) -> list:
+    """An everyday photo (an analogy's dam, a field, a kitchen) shows the real thing at its real size, never a teaching
+    model or a toy of it (the second 11.6.3b film's turbine, 23 November 2026)."""
+    out = []
+    for number, shot in enumerate(film.get("shots") or [], 1):
+        visual = shot.get("visual") or {}
+        if visual.get("type") != "photo":
+            continue
+        found = PHOTO_MODEL.search(visual.get("image_prompt") or "")
+        if found:
+            out.append(f"{shot.get('id') or f'shot {number}'}: the photo asks for a {found.group(0)!r}; a photo shows the real "
+                       "thing where it is, at its real size (a real dam and its turbine, not a model of them)")
+    return out
 
 
 def image_prompt(shot: dict, look: str = "", style: str | None = None) -> str:
@@ -1522,7 +1591,9 @@ def image_prompt(shot: dict, look: str = "", style: str | None = None) -> str:
     suffix = CUTAWAY_STYLES.get(style, CUTAWAY_SUFFIX) if visual.get("type") == "cutaway" else IMAGE_SUFFIX
     prompt = visual.get("image_prompt", "").strip()
     shared = look_for(prompt, look, aside=bool(shot.get("aside")))
-    if style == "glossy":                    # a glossy picture is not asked to be matte as well (Navin, 23 November 2026)
+    if visual.get("type") == "photo" or style != "glossy":   # a photo, or a cutaway in another look, is never glossy
+        prompt, shared = (GLOSSY_WORDS.sub("", text) for text in (prompt, shared))
+    elif style == "glossy":                  # a glossy picture is not asked to be matte as well (Navin, 23 November 2026)
         prompt, shared = (UNGLOSSY.sub("", text) for text in (prompt, shared))
     shared = f" Same look as the other pictures of this film: {shared.rstrip('.').strip(' ,;')}." if shared.strip(" ,;.") else ""
     moving = acted_parts(shot)
@@ -1552,15 +1623,17 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
         cut = {p.get("id") for p in layers}
         names = {p.get("id"): p.get("name") or "" for p in visual.get("parts") or [] if isinstance(p, dict)}
         sentences = []
+        camera = steady_camera(shot.get("sentences") or [])
         for k, sentence in enumerate(shot.get("sentences") or []):
             clip = audio.get((shot.get("id"), k)) or {}
             text = sentence.get("roman", "")
+            said = word_times(sentence, text, clip.get("dur") or max(2.5, 0.075 * len(text)))
             sentences.append({"text": text, "audio": clip.get("uri", ""),
                               "dur": clip.get("dur") or max(2.5, 0.075 * len(text)),
-                              "pins": [{"t": p["label"], "x": p["x"], "y": p["y"]} for p in sentence.get("pins") or []],
+                              "pins": said["pins"],
                               "arrows": sentence.get("arrows") or [], "effects": sentence.get("effects") or [],
-                              "focus": sentence.get("focus") or [], "zoom": sentence.get("zoom") or {},
-                              "moves": held(sentence.get("moves") or [], clip.get("dur") or max(2.5, 0.075 * len(text))),
+                              "focus": sentence.get("focus") or [], "zoom": camera[k],
+                              "moves": held(said["moves"], clip.get("dur") or max(2.5, 0.075 * len(text))),
                               "grows": sentence.get("grows") or [],
                               "fuses": sentence.get("fuses") or [],
                               "reacts": timed(sentence.get("reacts") or [], text, clip.get("dur") or max(2.5, 0.075 * len(text))),
@@ -1602,6 +1675,69 @@ def timed(reacts: list, roman: str, seconds: float) -> list:
             r["delay"] = round(max(0.3, min(at - 0.45 * ms / 1000, seconds - 0.6 * ms / 1000)), 2)
         out.append(r)
     return out
+
+
+def _zoom(z: dict) -> tuple:
+    z = z or {}
+    return (50.0 if z.get("x") is None else float(z["x"]), 50.0 if z.get("y") is None else float(z["y"]),
+            max(1.0, min(2.2, float(z.get("scale") or 1))))
+
+
+def steady_camera(sentences: list) -> list:
+    """Each sentence's camera (zoom), held still unless the line brings something new to look at. Navin, 23 November
+    2026, on the two 11.6.3b films: the first, whose camera moved on 22 of 39 lines and stayed on a step while it was
+    told, explained the mechanism better than the second (28 of 39). A question keeps the camera still; a line with nothing new (no pin, move, meeting, act, step or lit part) keeps the camera of the line before; a
+    change smaller than 5% of the frame or 0.15 of zoom is no change."""
+    out, last = [], (50.0, 50.0, 1.0)
+    for sentence in sentences:
+        want = _zoom(sentence.get("zoom"))
+        new = any(sentence.get(k) for k in ("pins", "moves", "reacts", "acts", "focus", "cycles", "fuses")) or sentence.get("step")
+        question = (sentence.get("roman") or "").rstrip().endswith("?")
+        small = abs(want[2] - last[2]) < 0.15 and (want[2] <= 1.0 or math.hypot(want[0] - last[0], want[1] - last[1]) < 5)
+        keep = last if (question or not new or small) else want
+        out.append({"x": keep[0], "y": keep[1], "scale": keep[2]})
+        last = keep
+    return out
+
+
+def said_at(names: list, roman: str, seconds: float) -> float | None:
+    """The second of its sentence at which the voice first says one of ``names`` (a label, a molecule's name), from where
+    the word sits in the line; None when the line never says it. Navin, 23 November 2026, on the two 11.6.3b films: the
+    first explained the mechanism better because "bolte huye screen par wahi step par dhyan jata hai jo ho rha hai"."""
+    low = _plain(roman or "").lower()
+    if not low or seconds <= 0:
+        return None
+    found = []
+    for name in names:
+        for token in re.findall(r"[a-z0-9+\-]+", _plain(str(name or "")).lower()):
+            if len(token) < 2 or token in SHORT_STOP:
+                continue
+            stem = token[:5] if len(token) > 5 and token.isalpha() else token
+            pattern = (r"(?<![a-z0-9])" + re.escape(stem)) if stem[0].isalnum() else re.escape(stem)
+            found += [m.start() for m in re.finditer(pattern, low)]
+    if not found:
+        return None
+    return round(max(0.3, min(min(found) / len(low) * seconds - 0.2, seconds - 1.5)), 2)
+
+
+def word_times(sentence: dict, roman: str, seconds: float) -> dict:
+    """Each pin and each move of a sentence starts as the voice says its name (``at``, seconds); one the line never
+    names keeps the player's own start."""
+    pins, moves = [], []
+    for pin in sentence.get("pins") or []:
+        pin = {"t": pin["label"], "x": pin["x"], "y": pin["y"]}
+        at = said_at([pin["t"]], roman, seconds)
+        if at is not None:
+            pin["at"] = at
+        pins.append(pin)
+    for move in sentence.get("moves") or []:
+        move = dict(move)
+        what = str(move.get("what") or "")
+        at = said_at([move.get("label") or "", (KIT["molecules"].get(what) or {}).get("name") or "", what], roman, seconds)
+        if at is not None:
+            move["at"] = at
+        moves.append(move)
+    return {"pins": pins, "moves": moves}
 
 
 def act_times(acts: list, names: dict, roman: str, seconds: float) -> list:

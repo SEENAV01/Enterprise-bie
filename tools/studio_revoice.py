@@ -5,6 +5,7 @@
            [--narrator navin --converter chatterbox --target <his clip> --voice-python <voice venv python>
             --private <folder>]
            [--narrator navin --converter openvoice --tone <his tone.npy>] [--pace 1.05]
+           [--narrator navin --converter chatterbox ... --base female]
 
 The page gives the pictures and the film's frame (title, question, colours); the film JSON (a ``films/<qid>.json`` or
 ``dub/<lang>/<qid>.json`` record) gives every sentence's voice line. Each sentence is said by ``bie.brain.studio_voice``
@@ -17,6 +18,11 @@ in one batch, inside the private voice environment (``tools/vm_voice_worker.py``
 clean clip of his reading. OpenVoice (``--converter openvoice``) stays as the faster, less close way. A page in his
 voice is private: it and its working files are written outside the repository and shared only with him
 (``docs/roadmap/VOICE_CLIP_METHOD.md``).
+
+``--base female`` (Chatterbox only) lets the female voice say every line and turns it into his timbre, so his copy keeps
+the female voice's way of speaking: its pauses and its rise and fall (Navin, 23 November 2026, after the two 11.6.3b
+films: "sara kamal aawaj ka hai aur screen ke sath uske talmel ka ... female voice ... uske pattern ko pakdo wo meri
+aawaj par lagao"); the default male base keeps the male voice's.
 
 ``--pace`` says the film at another base pace (Navin, 22 November 2026: 1.00 now, and a 1.05 copy of the next films for his
 ear before he chooses); the pictures and motion stay, only the voice and its timing change.
@@ -146,6 +152,9 @@ def main(argv=None) -> int:
     parser.add_argument("--voice-python", default="", help="chatterbox: the voice environment's python")
     parser.add_argument("--private", default="", help="chatterbox: a private working folder outside the repository")
     parser.add_argument("--pace", type=float, default=None, help="the base pace (1.00 by default; 1.05 for Navin's ear)")
+    parser.add_argument("--base", choices=("male", "female"), default="male",
+                        help="chatterbox: the base voice his timbre is put on; female keeps the female voice's way of "
+                             "speaking (Navin, 23 November 2026: \"female voice ... uske pattern ko pakdo wo meri aawaj par lagao\")")
     args = parser.parse_args(argv)
     if args.pace is not None and not (studio_pace_range()[0] <= args.pace <= studio_pace_range()[1]):
         parser.error(f"--pace must be between {studio_pace_range()[0]} and {studio_pace_range()[1]}")
@@ -164,7 +173,8 @@ def main(argv=None) -> int:
     if args.narrator == "navin" and args.converter == "chatterbox":
         private.mkdir(mode=0o700, parents=True, exist_ok=True)
         sys.path.insert(0, str(ROOT / "tools"))
-        voice = studio_voice.Voice(language=args.language, who="navin", base_only=True, pace=args.pace)
+        voice = studio_voice.Voice(language=args.language, who="female" if args.base == "female" else "navin",
+                                   base_only=True, pace=args.pace)
 
         def convert(files):
             return chatterbox_convert(files, target=Path(args.target), private=private, python=args.voice_python)

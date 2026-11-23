@@ -2842,3 +2842,54 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   (areas 0.3–5.5 %, SAM scores 0.77–0.97); the act engine played four sentences in Chromium without errors. Offline tests
   21 new; every passed film still passes. Quality, first-try pass rate and rounds wait for the first VM run with parts.
 
+
+## Entry · The first moving-parts runs and the two 11.6.3b films, 23 November 2026
+
+- **Runs:** VM jobs `p1-photosynthesis-116-parts-1` and `p2-photosynthesis-116-parts-2` (the seven 11.6 films with
+  routeS, ₹0) and Navin's side-by-side of two BIE films of 11.6.3b made from the same script and naksha: `f1` (23
+  November morning, mixed look, female voice) and `g3` (the 11.6 set, glossy, his voice copy).
+- **What the runs taught:** (1) the maker used parts in 4 of 7 films (8 parts, all cut: SAM scores 0.90–0.98); a lid
+  told to close ("Supply box band ho jaaye") onto a box 30 % of the frame away only pulsed where it lay, because a jaw
+  moves 1.7 %; (2) in 11.6.2a in Navin's voice one line's picture carried 13 names, ATP, NADPH and O₂ twice each (a
+  molecule's own tag and a pin at the end of its move), and labels of earlier lines never left; (3) the same script gave
+  two different films (35 of 39 lines the same; the maker redesigns shots and pictures each run); Navin understood the
+  mechanism better in `f1`: its camera moved on 20 of 39 lines (`g3`: 26), about 2.5 things moved per line (`g3`:
+  3.1), no picture drew a crowd of molecules (`g3`: "visibly higher proton population space" became a lumen carpeted
+  with H⁺ beads), and its dam was "a photorealistic hydroelectric dam" where `g3`'s was "a photoreal glossy
+  hydroelectric teaching model"; in both, a pin or move started when its line started, not when the voice said its
+  name; (4) `f1`'s H⁺ return was drawn as a wheel around the machine because the old "made again" check misread
+  "return" (fixed in PR #201), and five rounds went to that wheel.
+- **Changed in BIE:** the player: a part told to close onto a point beyond its reach travels there and then presses
+  (`beyondReach`); a molecule that carries its own name tag gets no second label of the same name (`tagSays`); a line's
+  labels leave after the next line, five at most (`retireLabels`, `MAX_LABELS`); a pin and a move start at their `at`.
+  `studio_film`: `said_at` and `word_times` (a pin or move starts as the voice says its name), `steady_camera` (the
+  camera stays unless the line brings something new; a question holds it; small shifts are no change),
+  `crowd_problems` (no picture draws a crowd of molecules or ions), `photo_problems` (a photo shows the real thing,
+  never a model or a toy), `GLOSSY_WORDS` (a photo, or a cutaway in another look, is never asked to be glossy), and
+  the maker's instruction says the last three.
+- **Measured (offline, on the real films):** camera changes `g3` 26 → 22 of 39 lines, `f1` 20 → 15, `p2` 25 → 21;
+  pins and moves started at their word 49 of 60 in `g3` (on average 2.9 s into the line instead of 0.3 s); 11.6.2a's
+  screenshotted line 13 names → 5, none twice; the crowd check finds 7 prompts in the 11.6 films (`g3` 2, `p2` 5) and
+  none in `f1`; the photo check finds the two `g3` dam pictures and the glossy miniature yard of 11.6.2b. Studio lane
+  594 tests, 0 failures, 0 skips; every passed film still passes. Quality, first-try pass rate and rounds wait for the
+  11.6.3b remake.
+- **Navin, 23 November 2026, 20:03:** the moving-parts 11.6.3b pictures look "ekdum nakli"; the second film's
+  (`g3`) pictures were very good apart from one or two things such as the turbine; "sara kamal aawaaz ka hai aur
+  screen ke saath uske talmel ka": the female voice's pattern is to be put on his voice, and the remake keeps `g3`'s
+  pictures and presents them better (voice and screen together). Changed: the parts that move are no longer asked to be
+  "a clearly separate solid shape with a clean edge" (that made toy shapes); they are opaque, fully in view and as real
+  and detailed as the rest of the picture (`SOLID_PARTS` and the maker's instruction).
+- **Look test (job `l3b-look-116-3b-mixed`, 3 pictures, 6.8 minutes, ₹0):** the mixed look gives proteins a truer
+  atomic-surface shape; glossy stays (Navin: `g3`'s pictures were very good). In both looks the maker's "upper-center
+  four-item checklist" came back as four empty bars painted into the picture: `overlay_problems` now refuses a picture
+  asked to draw a checklist, a panel or empty boxes for BIE's overlays (1 of the 11.6 films). Voice: `studio_revoice
+  --base female` lets the female voice say the lines and Chatterbox turn them into his timbre (a two-line test kept the
+  female's pauses; pitch about 110–124 Hz). Navin heard it: the female voice itself is still better, so films keep the
+  female voice.
+- **Navin, 23 November 2026, 20:31 ("ek baar sort out kar lo"):** the talmel he wants is a picture that builds in the
+  mind step by step like a diagram: zoom and light in the right place, things flowing right, nothing crowding in at
+  once, stillness in the right place; learn it from the ATP synthase demo he passed. From that demo: the camera held one
+  framing for a whole line and moved only at a line's start, the ring turned on the words "baith jaata hai", and the
+  close-up of a beta dimmed everything else. Changed: the player dims the rest of the picture around the zoom point as
+  the camera closes in (`spotlight`, none below 1.15× zoom). The final rules and the work left are in Navin's doc "BIE
+  film: final niyam aur kaam ki suchi". His card: the 11.6.3b remake keeps the moving parts, drawn as real.

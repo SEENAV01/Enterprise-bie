@@ -279,10 +279,12 @@ class FilmParts(unittest.TestCase):
     def test_moving_parts_are_drawn_solid(self):
         shot = acts_film()["shots"][0]
         prompt = studio_film.image_prompt(shot, "glossy violet heads")
-        self.assertIn("solid and opaque", prompt)
+        self.assertIn("opaque and fully in view", prompt)
+        self.assertIn("never a simplified, cartoon or toy shape", prompt)   # "ekdum nakli" (Navin, 23 November 2026)
+        self.assertNotIn("clean edge", prompt)
         self.assertIn("dandi (copper central stalk in the middle)", prompt)
         shot["sentences"] = [dict(s, acts=[]) for s in shot["sentences"]]
-        self.assertNotIn("solid and opaque", studio_film.image_prompt(shot, "glossy violet heads"))
+        self.assertNotIn("opaque and fully in view", studio_film.image_prompt(shot, "glossy violet heads"))
 
     def test_review_page_lists_every_act(self):
         page = studio_film.acts_page(acts_film(), {"wanted": 3, "cut": 1, "parts": {
@@ -297,6 +299,18 @@ class FilmParts(unittest.TestCase):
         for name in ("function doAct", "function partsReplay", "function pressure", "function bond", "function ridersStep",
                      "kind:'act'", "p-spin"):
             self.assertIn(name, html)
+
+    def test_a_far_close_travels_before_it_presses(self):
+        # 11.6.1 on the VM (23 November 2026): "Supply box band ho jaaye" put tight on a lid lying 30% below its box; the
+        # jaw pulsed where the lid lay and the box never closed. A point beyond the part's reach is now reached by travel.
+        html = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        self.assertIn("function beyondReach(P,T)", html)
+        act = html[html.index("function doAct"):html.index("function addRiders")]
+        travel = act.index("a.do==='tight'&&T&&beyondReach(P,T)")
+        self.assertLess(travel, act.index("else if(POSE[a.do])"))             # tried before the jaw
+        branch = act[travel:act.index("else if(POSE[a.do])")]
+        for said in ("to.tx=T[0]-P.c[0]", "to.ty=T[1]-P.c[1]", "pressure(T,"):
+            self.assertIn(said, branch)
 
 
 class SectionCutting(unittest.TestCase):

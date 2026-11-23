@@ -421,6 +421,34 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    the line names the part; `parts_problems` checks every act (a listed part, a point where one is needed, spoken while
    it happens, drawn by the prompt, one thing at a time). IMPLEMENTED (`tests/test_film_parts.py`); not yet INTEGRATED:
    the first VM run with parts is the seven 11.6 films again, then PS II and the Z-scheme.
+   Merged (PR #204, `0dfdec53`). **First VM runs with parts (23 November 2026, jobs `p1-photosynthesis-116-parts-1`,
+   116 minutes, and `p2-…-parts-2`, 87 minutes, ₹0):** all seven 11.6 films made, 0 problems; parts wanted and cut 8 of 8
+   (11.6.3b: 5 of 5, the CF₁ lobe pressing as the line says its conformation changes, the stalk spinning, the dam's
+   turbine spinning and stopping at the leak; 11.6.1: a lid; 11.6.2b and 11.6.3a: a glow only). INTEGRATED on the NCERT
+   chapter (the maker lists the parts, the layout checker points at them, SAM cuts them, the player moves them); not
+   ACCEPTED. Seen: a jaw told to close onto a point beyond its reach only pulsed (fixed: it travels there, then presses);
+   pictures with moving parts came out simpler and toy-like (open).
+   **Navin on the two 11.6.3b films (23 November 2026):** the same script and naksha (35 of 39 lines the same) made two
+   different films because the maker designs the shots and the pictures anew each run and rules changed in between. He
+   found the first (`f1`, mixed look) explained the mechanism better (voice and screen together, the camera staying on
+   the step being told), its turbine better (a real dam, not a "glossy teaching model"), the second (`g3`, glossy) the
+   more khichdi; removing the glowing route line was right; 11.6.3b is to be made again with the new rules plus the
+   first film's good things; rules are made final first, then one film is made twice by Codex to measure how precise
+   the rules are. Card "Dono bana ke dikhao": the look of the remake waits on a look test (job `l3b-look-116-3b-mixed`,
+   three shots of `g3` in the mixed look beside the glossy originals). Rules from this (this PR): a pin or move starts
+   as the voice says its name (`said_at`, `word_times`); the camera stays unless the line brings something new and holds
+   on a question (`steady_camera`); no picture draws a crowd of molecules (`crowd_problems`); a photo shows the real
+   thing, never a model, and is never glossy (`photo_problems`, `GLOSSY_WORDS`); a molecule with its own tag gets no
+   second label, a line's labels leave after the next line, five at most (player). IMPLEMENTED.
+   Navin at 20:03: the moving-parts pictures look "ekdum nakli" (the parts are now asked to stay as real as the rest of
+   the picture, not "separate solid shapes with a clean edge"); `g3`'s pictures were very good apart from the turbine;
+   the difference was the voice and its timing with the screen: the female voice's pattern goes onto his voice (a test:
+   the female lines turned into his voice by Chatterbox's conversion; `studio_revoice --base female`). Look test done:
+   glossy stays; a picture never draws a checklist or boxes for BIE's overlays (`overlay_problems`).
+   Navin at 20:31: the female voice stays for the films; the talmel rules are taken from the ATP synthase demo he
+   passed (the player now dims the rest of the picture around the zoom point, `spotlight`); the final rules and the
+   work left are in his doc "BIE film: final niyam aur kaam ki suchi"; card: the 11.6.3b remake keeps the moving parts
+   (drawn as real). Next: merge, then job `r1` remakes 11.6.3b (glossy, female voice, the new rules).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
