@@ -63,11 +63,13 @@ def picture(w=200, h=100):
 
 
 class Cutter(unittest.TestCase):
-    @unittest.skipUnless(HAVE_SCIPY, "scipy cleans the cut")
     def test_clean_keeps_the_pointed_pieces_and_fills_holes(self):
         m = rect(50, 100, 5, 5, 30, 30) | rect(50, 100, 60, 10, 90, 40)
         m[15:20, 15:20] = False                                   # a hole in the first piece
         kept = picture_parts.clean(m, [[8, 16]])                  # a point on the first piece (x, y in percent)
+        if not HAVE_SCIPY:                                        # without scipy the cut stays as SAM gave it
+            self.assertTrue((kept == m).all())
+            return
         self.assertTrue(kept[17, 17])                             # its hole is filled
         self.assertFalse(kept[20, 70])                            # the other piece is gone
         both = picture_parts.clean(m, [[8, 16], [75, 50]])        # a molecule: every pointed ball stays
@@ -138,19 +140,29 @@ class Cutter(unittest.TestCase):
         self.assertIsNone(done["plate"])
         self.assertEqual(done["layers"][0]["problems"], [])
 
-    def test_worker_without_torch_reports_why(self):
-        try:
-            import torch  # noqa: F401
-            import transformers  # noqa: F401
-            self.skipTest("torch is here")
-        except ImportError:
-            pass
+    def test_worker_reports_a_failed_cutter_and_writes_layers(self):
         import picture_parts_worker
+        old = picture_parts.Sam2Cutter
+
+        def broken(*args, **kwargs):
+            raise RuntimeError("no torch here")
         with tempfile.TemporaryDirectory() as folder:
-            req, res = Path(folder) / "req.json", Path(folder) / "res.json"
-            req.write_text(json.dumps({"out": folder, "shots": []}))
-            self.assertEqual(picture_parts_worker.main(["--request", str(req), "--result", str(res)]), 1)
-            self.assertIn("Error", json.loads(res.read_text())["error"])
+            pic, req, res = Path(folder) / "s1.png", Path(folder) / "req.json", Path(folder) / "res.json"
+            picture().save(pic)
+            req.write_text(json.dumps({"out": folder, "shots": [{"id": "s1", "image": str(pic), "parts": [
+                {"id": "ring", "inside": [[50, 50]], "outside": [], "box": [30, 30, 70, 70], "moves": True}]}]}))
+            try:
+                picture_parts.Sam2Cutter = broken
+                self.assertEqual(picture_parts_worker.main(["--request", str(req), "--result", str(res)]), 1)
+                self.assertIn("no torch here", json.loads(res.read_text())["error"])
+                picture_parts.Sam2Cutter = lambda *args, **kwargs: FakeCutter()
+                self.assertEqual(picture_parts_worker.main(["--request", str(req), "--result", str(res)]), 0)
+            finally:
+                picture_parts.Sam2Cutter = old
+            shot = json.loads(res.read_text())["shots"][0]
+            self.assertTrue(Path(shot["layers"][0]["file"]).exists())
+            self.assertTrue(Path(shot["plate"]).exists())
+            self.assertEqual(shot["layers"][0]["problems"], [])
 
     def test_pinned_model(self):
         self.assertEqual(picture_parts.MODEL, "facebook/sam2.1-hiera-tiny")
