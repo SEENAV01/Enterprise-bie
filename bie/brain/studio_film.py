@@ -449,6 +449,17 @@ def library_problems(film: dict, question: dict) -> list:
     return out
 
 
+def without_empty_cupboard(film, question: dict):
+    """With no kept pictures there is nothing to name: a visual.library is cleared and the picture is drawn from its
+    image_prompt, as the films stage does anyway (the first heading films, 23 November 2026: the maker named a kept
+    'motor' that never existed and spent its last round on it)."""
+    if isinstance(film, dict) and not question.get("library"):
+        for shot in film.get("shots") or []:
+            if isinstance(shot.get("visual"), dict) and shot["visual"].get("library"):
+                shot["visual"]["library"] = ""
+    return film
+
+
 SCRIPT_PART = """
 
 THE CHAPTER'S SCRIPT. BIE wrote the whole chapter's script first (Navin, 22 November 2026: "script wo poora gyan hai jo
@@ -615,8 +626,18 @@ def motion_problems(sentence: dict, spoken: set, where: str) -> list:
     return out
 
 
+PLAIN = str.maketrans("\u2080\u2081\u2082\u2083\u2084\u2085\u2086\u2087\u2088\u2089\u2070\u00B9\u00B2\u00B3\u2074\u2075\u2076\u2077\u2078\u2079\u208A\u208B\u207A\u207B", "01234567890123456789+-+-")
+
+
+def _plain(text: str) -> str:
+    """Subscript and superscript digits and charges as plain ones, so a line that writes CO\u2082 or CF\u2080 names the CO2 or CF0
+    of a label or a molecule (the first heading films, 23 November 2026: "CO\u2082 ... follow karo" was refused for not naming
+    CO2, and a wheel station 'CF\u2080' was never found in the line that said it)."""
+    return (text or "").translate(PLAIN)
+
+
 def _words(text: str) -> set:
-    return {w.lower() for w in WORD.findall(text or "")}
+    return {w.lower() for w in WORD.findall(_plain(text))}
 
 
 SHORT_STOP = {"a", "an", "as", "at", "be", "by", "do", "ek", "hi", "in", "is", "it", "ka", "ke", "ki", "ko", "me", "na", "of",
@@ -628,7 +649,7 @@ def _tokens(text: str) -> set:
     and H+/proton folded together, so a moving 'H+' label is spoken by a sentence that says protons (Q14 remake,
     20 November 2026: every H+ label on a move was refused)."""
     out = set()
-    for w in re.findall(r"[A-Za-z][A-Za-z0-9]*|[\u0900-\u097F]{3,}", text or ""):
+    for w in re.findall(r"[A-Za-z][A-Za-z0-9]*|[\u0900-\u097F]{3,}", _plain(text)):
         low = w.lower()
         if len(low) >= 3 or low not in SHORT_STOP:
             out.add(_stem(low))
@@ -753,7 +774,7 @@ def problems(film, question: dict) -> list:
     if missing_points:
         out.append("no shot covers the question's points " + ", ".join(map(str, missing_points)))
     return (out + book_problems(film, question) + screen_problems(film, question) + layout_problems(film)
-            + teacher_problems(film, question) + library_problems(film, question) + mechanism_problems(film)
+            + teacher_problems(film, question) + library_problems(film, question) + mechanism_problems(film, question)
             + teaching_problems(film, question))
 
 
@@ -933,14 +954,20 @@ def teacher_problems(film: dict, question: dict) -> list:
 
 
 TURNING = re.compile(r"\b(ghoom\w*|ghuma\w*|rotor|rotate\w*|spin\w*)\b", re.I)
-AGAIN = re.compile(r"\b(dobara|phir se|regenerat\w*)\b", re.I)
+# "made again": regenerate, or again (dobara, phir se) with a making word close after it ("RuBP dobara banta hai",
+# "acceptor dobara kaise milta hai"); a plain "dobara" is not a return ("dobara proton pumping ki energy": the first
+# heading films, 23 November 2026, where it forced a wheel onto a proton's one-way trip)
+AGAIN = re.compile(r"\bregenerat\w*|\b(?:dobara|phir se)\s+(?:\w+\s+){0,2}?(?:ban\w*|mil\w*|taiyaa?r\w*|restor\w*|renew\w*)\b",
+                   re.I)
 EVERYDAY = re.compile(r"\b(jaise|jaisa|jaisi|samajhiye|samjhiye|misaal|ki tarah|baandh|dam|motor|battery|turbine|conveyor)\b", re.I)
 
 
-def mechanism_problems(film: dict) -> list:
+def mechanism_problems(film: dict, question: dict | None = None) -> list:
     """Navin's choice after comparing every Q14 film (21 November 2026): the whole mechanism shown (a turning machine
     turns, a returning process is a wheel), molecules meeting one at a time and named as they meet, a question before
-    every mechanism, and everyday pictures through the film, as in his film A."""
+    every mechanism, and everyday pictures through the film, as in his film A. An aside shot is an everyday picture; a
+    film made from the chapter's script has the script's analogies and no others (its lines are the script's), so the
+    count is the script's to keep, not the film's."""
     out, shots = [], film.get("shots") or []
     asked = 0
     for number, shot in enumerate(shots, 1):
@@ -978,10 +1005,11 @@ def mechanism_problems(film: dict) -> list:
     if len(shots) >= 4:
         if asked * 2 < len(shots):
             out.append(f"questions in {asked} of {len(shots)} shots; ask in at least half of them, as a teacher does")
-        pictures = sum(bool(EVERYDAY.search(s.get("roman") or "")) for shot in shots for s in shot.get("sentences") or [])
-        if pictures < max(2, len(shots) // 3):
-            out.append(f"{pictures} everyday picture(s) in the film; give one every two or three shots (a motor, a dam, a "
-                       "battery, a turbine)")
+        pictures = sum(1 if shot.get("aside") else sum(bool(EVERYDAY.search(s.get("roman") or "")) for s in shot.get("sentences") or [])
+                       for shot in shots)
+        if pictures < max(2, len(shots) // 3) and not (question or {}).get("script_lines"):
+            out.append(f"{pictures} everyday picture(s) in the film; give one every two or three shots: an everyday "
+                       "comparison in the line (jaise a dam, a motor, a battery, a turbine) or an aside shot")
     return out
 
 
@@ -1030,13 +1058,15 @@ def _stem(word: str) -> str:
 def _content_words(text: str) -> set:
     """The words that carry a book line's meaning: English words of 4+ letters (not grammar words) and its terms, plural
     and H+/proton folded together."""
-    words = {_stem(w) for w in re.findall(r"[A-Za-z]{4,}", text or "") if w.lower() not in STOP}
-    return words | {_stem(studio_terms._norm_term(t)) for t in studio_terms.TERM.findall(text or "") if studio_terms.is_term(t)}
+    text = _plain(text)
+    words = {_stem(w) for w in re.findall(r"[A-Za-z]{4,}", text) if w.lower() not in STOP}
+    return words | {_stem(studio_terms._norm_term(t)) for t in studio_terms.TERM.findall(text) if studio_terms.is_term(t)}
 
 
 def _spoken_words(text: str) -> set:
-    return {_stem(w) for w in re.findall(r"[A-Za-z]{4,}", text or "")} | {
-        _stem(studio_terms._norm_term(t)) for t in studio_terms.TERM.findall(text or "") if studio_terms.is_term(t)}
+    text = _plain(text)
+    return {_stem(w) for w in re.findall(r"[A-Za-z]{4,}", text)} | {
+        _stem(studio_terms._norm_term(t)) for t in studio_terms.TERM.findall(text) if studio_terms.is_term(t)}
 
 
 def book_problems(film: dict, question: dict) -> list:
@@ -1090,12 +1120,27 @@ def _molecules_of(sentence: dict) -> list:
 def _unexplained(stations: list, rest: list) -> list:
     """The stations that cannot each get a sentence of their own (a sentence that speaks the station's label or the
     molecule it makes), matched one sentence per station."""
-    said = [_spoken_words((s.get("roman") or "") + " " + (s.get("voice") or "")) | _words(s.get("roman") or "") for s in rest]
-    def names(station):
-        words = {_stem(w) for w in re.findall(r"[A-Za-z]{4,}", station.get("label") or "")}
-        made = station.get("becomes") or ""
-        return words | {_stem(studio_terms._norm_term(t)) for t in studio_terms.TERM.findall(made) if t} | {made.lower()}
-    options = [[i for i, words in enumerate(said) if names(st) & words] for st in stations]
+    said = [_spoken_words((s.get("roman") or "") + " " + (s.get("voice") or "")) | _words(s.get("roman") or "")
+            | _tokens(s.get("roman") or "") for s in rest]
+    return _unmatched(stations, said, _station_names)
+
+
+def _station_names(station: dict) -> set:
+    """What names a wheel's station: the words of its label, short ones too (CF0, ATP), and the kit molecule it makes;
+    a plain sprite (a dot, a drop) names nothing (the first heading films, 23 November 2026: a station that became a
+    'dot' waited for a line to say "dot")."""
+    label = station.get("label") or ""
+    words = {_stem(w) for w in re.findall(r"[A-Za-z]{4,}", _plain(label))} | {t for t in _tokens(label) if t not in STOP}
+    made = station.get("becomes") or ""
+    if made in KIT["molecules"]:
+        words |= {_stem(studio_terms._norm_term(t)) for t in studio_terms.TERM.findall(made) if studio_terms._norm_term(t)}
+        words |= {made.lower()} | {t for t in _tokens(KIT["molecules"][made].get("name") or "") if t not in STOP}
+    return words
+
+
+def _unmatched(items: list, said: list, names) -> list:
+    """The items that cannot each get a sentence of their own, matched one sentence per item."""
+    options = [[i for i, words in enumerate(said) if names(item) & words] for item in items]
     owner = {}
     def place(j, seen):
         for i in options[j]:
@@ -1105,7 +1150,7 @@ def _unexplained(stations: list, rest: list) -> list:
                     owner[i] = j
                     return True
         return False
-    return [st for j, st in enumerate(stations) if not place(j, set())]
+    return [item for j, item in enumerate(items) if not place(j, set())]
 
 
 def screen_problems(film: dict, question: dict) -> list:
@@ -1137,6 +1182,11 @@ def screen_problems(film: dict, question: dict) -> list:
                                "sentences, one station explained per sentence")
                 else:
                     for station in _unexplained(stations, rest):
+                        if not _station_names(station):
+                            out.append(f"{sid} sentence {k}: a station of the wheel is a plain "
+                                       f"{station.get('becomes') or 'dot'} with no label; label it with what happens there "
+                                       "and say that in one of the sentences while the wheel turns")
+                            continue
                         name = station.get("label") or station.get("becomes") or "a station"
                         out.append(f"{sid} sentence {k}: the wheel's station {name!r} is not explained in a sentence of "
                                    "its own (say its name or what it makes in one of the sentences while the wheel turns)")
@@ -1151,7 +1201,7 @@ def write(client, model: str, question: dict, *, course: str = "", language: str
         reply = client.chat(model=model, messages=convo, schema=SCHEMA)
         for key in usage:
             usage[key] += int((reply.get("usage") or {}).get(key) or 0)
-        film = parse(reply.get("content", ""))
+        film = without_empty_cupboard(parse(reply.get("content", "")), question)
         found = problems(film, question)
         rounds.append({"round": number, "problems": found})
         if not found:
@@ -1225,13 +1275,18 @@ COLOUR_WORDS = {"amber", "black", "blue", "bright", "brown", "copper", "cool", "
                 "sage", "silver", "teal", "translucent", "transparent", "turquoise", "violet", "warm", "white", "yellow"}
 STYLE_WORDS = {"and", "aur", "camera", "cinematic", "colour", "colours", "color", "colors", "continuous", "depth", "every", "glossy",
                "har", "journey", "lighting", "look", "macro", "material", "palette", "par", "photoreal", "photorealistic",
-               "realistic", "same", "scale", "scientific", "shadow", "shadows", "soft", "structural", "the", "volumetric", "with"}
+               "realistic", "same", "scale", "scientific", "shadow", "shadows", "soft", "structural", "the", "volumetric", "with",
+               # a surface or a style, never a structure (the first heading films, 23 November 2026: "matte" in the look's
+               # workshop clause matched the chloroplast picture's "matte textures", and a motor was drawn in the stroma)
+               "calm", "clean", "crisp", "detailed", "documentary", "everyday", "hydrated", "matte", "natural", "painterly",
+               "photographic", "rich", "sharp", "texture", "textured", "textures"}
 
 
 GENERIC_WORDS = {"above", "back", "behind", "below", "beside", "biological", "bottom", "center", "central", "centre", "consistent",
                  "facing", "far", "front", "inside", "large", "leave", "left", "lower", "many", "middle", "near", "one", "open",
                  "orientation", "outside", "previous", "right", "selected", "several", "side", "small", "target", "top", "two",
-                 "upper"}
+                 "upper", "all", "also", "any", "are", "both", "but", "each", "for", "from", "had", "has", "have", "its", "more",
+                 "not", "only", "such", "than", "that", "then", "there", "this", "very", "was", "where", "while"}
 
 
 def _structure_words(text: str) -> set:
@@ -1242,14 +1297,21 @@ def _structure_words(text: str) -> set:
             and (len(w) >= 3 or "+" in w or w.lower() not in SHORT_STOP)}
 
 
-def look_for(prompt: str, look: str) -> str:
+EVERYDAY_LOOK = re.compile(r"\b(everyday|analogy|aside)\b", re.I)
+
+
+def look_for(prompt: str, look: str, aside: bool | None = None) -> str:
     """The film's look for one picture: its light and palette always, and the colours of a structure only when this
     picture shows that structure. Q14 remake (20 November 2026): the shared look named 'ATP synthase: violet CF1 head',
-    and the image model drew ATP synthase on the cell picture, one scale too early, though its prompt said no proteins."""
+    and the image model drew ATP synthase on the cell picture, one scale too early, though its prompt said no proteins.
+    The look of the everyday world (an "everyday workshop ...") goes only to an aside's picture (``aside`` True), never
+    to the film's own world (``aside`` False)."""
     shown = _structure_words(prompt)
     kept = []
     for clause in (c.strip() for c in re.split(r";|\.(?:\s|$)", look or "")):
         if not clause:
+            continue
+        if aside is False and EVERYDAY_LOOK.search(clause):
             continue
         name = clause.split(":", 1)[0] if ":" in clause else ""
         if _structure_words(name):            # "ATP synthase: violet head, amber channel" (not "16:9")
@@ -1281,7 +1343,7 @@ def image_prompt(shot: dict, look: str = "", style: str | None = None) -> str:
         style = style_for(shot)
     suffix = CUTAWAY_STYLES.get(style, CUTAWAY_SUFFIX) if visual.get("type") == "cutaway" else IMAGE_SUFFIX
     prompt = visual.get("image_prompt", "").strip()
-    shared = look_for(prompt, look)
+    shared = look_for(prompt, look, aside=bool(shot.get("aside")))
     shared = f" Same look as the other pictures of this film: {shared.rstrip('.')}." if shared else ""
     return prompt + shared + suffix
 
@@ -1505,7 +1567,7 @@ def place_items(shot: dict, next_shot: dict | None = None) -> list:
                     lambda pts, x=x: x.update(to=pts[0]))
         for j, c in enumerate(s.get("cycles") or []):
             add(f"s{k}.cycle{j}", f"centre of the wheel {c.get('label') or ''}".strip(), said, [[c.get("x", 50), c.get("y", 50)]],
-                lambda pts, c=c: c.update(x=pts[0][0], y=pts[0][1]))
+                lambda pts, c=c: c.update(x=_within(pts[0][0], c.get("rx")), y=_within(pts[0][1], c.get("ry"))))
         for j, f in enumerate(s.get("fuses") or []):
             add(f"s{k}.fuse{j}", f"where two parts become {f.get('label')}", said, [[f.get("x", 50), f.get("y", 50)]],
                 lambda pts, f=f: f.update(x=pts[0][0], y=pts[0][1]))
@@ -1536,6 +1598,13 @@ def place_messages(items: list, image_part: dict) -> list:
             + json.dumps(listed, ensure_ascii=False))
     return [{"role": "system", "content": PLACE_INSTRUCTIONS},
             {"role": "user", "content": [{"type": "text", "text": text}, image_part]}]
+
+
+def _within(centre, radius) -> float:
+    """A wheel's centre moved by looking keeps its whole oval inside the picture (the first heading films, 23 November
+    2026: the CF0 wheel was moved to x 80 with rx 20, off the picture's edge)."""
+    r = float(radius or 0)
+    return round(min(98.0 - r, max(2.0 + r, float(centre))), 1)
 
 
 def apply_places(items: list, answer) -> dict:

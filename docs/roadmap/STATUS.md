@@ -385,8 +385,17 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    and the first slice of the cut, `studio_script.film_questions` (one film per heading, a long heading cut between
    points, the script's lines as the narration), read by the films stage from a script run; and the answer openers
    varied (Navin, 23 November 2026, card "Tum wali chalegi": "dekho", "socho" stay, but "Dekho," no longer opens most
-   answers; `studio_film.opener_habit` checked in script and film). IMPLEMENTED. Next: two test videos (Navin's card
-   "1 and 3": 11.7.2 Calvin part a and 11.6.3 Chemiosmosis part b), each at pace 1.00 and 1.05, pictures ₹0 on the plan.
+   answers; `studio_film.opener_habit` checked in script and film). IMPLEMENTED (PR #200, merged `9e4d8ed4`). The two
+   test videos (Navin's card "1 and 3") ran as job `f1-photosynthesis-heading-films` (79 minutes, ₹0): both films made
+   from the script with steps, beads and asides, both ended needs_fix after 5 rounds (11.6.3 part b: 1 finding, 11.7.2
+   part a: 7). 11.6.3 part b went to Navin at 1.00 and 1.05 (its one finding was BIE's own misreading of "CF₀"); 11.7.2
+   part a was held back (a motor drawn in the chloroplast picture, an 18-carbon count off both sides, labels shown
+   twice). Heading-film fixes (this PR): subscripts read as digits, wheel stations named by short labels and never by a
+   plain dot, asides counted as everyday pictures and the count left to the script in a script film, "made again" needs
+   a making word, the everyday look only on an aside, an unknown kept picture cleared when the cupboard is empty, a
+   placed wheel kept inside the picture; the player fits a count to the picture, labels a run of like groups once,
+   replaces a count written over an earlier one, keeps one label per name and quiets earlier steps' flows. IMPLEMENTED.
+   Next: 11.7.2 part a made again on the fixed BIE, then at 1.05, to Navin; his verdicts on F1, F3 and the pace.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

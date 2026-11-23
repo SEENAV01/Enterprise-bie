@@ -2734,3 +2734,43 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   of Navin's own lines; the script rule names five teacher openers instead of one; a film from the script keeps the
   script's voice and may change an answer's opener. On round 1's script: 0 headings with the habit (too few
   questions); the passed Q14 film: none (its openers: aaiye, iska, isme, dekhiye, aisa, iska, dekhiye).
+
+## Entry · The first heading films: BIE's misreadings cost the rounds, 23 November 2026
+
+- **Run:** job `f1-photosynthesis-heading-films` (Navin's card "1 and 3"): 11.7.2 Calvin part a (`h11-7-2a`, 8 shots,
+  7.2 minutes) and 11.6.3 Chemiosmosis part b (`h11-6-3b`, 11 shots, 5.4 minutes), made from the final script
+  (`s6-photosynthesis-script-final`) on the merged film rules; 79 minutes, ₹0 (Codex and pictures on the ChatGPT plan),
+  Kokoro voice at pace 1.00. Both ended needs_fix after 5 of 5 rounds: 1 finding and 7 findings. Steps (F1), beads (F3)
+  and asides (F2) were used in both; book lines 10/10 and 13/13.
+- **What it taught:** most of the findings, and the rounds spent on them, were BIE misreading the film:
+  - "CO₂ ... follow karo" was refused for not naming CO2, and a wheel station "CF₀" was never found in the line that said
+    "CF₀" (subscripts were dropped, and a label needed a word of four letters). 11.6.3 part b spent rounds 3–5 on that.
+  - A station that became a plain "dot" waited for a line to say "dot".
+  - The script's workshop analogy, on two aside shots with mapping pins, counted as "0 everyday picture(s)": only the
+    words jaise, baandh, motor ... counted, and a script film cannot add lines to satisfy it.
+  - The maker then named a kept picture "motor" (the finding's own example) though the cupboard was empty.
+  - A plain "dobara" ("dobara proton pumping ki energy") demanded a wheel; the maker added and removed wheels from round
+    to round (11.7.2 part a: wheels in rounds 1, 2 and 4, none in round 3).
+  - Looking at the pictures: the look's "everyday workshop ... charcoal electric motor" reached the chloroplast picture
+    through one shared word, "matte", and a motor was drawn in the stroma; the six-group 18-carbon count ran off both
+    sides of the picture; a pin and a wheel station both saying "Carboxylation" showed the name twice; old bead rows
+    stayed under new ones at the same place.
+- **Changed in BIE:** `studio_film`: `_plain` reads subscript and superscript digits and charges as plain ones in every
+  word helper; `_station_names` names a station by its label's words, short ones too, and its kit molecule, never by a
+  sprite, and a nameless sprite station gets its own finding ("label it with what happens there"); an aside shot counts
+  as an everyday picture, and a script film leaves that count to the script; `AGAIN` needs regenerate, or again with a
+  making word close after it; `look_for` treats matte, hydrated, texture and other surface words, and grammar words,
+  as no structure, and gives an "everyday" clause only to an aside's picture; `without_empty_cupboard` clears a kept
+  picture's name when there is no cupboard; a wheel moved by looking keeps its oval inside the picture (`_within`).
+  `studio_player.html`: `fitBeads` shrinks a count to the picture's width (down to half size, then wraps) and keeps it
+  inside the edges; a run of like groups is labelled once; a new count replaces one written at the same height; one
+  name stays one label (the same name within 12 % is the same label, the same name in a later sentence moves the label);
+  a new step quiets what earlier steps sent moving. IMPLEMENTED (`tests/test_studio_films.py`, `FirstHeadingFilms`).
+- **Measured (the two stored films, checked again):** 11.6.3 part b 3 → 2 findings, 11.7.2 part a 7 → 3. The two left in
+  11.6.3 part b came from the looking step after the rounds (a wheel moved off the edge, now kept inside, and two aside
+  pins just under 8 % apart, which the player's label spacing separates on screen). The three left in 11.7.2 part a are real:
+  two wheels whose stations the script's lines in that shot never name one by one, and one nameless dot station.
+  Re-rendered with the new player, the Calvin film's count fits, its labels show once and old flows go quiet. Every
+  passed film still passes every check (`PassedFilms`).
+- **Next:** 11.7.2 part a made again on the fixed BIE (₹0), then its 1.05 copy; both films to Navin for his F1, F3 and
+  pace verdicts.
