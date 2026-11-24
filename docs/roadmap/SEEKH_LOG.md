@@ -3060,3 +3060,22 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
 - **Changed in BIE:** looks `asli` and `asli_mixed` (`close_view` picks the protein close-ups), with the maker told to
   draw the talked-about structure large and in front in the busy pictures; jobs may choose them; the default stays
   `mixed`. Next: r4 made three ways (`mixed`, `asli`, `asli_mixed`) for Navin's choice.
+
+## Entry · r4 of 11.6.3b, hybrid look (job r4), 24 November 2026
+
+- **Run:** VM job `r4-photosynthesis-116-3b-jeeta` (PR #211, look "mixed", cupboard `c116-3b-dam`, ₹0, 45.2 minutes):
+  11 shots, 5 rounds, `needs_fix` with 3 problems, 9 pictures drawn and 2 kept, parts 5 of 5 (the proton pump cut and
+  carrying twice), NCERT 10/10. Played whole: 39 lines, no page errors, up to 7 labels.
+- **What the run taught:** (1) the new question opener and "the film's sentences are the script's lines" fought: in
+  rounds 2 and 4 the maker kept the lines and left 6 questions without openers, in round 3 it rewrote the lines and 27
+  of them failed the line check; the opener only came in round 5; (2) a question per mechanism shot cannot be added to a
+  film told in the script's lines, so three problems stayed to the end; (3) one line said "Ab sawaal uthta hai ki ..."
+  but its question mark was at risk of being dropped; (4) the maker asked two pictures for a small inset of another
+  place; (5) the image model drew CF₀ blue in one picture though its prompt said amber (needs a check of the drawn
+  picture, still open).
+- **Changed in BIE (PR #213):** `SCRIPT_PART` and `TEACHER_PART` say the opener goes in front of the line's own words
+  and the film asks only where the lines ask; `mechanism_problems` asks no question per mechanism shot of a film told in
+  such lines; `question_problems` sends back a line that says a question comes without ending in ?; `overlay_problems`
+  sends back an inset. Tests in `SeekhFromR4`.
+- **Measured on r4's own film data:** its last 3 problems: 0 with the change (4 without lines); inset asks found: 1 drawn
+  picture (s3; s7's photo was kept from the cupboard); question lines: 7 of 7 open with an opener and end with ?.

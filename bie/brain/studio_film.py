@@ -497,7 +497,9 @@ TEACHER_PART = """
 THE TEACHER'S SCRIPT. Navin, the teacher, rewrote the narration of the earlier film of this question (its JSON is below).
 Make the film again with HIS lines as the narration: the film's sentences are his lines, every one, in his order, and
 nothing else is spoken. Keep his words; fix only spelling slips and broken spacing from typing on a tablet ("dekhte hsi"
-is "dekhte hain"). A NOTE under a line is his instruction to you, never words to speak: follow it. Write each line's voice
+is "dekhte hain"); his questions after the opening one get a question opener in front of his words ("Ab sawaal uthta
+hai ki ...?", "Ab aap poochhenge ki ...?"; Navin, 24 November 2026). A NOTE under a line is his instruction to you, never
+words to speak: follow it. Write each line's voice
 in Devanagari, ending every question with ? and starting its answer as a new sentence. You may regroup his lines into
 more shots (a long shot becomes a closer look) and change the pictures, their layout, the pins and the motion so that every
 rule here holds; set teaches, beyond and part for his lines as for your own.
@@ -574,9 +576,12 @@ SCRIPT_PART = """
 THE CHAPTER'S SCRIPT. BIE wrote the whole chapter's script first (Navin, 22 November 2026: "script wo poora gyan hai jo
 hume bache ko dena hai"); this film tells one heading of it. The film's sentences are the script's lines below, every
 one, in their order, and nothing else is spoken; keep their words and their voice ("dekho", "socho" stay: Navin, 23
-November 2026, "Tum wali chalegi"), fixing only a spelling slip. One change is yours: where most answers open alike
+November 2026, "Tum wali chalegi"), fixing only a spelling slip. Two changes are yours: where most answers open alike
 ("Dekho, ..."), open some of them with another teacher's opener ("Iska seedha sa jawab hai ...", "Aisa isliye hai kyunki
-...", "Hota yeh hai ki ..."), so that no opener starts more than half the answers. A NOTE under a line is the
+...", "Hota yeh hai ki ..."), so that no opener starts more than half the answers; and every question after the film's
+opening one gets a question opener in front of the script's words ("Ab sawaal uthta hai ki ...?", "Ab aap poochhenge ki
+...?", "Ab aapke man mein sawaal utha hoga ki ...?"; Navin, 24 November 2026), which keeps every word of the line, its
+question mark included. Where the script asks, the film asks; add no question of your own. A NOTE under a line is the
 script's instruction for the screen (the point's kind and what the screen shows), never words to speak: follow it. A line
 of kind analogy is said on an aside shot (its own everyday picture); the lines of a process are told on one picture,
 step by step. Write each line's voice in Devanagari, ending every question with ? and starting its answer as a new
@@ -918,6 +923,9 @@ def question_problems(film: dict) -> list:
         if first or sentence.get("part") == "hook":
             first = False
             continue
+        if ASKING.search(" ".join(roman.split()[:6])) and not roman.endswith("?") and QUESTION_WORD.search(roman):
+            out.append(f"{where}: the line says a question comes but does not end with ?; end the question with ? in roman "
+                       f"and voice, so it is shown on the screen and the voice pauses: \"{roman[:70]}\"")
         if roman.endswith("?") and not ASKING.search(" ".join(roman.split()[:9])):
             out.append(f"{where}: a question in the film starts by saying a question comes (\"Ab sawaal uthta hai ki ...?\", "
                        f"\"Ab aap poochhenge ki ...?\", \"Ab aapke man mein sawaal utha hoga ki ...?\"), in roman and voice: "
@@ -1296,6 +1304,10 @@ def mechanism_problems(film: dict, question: dict | None = None) -> list:
     count is the script's to keep, not the film's."""
     out, shots = [], film.get("shots") or []
     asked = 0
+    # a film told in the chapter's script or the teacher's own lines asks where those lines ask: r4 of 11.6.3b (24
+    # November 2026) spent two rounds and ended "needs_fix" because a question demanded per mechanism shot could not be
+    # added without breaking "the film's sentences are the script's lines, every one"
+    lined = bool((question or {}).get("teacher_lines"))
     for number, shot in enumerate(shots, 1):
         sid = shot.get("id") or f"shot {number}"
         sentences = shot.get("sentences") or []
@@ -1304,7 +1316,7 @@ def mechanism_problems(film: dict, question: dict | None = None) -> list:
                          or s.get("acts")) and s.get("part") != "recap" for s in sentences)
         has_question = any("?" in (s.get("voice") or "") for s in sentences)
         asked += has_question
-        if mechanism and not has_question:
+        if mechanism and not has_question and not lined:
             out.append(f"{sid}: a mechanism is shown here but no question is asked before it; ask one (it ends with ? in "
                        "voice) so the voice pauses before the answer")
         for k, s in enumerate(sentences, 1):
@@ -1330,7 +1342,7 @@ def mechanism_problems(film: dict, question: dict | None = None) -> list:
                         out.append(f"{where}: {what} takes part in the meeting but the line does not name it; name every "
                                    "molecule as it meets")
     if len(shots) >= 4:
-        if asked * 2 < len(shots):
+        if asked * 2 < len(shots) and not lined:
             out.append(f"questions in {asked} of {len(shots)} shots; ask in at least half of them, as a teacher does")
         pictures = sum(1 if shot.get("aside") else sum(bool(EVERYDAY.search(s.get("roman") or "")) for s in shot.get("sentences") or [])
                        for shot in shots)
@@ -1750,7 +1762,8 @@ def crowd_problems(film: dict) -> list:
     return out
 
 
-OVERLAY_ASK = re.compile(r"(?i)\b(check-?lists?|(two|three|four|five|six)-item|list panels?|ui panels?|empty (bars|boxes|slots))\b")
+OVERLAY_ASK = re.compile(r"(?i)\b(check-?lists?|(two|three|four|five|six)-item|list panels?|ui panels?|empty (bars|boxes|slots)|"
+                         r"insets?|picture[- ]in[- ]picture)\b")
 
 
 def overlay_problems(film: dict) -> list:
@@ -1762,7 +1775,11 @@ def overlay_problems(film: dict) -> list:
         if ((shot.get("visual") or {}).get("library") or "").strip():
             continue                          # a kept picture is already made and was chosen; its words stay
         found = OVERLAY_ASK.search((shot.get("visual") or {}).get("image_prompt") or "")
-        if found:
+        if found and re.match(r"(?i)insets?|picture", found.group(0)):
+            # r4 of 11.6.3b (24 November 2026): two pictures carried a small picture of another place in a corner
+            out.append(f"{shot.get('id') or f'shot {number}'}: the image_prompt asks for a {found.group(0)!r}; a picture shows "
+                       "one place, with no small picture of another place in it (BIE shows the path of places in a corner)")
+        elif found:
             out.append(f"{shot.get('id') or f'shot {number}'}: the image_prompt asks the picture for a {found.group(0)!r}; BIE "
                        "draws counts and lists over the picture, so write only that the space is left clear")
     return out

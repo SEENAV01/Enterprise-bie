@@ -513,6 +513,19 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    seeing r4 made three ways (15:00: "Teeno tarike se output dekhke decide karunga"): looks `asli` (every cutaway as
    electron micrographs show it, the trial's words) and `asli_mixed` (protein close-ups as the hybrid's `close_up`, the
    rest `asli`; `close_view`) join `mixed`, chosen per job; the films' default stays `mixed` until he decides (PR #212).
+   Merged (PR #211 `9aeb94c5`, PR #212 `be4eca3a`). **Job `r4` (hybrid, 24 November 2026):** 11 shots, 5 rounds,
+   `needs_fix` with 3 problems (no question before three mechanism shots), 9 pictures drawn and the 2 dam photos from the
+   cupboard, parts 5 of 5, NCERT 10/10; played whole, 39 lines, no errors, up to 7 labels. Seen: membranes ripple in
+   every picture, no invented tubes, the proton pump carries H⁺ from the stroma into the lumen twice, questions open
+   with Navin's openers and are on the screen, the path of places shows after each dive. Wrong: CF₀ drawn blue in one
+   picture (amber elsewhere), two pictures with a small inset of another place, and the question opener fought the
+   script's lines for two rounds. Sent to Navin; jobs `r4a` (asli) and `r4m` (asli_mixed) queued with the same rules.
+   Also (Navin's card "Dono test"): a 3D test page, Claude's test and not BIE output: two cut parts of r3 made into 3D
+   meshes with TripoSR (MIT) on CPU, rough; ATP synthase from PDB 6FKF with its rotor turning and a cut-open view.
+   **Seekh from r4 (PR #213):** the script and teacher parts let the question opener go in front of their lines ("where
+   the script asks, the film asks"); a film told in such lines is not asked for a question per mechanism shot; a line
+   that says a question comes must end with ?; a picture prompt asking for an inset is sent back. Merged only after
+   `r4a` and `r4m`, so the three looks share one set of rules. IMPLEMENTED.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

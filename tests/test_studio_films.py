@@ -1728,3 +1728,38 @@ class LivingWorldAndQuestions(unittest.TestCase):
                        "camTo(s.dive.x,s.dive.y,2,750)", "canvas.alive"):
             self.assertIn(needed, page)
         self.assertIn("living, flexible sheet", studio_film.CUTAWAY_STYLES["close_up"])
+
+
+class SeekhFromR4(unittest.TestCase):
+    """What r4 of 11.6.3b taught (24 November 2026): the question opener and the script's lines fought for two rounds, a
+    mechanism question could not be added to a film told in the script's lines, a line said a question came but ended
+    without ?, and two pictures carried a small picture of another place."""
+
+    def test_a_film_told_in_lines_asks_where_its_lines_ask(self):
+        made = _membrane_film()
+        for sentence in made["shots"][0]["sentences"]:
+            sentence["roman"] = sentence["roman"].replace("?", ".")
+            sentence["voice"] = sentence["roman"]
+        made["shots"][0]["sentences"][1]["reacts"] = [{"inputs": [], "at": [50, 50], "outputs": []}]
+        self.assertTrue(any("no question is asked" in p for p in studio_film.mechanism_problems(made, {})))
+        lined = {"teacher_lines": [{"roman": "x"}], "script_lines": True}
+        self.assertFalse(any("no question is asked" in p for p in studio_film.mechanism_problems(made, lined)))
+        self.assertIn("Where the script asks, the film asks", studio_film.SCRIPT_PART)
+        self.assertIn("Ab aap poochhenge", studio_film.SCRIPT_PART)
+        self.assertIn("Ab aap poochhenge", studio_film.TEACHER_PART)
+
+    def test_a_line_that_says_a_question_comes_ends_with_its_question_mark(self):
+        made = _membrane_film()
+        made["shots"][0]["sentences"][2]["roman"] = "Ab aap poochhenge ki CF₀ se H⁺ kaise lautte hain"
+        found = studio_film.question_problems(made)
+        self.assertEqual(len(found), 1)
+        self.assertIn("does not end with ?", found[0])
+        made["shots"][0]["sentences"][2]["roman"] = "Ab sawaal banta hai, aur iska jawab CF₀ mein hai."
+        self.assertEqual(studio_film.question_problems(made), [])        # no question word: not a question
+
+    def test_a_picture_shows_one_place_without_an_inset(self):
+        made = _membrane_film()
+        made["shots"][0]["visual"]["image_prompt"] += ". Small upper-left anatomical inset of the whole thylakoid."
+        found = studio_film.overlay_problems(made)
+        self.assertEqual(len(found), 1)
+        self.assertIn("shows one place", found[0])
