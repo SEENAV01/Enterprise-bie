@@ -152,6 +152,7 @@ def forms(film: dict) -> list:
             for act in sentence.get("acts") or []:
                 words = {"turn": "ghoomta hai", "spin": "ghoomta rehta hai", "open": "khulta hai", "tight": "kasta hai",
                          "squeeze": "dabta hai", "suck": "andar kheenchta hai", "grab": "pakad leta hai",
+                         "carry": "pakadkar us paar chhodta hai",
                          "stick": "judta hai", "leave": "chhoot jaata hai", "arrive": "aata hai", "glow": "chamakta hai"}
                 if act.get("do") in words:
                     add("hissa_hile", "process", "[hissa] usi pal [kaam] jab line kahe",

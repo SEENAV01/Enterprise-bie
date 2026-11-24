@@ -72,6 +72,18 @@
 .pring{fill:none;stroke:#ff8a5c;stroke-width:.4}
 .bond{position:absolute;width:7%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%) scale(0);background:radial-gradient(circle,rgba(255,246,200,.95) 0,rgba(255,200,90,.6) 35%,transparent 70%);pointer-events:none}
 .world.ghost{pointer-events:none}
+/* Navin, 24 November 2026, on r3 of 11.6.3b: a living world (the cutaway redrawn in thin columns lifted by a slow wave),
+   the question on the screen with a "?" at the part it asks about, and the path of places the camera has gone inside */
+.world canvas.alive{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.qcard{position:absolute;left:50%;top:3.5%;transform:translateX(-50%);max-width:84%;width:max-content;display:flex;gap:.6em;align-items:center;background:rgba(8,26,33,.92);color:#fff;border:1.5px solid var(--gold);border-radius:12px;padding:.45em .9em;font-weight:650;font-size:clamp(.7rem,1.55vw,1.05rem);line-height:1.3;box-shadow:0 6px 24px rgba(0,0,0,.35);animation:qin .5s both;pointer-events:none;transition:opacity .6s,transform .6s}
+.qcard b{flex:none;width:1.7em;height:1.7em;border-radius:50%;background:var(--gold);color:#17140a;display:grid;place-items:center;font-weight:800}
+.qcard.old{opacity:.7;transform:translateX(-50%) scale(.9)}
+@keyframes qin{from{opacity:0;transform:translate(-50%,-12px)}}
+.qmark{position:absolute;transform:translate(-50%,-50%);width:clamp(22px,3.4vw,40px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:rgba(232,185,72,.95);color:#17140a;font-weight:900;font-size:clamp(.8rem,1.9vw,1.3rem);animation:qpulse 1.3s ease-out infinite,inn .4s both;pointer-events:none}
+@keyframes qpulse{0%{box-shadow:0 0 0 0 rgba(232,185,72,.75)}70%{box-shadow:0 0 0 14px rgba(232,185,72,0)}100%{box-shadow:0 0 0 0 rgba(232,185,72,0)}}
+.path{position:absolute;left:1.6%;bottom:3%;display:flex;gap:.35em;align-items:center;padding:.3em .75em;border-radius:999px;background:rgba(8,26,33,.74);color:#cfdadc;font-size:clamp(.56rem,1.1vw,.82rem);font-weight:600;pointer-events:none;animation:inn .6s both}
+.path i{font-style:normal;opacity:.6}.path b{color:var(--gold)}.path b.new{animation:pathnew 1.4s .3s both}
+@keyframes pathnew{from{opacity:0;transform:translateX(-8px)}}
 .mtag{transition:opacity .25s}
 .vnote{margin-top:8px;padding:9px 12px;border-radius:9px;background:var(--gold);color:#17140a;font-weight:700;font-size:.92rem}
 .band{border-top:1px solid var(--gold);margin-top:8px;padding:10px 4px 4px}
@@ -283,6 +295,21 @@ const REST=()=>({tx:0,ty:0,jx:0,jy:0,jr:0,rot:0,s:1,op:1});
 // a part pressed gives and springs back: squashed fast, held, then back with a small overshoot (squeeze, suck, stick)
 function squash(P,t0,T,k,ms){let sx=1+(1-k)*.5,sy=k;if(T){const dx=(T[0]-P.c[0])*16,dy=(T[1]-P.c[1])*9;if(Math.abs(dx)>Math.abs(dy)){sx=k;sy=1+(1-k)*.5;}}
   P.pulse={t0,ms,sx,sy};}
+// --- the living world (Navin, 24 November 2026, on r3 of 11.6.3b: "thoda hilti lage na jaise ek living organism ke andar
+// cells wagarh aise hilti hai jaise jeeti jaagti ho"): a cutaway is redrawn in thin columns, each lifted by a slow,
+// irregular wave (long waves move most, as a real membrane flickers under the microscope); the parts cut from it ride the
+// same wave and sway a little on their own, since nothing in a cell ever stands still
+const ALIVE_A=.009,WAVES=[[1.1,.8,.55],[2.3,-1.3,.3],[4.1,2,.15]].map(([k,w,a],i)=>({k,w,a,p:i*2.1+.7}));let alive=null;
+function lift(u,t){let s=0;for(const o of WAVES)s+=o.a*Math.sin(o.k*6.2832*u+o.w*t+o.p);return s;}
+function aliveLayer(s){alive=null;if(!s.alive||reduced||s.type==='diagram')return;const im=$('world').querySelector(':scope>img');if(!im)return;
+  im.classList.add('base');const cv=el('canvas','alive');im.after(cv);alive={im,cv,ctx:cv.getContext('2d'),last:0};}
+function aliveStep(now){const A=alive;if(!A||now-A.last<33)return;A.last=now;const W=$('world'),im=A.im;if(!im.complete||!im.naturalWidth)return;
+  const r=Math.min(2,window.devicePixelRatio||1),w=Math.round(W.clientWidth*r),h=Math.round(W.clientHeight*r);if(!w||!h)return;
+  if(A.cv.width!==w||A.cv.height!==h){A.cv.width=w;A.cv.height=h;}im.style.opacity=0;
+  const t=now/1000,iw=im.naturalWidth,ih=im.naturalHeight,sc=Math.max(w/iw,h/ih),sx0=(iw-w/sc)/2,sy0=(ih-h/sc)/2,st=Math.max(3,Math.round(3*r)),pad=h*ALIVE_A*1.7;
+  A.ctx.clearRect(0,0,w,h);for(let x=0;x<w;x+=st)A.ctx.drawImage(im,sx0+x/sc,sy0,st/sc,h/sc,x,-pad+lift(x/w,t)*ALIVE_A*h,st+1,h+2*pad);
+  for(const id in parts){const P=parts[id];P.el.style.translate='0px '+(lift(P.c[0]/100,t)*ALIVE_A*W.clientHeight).toFixed(2)+'px';
+    P.el.style.rotate=(.45*Math.sin(t*1.7+P.c[0])+.25*Math.sin(t*2.9+P.c[1])).toFixed(2)+'deg';}}
 function pulseNow(P,now){const q=P.pulse;if(!q)return[1,1];const u=(now-q.t0)/q.ms;if(u<0)return[1,1];if(u>=1){P.pulse=null;return[1,1];}
   const e=u<.25?ease(u/.25):u<.55?1:(1-(u-.55)/.45)*Math.cos((u-.55)/.45*Math.PI*1.5);return[1+(q.sx-1)*e,1+(q.sy-1)*e];}
 function partEl(p){const d=el('div','part');d.dataset.part=p.id;const b=el('div','pb');
@@ -318,6 +345,7 @@ function doAct(a,now,instant){const P=parts[a.part];if(!P)return;const n=P.now,t
   if(!instant&&P.name&&a.do!=='stop'&&a.do!=='loose')addLabel(P.name,P.c[0],Math.max(4,P.box[1]-1),'pin new',now);
   if(a.do==='squeeze'){if(!instant){squash(P,now,T,.8,1500);pressure(P.c,now+150);P.chew=now+1500;}return;}
   if(a.do==='suck'&&T){if(!instant)suction(P,T,a.rider,now);return;}
+  if(a.do==='carry'&&T){if(!instant)carry(P,T,a.rider,now);return;}
   if(a.do==='grab'&&T){a=Object.assign({},a,{do:'tight'});P.jawT=T;if(a.rider)holdAt(T,a.rider,now,instant,P);}
   if(a.do==='spin'){P.el.classList.add('p-spin');if(P.roll)P.el.classList.add('p-roll');else if(wheelLike(P))P.el.classList.add('p-wheel');
     addRiders(P,a.rider);return;}
@@ -345,6 +373,20 @@ function suction(P,T,what,now){squash(P,now,null,.93,1500);pressure(T,now+100);
 // a grip: the molecule comes to the closing site and stays held there, nudged as the part presses
 function holdAt(T,what,now,instant,P){const o=outside(P,T,7);if(!instant)addMove({what,points:[o,T],count:1,ms:900,colour:'gold',label:''},now,0);
   const g=pri(sprite(what,'gold',wsvg),1);g.setAttribute('transform',`translate(${T[0]} ${T[1]*.5625})`);g.style.opacity=0;actors.push({kind:'held',g,T,born:instant?now-1000:now+850});}
+// carry: a pump grips the molecule on its near side, holds it, squeezes it through and lets it go on its far side at T,
+// where it drifts off; twice, as a pump keeps working (Navin, 24 November 2026: "proton pump jeeta jaagta sath mein aisa
+// lage jaise proton ko pakdke lumen mein chhod rha ho")
+function carry(P,T,what,now){let dx=T[0]-P.c[0],dy=T[1]-P.c[1];const l=Math.hypot(dx,dy)||1;dx/=l;dy/=l;what=what||'H+';
+  const hw=(P.box[2]-P.box[0])/2,hh=(P.box[3]-P.box[1])/2,k=Math.min(Math.abs(dx)>.01?hw/Math.abs(dx):1e9,Math.abs(dy)>.01?hh/Math.abs(dy):1e9);
+  const at=(x,y)=>[Math.max(2,Math.min(98,x)),Math.max(2,Math.min(98,y))],E=at(P.c[0]-dx*k*.85,P.c[1]-dy*k*.85),
+    O=at(E[0]-dx*7,E[1]-dy*7),X=at(P.c[0]+dx*k*.85,P.c[1]+dy*k*.85),G=at(T[0]+dx*4,T[1]+dy*4),my=token;
+  const later=(ms,f)=>setTimeout(()=>{if(my===token)f(performance.now());},ms);
+  for(let r=0;r<2;r++){const t0=now+r*2900;
+    addMove({what,points:[O,E],count:1,ms:900,colour:'gold',label:''},t0,0);
+    const g=pri(sprite(what,'gold',wsvg),1);g.style.opacity=0;actors.push({kind:'held',g,T:E,born:t0+880,until:t0+1380});
+    later(r*2900+850,n=>{squash(P,n,O,.84,700);pressure(E,n);});
+    addMove({what,points:[E,P.c,X,T,G],count:1,ms:1500,colour:'gold',label:''},t0+1380,0);
+    later(r*2900+1950,n=>squash(P,n,T,.9,550));}}
 // riders go round with a spinning part seen from the side: across the front (x = centre + half width x sin), hidden behind
 function addRiders(P,what){if(!what||P.riders.length)return;const label=what==='H+'?'H\u207a':what;
   for(let i=0;i<3;i++){const r=el('div','rider',label);P.el.appendChild(r);const o={el:r,P,phase:i/3*Math.PI*2};P.riders.push(o);riders.push(o);}}
@@ -358,14 +400,18 @@ function bond(T,born){const b=el('div','bond');b.style.left=T[0]+'%';b.style.top
 // a jump into the middle of a shot first puts every part where the earlier sentences left it
 function partsReplay(k){const s=F.shots[si];for(let j=0;j<k;j++)for(const a of (s.sentences[j]||{}).acts||[])doAct(a,performance.now(),true);}
 
-function tick(now){camStep(now);edgeCut(now);partsStep(now);ridersStep(now);
+function tick(now){camStep(now);edgeCut(now);partsStep(now);aliveStep(now);ridersStep(now);
   for(const ac of actors){const t=now-ac.born;
     if(ac.kind==='move'){ac.items.forEach((g,i)=>{const hide=()=>{g.style.opacity=0;(ac.tails[i]||[]).forEach(c=>c.style.opacity=0);};
         const local=t-i*ac.gap;if(local<0){hide();return;}let u=local/ac.ms,rep=ac.loop;
         if(!rep&&ac.until){if(u<Math.max(1,Math.ceil((ac.until-ac.born-i*ac.gap)/ac.ms)))rep=true;else{hide();return;}}
         if(rep)u=u%1;else if(u>1){g.style.opacity=u>1.15?0:1-(u-1)/.15;u=1;}
-        const p=ac.path.at(ease(u)*.98+u*.02);const wob=Math.sin(now/180+i)*.25;if(ac.mol){g.setAttribute('transform',`translate(${p[0].toFixed(2)} ${(p[1]+wob*.4).toFixed(2)})`);g.firstChild.setAttribute('transform',`rotate(${(Math.sin(now/420+i)*9).toFixed(1)})`);}
-        else g.setAttribute('transform',`translate(${p[0].toFixed(2)} ${(p[1]+wob*.4).toFixed(2)}) rotate(${ac.rot?(p[2]*57.3).toFixed(1):((now/30+i*40)%360).toFixed(0)})`);
+        // a molecule never glides on a rail: it wanders a little as it goes, knocked about on every side (Navin, 24 November
+        // 2026: cells, proteins and enzymes as they really move)
+        const p=ac.path.at(ease(u)*.98+u*.02);const wob=Math.sin(now/180+i)*.25,jx=reduced?0:.42*Math.sin(now/97+i*1.7)+.22*Math.sin(now/41+i*4.3),
+          jy=reduced?wob*.4:.3*Math.sin(now/83+i*2.9)+.16*Math.sin(now/37+i*1.1);
+        if(ac.mol){g.setAttribute('transform',`translate(${(p[0]+jx).toFixed(2)} ${(p[1]+jy).toFixed(2)})`);g.firstChild.setAttribute('transform',`rotate(${(Math.sin(now/420+i)*9).toFixed(1)})`);}
+        else g.setAttribute('transform',`translate(${(p[0]+jx).toFixed(2)} ${(p[1]+jy).toFixed(2)}) rotate(${ac.rot?(p[2]*57.3).toFixed(1):((now/30+i*40)%360).toFixed(0)})`);
         if(u<1||rep)g.style.opacity=Math.min(1,u*8,(1-u)*8+(rep?0:1));if(ac.dim)g.style.opacity=(parseFloat(g.style.opacity)||0)*.3;
         const seen=parseFloat(g.style.opacity)||0;(ac.tails[i]||[]).forEach((c,j)=>{const v=u-TAIL[j];if(v<0||v>=1||u>=1&&!rep){c.style.opacity=0;return;}
           const q=ac.path.at(ease(v)*.98+v*.02);c.setAttribute('cx',q[0].toFixed(2));c.setAttribute('cy',(q[1]+wob*.4).toFixed(2));c.style.opacity=(seen*(.45-j*.13)).toFixed(3);});});}
@@ -377,7 +423,7 @@ function tick(now){camStep(now);edgeCut(now);partsStep(now);ridersStep(now);
     else if(ac.kind==='react')stepReact(ac,t,now);
     else if(ac.kind==='cycle')stepCycle(ac,t,now);
     else if(ac.kind==='act'){if(!ac.done&&t>=0){ac.done=true;doAct(ac.a,now);}}
-    else if(ac.kind==='held'){ac.g.style.opacity=t<0?0:1;if(t>=0)ac.g.setAttribute('transform',`translate(${ac.T[0]} ${(ac.T[1]*.5625+Math.sin(now/260)*.12).toFixed(3)})`);}
+    else if(ac.kind==='held'){ac.g.style.opacity=t<0||(ac.until&&now>ac.until)?0:1;if(t>=0)ac.g.setAttribute('transform',`translate(${ac.T[0]} ${(ac.T[1]*.5625+Math.sin(now/260)*.12).toFixed(3)})`);}
     else if(ac.kind==='press')ac.rings.forEach((c,i)=>{const u=(t-i*230)/900;if(u<0||u>1){c.style.opacity=0;return;}
       c.setAttribute('r',(1.2+5.8*(1-ease(u))).toFixed(2));c.style.opacity=(Math.sin(Math.PI*u)*.95).toFixed(2);});
     else if(ac.kind==='bond'){const u=t/1400;if(u<0){ac.b.style.opacity=0;}else{const v=Math.min(1,u);
@@ -449,29 +495,48 @@ function fxAdd(arrows,effects){arrows.forEach(a=>{const P=a.points.map(p=>[p[0],
     if(f.type==='rise')for(let i=0;i<12;i++){const ii=el('i');ii.style.left=(4+i*8)+'%';ii.style.animationDelay=(i*.37%2.6)+'s';e.appendChild(ii);}fxBox.appendChild(e);});}
 
 // --- shots and sentences -------------------------------------------------------------------------------------------------
-function clearShot(){actors=[];labels=[];texts=[];parts={};riders=[];$('world').innerHTML='';$('ssvg').innerHTML='';$('labels').innerHTML='';}
+function clearShot(){actors=[];labels=[];texts=[];parts={};riders=[];alive=null;if(ask){ask.card.remove();ask=null;}$('world').innerHTML='';$('ssvg').innerHTML='';$('labels').innerHTML='';}
 function build(i){const s=F.shots[i];clearShot();
   if(s.type==='diagram'){const d=el('div','svg base');d.innerHTML=s.svg;$('world').appendChild(d);}else{const im=el('img');im.alt='';im.src=s.img||'';$('world').appendChild(im);}
   (s.parts||[]).forEach(p=>{if(p.img&&p.box)$('world').appendChild(partEl(p));});
-  worldLayers();if(s.type==='diagram')textLayer();$('key').textContent=s.key||'';$('sc').textContent=s.title||'';}
-function show(i,k,viaDive){const my=++token;const s=F.shots[i];si=i;ki=0;
+  aliveLayer(s);worldLayers();if(s.type==='diagram')textLayer();$('key').textContent=s.key||'';$('sc').textContent=s.title||'';}
+// where the camera has gone inside (Thylakoid › ATP synthase › CF₁), so the learner knows the level they are at (Navin, 24
+// November 2026: "taaki pata lage ki hum is cheej ke molecular level par jaa rahe hai"); the new place comes in after a dive
+function setPath(s,deeper){const o=$('stage').querySelector('.path');if(o)o.remove();if(!s.path||!s.path.length)return;const b=el('div','path');
+  const p=s.path.length>4?['\u2026',...s.path.slice(-3)]:s.path;   // the last three places, after a long way in
+  p.forEach((x,i)=>{if(i)b.appendChild(el('i','','\u203a'));const e=el(i===p.length-1?'b':'span','',x);if(deeper&&i===p.length-1)e.classList.add('new');b.appendChild(e);});$('stage').appendChild(b);}
+function show(i,k,viaDive){const s=F.shots[i];
+  // going inside: the camera first goes onto the dive point of the picture we are in, then through it (Navin, 24 November
+  // 2026: "kisi part ke molecular level par jaane ka effect yaani zoom in jaise patte ke andar karte the")
+  if(viaDive===true&&s.dive&&!reduced&&$('world').childNodes.length){const my=++token;camTo(s.dive.x,s.dive.y,2,750);
+    setTimeout(()=>{if(my===token)show(i,k,'in');},780);return;}
+  const my=++token;si=i;ki=0;
   // the next picture opens inside the dive point while the old picture zooms past and fades (one world, no slide cut);
   // a shot without a dive cross-fades
   if(viaDive&&!reduced&&$('world').childNodes.length){const old=$('world'),ghost=old.cloneNode(true);ghost.removeAttribute('id');ghost.classList.add('ghost');
+    ghost.querySelectorAll('canvas.alive').forEach(c=>c.remove());ghost.querySelectorAll('img.base').forEach(m=>m.style.opacity=1);   // a canvas copies blank
     $('stage').insertBefore(ghost,old);const g0={ox:cam.ox,oy:cam.oy,s:cam.s},d=s.dive||{x:50,y:50},deep=!!s.dive,ms=deep?1600:900;
-    build(i);cam.to=null;cam.ox=d.x;cam.oy=d.y;cam.s=deep?.3:1;cam.fade=0;if(deep)camTo(50,50,1,ms*.78);const t0=performance.now(),w=$('world');
+    build(i);setPath(s,deep);cam.to=null;cam.ox=d.x;cam.oy=d.y;cam.s=deep?.3:1;cam.fade=0;if(deep)camTo(50,50,1,ms*.78);const t0=performance.now(),w=$('world');
     // the new picture opens as a soft round lens inside the point; the old picture keeps filling the frame around it. The lens
     // stays inside the picture's own edges until the picture fills the frame (at 78% of the move), so its rectangle never shows
     // (the first living film showed a box growing), then opens to the corners
     const lens=r=>{const m=r>=140?'':`radial-gradient(ellipse at 50% 50%,#000 ${r}%,transparent ${r+25}%)`;w.style.maskImage=w.style.webkitMaskImage=m;};
     const step=now=>{if(my!==token){ghost.remove();lens(999);return;}const u=Math.min(1,(now-t0)/ms),e=ease(u);
-      ghost.style.transformOrigin=(g0.ox+(d.x-g0.ox)*e)+'% '+(g0.oy+(d.y-g0.oy)*e)+'%';ghost.style.transform='scale('+(g0.s*(1+(deep?5:0)*e)).toFixed(3)+')';
+      ghost.style.transformOrigin=(g0.ox+(d.x-g0.ox)*e)+'% '+(g0.oy+(d.y-g0.oy)*e)+'%';ghost.style.transform='scale('+(g0.s*(1+(deep?5:0)*e)).toFixed(3)+')';if(deep)ghost.style.filter='blur('+(e*4).toFixed(1)+'px)';
       ghost.style.opacity=(deep?1-Math.max(0,(u-.85)/.15):1-e).toFixed(3);cam.fade=Math.min(1,e*(deep?3:1.5));
       if(deep)lens(u<.78?18+ease(u/.78)*22:40+(u-.78)/.22*105);
       if(u<1)requestAnimationFrame(step);else{ghost.remove();cam.fade=1;lens(999);}};
     requestAnimationFrame(step);setTimeout(()=>{if(my===token)sentence(k||0);},deep?ms:200);return;}
-  build(i);cam.to=null;cam.ox=50;cam.oy=50;cam.s=1;cam.fade=1;partsReplay(k||0);sentence(k||0);}
-function sentence(k){const s=F.shots[si];const t=s.sentences[k];if(!t)return;ki=k;labelRound++;retireLabels();$('sub').textContent=t.text;const now=performance.now();bar(si,k,playing);
+  build(i);setPath(s,false);cam.to=null;cam.ox=50;cam.oy=50;cam.s=1;cam.fade=1;partsReplay(k||0);sentence(k||0);}
+// the question on the screen while it is asked, the camera on the part it asks about (BIE times it: track) with a "?"
+// there, and the card stays, quieter, while the answer is told (Navin, 24 November 2026: "question screen par aaye aur
+// question par screen ke kis hisse par baat ho rhi aur question mein kya baat ho rhi wo thoda sa mehsoos ho")
+let ask=null;
+function askStep(t,k){if(ask&&(ask.si!==si||k>ask.k+1||k<ask.k)){ask.card.remove();ask=null;}else if(ask&&k===ask.k+1)ask.card.classList.add('old');
+  if(fxBox)fxBox.querySelectorAll('.qmark').forEach(m=>m.remove());if(!t.ask||!t.ask.q)return;if(ask){ask.card.remove();ask=null;}
+  const c=el('div','qcard');c.appendChild(el('b','','?'));c.appendChild(el('span','',t.ask.q));$('stage').appendChild(c);ask={card:c,si,k};
+  if(t.ask.x!=null&&fxBox){const m=el('div','qmark','?');m.style.left=t.ask.x+'%';m.style.top=Math.max(5,t.ask.y-8)+'%';fxBox.appendChild(m);}}
+function sentence(k){const s=F.shots[si];const t=s.sentences[k];if(!t)return;ki=k;labelRound++;retireLabels();$('sub').textContent=t.text;const now=performance.now();bar(si,k,playing);askStep(t,k);
   const zm=t.zoom||{},tr=t.track||[];if(!(tr[0]&&tr[0].at<.8))camTo(zm.x==null?50:zm.x,zm.y==null?50:zm.y,Math.min(2.2,Math.max(1,zm.scale||1)),1700);
   // the camera goes close to what the voice names now and follows a thing that travels (Navin, 24 November 2026: "zoom
   // effects camera angles ka behtreen use krke taaki user ka dhyan script ke sath bandh jaaye"); BIE times it to the words
@@ -496,6 +561,6 @@ function stop(){playing=false;clearTimeout(timer);BIEVoice.stop();freezeBar();$(
 $('play').onclick=()=>{BIEVoice.unlock();if(playing){stop();return;}playing=true;$('play').innerHTML='&#10074;&#10074; Rokiye';bar(si,ki,true);speak(F.shots[si].sentences[ki]);};
 $('again').onclick=()=>{stop();show(0,0);};
 window.BIEFilm={state:()=>({shot:si,sentence:ki,playing,camera:{ox:cam.ox,oy:cam.oy,s:cam.s},actors:actors.map(a=>a.kind),labels:labels.length,voice:BIEVoice.state,words:texts.length,cut:texts.filter(t=>t.classList.contains('cut')).length,
-  parts:Object.values(parts).map(P=>Object.assign({id:P.id,spin:P.el.classList.contains('p-spin'),roll:P.el.classList.contains('p-roll'),riders:P.riders.length},P.now)),go:(i,k)=>{stop();show(i,k);}})};
+  ask:ask?ask.card.textContent:'',path:($('stage').querySelector('.path')||{}).textContent||'',alive:!!alive,parts:Object.values(parts).map(P=>Object.assign({id:P.id,spin:P.el.classList.contains('p-spin'),roll:P.el.classList.contains('p-roll'),riders:P.riders.length},P.now)),go:(i,k)=>{stop();show(i,k);}})};
 show(0,0);
 </script></body></html>

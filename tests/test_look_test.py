@@ -22,12 +22,13 @@ PHOTO = {"id": "s1", "visual": {"type": "photo", "image_prompt": "a green leaf i
 
 
 class Styles(unittest.TestCase):
-    def test_the_glossy_look_is_the_films_default_and_mixed_stays_one_word_away(self):
+    def test_the_hybrid_look_is_the_films_default_and_glossy_stays_one_word_away(self):
         # Navin, 23 November 2026, after the first heading film: "Is baar matte with controlled roshni nhi pehale wale
-        # chamakdaar tarike se hi banao video"; his 22 November "mixed" look (structure close-ups, matte overviews, a light
-        # controlled sheen) stays one word away
-        self.assertEqual(studio_film.FILM_STYLE, "glossy")
-        self.assertTrue(studio_film.image_prompt(SHOT).endswith(studio_film.CUTAWAY_SUFFIX))
+        # chamakdaar tarike se hi banao video"; then, 24 November 2026, after r3 of 11.6.3b in his 22 November "mixed" look
+        # (structure close-ups, matte overviews, a light controlled sheen): "Behtar laga achha bana hai". Glossy stays one
+        # word away
+        self.assertEqual(studio_film.FILM_STYLE, "mixed")
+        self.assertTrue(studio_film.image_prompt(SHOT).endswith(studio_film.CUTAWAY_STYLES["close_up"]))
         self.assertIn("glossy cells, soft volumetric light", studio_film.CUTAWAY_SUFFIX)
         self.assertIn("glossy cells, soft\n  volumetric light", studio_film.INSTRUCTIONS)
         self.assertTrue(studio_film.image_prompt(SHOT, "", "mixed").endswith(studio_film.CUTAWAY_STYLES["close_up"]))

@@ -3017,3 +3017,33 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
 - **Measured on r3's own film data:** shots asking for a passage: 5 of 10 (all through CF₀, the transmembrane part or
   the proton pump; r3 as made: 8 of 10, three of them in open stroma); the CF₁ lobe's push-ins: 0 (r3: 2); edge dimming
   on r3's cream pictures 0.24 (was 0.62). Next: Navin's verdict on the hybrid look.
+
+## Entry · Navin's verdict on r3, and the r4 rules (living world, questions, carry, going inside), 24 November 2026
+
+- **Verdict (Navin, 13:53):** the hybrid look is better than 7-h11's glossy ("Behtar laga achha bana hai"); the thylakoid
+  membrane looked odd and fake ("thodi ajeeb aur nakli") and should move a little like a living thing; a question raised
+  in a process should be on the screen and start "Ab sawaal uthta hai / Ab aap poochhenge / Ab aapke man mein sawaal utha
+  hoga"; going to a part's molecular level needs the zoom-in feel of going into the leaf; learn real movement from how
+  cells, proteins and enzymes move. At 14:10: make the film again, with a living proton pump that grips H⁺ and lets it
+  go in the lumen, and the question's part felt through the camera or a director rule.
+- **What r3 taught, measured on its own film data:** membranes drawn as a ruler-straight row of identical beads and
+  never moving (0 of 8 cutaways moved apart from the travelling molecules); 7 of the 8 questions after the opening one
+  began without saying a question comes ("Socho", "Kya"), none was on the screen and the camera stayed still on all of
+  them; the proton pump was crossed by plain moves in 3 lines and never gripped anything; 5 shots in a row were each a
+  "closer look", so going inside was never felt.
+- **What the research said** (molecular-animation principles for science animators; microscopy of membranes and plant
+  cells): nothing in a cell stands still; molecules move by random collisions, not on rails or toward a goal; proteins
+  flex; membranes flicker in slow, long waves; chloroplasts stream round plant cells; real speed is too fast to see, so
+  films slow it.
+- **Changed in BIE:** the hybrid look is the default (`FILM_STYLE = "mixed"`); the living world in the player (columns
+  of the cutaway lifted by a slow, irregular wave; parts ride it and sway; travelling molecules wander); act `carry`
+  with `carry_problems`; `question_problems`, `ask_card`, `question_subject` and the question's camera in
+  `camera_track`, with a card on the screen and a "?" at the part; each shot's `place`, `place_problems`, the path of
+  places in the player, and a dive that first goes onto its point and then through it with a growing blur; the
+  close-up and overview looks ask for a living, gently rippling membrane. Older films (no `place`) keep their rules.
+  Tests: questions, the question's card and camera, the pump's carry and its checks, places and dives, the path and the
+  living flag, the player's new functions. Studio lane: the film suites pass; the passed-output sets still pass.
+- **Measured on r3's own film data (r3 page re-wrapped with the new player):** cutaways that move by themselves 8 of 10
+  (r3: 0); questions on the screen 8 of 8, and with the camera on the part they name 7 of 8 (r3: 0 and 0); lines where
+  the pump must be seen carrying 3 (r3: plain moves through it); the checks would have sent back 7 question openers and
+  3 pump lines. Next: job `r4` on the VM.

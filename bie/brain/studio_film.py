@@ -67,10 +67,13 @@ VISUALS = ("photo", "cutaway", "diagram")
 # band hona jaise nigalna pakdna kisi jagah par chipkana"); bie/brain/picture_parts.py cuts the parts, the player moves them
 # Navin, 24 November 2026, on the r2 remake of 11.6.3b: "hilte huye lage jaise compress hone suction effect koi chij suck
 # krne ka pakde ka chipakne ka effect": squeeze (pressed, it gives), suck (its opening pulls a molecule in), grab (it closes
-# on a molecule and holds it)
-DOES = ("turn", "spin", "stop", "open", "loose", "tight", "squeeze", "suck", "grab", "stick", "leave", "arrive", "glow")
-TOWARD = ("open", "tight", "suck", "grab", "stick", "leave", "arrive")   # acts that need a point: where it closes, pulls or goes
-RIDES = ("spin", "suck", "grab")      # acts that take a molecule: riding on a spinning part, pulled in, held
+# on a molecule and holds it); Navin, 24 November 2026, on r3: "proton pump jeeta jaagta ... aisa lage jaise proton ko
+# pakadke lumen mein chhod rha ho": carry (it grips a molecule on its near side and lets it go on the far side, at toward)
+DOES = ("turn", "spin", "stop", "open", "loose", "tight", "squeeze", "suck", "grab", "carry", "stick", "leave", "arrive",
+        "glow")
+TOWARD = ("open", "tight", "suck", "grab", "carry", "stick", "leave", "arrive")   # acts that need a point: where it closes,
+#                                                                                   pulls, lets go or goes
+RIDES = ("spin", "suck", "grab", "carry")   # acts that take a molecule: riding on a spinning part, pulled in, held, carried
 UNCOVERS = ("turn", "open", "tight", "grab", "stick", "leave", "arrive")   # acts that uncover what lay under the part (a plate)
 MAX_PARTS = 6                 # parts cut from one picture
 MAX_ACTS = 3                  # acts in one sentence: one thing at a time
@@ -153,6 +156,7 @@ SCHEMA = _obj({
         "visual": _obj({"type": {"type": "string", "enum": list(VISUALS)}, "image_prompt": S, "svg": S, "library": S,
                         "parts": _arr(_obj({"id": S, "name": S, "looks": S}))}),
         "dive": _obj({"x": N, "y": N}),
+        "place": S,
         "aside": B,
         "sentences": _arr(SENTENCE),
     })),
@@ -228,14 +232,19 @@ with a process written inside a box instead of happening on screen):
   toward with pressure: where a bond is pressed together), squeeze (the part is pressed and gives: it squashes, holds a
   moment and springs back, as a catalytic lobe pressed by the turning stalk), suck (the part's opening at toward pulls the
   rider in: a channel drawing H+ in), grab (the part closes on the rider at toward and holds it: a site gripping ADP),
-  stick (the part slides to toward and joins there, squashing a little on contact, with a glow at the joint: Pi joining
+  carry (the part grips the rider on its near side, squeezes it through and lets it go at toward on its far side: a
+  proton pump taking H+ from the stroma into the lumen), stick (the part slides to toward and joins there, squashing a little on contact, with a glow at the joint: Pi joining
   ADP), leave (the part drifts to toward and is gone: ATP released), arrive (the part comes in from toward to its place),
-  glow (the part lights up while it is named). toward is [x, y] in percent for open, tight, suck, grab, stick, leave and
-  arrive, else []; turns is 0 except for turn; rider (a molecule) is given for suck and grab, may be given for spin, and
-  is "" otherwise. Use the act that shows what the line says the part does to the thing, so the learner sees the press,
-  the pull or the grip (Navin, 24 November 2026: "compress hone, suction, pakadne, chipakne ka effect"). At most {max_parts} parts on
-  a picture and {max_acts} acts in a sentence; every listed part is acted on. A molecule that is not in the picture still
-  comes as a move or a react.
+  glow (the part lights up while it is named). toward is [x, y] in percent for open, tight, suck, grab, carry, stick,
+  leave and arrive, else []; turns is 0 except for turn; rider (a molecule) is given for suck, grab and carry, may be
+  given for spin, and is "" otherwise. Use the act that shows what the line says the part does to the thing, so the
+  learner sees the press, the pull or the grip (Navin, 24 November 2026: "compress hone, suction, pakadne, chipakne ka
+  effect"). A pump or carrier that moves something across a membrane is a listed part of its picture and carries it
+  (carry) in the line that says so, so the learner sees it take hold and let go (Navin, 24 November 2026: "proton pump
+  jeeta jaagta ... jaise proton ko pakadke lumen mein chhod rha ho"); that thing is not also sent through it as a move.
+  At most {max_parts} parts on a picture and {max_acts} acts in a sentence; every listed part is acted on. A molecule
+  that is not in the picture still comes as a move or a react. BIE keeps the living world moving by itself (membranes
+  ripple slowly, the proteins in them sway with them, molecules wander a little as they travel); write nothing for it.
 - MOLECULES MEETING (Navin, 21 November 2026: "achhe coordination ke saath, khichdi si na pake"). Where molecules meet
   (ADP + Pi → ATP at CF1's catalytic head; CO2 + RuBP → 3-PGA at Rubisco), show one meeting at a time: one react per
   sentence; every molecule that flies in or comes out is named in that sentence; the inputs come from where they really
@@ -258,7 +267,10 @@ with a process written inside a box instead of happening on screen):
   - A question and its answer are told apart: the question is asked, then a bridge opens the answer. Not "Proton
     gradient mein itni dilchaspi kyun—kyunki iske ghatne se energy milti hai" but "Par pehle, proton gradient mein itni
     dilchaspi kyun? Iski wajah jaan lete hain: aisa isliye hai kyunki iske ghatne se ATP banane ki energy milti hai."
-    His question openers: "ek sawaal ab bhi banta hai ki ...", "Ab sawaal banta hai ...", "Aakhir ... kyun?"; his
+    Every question after the film's opening one starts by saying that a question comes, in his words (Navin, 24
+    November 2026; also in a film made from the chapter's script): "Ab sawaal uthta hai ki ...?", "Ab aap poochhenge
+    ki ...?", "Ab aapke man mein sawaal utha hoga ki ...?", "Ek sawaal ab bhi banta hai ki ...?"; vary them. BIE writes
+    the question on the screen and takes the camera to the part it asks about, so the question names that part; his
     answer openers: "Iska seedha sa jawab hai ...", "Aisa isliye hai kyunki ...", "Isme kaam aata hai ...", "Dekhiye,
     hota kya hai: ...".
   - In voice every question ends with ? and its answer starts a new sentence, so the voice pauses and the question sounds
@@ -318,6 +330,13 @@ with a process written inside a box instead of happening on screen):
   is where; BIE adds how it is rendered); svg is "".
 - dive: {{"x": 0-100, "y": 0-100}} when this shot is a close-up INSIDE a point of the previous picture (the camera dives
   into that point, then this shot opens); {{"x": -1, "y": -1}} otherwise (and always for the first shot).
+- place: what this shot's picture shows, as the narration calls it, 1 to 4 words ("Thylakoid", "ATP synthase", "CF₁ ka
+  catalytic hissa", "Baandh"). GOING INSIDE (Navin, 24 November 2026: "kisi part ke molecular level par jaane ka effect
+  yaani zoom in jaise patte ke andar karte the"): a dive goes one level deeper, into a part the previous picture shows
+  (the organelle, its membrane, a protein, the protein's own site), and its picture shows that part big. BIE takes the
+  camera onto the dive point first, then through it, and shows the path of places in a corner (Thylakoid › ATP synthase
+  › CF₁), so the learner knows where they now are. A closer look at the same place is the camera's zoom on the same
+  picture, not a new shot: a diving shot's place is a new place inside the one before.
 - Every sentence says what appears WHILE it is spoken ("dikhaya = bola"): pins (a short label at x,y in percent of the
   picture, 3 to 97; the label's words must be spoken in that sentence), arrows (2 to 4 points in percent, a short label or
   ""), effects (rise for rising air or heat, rain, glow; a box x0,x1,y0,y1 in percent), focus (ids of SVG parts to light up;
@@ -863,7 +882,105 @@ def problems(film, question: dict) -> list:
             + overlay_problems(film) + _aatma_problems(film))
     return (out + book_problems(film, question) + screen_problems(film, question) + layout_problems(film)
             + teacher_problems(film, question) + library_problems(film, question) + mechanism_problems(film, question)
-            + teaching_problems(film, question))
+            + teaching_problems(film, question) + question_problems(film) + carry_problems(film) + place_problems(film))
+
+
+# --- Navin, 24 November 2026, on r3 of 11.6.3b (the hybrid look passed): questions said as questions and shown on the
+# screen, a pump that grips and lets go, and dives that go inside. Films made before these rules (their shots have no
+# "place", such as the passed Q14 of 21 November 2026) keep the rules they were passed under.
+def newer_rules(film: dict) -> bool:
+    shots = film.get("shots") or []
+    return bool(shots) and all(isinstance(s, dict) and "place" in s for s in shots)
+
+
+ASKING = re.compile(r"(?i)\b(sawaa?l\w*|savaa?l\w*|prashn\w*|prashan\w*|poochh\w*|puchh\w*|pooch\w*)\b|\bman mein\b")
+
+
+def question_problems(film: dict) -> list:
+    """Every question after the film's opening one starts by saying that a question comes (Navin, 24 November 2026:
+    "prashan ab sawal uthta hai, ya ab aap puchhenge, ya ab aapke man mein sawal utha hoga, jaise vakyo se shuru ho")."""
+    if not newer_rules(film):
+        return []
+    out, first = [], True
+    for where, shot, sentence in _sentences(film):
+        roman = (sentence.get("roman") or "").strip()
+        if first or sentence.get("part") == "hook":
+            first = False
+            continue
+        if roman.endswith("?") and not ASKING.search(" ".join(roman.split()[:9])):
+            out.append(f"{where}: a question in the film starts by saying a question comes (\"Ab sawaal uthta hai ki ...?\", "
+                       f"\"Ab aap poochhenge ki ...?\", \"Ab aapke man mein sawaal utha hoga ki ...?\"), in roman and voice: "
+                       f"\"{roman[:70]}\"")
+    return out
+
+
+PUMPING = re.compile(r"(?i)\b(pump\w*|carriers?|transporters?)\b[^.?!;]{0,60}?\b(le ja\w*|bhej\w*|pahunch\w*|accumulat\w*|"
+                     r"pakad\w*|chhod\w*|daal\w*|across|andar|paar|into|moves?|carr(y|ies))\b")
+PUMP_NAME = re.compile(r"(?i)\b(pump\w*|cytochrome\w*|b[6₆] ?f|carriers?|transporters?)")
+NEGATION = re.compile(r"(?i)\b(nahi|nahin|na|bina|without|not|no)\b")
+
+
+def carry_problems(film: dict) -> list:
+    """A pump that moves something across a membrane is seen gripping it and letting it go (Navin, 24 November 2026:
+    "proton pump jeeta jaagta sath mein aisa lage jaise proton ko pakdke lumen mein chhod rha ho"): a cutaway line whose
+    moving thing passes a pinned pump, or (when no pump is pinned) that says a pump moves what travels in it, carries it
+    (act carry on the pump)."""
+    if not newer_rules(film):
+        return []
+    out = []
+    for number, shot in enumerate(film.get("shots") or [], 1):
+        visual = shot.get("visual") or {}
+        if visual.get("type") != "cutaway":
+            continue
+        marks = [(p.get("label") or "", p.get("x"), p.get("y")) for s in shot.get("sentences") or []
+                 for p in s.get("pins") or [] if isinstance(p, dict) and PUMP_NAME.search(p.get("label") or "")]
+        for k, sentence in enumerate(shot.get("sentences") or [], 1):
+            if any(a.get("do") == "carry" for a in sentence.get("acts") or []):
+                continue
+            roman = sentence.get("roman") or ""
+            paths = [p for m in sentence.get("moves") or [] for p in m.get("points") or [] if _point(p)]
+            if not paths:
+                continue
+            near = any(math.hypot(float(x) - p[0], float(y) - p[1]) < 10 for _, x, y in marks
+                       if isinstance(x, (int, float)) and isinstance(y, (int, float)) for p in paths)
+            said = not marks and PUMPING.search(roman) and not NEGATION.search(roman)   # no pump pinned: what the line says
+            if near or said:
+                out.append(f"{shot.get('id') or f'shot {number}'} sentence {k}: a pump moves what travels here; list the pump "
+                           "as a part of this picture and show it carrying the thing across (carry: rider = what it moves, "
+                           "toward = where it lets go on the far side), instead of a move through it")
+    return out
+
+
+def place_problems(film: dict) -> list:
+    """Every shot names its place, and a dive goes inside something new that the picture before shows (Navin, 24
+    November 2026: "kisi part ke molecular level par jaane ka effect yaani zoom in jaise patte ke andar karte the"; r3's
+    five shots in a row were each a "closer look" at the same membrane, so going inside was never felt)."""
+    if not newer_rules(film):
+        return []
+    out, shots = [], film.get("shots") or []
+    for number, shot in enumerate(shots, 1):
+        sid = shot.get("id") or f"shot {number}"
+        place = str(shot.get("place") or "").strip()
+        if not place or len(place.split()) > 5 or len(place) > 40:
+            out.append(f"{sid}: place names what this picture shows in 1 to 4 words (\"Thylakoid\", \"ATP synthase\")")
+            continue
+        dive = shot.get("dive") or {}
+        if number == 1 or dive.get("x", -1) == -1:
+            continue
+        before = shots[number - 2]
+        if _plain(place).lower() == _plain(str(before.get("place") or "")).lower():
+            out.append(f"{sid}: dives into {place!r} from a picture of the same place; a dive goes inside something new, and a "
+                       "closer look at the same place is a zoom on the same picture")
+            continue
+        seen = " ".join([str(before.get("place") or ""), (before.get("visual") or {}).get("image_prompt") or ""]
+                        + [f"{p.get('name') or ''} {p.get('looks') or ''}" for p in (before.get("visual") or {}).get("parts") or []
+                           if isinstance(p, dict)]
+                        + [f"{s.get('roman') or ''} " + " ".join(str(p.get("label") or "") for p in s.get("pins") or [])
+                           for s in before.get("sentences") or []])
+        if not (_tokens(place) - {"ka", "ki", "ke"}) & _tokens(seen):
+            out.append(f"{sid}: dives into {place!r}, which the picture before does not show; a dive goes into a part that "
+                       "picture shows")
+    return out
 
 
 def _turning_on(shot: dict, k: int) -> bool:
@@ -943,8 +1060,9 @@ def parts_problems(film: dict) -> list:
                     out.append(f"{where}: turn on {pid!r} needs turns in degrees, 5 to 360 either way (-120 for one step)")
                 if do != "turn" and turns:
                     out.append(f"{where}: {do} on {pid!r} takes turns 0")
-                if do in ("suck", "grab") and not act.get("rider"):
-                    out.append(f"{where}: {do} on {pid!r} needs rider: the molecule it {'pulls in' if do == 'suck' else 'holds'}")
+                if do in ("suck", "grab", "carry") and not act.get("rider"):
+                    what = {"suck": "pulls in", "grab": "holds", "carry": "carries across"}[do]
+                    out.append(f"{where}: {do} on {pid!r} needs rider: the molecule it {what}")
                 if act.get("rider") and do not in RIDES:
                     out.append(f"{where}: only {', '.join(RIDES)} take a rider; {do} on {pid!r} has rider \"\"")
                 if do not in ("stop", "loose") and not (_spoken_words(names[pid]) & spoken):
@@ -1461,22 +1579,26 @@ CUTAWAY_STYLES = {
                  "physically based renderer): each protein a smooth atomic-surface model with its real shape and a light, "
                  "controlled satin sheen (never glossy plastic, never gritty or sandpaper-rough), the membrane as a real "
                  "lipid bilayer with visible thickness (two layers of densely packed lipid heads with their tails between "
-                 "them, seen at the cut edge, gently curved, each protein sitting through it at its true depth), soft "
+                 "them, seen at the cut edge, a living, flexible sheet that curves and ripples a little along its length, "
+                 "its lipid heads slightly uneven, never a ruler-straight row of identical beads, each protein sitting "
+                 "through it at its true depth), soft "
                  "neutral studio light with ambient occlusion, photographic depth of "
                  "field, colours as tints on the real shapes. No glow, no volumetric light rays, whatever the words above "
                  "say about light. 16:9 landscape." + NO_MARKS),
     "overview": (" Realistic scientific render of the whole structure at this scale, not a cartoon: natural textures, true "
                  "relative sizes, soft natural light with ambient occlusion, a light controlled satin sheen on membranes "
                  "and envelopes (never glassy or plastic, no sparkle), every membrane with its real thickness (a double "
-                 "layer where it is cut), gentle depth of field, muted natural colours. Draw "
+                 "layer where it is cut) and curving naturally like living tissue, never ruler-straight, gentle depth of "
+                 "field, muted natural colours. Draw "
                  "no individual proteins or molecules at this scale unless the words above name them. No glow, no "
                  "volumetric light rays, whatever the words above say about light. 16:9 landscape." + NO_MARKS),
 }
 # the films' cutaways: "mixed" draws a close-up of proteins and molecular machinery as "close_up" and a whole-structure
 # view as "overview"; "glossy" brings back the look the films had until 22 November 2026
 # Navin, 23 November 2026, after the first heading film: "Is baar matte with controlled roshni nhi pehale wale chamakdaar
-# tarike se hi banao video" (his 22 November choice was open ended)
-FILM_STYLE = "glossy"
+# tarike se hi banao video" (his 22 November choice was open ended); Navin, 24 November 2026, after r3 of 11.6.3b in the
+# hybrid look: "Behtar laga achha bana hai", so the hybrid look is the films' look again
+FILM_STYLE = "mixed"
 # the parts that move are solid, so they can be cut and so the mechanism reads (Navin, 23 November 2026, on routes A and B:
 # "kuchh jyada hi transparent hai ... bahut hi transparent beta aur na dikhne wali dandi"): whatever the cutaway style
 # says about transparency, these parts are opaque and fully in view; "solid, separate, clean edge" made toy shapes (the
@@ -1723,8 +1845,15 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
             lines.append({"text": sentence.get("voice") or sentence.get("roman") or "", "dur": clip.get("dur") or 0,
                           "shot_start": k == 0 and bool(lines), "dive": dive.get("x", -1) != -1})
     after = iter(gaps(lines))
+    path = None
     for shot in film.get("shots") or []:
         visual = shot.get("visual") or {}
+        # the path of places the camera has gone inside (Thylakoid › ATP synthase › CF₁): a dive adds its place, a cut
+        # starts again, an analogy's own picture has none (Navin, 24 November 2026: "taaki pata lage ki hum is cheej ke
+        # molecular level par jaa rahe hai")
+        place = str(shot.get("place") or "").strip()
+        diving = (shot.get("dive") or {}).get("x", -1) != -1
+        path = None if (shot.get("aside") or not place) else (path + [place] if diving and path else [place])
         layers = [dict(p) for p in (parts or {}).get(shot.get("id")) or [] if p.get("img") and p.get("box")]
         cut = {p.get("id") for p in layers}
         names = {p.get("id"): p.get("name") or "" for p in visual.get("parts") or [] if isinstance(p, dict)}
@@ -1751,6 +1880,8 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
                                                   "turns": a.get("turns") or 0, "rider": a.get("rider") or ""}
                                                  for a in sentence.get("acts") or [] if a.get("part") in cut],
                                                 names, text, clip.get("dur") or max(2.5, 0.075 * len(text)))})
+            if text.rstrip().endswith("?"):  # the question is on the screen while it is asked (Navin, 24 November 2026)
+                sentences[-1]["ask"] = dict({"q": ask_card(text)}, **(question_subject(text, shot, layers) or {}))
             sentences[-1]["track"] = camera_track(sentences[-1], layers,
                                                   last=k == len(shot.get("sentences") or []) - 1,
                                                   question=text.rstrip().endswith("?"))
@@ -1762,6 +1893,10 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
                       "light": lightness(images.get(shot.get("id"), "")),
                       "type": visual.get("type"), "img": images.get(shot.get("id"), ""),
                       "dive": dive if dive.get("x", -1) != -1 else None,
+                      "place": place, "path": list(path) if path else None,
+                      # the living world moves by itself: a membrane ripples, its proteins sway (Navin, 24 November 2026:
+                      # "thoda hilti lage na jaise ek living organism ke andar cells wagarh aise hilti hai")
+                      "alive": visual.get("type") == "cutaway",
                       "svg": visual.get("svg", "") if visual.get("type") == "diagram" else "", "sentences": sentences,
                       "parts": layers})
     return {"title": film.get("title") or question.get("question"), "question": question.get("question"),
@@ -1831,6 +1966,59 @@ def steady_camera(sentences: list) -> list:
 
 TRACK_MIN = 1.35       # how close the camera goes to what the voice names now
 TRACK_MAX = 2.0
+ASK_SCALE = 1.5        # how close the camera goes to what a question asks about
+
+
+def ask_card(roman: str) -> str:
+    """A question as the screen shows it: the words after its opener ("Ab sawaal uthta hai ki CF₁ ki shape kaise badalti
+    hai?" shows "CF₁ ki shape kaise badalti hai?")."""
+    text = " ".join((roman or "").split())
+    found = re.match(r"^(.{0,90}?)(?:\bki\b|:)\s+(.+\?)$", text)
+    if found and ASKING.search(found.group(1)):
+        text = found.group(2)
+    return text[:1].upper() + text[1:]
+
+
+def _named_at(name: str, low: str):
+    """Where in a plain, lower-case line ``name`` is first said, or None."""
+    best = None
+    for token in re.findall(r"[a-z0-9+\-]+", _plain(str(name or "")).lower()):
+        if (len(token) < 3 and not re.search(r"[0-9+]", token)) or token in SHORT_STOP or token in STOP:
+            continue
+        stem = token[:5] if len(token) > 5 and token.isalpha() else token
+        found = re.search((r"(?<![a-z0-9])" + re.escape(stem)) if stem[0].isalnum() else re.escape(stem), low)
+        if found and (best is None or found.start() < best):
+            best = found.start()
+    return best
+
+
+def question_subject(roman: str, shot: dict, layers: list) -> dict | None:
+    """The point of the picture a question asks about, for the camera, the light and the "?" mark: the first part or pinned
+    structure it names, or, when it names none, the first travelling thing it names (the middle of its way). None when it
+    names nothing on the picture."""
+    low = _plain(roman or "").lower()
+    found = []
+    for layer in layers:
+        box = layer.get("box")
+        at = _named_at(layer.get("name") or "", low)
+        if box and at is not None:
+            size = max(box[2] - box[0], (box[3] - box[1]) * 0.5625, 1.0)
+            found.append((0, at, (box[0] + box[2]) / 2, (box[1] + box[3]) / 2, max(1.15, min(ASK_SCALE, 40 / size))))
+    for sentence in shot.get("sentences") or []:
+        for pin in sentence.get("pins") or []:
+            at = _named_at(pin.get("label") or "", low) if isinstance(pin, dict) else None
+            if at is not None and _point([pin.get("x"), pin.get("y")]):
+                found.append((0, at, float(pin["x"]), float(pin["y"]), ASK_SCALE))
+        for move in sentence.get("moves") or []:
+            points = [p for p in move.get("points") or [] if _point(p)]
+            at = _named_at(move.get("label") or move.get("what") or "", low)
+            if points and at is not None:
+                middle = points[len(points) // 2]
+                found.append((1, at, float(middle[0]), float(middle[1]), 1.4))
+    if not found:
+        return None
+    _, _, x, y, scale = min(found, key=lambda f: (f[0], f[1]))
+    return {"x": round(x, 1), "y": round(y, 1), "scale": round(scale, 2)}
 
 
 def camera_track(sentence: dict, layers: list, *, last: bool = False, question: bool = False) -> list:
@@ -1838,10 +2026,16 @@ def camera_track(sentence: dict, layers: list, *, last: bool = False, question: 
     effects camera angles ka behtreen use krke taaki user ka dhyan script ke sath bandh jaaye"). As the voice names the
     first thing that happens (a part acting, a thing setting off, a meeting), the camera goes close to it; a thing that
     travels is followed to where it goes; the shot's last line ends on the whole picture, so the learner sees the step in
-    its place. A question keeps the camera still, and at most three moves come in one line. Each move: at (seconds), x, y
-    (percent), scale, ms."""
+    its place. A question takes the camera, as it is asked, to the part it asks about and holds there (Navin, 24 November
+    2026: "question par screen ke kis hisse par baat ho rhi ... wo thoda sa mehsoos ho camera effects ... se"); one that
+    names no part keeps the camera still. At most three moves come in one line. Each move: at (seconds), x, y (percent),
+    scale, ms."""
     if question:
-        return []
+        ask = sentence.get("ask") or {}
+        if ask.get("x") is None:
+            return []
+        return [{"at": 0.15, "x": round(float(ask["x"]), 1), "y": round(float(ask["y"]), 1),
+                 "scale": round(float(ask.get("scale") or 1.5), 2), "ms": 1300}]
     dur = float(sentence.get("dur") or 0) or 3.0
     boxes = {p.get("id"): p.get("box") for p in layers if p.get("box")}
     events = []
