@@ -235,7 +235,9 @@ class TeacherVoice(unittest.TestCase):
                                    line("Thylakoid ke andar."), line("Ab is H+ ko dekhiye."),
                                    line("Naya chitra.", shot_start=True, dive=True), line("Aur ek.", shot_start=True),
                                    line("Aakhri baat.")])
-        self.assertEqual(found[0], 0.0)                                   # the question's pause is in its own voice
+        # the question stays on the screen a second after it is asked (Navin, 24 November 2026, 19:21); part of that
+        # second is already in its own voice
+        self.assertEqual(found[0], round(studio_voice.ASK_PAUSE - studio_voice.QUESTION_PAUSE, 2))
         self.assertEqual(found[1], studio_voice.SENTENCE_PAUSE)
         self.assertEqual(found[2], studio_voice.REVEAL_PAUSE)             # a new idea, the film's first long pause
         self.assertEqual(found[4], studio_voice.SENTENCE_PAUSE)           # another new idea 8 s later: no long pause

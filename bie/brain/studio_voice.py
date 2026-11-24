@@ -68,6 +68,10 @@ CONVERT_TAU = 0.3         # OpenVoice's strength of the tone change (its default
 REVEAL_PAUSE = 1.0        # before a new idea inside a shot ("Ab dekhte hain ...") and, with the picture's own move, a new shot
 REVEAL_EVERY = 30.0       # seconds of film between two long pauses at most once (teachers: one or two a minute)
 SHOT_WAIT = {"dive": 1.6, "fade": 0.2}   # how long the player itself waits before a new shot's first line (studio_player)
+# a film's question stays on the screen about a second after it is asked, then goes, and the answer starts (Navin, 24
+# November 2026, 19:21: "sawal puchha jaaye, screen par dikhe, ek second ke liye pause ho sawal bolne ke baad, phir gayab
+# ho jaaye"); the question's own pause in its voice counts towards it
+ASK_PAUSE = 1.0
 NEW_IDEA = re.compile(r"^(?:ab\s+(?:dekh|jaan|samajh|samjh|baat|chal|aage|agl|is\b|yeh\b|ye\b)|aaiye|aayiye|chaliye|"
                       r"to\s+ab\b|next\b|now\s+(?:let|we)|let'?s\b)"
                       r"|^(?:अब\s+(?:देख|जान|समझ|बात|चल|आगे|अगल|इस|यह|ये)|आइए|आइये|आईए|चलिए|चलिये|तो\s+अब)", re.I)
@@ -244,7 +248,7 @@ def parts(text: str) -> list:
     A question the learner is asked to think about first ("Ruko, pehle khud socho: ...?") gets THINK_PAUSE.
     "Band membrane kyun chahiye? Iska seedha sa jawab hai: jamav." -> [("Band membrane kyun chahiye?", 0.30),
     ("Iska seedha sa jawab hai", 0.22), ("jamav.", 0.0)]. A line that ends with its question keeps the question's pause
-    at its end; ``gaps`` then adds nothing after it."""
+    at its end; ``gaps`` then adds what makes ASK_PAUSE after it."""
     out = []
     for piece in [p.strip() for p in re.split(r"(?<=\?)\s*", (text or "").strip()) if p.strip()]:
         if piece.endswith("?"):
@@ -280,7 +284,7 @@ def speed(part: str, base: float | None = None) -> float:
 def gaps(lines: list) -> list:
     """The silence after each line of a film before the next line starts (the player's ``after``), from the lines in
     order: [{"text": the voice line, "dur": seconds, "shot_start": the first line of a shot, "dive": that shot opens by a
-    dive}]. After a question nothing more (its pause is at the end of its own voice); before a new shot, what makes about a
+    dive}]. After a question, what makes ASK_PAUSE with the pause at the end of its own voice; before a new shot, what makes about a
     second with the shot's own wait (SHOT_WAIT), never less than a full stop's pause; before a new idea inside a shot
     ("Ab dekhte hain ...", "Aaiye ..."), REVEAL_PAUSE, but at most once in REVEAL_EVERY seconds; else SENTENCE_PAUSE."""
     out, since = [], REVEAL_EVERY                        # the film's opening counts as a long pause
@@ -292,7 +296,8 @@ def gaps(lines: list) -> list:
             out.append(0.0)
             continue
         if text.endswith("?"):
-            gap = 0.0
+            gap = round(max(0.0, ASK_PAUSE - (THINK_PAUSE if THINK.search(text.rsplit("?", 1)[0].split("?")[-1] + "?")
+                                              else QUESTION_PAUSE)), 2)
             if THINK.search(text):                       # a think question's pause is a long one too
                 since = 0.0
         elif nxt.get("shot_start"):

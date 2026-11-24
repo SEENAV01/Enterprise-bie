@@ -538,7 +538,13 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    place the camera has left and brings it back with the place. The dam photo's small inset in all three films is in
    the cupboard picture Navin kept on 24 November, so the inset check (new pictures only) does not reach it. All three
    films sent to Navin for his choice of look. **He chose Hybrid** (card, 24 November 2026): `mixed` stays the films'
-   default; `asli` and `asli_mixed` stay only as a job's choice and do not go into the film rules.
+   default; `asli` and `asli_mixed` stay only as a job's choice and do not go into the film rules. **Navin's notes of
+   19:21 (PR #213):** "sawal puchha jaaye, screen par dikhe, ek second ke liye pause ho sawal bolne ke baad, phir gayab
+   ho jaaye": a question line is followed by `ASK_PAUSE` (1.0 s with the pause in its own voice) and its card fades as
+   the answer starts (it no longer stays, quieter, through the answer). "jiski baat ho rahi sirf use dikhane ke chakkar
+   mein bahut kuchh screen ka hissa chhup jata hai": every camera move inside a picture is capped at `CAM_MAX` 1.3 (was
+   up to 2.2 asked and 2.0 tracked; r4 pushed to 1.6 on most lines), and the light (the dimmed rest) now comes with any
+   lean rather than only with a close zoom; a dive still goes inside. Shown on r4's CF₀ shot, before and after.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

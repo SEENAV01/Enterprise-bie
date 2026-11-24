@@ -340,8 +340,9 @@ with a process written inside a box instead of happening on screen):
 - Every sentence says what appears WHILE it is spoken ("dikhaya = bola"): pins (a short label at x,y in percent of the
   picture, 3 to 97; the label's words must be spoken in that sentence), arrows (2 to 4 points in percent, a short label or
   ""), effects (rise for rising air or heat, rain, glow; a box x0,x1,y0,y1 in percent), focus (ids of SVG parts to light up;
-  [] for photos) and zoom (x, y in percent and scale 1.0 to 2.2: where the camera moves for this sentence; 1.0 shows the
-  whole picture, 1.6 to 2.2 goes close to one part, as a camera pushes in from the whole flower to the anther).
+  [] for photos) and zoom (x, y in percent and scale 1.0 to 1.3: where the camera moves for this sentence; 1.0 shows the
+  whole picture, 1.2 to 1.3 leans towards one part while the rest stays in view, and BIE lights that part and dims the
+  rest; BIE never goes closer than 1.3, so nothing the learner needs is cut off the screen).
 - Motion, as in the approved Pollen-to-seed film: whatever travels in the story is SHOWN travelling while it is spoken.
   moves: things sent along a path over the picture: what (pollen, cell, dot, drop, molecule, light, spark, or a molecule
   from BIE's kit: {molecules}), colour (gold,
@@ -1999,10 +2000,16 @@ def timed(reacts: list, roman: str, seconds: float) -> list:
     return out
 
 
+# the closest the camera goes inside a picture: Navin, 24 November 2026, 19:21, on r4: "jiski baat ho rahi sirf use dikhane
+# ke chakkar mein bahut kuchh screen ka hissa chhup jata hai, isme sudhar karo"; the camera leans in, the light points (a
+# dive into the next place is apart from this: it goes inside)
+CAM_MAX = 1.3
+
+
 def _zoom(z: dict) -> tuple:
     z = z or {}
     return (50.0 if z.get("x") is None else float(z["x"]), 50.0 if z.get("y") is None else float(z["y"]),
-            max(1.0, min(2.2, float(z.get("scale") or 1))))
+            max(1.0, min(CAM_MAX, float(z.get("scale") or 1))))
 
 
 def steady_camera(sentences: list) -> list:
@@ -2022,9 +2029,11 @@ def steady_camera(sentences: list) -> list:
     return out
 
 
-TRACK_MIN = 1.35       # how close the camera goes to what the voice names now
-TRACK_MAX = 2.0
-ASK_SCALE = 1.5        # how close the camera goes to what a question asks about
+TRACK_MIN = 1.12       # how close the camera goes to what the voice names now (at most CAM_MAX; the light does the rest)
+TRACK_MAX = CAM_MAX
+FOLLOW_SCALE = 1.2     # the camera on a thing that travels
+REACT_SCALE = 1.25     # the camera on a meeting
+ASK_SCALE = 1.2        # how close the camera goes to what a question asks about
 
 
 def ask_card(roman: str) -> str:
@@ -2061,7 +2070,7 @@ def question_subject(roman: str, shot: dict, layers: list) -> dict | None:
         at = _named_at(layer.get("name") or "", low)
         if box and at is not None:
             size = max(box[2] - box[0], (box[3] - box[1]) * 0.5625, 1.0)
-            found.append((0, at, (box[0] + box[2]) / 2, (box[1] + box[3]) / 2, max(1.15, min(ASK_SCALE, 40 / size))))
+            found.append((0, at, (box[0] + box[2]) / 2, (box[1] + box[3]) / 2, max(1.1, min(ASK_SCALE, 40 / size))))
     for sentence in shot.get("sentences") or []:
         for pin in sentence.get("pins") or []:
             at = _named_at(pin.get("label") or "", low) if isinstance(pin, dict) else None
@@ -2072,7 +2081,7 @@ def question_subject(roman: str, shot: dict, layers: list) -> dict | None:
             at = _named_at(move.get("label") or move.get("what") or "", low)
             if points and at is not None:
                 middle = points[len(points) // 2]
-                found.append((1, at, float(middle[0]), float(middle[1]), 1.4))
+                found.append((1, at, float(middle[0]), float(middle[1]), 1.15))
     if not found:
         return None
     _, _, x, y, scale = min(found, key=lambda f: (f[0], f[1]))
@@ -2093,7 +2102,7 @@ def camera_track(sentence: dict, layers: list, *, last: bool = False, question: 
         if ask.get("x") is None:
             return []
         return [{"at": 0.15, "x": round(float(ask["x"]), 1), "y": round(float(ask["y"]), 1),
-                 "scale": round(float(ask.get("scale") or 1.5), 2), "ms": 1300}]
+                 "scale": round(min(CAM_MAX, float(ask.get("scale") or ASK_SCALE)), 2), "ms": 1300}]
     dur = float(sentence.get("dur") or 0) or 3.0
     boxes = {p.get("id"): p.get("box") for p in layers if p.get("box")}
     events = []
@@ -2109,11 +2118,11 @@ def camera_track(sentence: dict, layers: list, *, last: bool = False, question: 
     for move in sentence.get("moves") or []:
         points = [p for p in move.get("points") or [] if _point(p)]
         if len(points) >= 2:
-            events.append((float(move.get("at") if move.get("at") is not None else 0.3), list(points[0]), 1.6,
+            events.append((float(move.get("at") if move.get("at") is not None else 0.3), list(points[0]), FOLLOW_SCALE,
                            (list(points[-1]), max(1.0, min(4.0, float(move.get("ms") or 3000) / 1000)))))
     for react in sentence.get("reacts") or []:
         if _point(react.get("at")):
-            events.append((float(react.get("delay") or 0.3), list(react["at"]), 1.7, None))
+            events.append((float(react.get("delay") or 0.3), list(react["at"]), REACT_SCALE, None))
     events.sort(key=lambda e: e[0])
     track = []
     if events:
