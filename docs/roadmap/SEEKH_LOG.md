@@ -2919,3 +2919,27 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   lines, 41 % of lines adding a step; the second shows 7 forms, camera 56 %, steps 21 %; a locked test film's prompt part
   for an economics course carries no biology word and names "Kirana shop". Studio lane 606 tests, 0 failures, 0 skips.
   The almaari's first real entry waits for Navin to pass the 11.6.3b remake.
+
+## Entry · The 11.6.3b remake (job r1) and Navin's verdict, 24 November 2026
+
+- **Run:** VM job `r1-photosynthesis-116-3b-remake` (PR #205's rules, glossy, female voice, ₹0, 40.5 minutes): 11 shots,
+  5 rounds, 0 problems, parts 3 of 3. The new checks worked in the run: two photo prompts asking for a "model" and a
+  "miniature", and one asking for a checklist, were sent back and fixed. Measured: camera on 44 % of lines (7-h11: 56 %,
+  the first film: 38 %), a step on 41 % (21 %, 41 %), 1.8 labels on screen on average (3.2, 3.4), no crowd, model or
+  checklist (7-h11: 5).
+- **Navin (24 November 2026, 05:02):** the real dam and turbine picture "pehli film banayi tabhi ban gayi thi aur
+  almari mein bhi thi hamare paas"; realism still does not come; "photorealistic hisse abhi bhi nahi hilte"; 7-h11 was
+  better than this one. Not passed: the aatma almaari stays empty.
+- **What the run taught:** (1) the remake could not use any kept picture: a cupboard was read only from the from-run
+  folder, and the script run has none (the first film's dam had never been put in a cupboard either); (2) the parts did
+  move, too little to see: "spin" rolled a sheen over the turbine (its wheel, with identical blades, never turned) and a
+  19 % wide CF₁ head opened by 2.8 % of the frame; (3) the picture AI drew this run's machines more like clay than 7-h11's.
+- **Changed in BIE:** a job names its own cupboard (`library`, passed by `tools/codex_vm.py` to `tools/vm_studio.py`,
+  `cupboard()`); a kept picture's words are not sent back by the crowd, photo and checklist checks (it is already made
+  and was chosen); a wheel-like part (about as wide as tall on screen) turns for real when it spins, a rod still rolls
+  its sheen; a jaw (open, tight) moves in proportion to its part (`jawScale`, up to 2.4 times). Cupboard `c116-3b` on
+  `codex-jobs`: the 7-h11 pictures of 11.6.3b (without its chemiosmosis picture, which has four empty checklist bars
+  painted in) and the first film's real dam pictures (Navin's card "7-h11 ki tasveerein + naya talmel").
+- **Measured (offline, on the r1 film):** the turbine's wheel now turns (four frames over 1.2 s, the blades in four
+  places); the CF₁ lobe opens by 11 % of the frame with a visible gap (before: 2.8 %). Next: job `r2`, the same
+  question with the cupboard, so only the talmel and the parts' motion differ from 7-h11.

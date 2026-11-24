@@ -139,6 +139,19 @@ def kept_pictures(source: str) -> list:
     return out
 
 
+def cupboard(args) -> list:
+    """The pictures a film may take again: the cupboard named by the job (``--library``) first, then any cupboard kept in
+    the from-run folder; one id once. Navin, 24 November 2026: the first 11.6.3b film's real dam "almari mein bhi thi
+    hamare paas", yet the remake drew a new one, because the cupboard lived only beside the script run it came from."""
+    out, seen = [], set()
+    for source in (getattr(args, "library", "") or "", args.from_run):
+        for entry in kept_pictures(source) if source else []:
+            if entry["id"] not in seen:
+                seen.add(entry["id"])
+                out.append(dict(entry, source=source))
+    return out
+
+
 def image_uri(path, width: int = 1600) -> str:
     """The picture as a WebP data URI, at most ``width`` px wide (the film is one file that works offline)."""
     import base64
@@ -357,7 +370,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
             q["teacher_lines"] = [{"roman": str(x.get("roman") or ""), "note": str(x.get("note") or "")}
                                   for x in teacher["lines"] if isinstance(x, dict)]
             q["earlier_film"] = teacher.get("film") if isinstance(teacher.get("film"), dict) else {}
-        q["library"] = kept_pictures(args.from_run)
+        q["library"] = cupboard(args)
         record = studio_film.write(client, model, q, course=args.course, language=args.language,
                                    chapter=plan.get("chapter_title", ""), max_rounds=args.max_rounds)
         for key in usage:
@@ -375,7 +388,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                     saved = None
                     if entry:                        # a kept picture from the cupboard (Navin, 21 November 2026)
                         try:
-                            target.write_bytes(read_bytes(args.from_run, entry["file"]))
+                            target.write_bytes(read_bytes(entry.get("source") or args.from_run, entry["file"]))
                             saved, kept = target, kept + 1
                         except Exception as exc:
                             record["problems"] = record["problems"] + [f"{shot.get('id')}: kept picture {entry['id']} not read "
@@ -771,6 +784,8 @@ def main(argv=None):
     parser.add_argument("--from-run", default="", help="naksha: an understand run (chapter_map.json); films, games, book: the "
                         "earlier run (folder or https URL) with questions.json")
     parser.add_argument("--videos", default="", help="films, games, book: only these question ids, for example q01,q02")
+    parser.add_argument("--library", default="", help="films: a picture cupboard (folder or https URL with library.json and "
+                        "library/) whose kept pictures the film may take again")
     parser.add_argument("--pyqs", default="", help="pyq: the questions JSON (https URL or file)")
     parser.add_argument("--out", required=True)
     parser.add_argument("--pages", default="")

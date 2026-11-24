@@ -1146,6 +1146,50 @@ class PictureCupboard(unittest.TestCase):
             self.assertEqual(client.images, 0)                          # nothing was drawn for the kept scene
             self.assertIn("almaari se 1 tasveer", (Path(folder) / "out" / "FILMS.md").read_text(encoding="utf-8"))
 
+    def test_a_job_names_its_own_cupboard(self):
+        """Navin, 24 November 2026: the first 11.6.3b film's real dam "almari mein bhi thi", yet the remake drew a new one,
+        because a cupboard was read only beside the script run. A job now names its cupboard (``library``)."""
+        with tempfile.TemporaryDirectory() as folder:
+            self.cupboard(folder)                                    # the cupboard sits in qrun/
+            script_run = Path(folder) / "srun"
+            script_run.mkdir()
+            (script_run / "questions.json").write_text(json.dumps({"chapter_title": "Monsoon", "questions": [QUESTION]}),
+                                                       encoding="utf-8")
+            made = film()
+            made["shots"][0]["visual"].update(type="cutaway", library="ghat-wall", image_prompt="Mountain wall in monsoon rain, clouds climbing the western slope, wet green forest, painterly 3D.")
+            client = FakeClient([made])
+            args = SimpleNamespace(stage="films", source="", from_run=str(script_run), library=str(Path(folder) / "qrun"),
+                                   videos="q01", out=str(Path(folder) / "out"), pages="", course="Class 9",
+                                   language="Hinglish", model="", max_rounds=2)
+            summary = vm_studio.run(args, client=client, load=None, voice_maker=lambda: (FakeVoice(), None))
+            self.assertEqual((summary["status"], summary["films"][0]["kept_pictures"], client.images), ("ok", 1, 0))
+            self.assertEqual([e["id"] for e in vm_studio.cupboard(args)], ["ghat-wall"])
+        import codex_vm
+        job = {"section": "studio", "stage": "films", "max_rounds": 5, "from_run": "https://x/s6",
+               "library": "https://raw.githubusercontent.com/o/r/codex-jobs/prompts/c116-3b"}
+        cmd = codex_vm.argv(job, Path("/tmp/out"), "python")
+        self.assertEqual(cmd[cmd.index("--library") + 1], job["library"])
+
+    def test_a_kept_picture_keeps_its_words(self):
+        """A kept picture is already made and was chosen: its description is not sent back for its words."""
+        made = film()
+        made["shots"][0]["visual"].update(type="photo", library="dam", image_prompt="a photoreal hydroelectric model with "
+                                          "a dense proton population and a four-item checklist")
+        self.assertEqual(studio_film.crowd_problems(made) + studio_film.photo_problems(made) + studio_film.overlay_problems(made), [])
+        made["shots"][0]["visual"]["library"] = ""
+        self.assertEqual(len(studio_film.crowd_problems(made) + studio_film.photo_problems(made) + studio_film.overlay_problems(made)), 3)
+
+    def test_a_moving_part_moves_enough_to_be_seen(self):
+        """Navin, 24 November 2026: "photorealistic hisse abhi bhi nahi hilte": the turbine's sheen rolled but its wheel never
+        turned, and a 19% wide CF1 head opened by 2.8%. A wheel facing us turns for real; a jaw moves with its size."""
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        self.assertIn(".part.p-wheel .pb{animation:spin", page)
+        act = page[page.index("function doAct"):page.index("function addRiders")]
+        self.assertIn("if(wheelLike(P))P.el.classList.add('p-wheel')", act)
+        self.assertIn("const k=jawScale(P)", act)
+        self.assertIn("function wheelLike(P)", page)
+        self.assertIn("size/10", page[page.index("function jawScale(P)"):])
+
 
 class LearnedFromFilmA(unittest.TestCase):
     """Navin compared every Q14 film (21 November 2026) and chose that BIE learn from his film A: a question before every

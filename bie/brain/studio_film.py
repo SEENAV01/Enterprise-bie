@@ -1548,6 +1548,8 @@ def crowd_problems(film: dict) -> list:
     khichdi of the two (23 November 2026)."""
     out = []
     for number, shot in enumerate(film.get("shots") or [], 1):
+        if ((shot.get("visual") or {}).get("library") or "").strip():
+            continue                          # a kept picture is already made and was chosen; its words stay
         prompt = (shot.get("visual") or {}).get("image_prompt") or ""
         found = CROWD.search(prompt)
         if found:
@@ -1566,6 +1568,8 @@ def overlay_problems(film: dict) -> list:
     both looks (look test, 23 November 2026)."""
     out = []
     for number, shot in enumerate(film.get("shots") or [], 1):
+        if ((shot.get("visual") or {}).get("library") or "").strip():
+            continue                          # a kept picture is already made and was chosen; its words stay
         found = OVERLAY_ASK.search((shot.get("visual") or {}).get("image_prompt") or "")
         if found:
             out.append(f"{shot.get('id') or f'shot {number}'}: the image_prompt asks the picture for a {found.group(0)!r}; BIE "
@@ -1585,7 +1589,7 @@ def photo_problems(film: dict) -> list:
     out = []
     for number, shot in enumerate(film.get("shots") or [], 1):
         visual = shot.get("visual") or {}
-        if visual.get("type") != "photo":
+        if visual.get("type") != "photo" or (visual.get("library") or "").strip():
             continue
         found = PHOTO_MODEL.search(visual.get("image_prompt") or "")
         if found:
