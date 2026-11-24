@@ -475,8 +475,16 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    `camera_track` times the camera to the words (close on the part or thing as it is named, following a thing that
    travels, the whole picture at a shot's end, still on a question); acts `squeeze`, `suck`, `grab` (with a molecule)
    and a give on `stick`; a part is named on screen as it acts; labels stay on the shot (an earlier line's quieter),
-   eight at most, eight pins a picture. IMPLEMENTED. Next: job `r3` (the same script, `look` "mixed", cupboard
-   `c116-3b-dam` with only the real dam photos).
+   eight at most, eight pins a picture. IMPLEMENTED. Merged (PR #209, `bdf1e91d`). **Job `r3` (24 November 2026):** 10
+   shots, 3 rounds, 0 problems, 8 pictures drawn in the hybrid look and the 2 real dam photos from `c116-3b-dam`, parts
+   3 of 3 (the turbine turns on its frames), NCERT 10/10, played whole with no errors, up to 8 labels. The H⁺ channel was
+   drawn and the H⁺ travel through it. Wrong: four pictures drew invented tubes and ribbons between the proteins (the
+   route rule also asked for passages of ATP, NADPH and sugar through the open stroma); the close-up's dimming turned
+   the cream background grey; the camera pushed into a 57 % wide CF₁ lobe and cut its labels; the maker used only
+   squeeze of the new acts. Sent to Navin. Fixed here: a passage only where a route goes through a carrier (a channel,
+   pump, protein or complex pinned near its middle), one per structure, and no tube in open fluid; a light picture is
+   dimmed gently (`lightness`); no push into a part that already fills the frame. IMPLEMENTED; r3 re-wrapped offline.
+   Next: Navin's verdict on the hybrid look.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

@@ -1640,11 +1640,17 @@ def _where_in(point) -> str:
     return f"{down} {across}".strip() if down or across != "centre" else "centre"
 
 
+CARRIERS = re.compile(r"(?i)\b(channels?|pores?|pumps?|cf ?[0₀]|transmembrane|proteins?|complex(es)?|atp synthase|"
+                      r"cytochromes?|photosystems?|ps ?ii?\b|carriers?|transporters?|ring|stalk|gates?)\b")
+
+
 def route_clause(shot: dict) -> str:
-    """The passages the shot's moving things travel through, for its picture: each drawn as a real structure, open from
-    entrance to exit (Navin, 24 November 2026, on r2 of 11.6.3b: "flow hone ke raaste ka structure sa bankar jaise glossy
-    wale mein H+ ke liye bnaya hai"; 7-h11's picture had drawn the H+ channel through the membrane, and the H+ visibly
-    went through it). Written by code from the film's own moves, so every film gets it; "" when nothing moves."""
+    """The passages the shot's moving things go through a structure by, for its picture: each drawn as a real channel,
+    open from entrance to exit (Navin, 24 November 2026, on r2 of 11.6.3b: "flow hone ke raaste ka structure sa bankar
+    jaise glossy wale mein H+ ke liye bnaya hai"; 7-h11's picture had drawn the H+ channel through the membrane, and the H+
+    visibly went through it). Only a route that passes a carrier (a channel, pump, protein or complex pinned near its
+    middle) gets a passage: on r3 (24 November 2026) routes through the open stroma and lumen were drawn as invented tubes
+    and ribbons between the proteins, which no cell has. Written by code from the film's own moves; "" when none."""
     visual = shot.get("visual") or {}
     if visual.get("type") != "cutaway":
         return ""
@@ -1652,25 +1658,32 @@ def route_clause(shot: dict) -> str:
              if isinstance(p, dict) and p.get("x") is not None]
     marks += [(p.get("label") or "", p.get("x"), p.get("y")) for s in shot.get("sentences") or [] for p in s.get("pins") or []
               if isinstance(p, dict) and p.get("x") is not None]
+    marks = [m for m in marks if CARRIERS.search(m[0] or "")]
     routes, seen = [], set()
     for sentence in shot.get("sentences") or []:
         for move in sentence.get("moves") or []:
             points = [p for p in move.get("points") or [] if _point(p)]
             what = str(move.get("label") or move.get("what") or "").strip()
-            if len(points) < 2 or not what or (what, _where_in(points[0]), _where_in(points[-1])) in seen:
+            if len(points) < 2 or not what:
                 continue
-            seen.add((what, _where_in(points[0]), _where_in(points[-1])))
             middle = points[len(points) // 2]
             near = [(math.hypot(float(x) - middle[0], float(y) - middle[1]), name) for name, x, y in marks
-                    if name and not _spoken_words(name) & _spoken_words(what)]
-            through = min(near)[1] if near and min(near)[0] < 14 else ""
-            routes.append(f"the passage {what} travel through, from the {_where_in(points[0])} to the "
-                          f"{_where_in(points[-1])}" + (f", through the {through}" if through else ""))
+                    if name and not _spoken_words(name) <= _spoken_words(what)]     # not the mover's own name
+            if not near or min(near)[0] >= 14:
+                continue
+            through = min(near)[1]
+            key = _plain(through).lower()                # one passage per structure (H⁺, "proton", "proton flow")
+            if key in seen:
+                continue
+            seen.add(key)
+            routes.append(f"the channel through the {through} that {what} pass through, from the {_where_in(points[0])} "
+                          f"to the {_where_in(points[-1])}")
     if not routes:
         return ""
-    return (" Draw each route a moving thing takes as a real structure it passes through (a channel, pore, groove or chain "
-            "of carriers), open from its entrance to its exit and in clear view, empty of the travellers (BIE moves them "
-            "over the picture): " + "; ".join(routes[:4]) + ".")
+    return (" Draw each passage a moving thing takes through a structure as a real open channel in that structure, from its "
+            "entrance to its exit and in clear view, empty of the travellers (BIE moves them over the picture): "
+            + "; ".join(routes[:3]) + ". Things that move through open fluid (the stroma, the lumen) need no passage: draw "
+            "no tube, pipe or ribbon between the structures.")
 
 
 def image_prompt(shot: dict, look: str = "", style: str | None = None) -> str:
@@ -1746,12 +1759,30 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
                 sentences[-1]["after"] = gap
         dive = shot.get("dive") or {}
         shots.append({"id": shot.get("id"), "title": shot.get("title"), "key": shot.get("key"),
+                      "light": lightness(images.get(shot.get("id"), "")),
                       "type": visual.get("type"), "img": images.get(shot.get("id"), ""),
                       "dive": dive if dive.get("x", -1) != -1 else None,
                       "svg": visual.get("svg", "") if visual.get("type") == "diagram" else "", "sentences": sentences,
                       "parts": layers})
     return {"title": film.get("title") or question.get("question"), "question": question.get("question"),
             "qid": question.get("id"), "chapter": chapter, "tint": tint, "shots": shots, "kit": kit_for(shots)}
+
+
+def lightness(uri: str) -> float | None:
+    """How light a picture is, 0 (black) to 1 (white), from its data URI; None when it cannot be read. The spotlight dims
+    the rest of a close-up; on r3's cream, matte pictures (24 November 2026) its dark edge turned the background a muddy
+    grey, so a light picture is dimmed gently."""
+    if not uri or not str(uri).startswith("data:image"):
+        return None
+    try:
+        import base64
+        import io
+        from PIL import Image, ImageStat
+        image = Image.open(io.BytesIO(base64.b64decode(uri.split(",", 1)[1]))).convert("L")
+        image.thumbnail((64, 64))
+        return round(ImageStat.Stat(image).mean[0] / 255, 2)
+    except Exception:
+        return None
 
 
 def timed(reacts: list, roman: str, seconds: float) -> list:
@@ -1819,8 +1850,10 @@ def camera_track(sentence: dict, layers: list, *, last: bool = False, question: 
         if not box or act.get("do") in ("stop", "loose"):
             continue
         size = max(box[2] - box[0], (box[3] - box[1]) * 0.5625, 1.0)
+        if 40 / size < TRACK_MIN:            # a part that already fills much of the frame is seen without a push in (r3:
+            continue                         # a 57% wide CF1 lobe at 1.35 cut the head and its labels off the screen)
         events.append((float(act.get("at") or 0.4), [(box[0] + box[2]) / 2, (box[1] + box[3]) / 2],
-                       max(TRACK_MIN, min(TRACK_MAX, 40 / size)), None))
+                       min(TRACK_MAX, 40 / size), None))
     for move in sentence.get("moves") or []:
         points = [p for p in move.get("points") or [] if _point(p)]
         if len(points) >= 2:

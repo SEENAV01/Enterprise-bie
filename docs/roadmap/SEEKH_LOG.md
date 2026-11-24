@@ -2996,3 +2996,24 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   routes: 8 of 10; labels on screen at a shot's end: up to 8, earlier ones quieter (r2: at most 5, and only the last two
   lines'). Played on r2 with the new player and three trial acts: no page errors; the CF₁ lobe squashes and springs
   back, three H⁺ are pulled into the opening with closing rings, ADP comes to the site and stays held. Next: job `r3`.
+
+## Entry · The hybrid remake of 11.6.3b (job r3), 24 November 2026
+
+- **Run:** VM job `r3-photosynthesis-116-3b-hybrid` (PR #209, look "mixed", cupboard `c116-3b-dam`, female voice, ₹0,
+  32.2 minutes): 10 shots, 3 rounds (15 problems in round 1, then 1, then 0), 8 pictures drawn and the 2 real dam photos
+  kept, parts 3 of 3 (the turbine turns upright), NCERT 10/10, 87 points placed. Played whole in Chromium: 39 lines, no
+  page errors, up to 8 labels at once (r2: 5).
+- **What the run taught:** (1) the route rule worked where a thing goes through a protein (the H⁺ channel beside CF₀ was
+  drawn and the H⁺ travelled in it) and failed where things move through open fluid: ATP, NADPH and sugar routes in the
+  stroma became invented tubes and ribbons between the proteins in four pictures; (2) the close-up dimming, tuned on dark
+  glossy pictures, turned the hybrid's cream background a muddy grey; (3) the word-timed camera pushed into a CF₁ lobe
+  that already filled 57 % of the frame and cut its labels; (4) the maker used squeeze twice and never suck or grab.
+- **Changed in BIE:** `route_clause` asks for a passage only where a route passes a carrier (a channel, pump, protein,
+  complex, ring or stalk pinned near its middle; `CARRIERS`), one per structure, and tells the picture to draw no tube,
+  pipe or ribbon for things in open fluid; each shot carries its picture's `lightness` and the player dims a light
+  picture gently (0.24 at the edge, 0.62 for a dark one); `camera_track` does not push into a part that already fills
+  the frame. Tests: no route in open fluid, one passage per structure, the big part, the light and dark pictures.
+  Studio lane 622 tests, 0 failures; the passed-output sets still pass.
+- **Measured on r3's own film data:** shots asking for a passage: 5 of 10 (all through CF₀, the transmembrane part or
+  the proton pump; r3 as made: 8 of 10, three of them in open stroma); the CF₁ lobe's push-ins: 0 (r3: 2); edge dimming
+  on r3's cream pictures 0.24 (was 0.62). Next: Navin's verdict on the hybrid look.
