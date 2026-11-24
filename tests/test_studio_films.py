@@ -322,15 +322,18 @@ class LivingFilm(unittest.TestCase):
     def test_player_names_only_what_is_said_now(self):
         """Navin on 11.6.2a (23 November 2026, "steps clear na dikhe ... to kya khichdi pakti hai"): thirteen names stood on
         one line's picture, ATP, NADPH and O2 twice each (the molecule's own tag and a pin at the end of its move). A
-        molecule that carries its name gets no second label; a line's labels leave after the next line; five at most."""
+        molecule that carries its name gets no second label. Navin on r2 of 11.6.3b (24 November 2026, "labelling bahut
+        jyada kam ho gayi hai"): an earlier line's labels stay on the shot, quieter; eight at most, the oldest leave first."""
         page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
         move = page[page.index("function addMove("):page.index("function addGrow(")]
         self.assertIn("m.label&&!tagSays(m.what,m.label)", move)
         self.assertIn("function tagSays(what,label)", page)
-        self.assertIn("const MAX_LABELS=5;", page)
+        self.assertIn("const MAX_LABELS=8;", page)
         add = page[page.index("function addLabel("):page.index("function placeLabels(")]
         self.assertIn("labels.length<=MAX_LABELS", add)
-        self.assertIn("!l.math&&l.k<labelRound-1", add)                    # a wheel's name and a reaction stay
+        self.assertIn("if(!l.math&&l.k<labelRound){l.box.classList.remove('new');l.box.classList.add('old');}", add)
+        self.assertIn("same.box.classList.remove('old')", add)            # a name said again is bright again
+        self.assertIn(".pin.old{", page)
         sentence = page[page.index("function sentence(k)"):page.index("function speak(")]
         self.assertLess(sentence.index("labelRound++;retireLabels();"), sentence.index("addLabel(p.t"))
 
@@ -1402,7 +1405,8 @@ class SectionFilmsLook(unittest.TestCase):
         self.assertIn("warm soft light and hydrated textures", made)
         self.assertTrue(made.endswith(studio_film.CUTAWAY_SUFFIX))
         self.assertIn("matte", studio_film.image_prompt(shot, look, "mixed"))      # his 22 Nov look keeps its words
-        self.assertIn("never\n  write matte", studio_film.INSTRUCTIONS)
+        self.assertIn("never write matte, non-reflective", studio_film.look_rule("glossy"))
+        self.assertIn("{look_rule}", studio_film.INSTRUCTIONS)
 
     def test_a_picture_shows_what_its_lines_talk_about(self):
         made = film()
@@ -1490,3 +1494,95 @@ class PassedFilms(unittest.TestCase):
                 kept = json.load(f)
             self.assertIn("Navin", kept["accepted"])
             self.assertEqual(studio_film.problems(kept["film"], kept["question"]), [], path.name)
+
+
+class HybridRemakeOf1163b(unittest.TestCase):
+    """Navin, 24 November 2026, on r2 of 11.6.3b: the same film in his hybrid look (matte + controlled light + structure),
+    the camera tied to the words, each route drawn as a structure, parts that press, pull and grip, and enough labels."""
+
+    def test_a_job_chooses_its_look(self):
+        job = codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "r3-hybrid-test", "section": "studio", "stage": "films",
+                                 "from_run": "https://example.org/runs/x", "look": "mixed"})
+        self.assertIn("--look", codex_vm.argv(job, Path("/tmp/out"), "python"))
+        with self.assertRaises(codex_vm.JobError):
+            codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "r3-hybrid-test", "section": "studio", "stage": "films",
+                               "from_run": "https://example.org/runs/x", "look": "neon"})
+        hybrid = studio_film.messages({"id": "q", "question": "?", "points": []}, course="Biology", language="Hinglish",
+                                      look="mixed")[0]["content"]
+        self.assertIn("hybrid look (22 November 2026)", hybrid)
+        self.assertNotIn("The pictures are glossy", hybrid)
+        self.assertIn("The pictures are glossy", studio_film.messages({"id": "q", "question": "?", "points": []},
+                                                                      course="Biology", language="Hinglish")[0]["content"])
+        machine = {"visual": {"type": "cutaway", "image_prompt": "ATP synthase in the thylakoid membrane, glossy"}, "sentences": []}
+        whole = {"visual": {"type": "cutaway", "image_prompt": "a whole chloroplast, no individual proteins"}, "sentences": []}
+        close, wide = studio_film.image_prompt(machine, "", "mixed"), studio_film.image_prompt(whole, "", "mixed")
+        self.assertIn("real lipid bilayer with visible thickness", close)
+        self.assertIn("controlled satin sheen", close)
+        self.assertNotIn("membrane, glossy", close)                               # the maker's own "glossy" is taken out
+        self.assertIn("every membrane with its real thickness", wide)
+
+    def test_each_route_is_drawn_as_a_structure(self):
+        shot = {"visual": {"type": "cutaway", "image_prompt": "ATP synthase in the membrane", "parts": []},
+                "sentences": [{"pins": [{"label": "CF₀", "x": 48, "y": 58}],
+                               "moves": [{"what": "H+", "label": "H⁺", "points": [[20, 85], [48, 55], [60, 20]]}]},
+                              {"pins": [], "moves": [{"what": "H+", "label": "H⁺", "points": [[22, 84], [60, 22]]}]}]}
+        clause = studio_film.route_clause(shot)
+        self.assertIn("real structure it passes through", clause)
+        self.assertIn("the passage H⁺ travel through, from the lower left to the upper centre, through the CF₀", clause)
+        self.assertEqual(clause.count("the passage"), 1)                         # the same route once
+        self.assertIn(clause, studio_film.image_prompt(shot, "", "mixed"))
+        photo = dict(shot, visual={"type": "photo", "image_prompt": "a dam"})
+        self.assertEqual(studio_film.route_clause(photo), "")                    # a photo shows the real thing as it is
+        self.assertEqual(studio_film.route_clause({"visual": {"type": "cutaway"}, "sentences": [{"moves": []}]}), "")
+
+    def test_the_camera_goes_where_the_voice_is(self):
+        layers = [{"id": "head", "box": [50, 20, 70, 50]}]
+        line = {"dur": 6.0, "acts": [{"part": "head", "do": "squeeze", "at": 2.0}],
+                "moves": [{"what": "H+", "points": [[20, 80], [40, 50], [60, 30]], "at": 3.5, "ms": 2500}], "reacts": []}
+        track = studio_film.camera_track(line, layers)
+        self.assertEqual((track[0]["at"], track[0]["x"], track[0]["y"]), (1.7, 60.0, 35.0))    # the head, as it is named
+        self.assertTrue(studio_film.TRACK_MIN <= track[0]["scale"] <= studio_film.TRACK_MAX)
+        moving = studio_film.camera_track({"dur": 6.0, "acts": [], "reacts": [],
+                                           "moves": [{"what": "H+", "points": [[20, 80], [60, 30]], "at": 1.0, "ms": 2500}]}, [])
+        self.assertEqual([(c["x"], c["y"]) for c in moving], [(20, 80), (60, 30)])              # followed to where it goes
+        self.assertEqual(studio_film.camera_track(dict(line), layers, question=True), [])        # a question holds still
+        end = studio_film.camera_track({"dur": 6.0, "acts": [], "moves": [], "reacts": []}, [], last=True)
+        self.assertEqual((end[-1]["x"], end[-1]["y"], end[-1]["scale"]), (50.0, 50.0, 1.0))   # the shot ends on the whole
+        self.assertLessEqual(len(studio_film.camera_track(line, layers, last=True)), 3)
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        sentence = page[page.index("function sentence(k)"):page.index("function speak(")]
+        self.assertIn("tr.forEach(c=>setTimeout(()=>{if(my===token&&ki===k)camTo(c.x,c.y,", sentence)
+
+    def test_parts_press_pull_and_grip(self):
+        import sys as _sys
+        _sys.path.insert(0, str(ROOT / "tests"))
+        from test_film_parts import acts_film
+        made = acts_film()
+        lines = made["shots"][0]["sentences"]
+        lines[1]["acts"][1].update(do="grab", rider="ADP")
+        lines[2]["acts"].append({"part": "beta_top", "do": "suck", "toward": [60, 40], "turns": 0, "rider": ""})
+        said = " ".join(studio_film.parts_problems(made))
+        self.assertIn("suck on 'beta_top' needs rider: the molecule it pulls in", said)
+        self.assertNotIn("grab on 'beta_top' needs rider", said)
+        for act in ("squeeze", "suck", "grab"):
+            self.assertIn(act, studio_film.DOES)
+            self.assertIn(act, studio_film.ACT_WORDS)
+        self.assertIn("squeeze (the part is pressed and gives", studio_film.INSTRUCTIONS)
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        act = page[page.index("function doAct"):page.index("function addRiders")]
+        self.assertIn("if(a.do==='squeeze'){if(!instant){squash(P,now,T,.8,1500)", act)
+        self.assertIn("if(a.do==='suck'&&T){if(!instant)suction(P,T,a.rider,now);return;}", act)
+        self.assertIn("holdAt(T,a.rider,now,instant,P)", act)
+        self.assertIn("squash(P,now+1350,T,.88,700)", act)                       # a part that sticks gives on contact
+        self.assertIn("addLabel(P.name,P.c[0]", act)                              # named as it acts
+        self.assertIn("scale(${(n.s*chew*px).toFixed(4)},${(n.s*chew*py).toFixed(4)})", page)
+
+    def test_part_names_reach_the_player(self):
+        film = {"shots": [{"id": "s1", "visual": {"type": "cutaway", "parts": [{"id": "head", "name": "CF₁ head"}]},
+                           "sentences": [{"roman": "CF₁ head dabta hai.", "acts": [{"part": "head", "do": "squeeze"}]}]}]}
+        data = studio_film.player_data(film, images={}, audio={}, chapter="", question={"id": "q"},
+                                       parts={"s1": [{"id": "head", "img": "data:x", "box": [40, 20, 60, 50]}]})
+        shot = data["shots"][0]
+        self.assertEqual(shot["parts"][0]["name"], "CF₁ head")
+        self.assertEqual(shot["sentences"][0]["acts"][0]["do"], "squeeze")
+        self.assertTrue(shot["sentences"][0]["track"])                          # the camera goes to the head, then the whole

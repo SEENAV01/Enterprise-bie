@@ -2967,3 +2967,32 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   turbine 0 % before (the sheen is an overlay; the blades never moved), 22 % now (pitch 31.6 degrees); stalk 0 % before,
   27 % now (pitch 60 degrees). r2 re-wrapped with the new player: the turbine's blades stand in a new place every 0.1 s.
   Next: Navin's verdict on r2's talmel.
+
+## Entry · Navin on r2 and the hybrid remake's rules, 24 November 2026
+
+- **Navin (09:24):** make this video once more in the hybrid look decided before (matte + controlled light + structure);
+  use zoom and camera angles at their best so the learner's attention is bound to the script; build the route a thing
+  flows along as a structure, as the glossy film did for H⁺; make the membrane and the parts more realistic and moving
+  ("compress hone, suction effect, koi chij suck krne ka, pakde ka, chipakne ka effect"); labelling has become far too
+  little: use as much as makes each point clear as the script says it.
+- **What r2 showed:** the camera moved on 18 of 39 lines and only at a line's start; labels left after the next line,
+  five at most, so a shot ended with one or two names; the pictures drew no passage for H⁺ unless the maker happened to
+  write one; parts could turn, open, close, slide and leave, but not give under pressure, pull in or hold a molecule.
+- **Changed in BIE:** a job's `look` (validated in `tools/codex_vm.py`, passed to `tools/vm_studio.py --look`) chooses
+  the pictures' look and the line the maker reads about it (`studio_film.LOOK_RULES`, `look_rule`); "mixed" draws
+  machinery close-ups as structures with a controlled sheen and whole structures matte, each membrane a real bilayer
+  with its thickness (`CUTAWAY_STYLES`); `route_clause` writes the passage of every moving thing into its cutaway's
+  picture prompt from the film's moves (from where to where, through the structure pinned nearest its middle), so every
+  film gets it from code; `camera_track` times the camera to the words (`track` on each sentence, run by the player);
+  `squeeze`, `suck` and `grab` join the acts (a rider molecule for suck and grab), `stick` gives on contact, and a part
+  that acts is named on screen at that moment (its name now reaches the player); labels stay on their shot, an earlier
+  line's label quieter, eight at most, and a picture may carry eight pins (was six). Tests: the job's look and the
+  maker's line, the hybrid's membrane words, route clauses (once per route, none for photos), the camera track (on the
+  named part, following, still on a question, the whole picture at the end, at most three moves), the new acts and
+  their checks, part names in the player data, the new label rules. Studio lane 620 tests, 0 failures; the
+  passed-output sets still pass.
+- **Measured on r2's own film data:** lines on which the camera goes close to the thing being named: 25 of 39 (r2: the
+  camera changed on 18, only at a line's start); question lines held still: 8; shots whose picture prompt now names its
+  routes: 8 of 10; labels on screen at a shot's end: up to 8, earlier ones quieter (r2: at most 5, and only the last two
+  lines'). Played on r2 with the new player and three trial acts: no page errors; the CF₁ lobe squashes and springs
+  back, three H⁺ are pulled into the opening with closing rings, ADP comes to the site and stays held. Next: job `r3`.

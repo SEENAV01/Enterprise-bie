@@ -398,7 +398,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
             q["earlier_film"] = teacher.get("film") if isinstance(teacher.get("film"), dict) else {}
         q["library"] = cupboard(args)
         record = studio_film.write(client, model, q, course=args.course, language=args.language,
-                                   chapter=plan.get("chapter_title", ""), max_rounds=args.max_rounds)
+                                   chapter=plan.get("chapter_title", ""), max_rounds=args.max_rounds, look=getattr(args, "look", "") or None)
         for key in usage:
             usage[key] += record["usage"].get(key, 0)
         film = record.get("film") if isinstance(record.get("film"), dict) else {}
@@ -420,7 +420,9 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                             record["problems"] = record["problems"] + [f"{shot.get('id')}: kept picture {entry['id']} not read "
                                                                        f"({str(exc)[:80]}); a new one was drawn"]
                     if saved is None:
-                        done = client.generate_image(studio_film.image_prompt(shot, film.get("look", "")), target)
+                        done = client.generate_image(studio_film.image_prompt(shot, film.get("look", ""),
+                                                                                 getattr(args, "look", "") or None),
+                                                     target)
                         saved = target.with_name(done["file"]) if isinstance(done, dict) and done.get("file") else target
                         saved = saved if saved.exists() else target
                         made += 1
@@ -812,6 +814,8 @@ def main(argv=None):
     parser.add_argument("--videos", default="", help="films, games, book: only these question ids, for example q01,q02")
     parser.add_argument("--library", default="", help="films: a picture cupboard (folder or https URL with library.json and "
                         "library/) whose kept pictures the film may take again")
+    parser.add_argument("--look", default="", help="films: how the pictures are drawn (glossy, mixed, matte, structure, "
+                        "close_up, overview; studio_film.FILM_STYLE when not given)")
     parser.add_argument("--pyqs", default="", help="pyq: the questions JSON (https URL or file)")
     parser.add_argument("--out", required=True)
     parser.add_argument("--pages", default="")

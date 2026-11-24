@@ -65,11 +65,16 @@ COLOURS = ("gold", "green", "blue", "red", "white", "purple")
 VISUALS = ("photo", "cutaway", "diagram")
 # what a sentence does to a part cut out of its AI picture (Navin, 23 November 2026, routeS: "pressure moving rotating khulna
 # band hona jaise nigalna pakdna kisi jagah par chipkana"); bie/brain/picture_parts.py cuts the parts, the player moves them
-DOES = ("turn", "spin", "stop", "open", "loose", "tight", "stick", "leave", "arrive", "glow")
-TOWARD = ("open", "tight", "stick", "leave", "arrive")      # acts that need a point: where the part closes, slides or goes
-UNCOVERS = ("turn", "open", "tight", "stick", "leave", "arrive")   # acts that uncover what lay under the part (a plate)
+# Navin, 24 November 2026, on the r2 remake of 11.6.3b: "hilte huye lage jaise compress hone suction effect koi chij suck
+# krne ka pakde ka chipakne ka effect": squeeze (pressed, it gives), suck (its opening pulls a molecule in), grab (it closes
+# on a molecule and holds it)
+DOES = ("turn", "spin", "stop", "open", "loose", "tight", "squeeze", "suck", "grab", "stick", "leave", "arrive", "glow")
+TOWARD = ("open", "tight", "suck", "grab", "stick", "leave", "arrive")   # acts that need a point: where it closes, pulls or goes
+RIDES = ("spin", "suck", "grab")      # acts that take a molecule: riding on a spinning part, pulled in, held
+UNCOVERS = ("turn", "open", "tight", "grab", "stick", "leave", "arrive")   # acts that uncover what lay under the part (a plate)
 MAX_PARTS = 6                 # parts cut from one picture
 MAX_ACTS = 3                  # acts in one sentence: one thing at a time
+PICTURE_PINS = 8              # different pins on one picture (6 until Navin, 24 November 2026: "labelling bahut kam")
 ZOOM_MAX = 2.2
 I = {"type": "integer"}
 B = {"type": "boolean"}
@@ -166,8 +171,7 @@ with a process written inside a box instead of happening on screen):
   the colour of every structure that is seen in more than one picture (for example "ATP synthase: violet head, amber
   channel"), and each image_prompt draws that structure in those colours (a part that changed colour between shots
   read as a different thing). BIE adds a structure's colours only to the pictures whose image_prompt names it, so a
-  structure appears only on the pictures at its own scale. The pictures are glossy (Navin, 23 November 2026): never
-  write matte, non-reflective or a muted sheen into the look or an image_prompt.
+  structure appears only on the pictures at its own scale. {look_rule}
 - REAL PLACES, LIVING PROCESSES. Places and processes are shown on AI pictures (photo or cutaway) that look like the real
   structure as electron micrographs and structural models show it (for a chloroplast: stacked thylakoid discs, the fluid
   stroma between them, membranes with depth; a protein in its known shape, such as ATP synthase: a ring in the membrane, a
@@ -221,10 +225,15 @@ with a process written inside a box instead of happening on screen):
   said: turn (the part turns about its centre by turns degrees, -360 to 360: -120 for one step of the stalk seen from
   above), spin (a part seen from the side keeps turning until stop or the shot ends; rider: a molecule riding on it, such
   as H+ on the ring, or ""), stop, open (the site opens away from toward), loose (back to rest), tight (it closes onto
-  toward with pressure: where a bond is pressed together), stick (the part slides to toward and joins there, with a glow
-  at the joint: Pi joining ADP), leave (the part drifts to toward and is gone: ATP released), arrive (the part comes in
-  from toward to its place), glow (the part lights up while it is named). toward is [x, y] in percent for open, tight,
-  stick, leave and arrive, else []; turns is 0 except for turn; rider is "" except for spin. At most {max_parts} parts on
+  toward with pressure: where a bond is pressed together), squeeze (the part is pressed and gives: it squashes, holds a
+  moment and springs back, as a catalytic lobe pressed by the turning stalk), suck (the part's opening at toward pulls the
+  rider in: a channel drawing H+ in), grab (the part closes on the rider at toward and holds it: a site gripping ADP),
+  stick (the part slides to toward and joins there, squashing a little on contact, with a glow at the joint: Pi joining
+  ADP), leave (the part drifts to toward and is gone: ATP released), arrive (the part comes in from toward to its place),
+  glow (the part lights up while it is named). toward is [x, y] in percent for open, tight, suck, grab, stick, leave and
+  arrive, else []; turns is 0 except for turn; rider (a molecule) is given for suck and grab, may be given for spin, and
+  is "" otherwise. Use the act that shows what the line says the part does to the thing, so the learner sees the press,
+  the pull or the grip (Navin, 24 November 2026: "compress hone, suction, pakadne, chipakne ka effect"). At most {max_parts} parts on
   a picture and {max_acts} acts in a sentence; every listed part is acted on. A molecule that is not in the picture still
   comes as a move or a react.
 - MOLECULES MEETING (Navin, 21 November 2026: "achhe coordination ke saath, khichdi si na pake"). Where molecules meet
@@ -336,16 +345,36 @@ with a process written inside a box instead of happening on screen):
   effects can also be spin (a turning rotor, such as the central stalk of ATP synthase; the box is where it turns).
   Use [] when nothing moves in that sentence. EVERY shot moves in at least one sentence, and in a long film at least half
   of all sentences move (moves, grows, fuses, reacts or cycles).
-- At most 3 pins per sentence and at most 6 on a picture overall; labels of 1 to 3 words; two pins of one sentence are
+- At most 3 pins per sentence and at most {picture_pins} on a picture overall; labels of 1 to 3 words; two pins of one sentence are
   at least {pin_gap} percent apart (a part inside another, such as the lumen inside a thylakoid, is pinned in its own
-  inner space).
+  inner space). The picture names what the voice names, as it is said (Navin, 24 November 2026: "labelling itni use karo
+  ki baat clear ho jaaye script ke bolne ke sath"): every structure, compartment or part a line speaks of gets its name
+  in that line, as a pin, a move's label or the act of a listed part (BIE names a part as it acts); a name already on the
+  picture is not pinned again.
 
 Answer with the JSON object only."""
 
 PROBLEMS_PROMPT = "BIE's code checked the film and found these problems. Send the whole corrected JSON again:\n- "
 
 
-def messages(question: dict, *, course: str, language: str, chapter: str = "") -> list:
+# what the maker is told about the pictures' look (the look itself is written into each picture prompt by image_prompt)
+LOOK_RULES = {
+    "glossy": "The pictures are glossy (Navin, 23 November 2026): never write matte, non-reflective or a muted sheen into "
+              "the look or an image_prompt.",
+    "mixed": "The pictures use Navin's hybrid look (22 November 2026): close-ups of proteins and molecular machinery are "
+             "drawn like structural-biology figures with a light controlled sheen, and whole structures (a leaf, a cell, a "
+             "chloroplast) matte in soft controlled light; BIE writes the look into every picture, so never write glossy, "
+             "shiny or plastic, nor a light or render style, into the look or an image_prompt.",
+}
+
+
+def look_rule(look: str | None) -> str:
+    look = look or FILM_STYLE
+    return LOOK_RULES.get(look) or (f"The pictures are drawn in BIE's {look.replace('_', ' ')} look, which BIE writes into "
+                                    "every picture: never write glossy, matte or a render style into the look or an image_prompt.")
+
+
+def messages(question: dict, *, course: str, language: str, chapter: str = "", look: str | None = None) -> list:
     length = (question.get("film") or {}).get("length", "long")
     low, high = SHOTS.get(length, SHOTS["long"])
     points = "\n".join(f"{i}. ({p.get('kind')}) {p.get('point')}" for i, p in enumerate(question.get("points") or []))
@@ -358,7 +387,8 @@ def messages(question: dict, *, course: str, language: str, chapter: str = "") -
                                                               kinds=MAX_KINDS, shot_chars=MAX_SHOT_CHARS,
                                                               pin_gap=PIN_GAP, step_sentences=STEP_SHOT_SENTENCES,
                                                               step_chars=STEP_SHOT_CHARS, beads=BEADS_MAX,
-                                                              max_parts=MAX_PARTS, max_acts=MAX_ACTS)
+                                                              max_parts=MAX_PARTS, max_acts=MAX_ACTS, picture_pins=PICTURE_PINS,
+                                                              look_rule=look_rule(look))
              + _aatma_part(course)},
             {"role": "user", "content": user + _overview_part(question) + _naksha_part(question) + _teacher_part(question)
              + _library_part(question)}]
@@ -799,8 +829,8 @@ def problems(film, question: dict) -> list:
                 moving += 1
             if SOURCE_WORDS.search(roman) or SOURCE_WORDS.search(voice):
                 out.append(f"{where}: names the source; remove it")
-        if len(labels) > 6:
-            out.append(f"{sid}: {len(labels)} different pins on one picture; at most 6")
+        if len(labels) > PICTURE_PINS:
+            out.append(f"{sid}: {len(labels)} different pins on one picture; at most {PICTURE_PINS}")
         chars = sum(len((sentence.get("roman") or "").strip()) for sentence in sentences)
         most_chars = STEP_SHOT_CHARS if stepped else MAX_SHOT_CHARS
         if chars > most_chars:
@@ -913,8 +943,10 @@ def parts_problems(film: dict) -> list:
                     out.append(f"{where}: turn on {pid!r} needs turns in degrees, 5 to 360 either way (-120 for one step)")
                 if do != "turn" and turns:
                     out.append(f"{where}: {do} on {pid!r} takes turns 0")
-                if act.get("rider") and do != "spin":
-                    out.append(f"{where}: only spin takes a rider; {do} on {pid!r} has rider \"\"")
+                if do in ("suck", "grab") and not act.get("rider"):
+                    out.append(f"{where}: {do} on {pid!r} needs rider: the molecule it {'pulls in' if do == 'suck' else 'holds'}")
+                if act.get("rider") and do not in RIDES:
+                    out.append(f"{where}: only {', '.join(RIDES)} take a rider; {do} on {pid!r} has rider \"\"")
                 if do not in ("stop", "loose") and not (_spoken_words(names[pid]) & spoken):
                     out.append(f"{where}: part {names[pid]!r} {do}s here but the line does not name it (dikhaya = bola)")
             if parts and TOUCHING.search(sentence.get("roman") or "") and not acts and not moves(sentence) \
@@ -1360,8 +1392,8 @@ def screen_problems(film: dict, question: dict) -> list:
 
 
 def write(client, model: str, question: dict, *, course: str = "", language: str = "Hinglish", chapter: str = "",
-          max_rounds: int = 3) -> dict:
-    convo = messages(question, course=course, language=language, chapter=chapter)
+          max_rounds: int = 3, look: str | None = None) -> dict:
+    convo = messages(question, course=course, language=language, chapter=chapter, look=look)
     rounds, usage, film, found = [], {"input_tokens": 0, "output_tokens": 0}, None, ["no answer yet"]
     for number in range(1, max_rounds + 1):
         try:
@@ -1427,13 +1459,16 @@ CUTAWAY_STYLES = {
     # deke achha kiya ja sakta hai"
     "close_up": (" Rendered like a structural-biology figure made from real atomic structures (cryo-EM and PDB models in a "
                  "physically based renderer): each protein a smooth atomic-surface model with its real shape and a light, "
-                 "controlled satin sheen (never glossy plastic, never gritty or sandpaper-rough), the membrane as densely "
-                 "packed lipid heads and tails, soft neutral studio light with ambient occlusion, photographic depth of "
+                 "controlled satin sheen (never glossy plastic, never gritty or sandpaper-rough), the membrane as a real "
+                 "lipid bilayer with visible thickness (two layers of densely packed lipid heads with their tails between "
+                 "them, seen at the cut edge, gently curved, each protein sitting through it at its true depth), soft "
+                 "neutral studio light with ambient occlusion, photographic depth of "
                  "field, colours as tints on the real shapes. No glow, no volumetric light rays, whatever the words above "
                  "say about light. 16:9 landscape." + NO_MARKS),
     "overview": (" Realistic scientific render of the whole structure at this scale, not a cartoon: natural textures, true "
                  "relative sizes, soft natural light with ambient occlusion, a light controlled satin sheen on membranes "
-                 "and envelopes (never glassy or plastic, no sparkle), gentle depth of field, muted natural colours. Draw "
+                 "and envelopes (never glassy or plastic, no sparkle), every membrane with its real thickness (a double "
+                 "layer where it is cut), gentle depth of field, muted natural colours. Draw "
                  "no individual proteins or molecules at this scale unless the words above name them. No glow, no "
                  "volumetric light rays, whatever the words above say about light. 16:9 landscape." + NO_MARKS),
 }
@@ -1598,6 +1633,46 @@ def photo_problems(film: dict) -> list:
     return out
 
 
+def _where_in(point) -> str:
+    x, y = float(point[0]), float(point[1])
+    across = "left" if x < 34 else "right" if x > 66 else "centre"
+    down = "upper" if y < 34 else "lower" if y > 66 else ""
+    return f"{down} {across}".strip() if down or across != "centre" else "centre"
+
+
+def route_clause(shot: dict) -> str:
+    """The passages the shot's moving things travel through, for its picture: each drawn as a real structure, open from
+    entrance to exit (Navin, 24 November 2026, on r2 of 11.6.3b: "flow hone ke raaste ka structure sa bankar jaise glossy
+    wale mein H+ ke liye bnaya hai"; 7-h11's picture had drawn the H+ channel through the membrane, and the H+ visibly
+    went through it). Written by code from the film's own moves, so every film gets it; "" when nothing moves."""
+    visual = shot.get("visual") or {}
+    if visual.get("type") != "cutaway":
+        return ""
+    marks = [(p.get("name") or p.get("label") or "", p.get("x"), p.get("y")) for p in visual.get("parts") or []
+             if isinstance(p, dict) and p.get("x") is not None]
+    marks += [(p.get("label") or "", p.get("x"), p.get("y")) for s in shot.get("sentences") or [] for p in s.get("pins") or []
+              if isinstance(p, dict) and p.get("x") is not None]
+    routes, seen = [], set()
+    for sentence in shot.get("sentences") or []:
+        for move in sentence.get("moves") or []:
+            points = [p for p in move.get("points") or [] if _point(p)]
+            what = str(move.get("label") or move.get("what") or "").strip()
+            if len(points) < 2 or not what or (what, _where_in(points[0]), _where_in(points[-1])) in seen:
+                continue
+            seen.add((what, _where_in(points[0]), _where_in(points[-1])))
+            middle = points[len(points) // 2]
+            near = [(math.hypot(float(x) - middle[0], float(y) - middle[1]), name) for name, x, y in marks
+                    if name and not _spoken_words(name) & _spoken_words(what)]
+            through = min(near)[1] if near and min(near)[0] < 14 else ""
+            routes.append(f"the passage {what} travel through, from the {_where_in(points[0])} to the "
+                          f"{_where_in(points[-1])}" + (f", through the {through}" if through else ""))
+    if not routes:
+        return ""
+    return (" Draw each route a moving thing takes as a real structure it passes through (a channel, pore, groove or chain "
+            "of carriers), open from its entrance to its exit and in clear view, empty of the travellers (BIE moves them "
+            "over the picture): " + "; ".join(routes[:4]) + ".")
+
+
 def image_prompt(shot: dict, look: str = "", style: str | None = None) -> str:
     """The shot's picture prompt; ``look`` (the film's shared art direction) keeps every picture in one world, with a
     structure's colours only on the pictures that show it (look_for); ``style`` is how a cutaway is rendered
@@ -1617,7 +1692,7 @@ def image_prompt(shot: dict, look: str = "", style: str | None = None) -> str:
     moving = acted_parts(shot)
     if moving:                               # parts BIE cuts out and moves are solid (routeS, 23 November 2026)
         suffix = SOLID_PARTS.format(parts="; ".join(f"{p.get('name')} ({p.get('looks')})" for p in moving)) + suffix
-    return prompt + shared + suffix
+    return prompt + shared + route_clause(shot) + suffix
 
 
 def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question: dict, tint: str = "#2c6e87",
@@ -1640,6 +1715,8 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
         layers = [dict(p) for p in (parts or {}).get(shot.get("id")) or [] if p.get("img") and p.get("box")]
         cut = {p.get("id") for p in layers}
         names = {p.get("id"): p.get("name") or "" for p in visual.get("parts") or [] if isinstance(p, dict)}
+        for layer in layers:                 # a part is named on screen as the voice names it (Navin, 24 November 2026)
+            layer["name"] = names.get(layer.get("id"), "")
         sentences = []
         camera = steady_camera(shot.get("sentences") or [])
         for k, sentence in enumerate(shot.get("sentences") or []):
@@ -1661,6 +1738,9 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
                                                   "turns": a.get("turns") or 0, "rider": a.get("rider") or ""}
                                                  for a in sentence.get("acts") or [] if a.get("part") in cut],
                                                 names, text, clip.get("dur") or max(2.5, 0.075 * len(text)))})
+            sentences[-1]["track"] = camera_track(sentences[-1], layers,
+                                                  last=k == len(shot.get("sentences") or []) - 1,
+                                                  question=text.rstrip().endswith("?"))
             gap = next(after, 0.0)
             if clip.get("uri"):
                 sentences[-1]["after"] = gap
@@ -1716,6 +1796,53 @@ def steady_camera(sentences: list) -> list:
         out.append({"x": keep[0], "y": keep[1], "scale": keep[2]})
         last = keep
     return out
+
+
+TRACK_MIN = 1.35       # how close the camera goes to what the voice names now
+TRACK_MAX = 2.0
+
+
+def camera_track(sentence: dict, layers: list, *, last: bool = False, question: bool = False) -> list:
+    """Where the camera goes inside a sentence, timed to the words (Navin, 24 November 2026, on r2 of 11.6.3b: "zoom
+    effects camera angles ka behtreen use krke taaki user ka dhyan script ke sath bandh jaaye"). As the voice names the
+    first thing that happens (a part acting, a thing setting off, a meeting), the camera goes close to it; a thing that
+    travels is followed to where it goes; the shot's last line ends on the whole picture, so the learner sees the step in
+    its place. A question keeps the camera still, and at most three moves come in one line. Each move: at (seconds), x, y
+    (percent), scale, ms."""
+    if question:
+        return []
+    dur = float(sentence.get("dur") or 0) or 3.0
+    boxes = {p.get("id"): p.get("box") for p in layers if p.get("box")}
+    events = []
+    for act in sentence.get("acts") or []:
+        box = boxes.get(act.get("part"))
+        if not box or act.get("do") in ("stop", "loose"):
+            continue
+        size = max(box[2] - box[0], (box[3] - box[1]) * 0.5625, 1.0)
+        events.append((float(act.get("at") or 0.4), [(box[0] + box[2]) / 2, (box[1] + box[3]) / 2],
+                       max(TRACK_MIN, min(TRACK_MAX, 40 / size)), None))
+    for move in sentence.get("moves") or []:
+        points = [p for p in move.get("points") or [] if _point(p)]
+        if len(points) >= 2:
+            events.append((float(move.get("at") if move.get("at") is not None else 0.3), list(points[0]), 1.6,
+                           (list(points[-1]), max(1.0, min(4.0, float(move.get("ms") or 3000) / 1000)))))
+    for react in sentence.get("reacts") or []:
+        if _point(react.get("at")):
+            events.append((float(react.get("delay") or 0.3), list(react["at"]), 1.7, None))
+    events.sort(key=lambda e: e[0])
+    track = []
+    if events:
+        at, point, scale, follow = events[0]
+        at = max(0.0, min(at - 0.3, dur - 1.0))
+        track.append({"at": round(at, 2), "x": round(point[0], 1), "y": round(point[1], 1), "scale": round(scale, 2),
+                      "ms": 1100})
+        if follow and math.hypot(follow[0][0] - point[0], follow[0][1] - point[1]) > 8:
+            track.append({"at": round(min(at + 0.6 * follow[1], dur - 0.8), 2), "x": round(follow[0][0], 1),
+                          "y": round(follow[0][1], 1), "scale": round(scale, 2), "ms": round(follow[1] * 900)})
+    if last:
+        track.append({"at": round(max((track[-1]["at"] + 1.4) if track else 0.0, dur - 1.6), 2), "x": 50.0, "y": 50.0,
+                      "scale": 1.0, "ms": 1400})
+    return track[:3]
 
 
 def said_at(names: list, roman: str, seconds: float) -> float | None:
@@ -1961,6 +2088,8 @@ def place_items(shot: dict, next_shot: dict | None = None) -> list:
             if a.get("do") in TOWARD and _point(a.get("toward")):
                 where = {"open": "the point the part opens away from (the centre it closes onto)",
                          "tight": "the point the part closes onto", "stick": "the point the part slides to and joins",
+                         "suck": "the part's opening that pulls the molecule in",
+                         "grab": "the point where the part closes on the molecule it holds",
                          "leave": "where the part goes as it leaves", "arrive": "where the part comes in from"}[a["do"]]
                 add(f"s{k}.act{j}", f"{where}: part '{names.get(a.get('part'), a.get('part'))}'", said, [a["toward"]],
                     lambda pts, a=a: a.update(toward=pts[0]))
@@ -2087,7 +2216,9 @@ def place(client, model: str, shot: dict, next_shot: dict | None, image_part: di
 
 
 ACT_WORDS = {"turn": "ghoomta hai", "spin": "ghoomta rehta hai", "stop": "rukta hai", "open": "khulta hai",
-             "loose": "dheela hota hai", "tight": "kasta hai (dabaav)", "stick": "khisak kar judta hai (jod par chamak)",
+             "loose": "dheela hota hai", "tight": "kasta hai (dabaav)", "squeeze": "dabta hai (sikudta, phir lautta)",
+             "suck": "molecule ko andar kheenchta hai", "grab": "molecule ko pakad leta hai",
+             "stick": "khisak kar judta hai (jod par chamak)",
              "leave": "bahar nikal jaata hai", "arrive": "andar aata hai", "glow": "chamakta hai"}
 
 
