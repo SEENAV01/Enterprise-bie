@@ -484,7 +484,27 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    squeeze of the new acts. Sent to Navin. Fixed here: a passage only where a route goes through a carrier (a channel,
    pump, protein or complex pinned near its middle), one per structure, and no tube in open fluid; a light picture is
    dimmed gently (`lightness`); no push into a part that already fills the frame. IMPLEMENTED; r3 re-wrapped offline.
-   Next: Navin's verdict on the hybrid look.
+   Merged (PR #210, `bffc606b`). **Navin's verdict (24 November 2026, 13:53):** the hybrid look is better ("Behtar laga
+   achha bana hai"); the thylakoid membrane looked odd and fake and should move a little like a living thing; a question
+   raised during a process is shown on the screen and starts "Ab sawaal uthta hai / Ab aap poochhenge / Ab aapke man mein
+   sawaal utha hoga"; going to a part's molecular level gets a clear zoom in, as into the leaf; learn from how cells,
+   proteins and enzymes really move. At 14:10 he asked for the film again with these, a living proton pump that grips H⁺
+   and lets it go in the lumen, and the question's part felt through the camera.
+16. **The living world, questions on the screen, a pump that carries, dives that go inside (PR #211, 24 November
+   2026).** The hybrid look is the films' default again (`FILM_STYLE = "mixed"`). The player keeps a cutaway alive: the
+   picture is redrawn in thin columns lifted by a slow, irregular wave (long waves move most, as membranes flicker), the
+   cut parts ride the wave and sway, and travelling molecules wander a little (research: Jenkinson et al.'s molecular
+   animation principles: constant random motion, flexible proteins, no gliding on rails). Act `carry` (a part grips a
+   molecule on its near side, squeezes it through and lets it go at `toward`, twice); `carry_problems` asks for it where
+   a line's moving thing passes a pinned pump. Every question after the opening one starts by saying a question comes
+   (`question_problems`); each question is written on the screen (`ask_card`), and while it is asked the camera goes to
+   the part, pin or travelling thing it names (`question_subject`, through `camera_track`), the rest dims, and a "?"
+   pulses there; the card stays, quieter, through the answer. Each shot names its `place`; a dive goes into a new place
+   the picture before shows (`place_problems`); the player first takes the camera onto the dive point, then dives with a
+   growing blur, and shows the path of places in a corner (Thylakoid › ATP synthase › CF₁). The close-up and overview
+   looks ask for a living, gently rippling membrane, never a ruler-straight row of beads. Films made before these rules
+   (no `place`, such as the passed Q14) keep the rules they were passed under. IMPLEMENTED; previewed on r3. Next: job
+   `r4` on the VM.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

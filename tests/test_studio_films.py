@@ -165,8 +165,8 @@ class FilmMotion(unittest.TestCase):
 
     def test_cutaway_is_an_ai_picture_in_cutaway_style(self):
         shot = {"visual": {"type": "cutaway", "image_prompt": "The inside of a mature ovule", "svg": ""}}
-        self.assertIn("transparent cross-section", studio_film.image_prompt(shot))       # glossy again (Navin, 23 Nov 2026)
-        self.assertIn("Realistic scientific render", studio_film.image_prompt(shot, "", "mixed"))   # his 22 Nov look
+        self.assertIn("transparent cross-section", studio_film.image_prompt(shot, "", "glossy"))   # glossy (23 Nov 2026)
+        self.assertIn("Realistic scientific render", studio_film.image_prompt(shot))   # his hybrid look again (24 Nov 2026)
         data = studio_film.player_data(film(), images={}, audio={}, chapter="Monsoon", question=QUESTION)
         self.assertEqual(data["shots"][1]["dive"], {"x": 55, "y": 25})
         self.assertIsNone(data["shots"][0]["dive"])
@@ -1399,7 +1399,7 @@ class SectionFilmsLook(unittest.TestCase):
     def test_a_glossy_picture_is_not_asked_to_be_matte(self):
         look = "16:9 macro journey, warm soft light and matte hydrated textures; stroma cream"
         shot = {"visual": {"type": "cutaway", "image_prompt": "Stroma close up, matte non-reflective proteins, cream fluid."}}
-        made = studio_film.image_prompt(shot, look)
+        made = studio_film.image_prompt(shot, look, "glossy")
         self.assertNotIn("matte", made.lower())
         self.assertNotIn("non-reflective", made)
         self.assertIn("warm soft light and hydrated textures", made)
@@ -1511,8 +1511,11 @@ class HybridRemakeOf1163b(unittest.TestCase):
                                       look="mixed")[0]["content"]
         self.assertIn("hybrid look (22 November 2026)", hybrid)
         self.assertNotIn("The pictures are glossy", hybrid)
+        self.assertIn("hybrid look (22 November 2026)", studio_film.messages({"id": "q", "question": "?", "points": []},
+                                                                           course="Biology", language="Hinglish")[0]["content"])
         self.assertIn("The pictures are glossy", studio_film.messages({"id": "q", "question": "?", "points": []},
-                                                                      course="Biology", language="Hinglish")[0]["content"])
+                                                                      course="Biology", language="Hinglish",
+                                                                      look="glossy")[0]["content"])
         machine = {"visual": {"type": "cutaway", "image_prompt": "ATP synthase in the thylakoid membrane, glossy"}, "sentences": []}
         whole = {"visual": {"type": "cutaway", "image_prompt": "a whole chloroplast, no individual proteins"}, "sentences": []}
         close, wide = studio_film.image_prompt(machine, "", "mixed"), studio_film.image_prompt(whole, "", "mixed")
@@ -1617,3 +1620,111 @@ class HybridRemakeOf1163b(unittest.TestCase):
         self.assertEqual(shot["parts"][0]["name"], "CF₁ head")
         self.assertEqual(shot["sentences"][0]["acts"][0]["do"], "squeeze")
         self.assertTrue(shot["sentences"][0]["track"])                          # the camera goes to the head, then the whole
+
+
+def _membrane_film():
+    """A small cutaway film under the 24 November 2026 rules (its shots name their place)."""
+    pins = [{"label": "Proton pump", "x": 22, "y": 55}, {"label": "CF₀", "x": 70, "y": 58}]
+    return {"title": "Pump aur synthase", "look": "hybrid", "shots": [
+        {"id": "s1", "title": "Membrane", "key": "Pump H⁺ andar bhejta hai", "covers": [0], "place": "Thylakoid membrane",
+         "visual": {"type": "cutaway", "image_prompt": "Thylakoid membrane with a proton pump at left and ATP synthase with "
+                    "its CF0 channel at right", "svg": "", "library": "",
+                    "parts": [{"id": "pump", "name": "Proton pump", "looks": "teal complex in the membrane at left"}]},
+         "dive": {"x": -1, "y": -1}, "aside": False,
+         "sentences": [{"roman": "Thylakoid ke andar H⁺ kaise jama hote hain?", "pins": [], "moves": [], "acts": []},
+                       {"roman": "Proton pump H⁺ ko stroma se pakadkar lumen mein chhodta hai.", "pins": pins[:1],
+                        "moves": [], "acts": [{"part": "pump", "do": "carry", "toward": [22, 80], "turns": 0, "rider": "H+"}]},
+                       {"roman": "Ab aap poochhenge ki CF₀ se H⁺ kaise lautte hain?", "pins": pins[1:], "moves": [],
+                        "acts": []}]},
+        {"id": "s2", "title": "Channel", "key": "CF₀ ka raasta", "covers": [0], "place": "CF₀",
+         "visual": {"type": "cutaway", "image_prompt": "Close-up of the CF0 ring of ATP synthase in the membrane", "svg": "",
+                    "library": "", "parts": []},
+         "dive": {"x": 70, "y": 58}, "aside": False,
+         "sentences": [{"roman": "Dekhiye, H⁺ CF₀ ke raaste se stroma mein lautte hain.", "pins": [],
+                        "moves": [{"what": "H+", "label": "H⁺", "points": [[70, 85], [70, 40]], "count": 3, "ms": 2000,
+                                   "loop": False}], "acts": []}]}]}
+
+
+class LivingWorldAndQuestions(unittest.TestCase):
+    """Navin, 24 November 2026, after r3 of 11.6.3b passed its hybrid look: a living membrane, a proton pump that grips H⁺
+    and lets it go in the lumen, questions said as questions and shown on the screen with the camera on what they ask
+    about, and a clear zoom when the film goes inside a part."""
+
+    def test_a_question_says_that_a_question_comes(self):
+        made = _membrane_film()
+        self.assertEqual(studio_film.question_problems(made), [])
+        made["shots"][0]["sentences"][2]["roman"] = "CF₀ se H⁺ kaise lautte hain?"
+        found = studio_film.question_problems(made)
+        self.assertEqual(len(found), 1)
+        self.assertIn("Ab aapke man mein sawaal utha hoga", found[0])
+        self.assertIn("s1 sentence 3", found[0])
+        made["shots"][0]["sentences"][2]["roman"] = "Ab aapke man mein sawaal utha hoga ki CF₀ se H⁺ kaise lautte hain?"
+        self.assertEqual(studio_film.question_problems(made), [])
+        for shot in made["shots"]:          # a film made before these rules (no place) keeps the rules it was passed under
+            shot.pop("place")
+        made["shots"][0]["sentences"][2]["roman"] = "CF₀ se H⁺ kaise lautte hain?"
+        self.assertEqual(studio_film.question_problems(made), [])
+        self.assertIn("Ab aap poochhenge", studio_film.INSTRUCTIONS)
+
+    def test_the_question_is_on_the_screen_and_the_camera_goes_to_what_it_asks_about(self):
+        data = studio_film.player_data(_membrane_film(), images={}, audio={}, chapter="Photosynthesis", question=QUESTION)
+        asked = data["shots"][0]["sentences"][2]
+        self.assertEqual(asked["ask"]["q"], "CF₀ se H⁺ kaise lautte hain?")       # the opener stays in the voice only
+        self.assertEqual((asked["ask"]["x"], asked["ask"]["y"]), (70.0, 58.0))      # CF₀, pinned in this shot
+        self.assertEqual(asked["track"], [{"at": 0.15, "x": 70.0, "y": 58.0, "scale": 1.5, "ms": 1300}])
+        opening = data["shots"][0]["sentences"][0]
+        self.assertEqual(opening["ask"]["q"], "Thylakoid ke andar H⁺ kaise jama hote hain?")
+        self.assertNotIn("ask", data["shots"][0]["sentences"][1])
+        self.assertEqual(studio_film.question_subject("Ab sawaal uthta hai ki yeh kyun hota hai?", {}, []), None)
+        self.assertEqual(studio_film.camera_track({"ask": {"q": "?"}}, [], question=True), [])
+
+    def test_a_pump_grips_what_it_moves_and_lets_it_go(self):
+        made = _membrane_film()
+        self.assertEqual(studio_film.carry_problems(made), [])
+        self.assertEqual(studio_film.parts_problems(made), [])
+        line = made["shots"][0]["sentences"][1]
+        line["acts"] = []
+        line["moves"] = [{"what": "H+", "label": "H⁺", "points": [[22, 30], [22, 55], [22, 80]], "count": 2, "ms": 2000,
+                          "loop": False}]
+        found = studio_film.carry_problems(made)
+        self.assertEqual(len(found), 1)
+        self.assertIn("carry", found[0])
+        line["roman"] = "H⁺ yahan pump ke bina CF₀ se lautte hain."            # a line about not pumping is left alone
+        line["pins"] = []
+        self.assertEqual(studio_film.carry_problems(made), [])
+        bad = _membrane_film()
+        bad["shots"][0]["sentences"][1]["acts"][0].update(rider="", toward=[])
+        said = " ".join(studio_film.parts_problems(bad))
+        self.assertIn("carry on 'pump' needs toward", said)
+        self.assertIn("needs rider", said)
+        self.assertIn("carry (the part grips the rider on its near side", studio_film.INSTRUCTIONS)
+        fresh = _membrane_film()
+        items = studio_film.place_items(fresh["shots"][0], fresh["shots"][1])      # BIE places the let-go point too
+        self.assertTrue(any("lets the molecule go" in it["what"] for it in items))
+        self.assertTrue(any(it["what"].startswith("the point the next shot dives into: CF₀") for it in items))
+        self.assertIn("pakadkar us paar chhodta hai", studio_film.ACT_WORDS["carry"])
+
+    def test_a_dive_goes_inside_a_new_place_that_the_picture_before_shows(self):
+        made = _membrane_film()
+        self.assertEqual(studio_film.place_problems(made), [])
+        made["shots"][1]["place"] = "Thylakoid membrane"
+        self.assertIn("same place", studio_film.place_problems(made)[0])
+        made["shots"][1]["place"] = "Mitochondria"
+        self.assertIn("does not show", studio_film.place_problems(made)[0])
+        made["shots"][1]["place"] = ""
+        self.assertIn("1 to 4 words", studio_film.place_problems(made)[0])
+        self.assertIn("GOING INSIDE", studio_film.INSTRUCTIONS)
+
+    def test_the_player_gets_the_path_of_places_and_the_living_world(self):
+        made = _membrane_film()
+        made["shots"].append({"id": "s3", "title": "Baandh", "key": "Baandh jaisa", "covers": [0], "place": "Baandh",
+                              "visual": {"type": "photo", "image_prompt": "A real dam", "svg": "", "library": "", "parts": []},
+                              "dive": {"x": -1, "y": -1}, "aside": True, "sentences": made["shots"][1]["sentences"]})
+        data = studio_film.player_data(made, images={}, audio={}, chapter="Photosynthesis", question=QUESTION)
+        self.assertEqual([s["path"] for s in data["shots"]], [["Thylakoid membrane"], ["Thylakoid membrane", "CF₀"], None])
+        self.assertEqual([s["alive"] for s in data["shots"]], [True, True, False])
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        for needed in ("function aliveStep(", "function carry(", "function askStep(", "function setPath(",
+                       "camTo(s.dive.x,s.dive.y,2,750)", "canvas.alive"):
+            self.assertIn(needed, page)
+        self.assertIn("living, flexible sheet", studio_film.CUTAWAY_STYLES["close_up"])
