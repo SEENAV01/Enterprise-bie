@@ -2943,3 +2943,27 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
 - **Measured (offline, on the r1 film):** the turbine's wheel now turns (four frames over 1.2 s, the blades in four
   places); the CF₁ lobe opens by 11 % of the frame with a visible gap (before: 2.8 %). Next: job `r2`, the same
   question with the cupboard, so only the talmel and the parts' motion differ from 7-h11.
+
+## Entry · The 11.6.3b remake with the cupboard (job r2) and side-view parts that turn, 24 November 2026
+
+- **Run:** VM job `r2-photosynthesis-116-3b-cupboard` (PR #207, cupboard `c116-3b`, glossy, female voice, ₹0, 25.1
+  minutes): 10 shots, 3 rounds, 0 problems; 9 of 10 pictures from the cupboard (the 7-h11 pictures and the first film's
+  real dam), one drawn; parts 4 of 4; NCERT 10/10. Played whole in Chromium: 39 lines, no page errors, at most five
+  labels at once. Camera changes on screen: 18 of 39 lines (7-h11: 27, the first film: 22).
+- **What the run taught:** the parts that "spin" were seen from the side: the dam's turbine runner (blades round an
+  upright shaft) and ATP synthase's gold stalk. The player could turn only a wheel facing the camera; for anything else
+  it rolled a sheen. Frame by frame, the turbine's blades stood in the same place in every frame.
+- **Changed in BIE:** `bie/brain/part_spin.py`: which way a cut part turns, from its own pixels (tall or wide on screen,
+  or edges mostly one way: seen from the side; edges every way round: a wheel facing us), the angle after which the side
+  view repeats (one blade or one turn of a helix, by correlating each row resampled round the cylinder), and the turn
+  as 16 frames: each row a slice of a cylinder on one leaning axis with a smoothed radius, the surface at angle - phi,
+  a blade coming round from behind blended in near the rim; the part's outline never changes. `tools/vm_studio.py`
+  adds the frames (`spin`) to every spinning part seen from the side and records which way each part turns; the player
+  runs the frames while the part spins (`p-roll`, about 120 degrees a second) and keeps the rotation for a wheel facing
+  us. Tests: which way three made parts turn, a 40 degree blade pitch found within 4 degrees, frames that turn inside
+  the part's own outline, the cutter adding a turn, the player running it. Studio lane 615 tests, 0 failures; the
+  passed-output sets still pass.
+- **Measured (offline, on r2's own parts):** pixels of the part that change from one frame to the next while it spins:
+  turbine 0 % before (the sheen is an overlay; the blades never moved), 22 % now (pitch 31.6 degrees); stalk 0 % before,
+  27 % now (pitch 60 degrees). r2 re-wrapped with the new player: the turbine's blades stand in a new place every 0.1 s.
+  Next: Navin's verdict on r2's talmel.

@@ -59,6 +59,12 @@
 /* a wheel that faces the camera turns for real; a rod seen from the side rolls its sheen (Navin, 24 November 2026, on the
    remade 11.6.3b: "photorealistic hisse abhi bhi nahi hilte": the turbine's sheen rolled, its wheel never turned) */
 .part.p-wheel .pb{animation:spin 2.2s linear infinite}.part.p-wheel .sheen{opacity:0}
+/* a part seen from the side (a turbine runner, a stalk) turns about its upright line: BIE drew its turn as a strip of frames
+   (bie/brain/part_spin.py) and the strip runs while it spins; on r2 of 11.6.3b (24 November 2026) the turbine's blades
+   had not moved by a pixel */
+.part .roll{position:absolute;inset:0;overflow:hidden;opacity:0}.part .pb .roll img{position:absolute;left:0;top:0;height:100%;max-width:none;animation-play-state:paused}
+.part.p-roll .roll{opacity:1}.part.p-roll .roll img{animation-play-state:running}.part.p-roll .pb>img,.part.p-roll .sheen{opacity:0}
+@keyframes rollframes{to{transform:translateX(-100%)}}
 .part.p-glow .pb{filter:brightness(1.3) drop-shadow(0 0 .8vw rgba(255,220,140,.95))}
 @keyframes roll{to{transform:translateX(-3%)}}
 .rider{position:absolute;width:2.2%;aspect-ratio:1;margin:-1.1% 0 0 -1.1%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#dfe9f1 55%,#8aa3b5);box-shadow:0 0 6px rgba(255,255,255,.8);color:#33475a;font:800 clamp(7px,1vw,12px)/1 system-ui;display:flex;align-items:center;justify-content:center;opacity:0}
@@ -274,8 +280,14 @@ const REST=()=>({tx:0,ty:0,jx:0,jy:0,jr:0,rot:0,s:1,op:1});
 function partEl(p){const d=el('div','part');d.dataset.part=p.id;const b=el('div','pb');
   b.style.left=p.box[0]+'%';b.style.top=p.box[1]+'%';b.style.width=(p.box[2]-p.box[0])+'%';b.style.height=(p.box[3]-p.box[1])+'%';
   const im=el('img');im.alt='';im.src=p.img;b.appendChild(im);const sh=el('div','sheen');sh.style.maskImage=sh.style.webkitMaskImage='url("'+p.img+'")';
-  sh.appendChild(el('i'));b.appendChild(sh);d.appendChild(b);const c=p.centre||[(p.box[0]+p.box[2])/2,(p.box[1]+p.box[3])/2];
-  d.style.transformOrigin=c[0]+'% '+c[1]+'%';parts[p.id]={id:p.id,el:d,box:p.box,c,now:REST(),from:null,to:null,t0:0,ms:1,chew:0,jawT:null,riders:[]};return d;}
+  sh.appendChild(el('i'));b.appendChild(sh);const roll=rollEl(p.spin);if(roll)b.appendChild(roll);d.appendChild(b);
+  const c=p.centre||[(p.box[0]+p.box[2])/2,(p.box[1]+p.box[3])/2];
+  d.style.transformOrigin=c[0]+'% '+c[1]+'%';parts[p.id]={id:p.id,el:d,box:p.box,c,now:REST(),from:null,to:null,t0:0,ms:1,chew:0,jawT:null,riders:[],roll:!!roll};return d;}
+// one blade's pitch of the turn, frame by frame, at about 120 degrees a second
+function rollEl(s){if(!s||!s.frames||!(s.n>1))return null;const r=el('div','roll'),im=el('img');im.alt='';im.src=s.frames;
+  im.style.width=(s.n*100)+'%';im.style.animationName='rollframes';im.style.animationTimingFunction='steps('+s.n+')';
+  im.style.animationDuration=Math.max(.35,Math.min(1.2,(+s.pitch||60)/120)).toFixed(2)+'s';im.style.animationIterationCount='infinite';
+  r.appendChild(im);return r;}
 function drawPart(P,now){const n=P.now,chew=now<P.chew?1+.018*Math.sin((P.chew-now)/70):1;
   P.el.style.transform=`translate(${(n.tx+n.jx).toFixed(3)}%,${(n.ty+n.jy).toFixed(3)}%) rotate(${(n.rot+n.jr).toFixed(2)}deg) scale(${(n.s*chew).toFixed(4)})`;
   P.el.style.opacity=n.op.toFixed(3);}
@@ -294,8 +306,9 @@ function jawScale(P){const size=Math.max(P.box[2]-P.box[0],(P.box[3]-P.box[1])*.
 function beyondReach(P,T){const b=P.box,x=T[0]-P.now.tx,y=T[1]-P.now.ty;
   return x<b[0]-REACH||x>b[2]+REACH||y<b[1]-REACH||y>b[3]+REACH;}
 function doAct(a,now,instant){const P=parts[a.part];if(!P)return;const n=P.now,to=Object.assign({},n),T=a.toward&&a.toward.length===2?a.toward:null;let ms=1200;
-  if(a.do==='spin'){P.el.classList.add('p-spin');if(wheelLike(P))P.el.classList.add('p-wheel');addRiders(P,a.rider);return;}
-  if(a.do==='stop'){P.el.classList.remove('p-spin','p-wheel');P.riders.forEach(r=>r.el.remove());riders=riders.filter(r=>r.P!==P);P.riders=[];return;}
+  if(a.do==='spin'){P.el.classList.add('p-spin');if(P.roll)P.el.classList.add('p-roll');else if(wheelLike(P))P.el.classList.add('p-wheel');
+    addRiders(P,a.rider);return;}
+  if(a.do==='stop'){P.el.classList.remove('p-spin','p-wheel','p-roll');P.riders.forEach(r=>r.el.remove());riders=riders.filter(r=>r.P!==P);P.riders=[];return;}
   if(a.do==='glow'){if(!instant){P.el.classList.add('p-glow');const my=token;setTimeout(()=>{if(my===token)P.el.classList.remove('p-glow');},1800);}return;}
   if(a.do==='turn'){to.rot=n.rot+(+a.turns||0);ms=1500;}
   else if(a.do==='tight'&&T&&beyondReach(P,T)){P.jawT=T;to.tx=T[0]-P.c[0];to.ty=T[1]-P.c[1];to.jx=0;to.jy=0;to.jr=0;to.s=.97;ms=1500;
@@ -454,6 +467,6 @@ function stop(){playing=false;clearTimeout(timer);BIEVoice.stop();freezeBar();$(
 $('play').onclick=()=>{BIEVoice.unlock();if(playing){stop();return;}playing=true;$('play').innerHTML='&#10074;&#10074; Rokiye';bar(si,ki,true);speak(F.shots[si].sentences[ki]);};
 $('again').onclick=()=>{stop();show(0,0);};
 window.BIEFilm={state:()=>({shot:si,sentence:ki,playing,camera:{ox:cam.ox,oy:cam.oy,s:cam.s},actors:actors.map(a=>a.kind),labels:labels.length,voice:BIEVoice.state,words:texts.length,cut:texts.filter(t=>t.classList.contains('cut')).length,
-  parts:Object.values(parts).map(P=>Object.assign({id:P.id,spin:P.el.classList.contains('p-spin'),riders:P.riders.length},P.now)),go:(i,k)=>{stop();show(i,k);}})};
+  parts:Object.values(parts).map(P=>Object.assign({id:P.id,spin:P.el.classList.contains('p-spin'),roll:P.el.classList.contains('p-roll'),riders:P.riders.length},P.now)),go:(i,k)=>{stop();show(i,k);}})};
 show(0,0);
 </script></body></html>

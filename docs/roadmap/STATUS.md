@@ -458,7 +458,15 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    not better than 7-h11 (the first film's real dam was not reused, realism still missing, the parts did not visibly
    move). Fixed here: a job names its own picture cupboard (`library`), kept pictures keep their words, a wheel-like part
    turns for real, a jaw moves with its part's size; cupboard `c116-3b` holds the 7-h11 pictures and the first film's dam.
-   Next: job `r2` (his card "7-h11 ki tasveerein + naya talmel").
+   Next: job `r2` (his card "7-h11 ki tasveerein + naya talmel"). Merged (PR #207, `7905e944`).
+   **Job `r2` (24 November 2026):** 10 shots, 3 rounds, 0 problems; 9 of 10 pictures from cupboard `c116-3b`, one drawn
+   (the chemiosmosis picture); parts 4 of 4; NCERT 10/10; camera on 18 of 39 lines on screen (7-h11: 27); played in
+   Chromium, no errors, five labels at most. Sent to Navin. The dam's turbine runner, seen from the side, did not move
+   by a pixel while it "spun", and the gold stalk only rolled a sheen. Fixed here: a spinning part seen from the side
+   turns about its upright line, drawn by BIE as 16 frames from the part's own pixels (`bie/brain/part_spin.py`: which
+   way it turns, its blade pitch, the frames; `tools/vm_studio.spin_of`; player `p-roll`); a wheel facing us still turns
+   in the picture's plane. IMPLEMENTED; r2 re-wrapped offline with it (same pictures, voice and lines). Next: Navin's
+   verdict on r2's talmel.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

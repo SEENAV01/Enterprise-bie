@@ -1190,6 +1190,21 @@ class PictureCupboard(unittest.TestCase):
         self.assertIn("function wheelLike(P)", page)
         self.assertIn("size/10", page[page.index("function jawScale(P)"):])
 
+    def test_a_part_seen_from_the_side_turns_on_its_frames(self):
+        """r2 of 11.6.3b (24 November 2026): the dam's turbine runner, seen from the side, did not move by a pixel. BIE
+        draws its turn as frames (part_spin.py) and the player runs them while it spins, in place of the rotation."""
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        self.assertIn("@keyframes rollframes", page)
+        self.assertIn(".part.p-roll .roll img{animation-play-state:running}", page)
+        self.assertIn(".part.p-roll .pb>img,.part.p-roll .sheen{opacity:0}", page)
+        maker = page[page.index("function rollEl(s)"):]
+        for said in ("im.style.width=(s.n*100)+'%'", "'steps('+s.n+')'", "(+s.pitch||60)/120"):
+            self.assertIn(said, maker[:600])
+        act = page[page.index("function doAct"):page.index("function addRiders")]
+        self.assertIn("if(P.roll)P.el.classList.add('p-roll');else if(wheelLike(P))", act)
+        self.assertIn("classList.remove('p-spin','p-wheel','p-roll')", act)
+        self.assertIn("roll:!!roll", page[page.index("function partEl"):page.index("function rollEl")])
+
 
 class LearnedFromFilmA(unittest.TestCase):
     """Navin compared every Q14 film (21 November 2026) and chose that BIE learn from his film A: a question before every
