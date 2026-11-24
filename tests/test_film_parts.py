@@ -363,11 +363,96 @@ class SectionCutting(unittest.TestCase):
         self.assertEqual((layers, plates), ({}, {}))
         self.assertIn("not on this machine", " ".join(report["problems"]))
 
+    def test_a_spinning_part_seen_from_the_side_gets_its_turn(self):
+        # r2 of 11.6.3b (24 November 2026): the dam's turbine runner, seen from the side, did not move by a pixel
+        made = copy.deepcopy(acts_film())
+        for s in made["shots"][0]["sentences"]:
+            s["acts"] = [dict(a, do="spin", turns=0) if a.get("part") == "stalk" else a for a in s.get("acts") or []]
+        with tempfile.TemporaryDirectory() as folder:
+            folder = Path(folder)
+            pic = folder / "s1.png"
+            picture(400, 225).save(pic)
+            placed = {"s1": {"parts": {"stalk": {"inside": [[47, 45]], "outside": [], "box": [40, 35, 55, 60]}}}}
+
+            def run(cmd, env=None, timeout=None, check=False):
+                runner(120, 80).save(folder / "cut-stalk.png")
+                Path(cmd[cmd.index("--result") + 1]).write_text(json.dumps({"error": None, "shots": [{
+                    "id": "s1", "layers": [{"id": "stalk", "file": str(folder / "cut-stalk.png"), "box": [40, 35, 55, 60],
+                                            "centre": [47, 47], "area": 2.0, "score": 0.95, "problems": []}]}]}))
+
+            layers, _, report = vm_studio.cut_parts(made, placed, {"s1": pic}, folder / "parts", python=sys.executable, run=run)
+        spin = layers["s1"][0]["spin"]
+        self.assertEqual((spin["axis"], spin["n"]), ("upright", 16))
+        self.assertTrue(spin["frames"].startswith("data:image/webp;base64,"))
+        self.assertEqual(report["parts"]["s1.stalk"]["turns"], "upright")
+
     def test_a_film_without_parts_never_calls_the_cutter(self):
         made = copy.deepcopy(acts_film())
         for s in made["shots"][0]["sentences"]:
             s["acts"] = []
         self.assertEqual(vm_studio.cut_parts(made, {}, {}, Path("/nonexistent"), run=lambda *a, **k: 1 / 0)[2]["wanted"], 0)
+
+
+def runner(w, h, blades=9, alpha_box=True):
+    """A runner seen from the side: a cylinder whose surface carries slanted blades every 360/blades degrees, so a row
+    at x shows the surface at angle asin((x - centre) / radius)."""
+    y, x = np.mgrid[:h, :w].astype(float)
+    centre, radius = (w - 1) / 2, (w - 1) / 2
+    theta = np.arcsin(np.clip((x - centre) / radius, -1, 1))
+    value = 128 + 100 * np.cos(blades * theta + y * 0.08)
+    a = np.zeros((h, w, 4), dtype=np.uint8)
+    a[..., 0] = a[..., 1] = a[..., 2] = np.clip(value, 0, 255).astype(np.uint8)
+    a[..., 3] = 255
+    return Image.fromarray(a, "RGBA")
+
+
+def facing_wheel(size=120, spokes=12):
+    """A wheel facing the camera: a disc with spokes every way round."""
+    y, x = np.mgrid[:size, :size].astype(float)
+    c = (size - 1) / 2
+    r, angle = np.hypot(x - c, y - c), np.arctan2(y - c, x - c)
+    a = np.zeros((size, size, 4), dtype=np.uint8)
+    shade = 90 + 140 * (np.cos(spokes * angle) > 0.6) + 20 * (r > 0.8 * c)
+    a[..., 0] = a[..., 1] = a[..., 2] = np.clip(shade, 0, 255).astype(np.uint8)
+    a[..., 3] = np.where(r < c, 255, 0).astype(np.uint8)
+    return Image.fromarray(a, "RGBA")
+
+
+class SpinningParts(unittest.TestCase):
+    """Navin, 24 November 2026, on the remade 11.6.3b: "photorealistic hisse abhi bhi nahi hilte". A part seen from the
+    side turns about its upright line, drawn by BIE as frames from the part's own pixels; a wheel facing us turns in the
+    picture's plane (the player rotates it)."""
+
+    def test_which_way_a_part_turns(self):
+        from bie.brain import part_spin
+        self.assertEqual(part_spin.axis(runner(120, 80)), "upright")           # blades seen from the side
+        self.assertEqual(part_spin.axis(runner(30, 140, blades=4)), "upright")  # a stalk: tall and thin
+        self.assertEqual(part_spin.axis(facing_wheel()), "facing")             # spokes every way round
+
+    def test_the_turn_repeats_after_one_blade(self):
+        import math
+        from bie.brain import part_spin
+        rgba, mask = part_spin._arrays(runner(160, 90, blades=9))
+        self.assertAlmostEqual(math.degrees(part_spin.pitch(rgba, mask)), 40, delta=4)
+
+    def test_the_frames_turn_inside_the_parts_own_outline(self):
+        from bie.brain import part_spin
+        part = runner(120, 80)
+        strip = part_spin.roll_frames(part, frames=8)
+        self.assertEqual(strip.size, (120 * 8, 80))
+        frames = [np.asarray(strip.crop((k * 120, 0, (k + 1) * 120, 80))).astype(float) for k in range(8)]
+        self.assertTrue(all((f[..., 3] == frames[0][..., 3]).all() for f in frames))   # the cut stays where it was
+        # the first frame is the part as cut (all but the very rim), so the turn starts without a jump
+        self.assertLess(np.abs(frames[0][:, 3:-3, :3] - np.asarray(part)[:, 3:-3, :3].astype(float)).mean(), 1.0)
+        moved = [np.abs(f[..., :3] - frames[0][..., :3]).mean() for f in frames[1:]]
+        self.assertGreater(min(moved), 5.0)                                     # every frame has turned
+
+    def test_a_facing_wheel_keeps_the_players_turn(self):
+        from bie.brain import part_spin
+        self.assertIsNone(part_spin.spin_layer(facing_wheel()))
+        spin = part_spin.spin_layer(runner(120, 80), scale=0.5)
+        self.assertEqual((spin["axis"], spin["n"]), ("upright", part_spin.FRAMES))
+        self.assertGreater(spin["pitch"], 0)
 
 
 if __name__ == "__main__":

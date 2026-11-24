@@ -267,6 +267,25 @@ def layer_uri(path, scale: float = 1.0) -> str:
     return "data:image/webp;base64," + base64.b64encode(buffer.getvalue()).decode("ascii")
 
 
+def image_width(path, default: int = 1600) -> int:
+    """A picture's width, the file closed after reading it."""
+    if not path:
+        return default
+    from PIL import Image
+    with Image.open(path) as image:
+        return image.width
+
+
+def spin_of(path, scale: float = 1.0) -> dict | None:
+    """A spinning part seen from the side, drawn turning (bie/brain/part_spin.py); None for a wheel facing us (the player
+    turns it in the picture's plane) or if the frames could not be drawn (the part keeps its old way)."""
+    from bie.brain import part_spin
+    try:
+        return part_spin.spin_layer(path, scale)
+    except Exception:                                   # a part that cannot be drawn turning still plays
+        return None
+
+
 def cut_parts(film: dict, placed: dict, paths: dict, folder: Path, *, python=None, run=None):
     """Cut every acted part of the film's pictures (bie/brain/picture_parts.py, in the voice environment, the model loaded
     once per film). Returns ({shot id: [{id, img, box, centre}]}, {shot id: plate path}, report); a part that was not
@@ -309,20 +328,27 @@ def cut_parts(film: dict, placed: dict, paths: dict, folder: Path, *, python=Non
     if result.get("error"):
         report["problems"].append(f"parts not cut: {str(result['error'])[:160]}")
     layers, plates = {}, {}
+    spinning = {(shot.get("id"), a.get("part")) for shot in film.get("shots") or [] for s in shot.get("sentences") or []
+                for a in s.get("acts") or [] if a.get("do") == "spin"}
     for row in result.get("shots") or []:
         sid = row.get("id")
         if row.get("error"):
             report["problems"].append(f"{sid}: parts not cut ({str(row['error'])[:120]})")
             continue
-        width = Image.open(paths[sid]).width if paths.get(sid) else 1600
+        width = image_width(paths.get(sid))
         scale = min(1.0, 1600 / max(1, width))
         for got in row.get("layers") or []:
             report["parts"][f"{sid}.{got.get('id')}"] = {k: got.get(k) for k in ("area", "score", "box", "problems")}
             if got.get("problems"):
                 report["problems"].append(f"{sid}: part {got.get('id')} not cut cleanly ({'; '.join(got['problems'])})")
             elif got.get("file") and Path(got["file"]).exists():
-                layers.setdefault(sid, []).append({"id": got["id"], "img": layer_uri(got["file"], scale), "box": got["box"],
-                                                   "centre": got.get("centre")})
+                layer = {"id": got["id"], "img": layer_uri(got["file"], scale), "box": got["box"], "centre": got.get("centre")}
+                if (sid, got["id"]) in spinning:
+                    spin = spin_of(got["file"], scale)
+                    if spin:
+                        layer["spin"] = spin
+                    report["parts"][f"{sid}.{got['id']}"]["turns"] = spin["axis"] if spin else "facing"
+                layers.setdefault(sid, []).append(layer)
                 report["cut"] += 1
         if row.get("plate") and Path(row["plate"]).exists():
             plates[sid] = Path(row["plate"])
