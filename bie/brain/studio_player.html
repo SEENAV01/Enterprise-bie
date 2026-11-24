@@ -449,7 +449,10 @@ function addLabel(text,x,y,cls,showAt){const same=labels.find(l=>l.text===text&&
 const MAX_LABELS=8;
 function dropLabel(l){l.box.remove();l.dot.remove();l.lead.remove();}
 function retireLabels(){labels.forEach(l=>{if(!l.math&&l.k<labelRound){l.box.classList.remove('new');l.box.classList.add('old');}});}
-function placeLabels(){const now=performance.now();for(const l of labels){const on=now>=l.showAt&&cam.fade>=.98&&cam.s>=.98;const [sx,sy]=toScreen(l.x,l.y);const y=sy*.5625;
+// a label whose place the camera has left (a question's push-in, a closer look) waits off the screen and comes back with
+// the place; r4m of 11.6.3b (24 November 2026) showed three labels squeezed on the bottom edge, their lines pointing out
+function placeLabels(){const now=performance.now();for(const l of labels){const [sx,sy]=toScreen(l.x,l.y);const y=sy*.5625;
+    const inView=sx>=.5&&sx<=99.5&&sy>=.5&&sy<=99.5,on=now>=l.showAt&&cam.fade>=.98&&cam.s>=.98&&inView;
     const right=sx<62,lx=right?sx+5:sx-5,ly=Math.max(3,Math.min(53,y-4));
     if(l.math){l.box.style.left=sx+'%';l.box.style.top=(sy/1)+'%';l.box.style.transform='translate(-50%,-50%)';l.dot.style.opacity=l.lead.style.opacity=0;}
     else{l.dot.setAttribute('cx',sx);l.dot.setAttribute('cy',y);l.lead.setAttribute('x1',sx);l.lead.setAttribute('y1',y);l.lead.setAttribute('x2',lx);l.lead.setAttribute('y2',ly);

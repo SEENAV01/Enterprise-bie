@@ -3094,3 +3094,20 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   complexes, grana, bilayer and the like) is about that structure and no longer counts as a crowd of loose molecules.
 - **Measured on the 34 saved films' picture prompts:** crowd asks found 1 fewer (r4a s2 only); every earlier real
   crowd ask ("a lumen packed with protons", "proton population space") is still found.
+
+## Entry · r4 of 11.6.3b, mila-jula look (job r4m), 24 November 2026
+
+- **Run:** VM job `r4m-photosynthesis-116-3b-mila` (PR #212 rules, look "asli_mixed", ₹0, 43 minutes): 10 shots, 5
+  rounds, `needs_fix` with 1 problem, 8 pictures drawn and 2 kept, parts 5 of 5, NCERT 10/10. Played whole: 39 lines,
+  no page errors, up to 8 labels.
+- **What the run taught:** (1) its last problem (no question before the dam shot's mechanism) and its round 3 (41 film
+  lines for 39 teacher lines) are the r4 conflict again, answered by PR #213; (2) played, the first question's push-in
+  (scale 1.5 onto ADP) left the labels "Lumen", "Proton gradient" and "H⁺" squeezed on the bottom edge with their
+  leader lines pointing out of the frame; (3) the dam photo's inset, in all three films, is in the kept cupboard
+  picture, which no picture check reaches.
+- **Changed in BIE (PR #213):** `placeLabels` in the player shows a label only while its place is inside the frame;
+  it comes back when the camera returns.
+- **Measured on r4m's page with the new player:** the same moment (line 2, 2.5 s in) shows 0 squeezed labels (3
+  before); on the next line the camera returns to the lumen and both labels stand at their places. Last problems of
+  the three r4 films under PR #213's rules: r4a 1 → 0 (crowd), r4m 1 → 0 (mechanism question), r4 3 → 0 (one inset ask
+  is now found in r4's s3).

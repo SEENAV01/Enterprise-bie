@@ -531,6 +531,13 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    packed proteins, granular stroma), the pump drawn large and carrying H⁺ into the lumen, dives and questions as in
    r4. Its rounds fought the same opener-versus-lines conflict PR #213 fixes, and one round added a 40th line of its
    own. PR #213 also lets a crowd word sit on a structure ("crowded membrane", "densely packed proteins").
+   **Job `r4m` (asli_mixed, 24 November 2026):** 10 shots, 5 rounds, 43 minutes, `needs_fix` with 1 problem (no
+   question before the dam shot's mechanism, which PR #213 no longer asks of a film told in the teacher's lines);
+   protein close-ups clean, the other cutaways in the asli style; played whole, 39 lines, no errors, up to 8 labels.
+   Seen in it: a question's push-in left three labels squeezed on the bottom edge; PR #213's player hides a label whose
+   place the camera has left and brings it back with the place. The dam photo's small inset in all three films is in
+   the cupboard picture Navin kept on 24 November, so the inset check (new pictures only) does not reach it. All three
+   films sent to Navin for his choice of look.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

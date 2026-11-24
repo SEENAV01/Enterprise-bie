@@ -1094,6 +1094,13 @@ class LookWordsAndLabelGaps(unittest.TestCase):
         self.assertIn("[...fixed,...shown.slice(0,i)]", place)
         self.assertIn("for(let pass=0;pass<4;pass++)", place)
 
+    def test_a_label_whose_place_left_the_screen_waits(self):
+        # r4m of 11.6.3b (24 November 2026): the question's push-in left three labels squeezed on the bottom edge
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        place = page[page.index("function placeLabels("):page.index("// --- arrows and effects")]
+        self.assertIn("inView=sx>=.5&&sx<=99.5&&sy>=.5&&sy<=99.5", place)
+        self.assertIn("cam.s>=.98&&inView", place)
+
     def test_a_move_label_ending_on_a_pin_is_sent_back(self):
         bad = film()
         line = bad["shots"][0]["sentences"][1]
