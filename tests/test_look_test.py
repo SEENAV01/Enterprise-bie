@@ -74,3 +74,34 @@ class LookTest(unittest.TestCase):
             self.assertEqual(look_test.prompts(run, [("a15", "s2")], "mixed")["prompts"][0]["id"], "a15-s2-mixed")
             with self.assertRaises(ValueError):
                 look_test.prompts(run, [("a15", "s2")] * 5, "matte")                # the image section takes 4
+
+
+class AsliLooks(unittest.TestCase):
+    """Navin, 24 November 2026, after the real electron micrographs and the trial pictures: r4 of 11.6.3b is made three
+    ways, "mixed" (the hybrid), "asli" (as electron micrographs show the chloroplast) and "asli_mixed" (protein close-ups
+    clean, the rest asli), and he decides from the three."""
+
+    def test_asli_draws_the_chloroplast_as_electron_micrographs_show_it(self):
+        made = studio_film.image_prompt(SHOT, "", "asli")
+        self.assertTrue(made.endswith(studio_film.CUTAWAY_STYLES["asli"]))
+        self.assertIn("stacked like coins into grana", made)
+        self.assertIn("never an empty smooth background", made)
+        self.assertNotIn("glossy cells", made)
+        self.assertIn("electron micrographs", studio_film.look_rule("asli"))
+        self.assertIn("drawn large, in front", studio_film.look_rule("asli"))
+
+    def test_asli_mixed_keeps_protein_close_ups_clean(self):
+        close = {"visual": {"type": "cutaway", "image_prompt": "Closer section inside the ATP synthase head, CF1 lobes"}}
+        wide = {"visual": {"type": "cutaway", "image_prompt": "A closed thylakoid sac with ATP synthase on its membrane"}}
+        self.assertTrue(studio_film.image_prompt(close, "", "asli_mixed").endswith(studio_film.CUTAWAY_STYLES["close_up"]))
+        self.assertTrue(studio_film.image_prompt(wide, "", "asli_mixed").endswith(studio_film.CUTAWAY_STYLES["asli"]))
+        self.assertIn("Close-ups of proteins", studio_film.look_rule("asli_mixed"))
+
+    def test_a_job_can_choose_either(self):
+        import codex_vm
+        for look in ("asli", "asli_mixed"):
+            job = codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": f"r4-{look.replace('_', '-')}-test",
+                                     "section": "studio", "stage": "films", "from_run": "https://example.org/runs/x",
+                                     "look": look})
+            self.assertEqual(job["look"], look)
+        self.assertEqual(studio_film.FILM_STYLE, "mixed")          # not the films' rule until Navin decides

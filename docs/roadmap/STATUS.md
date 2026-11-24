@@ -505,6 +505,14 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    looks ask for a living, gently rippling membrane, never a ruler-straight row of beads. Films made before these rules
    (no `place`, such as the passed Q14) keep the rules they were passed under. IMPLEMENTED; previewed on r3. Next: job
    `r4` on the VM.
+   **Real electron micrographs and the "asli" look (24 November 2026, 14:41).** Navin asked to see what a real thylakoid
+   membrane and stroma look like (EM, cryo-ET and AFM pictures shown) and to try that look apart from the rules first
+   ("Iska alag se pehale yha banwake dekhenge niyam mein abhi nhi"). VM image job `a1-asli-thylakoid-stroma` (₹0, 9.1
+   min) drew four shots of finished films again (11.6.2b s4; r3 s1, s6, s7) with their own prompts in a trial style: thin
+   curving membranes stacked into grana, proteins packed, a granular stroma; no invented tubes. He will decide after
+   seeing r4 made three ways (15:00: "Teeno tarike se output dekhke decide karunga"): looks `asli` (every cutaway as
+   electron micrographs show it, the trial's words) and `asli_mixed` (protein close-ups as the hybrid's `close_up`, the
+   rest `asli`; `close_view`) join `mixed`, chosen per job; the films' default stays `mixed` until he decides (PR #212).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

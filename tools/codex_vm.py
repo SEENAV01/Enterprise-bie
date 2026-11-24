@@ -53,7 +53,7 @@ SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "canv
 # LOOK-01 look check with the free Google reviewer (tools/vm_look.py). Both are fixed commands, like run_brain.
 # a studio film's picture look: studio_film.CUTAWAY_STYLES, or "mixed" (Navin's hybrid of 22 November 2026: close-ups of
 # machinery as structures with a controlled sheen, whole structures matte in controlled light)
-LOOKS = ("glossy", "mixed", "matte", "structure", "close_up", "overview")
+LOOKS = ("glossy", "mixed", "matte", "structure", "close_up", "overview", "asli", "asli_mixed")
 TOOL_SECTIONS = ("image", "look", "voice")
 STUDIO_STAGES = ("questions", "naksha", "script", "films", "games", "book", "pyq", "dub")   # dub: autodub (Navin, 21 November 2026)
 # naksha: the chapter's teaching plan in two shapes from Section 1's chapter map (Navin, 21 November 2026)

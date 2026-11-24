@@ -25,8 +25,8 @@ MAX_PROMPTS = 4
 
 def prompts(from_run: str, shots: list, style: str) -> dict:
     from vm_studio import read_json
-    if style not in studio_film.CUTAWAY_STYLES and style != "mixed":
-        raise ValueError(f"style: one of {', '.join(studio_film.CUTAWAY_STYLES)} or mixed")
+    if style not in studio_film.CUTAWAY_STYLES and style not in ("mixed", "asli_mixed"):
+        raise ValueError(f"style: one of {', '.join(studio_film.CUTAWAY_STYLES)}, mixed or asli_mixed")
     if not 1 <= len(shots) <= MAX_PROMPTS:
         raise ValueError(f"shots: 1 to {MAX_PROMPTS}")
     out = []
