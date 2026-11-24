@@ -537,7 +537,8 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    Seen in it: a question's push-in left three labels squeezed on the bottom edge; PR #213's player hides a label whose
    place the camera has left and brings it back with the place. The dam photo's small inset in all three films is in
    the cupboard picture Navin kept on 24 November, so the inset check (new pictures only) does not reach it. All three
-   films sent to Navin for his choice of look.
+   films sent to Navin for his choice of look. **He chose Hybrid** (card, 24 November 2026): `mixed` stays the films'
+   default; `asli` and `asli_mixed` stay only as a job's choice and do not go into the film rules.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
