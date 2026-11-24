@@ -1698,6 +1698,11 @@ class LivingWorldAndQuestions(unittest.TestCase):
         self.assertIn("carry on 'pump' needs toward", said)
         self.assertIn("needs rider", said)
         self.assertIn("carry (the part grips the rider on its near side", studio_film.INSTRUCTIONS)
+        fresh = _membrane_film()
+        items = studio_film.place_items(fresh["shots"][0], fresh["shots"][1])      # BIE places the let-go point too
+        self.assertTrue(any("lets the molecule go" in it["what"] for it in items))
+        self.assertTrue(any(it["what"].startswith("the point the next shot dives into: CF₀") for it in items))
+        self.assertIn("pakadkar us paar chhodta hai", studio_film.ACT_WORDS["carry"])
 
     def test_a_dive_goes_inside_a_new_place_that_the_picture_before_shows(self):
         made = _membrane_film()

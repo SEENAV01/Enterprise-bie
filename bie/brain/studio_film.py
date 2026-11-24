@@ -2317,6 +2317,8 @@ def place_items(shot: dict, next_shot: dict | None = None) -> list:
                          "tight": "the point the part closes onto", "stick": "the point the part slides to and joins",
                          "suck": "the part's opening that pulls the molecule in",
                          "grab": "the point where the part closes on the molecule it holds",
+                         "carry": "where the part lets the molecule go, just past its far side (the side the molecule "
+                                  "is carried to, such as the lumen below a proton pump)",
                          "leave": "where the part goes as it leaves", "arrive": "where the part comes in from"}[a["do"]]
                 add(f"s{k}.act{j}", f"{where}: part '{names.get(a.get('part'), a.get('part'))}'", said, [a["toward"]],
                     lambda pts, a=a: a.update(toward=pts[0]))
@@ -2326,7 +2328,7 @@ def place_items(shot: dict, next_shot: dict | None = None) -> list:
                 lambda pts, z=z: z.update(x=pts[0][0], y=pts[0][1]))
     dive = (next_shot or {}).get("dive") or {}
     if next_shot and dive.get("x", -1) != -1:
-        what = f"the point the next shot dives into: {next_shot.get('title') or ''}: " + \
+        what = f"the point the next shot dives into: {next_shot.get('place') or next_shot.get('title') or ''}: " + \
                ((next_shot.get("visual") or {}).get("image_prompt") or "")[:220]
         add("dive", what, "", [[dive.get("x", 50), dive.get("y", 50)]], lambda pts, d=dive: d.update(x=pts[0][0], y=pts[0][1]))
     return items
@@ -2445,6 +2447,7 @@ def place(client, model: str, shot: dict, next_shot: dict | None, image_part: di
 ACT_WORDS = {"turn": "ghoomta hai", "spin": "ghoomta rehta hai", "stop": "rukta hai", "open": "khulta hai",
              "loose": "dheela hota hai", "tight": "kasta hai (dabaav)", "squeeze": "dabta hai (sikudta, phir lautta)",
              "suck": "molecule ko andar kheenchta hai", "grab": "molecule ko pakad leta hai",
+             "carry": "molecule ko pakadkar us paar chhodta hai",
              "stick": "khisak kar judta hai (jod par chamak)",
              "leave": "bahar nikal jaata hai", "arrive": "andar aata hai", "glow": "chamakta hai"}
 
