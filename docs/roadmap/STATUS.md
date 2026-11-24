@@ -545,6 +545,15 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    mein bahut kuchh screen ka hissa chhup jata hai": every camera move inside a picture is capped at `CAM_MAX` 1.3 (was
    up to 2.2 asked and 2.0 tracked; r4 pushed to 1.6 on most lines), and the light (the dimmed rest) now comes with any
    lean rather than only with a close zoom; a dive still goes inside. Shown on r4's CF₀ shot, before and after.
+   **PR #213 merged (24 November 2026, all checks green).** **Picture colours (next PR, rule D3 of the rules form):**
+   `bie/brain/picture_colours.py` reads each labelled part's colour from the film's own words (the shot's prompt
+   first, then the look, for parts the shot draws), looks at the drawn picture around the part's label and its wider
+   ring, and reports a part painted in another colour family; `tools/vm_studio.py` then draws that picture once more
+   with the colours written out ("Colour key, kept exactly: CF₀ is amber, never blue"), places it afresh and keeps it
+   only when fewer parts are wrong (at most `MAX_COLOUR_REDRAWS` 3 per film; code only, no model call for the check).
+   Measured on 26 saved runs (55 films, 206 pictures, 347 coloured labels): 4 flagged, r4's CF₀ among them.
+   **Rules form:** "BIE Film Niyam" (58 rules with examples, Chahiye / Nahi / Baat per rule) published for Navin on
+   24 November 2026; the chapter's films start from the rules he ticks.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

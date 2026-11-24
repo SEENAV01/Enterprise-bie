@@ -1821,3 +1821,150 @@ class SeekhFromR4(unittest.TestCase):
         found = studio_film.overlay_problems(made)
         self.assertEqual(len(found), 1)
         self.assertIn("shows one place", found[0])
+
+
+class PictureColours(unittest.TestCase):
+    """r4 of 11.6.3b (24 November 2026): the film gave CF₀ amber and one picture drew it blue. Code reads each part's
+    colour from the film's own words, looks at the drawn picture around its label, and draws the picture once more
+    with the colours written out; the redraw is kept only when it is right."""
+
+    FIX = ROOT / "tests" / "fixtures" / "film_colours"
+
+    def setUp(self):
+        from bie.brain import picture_colours
+        self.pc = picture_colours
+        self.real = json.loads((self.FIX / "r4-s4.json").read_text(encoding="utf-8"))
+
+    def picture(self, path, part=(30, 110, 230), ground=(235, 225, 200), ring=None, size=(320, 180)):
+        """A plain picture with one coloured disc at (50%, 50%), and if asked a ring of another colour around it."""
+        from PIL import Image, ImageDraw
+        image = Image.new("RGB", size, ground)
+        draw = ImageDraw.Draw(image)
+        if ring:
+            draw.ellipse([size[0] / 2 - 26, size[1] / 2 - 26, size[0] / 2 + 26, size[1] / 2 + 26], fill=ring)
+        draw.ellipse([size[0] / 2 - 9, size[1] / 2 - 9, size[0] / 2 + 9, size[1] / 2 + 9], fill=part)
+        image.save(path)
+        return path
+
+    def shot(self, prompt, label="CF₀", kind="cutaway", library=""):
+        return {"id": "s4", "visual": {"type": kind, "image_prompt": prompt, "library": library},
+                "sentences": [{"pins": [{"label": label, "x": 50, "y": 50}]}]}
+
+    def test_colours_are_read_from_the_film_words_both_ways(self):
+        look = ("Deep-teal thylakoid membranes, enclosed gold lumen, granular ivory stroma, amber CF₀, copper stalk, "
+                "violet six-lobed CF₁ aur dark-red proton transport complex")
+        names = ["CF₀", "CF₁", "Lumen", "Stroma", "Thylakoid membrane", "Proton pump", "ATP synthase"]
+        prompt = ("Amber CF0 at 65,73 spans deep-teal thylakoid membrane; violet six-lobed alpha3 beta3 CF1 at 65,30; "
+                  "enclosed gold lumen below; granular ivory stroma above; proton pump rust red")
+        found = self.pc.stated_colours(prompt, look, names)
+        self.assertEqual(found["cf0"], "amber")
+        self.assertEqual(found["cf1"], "violet")
+        self.assertEqual(found["lumen"], "gold")
+        self.assertEqual(found["thylakoid membrane"], "teal")
+        self.assertEqual(found["proton pump"], "rust-red")          # a name, then its colour
+        self.assertNotIn("stroma", found)                           # ivory says nothing about hue
+
+    def test_a_place_word_a_verb_or_another_colour_ends_the_run(self):
+        names = ["Lumen", "Stroma", "Thylakoid membrane", "ATP synthase", "Chlorophyll a"]
+        found = self.pc.stated_colours("deep-teal membrane encloses gold lumen; many gold proton spheres in stroma; "
+                                       "ATP synthase amber ring–silver stalk–violet head; pale aqua stroma; "
+                                       "blue-green chlorophyll a", "", names)
+        self.assertEqual(found.get("lumen"), "gold")                # not the teal before 'encloses'
+        self.assertNotIn("stroma", found)                           # 'in' ends gold's run; 'pale aqua' is a tint
+        self.assertNotIn("atp synthase", found)                     # a part of many colours gets none
+        self.assertEqual(found.get("chlorophyll a"), "blue-green")
+        self.assertTrue(self.pc._in(__import__("numpy").array([180.0]), self.pc.bands("blue-green")).all())
+
+    def test_a_look_colour_is_checked_only_where_the_shot_draws_that_part(self):
+        look = "electrons red and NADP+/NADPH violet"
+        self.assertEqual(self.pc.stated_colours("PS I right; acceptor machinery at 84,34", look, ["NADPH"]), {})
+        self.assertEqual(self.pc.stated_colours("NADPH forms at 84,34", look, ["NADPH"]), {"nadph": "violet"})
+
+    def test_the_real_r4_picture_is_caught_and_the_amber_one_passes(self):
+        blue = self.pc.colour_problems(self.real["r4"]["shot"], self.FIX / "r4-s4-cf0-blue.jpg", self.real["r4"]["look"])
+        self.assertEqual([(p["label"], p["stated"], p["seen"]) for p in blue], [("CF₀", "amber", "blue")])
+        self.assertIn("drawn again", blue[0]["text"])
+        amber = self.pc.colour_problems(self.real["r4m"]["shot"], self.FIX / "r4m-s4-cf0-amber.jpg", self.real["r4m"]["look"])
+        self.assertEqual(amber, [])
+        self.assertIn("CF₀ is amber, never blue", self.pc.recolour_note(blue))
+
+    def test_only_a_clear_wrong_colour_is_reported(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            shot = self.shot("amber CF0 in the membrane")
+            wrong = self.picture(Path(tmp) / "blue.png")
+            self.assertEqual(len(self.pc.colour_problems(shot, wrong)), 1)
+            right = self.picture(Path(tmp) / "amber.png", part=(230, 160, 30))
+            self.assertEqual(self.pc.colour_problems(shot, right), [])
+            # a blue cofactor glowing inside an amber protein: the wider ring holds the stated colour
+            inside = self.picture(Path(tmp) / "inside.png", ring=(230, 160, 30))
+            self.assertEqual(self.pc.colour_problems(shot, inside), [])
+            # the label point rests on the picture's own background (water, stroma): nothing to judge
+            water = self.picture(Path(tmp) / "water.png", part=(30, 110, 230), ground=(30, 110, 230))
+            self.assertEqual(self.pc.colour_problems(shot, water), [])
+            # a kept picture and an everyday photo are not checked
+            self.assertEqual(self.pc.colour_problems(self.shot("amber CF0", library="atp-1"), wrong), [])
+            self.assertEqual(self.pc.colour_problems(self.shot("amber CF0", kind="photo"), wrong), [])
+
+    def recolour_with(self, colours, place_moves=True):
+        """vm_studio.recolour with a fake image maker that draws the given part colours in turn."""
+        test = self
+
+        class Maker:
+            def __init__(self):
+                self.prompts = []
+
+            def generate_image(self, prompt, out, model=None):
+                self.prompts.append(prompt)
+                if not colours:
+                    raise RuntimeError("image service down")
+                test.picture(Path(out), part=colours.pop(0))
+                return {"file": Path(out).name}
+
+        def fake_place(client, model, shot, nxt, part):
+            if place_moves:
+                shot["sentences"][0]["pins"][0]["moved"] = True
+            return {"items": 1, "moved": 1, "usage": {"input_tokens": 7, "output_tokens": 3}}
+
+        return Maker(), fake_place
+
+    def run_recolour(self, colours, tmp):
+        maker, fake_place = self.recolour_with(colours)
+        shot = self.shot("16:9 cutaway. Amber CF0 at 50,50. No text.")
+        before = json.loads(json.dumps(shot))
+        first = self.picture(Path(tmp) / "q-s4.png")                 # CF₀ drawn blue
+        original = studio_film.place
+        studio_film.place = fake_place
+        try:
+            result = vm_studio.recolour(maker, "m", shot, before, None, first, "", None, {"moved": 0})
+        finally:
+            studio_film.place = original
+        return maker, shot, result
+
+    def test_a_redraw_that_fixes_the_colour_is_kept(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            maker, shot, (saved, placed, said, usage, drawn) = self.run_recolour([(230, 160, 30)], tmp)
+            self.assertEqual(saved.name, "q-s4-rang.png")
+            self.assertEqual((said, drawn, usage["input_tokens"]), ([], 1, 7))
+            self.assertTrue(shot["sentences"][0]["pins"][0].get("moved"))  # placed afresh on the new picture
+            self.assertIn("Colour key, kept exactly: CF₀ is amber, never blue.", maker.prompts[0])
+
+    def test_a_redraw_no_better_leaves_the_first_picture(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            _, shot, (saved, placed, said, _, drawn) = self.run_recolour([(30, 110, 230)], tmp)
+            self.assertEqual((saved.name, placed, drawn), ("q-s4.png", {"moved": 0}, 1))
+            self.assertIn("no better, so the first stays", said[0])
+            self.assertNotIn("moved", shot["sentences"][0]["pins"][0])
+
+    def test_a_failed_redraw_leaves_the_first_picture(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            _, _, (saved, _, said, _, drawn) = self.run_recolour([], tmp)
+            self.assertEqual((saved.name, drawn), ("q-s4.png", 1))
+            self.assertIn("the redraw failed", said[0])
+
+    def test_a_right_picture_is_not_drawn_again(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            maker, fake_place = self.recolour_with([(230, 160, 30)])
+            shot = self.shot("Amber CF0 at 50,50")
+            right = self.picture(Path(tmp) / "q-s4.png", part=(230, 160, 30))
+            saved, placed, said, usage, drawn = vm_studio.recolour(maker, "m", shot, shot, None, right, "", None, {})
+            self.assertEqual((saved, said, drawn, maker.prompts), (right, [], 0, []))

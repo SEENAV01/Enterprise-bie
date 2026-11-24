@@ -3111,3 +3111,23 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   before); on the next line the camera returns to the lumen and both labels stand at their places. Last problems of
   the three r4 films under PR #213's rules: r4a 1 → 0 (crowd), r4m 1 → 0 (mechanism question), r4 3 → 0 (one inset ask
   is now found in r4's s3).
+
+## Entry · Each part in the film's colour (from r4's CF₀), 24 November 2026
+
+- **What the runs taught:** r4's look said "amber CF₀" and its s4 prompt "amber CF0", yet the picture drew CF₀ blue
+  while every other picture drew it amber; no check looked at a picture's colours, so the film passed with a part that
+  changes colour between shots.
+- **Changed in BIE:** `bie/brain/picture_colours.py` (code only, numpy and Pillow): a part's colour comes from the
+  shot's prompt, else from the look when the shot's prompt names the part; both orders count ("amber CF₀", "proton
+  pump rust red"); a place word, a verb, a number or another colour ends the run ("gold proton spheres in lumen" does
+  not make the lumen gold); tints ("pale aqua", "ivory-teal") and colourless words are not judged. A part is wrong only
+  when, around its label, the stated colour is nearly absent (≤ 15 %) and one other family holds ≥ 55 %, the wider ring
+  (6 % of the width) holds ≤ 8 % of the stated colour, and the colour seen is not the picture's background.
+  `tools/vm_studio.py` `recolour()`: one redraw with the colours written out, placed afresh, kept only when better;
+  at most 3 per film; the report says which part and whether the redraw was kept.
+- **Measured on saved films (26 runs, 55 films, 206 pictures with a coloured label, 347 labels):** the first draft
+  flagged 49; reading the words strictly brought it to 19, the wider ring and background tests to 9, look colours only
+  for parts the shot names to 4: r4 s4 CF₀ (amber drawn blue, the case that started it), p1 h11-6a s1 (copper reaction
+  centre drawn green), b2 q09 s7 (plum acceptor drawn red), b3 q10 s6 (lavender acceptor, label on an orange chain).
+  r4m and r4a draw CF₀ amber and pass. Extra cost: one image and one placement call per flagged picture (about 4 in
+  518 saved pictures). Tests use r4's real s4 picture (320 px) and r4m's.
