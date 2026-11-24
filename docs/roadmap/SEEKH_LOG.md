@@ -3060,3 +3060,54 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
 - **Changed in BIE:** looks `asli` and `asli_mixed` (`close_view` picks the protein close-ups), with the maker told to
   draw the talked-about structure large and in front in the busy pictures; jobs may choose them; the default stays
   `mixed`. Next: r4 made three ways (`mixed`, `asli`, `asli_mixed`) for Navin's choice.
+
+## Entry · r4 of 11.6.3b, hybrid look (job r4), 24 November 2026
+
+- **Run:** VM job `r4-photosynthesis-116-3b-jeeta` (PR #211, look "mixed", cupboard `c116-3b-dam`, ₹0, 45.2 minutes):
+  11 shots, 5 rounds, `needs_fix` with 3 problems, 9 pictures drawn and 2 kept, parts 5 of 5 (the proton pump cut and
+  carrying twice), NCERT 10/10. Played whole: 39 lines, no page errors, up to 7 labels.
+- **What the run taught:** (1) the new question opener and "the film's sentences are the script's lines" fought: in
+  rounds 2 and 4 the maker kept the lines and left 6 questions without openers, in round 3 it rewrote the lines and 27
+  of them failed the line check; the opener only came in round 5; (2) a question per mechanism shot cannot be added to a
+  film told in the script's lines, so three problems stayed to the end; (3) one line said "Ab sawaal uthta hai ki ..."
+  but its question mark was at risk of being dropped; (4) the maker asked two pictures for a small inset of another
+  place; (5) the image model drew CF₀ blue in one picture though its prompt said amber (needs a check of the drawn
+  picture, still open).
+- **Changed in BIE (PR #213):** `SCRIPT_PART` and `TEACHER_PART` say the opener goes in front of the line's own words
+  and the film asks only where the lines ask; `mechanism_problems` asks no question per mechanism shot of a film told in
+  such lines; `question_problems` sends back a line that says a question comes without ending in ?; `overlay_problems`
+  sends back an inset. Tests in `SeekhFromR4`.
+- **Measured on r4's own film data:** its last 3 problems: 0 with the change (4 without lines); inset asks found: 1 drawn
+  picture (s3; s7's photo was kept from the cupboard); question lines: 7 of 7 open with an opener and end with ?.
+
+## Entry · r4 of 11.6.3b, asli look (job r4a), 24 November 2026
+
+- **Run:** VM job `r4a-photosynthesis-116-3b-asli` (PR #212 rules, look "asli", ₹0, 71 minutes): 9 shots, 5 rounds,
+  `needs_fix` with 1 problem, 7 pictures drawn and 2 kept, parts 5 of 5 (the pump drawn as a large cytochrome b6f and
+  carrying H⁺ into the lumen), NCERT 10/10.
+- **What the run taught:** (1) the one problem left was a false alarm: `crowd_problems` read "Retain curved crowded
+  membrane and clear ion approach space below" as a crowd of ions, though "crowded" sits on the membrane, which is
+  exactly what the asli look asks for; (2) rounds 1 and 3 had the same opener-versus-teacher-lines conflict as r4 (6
+  questions without an opener in round 1), and in round 4 the maker added a 40th line of its own to ask a question;
+  both are what PR #213's `SCRIPT_PART` and `TEACHER_PART` change answers ("add no question of your own").
+- **Changed in BIE (PR #213):** a crowd word followed within two words by a structure (membrane, stroma, proteins,
+  complexes, grana, bilayer and the like) is about that structure and no longer counts as a crowd of loose molecules.
+- **Measured on the 34 saved films' picture prompts:** crowd asks found 1 fewer (r4a s2 only); every earlier real
+  crowd ask ("a lumen packed with protons", "proton population space") is still found.
+
+## Entry · r4 of 11.6.3b, mila-jula look (job r4m), 24 November 2026
+
+- **Run:** VM job `r4m-photosynthesis-116-3b-mila` (PR #212 rules, look "asli_mixed", ₹0, 43 minutes): 10 shots, 5
+  rounds, `needs_fix` with 1 problem, 8 pictures drawn and 2 kept, parts 5 of 5, NCERT 10/10. Played whole: 39 lines,
+  no page errors, up to 8 labels.
+- **What the run taught:** (1) its last problem (no question before the dam shot's mechanism) and its round 3 (41 film
+  lines for 39 teacher lines) are the r4 conflict again, answered by PR #213; (2) played, the first question's push-in
+  (scale 1.5 onto ADP) left the labels "Lumen", "Proton gradient" and "H⁺" squeezed on the bottom edge with their
+  leader lines pointing out of the frame; (3) the dam photo's inset, in all three films, is in the kept cupboard
+  picture, which no picture check reaches.
+- **Changed in BIE (PR #213):** `placeLabels` in the player shows a label only while its place is inside the frame;
+  it comes back when the camera returns.
+- **Measured on r4m's page with the new player:** the same moment (line 2, 2.5 s in) shows 0 squeezed labels (3
+  before); on the next line the camera returns to the lumen and both labels stand at their places. Last problems of
+  the three r4 films under PR #213's rules: r4a 1 → 0 (crowd), r4m 1 → 0 (mechanism question), r4 3 → 0 (one inset ask
+  is now found in r4's s3).

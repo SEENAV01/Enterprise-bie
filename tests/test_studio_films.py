@@ -1012,7 +1012,8 @@ class TwoFilmsOf1163b(unittest.TestCase):
                  {"roman": "Ab H+ chalta hai.", "zoom": z(62, 61, 1.65), "moves": [{"what": "H+"}]},  # a tiny shift: still
                  {"roman": "Ab stroma.", "zoom": z(40, 20, 1.2), "pins": [{"label": "stroma"}]}]
         got = [(c["x"], c["y"], c["scale"]) for c in studio_film.steady_camera(lines)]
-        self.assertEqual(got, [(60, 60, 1.6)] * 4 + [(40, 20, 1.2)])
+        # (1.6 asked, played at CAM_MAX since Navin's 19:21 note of 24 November 2026)
+        self.assertEqual(got, [(60, 60, studio_film.CAM_MAX)] * 4 + [(40, 20, 1.2)])
         data = studio_film.player_data(film(), images={}, audio={}, chapter="", question=QUESTION)
         self.assertTrue(all(set(s["zoom"]) == {"x", "y", "scale"} for s in data["shots"][0]["sentences"]))
 
@@ -1022,6 +1023,15 @@ class TwoFilmsOf1163b(unittest.TestCase):
         self.assertIn("crowd of molecules", " ".join(studio_film.crowd_problems(made)))
         made["shots"][0]["visual"]["image_prompt"] = "a thylakoid; leave the lumen clear for the protons BIE moves"
         self.assertEqual(studio_film.crowd_problems(made), [])
+        # r4a (asli look): a crowd word on a structure is the look, not loose ions
+        for fine in ("Retain curved crowded membrane and clear ion approach space below.",
+                     "clear ion approach space below the densely packed proteins",
+                     "a membrane crowded with protein complexes, ions moved by BIE"):
+            made["shots"][0]["visual"]["image_prompt"] = fine
+            self.assertEqual(studio_film.crowd_problems(made), [], fine)
+        for crowd in ("a lumen packed with protons", "dense H⁺ ions near the channel", "many molecules in the stroma"):
+            made["shots"][0]["visual"]["image_prompt"] = crowd
+            self.assertIn("crowd of molecules", " ".join(studio_film.crowd_problems(made)), crowd)
         dam = {"id": "s6", "visual": {"type": "photo", "image_prompt": "16:9 photoreal glossy hydroelectric teaching model"}}
         self.assertIn("not a model", " ".join(studio_film.photo_problems({"shots": [dam]})))
         self.assertNotIn("glossy", studio_film.image_prompt(dam, "Glossy scientific realism, warm light"))
@@ -1039,7 +1049,8 @@ class TwoFilmsOf1163b(unittest.TestCase):
         cam = page[page.index("function camStep("):page.index("function toScreen(")]
         self.assertIn("spotlight();", cam)
         spot = page[page.index("function spotlight("):]
-        self.assertIn("(cam.s-1.15)/.35", spot)                                  # no dimming on a wide view
+        self.assertIn("Math.min(1,cam.lit)", spot)                               # no dimming on a wide view
+        self.assertIn("lit:s>1.04?1:0", cam_to := page[page.index("function camTo("):page.index("function camStep(")])
         self.assertIn("'+cam.ox.toFixed(1)+'% '+cam.oy.toFixed(1)+'%", spot)    # centred on the zoom point
 
     def test_a_picture_leaves_room_for_the_checklist_and_never_draws_it(self):
@@ -1084,6 +1095,13 @@ class LookWordsAndLabelGaps(unittest.TestCase):
         self.assertIn("fixed=labels.filter(l=>l.box.style.opacity==='1'&&l.math)", place)
         self.assertIn("[...fixed,...shown.slice(0,i)]", place)
         self.assertIn("for(let pass=0;pass<4;pass++)", place)
+
+    def test_a_label_whose_place_left_the_screen_waits(self):
+        # r4m of 11.6.3b (24 November 2026): the question's push-in left three labels squeezed on the bottom edge
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        place = page[page.index("function placeLabels("):page.index("// --- arrows and effects")]
+        self.assertIn("inView=sx>=.5&&sx<=99.5&&sy>=.5&&sy<=99.5", place)
+        self.assertIn("cam.s>=.98&&inView", place)
 
     def test_a_move_label_ending_on_a_pin_is_sent_back(self):
         bad = film()
@@ -1671,7 +1689,7 @@ class LivingWorldAndQuestions(unittest.TestCase):
         asked = data["shots"][0]["sentences"][2]
         self.assertEqual(asked["ask"]["q"], "CF₀ se H⁺ kaise lautte hain?")       # the opener stays in the voice only
         self.assertEqual((asked["ask"]["x"], asked["ask"]["y"]), (70.0, 58.0))      # CF₀, pinned in this shot
-        self.assertEqual(asked["track"], [{"at": 0.15, "x": 70.0, "y": 58.0, "scale": 1.5, "ms": 1300}])
+        self.assertEqual(asked["track"], [{"at": 0.15, "x": 70.0, "y": 58.0, "scale": studio_film.ASK_SCALE, "ms": 1300}])
         opening = data["shots"][0]["sentences"][0]
         self.assertEqual(opening["ask"]["q"], "Thylakoid ke andar H⁺ kaise jama hote hain?")
         self.assertNotIn("ask", data["shots"][0]["sentences"][1])
@@ -1728,3 +1746,78 @@ class LivingWorldAndQuestions(unittest.TestCase):
                        "camTo(s.dive.x,s.dive.y,2,750)", "canvas.alive"):
             self.assertIn(needed, page)
         self.assertIn("living, flexible sheet", studio_film.CUTAWAY_STYLES["close_up"])
+
+
+class QuestionPauseAndGentleCamera(unittest.TestCase):
+    """Navin, 24 November 2026, 19:21, on r4: a question is on the screen while asked, a second's pause after it, then it
+    goes; and the camera no longer hides most of the picture to show the part being talked about."""
+
+    def test_every_camera_move_keeps_the_picture_in_view(self):
+        made = _membrane_film()
+        for shot in made["shots"]:
+            for sentence in shot["sentences"]:
+                sentence["zoom"] = {"x": 60, "y": 50, "scale": 2.0}         # a maker that still asks to go close
+        data = studio_film.player_data(made, images={}, audio={}, chapter="Photosynthesis", question=QUESTION)
+        scales = [s["zoom"]["scale"] for shot in data["shots"] for s in shot["sentences"]]
+        scales += [c["scale"] for shot in data["shots"] for s in shot["sentences"] for c in s.get("track") or []]
+        self.assertTrue(scales)
+        self.assertLessEqual(max(scales), studio_film.CAM_MAX)
+        layers = [{"id": "head", "box": [55, 25, 60, 30]}]                   # a small part: once a 2.0 push-in
+        track = studio_film.camera_track({"dur": 5.0, "acts": [{"part": "head", "do": "squeeze", "at": 1.0}],
+                                          "moves": [{"what": "H+", "points": [[10, 80], [70, 20]], "at": 2, "ms": 2000}],
+                                          "reacts": [{"at": [40, 40], "delay": 3}]}, layers)
+        self.assertLessEqual(max(c["scale"] for c in track), studio_film.CAM_MAX)
+        self.assertIn("scale 1.0 to 1.3", studio_film.INSTRUCTIONS)
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        self.assertIn("const CAM_MAX=1.3;", page)
+        self.assertNotIn("Math.min(2.2,", page)
+        self.assertIn("camTo(s.dive.x,s.dive.y,2,750)", page)                 # a dive still goes inside
+
+    def test_the_question_waits_a_second_then_goes(self):
+        from bie.brain import studio_voice
+        line = lambda text, dur=3.0: {"text": text, "dur": dur}
+        found = studio_voice.gaps([line("Ab sawaal uthta hai ki CF₀ kya karta hai?"), line("Woh H⁺ ko lautata hai."),
+                                   line("Ruko, pehle khud socho: kyun?"), line("Isliye."), line("Aakhri.")])
+        self.assertEqual(round(found[0] + studio_voice.QUESTION_PAUSE, 2), studio_voice.ASK_PAUSE)
+        self.assertEqual(round(found[2] + studio_voice.THINK_PAUSE, 2), studio_voice.ASK_PAUSE)
+        self.assertEqual(studio_voice.ASK_PAUSE, 1.0)
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        step = page[page.index("function askStep("):page.index("function sentence(")]
+        self.assertIn("if(ask&&(ask.si!==si||k!==ask.k))askGone();", step)   # gone as the next line starts
+        self.assertIn(".qcard.gone{animation:qout .55s both}", page)
+        self.assertNotIn(".qcard.old", page)
+
+
+class SeekhFromR4(unittest.TestCase):
+    """What r4 of 11.6.3b taught (24 November 2026): the question opener and the script's lines fought for two rounds, a
+    mechanism question could not be added to a film told in the script's lines, a line said a question came but ended
+    without ?, and two pictures carried a small picture of another place."""
+
+    def test_a_film_told_in_lines_asks_where_its_lines_ask(self):
+        made = _membrane_film()
+        for sentence in made["shots"][0]["sentences"]:
+            sentence["roman"] = sentence["roman"].replace("?", ".")
+            sentence["voice"] = sentence["roman"]
+        made["shots"][0]["sentences"][1]["reacts"] = [{"inputs": [], "at": [50, 50], "outputs": []}]
+        self.assertTrue(any("no question is asked" in p for p in studio_film.mechanism_problems(made, {})))
+        lined = {"teacher_lines": [{"roman": "x"}], "script_lines": True}
+        self.assertFalse(any("no question is asked" in p for p in studio_film.mechanism_problems(made, lined)))
+        self.assertIn("Where the script asks, the film asks", studio_film.SCRIPT_PART)
+        self.assertIn("Ab aap poochhenge", studio_film.SCRIPT_PART)
+        self.assertIn("Ab aap poochhenge", studio_film.TEACHER_PART)
+
+    def test_a_line_that_says_a_question_comes_ends_with_its_question_mark(self):
+        made = _membrane_film()
+        made["shots"][0]["sentences"][2]["roman"] = "Ab aap poochhenge ki CF₀ se H⁺ kaise lautte hain"
+        found = studio_film.question_problems(made)
+        self.assertEqual(len(found), 1)
+        self.assertIn("does not end with ?", found[0])
+        made["shots"][0]["sentences"][2]["roman"] = "Ab sawaal banta hai, aur iska jawab CF₀ mein hai."
+        self.assertEqual(studio_film.question_problems(made), [])        # no question word: not a question
+
+    def test_a_picture_shows_one_place_without_an_inset(self):
+        made = _membrane_film()
+        made["shots"][0]["visual"]["image_prompt"] += ". Small upper-left anatomical inset of the whole thylakoid."
+        found = studio_film.overlay_problems(made)
+        self.assertEqual(len(found), 1)
+        self.assertIn("shows one place", found[0])

@@ -77,7 +77,8 @@
 .world canvas.alive{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
 .qcard{position:absolute;left:50%;top:3.5%;transform:translateX(-50%);max-width:84%;width:max-content;display:flex;gap:.6em;align-items:center;background:rgba(8,26,33,.92);color:#fff;border:1.5px solid var(--gold);border-radius:12px;padding:.45em .9em;font-weight:650;font-size:clamp(.7rem,1.55vw,1.05rem);line-height:1.3;box-shadow:0 6px 24px rgba(0,0,0,.35);animation:qin .5s both;pointer-events:none;transition:opacity .6s,transform .6s}
 .qcard b{flex:none;width:1.7em;height:1.7em;border-radius:50%;background:var(--gold);color:#17140a;display:grid;place-items:center;font-weight:800}
-.qcard.old{opacity:.7;transform:translateX(-50%) scale(.9)}
+.qcard.gone{animation:qout .55s both}
+@keyframes qout{to{opacity:0;transform:translate(-50%,-14px)}}
 @keyframes qin{from{opacity:0;transform:translate(-50%,-12px)}}
 .qmark{position:absolute;transform:translate(-50%,-50%);width:clamp(22px,3.4vw,40px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:rgba(232,185,72,.95);color:#17140a;font-weight:900;font-size:clamp(.8rem,1.9vw,1.3rem);animation:qpulse 1.3s ease-out infinite,inn .4s both;pointer-events:none}
 @keyframes qpulse{0%{box-shadow:0 0 0 0 rgba(232,185,72,.75)}70%{box-shadow:0 0 0 14px rgba(232,185,72,0)}100%{box-shadow:0 0 0 0 rgba(232,185,72,0)}}
@@ -133,17 +134,21 @@ function sv(t,attrs,parent){const e=document.createElementNS(NS,t);for(const k i
 const ease=t=>t<0?0:t>1?1:t*t*(3-2*t);
 
 // --- camera: screen = o + (p - o) * s, so the picture always fills the frame ---------------------------------------------
-const cam={ox:50,oy:50,s:1,from:null,to:null,t0:0,ms:1600,fade:1};
-function camTo(x,y,s,ms){cam.from={ox:cam.ox,oy:cam.oy,s:cam.s};cam.to={ox:x,oy:y,s:s};cam.t0=performance.now();cam.ms=reduced?1:ms;}
+// the camera leans in, at most CAM_MAX, and the light points: Navin, 24 November 2026, 19:21, on r4: "jiski baat ho rahi
+// sirf use dikhane ke chakkar mein bahut kuchh screen ka hissa chhup jata hai, isme sudhar karo" (a dive is apart: it goes
+// inside). ``lit`` is the light on the part the camera leans to, full on any lean
+const CAM_MAX=1.3;
+const cam={ox:50,oy:50,s:1,lit:0,from:null,to:null,t0:0,ms:1600,fade:1};
+function camTo(x,y,s,ms){cam.from={ox:cam.ox,oy:cam.oy,s:cam.s,lit:cam.lit};cam.to={ox:x,oy:y,s:s,lit:s>1.04?1:0};cam.t0=performance.now();cam.ms=reduced?1:ms;}
 function camStep(now){if(cam.to){const t=ease((now-cam.t0)/cam.ms);cam.ox=cam.from.ox+(cam.to.ox-cam.from.ox)*t;cam.oy=cam.from.oy+(cam.to.oy-cam.from.oy)*t;
-    cam.s=cam.from.s+(cam.to.s-cam.from.s)*t;if(t>=1)cam.to=null;}
+    cam.s=cam.from.s+(cam.to.s-cam.from.s)*t;cam.lit=cam.from.lit+(cam.to.lit-cam.from.lit)*t;if(t>=1)cam.to=null;}
   const w=$('world');w.style.transformOrigin=cam.ox+'% '+cam.oy+'%';w.style.transform='scale('+cam.s.toFixed(4)+')';w.style.opacity=cam.fade;
   spotlight();}
-// light in the right place: as the camera closes in on a part, the rest of the picture dims around it (Navin, 23 November
+// light in the right place: as the camera leans to a part, the rest of the picture dims around it (Navin, 23 November
 // 2026: "zoom sahi jagah, roshni sahi jagah"; the ATP synthase demo he passed dimmed all but the beta in its close-up).
-// The zoom point stays where it is on screen, so the light is centred there.
+// The zoom point stays where it is on screen, so the light is centred there; the light, not a close zoom, points.
 let spotKey='';
-function spotlight(){const k=Math.max(0,Math.min(1,(cam.s-1.15)/.35))*(cam.fade>=.98?1:0),key=k.toFixed(2)+' '+cam.ox.toFixed(1)+' '+cam.oy.toFixed(1);
+function spotlight(){const k=Math.max(0,Math.min(1,cam.lit))*(cam.fade>=.98?1:0),key=k.toFixed(2)+' '+cam.ox.toFixed(1)+' '+cam.oy.toFixed(1);
   if(key===spotKey)return;spotKey=key;const e=$('spot');e.style.opacity=(k*.85).toFixed(3);
   // a light picture (r3's cream, matte look) is dimmed gently, so its background does not turn a muddy grey
   const sh=F.shots[si]||{},dark=sh.light!=null&&sh.light>.55?.24:.62;
@@ -449,7 +454,10 @@ function addLabel(text,x,y,cls,showAt){const same=labels.find(l=>l.text===text&&
 const MAX_LABELS=8;
 function dropLabel(l){l.box.remove();l.dot.remove();l.lead.remove();}
 function retireLabels(){labels.forEach(l=>{if(!l.math&&l.k<labelRound){l.box.classList.remove('new');l.box.classList.add('old');}});}
-function placeLabels(){const now=performance.now();for(const l of labels){const on=now>=l.showAt&&cam.fade>=.98&&cam.s>=.98;const [sx,sy]=toScreen(l.x,l.y);const y=sy*.5625;
+// a label whose place the camera has left (a question's push-in, a closer look) waits off the screen and comes back with
+// the place; r4m of 11.6.3b (24 November 2026) showed three labels squeezed on the bottom edge, their lines pointing out
+function placeLabels(){const now=performance.now();for(const l of labels){const [sx,sy]=toScreen(l.x,l.y);const y=sy*.5625;
+    const inView=sx>=.5&&sx<=99.5&&sy>=.5&&sy<=99.5,on=now>=l.showAt&&cam.fade>=.98&&cam.s>=.98&&inView;
     const right=sx<62,lx=right?sx+5:sx-5,ly=Math.max(3,Math.min(53,y-4));
     if(l.math){l.box.style.left=sx+'%';l.box.style.top=(sy/1)+'%';l.box.style.transform='translate(-50%,-50%)';l.dot.style.opacity=l.lead.style.opacity=0;}
     else{l.dot.setAttribute('cx',sx);l.dot.setAttribute('cy',y);l.lead.setAttribute('x1',sx);l.lead.setAttribute('y1',y);l.lead.setAttribute('x2',lx);l.lead.setAttribute('y2',ly);
@@ -527,20 +535,22 @@ function show(i,k,viaDive){const s=F.shots[i];
       if(deep)lens(u<.78?18+ease(u/.78)*22:40+(u-.78)/.22*105);
       if(u<1)requestAnimationFrame(step);else{ghost.remove();cam.fade=1;lens(999);}};
     requestAnimationFrame(step);setTimeout(()=>{if(my===token)sentence(k||0);},deep?ms:200);return;}
-  build(i);setPath(s,false);cam.to=null;cam.ox=50;cam.oy=50;cam.s=1;cam.fade=1;partsReplay(k||0);sentence(k||0);}
+  build(i);setPath(s,false);cam.to=null;cam.ox=50;cam.oy=50;cam.s=1;cam.lit=0;cam.fade=1;partsReplay(k||0);sentence(k||0);}
 // the question on the screen while it is asked, the camera on the part it asks about (BIE times it: track) with a "?"
-// there, and the card stays, quieter, while the answer is told (Navin, 24 November 2026: "question screen par aaye aur
-// question par screen ke kis hisse par baat ho rhi aur question mein kya baat ho rhi wo thoda sa mehsoos ho")
+// there (Navin, 24 November 2026: "question screen par aaye aur question par screen ke kis hisse par baat ho rhi aur
+// question mein kya baat ho rhi wo thoda sa mehsoos ho"); it stays through the second after it is asked (the line's
+// ``after``) and goes as the answer starts (19:21: "ek second ke liye pause ho sawal bolne ke baad, phir gayab ho jaaye")
 let ask=null;
-function askStep(t,k){if(ask&&(ask.si!==si||k>ask.k+1||k<ask.k)){ask.card.remove();ask=null;}else if(ask&&k===ask.k+1)ask.card.classList.add('old');
-  if(fxBox)fxBox.querySelectorAll('.qmark').forEach(m=>m.remove());if(!t.ask||!t.ask.q)return;if(ask){ask.card.remove();ask=null;}
+function askGone(){if(!ask)return;const c=ask.card;ask=null;c.classList.add('gone');setTimeout(()=>c.remove(),reduced?0:600);}
+function askStep(t,k){if(ask&&(ask.si!==si||k!==ask.k))askGone();
+  if(fxBox)fxBox.querySelectorAll('.qmark').forEach(m=>m.remove());if(!t.ask||!t.ask.q)return;askGone();
   const c=el('div','qcard');c.appendChild(el('b','','?'));c.appendChild(el('span','',t.ask.q));$('stage').appendChild(c);ask={card:c,si,k};
   if(t.ask.x!=null&&fxBox){const m=el('div','qmark','?');m.style.left=t.ask.x+'%';m.style.top=Math.max(5,t.ask.y-8)+'%';fxBox.appendChild(m);}}
 function sentence(k){const s=F.shots[si];const t=s.sentences[k];if(!t)return;ki=k;labelRound++;retireLabels();$('sub').textContent=t.text;const now=performance.now();bar(si,k,playing);askStep(t,k);
-  const zm=t.zoom||{},tr=t.track||[];if(!(tr[0]&&tr[0].at<.8))camTo(zm.x==null?50:zm.x,zm.y==null?50:zm.y,Math.min(2.2,Math.max(1,zm.scale||1)),1700);
+  const zm=t.zoom||{},tr=t.track||[];if(!(tr[0]&&tr[0].at<.8))camTo(zm.x==null?50:zm.x,zm.y==null?50:zm.y,Math.min(CAM_MAX,Math.max(1,zm.scale||1)),1700);
   // the camera goes close to what the voice names now and follows a thing that travels (Navin, 24 November 2026: "zoom
   // effects camera angles ka behtreen use krke taaki user ka dhyan script ke sath bandh jaaye"); BIE times it to the words
-  {const my=token;tr.forEach(c=>setTimeout(()=>{if(my===token&&ki===k)camTo(c.x,c.y,Math.min(2.2,Math.max(1,c.scale||1)),c.ms||1200);},Math.max(0,(c.at||0)*1000)));}
+  {const my=token;tr.forEach(c=>setTimeout(()=>{if(my===token&&ki===k)camTo(c.x,c.y,Math.min(CAM_MAX,Math.max(1,c.scale||1)),c.ms||1200);},Math.max(0,(c.at||0)*1000)));}
   // a new step: what earlier steps sent moving goes quiet too, so the new step's flow is the one that glows (F1)
   if(t.step||((t.arrows||[]).length&&k))quiet();if(t.step){actors.forEach(a=>{if(a.kind==='move')a.dim=true;});stepMark(t);}countAdd(t.count);
   // a pin or a move starts as the voice says its name (at, seconds; Navin on the first 11.6.3b film, 23 November 2026:

@@ -340,8 +340,9 @@ with a process written inside a box instead of happening on screen):
 - Every sentence says what appears WHILE it is spoken ("dikhaya = bola"): pins (a short label at x,y in percent of the
   picture, 3 to 97; the label's words must be spoken in that sentence), arrows (2 to 4 points in percent, a short label or
   ""), effects (rise for rising air or heat, rain, glow; a box x0,x1,y0,y1 in percent), focus (ids of SVG parts to light up;
-  [] for photos) and zoom (x, y in percent and scale 1.0 to 2.2: where the camera moves for this sentence; 1.0 shows the
-  whole picture, 1.6 to 2.2 goes close to one part, as a camera pushes in from the whole flower to the anther).
+  [] for photos) and zoom (x, y in percent and scale 1.0 to 1.3: where the camera moves for this sentence; 1.0 shows the
+  whole picture, 1.2 to 1.3 leans towards one part while the rest stays in view, and BIE lights that part and dims the
+  rest; BIE never goes closer than 1.3, so nothing the learner needs is cut off the screen).
 - Motion, as in the approved Pollen-to-seed film: whatever travels in the story is SHOWN travelling while it is spoken.
   moves: things sent along a path over the picture: what (pollen, cell, dot, drop, molecule, light, spark, or a molecule
   from BIE's kit: {molecules}), colour (gold,
@@ -497,7 +498,9 @@ TEACHER_PART = """
 THE TEACHER'S SCRIPT. Navin, the teacher, rewrote the narration of the earlier film of this question (its JSON is below).
 Make the film again with HIS lines as the narration: the film's sentences are his lines, every one, in his order, and
 nothing else is spoken. Keep his words; fix only spelling slips and broken spacing from typing on a tablet ("dekhte hsi"
-is "dekhte hain"). A NOTE under a line is his instruction to you, never words to speak: follow it. Write each line's voice
+is "dekhte hain"); his questions after the opening one get a question opener in front of his words ("Ab sawaal uthta
+hai ki ...?", "Ab aap poochhenge ki ...?"; Navin, 24 November 2026). A NOTE under a line is his instruction to you, never
+words to speak: follow it. Write each line's voice
 in Devanagari, ending every question with ? and starting its answer as a new sentence. You may regroup his lines into
 more shots (a long shot becomes a closer look) and change the pictures, their layout, the pins and the motion so that every
 rule here holds; set teaches, beyond and part for his lines as for your own.
@@ -574,9 +577,12 @@ SCRIPT_PART = """
 THE CHAPTER'S SCRIPT. BIE wrote the whole chapter's script first (Navin, 22 November 2026: "script wo poora gyan hai jo
 hume bache ko dena hai"); this film tells one heading of it. The film's sentences are the script's lines below, every
 one, in their order, and nothing else is spoken; keep their words and their voice ("dekho", "socho" stay: Navin, 23
-November 2026, "Tum wali chalegi"), fixing only a spelling slip. One change is yours: where most answers open alike
+November 2026, "Tum wali chalegi"), fixing only a spelling slip. Two changes are yours: where most answers open alike
 ("Dekho, ..."), open some of them with another teacher's opener ("Iska seedha sa jawab hai ...", "Aisa isliye hai kyunki
-...", "Hota yeh hai ki ..."), so that no opener starts more than half the answers. A NOTE under a line is the
+...", "Hota yeh hai ki ..."), so that no opener starts more than half the answers; and every question after the film's
+opening one gets a question opener in front of the script's words ("Ab sawaal uthta hai ki ...?", "Ab aap poochhenge ki
+...?", "Ab aapke man mein sawaal utha hoga ki ...?"; Navin, 24 November 2026), which keeps every word of the line, its
+question mark included. Where the script asks, the film asks; add no question of your own. A NOTE under a line is the
 script's instruction for the screen (the point's kind and what the screen shows), never words to speak: follow it. A line
 of kind analogy is said on an aside shot (its own everyday picture); the lines of a process are told on one picture,
 step by step. Write each line's voice in Devanagari, ending every question with ? and starting its answer as a new
@@ -918,6 +924,9 @@ def question_problems(film: dict) -> list:
         if first or sentence.get("part") == "hook":
             first = False
             continue
+        if ASKING.search(" ".join(roman.split()[:6])) and not roman.endswith("?") and QUESTION_WORD.search(roman):
+            out.append(f"{where}: the line says a question comes but does not end with ?; end the question with ? in roman "
+                       f"and voice, so it is shown on the screen and the voice pauses: \"{roman[:70]}\"")
         if roman.endswith("?") and not ASKING.search(" ".join(roman.split()[:9])):
             out.append(f"{where}: a question in the film starts by saying a question comes (\"Ab sawaal uthta hai ki ...?\", "
                        f"\"Ab aap poochhenge ki ...?\", \"Ab aapke man mein sawaal utha hoga ki ...?\"), in roman and voice: "
@@ -1296,6 +1305,10 @@ def mechanism_problems(film: dict, question: dict | None = None) -> list:
     count is the script's to keep, not the film's."""
     out, shots = [], film.get("shots") or []
     asked = 0
+    # a film told in the chapter's script or the teacher's own lines asks where those lines ask: r4 of 11.6.3b (24
+    # November 2026) spent two rounds and ended "needs_fix" because a question demanded per mechanism shot could not be
+    # added without breaking "the film's sentences are the script's lines, every one"
+    lined = bool((question or {}).get("teacher_lines"))
     for number, shot in enumerate(shots, 1):
         sid = shot.get("id") or f"shot {number}"
         sentences = shot.get("sentences") or []
@@ -1304,7 +1317,7 @@ def mechanism_problems(film: dict, question: dict | None = None) -> list:
                          or s.get("acts")) and s.get("part") != "recap" for s in sentences)
         has_question = any("?" in (s.get("voice") or "") for s in sentences)
         asked += has_question
-        if mechanism and not has_question:
+        if mechanism and not has_question and not lined:
             out.append(f"{sid}: a mechanism is shown here but no question is asked before it; ask one (it ends with ? in "
                        "voice) so the voice pauses before the answer")
         for k, s in enumerate(sentences, 1):
@@ -1330,7 +1343,7 @@ def mechanism_problems(film: dict, question: dict | None = None) -> list:
                         out.append(f"{where}: {what} takes part in the meeting but the line does not name it; name every "
                                    "molecule as it meets")
     if len(shots) >= 4:
-        if asked * 2 < len(shots):
+        if asked * 2 < len(shots) and not lined:
             out.append(f"questions in {asked} of {len(shots)} shots; ask in at least half of them, as a teacher does")
         pictures = sum(1 if shot.get("aside") else sum(bool(EVERYDAY.search(s.get("roman") or "")) for s in shot.get("sentences") or [])
                        for shot in shots)
@@ -1728,9 +1741,14 @@ PHOTO_MODEL = re.compile(r"(?i)(?<!ball-and-stick )(?<!space-filling )(?<!3d )(?
                          r"(?<!everyday )(?<!mental )\b(models?|miniatures?|toys?|dioramas?|replicas?)\b")
 
 
-_SWARM = r"(population|populations|dense|densely|sparse|crowd|crowded|many|packed|swarm|swarms)"
+# a crowd word that sits on a structure ("curved crowded membrane", "packed proteins", "dense stroma") is about the
+# structure, not loose molecules: the asli look asks for exactly that, and r4a lost a round to "Retain curved crowded
+# membrane and clear ion approach space below" (24 November 2026)
+_ON_STRUCTURE = (r"(?!\s+([\w-]+\s+){0,2}(membranes?|stroma|proteins?|protein\s+complexes|complexes|lipids?|grana|"
+                 r"surfaces?|textures?|thylakoids?|interiors?|cytoplasm|matrix|bilayers?|sheets?|stacks?)\b)")
+_SWARM = rf"(population|populations|dense|densely|sparse|crowd|crowded|many|packed|swarm|swarms)\b{_ON_STRUCTURE}"
 _LOOSE = r"(protons?|h\+|h⁺|ions?|electrons?|molecules?|particles?|tokens?)"
-CROWD = re.compile(rf"(?i)\b{_LOOSE}(?=[^.;,]{{0,30}}\b{_SWARM}\b)|\b{_SWARM}\b(?=[^.;,]{{0,30}}{_LOOSE}(?![a-z]))")
+CROWD = re.compile(rf"(?i)\b{_LOOSE}(?=[^.;,]{{0,30}}\b{_SWARM})|\b{_SWARM}(?=[^.;,]{{0,30}}{_LOOSE}(?![a-z]))")
 
 
 def crowd_problems(film: dict) -> list:
@@ -1750,7 +1768,8 @@ def crowd_problems(film: dict) -> list:
     return out
 
 
-OVERLAY_ASK = re.compile(r"(?i)\b(check-?lists?|(two|three|four|five|six)-item|list panels?|ui panels?|empty (bars|boxes|slots))\b")
+OVERLAY_ASK = re.compile(r"(?i)\b(check-?lists?|(two|three|four|five|six)-item|list panels?|ui panels?|empty (bars|boxes|slots)|"
+                         r"insets?|picture[- ]in[- ]picture)\b")
 
 
 def overlay_problems(film: dict) -> list:
@@ -1762,7 +1781,11 @@ def overlay_problems(film: dict) -> list:
         if ((shot.get("visual") or {}).get("library") or "").strip():
             continue                          # a kept picture is already made and was chosen; its words stay
         found = OVERLAY_ASK.search((shot.get("visual") or {}).get("image_prompt") or "")
-        if found:
+        if found and re.match(r"(?i)insets?|picture", found.group(0)):
+            # r4 of 11.6.3b (24 November 2026): two pictures carried a small picture of another place in a corner
+            out.append(f"{shot.get('id') or f'shot {number}'}: the image_prompt asks for a {found.group(0)!r}; a picture shows "
+                       "one place, with no small picture of another place in it (BIE shows the path of places in a corner)")
+        elif found:
             out.append(f"{shot.get('id') or f'shot {number}'}: the image_prompt asks the picture for a {found.group(0)!r}; BIE "
                        "draws counts and lists over the picture, so write only that the space is left clear")
     return out
@@ -1977,10 +2000,16 @@ def timed(reacts: list, roman: str, seconds: float) -> list:
     return out
 
 
+# the closest the camera goes inside a picture: Navin, 24 November 2026, 19:21, on r4: "jiski baat ho rahi sirf use dikhane
+# ke chakkar mein bahut kuchh screen ka hissa chhup jata hai, isme sudhar karo"; the camera leans in, the light points (a
+# dive into the next place is apart from this: it goes inside)
+CAM_MAX = 1.3
+
+
 def _zoom(z: dict) -> tuple:
     z = z or {}
     return (50.0 if z.get("x") is None else float(z["x"]), 50.0 if z.get("y") is None else float(z["y"]),
-            max(1.0, min(2.2, float(z.get("scale") or 1))))
+            max(1.0, min(CAM_MAX, float(z.get("scale") or 1))))
 
 
 def steady_camera(sentences: list) -> list:
@@ -2000,9 +2029,11 @@ def steady_camera(sentences: list) -> list:
     return out
 
 
-TRACK_MIN = 1.35       # how close the camera goes to what the voice names now
-TRACK_MAX = 2.0
-ASK_SCALE = 1.5        # how close the camera goes to what a question asks about
+TRACK_MIN = 1.12       # how close the camera goes to what the voice names now (at most CAM_MAX; the light does the rest)
+TRACK_MAX = CAM_MAX
+FOLLOW_SCALE = 1.2     # the camera on a thing that travels
+REACT_SCALE = 1.25     # the camera on a meeting
+ASK_SCALE = 1.2        # how close the camera goes to what a question asks about
 
 
 def ask_card(roman: str) -> str:
@@ -2039,7 +2070,7 @@ def question_subject(roman: str, shot: dict, layers: list) -> dict | None:
         at = _named_at(layer.get("name") or "", low)
         if box and at is not None:
             size = max(box[2] - box[0], (box[3] - box[1]) * 0.5625, 1.0)
-            found.append((0, at, (box[0] + box[2]) / 2, (box[1] + box[3]) / 2, max(1.15, min(ASK_SCALE, 40 / size))))
+            found.append((0, at, (box[0] + box[2]) / 2, (box[1] + box[3]) / 2, max(1.1, min(ASK_SCALE, 40 / size))))
     for sentence in shot.get("sentences") or []:
         for pin in sentence.get("pins") or []:
             at = _named_at(pin.get("label") or "", low) if isinstance(pin, dict) else None
@@ -2050,7 +2081,7 @@ def question_subject(roman: str, shot: dict, layers: list) -> dict | None:
             at = _named_at(move.get("label") or move.get("what") or "", low)
             if points and at is not None:
                 middle = points[len(points) // 2]
-                found.append((1, at, float(middle[0]), float(middle[1]), 1.4))
+                found.append((1, at, float(middle[0]), float(middle[1]), 1.15))
     if not found:
         return None
     _, _, x, y, scale = min(found, key=lambda f: (f[0], f[1]))
@@ -2071,7 +2102,7 @@ def camera_track(sentence: dict, layers: list, *, last: bool = False, question: 
         if ask.get("x") is None:
             return []
         return [{"at": 0.15, "x": round(float(ask["x"]), 1), "y": round(float(ask["y"]), 1),
-                 "scale": round(float(ask.get("scale") or 1.5), 2), "ms": 1300}]
+                 "scale": round(min(CAM_MAX, float(ask.get("scale") or ASK_SCALE)), 2), "ms": 1300}]
     dur = float(sentence.get("dur") or 0) or 3.0
     boxes = {p.get("id"): p.get("box") for p in layers if p.get("box")}
     events = []
@@ -2087,11 +2118,11 @@ def camera_track(sentence: dict, layers: list, *, last: bool = False, question: 
     for move in sentence.get("moves") or []:
         points = [p for p in move.get("points") or [] if _point(p)]
         if len(points) >= 2:
-            events.append((float(move.get("at") if move.get("at") is not None else 0.3), list(points[0]), 1.6,
+            events.append((float(move.get("at") if move.get("at") is not None else 0.3), list(points[0]), FOLLOW_SCALE,
                            (list(points[-1]), max(1.0, min(4.0, float(move.get("ms") or 3000) / 1000)))))
     for react in sentence.get("reacts") or []:
         if _point(react.get("at")):
-            events.append((float(react.get("delay") or 0.3), list(react["at"]), 1.7, None))
+            events.append((float(react.get("delay") or 0.3), list(react["at"]), REACT_SCALE, None))
     events.sort(key=lambda e: e[0])
     track = []
     if events:
