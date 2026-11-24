@@ -3079,3 +3079,18 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   sends back an inset. Tests in `SeekhFromR4`.
 - **Measured on r4's own film data:** its last 3 problems: 0 with the change (4 without lines); inset asks found: 1 drawn
   picture (s3; s7's photo was kept from the cupboard); question lines: 7 of 7 open with an opener and end with ?.
+
+## Entry · r4 of 11.6.3b, asli look (job r4a), 24 November 2026
+
+- **Run:** VM job `r4a-photosynthesis-116-3b-asli` (PR #212 rules, look "asli", ₹0, 71 minutes): 9 shots, 5 rounds,
+  `needs_fix` with 1 problem, 7 pictures drawn and 2 kept, parts 5 of 5 (the pump drawn as a large cytochrome b6f and
+  carrying H⁺ into the lumen), NCERT 10/10.
+- **What the run taught:** (1) the one problem left was a false alarm: `crowd_problems` read "Retain curved crowded
+  membrane and clear ion approach space below" as a crowd of ions, though "crowded" sits on the membrane, which is
+  exactly what the asli look asks for; (2) rounds 1 and 3 had the same opener-versus-teacher-lines conflict as r4 (6
+  questions without an opener in round 1), and in round 4 the maker added a 40th line of its own to ask a question;
+  both are what PR #213's `SCRIPT_PART` and `TEACHER_PART` change answers ("add no question of your own").
+- **Changed in BIE (PR #213):** a crowd word followed within two words by a structure (membrane, stroma, proteins,
+  complexes, grana, bilayer and the like) is about that structure and no longer counts as a crowd of loose molecules.
+- **Measured on the 34 saved films' picture prompts:** crowd asks found 1 fewer (r4a s2 only); every earlier real
+  crowd ask ("a lumen packed with protons", "proton population space") is still found.

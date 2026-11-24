@@ -1740,9 +1740,14 @@ PHOTO_MODEL = re.compile(r"(?i)(?<!ball-and-stick )(?<!space-filling )(?<!3d )(?
                          r"(?<!everyday )(?<!mental )\b(models?|miniatures?|toys?|dioramas?|replicas?)\b")
 
 
-_SWARM = r"(population|populations|dense|densely|sparse|crowd|crowded|many|packed|swarm|swarms)"
+# a crowd word that sits on a structure ("curved crowded membrane", "packed proteins", "dense stroma") is about the
+# structure, not loose molecules: the asli look asks for exactly that, and r4a lost a round to "Retain curved crowded
+# membrane and clear ion approach space below" (24 November 2026)
+_ON_STRUCTURE = (r"(?!\s+([\w-]+\s+){0,2}(membranes?|stroma|proteins?|protein\s+complexes|complexes|lipids?|grana|"
+                 r"surfaces?|textures?|thylakoids?|interiors?|cytoplasm|matrix|bilayers?|sheets?|stacks?)\b)")
+_SWARM = rf"(population|populations|dense|densely|sparse|crowd|crowded|many|packed|swarm|swarms)\b{_ON_STRUCTURE}"
 _LOOSE = r"(protons?|h\+|h⁺|ions?|electrons?|molecules?|particles?|tokens?)"
-CROWD = re.compile(rf"(?i)\b{_LOOSE}(?=[^.;,]{{0,30}}\b{_SWARM}\b)|\b{_SWARM}\b(?=[^.;,]{{0,30}}{_LOOSE}(?![a-z]))")
+CROWD = re.compile(rf"(?i)\b{_LOOSE}(?=[^.;,]{{0,30}}\b{_SWARM})|\b{_SWARM}(?=[^.;,]{{0,30}}{_LOOSE}(?![a-z]))")
 
 
 def crowd_problems(film: dict) -> list:

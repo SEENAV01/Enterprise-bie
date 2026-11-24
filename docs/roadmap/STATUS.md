@@ -525,7 +525,12 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    **Seekh from r4 (PR #213):** the script and teacher parts let the question opener go in front of their lines ("where
    the script asks, the film asks"); a film told in such lines is not asked for a question per mechanism shot; a line
    that says a question comes must end with ?; a picture prompt asking for an inset is sent back. Merged only after
-   `r4a` and `r4m`, so the three looks share one set of rules. IMPLEMENTED.
+   `r4a` and `r4m`, so the three looks share one set of rules. IMPLEMENTED. **Job `r4a` (asli, 24 November 2026):**
+   9 shots, 5 rounds, 71 minutes, `needs_fix` with 1 problem, and that one a false alarm: the crowd check read "Retain
+   curved crowded membrane and clear ion approach space below" as a crowd of ions. Pictures in the trial style (grana,
+   packed proteins, granular stroma), the pump drawn large and carrying H⁺ into the lumen, dives and questions as in
+   r4. Its rounds fought the same opener-versus-lines conflict PR #213 fixes, and one round added a 40th line of its
+   own. PR #213 also lets a crowd word sit on a structure ("crowded membrane", "densely packed proteins").
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

@@ -1022,6 +1022,15 @@ class TwoFilmsOf1163b(unittest.TestCase):
         self.assertIn("crowd of molecules", " ".join(studio_film.crowd_problems(made)))
         made["shots"][0]["visual"]["image_prompt"] = "a thylakoid; leave the lumen clear for the protons BIE moves"
         self.assertEqual(studio_film.crowd_problems(made), [])
+        # r4a (asli look): a crowd word on a structure is the look, not loose ions
+        for fine in ("Retain curved crowded membrane and clear ion approach space below.",
+                     "clear ion approach space below the densely packed proteins",
+                     "a membrane crowded with protein complexes, ions moved by BIE"):
+            made["shots"][0]["visual"]["image_prompt"] = fine
+            self.assertEqual(studio_film.crowd_problems(made), [], fine)
+        for crowd in ("a lumen packed with protons", "dense H⁺ ions near the channel", "many molecules in the stroma"):
+            made["shots"][0]["visual"]["image_prompt"] = crowd
+            self.assertIn("crowd of molecules", " ".join(studio_film.crowd_problems(made)), crowd)
         dam = {"id": "s6", "visual": {"type": "photo", "image_prompt": "16:9 photoreal glossy hydroelectric teaching model"}}
         self.assertIn("not a model", " ".join(studio_film.photo_problems({"shots": [dam]})))
         self.assertNotIn("glossy", studio_film.image_prompt(dam, "Glossy scientific realism, warm light"))
