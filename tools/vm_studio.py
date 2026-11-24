@@ -58,6 +58,7 @@ browser, linking each question to ``films/<qid>.html`` and ``GAME.html#<qid>`` o
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import sys
 import time
@@ -70,6 +71,7 @@ from bie.brain import studio  # noqa: E402
 
 STAGES = ("questions", "naksha", "script", "films", "games", "book", "pyq", "dub")
 MAX_IMAGES_PER_FILM = 12
+MAX_COLOUR_REDRAWS = 3      # a film draws at most this many pictures again for a wrong colour (24 November 2026)
 PLAYER = ROOT / "bie" / "brain" / "studio_player.html"
 GAME_PLAYER = ROOT / "bie" / "brain" / "studio_game_player.html"
 BOOK_PLAYER = ROOT / "bie" / "brain" / "studio_book_player.html"
@@ -355,6 +357,37 @@ def cut_parts(film: dict, placed: dict, paths: dict, folder: Path, *, python=Non
     return layers, plates, report
 
 
+def recolour(client, model, shot: dict, before: dict, nxt, saved: Path, look: str, style, placed: dict):
+    """Draw a picture once more when it paints a part in another colour than the film gave it (r4 of 11.6.3b, 24
+    November 2026: CF₀ amber in the film, blue in one picture). The redraw is placed afresh from the shot as it was
+    before placement, and kept only when fewer parts are wrongly coloured; else the first picture stays and the
+    report names the colour. Returns (picture, placement, problems, usage, drawn)."""
+    from bie.brain import picture_colours, studio_film
+    wrong = picture_colours.colour_problems(shot, saved, look)
+    if not wrong:
+        return saved, placed, [], {}, 0
+    again = saved.with_name(f"{saved.stem}-rang.png")
+    try:
+        done = client.generate_image(studio_film.image_prompt(before, look, style) + picture_colours.recolour_note(wrong),
+                                     again)
+        again = again.with_name(done["file"]) if isinstance(done, dict) and done.get("file") else again
+        if not again.exists():
+            raise FileNotFoundError(again.name)
+        trial = copy.deepcopy(before)
+        placed_again = studio_film.place(client, model, trial, nxt, vision_part(again))
+        left = picture_colours.colour_problems(trial, again, look)
+    except Exception as exc:                 # the first picture stays; the report says the redraw failed
+        return saved, placed, [p["text"] + f" (the redraw failed: {str(exc)[:80]})" for p in wrong], {}, 1
+    usage = placed_again.get("usage") or {}
+    if len(left) < len(wrong):
+        shot.clear()
+        shot.update(trial)
+        return again, placed_again, [p["text"].replace("is drawn again", "was drawn again and kept") for p in left], usage, 1
+    return saved, placed, [p["text"].replace("is drawn again with its colours written out",
+                                             "was drawn again but the redraw was no better, so the first stays")
+                           for p in wrong], usage, 1
+
+
 def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=None):
     from bie.brain import studio_film, studio_voice
     wanted = [q.strip() for q in (args.videos or "").split(",") if q.strip()]
@@ -402,7 +435,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
         for key in usage:
             usage[key] += record["usage"].get(key, 0)
         film = record.get("film") if isinstance(record.get("film"), dict) else {}
-        images, audio, made, files, placed, kept, paths = {}, {}, 0, {}, {}, 0, {}
+        images, audio, made, files, placed, kept, paths, redrawn = {}, {}, 0, {}, {}, 0, {}, 0
         shots = film.get("shots") or []
         for number, shot in enumerate(shots):
             if (shot.get("visual") or {}).get("type") in ("photo", "cutaway") and made < MAX_IMAGES_PER_FILM \
@@ -411,7 +444,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                 target.parent.mkdir(parents=True, exist_ok=True)
                 try:
                     entry = {e["id"]: e for e in q.get("library") or []}.get(((shot.get("visual") or {}).get("library") or "").strip())
-                    saved = None
+                    saved, fresh = None, False
                     if entry:                        # a kept picture from the cupboard (Navin, 21 November 2026)
                         try:
                             target.write_bytes(read_bytes(entry.get("source") or args.from_run, entry["file"]))
@@ -425,12 +458,22 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                                                      target)
                         saved = target.with_name(done["file"]) if isinstance(done, dict) and done.get("file") else target
                         saved = saved if saved.exists() else target
-                        made += 1
+                        made, fresh = made + 1, True
                     # the labels go where the picture really shows their structure (Navin's Q14 review, 20 Nov 2026)
                     nxt = shots[number + 1] if number + 1 < len(shots) else None
+                    before = copy.deepcopy(shot)
                     placed[shot.get("id")] = studio_film.place(client, model, shot, nxt, vision_part(saved))
                     for key in usage:
                         usage[key] += int((placed[shot.get("id")].get("usage") or {}).get(key) or 0)
+                    # each part in the colour the film gave it (24 November 2026): one redraw, kept only when better
+                    if fresh and redrawn < MAX_COLOUR_REDRAWS:
+                        saved, placed[shot.get("id")], said, more, drawn = recolour(
+                            client, model, shot, before, nxt, saved, film.get("look", ""),
+                            getattr(args, "look", "") or None, placed[shot.get("id")])
+                        redrawn += drawn
+                        record["problems"] = record["problems"] + said
+                        for key in usage:
+                            usage[key] += int(more.get(key) or 0)
                     images[shot.get("id")] = image_uri(saved)
                     files[shot.get("id")] = saved.name
                     paths[shot.get("id")] = saved
@@ -469,7 +512,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                      "book_lines": f"{covered['taught']}/{covered['total']}", "beyond": len(covered["beyond"]),
                      "points_moved": sum(p.get("moved", 0) for p in placed.values()),
                      "teacher_lines": len(q.get("teacher_lines") or []),
-                     "kept_pictures": kept,
+                     "kept_pictures": kept, "colour_redraws": redrawn,
                      "parts_cut": cut_report["cut"], "parts_wanted": cut_report["wanted"],
                      "not_in_picture": [m for p in placed.values() for m in p.get("missing", [])]})
 
@@ -481,7 +524,8 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                 raise
             rows.append({"qid": q.get("id"), "question": q.get("question"), "shots": 0, "images": 0, "minutes": 0, "rounds": 0,
                          "problems": [f"the film was not made: {type(exc).__name__}: {str(exc)[:200]}"], "book_lines": "0/0",
-                         "beyond": 0, "points_moved": 0, "teacher_lines": 0, "kept_pictures": 0, "not_in_picture": [],
+                         "beyond": 0, "points_moved": 0, "teacher_lines": 0, "kept_pictures": 0, "colour_redraws": 0,
+                         "not_in_picture": [],
                          "failed": True})
     lines = ["# Filmein", "", f"Awaaz: {summary['voice']}", ""]
     for row in rows:
