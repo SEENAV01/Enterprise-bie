@@ -815,7 +815,7 @@ def main(argv=None):
     parser.add_argument("--library", default="", help="films: a picture cupboard (folder or https URL with library.json and "
                         "library/) whose kept pictures the film may take again")
     parser.add_argument("--look", default="", help="films: how the pictures are drawn (glossy, mixed, matte, structure, "
-                        "close_up, overview; studio_film.FILM_STYLE when not given)")
+                        "close_up, overview, asli, asli_mixed; studio_film.FILM_STYLE when not given)")
     parser.add_argument("--pyqs", default="", help="pyq: the questions JSON (https URL or file)")
     parser.add_argument("--out", required=True)
     parser.add_argument("--pages", default="")

@@ -384,6 +384,17 @@ LOOK_RULES = {
              "drawn like structural-biology figures with a light controlled sheen, and whole structures (a leaf, a cell, a "
              "chloroplast) matte in soft controlled light; BIE writes the look into every picture, so never write glossy, "
              "shiny or plastic, nor a light or render style, into the look or an image_prompt.",
+    "asli": "The pictures show the inside of the chloroplast as electron micrographs show it (Navin, 24 November 2026): thin, "
+            "curving membranes stacked into grana and crowded with proteins, and a granular stroma; BIE writes the look into "
+            "every picture, so never write glossy, shiny or plastic, nor a light or render style, into the look or an "
+            "image_prompt. The picture is busy, so the structure the narration talks about is drawn large, in front and "
+            "clearly separate from the crowded membrane around it.",
+    "asli_mixed": "Close-ups of proteins and molecular machinery are drawn clean like structural-biology figures with a light "
+                  "controlled sheen, and every other picture shows the inside of the chloroplast as electron micrographs "
+                  "show it: thin, curving membranes stacked into grana and crowded with proteins, and a granular stroma "
+                  "(Navin, 24 November 2026); BIE writes the look into every picture, so never write glossy, shiny or "
+                  "plastic, nor a light or render style, into the look or an image_prompt. In the busy pictures the "
+                  "structure the narration talks about is drawn large, in front and clearly separate.",
 }
 
 
@@ -1592,6 +1603,19 @@ CUTAWAY_STYLES = {
                  "field, muted natural colours. Draw "
                  "no individual proteins or molecules at this scale unless the words above name them. No glow, no "
                  "volumetric light rays, whatever the words above say about light. 16:9 landscape." + NO_MARKS),
+    # Navin, 24 November 2026, 14:41, after the real electron micrographs of thylakoids and stroma: "Iska alag se pehale yha
+    # banwake dekhenge"; the trial pictures (VM job a1-asli-thylakoid-stroma) were drawn with these words, and he chose
+    # to see r4 of 11.6.3b in this look, in "asli_mixed" (protein close-ups as close_up, the rest asli) and in "mixed"
+    "asli": (" Rendered as the real inside of a chloroplast looks in electron micrographs and cryo-electron tomograms, given "
+             "soft natural colour: thylakoid membranes are thin double-layered sheets that bend, curve and ripple, stacked "
+             "like coins into grana and joined by thin unstacked stroma lamellae, never a thick band and never "
+             "ruler-straight; where proteins are seen, the membrane is crowded with protein complexes packed side by side "
+             "like cobblestones, each with its real atomic-surface shape and a light satin sheen, with little bare lipid "
+             "between them; the stroma is a dense, finely granular, slightly cloudy fluid whose grain is a soft, "
+             "out-of-focus texture of tiny ribosome-sized specks belonging to the fluid itself, with an occasional dark "
+             "round plastoglobule or pale starch grain, never an empty smooth background. Soft controlled light with "
+             "ambient occlusion, gentle depth of field, muted natural colours. No glow, no volumetric light rays, whatever "
+             "the words above say about light. 16:9 landscape." + NO_MARKS),
 }
 # the films' cutaways: "mixed" draws a close-up of proteins and molecular machinery as "close_up" and a whole-structure
 # view as "overview"; "glossy" brings back the look the films had until 22 November 2026
@@ -1619,6 +1643,16 @@ def style_for(shot: dict) -> str:
     if NO_MACHINERY.search(prompt):
         return "overview"
     return "close_up" if MACHINERY.search(prompt) else "overview"
+
+
+CLOSE = re.compile(r"(?i)\b(close[- ]?ups?|closer|magnified|enlarged|zoom(ed)? in|macro)\b")
+
+
+def close_view(shot: dict) -> bool:
+    """A picture that shows proteins or molecular machinery from close by (Navin's "asli_mixed" look, 24 November 2026:
+    these stay as clean as the hybrid's close-ups; grana, a thylakoid, the stroma and wide membrane views are drawn asli)."""
+    prompt = (shot.get("visual") or {}).get("image_prompt", "")
+    return bool(CLOSE.search(prompt) and MACHINERY.search(prompt) and not NO_MACHINERY.search(prompt))
 
 
 COLOUR_WORDS = {"amber", "black", "blue", "bright", "brown", "copper", "cool", "dark", "deep", "emerald", "glow", "glowing",
@@ -1816,6 +1850,8 @@ def image_prompt(shot: dict, look: str = "", style: str | None = None) -> str:
     style = style or FILM_STYLE
     if style == "mixed":
         style = style_for(shot)
+    elif style == "asli_mixed":
+        style = "close_up" if close_view(shot) else "asli"
     suffix = CUTAWAY_STYLES.get(style, CUTAWAY_SUFFIX) if visual.get("type") == "cutaway" else IMAGE_SUFFIX
     prompt = visual.get("image_prompt", "").strip()
     shared = look_for(prompt, look, aside=bool(shot.get("aside")))

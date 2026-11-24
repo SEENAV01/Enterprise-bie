@@ -3047,3 +3047,16 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   (r3: 0); questions on the screen 8 of 8, and with the camera on the part they name 7 of 8 (r3: 0 and 0); lines where
   the pump must be seen carrying 3 (r3: plain moves through it); the checks would have sent back 7 question openers and
   3 pump lines. Next: job `r4` on the VM.
+
+## Entry · Real electron micrographs and the "asli" look, 24 November 2026
+
+- **Asked (Navin, 14:41):** show how a real thylakoid membrane and stroma look; then try that look apart from the rules.
+  Real pictures shown (TEM of chloroplasts, cryo-ET of Chlamydomonas thylakoids, AFM of packed photosystems).
+- **Trial run:** VM image job `a1-asli-thylakoid-stroma` (₹0, 9.1 minutes, 4 of 4 made): four shots of finished films
+  with their own prompts, drawn in a trial style. Seen against the film pictures: membranes thin, curving and stacked
+  into grana (were a ruler-straight thick band), proteins packed side by side (were far apart), the stroma granular with
+  plastoglobules and starch grains (was a smooth cream), no invented tubes (r3 had them in 4 pictures). Weaker: the
+  pictures are busy, so moving H⁺ and labels may stand out less, and a whole-sac view drew ATP synthase small.
+- **Changed in BIE:** looks `asli` and `asli_mixed` (`close_view` picks the protein close-ups), with the maker told to
+  draw the talked-about structure large and in front in the busy pictures; jobs may choose them; the default stays
+  `mixed`. Next: r4 made three ways (`mixed`, `asli`, `asli_mixed`) for Navin's choice.
