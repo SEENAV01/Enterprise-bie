@@ -1527,13 +1527,44 @@ class HybridRemakeOf1163b(unittest.TestCase):
                                "moves": [{"what": "H+", "label": "H⁺", "points": [[20, 85], [48, 55], [60, 20]]}]},
                               {"pins": [], "moves": [{"what": "H+", "label": "H⁺", "points": [[22, 84], [60, 22]]}]}]}
         clause = studio_film.route_clause(shot)
-        self.assertIn("real structure it passes through", clause)
-        self.assertIn("the passage H⁺ travel through, from the lower left to the upper centre, through the CF₀", clause)
-        self.assertEqual(clause.count("the passage"), 1)                         # the same route once
+        self.assertIn("a real open channel in that structure", clause)
+        self.assertIn("the channel through the CF₀ that H⁺ pass through, from the lower left to the upper centre", clause)
+        self.assertEqual(clause.count("the channel through"), 1)                 # the same route once
+        self.assertIn("draw no tube, pipe or ribbon", clause)
         self.assertIn(clause, studio_film.image_prompt(shot, "", "mixed"))
         photo = dict(shot, visual={"type": "photo", "image_prompt": "a dam"})
         self.assertEqual(studio_film.route_clause(photo), "")                    # a photo shows the real thing as it is
         self.assertEqual(studio_film.route_clause({"visual": {"type": "cutaway"}, "sentences": [{"moves": []}]}), "")
+
+    def test_no_tube_for_things_in_open_fluid(self):
+        """r3 of 11.6.3b (24 November 2026): routes of ATP, NADPH and sugar through the open stroma were drawn as invented
+        tubes between the proteins. Only a route that passes a carrier gets a passage."""
+        shot = {"visual": {"type": "cutaway", "image_prompt": "stroma with Rubisco", "parts": []},
+                "sentences": [{"pins": [{"label": "stroma", "x": 50, "y": 40}, {"label": "biosynthetic reactions", "x": 60, "y": 50}],
+                               "moves": [{"what": "ATP", "label": "ATP", "points": [[80, 30], [60, 45], [40, 50]]},
+                                         {"what": "NADPH", "label": "NADPH", "points": [[10, 60], [50, 50]]}]}]}
+        self.assertEqual(studio_film.route_clause(shot), "")
+        shot["sentences"][0]["pins"].append({"label": "proton pump", "x": 30, "y": 55})
+        shot["sentences"][0]["moves"].append({"what": "H+", "label": "H⁺", "points": [[30, 80], [30, 55], [30, 30]]})
+        clause = studio_film.route_clause(shot)
+        self.assertIn("the channel through the proton pump that H⁺ pass through", clause)
+        self.assertNotIn("ATP pass", clause)
+
+    def test_a_big_part_is_not_pushed_into_and_a_light_picture_dims_gently(self):
+        big = [{"id": "lobe", "box": [20, 0, 78, 58]}]
+        line = {"dur": 6.0, "acts": [{"part": "lobe", "do": "squeeze", "at": 1.0}], "moves": [], "reacts": []}
+        self.assertEqual(studio_film.camera_track(line, big), [])                # already fills the frame
+        import base64, io
+        from PIL import Image
+        def uri(colour):
+            out = io.BytesIO()
+            Image.new("RGB", (32, 18), colour).save(out, "PNG")
+            return "data:image/png;base64," + base64.b64encode(out.getvalue()).decode()
+        self.assertGreater(studio_film.lightness(uri((240, 232, 215))), 0.85)   # r3's cream
+        self.assertLess(studio_film.lightness(uri((10, 40, 50))), 0.2)          # the glossy films' dark teal
+        self.assertIsNone(studio_film.lightness(""))
+        page = (ROOT / "bie" / "brain" / "studio_player.html").read_text(encoding="utf-8")
+        self.assertIn("dark=sh.light!=null&&sh.light>.55?.24:.62", page)
 
     def test_the_camera_goes_where_the_voice_is(self):
         layers = [{"id": "head", "box": [50, 20, 70, 50]}]
