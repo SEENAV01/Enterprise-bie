@@ -220,7 +220,7 @@ class FilmParts(unittest.TestCase):
         shot["visual"]["parts"].append({"id": "ring", "name": "c ring", "looks": "a teal rotor wheel below"})
         said = " ".join(studio_film.parts_problems(made))
         for found in ("turn on 'stalk' needs turns", "tight on 'beta_top' needs toward", "'gamma', which this shot",
-                      "only spin takes a rider", "'ADP aur Pi' leaves here but the line does not name it",
+                      "only spin, suck, grab take a rider", "'ADP aur Pi' leaves here but the line does not name it",
                       "part 'ring' is listed but nothing happens", "part 'ring' (c ring) is not drawn"):
             self.assertIn(found, said)
 

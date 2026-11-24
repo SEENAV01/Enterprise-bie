@@ -51,6 +51,9 @@ SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "canv
 # Task 046 one-shot test (Navin, 26 October 2026): "image" makes pictures with Codex's built-in image_gen tool through the
 # ChatGPT plan (tools/vm_image.py, prompts written by BIE, at most 4 images) and returns the image files; "look" runs the
 # LOOK-01 look check with the free Google reviewer (tools/vm_look.py). Both are fixed commands, like run_brain.
+# a studio film's picture look: studio_film.CUTAWAY_STYLES, or "mixed" (Navin's hybrid of 22 November 2026: close-ups of
+# machinery as structures with a controlled sheen, whole structures matte in controlled light)
+LOOKS = ("glossy", "mixed", "matte", "structure", "close_up", "overview")
 TOOL_SECTIONS = ("image", "look", "voice")
 STUDIO_STAGES = ("questions", "naksha", "script", "films", "games", "book", "pyq", "dub")   # dub: autodub (Navin, 21 November 2026)
 # naksha: the chapter's teaching plan in two shapes from Section 1's chapter map (Navin, 21 November 2026)
@@ -88,13 +91,15 @@ def validate(job: dict) -> dict:
     allowed = {"job", "id", "section", "source", "chapter_map", "from_run", "resume_from", "library", "pages", "videos", "course",
                "maker", "reviewer", "reviewer_model", "models", "routes", "max_inr", "workers", "max_rounds", "language",
                "with_visual", "with_canvas", "with_show", "render", "fake", "note", "prompts", "request", "max_images", "stage",
-               "pyqs", "reference", "max_lines"}
+               "pyqs", "reference", "max_lines", "look"}
     unknown = sorted(set(job) - allowed)
     if unknown:
         raise JobError("unknown fields: " + ", ".join(unknown))
     out = dict(DEFAULTS, **job)
     if out.get("section") not in SECTIONS:
         raise JobError("section: one of " + ", ".join(SECTIONS))
+    if out.get("look") and out["look"] not in LOOKS:      # how a studio film's pictures are drawn (Navin, 24 November 2026)
+        raise JobError("look: one of " + ", ".join(LOOKS))
     if out["maker"] not in MAKERS or out["reviewer"] not in REVIEWERS:
         raise JobError("maker or reviewer: not allowed")
     for name in ("source", "chapter_map", "from_run", "resume_from", "library", "prompts", "request", "pyqs"):
@@ -171,7 +176,7 @@ def argv(job: dict, out: Path, python: str = sys.executable) -> list:
     if job["section"] == "studio":
         cmd = [python, "-B", str(ROOT / "tools" / "vm_studio.py"), "--stage", job.get("stage") or "questions",
                "--out", str(out), "--max-rounds", str(job["max_rounds"])]
-        for name in ("source", "chapter_map", "from_run", "library", "pages", "course", "language", "videos", "pyqs"):
+        for name in ("source", "chapter_map", "from_run", "library", "pages", "course", "language", "videos", "pyqs", "look"):
             if job.get(name):                       # chapter_map: films from a script run (the naksha run it was written from);
                                                     # library: a picture cupboard of its own (Navin, 24 November 2026)
                 cmd += ["--" + name.replace("_", "-"), str(job[name])]

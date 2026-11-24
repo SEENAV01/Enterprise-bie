@@ -465,8 +465,18 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    by a pixel while it "spun", and the gold stalk only rolled a sheen. Fixed here: a spinning part seen from the side
    turns about its upright line, drawn by BIE as 16 frames from the part's own pixels (`bie/brain/part_spin.py`: which
    way it turns, its blade pitch, the frames; `tools/vm_studio.spin_of`; player `p-roll`); a wheel facing us still turns
-   in the picture's plane. IMPLEMENTED; r2 re-wrapped offline with it (same pictures, voice and lines). Next: Navin's
-   verdict on r2's talmel.
+   in the picture's plane. IMPLEMENTED; r2 re-wrapped offline with it (same pictures, voice and lines). Merged (PR #208,
+   `2d075d26`). **Navin at 09:24 (24 November 2026):** the same film once more in his hybrid look of 22 November (matte +
+   controlled light + structure), the camera used so the learner's attention stays bound to the script, each route
+   drawn as a structure (as 7-h11 drew the H⁺ channel), a realistic membrane and parts that press, pull, grip and stick,
+   and enough labels to make each point clear as it is said. Built: a job chooses its look (`look`, `--look`; "mixed" is
+   the hybrid, and the maker is told which look via `LOOK_RULES`); the hybrid's membranes are real bilayers with
+   thickness; `route_clause` writes each moving thing's passage into the picture prompt from the film's own moves;
+   `camera_track` times the camera to the words (close on the part or thing as it is named, following a thing that
+   travels, the whole picture at a shot's end, still on a question); acts `squeeze`, `suck`, `grab` (with a molecule)
+   and a give on `stick`; a part is named on screen as it acts; labels stay on the shot (an earlier line's quieter),
+   eight at most, eight pins a picture. IMPLEMENTED. Next: job `r3` (the same script, `look` "mixed", cupboard
+   `c116-3b-dam` with only the real dam photos).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
