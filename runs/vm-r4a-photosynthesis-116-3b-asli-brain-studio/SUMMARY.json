@@ -1,0 +1,87 @@
+{
+ "schema": "bie.studio-run/1",
+ "section": "studio",
+ "stage": "films",
+ "status": "needs_fix",
+ "maker": "codex on the ChatGPT plan (read-only, no shell)",
+ "cost": {
+  "total_inr": 0.0
+ },
+ "error": null,
+ "plan_usage_before": {
+  "rateLimits.primary.usedPercent": 12,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1795880458,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 12,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1795880458,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 0
+ },
+ "source_sha256": "e2dbdb1ec7793daa87101e8264dfe039f7d277ad6153b904ec078d65ed1adbc8",
+ "page_count": 22,
+ "pages_read": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22
+ ],
+ "voice": "kokoro hf_alpha",
+ "films": [
+  {
+   "qid": "h11-6-3b",
+   "question": "Ab socho, proton gradient mein itni interest kyun hai; sirf lumen mein H⁺ jama karna final goal hai?",
+   "shots": 9,
+   "images": 7,
+   "minutes": 5.6,
+   "rounds": 5,
+   "problems": [
+    "s2: the image_prompt asks for a crowd of molecules or ions (\"...5,38. Retain curved crowded membrane and clear ion approa...\"); the picture draws none, BIE moves a few over it: write that the space is left clear"
+   ],
+   "book_lines": "10/10",
+   "beyond": 31,
+   "points_moved": 68,
+   "teacher_lines": 39,
+   "kept_pictures": 2,
+   "parts_cut": 5,
+   "parts_wanted": 5,
+   "not_in_picture": []
+  }
+ ],
+ "usage": {
+  "input_tokens": 279688,
+  "output_tokens": 78189
+ },
+ "model": "gpt-6.1-sol",
+ "plan_usage_after": {
+  "rateLimits.primary.usedPercent": 12,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1795880458,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 12,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1795880458,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 0
+ },
+ "minutes": 66.1
+}
