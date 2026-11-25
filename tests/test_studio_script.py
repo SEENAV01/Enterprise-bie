@@ -30,48 +30,73 @@ def point(pid, kind, teaches, says, *, terms=(), recalls=(), screen="a picture t
 
 
 def with_facts(heads):
-    """Each heading's facts (one per item it teaches) and each point's uses, as the teacher's way asks (25 Nov 2026)."""
-    items = chapter()["items"]
+    """Each heading's facts and each point's uses, as the teacher's way asks (25 Nov 2026), by kind as padhai pehle asks
+    (25 Nov 2026): a book fact per item it teaches, a word fact per term the chapter opens there, a base fact for what
+    its items need first, a label fact for what a figure shows by name."""
+    ch = chapter()
+    items = ch["items"]
+    by_number = {h["number"]: h for h in studio_script.headings(ch)}
     for part in heads:
         part["facts"] = []
+
+        def add(item, kind, term, fact, point):
+            fid = f"f{len(part['facts']) + 1}"
+            part["facts"].append({"id": fid, "item": item, "kind": kind, "term": term, "fact": fact})
+            point["uses"].append(fid)
+
         for p in part["points"]:
             for iid in p["teaches"]:
-                fid = f"f{len(part['facts']) + 1}"
-                part["facts"].append({"id": fid, "item": iid, "fact": items[iid]["content"]})
-                p["uses"].append(fid)
+                add(iid, "book", "", items[iid]["content"], p)
+        heading = by_number.get(part["section"])
+        if not heading or part["section"] == "recap":
+            continue
+        add(heading["items"][0], "base", "", "Roshni ek energy hai (light is energy).", part["points"][0])
+        for term, iid in studio_script.first_terms(heading):
+            said = next((p for p in part["points"] if studio_script._term_in(term, " ".join(p["says"]))), part["points"][0])
+            add(iid, "word", term, f"{term} ka matlab", said)
+        rows = {r["id"]: r for r in heading["rows"]}
+        for iid in heading["items"]:
+            if items[iid].get("kind") == "diagram":
+                teacher = next(p for p in part["points"] if iid in p["teaches"])
+                for label in studio_script.label_candidates(rows[iid], items):
+                    add(iid, "label", label, f"{label} figure mein ek station hai", teacher)
     return heads
 
 
 def parts():
     return with_facts([
-        {"section": "", "goal": "Plants apna food khud banate hain, dhoop ki madad se.",
+        {"section": "", "goal": "Plants apna food khud kaise banate hain?",
          "bridge": "Ab dekhte hain electrons ka safar.", "points": [
-            point("0-k1", "explain", ["p001-i1"], ["Plants apna food khud banate hain, dhoop ki madad se.",
-                                                   "Aisa isliye hota hai kyunki patti dhoop ki energy ko khane mein badal deti hai."],
+            point("0-k1", "explain", ["p001-i1"], ["Plants apna food khud kaise banate hain?",
+                                                   "Plants apna food khud dhoop se banate hain, kyunki patti dhoop ki energy ko "
+                                                   "khane mein badal deti hai."],
                   roles=["link", "why"]),
             point("0-k2", "real_world", [], ["Hum jo chawal aur dal khate hain, uski shuruaat bhi ek patti se hoti hai."]),
             point("0-k3", "analogy", [], ["Socho patti ek chhoti rasoi hai jahan dhoop se khana pakta hai."])]},
-        {"section": "11.6", "goal": "Electrons PS II se PS I ki taraf move karte hain.",
+        {"section": "11.6", "goal": "Electrons PS II se PS I ki taraf kaise move karte hain?",
          "bridge": "Ab sawaal: electrons ki kami kaun bharta hai?", "points": [
-            point("11.6-k1", "explain", ["p001-i3"], ["Roshni ek electron ko dhakka deti hai aur woh aage chal padta hai.",
+            point("11.6-k1", "explain", ["p001-i3"], ["Electrons PS II se PS I ki taraf kaise move karte hain, aur kyun?",
+                                                       "Electrons aage isliye move karte hain kyunki roshni ek electron ko "
+                                                       "dhakka deti hai.",
                                                        "Electrons PS II se PS I ki taraf move karte hain, ek line mein.",
                                                        "Yeh isliye hota hai kyunki har agla station electron ko thoda neeche "
                                                        "kheenchta hai."],
-                  terms=["PS II"], recalls=["0-k1"], roles=["plain", "term", "why"]),
+                  terms=["PS II"], recalls=["0-k1"], roles=["link", "plain", "term", "why"]),
             point("11.6-k2", "question", ["p001-i4"], ["Electron aage kaise badhta hai? Electron aage aise badhta hai ki har "
                                                         "station use agle station tak deta hai."]),
             point("11.6-k3", "analogy", [], ["Socho ek seedhi hai jis par gend neeche ludhakti hai, har kadam par thodi energy deti hai."]),
             point("11.6-k4", "real_world", [], ["Kheton mein subah dhoop milte hi fasal ki pattiyan kaam shuru kar deti hain."])]},
-        {"section": "11.6.1", "goal": "Ab dekhenge ki PS II ke khoye electrons ki kami kaun bharta hai.",
+        {"section": "11.6.1", "goal": "PS II ke khoye electrons ki kami kaun bharta hai?",
          "bridge": "Ab dekhte hain yeh sab milkar aage kya banata hai.", "points": [
-            point("11.6.1-k1", "overview", [], ["Ab dekhenge ki PS II ke khoye electrons ki kami kaun bharta hai.",
+            point("11.6.1-k1", "overview", [], ["PS II ke khoye electrons ki kami kaun bharta hai?",
                                                 "Pani kyun tootta hai, aur usse teen cheezein kya milti hain?"]),
             point("11.6.1-k2", "explain", ["p002-i1"], ["Paani tootta hai aur PS II ke khoye electrons ki jagah bharta hai.",
                                                          "Aisa isliye hota hai kyunki PS II ko apne electrons wapas chahiye."],
                   terms=["lumen"], roles=["plain", "why"]),
             point("11.6.1-k3", "question", ["p002-i2"], ["Protons kahan chhode jaate hain? Protons thylakoid ke andar, lumen "
                                                           "mein chhode jaate hain."]),
-            point("11.6.1-k4", "figure", ["p002-i5"], ["Ab Z scheme figure dekho: har label ek station hai."],
+            point("11.6.1-k4", "figure", ["p002-i5"], ["Ab Z scheme figure dekho: Photosystem II se shuru karke har "
+                                                        "label ek station hai."],
                   prepares=["p002-i4"]),
             point("11.6.1-k5", "example", [], ["Do water molecules gino: inse chaar protons, chaar electrons aur ek oxygen milti hai."]),
             point("11.6.1-k6", "real_world", [], ["Hum jo oxygen saans mein lete hain, uska bada hissa paudhon ke pani todne se aata hai."]),
@@ -186,7 +211,7 @@ class Script(unittest.TestCase):
         part["points"][2]["says"].append("This is illustrative only.")
         part["points"][2]["screen"] = ""
         found = check(1, part)
-        self.assertIn("11.6-k1 sentence 4: write it in Roman script", found)
+        self.assertIn("11.6-k1 sentence 5: write it in Roman script", found)
         self.assertIn("11.6-k2 sentence 2: 45 words", found)
         self.assertIn("11.6-k3 sentence 2: a caution line never reaches the learner", found)
         self.assertIn("11.6-k3: needs its screen line", found)
@@ -358,7 +383,10 @@ class Script(unittest.TestCase):
         self.assertIn("1 kamiyan bachi", page)
         text = studio_script.markdown(chapter(), record)
         self.assertIn("## 11.6.1 Splitting of Water", text)
-        self.assertIn("**11.6-k1** · samjhana · Roshni ek electron ko dhakka deti hai", text)
+        self.assertIn("**11.6-k1** · samjhana · Electrons PS II se PS I ki taraf kaise move karte hain", text)
+        self.assertIn("- f4 · shabd ka matlab · PS II · PS II ka matlab", text)        # padhai pehle: the facts by kind
+        self.assertIn("Kitab ki baatein (6): kitab kehti hai 3 · shabd ka matlab 1 · pehle ki zaroori baat 1 · figure ka "
+                      "nishaan 1", page)
 
 
 class Stage(unittest.TestCase):
@@ -412,7 +440,7 @@ class TeacherWay(unittest.TestCase):
 
     def test_the_answer_carries_facts_uses_and_roles(self):
         self.assertTrue(strict_ready(studio_script.SCHEMA))
-        self.assertEqual(list(studio_script.SCHEMA["properties"]), ["section", "goal", "facts", "points", "bridge"])
+        self.assertEqual(list(studio_script.SCHEMA["properties"]), ["section", "goal", "misaal", "facts", "points", "bridge"])
         self.assertIn("roles", studio_script.POINT["properties"])
         self.assertIn("uses", studio_script.POINT["properties"])
 
@@ -422,7 +450,7 @@ class TeacherWay(unittest.TestCase):
         self.assertIn('"facts" is empty', check(2, part))
         part = copy.deepcopy(parts()[2])
         part["facts"] = [f for f in part["facts"] if f["item"] != "p002-i2"]
-        self.assertIn("no fact is listed for p002-i2", check(2, part))
+        self.assertIn("no book fact is listed for p002-i2", check(2, part))
         part = copy.deepcopy(parts()[2])
         part["facts"].append({"id": "f9", "item": "p002-i1", "fact": "Oxygen is released."})
         self.assertIn("facts f9 are used by no point", check(2, part))
@@ -440,8 +468,8 @@ class TeacherWay(unittest.TestCase):
     def test_each_line_has_a_job(self):
         part = copy.deepcopy(parts()[1])
         part["points"][0]["roles"] = ["plain"]
-        self.assertIn("11.6-k1: roles must give each of its 3 lines of says its job", check(1, part))
-        part["points"][0]["roles"] = ["plain", "teaching", "why"]
+        self.assertIn("11.6-k1: roles must give each of its 4 lines of says its job", check(1, part))
+        part["points"][0]["roles"] = ["link", "plain", "teaching", "why"]
         self.assertIn("11.6-k1: roles must give each", check(1, part))
 
     def test_a_term_is_named_after_the_idea_is_told(self):
@@ -456,7 +484,7 @@ class TeacherWay(unittest.TestCase):
 
     def test_a_cause_is_explained(self):
         part = copy.deepcopy(parts()[1])
-        part["points"][0]["roles"] = ["plain", "term", "plain"]
+        part["points"][0]["roles"] = ["link", "plain", "term", "plain"]
         self.assertIn("11.6-k1: teaches a cause (p001-i3) but no line says why", check(1, part))
 
     def test_a_line_that_says_the_books_line_again_is_counted_not_sent_back(self):
@@ -481,7 +509,8 @@ class TeacherWay(unittest.TestCase):
         self.assertIn("11.6-k1 line 3: 7 of its 13 words are English (plants, food, make, light, reactions, protons)",
                       check(1, part))
         counts = studio_script.counts(ch, parts())
-        self.assertEqual((counts["facts"], counts["english_heavy"]), (7, 0))      # 6 lines + the summary line
+        self.assertEqual((counts["facts"], counts["english_heavy"]), (13, 0))   # 6 lines, the summary, 3 bases, 2 words, a label
+        self.assertEqual(counts["baatein"], {"book": 7, "word": 2, "base": 3, "label": 1, "extra": 0})
 
     def test_an_answer_opens_with_its_questions_words(self):
         # rules A4 and C2, Navin's card of 25 November 2026: "Sawaal ke shabdon se"
@@ -502,14 +531,14 @@ class TeacherWay(unittest.TestCase):
     def test_the_rules_teach_the_teachers_way(self):
         ch = chapter()
         rules = studio_script.messages(ch, studio_script.headings(ch)[1], [], course=ch["course"])[0]["content"]
-        for words in ("FACTS FIRST, THEN THE TEACHER", "vaad anuvaad nahi", "Never say the book's line again",
+        for words in ("PADHAI PEHLE", "vaad anuvaad nahi", "Never say the book's line again",
                       "known (start from what the learner already knows", "term (only now the book's term",
                       "never copy its words", "a few words recalling an earlier one", '"lautna", not "return"'):
             self.assertIn(words, rules)
 
     def test_the_facts_are_locked_after_the_first_answer(self):
         first = copy.deepcopy(parts()[1])
-        first["points"][0]["roles"] = ["plain", "term", "plain"]           # a problem that is not about facts
+        first["points"][0]["roles"] = ["link", "plain", "term", "plain"]   # a problem that is not about facts
         second = copy.deepcopy(first)
         second["facts"][0]["fact"] = "Electrons jump about."
         client = Client([parts()[0], first, second, parts()[2], parts()[3]])
@@ -526,7 +555,7 @@ class TeacherWay(unittest.TestCase):
         record = studio_script.write(client, "fake", chapter(), course=chapter()["course"], only=["h11-6"], earlier=old)
         self.assertEqual(len(client.calls), 1)
         self.assertIn("NOW WRITE THE SCRIPT OF THIS HEADING: 11.6 THE ELECTRON TRANSPORT", client.calls[0][1]["content"])
-        self.assertIn("Plants apna food khud banate hain", client.calls[0][1]["content"])     # the script so far is the old
+        self.assertIn("Plants apna food khud kaise banate hain", client.calls[0][1]["content"])  # the script so far is the old
         self.assertEqual([p["section"] for p in record["parts"]], ["", "11.6", "11.6.1", "recap"])
         self.assertEqual(record["parts"][1]["points"][3]["says"], new["points"][3]["says"])
         self.assertEqual(record["parts"][2], old[2])
@@ -553,3 +582,174 @@ class TeacherWay(unittest.TestCase):
             args.chapter_map = ""
             failed = vm_studio.run(args, client=Client([parts()[1]]), load=None)
             self.assertEqual(failed["status"], "failed")
+
+
+TARGET = Path(__file__).resolve().parent / "fixtures" / "teacher_target" / "11.6.3_first_try.json"
+
+
+def target():
+    """Three book lines of 11.6.3 (with Figure 11.7), Claude's first cut script of them, and the rewrite Navin passed."""
+    data = json.loads(TARGET.read_text(encoding="utf-8"))
+    passed = studio_script.namunas()[0]
+    ch = {"items": {iid: dict(it, ncert_section="11.6.3") for iid, it in data["items"].items()},
+          "source_sha256": passed["withheld_for"]["source_sha256"]}
+    heading = {"number": "11.6.3", "title": "Chemiosmotic Hypothesis", "items": list(data["items"]),
+               "rows": [{"id": iid, "terms": it["terms"], "parts": []} for iid, it in data["items"].items()]}
+    return data, passed, ch, heading
+
+
+class PadhaiPehle(unittest.TestCase):
+    """Padhai pehle (Navin, 25 November 2026: "maksad kitab ki complex bhasha ko asan shabdon mein samjhane ka hai na ki
+    terms hi kha jaane ka"): the facts list what the learner must take, by kind (book, word, base, label, extra), and the
+    script teaches all of it; a book word is never cut to keep English low. The yardstick: Claude's first 11.6.3 script,
+    which cut what the book teaches, and the rewrite Navin passed ("bilkul passed hai meri taraf se")."""
+
+    def test_the_facts_carry_a_kind_and_a_term(self):
+        self.assertEqual(list(studio_script.FACT["properties"]), ["id", "item", "kind", "term", "fact"])
+        self.assertEqual(studio_script.FACT["properties"]["kind"]["enum"], ["book", "word", "base", "label", "extra"])
+        self.assertTrue(strict_ready(studio_script.SCHEMA))
+        part = copy.deepcopy(parts()[2])
+        part["facts"][0]["kind"] = "fact"
+        self.assertIn("fact f1: kind 'fact' is not one of book, word, base, label, extra", check(2, part))
+        word = next(f for f in part["facts"] if f["kind"] == "word")
+        word["term"] = ""
+        self.assertIn(f"fact {word['id']}: a word fact names in \"term\" the book's word it is about", check(2, part))
+
+    def test_a_term_the_chapter_opens_here_has_its_meaning(self):
+        part = copy.deepcopy(parts()[2])
+        part["facts"] = [f for f in part["facts"] if f["kind"] != "word"]
+        self.assertIn("no word fact tells what 'lumen' (first met in p002-i1) means", check(2, part))
+        # PS II was opened in 11.6, so 11.6.1 does not open it again
+        self.assertNotIn("what 'PS II'", check(2, part))
+
+    def test_what_the_items_need_first_is_recalled(self):
+        part = copy.deepcopy(parts()[1])
+        part["facts"] = [f for f in part["facts"] if f["kind"] != "base"]
+        for p in part["points"]:
+            p["uses"] = [u for u in p["uses"] if any(f["id"] == u for f in part["facts"])]
+        self.assertIn("no base fact recalls them: 'light is energy' (p001-i3)", check(1, part))
+        part = copy.deepcopy(parts()[1])
+        base = next(f for f in part["facts"] if f["kind"] == "base")
+        base["fact"] = "Pattiyan hari hoti hain."                       # recalls something else
+        self.assertIn("'light is energy' (p001-i3)", check(1, part))
+
+    def test_a_figure_is_walked_by_the_labels_it_has(self):
+        part = copy.deepcopy(parts()[2])
+        label = next(f for f in part["facts"] if f["kind"] == "label")
+        label["term"] = "Photosystem IX"
+        self.assertIn(f"fact {label['id']}: the figure p002-i5 has no label 'Photosystem IX'", check(2, part))
+        part["facts"] = [f for f in part["facts"] if f["kind"] != "label"]
+        for p in part["points"]:
+            p["uses"] = [u for u in p["uses"] if any(f["id"] == u for f in part["facts"])]
+        self.assertIn("the figure p002-i5 is walked by 0 label facts; list at least 1 of what it shows by name "
+                      "(Photosystem II)", check(2, part))
+
+    def test_a_word_or_label_is_said_where_it_is_taught(self):
+        part = copy.deepcopy(parts()[2])
+        part["points"][3]["says"] = ["Ab Z scheme figure dekho: har label ek station hai."]
+        label = next(f for f in part["facts"] if f["kind"] == "label")
+        self.assertIn(f"fact {label['id']}: 'Photosystem II' is never said in 11.6.1-k4, which teaches it", check(2, part))
+
+    def test_the_books_short_forms_are_all_said(self):
+        self.assertEqual(studio_script.book_names("Light reaches P680 PS II and P700 PS I, then Fd and FNR to NADP⁺; "
+                                                  "water releases ½O₂; CF₀–CF₁ ATP synthase, ADP + Pᵢ, cytochrome B6f, "
+                                                  "H⁺ (Chapter 12, Figure 11.7)."),
+                         ["P680", "PS", "P700", "FNR", "NADP⁺", "½O₂", "CF₀", "CF₁", "ATP", "ADP", "Pᵢ", "B6f", "H⁺"])
+        ch = chapter()
+        ch["items"]["p001-i3"]["content"] = "Electrons move from PS II to PS I and make ATP."
+        heads = studio_script.headings(ch)
+        found = " | ".join(studio_script.problems(parts()[1], heads[1], ch, parts()[:1], []))
+        self.assertIn("the book writes these here and no line says them: ATP (p001-i3)", found)
+
+    def test_book_words_are_never_counted_as_everyday_english(self):
+        ch = chapter()
+        line = "Plants apna food make karte hain, aur light reactions protons released karti hain."
+        self.assertIn("protons", studio_script.english_words(line, ch)[0])
+        self.assertNotIn("protons", studio_script.english_words(line, ch, frozenset({"protons"}))[0])
+        part = copy.deepcopy(parts()[2])
+        part["facts"].append({"id": "f99", "item": "p002-i1", "kind": "word", "term": "released protons", "fact": "..."})
+        self.assertTrue({"released", "protons", "lumen"} <= studio_script.book_words(part, studio_script.headings(ch)[2], ch))
+
+    def test_a_base_may_be_recalled_but_not_copied(self):
+        written = parts()[:2]
+        part = copy.deepcopy(parts()[2])
+        earlier = "Roshni ek electron ko dhakka deti hai aur woh PS II se aage chal padta hai."
+        written[1]["points"][0]["says"][1] = earlier
+        part["points"][1]["says"].insert(0, "Yaad karo, roshni electron ko dhakka deti hai aur woh PS II se aage chalta hai.")
+        part["points"][1]["roles"].insert(0, "known")
+        self.assertNotIn("11.6.1-k2 sentence 1 says again", check(2, part, written))
+        part["points"][1]["says"][0] = earlier                           # the same sentence copied
+        self.assertIn("11.6.1-k2 sentence 1 says again", check(2, part, written))
+
+    def test_a_galat_line_says_the_wrong_idea_and_breaks_it(self):
+        part = copy.deepcopy(parts()[2])
+        part["points"][1]["says"].append("Paani hi electrons deta hai.")
+        part["points"][1]["roles"].append("galat")
+        self.assertIn("11.6.1-k2: the galat line 'Paani hi electrons deta hai.' must say the wrong idea and break it",
+                      check(2, part))
+        part["points"][1]["says"][-1] = "Aksar hum sochte hain ki PS I paani se electron leta hai, par aisa nahi hai."
+        self.assertNotIn("galat line", check(2, part))
+        for _ in range(2):
+            part["points"][1]["says"].append("Aksar log sochte hain ki oxygen CO₂ se aati hai, par asal mein paani se aati hai.")
+            part["points"][1]["roles"].append("galat")
+        self.assertIn("3 galat lines; at most 2 in a heading", check(2, part))
+
+    def test_the_goal_is_todays_question(self):
+        part = copy.deepcopy(parts()[2])
+        part["goal"] = "Ab dekhenge ki PS II ke khoye electrons ki kami kaun bharta hai."
+        part["points"][0]["says"][0] = part["goal"]
+        self.assertIn("\"goal\" is today's question (rule A4)", check(2, part))
+
+    def test_a_long_heading_hangs_on_one_running_picture(self):
+        part = copy.deepcopy(parts()[2])
+        extra = [point(f"11.6.1-k{n}", "explain", [], [f"Paani ka anu {n} ki baat aage badhti hai, kyunki electron chahiye."],
+                       roles=["why"]) for n in (9, 10, 11)]
+        part["points"] += extra
+        self.assertIn("\"misaal\" is empty", check(2, part))
+        part["misaal"] = "seedhi: electron har kadam par neeche utarta hai"
+        self.assertIn("the heading's misaal 'seedhi: electron har kadam par neeche utarta hai' is pictured in 0 point(s)",
+                      check(2, part))
+        for p in extra[:2]:
+            p["says"].append("Jaise seedhi par gend ek kadam aur neeche aati hai.")
+            p["roles"].append("picture")
+        self.assertNotIn("misaal", check(2, part))
+
+    def test_the_rules_put_teaching_first(self):
+        ch = chapter()
+        rules = studio_script.messages(ch, studio_script.headings(ch)[1], [], course=ch["course"])[0]["content"]
+        for words in ("PADHAI PEHLE", "terms hi kha jaane ka", "no rule of voice, length or repetition is ever a reason",
+                      "A book word is never dropped", "a base the learner has lost", "walked as a story with a finger",
+                      "today's question (aaj ka sawaal, rule A4)", "\"misaal\": the heading's one running picture"):
+            self.assertIn(words, rules)
+
+    def test_the_passed_example_is_shown_except_while_its_own_heading_is_written(self):
+        ch = chapter()
+        user = studio_script.messages(ch, studio_script.headings(ch)[2], [], course=ch["course"])[1]["content"]
+        self.assertIn("A WORKED EXAMPLE OF THE WAY: 11.6.3 Chemiosmotic Hypothesis", user)
+        self.assertIn("Never copy its words, pictures or examples", user)
+        self.assertIn("- known · f5: Pehle jagah pakki kar lo.", user)                   # a line with its job and fact
+        self.assertIn("[word: chemiosmotic hypothesis]", user)
+        self.assertIn("shows by name (label facts): Photosystem II", user)              # the figure's labels, named
+        _, passed, own, heading = target()
+        self.assertEqual(studio_script.namuna(own, heading), "")                       # 11.6.3 of its own book
+        self.assertNotEqual(studio_script.namuna(dict(own, source_sha256="another book"), heading), "")
+
+    def test_the_yardstick_catches_the_cut_script_and_passes_the_passed_one(self):
+        data, passed, ch, heading = target()
+        first = [{"id": f"11.6.3-{k}", "says": p["says"]} for k, p in data["first_try"].items()]
+        cut = [n for n, _ in studio_script.unsaid_names(heading, ch, first)]
+        for name in ("ETS", "P680", "P700", "B6f", "½O₂", "Pᵢ"):           # never said by the first script
+            self.assertIn(name, cut)
+        points = [{"id": f"11.6.3-{p['id']}", "kind": p["kind"], "teaches": p["teaches"],
+                   "says": [line["says"] for line in p["lines"]], "roles": [line["role"] for line in p["lines"]],
+                   "uses": sorted({u for line in p["lines"] for u in line["uses"]})} for p in passed["points"]]
+        answer = {"goal": passed["goal"], "misaal": passed["misaal"], "facts": passed["facts"], "points": points}
+        self.assertEqual([n for n, _ in studio_script.unsaid_names(heading, ch, points)], ["FNR", "CF₀", "CF₁"])
+        found = studio_script.padhai_problems(answer, heading, ch, points)
+        # only what the passed steps leave to the heading's later steps (CF₀, CF₁ and chemiosmosis are taught in c9 and c11
+        # of the whole script), and one small thing the checks found in it: the figure's FNR is never named
+        self.assertEqual(len(found), 2, found)
+        self.assertIn("'chemiosmosis' (first met in p011-i1)", found[0])
+        self.assertIn("FNR (p011-i1), CF₀ (p011-i1), CF₁ (p011-i1)", found[1])
+        kinds = {k: sum(1 for f in passed["facts"] if f["kind"] == k) for k in studio_script.BAAT_KINDS}
+        self.assertEqual(kinds, {"book": 7, "word": 7, "base": 5, "label": 8, "extra": 1})

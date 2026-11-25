@@ -3184,3 +3184,30 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   maker writing "सीएफ़" as one word: `SPELLING` now splits it to "सी एफ़", heard as C F by Whisper (one word: "CF1" in a
   short line but "Safe वन" and "सियेफ" inside longer ones).
 
+## Entry · Padhai pehle: the book's every thing, taught (Claude's 11.6.3 and Navin's check), 25 November 2026
+
+- **What happened:** Navin asked Claude to write 11.6.3 itself (Claude's demo, not BIE output) and compare it with s6 and
+  s7. He found the style right ("bacha connected rahega") but the content cut: a learner reading the book after the film
+  could not join its lines to the script ("concept poora padhaya nhi gaya"); word count is not the measure.
+- **Claude's own check:** in c2–c3 (book lines p010-i14, p010-i15 and Figure 11.7, 22 things a learner must take), the
+  first script taught 8 fully, 8 half, 6 not at all; s6 taught 15 and s7 16 fully, in bookish words. Why: what an
+  earlier heading had taught (the thylakoid's inside and outside, the electron's path) was cut as "known", and book words
+  (cytochrome b6f, ferredoxin, electrochemical) were dropped to keep English low. Navin: "aisa koi bhi niyam jo ...
+  padhane ke tarike ko hi kharab kar de wo niyam achha hoga kya"; the English rule is for everyday words only.
+- **The rewrite he passed** (c2–c3, all 22, plus a teacher's true extras: Mitchell's 1961 idea and its 1978 Nobel, the
+  name broken into chemi + osmotic, a water balloon in a bucket for lumen and stroma, a slope for a gradient, the
+  figure walked label by label with why ½O₂ and why "electrochemical"): "bilkul passed hai meri taraf se".
+- **Changed in BIE (branch `script-padhai-pehle`):** facts by kind (book, word, base, label, extra) with the book's term;
+  code sends back a heading whose opened terms lack a meaning, whose items' "needs first" are not recalled as a base,
+  whose figure is walked by fewer than four of its labels (or names a label it does not have), whose word or label is not
+  said where taught, or that never says a short form or formula of its book lines; book words named in the facts never
+  count as everyday English; a recall (role known) may say again what an earlier heading said unless it copies it; the
+  goal is today's question; a long heading has a running misaal recalled in at least two points; role galat (at most
+  two, said and broken). The maker gets the heading's items whole (a figure's description was cut at 300 letters), their
+  "needs first" and the figure's labels, and the passed c2–c3 as a worked example (each line with its job and facts),
+  never while it writes 11.6.3 of this book.
+- **Measured before:** the s7 11.6.3 part under the new checks: 23 problems (15 opened terms without a word fact, no base
+  facts, no figure labels, ETS never said). The yardstick test: the first cut c2–c3 never says ETS, P680, P700, B6f,
+  ½O₂ or Pᵢ; the passed c2–c3 leaves only what later steps of the heading teach (CF₀, CF₁, chemiosmosis) and the
+  figure's FNR, never named. After: the 11.6.3 rewrite on the VM (job s8).
+

@@ -1,6 +1,6 @@
 # BIE Status
 
-Updated: 25 November 2026 (rules form, the teacher's way) · Read this first in every new session, then show Navin the current task card.
+Updated: 25 November 2026 (rules form, the teacher's way, padhai pehle) · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
@@ -595,7 +595,24 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    (25 November 2026, 15:52):** tests 2 and 3 are close; 3 a little more natural but with breathing noise in its pauses,
    its English words in a bad lehja and ATP not said well; 2's English words right once CF₀ is no longer said as "safe".
    So Kokoro stays, and the bigger gain was the words (test 1 → 2). `studio_voice.SPELLING` now says "सीएफ़" as "सी एफ़"
-   (Whisper heard the letters apart as C F).
+   (Whisper heard the letters apart as C F). **PR #216 merged (25 November 2026).** **Padhai pehle (25 November 2026,
+   evening):** Navin asked Claude to write 11.6.3 itself and compare it with s6 and s7 (page "11.6.3 Teen Scripts",
+   Claude's demo, not BIE output). His verdict: the teaching style is right but Claude's script cut what the book teaches
+   ("tumne truncate kiya hai"; "maksad kitab ki complex bhasha ko asan shabdon mein samjhane ka hai na ki terms hi kha
+   jaane ka"). Claude's check of its own c2–c3: of 22 things in their three book lines (with Figure 11.7), 8 taught fully,
+   8 half, 6 not at all (s6 15, s7 16 fully). The rewrite of c2–c3 teaches all 22; **Navin passed it ("bilkul passed hai
+   meri taraf se yeh wo cheej thi jo mujhe chahiye")** and asked BIE to give this output on the VM. Card in chat ("haan"):
+   BIE's way and checks, plus the passed lines as a worked example (each line with its job and facts) that the maker never
+   sees while it writes 11.6.3 itself. Branch `script-padhai-pehle`: facts by kind (book, word, base, label, extra) with a
+   term; checks for every opened term's meaning, every "needs first" recalled as a base, a figure walked by at least four
+   of its labels (only labels it has), each word and label said where taught, every short form or formula of the book
+   line said, book words never counted as everyday English, a recall allowed to say again what an earlier heading said
+   (not copy it), the goal as today's question (A4), a running misaal in a long heading, role galat (N1, at most two);
+   the heading's items given whole with their "needs first" and the figure's labels; the passed example in
+   `bie/brain/namuna/`. Before: the s7 11.6.3 part has 23 problems under these checks (no word facts for 15 opened
+   terms, no base facts, no figure labels, ETS never said). The checks on the yardstick: Claude's first c2–c3 never says
+   ETS, P680, P700, B6f, ½O₂, Pᵢ; the passed c2–c3 leaves only what the heading teaches later (CF₀, CF₁, chemiosmosis)
+   and one small thing, the figure's FNR never named.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

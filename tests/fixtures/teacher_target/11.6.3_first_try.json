@@ -1,0 +1,115 @@
+{
+ "what": "The yardstick of padhai pehle: three book lines of 11.6.3 (with Figure 11.7) and Claude's first, cut script of them (25 November 2026), which Navin's check found had left out what the book teaches (\"tumne truncate kiya hai\"). The rewrite he passed is bie/brain/namuna/script_11.6.3.json. Claude's demo, not BIE output: never a passed output.",
+ "items": {
+  "p010-i14": {
+   "content": "Let us now try and understand how actually ATP is synthesised in the chloroplast. The chemiosmotic hypothesis has been put forward to explain the mechanism. Like in respiration, in photosynthesis too, ATP synthesis is linked to development of a proton gradient across a membrane. This time these are the membranes of thylakoid. There is one difference though, here the proton accumulation is towards the inside of the membrane, i.e., in the lumen. In respiration, protons accumulate in the intermembrane space of the mitochondria when electrons move through the ETS (Chapter 12).",
+   "kind": "paragraph",
+   "content_type": "comparison",
+   "prerequisites": [
+    "thylakoid membrane, lumen and stroma",
+    "mitochondrial inner and outer membranes",
+    "ATP and ADP",
+    "hydrogen ions"
+   ],
+   "terms": [
+    {
+     "term": "chemiosmotic hypothesis",
+     "first_here": true
+    },
+    {
+     "term": "proton gradient",
+     "first_here": true
+    },
+    {
+     "term": "lumen",
+     "first_here": true
+    },
+    {
+     "term": "intermembrane space",
+     "first_here": true
+    }
+   ]
+  },
+  "p010-i15": {
+   "content": "Let us understand what causes the proton gradient across the membrane. We need to consider again the processes that take place during the activation of electrons and their transport to determine the steps that cause a proton gradient to develop (Figure 11.7).",
+   "kind": "paragraph",
+   "content_type": "cause_effect",
+   "prerequisites": [
+    "proton gradient",
+    "electron excitation and transport",
+    "thylakoid compartments"
+   ],
+   "terms": [
+    {
+     "term": "activation of electrons",
+     "first_here": true
+    }
+   ]
+  },
+  "p011-i1": {
+   "content": "A closed thylakoid membrane encloses a lumen with high H⁺; the surrounding stroma has low H⁺. Light reaches P680 PS II and P700 PS I. Electron flow is shown from PS II through plastoquinone, cytochrome B6f and plastocyanin to PS I, then through Fd and FNR to NADP⁺ reduction. Water oxidation at PS II supplies lumen H⁺ and releases ½O₂. Proton movement from the stroma through the carrier pathway adds H⁺ to the lumen. Green arrows converge on lumen H⁺ and show its return through the CF₀–CF₁ ATP synthase to the stroma, accompanying ADP + Pᵢ → ATP. A wedge marks a high-to-low electrochemical potential gradient from lumen to stroma.",
+   "kind": "diagram",
+   "content_type": "figure",
+   "prerequisites": [
+    "chloroplast stroma and thylakoid lumen",
+    "electron transport",
+    "ATP as an energy carrier"
+   ],
+   "terms": [
+    {
+     "term": "chemiosmosis",
+     "first_here": true
+    }
+   ]
+  }
+ },
+ "first_try": {
+  "c2": {
+   "teaches": [
+    "p010-i14"
+   ],
+   "roles": [
+    "ask",
+    "answer",
+    "galat",
+    "plain",
+    "picture",
+    "known",
+    "term",
+    "term",
+    "fact",
+    "link"
+   ],
+   "says": [
+    "Ab ek baat par gaur karo: dono raaston mein kisi bhi electron ne ADP ko chhua tak nahi. Toh ATP bana kaise?",
+    "ATP bana kaise, iska raaz electron mein nahi, H⁺ mein chhupa hai.",
+    "Aksar hum sochte hain ki electron daudte-daudte khud ATP bana deta hai. Aisa nahi hai.",
+    "Electron ki daud se thylakoid ke andar H⁺ jama hote jaate hain: andar bahut zyada, bahar kam. Phir yahi H⁺ jab wapas bahar bahte hain, tab ATP banta hai.",
+    "Bilkul baandh ki tarah: pehle paani ek taraf roka jaata hai, aur chhodne par usi se bijli banti hai.",
+    "H⁺ ko proton bhi kehte hain aur hydrogen ion bhi; teeno naam ek hi cheez ke hain.",
+    "Membrane ke dono taraf H⁺ ke is farq ko proton gradient kehte hain.",
+    "Aur is farq se ATP banne ki samajh ko chemiosmotic hypothesis kehte hain.",
+    "Chloroplast mein yeh H⁺ thylakoid ke andar, yaani lumen mein, jama hote hain.",
+    "Aage respiration wale chapter mein yahi tarika phir milega; wahan H⁺ mitochondria ki do membranes ke beech ki jagah mein jama honge, jise intermembrane space kehte hain."
+   ]
+  },
+  "c3": {
+   "teaches": [
+    "p010-i15",
+    "p011-i1"
+   ],
+   "roles": [
+    "ask",
+    "answer",
+    "plain",
+    "link"
+   ],
+   "says": [
+    "Ab sawaal yeh hai: thylakoid ke andar itne H⁺ aate kahan se hain?",
+    "Itne H⁺ andar teen kaamon se aate hain, aur teeno hum pichhli filmon mein dekh chuke hain; bas tab humari nazar electron par thi, H⁺ par nahi.",
+    "Isliye wahi raasta dobara chalenge, par is baar har kadam par H⁺ ko ginenge.",
+    "Figure 11.7 mein yahi raasta bana hai; hum use kadam-kadam par saath dekhte chalenge."
+   ]
+  }
+ }
+}
