@@ -591,8 +591,11 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    Navin, "aawaj se bhi hai" and "english shabdon ka uchharan sahi se hmari hinglish accent nhi kar paati"; Claude's test
    (not BIE output) of the same CF₁ lines: r4's own Kokoro audio, the spoken lines in Kokoro, and the spoken lines in
    Chatterbox in the same voice colour; Whisper heard Kokoro's "CF₁" as "Safe वन" and "conformation" as "Confirmation",
-   Chatterbox's English terms right but "shakl" as "शक्र"; Chatterbox took 5.5 minutes for 40 seconds here. Waiting for his
-   ear.
+   Chatterbox's English terms right but "shakl" as "शक्र"; Chatterbox took 5.5 minutes for 40 seconds here. **His ear
+   (25 November 2026, 15:52):** tests 2 and 3 are close; 3 a little more natural but with breathing noise in its pauses,
+   its English words in a bad lehja and ATP not said well; 2's English words right once CF₀ is no longer said as "safe".
+   So Kokoro stays, and the bigger gain was the words (test 1 → 2). `studio_voice.SPELLING` now says "सीएफ़" as "सी एफ़"
+   (Whisper heard the letters apart as C F).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

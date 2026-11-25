@@ -3178,4 +3178,9 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   of the English count as they are of the order checks.
 - **Measured after, on the same two scripts:** s6 258 of 1,401 lines mostly English (mean share 0.23), the rewrite 2 of
   89 (0.10), Navin's lines 0 of 22 (0.07); the rewrite's leftover problems 5 → 3 (the question share, two English lines).
+- **Voice (rule B5, Navin's ear on Claude's test, 15:52):** Kokoro with spoken lines (test 2) and Chatterbox (test 3) are
+  close; Chatterbox breathes audibly in its pauses, says English words in a bad lehja and fumbles ATP, and is far slower
+  (5.5 minutes for 40 seconds here), so Kokoro stays; the one slip he heard in Kokoro, CF₀ said as "safe", comes from the
+  maker writing "सीएफ़" as one word: `SPELLING` now splits it to "सी एफ़", heard as C F by Whisper (one word: "CF1" in a
+  short line but "Safe वन" and "सियेफ" inside longer ones).
 

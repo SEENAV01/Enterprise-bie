@@ -272,6 +272,9 @@ class TeacherVoice(unittest.TestCase):
 
     def test_the_spelling_list_is_for_the_voice_only(self):
         self.assertEqual(studio_voice.spoken("थायलाकोइड के अंदर फियोफाइटिन"), "थायलाकॉइड के अंदर फ़ियोफ़ाइटिन")
+        # Navin, 25 November 2026: "cf0 ko safe bolna" -- CF said as two letters
+        self.assertEqual(studio_voice.spoken("सीएफ़ ज़ीरो और सीएफ वन"), "सी एफ़ ज़ीरो और सी एफ़ वन")
+        self.assertEqual(studio_voice.spoken("CF₀ से"), studio_voice.spoken("सीएफ़ ज़ीरो से"))
         self.assertEqual(studio_voice.spoken("थायलाकोइड्स", "en"), "थायलाकोइड्स")
         for written, better in studio_voice.SPELLING:
             self.assertNotEqual(written, better)
