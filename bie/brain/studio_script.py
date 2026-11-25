@@ -41,9 +41,10 @@ before the next is written (problems go back, at most ``max_rounds``):
   kaise samjhata hai bachon ko, kyunki uske paas us book ki knowledge hai poori"; Claude's worked example of the CF₁ line,
   "bilkul yahi tha"): the heading's facts are listed first, one per fact of its items, and locked for the later rounds;
   every line of says has a job (known, picture, plain, why, term, fact, ask, answer, link); a new term is named only after
-  its idea is told in plain words; a point that teaches a cause says why; a line that is its book line said again is sent
-  back; a line of mostly everyday English words (outside the chapter's terms) is sent back; an earlier analogy may be
-  recalled in a few words. Measured on the saved script (run s6): 96 of 249 opened terms named as a definition in a
+  its idea is told in plain words; a point that teaches a cause says why; a line of mostly everyday English words
+  (outside the chapter's terms) is sent back; an answer opens with its question's words; an earlier analogy may be
+  recalled in a few words. A line that is its book line said again is counted for review pages only: word overlap
+  flagged questions and recalls that use the book's nouns (all four of its flags in the 11.6.3 rewrite). Measured on the saved script (run s6): 96 of 249 opened terms named as a definition in a
   point's first two lines, 90 of 1,401 lines mostly English (Navin's own lines of film A: none), one analogy per heading.
 
 Output: ``script.json`` (the parts, each point with its id "11.6.1-k3": the knowledge points that video, notes and games
@@ -86,15 +87,20 @@ FILLER = studio_naksha.FILLER | {"hum", "hai", "hain", "toh", "tho", "yeh", "woh
 # bachon ko, kyunki uske paas us book ki knowledge hai poori"; Claude's worked example of the CF₁ line, which he called
 # "bilkul yahi tha"). Each sentence of a point has a job, in this order where the point needs it.
 ROLES = ("known", "picture", "plain", "why", "term", "fact", "ask", "answer", "link")
-BEFORE_TERM = {"known", "picture", "plain", "why"}   # what a teacher tells before he names a new term
+BEFORE_TERM = {"known", "picture", "plain", "why"}
+WALKS = ("figure", "overview", "retell", "summary")   # a figure walked label by label and the tellings of a whole: their
+                                                      # lines name what they walk through, so the order checks skip them   # what a teacher tells before he names a new term
 ENGLISH_SHARE = 0.30   # a sentence with this share of everyday English words (outside the chapter's terms) reads like a
-                       # textbook in Roman script: Navin's own lines of film A never reach it (median 0.06, highest 0.18);
-                       # the saved Chapter 11 script (run s6) has 90 of its 1,401 lines at or above it
+                       # textbook in Roman script: Navin's own lines of film A never reach it (mean 0.07); the saved
+                       # Chapter 11 script (run s6) has 258 of its 1,401 lines at or above it (mean 0.23), the 11.6.3
+                       # rewrite of 25 November 2026 2 of 89 (mean 0.10). English words: every English line of the
+                       # chapter file, the book's and Section 1's notes (with the book's words alone, s6 had 90)
 ENGLISH_FROM = 6       # ... in a sentence of at least this many words
 ANSWER_HEAD = 12       # an answer opens with its question's words: two of them within its first twelve words (rules A4
                        # and C2, Navin's card of 25 November 2026); the saved script: 194 of 232 answers do not
-RESTATE = 0.7          # share of a sentence's English words that are its book line's own words: said again, not explained
-RESTATE_FROM = 4       # ... with at least this many English words
+RESTATE = 0.7          # share of a sentence's English words that are its book line's own words: counted on review pages,
+RESTATE_FROM = 4       # never sent back (the 11.6.3 rewrite, 25 November 2026: all 4 lines it flagged were questions,
+                       # answers and recalls that use the book's nouns)
 CLASH = frozenset("the to me par main do so hi us is are ki ke ka na ho jo se ye yeh wo woh hai hain aur mein kar tab ab "
                   "jab kab bhi tha thi pe ek koi kuch log raha rahi aage peeche andar bahar upar neeche saath sath baat din "
                   "raat paani dekho socho".split())
@@ -445,14 +451,27 @@ def _tokens(text: str) -> list:
 _VOCAB: dict = {}
 
 
+def _strings(value):
+    if isinstance(value, str):
+        yield value
+    elif isinstance(value, dict):
+        for v in value.values():
+            yield from _strings(v)
+    elif isinstance(value, list):
+        for v in value:
+            yield from _strings(v)
+
+
 def vocabulary(chapter: dict) -> tuple:
     """(the chapter's English words, its terms' words): every word of the book's own lines, and the words of every term
     the chapter names (marked terms, unpacked terms, concepts), which a teacher says in English."""
     key = id(chapter)
     if key not in _VOCAB:
         english, terms = set(), set()
+        for text in _strings(chapter):                   # every English line of the chapter file: the book's own lines and
+            if not DEVANAGARI.search(text):              # Section 1's notes on them ("contribution", "pool", "handover")
+                english.update(_tokens(text))
         for it in (chapter.get("items") or {}).values():
-            english.update(_tokens(it.get("content", "")))
             for t in it.get("terms") or []:
                 terms.update(_tokens(t.get("term", "") if isinstance(t, dict) else str(t)))
             for t in (it.get("unpack") or {}).get("terms") or []:
@@ -518,11 +537,15 @@ def explain_problems(answer: dict, heading: dict, chapter: dict, points: list) -
         for f in facts:
             if f.get("item") and f["item"] not in heading["items"]:
                 out.append(f"fact {f.get('id')}: {f['item']!r} is not an item of this heading")
-            book = items.get(f.get("item")) or {}
-            for number_word in re.findall(r"\b\d+\b|\bseveral\b", book.get("content", "")):
-                if number_word not in (f.get("fact") or ""):
-                    out.append(f"fact {f.get('id')}: keep the book's {number_word!r} ({f.get('item')})")
-                    break
+        for iid in heading["items"]:
+            mine = " ".join(f.get("fact") or "" for f in facts if f.get("item") == iid)
+            if not mine:
+                continue
+            content = re.sub(r"(?i)\b(figure|fig\.?|table|chapter|section)\s*[\d.]+|\b\d+\.\d+(\.\d+)*\b", " ",
+                             (items.get(iid) or {}).get("content", ""))
+            for number_word in dict.fromkeys(re.findall(r"\b\d+\b|\bseveral\b", content)):
+                if number_word not in mine:
+                    out.append(f"the facts of {iid} leave out the book's {number_word!r}; keep it")
         used = {u for p in points for u in p.get("uses") or []}
         unused = [f.get("id") for f in facts if f.get("id") not in used]
         if unused:
@@ -538,7 +561,7 @@ def explain_problems(answer: dict, heading: dict, chapter: dict, points: list) -
             out.append(f"{pid}: roles must give each of its {len(says)} lines of says its job, one per line "
                        f"({', '.join(ROLES)})")
             continue
-        if p.get("kind") in ("figure", "overview", "retell", "summary"):
+        if p.get("kind") in WALKS:
             continue
         for t in p.get("terms") or []:
             term = (t.get("term") or "").strip()
@@ -555,13 +578,10 @@ def explain_problems(answer: dict, heading: dict, chapter: dict, points: list) -
             if len(asked) >= 2 and len(asked & opening) < 2:
                 out.append(f"{pid}: the answer to {q[:70]!r} does not open with its question's words; open it with them "
                            "(\"... isliye hai kyunki ...\")")
-        book = [items[i].get("content", "") for i in p.get("teaches") or [] if i in items]
         causes = [i for i in p.get("teaches") or [] if (items.get(i) or {}).get("content_type") in ("cause_effect", "process")]
         if p.get("kind") == "explain" and causes and "why" not in roles:
             out.append(f"{pid}: teaches a cause ({', '.join(causes)}) but no line says why; give the why (role why)")
         for k, line in enumerate(says):
-            if roles[k] not in ("fact", "term") and p.get("kind") == "explain" and restates(line, book, chapter):
-                out.append(f"{pid} line {k + 1}: says the book's line again; explain what it is about as a teacher would")
             found, words = english_words(line, chapter)
             if len(words) >= ENGLISH_FROM and len(found) >= ENGLISH_SHARE * len(words):
                 out.append(f"{pid} line {k + 1}: {len(found)} of its {len(words)} words are English ({', '.join(found[:6])}); "
@@ -999,6 +1019,7 @@ def counts(chapter: dict, parts: list) -> dict:
     wanted = studio_naksha.coverable(chapter)
     taught = {i for part in parts for p in part.get("points") or [] for i in p.get("teaches") or []}
     lines = [s for part in parts for p in part.get("points") or [] for s in p.get("says") or []]
+    told = [s for part in parts for p in part.get("points") or [] if p.get("kind") not in WALKS for s in p.get("says") or []]
     words = sum(len(s.split()) for s in lines)
     spoken = [s for part in parts for p in part.get("points") or [] for s in sentences(p)]
     summary = studio_naksha.zone_items(chapter, "summary")
@@ -1018,7 +1039,7 @@ def counts(chapter: dict, parts: list) -> dict:
             "fragments": sum(1 for s in spoken if len(s.split()) <= FRAGMENT and not s.rstrip().endswith("?")),
             "retells": sum(1 for part in parts for p in part.get("points") or [] if p.get("kind") == "retell"),
             "facts": sum(len(part.get("facts") or []) for part in parts),
-            "english_heavy": sum(1 for s in lines if len(english_words(s, chapter)[1]) >= ENGLISH_FROM
+            "english_heavy": sum(1 for s in told if len(english_words(s, chapter)[1]) >= ENGLISH_FROM
                                  and len(english_words(s, chapter)[0]) >= ENGLISH_SHARE * len(english_words(s, chapter)[1])),
             "english_share": round(sum(english_share(s, chapter) for s in lines) / max(1, len(lines)), 3),
             "goals": sum(1 for part in parts if (part.get("goal") or "").strip())}

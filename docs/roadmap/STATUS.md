@@ -577,8 +577,25 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    answer that does not open with its question's words (A4, C2; the saved script: 194 of 232 answers do not). A script
    job can write one heading again in its place (`videos`, with `from_run` the earlier
    script run and `chapter_map` its naksha run). Measured on the saved script (run s6): 96 of 249 opened terms named as a
-   definition in a point's first two lines, 90 of 1,401 lines mostly English (Navin's lines of film A: none). Next: 11.6.3
-   written again on the VM (₹0) and set beside the old for Navin.
+   definition in a point's first two lines, 90 of 1,401 lines mostly English (Navin's lines of film A: none). **PR #215
+   merged (25 November 2026). Job `s7-photosynthesis-script-1163-teacher`** (11.6.3 written again in its place, codex
+   gpt-6.1-sol on the plan, ₹0, 13 minutes, 3 rounds, `needs_fix` with 5 problems; results
+   `blindtest-results:runs/vm-s7-photosynthesis-script-1163-teacher-brain-studio`): answers opening with their question's
+   words 2 of 12 → 12 of 13, a term named in a point's first line 6 → 0, everyday English share 20 % → 11 % (Navin's film A
+   7 %), 34 facts. Still bookish words ("ledger", "pools", "contribution", "handover"); the CF₁ line has a grip picture but
+   not the example's dam and fist. Navin's comparison page: "11.6.3 Purani aur Nayi Script" (artifact). Seekh → BIE (branch
+   `script-teacher-way-2`): the English word list is every English line of the chapter file, not the book's lines alone
+   (it now catches those words; s6 258 of 1,401 lines, the rewrite 2 of 89); the restating check no longer sends lines
+   back (all 4 of its flags in the run were questions, answers and recalls); a number is kept in at least one fact of its
+   item and a figure or section number is not a fact (the run's 5 false "keep the book's '12'"). **Rule B5 (voice):**
+   Navin, "aawaj se bhi hai" and "english shabdon ka uchharan sahi se hmari hinglish accent nhi kar paati"; Claude's test
+   (not BIE output) of the same CF₁ lines: r4's own Kokoro audio, the spoken lines in Kokoro, and the spoken lines in
+   Chatterbox in the same voice colour; Whisper heard Kokoro's "CF₁" as "Safe वन" and "conformation" as "Confirmation",
+   Chatterbox's English terms right but "shakl" as "शक्र"; Chatterbox took 5.5 minutes for 40 seconds here. **His ear
+   (25 November 2026, 15:52):** tests 2 and 3 are close; 3 a little more natural but with breathing noise in its pauses,
+   its English words in a bad lehja and ATP not said well; 2's English words right once CF₀ is no longer said as "safe".
+   So Kokoro stays, and the bigger gain was the words (test 1 → 2). `studio_voice.SPELLING` now says "सीएफ़" as "सी एफ़"
+   (Whisper heard the letters apart as C F).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

@@ -148,7 +148,10 @@ SPELLING = (("थाइलाकोइड", "थायलाकॉइड"), ("�
             ("फियोफ़ाइटिन", "फ़ियोफ़ाइटिन"), ("फेओफाइटिन", "फ़ियोफ़ाइटिन"), ("फ़ेओफ़ाइटिन", "फ़ियोफ़ाइटिन"),
             ("फैरेडॉक्सिन", "फ़ेरेडॉक्सिन"), ("फेरेडॉक्सिन", "फ़ेरेडॉक्सिन"), ("फेरेडोक्सिन", "फ़ेरेडॉक्सिन"),
             ("केमिओस्मोसिस", "केमिऑस्मोसिस"), ("कीमिओस्मोसिस", "केमिऑस्मोसिस"), ("ज़ैंथोफिल", "ज़ैंथोफ़िल"),
-            ("जैंथोफिल", "ज़ैंथोफ़िल"), ("ऑक्सैलोएसिटिक", "ऑक्ज़ैलोएसिटिक"), ("ऑक्सालोएसिटिक", "ऑक्ज़ैलोएसिटिक"))
+            ("जैंथोफिल", "ज़ैंथोफ़िल"), ("ऑक्सैलोएसिटिक", "ऑक्ज़ैलोएसिटिक"), ("ऑक्सालोएसिटिक", "ऑक्ज़ैलोएसिटिक"),
+            # CF₀ and CF₁ written as one word were heard as "safe" (Navin, 25 November 2026, on Claude's voice test: "cf0 ko
+            # safe bolna chhod diya jaaye to shi bola hai"); the letters said apart are heard as C F (Whisper, same day)
+            ("सीएफ़", "सी एफ़"), ("सीएफ", "सी एफ़"))
 # what the voice may still meet once ``spoken`` has said a line: letters and marks of any script, digits, spaces, and the
 # signs the engine says or pauses on. Anything else (a leftover arrow, slash, star, superscript ...) is skipped or misread.
 SAYABLE = set(".,;:!?'\"()[]-–—।॥…‘’“”+=%")
