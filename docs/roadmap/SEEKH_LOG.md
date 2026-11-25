@@ -3131,3 +3131,31 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   centre drawn green), b2 q09 s7 (plum acceptor drawn red), b3 q10 s6 (lavender acceptor, label on an orange chain).
   r4m and r4a draw CF₀ amber and pass. Extra cost: one image and one placement call per flagged picture (about 4 in
   518 saved pictures). Tests use r4's real s4 picture (320 px) and r4m's.
+
+## Entry · The teacher's way in the chapter script (rule B1), 25 November 2026
+
+- **What the talk taught:** Navin's B1 note asked whether the film's lines add to the NCERT line; asked what he meant, he
+  said: not a translation, but how a well-read teacher who knows the whole book explains it to children. Claude's
+  example on the CF₁ line (H⁺ held like water behind a dam, the energy reaching CF₁, its shape changing like a fist
+  opening and closing, ADP and Pi joined, several ATP) was "bilkul yahi tha". The saved script says the same line as
+  "Proton return se released gradient energy CF₁ ki conformation badalne ke kaam aati hai." Reading the script code
+  showed why: each NCERT line taught on its own in the book's order, a new term opened at once with its meaning, an
+  analogy used once in the chapter, "the book's English terms" in the voice. The chapter map already held what the
+  example used (the term's plain meaning, an everyday image of a hand's grip opening and closing, the why steps), so
+  the material was there and the order of telling was missing.
+- **Changed in BIE:** `bie/brain/studio_script.py`: the heading's facts first (`facts`, each with its item; a point's
+  `uses`; the book's numbers and "several" kept; locked after the first round unless a problem names a fact); each line's
+  job (`roles`: known, picture, plain, why, term, fact, ask, answer, link); the rules ask for the teacher's order with a
+  worked pattern from another subject (the pressure cooker), allow a few words recalling an earlier analogy, and ask for
+  ordinary words in Hindi; code checks a term named before its idea, a cause without a why, a line that is its book line
+  said again (`RESTATE` 0.7 of its English words), a line of mostly everyday English words outside the chapter's terms
+  (`ENGLISH_SHARE` 0.30), and an answer that does not open with its question's words (`ANSWER_HEAD`: two of them in
+  its first twelve words; rules A4 and C2, Navin's card); the rules also ask that a question say what it rose from (C3)
+  and that a "socho" question come after its clue (H3). `write(only=, earlier=)` and the script stage's `videos` write
+  one heading again in its place.
+- **Measured before (saved script, run s6):** 96 of 249 opened terms named as a definition in a point's first two lines;
+  90 of 1,401 lines at or above the English share (Navin's 22 lines of film A: 0; median share 0.12 against his 0.06);
+  one analogy point per heading, never recalled; median word overlap of a line with its own book line 0.27, so the
+  restating is in the order and the English words more than in copied words; 194 of 232 answers do not open with their
+  question's words. After: the 11.6.3 rewrite on the VM.
+

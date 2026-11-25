@@ -211,8 +211,20 @@ def script(args, client, model, out: Path, summary: dict):
     ``chapter_map.json`` and, as ideas, its ``naksha.json``) or an understand run, the whole chapter's script, heading by
     heading, each heading checked by code before the next; saved after every heading so a stopped run keeps its work."""
     from bie.brain import studio_script
-    chapter = read_json(args.from_run, "chapter_map.json")
-    plans = maybe_json(args.from_run, "naksha.json")
+    # one heading written again (Navin, 25 November 2026): from_run is the earlier script run whose other headings stay,
+    # chapter_map the naksha run it was written from, videos the headings to write again ("h11-6-3")
+    only = [v.strip() for v in (args.videos or "").split(",") if v.strip()]
+    chapter_run = getattr(args, "chapter_map", "") or ""
+    base = chapter_run if only and chapter_run else args.from_run
+    chapter = read_json(base, "chapter_map.json")
+    plans = maybe_json(base, "naksha.json")
+    earlier = None
+    if only:
+        old = maybe_json(args.from_run, "script.json") if chapter_run else None
+        if not isinstance(old, dict) or not old.get("parts"):
+            raise SystemExit("script with videos: from_run is the earlier script run (its script.json) and chapter_map the "
+                             "naksha run it was written from")
+        earlier = old["parts"]
     course = dict(chapter.get("course") or {})
     for pair in filter(None, (part.strip() for part in (args.course or "").split(";"))):
         if "=" in pair:
@@ -232,8 +244,11 @@ def script(args, client, model, out: Path, summary: dict):
         (out / "SCRIPT.html").write_text(studio_script.html(chapter, record), encoding="utf-8")
 
     record = studio_script.write(client, model, chapter, course=course, naksha=plans if isinstance(plans, dict) else None,
-                                 language=args.language, max_rounds=args.max_rounds, on_part=save)
+                                 language=args.language, max_rounds=args.max_rounds, on_part=save, only=only or None,
+                                 earlier=earlier)
     save(record)
+    if only:
+        summary["rewritten"] = only
     summary.update(status="ok" if not record["problems"] else "needs_fix", usage=record["usage"], model=model,
                    script=studio_script.counts(chapter, record["parts"]),
                    rounds={r["section"] or "opening": len(r["rounds"]) for r in record["rounds"]},
