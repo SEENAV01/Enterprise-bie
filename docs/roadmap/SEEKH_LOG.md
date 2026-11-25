@@ -3211,3 +3211,33 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   ½O₂ or Pᵢ; the passed c2–c3 leaves only what later steps of the heading teach (CF₀, CF₁, chemiosmosis) and the
   figure's FNR, never named. After: the 11.6.3 rewrite on the VM (job s8).
 
+## Entry · 11.6.3 written again with padhai pehle (job s8), and what it taught, 25 November 2026
+
+- **Run:** job s8 on the VM (Codex on the ChatGPT plan, ₹0, 15.5 minutes, 293,683 tokens in and 26,025 out): heading
+  11.6.3 written again in the s6 script with the PR #217 rules; the passed c2–c3 withheld for this heading. Rounds: 3
+  (27 problems, 4, none). Round 1 put several figure labels into one label fact ("Stroma (low H⁺); Stroma; Lumen (high
+  H⁺); Thylakoid membrane"), which the label check sent back.
+- **Measured against the passed c2–c3** (page "11.6.3 BIE aur Namuna"): of the 22 things, s8 taught 17 fully, 3 half and
+  2 not at all (s7 16, 5, 1; the passed rewrite 22). Better than s7: every figure label named and explained, FNR and
+  CF₀/CF₁ too (the passed c2–c3 left them to later steps), two common wrong ideas broken, the misaal (baandh) in five
+  points, 53 facts listed and all taught. Short of the passed rewrite: what a hypothesis is and chemi + osmotic never
+  said, the gradient never told as a slope, H⁺ never told as a bare proton, "electrochemical" named in both its parts
+  but not why. Voice: everyday English 10.4 % (s7 10.6 %, passed 2.7 %, the same book words kept); 28 of 96 lines with
+  an accountant's or office's words (s7 20 of 89, passed 0 of 38): "ledger", "khaata", "contribution", "handover",
+  "accounting equivalent", "stromal consumption", "supply"; "ledger" grew from the rule "as a worked ledger".
+- **Leak found:** the rules' examples quoted the withheld c2 (its opening puzzle, its misaal, the balloon, the slope, the
+  ½O₂ line, the CF₀ question), so s8's opening puzzle was not BIE's own. The misaal was: the chapter map (run s4) gives
+  "baandh" as the everyday image of the chemiosmotic hypothesis.
+- **Changed in BIE (branch `seekh-s8-bolchaal`):** BOLCHAAL, 18 words with what a teacher says instead ("ledger" →
+  ginti, "contribution" → kaam, "handover" → aage dena, "uptake" → uthaana ...), checked in every point (a figure walk
+  and a retelling too), never when the word is a chapter term or a book word; KHOLO, 12 hard words (hypothesis,
+  chemiosmotic as chemi + osmotic, gradient, electrochemical as electro + chemical, synthase, reductase, facilitated,
+  diffusion, conformational, osmosis, photolysis, biosynthetic): when the heading's book lines write one and no earlier
+  heading opened a term with it, a sentence must say it (or each part) by itself, outside the longer term, with a word
+  that gives its meaning (yaani, matlab, kehte hain, =); the rules' examples now come from other subjects (a cooker,
+  the heart, 2n) and a test fails if six words in a row of the withheld example appear in them; one label per label
+  fact; "worked ledger" became "a count said in everyday words". Counts and the review page show both.
+- **Measured before:** s8's 11.6.3 under the new checks: 19 problems (10 points with such words, 9 hard words
+  unopened); s7's: 38; the whole s8 chapter (20 headings still from s6): 218 lines with such words, 11 hard words
+  unopened. The passed c2–c3: no such word, and only "synthase" unopened (its machine is opened in c9). After: job s9.
+

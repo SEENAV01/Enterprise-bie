@@ -58,6 +58,13 @@ before the next is written (problems go back, at most ``max_rounds``):
   (role galat, at most two). The passed rewrite (bie/brain/namuna/) is shown to the maker as the way, each line with its
   job and facts, except while its own heading of its own book is written.
 
+* Bolchaal and kholo (seekh from BIE s8, 25 November 2026, its 11.6.3 beside the passed rewrite: 17 of 22 book things
+  taught against 22, 28 of 96 lines with "ledger", "khaata", "contribution", "handover", and no word inside a term
+  opened): an accountant's or office's word (BOLCHAAL) sends the point back with what a teacher says instead, in every
+  point; a hard word the book writes (KHOLO: hypothesis, chemi + osmotic, gradient, electro + chemical, synthase ...) is
+  opened by itself in a sentence that gives its meaning, also inside a longer term. The rules' examples come from other
+  subjects, so the withheld example of a heading never reaches the maker through them (s8's opening puzzle had).
+
 Output: ``script.json`` (the parts, each point with its id "11.6.1-k3": the knowledge points that video, notes and games
 will account for), ``SCRIPT.md`` and ``SCRIPT.html`` (Navin's script page: each heading's script beside the NCERT lines
 it teaches), ``record.json`` (rounds and problems per heading).
@@ -114,6 +121,51 @@ LABELS_FROM = 4        # a figure is walked by at least this many of its labels 
 MISAAL_FROM = 4        # a heading with this many explain or example points hangs on one running picture ("misaal")
 GALAT_MAX = 2          # common wrong ideas said and broken in one heading (rule N1: 0-2 in a film)
 KNOWN_SAME = 0.85      # a recall (role known) may say again what an earlier heading said, unless it is that sentence copied
+# Bolchaal (seekh from BIE s8, 25 November 2026): words of an accountant's or an office's register that a teacher never says
+# to children, with what he says instead. Navin's page of the 11.6.3 scripts had already named "contribution", "handover",
+# "ledger" and "pools" where a teacher says "kaam" and "utha leta hai"; s8 still had 28 of its 96 lines with such words
+# (the passed 11.6.3 rewrite: 0 of 38), most of them "ledger", "khaata" and "row" grown from the rule's own "worked ledger".
+# Never flagged when the word is one of the chapter's terms or of the heading's book words.
+BOLCHAAL = (
+    ("ledger", r"ledgers?", "hisaab, ginti (\"ab ginti karo: lumen mein kitne H⁺ aaye\")"),
+    ("khaata", r"khaat[ae]", "seedha kaho: \"lumen mein H⁺ badhte hain\""),
+    ("contribution", r"contributions?", "kaam, hissa (\"pehla kaam: paani ka tootna\")"),
+    ("handover", r"handovers?|hand over", "aage dena (\"electron aage de deta hai\")"),
+    ("accounting", r"accounting|accounted|account", "hisaab, ginti"),
+    ("consumption", r"consumption|consumes?|consumed", "kharch hona, istemal hona"),
+    ("uptake", r"uptake", "uthaana (\"carrier H⁺ utha leta hai\")"),
+    ("supply", r"supply|supplies|supplied", "dena, milna (\"do cheezein milti hain: ATP aur NADPH\")"),
+    ("orientation", r"orientation", "kis taraf hai (\"iska munh stroma ki taraf hai\")"),
+    ("batch", r"batch(?:es)?", "ek baar mein, ek misaal mein"),
+    ("measurable", r"measurabl[ey]", "naapa ja sakta hai"),
+    ("mechanism", r"mechanisms?", "tareeka, poora kaam kaise hota hai"),
+    ("requirement", r"requirements?", "zaroori cheezein"),
+    ("pathway", r"pathways?", "raasta"),
+    ("follow", r"follow(?:s|ed|ing)?", "ungli rakh kar chalo, peechha karo"),
+    ("pool", r"pools?", "jama hone ki jagah"),
+    ("tatha", r"tatha", "aur"),
+    ("tantra", r"tantra", "machine, tareeka"),
+)
+BOLCHAAL_RE = tuple((word, re.compile(r"(?<![a-z])(" + pattern + r")(?![a-z])", re.I), say) for word, pattern, say in BOLCHAAL)
+# Words that hide inside the book's lines and terms and that a learner cannot see through on his own (seekh from BIE s8:
+# it never said what a hypothesis is, never broke "chemi" + "osmotic", never told a gradient as a slope; the passed 11.6.3
+# rewrite does all three). Each is opened by itself, in a sentence that says what it (or each of its parts) means, wherever
+# the book writes it, unless an earlier heading opened a term with that word: (the word, the parts said, a teacher's meaning)
+KHOLO = (
+    ("hypothesis", ("hypothes",), "aisa vichaar jise prayogon se parkha jaata hai"),
+    ("chemiosmotic", ("chemi", "osmo"), "chemi = rasayanik kaam; osmotic = membrane ke aar-paar bahna"),
+    ("gradient", ("gradient",), "dhalaan: ek taraf zyada, doosri taraf kam"),
+    ("electrochemical", ("electro", "chemical"), "electro = charge ka farq; chemical = ginti ka farq"),
+    ("synthase", ("synthase",), "banane wala enzyme (synthesis = banana)"),
+    ("reductase", ("reductase",), "reduction karaane wala enzyme"),
+    ("facilitated", ("facilitated",), "madad se, kisi raaste ke zariye"),
+    ("diffusion", ("diffusion",), "apne-aap zyada se kam ki taraf failna"),
+    ("conformational", ("conformation",), "conformation = banawat, shakl"),
+    ("osmosis", ("osmo",), "membrane ke aar-paar kisi cheez ka bahna"),
+    ("photolysis", ("photo", "lysis"), "photo = roshni; lysis = todna"),
+    ("biosynthetic", ("biosynthe",), "jeev ke andar cheezein banane wala"),
+)
+GLOSS = re.compile(r"(?<![a-z])(yaani|yani|matlab|kehte|kehlata|kehlati|kehlate|arth|naam hai)(?![a-z])|=", re.I)
 # a name the book writes as a short form or a formula (ATP, ETS, P680, CF₀, NADP⁺, ½O₂, Pᵢ): the learner meets it in the
 # book and in its figures, so the script says it (Claude's first 11.6.3 script never said ETS, P680, P700, B6f or ½O₂)
 NAME = re.compile(r"½?[A-Za-z][A-Za-z0-9₀-₉⁰-⁹⁺⁻ᵢ]*")
@@ -234,13 +286,15 @@ Rules:
   one short plain line each (id f1, f2 ...; "item" the item id; "kind"; "term" the book's word it is about, else ""):
   - book: every fact the item states, keeping the book's names, numbers, sides and words such as "several";
   - word: every term, name or short form of the item the learner must understand (each ★ term, every name the item or its
-    figure shows, a word of the line the learner may not know, such as "hypothesis"): what it means in everyday words,
-    and, when its name has parts that help, what they are ("chemi" + "osmotic");
+    figure shows, a word of the line the learner may not know, such as "catalyst"): what it means in everyday words,
+    and, when its name has parts that help, what they are ("hydro" + "lysis" = paani + todna). A hard word hiding inside a
+    longer term is opened by itself too, in a sentence that says what it means ("isotope" in "heavy isotope": "isotope
+    yaani ek hi element ke atom, jinka wazan alag hai"), because the learner reads that word alone in the book;
   - base: what the learner must already have in mind to follow the item (its "needs first" in the chapter file): the
     place (what is inside, what is outside), the path, the rule; even when an earlier heading taught it, it is recalled
     here as fully as this line needs, because a base the learner has lost is a line the learner cannot follow;
-  - label: for a figure, every teaching label, mark and arrow, with what it shows and why it is written so ("½O₂": half a
-    molecule from one water);
+  - label: for a figure, every teaching label, mark and arrow, one label per fact (its "term" written as the figure writes
+    it), with what it shows and why it is written so ("2n": two sets of chromosomes in this cell);
   - extra: what a teacher who knows more than the book adds because it makes the line clearer (where the idea came from,
     a real value); only what is true and well known, named in outside_book.
   The facts are also the lock on what is true: a point lists in "uses" the ids of the facts it teaches; together the
@@ -252,10 +306,10 @@ Rules:
   Explain what the line is about the way a well-read teacher who knows the whole book explains it to children, in this
   order where the idea needs it:
   known (start from what the learner already knows or has just seen) -> picture (an everyday picture: the item's
-  everyday image, an analogy, or a few words recalling one the script already told, "jaise baandh ke peeche ruka
-  paani") -> plain (what happens, in everyday words, before any new term) -> why (the cause that links it, from the
-  item's why steps) -> term (only now the book's term, named on the idea just told: "isi shakl badalne ko conformational
-  change kehte hain") -> fact (the book's fact as the exam asks it: "several molecules", the side it faces).
+  everyday image, an analogy, or a few words recalling one the script already told, "jaise cooker ki band seeti") ->
+  plain (what happens, in everyday words, before any new term) -> why (the cause that links it, from the item's why
+  steps) -> term (only now the book's term, named on the idea just told: "isi taapmaan ko boiling point kehte hain") ->
+  fact (the book's fact as the exam asks it: "several molecules", the side it faces).
   A point that opens a term tells it in plain words first; a point that teaches a cause says why. One explanation may
   teach several items of the heading together when they tell one happening: the book's sentence order does not bind you,
   but every item is still in exactly one point's teaches. "roles" gives each line of says its job, one per line, in the
@@ -269,18 +323,19 @@ Rules:
   dabaav badhne se boiling point badh jaata hai." fact "Isliye cooker mein paani lagbhag 120 degree tak garam hota hai aur
   khana jaldi pakta hai."
 - When this heading stands on what an earlier point taught (a base fact), recall it in your own words as fully as this
-  line needs (role known: the place, the path, the rule, with a picture where it helps; "Thaili ke andar ki band jagah
-  lumen hai, aur bahar ka gaadha dravya stroma"), and name that point in "recalls": the id of a point of an earlier
+  line needs (role known: the place, the path, the rule, with a picture where it helps; "Heart ke chaar khaane hain:
+  upar do atrium, neeche do ventricle"), and name that point in "recalls": the id of a point of an earlier
   heading as THE SCRIPT SO FAR shows it (like 11.5-k4), never an item id; when nothing earlier taught it, teach it here
   and say so in outside_book.
 - Terms: open each term marked ★ in this heading's items where it is first needed: tell the idea in plain words, then
   name the term on it (role term), and give its meaning in simple words in "terms". Never define again in "terms" a term
   the script already opened (its idea may still be recalled as a base). Do not use a technical term of a later heading
   before it is opened, except as a pointer ("isko aage dekhenge").
-- "misaal": the heading's one running picture, its main word first ("baandh: lumen ke H⁺ ruka paani, ATP synthase
-  turbine"), told fully once and then recalled in a few words (role picture) at each later step it fits, so the whole
-  heading hangs on one picture the learner keeps; small pictures for single ideas are welcome too (a water balloon in a
-  bucket for the inside and outside, a slope for a gradient). "" only for a short heading.
+- "misaal": the heading's one running picture, its main word first ("shehar ki paani ki line: heart pump, arteries
+  mukhya pipe, capillaries gali ki patli pipe"), told fully once and then recalled in a few words (role picture) at each
+  later step it fits, so the whole heading hangs on one picture the learner keeps; small pictures for single ideas are
+  welcome too (a crowded room emptying into the corridor for spreading out, stairs for energy levels). "" only for a
+  short heading.
 - Examples (kind "example"): a concrete case worked through: a named plant or experiment, a number, one molecule followed.
   Every heading with three or more items has at least one. Analogies (kind "analogy"): an everyday picture for a hard
   idea, never one the script already told as an analogy (a few words recalling an earlier one inside another point, role
@@ -289,7 +344,7 @@ Rules:
   health, weather or technology; never a study task or an exam trap; when the plan's ideas offer one, the heading has
   one; otherwise leave it out rather than invent one.
   An analogy is told fully and vividly, the way a good teacher tells it, for the hard ideas (not in every point), and it
-  says its mapping in plain words as part of the telling ("H⁺ ions yahan paani hain, aur membrane hamara baandh");
+  says its mapping in plain words as part of the telling ("heart yahan pump hai, aur arteries mukhya pipe");
   that is enough for the learner (Navin, 22 November 2026: "analogy ko sahi tarike se bolna hi kaafi hai"). "answer"
   records the mapping; "watch_out" records where the picture stops being true, for notes, games and checks only: it is
   never said in the telling.
@@ -303,11 +358,11 @@ Rules:
   is darker green), teach it in the heading where it belongs and mark it in outside_book.
 - An activity or a table the book asks the learner to do or fill is done and filled here, with the reason for each
   answer; the game turns it into a task later.
-- A cycle or pathway is accounted for in matter as well as energy: what goes in, what comes out, what is regenerated
-  (carbon by carbon), as a worked ledger.
+- A cycle or pathway is counted in matter as well as energy: what goes in, what comes out, what is made again
+  (carbon by carbon), worked through as a count said in everyday words ("chhe CO₂ andar aaye, ek sugar bani").
 - A figure is walked as a story with a finger on it: every teaching label (its label facts), in the order the story
-  needs, each with what it shows and why it is written so ("Wahan ½O₂ likha hai, kyunki paani ke ek molecule se aadha O₂
-  molecule milta hai"); never a bare list of labels; never describe decoration, clothing or how a portrait looks.
+  needs, each with what it shows and why it is written so ("Wahan 2n likha hai, kyunki is cell mein chromosome ke do set
+  hain"); never a bare list of labels; never describe decoration, clothing or how a portrait looks.
 - The book's slips are not copied (for example NAD/NADH where the chapter means NADP/NADPH): teach the correct form.
 - Knowledge points are small: one idea each, at most {max_sentences} sentences; split a long explanation into several
   points.
@@ -324,24 +379,25 @@ Rules:
   (the exam asks them), but ordinary words are said in Hindi ("lautna", not "return"; "jama hona", not "accumulation";
   "ke hisaab se", not "according to"; "chalaata hai", not "support karta hai"); a sentence made mostly of English words is a
   textbook read aloud. A book word is never dropped or swapped for a Hindi word to keep English low: say the term, the
-  name, the label, and explain it in plain words around it; only everyday words go into Hindi. A warm spoken teacher
-  (questions, "socho", "dekho"); every sentence under {max_words} words.
+  name, the label, and explain it in plain words around it; only everyday words go into Hindi. Never an accountant's or
+  an office's words ({bolchaal}): a teacher counts and tells ("pehla kaam", "utha leta hai", "aage de deta hai"). A warm
+  spoken teacher (questions, "socho", "dekho"); every sentence under {max_words} words.
 - How good teachers of this chapter teach (Navin, 22 November 2026, after four teachers were studied line by line):
   - "goal": today's question (aaj ka sawaal, rule A4), asked right after one line of what was just learned: where the
-    heading allows, a puzzle the learner feels ("dono raaston mein kisi bhi electron ne ADP ko chhua tak nahi; toh ATP bana
-    kaise?") or a common wrong idea that opens the door; the heading answers it. Say the review line and the question as
+    heading allows, a puzzle the learner feels ("aanch utni hi hai, phir bhi cooker mein khana jaldi kyon pakta hai?") or a
+    common wrong idea that opens the door; the heading answers it. Say the review line and the question as
     the first sentences of the first point.
   - Ask the learner: about one sentence in five is a question, at least one a "kyun"; answer it at once, or after
     "socho" when the learner should think first. Voice the learner's own doubt ("ab aap sochoge, phir NADPH ka kya?").
   - Where a question comes from (Navin, 25 November 2026, rules C3 and H3): a question never comes alone; say what it
-    rose from: what was just seen, then what is odd or missing in it, then the question ("Humne abhi dekha ki H⁺ CF₀ ke
-    raaste stroma mein laut aate hain. Par inhe lumen mein bhejne mein to energy lagi thi. To ab sawaal uthta hai ki
-    lautne ke liye dobara energy kyon nahi lagti?"). A question the learner should think about first ("Ruko, pehle khud
+    rose from: what was just seen, then what is odd or missing in it, then the question ("Humne abhi dekha ki cooker
+    mein paani 120 degree tak garam hota hai. Par khule bartan mein to woh 100 par hi ubal jaata hai. To ab sawaal uthta
+    hai ki cooker mein woh 100 par kyon nahi ubalta?"). A question the learner should think about first ("Ruko, pehle khud
     socho: ...?") comes after the clue it can be answered from, and its answer joins the learner's thought ("Aapne socha
     hoga ki ..."); at most two such questions in a heading, at its most important turns.
   - An answer opens with its question's own words, turned into the answer (Navin, 25 November 2026, rules A4 and C2:
-    "Proton gradient mein itni dilchaspi isliye hai kyunki ...", "Lautne ke liye dobara energy isliye nahi lagti kyunki
-    ..."; to a "kya" question: "Nahi, C¹⁴ yahaan food banane ki energy nahi deta, ..."), so the learner hears at once
+    "Cooker mein paani 100 par isliye nahi ubalta kyunki ...", "Khoon heart mein wapas isliye nahi behta kyunki ...";
+    to a "kya" question: "Nahi, C¹⁴ yahaan food banane ki energy nahi deta, ..."), so the learner hears at once
     which question it answers.
   - A process (several steps): first an "overview" point that names the steps with their count ("yahan teen kaam hote
     hain: …"), then the steps, then a "retell" point that tells the whole process again in order, in a few sentences.
@@ -612,6 +668,48 @@ def unsaid_names(heading: dict, chapter: dict, points: list) -> list:
     return out
 
 
+def bolchaal(sentence: str, keep=frozenset()) -> list:
+    """The accountant's or office words of a sentence (BOLCHAAL) that are not book words (``keep``): [(word, what a
+    teacher says instead)]."""
+    out = []
+    for word, pattern, say in BOLCHAAL_RE:
+        found = pattern.search(sentence or "")
+        if found and not set(_tokens(found.group(1))) & keep:
+            out.append((word, say))
+    return out
+
+
+def unopened_words(heading: dict, chapter: dict, points: list, opened=frozenset(), terms=()) -> list:
+    """The hard words (KHOLO) this heading's book lines write and no sentence opens: [(word, a teacher's meaning)]. A word
+    is opened when a sentence says it (or each of its parts) by itself, outside the longer terms that hold it, with words
+    that give a meaning ("yaani", "matlab", "kehte hain", "="); ``opened``: the terms earlier headings opened (a word of one
+    of them is not asked again); ``terms``: more terms that may hold the word (the heading's facts)."""
+    items = chapter.get("items") or {}
+    rows = {r["id"]: r for r in heading.get("rows") or []}
+    book = _plain(" ".join(_figure_text(rows.get(i) or {"id": i}, items) for i in heading["items"]))
+    done = {w for t in opened for w in _plain(t).split()}
+    longer = sorted({_plain(t) for t in list(terms) + [t for t, _ in first_terms(heading)] if len(_plain(t).split()) > 1},
+                    key=len, reverse=True)
+    spoken = [_plain(s) for p in points for s in sentences(p)]
+
+    def opens(part: str) -> bool:
+        for s in spoken:
+            for t in longer:
+                if part in t:
+                    s = s.replace(t, " ")
+            if re.search(r"(?<![a-z])" + re.escape(part), s) and GLOSS.search(s):
+                return True
+        return False
+
+    out = []
+    for word, parts, meaning in KHOLO:
+        if word in done or not re.search(r"(?<![a-z])" + word, book):
+            continue
+        if not all(opens(part) for part in parts):
+            out.append((word, meaning))
+    return out
+
+
 def _stem(word: str) -> str:
     for end in ("ational", "ation", "ions", "ing", "ed", "es", "s", "al"):
         if len(word) > 5 and word.endswith(end):
@@ -708,6 +806,12 @@ def padhai_problems(answer: dict, heading: dict, chapter: dict, points: list, op
     if unsaid:
         out.append("the book writes these here and no line says them: " + ", ".join(f"{n} ({i})" for n, i in unsaid[:12])
                    + "; say each where its line is taught (open it in plain words when the learner needs its meaning)")
+    # the hard words inside the book's lines and terms are opened by themselves
+    for word, meaning in unopened_words(heading, chapter, points, opened, [f.get("term") or "" for f in facts]):
+        how = ("break it into its parts and say what each means" if len(dict((w, p) for w, p, _ in KHOLO)[word]) > 1
+               else f"say what it means in a sentence of its own (\"{word} yaani ...\", \"... ko {word} kehte hain\")")
+        out.append(f"the book writes {word!r} here and no sentence opens it by itself: where it is first needed, {how} "
+                   f"({meaning}), also when it sits inside a longer term; keep the book's word")
     # the common wrong ideas: said and broken, at most two
     wrong = [(p.get("id"), line) for p in points for r, line in zip(p.get("roles") or [], p.get("says") or [])
              if str(r).strip().lower() == "galat"]
@@ -775,6 +879,13 @@ def explain_problems(answer: dict, heading: dict, chapter: dict, points: list, o
             out.append(f"{pid}: roles must give each of its {len(says)} lines of says its job, one per line "
                        f"({', '.join(ROLES)})")
             continue
+        office = {}                          # every point, a figure walk and a retelling too (s8: "follow karo",
+        for k, line in enumerate(says):      # "accounting equivalent", "tantra" were in them)
+            for word, say in bolchaal(line, keep | vocabulary(chapter)[1]):
+                office.setdefault((word, say), []).append(k + 1)
+        if office:
+            out.append(f"{pid}: a teacher does not say an accountant's or office's words to children: "
+                       + "; ".join(f"{word!r} (line {', '.join(map(str, at))}): say {say}" for (word, say), at in office.items()))
         if p.get("kind") in WALKS:
             continue
         for t in p.get("terms") or []:
@@ -1115,7 +1226,8 @@ def messages(chapter: dict, heading: dict, parts: list, *, course: dict, naksha:
              language: str = "Hinglish", next_title: str = "") -> list:
     system = RULES.format(subject=course.get("subject") or "the subject", learners=course.get("learners") or "the learners",
                           exam=course.get("exam") or "their exam", language=language or "Hinglish", max_words=MAX_WORDS,
-                          max_sentences=MAX_SENTENCES, tag=tag(heading["number"]), openers=TEACHER_OPENERS)
+                          max_sentences=MAX_SENTENCES, tag=tag(heading["number"]), openers=TEACHER_OPENERS,
+                          bolchaal=", ".join(f"\"{w}\"" for w, _, _ in BOLCHAAL))
     items = chapter.get("items") or {}
     stars = [f"{term} (in {iid})" for term, iid in first_terms(heading)]
     rows = {r["id"]: r for r in heading.get("rows") or []}
@@ -1323,7 +1435,22 @@ def counts(chapter: dict, parts: list) -> dict:
                                 for h in headings(chapter) if h["number"] == (part.get("section") or "")),
             "galat": sum(1 for part in parts for p in part.get("points") or [] for r in p.get("roles") or []
                          if str(r).strip().lower() == "galat"),
-            "misaal": sum(1 for part in parts if (part.get("misaal") or "").strip())}
+            "misaal": sum(1 for part in parts if (part.get("misaal") or "").strip()),
+            "bolchaal": sum(1 for s in lines if bolchaal(s, vocabulary(chapter)[1])),
+            "unopened": _unopened_count(chapter, parts)}
+
+
+def _unopened_count(chapter: dict, parts: list) -> int:
+    """The hard words (KHOLO) the script's headings leave unopened, each heading judged after the terms before it."""
+    by_number = {h["number"]: h for h in headings(chapter)}
+    total = 0
+    for n, part in enumerate(parts):
+        h = by_number.get(part.get("section") or "")
+        if h and h["number"] != RECAP:
+            opened = frozenset(memory(parts[:n])["terms"])
+            total += len(unopened_words(h, chapter, part.get("points") or [], opened,
+                                        [f.get("term") or "" for f in part.get("facts") or [] if isinstance(f, dict)]))
+    return total
 
 
 BAAT_WORDS = {"book": "kitab kehti hai", "word": "shabd ka matlab", "base": "pehle ki zaroori baat", "label": "figure ka nishaan",
@@ -1404,7 +1531,7 @@ padhai ki NCERT lines {c['covered']}/{c['coverable']} · summary {c['summary_tau
 {c['exercises_prepared']}/{c['exercises']}<br>analogy {c['analogies']} · example {c['examples']} · asli duniya {c['real_world']} ·
 ruko-socho {c['checkpoints']} · kitaab se bahar {c['outside_book']} · code ki kamiyan {left_total}<br>
 sawaal {round(100 * c['question_share'])}% vaakya · poori kahani dobara {c['retells']} · chhote tukde {c['fragments']}<br>
-kitab ki baatein: {' · '.join(f"{BAAT_WORDS[k]} {c['baatein'][k]}" for k in BAAT_KINDS)} · kitab ke naam jo bole nahi gaye {c['names_unsaid']}</p>"""]
+kitab ki baatein: {' · '.join(f"{BAAT_WORDS[k]} {c['baatein'][k]}" for k in BAAT_KINDS)} · kitab ke naam jo bole nahi gaye {c['names_unsaid']} · hisaab-kitaab wale shabdon ki lines {c['bolchaal']} · kathin shabd jo khole nahi gaye {c['unopened']}</p>"""]
     for part in record.get("parts") or []:
         points = part.get("points") or []
         left = (record.get("problems") or {}).get(part.get("section") or "opening") or []

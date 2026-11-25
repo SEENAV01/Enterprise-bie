@@ -746,10 +746,88 @@ class PadhaiPehle(unittest.TestCase):
         answer = {"goal": passed["goal"], "misaal": passed["misaal"], "facts": passed["facts"], "points": points}
         self.assertEqual([n for n, _ in studio_script.unsaid_names(heading, ch, points)], ["FNR", "CF₀", "CF₁"])
         found = studio_script.padhai_problems(answer, heading, ch, points)
-        # only what the passed steps leave to the heading's later steps (CF₀, CF₁ and chemiosmosis are taught in c9 and c11
-        # of the whole script), and one small thing the checks found in it: the figure's FNR is never named
-        self.assertEqual(len(found), 2, found)
+        # only what the passed steps leave to the heading's later steps (CF₀, CF₁, the ATP synthase and chemiosmosis are
+        # taught in c9 to c11 of the whole script), and one small thing the checks found in it: the figure's FNR is never named
+        self.assertEqual(len(found), 3, found)
         self.assertIn("'chemiosmosis' (first met in p011-i1)", found[0])
         self.assertIn("FNR (p011-i1), CF₀ (p011-i1), CF₁ (p011-i1)", found[1])
+        self.assertIn("the book writes 'synthase' here and no sentence opens it by itself", found[2])
+        # the hard words: the passed steps open hypothesis, chemi + osmotic, gradient and electro + chemical; the cut
+        # script opened none of them
+        self.assertEqual([w for w, _ in studio_script.unopened_words(heading, ch, points)], ["synthase"])
+        self.assertEqual([w for w, _ in studio_script.unopened_words(heading, ch, first)],
+                         ["hypothesis", "chemiosmotic", "gradient", "electrochemical", "synthase"])
+        self.assertEqual(sum(1 for p in points for line in p["says"] if studio_script.bolchaal(line)), 0)
         kinds = {k: sum(1 for f in passed["facts"] if f["kind"] == k) for k in studio_script.BAAT_KINDS}
         self.assertEqual(kinds, {"book": 7, "word": 7, "base": 5, "label": 8, "extra": 1})
+
+
+class BolchaalAurKholo(unittest.TestCase):
+    """Seekh from BIE s8 (25 November 2026), its 11.6.3 beside the passed rewrite: 28 of its 96 lines said an
+    accountant's words ("Ledger ki pehli row mein lumen ke khaate mein H⁺ judte hain"), and it never opened the hard words
+    inside the book's terms (what a hypothesis is, "chemi" + "osmotic", a gradient as a slope); and the passed example,
+    withheld for its own heading, had leaked into the rules as their examples."""
+
+    def test_an_accountants_words_are_found_unless_they_are_book_words(self):
+        line = "Ledger ki pehli row mein lumen ke khaate mein H⁺ judte hain, yeh pehla contribution hai."
+        self.assertEqual([w for w, _ in studio_script.bolchaal(line)], ["ledger", "khaata", "contribution"])
+        self.assertEqual(studio_script.bolchaal("Inner-side electron handover par H⁺ lumen mein chhoot jaata hai.")[0][0],
+                         "handover")
+        self.assertEqual(studio_script.bolchaal("Paani ka tootna pehla kaam hai, aur carrier H⁺ utha leta hai."), [])
+        self.assertEqual(studio_script.bolchaal("C4 pathway mein pehle CO₂ pakdi jaati hai.", frozenset({"pathway"})), [])
+        self.assertEqual(studio_script.bolchaal("Raaste ka pathway dekho.")[0], ("pathway", "raasta"))
+
+    def test_every_point_is_checked_for_them_a_figure_walk_too(self):
+        _, passed, ch, heading = target()
+        answer = {"facts": passed["facts"]}
+        points = [{"id": "11.6.3-k1", "kind": "figure", "teaches": [], "uses": [],
+                   "says": ["Ab green proton arrows follow karo.", "Ledger ki pehli row lumen ki hai."],
+                   "roles": ["link", "fact"]}]
+        found = " | ".join(studio_script.explain_problems(answer, heading, ch, points))
+        self.assertIn("11.6.3-k1: a teacher does not say an accountant's or office's words to children: 'follow' (line 1)",
+                      found)
+        self.assertIn("'ledger' (line 2): say hisaab, ginti", found)
+
+    def test_a_hard_word_inside_a_term_is_opened_by_itself(self):
+        _, _, ch, heading = target()
+        def unopened(*says, opened=frozenset()):
+            points = [{"id": "11.6.3-k1", "says": list(says)}]
+            return [w for w, _ in studio_script.unopened_words(heading, ch, points, opened)]
+        named = unopened("Isi ko chemiosmotic hypothesis kehte hain.")
+        self.assertIn("hypothesis", named)
+        self.assertIn("chemiosmotic", named)
+        told = unopened("Kisi baat ko samjhane ka aisa vichaar, jise prayogon se parkha jaata hai, hypothesis kehlata hai.",
+                        "Chemi yaani rasayanik kaam. Osmotic yaani membrane ke aar-paar bahna.",
+                        "Isi dhalaan ko proton gradient kehte hain; gradient ka matlab hi dhalaan hai.")
+        self.assertNotIn("hypothesis", told)
+        self.assertNotIn("chemiosmotic", told)
+        self.assertNotIn("gradient", told)
+        self.assertIn("gradient", unopened("Dono processes mein gradient ki jagah alag hai."))      # said, never opened
+        self.assertNotIn("gradient", unopened("Kuch nahi.", opened=frozenset({"concentration gradient"})))
+        self.assertIn("hypothesis", unopened("Kuch nahi.", opened=frozenset({"hypothesised"})))     # another word
+        answer = {"facts": []}
+        found = " | ".join(studio_script.padhai_problems(answer, heading, ch, [{"id": "11.6.3-k1", "says": ["Kuch nahi."]}]))
+        self.assertIn("the book writes 'chemiosmotic' here and no sentence opens it by itself: where it is first needed, "
+                      "break it into its parts", found)
+        self.assertIn("the book writes 'hypothesis' here and no sentence opens it by itself: where it is first needed, say "
+                      "what it means in a sentence of its own", found)
+
+    def test_the_rules_quote_no_line_of_the_withheld_example(self):
+        _, passed, ch, heading = target()
+        rules = studio_script.messages(chapter(), studio_script.headings(chapter())[1], [],
+                                       course=chapter()["course"])[0]["content"]
+        for phrase in ("ADP ko chhua", "baandh", "balloon", "½O₂", "lumen", "ledger", "dilchaspi", "CF₀"):
+            self.assertNotIn(phrase.lower(), rules.lower().replace('"ledger"', ""))
+        said = [line["says"] for p in passed["points"] for line in p["lines"]] + [passed["goal"], passed["misaal"]]
+        for line in said:
+            words = line.split()
+            for n in range(len(words) - 5):                           # no run of six words of the example
+                self.assertNotIn(" ".join(words[n:n + 6]), rules)
+        self.assertIn('Never an accountant\'s or\n  an office\'s words ("ledger", "khaata", "contribution"', rules)
+
+    def test_the_counts_show_both(self):
+        ch = chapter()
+        c = studio_script.counts(ch, parts())
+        self.assertIn("bolchaal", c)
+        self.assertIn("unopened", c)
+        self.assertEqual(c["bolchaal"], 0)
