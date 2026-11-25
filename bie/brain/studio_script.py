@@ -47,6 +47,17 @@ before the next is written (problems go back, at most ``max_rounds``):
   flagged questions and recalls that use the book's nouns (all four of its flags in the 11.6.3 rewrite). Measured on the saved script (run s6): 96 of 249 opened terms named as a definition in a
   point's first two lines, 90 of 1,401 lines mostly English (Navin's own lines of film A: none), one analogy per heading.
 
+* Padhai pehle (Navin, 25 November 2026, after Claude's first 11.6.3 script cut what an earlier heading had taught and
+  dropped book words to keep English low: "maksad kitab ki complex bhasha ko asan shabdon mein samjhane ka hai na ki terms
+  hi kha jaane ka"; the rewrite he passed: "bilkul passed hai meri taraf se"): the facts list everything the learner must
+  take, by kind (book, word, base, label, extra); every term the chapter opens has its meaning, every "needs first" is
+  recalled as a base, a figure is walked by at least four of its labels (only labels it has), each word and label is
+  said by its book name where it is taught, every short form or formula of the book line is said, a book word is never
+  counted as everyday English, a recall may say again what an earlier heading said (not copy it); the goal is today's
+  question (rule A4); a long heading hangs on one running picture (misaal); a common wrong idea is said and broken
+  (role galat, at most two). The passed rewrite (bie/brain/namuna/) is shown to the maker as the way, each line with its
+  job and facts, except while its own heading of its own book is written.
+
 Output: ``script.json`` (the parts, each point with its id "11.6.1-k3": the knowledge points that video, notes and games
 will account for), ``SCRIPT.md`` and ``SCRIPT.html`` (Navin's script page: each heading's script beside the NCERT lines
 it teaches), ``record.json`` (rounds and problems per heading).
@@ -57,6 +68,7 @@ import html as html_module
 import json
 import math
 import re
+from pathlib import Path
 
 from . import chapter_file, studio_naksha
 from .studio import parse
@@ -86,8 +98,28 @@ FILLER = studio_naksha.FILLER | {"hum", "hai", "hain", "toh", "tho", "yeh", "woh
 # The teacher's way (Navin, 25 November 2026, rule B1: "vaad anuvaad nahi; ek padha likha teacher use kaise samjhata hai
 # bachon ko, kyunki uske paas us book ki knowledge hai poori"; Claude's worked example of the CF₁ line, which he called
 # "bilkul yahi tha"). Each sentence of a point has a job, in this order where the point needs it.
-ROLES = ("known", "picture", "plain", "why", "term", "fact", "ask", "answer", "link")
+ROLES = ("known", "picture", "plain", "why", "term", "fact", "ask", "answer", "link", "galat")
 BEFORE_TERM = {"known", "picture", "plain", "why"}
+# Padhai pehle (Navin, 25 November 2026, on Claude's first 11.6.3 script, which cut what an earlier heading had taught and
+# dropped book words to keep English low: "maksad kitab ki complex bhasha ko asan shabdon mein samjhane ka hai na ki terms
+# hi kha jaane ka"; "bacha ncert padhkar un lines mein maujud knowledge ko ... connect nhi kar paayega"). Claude's own
+# check of that script: of the 22 things its three book lines (with Figure 11.7) hold, 8 were taught fully, 8 half and 6
+# not at all; the rewrite Navin passed ("bilkul passed hai ... yeh wo tarika tha jo mujhe chahiye") teaches all 22.
+# What the learner must take from a heading, listed before the script is written ("facts"), by kind:
+BAAT_KINDS = ("book", "word", "base", "label", "extra")
+#   book: what the item states; word: what a term, name or hard word of it means (and its parts); base: what the learner
+#   must have in mind to follow it (its "needs first"), recalled here even when an earlier heading taught it; label: a
+#   figure's label, mark or arrow and what it shows; extra: a true, well-known addition a teacher who knows more makes.
+LABELS_FROM = 4        # a figure is walked by at least this many of its labels (or all it has, when fewer)
+MISAAL_FROM = 4        # a heading with this many explain or example points hangs on one running picture ("misaal")
+GALAT_MAX = 2          # common wrong ideas said and broken in one heading (rule N1: 0-2 in a film)
+KNOWN_SAME = 0.85      # a recall (role known) may say again what an earlier heading said, unless it is that sentence copied
+# a name the book writes as a short form or a formula (ATP, ETS, P680, CF₀, NADP⁺, ½O₂, Pᵢ): the learner meets it in the
+# book and in its figures, so the script says it (Claude's first 11.6.3 script never said ETS, P680, P700, B6f or ½O₂)
+NAME = re.compile(r"½?[A-Za-z][A-Za-z0-9₀-₉⁰-⁹⁺⁻ᵢ]*")
+ROMAN = frozenset({"I", "II", "III", "IV", "V", "VI"})
+GENERIC = frozenset("versus between inner outer side sides part parts involves gain movement driven arrangement "
+                    "separating embedded basic idea role roles first need needs".split())
 WALKS = ("figure", "overview", "retell", "summary")   # a figure walked label by label and the tellings of a whole: their
                                                       # lines name what they walk through, so the order checks skip them   # what a teacher tells before he names a new term
 ENGLISH_SHARE = 0.30   # a sentence with this share of everyday English words (outside the chapter's terms) reads like a
@@ -173,8 +205,8 @@ POINT = _obj({
     "uses": _arr(S),
     "roles": _arr(S),
 })
-FACT = _obj({"id": S, "item": S, "fact": S})
-SCHEMA = _obj({"section": S, "goal": S, "facts": _arr(FACT), "points": _arr(POINT), "bridge": S})
+FACT = _obj({"id": S, "item": S, "kind": {"type": "string", "enum": list(BAAT_KINDS)}, "term": S, "fact": S})
+SCHEMA = _obj({"section": S, "goal": S, "misaal": S, "facts": _arr(FACT), "points": _arr(POINT), "bridge": S})
 
 RULES = """You are BIE's teacher: the best {subject} teacher for {learners} ({exam}). You have read the whole chapter and
 you now write its script: everything the learner must come to know, taught once, in your own words, in the book's order,
@@ -194,12 +226,27 @@ Rules:
 - NCERT line by line: every item id listed for this heading is in the "teaches" of exactly one point. Teach each line by
   what it does: an in_text_question is posed and answered; reader_talk ("Let us see how this happens") is said in your own
   words; an activity is a task the learner can do or watch; a biography is a short story moment; a figure is walked
-  through, label by label (kind "figure"). Use the book's key words when you teach its line.
-- FACTS FIRST, THEN THE TEACHER (Navin, 25 November 2026). First write "facts": every fact this heading's items state, one
-  short plain line each (id f1, f2 ...; "item" is the item id it comes from), keeping the book's names, numbers, sides and
-  words such as "several". The facts are the lock on what is true: a point lists in "uses" the ids of the facts it
-  teaches, together the points use every fact, and no sentence says as fact anything that is not in the facts, in an
-  earlier heading or in outside_book. In a later round keep the facts as they were unless a problem names a fact.
+  through as a story (kind "figure", see below). Use the book's key words when you teach its line.
+- PADHAI PEHLE: THE BOOK'S EVERY THING, TAUGHT (Navin, 25 November 2026: "maksad kitab ki complex bhasha ko asan shabdon
+  mein samjhane ka hai na ki terms hi kha jaane ka"; a learner who reads the book after the film must find every line of
+  it taught and every word of it known). Teaching comes first: no rule of voice, length or repetition is ever a reason to
+  leave out a fact, a term, a base or a label. First write "facts": everything the learner must take from this heading,
+  one short plain line each (id f1, f2 ...; "item" the item id; "kind"; "term" the book's word it is about, else ""):
+  - book: every fact the item states, keeping the book's names, numbers, sides and words such as "several";
+  - word: every term, name or short form of the item the learner must understand (each ★ term, every name the item or its
+    figure shows, a word of the line the learner may not know, such as "hypothesis"): what it means in everyday words,
+    and, when its name has parts that help, what they are ("chemi" + "osmotic");
+  - base: what the learner must already have in mind to follow the item (its "needs first" in the chapter file): the
+    place (what is inside, what is outside), the path, the rule; even when an earlier heading taught it, it is recalled
+    here as fully as this line needs, because a base the learner has lost is a line the learner cannot follow;
+  - label: for a figure, every teaching label, mark and arrow, with what it shows and why it is written so ("½O₂": half a
+    molecule from one water);
+  - extra: what a teacher who knows more than the book adds because it makes the line clearer (where the idea came from,
+    a real value); only what is true and well known, named in outside_book.
+  The facts are also the lock on what is true: a point lists in "uses" the ids of the facts it teaches; together the
+  points use every fact; a word or a label is said by its book name in the point that teaches it; no sentence says as
+  fact anything outside the facts, the script so far or outside_book. In a later round keep the facts as they were unless
+  a problem names a fact.
 - TEACH LIKE A TEACHER, NOT A TRANSLATOR (Navin, 25 November 2026: "vaad anuvaad nahi; ek padha likha teacher use kaise
   samjhata hai bachon ko, kyunki uske paas us book ki knowledge hai poori"). Never say the book's line again in Hinglish.
   Explain what the line is about the way a well-read teacher who knows the whole book explains it to children, in this
@@ -212,21 +259,28 @@ Rules:
   A point that opens a term tells it in plain words first; a point that teaches a cause says why. One explanation may
   teach several items of the heading together when they tell one happening: the book's sentence order does not bind you,
   but every item is still in exactly one point's teaches. "roles" gives each line of says its job, one per line, in the
-  same order: known, picture, plain, why, term, fact, ask (a question to the learner), answer (its answer) or link (the
-  goal, a recall or a bridge).
+  same order: known, picture, plain, why, term, fact, ask (a question to the learner), answer (its answer), link (the
+  goal, a recall or a bridge) or galat (a common wrong idea said and broken in the same breath: "Aksar hum sochte hain ki
+  ..., par aisa nahi hai"; at most two in a heading, at the turns where learners go wrong; rule N1).
   The pattern, from another subject (never copy its words): known "Khule bartan mein paani 100 degree par ubalne lagta
   hai, yeh aapne dekha hai." picture "Ab cooker ko socho, jiski seeti tab tak nahi bajti jab tak andar bhaap bhar na
   jaaye." plain "Dhakkan band hai, isliye bhaap bahar nahi nikal paati aur andar dabaav badhta jaata hai." why "Dabaav
   badhne par paani ko bhaap banne ke liye zyada garmi chahiye, isliye woh der se ubalta hai." term "Isi ko kehte hain ki
   dabaav badhne se boiling point badh jaata hai." fact "Isliye cooker mein paani lagbhag 120 degree tak garam hota hai aur
   khana jaldi pakta hai."
-- When an earlier point taught what is needed, remind in one short sentence (role known) and name it in "recalls": the id
-  of a point of an earlier heading as THE SCRIPT SO FAR shows it (like 11.5-k4), never an item id; when nothing earlier
-  taught it, teach it briefly and say so in outside_book.
+- When this heading stands on what an earlier point taught (a base fact), recall it in your own words as fully as this
+  line needs (role known: the place, the path, the rule, with a picture where it helps; "Thaili ke andar ki band jagah
+  lumen hai, aur bahar ka gaadha dravya stroma"), and name that point in "recalls": the id of a point of an earlier
+  heading as THE SCRIPT SO FAR shows it (like 11.5-k4), never an item id; when nothing earlier taught it, teach it here
+  and say so in outside_book.
 - Terms: open each term marked ★ in this heading's items where it is first needed: tell the idea in plain words, then
-  name the term on it (role term), and give its meaning in simple words in "terms". Never define again a term the script
-  already opened: remind in a few words. Do not use a technical term of a later heading before it is opened, except as a
-  pointer ("isko aage dekhenge").
+  name the term on it (role term), and give its meaning in simple words in "terms". Never define again in "terms" a term
+  the script already opened (its idea may still be recalled as a base). Do not use a technical term of a later heading
+  before it is opened, except as a pointer ("isko aage dekhenge").
+- "misaal": the heading's one running picture, its main word first ("baandh: lumen ke H⁺ ruka paani, ATP synthase
+  turbine"), told fully once and then recalled in a few words (role picture) at each later step it fits, so the whole
+  heading hangs on one picture the learner keeps; small pictures for single ideas are welcome too (a water balloon in a
+  bucket for the inside and outside, a slope for a gradient). "" only for a short heading.
 - Examples (kind "example"): a concrete case worked through: a named plant or experiment, a number, one molecule followed.
   Every heading with three or more items has at least one. Analogies (kind "analogy"): an everyday picture for a hard
   idea, never one the script already told as an analogy (a few words recalling an earlier one inside another point, role
@@ -251,7 +305,9 @@ Rules:
   answer; the game turns it into a task later.
 - A cycle or pathway is accounted for in matter as well as energy: what goes in, what comes out, what is regenerated
   (carbon by carbon), as a worked ledger.
-- A figure is taught by its teaching labels; never describe decoration, clothing or how a portrait looks.
+- A figure is walked as a story with a finger on it: every teaching label (its label facts), in the order the story
+  needs, each with what it shows and why it is written so ("Wahan ½O₂ likha hai, kyunki paani ke ek molecule se aadha O₂
+  molecule milta hai"); never a bare list of labels; never describe decoration, clothing or how a portrait looks.
 - The book's slips are not copied (for example NAD/NADH where the chapter means NADP/NADPH): teach the correct form.
 - Knowledge points are small: one idea each, at most {max_sentences} sentences; split a long explanation into several
   points.
@@ -267,10 +323,14 @@ Rules:
 - Voice: everyday spoken {language} in Roman script, as a teacher speaks to children: the book's English terms are said
   (the exam asks them), but ordinary words are said in Hindi ("lautna", not "return"; "jama hona", not "accumulation";
   "ke hisaab se", not "according to"; "chalaata hai", not "support karta hai"); a sentence made mostly of English words is a
-  textbook read aloud. A warm spoken teacher (questions, "socho", "dekho"); every sentence under {max_words} words.
+  textbook read aloud. A book word is never dropped or swapped for a Hindi word to keep English low: say the term, the
+  name, the label, and explain it in plain words around it; only everyday words go into Hindi. A warm spoken teacher
+  (questions, "socho", "dekho"); every sentence under {max_words} words.
 - How good teachers of this chapter teach (Navin, 22 November 2026, after four teachers were studied line by line):
-  - "goal": the line this heading opens with: what we want to find or make here, and how it follows from what came
-    before. Say it as the first sentence of the first point.
+  - "goal": today's question (aaj ka sawaal, rule A4), asked right after one line of what was just learned: where the
+    heading allows, a puzzle the learner feels ("dono raaston mein kisi bhi electron ne ADP ko chhua tak nahi; toh ATP bana
+    kaise?") or a common wrong idea that opens the door; the heading answers it. Say the review line and the question as
+    the first sentences of the first point.
   - Ask the learner: about one sentence in five is a question, at least one a "kyun"; answer it at once, or after
     "socho" when the learner should think first. Voice the learner's own doubt ("ab aap sochoge, phir NADPH ka kya?").
   - Where a question comes from (Navin, 25 November 2026, rules C3 and H3): a question never comes alone; say what it
@@ -482,17 +542,74 @@ def vocabulary(chapter: dict) -> tuple:
     return _VOCAB[key]
 
 
-def english_words(sentence: str, chapter: dict) -> tuple:
+def english_words(sentence: str, chapter: dict, keep=frozenset()) -> tuple:
     """(everyday English words of the sentence, all its words of three letters or more): the book's words that are not
-    the chapter's terms ("return", "accumulation", "according"), which a teacher says in Hindi."""
+    the chapter's terms ("return", "accumulation", "according"), which a teacher says in Hindi. ``keep``: more book words
+    that are never counted (the heading's words, labels and names: "ferredoxin" was counted as everyday English while the
+    chapter's term list missed it; Navin, 25 November 2026: terms are taught, never cut)."""
     english, terms = vocabulary(chapter)
     words = [w for w in _tokens(sentence) if len(w) > 2]
-    return [w for w in words if w in english and w not in terms and w not in CLASH], words
+    return [w for w in words if w in english and w not in terms and w not in keep and w not in CLASH], words
 
 
-def english_share(sentence: str, chapter: dict) -> float:
-    found, words = english_words(sentence, chapter)
+def english_share(sentence: str, chapter: dict, keep=frozenset()) -> float:
+    found, words = english_words(sentence, chapter, keep)
     return len(found) / len(words) if words else 0.0
+
+
+def book_names(text: str) -> list:
+    """The short forms and formulas a book line writes (ATP, ETS, P680, CF₀, NADP⁺, ½O₂, Pᵢ, B6f), in order, once each;
+    not a plain word, a number or a Roman numeral of a name (the II of PS II)."""
+    out = []
+    for token in NAME.findall(text or ""):
+        if token in ROMAN or token in out:
+            continue
+        marked = sum(c.isupper() for c in token) >= 2 or token.startswith("½") or (
+            any(c.isdigit() or c in "₀₁₂₃₄₅₆₇₈₉⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ᵢ" for c in token) and any(c.isalpha() for c in token))
+        if marked:
+            out.append(token)
+    return out
+
+
+def _keys(text: str) -> set:
+    """The words that say what a "needs first" is about, as five-letter stems (mitochondrial ~ mitochondria), with its
+    short forms (ATP, ADP) whole."""
+    out = {w[:5] for w in _tokens(text) if len(w) >= 4 and w not in STOPWORDS and w not in GENERIC}
+    return out | {_plain(n) for n in book_names(text)}
+
+
+def _figure_text(row: dict, items: dict) -> str:
+    """A figure's description and its folded labels."""
+    return " ".join([(items.get(row["id"]) or {}).get("content", "")] + [p.get("content", "") for p in row.get("parts") or []])
+
+
+def label_candidates(row: dict, items: dict) -> list:
+    """What a figure shows by name: its folded labels and the names its description writes."""
+    labels = [p.get("content", "").split(":")[0].strip() for p in row.get("parts") or []   # the label, not its note
+              if p.get("content", "").split(":")[0].strip()]
+    return labels + [n for n in book_names((items.get(row["id"]) or {}).get("content", "")) if n not in labels]
+
+
+def _in_text(term: str, text: str) -> bool:
+    """A label as the figure has it: the words of the term all in the figure's text (case, subscripts and order aside)."""
+    if _plain(term) in _plain(text):
+        return True
+    words = [w for w in _plain(term).split() if len(w) >= 2]
+    return bool(words) and all(_term_in(w, text) for w in words)
+
+
+def unsaid_names(heading: dict, chapter: dict, points: list) -> list:
+    """The book's short forms and formulas of this heading's items that no line of the heading says: [(name, item id)]."""
+    items = chapter.get("items") or {}
+    said = " ".join(line for p in points for line in p.get("says") or [])
+    out = []
+    for row in heading.get("rows") or [{"id": i} for i in heading["items"]]:
+        if row["id"] not in heading["items"]:
+            continue
+        for name in book_names((items.get(row["id"]) or {}).get("content", "")):
+            if not _term_in(name, said) and name not in [n for n, _ in out]:
+                out.append((name, row["id"]))
+    return out
 
 
 def _stem(word: str) -> str:
@@ -517,23 +634,120 @@ STOPWORDS = frozenset("the and that this with from for are was were which into i
                       "two three four more most other some very just like through".split())
 
 
-def explain_problems(answer: dict, heading: dict, chapter: dict, points: list) -> list:
+def _kind(fact: dict) -> str:
+    return str(fact.get("kind") or "book").strip().lower()
+
+
+def padhai_problems(answer: dict, heading: dict, chapter: dict, points: list, opened=frozenset()) -> list:
+    """Padhai pehle (Navin, 25 November 2026): the facts list everything the learner must take from the heading, by kind,
+    and the script teaches all of it. ``opened``: the terms the script so far has opened (plain forms)."""
+    out = []
+    items = chapter.get("items") or {}
+    facts = [f for f in answer.get("facts") or [] if isinstance(f, dict)]
+    for f in facts:
+        if _kind(f) not in BAAT_KINDS:
+            out.append(f"fact {f.get('id')}: kind {f.get('kind')!r} is not one of {', '.join(BAAT_KINDS)}")
+        elif _kind(f) in ("word", "label") and not (f.get("term") or "").strip():
+            out.append(f"fact {f.get('id')}: a {_kind(f)} fact names in \"term\" the book's word it is about")
+    if heading["number"] == RECAP:
+        return out
+    rows = {r["id"]: r for r in heading.get("rows") or []}
+    # every term the chapter opens here has its meaning among the facts
+    words = [f for f in facts if _kind(f) == "word"]
+    for term, iid in first_terms(heading):
+        if any(_same_term(term, k) for k in opened):
+            continue
+        if not any(_same_term(term, f.get("term") or "") for f in words):
+            out.append(f"no word fact tells what {term!r} (first met in {iid}) means: add one (kind word, term {term!r}: its "
+                       "meaning in everyday words, and its parts when they help) and teach it")
+    # every "needs first" of the heading's items is recalled as a base (or opened as a word)
+    known = set()
+    for f in facts:
+        if _kind(f) in ("base", "word"):
+            known |= _keys(f"{f.get('term') or ''} {f.get('fact') or ''}")
+    needs = []
+    for iid in heading["items"]:
+        for need in (items.get(iid) or {}).get("prerequisites") or []:
+            if need not in [n for n, _ in needs]:
+                needs.append((need, iid))
+    lost = [(need, iid) for need, iid in needs if _keys(need) and not _keys(need) & known]
+    if lost:
+        out.append("these are what the learner must have in mind for this heading (needs first), and no base fact recalls "
+                   "them: " + "; ".join(f"{need!r} ({iid})" for need, iid in lost[:8])
+                   + ". Add a base fact for each and recall it here as fully as the line needs (role known), even when an "
+                     "earlier heading taught it")
+    # a figure is walked by its labels, and only by labels it has
+    labels = [f for f in facts if _kind(f) == "label"]
+    for iid in heading["items"]:
+        row = rows.get(iid) or {"id": iid}
+        if (items.get(iid) or {}).get("content_type") != "figure" and (items.get(iid) or {}).get("kind") not in ("diagram",
+                                                                                                                  "figure"):
+            continue
+        shown = label_candidates(row, items)
+        mine = [f for f in labels if f.get("item") == iid]
+        need = min(LABELS_FROM, len(shown))
+        if len(mine) < need:
+            out.append(f"the figure {iid} is walked by {len(mine)} label facts; list at least {need} of what it shows by name "
+                       f"({', '.join(shown[:10])}), each with what it shows and why it is written so, and walk them in "
+                       "the story")
+        text = _figure_text(row, items)
+        for f in mine:
+            if (f.get("term") or "").strip() and not _in_text(f["term"], text):
+                out.append(f"fact {f.get('id')}: the figure {iid} has no label {f['term']!r}; use the labels it has")
+    # each word and label is said by its book name where it is taught
+    for f in facts:
+        term = (f.get("term") or "").strip()
+        if not term or _kind(f) not in ("word", "label"):
+            continue
+        users = [p for p in points if f.get("id") in (p.get("uses") or [])]
+        if users and not any(_term_in(term, " ".join(p.get("says") or [])) for p in users):
+            out.append(f"fact {f.get('id')}: {term!r} is never said in {', '.join(p.get('id') for p in users)}, which "
+                       "teaches it; say the book's word and explain it (a term is taught, never dropped)")
+    # the book's short forms and formulas are all said
+    unsaid = unsaid_names(heading, chapter, points)
+    if unsaid:
+        out.append("the book writes these here and no line says them: " + ", ".join(f"{n} ({i})" for n, i in unsaid[:12])
+                   + "; say each where its line is taught (open it in plain words when the learner needs its meaning)")
+    # the common wrong ideas: said and broken, at most two
+    wrong = [(p.get("id"), line) for p in points for r, line in zip(p.get("roles") or [], p.get("says") or [])
+             if str(r).strip().lower() == "galat"]
+    if len(wrong) > GALAT_MAX:
+        out.append(f"{len(wrong)} galat lines; at most {GALAT_MAX} in a heading, at the turns where learners go wrong")
+    for pid, line in wrong:
+        if not MISCONCEPTION.search(line):
+            out.append(f"{pid}: the galat line {line[:70]!r} must say the wrong idea and break it (\"aksar hum sochte hain ki "
+                       "..., par aisa nahi hai\")")
+    return out
+
+
+def book_words(answer: dict, heading: dict, chapter: dict) -> frozenset:
+    """The heading's book words that are never counted as everyday English: its facts' words and labels, its terms and
+    its short forms."""
+    items = chapter.get("items") or {}
+    text = [str(f.get("term") or "") for f in answer.get("facts") or [] if isinstance(f, dict)]
+    text += [t for t, _ in first_terms(heading)]
+    text += [n for iid in heading["items"] for n in book_names((items.get(iid) or {}).get("content", ""))]
+    return frozenset(w for t in text for w in _tokens(t))
+
+
+def explain_problems(answer: dict, heading: dict, chapter: dict, points: list, opened=frozenset()) -> list:
     """The teacher's way (Navin, 25 November 2026, rule B1): the facts first and every one taught; each line of says has a
     job; a new term is named only after the idea is told in plain words; a cause is explained; the book's line is not
-    said again; ordinary words are said in Hindi."""
+    said again; ordinary words are said in Hindi, the book's words never cut (padhai pehle)."""
     out = []
     items = chapter.get("items") or {}
     number = heading["number"]
     facts = [f for f in answer.get("facts") or [] if isinstance(f, dict)]
     fact_ids = {f.get("id") for f in facts}
+    keep = book_words(answer, heading, chapter)
     if number != RECAP:
-        have = {f.get("item") for f in facts}
+        have = {f.get("item") for f in facts if _kind(f) == "book"}
         missing = [i for i in heading["items"] if i not in have]
         if not facts:
-            out.append("\"facts\" is empty: first list every fact this heading's items state (id f1, f2 ...; item; fact), "
-                       "then teach them")
+            out.append("\"facts\" is empty: first list everything the learner must take from this heading (id f1, f2 ...; "
+                       "item; kind book, word, base, label or extra; term; fact), then teach it")
         elif missing:
-            out.append(f"no fact is listed for {', '.join(missing)}; list what each of these items states")
+            out.append(f"no book fact is listed for {', '.join(missing)}; list what each of these items states")
         for f in facts:
             if f.get("item") and f["item"] not in heading["items"]:
                 out.append(f"fact {f.get('id')}: {f['item']!r} is not an item of this heading")
@@ -582,7 +796,7 @@ def explain_problems(answer: dict, heading: dict, chapter: dict, points: list) -
         if p.get("kind") == "explain" and causes and "why" not in roles:
             out.append(f"{pid}: teaches a cause ({', '.join(causes)}) but no line says why; give the why (role why)")
         for k, line in enumerate(says):
-            found, words = english_words(line, chapter)
+            found, words = english_words(line, chapter, keep)
             if len(words) >= ENGLISH_FROM and len(found) >= ENGLISH_SHARE * len(words):
                 out.append(f"{pid} line {k + 1}: {len(found)} of its {len(words)} words are English ({', '.join(found[:6])}); "
                            "say ordinary words in Hindi as a teacher speaks to children, keep the book's terms")
@@ -602,6 +816,21 @@ def teacher_problems(answer: dict, heading: dict, chapter: dict, points: list) -
                    "from what came before)")
     elif _words(goal) and len(_words(goal) & _words(" ".join(points[0].get("says") or []))) < 0.6 * len(_words(goal)):
         out.append(f"{points[0].get('id')}: open the heading with its goal (say \"{goal[:90]}\" as the first sentence)")
+    if goal and number != RECAP and "?" not in goal:
+        out.append("\"goal\" is today's question (rule A4): ask what this heading finds out, as a question the learner feels "
+                   "(a puzzle, or a common wrong idea that opens the door), right after one line of what was just learned")
+    teaching = [p for p in points if p.get("kind") in ("explain", "example")]
+    if number != RECAP and len(teaching) >= MISAAL_FROM:
+        misaal = (answer.get("misaal") or "").strip()
+        head = next((w for w in WORD.findall(misaal.lower()) if w not in FILLER), "")
+        recalled = {p.get("id") for p in points for r, line in zip(p.get("roles") or [], p.get("says") or [])
+                    if str(r).strip().lower() == "picture" and head and head in _words(line)}
+        if not misaal:
+            out.append("\"misaal\" is empty: give this heading one running picture (its main word first) and recall it at "
+                       "the steps it fits")
+        elif len(recalled) < 2:
+            out.append(f"the heading's misaal {misaal[:50]!r} is pictured in {len(recalled)} point(s); tell it fully once and "
+                       "recall it in a few words (role picture) at the later steps it fits, so the heading hangs on it")
     said = [(p.get("id"), k, s) for p in points for k, s in enumerate(sentences(p), 1)]
     if len(said) >= QUESTIONS_FROM:
         asked = [s for _, _, s in said if s.endswith("?")]
@@ -725,7 +954,8 @@ def problems(answer, heading: dict, chapter: dict, earlier: list, later_terms: l
     if missing:
         out.append(f"{len(missing)} items of this heading are in no point's teaches: " + ", ".join(missing))
     out += teacher_problems(answer, heading, chapter, points)
-    out += explain_problems(answer, heading, chapter, points)
+    out += explain_problems(answer, heading, chapter, points, frozenset(before["terms"]))
+    out += padhai_problems(answer, heading, chapter, points, frozenset(before["terms"]))
     kinds = {p.get("kind") for p in points}
     if number == RECAP:
         prepared = {x for p in points for x in p.get("prepares") or []}
@@ -779,11 +1009,13 @@ def problems(answer, heading: dict, chapter: dict, earlier: list, later_terms: l
     # no repetition: sentences, analogies, examples
     said = list(before["sentences"])
     for p in points:
+        roles = [str(r).strip().lower() for r in p.get("roles") or []]
         for k, sentence in enumerate(p.get("says") or [], 1):
             words = _words(sentence)
+            limit = KNOWN_SAME if k <= len(roles) and roles[k - 1] == "known" else SAME_SENTENCE   # a base recalled
             if len(words) >= 6:
                 for other, other_words in said:
-                    if len(other_words) >= 6 and _same(words, other_words) >= SAME_SENTENCE:
+                    if len(other_words) >= 6 and _same(words, other_words) >= limit:
                         out.append(f"{p.get('id')} sentence {k} says again what {other} said; say something new or "
                                    "remind in a few words")
                         break
@@ -847,6 +1079,38 @@ def plan_ideas(naksha: dict | None, number: str) -> str:
     return "\n".join(rows) if rows else "(no plan ideas for this heading)"
 
 
+NAMUNA_DIR = Path(__file__).resolve().parent / "namuna"
+
+
+def namunas(directory=None) -> list:
+    """The worked examples of the way Navin passed (bie/brain/namuna/*.json)."""
+    return [json.loads(p.read_text(encoding="utf-8")) for p in sorted(Path(directory or NAMUNA_DIR).glob("*.json"))]
+
+
+def namuna(chapter: dict, heading: dict, directory=None) -> str:
+    """The worked examples, as the maker reads them: each line with its job and the facts it teaches. An example is never
+    shown while its own heading of its own book is written (Navin, 25 November 2026: "haan" to "jo apni heading likhte
+    waqt na diya jaaye"), so that heading shows what BIE writes by itself, and its words are not copied there."""
+    out = []
+    for n in namunas(directory):
+        held = n.get("withheld_for") or {}
+        if held.get("section") == heading["number"] and held.get("source_sha256") == chapter.get("source_sha256"):
+            continue
+        facts = {f["id"]: f for f in n.get("facts") or []}
+        rows = [f"A WORKED EXAMPLE OF THE WAY: {n.get('section')} {n.get('title')} ({n.get('chapter')}), which Navin passed "
+                f"({n.get('verdict', '')}). Learn the way from it: the facts listed by kind before any line, every base "
+                "recalled, every word told and named, the figure walked by its labels, one running picture, the puzzle "
+                "first. Never copy its words, pictures or examples: this heading needs its own, from its own lines.",
+                f"Its goal: {n.get('goal', '')}", f"Its misaal: {n.get('misaal', '')}", "Its facts:"]
+        rows += [f"- {f['id']} [{f['kind']}{': ' + f['term'] if f.get('term') else ''}] ({f['item']}) {f['fact']}"
+                 for f in facts.values()]
+        for p in n.get("points") or []:
+            rows.append(f"Its lines ({p.get('kind')}, teaches {', '.join(p.get('teaches') or [])}), each as role · facts:")
+            rows += [f"- {line['role']} · {', '.join(line.get('uses') or [])}: {line['says']}" for line in p.get("lines") or []]
+        out.append("\n".join(rows))
+    return ("\n\n".join(out) + "\n\n") if out else ""
+
+
 def messages(chapter: dict, heading: dict, parts: list, *, course: dict, naksha: dict | None = None,
              language: str = "Hinglish", next_title: str = "") -> list:
     system = RULES.format(subject=course.get("subject") or "the subject", learners=course.get("learners") or "the learners",
@@ -854,11 +1118,21 @@ def messages(chapter: dict, heading: dict, parts: list, *, course: dict, naksha:
                           max_sentences=MAX_SENTENCES, tag=tag(heading["number"]), openers=TEACHER_OPENERS)
     items = chapter.get("items") or {}
     stars = [f"{term} (in {iid})" for term, iid in first_terms(heading)]
-    lines = "\n".join(f"- {iid}: {items[iid].get('content', '')[:300]}" for iid in heading["items"])
+    rows = {r["id"]: r for r in heading.get("rows") or []}
+    lines = []
+    for iid in heading["items"]:             # the whole line (a figure's description ran past 300 letters), what it needs
+        it = items[iid]                      # first, and what a figure shows by name
+        lines.append(f"- {iid}: {it.get('content', '')}")
+        if it.get("prerequisites"):
+            lines.append("  needs first (base facts): " + "; ".join(it["prerequisites"]))
+        if it.get("content_type") == "figure" or it.get("kind") in ("diagram", "figure"):
+            lines.append("  shows by name (label facts): " + ", ".join(label_candidates(rows.get(iid) or {"id": iid}, items)))
+    lines = "\n".join(lines)
     exercise_lines = "\n".join(f"- {iid}: {items[iid].get('content', '')[:240]}" for iid in exercises(chapter)) or "(none)"
     user = (f"THE CHAPTER FILE\n\n{chapter_file.markdown(chapter)}\n\nTHE SCRIPT SO FAR\n\n{script_so_far(parts, chapter)}\n\n"
             f"IDEAS FROM THE TEACHING PLAN FOR THIS HEADING (use what serves; not the cut into videos)\n\n"
             f"{plan_ideas(naksha, heading['number'])}\n\n"
+            f"{namuna(chapter, heading)}"
             f"THE CHAPTER'S EXERCISES (the script holds the knowledge for each; list a point's in prepares)\n{exercise_lines}\n"
             f"Not yet prepared by any point: {', '.join(unprepared(chapter, parts)) or '(none)'}\n\n"
             f"NOW WRITE THE SCRIPT OF THIS HEADING: {heading['number'] or 'the opening'} {heading['title']}\n"
@@ -870,8 +1144,8 @@ def messages(chapter: dict, heading: dict, parts: list, *, course: dict, naksha:
 
 def _fact_lines(answer) -> list:
     facts = answer.get("facts") if isinstance(answer, dict) else None
-    return [(f.get("id"), f.get("item"), " ".join(str(f.get("fact") or "").split())) for f in facts or []
-            if isinstance(f, dict)]
+    return [(f.get("id"), f.get("item"), _kind(f), str(f.get("term") or "").strip(), " ".join(str(f.get("fact") or "").split()))
+            for f in facts or [] if isinstance(f, dict)]
 
 
 LOCKED = ("the facts are locked after your first answer: keep them as they were (change a fact only when a problem "
@@ -1042,9 +1316,18 @@ def counts(chapter: dict, parts: list) -> dict:
             "english_heavy": sum(1 for s in told if len(english_words(s, chapter)[1]) >= ENGLISH_FROM
                                  and len(english_words(s, chapter)[0]) >= ENGLISH_SHARE * len(english_words(s, chapter)[1])),
             "english_share": round(sum(english_share(s, chapter) for s in lines) / max(1, len(lines)), 3),
-            "goals": sum(1 for part in parts if (part.get("goal") or "").strip())}
+            "goals": sum(1 for part in parts if (part.get("goal") or "").strip()),
+            "baatein": {k: sum(1 for part in parts for f in part.get("facts") or [] if isinstance(f, dict) and _kind(f) == k)
+                        for k in BAAT_KINDS},
+            "names_unsaid": sum(len(unsaid_names(h, chapter, part.get("points") or [])) for part in parts
+                                for h in headings(chapter) if h["number"] == (part.get("section") or "")),
+            "galat": sum(1 for part in parts for p in part.get("points") or [] for r in p.get("roles") or []
+                         if str(r).strip().lower() == "galat"),
+            "misaal": sum(1 for part in parts if (part.get("misaal") or "").strip())}
 
 
+BAAT_WORDS = {"book": "kitab kehti hai", "word": "shabd ka matlab", "base": "pehle ki zaroori baat", "label": "figure ka nishaan",
+              "extra": "teacher ki extra baat"}
 KIND_WORDS = {"explain": "samjhana", "question": "sawaal", "checkpoint": "ruko, socho", "example": "example", "analogy": "analogy",
               "real_world": "asli duniya", "recall": "yaad", "activity": "activity", "story": "kahani", "figure": "figure",
               "summary": "saar", "overview": "pehle poori jhalak", "retell": "poori kahani dobara"}
@@ -1063,6 +1346,14 @@ def markdown(chapter: dict, record: dict) -> str:
         out += [f"## {part.get('section') or 'Shuruaat'} {part.get('title') or ''}".rstrip(), ""]
         if part.get("goal"):
             out += [f"_Maqsad: {part['goal']}_", ""]
+        if (part.get("misaal") or "").strip():
+            out += [f"_Misaal: {part['misaal']}_", ""]
+        facts = [f for f in part.get("facts") or [] if isinstance(f, dict)]
+        if facts:
+            out.append(f"Kitab ki baatein ({len(facts)}):")
+            out += [f"- {f.get('id')} · {BAAT_WORDS.get(_kind(f), _kind(f))}" + (f" · {f['term']}" if f.get("term") else "")
+                    + f" · {f.get('fact')}" for f in facts]
+            out.append("")
         for p in part.get("points") or []:
             out.append(f"**{p.get('id')}** · {KIND_WORDS.get(p.get('kind'), p.get('kind'))} · " + " ".join(p.get("says") or []))
             if p.get("terms"):
@@ -1112,7 +1403,8 @@ border-top:1px solid #eee;padding:10px 0}}@media (max-width:720px){{.pt{{grid-te
 padhai ki NCERT lines {c['covered']}/{c['coverable']} · summary {c['summary_taught']}/{c['summary']} · exercises ka gyan
 {c['exercises_prepared']}/{c['exercises']}<br>analogy {c['analogies']} · example {c['examples']} · asli duniya {c['real_world']} ·
 ruko-socho {c['checkpoints']} · kitaab se bahar {c['outside_book']} · code ki kamiyan {left_total}<br>
-sawaal {round(100 * c['question_share'])}% vaakya · poori kahani dobara {c['retells']} · chhote tukde {c['fragments']}</p>"""]
+sawaal {round(100 * c['question_share'])}% vaakya · poori kahani dobara {c['retells']} · chhote tukde {c['fragments']}<br>
+kitab ki baatein: {' · '.join(f"{BAAT_WORDS[k]} {c['baatein'][k]}" for k in BAAT_KINDS)} · kitab ke naam jo bole nahi gaye {c['names_unsaid']}</p>"""]
     for part in record.get("parts") or []:
         points = part.get("points") or []
         left = (record.get("problems") or {}).get(part.get("section") or "opening") or []
@@ -1122,6 +1414,15 @@ sawaal {round(100 * c['question_share'])}% vaakya · poori kahani dobara {c['ret
                      + (f' · <span class="left">{len(left)} kamiyan bachi</span>' if left else "") + "</summary>")
         if part.get("goal"):
             parts.append(f'<div class="bridge">Maqsad: {e(part["goal"])}</div>')
+        if (part.get("misaal") or "").strip():
+            parts.append(f'<div class="bridge">Misaal: {e(part["misaal"])}</div>')
+        facts = [f for f in part.get("facts") or [] if isinstance(f, dict)]
+        if facts:
+            parts.append(f'<details class="k"><summary>Kitab ki baatein ({len(facts)}): '
+                         + " · ".join(f"{BAAT_WORDS[k]} {sum(1 for f in facts if _kind(f) == k)}" for k in BAAT_KINDS)
+                         + "</summary>" + "".join(f'<div><span class="id">{e(f.get("id") or "")}</span> <b>{e(BAAT_WORDS.get(_kind(f), _kind(f)))}'
+                                                  + (f": {e(f.get('term'))}" if f.get("term") else "") + f"</b> {e(f.get('fact') or '')}</div>"
+                                                  for f in facts) + "</details>")
         for p in points:
             terms = "; ".join(f"<b>{e(t.get('term') or '')}</b> = {e(t.get('meaning') or '')}" for t in p.get("terms") or [])
             book = "".join(f'<div><span class="id">{e(i)}</span> {e(items.get(i, {}).get("content", ""))}</div>'
