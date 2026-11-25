@@ -37,6 +37,14 @@ before the next is written (problems go back, at most ``max_rounds``):
   heading, no known teacher slip is said, and no sentence is a fragment of three words or fewer (Navin, 22 November 2026,
   after hearing "पानी से।" said alone: "chhote vakya se baat tooti tooti lagegi"; an answer repeats its subject and a
   thinking question's answer flows from cause to conclusion in one sentence).
+* The teacher's way (Navin, 25 November 2026, rule B1 of the rules form: "vaad anuvaad nahi; ek padha likha teacher use
+  kaise samjhata hai bachon ko, kyunki uske paas us book ki knowledge hai poori"; Claude's worked example of the CF₁ line,
+  "bilkul yahi tha"): the heading's facts are listed first, one per fact of its items, and locked for the later rounds;
+  every line of says has a job (known, picture, plain, why, term, fact, ask, answer, link); a new term is named only after
+  its idea is told in plain words; a point that teaches a cause says why; a line that is its book line said again is sent
+  back; a line of mostly everyday English words (outside the chapter's terms) is sent back; an earlier analogy may be
+  recalled in a few words. Measured on the saved script (run s6): 96 of 249 opened terms named as a definition in a
+  point's first two lines, 90 of 1,401 lines mostly English (Navin's own lines of film A: none), one analogy per heading.
 
 Output: ``script.json`` (the parts, each point with its id "11.6.1-k3": the knowledge points that video, notes and games
 will account for), ``SCRIPT.md`` and ``SCRIPT.html`` (Navin's script page: each heading's script beside the NCERT lines
@@ -74,6 +82,22 @@ FILLER = studio_naksha.FILLER | {"hum", "hai", "hain", "toh", "tho", "yeh", "woh
                                  "karte", "karti", "hota", "hoti", "hote", "this", "that", "here"}
 # The teacher study of Chapter 11 (22 November 2026): four teachers' sentences were questions 18-35 % of the time
 # (Roshni 35 %, 31 %, Vipin 18 %); BIE's round 1 was 4 %.
+# The teacher's way (Navin, 25 November 2026, rule B1: "vaad anuvaad nahi; ek padha likha teacher use kaise samjhata hai
+# bachon ko, kyunki uske paas us book ki knowledge hai poori"; Claude's worked example of the CF₁ line, which he called
+# "bilkul yahi tha"). Each sentence of a point has a job, in this order where the point needs it.
+ROLES = ("known", "picture", "plain", "why", "term", "fact", "ask", "answer", "link")
+BEFORE_TERM = {"known", "picture", "plain", "why"}   # what a teacher tells before he names a new term
+ENGLISH_SHARE = 0.30   # a sentence with this share of everyday English words (outside the chapter's terms) reads like a
+                       # textbook in Roman script: Navin's own lines of film A never reach it (median 0.06, highest 0.18);
+                       # the saved Chapter 11 script (run s6) has 90 of its 1,401 lines at or above it
+ENGLISH_FROM = 6       # ... in a sentence of at least this many words
+ANSWER_HEAD = 12       # an answer opens with its question's words: two of them within its first twelve words (rules A4
+                       # and C2, Navin's card of 25 November 2026); the saved script: 194 of 232 answers do not
+RESTATE = 0.7          # share of a sentence's English words that are its book line's own words: said again, not explained
+RESTATE_FROM = 4       # ... with at least this many English words
+CLASH = frozenset("the to me par main do so hi us is are ki ke ka na ho jo se ye yeh wo woh hai hain aur mein kar tab ab "
+                  "jab kab bhi tha thi pe ek koi kuch log raha rahi aage peeche andar bahar upar neeche saath sath baat din "
+                  "raat paani dekho socho".split())
 QUESTION_SHARE = 0.15          # at least this share of a heading's sentences asks the learner something
 QUESTIONS_FROM = 8             # ... in a heading of at least this many sentences
 WHY = re.compile(r"\b(kyun|kyon|kyu|kyoon|why)\b", re.I)
@@ -140,8 +164,11 @@ POINT = _obj({
     "prepares": _arr(S),
     "answer": S,
     "watch_out": S,
+    "uses": _arr(S),
+    "roles": _arr(S),
 })
-SCHEMA = _obj({"section": S, "goal": S, "points": _arr(POINT), "bridge": S})
+FACT = _obj({"id": S, "item": S, "fact": S})
+SCHEMA = _obj({"section": S, "goal": S, "facts": _arr(FACT), "points": _arr(POINT), "bridge": S})
 
 RULES = """You are BIE's teacher: the best {subject} teacher for {learners} ({exam}). You have read the whole chapter and
 you now write its script: everything the learner must come to know, taught once, in your own words, in the book's order,
@@ -162,16 +189,42 @@ Rules:
   what it does: an in_text_question is posed and answered; reader_talk ("Let us see how this happens") is said in your own
   words; an activity is a task the learner can do or watch; a biography is a short story moment; a figure is walked
   through, label by label (kind "figure"). Use the book's key words when you teach its line.
-- Explain, do not restate: the why steps, cause and effect, what must come first. When an earlier point taught what is
-  needed, remind in one short sentence and name it in "recalls": the id of a point of an earlier heading as THE SCRIPT SO
-  FAR shows it (like 11.5-k4), never an item id; when nothing earlier taught it, teach it briefly and say so in
-  outside_book.
-- Terms: open each term marked ★ in this heading's items at its first use, with its meaning in simple words ("terms").
-  Never define again a term the script already opened: remind in a few words. Do not use a technical term of a later
-  heading before it is opened, except as a pointer ("isko aage dekhenge").
+- FACTS FIRST, THEN THE TEACHER (Navin, 25 November 2026). First write "facts": every fact this heading's items state, one
+  short plain line each (id f1, f2 ...; "item" is the item id it comes from), keeping the book's names, numbers, sides and
+  words such as "several". The facts are the lock on what is true: a point lists in "uses" the ids of the facts it
+  teaches, together the points use every fact, and no sentence says as fact anything that is not in the facts, in an
+  earlier heading or in outside_book. In a later round keep the facts as they were unless a problem names a fact.
+- TEACH LIKE A TEACHER, NOT A TRANSLATOR (Navin, 25 November 2026: "vaad anuvaad nahi; ek padha likha teacher use kaise
+  samjhata hai bachon ko, kyunki uske paas us book ki knowledge hai poori"). Never say the book's line again in Hinglish.
+  Explain what the line is about the way a well-read teacher who knows the whole book explains it to children, in this
+  order where the idea needs it:
+  known (start from what the learner already knows or has just seen) -> picture (an everyday picture: the item's
+  everyday image, an analogy, or a few words recalling one the script already told, "jaise baandh ke peeche ruka
+  paani") -> plain (what happens, in everyday words, before any new term) -> why (the cause that links it, from the
+  item's why steps) -> term (only now the book's term, named on the idea just told: "isi shakl badalne ko conformational
+  change kehte hain") -> fact (the book's fact as the exam asks it: "several molecules", the side it faces).
+  A point that opens a term tells it in plain words first; a point that teaches a cause says why. One explanation may
+  teach several items of the heading together when they tell one happening: the book's sentence order does not bind you,
+  but every item is still in exactly one point's teaches. "roles" gives each line of says its job, one per line, in the
+  same order: known, picture, plain, why, term, fact, ask (a question to the learner), answer (its answer) or link (the
+  goal, a recall or a bridge).
+  The pattern, from another subject (never copy its words): known "Khule bartan mein paani 100 degree par ubalne lagta
+  hai, yeh aapne dekha hai." picture "Ab cooker ko socho, jiski seeti tab tak nahi bajti jab tak andar bhaap bhar na
+  jaaye." plain "Dhakkan band hai, isliye bhaap bahar nahi nikal paati aur andar dabaav badhta jaata hai." why "Dabaav
+  badhne par paani ko bhaap banne ke liye zyada garmi chahiye, isliye woh der se ubalta hai." term "Isi ko kehte hain ki
+  dabaav badhne se boiling point badh jaata hai." fact "Isliye cooker mein paani lagbhag 120 degree tak garam hota hai aur
+  khana jaldi pakta hai."
+- When an earlier point taught what is needed, remind in one short sentence (role known) and name it in "recalls": the id
+  of a point of an earlier heading as THE SCRIPT SO FAR shows it (like 11.5-k4), never an item id; when nothing earlier
+  taught it, teach it briefly and say so in outside_book.
+- Terms: open each term marked ★ in this heading's items where it is first needed: tell the idea in plain words, then
+  name the term on it (role term), and give its meaning in simple words in "terms". Never define again a term the script
+  already opened: remind in a few words. Do not use a technical term of a later heading before it is opened, except as a
+  pointer ("isko aage dekhenge").
 - Examples (kind "example"): a concrete case worked through: a named plant or experiment, a number, one molecule followed.
   Every heading with three or more items has at least one. Analogies (kind "analogy"): an everyday picture for a hard
-  idea, never one the script already used; when the plan's ideas for this heading offer an analogy, the heading has one
+  idea, never one the script already told as an analogy (a few words recalling an earlier one inside another point, role
+  picture, is a teacher tying a new step to it, not a repeat); when the plan's ideas for this heading offer an analogy, the heading has one
   (that one or a better one). Real-world uses (kind "real_world"): a real thing, place or happening in food, farming,
   health, weather or technology; never a study task or an exam trap; when the plan's ideas offer one, the heading has
   one; otherwise leave it out rather than invent one.
@@ -205,13 +258,25 @@ Rules:
   step, as it is followed: each point adds only its own step and the earlier steps stay quiet, never a finished
   crowded picture first (Navin, 22 November 2026: the Calvin cycle drawn as it is followed, on the photorealistic
   picture, not a flat 2D diagram, so the last screen is never a khichdi of molecules). Never a caution line ("assume", "illustrative", "the source does not say") in says or screen.
-- Voice: {language} in Roman script with the book's English terms; a warm spoken teacher (questions, "socho", "dekho");
-  every sentence under {max_words} words.
+- Voice: everyday spoken {language} in Roman script, as a teacher speaks to children: the book's English terms are said
+  (the exam asks them), but ordinary words are said in Hindi ("lautna", not "return"; "jama hona", not "accumulation";
+  "ke hisaab se", not "according to"; "chalaata hai", not "support karta hai"); a sentence made mostly of English words is a
+  textbook read aloud. A warm spoken teacher (questions, "socho", "dekho"); every sentence under {max_words} words.
 - How good teachers of this chapter teach (Navin, 22 November 2026, after four teachers were studied line by line):
   - "goal": the line this heading opens with: what we want to find or make here, and how it follows from what came
     before. Say it as the first sentence of the first point.
   - Ask the learner: about one sentence in five is a question, at least one a "kyun"; answer it at once, or after
     "socho" when the learner should think first. Voice the learner's own doubt ("ab aap sochoge, phir NADPH ka kya?").
+  - Where a question comes from (Navin, 25 November 2026, rules C3 and H3): a question never comes alone; say what it
+    rose from: what was just seen, then what is odd or missing in it, then the question ("Humne abhi dekha ki H⁺ CF₀ ke
+    raaste stroma mein laut aate hain. Par inhe lumen mein bhejne mein to energy lagi thi. To ab sawaal uthta hai ki
+    lautne ke liye dobara energy kyon nahi lagti?"). A question the learner should think about first ("Ruko, pehle khud
+    socho: ...?") comes after the clue it can be answered from, and its answer joins the learner's thought ("Aapne socha
+    hoga ki ..."); at most two such questions in a heading, at its most important turns.
+  - An answer opens with its question's own words, turned into the answer (Navin, 25 November 2026, rules A4 and C2:
+    "Proton gradient mein itni dilchaspi isliye hai kyunki ...", "Lautne ke liye dobara energy isliye nahi lagti kyunki
+    ..."; to a "kya" question: "Nahi, C¹⁴ yahaan food banane ki energy nahi deta, ..."), so the learner hears at once
+    which question it answers.
   - A process (several steps): first an "overview" point that names the steps with their count ("yahan teen kaam hote
     hain: …"), then the steps, then a "retell" point that tells the whole process again in order, in a few sentences.
     Say the counts that change (carbons, electrons, protons, ATP and NADPH) before and after.
@@ -226,9 +291,9 @@ Rules:
   - Flowing answers (Navin, 22 November 2026, on hearing "Paani se." said alone: "chhote vakya se baat tooti tooti
     lagegi"): never a sentence of three words or fewer. An answer repeats its subject ("Woh aati hai paani se", not
     "Paani se."). The answer to a thinking question joins cause to conclusion in one sentence ("…, aur woh oxygen
-    chhodte hi nahi, jiska matlab hai ki oxygen paani se hi aati hai"), and its opener varies as a teacher's does
-    ({openers}): no one opener for more than half the answers of a heading (Navin, 23 November 2026, on "Dekho,"
-    opening nearly every answer of the final round: the voice stays, the openers vary).
+    chhodte hi nahi, jiska matlab hai ki oxygen paani se hi aati hai"); no one opener for more than half the answers of
+    a heading ({openers}; Navin, 23 November 2026, on "Dekho," opening nearly every answer of the final round), and the
+    question's own words come first in the answer.
   - Never say these slips, which teachers of this chapter make: oxygen-18 is radioactive; the dark reaction happens at
     night; the Calvin cycle releases CO2; pigments separate by weight; C4 plants store CO2 and open their stomata once;
     light saturates at 1 % of sunlight; temperature does not affect the light reaction; 360 and 450 are compensation
@@ -373,6 +438,137 @@ def process_items(heading: dict, chapter: dict) -> list:
     return [i for i in heading["items"] if (items.get(i) or {}).get("content_type") == "process"]
 
 
+def _tokens(text: str) -> list:
+    return re.findall(r"[a-z][a-z'-]*", (text or "").translate(PLAIN).lower())
+
+
+_VOCAB: dict = {}
+
+
+def vocabulary(chapter: dict) -> tuple:
+    """(the chapter's English words, its terms' words): every word of the book's own lines, and the words of every term
+    the chapter names (marked terms, unpacked terms, concepts), which a teacher says in English."""
+    key = id(chapter)
+    if key not in _VOCAB:
+        english, terms = set(), set()
+        for it in (chapter.get("items") or {}).values():
+            english.update(_tokens(it.get("content", "")))
+            for t in it.get("terms") or []:
+                terms.update(_tokens(t.get("term", "") if isinstance(t, dict) else str(t)))
+            for t in (it.get("unpack") or {}).get("terms") or []:
+                terms.update(_tokens(t.get("term", "")))
+        for c in (chapter.get("map") or {}).get("concepts") or []:
+            terms.update(_tokens(c.get("name", "")))
+        _VOCAB[key] = (frozenset(english), frozenset(terms))
+    return _VOCAB[key]
+
+
+def english_words(sentence: str, chapter: dict) -> tuple:
+    """(everyday English words of the sentence, all its words of three letters or more): the book's words that are not
+    the chapter's terms ("return", "accumulation", "according"), which a teacher says in Hindi."""
+    english, terms = vocabulary(chapter)
+    words = [w for w in _tokens(sentence) if len(w) > 2]
+    return [w for w in words if w in english and w not in terms and w not in CLASH], words
+
+
+def english_share(sentence: str, chapter: dict) -> float:
+    found, words = english_words(sentence, chapter)
+    return len(found) / len(words) if words else 0.0
+
+
+def _stem(word: str) -> str:
+    for end in ("ational", "ation", "ions", "ing", "ed", "es", "s", "al"):
+        if len(word) > 5 and word.endswith(end):
+            return word[:-len(end)]
+    return word
+
+
+def restates(sentence: str, book_lines: list, chapter: dict) -> bool:
+    """A sentence that is its book line said again: most of its English words are the line's own words."""
+    english, _ = vocabulary(chapter)
+    mine = [_stem(w) for w in _tokens(sentence) if len(w) > 2 and w in english and w not in CLASH and w not in STOPWORDS]
+    if len(mine) < RESTATE_FROM:
+        return False
+    book = {_stem(w) for line in book_lines for w in _tokens(line)}
+    return sum(w in book for w in mine) / len(mine) >= RESTATE
+
+
+STOPWORDS = frozenset("the and that this with from for are was were which into its their than then also have has had been "
+                      "being such these those them they what when where why how not but can will may only all any each one "
+                      "two three four more most other some very just like through".split())
+
+
+def explain_problems(answer: dict, heading: dict, chapter: dict, points: list) -> list:
+    """The teacher's way (Navin, 25 November 2026, rule B1): the facts first and every one taught; each line of says has a
+    job; a new term is named only after the idea is told in plain words; a cause is explained; the book's line is not
+    said again; ordinary words are said in Hindi."""
+    out = []
+    items = chapter.get("items") or {}
+    number = heading["number"]
+    facts = [f for f in answer.get("facts") or [] if isinstance(f, dict)]
+    fact_ids = {f.get("id") for f in facts}
+    if number != RECAP:
+        have = {f.get("item") for f in facts}
+        missing = [i for i in heading["items"] if i not in have]
+        if not facts:
+            out.append("\"facts\" is empty: first list every fact this heading's items state (id f1, f2 ...; item; fact), "
+                       "then teach them")
+        elif missing:
+            out.append(f"no fact is listed for {', '.join(missing)}; list what each of these items states")
+        for f in facts:
+            if f.get("item") and f["item"] not in heading["items"]:
+                out.append(f"fact {f.get('id')}: {f['item']!r} is not an item of this heading")
+            book = items.get(f.get("item")) or {}
+            for number_word in re.findall(r"\b\d+\b|\bseveral\b", book.get("content", "")):
+                if number_word not in (f.get("fact") or ""):
+                    out.append(f"fact {f.get('id')}: keep the book's {number_word!r} ({f.get('item')})")
+                    break
+        used = {u for p in points for u in p.get("uses") or []}
+        unused = [f.get("id") for f in facts if f.get("id") not in used]
+        if unused:
+            out.append(f"facts {', '.join(unused)} are used by no point: teach each fact (list it in a point's uses)")
+    for p in points:
+        pid = p.get("id")
+        bad = [u for u in p.get("uses") or [] if u not in fact_ids]
+        if bad:
+            out.append(f"{pid}: uses {bad}, which are not ids of this heading's facts")
+        says = p.get("says") or []
+        roles = [str(r).strip().lower() for r in p.get("roles") or []]
+        if len(roles) != len(says) or any(r not in ROLES for r in roles):
+            out.append(f"{pid}: roles must give each of its {len(says)} lines of says its job, one per line "
+                       f"({', '.join(ROLES)})")
+            continue
+        if p.get("kind") in ("figure", "overview", "retell", "summary"):
+            continue
+        for t in p.get("terms") or []:
+            term = (t.get("term") or "").strip()
+            at = next((k for k, line in enumerate(says) if roles[k] not in ("ask", "link") and _term_in(term, line)), None)
+            if term and at is not None and not any(r in BEFORE_TERM for r in roles[:at]):
+                out.append(f"{pid} line {at + 1}: names {term!r} before the idea is told; tell what happens in plain words "
+                           "first, then name it on that idea (\"isi ko ... kehte hain\")")
+        spoken = sentences(p)
+        for q, a in zip(spoken, spoken[1:]):
+            if not q.endswith("?") or a.endswith("?") or re.match(r"(?i)\s*aapne socha", a):
+                continue
+            asked, opening = _words(q), _words(" ".join(re.sub(r"^(?i:(dekho|dekhiye|haan|nahi|nahin))\b[,:]?\s*", "", a)
+                                                          .split()[:ANSWER_HEAD]))
+            if len(asked) >= 2 and len(asked & opening) < 2:
+                out.append(f"{pid}: the answer to {q[:70]!r} does not open with its question's words; open it with them "
+                           "(\"... isliye hai kyunki ...\")")
+        book = [items[i].get("content", "") for i in p.get("teaches") or [] if i in items]
+        causes = [i for i in p.get("teaches") or [] if (items.get(i) or {}).get("content_type") in ("cause_effect", "process")]
+        if p.get("kind") == "explain" and causes and "why" not in roles:
+            out.append(f"{pid}: teaches a cause ({', '.join(causes)}) but no line says why; give the why (role why)")
+        for k, line in enumerate(says):
+            if roles[k] not in ("fact", "term") and p.get("kind") == "explain" and restates(line, book, chapter):
+                out.append(f"{pid} line {k + 1}: says the book's line again; explain what it is about as a teacher would")
+            found, words = english_words(line, chapter)
+            if len(words) >= ENGLISH_FROM and len(found) >= ENGLISH_SHARE * len(words):
+                out.append(f"{pid} line {k + 1}: {len(found)} of its {len(words)} words are English ({', '.join(found[:6])}); "
+                           "say ordinary words in Hindi as a teacher speaks to children, keep the book's terms")
+    return out
+
+
 def teacher_problems(answer: dict, heading: dict, chapter: dict, points: list) -> list:
     """The teacher study's rules (Navin, 22 November 2026): goal first, questions, a process told as overview, steps and
     retell with its counts, a marked misconception said and corrected, a bridge that names the link, no fragment, no
@@ -509,6 +705,7 @@ def problems(answer, heading: dict, chapter: dict, earlier: list, later_terms: l
     if missing:
         out.append(f"{len(missing)} items of this heading are in no point's teaches: " + ", ".join(missing))
     out += teacher_problems(answer, heading, chapter, points)
+    out += explain_problems(answer, heading, chapter, points)
     kinds = {p.get("kind") for p in points}
     if number == RECAP:
         prepared = {x for p in points for x in p.get("prepares") or []}
@@ -651,26 +848,56 @@ def messages(chapter: dict, heading: dict, parts: list, *, course: dict, naksha:
     return [{"role": "system", "content": system}, {"role": "user", "content": user}]
 
 
+def _fact_lines(answer) -> list:
+    facts = answer.get("facts") if isinstance(answer, dict) else None
+    return [(f.get("id"), f.get("item"), " ".join(str(f.get("fact") or "").split())) for f in facts or []
+            if isinstance(f, dict)]
+
+
+LOCKED = ("the facts are locked after your first answer: keep them as they were (change a fact only when a problem "
+          "names it) and put the teaching right instead")
+
+
 def write(client, model: str, chapter: dict, *, course: dict, naksha: dict | None = None, language: str = "Hinglish",
-          max_rounds: int = 3, on_part=None) -> dict:
-    """The whole chapter's script, heading by heading; ``on_part(record)`` is called after each heading (to save it)."""
+          max_rounds: int = 3, on_part=None, only: list | None = None, earlier: list | None = None) -> dict:
+    """The whole chapter's script, heading by heading; ``on_part(record)`` is called after each heading (to save it).
+
+    ``only``: write just these headings (their numbers, "11.6.3", or film ids, "h11-6-3") and keep every other heading
+    as ``earlier`` (the parts of an earlier script run) has it, so one heading is written again in its place, after the
+    same script so far (Navin, 25 November 2026: 11.6.3 written again the teacher's way, beside the old)."""
     heads = headings(chapter)
     later = {}
     for n, heading in enumerate(heads):
         later[n] = [t for h in heads[n + 1:] for t, _ in first_terms(h) if _technical(t)]
+    wanted = {str(x).strip() for x in only or [] if str(x).strip()}
+    kept = {(part.get("section") or ""): part for part in earlier or []}
     parts, rounds, usage, left = [], [], {"input_tokens": 0, "output_tokens": 0}, {}
     for n, heading in enumerate(heads):
+        if wanted and heading["number"] not in wanted and film_id(heading["number"]) not in wanted:
+            if heading["number"] in kept:
+                parts.append(kept[heading["number"]])
+                rounds.append({"section": heading["number"], "rounds": [], "kept": True})
+                continue
+            if n > max((k for k, h in enumerate(heads) if h["number"] in wanted or film_id(h["number"]) in wanted),
+                       default=-1):
+                continue                     # nothing after the last wanted heading needs writing
         nxt = heads[n + 1] if n + 1 < len(heads) else None
         convo = messages(chapter, heading, parts, course=course, naksha=naksha, language=language,
                          next_title=f"{nxt['number']} {nxt['title']}" if nxt else "")
-        answer, found, these = None, ["no answer yet"], []
+        answer, found, these, locked = None, ["no answer yet"], [], None
         for number in range(1, max_rounds + 1):
             reply = client.chat(model=model, messages=convo, schema=SCHEMA)
             for key in usage:
                 usage[key] += int((reply.get("usage") or {}).get(key) or 0)
             answer = repair(parse(reply.get("content", "")), heading, parts)
+            asked_facts = any("fact" in f for f in found) if number > 1 else True
             found = problems(answer, heading, chapter, parts, later[n], ideas(naksha, heading["number"]),
                              unprepared(chapter, parts) if heading["number"] == RECAP else None)
+            facts = _fact_lines(answer)
+            if locked is not None and facts != locked and not asked_facts:
+                found = found + [LOCKED]
+            elif facts:
+                locked = facts
             these.append({"round": number, "problems": found})
             if not found:
                 break
@@ -790,6 +1017,10 @@ def counts(chapter: dict, parts: list) -> dict:
             "question_share": round(sum(1 for s in spoken if s.endswith("?")) / max(1, len(spoken)), 3),
             "fragments": sum(1 for s in spoken if len(s.split()) <= FRAGMENT and not s.rstrip().endswith("?")),
             "retells": sum(1 for part in parts for p in part.get("points") or [] if p.get("kind") == "retell"),
+            "facts": sum(len(part.get("facts") or []) for part in parts),
+            "english_heavy": sum(1 for s in lines if len(english_words(s, chapter)[1]) >= ENGLISH_FROM
+                                 and len(english_words(s, chapter)[0]) >= ENGLISH_SHARE * len(english_words(s, chapter)[1])),
+            "english_share": round(sum(english_share(s, chapter) for s in lines) / max(1, len(lines)), 3),
             "goals": sum(1 for part in parts if (part.get("goal") or "").strip())}
 
 

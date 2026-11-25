@@ -1,6 +1,6 @@
 # BIE Status
 
-Updated: 22 November 2026 (teacher study) · Read this first in every new session, then show Navin the current task card.
+Updated: 25 November 2026 (rules form, the teacher's way) · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
@@ -554,6 +554,31 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    Measured on 26 saved runs (55 films, 206 pictures, 347 coloured labels): 4 flagged, r4's CF₀ among them.
    **Rules form:** "BIE Film Niyam" (58 rules with examples, Chahiye / Nahi / Baat per rule) published for Navin on
    24 November 2026; the chapter's films start from the rules he ticks.
+   **PR #214 merged (24 November 2026).** **Rules form submitted (25 November 2026, 12:21):** 42 Chahiye, 16 Baat, 0 Nahi,
+   26 of the 42 with a note; talked through one rule at a time (Navin, 25 November: no films until the "baat" rules are
+   clear; "ek ek karke niyam par pehle baat karo, seedha task card mat kholo"). Settled so far: A4 (the opening is the
+   last film's review, then today's question; every answer opens with its question's words), B3 (a 3–4 line recap with a
+   glimpse of the last film's pictures; the chapter's first film recalls the earlier chapter; the end says what to
+   remember and what comes next), C1 (a short question before every machine or meeting), C2/C3 (every question says
+   what it rose from: seen, then odd, then the question), H3 (a "pehle khud socho" question waits 3 s with a glowing ? and
+   a small clock, one or two a film; the wait is still 1 s since PR #213, to be fixed with the rules PR), new rule
+   galat-fahmi (a small one inside a concept, tied to its NCERT line, 0–2 a film; a big one that opens the film where a
+   good one exists, its answer built from the film's own NCERT lines), and B1. Navin also chose seven new rules to
+   discuss (the chapter's colour key, terms in English with their Hindi meaning, the exam link, the exam diagram, side by
+   side comparisons, experiment stories, the time scale). **B1, the teacher's way (branch `script-teacher-way`):**
+   Navin: "vaad anuvaad nahi; ek padha likha teacher use kaise samjhata hai bachon ko, kyunki uske paas us book ki
+   knowledge hai poori"; Claude's worked example of the CF₁ line was "bilkul yahi tha", and he asked for the teaching
+   section to be put right from it ("is par saari neev tiki hai"). `bie/brain/studio_script.py` now asks for the
+   heading's facts first (locked for the later rounds), a job for every line (known, picture, plain, why, term, fact,
+   ask, answer, link) and the teacher's order, and code sends back a term named before its idea, a cause without a why,
+   a line that is its book line said again and a line of mostly everyday English words; an earlier analogy may be
+   recalled in a few words. The rules talked through today go into the same writer: a question says what it rose from
+   (C3), a "socho" question comes after its clue and is answered "Aapne socha hoga ki …" (H3), and code sends back an
+   answer that does not open with its question's words (A4, C2; the saved script: 194 of 232 answers do not). A script
+   job can write one heading again in its place (`videos`, with `from_run` the earlier
+   script run and `chapter_map` its naksha run). Measured on the saved script (run s6): 96 of 249 opened terms named as a
+   definition in a point's first two lines, 90 of 1,401 lines mostly English (Navin's lines of film A: none). Next: 11.6.3
+   written again on the VM (₹0) and set beside the old for Navin.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

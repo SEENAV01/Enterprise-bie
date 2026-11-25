@@ -19,35 +19,58 @@ from tests.test_studio_naksha import chapter, good
 
 
 def point(pid, kind, teaches, says, *, terms=(), recalls=(), screen="a picture that explains it", outside="", prepares=(),
-          answer=None, watch_out=None):
+          answer=None, watch_out=None, roles=None):
     thinking = kind in ("analogy", "checkpoint")
     return {"id": pid, "kind": kind, "teaches": list(teaches), "recalls": list(recalls), "says": list(says),
             "screen": screen, "terms": [{"term": t, "meaning": f"{t} ka matlab"} for t in terms], "outside_book": outside,
             "prepares": list(prepares), "answer": answer if answer is not None else ("the reasoning" if thinking else ""),
-            "watch_out": watch_out if watch_out is not None else ("a common wrong idea" if thinking else "")}
+            "watch_out": watch_out if watch_out is not None else ("a common wrong idea" if thinking else ""),
+            "uses": [], "roles": list(roles) if roles is not None else ["ask" if line.rstrip().endswith("?") else "plain"
+                                                                         for line in says]}
+
+
+def with_facts(heads):
+    """Each heading's facts (one per item it teaches) and each point's uses, as the teacher's way asks (25 Nov 2026)."""
+    items = chapter()["items"]
+    for part in heads:
+        part["facts"] = []
+        for p in part["points"]:
+            for iid in p["teaches"]:
+                fid = f"f{len(part['facts']) + 1}"
+                part["facts"].append({"id": fid, "item": iid, "fact": items[iid]["content"]})
+                p["uses"].append(fid)
+    return heads
 
 
 def parts():
-    return [
+    return with_facts([
         {"section": "", "goal": "Plants apna food khud banate hain, dhoop ki madad se.",
          "bridge": "Ab dekhte hain electrons ka safar.", "points": [
-            point("0-k1", "explain", ["p001-i1"], ["Plants apna food khud banate hain, dhoop ki madad se."]),
+            point("0-k1", "explain", ["p001-i1"], ["Plants apna food khud banate hain, dhoop ki madad se.",
+                                                   "Aisa isliye hota hai kyunki patti dhoop ki energy ko khane mein badal deti hai."],
+                  roles=["link", "why"]),
             point("0-k2", "real_world", [], ["Hum jo chawal aur dal khate hain, uski shuruaat bhi ek patti se hoti hai."]),
             point("0-k3", "analogy", [], ["Socho patti ek chhoti rasoi hai jahan dhoop se khana pakta hai."])]},
         {"section": "11.6", "goal": "Electrons PS II se PS I ki taraf move karte hain.",
          "bridge": "Ab sawaal: electrons ki kami kaun bharta hai?", "points": [
-            point("11.6-k1", "explain", ["p001-i3"], ["Electrons PS II se PS I ki taraf move karte hain, ek line mein."],
-                  terms=["PS II"], recalls=["0-k1"]),
-            point("11.6-k2", "question", ["p001-i4"], ["Yeh kaise happens hota hai? Chaliye ek-ek kadam dekhte hain."]),
+            point("11.6-k1", "explain", ["p001-i3"], ["Roshni ek electron ko dhakka deti hai aur woh aage chal padta hai.",
+                                                       "Electrons PS II se PS I ki taraf move karte hain, ek line mein.",
+                                                       "Yeh isliye hota hai kyunki har agla station electron ko thoda neeche "
+                                                       "kheenchta hai."],
+                  terms=["PS II"], recalls=["0-k1"], roles=["plain", "term", "why"]),
+            point("11.6-k2", "question", ["p001-i4"], ["Electron aage kaise badhta hai? Electron aage aise badhta hai ki har "
+                                                        "station use agle station tak deta hai."]),
             point("11.6-k3", "analogy", [], ["Socho ek seedhi hai jis par gend neeche ludhakti hai, har kadam par thodi energy deti hai."]),
             point("11.6-k4", "real_world", [], ["Kheton mein subah dhoop milte hi fasal ki pattiyan kaam shuru kar deti hain."])]},
         {"section": "11.6.1", "goal": "Ab dekhenge ki PS II ke khoye electrons ki kami kaun bharta hai.",
          "bridge": "Ab dekhte hain yeh sab milkar aage kya banata hai.", "points": [
             point("11.6.1-k1", "overview", [], ["Ab dekhenge ki PS II ke khoye electrons ki kami kaun bharta hai.",
                                                 "Pani kyun tootta hai, aur usse teen cheezein kya milti hain?"]),
-            point("11.6.1-k2", "explain", ["p002-i1"], ["Water split hota hai aur PS II ke khoye electrons replace hote hain."],
-                  terms=["lumen"]),
-            point("11.6.1-k3", "question", ["p002-i2"], ["Protons kahan released hote hain? Thylakoid ke andar, lumen mein."]),
+            point("11.6.1-k2", "explain", ["p002-i1"], ["Paani tootta hai aur PS II ke khoye electrons ki jagah bharta hai.",
+                                                         "Aisa isliye hota hai kyunki PS II ko apne electrons wapas chahiye."],
+                  terms=["lumen"], roles=["plain", "why"]),
+            point("11.6.1-k3", "question", ["p002-i2"], ["Protons kahan chhode jaate hain? Protons thylakoid ke andar, lumen "
+                                                          "mein chhode jaate hain."]),
             point("11.6.1-k4", "figure", ["p002-i5"], ["Ab Z scheme figure dekho: har label ek station hai."],
                   prepares=["p002-i4"]),
             point("11.6.1-k5", "example", [], ["Do water molecules gino: inse chaar protons, chaar electrons aur ek oxygen milti hai."]),
@@ -60,7 +83,7 @@ def parts():
         {"section": "recap", "goal": "Light reactions ATP aur NADPH banati hain.", "bridge": "", "points": [
             point("recap-k1", "summary", ["p002-i3"], ["Ant mein yaad rakho: light reactions ATP aur NADPH banati hain, "
                                                         "jo aage sugar banane mein kaam aate hain."], recalls=["11.6-k1"])]},
-    ]
+    ])
 
 
 class Client:
@@ -163,7 +186,7 @@ class Script(unittest.TestCase):
         part["points"][2]["says"].append("This is illustrative only.")
         part["points"][2]["screen"] = ""
         found = check(1, part)
-        self.assertIn("11.6-k1 sentence 2: write it in Roman script", found)
+        self.assertIn("11.6-k1 sentence 4: write it in Roman script", found)
         self.assertIn("11.6-k2 sentence 2: 45 words", found)
         self.assertIn("11.6-k3 sentence 2: a caution line never reaches the learner", found)
         self.assertIn("11.6-k3: needs its screen line", found)
@@ -185,7 +208,7 @@ class Script(unittest.TestCase):
         part["points"][2]["says"] += [f"Protons ka ek aur pehlu number {n} dekho." for n in range(8)]
         part["points"] = [p for p in part["points"] if p["kind"] != "example"]
         found = check(2, part)
-        self.assertIn("11.6.1-k2 sentence 2: names the book ('Book')", found)
+        self.assertIn("11.6.1-k2 sentence 3: names the book ('Book')", found)
         self.assertIn("11.6.1-k3: 9 sentences; a knowledge point holds one idea in at most 8", found)
         self.assertIn("this heading needs at least one worked example", found)
         ch = chapter()
@@ -239,7 +262,7 @@ class Script(unittest.TestCase):
         for p in part["points"]:
             p["says"] = [s.replace("?", ".") for s in p["says"]]
         found = check(2, part)
-        self.assertIn("0 of 10 sentences ask the learner something", found)
+        self.assertIn("0 of 11 sentences ask the learner something", found)
         self.assertIn('no "kyun" question in this heading', found)
         part = copy.deepcopy(parts()[2])
         part["points"] = [p for p in part["points"] if p["kind"] not in ("overview", "retell")]
@@ -298,6 +321,7 @@ class Script(unittest.TestCase):
         self.assertIn("the chapter file marks a common wrong idea here (p002-i1)", found)
         part = copy.deepcopy(parts()[2])
         part["points"][1]["says"].append("Aksar log sochte hain ki oxygen CO2 se aati hai, par asal mein woh pani se aati hai.")
+        part["points"][1]["roles"].append("plain")
         self.assertEqual(studio_script.problems(part, heads[2], ch, parts()[:2], []), [])
         part["bridge"] = ""
         self.assertIn('"bridge" is empty', " | ".join(studio_script.problems(part, heads[2], ch, parts()[:2], [])))
@@ -334,7 +358,7 @@ class Script(unittest.TestCase):
         self.assertIn("1 kamiyan bachi", page)
         text = studio_script.markdown(chapter(), record)
         self.assertIn("## 11.6.1 Splitting of Water", text)
-        self.assertIn("**11.6-k1** · samjhana · Electrons PS II se PS I", text)
+        self.assertIn("**11.6-k1** · samjhana · Roshni ek electron ko dhakka deti hai", text)
 
 
 class Stage(unittest.TestCase):
@@ -379,3 +403,149 @@ class Stage(unittest.TestCase):
         self.assertIn("--stage", codex_vm.argv(codex_vm.validate(job), Path("/tmp/out")))
         with self.assertRaises(codex_vm.JobError):
             codex_vm.validate(dict(job, from_run=""))
+
+
+class TeacherWay(unittest.TestCase):
+    """Rule B1 (Navin, 25 November 2026): "vaad anuvaad nahi; ek padha likha teacher use kaise samjhata hai bachon ko";
+    Claude's worked example of the CF₁ line, "bilkul yahi tha". The facts first and locked, then the teacher's order:
+    known, picture, plain, why, term, fact."""
+
+    def test_the_answer_carries_facts_uses_and_roles(self):
+        self.assertTrue(strict_ready(studio_script.SCHEMA))
+        self.assertEqual(list(studio_script.SCHEMA["properties"]), ["section", "goal", "facts", "points", "bridge"])
+        self.assertIn("roles", studio_script.POINT["properties"])
+        self.assertIn("uses", studio_script.POINT["properties"])
+
+    def test_every_item_has_its_facts_and_every_fact_is_taught(self):
+        part = copy.deepcopy(parts()[2])
+        part["facts"] = []
+        self.assertIn('"facts" is empty', check(2, part))
+        part = copy.deepcopy(parts()[2])
+        part["facts"] = [f for f in part["facts"] if f["item"] != "p002-i2"]
+        self.assertIn("no fact is listed for p002-i2", check(2, part))
+        part = copy.deepcopy(parts()[2])
+        part["facts"].append({"id": "f9", "item": "p002-i1", "fact": "Oxygen is released."})
+        self.assertIn("facts f9 are used by no point", check(2, part))
+        part["points"][0]["uses"] = ["f42"]
+        self.assertIn("11.6.1-k1: uses ['f42'], which are not ids", check(2, part))
+        ch = chapter()
+        ch["items"]["p002-i1"]["content"] = "Water is split to give several protons."
+        heads = studio_script.headings(ch)
+        found = " | ".join(studio_script.problems(parts()[2], heads[2], ch, parts()[:2], []))
+        self.assertIn("keep the book's 'several' (p002-i1)", found)
+
+    def test_each_line_has_a_job(self):
+        part = copy.deepcopy(parts()[1])
+        part["points"][0]["roles"] = ["plain"]
+        self.assertIn("11.6-k1: roles must give each of its 3 lines of says its job", check(1, part))
+        part["points"][0]["roles"] = ["plain", "teaching", "why"]
+        self.assertIn("11.6-k1: roles must give each", check(1, part))
+
+    def test_a_term_is_named_after_the_idea_is_told(self):
+        part = copy.deepcopy(parts()[1])
+        part["points"][0]["says"] = ["Electrons PS II se PS I ki taraf move karte hain, ek line mein.",
+                                     "Yeh isliye hota hai kyunki har agla station electron ko thoda neeche kheenchta hai."]
+        part["points"][0]["roles"] = ["term", "why"]
+        self.assertIn("11.6-k1 line 1: names 'PS II' before the idea is told", check(1, part))
+        part["points"][0]["roles"] = ["ask", "why"]                       # a question may name it
+        self.assertNotIn("before the idea is told", check(1, part))
+        self.assertEqual(check(1, parts()[1]), "")                        # the plain idea first, then the term
+
+    def test_a_cause_is_explained(self):
+        part = copy.deepcopy(parts()[1])
+        part["points"][0]["roles"] = ["plain", "term", "plain"]
+        self.assertIn("11.6-k1: teaches a cause (p001-i3) but no line says why", check(1, part))
+
+    def test_the_books_line_is_not_said_again(self):
+        part = copy.deepcopy(parts()[2])
+        part["points"][1]["says"] = ["Water split hota hai to replace the electrons, yahi hota hai.",
+                                     "Aisa isliye hota hai kyunki PS II ko apne electrons wapas chahiye."]
+        found = check(2, part)
+        self.assertIn("11.6.1-k2 line 1: says the book's line again", found)
+        part["points"][1]["roles"] = ["fact", "why"]                      # the book's fact as the exam asks it
+        self.assertNotIn("says the book's line again", check(2, part))
+
+    def test_ordinary_words_are_said_in_hindi(self):
+        ch = chapter()
+        heavy = "Plants apna food make karte hain, aur light reactions protons released karti hain."
+        found, words = studio_script.english_words(heavy, ch)
+        self.assertEqual(found, ["plants", "food", "make", "light", "reactions", "protons", "released"])
+        self.assertEqual(studio_script.english_words("Paudhe apna khana khud banate hain, roshni ki madad se.", ch)[0], [])
+        self.assertEqual(studio_script.english_words("PS II se electron aage jaata hai.", ch)[0], [])   # the terms stay
+        part = copy.deepcopy(parts()[1])
+        part["points"][0]["says"][2] = heavy
+        self.assertIn("11.6-k1 line 3: 7 of its 13 words are English (plants, food, make, light, reactions, protons)",
+                      check(1, part))
+        counts = studio_script.counts(ch, parts())
+        self.assertEqual((counts["facts"], counts["english_heavy"]), (7, 0))      # 6 lines + the summary line
+
+    def test_an_answer_opens_with_its_questions_words(self):
+        # rules A4 and C2, Navin's card of 25 November 2026: "Sawaal ke shabdon se"
+        part = copy.deepcopy(parts()[2])
+        part["points"][2]["says"] = ["Protons kahan chhode jaate hain? Thylakoid ke andar, lumen mein."]
+        self.assertIn("11.6.1-k3: the answer to 'Protons kahan chhode jaate hain?' does not open with its question's words",
+                      check(2, part))
+        part["points"][2]["says"] = ["Protons kahan chhode jaate hain? Dekho, protons thylakoid ke andar chhode jaate hain."]
+        self.assertNotIn("does not open with its question's words", check(2, part))
+        part["points"][2]["says"] = ["Ruko, pehle khud socho: protons kahan chhode jaate hain?",
+                                     "Aapne socha hoga ki thylakoid ke andar, aur aapne sahi socha."]
+        part["points"][2]["roles"] = ["ask", "answer"]
+        self.assertNotIn("does not open with its question's words", check(2, part))
+        rules = studio_script.messages(chapter(), studio_script.headings(chapter())[1], [], course=chapter()["course"])[0]["content"]
+        for words in ("a question never comes alone", "Aapne socha", "An answer opens with its question's own words"):
+            self.assertIn(words, rules)
+
+    def test_the_rules_teach_the_teachers_way(self):
+        ch = chapter()
+        rules = studio_script.messages(ch, studio_script.headings(ch)[1], [], course=ch["course"])[0]["content"]
+        for words in ("FACTS FIRST, THEN THE TEACHER", "vaad anuvaad nahi", "Never say the book's line again",
+                      "known (start from what the learner already knows", "term (only now the book's term",
+                      "never copy its words", "a few words recalling an earlier one", '"lautna", not "return"'):
+            self.assertIn(words, rules)
+
+    def test_the_facts_are_locked_after_the_first_answer(self):
+        first = copy.deepcopy(parts()[1])
+        first["points"][0]["roles"] = ["plain", "term", "plain"]           # a problem that is not about facts
+        second = copy.deepcopy(first)
+        second["facts"][0]["fact"] = "Electrons jump about."
+        client = Client([parts()[0], first, second, parts()[2], parts()[3]])
+        record = studio_script.write(client, "fake", chapter(), course=chapter()["course"], max_rounds=2)
+        rounds = next(r for r in record["rounds"] if r["section"] == "11.6")["rounds"]
+        self.assertIn(studio_script.LOCKED, rounds[1]["problems"])
+        self.assertNotIn(studio_script.LOCKED, rounds[0]["problems"])
+
+    def test_one_heading_is_written_again_in_its_place(self):
+        old = parts()
+        new = copy.deepcopy(parts()[1])
+        new["points"][3]["says"] = ["Subah dhoop milte hi dhaan ke kheton ki pattiyan kaam shuru kar deti hain."]
+        client = Client([new])
+        record = studio_script.write(client, "fake", chapter(), course=chapter()["course"], only=["h11-6"], earlier=old)
+        self.assertEqual(len(client.calls), 1)
+        self.assertIn("NOW WRITE THE SCRIPT OF THIS HEADING: 11.6 THE ELECTRON TRANSPORT", client.calls[0][1]["content"])
+        self.assertIn("Plants apna food khud banate hain", client.calls[0][1]["content"])     # the script so far is the old
+        self.assertEqual([p["section"] for p in record["parts"]], ["", "11.6", "11.6.1", "recap"])
+        self.assertEqual(record["parts"][1]["points"][3]["says"], new["points"][3]["says"])
+        self.assertEqual(record["parts"][2], old[2])
+        self.assertEqual(record["problems"], {})
+
+    def test_the_vm_stage_writes_one_heading_again(self):
+        import tools.vm_studio as vm_studio
+        with tempfile.TemporaryDirectory() as folder:
+            naksha, earlier = Path(folder) / "naksha", Path(folder) / "script"
+            naksha.mkdir()
+            earlier.mkdir()
+            (naksha / "chapter_map.json").write_text(json.dumps(chapter()), encoding="utf-8")
+            (earlier / "script.json").write_text(json.dumps({"parts": parts()}), encoding="utf-8")
+            args = SimpleNamespace(stage="script", source="", from_run=str(earlier), chapter_map=str(naksha), videos="h11-6",
+                                   out=str(Path(folder) / "out"), pages="", course="", language="Hinglish", model="",
+                                   max_rounds=2, pyqs="")
+            client = Client([parts()[1]])
+            summary = vm_studio.run(args, client=client, load=None)
+            self.assertEqual(summary["status"], "ok", summary)
+            self.assertEqual(summary["rewritten"], ["h11-6"])
+            self.assertEqual(len(client.calls), 1)
+            data = json.loads((Path(folder) / "out" / "script.json").read_text(encoding="utf-8"))
+            self.assertEqual([p["section"] for p in data["parts"]], ["", "11.6", "11.6.1", "recap"])
+            args.chapter_map = ""
+            failed = vm_studio.run(args, client=Client([parts()[1]]), load=None)
+            self.assertEqual(failed["status"], "failed")
