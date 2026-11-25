@@ -3159,3 +3159,23 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   restating is in the order and the English words more than in copied words; 194 of 232 answers do not open with their
   question's words. After: the 11.6.3 rewrite on the VM.
 
+## Entry · 11.6.3 written again the teacher's way (job s7), 25 November 2026
+
+- **Run:** VM job `s7-photosynthesis-script-1163-teacher` (PR #215 rules; heading 11.6.3 only, in its place after the s6
+  script so far; codex gpt-6.1-sol on the ChatGPT plan, ₹0, 13 minutes, 283k input and 21k output tokens, 3 rounds,
+  `needs_fix` with 5 problems): 14 points, 89 lines, 34 facts.
+- **Measured against the old 11.6.3 (s6):** answers opening with their question's words 2/12 → 12/13; a term named in a
+  point's first line 6 → 0; lines mostly English 15/83 → 3/89 and everyday English share 20 % → 11 % (wide word list;
+  Navin's film A 7 %).
+- **What the run taught:** (1) the English list built from the book's lines alone missed the bookish words the run still
+  used ("ledger", "pools", "contribution", "handover", "consumption"): they are in Section 1's English notes, not in the
+  book; (2) the restating check's four flags in the final round were a question, its answer and two recalls that use
+  the book's nouns, so it sent back good lines and could not be satisfied; (3) the number check asked every fact of
+  p010-i14 for "12", a figure number, five times.
+- **Changed in BIE (branch `script-teacher-way-2`):** `vocabulary()` reads every English line of the chapter file; the
+  restating check is counted for review pages and never sends a line back; a number is kept in at least one fact of its
+  item and figure and section numbers are not facts; figure, overview, retell and summary points (`WALKS`) are left out
+  of the English count as they are of the order checks.
+- **Measured after, on the same two scripts:** s6 258 of 1,401 lines mostly English (mean share 0.23), the rewrite 2 of
+  89 (0.10), Navin's lines 0 of 22 (0.07); the rewrite's leftover problems 5 → 3 (the question share, two English lines).
+

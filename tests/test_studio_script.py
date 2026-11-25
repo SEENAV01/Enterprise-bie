@@ -432,7 +432,10 @@ class TeacherWay(unittest.TestCase):
         ch["items"]["p002-i1"]["content"] = "Water is split to give several protons."
         heads = studio_script.headings(ch)
         found = " | ".join(studio_script.problems(parts()[2], heads[2], ch, parts()[:2], []))
-        self.assertIn("keep the book's 'several' (p002-i1)", found)
+        self.assertIn("the facts of p002-i1 leave out the book's 'several'", found)
+        ch["items"]["p002-i1"]["content"] = "Water is split (Figure 11.5) to replace the electrons."
+        found = " | ".join(studio_script.problems(parts()[2], heads[2], ch, parts()[:2], []))
+        self.assertNotIn("leave out the book's", found)                  # a figure number is not a fact
 
     def test_each_line_has_a_job(self):
         part = copy.deepcopy(parts()[1])
@@ -456,13 +459,14 @@ class TeacherWay(unittest.TestCase):
         part["points"][0]["roles"] = ["plain", "term", "plain"]
         self.assertIn("11.6-k1: teaches a cause (p001-i3) but no line says why", check(1, part))
 
-    def test_the_books_line_is_not_said_again(self):
+    def test_a_line_that_says_the_books_line_again_is_counted_not_sent_back(self):
+        # the 11.6.3 rewrite (25 Nov 2026): all four lines the word overlap flagged were questions, answers and recalls
+        ch = chapter()
+        self.assertTrue(studio_script.restates("Water split hota hai to replace the electrons, yahi hota hai.",
+                                               [ch["items"]["p002-i1"]["content"]], ch))
         part = copy.deepcopy(parts()[2])
         part["points"][1]["says"] = ["Water split hota hai to replace the electrons, yahi hota hai.",
                                      "Aisa isliye hota hai kyunki PS II ko apne electrons wapas chahiye."]
-        found = check(2, part)
-        self.assertIn("11.6.1-k2 line 1: says the book's line again", found)
-        part["points"][1]["roles"] = ["fact", "why"]                      # the book's fact as the exam asks it
         self.assertNotIn("says the book's line again", check(2, part))
 
     def test_ordinary_words_are_said_in_hindi(self):
