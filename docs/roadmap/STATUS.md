@@ -1,6 +1,6 @@
 # BIE Status
 
-Updated: 25 November 2026 (rules form, the teacher's way, padhai pehle) · Read this first in every new session, then show Navin the current task card.
+Updated: 25 November 2026 (rules form, the teacher's way, padhai pehle, job s8 and its seekh) · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
@@ -612,7 +612,21 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    `bie/brain/namuna/`. Before: the s7 11.6.3 part has 23 problems under these checks (no word facts for 15 opened
    terms, no base facts, no figure labels, ETS never said). The checks on the yardstick: Claude's first c2–c3 never says
    ETS, P680, P700, B6f, ½O₂, Pᵢ; the passed c2–c3 leaves only what the heading teaches later (CF₀, CF₁, chemiosmosis)
-   and one small thing, the figure's FNR never named.
+   and one small thing, the figure's FNR never named. **PR #217 merged (25 November 2026, acce329c).** **Job s8
+   (25 November 2026, VM, Codex, ₹0, 15.5 minutes, 293,683 tokens in and 26,025 out):** 11.6.3 written again in the s6
+   script with these rules, the passed example withheld; 3 rounds (27 problems, then 4, then none). 53 facts (book 18,
+   word 18, base 6, label 9, extra 2), 2 galat lines, the misaal (baandh, from BIE's own chapter map) in 5 points, every
+   label of Figure 11.7 named, FNR and CF₀/CF₁ too. On the 22 things of c2–c3: 17 fully, 3 half, 2 not (s7 16, the passed
+   rewrite 22); missing: what a hypothesis is and chemi + osmotic; half: H⁺ as a proton, the gradient as a slope, why
+   "electrochemical". 28 of its 96 lines say an accountant's words ("Ledger ki pehli row mein lumen ke khaate mein H⁺
+   judte hain"; "ledger" grew from the rule's own "worked ledger"); everyday English 10 % (passed 3 %). Honest note: s8's
+   opening puzzle came from a rule example that had been taken from the withheld c2. Page for Navin: "11.6.3 BIE aur
+   Namuna" (BIE output beside Claude's passed sample). **Seekh (branch `seekh-s8-bolchaal`):** BOLCHAAL (an accountant's
+   or office's word sends the point back with what a teacher says instead, in every point, figure walks too), KHOLO (a
+   hard word the book writes, such as hypothesis, chemi + osmotic, gradient, electro + chemical, synthase, is opened by
+   itself in a sentence that gives its meaning, also inside a longer term), the rules' examples moved to other subjects
+   (cooker, heart, 2n) so no line of a withheld example reaches the maker, one label per label fact. Before: s8's 11.6.3
+   has 19 problems under the new checks (10 points with such words, 9 hard words unopened), s7's 38. After: job s9.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
