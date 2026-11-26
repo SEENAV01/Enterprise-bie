@@ -79,3 +79,37 @@ ChatGPT Pro plan itself is Navin's existing subscription.
    - Ek GitHub link aur ek lambi line aayegi: link kholiye, line paste kijiye, "Allow write access" tick, *Add key*.
    - Ek aur link aur code aayega: link kholiye, ChatGPT se login, code daaliye.
 3. Bas. Claude ko bata dijiye "machine ready". Aage ke saare kaam Claude karega.
+
+## Claude, BIE's script writer (Navin, 26 November 2026)
+
+Navin moved the chapter script from Codex to Claude ("tumhe hi script writing ke kaam mein baitha deta hun vm ke raaste
+se"; "mujhe hubahu tumhare jaisi script chahiye"). A job with `"section": "studio", "stage": "script", "maker":
+"claude"` runs `tools/vm_claude.py`: Claude Code in the repository checkout, so `CLAUDE.md` and the skill
+`.claude/skills/bie-script-writer` load; it writes the asked headings into the run's `script.json` in BIE's format, runs
+`tools/script_writer_check.py` itself, and BIE's own checks decide the status. Films and everything after stay with
+Codex.
+
+- **Software:** Anthropic's Claude Code CLI 2.1.331 (npm `@anthropic-ai/claude-code`, pinned), proprietary, run
+  unmodified under Anthropic's Consumer Terms with Navin's own Claude plan; not redistributed. Licence recorded here.
+- **Sign-in:** `claude auth login` with Navin's Claude account (a link and a code, like Codex's device sign-in); the
+  sign-in stays in `/var/lib/bie/claude` (mode 700, owner `bie`). No Anthropic API key is ever used: `vm_claude.py`
+  removes `ANTHROPIC_API_KEY` and `ANTHROPIC_AUTH_TOKEN` from the writer's environment, and `codex_vm.py status` reports
+  a key sign-in as not signed in. Anthropic's rules (code.claude.com/docs/en/legal-and-compliance, read 26 Nov 2026):
+  the plan's sign-in is for ordinary use of Claude Code by its purchaser, and its limits assume ordinary individual use;
+  this is one person's own work on his own private machine, never resold or offered to others. The writer shares the
+  plan's 5-hour and weekly limits with Navin's own Claude chats.
+- **What the writer may do:** print mode, `--permission-mode dontAsk`, tools Read, Glob, Grep, Write and Edit only in
+  the run's work folder, and Bash only for the self-check command; model `opus`, effort `xhigh`.
+- **The chat Navin taught (optional):** step 3 of `bie-claude-setup` can bring that chat here (`claude --teleport
+  <session id>`) and record its id in `/var/lib/bie/claude/BASE_SESSION`; each job then forks it (`--resume <id>
+  --fork-session`). Without it, each job starts from the skill alone. Teleport is made for sessions tied to a
+  repository branch, so it may not work for every chat; the setup says so and carries on.
+- **Memory:** the writer adds what it learned to `YAADEIN_NEW.md` in its run folder; Claude folds it into the skill's
+  `references/yaadein.md` in a reviewed PR.
+
+### Navin ke steps (ek baar)
+
+1. Lightsail ka browser terminal kholiye.
+2. Chalaiye: `sudo bash /var/lib/bie/repo/deployment/codex-vm/bie-claude-setup`
+3. Jo link aaye, use tablet par kholiye, apne Claude account se login kijiye, aur code wapas terminal mein daaliye.
+4. Seekhi hui chat laani ho to uski session ID daaliye, warna Enter dabaiye.

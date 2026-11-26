@@ -34,6 +34,14 @@ Book → LLM → Remotion shortcut.
 - There is no AUDIO stage in the pipeline, and VIDEO_CODE → COMPILE → RENDER → QA and the GAME stages are not wired after Scene IR.
 - Phase 1 (from 21 October 2026) builds BIE into an AI tailored to Navin's vision, section by section, judged as one whole system; read the Vision Spec section "Agreed on 21 October 2026" and the ROADMAP section "Agreed on 22 October 2026" (BIE is the system between Navin and AI; the five points; Tasks 043–052) before any BIE work.
 - Claude builds BIE; lesson content (scripts, scenes, videos, games, notes) is made only by BIE, never by hand.
+- **Claude as BIE's script writer (Navin, 26 November 2026: "tumhe hi script writing ke kaam mein baitha deta hun vm ke
+  raaste se"; "mujhe hubahu tumhare jaisi script chahiye").** The chapter script (and later the understanding and the
+  plan before it) is written by Claude Code on the VM, signed in with Navin's own Claude plan (`sudo bie-claude-setup`),
+  never with an Anthropic API key: jobs with `"maker": "claude"` run `tools/vm_claude.py`, which works through the
+  skill `.claude/skills/bie-script-writer` (Navin's words, the gold standard's way, the self-check
+  `tools/script_writer_check.py`) and BIE's own format and checks. Films, pictures, voice, games and notes stay with BIE
+  and Codex. A script Claude writes outside that route (in a chat) is a labelled demo, not BIE output. The writer's
+  new memory comes back as `YAADEIN_NEW.md` in its run folder and is folded into the skill by a reviewed PR.
 
 ## How work is done
 

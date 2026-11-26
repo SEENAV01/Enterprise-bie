@@ -39,6 +39,7 @@ sudo -u bie "$BIE_HOME/venv/bin/pip" install -q --upgrade pip
 sudo -u bie "$BIE_HOME/venv/bin/pip" install -q -e "$BIE_HOME/repo[document-intelligence,document-intelligence-layout]"
 
 install -m 755 "$BIE_HOME/repo/deployment/codex-vm/bie-setup" /usr/local/bin/bie-setup
+install -m 755 "$BIE_HOME/repo/deployment/codex-vm/bie-claude-setup" /usr/local/bin/bie-claude-setup   # Claude, script writer
 install -m 644 "$BIE_HOME/repo/deployment/codex-vm/bie-codex-poll.service" /etc/systemd/system/
 install -m 644 "$BIE_HOME/repo/deployment/codex-vm/bie-codex-poll.timer" /etc/systemd/system/
 systemctl daemon-reload

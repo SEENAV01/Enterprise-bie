@@ -1,0 +1,80 @@
+# Navin ki baatein: script ke baare mein
+
+His words on the chapter script, verbatim where quoted, with dates (2026). The later entry stands where two differ;
+each entry says what it replaced. Sources: this repository's `docs/roadmap/STATUS.md` and `docs/roadmap/SEEKH_LOG.md`
+(entries of 22–26 November), his rules form of 25 November (the "baat" talk, one rule at a time) and the sessions of
+25–26 November. Rule codes (A4, B1 ...) are the rules form's.
+
+## What the script is
+
+- **22 Nov:** "script wo poora gyan hai jo hume bache ko dena hai". The teacher explains every single thing of the
+  chapter in his own words, in the right order, so that the whole chapter makes sense to the learner, and the base is
+  so sound that a deeper book on the same topic would make sense later. Then "video maker us script ke hisab se poore
+  chapter ko video ke tukdon mein baantega".
+- **25 Nov (B1), what "teacher's way" means:** not a translation of the NCERT line, but how a well-read teacher who
+  knows the whole book explains it to children: start from what they know, plain words before the term, a picture or
+  misaal, the "kyon" joined, not the book's order followed blindly. Claude's example on the CF₁ line (H⁺ held like
+  water behind a dam, the energy reaching CF₁, its shape changing like a fist opening and closing, ADP and Pi joined,
+  several ATP): "bilkul yahi tha". BIE's line for the same NCERT line ("Proton return se released gradient energy CF₁ ki
+  conformation badalne ke kaam aati hai") was what he did not want.
+
+## Padhai pehle: nothing of the book dropped (25 Nov)
+
+- On Claude's first 11.6.3 (style right, content cut): "bacha connected rahega", but "concept poora padhaya nhi gaya";
+  a learner reading the book after the film could not join its lines to the script. Word count is not the measure.
+- "maksad kitab ki complex bhasha ko asan shabdon mein samjhane ka hai na ki terms hi kha jaane ka".
+- On a rule that cut book words to keep English low: "aisa koi bhi niyam jo ... padhane ke tarike ko hi kharab kar de
+  wo niyam achha hoga kya". The English rule is for everyday words only; the book's terms stay and are opened.
+- On the full rewrite of c2–c3 (all 22 things of the three book lines and Figure 11.7, plus Mitchell's 1961 idea and
+  its 1978 Nobel, chemi + osmotic, the balloon in a bucket, the slope, the figure walked label by label): "bilkul passed
+  hai meri taraf se". This is the gold standard.
+
+## The gold standard (26 Nov)
+
+- "ab hmare paas gold standard namuna script hai to wo sabhi niyam jo pdhane se script se jude hai uske hisab se taya
+  hone chahiye". A rule that sends the gold standard back changes; the gold standard does not.
+- When he says "namuna" he means "tumhare wala 23 lines wala c2" (and c3), Claude's passed script.
+
+## Verdicts on BIE's scripts (what "close" means)
+
+- **s9, 26 Nov:** "Aas paas bhi nahi hai tumhare banaye namune ke abhi". (BIE taught 20 of 22 things; counting what is
+  taught does not measure how it is taught.)
+- **s11, 26 Nov:** "Abhi bhi kareeb nhi hai yaar tumhari script ki baat hi alag hai ... sentence ki lambai order sankya
+  se hi clear ho rha hai kon teacher ki tarah samjha rha hai aur kaun ab bhi jyu ka tyo likh rha hai cheejon ko ...
+  Mujhe tumhare jaisi hi script wala output chahiye". (Gold: 15 words a sentence, a quarter spoken to the child, each
+  fact in several short sentences; s11: 18 words, each fact packed into one.)
+- **26 Nov:** he moved script writing to Claude: "mai tumhe script bnane ke kaam mein lagana chahta hun ... taaki script
+  achhi bane"; "mujhe hubahu tumhare jaisi script chahiye".
+
+## Settled rules (rules form, talked one by one, 25–26 Nov)
+
+- **A4:** the first sentence is the last film's review plus today's question; every answer opens with its question's
+  words, for all questions.
+- **B3:** recap in 3–4 sentences (~25 s); the chapter's first film recalls the last chapter's key point; it ends with
+  "yaad rakhein" and "aage hum dekhenge".
+- **C1:** before every machine or meeting of molecules, a short question (as in his film A).
+- **C2:** a question's opening words stay; the answer starts with the question's words, e.g. "Lautne ke liye energy
+  isliye nahi lagti kyunki ...".
+- **C3:** every question has three links: [what was seen] → [what seemed odd or missing] → [the question]; the answer
+  opens with the question's words.
+- **H3:** "pehle khud socho": 1–2 in a film, at the most important turn; a clue before the question; the answer opens
+  "aapne socha hoga ki ...". (On screen: a 3 s pause, a "?" and a small clock.)
+- **N1:** a wrong idea is a small part of the concept: tied to the heading's NCERT line, said in 1–2 sentences at that
+  moment, 0–2 in a film. A big wrong idea can be the story's door (his RBI example): at most one, becoming A4's
+  "aaj ka sawaal", only when the film's own NCERT lines answer it.
+- **B4 (26 Nov 06:34; replaced a fixed list):** "koi fixed formula nahi", the context decides. Taught before:
+  "jaisa humne dekha tha ..." and only as much as this place needs (the whole path when needed, as in the gold
+  standard's c3). Coming later: "aage hum dekhenge ki ...; abhi ke liye bas itna jaan lo ki ...". His Calvin cycle
+  example: if teaching it here is needed for that output, teach it. Condition: "gold standard namune par koi aanch nahi".
+- **B7 (25 Nov 23:08; replaced the respectful-voice rule for scripts):** "Hukum wali chalegi passed namune mein koi
+  badlaav nhi": "dekho", "socho", "yaad rakho" are fine; the passed script stays as it is. (23 Nov: "Tum wali chalegi".)
+- **B8 (25 Nov 22:49; replaced the 23–24 Nov question openers in films):** the film says the script's lines exactly,
+  in order, adding nothing, changing nothing, cutting nothing: "script 100 percent behtar ho gayi to aur kuchh azafi
+  dene ki na jarurat hai na hi isse cheejen sudhregi balki belagam hongi". Notes may have their own style later.
+- **D1-06 (30 Oct):** caution and fact-check lines ("maan lijiye", "illustrative", "the source does not say") never
+  reach the learner's screen or voice.
+
+## Still to talk through (not settled yet)
+
+N3 shabdon ka niyam, N4 exam se jod (needs the chapter's NEET questions), N7 prayog ki kahani. Until they are settled,
+write as the gold standard does.

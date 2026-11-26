@@ -703,6 +703,17 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    Evidence: `codex-jobs` branch, `demo/fresh-claude-1163/`. Page for Navin: "Khaali Claude 11.6.3". Navin's verdict
    pending. Found on the way: every plain-text Codex call (the script's step 1) ended on "Reply with one JSON object";
    **branch `codex-text-answer`:** such a prompt now closes with a plain-text rule.
+   **PR #224 merged.** **Claude as the script writer (Navin, 26 November 2026, 15:15–17:06: "tumhe hi script writing
+   ke kaam mein baitha deta hun vm ke raaste se"; "mujhe hubahu tumhare jaisi script chahiye"; "Haan badhiye"):**
+   **branch `script-writer-claude`:** the skill `.claude/skills/bie-script-writer` (how a heading is written the gold
+   standard's way, his words and settled rules in `references/navin-ki-baatein.md`, ten pairs of old lines and the gold
+   standard in `references/jode.md`, a running memory in `references/yaadein.md`); `tools/script_writer_check.py` (BIE's
+   problems for one heading, the voice measures, and growth since an earlier version as a patching warning);
+   `tools/vm_claude.py` and jobs with `"maker": "claude"` (studio script only so far): Claude Code on the VM with
+   Navin's Claude plan, never an API key, writing only in the run's work folder, forking the taught chat when
+   `BASE_SESSION` is set; `deployment/codex-vm/bie-claude-setup` (Claude Code 2.1.331, his one-time sign-in, the
+   optional teleport); CLAUDE.md records the decision. Navin's one-time step on the VM is still to do; the first job
+   after it: 11.6.3 again, to compare with the fresh-Claude test and the gold standard.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

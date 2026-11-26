@@ -3366,3 +3366,16 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   with `ANSWER_RULES_TEXT`; the Codex client passes it for every call without a schema. Test in `tests/test_task045_seekh.py`.
 - **Next:** Navin's verdict on the page; the route for Claude as the script writer is his decision (app, VM login or API).
 
+## Entry · Claude as BIE's script writer: the skill, the self-check and the VM route, 26 November 2026
+
+- **Taught by:** the fresh-Claude test (same messages, closer script) and Navin's questions on what this chat has that a
+  fresh session lacks: his words with their reasons, the history of failed scripts, how the gold standard was made
+  (returned once, then rewritten), and the freedom to weigh BIE's findings instead of patching.
+- **Changed in BIE (branch `script-writer-claude`):** the `bie-script-writer` skill carries those four things in files
+  every new session reads; `tools/script_writer_check.py` gives the writer BIE's checks plus a growth warning (a heading
+  more than 15 % longer after fixes is patched); `tools/vm_claude.py` runs the writer on the VM through BIE's format and
+  checks; `codex_vm.py` accepts `maker: claude` for studio script and reports the Claude sign-in (presence only).
+- **Measured before:** fresh Claude with BIE's messages only: 11.6.3 in 4 calls, 55 minutes, 235 → 344 sentences
+  (+46 % from fix rounds), problems 17 → 2 → 0. **After:** the first `maker: claude` job on 11.6.3, once Navin has signed
+  in on the VM; measured the same way, and read by Navin beside the gold standard.
+
