@@ -181,6 +181,7 @@ class VmClaude(unittest.TestCase):
         self.assertNotIn("Bash", allowed)                       # only the self-check may run
         self.assertNotIn("--fork-session", call["args"])
         self.assertIn("bie-script-writer", call["args"][call["args"].index("-p") + 1])
+        self.assertNotIn("You are the chat Navin taught", call["args"][call["args"].index("-p") + 1])
 
     def test_a_base_session_is_forked_for_every_job(self):
         (Path(self.env["CLAUDE_CONFIG_DIR"]) / "BASE_SESSION").write_text("session-taught\n")
@@ -189,6 +190,9 @@ class VmClaude(unittest.TestCase):
         self.assertTrue(summary["base_session"])
         self.assertEqual(call["args"][call["args"].index("--resume") + 1], "session-taught")
         self.assertIn("--fork-session", call["args"])
+        task = call["args"][call["args"].index("-p") + 1]
+        self.assertTrue(task.startswith("You are the chat Navin taught"))       # its memory first, the skill a reminder
+        self.assertIn("follow his latest word", task)
 
     def test_without_the_taught_chat_a_job_stops_unless_it_says_fresh(self):
         summary = self.vm_claude.script(self.args(), binary=str(self.fake))       # Navin, 26 November: the writer is that chat

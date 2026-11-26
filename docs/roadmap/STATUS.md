@@ -723,7 +723,9 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    (`/var/lib/bie/claude/teleport-repo`), never in the checkout the running jobs use; teleport runs on the screen (the
    CLI refuses it with redirected output, so the earlier `-p` form could not have worked): Navin sends one line and
    types `/exit`, the setup records the transcript's local id and lifts Claude Code's 30-day transcript sweep; a script
-   job without that chat now stops (only `"fresh": true` starts a new session, for a test of the skill alone); the README's steps name the machine rightly (Hostinger KVM 2, Mumbai: hPanel → VPS → Manage → Browser
+   job without that chat now stops (only `"fresh": true` starts a new session, for a test of the skill alone); the
+   taught chat's task opens by saying its own memory of his words comes first and the skill is only a reminder (Navin,
+   26 November 22:09, on his worry that the skill could change that chat: "haan likh do"); the README's steps name the machine rightly (Hostinger KVM 2, Mumbai: hPanel → VPS → Manage → Browser
    terminal; an earlier text said Lightsail); the skill opens with his teacher rule of 25–26 November (a teacher who
    knows the subject fully teaches the learner the course names their own book; the gold standard's measures are a
    guide for its Class 11 learner, not a limit; no fixed rule per class). No new `maker: claude` job until the chat is

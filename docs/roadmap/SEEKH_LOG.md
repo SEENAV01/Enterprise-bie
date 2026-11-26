@@ -3386,7 +3386,8 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   names their own book; fixed rules per class "boundation laga sakte hain").
 - **Changed in BIE (branch `writer-teleport-fix`):** `bie-claude-setup` step 3 teleports the chat in its own clone, on
   the screen (teleport is interactive), keeps its transcript from the 30-day sweep and says why when it cannot; a
-  script job without the taught chat stops unless it says `"fresh": true`; the skill and `navin-ki-baatein.md` carry the teacher rule, the learner is the course's
+  script job without the taught chat stops unless it says `"fresh": true`; the taught chat's task puts its own memory
+  of his words first and the skill as a reminder ("haan likh do"); the skill and `navin-ki-baatein.md` carry the teacher rule, the learner is the course's
   (no fixed "Class 11 NEET learner"), and the gold standard's numbers are a guide; README names the Hostinger machine.
 - **Measured before:** jobs c1 and c2 ran with the skill only (fresh sessions). **After:** the same two headings from
   the teaching chat, once Navin has run step 3 with its id; compared on BIE's problems, rounds, voice measures and his
