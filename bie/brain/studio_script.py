@@ -65,6 +65,12 @@ before the next is written (problems go back, at most ``max_rounds``):
   opened by itself in a sentence that gives its meaning, also inside a longer term. The rules' examples come from other
   subjects, so the withheld example of a heading never reaches the maker through them (s8's opening puzzle had).
 
+* Pehle padhana, phir dhaancha (Navin, 26 November 2026, on BIE's 11.6.3 s9: "Aas paas bhi nahi hai tumhare banaye namune
+  ke abhi"; card "Haan, yahi plan"): BIE's own checks would have sent the passed rewrite back for its form (points of 23
+  lines, 4 questions in 68 sentences), so a point is now one book line in one flow (at most 24 lines), questions come at
+  the turns, and each heading's first round is the lesson as the teacher speaks it (plain text) before its JSON, whose
+  lines must be the lesson's word for word.
+
 Output: ``script.json`` (the parts, each point with its id "11.6.1-k3": the knowledge points that video, notes and games
 will account for), ``SCRIPT.md`` and ``SCRIPT.html`` (Navin's script page: each heading's script beside the NCERT lines
 it teaches), ``record.json`` (rounds and problems per heading).
@@ -91,7 +97,9 @@ SAME_SENTENCE = 0.6            # share of shared words above which a sentence sa
 SAME_ANALOGY = studio_naksha.SAME_ANALOGY
 SAME_EXAMPLE = 0.6
 WORDS_PER_MINUTE = 130         # spoken Hinglish
-MAX_SENTENCES = 8              # sentences in one knowledge point (round 1 of Chapter 11: up to 16 in one point)
+MAX_SENTENCES = 24             # lines in one knowledge point: one book line taught in one flow (Navin, 26 November 2026,
+                               # on BIE's 11.6.3 s9 beside the rewrite he passed: "aas paas bhi nahi hai"; the passed c2 is
+                               # 23 lines in one flow, and the old limit of 8 cut every flow into small points)
 EXAMPLE_FROM = 3               # a heading with this many items needs at least one worked example
 # the book named on the learner's screen (round 1 of Chapter 11: 24 lines such as "Book ise ... kehti hai")
 BOOK_NAMED = re.compile(r"(?i)\b(book|books|textbook|ncert|kitab|kitaab|lekhak|campbell|according to the (text|author))\b")
@@ -151,19 +159,20 @@ BOLCHAAL_RE = tuple((word, re.compile(r"(?<![a-z])(" + pattern + r")(?![a-z])", 
 # it never said what a hypothesis is, never broke "chemi" + "osmotic", never told a gradient as a slope; the passed 11.6.3
 # rewrite does all three). Each is opened by itself, in a sentence that says what it (or each of its parts) means, wherever
 # the book writes it, unless an earlier heading opened a term with that word: (the word, the parts said, a teacher's meaning)
-KHOLO = (
-    ("hypothesis", ("hypothes",), "aisa vichaar jise prayogon se parkha jaata hai"),
-    ("chemiosmotic", ("chemi", "osmo"), "chemi = rasayanik kaam; osmotic = membrane ke aar-paar bahna"),
-    ("gradient", ("gradient",), "dhalaan: ek taraf zyada, doosri taraf kam"),
-    ("electrochemical", ("electro", "chemical"), "electro = charge ka farq; chemical = ginti ka farq"),
-    ("synthase", ("synthase",), "banane wala enzyme (synthesis = banana)"),
-    ("reductase", ("reductase",), "reduction karaane wala enzyme"),
-    ("facilitated", ("facilitated",), "madad se, kisi raaste ke zariye"),
-    ("diffusion", ("diffusion",), "apne-aap zyada se kam ki taraf failna"),
-    ("conformational", ("conformation",), "conformation = banawat, shakl"),
-    ("osmosis", ("osmo",), "membrane ke aar-paar kisi cheez ka bahna"),
-    ("photolysis", ("photo", "lysis"), "photo = roshni; lysis = todna"),
-    ("biosynthetic", ("biosynthe",), "jeev ke andar cheezein banane wala"),
+KHOLO = (   # the meaning is a hint in English, so the maker tells it in his own Hinglish (s9 copied a Hinglish hint word
+            # for word: "Hypothesis yaani aisa vichaar jise prayogon se parkha jaata hai", a dictionary line)
+    ("hypothesis", ("hypothes",), "an explanation put forward first and then tested by experiments"),
+    ("chemiosmotic", ("chemi", "osmo"), "chemi = chemical work (here, making ATP); osmotic = moving across a membrane"),
+    ("gradient", ("gradient",), "a slope: more on one side, less on the other, so things move down it by themselves"),
+    ("electrochemical", ("electro", "chemical"), "electro = the difference in charge; chemical = the difference in amount"),
+    ("synthase", ("synthase",), "an enzyme that makes (synthesises) something"),
+    ("reductase", ("reductase",), "an enzyme that carries out a reduction"),
+    ("facilitated", ("facilitated",), "helped: through a path that a protein gives"),
+    ("diffusion", ("diffusion",), "spreading by itself from where there is more to where there is less"),
+    ("conformational", ("conformation",), "to do with a protein's shape (its conformation)"),
+    ("osmosis", ("osmo",), "the movement of something across a membrane"),
+    ("photolysis", ("photo", "lysis"), "photo = light; lysis = splitting"),
+    ("biosynthetic", ("biosynthe",), "making the living body's own molecules"),
 )
 GLOSS = re.compile(r"(?<![a-z])(yaani|yani|matlab|kehte|kehlata|kehlati|kehlate|arth|naam hai)(?![a-z])|=", re.I)
 # a name the book writes as a short form or a formula (ATP, ETS, P680, CF₀, NADP⁺, ½O₂, Pᵢ): the learner meets it in the
@@ -188,14 +197,17 @@ RESTATE_FROM = 4       # never sent back (the 11.6.3 rewrite, 25 November 2026: 
 CLASH = frozenset("the to me par main do so hi us is are ki ke ka na ho jo se ye yeh wo woh hai hain aur mein kar tab ab "
                   "jab kab bhi tha thi pe ek koi kuch log raha rahi aage peeche andar bahar upar neeche saath sath baat din "
                   "raat paani dekho socho".split())
-QUESTION_SHARE = 0.15          # at least this share of a heading's sentences asks the learner something
+QUESTION_SHARE = 0.05          # at least this share of a heading's sentences asks the learner something: questions come
+                               # at the turns, not by count (the passed 11.6.3 rewrite asks 4 in 68 sentences; the old
+                               # one-in-five made s9 ask 18 in 116, several of them only to fill the count)
 QUESTIONS_FROM = 8             # ... in a heading of at least this many sentences
 WHY = re.compile(r"\b(kyun|kyon|kyu|kyoon|why)\b", re.I)
 FRAGMENT = 3                   # a sentence of this many words or fewer is a fragment (Navin, 22 Nov: "tooti tooti lagegi")
 PROCESS_FROM = 3               # a heading with this many teachable process items is a process heading: overview, retell
 COUNT = re.compile(r"\d|\b(ek|teen|chaar|char|paanch|panch|chhe|chhah|chheh|saat|aath|nau|das|baarah|barah|athaarah|"
                    r"atharah|one|two|three|four|five|six|seven|eight|nine|ten|twelve|eighteen|dono|teeno|chaaron)\b", re.I)
-MISCONCEPTION = re.compile(r"\b(log|aksar|zyadatar|bahut se|kai)\b.{0,60}\b(sochte|samajhte|maante|lagta)\b|galat ?fa?h?e?mi|"
+MISCONCEPTION = re.compile(r"\b(log|aksar|zyadatar|bahut se|kai)\b.{0,60}\b(sochte|samajhte|samajh lete|samajh baithte|"
+                           r"maante|maan lete|maan baithte|lagta)\b|galat ?fa?h?e?mi|"
                            r"galat samajh|aisa nahi|asal mein|asli baat|confus|misconception", re.I)
 NEGATION = re.compile(r"\b(nahi|nahin|na|not|never|galat|stable|sthir)\b", re.I)
 # slips the four teachers made that BIE must never make (the teacher study): (name, pattern, flagged only when the
@@ -364,8 +376,10 @@ Rules:
   needs, each with what it shows and why it is written so ("Wahan 2n likha hai, kyunki is cell mein chromosome ke do set
   hain"); never a bare list of labels; never describe decoration, clothing or how a portrait looks.
 - The book's slips are not copied (for example NAD/NADH where the chapter means NADP/NADPH): teach the correct form.
-- Knowledge points are small: one idea each, at most {max_sentences} sentences; split a long explanation into several
-  points.
+- A point teaches one book line (or a figure, or the few lines that tell one happening) fully and in one flow, from what
+  the learner knows to the book's fact, as long as the teaching needs (at most {max_sentences} lines); the book's next line
+  starts the next point. Never cut one flow into small points, and never pad a point; an analogy, an example or a
+  checkpoint may stand as its own point.
 - Never name the book, NCERT or an author to the learner ("book kehti hai", "NCERT mein likha hai"): say it as your own
   teaching.
 - Depth: NEET depth where the chapter file marks exam high or deep; a sound base everywhere.
@@ -387,7 +401,9 @@ Rules:
     heading allows, a puzzle the learner feels ("aanch utni hi hai, phir bhi cooker mein khana jaldi kyon pakta hai?") or a
     common wrong idea that opens the door; the heading answers it. Say the review line and the question as
     the first sentences of the first point.
-  - Ask the learner: about one sentence in five is a question, at least one a "kyun"; answer it at once, or after
+  - Ask the learner at the turns of the teaching, where something is odd or missing (rule C3), never to fill a count: a
+    question every few lines makes a quiz, not a lesson (the passed 11.6.3 rewrite asks 4 in 68 sentences); give the
+    "kyun" of what matters (a question or a why line); answer it at once, or after
     "socho" when the learner should think first. Voice the learner's own doubt ("ab aap sochoge, phir NADPH ka kya?").
   - Where a question comes from (Navin, 25 November 2026, rules C3 and H3): a question never comes alone; say what it
     rose from: what was just seen, then what is odd or missing in it, then the question ("Humne abhi dekha ki cooker
@@ -427,6 +443,84 @@ Rules:
   earlier point prepared.
 
 Ids: points {tag}-k1, {tag}-k2 ... in order. Answer with the JSON object only."""
+
+LESSON_PROMPT = """
+
+STEP 1 OF 2: THE LESSON, AS YOU SPEAK IT (Navin, 26 November 2026, on BIE's 11.6.3 beside the rewrite he passed: "aas paas
+bhi nahi hai"; that rewrite was written as a teacher speaks, and each line's job was marked after). Write no JSON now:
+the JSON fields of the rules (roles, uses, terms, screen ...) are filled in step 2 from what you write here. Write this
+heading's lesson the way you would teach it to the class: for each book line one flow, from what the learner knows,
+through an everyday picture and plain words, to the book's term and its fact; every fact of your list taught, every line
+joined to the one before it, the way a story goes on. One spoken sentence, or two short ones, per line. Plain text in
+exactly this form, nothing before or after it:
+
+FACTS
+f1 | <item id> | <book, word, base, label or extra> | <the book's word it is about, or nothing> | <the fact, one short line>
+f2 | ...
+GOAL: <today's question>
+MISAAL: <the running picture, its main word first>
+LESSON
+[<the item id or ids this block teaches, comma separated; or analogy, example or checkpoint for a block of its own>]
+<a line>
+<a line>
+[<the next block's item ids>]
+<a line>
+BRIDGE: <one line into the next heading>
+"""
+
+STRUCTURE_PROMPT = ("STEP 2 OF 2: now give this heading's JSON object for the lesson you wrote, by the rules: \"facts\" "
+                    "exactly as listed (same ids, items, kinds, terms and words); goal, misaal and bridge as written; one "
+                    "point per block, in order; each point's \"says\" is its block's lines word for word, in order, never "
+                    "reworded, joined, added to or dropped; then roles, uses, teaches, kind, terms, screen, recalls, "
+                    "prepares, outside_book, answer and watch_out as the rules ask.")
+
+
+def parse_lesson(text: str) -> dict | None:
+    """Step 1's plain lesson: {"facts", "goal", "misaal", "bridge", "blocks": [{"head": [...], "lines": [...]}]}, or None
+    when the text holds no lesson in that form (then the step-2 JSON is asked for directly)."""
+    facts, blocks, out, where = [], [], {"goal": "", "misaal": "", "bridge": ""}, ""
+    for raw in (text or "").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("```"):
+            continue
+        key = line.split(":", 1)[0].strip().upper()
+        if line.upper() in ("FACTS", "LESSON"):
+            where = line.upper()
+        elif ":" in line and (key == "BRIDGE" or (key in ("GOAL", "MISAAL") and where != "LESSON")):
+            out[key.lower()] = line.split(":", 1)[1].strip()
+            where = ""
+        elif where == "FACTS":
+            cells = [c.strip() for c in line.split("|")]
+            if len(cells) >= 5:
+                facts.append({"id": cells[0], "item": cells[1], "kind": cells[2].lower(), "term": cells[3],
+                              "fact": " | ".join(cells[4:])})
+        elif where == "LESSON":
+            head = re.fullmatch(r"\[(.*)\]", line)
+            if head:
+                blocks.append({"head": [h.strip() for h in head.group(1).split(",") if h.strip()], "lines": []})
+            elif blocks:
+                blocks[-1]["lines"].append(line)
+    blocks = [b for b in blocks if b["lines"]]
+    if not blocks:
+        return None
+    return dict(out, facts=facts, blocks=blocks)
+
+
+def _same_line(text: str) -> str:
+    return " ".join((text or "").split()).casefold()
+
+
+def lesson_drift(answer, lesson: dict) -> list:
+    """The step-2 answer's lines against the lesson's: step 2 marks the lesson, it never rewrites it."""
+    told = [_same_line(x) for b in lesson.get("blocks") or [] for x in b["lines"]]
+    said = [_same_line(x) for p in (answer or {}).get("points") or [] if isinstance(p, dict) for x in p.get("says") or []]
+    if told == said:
+        return []
+    changed = [(a, b) for a, b in zip(told, said) if a != b]
+    first = (f" (first: {changed[0][0][:70]!r} became {changed[0][1][:70]!r})" if changed else "")
+    return [f"the points' lines are not the lesson's lines: the lesson has {len(told)}, the points {len(said)}, "
+            f"{len(changed)} differ{first}; each point's says is its block's lines word for word"]
+
 
 PROBLEMS_PROMPT = ("BIE's code checked this heading's script and found these problems. Send the whole corrected JSON object "
                    "for this heading again, changing only what the problems need:\n- ")
@@ -808,10 +902,11 @@ def padhai_problems(answer: dict, heading: dict, chapter: dict, points: list, op
                    + "; say each where its line is taught (open it in plain words when the learner needs its meaning)")
     # the hard words inside the book's lines and terms are opened by themselves
     for word, meaning in unopened_words(heading, chapter, points, opened, [f.get("term") or "" for f in facts]):
-        how = ("break it into its parts and say what each means" if len(dict((w, p) for w, p, _ in KHOLO)[word]) > 1
-               else f"say what it means in a sentence of its own (\"{word} yaani ...\", \"... ko {word} kehte hain\")")
-        out.append(f"the book writes {word!r} here and no sentence opens it by itself: where it is first needed, {how} "
-                   f"({meaning}), also when it sits inside a longer term; keep the book's word")
+        how = ("break it into its parts inside the teaching and tell what each part means" if len(dict(
+            (w, p) for w, p, _ in KHOLO)[word]) > 1 else "tell what it means inside the teaching, joined to the line it serves")
+        out.append(f"the book writes {word!r} here and no sentence opens it by itself: where it is first needed, {how}, in "
+                   f"your own words, with a picture or a known thing where it helps, never as a dictionary line, also when "
+                   f"it sits inside a longer term; keep the book's word (for you, not to copy: it means {meaning})")
     # the common wrong ideas: said and broken, at most two
     wrong = [(p.get("id"), line) for p in points for r, line in zip(p.get("roles") or [], p.get("says") or [])
              if str(r).strip().lower() == "galat"]
@@ -946,11 +1041,13 @@ def teacher_problems(answer: dict, heading: dict, chapter: dict, points: list) -
     if len(said) >= QUESTIONS_FROM:
         asked = [s for _, _, s in said if s.endswith("?")]
         if len(asked) < QUESTION_SHARE * len(said):
-            out.append(f"{len(asked)} of {len(said)} sentences ask the learner something; a teacher asks about one in five "
-                       f"(at least {math.ceil(QUESTION_SHARE * len(said))} here): pose the learner's question, then "
+            out.append(f"{len(asked)} of {len(said)} sentences ask the learner something: ask at the turns of the teaching, "
+                       f"where something is odd or missing (at least {math.ceil(QUESTION_SHARE * len(said))} here), then "
                        "answer it")
-        if not any(WHY.search(s) for s in asked):
-            out.append("no \"kyun\" question in this heading: ask why at least once, then reason it out")
+        why_lines = any(str(r).strip().lower() == "why" for p in points for r in p.get("roles") or [])
+        if not any(WHY.search(s) for s in asked) and not why_lines:
+            out.append("no \"kyun\" in this heading: give the why of what matters (a why line, or a kyun question "
+                       "reasoned out)")
     habit = opener_habit([s for _, _, s in said])
     if habit:
         out.append(f"{habit[1]} of {habit[2]} answers open with \"{habit[0].capitalize()}\"; vary the opener as a teacher "
@@ -980,7 +1077,7 @@ def teacher_problems(answer: dict, heading: dict, chapter: dict, points: list) -
     if marked and not any(MISCONCEPTION.search(s) for _, _, s in said):
         out.append(f"the chapter file marks a common wrong idea here ({', '.join(marked[:4])}); say it and correct it "
                    "(\"aksar log sochte hain ki …, par asal mein …\")")
-    last = headings(chapter)[-1]["number"]
+    last = (headings(chapter) or [{"number": number}])[-1]["number"]
     if number != last and not (answer.get("bridge") or "").strip():
         out.append("\"bridge\" is empty: one line into the next heading that names the link (a problem and its cure, a need "
                    "and what meets it)")
@@ -1026,16 +1123,17 @@ def problems(answer, heading: dict, chapter: dict, earlier: list, later_terms: l
         if not p.get("says"):
             out.append(f"{pid}: says nothing")
         if len(p.get("says") or []) > MAX_SENTENCES:
-            out.append(f"{pid}: {len(p['says'])} sentences; a knowledge point holds one idea in at most {MAX_SENTENCES}: "
-                       "split it into several points")
+            out.append(f"{pid}: {len(p['says'])} lines; a point teaches one book line in at most {MAX_SENTENCES}: start the "
+                       "next point where the book's next line starts")
         for k, sentence in enumerate(p.get("says") or [], 1):
             if BOOK_NAMED.search(sentence or ""):
                 out.append(f"{pid} sentence {k}: names the book ({BOOK_NAMED.search(sentence).group(0)!r}); say it as your "
                            "own teaching")
             if DEVANAGARI.search(sentence or ""):
                 out.append(f"{pid} sentence {k}: write it in Roman script")
-            if len((sentence or "").split()) > MAX_WORDS:
-                out.append(f"{pid} sentence {k}: {len(sentence.split())} words; keep every sentence under {MAX_WORDS}")
+            longest = max((len(x.split()) for x in SENTENCE.split(sentence or "") if x.strip()), default=0)
+            if longest > MAX_WORDS:                          # a line may hold several sentences; each is counted alone
+                out.append(f"{pid} sentence {k}: {longest} words in one sentence; keep every sentence under {MAX_WORDS}")
             if CAUTION.search(sentence or ""):
                 out.append(f"{pid} sentence {k}: a caution line never reaches the learner; say it as a teacher")
         if not (p.get("screen") or "").strip():
@@ -1265,12 +1363,17 @@ LOCKED = ("the facts are locked after your first answer: keep them as they were 
 
 
 def write(client, model: str, chapter: dict, *, course: dict, naksha: dict | None = None, language: str = "Hinglish",
-          max_rounds: int = 3, on_part=None, only: list | None = None, earlier: list | None = None) -> dict:
+          max_rounds: int = 3, on_part=None, only: list | None = None, earlier: list | None = None,
+          kahani: bool = True) -> dict:
     """The whole chapter's script, heading by heading; ``on_part(record)`` is called after each heading (to save it).
 
     ``only``: write just these headings (their numbers, "11.6.3", or film ids, "h11-6-3") and keep every other heading
     as ``earlier`` (the parts of an earlier script run) has it, so one heading is written again in its place, after the
-    same script so far (Navin, 25 November 2026: 11.6.3 written again the teacher's way, beside the old)."""
+    same script so far (Navin, 25 November 2026: 11.6.3 written again the teacher's way, beside the old).
+
+    ``kahani``: each heading's first round is written in two steps, the lesson as the teacher speaks it (plain text) and
+    then its JSON with the lesson's lines word for word (Navin, 26 November 2026: "Haan, yahi plan"); later rounds put
+    the problems right in the JSON."""
     heads = headings(chapter)
     later = {}
     for n, heading in enumerate(heads):
@@ -1290,21 +1393,40 @@ def write(client, model: str, chapter: dict, *, course: dict, naksha: dict | Non
         nxt = heads[n + 1] if n + 1 < len(heads) else None
         convo = messages(chapter, heading, parts, course=course, naksha=naksha, language=language,
                          next_title=f"{nxt['number']} {nxt['title']}" if nxt else "")
-        answer, found, these, locked = None, ["no answer yet"], [], None
+        answer, found, these, locked, lesson, told, first = None, ["no answer yet"], [], None, None, "", None
         for number in range(1, max_rounds + 1):
-            reply = client.chat(model=model, messages=convo, schema=SCHEMA)
-            for key in usage:
-                usage[key] += int((reply.get("usage") or {}).get(key) or 0)
+            if number == 1 and kahani:
+                # pehle padhana, phir dhaancha: the lesson as the teacher speaks it, then its JSON (Navin, 26 November 2026)
+                spoken = [convo[0], dict(convo[1], content=convo[1]["content"] + LESSON_PROMPT)]
+                first = client.chat(model=model, messages=spoken)
+                for key in usage:
+                    usage[key] += int((first.get("usage") or {}).get(key) or 0)
+                told = first.get("content", "")
+                lesson = parse_lesson(told)
+                if lesson:
+                    convo = spoken + [{"role": "assistant", "content": told}, {"role": "user", "content": STRUCTURE_PROMPT}]
+                    reply = client.chat(model=model, messages=convo, schema=SCHEMA)
+                elif isinstance(parse(told), dict):
+                    reply = first                    # the maker answered with the JSON at once
+                else:
+                    reply = client.chat(model=model, messages=convo, schema=SCHEMA)
+            else:
+                reply = client.chat(model=model, messages=convo, schema=SCHEMA)
+            if reply is not first or number > 1:
+                for key in usage:
+                    usage[key] += int((reply.get("usage") or {}).get(key) or 0)
             answer = repair(parse(reply.get("content", "")), heading, parts)
             asked_facts = any("fact" in f for f in found) if number > 1 else True
             found = problems(answer, heading, chapter, parts, later[n], ideas(naksha, heading["number"]),
                              unprepared(chapter, parts) if heading["number"] == RECAP else None)
+            if number == 1 and lesson:
+                found = lesson_drift(answer, lesson) + found
             facts = _fact_lines(answer)
             if locked is not None and facts != locked and not asked_facts:
                 found = found + [LOCKED]
             elif facts:
                 locked = facts
-            these.append({"round": number, "problems": found})
+            these.append({"round": number, "problems": found} | ({"lesson": told} if number == 1 and lesson else {}))
             if not found:
                 break
             convo = convo + [{"role": "assistant", "content": reply.get("content", "")},
