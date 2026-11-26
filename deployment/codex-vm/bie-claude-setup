@@ -1,0 +1,56 @@
+#!/bin/bash
+# One-time steps for Navin on the BIE machine: Claude as BIE's script writer (Navin, 26 November 2026: "tumhe hi script
+# writing ke kaam mein baitha deta hun vm ke raaste se"). Run: sudo bie-claude-setup
+#
+# 1. installs Anthropic's Claude Code CLI (pinned, run unmodified; used under Anthropic's terms with Navin's own Claude
+#    plan: one person's own work on his own machine, never resold or shared);
+# 2. signs it in with Navin's Claude account (a link to open on the tablet and a code to paste back; no API key is ever
+#    used, and BIE removes ANTHROPIC_API_KEY from the writer's environment); the sign-in stays in /var/lib/bie/claude
+#    (mode 700, owner bie), like Codex's in /var/lib/bie/codex;
+# 3. optionally brings the chat Navin taught to this machine (claude --teleport <session id>) and records its id in
+#    /var/lib/bie/claude/BASE_SESSION, so every script job starts from that chat's memory (a fork of it).
+set -euo pipefail
+CLAUDE_VERSION="2.1.331"
+BIE_HOME="${BIE_HOME:-/var/lib/bie}"
+CONF="$BIE_HOME/claude"
+if [ "$(id -u)" != "0" ]; then echo "Aise chalaiye: sudo bie-claude-setup"; exit 1; fi
+
+echo "== 1/3 Claude Code install (version $CLAUDE_VERSION) =="
+if command -v claude >/dev/null 2>&1 && claude --version 2>/dev/null | grep -q "$CLAUDE_VERSION"; then
+  echo "Claude Code pehle se laga hai."
+else
+  npm install -g --no-audit --no-fund "@anthropic-ai/claude-code@${CLAUDE_VERSION}" >/dev/null
+fi
+claude --version
+install -d -o bie -g bie -m 700 "$CONF"
+
+echo "== 2/3 Claude sign-in (aapka Claude plan) =="
+run_claude() { sudo -u bie env -u ANTHROPIC_API_KEY CLAUDE_CONFIG_DIR="$CONF" HOME="$BIE_HOME" claude "$@"; }
+if run_claude auth status >/dev/null 2>&1; then
+  echo "Claude pehle se signed in hai."
+else
+  echo "Neeche ek link aayega. Use tablet par kholiye, apne Claude account se login kijiye, aur jo code mile use yahan daaliye."
+  run_claude auth login
+fi
+run_claude auth status --text || { echo "Sign-in nahi hua. Dobara chalaiye: sudo bie-claude-setup"; exit 1; }
+chmod -R go-rwx "$CONF"
+
+echo "== 3/3 Seekhi hui chat (zaroori nahi) =="
+echo "Jis chat ne gold script likhi, use yahan laana ho to uski session ID daaliye (claude.ai/code/session_... wali)."
+echo "Chhodna ho to bas Enter dabaiye; tab har job skill se naya Claude shuru karega."
+read -rp "Session ID: " session || session=""
+if [ -n "$session" ]; then
+  cd "$BIE_HOME/repo"
+  if run_claude --teleport "$session" -p "Is session ki yaadein ab BIE ke script writer ki hain. Sirf 'tayyar' likhiye." \
+       --output-format json > "$CONF/teleport.json" 2>"$CONF/teleport.err"; then
+    sudo -u bie python3 -c "import json,sys; print(json.load(open('$CONF/teleport.json')).get('session_id',''))" \
+      > "$CONF/BASE_SESSION"
+    chown bie:bie "$CONF/BASE_SESSION"; chmod 600 "$CONF/BASE_SESSION"
+    echo "Chat yahan aa gayi. Har script job ab isi ki copy se shuru hogi."
+  else
+    echo "Chat yahan nahi aa payi (wajah: $CONF/teleport.err). Koi baat nahi: jobs skill se chalenge."
+    rm -f "$CONF/BASE_SESSION"
+  fi
+fi
+echo
+echo "Ho gaya. Ab job mein \"maker\": \"claude\" likhne par script Claude likhega."

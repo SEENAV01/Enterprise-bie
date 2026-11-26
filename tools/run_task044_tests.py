@@ -29,7 +29,8 @@ NEW = ("tests/test_task044_codex.py", "tests/test_task046_vm_image.py", "tests/t
        "tests/test_studio_script.py",      # the chapter's script ("poore chapter ki ek script")
        "tests/test_look_test.py",          # cutaway styles and the look test ("visuals asli banane the")
        "tests/test_film_parts.py",         # a picture's parts that move (routeS: "AI tasveer + SAM 2")
-       "tests/test_aatma.py")              # aatma ki almaari: a passed film's ways, kept without its subject's words
+       "tests/test_aatma.py",              # aatma ki almaari: a passed film's ways, kept without its subject's words
+       "tests/test_script_writer.py")      # the script writer's skill and self-check ("hubahu tumhare jaisi script")
 
 
 def main(argv=None):

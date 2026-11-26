@@ -62,7 +62,11 @@ STUDIO_STAGES = ("questions", "naksha", "script", "films", "games", "book", "pyq
 # BIE_HOME/private/voice/<job id>/ and only numbers (seconds, characters, durations.json) are published.
 REFERENCES = ("default", "navin")
 FRESH_ENV = "BIE_VM_FRESH"         # set on the one re-run of a poll after the checkout moved to a newer main
-MAKERS = ("codex", "google", "openai")
+MAKERS = ("codex", "google", "openai", "claude")
+# "claude" (Navin, 26 November 2026: "tumhe hi script writing ke kaam mein baitha deta hun vm ke raaste se"): the chapter
+# script written by Claude Code on this machine with Navin's Claude plan and the bie-script-writer skill
+# (tools/vm_claude.py); only for studio script so far
+CLAUDE_STAGES = ("script",)
 REVIEWERS = ("google", "openai", "codex")      # codex: the checker on the plan too (Navin, 27 October 2026)
 URL = re.compile(r"^https://[A-Za-z0-9._~:/?#\[\]@!$&'()*+,;=%-]{1,400}$")
 FIELDS = {
@@ -143,6 +147,8 @@ def validate(job: dict) -> dict:
         raise JobError("stage: one of " + ", ".join(STUDIO_STAGES))
     if out["section"] != "studio" and out.get("stage"):
         raise JobError("stage: only for studio")
+    if out["maker"] == "claude" and not (out["section"] == "studio" and out.get("stage") in CLAUDE_STAGES):
+        raise JobError("maker claude: only for studio " + ", ".join(CLAUDE_STAGES))
     if out["section"] in ("lesson", "notes", "game", "notespages", "gamelevels") and not out.get("chapter_map"):
         raise JobError("chapter_map: needed for lesson, notes and game")
     if out["section"] in ("director", "visual", "canvas", "coder", "showplan") and not out.get("from_run"):
@@ -172,6 +178,12 @@ def argv(job: dict, out: Path, python: str = sys.executable) -> list:
         for name in ("models", "routes"):
             if job.get(name):
                 cmd += ["--" + name, str(job[name])]
+        return cmd
+    if job["section"] == "studio" and job.get("maker") == "claude":
+        cmd = [python, "-B", str(ROOT / "tools" / "vm_claude.py"), job["stage"], "--out", str(out)]
+        for name in ("chapter_map", "from_run", "course", "language", "videos"):
+            if job.get(name):
+                cmd += ["--" + name.replace("_", "-"), str(job[name])]
         return cmd
     if job["section"] == "studio":
         cmd = [python, "-B", str(ROOT / "tools" / "vm_studio.py"), "--stage", job.get("stage") or "questions",
@@ -381,6 +393,12 @@ def status() -> dict:
     out = {"login": client.login_status(), "gemini_key_set": keys["direct"] or keys["aicredits"], "gemini_keys": keys,
            "gemini_default_route": via}
     out["plan_usage"] = client.plan_usage() if out["login"]["logged_in"] else {"unavailable": "not signed in"}
+    try:                                                 # the script writer (maker claude), presence only
+        sys.path.insert(0, str(ROOT / "tools"))
+        import vm_claude
+        out["claude"] = vm_claude.login_status()
+    except Exception as exc:
+        out["claude"] = {"unavailable": type(exc).__name__}
     done = home() / "done"
     out["last_jobs"] = {p.name: p.read_text() for p in sorted(done.iterdir())[-5:]} if done.exists() else {}
     return out
