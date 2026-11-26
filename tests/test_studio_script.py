@@ -73,11 +73,11 @@ def parts():
                   roles=["link", "why"]),
             point("0-k2", "real_world", [], ["Hum jo chawal aur dal khate hain, uski shuruaat bhi ek patti se hoti hai."]),
             point("0-k3", "analogy", [], ["Socho patti ek chhoti rasoi hai jahan dhoop se khana pakta hai."])]},
-        {"section": "11.6", "goal": "Electrons PS II se PS I ki taraf kaise move karte hain?",
+        {"section": "11.6", "goal": "Roshni se uchhla electron aage kis taraf move karta hai?",
          "bridge": "Ab sawaal: electrons ki kami kaun bharta hai?", "points": [
-            point("11.6-k1", "explain", ["p001-i3"], ["Electrons PS II se PS I ki taraf kaise move karte hain, aur kyun?",
-                                                       "Electrons aage isliye move karte hain kyunki roshni ek electron ko "
-                                                       "dhakka deti hai.",
+            point("11.6-k1", "explain", ["p001-i3"], ["Roshni se uchhla electron aage kis taraf move karta hai, aur kyun?",
+                                                       "Roshni se uchhla electron aage isliye move karta hai kyunki roshni "
+                                                       "use dhakka deti hai.",
                                                        "Electrons PS II se PS I ki taraf move karte hain, ek line mein.",
                                                        "Yeh isliye hota hai kyunki har agla station electron ko thoda neeche "
                                                        "kheenchta hai."],
@@ -387,7 +387,7 @@ class Script(unittest.TestCase):
         self.assertIn("1 kamiyan bachi", page)
         text = studio_script.markdown(chapter(), record)
         self.assertIn("## 11.6.1 Splitting of Water", text)
-        self.assertIn("**11.6-k1** · samjhana · Electrons PS II se PS I ki taraf kaise move karte hain", text)
+        self.assertIn("**11.6-k1** · samjhana · Roshni se uchhla electron aage kis taraf move karta hai", text)
         self.assertIn("- f4 · shabd ka matlab · PS II · PS II ka matlab", text)        # padhai pehle: the facts by kind
         self.assertIn("Kitab ki baatein (6): kitab kehti hai 3 · shabd ka matlab 1 · pehle ki zaroori baat 1 · figure ka "
                       "nishaan 1", page)
@@ -952,3 +952,78 @@ class KahaniPehle(unittest.TestCase):
         record = studio_script.write(client, "fake", chapter(), course=chapter()["course"])
         self.assertEqual(record["problems"], {})
         self.assertEqual(len(client.calls), len(parts()))
+
+
+class SeekhS11(unittest.TestCase):
+    """Job s11, the first run of the lesson step (26 November 2026): c2 one flow of 14 lines, 6 questions in the heading;
+    but joined figure labels said aloud ("PQ; PQH₂; Plastoquinone wale carrier"), a hard word passed as opened when a
+    meaning word stood elsewhere in its sentence, and today's question holding its answer."""
+
+    def test_joined_labels_are_split_never_said_joined(self):
+        _, passed, ch, heading = target()
+        facts = [{"id": "f1", "item": "p011-i1", "kind": "label", "term": "Fd; FNR", "fact": "electron ka raasta"}]
+        points = [{"id": "11.6.3-k1", "kind": "figure", "uses": ["f1"], "teaches": ["p011-i1"],
+                   "says": ["PS I ke baad electron Fd, yaani ferredoxin, se FNR enzyme tak jaata hai."], "roles": ["fact"]}]
+        found = " | ".join(studio_script.padhai_problems({"facts": facts}, heading, ch, points))
+        self.assertNotIn("'Fd; FNR' is never said", found)                # each name said: no joined line asked
+        self.assertNotIn("has no label", found)
+        points[0]["says"] = ["PS I ke baad electron Fd tak jaata hai."]
+        found = " | ".join(studio_script.padhai_problems({"facts": facts}, heading, ch, points))
+        self.assertIn("fact f1: 'FNR' is never said in 11.6.3-k1", found)                 # names checked one by one
+        self.assertEqual(studio_script._names("Stroma (low H⁺); Stroma"), ["Stroma (low H⁺)", "Stroma"])
+
+    def test_a_hard_word_is_opened_only_where_its_meaning_stands_next_to_it(self):
+        _, _, ch, heading = target()
+        def unopened(*says):
+            return [w for w, _ in studio_script.unopened_words(heading, ch, [{"id": "11.6.3-k1", "says": list(says)}])]
+        self.assertIn("gradient", unopened("Protein ke raaste aise paar jaane ko facilitated diffusion kehte hain; yahaan "
+                                           "unhe ulte gradient ke khilaaf nahi dhakela ja raha."))      # s11's false pass
+        self.assertNotIn("gradient", unopened("Isi ko proton gradient kehte hain; gradient ka matlab hi dhalaan hai."))
+        self.assertNotIn("gradient", unopened("Yeh ek dhalaan hai, yaani gradient."))
+
+    def test_todays_question_does_not_name_the_headings_new_words(self):
+        _, passed, ch, heading = target()
+        part = {"goal": "Electron transport ki energy proton gradient ke zariye ATP banane tak kaise pahunchti hai?",
+                "points": [{"id": "11.6.3-k1", "says": ["Electron transport ki energy proton gradient ke zariye ATP banane "
+                                                         "tak kaise pahunchti hai?"]}], "bridge": "x"}
+        found = " | ".join(studio_script.teacher_problems(part, heading, ch, part["points"]))
+        self.assertIn("\"goal\" names 'proton gradient', which this heading opens", found)
+        part["goal"] = passed["goal"]                                   # the gold standard's puzzle names no new word
+        part["points"][0]["says"] = [passed["goal"]]
+        self.assertNotIn("which this heading opens", " | ".join(studio_script.teacher_problems(part, heading, ch,
+                                                                                                 part["points"])))
+
+
+class TeacherVoice(unittest.TestCase):
+    """Navin, 26 November 2026, on s11: "sentence ki lambai order sankya se hi clear ho rha hai kon teacher ki tarah
+    samjha rha hai aur kaun ab bhi jyu ka tyo likh rha hai"; the gold standard: 68 sentences of 15.1 words, a quarter
+    spoken to the learner, a third going on the way a teacher talks."""
+
+    def test_a_packed_textbook_heading_is_sent_back_and_the_gold_standard_is_not(self):
+        _, passed, ch, heading = target()
+        packed = ["Concentration aur electrical haalat ke is fark ko proton gradient kehte hain jo membrane ke dono taraf "
+                  "banta hai aur ATP formation se juda hai."] * 22
+        part = {"goal": "Electron ne ADP ko chhua tak nahi; toh ATP bana kaise?", "bridge": "x",
+                "points": [{"id": "11.6.3-k1", "kind": "explain", "says": ["Electron ne ADP ko chhua tak nahi; toh ATP "
+                                                                           "bana kaise?"] + packed}]}
+        found = " | ".join(studio_script.teacher_problems(part, heading, ch, part["points"]))
+        self.assertIn("words on average (the passed rewrite: 15)", found)
+        self.assertIn("of the sentences speak to the learner (the passed rewrite: a quarter)", found)
+        self.assertIn("go on from the one before the way a teacher talks", found)
+        points = [{"id": f"11.6.3-k{n}", "kind": "explain", "says": [line["says"] for line in p["lines"]],
+                   "roles": [line["role"] for line in p["lines"]]} for n, p in enumerate(passed["points"], 1)]
+        gold = {"goal": passed["goal"], "bridge": "x", "points": points}
+        found = " | ".join(studio_script.teacher_problems(gold, heading, ch, points))
+        for rule in ("words on average", "speak to the learner", "the way a teacher talks"):
+            self.assertNotIn(rule, found)
+
+    def test_the_lesson_comes_before_its_facts(self):
+        self.assertLess(studio_script.LESSON_PROMPT.index("LESSON\n["), studio_script.LESSON_PROMPT.index("FACTS\nf1"))
+        self.assertIn("write the lesson first and list its facts after it", studio_script.LESSON_PROMPT)
+        text = ("GOAL: Toh ATP bana kaise?\nMISAAL: baandh\nLESSON\n[p010-i14]\nAb ek baat par gaur karo.\n"
+                "Toh ATP bana kaise?\nFACTS\nf1 | p010-i14 | book | | ATP gradient se banta hai\nBRIDGE: Ab aage.")
+        lesson = studio_script.parse_lesson(text)
+        self.assertEqual(lesson["blocks"], [{"head": ["p010-i14"], "lines": ["Ab ek baat par gaur karo.",
+                                                                              "Toh ATP bana kaise?"]}])
+        self.assertEqual([f["id"] for f in lesson["facts"]], ["f1"])
+        self.assertEqual((lesson["goal"], lesson["bridge"]), ("Toh ATP bana kaise?", "Ab aage."))
