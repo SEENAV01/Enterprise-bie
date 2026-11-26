@@ -419,7 +419,8 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
         plan = read_json(args.from_run, "questions.json")
     if pages and not plan.get("naksha"):            # an older question list: the unit's opening page moves to its overview
         plan = studio.with_unit_overview(plan, pages)
-    questions = [q for q in plan.get("questions") or [] if not wanted or q.get("id") in wanted]
+    # a script's films come already chosen: a heading asked for by its film id ("h11-6-3") brings all its parts
+    questions = [q for q in plan.get("questions") or [] if not wanted or plan.get("script") or q.get("id") in wanted]
     blocks = studio.all_blocks(pages) if pages else {}
     terms = frozenset(studio.chapter_terms(pages)) if pages else frozenset()
     voice, why = (voice_maker or studio_voice.make)()
@@ -427,7 +428,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
     template = PLAYER.read_text(encoding="utf-8")
     (out / "films").mkdir(exist_ok=True)
     (out / "questions.json").write_text(json.dumps(plan, ensure_ascii=False, indent=1), encoding="utf-8")
-    rows, usage = [], {"input_tokens": 0, "output_tokens": 0}
+    rows, usage, played = [], {"input_tokens": 0, "output_tokens": 0}, {}
     def one(q):
         q = dict(q)
         ids = [i for p in q.get("points") or [] for i in p.get("block_ids") or []]
@@ -508,6 +509,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
         data = studio_film.player_data(film, images=images, audio=audio, chapter=plan.get("chapter_title", ""), question=q,
                                        tint=studio.subject_tint(args.course), parts=layers)
         (out / "films" / f"{q['id']}.html").write_text(studio_film.html(data, template), encoding="utf-8")
+        played[q["id"]] = data
         covered = studio_film.coverage(film, q)
         (out / "films" / f"{q['id']}.json").write_text(json.dumps({"film": film, "problems": record["problems"],
                                                                    "rounds": record["rounds"], "images": files,
@@ -542,7 +544,11 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                          "beyond": 0, "points_moved": 0, "teacher_lines": 0, "kept_pictures": 0, "colour_redraws": 0,
                          "not_in_picture": [],
                          "failed": True})
+    whole = whole_films(questions, played, rows, out, template)
     lines = ["# Filmein", "", f"Awaaz: {summary['voice']}", ""]
+    for row in whole:
+        lines.append(f"- **{row['qid']}** poori film ({row['title']}): hisse {', '.join(row['parts'])} · {row['shots']} shots · "
+                     f"{row['minutes']} min" + (f" · nahi bane: {', '.join(row['missing'])}" if row["missing"] else ""))
     for row in rows:
         lines.append(f"- **{row['qid']}** {row['question']} · {row['shots']} shots · {row['images']} tasveerein · "
                      f"{row['minutes']} min · NCERT lines {row['book_lines']} · NCERT se bahar {row['beyond']} · "
@@ -552,8 +558,36 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                      + (f" · almaari se {row['kept_pictures']} tasveer" if row.get("kept_pictures") else "")
                      + (f" · kamiyan: {len(row['problems'])}" if row["problems"] else ""))
     (out / "FILMS.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    summary.update(films=rows, usage=usage, model=model,
+    summary.update(films=rows, whole_films=whole, usage=usage, model=model,
                    status="ok" if rows and not any(r["problems"] for r in rows) else ("needs_fix" if any(not r.get("failed") for r in rows) else "failed"))
+
+
+def whole_films(questions: list, played: dict, rows: list, out: Path, template: str) -> list:
+    """Each heading cut into parts also plays as one film, films/<heading film id>.html (Navin, 26 November 2026: "har
+    heading ki ek poori film"), its parts' shots in order. A part that was not made is named, and the whole film plays
+    the parts that were."""
+    from bie.brain import studio_film, studio_script
+    headings = {}
+    for q in questions:
+        heading = q.get("heading") or {}
+        if (heading.get("films") or 1) > 1:
+            headings.setdefault(heading.get("section") or "", []).append(q)
+    made = []
+    for section, parts in headings.items():
+        have = [played[q["id"]] for q in parts if q.get("id") in played]
+        if not have:
+            continue
+        fid = studio_script.film_id(section)
+        title = " ".join(x for x in (section, (parts[0].get("heading") or {}).get("title") or "") if x)
+        data = studio_film.joined(have, qid=fid, question=parts[0].get("question") or "", title=title)
+        (out / "films" / f"{fid}.html").write_text(studio_film.html(data, template), encoding="utf-8")
+        seconds = sum(s["dur"] for shot in data["shots"] for s in shot["sentences"])
+        names = {q["id"] for q in parts}
+        made.append({"qid": fid, "title": title, "parts": [q["id"] for q in parts if q.get("id") in played],
+                     "missing": [q["id"] for q in parts if q.get("id") not in played], "shots": len(data["shots"]),
+                     "minutes": round(seconds / 60, 1),
+                     "problems": sum(len(r.get("problems") or []) for r in rows if r.get("qid") in names)})
+    return made
 
 
 def games(args, client, model, pages, out: Path, summary: dict):

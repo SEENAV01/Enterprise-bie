@@ -3334,3 +3334,20 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   same parts; the whole unread step-1 text is kept in the record (it was cut at 6,000 letters).
 - **Next:** Navin's verdict on the s12 page decides whether a second gold example (another heading) is needed.
 
+## Entry · Films that say the script as written (rule B8), one film per heading, 26 November 2026
+
+- **Taught by:** the 11.6.3b films of 24 November 2026 put a question opener ("Ab sawaal uthta hai ki ...") in front of
+  the script's questions and changed some answer openers, as the film rules then asked; rule B8 (Navin, 26 November
+  2026: "koi chhut nahi") says the film speaks the script's lines exactly. Navin also asked for one full film per
+  heading, made from the script so that the screen shows only what the line says.
+- **Changed in BIE (branch `film-b8-poori`):** `SCRIPT_PART` asks for the lines as written and the screen following each
+  line; `film_questions` puts no opening question in front (the goal, else the plan's question, is the film's title);
+  `teacher_problems` names the words a script film's sentence adds to its line (`added_words`, two or more);
+  `question_problems`, the opener habit and the first-sentence-is-a-question check are off for script films;
+  `studio_film.joined` and `vm_studio.whole_films` play a heading's parts as one film; `_cut` makes the fewest film parts
+  and then the most even cut (a greedy cut had left a last part of 8 lines after five of 28–48 in Claude's 11.6.3, and
+  of 10 lines in s12's 11.6.3).
+- **Measured before:** the 11.6.3b film (r4m) had its question lines opened with added words by rule. **After:** to be
+  measured on the 11.6.2 and 11.6.3 films from BIE's s12 script and from Claude's scripts (sentences said as written,
+  words added, whole-film minutes).
+

@@ -1558,27 +1558,46 @@ def film_id(section: str, part: int = 0, parts: int = 1) -> str:
 
 
 def _cut(points: list) -> list:
-    """The heading's points in films of at most FILM_LINES lines, cut only between points, the parts as even as they can be."""
+    """The heading's points in films of at most FILM_LINES lines, cut only between points: as few films as fit, and of
+    those the most even cut (the longest film as short as it can be). A greedy cut left a last film of 8 lines after
+    five full ones (Claude's 11.6.3, 26 November 2026); a point longer than FILM_LINES is a film by itself."""
     sizes = [len(sentences(p)) for p in points]
-    total = sum(sizes)
-    count = max(1, -(-total // FILM_LINES))
-    target = total / count
-    out, current, size = [], [], 0
-    for point, n in zip(points, sizes):
-        if current and (size + n > FILM_LINES or (size >= target and len(out) < count - 1)):
-            out.append(current)
-            current, size = [], 0
-        current.append(point)
+    if not sizes:
+        return []
+    count, size = 1, 0
+    for n in sizes:                          # the fewest films: fill each one as far as it goes
+        if size and size + n > FILM_LINES:
+            count, size = count + 1, 0
         size += n
-    return out + ([current] if current else [])
+    count = min(count, len(sizes))
+    ends = [0]
+    for n in sizes:
+        ends.append(ends[-1] + n)
+    worst = float("inf")
+    best = [[worst] * (count + 1) for _ in range(len(sizes) + 1)]   # best[i][k]: longest film, first i points in k films
+    back = [[0] * (count + 1) for _ in range(len(sizes) + 1)]
+    best[0][0] = 0
+    for i in range(1, len(sizes) + 1):
+        for k in range(1, min(i, count) + 1):
+            for j in range(k - 1, i):
+                longest = max(best[j][k - 1], ends[i] - ends[j])
+                if longest < best[i][k]:
+                    best[i][k], back[i][k] = longest, j
+    cuts, i = [], len(sizes)
+    for k in range(count, 0, -1):
+        cuts.append((back[i][k], i))
+        i = back[i][k]
+    return [points[j:i] for j, i in reversed(cuts)]
 
 
 def film_questions(script: dict, chapter: dict, naksha: dict | None = None, wanted: list | None = None) -> dict:
     """The script cut into films, first slice (Navin, 22 November 2026: "phir video maker us script ke hisab se poore
     chapter ko video ke tukdon mein baantega"): one film per heading, its narration the heading's script lines in order
     (the films stage's teacher lines, with each point's kind and screen line as the note), its points the heading's items
-    (their blocks give the book lines). A film opens on a question: the plan's question for the heading (shape B, one
-    heading one film; else shape A's first) when the script's first line is not one. ``wanted``: film ids or headings."""
+    (their blocks give the book lines). The film says the script's lines as written and nothing else (Navin, 26 November
+    2026, B8: "koi chhut nahi"): no opening question is put in front of them; the film's question (its title, never
+    spoken) is the heading's goal when it asks, else the plan's question for the heading (shape B, one heading one film;
+    else shape A's first), else the script's first question. ``wanted``: film ids or headings."""
     items = chapter.get("items") or {}
     shape_a, shape_b = {}, {}
     for f in ((naksha or {}).get("A") or {}).get("films") or []:              # shape A: question-wise films in a heading
@@ -1607,17 +1626,15 @@ def film_questions(script: dict, chapter: dict, naksha: dict | None = None, want
             planned = sorted(shape_a.get(section) or [], key=lambda f: -len(set(f.get("teaches") or []) & set(taught)))
             plan = (shape_b.get(section) if len(pieces) == 1 else None) or (planned[0] if planned else None) or \
                 shape_b.get(section) or {}
-            question = (plan.get("question") or "").strip()
-            if not lines[0]["roman"].rstrip().endswith("?"):
-                opening = question if question.endswith("?") else next(
-                    (x["roman"] for x in lines if x["roman"].rstrip().endswith("?")), (part.get("title") or section) + "?")
-                lines.insert(0, {"roman": opening, "note": "the film's opening question", "kind": "question", "point": ""})
+            goal, planned_question = (part.get("goal") or "").strip(), (plan.get("question") or "").strip()
+            question = next((x for x in (goal if number == 0 else "", planned_question) if x.endswith("?")), "") or next(
+                (x["roman"] for x in lines if x["roman"].rstrip().endswith("?")), (part.get("title") or section))
             if number == len(pieces) - 1 and (part.get("bridge") or "").strip():
                 lines.append({"roman": part["bridge"].strip(), "note": "bridge to the next heading's film", "kind": "bridge",
                               "point": ""})
             points = [{"block_ids": list(items[i].get("block_ids") or []), "point": items[i].get("content", "")[:200],
                        "kind": items[i].get("content_type") or "facts_numbers", "item_id": i} for i in taught]
-            out.append({"id": fid, "pillar": section or "opening", "question": lines[0]["roman"],
+            out.append({"id": fid, "pillar": section or "opening", "question": question,
                         "hook": plan.get("opens_with", ""), "points": points,
                         "film": {"length": "long",
                                  "showing_moment": next((x.get("shows") for x in plan.get("saman") or []), "")},
