@@ -230,11 +230,12 @@ class Script(unittest.TestCase):
         # round 1 of Chapter 11 (22 Nov 2026): 0 analogies, 24 lines naming the book, points of up to 16 sentences
         part = copy.deepcopy(parts()[2])
         part["points"][1]["says"].append("Book ise water splitting kehti hai.")
-        part["points"][2]["says"] += [f"Protons ka ek aur pehlu number {n} dekho." for n in range(8)]
+        part["points"][2]["says"] += [f"Protons ka ek aur pehlu number {n} dekho." for n in range(24)]
         part["points"] = [p for p in part["points"] if p["kind"] != "example"]
         found = check(2, part)
         self.assertIn("11.6.1-k2 sentence 3: names the book ('Book')", found)
-        self.assertIn("11.6.1-k3: 9 sentences; a knowledge point holds one idea in at most 8", found)
+        # a point is one book line in one flow (Navin, 26 Nov 2026: the passed c2 is 23 lines), at most 24 lines
+        self.assertIn("11.6.1-k3: 25 lines; a point teaches one book line in at most 24", found)
         self.assertIn("this heading needs at least one worked example", found)
         ch = chapter()
         heads = studio_script.headings(ch)
@@ -287,8 +288,11 @@ class Script(unittest.TestCase):
         for p in part["points"]:
             p["says"] = [s.replace("?", ".") for s in p["says"]]
         found = check(2, part)
-        self.assertIn("0 of 11 sentences ask the learner something", found)
-        self.assertIn('no "kyun" question in this heading', found)
+        self.assertIn("0 of 11 sentences ask the learner something: ask at the turns of the teaching", found)
+        self.assertNotIn('no "kyun"', found)                      # its why lines give the kyun
+        for p in part["points"]:
+            p["roles"] = ["plain" if r == "why" else r for r in p.get("roles") or []]
+        self.assertIn('no "kyun" in this heading: give the why of what matters', check(2, part))
         part = copy.deepcopy(parts()[2])
         part["points"] = [p for p in part["points"] if p["kind"] not in ("overview", "retell")]
         part["points"][0]["says"] = [part["goal"]] + part["points"][0]["says"]
@@ -355,7 +359,7 @@ class Script(unittest.TestCase):
         self.assertEqual((counts["retells"], counts["fragments"], counts["goals"]), (1, 0, 4))
         self.assertGreater(counts["question_share"], 0.15)
         rules = studio_script.messages(ch, heads[0], [], course=ch["course"])[0]["content"]
-        for words in ("about one sentence in five is a question", '"overview" point', '"retell" point',
+        for words in ("Ask the learner at the turns of the teaching", '"overview" point', '"retell" point',
                       "never a sentence of three words or fewer", "oxygen-18 is radioactive", "names the link"):
             self.assertIn(words, rules)
 
@@ -808,9 +812,10 @@ class BolchaalAurKholo(unittest.TestCase):
         answer = {"facts": []}
         found = " | ".join(studio_script.padhai_problems(answer, heading, ch, [{"id": "11.6.3-k1", "says": ["Kuch nahi."]}]))
         self.assertIn("the book writes 'chemiosmotic' here and no sentence opens it by itself: where it is first needed, "
-                      "break it into its parts", found)
-        self.assertIn("the book writes 'hypothesis' here and no sentence opens it by itself: where it is first needed, say "
-                      "what it means in a sentence of its own", found)
+                      "break it into its parts inside the teaching", found)
+        self.assertIn("the book writes 'hypothesis' here and no sentence opens it by itself: where it is first needed, tell "
+                      "what it means inside the teaching, joined to the line it serves, in your own words", found)
+        self.assertIn("(for you, not to copy: it means an explanation put forward first and then tested", found)
 
     def test_the_rules_quote_no_line_of_the_withheld_example(self):
         _, passed, ch, heading = target()
@@ -831,3 +836,89 @@ class BolchaalAurKholo(unittest.TestCase):
         self.assertIn("bolchaal", c)
         self.assertIn("unopened", c)
         self.assertEqual(c["bolchaal"], 0)
+
+
+class RawClient:
+    """Answers with the given texts as they are (a lesson in plain text, or a JSON object)."""
+
+    def __init__(self, texts):
+        self.texts = list(texts)
+        self.calls = []
+
+    def chat(self, *, model, messages, schema=None):
+        self.calls.append((messages, schema))
+        text = self.texts.pop(0)
+        return {"content": text if isinstance(text, str) else json.dumps(text),
+                "usage": {"input_tokens": 100, "output_tokens": 20}}
+
+    def plan_usage(self):
+        return None
+
+
+def lesson_of(part):
+    """A heading's part told as step 1's plain lesson."""
+    rows = ["FACTS"] + [f"{f['id']} | {f['item']} | {f['kind']} | {f.get('term') or ''} | {f['fact']}"
+                        for f in part.get("facts") or []]
+    rows += [f"GOAL: {part.get('goal', '')}", f"MISAAL: {part.get('misaal', '')}", "LESSON"]
+    for p in part["points"]:
+        rows.append("[" + (", ".join(p.get("teaches") or []) or p["kind"]) + "]")
+        rows += p["says"]
+    rows.append(f"BRIDGE: {part.get('bridge', '')}")
+    return "\n".join(rows)
+
+
+class KahaniPehle(unittest.TestCase):
+    """Pehle padhana, phir dhaancha (Navin, 26 November 2026, on BIE's 11.6.3 s9 beside the rewrite he passed: "Aas paas
+    bhi nahi hai tumhare banaye namune ke abhi"; his card: "Haan, yahi plan"). BIE's own checks would have sent the passed
+    rewrite back 12 times (points of at most 8 lines, one sentence in five a question, a kyun question): the rules that
+    fought it are loosened, and each heading's first round is written as the teacher speaks it, then marked."""
+
+    def test_the_passed_rewrite_meets_every_rule_of_form(self):
+        _, passed, ch, heading = target()
+        teaches = {"c2": ["p010-i14"], "c3": ["p010-i15", "p011-i1"]}
+        points = [{"id": f"11.6.3-k{n}", "kind": "explain", "teaches": teaches[p["id"]], "screen": "figure", "recalls": [],
+                   "terms": [], "prepares": [], "says": [line["says"] for line in p["lines"]],
+                   "roles": [line["role"] for line in p["lines"]],
+                   "uses": sorted({u for line in p["lines"] for u in line["uses"]})}
+                  for n, p in enumerate(passed["points"], 1)]
+        answer = {"section": "11.6.3", "goal": passed["goal"], "misaal": passed["misaal"], "facts": passed["facts"],
+                  "points": points, "bridge": "Ab dekhenge ki yeh dhalaan banti kaise hai."}
+        found = " | ".join(studio_script.problems(answer, heading, ch, [], []))
+        for rule in ("lines; a point teaches", "sentences ask the learner", "no \"kyun\"", "words in one sentence",
+                     "roles must give", "does not open with its question's words", "galat line"):
+            self.assertNotIn(rule, found)
+
+    def test_the_lesson_is_read_and_its_lines_are_kept_word_for_word(self):
+        part = parts()[2]
+        lesson = studio_script.parse_lesson(lesson_of(part))
+        self.assertEqual([b["head"] for b in lesson["blocks"]], [p.get("teaches") or [p["kind"]] for p in part["points"]])
+        self.assertEqual(lesson["goal"], part["goal"])
+        self.assertEqual(studio_script.lesson_drift(part, lesson), [])
+        changed = copy.deepcopy(part)
+        changed["points"][0]["says"][0] = "Kuch aur hi baat."
+        self.assertIn("1 differ (first:", studio_script.lesson_drift(changed, lesson)[0])
+        self.assertIsNone(studio_script.parse_lesson('{"section": "11.6.1", "points": []}'))
+
+    def test_the_first_round_is_told_first_then_marked(self):
+        written = parts()
+        texts = []
+        for part in written:
+            texts += [lesson_of(part), part]                  # step 1: the lesson; step 2: its JSON
+        client = RawClient(texts)
+        record = studio_script.write(client, "fake", chapter(), course=chapter()["course"])
+        self.assertEqual(record["problems"], {})
+        self.assertEqual(len(client.calls), 2 * len(written))
+        (first, schema1), (second, schema2) = client.calls[:2]
+        self.assertIsNone(schema1)                            # step 1 is plain text
+        self.assertIn("STEP 1 OF 2: THE LESSON, AS YOU SPEAK IT", first[-1]["content"])
+        self.assertIs(schema2, studio_script.SCHEMA)
+        self.assertEqual(second[-1]["content"], studio_script.STRUCTURE_PROMPT)
+        self.assertEqual(second[-2]["content"], lesson_of(written[0]))
+        self.assertIn("lesson", record["rounds"][0]["rounds"][0])
+        self.assertEqual(record["usage"], {"input_tokens": 200 * len(written), "output_tokens": 40 * len(written)})
+
+    def test_a_maker_that_answers_with_json_at_once_is_taken_as_it_is(self):
+        client = Client(parts())
+        record = studio_script.write(client, "fake", chapter(), course=chapter()["course"])
+        self.assertEqual(record["problems"], {})
+        self.assertEqual(len(client.calls), len(parts()))

@@ -3241,3 +3241,31 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   unopened); s7's: 38; the whole s8 chapter (20 headings still from s6): 218 lines with such words, 11 hard words
   unopened. The passed c2–c3: no such word, and only "synthase" unopened (its machine is opened in c9). After: job s9.
 
+## Entry · 11.6.3 again with bolchaal and kholo (job s9), Navin's verdict and the root cause, 26 November 2026
+
+- **Run:** job s9 on the VM (Codex, ₹0, 20.5 minutes, 4 rounds: 20, 3, 1, 0 problems; 423,466 tokens in, 44,883 out). No
+  office word reached round 1 (the rules' list stopped them before the check); one galat line was misread as not a wrong
+  idea ("Aksar ... samajh lete hain").
+- **Measured:** c2–c3: 20 of 22 fully, 2 half (H⁺ as a bare proton; chloroplast against mitochondria not set apart), none
+  missing (s8 17, s7 16); all 9 hard words opened; office words in 1 of 116 lines (s8 28 of 96); everyday English 5.9 %
+  (s8 10.3 %, passed 2.7 %); 116 lines (c2–c3 50 against the passed 38); 18 questions.
+- **Navin's verdict:** "Aas paas bhi nahi hai tumhare banaye namune ke abhi". The 22-thing count measures what is
+  taught, not how; it had made s9 look close.
+- **Root cause:** BIE's checks run on the passed rewrite give 12 problems; six are of form and fight it: points of 23
+  and 15 lines against at most 8, 4 questions in 68 sentences against one in five, no kyun question, two lines over 40
+  words (each sentence in them is under 40). So the maker cuts every flow into small self-contained points, each opened
+  with a recall and filled with questions: a quiz, not a lesson. s9 also copied the Hinglish kholo hint word for word,
+  had no puzzle (its opening question holds its answer: "... proton ke fark ke zariye kaise pahunchti hai?") and put a
+  word's meaning in the middle of the analogy.
+- **Changed in BIE (branch `script-kahani-pehle`, card "Haan, yahi plan"):** MAX_SENTENCES 8 → 24 (a point is one book
+  line taught in one flow; the next book line starts the next point); QUESTION_SHARE 0.15 → 0.05 and the rules ask at
+  the turns, never to fill a count; the kyun is a why line or a kyun question; the 40-word limit counts each spoken
+  sentence; the first round of each heading is written in two steps (pehle padhana, phir dhaancha): the lesson as the
+  teacher speaks it, in plain text (facts, goal, misaal, blocks of lines per book line, bridge), then its JSON with the
+  lesson's lines word for word (`lesson_drift` checks them); a maker that answers with JSON at once is taken as it is;
+  kholo hints are English, told in the maker's own words inside the teaching; MISCONCEPTION reads "samajh lete",
+  "maan lete"; a test fails if the passed rewrite breaks any rule of form.
+- **Measured before:** the passed c2–c3 under BIE's checks: 12 problems; after: 6, all of them what the heading's later
+  steps teach (FNR, CF₀, CF₁, synthase, chemiosmosis) or a three-item cut of the heading (its checkpoint and example
+  are in the later steps). s9 under the new rules: 0. After: job s10.
+

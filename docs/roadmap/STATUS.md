@@ -627,6 +627,20 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    itself in a sentence that gives its meaning, also inside a longer term), the rules' examples moved to other subjects
    (cooker, heart, 2n) so no line of a withheld example reaches the maker, one label per label fact. Before: s8's 11.6.3
    has 19 problems under the new checks (10 points with such words, 9 hard words unopened), s7's 38. After: job s9.
+   **PR #218 merged (25 November 2026, f0619d5d).** **Job s9 (26 November 2026, ₹0, 20.5 minutes, 4 rounds, 423,466
+   tokens in and 44,883 out):** 20 of the 22 c2–c3 things fully, 2 half, none missing; every hard word opened; 1 of 116
+   lines with an office word (s8 28 of 96); everyday English 6 % (passed 3 %). **Navin's verdict: "Aas paas bhi nahi hai
+   tumhare banaye namune ke abhi".** The 22-thing count measured what was taught, not how. Root cause found: BIE's own
+   checks would send the passed rewrite back 12 times (points of 23 and 15 lines against at most 8, 4 questions in 68
+   sentences against one in five, no kyun question, two lines over 40 words though no sentence in them is), so they push
+   the maker to cut each flow into small points and fill it with questions; s9 also copied the kholo hint word for word
+   ("Hypothesis yaani aisa vichaar jise prayogon se parkha jaata hai"), had no puzzle (its question holds its answer) and
+   was long (c2–c3 in 50 lines against 38). Card ("Haan, yahi plan"): **branch `script-kahani-pehle`**: a point is one
+   book line in one flow (at most 24 lines), questions at the turns (at least one in twenty), a why line or a kyun
+   question, words counted per spoken sentence; the first round of each heading in two steps, the lesson as the teacher
+   speaks it in plain text and then its JSON with the lesson's lines word for word (code checks they match); kholo hints
+   in English, to be told in the maker's own words inside the teaching; "samajh lete" read as a wrong idea said. Before:
+   the passed c2–c3 under BIE's checks, 12 problems; after: 6, all what the heading's later steps teach. After: job s10.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
