@@ -683,7 +683,16 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    which BIE could not read, so it went the JSON way. Honest note on the measures: the old 11.6.2 (s6) also has 29 %
    spoken to the learner and 35 % going on, so those two shares alone do not catch a teacher; sentence length does.
    Page for Navin: "BIE s12 Scripts". **Branch `script-lesson-json`:** a step-1 lesson sent as a JSON object of the same
-   parts is read; the whole unread step-1 text is kept in the record.
+   parts is read; the whole unread step-1 text is kept in the record. **PR #222 merged.** Navin asked Claude to write
+   11.6.2 itself (page "11.6.2 Claude Script", Claude's demo, verdict pending). **Films (Navin, 26 November 2026):** "one
+   full length video ... script ke hisab se taaki jabardasti cheejen na uthaye ... kahin visuals kuchh dikh rahe ho aur
+   script kuchh aur keh rahi ho"; cards "Do: BIE ki script + meri script" and "Har heading ki ek poori film".
+   **Branch `film-b8-poori`:** rule B8 in the film stage: a film made from the script says the script's lines as
+   written (no answer opener, question opener, invitation, bridge or opening question put in; the "two changes are
+   yours" of 23–24 November is gone), a check names the words a sentence adds to its line (two or more), the opener,
+   question-opener and opening-question checks are off for script films, and the screen shows what each line says.
+   A heading still written in parts of at most 48 lines now also plays as one film, `films/<h11-6-3>.html`, its parts'
+   shots in order (`studio_film.joined`, `vm_studio.whole_films`), and `videos: h11-6-3` brings all its parts.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

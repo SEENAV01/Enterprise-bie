@@ -875,10 +875,13 @@ class TeacherStudyDrawing(unittest.TestCase):
         script = dict(QUESTION, script_lines=True, teacher_lines=[{"roman": "x"}])
         navin = dict(QUESTION, teacher_lines=[{"roman": "x"}])
         made["shots"][0]["sentences"][-1] = asked("Dekho,")
-        self.assertTrue(any("answers open with" in p for p in studio_film.teaching_problems(made, script)))
+        # the script's lines and Navin's own lines are said as written (B8, 26 November 2026): no opener is changed
+        self.assertFalse(any("answers open with" in p for p in studio_film.teaching_problems(made, script)))
         self.assertFalse(any("answers open with" in p for p in studio_film.teaching_problems(made, navin)))  # his own lines
-        self.assertIn("so that no opener starts more than half the answers", studio_film._teacher_part(
-            dict(QUESTION, script_lines=True, teacher_lines=[{"roman": "Dekho, aisa hai.", "note": "explain"}])))
+        part = studio_film._teacher_part(dict(QUESTION, script_lines=True,
+                                              teacher_lines=[{"roman": "Dekho, aisa hai.", "note": "explain"}]))
+        self.assertIn("Add nothing to a line", part)
+        self.assertNotIn("Two changes are yours", part)
 
     def test_the_script_is_cut_into_heading_films(self):
         chapter = {"items": {"i1": {"content": "Hawa chadhti hai", "content_type": "process", "block_ids": ["b1"]},
@@ -893,14 +896,15 @@ class TeacherStudyDrawing(unittest.TestCase):
         plan = studio_script.film_questions(script, chapter, naksha)
         self.assertEqual([q["id"] for q in plan["questions"]], ["h1-2a", "h1-2b"])
         first, second = plan["questions"]
-        self.assertEqual(first["teacher_lines"][0], {"roman": "Ghat par baarish kyun hoti hai?", "note": "the film's opening question",
-                                                     "kind": "question", "point": ""})
+        # B8 (26 November 2026): the film opens on the script's own first line; the plan's question is its title only
+        self.assertEqual(first["teacher_lines"][0], {"roman": says[0], "note": "explain · screen: screen 0",
+                                                     "kind": "explain", "point": "1.2-k0"})
+        self.assertEqual(first["question"], "Ghat par baarish kyun hoti hai?")
         self.assertEqual(second["question"], "Doosri taraf sookha kyun?")
-        self.assertEqual(first["teacher_lines"][1]["note"], "explain · screen: screen 0")
         self.assertEqual(second["teacher_lines"][-1]["roman"], "Ab dekhte hain doosri taraf kya hota hai.")
         self.assertNotIn("Ab dekhte hain", first["teacher_lines"][-1]["roman"])
         self.assertTrue(first["script_lines"] and first["naksha"] is True)
-        self.assertEqual(len(first["teacher_lines"]) - 1 + len(second["teacher_lines"]) - 2, 60)
+        self.assertEqual(len(first["teacher_lines"]) + len(second["teacher_lines"]) - 1, 60)      # every line, and the bridge
         self.assertEqual([q["id"] for q in studio_script.film_questions(script, chapter, naksha, ["h1-2b"])["questions"]], ["h1-2b"])
         self.assertEqual(len(studio_script.film_questions(script, chapter, naksha, ["1.2"])["questions"]), 2)
         self.assertIn("THE CHAPTER'S SCRIPT", studio_film.messages(first, course="Class 9", language="Hinglish")[1]["content"])
@@ -1968,3 +1972,87 @@ class PictureColours(unittest.TestCase):
             right = self.picture(Path(tmp) / "q-s4.png", part=(230, 160, 30))
             saved, placed, said, usage, drawn = vm_studio.recolour(maker, "m", shot, shot, None, right, "", None, {})
             self.assertEqual((saved, said, drawn, maker.prompts), (right, [], 0, []))
+
+
+class FilmSaysTheScript(unittest.TestCase):
+    """Navin, 26 November 2026, B8: "koi chhut nahi", a film made from the chapter's script says the script's lines as
+    written, nothing put in front of them and nothing left out; and "har heading ki ek poori film"."""
+
+    def lined(self, made, script=True):
+        lines = [{"roman": s["roman"], "kind": "explain"} for shot in made["shots"] for s in shot["sentences"]]
+        return dict(QUESTION, teacher_lines=lines, script_lines=script)
+
+    def test_a_script_film_puts_no_words_in_front_of_a_line(self):
+        made = film()
+        q = self.lined(made)
+        self.assertEqual(studio_film.teacher_problems(made, q), [])
+        made["shots"][1]["sentences"][1]["roman"] = "Iska seedha sa jawab hai: doosri taraf utarti hawa sookhi rehti hai."
+        found = " | ".join(studio_film.teacher_problems(made, q))
+        self.assertIn("s2 sentence 2 adds words the script's line L4 does not say (Iska seedha sa jawab)", found)
+        self.assertEqual(studio_film.teacher_problems(made, dict(q, script_lines=False)), [])   # Navin's own lines
+        made["shots"][1]["sentences"][1]["roman"] = "Doosri taraf utarti hawa sukhi rehti hai."       # a spelling slip
+        self.assertEqual(studio_film.teacher_problems(made, q), [])
+        self.assertEqual(studio_film.added_words("Yeh hawa kyun rukti hai?", "Ab sawaal uthta hai ki yeh hawa kyun rukti hai?"),
+                         ["Ab", "sawaal", "uthta"])
+
+    def test_a_script_film_opens_on_its_own_first_line(self):
+        made = film()
+        made["shots"][0]["sentences"][0].update(roman="Pichhli film mein humne Ghat ki deewar dekhi thi.",
+                                                voice="पिछली फ़िल्म में हमने घाट की दीवार देखी थी।")
+        opening = "the film's first sentence must be the question that opens it"
+        self.assertIn(opening, " | ".join(studio_film.problems(made, QUESTION)))
+        self.assertNotIn(opening, " | ".join(studio_film.problems(made, self.lined(made))))
+
+    def test_a_script_film_asks_in_the_script_s_words(self):
+        made = _membrane_film()
+        made["shots"][0]["sentences"][2]["roman"] = "CF₀ se H⁺ kaise lautte hain?"
+        self.assertEqual(len(studio_film.question_problems(made)), 1)
+        self.assertEqual(studio_film.question_problems(made, {"script_lines": True}), [])
+        self.assertIn("no question opener", studio_film.SCRIPT_PART)
+        self.assertIn("not in a film made from the chapter's script", studio_film.INSTRUCTIONS)
+
+    def test_no_opening_question_is_put_in_front_of_the_script(self):
+        chapter = {"items": {"i1": {"content": "Hawa chadhti hai", "content_type": "process", "block_ids": ["b1"]}}}
+        says = ["Pichhli film mein humne hawa dekhi thi.", "Aaj ek naya sawaal hai.", "Hawa pahaad par chadhti hai."]
+        script = {"parts": [{"section": "1.3", "title": "Ghat", "goal": "Ghat par hi baarish kyun hoti hai?", "bridge": "",
+                             "points": [{"id": "1.3-c1", "kind": "recap", "teaches": ["i1"], "says": says}]}]}
+        naksha = {"B": {"films": [{"section": "1.3", "question": "Plan ka sawaal kya hai?"}]}}
+        film_q = studio_script.film_questions(script, chapter, naksha)["questions"][0]
+        self.assertEqual([x["roman"] for x in film_q["teacher_lines"]], says)
+        self.assertEqual(film_q["question"], "Ghat par hi baarish kyun hoti hai?")        # the goal, as the film's title
+        script["parts"][0]["goal"] = ""
+        self.assertEqual(studio_script.film_questions(script, chapter, naksha)["questions"][0]["question"],
+                         "Plan ka sawaal kya hai?")
+
+    def test_the_parts_of_a_heading_play_as_one_film(self):
+        part = studio_film.player_data(film(), images={}, audio={}, chapter="Monsoon", question=QUESTION)
+        whole = studio_film.joined([dict(part, qid="h1a"), dict(part, qid="h1b")], qid="h1", question="Kyun?", title="1 Ghat")
+        self.assertEqual([s["id"] for s in whole["shots"]], ["h1a-s1", "h1a-s2", "h1b-s1", "h1b-s2"])
+        self.assertEqual((whole["qid"], whole["title"], whole["parts"], whole["chapter"]), ("h1", "1 Ghat", ["h1a", "h1b"], "Monsoon"))
+
+    def test_the_films_stage_makes_the_whole_heading_film(self):
+        with tempfile.TemporaryDirectory() as folder:
+            run_dir, map_dir = Path(folder) / "srun", Path(folder) / "nrun"
+            run_dir.mkdir()
+            map_dir.mkdir()
+            says = [f"Yeh line {n} hai jo hawa ke baare mein baat karti hai." for n in range(60)]
+            (run_dir / "script.json").write_text(json.dumps({"chapter_title": "Monsoon", "parts": [
+                {"section": "1", "title": "Ghat", "bridge": "", "points": [
+                    {"id": f"1-k{n}", "kind": "explain", "teaches": ["i1"], "says": says[n * 30:(n + 1) * 30], "screen": "Ghat"}
+                    for n in range(2)]}]}), encoding="utf-8")
+            (map_dir / "chapter_map.json").write_text(json.dumps({"items": {
+                "i1": {"content": "Hawa chadhti hai", "content_type": "process", "block_ids": ["b1"]}}}), encoding="utf-8")
+            args = SimpleNamespace(stage="films", source="", from_run=str(run_dir), chapter_map=str(map_dir), videos="h1",
+                                   out=str(Path(folder) / "out"), pages="", course="Class 9", language="Hinglish", model="",
+                                   max_rounds=1)
+
+            class Client:                      # words only: no pictures, so every chat call is a film
+                def chat(self, *, model, messages, schema=None):
+                    return {"content": json.dumps(film(), ensure_ascii=False), "usage": {"input_tokens": 1, "output_tokens": 1}}
+
+            summary = vm_studio.run(args, client=Client(), load=None, voice_maker=lambda: (FakeVoice(), None))
+            self.assertEqual([r["qid"] for r in summary["films"]], ["h1a", "h1b"])       # "h1" brings both parts
+            self.assertEqual(summary["whole_films"][0]["parts"], ["h1a", "h1b"])
+            page = (Path(folder) / "out" / "films" / "h1.html").read_text(encoding="utf-8")
+            self.assertIn('"h1b-s2"', page)
+            self.assertIn("poori film (1 Ghat): hisse h1a, h1b", (Path(folder) / "out" / "FILMS.md").read_text(encoding="utf-8"))

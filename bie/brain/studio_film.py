@@ -88,6 +88,8 @@ MAX_KINDS = 5                 # different molecules on screen at once (the Q14 e
 MAX_SHOT_CHARS = 560          # roman per shot, about 40 seconds of voice (the Q14 review: two shots of 54 s on one picture)
 PIN_GAP = 8                   # percent between two pins of one sentence (the Q14 review: thylakoid and lumen stacked)
 TEACHER_MATCH = 0.7           # share of a teacher's line's words the film's sentence keeps (spelling slips fixed)
+ADDED_WORDS = 2               # words a script film's sentence may not add to its script line (one is a spelling slip
+                              # fixed; Navin, 26 November 2026, B8: "koi chhut nahi", the film says the lines as written)
 # the teacher study (four Chapter 11 teachers, 22 November 2026; Navin's yes to F1, F2 and F3, judged on a BIE video):
 PROCESS_FROM = 3              # a question with this many process points tells the process step by step on one picture (F1)
 STEPS_FROM = 3                # numbered steps that make a shot a process built on one picture
@@ -268,8 +270,9 @@ with a process written inside a box instead of happening on screen):
     gradient mein itni dilchaspi kyun—kyunki iske ghatne se energy milti hai" but "Par pehle, proton gradient mein itni
     dilchaspi kyun? Iski wajah jaan lete hain: aisa isliye hai kyunki iske ghatne se ATP banane ki energy milti hai."
     Every question after the film's opening one starts by saying that a question comes, in his words (Navin, 24
-    November 2026; also in a film made from the chapter's script): "Ab sawaal uthta hai ki ...?", "Ab aap poochhenge
-    ki ...?", "Ab aapke man mein sawaal utha hoga ki ...?", "Ek sawaal ab bhi banta hai ki ...?"; vary them. BIE writes
+    November 2026; not in a film made from the chapter's script, which says its lines as written): "Ab sawaal uthta
+    hai ki ...?", "Ab aap poochhenge ki ...?", "Ab aapke man mein sawaal utha hoga ki ...?", "Ek sawaal ab bhi banta hai
+    ki ...?"; vary them. BIE writes
     the question on the screen and takes the camera to the part it asks about, so the question names that part; his
     answer openers: "Iska seedha sa jawab hai ...", "Aisa isliye hai kyunki ...", "Isme kaam aata hai ...", "Dekhiye,
     hota kya hai: ...".
@@ -576,17 +579,18 @@ SCRIPT_PART = """
 
 THE CHAPTER'S SCRIPT. BIE wrote the whole chapter's script first (Navin, 22 November 2026: "script wo poora gyan hai jo
 hume bache ko dena hai"); this film tells one heading of it. The film's sentences are the script's lines below, every
-one, in their order, and nothing else is spoken; keep their words and their voice ("dekho", "socho" stay: Navin, 23
-November 2026, "Tum wali chalegi"), fixing only a spelling slip. Two changes are yours: where most answers open alike
-("Dekho, ..."), open some of them with another teacher's opener ("Iska seedha sa jawab hai ...", "Aisa isliye hai kyunki
-...", "Hota yeh hai ki ..."), so that no opener starts more than half the answers; and every question after the film's
-opening one gets a question opener in front of the script's words ("Ab sawaal uthta hai ki ...?", "Ab aap poochhenge ki
-...?", "Ab aapke man mein sawaal utha hoga ki ...?"; Navin, 24 November 2026), which keeps every word of the line, its
-question mark included. Where the script asks, the film asks; add no question of your own. A NOTE under a line is the
-script's instruction for the screen (the point's kind and what the screen shows), never words to speak: follow it. A line
-of kind analogy is said on an aside shot (its own everyday picture); the lines of a process are told on one picture,
-step by step. Write each line's voice in Devanagari, ending every question with ? and starting its answer as a new
-sentence. Group the lines into shots so that every rule here holds; set teaches, beyond and part for every line.
+one, in their order, and nothing else is spoken (Navin, 26 November 2026: "koi chhut nahi"): keep their words and their
+voice ("dekho", "socho" stay), fixing only a spelling slip, and leave no word out. Add nothing to a line: no answer
+opener ("Iska seedha sa jawab hai ..."), no question opener ("Ab sawaal uthta hai ki ...", "Ab aap poochhenge ki ..."),
+no invitation, no bridge between shots and no question of your own; the rules above on openers, invitations and bridges
+are for films without a script, and here the script's own lines do that work. Where the script asks, the film asks.
+The screen shows what each line says while it is said (Navin, 26 November 2026: "jo script keh rahi hai wo hi visuals ke
+madhyam se samajh mein aaye"): the picture, its pins and its motion follow the line, and nothing is shown that the line
+does not speak of. A NOTE under a line is the script's instruction for the screen (the point's kind and what the screen
+shows), never words to speak: follow it. A line of kind analogy is said on an aside shot (its own everyday picture); the
+lines of a process are told on one picture, step by step. Write each line's voice in Devanagari, ending every question
+with ? and starting its answer as a new sentence. Group the lines into shots so that every rule here holds; set teaches,
+beyond and part for every line.
 
 The script's lines:
 {lines}"""
@@ -887,7 +891,7 @@ def problems(film, question: dict) -> list:
         out.append(f"{diagrams} diagram shots; at most one, for a comparison or a graph: show places and processes on AI "
                    "pictures (photo or cutaway)")
     opening = ((shots[0].get("sentences") or [{}])[0].get("roman") or "") if shots else ""
-    if shots and "?" not in opening:
+    if shots and "?" not in opening and not question.get("script_lines"):     # a script film opens on its own first line (B8)
         out.append("the film's first sentence must be the question that opens it (a learner's curiosity, ending with ?)")
     if not (film.get("look") or "").strip() or len(film.get("look", "").strip()) < 20:
         out.append("look is missing: one line of art direction every picture shares (palette, light, material, camera)")
@@ -899,7 +903,7 @@ def problems(film, question: dict) -> list:
             + overlay_problems(film) + _aatma_problems(film))
     return (out + book_problems(film, question) + screen_problems(film, question) + layout_problems(film)
             + teacher_problems(film, question) + library_problems(film, question) + mechanism_problems(film, question)
-            + teaching_problems(film, question) + question_problems(film) + carry_problems(film) + place_problems(film))
+            + teaching_problems(film, question) + question_problems(film, question) + carry_problems(film) + place_problems(film))
 
 
 # --- Navin, 24 November 2026, on r3 of 11.6.3b (the hybrid look passed): questions said as questions and shown on the
@@ -913,10 +917,11 @@ def newer_rules(film: dict) -> bool:
 ASKING = re.compile(r"(?i)\b(sawaa?l\w*|savaa?l\w*|prashn\w*|prashan\w*|poochh\w*|puchh\w*|pooch\w*)\b|\bman mein\b")
 
 
-def question_problems(film: dict) -> list:
+def question_problems(film: dict, question: dict | None = None) -> list:
     """Every question after the film's opening one starts by saying that a question comes (Navin, 24 November 2026:
-    "prashan ab sawal uthta hai, ya ab aap puchhenge, ya ab aapke man mein sawal utha hoga, jaise vakyo se shuru ho")."""
-    if not newer_rules(film):
+    "prashan ab sawal uthta hai, ya ab aap puchhenge, ya ab aapke man mein sawal utha hoga, jaise vakyo se shuru ho").
+    Not in a film made from the chapter's script: it says the script's lines as written (Navin, 26 November 2026, B8)."""
+    if not newer_rules(film) or (question or {}).get("script_lines"):
         return []
     out, first = [], True
     for where, shot, sentence in _sentences(film):
@@ -1214,7 +1219,7 @@ def teaching_problems(film: dict, question: dict) -> list:
         for point, placed in on_aside.items():
             if not any(placed):
                 out.append(f"the script's analogy {point} is not on its own picture; say it on an aside shot")
-    if not (lines and not question.get("script_lines")):               # Navin's own lines are his call
+    if not lines:                                    # his own lines and the script's lines are said as written (B8)
         spoken = [s for _where, _shot, sentence in _sentences(film)
                   for s in SENTENCE_END.split(sentence.get("roman") or "") if s.strip()]
         habit = opener_habit(spoken)
@@ -1240,6 +1245,17 @@ def _asked_then(roman: str):
     for before, after in zip(pieces, pieces[1:]):
         if after.strip() and QUESTION_WORD.search(" ".join(before.split()[-6:])):
             yield before, after
+
+
+def added_words(line: str, said: str) -> list:
+    """The words of the film's sentence that its script line does not have, in the sentence's order (an opener put in
+    front, "Ab sawaal uthta hai ki ...", is three or four of them)."""
+    have, out = _tokens(line), []
+    for w in re.findall(r"[A-Za-z][A-Za-z0-9]*|[\u0900-\u097F]{3,}", _plain(said)):
+        low = w.lower()
+        if (len(low) >= 3 or low not in SHORT_STOP) and _stem(low) not in have and w not in out:
+            out.append(w)
+    return out
 
 
 def teacher_problems(film: dict, question: dict) -> list:
@@ -1285,6 +1301,11 @@ def teacher_problems(film: dict, question: dict) -> list:
                 start = " ".join((line.get("roman") or "").split()[:6])
                 out.append(f"{where} is not the teacher's line L{n} (\"{start} ...\"; {kept:.0%} of his words kept): keep "
                            "his words, fixing only spelling slips")
+            elif question.get("script_lines"):      # the script's line as written, nothing put in front (B8)
+                added = added_words(line.get("roman") or "", sentence.get("roman") or "")
+                if len(added) >= ADDED_WORDS:
+                    out.append(f"{where} adds words the script's line L{n} does not say ({' '.join(added[:6])}): say the "
+                               "line as written, with no opener, question opener or bridge in front of it")
     return out
 
 
@@ -1960,6 +1981,20 @@ def player_data(film: dict, *, images: dict, audio: dict, chapter: str, question
                       "parts": layers})
     return {"title": film.get("title") or question.get("question"), "question": question.get("question"),
             "qid": question.get("id"), "chapter": chapter, "tint": tint, "shots": shots, "kit": kit_for(shots)}
+
+
+def joined(parts: list, *, qid: str, question: str, title: str = "") -> dict:
+    """One heading's whole film from the player data of its parts, in order (Navin, 26 November 2026: "har heading ki ek
+    poori film"): the parts are written one by one (at most studio_script.FILM_LINES lines each, so every line is kept),
+    then played as one film, every shot id made unique with its part's id."""
+    shots = []
+    for data in parts:
+        for shot in data.get("shots") or []:
+            shots.append(dict(shot, id=f"{data.get('qid') or 'part'}-{shot.get('id')}"))
+    first = parts[0] if parts else {}
+    return {"title": title or question, "question": question, "qid": qid, "chapter": first.get("chapter", ""),
+            "tint": first.get("tint", "#2c6e87"), "shots": shots, "kit": kit_for(shots),
+            "parts": [data.get("qid") for data in parts]}
 
 
 def lightness(uri: str) -> float | None:

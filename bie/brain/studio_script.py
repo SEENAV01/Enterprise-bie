@@ -1577,8 +1577,10 @@ def film_questions(script: dict, chapter: dict, naksha: dict | None = None, want
     """The script cut into films, first slice (Navin, 22 November 2026: "phir video maker us script ke hisab se poore
     chapter ko video ke tukdon mein baantega"): one film per heading, its narration the heading's script lines in order
     (the films stage's teacher lines, with each point's kind and screen line as the note), its points the heading's items
-    (their blocks give the book lines). A film opens on a question: the plan's question for the heading (shape B, one
-    heading one film; else shape A's first) when the script's first line is not one. ``wanted``: film ids or headings."""
+    (their blocks give the book lines). The film says the script's lines as written and nothing else (Navin, 26 November
+    2026, B8: "koi chhut nahi"): no opening question is put in front of them; the film's question (its title, never
+    spoken) is the heading's goal when it asks, else the plan's question for the heading (shape B, one heading one film;
+    else shape A's first), else the script's first question. ``wanted``: film ids or headings."""
     items = chapter.get("items") or {}
     shape_a, shape_b = {}, {}
     for f in ((naksha or {}).get("A") or {}).get("films") or []:              # shape A: question-wise films in a heading
@@ -1607,17 +1609,15 @@ def film_questions(script: dict, chapter: dict, naksha: dict | None = None, want
             planned = sorted(shape_a.get(section) or [], key=lambda f: -len(set(f.get("teaches") or []) & set(taught)))
             plan = (shape_b.get(section) if len(pieces) == 1 else None) or (planned[0] if planned else None) or \
                 shape_b.get(section) or {}
-            question = (plan.get("question") or "").strip()
-            if not lines[0]["roman"].rstrip().endswith("?"):
-                opening = question if question.endswith("?") else next(
-                    (x["roman"] for x in lines if x["roman"].rstrip().endswith("?")), (part.get("title") or section) + "?")
-                lines.insert(0, {"roman": opening, "note": "the film's opening question", "kind": "question", "point": ""})
+            goal, planned_question = (part.get("goal") or "").strip(), (plan.get("question") or "").strip()
+            question = next((x for x in (goal if number == 0 else "", planned_question) if x.endswith("?")), "") or next(
+                (x["roman"] for x in lines if x["roman"].rstrip().endswith("?")), (part.get("title") or section))
             if number == len(pieces) - 1 and (part.get("bridge") or "").strip():
                 lines.append({"roman": part["bridge"].strip(), "note": "bridge to the next heading's film", "kind": "bridge",
                               "point": ""})
             points = [{"block_ids": list(items[i].get("block_ids") or []), "point": items[i].get("content", "")[:200],
                        "kind": items[i].get("content_type") or "facts_numbers", "item_id": i} for i in taught]
-            out.append({"id": fid, "pillar": section or "opening", "question": lines[0]["roman"],
+            out.append({"id": fid, "pillar": section or "opening", "question": question,
                         "hook": plan.get("opens_with", ""), "points": points,
                         "film": {"length": "long",
                                  "showing_moment": next((x.get("shows") for x in plan.get("saman") or []), "")},
