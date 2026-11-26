@@ -45,6 +45,12 @@ DEFAULT_TIMEOUT = 1800.0
 SUFFIX = {"image/png": ".png", "image/jpeg": ".jpg", "image/webp": ".webp"}
 ANSWER_RULES = ("Answer from this message and the attached images only. Do not run commands, read or write files, "
                 "or browse. Reply with one JSON object that matches the required schema, nothing else.")
+# A call without a schema asks for plain text (the script's step 1): its prompt must not end on the JSON line above.
+# The fresh-Claude test of 26 November 2026 found every step-1 prompt ending on it, under LEAN_INSTRUCTIONS_TEXT; job
+# s12's 11.6.3 then sent its lesson as JSON, and only PR #222 could read it.
+ANSWER_RULES_TEXT = ("Answer from this message and the attached images only. Do not run commands, read or write files, "
+                     "or browse. Reply with exactly what the task asks for, in the form it gives (plain text when it asks "
+                     "for text), nothing else.")
 LEAN_INSTRUCTIONS = ("You are the model engine behind BIE (Book Intelligence Engine), run by BIE through Codex with no "
                      "person watching. Each message holds BIE's instructions, one task, sometimes your earlier answer "
                      "with findings to fix, and the attached page images. Work only from that message and the images: "
@@ -107,8 +113,9 @@ def classify(text: str) -> str:
     return "provider_unavailable"
 
 
-def build_prompt(messages) -> tuple[str, list]:
-    """(prompt text, [image parts in order]) for one Codex run; tags keep instructions, task and remakes apart."""
+def build_prompt(messages, plain: bool = False) -> tuple[str, list]:
+    """(prompt text, [image parts in order]) for one Codex run; tags keep instructions, task and remakes apart. ``plain``:
+    the call has no output schema, so the closing rule asks for the task's own form (plain text), not JSON."""
     system, conversation = split_messages(messages, provider="codex")
     blocks, images = [], []
     if system:
@@ -128,7 +135,7 @@ def build_prompt(messages) -> tuple[str, list]:
             blocks.append("<bie-findings>\n" + text + "\n</bie-findings>")
     if images:
         blocks.append(f"<bie-images>{len(images)} image(s) are attached in the order the task mentions them.</bie-images>")
-    blocks.append(ANSWER_RULES)
+    blocks.append(ANSWER_RULES_TEXT if plain else ANSWER_RULES)
     return "\n\n".join(blocks), images
 
 
@@ -255,7 +262,7 @@ class CodexExecClient:
         return self.chat(model=model, messages=messages, schema=schema)
 
     def chat(self, *, model, messages, schema=None):
-        prompt, images = build_prompt(messages)
+        prompt, images = build_prompt(messages, plain=schema is None)
         strict = schema is not None and strict_ready(schema)
         if schema is not None and not strict:
             # The schema is free-form, so it cannot go to the provider (strict mode would 400 the whole request);
