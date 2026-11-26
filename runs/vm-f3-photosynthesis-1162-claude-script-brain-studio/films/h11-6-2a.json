@@ -1,0 +1,2906 @@
+{
+ "film": {
+  "title": "ATP aur photo-phosphorylation ki buniyad",
+  "look": "Biological safar mein cytoplasm ivory, cell boundary sage-green, chloroplast olive-green, mitochondria rust-brown, thylakoid membrane deep-teal, lumen muted gold, PS II ochre, carriers copper aur PS I forest-green; molecular structures mein standard element colours aur phosphate amber.",
+  "shots": [
+   {
+    "id": "s1",
+    "title": "Electron ka ruka raasta",
+    "key": "PS I ke aage raasta band ho toh?",
+    "covers": [],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 scientific cross-section of a closed thylakoid sac, deep-teal membrane across centre, ivory stroma above and muted-gold enclosed lumen below. Ochre PS II left at 20,52, copper electron carriers at 40,52, forest-green PS I right at 68,52. Authentic membrane protein structures with membrane depth. Clear space for water splitting below PS II and electron travel above the membrane toward the upper right. No lettering or free molecules.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Thylakoid membrane",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Pichhli film mein humne dekha ki PS II ka khoya hua electron paani se aata hai.",
+      "voice": "पिछली फ़िल्म में हमने देखा कि पी एस टू का खोया हुआ इलेक्ट्रॉन पानी से आता है।",
+      "pins": [
+       {
+        "label": "PS II",
+        "x": 12,
+        "y": 43
+       },
+       {
+        "label": "paani",
+        "x": 12,
+        "y": 76
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 18.0,
+       "y": 57.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "electron",
+        "points": [
+         [
+          20,
+          72
+         ],
+         [
+          20,
+          52
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Paani se PS II ko electron milne ka recall.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Do paani ke molecule tootte hain, aur chaar electron, chaar H⁺ aur ek O₂ milte hain.",
+      "voice": "दो पानी के मॉलिक्यूल टूटते हैं, और चार इलेक्ट्रॉन, चार एच प्लस और एक ओ टू मिलते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 16.5,
+        "x1": 23.5,
+        "y0": 67.5,
+        "y1": 76.5
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 20.0,
+       "y": 72.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "H2O",
+        "colour": "blue",
+        "label": "paani",
+        "points": [
+         [
+          8.0,
+          85.0
+         ],
+         [
+          20.0,
+          72.0
+         ]
+        ],
+        "count": 2,
+        "ms": 1700,
+        "loop": false
+       },
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "electron",
+        "points": [
+         [
+          20.0,
+          72.0
+         ],
+         [
+          20.0,
+          48.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2500,
+        "loop": false
+       },
+       {
+        "what": "H+",
+        "colour": "red",
+        "label": "H⁺",
+        "points": [
+         [
+          20.0,
+          72.0
+         ],
+         [
+          37.0,
+          76.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2500,
+        "loop": false
+       },
+       {
+        "what": "O2",
+        "colour": "white",
+        "label": "O₂",
+        "points": [
+         [
+          20.0,
+          72.0
+         ],
+         [
+          7.0,
+          79.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 57,
+       "y": 85,
+       "groups": [
+        {
+         "n": 2,
+         "label": "paani",
+         "colour": "blue"
+        },
+        {
+         "n": 4,
+         "label": "electron",
+         "colour": "gold"
+        },
+        {
+         "n": 4,
+         "label": "H⁺",
+         "colour": "red"
+        },
+        {
+         "n": 1,
+         "label": "O₂",
+         "colour": "white"
+        }
+       ],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Water splitting ki exact ginti ka recall.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Usse pehle Z scheme mein electron ka poora safar dekha tha: paani se PS II, phir carriers ki kadi, phir PS I, aur aakhir mein NADP⁺.",
+      "voice": "उससे पहले ज़ेड स्कीम में इलेक्ट्रॉन का पूरा सफ़र देखा था: पानी से पी एस टू, फिर कैरियर्स की कड़ी, फिर पी एस वन, और आख़िर में एन ए डी पी प्लस।",
+      "pins": [
+       {
+        "label": "carriers ki kadi",
+        "x": 40.0,
+        "y": 53.0
+       },
+       {
+        "label": "PS I",
+        "x": 68,
+        "y": 59
+       },
+       {
+        "label": "NADP⁺",
+        "x": 89,
+        "y": 14
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 46,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          20.0,
+          72.0
+         ],
+         [
+          20.0,
+          40.0
+         ],
+         [
+          40.0,
+          48.0
+         ],
+         [
+          70.0,
+          48.0
+         ],
+         [
+          72.0,
+          24.0
+         ],
+         [
+          89.0,
+          24.0
+         ]
+        ],
+        "count": 1,
+        "ms": 7500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Electron ke poore route ka recall; membrane ke paar proton transport nahi.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Ab socho: agar PS I ke aage NADP⁺ tak jaane ka raasta hi band ho, toh roshni se uchhla electron kahan jaayega?",
+      "voice": "अब सोचो: अगर पी एस वन के आगे एन ए डी पी प्लस तक जाने का रास्ता ही बंद हो, तो रोशनी से उछला इलेक्ट्रॉन कहाँ जाएगा?",
+      "pins": [
+       {
+        "label": "raasta band",
+        "x": 82,
+        "y": 37
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 79,
+        "x1": 84,
+        "y0": 19,
+        "y1": 29
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 72.0,
+       "y": 45.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "roshni",
+        "points": [
+         [
+          58.0,
+          11.0
+         ],
+         [
+          70.0,
+          49.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1600,
+        "loop": false
+       },
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "electron",
+        "points": [
+         [
+          70.0,
+          49.0
+         ],
+         [
+          72.0,
+          24.0
+         ],
+         [
+          78.0,
+          24.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "NADP⁺ route band hone ka puzzle.",
+      "part": "hook"
+     },
+     {
+      "roman": "Aur kya tab bhi kuch banega?",
+      "voice": "और क्या तब भी कुछ बनेगा?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 72.0,
+       "y": 45.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Product banne ka sawaal khula rakhta hai.",
+      "part": "hook"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "title": "Energy ki zaroorat",
+    "key": "Jeev ko har kaam ke liye energy chahiye.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "photo",
+     "image_prompt": "16:9 real person walking beside garden plants, body centre-left, chest and both legs visible. A real leaf in foreground right at 78,52. Clear upper right and lower foreground for molecular overlays. Ordinary clothing and anatomically accurate proportions.",
+     "svg": "",
+     "library": "",
+     "parts": [
+      {
+       "id": "leg",
+       "name": "chalne",
+       "looks": "Fully visible forward trouser-clad leg centre-left with space around it."
+      }
+     ]
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Jeev ka kaam",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Is sawaal ka jawab isi film mein milega.",
+      "voice": "इस सवाल का जवाब इसी फ़िल्म में मिलेगा।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "ATP ki buniyad ki taraf transition.",
+      "part": "hook"
+     },
+     {
+      "roman": "Par usse pehle ek zaroori cheez pakki kar lo: ATP.",
+      "voice": "पर उससे पहले एक ज़रूरी चीज़ पक्की कर लो: ए टी पी।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 55,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "ATP",
+        "points": [
+         [
+          86.0,
+          15.0
+         ],
+         [
+          74.0,
+          27.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "ATP ko prerequisite banata hai.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Har jeev ko kaam ke liye energy chahiye: saans lene ke liye, chalne ke liye, ek naya molecule banane ke liye.",
+      "voice": "हर जीव को काम के लिए एनर्जी चाहिए: साँस लेने के लिए, चलने के लिए, एक नया मॉलिक्यूल बनाने के लिए।",
+      "pins": [
+       {
+        "label": "saans",
+        "x": 29.0,
+        "y": 27.0
+       },
+       {
+        "label": "naya molecule",
+        "x": 56.0,
+        "y": 83.0
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "rise",
+        "x0": 35,
+        "x1": 43,
+        "y0": 27,
+        "y1": 38
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 49,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          66.4,
+          77.0
+         ],
+         [
+          54.0,
+          83.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [
+       {
+        "x": 63.5,
+        "y": 80.7,
+        "label": "naya molecule"
+       }
+      ],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "leg",
+        "do": "turn",
+        "toward": [],
+        "turns": -12,
+        "rider": ""
+       }
+      ],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Saans, movement aur biosynthesis energy ke uses hain.",
+      "part": "use"
+     },
+     {
+      "roman": "Yeh energy jeev kuch cheezon se nikaalte hain, jaise khaane ka glucose.",
+      "voice": "यह एनर्जी जीव कुछ चीज़ों से निकालते हैं, जैसे खाने का ग्लूकोज़।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 62,
+       "y": 55,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "glucose",
+        "colour": "green",
+        "label": "glucose",
+        "points": [
+         [
+          85,
+          57
+         ],
+         [
+          61,
+          57
+         ]
+        ],
+        "count": 1,
+        "ms": 2500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "Glucose ka familiar example.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "title": "Oxidation aur reduction",
+    "key": "Oxidisable substances electron de sakte hain.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 inside the foreground leaf's mesophyll cell, sage-green boundary, ivory cytoplasm, olive-green chloroplast right at 77,48 and rust-brown mitochondrion left at 24,65. Authentic organelle morphology. Open central cytoplasm for sequential molecule and electron overlays, with no free molecules drawn.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": 78,
+     "y": 52
+    },
+    "place": "Leaf cell",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Yaad karo, oxidation ka matlab hai electron dena, aur reduction ka matlab hai electron lena.",
+      "voice": "याद करो, ऑक्सिडेशन का मतलब है इलेक्ट्रॉन देना, और रिडक्शन का मतलब है इलेक्ट्रॉन लेना।",
+      "pins": [
+       {
+        "label": "oxidation",
+        "x": 36,
+        "y": 36
+       },
+       {
+        "label": "reduction",
+        "x": 62,
+        "y": 36
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 49,
+       "y": 46,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "green",
+        "label": "",
+        "points": [
+         [
+          31,
+          53
+         ],
+         [
+          36,
+          50
+         ]
+        ],
+        "count": 1,
+        "ms": 1000,
+        "loop": false
+       },
+       {
+        "what": "molecule",
+        "colour": "purple",
+        "label": "",
+        "points": [
+         [
+          68,
+          53
+         ],
+         [
+          62,
+          50
+         ]
+        ],
+        "count": 1,
+        "ms": 1000,
+        "loop": false
+       },
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "electron",
+        "points": [
+         [
+          36,
+          50
+         ],
+         [
+          62,
+          50
+         ]
+        ],
+        "count": 1,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Electron transfer ki prerequisite.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Jo cheezein oxidation mein electron de sakti hain, unhe oxidisable substances kehte hain.",
+      "voice": "जो चीज़ें ऑक्सिडेशन में इलेक्ट्रॉन दे सकती हैं, उन्हें ऑक्सिडाइज़ेबल सब्स्टैंसेज़ कहते हैं।",
+      "pins": [
+       {
+        "label": "oxidisable substances",
+        "x": 35,
+        "y": 62
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 38,
+       "y": 50,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "gold",
+        "label": "electron",
+        "points": [
+         [
+          36,
+          50
+         ],
+         [
+          62,
+          50
+         ]
+        ],
+        "count": 1,
+        "ms": 2300,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "Oxidisable ka electron dene se sambandh.",
+      "part": "concept"
+     },
+     {
+      "roman": "Glucose aisi hi ek cheez hai.",
+      "voice": "ग्लूकोज़ ऐसी ही एक चीज़ है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 39,
+       "y": 51,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "glucose",
+        "colour": "green",
+        "label": "glucose",
+        "points": [
+         [
+          17,
+          44
+         ],
+         [
+          36,
+          50
+         ]
+        ],
+        "count": 1,
+        "ms": 2100,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "Glucose oxidisable substance ka example.",
+      "part": "concept"
+     },
+     {
+      "roman": "Glucose se energy kaise nikalti hai, yeh aap aage respiration wale chapter mein padhoge.",
+      "voice": "ग्लूकोज़ से एनर्जी कैसे निकलती है, यह आप आगे रेस्पिरेशन वाले चैप्टर में पढ़ोगे।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 18.0,
+       "y": 64.0,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Respiration chapter se connection.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Abhi bas itna jaan lo ki aisi cheezon se energy nikalti hai.",
+      "voice": "अभी बस इतना जान लो कि ऐसी चीज़ों से एनर्जी निकलती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 46,
+       "y": 51,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "spark",
+        "colour": "gold",
+        "label": "energy",
+        "points": [
+         [
+          36,
+          50
+         ],
+         [
+          50,
+          57
+         ]
+        ],
+        "count": 1,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "title": "Energy ka molecular safar",
+    "key": "Molecules energy ko carry karte hain.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer view inside central cytoplasm of the same leaf cell, ivory surroundings with authentic macromolecular surfaces at margins. Clear central field for a single energy-bearing molecular overlay moving between locations. No free molecules or symbols drawn.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": 50,
+     "y": 57
+    },
+    "place": "Cytoplasm",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Nikli hui energy jeev turant kharch nahi karte.",
+      "voice": "निकली हुई एनर्जी जीव तुरंत ख़र्च नहीं करते।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 44,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "spark",
+        "colour": "gold",
+        "label": "energy",
+        "points": [
+         [
+          22,
+          50
+         ],
+         [
+          43,
+          50
+         ]
+        ],
+        "count": 1,
+        "ms": 2300,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Storage ki zaroorat ka introduction.",
+      "part": "concept"
+     },
+     {
+      "roman": "Use molecules ke andar band karke rakh lete hain.",
+      "voice": "उसे मॉलिक्यूल्स के अंदर बंद करके रख लेते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 45,
+        "x1": 53,
+        "y0": 46,
+        "y1": 54
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 47,
+       "y": 50,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "green",
+        "label": "molecules",
+        "points": [
+         [
+          65,
+          52
+         ],
+         [
+          49,
+          50
+         ]
+        ],
+        "count": 1,
+        "ms": 1600,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Band karke isliye rakhte hain kyunki energy ki zaroorat har jagah aur har pal hoti hai, aur band energy ko jahan chaaho wahan le ja sakte ho.",
+      "voice": "बंद करके इसलिए रखते हैं क्योंकि एनर्जी की ज़रूरत हर जगह और हर पल होती है, और बंद एनर्जी को जहाँ चाहो वहाँ ले जा सकते हो।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 56,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "gold",
+        "label": "band energy",
+        "points": [
+         [
+          49,
+          50
+         ],
+         [
+          61,
+          39
+         ],
+         [
+          75,
+          53
+         ]
+        ],
+        "count": 1,
+        "ms": 4500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Energy storage ko transport aur demand se jodta hai.",
+      "part": "use"
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "title": "Gulel ki rubber",
+    "key": "Khinchi rubber stored energy ka everyday picture hai.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "photo",
+     "image_prompt": "16:9 real wooden slingshot securely held outdoors, fork left at 30,45, tan rubber bands extending to leather pouch right at 68,48. Hand holds pouch pulled back. No projectile. Entire rubber assembly visible with room toward fork for release. Uncluttered garden background.",
+     "svg": "",
+     "library": "",
+     "parts": [
+      {
+       "id": "rubber",
+       "name": "rubber",
+       "looks": "Fully visible tan rubber-band assembly between wooden fork left and leather pouch right."
+      }
+     ]
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Gulel",
+    "aside": true,
+    "sentences": [
+     {
+      "roman": "Socho ek gulel, jiski rubber ko kheench kar pakad liya.",
+      "voice": "सोचो एक गुलेल, जिसकी रबर को खींच कर पकड़ लिया।",
+      "pins": [
+       {
+        "label": "gulel",
+        "x": 29,
+        "y": 35
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 49,
+       "y": 48,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "rubber",
+        "do": "tight",
+        "toward": [
+         68,
+         48
+        ],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Rubber ki stored energy ka analogy.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Energy us khinchi hui rubber mein band hai; chhodoge toh kaam karegi.",
+      "voice": "एनर्जी उस खिंची हुई रबर में बंद है; छोड़ोगे तो काम करेगी।",
+      "pins": [
+       {
+        "label": "rubber = band energy",
+        "x": 52,
+        "y": 32
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 49,
+       "y": 48,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "spark",
+        "colour": "gold",
+        "label": "energy",
+        "points": [
+         [
+          62,
+          48
+         ],
+         [
+          40,
+          48
+         ]
+        ],
+        "count": 1,
+        "ms": 1300,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "rubber",
+        "do": "loose",
+        "toward": [],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Rubber chhodne par stored energy kaam karti hai.",
+      "part": "use"
+     }
+    ]
+   },
+   {
+    "id": "s6",
+    "title": "Chemical bonds aur ATP",
+    "key": "ATP chemical bonds mein energy carry karta hai.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 molecular-scale return to ivory cytoplasm. One chemically accurate compact ATP ball-and-stick group centre at 52,49, standard element colours, adenosine left and three amber-accented phosphate groups right. A covalent bond segment between two atoms at 58,49 is separately visible and opaque, with room for a small joining motion. Molecule fully visible, clear space to right for travel. Authentic macromolecular surroundings at margins.",
+     "svg": "",
+     "library": "",
+     "parts": [
+      {
+       "id": "bond",
+       "name": "chemical bonds",
+       "looks": "Visible covalent bond segment at 58,49 between two atoms within central molecule."
+      }
+     ]
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Molecular duniya",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Molecule mein atom aapas mein bandhanon se jude hote hain, jinhe chemical bonds kehte hain.",
+      "voice": "मॉलिक्यूल में ऐटम आपस में बंधनों से जुड़े होते हैं, जिन्हें केमिकल बॉन्ड्स कहते हैं।",
+      "pins": [
+       {
+        "label": "atom",
+        "x": 49.3,
+        "y": 51.7
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 53,
+       "y": 49,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "bond",
+        "do": "stick",
+        "toward": [
+         55.6,
+         52.2
+        ],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Atomon ki connectivity se chemical bond pehchanta hai.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "In bonds mein bhi aise hi energy band rehti hai; ise bond energy kehte hain.",
+      "voice": "इन बॉन्ड्स में भी ऐसे ही एनर्जी बंद रहती है; इसे बॉन्ड एनर्जी कहते हैं।",
+      "pins": [
+       {
+        "label": "bond energy",
+        "x": 55.6,
+        "y": 52.2
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 48.599999999999994,
+        "x1": 62.599999999999994,
+        "y0": 45.2,
+        "y1": 59.2
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 55.6,
+       "y": 52.2,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "ATP ek aisa hi khaas molecule hai.",
+      "voice": "ए टी पी एक ऐसा ही ख़ास मॉलिक्यूल है।",
+      "pins": [
+       {
+        "label": "ATP",
+        "x": 39.3,
+        "y": 54.2
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 35,
+        "x1": 72,
+        "y0": 39,
+        "y1": 58
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 52,
+       "y": 49,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       2
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Yeh apne chemical bonds mein energy lekar chalta hai, aur cell ke har kaam tak pahunchata hai.",
+      "voice": "यह अपने केमिकल बॉन्ड्स में एनर्जी लेकर चलता है, और सेल के हर काम तक पहुँचाता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 59,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "energy",
+        "points": [
+         [
+          52,
+          49
+         ],
+         [
+          64,
+          41
+         ],
+         [
+          78,
+          50
+         ]
+        ],
+        "count": 1,
+        "ms": 3400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       2
+      ],
+      "beyond": "Cellular work tak energy delivery.",
+      "part": "use"
+     }
+    ]
+   },
+   {
+    "id": "s7",
+    "title": "Teen aur do phosphate",
+    "key": "ATP mein teen aur ADP mein do phosphate hain.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer molecular view into phosphate-bearing region of the same cytoplasmic molecular setting. Clear central field for sequential accurate ATP and ADP molecular overlays, adenosine left and phosphate chain right. Distant macromolecular surfaces at margins. No pre-drawn free molecules or lettering.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": 57.7,
+     "y": 52.0
+    },
+    "place": "ATP ki rachna",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "ATP ka poora naam hai adenosine triphosphate.",
+      "voice": "ए टी पी का पूरा नाम है एडेनोसिन ट्राइफ़ॉस्फ़ेट।",
+      "pins": [
+       {
+        "label": "adenosine triphosphate",
+        "x": 49,
+        "y": 30
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "ATP",
+        "points": [
+         [
+          23,
+          50
+         ],
+         [
+          50,
+          50
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "ATP ka full form.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Tri yaani teen, toh isme teen phosphate jude hain.",
+      "voice": "ट्राइ यानी तीन, तो इसमें तीन फ़ॉस्फ़ेट जुड़े हैं।",
+      "pins": [
+       {
+        "label": "teen phosphate",
+        "x": 66,
+        "y": 63
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 53,
+        "x1": 74,
+        "y0": 43,
+        "y1": 55
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 58,
+       "y": 50,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 82,
+       "groups": [
+        {
+         "n": 3,
+         "label": "phosphate",
+         "colour": "gold"
+        }
+       ],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Tri prefix aur phosphate count.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "ADP yaani adenosine diphosphate.",
+      "voice": "ए डी पी यानी एडेनोसिन डाइफ़ॉस्फ़ेट।",
+      "pins": [
+       {
+        "label": "adenosine diphosphate",
+        "x": 49,
+        "y": 68
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ADP",
+        "colour": "blue",
+        "label": "ADP",
+        "points": [
+         [
+          22,
+          50
+         ],
+         [
+          50,
+          50
+         ]
+        ],
+        "count": 1,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "ADP ka full form.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Di yaani do, toh isme do hi phosphate hain.",
+      "voice": "डाइ यानी दो, तो इसमें दो ही फ़ॉस्फ़ेट हैं।",
+      "pins": [
+       {
+        "label": "do phosphate",
+        "x": 66,
+        "y": 38
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 53,
+        "x1": 67,
+        "y0": 43,
+        "y1": 55
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 57,
+       "y": 50,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 82,
+       "groups": [
+        {
+         "n": 2,
+         "label": "phosphate",
+         "colour": "gold"
+        }
+       ],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Di prefix aur phosphate count.",
+      "part": "prerequisite"
+     }
+    ]
+   },
+   {
+    "id": "s8",
+    "title": "Battery analogy",
+    "key": "Phosphate jodne mein energy lagti hai.",
+    "covers": [
+     1
+    ],
+    "visual": {
+     "type": "photo",
+     "image_prompt": "16:9 real rechargeable batteries on wooden workbench beside a real charger. Charged battery left 30,48, discharged battery right 67,48, authentic connectors visible. Clear foreground for ADP and phosphate overlays and short mapping labels.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Battery",
+    "aside": true,
+    "sentences": [
+     {
+      "roman": "ATP ko ek bhari hui battery samjho, aur ADP ko ek khaali hoti battery.",
+      "voice": "ए टी पी को एक भरी हुई बैटरी समझो, और ए डी पी को एक खाली होती बैटरी।",
+      "pins": [
+       {
+        "label": "ATP = bhari battery",
+        "x": 30,
+        "y": 34
+       },
+       {
+        "label": "ADP = khaali battery",
+        "x": 67,
+        "y": 34
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "ATP aur ADP ko battery charge se map karta hai.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Khaali battery ko phir se bharna hai, toh ADP mein ek phosphate aur jodna padta hai.",
+      "voice": "खाली बैटरी को फिर से भरना है, तो ए डी पी में एक फ़ॉस्फ़ेट और जोड़ना पड़ता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 50.0,
+        "x1": 58.0,
+        "y0": 65.6,
+        "y1": 75.6
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 49.0,
+       "y": 73.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "ADP",
+        "colour": "blue",
+        "label": "ADP",
+        "points": [
+         [
+          35.0,
+          75.0
+         ],
+         [
+          48.0,
+          75.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1600,
+        "loop": false
+       },
+       {
+        "what": "Pi",
+        "colour": "gold",
+        "label": "phosphate",
+        "points": [
+         [
+          79.2,
+          72.5
+         ],
+         [
+          61.0,
+          71.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 1,
+      "count": {
+       "x": 50,
+       "y": 87,
+       "groups": [
+        {
+         "n": 2,
+         "label": "ADP phosphate",
+         "colour": "gold"
+        },
+        {
+         "n": 1,
+         "label": "phosphate",
+         "colour": "blue"
+        }
+       ],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "ADP mein ek aur phosphate jodne ka mapping.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Aur is jodne mein energy lagti hai.",
+      "voice": "और इस जोड़ने में एनर्जी लगती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 54.0,
+       "y": 70.6,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "spark",
+        "colour": "gold",
+        "label": "energy",
+        "points": [
+         [
+          50.5,
+          19.5
+         ],
+         [
+          54.0,
+          70.6
+         ]
+        ],
+        "count": 1,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 2,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Phosphate addition ke liye energy input.",
+      "part": "prerequisite"
+     }
+    ]
+   },
+   {
+    "id": "s9",
+    "title": "Phosphorylation aur uski jagah",
+    "key": "Cells mitochondria aur chloroplast mein ATP banate hain.",
+    "covers": [
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 return to the same leaf cell, sage-green boundary and ivory cytoplasm. Rust-brown mitochondrion left at 24,56 with double membrane and cristae; olive-green chloroplast right at 76,49 containing deep-teal stacked thylakoid discs with closed muted-gold lumens and ivory stroma. Clear foreground cytoplasm for sequential molecular overlays representing phosphate addition. No molecular machinery visible at whole-organelle scale. Leave lower foreground open for the molecular event and upper centre for short labels.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Cell",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Jo phosphate akela hai, kisi molecule se juda nahi, use inorganic phosphate kehte hain.",
+      "voice": "जो फ़ॉस्फ़ेट अकेला है, किसी मॉलिक्यूल से जुड़ा नहीं, उसे इनऑर्गैनिक फ़ॉस्फ़ेट कहते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 61,
+       "y": 73,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "Pi",
+        "colour": "blue",
+        "label": "inorganic phosphate",
+        "points": [
+         [
+          84,
+          76
+         ],
+         [
+          61,
+          76
+         ]
+        ],
+        "count": 1,
+        "ms": 2400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 1,
+      "count": {
+       "x": 50,
+       "y": 90,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       4
+      ],
+      "beyond": "Free inorganic phosphate ki pehchaan.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Chhote mein ise Pᵢ likhte hain; i yaani inorganic.",
+      "voice": "छोटे में इसे पी आई लिखते हैं; आई यानी इनऑर्गैनिक।",
+      "pins": [
+       {
+        "label": "Pᵢ",
+        "x": 61,
+        "y": 64
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 56,
+        "x1": 66,
+        "y0": 71,
+        "y1": 81
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 61,
+       "y": 73,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 2,
+      "count": {
+       "x": 50,
+       "y": 90,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Pᵢ notation mein i ka matlab.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "ADP mein phosphate jodkar ATP banane ko phosphorylation kehte hain.",
+      "voice": "ए डी पी में फ़ॉस्फ़ेट जोड़कर ए टी पी बनाने को फ़ॉस्फ़ोराइलेशन कहते हैं।",
+      "pins": [
+       {
+        "label": "phosphorylation",
+        "x": 50,
+        "y": 22
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 45,
+        "x1": 55,
+        "y0": 71,
+        "y1": 81
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 66,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ADP",
+        "colour": "blue",
+        "label": "ADP",
+        "points": [
+         [
+          25,
+          76
+         ],
+         [
+          43,
+          76
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       },
+       {
+        "what": "Pi",
+        "colour": "gold",
+        "label": "phosphate",
+        "points": [
+         [
+          61,
+          76
+         ],
+         [
+          53,
+          76
+         ]
+        ],
+        "count": 1,
+        "ms": 2300,
+        "loop": false
+       },
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "ATP",
+        "points": [
+         [
+          49,
+          76
+         ],
+         [
+          77,
+          76
+         ]
+        ],
+        "count": 1,
+        "ms": 3500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 3,
+      "count": {
+       "x": 50,
+       "y": 90,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       3
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Phosphate jodna, isliye naam phosphorylation.",
+      "voice": "फ़ॉस्फ़ेट जोड़ना, इसलिए नाम फ़ॉस्फ़ोराइलेशन।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 71,
+        "x1": 82,
+        "y0": 71,
+        "y1": 81
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 72,
+       "y": 73,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 90,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       3
+      ],
+      "beyond": "Naam ko phosphate addition se jodta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Cell yeh kaam do jagah karta hai: mitochondria mein aur chloroplast mein.",
+      "voice": "सेल यह काम दो जगह करता है: माइटोकॉन्ड्रिया में और क्लोरोप्लास्ट में।",
+      "pins": [
+       {
+        "label": "Cell",
+        "x": 49,
+        "y": 12
+       },
+       {
+        "label": "mitochondria",
+        "x": 24,
+        "y": 44
+       },
+       {
+        "label": "chloroplast",
+        "x": 76,
+        "y": 32
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          24,
+          56
+         ],
+         [
+          39,
+          66
+         ]
+        ],
+        "count": 1,
+        "ms": 2300,
+        "loop": false
+       },
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          76,
+          49
+         ],
+         [
+          62,
+          66
+         ]
+        ],
+        "count": 1,
+        "ms": 2300,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 4,
+      "count": {
+       "x": 50,
+       "y": 89,
+       "groups": [
+        {
+         "n": 2,
+         "label": "jagah",
+         "colour": "green"
+        }
+       ],
+       "then": []
+      },
+      "teaches": [
+       3
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Mitochondria wala tareeka bhi aap respiration wale chapter mein padhoge.",
+      "voice": "माइटोकॉन्ड्रिया वाला तरीका भी आप रेस्पिरेशन वाले चैप्टर में पढ़ोगे।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 25,
+       "y": 54,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 89,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Respiration chapter se connection.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Hamari kahani chloroplast ki hai.",
+      "voice": "हमारी कहानी क्लोरोप्लास्ट की है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 61,
+        "x1": 90,
+        "y0": 34,
+        "y1": 66
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 76,
+       "y": 49,
+       "scale": 1.3
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 89,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Chloroplast par focus wapas laata hai.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s10",
+    "title": "Roshni se charging",
+    "key": "Roshni ki madad se ADP aur Pᵢ se ATP banta hai.",
+    "covers": [
+     1
+    ],
+    "visual": {
+     "type": "photo",
+     "image_prompt": "16:9 real portable solar charger outdoors, panel left at 28,48 connected by visible cable to real phone right at 73,57. Sun upper left. Phone shows charging battery symbol. Clear lower foreground for sequential ADP, inorganic phosphate and ATP overlays mapping light-powered charging. Clear space above panel and phone for short mapping labels.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Solar charger",
+    "aside": true,
+    "sentences": [
+     {
+      "roman": "Chloroplast mein yeh charging roshni se hoti hai, bilkul waise jaise solar charger dhoop se phone charge karta hai.",
+      "voice": "क्लोरोप्लास्ट में यह चार्जिंग रोशनी से होती है, बिल्कुल वैसे जैसे सोलर चार्जर धूप से फ़ोन चार्ज करता है।",
+      "pins": [
+       {
+        "label": "chloroplast = solar charger",
+        "x": 28,
+        "y": 30
+       },
+       {
+        "label": "phone",
+        "x": 75.0,
+        "y": 50.0
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 69.80000000000001,
+        "x1": 81.80000000000001,
+        "y0": 39.7,
+        "y1": 56.7
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 49,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "roshni",
+        "points": [
+         [
+          11.5,
+          7.0
+         ],
+         [
+          28.0,
+          48.0
+         ]
+        ],
+        "count": 3,
+        "ms": 1900,
+        "loop": false
+       },
+       {
+        "what": "spark",
+        "colour": "gold",
+        "label": "charging",
+        "points": [
+         [
+          43.0,
+          49.0
+         ],
+         [
+          53.0,
+          62.0
+         ],
+         [
+          65.0,
+          63.0
+         ],
+         [
+          73.0,
+          58.0
+         ]
+        ],
+        "count": 2,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 1,
+      "count": {
+       "x": 50,
+       "y": 89,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       4
+      ],
+      "beyond": "Solar charger se light-powered charging ka analogy.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Roshni ki madad se ADP aur inorganic phosphate se ATP banane ko photo-phosphorylation kehte hain, kyunki photo ka matlab hi roshni hai.",
+      "voice": "रोशनी की मदद से ए डी पी और इनऑर्गैनिक फ़ॉस्फ़ेट से ए टी पी बनाने को फ़ोटो-फ़ॉस्फ़ोराइलेशन कहते हैं, क्योंकि फ़ोटो का मतलब ही रोशनी है।",
+      "pins": [
+       {
+        "label": "photo-phosphorylation",
+        "x": 85.4,
+        "y": 80.2
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 45.5,
+        "x1": 53.5,
+        "y0": 77.5,
+        "y1": 85.5
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 51.0,
+       "y": 79.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "roshni",
+        "points": [
+         [
+          11.5,
+          7.0
+         ],
+         [
+          28.0,
+          48.0
+         ]
+        ],
+        "count": 2,
+        "ms": 1800,
+        "loop": false
+       },
+       {
+        "what": "ADP",
+        "colour": "blue",
+        "label": "ADP",
+        "points": [
+         [
+          22.0,
+          80.0
+         ],
+         [
+          40.0,
+          80.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       },
+       {
+        "what": "Pi",
+        "colour": "gold",
+        "label": "inorganic phosphate",
+        "points": [
+         [
+          49.5,
+          81.5
+         ],
+         [
+          59.0,
+          80.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2400,
+        "loop": false
+       },
+       {
+        "what": "ATP",
+        "colour": "gold",
+        "label": "ATP",
+        "points": [
+         [
+          59.0,
+          80.0
+         ],
+         [
+          82.0,
+          78.0
+         ]
+        ],
+        "count": 1,
+        "ms": 4000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 2,
+      "count": {
+       "x": 50,
+       "y": 94,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       4
+      ],
+      "beyond": "Photo prefix ko roshni se jodta hai.",
+      "part": "recap"
+     }
+    ]
+   }
+  ]
+ },
+ "problems": [
+  "s5: image not made (codex:malformed: codex exec finished but no generated image was found (event types: thread.started, turn.started, item.c)",
+  "s5: parts not found in the picture: rubber",
+  "s6: part bond not cut cleanly (the cut is a speck (0.03% of the picture))"
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "s1 sentence 1: labels 'PS II' and 'electron' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s1 sentence 3: labels 'NADP⁺' and 'Z scheme' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s1 sentence 4: labels 'raasta band' and 'electron' are 3% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s2 sentence 3: labels 'naya molecule' and 'molecule' are 1% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s4 sentence 2: labels 'molecules' and 'energy' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s4 sentence 2: move label 'energy' is not spoken in this sentence (dikhaya = bola)",
+    "s11: 1 sentences; write 2 to 6",
+    "s11 sentence 1: labels 'solar charger' and 'roshni' are 4% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s11 sentence 1: labels 'phone' and 'charging' are 4% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s12: 1 sentences; write 2 to 6",
+    "2 shots cut instead of diving; the film is one world: every shot after the first dives into a point of the picture before it (at most one cut)",
+    "s6 sentence 1: the line says a part 'jude' but nothing moves; show it on the part (acts)",
+    "s6 sentence 4: part 'ATP' leaves here but the line does not name it (dikhaya = bola)",
+    "s8: the photo asks for a 'model'; a photo shows the real thing where it is, at its real size (a real dam and its turbine, not a model of them)",
+    "s1: the image_prompt asks for a 'inset'; a picture shows one place, with no small picture of another place in it (BIE shows the path of places in a corner)",
+    "s5: the image_prompt asks for a 'inset'; a picture shows one place, with no small picture of another place in it (BIE shows the path of places in a corner)",
+    "s11: the image_prompt asks for a 'inset'; a picture shows one place, with no small picture of another place in it (BIE shows the path of places in a corner)",
+    "s1 sentence 2: H2O takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s1 sentence 2: H2O takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s8 sentence 2: Pi takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s8 sentence 2: ATP takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s9 sentence 3: Pi takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s12 sentence 1: Pi takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s5: the aside maps the analogy in a pin (\"baandh = membrane\")",
+    "s8: the aside maps the analogy in a pin (\"baandh = membrane\")",
+    "s11: the aside maps the analogy in a pin (\"baandh = membrane\")",
+    "s1 sentence 3: a pump moves what travels here; list the pump as a part of this picture and show it carrying the thing across (carry: rider = what it moves, toward = where it lets go on the far side), instead of a move through it"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "images": {
+  "s1": "h11-6-2a-s1.png",
+  "s2": "h11-6-2a-s2.png",
+  "s3": "h11-6-2a-s3.png",
+  "s4": "h11-6-2a-s4.png",
+  "s6": "h11-6-2a-s6.png",
+  "s7": "h11-6-2a-s7.png",
+  "s8": "h11-6-2a-s8.png",
+  "s9": "h11-6-2a-s9.png",
+  "s10": "h11-6-2a-s10.png"
+ },
+ "book_lines": [
+  {
+   "n": 1,
+   "text": "Living organisms have the capability of extracting energy from oxidisable substances and store this in the form of bond energy.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0046",
+    "p0009-b0047"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "Special substances like ATP, carry this energy in their chemical bonds.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0047",
+    "p0009-b0048"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "The process through which ATP is synthesised by cells (in mitochondria and chloroplasts) is named phosphorylation.",
+   "page": "139",
+   "blocks": [
+    "p0009-b0048",
+    "p0010-b0002",
+    "p0010-b0003.2"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "Photo-phosphorylation is the synthesis of ATP from ADP and inorganic phosphate in the presence of light.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0003.2",
+    "p0010-b0004",
+    "p0010-b0005",
+    "p0010-b0007"
+   ]
+  }
+ ],
+ "placement": {
+  "s1": {
+   "items": 20,
+   "moved": 13,
+   "refused": 0,
+   "missing": [
+    "label 'paani'",
+    "label 'NADP⁺'",
+    "label 'raasta band'",
+    "centre of the glowing part this sentence talks about"
+   ],
+   "usage": {
+    "input_tokens": 6582,
+    "output_tokens": 503,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 53
+   }
+  },
+  "s2": {
+   "items": 8,
+   "moved": 5,
+   "refused": 0,
+   "missing": [
+    "path of the moving glucose",
+    "camera target: the part this sentence talks about"
+   ],
+   "parts": {
+    "leg": {
+     "inside": [
+      [
+       26.8,
+       49.0
+      ],
+      [
+       28.0,
+       65.0
+      ],
+      [
+       28.5,
+       82.0
+      ],
+      [
+       29.1,
+       93.0
+      ]
+     ],
+     "outside": [
+      [
+       31.8,
+       55.0
+      ],
+      [
+       31.5,
+       84.0
+      ]
+     ],
+     "box": [
+      24.1,
+      42.3,
+      31.6,
+      97.4
+     ]
+    }
+   },
+   "usage": {
+    "input_tokens": 5699,
+    "output_tokens": 322,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 65
+   }
+  },
+  "s3": {
+   "items": 15,
+   "moved": 1,
+   "refused": 0,
+   "missing": [
+    "label 'oxidation'",
+    "label 'reduction'",
+    "path of the moving molecule",
+    "path of the moving molecule",
+    "path of the moving e-",
+    "camera target: the part this sentence talks about",
+    "label 'oxidisable substances'",
+    "path of the moving e-",
+    "camera target: the part this sentence talks about",
+    "path of the moving glucose",
+    "camera target: the part this sentence talks about",
+    "path of the moving spark",
+    "camera target: the part this sentence talks about"
+   ],
+   "usage": {
+    "input_tokens": 6002,
+    "output_tokens": 393,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 71
+   }
+  },
+  "s4": {
+   "items": 5,
+   "moved": 0,
+   "refused": 0,
+   "missing": [
+    "path of the moving spark",
+    "path of the moving molecule",
+    "centre of the glowing part this sentence talks about",
+    "camera target: the part this sentence talks about",
+    "path of the moving molecule"
+   ],
+   "usage": {
+    "input_tokens": 5389,
+    "output_tokens": 286,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 156
+   }
+  },
+  "s6": {
+   "items": 11,
+   "moved": 7,
+   "refused": 0,
+   "missing": [],
+   "parts": {
+    "bond": {
+     "inside": [
+      [
+       55.0,
+       52.2
+      ],
+      [
+       56.1,
+       52.2
+      ]
+     ],
+     "outside": [
+      [
+       53.7,
+       52.4
+      ],
+      [
+       57.7,
+       52.0
+      ]
+     ],
+     "box": [
+      54.5,
+      51.5,
+      56.8,
+      53.0
+     ]
+    }
+   },
+   "usage": {
+    "input_tokens": 5791,
+    "output_tokens": 440,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 117
+   }
+  },
+  "s7": {
+   "items": 10,
+   "moved": 0,
+   "refused": 10,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5603,
+    "output_tokens": 184,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 26
+   }
+  },
+  "s8": {
+   "items": 8,
+   "moved": 6,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5566,
+    "output_tokens": 400,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 204
+   }
+  },
+  "s9": {
+   "items": 20,
+   "moved": 0,
+   "refused": 0,
+   "missing": [
+    "path of the moving Pi",
+    "camera target: the part this sentence talks about",
+    "label 'Pᵢ'",
+    "centre of the glowing part this sentence talks about",
+    "camera target: the part this sentence talks about",
+    "label 'phosphorylation'",
+    "path of the moving ADP",
+    "path of the moving Pi",
+    "path of the moving ATP",
+    "centre of the glowing part this sentence talks about",
+    "centre of the glowing part this sentence talks about",
+    "camera target: the part this sentence talks about",
+    "path of the moving ATP",
+    "path of the moving ATP"
+   ],
+   "usage": {
+    "input_tokens": 6216,
+    "output_tokens": 482,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 59
+   }
+  },
+  "s10": {
+   "items": 12,
+   "moved": 11,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 6016,
+    "output_tokens": 379,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 80
+   }
+  }
+ },
+ "parts": {
+  "wanted": 3,
+  "cut": 1,
+  "problems": [
+   "s5: parts not found in the picture: rubber",
+   "s6: part bond not cut cleanly (the cut is a speck (0.03% of the picture))"
+  ],
+  "parts": {
+   "s2.leg": {
+    "area": 3.65,
+    "score": 0.953,
+    "box": [
+     23.445,
+     39.851,
+     36.065,
+     98.087
+    ],
+    "problems": []
+   },
+   "s6.bond": {
+    "area": 0.03,
+    "score": 0.876,
+    "box": null,
+    "problems": [
+     "the cut is a speck (0.03% of the picture)"
+    ]
+   }
+  }
+ }
+}
