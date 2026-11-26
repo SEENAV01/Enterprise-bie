@@ -1,0 +1,3212 @@
+{
+ "film": {
+  "title": "Electron ne ADP ko chhua nahi, toh ATP bana kaise?",
+  "look": "Continuous biological world: thylakoid membrane deep teal, lumen gold, stroma ivory; PS II forest green, PS I sage green, carriers copper; ATP synthase amber channel, copper stalk, violet six-lobed head; mitochondrial outer membrane slate blue, inner membrane plum, intermembrane space pale peach; electrons blue, H⁺ gold.",
+  "shots": [
+   {
+    "id": "s1",
+    "title": "Pichhle do raaste",
+    "key": "Dono electron raaston mein ATP bana.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 scientific cross-section of a closed deep-teal thylakoid sac, enclosed gold lumen below, ivory stroma above. Forest-green PS II left, copper carriers centre, sage-green PS I at 70,50 right. ATP synthase at 80,35 has amber membrane channel, copper stalk and violet six-lobed head facing stroma. Leave space for electron routes and product overlays. One isolated opaque blue electron marker at 70,50 is fully visible with space around it for rotation; no other loose particles or lettering.",
+     "svg": "",
+     "library": "",
+     "parts": [
+      {
+       "id": "electron",
+       "name": "electron",
+       "looks": "Isolated blue spherical electron marker at 70,50 beside PS I."
+      }
+     ]
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Thylakoid membrane",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Pichhli film mein humne electron ke do raaste dekhe the.",
+      "voice": "पिछली फ़िल्म में हमने इलेक्ट्रॉन के दो रास्ते देखे थे।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "electron",
+        "points": [
+         [
+          21.0,
+          49.0
+         ],
+         [
+          40.0,
+          49.0
+         ],
+         [
+          66.0,
+          49.0
+         ]
+        ],
+        "count": 1,
+        "ms": 3500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Pichhle electron raaston ka recall.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Seedhe raaste mein electron paani se chalkar NADP⁺ tak pahuncha, aur ATP aur NADPH dono bane.",
+      "voice": "सीधे रास्ते में इलेक्ट्रॉन पानी से चलकर एनएडीपी प्लस तक पहुँचा, और एटीपी और एनएडीपीएच दोनों बने।",
+      "pins": [
+       {
+        "label": "paani",
+        "x": 12,
+        "y": 65
+       },
+       {
+        "label": "NADP⁺",
+        "x": 89,
+        "y": 35
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          19.0,
+          60.0
+         ],
+         [
+          21.0,
+          49.0
+         ],
+         [
+          40.0,
+          49.0
+         ],
+         [
+          51.0,
+          50.0
+         ],
+         [
+          66.0,
+          49.0
+         ]
+        ],
+        "count": 1,
+        "ms": 5000,
+        "loop": false
+       },
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "ATP",
+        "points": [
+         [
+          80,
+          35
+         ],
+         [
+          72,
+          18
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       },
+       {
+        "what": "NADPH",
+        "colour": "green",
+        "label": "NADPH",
+        "points": [
+         [
+          89,
+          35
+         ],
+         [
+          94,
+          18
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Non-cyclic flow ka prerequisite recall.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Gol raaste mein electron ghoom kar PS I par hi laut aaya, aur sirf ATP bana.",
+      "voice": "गोल रास्ते में इलेक्ट्रॉन घूम कर पीएस वन पर ही लौट आया, और सिर्फ़ एटीपी बना।",
+      "pins": [
+       {
+        "label": "PS I",
+        "x": 66.0,
+        "y": 49.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 66.0,
+       "y": 49.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          66.0,
+          49.0
+         ],
+         [
+          66.0,
+          35.0
+         ],
+         [
+          43.0,
+          40.0
+         ],
+         [
+          40.0,
+          49.0
+         ],
+         [
+          66.0,
+          49.0
+         ]
+        ],
+        "count": 1,
+        "ms": 5000,
+        "loop": false
+       },
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "ATP",
+        "points": [
+         [
+          80,
+          35
+         ],
+         [
+          72,
+          18
+         ]
+        ],
+        "count": 1,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "electron",
+        "do": "turn",
+        "toward": [],
+        "turns": 360,
+        "rider": ""
+       }
+      ],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Cyclic electron flow ka recall.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Dono raaston mein ATP bana, par kaise bana, yeh humne abhi tak nahi dekha.",
+      "voice": "दोनों रास्तों में एटीपी बना, पर कैसे बना, यह हमने अभी तक नहीं देखा।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 77.0,
+        "x1": 89.0,
+        "y0": 18.0,
+        "y1": 30.0
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 83.0,
+       "y": 35.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "ATP formation ka sawaal kholta hai.",
+      "part": "hook"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "title": "Electron aur ADP alag",
+    "key": "Electron ADP ko seedha nahi chhoota.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 close view inside preceding copper carrier region. Deep-teal membrane, enclosed gold lumen below, ivory stroma above. Copper carriers left and centre, sage-green PS I right. Violet ATP synthase head far right on copper stalk and amber channel, separate from carrier chain. Leave clear stroma at 85,25 for ADP and clear carrier route for electrons; no loose particles or lettering.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": 51.0,
+     "y": 50.0
+    },
+    "place": "Electron carriers",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Ab ek baat par gaur karo: dono raaston mein kisi bhi electron ne ADP ko chhua tak nahi.",
+      "voice": "अब एक बात पर गौर करो: दोनों रास्तों में किसी भी इलेक्ट्रॉन ने एडीपी को छुआ तक नहीं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 45,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "electron",
+        "points": [
+         [
+          13.0,
+          52.0
+         ],
+         [
+          35.0,
+          64.0
+         ],
+         [
+          60.0,
+          52.0
+         ]
+        ],
+        "count": 2,
+        "ms": 3500,
+        "loop": false
+       },
+       {
+        "what": "ADP",
+        "colour": "purple",
+        "label": "ADP",
+        "points": [
+         [
+          90,
+          20
+         ],
+         [
+          85,
+          25
+         ]
+        ],
+        "count": 1,
+        "ms": 1500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Direct electron-ADP contact ki galat soch ko alag karta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Toh ATP bana kaise?",
+      "voice": "तो एटीपी बना कैसे?",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 83.0,
+        "x1": 100.0,
+        "y0": 20.5,
+        "y1": 37.5
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 91.5,
+       "y": 29.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "",
+      "part": "hook"
+     },
+     {
+      "roman": "ATP bana kaise, yahi aaj ka sawaal hai: chloroplast mein ATP asal mein banta kaise hai.",
+      "voice": "एटीपी बना कैसे? यही आज का सवाल है: क्लोरोप्लास्ट में एटीपी असल में बनता कैसे है?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 65,
+       "y": 44,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Aksar hum sochte hain ki electron daudte-daudte khud ATP bana deta hai.",
+      "voice": "अक्सर हम सोचते हैं कि इलेक्ट्रॉन दौड़ते-दौड़ते खुद एटीपी बना देता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 43,
+       "y": 49,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "electron",
+        "points": [
+         [
+          13.0,
+          52.0
+         ],
+         [
+          35.0,
+          64.0
+         ],
+         [
+          60.0,
+          52.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Aam misconception saamne laata hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Bahut saalon tak vaigyanik bhi kuch aisa hi maante the: ki electron ki daud aur ATP ke beech koi seedha rasayanik jod hai.",
+      "voice": "बहुत सालों तक वैज्ञानिक भी कुछ ऐसा ही मानते थे: कि इलेक्ट्रॉन की दौड़ और एटीपी के बीच कोई सीधा रासायनिक जोड़ है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 61,
+       "y": 45,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "electron",
+        "points": [
+         [
+          13.0,
+          52.0
+         ],
+         [
+          35.0,
+          64.0
+         ],
+         [
+          60.0,
+          52.0
+         ]
+        ],
+        "count": 1,
+        "ms": 3500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Direct chemical coupling ki purani soch ka itihaas.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "title": "Mitchell ka vichaar",
+    "key": "H⁺ ka bahav ATP banne se juda hai.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 molecular close-up of ATP-forming region at right of previous membrane. Deep-teal bilayer across lower middle, enclosed gold lumen below, ivory stroma above. At right realistic ATP synthase has amber channel with exposed aqueous route, copper stalk, violet six-lobed head facing stroma. Leave broad clear space left for historical annotations and clear space around head for ATP overlays. No loose molecules or lettering.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": 91.5,
+     "y": 29.0
+    },
+    "place": "ATP banne ki jagah",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "1961 mein Peter Mitchell naam ke vaigyanik ne ek naya vichaar diya.",
+      "voice": "१९६१ में पीटर मिचेल नाम के वैज्ञानिक ने एक नया विचार दिया।",
+      "pins": [
+       {
+        "label": "Peter Mitchell",
+        "x": 24,
+        "y": 24
+       },
+       {
+        "label": "१९६१",
+        "x": 24,
+        "y": 36
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Peter Mitchell aur 1961 ka itihaas.",
+      "part": "concept"
+     },
+     {
+      "roman": "Baad mein prayogon ne use sahi saabit kiya, aur iske liye unhe 1978 mein Nobel puraskaar mila.",
+      "voice": "बाद में प्रयोगों ने उसे सही साबित किया, और इसके लिए उन्हें १९७८ में नोबेल पुरस्कार मिला।",
+      "pins": [
+       {
+        "label": "Nobel 1978",
+        "x": 24,
+        "y": 48
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Prayog aur Nobel ka historical context.",
+      "part": "concept"
+     },
+     {
+      "roman": "Kisi baat ko samjhane ke liye diya gaya aisa vichaar, jise prayogon se parkha jaata hai, hypothesis kehlata hai.",
+      "voice": "किसी बात को समझाने के लिए दिया गया ऐसा विचार, जिसे प्रयोगों से परखा जाता है, हाइपोथिसिस कहलाता है।",
+      "pins": [
+       {
+        "label": "hypothesis",
+        "x": 24,
+        "y": 60
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Hypothesis ka scientific meaning.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Mitchell ke vichaar ka naam hai chemiosmotic hypothesis.",
+      "voice": "मिचेल के विचार का नाम है केमिऑस्मोटिक हाइपोथिसिस।",
+      "pins": [
+       {
+        "label": "chemiosmotic hypothesis",
+        "x": 45,
+        "y": 12
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 60,
+       "y": 47,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       2
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Naam ko todo toh poora vichaar samajh aa jaata hai.",
+      "voice": "नाम को तोड़ो तो पूरा विचार समझ आ जाता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 30,
+        "x1": 62,
+        "y0": 7,
+        "y1": 17
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 58,
+       "y": 44,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Naam se concept kholne ka tareeka.",
+      "part": "concept"
+     },
+     {
+      "roman": "Chemi yaani rasayanik kaam, yahan ATP banana.",
+      "voice": "केमि यानी रासायनिक काम, यहाँ एटीपी बनाना।",
+      "pins": [
+       {
+        "label": "Chemi",
+        "x": 79.0,
+        "y": 27.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 79.0,
+       "y": 27.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "ATP",
+        "points": [
+         [
+          84.0,
+          28.0
+         ],
+         [
+          93.0,
+          17.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 1,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Chemi ko ATP formation se jodta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Osmotic, jaise class 9 ka osmosis, yaani membrane ke aar-paar kisi cheez ka bahna; yahan H⁺ ka.",
+      "voice": "ऑस्मोटिक, जैसे क्लास नौ का ऑस्मोसिस, यानी मेम्ब्रेन के आर-पार किसी चीज़ का बहना; यहाँ एच प्लस का।",
+      "pins": [
+       {
+        "label": "Osmotic",
+        "x": 74.0,
+        "y": 75.0
+       },
+       {
+        "label": "membrane",
+        "x": 43.0,
+        "y": 75.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 77.0,
+       "y": 74.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          72.0,
+          94.0
+         ],
+         [
+          71.0,
+          74.0
+         ],
+         [
+          72.0,
+          56.0
+         ]
+        ],
+        "count": 2,
+        "ms": 2500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 2,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Class 9 ka membrane transport recall.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Toh naam hi keh raha hai: membrane ke aar-paar H⁺ bahenge, aur us bahav se ATP banega.",
+      "voice": "तो नाम ही कह रहा है: मेम्ब्रेन के आर-पार एच प्लस बहेंगे, और उस बहाव से एटीपी बनेगा।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 79.0,
+       "y": 49.0,
+       "scale": 1.15
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          72.0,
+          94.0
+         ],
+         [
+          71.0,
+          74.0
+         ],
+         [
+          72.0,
+          56.0
+         ]
+        ],
+        "count": 3,
+        "ms": 2200,
+        "loop": false
+       },
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "ATP",
+        "points": [
+         [
+          84.0,
+          28.0
+         ],
+         [
+          93.0,
+          17.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 3,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       2
+      ],
+      "beyond": "Naam ko H⁺ flow aur ATP output se jodta hai.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "title": "Jagah pakki karein",
+    "key": "Thylakoid ke andar lumen, bahar stroma.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 anatomical chloroplast cutaway. Oval envelope surrounds ivory stroma and grana of closed flattened deep-teal thylakoid sacs. Main granum left-centre at 40,50, connected sac extends right to 72,53. Local section reveals enclosed gold lumen without a leakage route. No molecular proteins at this scale. Leave clear space for labels and fluid overlays.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Chloroplast",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Pehle jagah pakki kar lo.",
+      "voice": "पहले जगह पक्की कर लो।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Chloroplast ke andar chapti-chapti thailiyan hoti hain, jinhe thylakoid kehte hain; inke dher ko grana kehte hain.",
+      "voice": "क्लोरोप्लास्ट के अंदर चपटी-चपटी थैलियाँ होती हैं, जिन्हें थायलाकॉइड कहते हैं; इनके ढेर को ग्राना कहते हैं।",
+      "pins": [
+       {
+        "label": "Chloroplast",
+        "x": 10.0,
+        "y": 32.0
+       },
+       {
+        "label": "thylakoid",
+        "x": 72,
+        "y": 53
+       },
+       {
+        "label": "grana",
+        "x": 40,
+        "y": 39
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 24.0,
+        "x1": 48.0,
+        "y0": 28.0,
+        "y1": 58.0
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 48,
+       "y": 51,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Thylakoid aur grana ki anatomy.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Har thaili ki deewar thylakoid membrane hai.",
+      "voice": "हर थैली की दीवार थायलाकॉइड मेम्ब्रेन है।",
+      "pins": [
+       {
+        "label": "thylakoid membrane",
+        "x": 70,
+        "y": 45
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 17.0,
+        "x1": 40.0,
+        "y0": 45.5,
+        "y1": 60.5
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 29.0,
+       "y": 53.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       4
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Thaili ke andar ki band jagah lumen hai, aur thaili ke bahar, chloroplast ka gaadha dravya, stroma hai.",
+      "voice": "थैली के अंदर की बंद जगह ल्यूमेन है, और थैली के बाहर, क्लोरोप्लास्ट का गाढ़ा द्रव्य, स्ट्रोमा है।",
+      "pins": [
+       {
+        "label": "lumen",
+        "x": 39.0,
+        "y": 53.0
+       },
+       {
+        "label": "stroma",
+        "x": 73.0,
+        "y": 39.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 43.0,
+       "y": 52.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "dot",
+        "colour": "white",
+        "label": "",
+        "points": [
+         [
+          54.0,
+          40.0
+         ],
+         [
+          65.0,
+          41.0
+         ],
+         [
+          74.0,
+          42.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       5
+      ],
+      "beyond": "Lumen aur stroma ki anatomical pehchaan.",
+      "part": "prerequisite"
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "title": "Balloon aur baalti",
+    "key": "Andar lumen hai, bahar stroma.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "photo",
+     "image_prompt": "16:9 real household bucket of clear water containing a water-filled translucent teal rubber balloon floating partly submerged at 46,49. Rubber edge and water inside clearly visible, surrounding bucket water right and below. Normal-size actual household objects. Leave space for mapping labels.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Balloon aur baalti",
+    "aside": true,
+    "sentences": [
+     {
+      "roman": "Socho paani se bhara ek balloon, jo paani ki baalti mein tair raha hai: balloon ki rubber membrane hai, balloon ke andar ka paani lumen hai, aur baalti ka paani stroma.",
+      "voice": "सोचो पानी से भरा एक बलून, जो पानी की बाल्टी में तैर रहा है: बलून की रबर मेम्ब्रेन है, बलून के अंदर का पानी ल्यूमेन है, और बाल्टी का पानी स्ट्रोमा।",
+      "pins": [
+       {
+        "label": "rubber = membrane",
+        "x": 16.2,
+        "y": 46.0
+       },
+       {
+        "label": "paani = lumen",
+        "x": 48,
+        "y": 52
+       },
+       {
+        "label": "paani = stroma",
+        "x": 72,
+        "y": 66
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "drop",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          65,
+          64
+         ],
+         [
+          73,
+          68
+         ],
+         [
+          85,
+          60
+         ]
+        ],
+        "count": 1,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Balloon aur baalti se compartment analogy.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Is poori film mein andar ka matlab lumen, aur bahar ka matlab stroma.",
+      "voice": "इस पूरी फ़िल्म में अंदर का मतलब ल्यूमेन, और बाहर का मतलब स्ट्रोमा।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 35,
+        "x1": 60,
+        "y0": 40,
+        "y1": 60
+       },
+       {
+        "type": "glow",
+        "x0": 66,
+        "x1": 85,
+        "y0": 60,
+        "y1": 75
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 50,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       5
+      ],
+      "beyond": "",
+      "part": "prerequisite"
+     }
+    ]
+   },
+   {
+    "id": "s6",
+    "title": "H⁺ ki pehchaan",
+    "key": "H⁺, hydrogen ion aur proton ek hi cheez hain.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 cross-section of right-extending thylakoid from chloroplast scene. Closed deep-teal membrane encloses gold lumen below, ivory stroma above. Forest-green PS II left at 20,50, copper carriers centre 47,50, sage-green PS I right 77,50. Real membrane architecture. Upper-right stroma clear for sequential atomic overlays; no pre-drawn atoms, ions or lettering.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Thylakoid",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "PS II, PS I aur electron carriers isi membrane mein, ya uske theek paas, baithe hain.",
+      "voice": "पीएस टू, पीएस वन और इलेक्ट्रॉन कैरियर्स इसी मेम्ब्रेन में, या उसके ठीक पास, बैठे हैं।",
+      "pins": [
+       {
+        "label": "PS II",
+        "x": 20,
+        "y": 50
+       },
+       {
+        "label": "PS I",
+        "x": 77,
+        "y": 50
+       },
+       {
+        "label": "electron carriers",
+        "x": 47,
+        "y": 50
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 49,
+       "y": 50,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       4
+      ],
+      "beyond": "Photosystems aur carriers ko locate karta hai.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Ab H⁺ ko pehchano.",
+      "voice": "अब एच प्लस को पहचानो।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 74,
+       "y": 24,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          90,
+          18
+         ],
+         [
+          70,
+          26
+         ]
+        ],
+        "count": 1,
+        "ms": 1500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Proton ki pehchaan ki taiyaari.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Hydrogen ke atom mein ek proton aur ek electron hota hai.",
+      "voice": "हाइड्रोजन के ऐटम में एक प्रोटॉन और एक इलेक्ट्रॉन होता है।",
+      "pins": [
+       {
+        "label": "Hydrogen atom",
+        "x": 75,
+        "y": 10
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 74,
+       "y": 24,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "proton",
+        "points": [
+         [
+          64,
+          26
+         ],
+         [
+          70,
+          26
+         ]
+        ],
+        "count": 1,
+        "ms": 1500,
+        "loop": false
+       },
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "electron",
+        "points": [
+         [
+          90,
+          26
+         ],
+         [
+          82,
+          26
+         ]
+        ],
+        "count": 1,
+        "ms": 1500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 1,
+      "count": {
+       "x": 49,
+       "y": 87,
+       "groups": [
+        {
+         "n": 1,
+         "label": "proton",
+         "colour": "gold"
+        },
+        {
+         "n": 1,
+         "label": "electron",
+         "colour": "blue"
+        }
+       ],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Hydrogen atom ki basic structure.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Electron nikal jaaye, toh bachta hai sirf ek proton, jis par positive charge hai.",
+      "voice": "इलेक्ट्रॉन निकल जाए, तो बचता है सिर्फ़ एक प्रोटॉन, जिस पर पॉज़िटिव चार्ज है।",
+      "pins": [
+       {
+        "label": "positive charge",
+        "x": 70,
+        "y": 38
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 74,
+       "y": 24,
+       "scale": 1.15
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "electron",
+        "points": [
+         [
+          82,
+          26
+         ],
+         [
+          90,
+          21
+         ],
+         [
+          96,
+          14
+         ]
+        ],
+        "count": 1,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 2,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [
+        {
+         "n": 1,
+         "label": "proton",
+         "colour": "gold"
+        }
+       ],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Electron nikalne par positive proton bachta hai.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Isliye H⁺ ko hydrogen ion bhi kehte hain aur proton bhi; teeno naam ek hi cheez ke hain.",
+      "voice": "इसलिए एच प्लस को हाइड्रोजन आयन भी कहते हैं और प्रोटॉन भी; तीनों नाम एक ही चीज़ के हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 66,
+        "x1": 75,
+        "y0": 21,
+        "y1": 31
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 70,
+       "y": 26,
+       "scale": 1.15
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "hydrogen ion",
+        "points": [
+         [
+          70,
+          26
+         ],
+         [
+          70,
+          29
+         ]
+        ],
+        "count": 1,
+        "ms": 1500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 3,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "H⁺ ke teen naam jodta hai.",
+      "part": "prerequisite"
+     }
+    ]
+   },
+   {
+    "id": "s7",
+    "title": "Failna aur dhalaan",
+    "key": "Zyada se kam; dhalaan par neeche.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "photo",
+     "image_prompt": "16:9 real ground-floor Indian room opening directly onto an outdoor concrete slope descending left to right. Incense holder inside room at 20,55; clear air above for fragrance overlays. Outdoor slope visible through wide doorway on right; one normal-size red rubber ball fully visible at 62,45, with clear downhill path to 88,78. Actual contiguous everyday location. Leave label space; no lettering or pre-drawn particles.",
+     "svg": "",
+     "library": "",
+     "parts": [
+      {
+       "id": "ball",
+       "name": "gend",
+       "looks": "Fully visible red rubber ball at 62,45 on outdoor slope through doorway."
+      }
+     ]
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Kamra aur dhalaan",
+    "aside": true,
+    "sentences": [
+     {
+      "roman": "Class 9 mein aapne padha tha: koi cheez jahan zyada hoti hai, wahan se apne-aap kam wali jagah ki taraf failti hai, jaise kamre mein agarbatti ki khushboo.",
+      "voice": "क्लास नौ में आपने पढ़ा था: कोई चीज़ जहाँ ज़्यादा होती है, वहाँ से अपने-आप कम वाली जगह की तरफ़ फैलती है, जैसे कमरे में अगरबत्ती की खुशबू।",
+      "pins": [
+       {
+        "label": "zyada",
+        "x": 20,
+        "y": 49
+       },
+       {
+        "label": "kam",
+        "x": 48,
+        "y": 54
+       },
+       {
+        "label": "khushboo = cheez",
+        "x": 18.6,
+        "y": 57.5
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 35,
+       "y": 45,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "molecule",
+        "colour": "white",
+        "label": "khushboo",
+        "points": [
+         [
+          20,
+          50
+         ],
+         [
+          30,
+          38
+         ],
+         [
+          42,
+          42
+         ],
+         [
+          50,
+          32
+         ]
+        ],
+        "count": 5,
+        "ms": 4500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Diffusion ko khushboo se samjhata hai.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Yeh dhalaan jaisa hai: gend dhalaan par apne-aap neeche ludhakti hai, par upar chadhaane mein zor lagta hai.",
+      "voice": "यह ढलान जैसा है: गेंद ढलान पर अपने-आप नीचे लुढ़कती है, पर ऊपर चढ़ाने में ज़ोर लगता है।",
+      "pins": [
+       {
+        "label": "dhalaan = yeh",
+        "x": 73,
+        "y": 64
+       },
+       {
+        "label": "zor",
+        "x": 61.0,
+        "y": 39.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 72,
+       "y": 56,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "ball",
+        "do": "turn",
+        "toward": [],
+        "turns": 360,
+        "rider": ""
+       },
+       {
+        "part": "ball",
+        "do": "leave",
+        "toward": [
+         88.0,
+         66.0
+        ],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Dhalaan se spontaneous movement aur energy ka farq.",
+      "part": "prerequisite"
+     }
+    ]
+   },
+   {
+    "id": "s9",
+    "title": "Proton gradient",
+    "key": "Pehle gradient, phir bahav, phir ATP.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closed thylakoid cross-section, deep-teal membrane enclosing gold lumen below and ivory stroma above. Right-side ATP synthase has amber channel with exposed aqueous route, copper stalk, violet six-lobed head facing stroma. Clear lumen left and clear stroma above for H+ and ATP overlays; no loose molecules or pre-drawn gradient.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Thylakoid membrane",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Membrane ke ek taraf H⁺ zyada aur doosri taraf kam hon, toh H⁺ ki is dhalaan ko proton gradient kehte hain; gradient ka matlab hi dhalaan hai.",
+      "voice": "मेम्ब्रेन के एक तरफ़ एच प्लस ज़्यादा और दूसरी तरफ़ कम हों, तो एच प्लस की इस ढलान को प्रोटॉन ग्रेडिएंट कहते हैं; ग्रेडिएंट का मतलब ही ढलान है।",
+      "pins": [
+       {
+        "label": "membrane",
+        "x": 35.0,
+        "y": 45.0
+       },
+       {
+        "label": "proton gradient",
+        "x": 42,
+        "y": 37
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 48,
+       "y": 51,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺ zyada",
+        "points": [
+         [
+          16,
+          73
+         ],
+         [
+          28,
+          75
+         ],
+         [
+          42,
+          70
+         ]
+        ],
+        "count": 7,
+        "ms": 1800,
+        "loop": false
+       },
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺ kam",
+        "points": [
+         [
+          20,
+          27
+         ],
+         [
+          29,
+          25
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 1,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       3
+      ],
+      "beyond": "Gradient ko concentration ki dhalaan se samjhata hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "ATP banna isi dhalaan ke banne se juda hai: pehle dhalaan banti hai, phir H⁺ dhalaan se neeche bahte hain, aur us bahav se ATP banta hai.",
+      "voice": "एटीपी बनना इसी ढलान के बनने से जुड़ा है: पहले ढलान बनती है, फिर एच प्लस ढलान से नीचे बहते हैं, और उस बहाव से एटीपी बनता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 82.5,
+       "y": 34.0,
+       "scale": 1.15
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          70.0,
+          70.0
+         ],
+         [
+          78.0,
+          65.0
+         ],
+         [
+          81.5,
+          56.0
+         ],
+         [
+          82.0,
+          46.0
+         ],
+         [
+          87.0,
+          36.0
+         ]
+        ],
+        "count": 3,
+        "ms": 2800,
+        "loop": false
+       },
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "ATP",
+        "points": [
+         [
+          85.0,
+          17.0
+         ],
+         [
+          92.0,
+          12.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 2,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       3
+      ],
+      "beyond": "Gradient, flow aur ATP output ka sambandh.",
+      "part": "concept"
+     },
+     {
+      "roman": "Dhalaan nahi, toh ATP nahi.",
+      "voice": "ढलान नहीं, तो एटीपी नहीं।",
+      "pins": [
+       {
+        "label": "dhalaan nahi",
+        "x": 42,
+        "y": 24
+       },
+       {
+        "label": "ATP nahi",
+        "x": 86,
+        "y": 31
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 82.5,
+       "y": 34.0,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 3,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       3
+      ],
+      "beyond": "Chemiosmotic ATP production ki gradient par nirbharta.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s10",
+    "title": "Baandh aur lumen",
+    "key": "Roka hua paani; lumen mein jama H⁺.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "photo",
+     "image_prompt": "16:9 photorealistic hydroelectric dam, high reservoir left, concrete barrier centre, realistic engineering cutaway turbine right 65,62, low tailwater right. Separate visible leaking joint 46,46 drains to tailwater bypassing turbine. Warm ivory sunlight and moss-green landscape. Clear mapping-label space. Small paired biological inset: deep-teal membrane, enclosed gold lumen, ivory stroma, amber CF0, copper stalk, violet CF1.",
+     "svg": "",
+     "library": "c3b-dam-turbine",
+     "parts": []
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Baandh",
+    "aside": true,
+    "sentences": [
+     {
+      "roman": "Bilkul baandh ki tarah: pehle paani ek taraf roka jaata hai, aur chhodne par usi se bijli banti hai.",
+      "voice": "बिल्कुल बाँध की तरह: पहले पानी एक तरफ़ रोका जाता है, और छोड़ने पर उसी से बिजली बनती है।",
+      "pins": [
+       {
+        "label": "baandh = dhalaan",
+        "x": 43,
+        "y": 30
+       },
+       {
+        "label": "paani",
+        "x": 22,
+        "y": 29
+       },
+       {
+        "label": "bijli",
+        "x": 79.0,
+        "y": 29.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "drop",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          22.0,
+          29.0
+         ],
+         [
+          47.5,
+          29.0
+         ],
+         [
+          67.0,
+          53.0
+         ],
+         [
+          84.0,
+          77.0
+         ]
+        ],
+        "count": 4,
+        "ms": 4000,
+        "loop": false
+       },
+       {
+        "what": "spark",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          79.0,
+          51.0
+         ],
+         [
+          78.7,
+          29.0
+         ],
+         [
+          74.0,
+          21.0
+         ]
+        ],
+        "count": 2,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Baandh se stored gradient aur useful energy ki analogy.",
+      "part": "concept"
+     },
+     {
+      "roman": "Chloroplast mein yeh H⁺ thaili ke andar, yaani lumen mein, jama hote hain: andar zyada, bahar stroma mein kam.",
+      "voice": "क्लोरोप्लास्ट में ये एच प्लस थैली के अंदर, यानी ल्यूमेन में, जमा होते हैं: अंदर ज़्यादा, बाहर स्ट्रोमा में कम।",
+      "pins": [
+       {
+        "label": "lumen",
+        "x": 16.0,
+        "y": 74.0
+       },
+       {
+        "label": "stroma",
+        "x": 26.0,
+        "y": 46.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 16.5,
+       "y": 56.0,
+       "scale": 1.3
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          10.0,
+          72.0
+         ],
+         [
+          13.0,
+          74.0
+         ],
+         [
+          19.0,
+          75.0
+         ]
+        ],
+        "count": 7,
+        "ms": 1800,
+        "loop": false
+       },
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          25.0,
+          44.0
+         ],
+         [
+          27.0,
+          48.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       5
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s11",
+    "title": "Respiration mein bhi",
+    "key": "Isi principle se jeevon mein ATP banta hai.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 scientific cutaway of neighbouring chloroplast and mitochondrion in mesophyll cytoplasm. Chloroplast left, ivory stroma and closed deep-teal thylakoids with enclosed gold lumen. Mitochondrion right at 78,50, slate-blue outer membrane, plum inner membrane, pale-peach intermembrane space. No resolved molecular proteins. Leave clear space for ATP overlays and compartment motion.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Chloroplast aur mitochondria",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Yahi tareeka aap aage respiration wale chapter mein mitochondria mein bhi padhoge.",
+      "voice": "यही तरीका आप आगे रेस्पिरेशन वाले चैप्टर में माइटोकॉन्ड्रिया में भी पढ़ोगे।",
+      "pins": [
+       {
+        "label": "mitochondria",
+        "x": 78,
+        "y": 30
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 69.69999999999999,
+        "x1": 97.69999999999999,
+        "y0": 31.0,
+        "y1": 64.0
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 65,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          83.7,
+          54.0
+         ],
+         [
+          83.7,
+          44.0
+         ]
+        ],
+        "count": 2,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       3
+      ],
+      "beyond": "Respiration mein principle ka application.",
+      "part": "use"
+     },
+     {
+      "roman": "Jeevon mein ATP banane ka yeh sabse aam tareeka hai.",
+      "voice": "जीवों में एटीपी बनाने का यह सबसे आम तरीका है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "ATP",
+        "points": [
+         [
+          27.0,
+          42.0
+         ],
+         [
+          33.0,
+          33.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2400,
+        "loop": false
+       },
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "",
+        "points": [
+         [
+          80.0,
+          61.0
+         ],
+         [
+          88.0,
+          63.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Chemiosmotic ATP formation ki vyaapakta.",
+      "part": "use"
+     }
+    ]
+   },
+   {
+    "id": "s12",
+    "title": "Tareeka ek, jagah alag",
+    "key": "Chloroplast: lumen; mitochondria: intermembrane space.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "diagram",
+     "image_prompt": "",
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1600 900\"><defs><linearGradient id=\"bg\" x2=\"0\" y2=\"1\"><stop stop-color=\"#f7f2e7\"/><stop offset=\"1\" stop-color=\"#dedfd4\"/></linearGradient><linearGradient id=\"gold\" x2=\"0\" y2=\"1\"><stop stop-color=\"#f4d679\"/><stop offset=\"1\" stop-color=\"#b99a41\"/></linearGradient><linearGradient id=\"peach\" x2=\"0\" y2=\"1\"><stop stop-color=\"#f4d7c4\"/><stop offset=\"1\" stop-color=\"#ddb49d\"/></linearGradient></defs><rect width=\"1600\" height=\"900\" fill=\"url(#bg)\"/><ellipse id=\"chloroplast\" cx=\"410\" cy=\"460\" rx=\"345\" ry=\"240\" fill=\"#a1b28d\" stroke=\"#52694b\" stroke-width=\"13\"/><ellipse id=\"stroma\" cx=\"410\" cy=\"460\" rx=\"320\" ry=\"215\" fill=\"#eee8d9\"/><rect x=\"160\" y=\"390\" width=\"490\" height=\"55\" rx=\"27\" fill=\"#16575c\"/><rect x=\"175\" y=\"402\" width=\"460\" height=\"30\" rx=\"15\" fill=\"url(#gold)\"/><rect x=\"160\" y=\"468\" width=\"490\" height=\"55\" rx=\"27\" fill=\"#16575c\"/><rect id=\"lumen\" x=\"175\" y=\"480\" width=\"460\" height=\"30\" rx=\"15\" fill=\"url(#gold)\"/><rect x=\"160\" y=\"546\" width=\"490\" height=\"55\" rx=\"27\" fill=\"#16575c\"/><rect x=\"175\" y=\"558\" width=\"460\" height=\"30\" rx=\"15\" fill=\"url(#gold)\"/><ellipse id=\"outer_membrane\" cx=\"1180\" cy=\"460\" rx=\"345\" ry=\"240\" fill=\"#72899a\"/><ellipse id=\"intermembrane_space\" cx=\"1180\" cy=\"460\" rx=\"329\" ry=\"224\" fill=\"url(#peach)\"/><path id=\"inner_membrane\" d=\"M910 350 Q950 255 1050 285 L1050 440 Q1070 475 1090 440 L1090 280 Q1140 265 1185 285 L1185 460 Q1205 495 1225 460 L1225 285 Q1290 275 1335 320 L1335 450 Q1355 480 1375 450 L1375 355 Q1450 470 1360 585 Q1230 690 1040 620 Q890 560 910 350Z\" fill=\"#e5ddd2\" stroke=\"#73556f\" stroke-width=\"16\"/><ellipse id=\"carrier_a\" cx=\"1048\" cy=\"367\" rx=\"16\" ry=\"25\" fill=\"#b47f55\"/><ellipse id=\"carrier_b\" cx=\"1090\" cy=\"380\" rx=\"16\" ry=\"25\" fill=\"#b47f55\"/><ellipse id=\"carrier_c\" cx=\"1184\" cy=\"399\" rx=\"16\" ry=\"25\" fill=\"#b47f55\"/><ellipse id=\"carrier_d\" cx=\"1225\" cy=\"411\" rx=\"16\" ry=\"25\" fill=\"#b47f55\"/><path d=\"M1450 260 L1500 210\" stroke=\"#72899a\" stroke-width=\"3\"/><path d=\"M1300 285 L1360 190\" stroke=\"#73556f\" stroke-width=\"3\"/><path d=\"M1380 575 L1480 650\" stroke=\"#b68c76\" stroke-width=\"3\"/><path d=\"M510 495 L570 745\" stroke=\"#9d843e\" stroke-width=\"3\"/></svg>",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": 88.0,
+     "y": 50.0
+    },
+    "place": "Mitochondria ki membranes",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Mitochondria ki do membranes hoti hain, ek bahar wali aur ek andar wali.",
+      "voice": "माइटोकॉन्ड्रिया की दो मेम्ब्रेन होती हैं, एक बाहर वाली और एक अंदर वाली।",
+      "pins": [
+       {
+        "label": "Mitochondria",
+        "x": 73,
+        "y": 12
+       },
+       {
+        "label": "bahar wali",
+        "x": 94,
+        "y": 24
+       },
+       {
+        "label": "andar wali",
+        "x": 84,
+        "y": 19
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "outer_membrane",
+       "inner_membrane"
+      ],
+      "zoom": {
+       "x": 73,
+       "y": 48,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 1,
+      "count": {
+       "x": 74,
+       "y": 85,
+       "groups": [
+        {
+         "n": 2,
+         "label": "membranes",
+         "colour": "purple"
+        }
+       ],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Mitochondrial double membrane ki anatomy.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Andar wali membrane mein bhi electron carriers ki ek kadi hoti hai, jise electron transport system, yaani ETS, kehte hain.",
+      "voice": "अंदर वाली मेम्ब्रेन में भी इलेक्ट्रॉन कैरियर्स की एक कड़ी होती है, जिसे इलेक्ट्रॉन ट्रांसपोर्ट सिस्टम, यानी ईटीएस, कहते हैं।",
+      "pins": [
+       {
+        "label": "ETS",
+        "x": 70,
+        "y": 40
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "inner_membrane",
+       "carrier_a",
+       "carrier_b",
+       "carrier_c",
+       "carrier_d"
+      ],
+      "zoom": {
+       "x": 72,
+       "y": 46,
+       "scale": 1.15
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 2,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       6
+      ],
+      "beyond": "ETS ka full form aur inner membrane location.",
+      "part": "concept"
+     },
+     {
+      "roman": "Wahan jab electron ETS mein daudte hain, toh H⁺ dono membranes ke beech ki patli jagah mein jama hote hain.",
+      "voice": "वहाँ जब इलेक्ट्रॉन ईटीएस में दौड़ते हैं, तो एच प्लस दोनों मेम्ब्रेन के बीच की पतली जगह में जमा होते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "intermembrane_space",
+       "carrier_a",
+       "carrier_b",
+       "carrier_c",
+       "carrier_d"
+      ],
+      "zoom": {
+       "x": 74,
+       "y": 47,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "electron",
+        "points": [
+         [
+          65.5,
+          40.8
+         ],
+         [
+          68.1,
+          42.2
+         ],
+         [
+          74,
+          44.3
+         ],
+         [
+          76.6,
+          45.7
+         ]
+        ],
+        "count": 2,
+        "ms": 3000,
+        "loop": false
+       },
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          85,
+          67
+         ],
+         [
+          89,
+          62
+         ],
+         [
+          92,
+          54
+         ]
+        ],
+        "count": 6,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 3,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       6
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Is jagah ko intermembrane space kehte hain.",
+      "voice": "इस जगह को इंटरमेम्ब्रेन स्पेस कहते हैं।",
+      "pins": [
+       {
+        "label": "intermembrane space",
+        "x": 91,
+        "y": 74
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "intermembrane_space"
+      ],
+      "zoom": {
+       "x": 77,
+       "y": 50,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          91,
+          55
+         ],
+         [
+          90,
+          60
+         ]
+        ],
+        "count": 2,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 4,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       6
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Toh batao, chloroplast mein H⁺ kahan jama hote hain, aur mitochondria mein kahan?",
+      "voice": "तो बताओ, क्लोरोप्लास्ट में एच प्लस कहाँ जमा होते हैं, और माइटोकॉन्ड्रिया में कहाँ?",
+      "pins": [
+       {
+        "label": "chloroplast",
+        "x": 25,
+        "y": 16
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "chloroplast",
+       "outer_membrane"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Compartment comparison ka active recall.",
+      "part": "concept"
+     },
+     {
+      "roman": "Chloroplast mein H⁺ thylakoid ke andar, lumen mein, jama hote hain; mitochondria mein do membranes ke beech, intermembrane space mein.",
+      "voice": "क्लोरोप्लास्ट में एच प्लस थायलाकॉइड के अंदर, ल्यूमेन में, जमा होते हैं; माइटोकॉन्ड्रिया में दो मेम्ब्रेन के बीच, इंटरमेम्ब्रेन स्पेस में।",
+      "pins": [
+       {
+        "label": "thylakoid",
+        "x": 18,
+        "y": 44
+       },
+       {
+        "label": "lumen",
+        "x": 36,
+        "y": 83
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "lumen",
+       "intermembrane_space"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          16,
+          55
+         ],
+         [
+          26,
+          55
+         ],
+         [
+          36,
+          55
+         ]
+        ],
+        "count": 5,
+        "ms": 2200,
+        "loop": false
+       },
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          85,
+          67
+         ],
+         [
+          89,
+          62
+         ],
+         [
+          92,
+          54
+         ]
+        ],
+        "count": 5,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       3,
+       4,
+       5,
+       6
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Tareeka ek, jagah alag; yeh farq exam ke liye pakka yaad rakho.",
+      "voice": "तरीका एक, जगह अलग; यह फ़र्क़ एग्ज़ाम के लिए पक्का याद रखो।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [
+       "lumen",
+       "intermembrane_space"
+      ],
+      "zoom": {
+       "x": 50,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Exam ke liye compartment difference ka cue.",
+      "part": "recap"
+     }
+    ]
+   }
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "s1 sentence 2: labels 'NADP⁺' and 'electron' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s1 sentence 3: labels 'PS I' and 'electron' are 1% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s3 sentence 1: pin '1961' is not spoken in this sentence (dikhaya = bola)",
+    "s5: 1 sentences; write 2 to 6",
+    "s5 sentence 1: labels 'paani = stroma' and 'paani' are 6% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s6 sentence 4: labels 'proton' and 'electron' are 5% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s7: 1 sentences; write 2 to 6",
+    "s8: 1 sentences; write 2 to 6",
+    "s10: 1 sentences; write 2 to 6",
+    "s11 sentence 1: labels 'lumen' and 'H⁺' are 6% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s11 sentence 1: labels 'stroma' and 'H⁺' are 3% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s11 sentence 2: move label 'H⁺' is not spoken in this sentence (dikhaya = bola)",
+    "2 shots cut instead of diving; the film is one world: every shot after the first dives into a point of the picture before it (at most one cut)",
+    "s5: the photo asks for a 'model'; a photo shows the real thing where it is, at its real size (a real dam and its turbine, not a model of them)",
+    "s8: the photo asks for a 'model'; a photo shows the real thing where it is, at its real size (a real dam and its turbine, not a model of them)",
+    "s2 sentence 3: the line asks a question; in voice end the question with ? and start its answer as a new sentence (the voice pauses there)",
+    "s1 sentence 3: the line says something turns ('ghoom'); show it turning: the turning part of the picture turns (acts: turn or spin), or a spin effect on a diagram",
+    "s7: the aside maps the analogy in a pin (\"baandh = membrane\")",
+    "s8: the aside maps the analogy in a pin (\"baandh = membrane\")",
+    "s9 sentence 3: step 3 adds nothing to the picture; each step draws its own arrow, pin or motion on it",
+    "s10: the aside maps the analogy in a pin (\"baandh = membrane\")"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": [
+    "s1 sentence 3: a wheel with 2 stations turns for only 1 sentence(s) after the one that starts it; keep it turning for 2 more sentences, one station explained per sentence",
+    "the film has 48 sentences and the teacher's script 44 lines: the film's sentences are his lines, every one, in his order",
+    "s5 sentence 1 is not the teacher's line L22 (\"Socho paani se bhara ek balloon, ...\"; 62% of his words kept): keep his words, fixing only spelling slips",
+    "s5 sentence 2 is not the teacher's line L23 (\"Is poori film mein andar ka ...\"; 44% of his words kept): keep his words, fixing only spelling slips",
+    "s6 sentence 1 is not the teacher's line L24 (\"PS II, PS I aur electron ...\"; 14% of his words kept): keep his words, fixing only spelling slips",
+    "s6 sentence 2 is not the teacher's line L25 (\"Ab H⁺ ko pehchano. ...\"; 0% of his words kept): keep his words, fixing only spelling slips",
+    "s6 sentence 3 is not the teacher's line L26 (\"Hydrogen ke atom mein ek proton ...\"; 14% of his words kept): keep his words, fixing only spelling slips",
+    "s6 sentence 4 is not the teacher's line L27 (\"Electron nikal jaaye, toh bachta hai ...\"; 25% of his words kept): keep his words, fixing only spelling slips",
+    "s6 sentence 5 is not the teacher's line L28 (\"Isliye H⁺ ko hydrogen ion bhi ...\"; 10% of his words kept): keep his words, fixing only spelling slips",
+    "s6 sentence 6 is not the teacher's line L29 (\"Class 9 mein aapne padha tha: ...\"; 4% of his words kept): keep his words, fixing only spelling slips",
+    "s7 sentence 1 is not the teacher's line L30 (\"Yeh dhalaan jaisa hai: gend dhalaan ...\"; 7% of his words kept): keep his words, fixing only spelling slips",
+    "s7 sentence 2 is not the teacher's line L31 (\"Membrane ke ek taraf H⁺ zyada ...\"; 27% of his words kept): keep his words, fixing only spelling slips",
+    "s8 sentence 1 is not the teacher's line L32 (\"ATP banna isi dhalaan ke banne ...\"; 11% of his words kept): keep his words, fixing only spelling slips",
+    "s8 sentence 2 is not the teacher's line L33 (\"Dhalaan nahi, toh ATP nahi. ...\"; 25% of his words kept): keep his words, fixing only spelling slips",
+    "s9 sentence 1 is not the teacher's line L34 (\"Bilkul baandh ki tarah: pehle paani ...\"; 20% of his words kept): keep his words, fixing only spelling slips",
+    "s9 sentence 2 is not the teacher's line L35 (\"Chloroplast mein yeh H⁺ thaili ke ...\"; 13% of his words kept): keep his words, fixing only spelling slips",
+    "s9 sentence 3 is not the teacher's line L36 (\"Yahi tareeka aap aage respiration wale ...\"; 0% of his words kept): keep his words, fixing only spelling slips",
+    "s10 sentence 1 is not the teacher's line L37 (\"Jeevon mein ATP banane ka yeh ...\"; 0% of his words kept): keep his words, fixing only spelling slips",
+    "s10 sentence 2 is not the teacher's line L38 (\"Mitochondria ki do membranes hoti hain, ...\"; 12% of his words kept): keep his words, fixing only spelling slips",
+    "s11 sentence 1 is not the teacher's line L39 (\"Andar wali membrane mein bhi electron ...\"; 24% of his words kept): keep his words, fixing only spelling slips",
+    "s11 sentence 2 is not the teacher's line L40 (\"Wahan jab electron ETS mein daudte ...\"; 6% of his words kept): keep his words, fixing only spelling slips",
+    "s11 sentence 3 is not the teacher's line L41 (\"Is jagah ko intermembrane space kehte ...\"; 0% of his words kept): keep his words, fixing only spelling slips",
+    "s12 sentence 1 is not the teacher's line L42 (\"Toh batao, chloroplast mein H⁺ kahan ...\"; 27% of his words kept): keep his words, fixing only spelling slips",
+    "s12 sentence 2 is not the teacher's line L43 (\"Chloroplast mein H⁺ thylakoid ke andar, ...\"; 29% of his words kept): keep his words, fixing only spelling slips",
+    "s12 sentence 3 is not the teacher's line L44 (\"Tareeka ek, jagah alag; yeh farq ...\"; 10% of his words kept): keep his words, fixing only spelling slips"
+   ]
+  },
+  {
+   "round": 3,
+   "problems": [
+    "s5: 1 sentences; write 2 to 6",
+    "s7: 1 sentences; write 2 to 6",
+    "s8: 1 sentences; write 2 to 6",
+    "s10: 1 sentences; write 2 to 6",
+    "s1 sentence 3: the line says something turns ('ghoom'); show it turning: the turning part of the picture turns (acts: turn or spin), or a spin effect on a diagram"
+   ]
+  },
+  {
+   "round": 4,
+   "problems": []
+  }
+ ],
+ "images": {
+  "s1": "h11-6-3a-s1.png",
+  "s2": "h11-6-3a-s2.png",
+  "s3": "h11-6-3a-s3.png",
+  "s4": "h11-6-3a-s4.png",
+  "s5": "h11-6-3a-s5.png",
+  "s6": "h11-6-3a-s6.png",
+  "s7": "h11-6-3a-s7.png",
+  "s9": "h11-6-3a-s9.png",
+  "s10": "h11-6-3a-s10.png",
+  "s11": "h11-6-3a-s11.png"
+ },
+ "book_lines": [
+  {
+   "n": 1,
+   "text": "Let us now try and understand how actually ATP is synthesised in the chloroplast.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0032",
+    "p0010-b0033"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "The chemiosmotic hypothesis has been put forward to explain the mechanism.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0033",
+    "p0010-b0034"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "Like in respiration, in photosynthesis too, ATP synthesis is linked to development of a proton gradient across a membrane.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0034",
+    "p0010-b0035"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "This time these are the membranes of thylakoid.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0035",
+    "p0010-b0036"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "There is one difference though, here the proton accumulation is towards the inside of the membrane, i.e., in the lumen.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0036",
+    "p0010-b0037",
+    "p0010-b0038"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "In respiration, protons accumulate in the intermembrane space of the mitochondria when electrons move through the ETS (Chapter 12).",
+   "page": "140",
+   "blocks": [
+    "p0010-b0038",
+    "p0010-b0039"
+   ]
+  }
+ ],
+ "placement": {
+  "s1": {
+   "items": 13,
+   "moved": 8,
+   "refused": 0,
+   "missing": [
+    "label 'paani'",
+    "label 'NADP⁺'",
+    "path of the moving ATP",
+    "path of the moving NADPH",
+    "path of the moving ATP"
+   ],
+   "parts": {
+    "electron": {
+     "inside": [
+      [
+       71.3,
+       48.4
+      ],
+      [
+       71.7,
+       49.3
+      ]
+     ],
+     "outside": [
+      [
+       70.3,
+       48.8
+      ],
+      [
+       72.2,
+       50.6
+      ]
+     ],
+     "box": [
+      70.4,
+      46.8,
+      72.6,
+      51.0
+     ]
+    }
+   },
+   "usage": {
+    "input_tokens": 6072,
+    "output_tokens": 432,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 52
+   }
+  },
+  "s2": {
+   "items": 8,
+   "moved": 6,
+   "refused": 0,
+   "missing": [
+    "path of the moving ADP"
+   ],
+   "usage": {
+    "input_tokens": 5635,
+    "output_tokens": 296,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 94
+   }
+  },
+  "s3": {
+   "items": 16,
+   "moved": 10,
+   "refused": 0,
+   "missing": [
+    "label 'Peter Mitchell'",
+    "label '१९६१'",
+    "label 'Nobel 1978'",
+    "label 'hypothesis'",
+    "label 'chemiosmotic hypothesis'",
+    "centre of the glowing part this sentence talks about"
+   ],
+   "usage": {
+    "input_tokens": 6123,
+    "output_tokens": 461,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 116
+   }
+  },
+  "s4": {
+   "items": 12,
+   "moved": 8,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5901,
+    "output_tokens": 458,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 203
+   }
+  },
+  "s5": {
+   "items": 7,
+   "moved": 1,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5589,
+    "output_tokens": 278,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 110
+   }
+  },
+  "s6": {
+   "items": 16,
+   "moved": 0,
+   "refused": 0,
+   "missing": [
+    "path of the moving H+",
+    "camera target: the part this sentence talks about",
+    "label 'Hydrogen atom'",
+    "path of the moving H+",
+    "path of the moving e-",
+    "camera target: the part this sentence talks about",
+    "label 'positive charge'",
+    "path of the moving e-",
+    "camera target: the part this sentence talks about",
+    "path of the moving H+",
+    "centre of the glowing part this sentence talks about",
+    "camera target: the part this sentence talks about"
+   ],
+   "usage": {
+    "input_tokens": 6038,
+    "output_tokens": 343,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 0
+   }
+  },
+  "s7": {
+   "items": 9,
+   "moved": 3,
+   "refused": 0,
+   "missing": [],
+   "parts": {
+    "ball": {
+     "inside": [
+      [
+       63.7,
+       43.3
+      ],
+      [
+       65.6,
+       43.9
+      ],
+      [
+       64.6,
+       46.6
+      ]
+     ],
+     "outside": [
+      [
+       64.8,
+       48.7
+      ]
+     ],
+     "box": [
+      62.6,
+      40.7,
+      66.8,
+      48.2
+     ]
+    }
+   },
+   "usage": {
+    "input_tokens": 5880,
+    "output_tokens": 361,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 89
+   }
+  },
+  "s9": {
+   "items": 10,
+   "moved": 5,
+   "refused": 0,
+   "missing": [
+    "label 'proton gradient'",
+    "path of the moving ATP",
+    "label 'dhalaan nahi'",
+    "label 'ATP nahi'"
+   ],
+   "usage": {
+    "input_tokens": 5826,
+    "output_tokens": 440,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 194
+   }
+  },
+  "s10": {
+   "items": 10,
+   "moved": 8,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5860,
+    "output_tokens": 375,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 128
+   }
+  },
+  "s11": {
+   "items": 6,
+   "moved": 5,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5415,
+    "output_tokens": 318,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 166
+   }
+  }
+ },
+ "parts": {
+  "wanted": 2,
+  "cut": 2,
+  "problems": [],
+  "parts": {
+   "s1.electron": {
+    "area": 0.07,
+    "score": 0.954,
+    "box": [
+     69.438,
+     45.909,
+     73.684,
+     51.966
+    ],
+    "problems": []
+   },
+   "s7.ball": {
+    "area": 0.23,
+    "score": 0.981,
+    "box": [
+     61.663,
+     39.639,
+     67.703,
+     48.99
+    ],
+    "problems": []
+   }
+  }
+ }
+}

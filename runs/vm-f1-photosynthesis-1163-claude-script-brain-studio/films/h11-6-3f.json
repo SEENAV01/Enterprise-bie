@@ -1,0 +1,3354 @@
+{
+ "film": {
+  "title": "Gradient se ATP tak ki chhupi kadi",
+  "look": "Structural-biology anatomy with consistent spatial orientation; membrane deep teal, lumen gold below, stroma ivory above, CF₀ amber, central stalk copper, six-lobed CF₁ violet, PQ olive and electron-transfer complexes slate blue.",
+  "shots": [
+   {
+    "id": "s1",
+    "title": "Energy aur CF₁",
+    "key": "Gradient ka tootna CF₁ ko chalata hai",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 detailed local ATP synthase section. Deep-teal membrane at y69, gold lumen below and ivory stroma above. Amber CF0 ring at 50,69, exposed copper central stalk at 50,49, violet six-lobed CF1 head at 50,31 facing stroma. Fully exposed violet catalytic beta lobe at 60,32 with real folded surface and substrate cleft. Leave room around stalk and lobe for movement and clear aqueous spaces for arriving substrates and released ATP. No loose molecules or lettering.",
+     "svg": "",
+     "library": "",
+     "parts": [
+      {
+       "id": "stalk",
+       "name": "CF₁",
+       "looks": "Exposed copper central stalk at 50,49."
+      },
+      {
+       "id": "site",
+       "name": "CF₁",
+       "looks": "Violet catalytic beta lobe at 60,32 with exposed cleft."
+      }
+     ]
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "ATP synthase",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Aap jaante ho, ATP banane ke liye ADP aur Pi ko jodna padta hai, aur jodne mein energy lagti hai.",
+      "voice": "आप जानते हो, एटीपी बनाने के लिए एडीपी और पी आई को जोड़ना पड़ता है, और जोड़ने में एनर्जी लगती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 60,
+       "y": 32,
+       "scale": 1.15
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "ADP",
+          "from": [
+           78,
+           20
+          ]
+         },
+         {
+          "what": "Pi",
+          "from": [
+           80,
+           43
+          ]
+         }
+        ],
+        "at": [
+         60,
+         32
+        ],
+        "outputs": [
+         {
+          "what": "ATP",
+          "to": [
+           78,
+           32
+          ]
+         }
+        ],
+        "label": "ADP + Pi → ATP",
+        "ms": 3500,
+        "loop": false
+       }
+      ],
+      "cycles": [],
+      "acts": [],
+      "step": 1,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "ADP aur Pi jodne ke liye energy ki prerequisite.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Yeh energy gradient ke tootne se aati hai.",
+      "voice": "यह एनर्जी ग्रेडिएंट के टूटने से आती है।",
+      "pins": [
+       {
+        "label": "Gradient",
+        "x": 28,
+        "y": 73
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 61,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          38.0,
+          92.0
+         ],
+         [
+          45.0,
+          85.0
+         ],
+         [
+          45.0,
+          69.0
+         ],
+         [
+          39.0,
+          60.0
+         ]
+        ],
+        "count": 5,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 2,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Bahte H⁺ CF₁ ki shakal badal dete hain.",
+      "voice": "बहते एच प्लस सी एफ वन की शक्ल बदल देते हैं।",
+      "pins": [
+       {
+        "label": "CF₁",
+        "x": 64,
+        "y": 25
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 56.0,
+       "y": 30.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          39.0,
+          92.0
+         ],
+         [
+          45.0,
+          85.0
+         ],
+         [
+          45.0,
+          69.0
+         ],
+         [
+          35.0,
+          60.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "stalk",
+        "do": "spin",
+        "toward": [],
+        "turns": 0,
+        "rider": ""
+       },
+       {
+        "part": "site",
+        "do": "squeeze",
+        "toward": [],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 3,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "Stalk rotation aur catalytic lobe ka mechanical sambandh.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "title": "Mutthi ka example",
+    "key": "Khulna, jodna aur ATP chhodna",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "photo",
+     "image_prompt": "16:9 real human right hand against an uncluttered neutral background. Palm faces camera at 50,56; fingers and thumb loosely open at 50,35, completely visible with generous room to close and reopen. Real skin, joints and tendons. Wrist enters lower centre. Palm clear for overlays. No objects or lettering.",
+     "svg": "",
+     "library": "",
+     "parts": [
+      {
+       "id": "fist",
+       "name": "Mutthi",
+       "looks": "Articulated fingers and thumb around exposed palm at 50,45."
+      }
+     ]
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Mutthi",
+    "aside": true,
+    "sentences": [
+     {
+      "roman": "Socho CF₁ ek mutthi hai.",
+      "voice": "सोचो सी एफ वन एक मुट्ठी है।",
+      "pins": [
+       {
+        "label": "CF₁ = mutthi",
+        "x": 49.0,
+        "y": 58.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 45,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "fist",
+        "do": "open",
+        "toward": [
+         50,
+         54
+        ],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "CF1 ko asli mutthi se map karta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Mutthi khuli, toh ADP aur Pi andar aaye.",
+      "voice": "मुट्ठी खुली, तो एडीपी और पी आई अंदर आए।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ADP",
+        "colour": "blue",
+        "label": "ADP",
+        "points": [
+         [
+          23,
+          47
+         ],
+         [
+          44,
+          53
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       },
+       {
+        "what": "Pi",
+        "colour": "gold",
+        "label": "Pi",
+        "points": [
+         [
+          77,
+          47
+         ],
+         [
+          56,
+          53
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "fist",
+        "do": "open",
+        "toward": [
+         50,
+         53
+        ],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 1,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Substrates ki entry ka mutthi example.",
+      "part": "concept"
+     },
+     {
+      "roman": "Mutthi bheench gayi, toh dono dabkar jud gaye, aur ATP ban gaya.",
+      "voice": "मुट्ठी भींच गई, तो दोनों दबकर जुड़ गए, और एटीपी बन गया।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 49,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [
+       {
+        "x": 50,
+        "y": 53,
+        "label": "ATP"
+       }
+      ],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "fist",
+        "do": "tight",
+        "toward": [
+         50,
+         53
+        ],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 2,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Pehle aaye dono substrates ko mutthi mein judte dikhata hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Mutthi phir khuli, aur ATP bahar.",
+      "voice": "मुट्ठी फिर खुली, और एटीपी बाहर।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "ATP",
+        "points": [
+         [
+          50,
+          53
+         ],
+         [
+          79,
+          33
+         ]
+        ],
+        "count": 1,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "fist",
+        "do": "open",
+        "toward": [
+         50,
+         53
+        ],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 3,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "ATP release ka everyday example.",
+      "part": "concept"
+     },
+     {
+      "roman": "Mutthi bheenchne ki taakat H⁺ ke bahav se aati hai.",
+      "voice": "मुट्ठी भींचने की ताकत एच प्लस के बहाव से आती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          18,
+          75
+         ],
+         [
+          29,
+          75
+         ],
+         [
+          39,
+          75
+         ]
+        ],
+        "count": 4,
+        "ms": 1600,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "fist",
+        "do": "tight",
+        "toward": [
+         50,
+         53
+        ],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 4,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "Mutthi ki taakat ko proton flow se map karta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Isliye bahav ruka, toh ATP banna bhi ruka.",
+      "voice": "इसलिए बहाव रुका, तो एटीपी बनना भी रुका।",
+      "pins": [
+       {
+        "label": "ATP banna ruka",
+        "x": 50.0,
+        "y": 53.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "fist",
+        "do": "stop",
+        "toward": [],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 5,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       4
+      ],
+      "beyond": "Flow rukne ka ATP synthesis par asar.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "title": "Conformational change aur chhupi kadi",
+    "key": "Electron → H⁺ ka farq → ATP",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 return to identical local ATP synthase section. Deep-teal membrane at y69, enclosed gold lumen below, ivory stroma above, amber CF0 at 50,69, copper stalk at 50,49, violet six-lobed CF1 at 50,31. Exposed violet catalytic beta lobe at 60,32 has real folded surface, open cleft and space to deform. Slate-blue electron-transfer complex at 20,68. Clear aqueous spaces for overlays; no loose molecules or lettering.",
+     "svg": "",
+     "library": "",
+     "parts": [
+      {
+       "id": "protein",
+       "name": "Protein",
+       "looks": "Violet catalytic beta-lobe body at 60,32."
+      },
+      {
+       "id": "fist_site",
+       "name": "Mutthi",
+       "looks": "Exposed violet substrate-cleft lips on the beta lobe at 60,32."
+      }
+     ]
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "ATP synthase",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Protein ki shakal ke is badlaav ko conformational change kehte hain.",
+      "voice": "प्रोटीन की शक्ल के इस बदलाव को कॉन्फ़ॉर्मेशनल चेंज कहते हैं।",
+      "pins": [
+       {
+        "label": "Conformational change",
+        "x": 59.0,
+        "y": 30.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 59.0,
+       "y": 28.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "protein",
+        "do": "squeeze",
+        "toward": [],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 1,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Conformation ka matlab hi shakal hai.",
+      "voice": "कॉन्फ़ॉर्मेशन का मतलब ही शक्ल है।",
+      "pins": [
+       {
+        "label": "Conformation = shakal",
+        "x": 57.0,
+        "y": 22.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 59.0,
+       "y": 28.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "Conformation ka shabdik matlab.",
+      "part": "concept"
+     },
+     {
+      "roman": "Aur yeh mutthi ek baar nahi, baar-baar khulti aur band hoti hai.",
+      "voice": "और यह मुट्ठी एक बार नहीं, बार-बार खुलती और बंद होती है।",
+      "pins": [
+       {
+        "label": "Mutthi",
+        "x": 61.0,
+        "y": 30.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 61.0,
+       "y": 27.0,
+       "scale": 1.15
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "fist_site",
+        "do": "open",
+        "toward": [
+         61.0,
+         27.0
+        ],
+        "turns": 0,
+        "rider": ""
+       },
+       {
+        "part": "fist_site",
+        "do": "tight",
+        "toward": [
+         61.0,
+         27.0
+        ],
+        "turns": 0,
+        "rider": ""
+       },
+       {
+        "part": "fist_site",
+        "do": "open",
+        "toward": [
+         61.0,
+         27.0
+        ],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 2,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "Repeated catalytic action ka mutthi mapping.",
+      "part": "concept"
+     },
+     {
+      "roman": "Isliye ek enzyme bahut saare ATP bana deta hai.",
+      "voice": "इसलिए एक एंज़ाइम बहुत सारे एटीपी बना देता है।",
+      "pins": [
+       {
+        "label": "Enzyme",
+        "x": 45,
+        "y": 25
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 60,
+       "y": 32,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "ATP",
+        "points": [
+         [
+          61.0,
+          27.0
+         ],
+         [
+          78.0,
+          21.0
+         ],
+         [
+          89.0,
+          22.0
+         ]
+        ],
+        "count": 6,
+        "ms": 1500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 3,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Toh ab batao, electron ki daud aur ATP ke beech ki chhupi kadi kya nikli?",
+      "voice": "तो अब बताओ, इलेक्ट्रॉन की दौड़ और एटीपी के बीच की छुपी कड़ी क्या निकली?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 39,
+       "y": 59,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "Electron",
+        "points": [
+         [
+          9.0,
+          66.0
+         ],
+         [
+          16.0,
+          69.0
+         ],
+         [
+          24.0,
+          67.0
+         ]
+        ],
+        "count": 2,
+        "ms": 2000,
+        "loop": false
+       },
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "ATP",
+        "points": [
+         [
+          61.0,
+          27.0
+         ],
+         [
+          82.0,
+          20.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Electron transport aur ATP ka causal link poochhta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Electron ki daud aur ATP ke beech ki chhupi kadi H⁺ ka farq nikli.",
+      "voice": "इलेक्ट्रॉन की दौड़ और एटीपी के बीच की छुपी कड़ी एच प्लस का फ़र्क निकली।",
+      "pins": [
+       {
+        "label": "H⁺ ka farq",
+        "x": 31,
+        "y": 82
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 43,
+       "y": 65,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "Electron",
+        "points": [
+         [
+          9.0,
+          66.0
+         ],
+         [
+          16.0,
+          69.0
+         ],
+         [
+          24.0,
+          67.0
+         ]
+        ],
+        "count": 2,
+        "ms": 2000,
+        "loop": false
+       },
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          35.0,
+          90.0
+         ],
+         [
+          44.0,
+          80.0
+         ],
+         [
+          44.0,
+          65.0
+         ],
+         [
+          37.0,
+          52.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 4,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1,
+       4
+      ],
+      "beyond": "Proton difference se electron transport aur ATP judte hain.",
+      "part": "concept"
+     },
+     {
+      "roman": "Electron ki daud farq banati hai, aur farq ke tootne se ATP banta hai.",
+      "voice": "इलेक्ट्रॉन की दौड़ फ़र्क बनाती है, और फ़र्क के टूटने से एटीपी बनता है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 47,
+       "y": 52,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "Electron",
+        "points": [
+         [
+          9.0,
+          66.0
+         ],
+         [
+          16.0,
+          69.0
+         ],
+         [
+          24.0,
+          67.0
+         ]
+        ],
+        "count": 2,
+        "ms": 1800,
+        "loop": false
+       },
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "",
+        "points": [
+         [
+          35.0,
+          90.0
+         ],
+         [
+          44.0,
+          80.0
+         ],
+         [
+          44.0,
+          65.0
+         ],
+         [
+          37.0,
+          52.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2200,
+        "loop": false
+       },
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "ATP",
+        "points": [
+         [
+          61.0,
+          27.0
+         ],
+         [
+          83.0,
+          22.0
+         ]
+        ],
+        "count": 3,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 5,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1,
+       3,
+       4
+      ],
+      "beyond": "Energy ki causal chain saath dikhata hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Ab poori kahani ek saath chalate hain, aur dekhte hain ki energy kahan se kahan gayi.",
+      "voice": "अब पूरी कहानी एक साथ चलाते हैं, और देखते हैं कि एनर्जी कहाँ से कहाँ गई।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 47,
+       "y": 52,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "title": "Energy ka safar",
+    "key": "Light se gradient, gradient se ATP",
+    "covers": [
+     0,
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 scientific local cutaway of a closed flattened thylakoid sac. Gold enclosed lumen lower middle, ivory stroma outside, continuous deep-teal membrane upper boundary near y52. Slate-blue photosystem left x15 with lumen-facing water-splitting site. Olive PQ compact carrier at 33,52, slate-blue cytochrome b6f proton-transfer complex at 45,52 with exposed stromal opening and lumen exit. Right x76 amber CF0 ring, copper stalk at 76,37 and violet six-lobed CF1 head at 76,25. Exposed violet catalytic lobe at 82,25. All movable parts opaque, anatomically detailed and unobstructed with room for movement. Clear aqueous spaces for molecular overlays; no loose molecules or lettering.",
+     "svg": "",
+     "library": "",
+     "parts": [
+      {
+       "id": "pq",
+       "name": "PQ",
+       "looks": "Olive compact PQ carrier at 33,52."
+      },
+      {
+       "id": "pump",
+       "name": "Proton pump",
+       "looks": "Slate-blue membrane-spanning b6f proton-transfer machinery at 45,52, stromal entrance above and lumen exit below."
+      },
+      {
+       "id": "stalk",
+       "name": "CF₁",
+       "looks": "Copper stalk exposed at 76,37."
+      },
+      {
+       "id": "site",
+       "name": "CF₁",
+       "looks": "Exposed violet catalytic beta lobe at 82,25."
+      }
+     ]
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Thylakoid",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Roshni ki energy ne electron ko uchhala.",
+      "voice": "रोशनी की एनर्जी ने इलेक्ट्रॉन को उछाला।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 15,
+       "y": 47,
+       "scale": 1.15
+      },
+      "moves": [
+       {
+        "what": "light",
+        "colour": "gold",
+        "label": "Roshni",
+        "points": [
+         [
+          7,
+          12
+         ],
+         [
+          15,
+          49
+         ]
+        ],
+        "count": 2,
+        "ms": 1500,
+        "loop": false
+       },
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "Electron",
+        "points": [
+         [
+          15.0,
+          49.0
+         ],
+         [
+          19.0,
+          32.0
+         ],
+         [
+          32.0,
+          61.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 1,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Gradient ki energy ko light excitation tak trace karta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Daudte electron ki energy se PQ ne H⁺ ko bahar se andar bhara.",
+      "voice": "दौड़ते इलेक्ट्रॉन की एनर्जी से पीक्यू ने एच प्लस को बाहर से अंदर भरा।",
+      "pins": [
+       {
+        "label": "PQ",
+        "x": 32.0,
+        "y": 61.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 32.0,
+       "y": 63.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "Electron",
+        "points": [
+         [
+          22.0,
+          49.0
+         ],
+         [
+          32.0,
+          63.0
+         ],
+         [
+          45.0,
+          52.0
+         ]
+        ],
+        "count": 2,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "pq",
+        "do": "carry",
+        "toward": [
+         32.0,
+         77.0
+        ],
+        "turns": 0,
+        "rider": "H+"
+       }
+      ],
+      "step": 2,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       3
+      ],
+      "beyond": "PQ ke saath electron-driven proton transfer.",
+      "part": "concept"
+     },
+     {
+      "roman": "Paani ke tootne ne bhi andar H⁺ chhode.",
+      "voice": "पानी के टूटने ने भी अंदर एच प्लस छोड़े।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 14.0,
+       "y": 81.0,
+       "scale": 1.15
+      },
+      "moves": [
+       {
+        "what": "H2O",
+        "colour": "blue",
+        "label": "Paani",
+        "points": [
+         [
+          8.0,
+          75.0
+         ],
+         [
+          14.0,
+          81.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       },
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          14.0,
+          81.0
+         ],
+         [
+          27.0,
+          88.0
+         ],
+         [
+          36.0,
+          88.0
+         ]
+        ],
+        "count": 2,
+        "ms": 2100,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 3,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Water splitting lumen mein protons deta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Isse lumen mein H⁺ ki oonchi dhalaan bani, aur energy ab is dhalaan mein band hai.",
+      "voice": "इससे ल्यूमेन में एच प्लस की ऊँची ढलान बनी, और एनर्जी अब इस ढलान में बंद है।",
+      "pins": [
+       {
+        "label": "Lumen",
+        "x": 54,
+        "y": 80
+       },
+       {
+        "label": "H⁺ dhalaan",
+        "x": 61.0,
+        "y": 86.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 52,
+       "y": 65,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          36.0,
+          80.0
+         ],
+         [
+          48.0,
+          89.0
+         ],
+         [
+          65.0,
+          83.0
+         ]
+        ],
+        "count": 7,
+        "ms": 2300,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 4,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       3
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Phir H⁺ CF₀ se wapas bahar bahe, aur us bahav ki energy se CF₁ ne ATP banaya.",
+      "voice": "फिर एच प्लस सी एफ ज़ीरो से वापस बाहर बहे, और उस बहाव की एनर्जी से सी एफ वन ने एटीपी बनाया।",
+      "pins": [
+       {
+        "label": "CF₀",
+        "x": 83.0,
+        "y": 66.0
+       },
+       {
+        "label": "CF₁",
+        "x": 80,
+        "y": 19
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 79.0,
+       "y": 42.0,
+       "scale": 1.15
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          65.0,
+          86.0
+         ],
+         [
+          78.5,
+          79.0
+         ],
+         [
+          78.5,
+          60.0
+         ],
+         [
+          87.0,
+          48.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2400,
+        "loop": false
+       },
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "ATP",
+        "points": [
+         [
+          85.0,
+          25.0
+         ],
+         [
+          94.0,
+          10.0
+         ]
+        ],
+        "count": 3,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "stalk",
+        "do": "spin",
+        "toward": [],
+        "turns": 0,
+        "rider": ""
+       },
+       {
+        "part": "site",
+        "do": "squeeze",
+        "toward": [],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 5,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1,
+       4
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Energy lagakar H⁺ ko membrane ke paar bharne wale ko proton pump kehte hain.",
+      "voice": "एनर्जी लगाकर एच प्लस को मेम्ब्रेन के पार भरने वाले को प्रोटॉन पम्प कहते हैं।",
+      "pins": [
+       {
+        "label": "Membrane",
+        "x": 58.0,
+        "y": 65.0
+       },
+       {
+        "label": "Proton pump",
+        "x": 43.0,
+        "y": 57.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 45.0,
+       "y": 64.0,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "pump",
+        "do": "carry",
+        "toward": [
+         45.5,
+         88.0
+        ],
+        "turns": 0,
+        "rider": "H+"
+       }
+      ],
+      "step": 6,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       3
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Yahan yeh kaam electron ki kadi PQ ke saath karti hai.",
+      "voice": "यहाँ यह काम इलेक्ट्रॉन की कड़ी पीक्यू के साथ करती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 32.0,
+       "y": 63.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "Electron",
+        "points": [
+         [
+          15.0,
+          49.0
+         ],
+         [
+          32.0,
+          63.0
+         ],
+         [
+          45.0,
+          52.0
+         ],
+         [
+          51.0,
+          47.0
+         ]
+        ],
+        "count": 3,
+        "ms": 2800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "pq",
+        "do": "carry",
+        "toward": [
+         32.0,
+         77.0
+        ],
+        "turns": 0,
+        "rider": "H+"
+       }
+      ],
+      "step": 7,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       3
+      ],
+      "beyond": "Electron chain aur PQ ka sambandh.",
+      "part": "concept"
+     },
+     {
+      "roman": "Membrane ke aar-paar H⁺ ke is bahav se ATP banne ke poore tareeke ko chemiosmosis kehte hain.",
+      "voice": "मेम्ब्रेन के आर-पार एच प्लस के इस बहाव से एटीपी बनने के पूरे तरीके को केमिऑस्मोसिस कहते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 53,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          62.0,
+          86.0
+         ],
+         [
+          78.5,
+          79.0
+         ],
+         [
+          78.5,
+          60.0
+         ],
+         [
+          87.0,
+          48.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2500,
+        "loop": false
+       },
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "ATP",
+        "points": [
+         [
+          85.0,
+          25.0
+         ],
+         [
+          94.0,
+          10.0
+         ]
+        ],
+        "count": 3,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 8,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       2,
+       4
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Toh aap batao, chemiosmosis ke liye kaun-kaun si cheezein chahiye?",
+      "voice": "तो आप बताओ, केमिऑस्मोसिस के लिए कौन-कौन सी चीज़ें चाहिए?",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 52,
+       "y": 50,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "title": "Baandh ke chaar hisse",
+    "key": "Deewar, pump, ruka paani aur turbine",
+    "covers": [
+     1
+    ],
+    "visual": {
+     "type": "photo",
+     "image_prompt": "16:9 photorealistic separate view of same dam powerhouse. High reservoir upper-left, concrete dam centre-left, motor-driven pump left, steel turbine right 69,58, low tailwater bottom-right. Distinct uphill pump pipe and downhill turbine penstock. Warm ivory sunlight, realistic concrete and metal, clear mapping-label space.",
+     "svg": "",
+     "library": "c3b-dam-supply",
+     "parts": []
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Baandh",
+    "aside": true,
+    "sentences": [
+     {
+      "roman": "Chemiosmosis ke liye chaar cheezein chahiye: membrane, proton pump, proton gradient aur ATP synthase.",
+      "voice": "केमिऑस्मोसिस के लिए चार चीज़ें चाहिए: मेम्ब्रेन, प्रोटॉन पम्प, प्रोटॉन ग्रेडिएंट और एटीपी सिंथेज़।",
+      "pins": [
+       {
+        "label": "Membrane",
+        "x": 43.0,
+        "y": 34.0
+       },
+       {
+        "label": "Proton pump",
+        "x": 41.5,
+        "y": 68.0
+       },
+       {
+        "label": "Proton gradient",
+        "x": 28.0,
+        "y": 13.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 48,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "drop",
+        "colour": "blue",
+        "label": "ATP synthase",
+        "points": [
+         [
+          53.0,
+          28.0
+         ],
+         [
+          60.0,
+          43.0
+         ],
+         [
+          69.0,
+          66.0
+         ],
+         [
+          76.0,
+          81.0
+         ]
+        ],
+        "count": 5,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [
+        {
+         "n": 1,
+         "label": "membrane",
+         "colour": "green"
+        },
+        {
+         "n": 1,
+         "label": "pump",
+         "colour": "blue"
+        },
+        {
+         "n": 1,
+         "label": "gradient",
+         "colour": "gold"
+        },
+        {
+         "n": 1,
+         "label": "ATP synthase",
+         "colour": "purple"
+        }
+       ],
+       "then": []
+      },
+      "teaches": [
+       2
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Baandh mein bhi yahi chaar hain: deewar, pump, ruka hua paani aur turbine.",
+      "voice": "बाँध में भी यही चार हैं: दीवार, पम्प, रुका हुआ पानी और टर्बाइन।",
+      "pins": [
+       {
+        "label": "Deewar = membrane",
+        "x": 43.0,
+        "y": 34.0
+       },
+       {
+        "label": "Pump = pump",
+        "x": 41.5,
+        "y": 68.0
+       },
+       {
+        "label": "Ruka paani = gradient",
+        "x": 28.0,
+        "y": 13.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "drop",
+        "colour": "blue",
+        "label": "Turbine",
+        "points": [
+         [
+          53.0,
+          28.0
+         ],
+         [
+          60.0,
+          43.0
+         ],
+         [
+          69.0,
+          66.0
+         ],
+         [
+          76.0,
+          81.0
+         ]
+        ],
+        "count": 5,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [
+        {
+         "n": 1,
+         "label": "deewar",
+         "colour": "green"
+        },
+        {
+         "n": 1,
+         "label": "pump",
+         "colour": "blue"
+        },
+        {
+         "n": 1,
+         "label": "paani",
+         "colour": "gold"
+        },
+        {
+         "n": 1,
+         "label": "turbine",
+         "colour": "purple"
+        }
+       ],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Baandh ke hisse chemiosmosis ki chaar zarooraton se map hote hain.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s6",
+    "title": "Stroma ki taraf taiyaar",
+    "key": "Lumen mein H⁺, stroma mein ATP aur NADPH",
+    "covers": [
+     0,
+     1,
+     2
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 return to same closed flattened thylakoid local section. Continuous deep-teal membrane at y52 encloses gold lumen below; ivory stroma above. Slate-blue photosystem x15, olive PQ x33, slate-blue b6f x45, amber CF0 ring x76, copper stalk at 76,37, violet six-lobed CF1 head at 76,25. Clear ivory stroma above and right, with a detailed muted violet stromal enzyme at 92,20 as next dive destination. Preserve previous anatomy and positions. No loose molecules; clear spaces for overlays and labels.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Thylakoid",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Exam ke liye teen baatein pakki rakho: H⁺ lumen mein jama hote hain, lumen ka pH ghatta hai, aur ATP CF₁ par stroma ki taraf banta hai.",
+      "voice": "एग्ज़ाम के लिए तीन बातें पक्की रखो: एच प्लस ल्यूमेन में जमा होते हैं, ल्यूमेन का पी एच घटता है, और एटीपी सी एफ वन पर स्ट्रोमा की तरफ़ बनता है।",
+      "pins": [
+       {
+        "label": "Lumen",
+        "x": 53,
+        "y": 80
+       },
+       {
+        "label": "CF₁",
+        "x": 76,
+        "y": 25
+       },
+       {
+        "label": "Stroma",
+        "x": 57,
+        "y": 15
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 46.0,
+        "x1": 63.0,
+        "y0": 84.0,
+        "y1": 100.0
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 66,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          35.0,
+          85.0
+         ],
+         [
+          48.0,
+          89.0
+         ],
+         [
+          64.0,
+          87.0
+         ]
+        ],
+        "count": 6,
+        "ms": 2200,
+        "loop": false
+       },
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "ATP",
+        "points": [
+         [
+          70.0,
+          25.0
+         ],
+         [
+          81.0,
+          12.0
+         ]
+        ],
+        "count": 3,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1,
+       3,
+       4
+      ],
+      "beyond": "Proton accumulation se lumen ka pH ghatta hai; synthesis ki stromal orientation.",
+      "part": "concept"
+     },
+     {
+      "roman": "Ab stroma ke paas do cheezein taiyaar hain: ATP, yaani energy, aur NADPH, yaani electron dene ki taakat.",
+      "voice": "अब स्ट्रोमा के पास दो चीज़ें तैयार हैं: एटीपी, यानी एनर्जी, और एनएडीपीएच, यानी इलेक्ट्रॉन देने की ताकत।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 78.0,
+       "y": 8.0,
+       "scale": 1.15
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "ATP",
+        "points": [
+         [
+          70.0,
+          25.0
+         ],
+         [
+          85.0,
+          15.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       },
+       {
+        "what": "NADPH",
+        "colour": "green",
+        "label": "NADPH",
+        "points": [
+         [
+          49.0,
+          49.0
+         ],
+         [
+          72.0,
+          9.0
+         ]
+        ],
+        "count": 1,
+        "ms": 1800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [
+        {
+         "n": 1,
+         "label": "ATP",
+         "colour": "purple"
+        },
+        {
+         "n": 1,
+         "label": "NADPH",
+         "colour": "green"
+        }
+       ],
+       "then": []
+      },
+      "teaches": [
+       5
+      ],
+      "beyond": "ATP energy aur NADPH electron-donating power deta hai.",
+      "part": "use"
+     },
+     {
+      "roman": "Dono stroma ki taraf hi bane, isliye wahin turant kaam aate hain.",
+      "voice": "दोनों स्ट्रोमा की तरफ़ ही बने, इसलिए वहीं तुरंत काम आते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 82.0,
+       "y": 22.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "",
+        "points": [
+         [
+          85,
+          15
+         ],
+         [
+          92,
+          20
+         ]
+        ],
+        "count": 1,
+        "ms": 2200,
+        "loop": false
+       },
+       {
+        "what": "NADPH",
+        "colour": "green",
+        "label": "",
+        "points": [
+         [
+          72.0,
+          9.0
+         ],
+         [
+          92.0,
+          20.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       5
+      ],
+      "beyond": "",
+      "part": "use"
+     }
+    ]
+   },
+   {
+    "id": "s7",
+    "title": "ATP aur NADPH ka istemaal",
+    "key": "Stroma mein CO₂ fixation aur sugar synthesis",
+    "covers": [
+     2
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 molecular-scale closer view inside ivory stroma at the preceding upper-right enzyme destination. Detailed muted violet stromal protein surface with exposed cleft at 53,48 and surrounding aqueous space clear. Distant deep-teal membrane edge lower left for orientation, no enlarged membrane proteins. Real folded protein structure, not a symbolic blob. Clear left space for carbon dioxide, upper right for ATP and NADPH, right for sugar and lower space for word labels. No loose molecules, pathways, boxes or lettering.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": 92,
+     "y": 20
+    },
+    "place": "Stroma",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Stroma mein inse ek reaction chalti hai, jo hawa ki CO₂ pakadti hai aur sugar banati hai.",
+      "voice": "स्ट्रोमा में इनसे एक रिएक्शन चलती है, जो हवा की सी ओ टू पकड़ती है और शुगर बनाती है।",
+      "pins": [
+       {
+        "label": "Stroma",
+        "x": 18,
+        "y": 20
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 53,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "CO2",
+        "colour": "blue",
+        "label": "CO₂",
+        "points": [
+         [
+          8,
+          42
+         ],
+         [
+          31,
+          46
+         ],
+         [
+          53,
+          48
+         ]
+        ],
+        "count": 3,
+        "ms": 2500,
+        "loop": false
+       },
+       {
+        "what": "glucose",
+        "colour": "green",
+        "label": "Sugar",
+        "points": [
+         [
+          61,
+          48
+         ],
+         [
+          86,
+          42
+         ]
+        ],
+        "count": 1,
+        "ms": 2500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       5
+      ],
+      "beyond": "",
+      "part": "use"
+     },
+     {
+      "roman": "Aisi reaction ko biosynthetic reaction kehte hain.",
+      "voice": "ऐसी रिएक्शन को बायोसिंथेटिक रिएक्शन कहते हैं।",
+      "pins": [
+       {
+        "label": "Biosynthetic reaction",
+        "x": 53,
+        "y": 65
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 53,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "glucose",
+        "colour": "green",
+        "label": "",
+        "points": [
+         [
+          61,
+          48
+         ],
+         [
+          86,
+          42
+         ]
+        ],
+        "count": 1,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       5
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Bio yaani jeevan, synthetic yaani jodkar banana: jeev ke andar chhote molecule jodkar bade molecule banana.",
+      "voice": "बायो यानी जीवन, सिंथेटिक यानी जोड़कर बनाना: जीव के अंदर छोटे मॉलिक्यूल जोड़कर बड़े मॉलिक्यूल बनाना।",
+      "pins": [
+       {
+        "label": "Bio = jeevan",
+        "x": 28,
+        "y": 79
+       },
+       {
+        "label": "Synthetic = jodna",
+        "x": 69,
+        "y": 79
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 53,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "molecule",
+          "from": [
+           31,
+           40
+          ]
+         },
+         {
+          "what": "molecule",
+          "from": [
+           32,
+           58
+          ]
+         }
+        ],
+        "at": [
+         49.0,
+         46.0
+        ],
+        "outputs": [
+         {
+          "what": "molecule",
+          "to": [
+           79,
+           48
+          ]
+         }
+        ],
+        "label": "",
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Biosynthetic shabd ke dono hisson ka matlab.",
+      "part": "concept"
+     },
+     {
+      "roman": "CO₂ ke carbon ko pakadkar ek molecule mein jod lena CO₂ ko fix karna kehlata hai, yaani fixing CO₂.",
+      "voice": "सी ओ टू के कार्बन को पकड़कर एक मॉलिक्यूल में जोड़ लेना सी ओ टू को फ़िक्स करना कहलाता है, यानी फ़िक्सिंग सी ओ टू।",
+      "pins": [
+       {
+        "label": "Fixing CO₂",
+        "x": 49.0,
+        "y": 46.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 49.0,
+       "y": 46.0,
+       "scale": 1.15
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "CO2",
+          "from": [
+           19,
+           43
+          ]
+         },
+         {
+          "what": "molecule",
+          "from": [
+           37,
+           62
+          ]
+         }
+        ],
+        "at": [
+         49.0,
+         46.0
+        ],
+        "outputs": [
+         {
+          "what": "molecule",
+          "to": [
+           79,
+           48
+          ]
+         }
+        ],
+        "label": "Fixing CO₂",
+        "ms": 3500,
+        "loop": false
+       }
+      ],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       5
+      ],
+      "beyond": "Fixation mein CO2 ka carbon molecule mein judta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Yeh sugar kaise banti hai, yeh hum agli film mein dekhenge.",
+      "voice": "यह शुगर कैसे बनती है, यह हम अगली फ़िल्म में देखेंगे।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 79,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "glucose",
+        "colour": "green",
+        "label": "Sugar",
+        "points": [
+         [
+          72,
+          48
+         ],
+         [
+          88,
+          38
+         ]
+        ],
+        "count": 1,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Detailed sugar pathway agli film se jodta hai.",
+      "part": "use"
+     },
+     {
+      "roman": "Abhi ke liye bas itna jaan lo ki light reaction ke ATP aur NADPH yahin kaam aate hain.",
+      "voice": "अभी के लिए बस इतना जान लो कि लाइट रिएक्शन के एटीपी और एनएडीपीएच यहीं काम आते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 53,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "ATP",
+        "colour": "purple",
+        "label": "ATP",
+        "points": [
+         [
+          79,
+          17
+         ],
+         [
+          63,
+          34
+         ],
+         [
+          48,
+          43
+         ]
+        ],
+        "count": 1,
+        "ms": 2500,
+        "loop": false
+       },
+       {
+        "what": "NADPH",
+        "colour": "green",
+        "label": "NADPH",
+        "points": [
+         [
+          88,
+          28
+         ],
+         [
+          69,
+          43
+         ],
+         [
+          59,
+          54
+         ]
+        ],
+        "count": 1,
+        "ms": 2500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       5
+      ],
+      "beyond": "",
+      "part": "recap"
+     }
+    ]
+   }
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "s4 sentence 4: labels 'H⁺ dhalaan' and 'H⁺' are 5% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s7 sentence 6: labels 'ATP' and 'NADPH' are 0% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s3 sentence 3: part 'Protein' opens here but the line does not name it (dikhaya = bola)",
+    "s3 sentence 3: part 'Protein' tights here but the line does not name it (dikhaya = bola)",
+    "s3 sentence 3: part 'Protein' opens here but the line does not name it (dikhaya = bola)",
+    "s4 sentence 6: part 'PQ' carrys here but the line does not name it (dikhaya = bola)",
+    "s1 sentence 3: the voice cannot say ⁺ ₁; write it in words in voice (\"per\", \"aur\", \"guna\", \"se banta hai\"), the screen keeps the sign",
+    "s2 sentence 1: the voice cannot say ₁; write it in words in voice (\"per\", \"aur\", \"guna\", \"se banta hai\"), the screen keeps the sign",
+    "s2 sentence 5: the voice cannot say ⁺; write it in words in voice (\"per\", \"aur\", \"guna\", \"se banta hai\"), the screen keeps the sign",
+    "s3 sentence 6: the voice cannot say ⁺; write it in words in voice (\"per\", \"aur\", \"guna\", \"se banta hai\"), the screen keeps the sign",
+    "s4 sentence 2: the voice cannot say ⁺; write it in words in voice (\"per\", \"aur\", \"guna\", \"se banta hai\"), the screen keeps the sign",
+    "s4 sentence 3: the voice cannot say ⁺; write it in words in voice (\"per\", \"aur\", \"guna\", \"se banta hai\"), the screen keeps the sign",
+    "s4 sentence 4: the voice cannot say ⁺; write it in words in voice (\"per\", \"aur\", \"guna\", \"se banta hai\"), the screen keeps the sign",
+    "s4 sentence 5: the voice cannot say ⁺ ₀ ₁; write it in words in voice (\"per\", \"aur\", \"guna\", \"se banta hai\"), the screen keeps the sign",
+    "s4 sentence 6: the voice cannot say ⁺; write it in words in voice (\"per\", \"aur\", \"guna\", \"se banta hai\"), the screen keeps the sign",
+    "s4 sentence 8: the voice cannot say ⁺; write it in words in voice (\"per\", \"aur\", \"guna\", \"se banta hai\"), the screen keeps the sign",
+    "s6 sentence 1: the voice cannot say ⁺ ₁; write it in words in voice (\"per\", \"aur\", \"guna\", \"se banta hai\"), the screen keeps the sign",
+    "s1 sentence 1: Pi takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s2 sentence 3: ADP takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s2 sentence 3: Pi takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s2 sentence 6: step 5 adds nothing to the picture; each step draws its own arrow, pin or motion on it",
+    "s5: the aside maps the analogy in a pin (\"baandh = membrane\")"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "images": {
+  "s1": "h11-6-3f-s1.png",
+  "s2": "h11-6-3f-s2.png",
+  "s3": "h11-6-3f-s3.png",
+  "s4": "h11-6-3f-s4.png",
+  "s5": "h11-6-3f-s5.png",
+  "s6": "h11-6-3f-s6.png",
+  "s7": "h11-6-3f-s7.png"
+ },
+ "book_lines": [
+  {
+   "n": 1,
+   "text": "The break down of the gradient provides enough energy to cause a conformational change in the CF₁ particle of the ATP synthase, which makes the enzyme synthesise several molecules of energy-packed ATP.",
+   "page": "142",
+   "blocks": [
+    "p0012-b0010",
+    "p0012-b0011",
+    "p0012-b0013",
+    "p0012-b0014"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "Chemiosmosis requires a membrane, a proton pump, a proton gradient and ATP synthase.",
+   "page": "142",
+   "blocks": [
+    "p0012-b0015",
+    "p0012-b0016"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "Energy is used to pump protons across a membrane, to create a gradient or a high concentration of protons within the thylakoid lumen.",
+   "page": "142",
+   "blocks": [
+    "p0012-b0016",
+    "p0012-b0017",
+    "p0012-b0018"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "ATP synthase has a channel that allows diffusion of protons back across the membrane; this releases enough energy to activate ATP synthase enzyme that catalyses the formation of ATP.",
+   "page": "142",
+   "blocks": [
+    "p0012-b0018",
+    "p0012-b0019",
+    "p0012-b0020"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "Along with the NADPH produced by the movement of electrons, the ATP will be used immediately in the biosynthetic reaction taking place in the stroma, responsible for fixing CO₂, and synthesis of sugars.",
+   "page": "142",
+   "blocks": [
+    "p0012-b0021",
+    "p0012-b0022",
+    "p0012-b0023"
+   ]
+  }
+ ],
+ "placement": {
+  "s1": {
+   "items": 10,
+   "moved": 3,
+   "refused": 0,
+   "missing": [
+    "where ADP comes from",
+    "where Pi comes from",
+    "where the product ATP goes"
+   ],
+   "parts": {
+    "stalk": {
+     "inside": [
+      [
+       47.8,
+       36.0
+      ],
+      [
+       48.1,
+       44.0
+      ],
+      [
+       47.2,
+       53.0
+      ],
+      [
+       47.8,
+       64.0
+      ]
+     ],
+     "outside": [
+      [
+       44.0,
+       38.0
+      ],
+      [
+       53.0,
+       40.0
+      ],
+      [
+       48.0,
+       74.0
+      ]
+     ],
+     "box": [
+      43.4,
+      30.0,
+      51.9,
+      69.8
+     ]
+    },
+    "site": {
+     "inside": [
+      [
+       56.0,
+       20.0
+      ],
+      [
+       53.0,
+       29.0
+      ],
+      [
+       55.0,
+       39.0
+      ],
+      [
+       62.0,
+       36.0
+      ],
+      [
+       57.0,
+       46.0
+      ]
+     ],
+     "outside": [
+      [
+       60.0,
+       10.0
+      ],
+      [
+       48.0,
+       24.0
+      ],
+      [
+       49.0,
+       41.0
+      ]
+     ],
+     "box": [
+      47.5,
+      12.7,
+      65.9,
+      51.2
+     ]
+    }
+   },
+   "usage": {
+    "input_tokens": 5818,
+    "output_tokens": 492,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 117
+   }
+  },
+  "s2": {
+   "items": 13,
+   "moved": 2,
+   "refused": 0,
+   "missing": [
+    "path of the moving H+"
+   ],
+   "parts": {
+    "fist": {
+     "inside": [
+      [
+       46.0,
+       62.0
+      ],
+      [
+       32.0,
+       40.0
+      ],
+      [
+       39.0,
+       27.0
+      ],
+      [
+       46.0,
+       20.0
+      ],
+      [
+       54.0,
+       25.0
+      ]
+     ],
+     "outside": [
+      [
+       47.0,
+       93.0
+      ]
+     ],
+     "box": [
+      26.0,
+      2.5,
+      74.2,
+      88.0
+     ]
+    }
+   },
+   "usage": {
+    "input_tokens": 5890,
+    "output_tokens": 444,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 101
+   }
+  },
+  "s3": {
+   "items": 19,
+   "moved": 17,
+   "refused": 0,
+   "missing": [],
+   "parts": {
+    "protein": {
+     "inside": [
+      [
+       56.0,
+       17.0
+      ],
+      [
+       58.0,
+       23.0
+      ],
+      [
+       57.0,
+       34.0
+      ],
+      [
+       60.0,
+       39.0
+      ]
+     ],
+     "outside": [
+      [
+       52.0,
+       27.0
+      ],
+      [
+       53.0,
+       44.0
+      ]
+     ],
+     "box": [
+      53.0,
+      9.0,
+      66.0,
+      45.5
+     ]
+    },
+    "fist_site": {
+     "inside": [
+      [
+       60.0,
+       23.0
+      ],
+      [
+       63.0,
+       22.5
+      ],
+      [
+       60.0,
+       31.0
+      ],
+      [
+       63.0,
+       31.5
+      ]
+     ],
+     "outside": [
+      [
+       56.0,
+       26.0
+      ],
+      [
+       57.0,
+       37.0
+      ]
+     ],
+     "box": [
+      57.5,
+      19.0,
+      65.8,
+      35.0
+     ]
+    }
+   },
+   "usage": {
+    "input_tokens": 6412,
+    "output_tokens": 625,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 70
+   }
+  },
+  "s4": {
+   "items": 27,
+   "moved": 23,
+   "refused": 0,
+   "missing": [],
+   "parts": {
+    "pq": {
+     "inside": [
+      [
+       32.0,
+       57.0
+      ],
+      [
+       30.0,
+       63.0
+      ],
+      [
+       33.5,
+       67.0
+      ],
+      [
+       32.0,
+       70.0
+      ]
+     ],
+     "outside": [
+      [
+       27.8,
+       63.0
+      ],
+      [
+       37.0,
+       65.0
+      ]
+     ],
+     "box": [
+      28.2,
+      53.7,
+      36.5,
+      73.3
+     ]
+    },
+    "pump": {
+     "inside": [
+      [
+       41.5,
+       53.0
+      ],
+      [
+       49.5,
+       53.0
+      ],
+      [
+       41.7,
+       69.0
+      ],
+      [
+       49.0,
+       72.0
+      ],
+      [
+       45.6,
+       80.0
+      ]
+     ],
+     "outside": [
+      [
+       37.5,
+       65.0
+      ],
+      [
+       54.0,
+       65.0
+      ]
+     ],
+     "box": [
+      37.9,
+      43.2,
+      54.0,
+      85.8
+     ]
+    },
+    "stalk": {
+     "inside": [
+      [
+       78.0,
+       34.0
+      ],
+      [
+       78.4,
+       43.0
+      ],
+      [
+       78.3,
+       52.0
+      ]
+     ],
+     "outside": [
+      [
+       75.1,
+       34.0
+      ],
+      [
+       76.0,
+       58.0
+      ],
+      [
+       83.0,
+       57.0
+      ]
+     ],
+     "box": [
+      75.7,
+      29.6,
+      81.2,
+      56.9
+     ]
+    },
+    "site": {
+     "inside": [
+      [
+       85.0,
+       16.0
+      ],
+      [
+       86.5,
+       23.0
+      ],
+      [
+       86.0,
+       31.0
+      ],
+      [
+       83.5,
+       35.0
+      ]
+     ],
+     "outside": [
+      [
+       78.0,
+       22.0
+      ],
+      [
+       90.5,
+       33.0
+      ],
+      [
+       84.0,
+       9.0
+      ]
+     ],
+     "box": [
+      80.8,
+      11.7,
+      90.5,
+      38.5
+     ]
+    }
+   },
+   "usage": {
+    "input_tokens": 7099,
+    "output_tokens": 970,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 83
+   }
+  },
+  "s5": {
+   "items": 8,
+   "moved": 8,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5629,
+    "output_tokens": 299,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 99
+   }
+  },
+  "s6": {
+   "items": 13,
+   "moved": 8,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 6106,
+    "output_tokens": 441,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 148
+   }
+  },
+  "s7": {
+   "items": 20,
+   "moved": 4,
+   "refused": 14,
+   "missing": [],
+   "usage": {
+    "input_tokens": 6446,
+    "output_tokens": 469,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 126
+   }
+  }
+ },
+ "parts": {
+  "wanted": 9,
+  "cut": 9,
+  "problems": [],
+  "parts": {
+   "s1.site": {
+    "area": 4.57,
+    "score": 0.934,
+    "box": [
+     46.77,
+     11.583,
+     66.507,
+     51.86
+    ],
+    "problems": []
+   },
+   "s1.stalk": {
+    "area": 2.23,
+    "score": 0.935,
+    "box": [
+     42.524,
+     29.012,
+     52.871,
+     70.244
+    ],
+    "problems": [],
+    "turns": "upright"
+   },
+   "s2.fist": {
+    "area": 18.88,
+    "score": 0.956,
+    "box": [
+     25.06,
+     1.7,
+     75.0,
+     93.411
+    ],
+    "problems": []
+   },
+   "s3.protein": {
+    "area": 1.67,
+    "score": 0.906,
+    "box": [
+     51.734,
+     8.077,
+     66.567,
+     44.421
+    ],
+    "problems": []
+   },
+   "s3.fist_site": {
+    "area": 0.84,
+    "score": 0.824,
+    "box": [
+     55.801,
+     15.515,
+     66.388,
+     36.982
+    ],
+    "problems": []
+   },
+   "s4.pump": {
+    "area": 4.95,
+    "score": 0.93,
+    "box": [
+     36.603,
+     42.402,
+     54.844,
+     86.397
+    ],
+    "problems": []
+   },
+   "s4.site": {
+    "area": 1.51,
+    "score": 0.916,
+    "box": [
+     80.263,
+     10.308,
+     90.849,
+     39.426
+    ],
+    "problems": []
+   },
+   "s4.stalk": {
+    "area": 1.12,
+    "score": 0.963,
+    "box": [
+     74.761,
+     28.799,
+     82.117,
+     58.023
+    ],
+    "problems": [],
+    "turns": "upright"
+   },
+   "s4.pq": {
+    "area": 1.11,
+    "score": 0.966,
+    "box": [
+     27.392,
+     52.922,
+     37.261,
+     74.07
+    ],
+    "problems": []
+   }
+  }
+ }
+}
