@@ -506,9 +506,45 @@ STRUCTURE_PROMPT = ("STEP 2 OF 2: now give this heading's JSON object for the le
                     "prepares, outside_book, answer and watch_out as the rules ask.")
 
 
+def _lesson_json(value) -> dict | None:
+    """A lesson Codex gave as a JSON object ({"GOAL", "MISAAL", "LESSON": [{"teaches", "lines"}], "FACTS", "BRIDGE"}; job
+    s12, 11.6.3: the lesson came in this shape and was thrown away), in parse_lesson's form."""
+    if not isinstance(value, dict):
+        return None
+    low = {str(k).strip().lower(): v for k, v in value.items()}
+    blocks = []
+    for b in low.get("lesson") or []:
+        if not isinstance(b, dict):
+            continue
+        head = b.get("teaches") or b.get("items") or b.get("head") or b.get("kind") or []
+        head = [head] if isinstance(head, str) else [str(h).strip() for h in head if str(h).strip()]
+        lines = [str(x).strip() for x in b.get("lines") or b.get("says") or [] if str(x).strip()]
+        if lines:
+            blocks.append({"head": head, "lines": lines})
+    if not blocks:
+        return None
+    facts = []
+    for f in low.get("facts") or []:
+        if isinstance(f, dict):
+            facts.append({"id": str(f.get("id") or ""), "item": str(f.get("item") or ""),
+                          "kind": str(f.get("kind") or "book").lower(), "term": str(f.get("term") or ""),
+                          "fact": str(f.get("fact") or "")})
+        elif isinstance(f, str) and len(f.split("|")) >= 5:
+            cells = [c.strip() for c in f.split("|")]
+            facts.append({"id": cells[0], "item": cells[1], "kind": cells[2].lower(), "term": cells[3],
+                          "fact": " | ".join(cells[4:])})
+    return {"goal": str(low.get("goal") or ""), "misaal": str(low.get("misaal") or ""),
+            "bridge": str(low.get("bridge") or ""), "facts": facts, "blocks": blocks}
+
+
 def parse_lesson(text: str) -> dict | None:
     """Step 1's plain lesson: {"facts", "goal", "misaal", "bridge", "blocks": [{"head": [...], "lines": [...]}]}, or None
-    when the text holds no lesson in that form (then the step-2 JSON is asked for directly)."""
+    when the text holds no lesson in that form (then the step-2 JSON is asked for directly). A lesson sent as a JSON
+    object of the same parts is read too."""
+    if (text or "").lstrip().startswith(("{", "```")):
+        found = _lesson_json(parse(text))
+        if found:
+            return found
     facts, blocks, out, where = [], [], {"goal": "", "misaal": "", "bridge": ""}, ""
     for raw in (text or "").splitlines():
         line = raw.strip()
@@ -1494,7 +1530,7 @@ def write(client, model: str, chapter: dict, *, course: dict, naksha: dict | Non
                 found = found + [LOCKED]
             elif facts:
                 locked = facts
-            told_record = ({"lesson": told} if lesson else {"told_unread": told[:6000]}) if number == 1 and told else {}
+            told_record = ({"lesson": told} if lesson else {"told_unread": told}) if number == 1 and told else {}
             these.append({"round": number, "problems": found} | told_record)
             if not found:
                 break

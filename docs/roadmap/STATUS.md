@@ -674,7 +674,16 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    speaking measures in the step-1 prompt; voice checks on a heading of 20 or more sentences (average sentence at most 16
    words, at least 20 % spoken to the learner, at least 20 % going on the way a teacher talks; the gold standard passes,
    s11 fails all three); then job s12 writes 11.6.2 (which sees the gold standard) and 11.6.3; if still far, Claude writes
-   a second example for Navin to pass.
+   a second example for Navin to pass. **PR #221 merged (26 November 2026, a38643d7).** **Job s12 (₹0, 31.5 minutes,
+   908,444 tokens in, 74,875 out; needs_fix):** 11.6.2, which saw the gold standard, passed every check in 3 rounds with
+   the lesson step: 112 sentences of 14.7 words, 22 % spoken to the learner, 32 % going on (gold 15.1, 25 %, 32 %), a bus
+   misaal, names broken (tri, di, photo), the figure walked with a finger, a checkpoint; 11.6.3: 136 sentences of 13.9
+   words, 28 %, 25 %, a slope pictured for the gradient for the first time, inter = beech, electro and chemical; one
+   problem left ("chemiosmotic" not broken into parts by the checks' measure), and its step 1 came back as a JSON object,
+   which BIE could not read, so it went the JSON way. Honest note on the measures: the old 11.6.2 (s6) also has 29 %
+   spoken to the learner and 35 % going on, so those two shares alone do not catch a teacher; sentence length does.
+   Page for Navin: "BIE s12 Scripts". **Branch `script-lesson-json`:** a step-1 lesson sent as a JSON object of the same
+   parts is read; the whole unread step-1 text is kept in the record.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

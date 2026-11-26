@@ -1027,3 +1027,20 @@ class TeacherVoice(unittest.TestCase):
                                                                               "Toh ATP bana kaise?"]}])
         self.assertEqual([f["id"] for f in lesson["facts"]], ["f1"])
         self.assertEqual((lesson["goal"], lesson["bridge"]), ("Toh ATP bana kaise?", "Ab aage."))
+
+
+class LessonAsJson(unittest.TestCase):
+    """Job s12, 11.6.3: Codex sent step 1 as a JSON object (GOAL, MISAAL, LESSON blocks of teaches and lines), and BIE
+    threw the lesson away and asked the JSON directly."""
+
+    def test_a_json_shaped_lesson_is_read(self):
+        text = json.dumps({"GOAL": "Toh ATP bana kaise?", "MISAAL": "baandh", "LESSON": [
+            {"teaches": ["p010-i14"], "lines": ["Ab ek baat par gaur karo.", "Toh ATP bana kaise?"]},
+            {"teaches": "analogy", "lines": ["Ek baandh socho."]}],
+            "FACTS": [{"id": "f1", "item": "p010-i14", "kind": "book", "term": "", "fact": "ATP gradient se banta hai"},
+                      "f2 | p010-i14 | word | gradient | dhalaan"], "BRIDGE": "Ab aage."}, ensure_ascii=False)
+        lesson = studio_script.parse_lesson(text)
+        self.assertEqual([b["head"] for b in lesson["blocks"]], [["p010-i14"], ["analogy"]])
+        self.assertEqual([f["id"] for f in lesson["facts"]], ["f1", "f2"])
+        self.assertEqual((lesson["goal"], lesson["misaal"], lesson["bridge"]), ("Toh ATP bana kaise?", "baandh", "Ab aage."))
+        self.assertIsNone(studio_script.parse_lesson('{"section": "11.6.1", "points": []}'))

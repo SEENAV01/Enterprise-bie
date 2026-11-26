@@ -3320,3 +3320,17 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   from the sentence before (FLOW); the gold standard passes all three, s11's 11.6.3 fails all three (17.2, 16 %, 20 %).
   Job s12 writes 11.6.2, which sees the gold standard as every heading but its own will, and then 11.6.3.
 
+## Entry · 11.6.2 with the gold standard in view, and 11.6.3 (job s12), 26 November 2026
+
+- **Run:** job s12 (₹0, 31.5 minutes, 908,444 tokens in, 74,875 out), headings 11.6.2 and 11.6.3 written again in the s6
+  script. 11.6.2 saw the gold standard as every heading but its own will: 3 rounds (6, 1, 0), lesson step read.
+  11.6.3: 4 rounds (19, 11, 3, 1), status needs_fix; its step 1 came back as a JSON object ({"GOAL", "MISAAL", "LESSON":
+  [{"teaches", "lines"}] ...}), which parse_lesson could not read, so the heading went the JSON way.
+- **Measured:** sentences, words per sentence, spoken to the learner, going on: gold c2–c3 68, 15.1, 25 %, 32 %; s12
+  11.6.2 112, 14.7, 22 %, 32 %; s12 11.6.3 136, 13.9, 28 %, 25 %; s11 11.6.3 107, 17.2, 16 %, 20 %; the old 11.6.2 (s6)
+  63, 17.7, 29 %, 35 %. The two shares alone do not separate the old bookish 11.6.2 from the gold standard; sentence
+  length does, and the number of small steps a fact is told in.
+- **Changed in BIE (branch `script-lesson-json`):** `_lesson_json` reads a step-1 lesson sent as a JSON object of the
+  same parts; the whole unread step-1 text is kept in the record (it was cut at 6,000 letters).
+- **Next:** Navin's verdict on the s12 page decides whether a second gold example (another heading) is needed.
+
