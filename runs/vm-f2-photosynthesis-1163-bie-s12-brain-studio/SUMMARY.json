@@ -1,0 +1,178 @@
+{
+ "schema": "bie.studio-run/1",
+ "section": "studio",
+ "stage": "films",
+ "status": "ok",
+ "maker": "codex on the ChatGPT plan (read-only, no shell)",
+ "cost": {
+  "total_inr": 0.0
+ },
+ "error": null,
+ "plan_usage_before": {
+  "rateLimits.primary.usedPercent": 16,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1795880458,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 16,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1795880458,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 1
+ },
+ "source_sha256": "e2dbdb1ec7793daa87101e8264dfe039f7d277ad6153b904ec078d65ed1adbc8",
+ "page_count": 22,
+ "pages_read": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22
+ ],
+ "voice": "kokoro hf_alpha",
+ "films": [
+  {
+   "qid": "h11-6-3a",
+   "question": "Electron transport ki energy seedhe ADP ko nahi milti, toh ATP banane tak kaise pahunchti hai?",
+   "shots": 8,
+   "images": 6,
+   "minutes": 3.7,
+   "rounds": 2,
+   "problems": [],
+   "book_lines": "8/8",
+   "beyond": 29,
+   "points_moved": 60,
+   "teacher_lines": 34,
+   "kept_pictures": 2,
+   "colour_redraws": 0,
+   "parts_cut": 2,
+   "parts_wanted": 2,
+   "not_in_picture": [
+    "label 'Cyclic electron flow'",
+    "label 'Non-cyclic electron flow'",
+    "path of the moving ATP",
+    "path of the moving ADP",
+    "path of the moving H+",
+    "path of the moving ATP"
+   ]
+  },
+  {
+   "qid": "h11-6-3b",
+   "question": "Electron transport proton gradient kaise banata hai?",
+   "shots": 6,
+   "images": 6,
+   "minutes": 3.3,
+   "rounds": 4,
+   "problems": [],
+   "book_lines": "10/10",
+   "beyond": 17,
+   "points_moved": 63,
+   "teacher_lines": 34,
+   "kept_pictures": 0,
+   "colour_redraws": 0,
+   "parts_cut": 3,
+   "parts_wanted": 3,
+   "not_in_picture": [
+    "centre of the glowing part this sentence talks about"
+   ]
+  },
+  {
+   "qid": "h11-6-3c",
+   "question": "Gradient aur ATP synthase ke beech actual connection kya hai?",
+   "shots": 7,
+   "images": 5,
+   "minutes": 3.9,
+   "rounds": 5,
+   "problems": [],
+   "book_lines": "9/9",
+   "beyond": 15,
+   "points_moved": 73,
+   "teacher_lines": 37,
+   "kept_pictures": 2,
+   "colour_redraws": 0,
+   "parts_cut": 5,
+   "parts_wanted": 5,
+   "not_in_picture": [
+    "label 'ADP'",
+    "label 'Inorganic phosphate'",
+    "path of the moving ADP",
+    "path of the moving Pi",
+    "path of the moving ATP",
+    "label 'Proton gradient'",
+    "label 'High H⁺ concentration'"
+   ]
+  },
+  {
+   "qid": "h11-6-3d",
+   "question": "Electron transport proton gradient kaise banata hai?",
+   "shots": 5,
+   "images": 5,
+   "minutes": 4.0,
+   "rounds": 2,
+   "problems": [],
+   "book_lines": "1/1",
+   "beyond": 28,
+   "points_moved": 72,
+   "teacher_lines": 32,
+   "kept_pictures": 0,
+   "colour_redraws": 1,
+   "parts_cut": 6,
+   "parts_wanted": 6,
+   "not_in_picture": [
+    "label 'Light'",
+    "label 'NADPH formation'",
+    "path of the moving H+",
+    "path of the moving e-"
+   ]
+  }
+ ],
+ "whole_films": [
+  {
+   "qid": "h11-6-3",
+   "title": "11.6.3 Chemiosmotic Hypothesis",
+   "parts": [
+    "h11-6-3a",
+    "h11-6-3b",
+    "h11-6-3c",
+    "h11-6-3d"
+   ],
+   "missing": [],
+   "shots": 26,
+   "minutes": 14.9,
+   "problems": 0
+  }
+ ],
+ "usage": {
+  "input_tokens": 578392,
+  "output_tokens": 174749
+ },
+ "model": "gpt-6.1-sol",
+ "plan_usage_after": {
+  "rateLimits.primary.usedPercent": 17,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1795880458,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 17,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1795880458,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 1
+ },
+ "minutes": 148.4
+}

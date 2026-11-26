@@ -1,0 +1,2525 @@
+{
+ "film": {
+  "title": "Electron transport proton gradient kaise banata hai?",
+  "look": "Ek thylakoid duniya: deep-teal membrane, gold lumen neeche, ivory stroma upar; PS II forest-green, water-splitting complex rust-red, primary acceptor ochre, H carrier amber, agla electron carrier brick-red, PS I olive, NADP reductase violet; electron blue aur H⁺ gold.",
+  "shots": [
+   {
+    "id": "s1",
+    "title": "Seedhe lumen mein",
+    "key": "Water splitting H⁺ seedhe lumen mein banati hai.",
+    "covers": [
+     0
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 scientific section of a closed flattened thylakoid sac. Deep-teal enclosing membrane, gold lumen below, ivory stroma above. Forest-green PS II at 25,45 with accurate rust-red lumen-facing water-splitting complex at 25,64; ochre primary acceptor at 34,28. Inner membrane face at 35,61 stays left of lumen label space at 65,76 and stroma label space at 65,20. Resolve actual protein folds and membrane depth. Leave fluid spaces clear for animated molecules and margins clear for labels. No loose molecules drawn.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Thylakoid membrane",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Water-splitting complex ki jagah yaad karo: PS II se juda, lumen ki taraf khulta hai.",
+      "voice": "वॉटर-स्प्लिटिंग कॉम्प्लेक्स की जगह याद करो: पी एस टू से जुड़ा, ल्यूमेन की तरफ खुलता है।",
+      "pins": [
+       {
+        "label": "Water-splitting complex",
+        "x": 25.0,
+        "y": 74.0
+       },
+       {
+        "label": "PS II",
+        "x": 25,
+        "y": 45
+       },
+       {
+        "label": "Lumen",
+        "x": 65,
+        "y": 76
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 20.0,
+        "x1": 30.0,
+        "y0": 69.0,
+        "y1": 79.0
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 25.0,
+       "y": 74.0,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 1,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "PS II ke water-splitting complex ki orientation yaad karaata hai.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Do waters ka hisaab tha: 2H₂O → 4H⁺ + O₂ + 4e⁻.",
+      "voice": "दो वॉटर्स का हिसाब था: दो एच टू ओ से चार एच प्लस, ओ टू और चार इलेक्ट्रॉन।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 25.0,
+       "y": 74.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "H2O",
+          "from": [
+           10.0,
+           88.0
+          ]
+         },
+         {
+          "what": "H2O",
+          "from": [
+           18.0,
+           92.0
+          ]
+         }
+        ],
+        "at": [
+         25.0,
+         74.0
+        ],
+        "outputs": [
+         {
+          "what": "H+",
+          "to": [
+           43,
+           78
+          ]
+         },
+         {
+          "what": "O2",
+          "to": [
+           8.0,
+           76.0
+          ]
+         },
+         {
+          "what": "e-",
+          "to": [
+           25,
+           45
+          ]
+         }
+        ],
+        "label": "2H₂O → 4H⁺ + O₂ + 4e⁻",
+        "ms": 6000,
+        "loop": false
+       }
+      ],
+      "cycles": [],
+      "acts": [],
+      "step": 2,
+      "count": {
+       "x": 65,
+       "y": 87,
+       "groups": [
+        {
+         "n": 2,
+         "label": "H₂O",
+         "colour": "blue"
+        },
+        {
+         "n": 4,
+         "label": "H⁺",
+         "colour": "gold"
+        },
+        {
+         "n": 1,
+         "label": "O₂",
+         "colour": "green"
+        },
+        {
+         "n": 4,
+         "label": "e⁻",
+         "colour": "blue"
+        }
+       ],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "Water splitting ka balanced molecular hisaab dikhata hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Protons or hydrogen ions, dono yahaan H⁺ ke naam hain.",
+      "voice": "प्रोटॉन्स और हाइड्रोजन आयन्स, दोनों यहाँ एच प्लस के नाम हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 43,
+       "y": 73,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          40,
+          75
+         ],
+         [
+          49,
+          78
+         ]
+        ],
+        "count": 4,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Aap machinery ka face dekho; kya in H⁺ ko pehle stroma se membrane paar karni padegi?",
+      "voice": "आप मशीनरी का फेस देखो; क्या इन एच प्लस को पहले स्ट्रोमा से मेम्ब्रेन पार करनी पड़ेगी?",
+      "pins": [
+       {
+        "label": "Stroma",
+        "x": 65,
+        "y": 20
+       },
+       {
+        "label": "Membrane",
+        "x": 66,
+        "y": 48
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 17.5,
+        "x1": 32.5,
+        "y0": 68.0,
+        "y1": 80.0
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 25.0,
+       "y": 74.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Local production aur membrane transport ka antar poochhta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "In H⁺ ko stroma se membrane paar nahi karni padegi, kyunki water splitting lumen-facing side par hoti hai.",
+      "voice": "इन एच प्लस को स्ट्रोमा से मेम्ब्रेन पार नहीं करनी पड़ेगी, क्योंकि वॉटर स्प्लिटिंग ल्यूमेन-फेसिंग साइड पर होती है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 25.0,
+       "y": 74.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          25.0,
+          74.0
+         ],
+         [
+          43.0,
+          77.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2600,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 3,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Reaction inner side par hoti hai, isliye H⁺ seedhe lumen mein milte hain.",
+      "voice": "रिएक्शन इनर साइड पर होती है, इसलिए एच प्लस सीधे ल्यूमेन में मिलते हैं।",
+      "pins": [
+       {
+        "label": "Inner side",
+        "x": 45.0,
+        "y": 61.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 40,
+       "y": 68,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          27.0,
+          74.0
+         ],
+         [
+          53.0,
+          77.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2600,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s2",
+    "title": "Pehla kaam aur electron",
+    "key": "H⁺ lumen mein jama hote hain; electron acceptor tak jaata hai.",
+    "covers": [
+     0,
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer scientific section inside the preceding PS II region. Forest-green PS II reaction centre at 25,45, rust-red water-splitting complex at 25,64, ochre primary acceptor at 34,28. Deep-teal membrane separates gold lumen below from ivory stroma above. Preserve original left-right orientation. Show realistic PS II protein architecture and membrane depth; leave clear fluid space for H+ and clear acceptor-side space for electron animation. No loose molecules drawn. One continuous biological place fills the picture.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": 25,
+     "y": 45
+    },
+    "place": "PS II",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Baandh wali tasveer mein pehla kaam mila: jama hone wali taraf H⁺ badh gaye.",
+      "voice": "बाँध वाली तस्वीर में पहला काम मिला: जमा होने वाली तरफ एच प्लस बढ़ गए।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 43,
+       "y": 70,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          26,
+          66
+         ],
+         [
+          48,
+          77
+         ]
+        ],
+        "count": 4,
+        "ms": 2400,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       1
+      ],
+      "beyond": "Pehle se parichit baandh ki tasveer ko biological accumulation se jodta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Reaction centre ka electron pehle primary acceptor leta hai, phir carriers use aage dete hain.",
+      "voice": "रिएक्शन सेंटर का इलेक्ट्रॉन पहले प्राइमरी एक्सेप्टर लेता है, फिर कैरियर्स उसे आगे देते हैं।",
+      "pins": [
+       {
+        "label": "Reaction centre",
+        "x": 25,
+        "y": 45
+       },
+       {
+        "label": "Primary acceptor",
+        "x": 36.5,
+        "y": 26.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 34,
+       "y": 36,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "Electron",
+        "points": [
+         [
+          25.0,
+          45.0
+         ],
+         [
+          36.5,
+          26.0
+         ],
+         [
+          42.0,
+          21.0
+         ]
+        ],
+        "count": 1,
+        "ms": 3500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       2
+      ],
+      "beyond": "Electron transfer ka prerequisite yaad karaata hai.",
+      "part": "prerequisite"
+     }
+    ]
+   },
+   {
+    "id": "s3",
+    "title": "H carrier",
+    "key": "Carrier stromal H⁺ ko lumen mein chhodta hai.",
+    "covers": [
+     1
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 scientific section of the same closed thylakoid. Deep-teal enclosing membrane, gold lumen below, ivory stroma above. Forest-green PS II left at 18,49 with rust-red water-splitting complex at 18,65. Ochre primary acceptor at 28,28. Amber H carrier is one accurate compact plastoquinone ball-and-stick group fully visible at 40,43 with room around it. Brick-red next electron carrier at 55,51 with receiving region at 55,62. Olive PS I at 75,49 with its acceptor at 79,28. Clearly resolve the stromal reaction site at 91,29: a violet NADP reductase with anatomically accurate folded FAD-enzyme architecture and an exposed catalytic pocket facing the ivory stroma. This visible right-hand reaction site is the destination for the next camera dive. Inner side label space at 35,61 is left of lumen label space at 65,79 and stroma label space at 65,18. Leave fluid spaces around the stromal reaction site and carrier clear for animation. No loose molecules drawn.",
+     "svg": "",
+     "library": "",
+     "parts": [
+      {
+       "id": "h_carrier",
+       "name": "carrier",
+       "looks": "Amber compact accurate plastoquinone ball-and-stick group at 40,43, fully visible."
+      }
+     ]
+    },
+    "dive": {
+     "x": -1,
+     "y": -1
+    },
+    "place": "Thylakoid membrane",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Ab aisa carrier socho jo electron ke saath hydrogen ka hissa bhi le jaaye.",
+      "voice": "अब ऐसा कैरियर सोचो जो इलेक्ट्रॉन के साथ हाइड्रोजन का हिस्सा भी ले जाए।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 35.0,
+       "y": 55.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "h_carrier",
+        "do": "glow",
+        "toward": [],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       3
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Isi ko H carrier kehte hain; H hydrogen ka sanket hai.",
+      "voice": "इसी को एच कैरियर कहते हैं; एच हाइड्रोजन का संकेत है।",
+      "pins": [
+       {
+        "label": "H carrier",
+        "x": 35.0,
+        "y": 55.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 35.0,
+       "y": 55.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "h_carrier",
+        "do": "glow",
+        "toward": [],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       3
+      ],
+      "beyond": "H ka hydrogen se sambandh saaf karta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Outer-side primary acceptor se electron is H carrier tak pahunchta hai.",
+      "voice": "आउटर-साइड प्राइमरी एक्सेप्टर से इलेक्ट्रॉन इस एच कैरियर तक पहुँचता है।",
+      "pins": [
+       {
+        "label": "Primary acceptor",
+        "x": 18.3,
+        "y": 40.5
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 27.0,
+       "y": 48.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "h_carrier",
+        "do": "grab",
+        "toward": [
+         29.5,
+         53.5
+        ],
+        "turns": 0,
+        "rider": "e-"
+       }
+      ],
+      "step": 1,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       3
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Electron lete waqt carrier stroma se H⁺ bhi leta hai.",
+      "voice": "इलेक्ट्रॉन लेते वक्त कैरियर स्ट्रोमा से एच प्लस भी लेता है।",
+      "pins": [
+       {
+        "label": "Stroma",
+        "x": 65,
+        "y": 18
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 35.0,
+       "y": 48.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "h_carrier",
+        "do": "grab",
+        "toward": [
+         29.7,
+         52.2
+        ],
+        "turns": 0,
+        "rider": "H+"
+       }
+      ],
+      "step": 2,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       4
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Ab aap inner side dekho: electron agle carrier ko mila, H⁺ lumen mein chhoot gaya.",
+      "voice": "अब आप इनर साइड देखो: इलेक्ट्रॉन अगले कैरियर को मिला, एच प्लस ल्यूमेन में छूट गया।",
+      "pins": [
+       {
+        "label": "Inner side",
+        "x": 35.0,
+        "y": 65.0
+       },
+       {
+        "label": "Lumen",
+        "x": 65,
+        "y": 79
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 48,
+       "y": 56,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "Electron",
+        "points": [
+         [
+          35.0,
+          55.0
+         ],
+         [
+          49.0,
+          59.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "h_carrier",
+        "do": "carry",
+        "toward": [
+         49.0,
+         80.0
+        ],
+        "turns": 0,
+        "rider": "H+"
+       }
+      ],
+      "step": 3,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       5
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Water splitting ne H⁺ andar diye the; yahaan stroma ke H⁺ bhi kaise ghat gaye?",
+      "voice": "वॉटर स्प्लिटिंग ने एच प्लस अंदर दिए थे; यहाँ स्ट्रोमा के एच प्लस भी कैसे घट गए?",
+      "pins": [
+       {
+        "label": "Water splitting",
+        "x": 12.0,
+        "y": 73.0
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 27.0,
+        "x1": 43.0,
+        "y0": 22.5,
+        "y1": 35.5
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 35.0,
+       "y": 35.0,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Stromal H⁺ ki kami ka kaaran poochhta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Yahaan stroma ke H⁺ isliye ghate kyunki carrier unhe lekar lumen mein chhod aaya.",
+      "voice": "यहाँ स्ट्रोमा के एच प्लस इसलिए घटे क्योंकि कैरियर उन्हें लेकर ल्यूमेन में छोड़ आया।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 44,
+       "y": 48,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "h_carrier",
+        "do": "carry",
+        "toward": [
+         49.0,
+         80.0
+        ],
+        "turns": 0,
+        "rider": "H+"
+       }
+      ],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       4,
+       5
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Isi stroma-se-lumen movement ke kaaran bahar H⁺ kam aur andar zyada hote hain.",
+      "voice": "इसी स्ट्रोमा-से-ल्यूमेन मूवमेंट के कारण बाहर एच प्लस कम और अंदर ज़्यादा होते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 45,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          49.0,
+          80.0
+         ],
+         [
+          54.0,
+          85.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2300,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       2,
+       9
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Electron aur H⁺ ke safar jude hain, lekin dono ka raasta ek nahi hai.",
+      "voice": "इलेक्ट्रॉन और एच प्लस के सफर जुड़े हैं, लेकिन दोनों का रास्ता एक नहीं है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 48,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "Electron",
+        "points": [
+         [
+          49.0,
+          59.0
+         ],
+         [
+          70.0,
+          56.0
+         ]
+        ],
+        "count": 1,
+        "ms": 3200,
+        "loop": false
+       },
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          49.0,
+          80.0
+         ],
+         [
+          49.0,
+          86.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2600,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       2,
+       5
+      ],
+      "beyond": "Electron aur proton ke alag raaste saaf karta hai.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s4",
+    "title": "Stromal H⁺ ka istemal",
+    "key": "NADPH formation stromal H⁺ kharch karti hai.",
+    "covers": [
+     2
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer scientific section inside the violet NADP reductase stromal reaction site visible at 91,29 in the preceding picture. Enlarge that same exposed catalytic pocket to 66,34, preserving its accurate folded FAD-enzyme architecture and violet colour. Deep-teal membrane below, enclosed gold lumen beneath and ivory stroma above. Olive PS I remains left at 22,62, its acceptor at 31,35. Preserve membrane context and left-right relationships. Clear fluid space above the pocket and to its right for animated substrates and products. No loose molecules drawn.",
+     "svg": "",
+     "library": "",
+     "parts": [
+      {
+       "id": "reductase",
+       "name": "NADP reductase",
+       "looks": "Violet folded FAD enzyme with fully visible pocket at 66,34."
+      }
+     ]
+    },
+    "dive": {
+     "x": 91,
+     "y": 29
+    },
+    "place": "Stromal reaction site",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Yaad karo, PS I ke acceptor se aaye electrons aakhir NADP⁺ ko milte hain.",
+      "voice": "याद करो, पी एस वन के एक्सेप्टर से आए इलेक्ट्रॉन्स आखिर एन ए डी पी प्लस को मिलते हैं।",
+      "pins": [
+       {
+        "label": "PS I",
+        "x": 17.0,
+        "y": 62.0
+       },
+       {
+        "label": "Acceptor",
+        "x": 26.0,
+        "y": 42.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 48,
+       "y": 38,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          26.0,
+          42.0
+         ],
+         [
+          44.0,
+          30.0
+         ],
+         [
+          69.0,
+          30.0
+         ]
+        ],
+        "count": 2,
+        "ms": 3500,
+        "loop": false
+       },
+       {
+        "what": "NADP+",
+        "colour": "purple",
+        "label": "NADP⁺",
+        "points": [
+         [
+          87.0,
+          23.0
+         ],
+         [
+          69.0,
+          30.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 1,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       7
+      ],
+      "beyond": "",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "NADP⁺ electrons leta hai; isi electron lene ko reduction kehte hain.",
+      "voice": "एन ए डी पी प्लस इलेक्ट्रॉन्स लेता है; इसी इलेक्ट्रॉन लेने को रिडक्शन कहते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 69.0,
+       "y": 30.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "",
+        "points": [
+         [
+          44.0,
+          30.0
+         ],
+         [
+          69.0,
+          30.0
+         ]
+        ],
+        "count": 2,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 2,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       7
+      ],
+      "beyond": "Reduction ko electron gain se jodta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "NADP reductase yeh badlav karaata hai; woh electrons ka mool source nahi hai.",
+      "voice": "एन ए डी पी रिडक्टेस यह बदलाव कराता है; वह इलेक्ट्रॉन्स का मूल सोर्स नहीं है।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 69.0,
+       "y": 30.0,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "e-",
+        "colour": "blue",
+        "label": "Electrons",
+        "points": [
+         [
+          26.0,
+          42.0
+         ],
+         [
+          44.0,
+          30.0
+         ],
+         [
+          69.0,
+          30.0
+         ]
+        ],
+        "count": 2,
+        "ms": 3000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "reductase",
+        "do": "glow",
+        "toward": [],
+        "turns": 0,
+        "rider": ""
+       }
+      ],
+      "step": 3,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       6
+      ],
+      "beyond": "Catalyst aur electron source ka antar saaf karta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Yeh enzyme stroma ki taraf kaam karta hai; isi face ko stroma side kehte hain.",
+      "voice": "यह एंज़ाइम स्ट्रोमा की तरफ काम करता है; इसी फेस को स्ट्रोमा साइड कहते हैं।",
+      "pins": [
+       {
+        "label": "Stroma side",
+        "x": 87.0,
+        "y": 49.0
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 69.0,
+       "y": 30.0,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 4,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       6
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Aap pehle ka hisaab dekho: NADP⁺ + 2e⁻ + H⁺ → NADPH.",
+      "voice": "आप पहले का हिसाब देखो: एन ए डी पी प्लस, दो इलेक्ट्रॉन और एच प्लस से एन ए डी पी एच।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 69.0,
+       "y": 30.0,
+       "scale": 1.2
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [
+       {
+        "inputs": [
+         {
+          "what": "NADP+",
+          "from": [
+           87,
+           23
+          ]
+         },
+         {
+          "what": "e-",
+          "from": [
+           26.0,
+           42.0
+          ]
+         },
+         {
+          "what": "H+",
+          "from": [
+           82.0,
+           12.0
+          ]
+         }
+        ],
+        "at": [
+         69.0,
+         30.0
+        ],
+        "outputs": [
+         {
+          "what": "NADPH",
+          "to": [
+           87,
+           42
+          ]
+         }
+        ],
+        "label": "NADP⁺ + 2e⁻ + H⁺ → NADPH",
+        "ms": 6500,
+        "loop": false
+       }
+      ],
+      "cycles": [],
+      "acts": [],
+      "step": 5,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [
+        {
+         "n": 2,
+         "label": "e⁻",
+         "colour": "blue"
+        },
+        {
+         "n": 1,
+         "label": "H⁺",
+         "colour": "gold"
+        }
+       ],
+       "then": []
+      },
+      "teaches": [
+       7
+      ],
+      "beyond": "Net ionic equation stromal H⁺ ka net istemal dikhati hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "NADPH banne mein yeh H⁺ kahaan se aata hai?",
+      "voice": "एन ए डी पी एच बनने में यह एच प्लस कहाँ से आता है?",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 56,
+        "x1": 67,
+        "y0": 12,
+        "y1": 23
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 69.0,
+       "y": 30.0,
+       "scale": 1.1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "NADPH banne mein yeh H⁺ stroma se aata hai, isliye wahaan bache H⁺ aur ghatte hain.",
+      "voice": "एन ए डी पी एच बनने में यह एच प्लस स्ट्रोमा से आता है, इसलिए वहाँ बचे एच प्लस और घटते हैं।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 69.0,
+       "y": 30.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          82.0,
+          12.0
+         ],
+         [
+          69.0,
+          30.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2600,
+        "loop": false
+       },
+       {
+        "what": "NADPH",
+        "colour": "green",
+        "label": "NADPH",
+        "points": [
+         [
+          69.0,
+          30.0
+         ],
+         [
+          87.0,
+          42.0
+         ]
+        ],
+        "count": 1,
+        "ms": 3500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 6,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       8
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Aksar lagta hai ki teesra kaam bhi H⁺ ko lumen bhejta hai, par aisa nahi hai.",
+      "voice": "अक्सर लगता है कि तीसरा काम भी एच प्लस को ल्यूमेन भेजता है, पर ऐसा नहीं है।",
+      "pins": [
+       {
+        "label": "Lumen",
+        "x": 67.0,
+        "y": 94.0
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 58.5,
+        "x1": 79.5,
+        "y0": 20.5,
+        "y1": 39.5
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 65,
+       "y": 46,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       8
+      ],
+      "beyond": "Consumption ko lumen ki taraf transport samajhne ki galti door karta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Yahaan H⁺ stromal reaction mein istemal hua; isi se dono taraf ka fark badha.",
+      "voice": "यहाँ एच प्लस स्ट्रोमल रिएक्शन में इस्तेमाल हुआ; इसी से दोनों तरफ का फर्क बढ़ा।",
+      "pins": [],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 65.0,
+        "x1": 73.0,
+        "y0": 26.0,
+        "y1": 34.0
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 65,
+       "y": 46,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          82.0,
+          12.0
+         ],
+         [
+          69.0,
+          30.0
+         ]
+        ],
+        "count": 1,
+        "ms": 2800,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 7,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       8,
+       9
+      ],
+      "beyond": "",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s5",
+    "title": "Teen kaamon ka hisaab",
+    "key": "Lumen mein H⁺ judte hain aur stroma se hatte hain.",
+    "covers": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 scientific contextual section into the enclosed lumen immediately beneath the previous stromal reaction site. Gold lumen below, ivory stroma above, deep-teal enclosing thylakoid membrane across centre and curved closed edges visible. Preserve left-to-right machinery: forest-green PS II at 18,49, rust-red water-splitting complex at 18,62, ochre acceptor at 28,28, fully visible amber compact accurate plastoquinone carrier at 40,43, brick-red electron carrier at 55,51, olive PS I at 75,49 and violet NADP reductase at 91,29. Surrounding chloroplast envelope visible only as a distant boundary at far right, outside both compartments. Clear fluid spaces for animations and clear bottom margin for counts. No loose molecules drawn.",
+     "svg": "",
+     "library": "",
+     "parts": [
+      {
+       "id": "h_carrier",
+       "name": "carrier",
+       "looks": "Amber compact accurate plastoquinone ball-and-stick group at 40,43, unobscured."
+      }
+     ]
+    },
+    "dive": {
+     "x": 67.0,
+     "y": 94.0
+    },
+    "place": "Lumen aur membrane",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Ab aap do water molecules wala example teenon kaamon se jodo.",
+      "voice": "अब आप दो वॉटर मॉलिक्यूल्स वाला एग्ज़ाम्पल तीनों कामों से जोड़ो।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 45,
+       "y": 48,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H2O",
+        "colour": "blue",
+        "label": "Water",
+        "points": [
+         [
+          9.0,
+          78.0
+         ],
+         [
+          17.0,
+          70.0
+         ]
+        ],
+        "count": 2,
+        "ms": 2200,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 1,
+      "count": {
+       "x": 30,
+       "y": 87,
+       "groups": [
+        {
+         "n": 2,
+         "label": "Water",
+         "colour": "blue"
+        }
+       ],
+       "then": []
+      },
+      "teaches": [],
+      "beyond": "Do waters ke example par teen kaaran jodta hai.",
+      "part": "use"
+     },
+     {
+      "roman": "Water splitting ke chaar H⁺ lumen mein mile; carrier ne aur H⁺ andar pahunchaye.",
+      "voice": "वॉटर स्प्लिटिंग के चार एच प्लस ल्यूमेन में मिले; कैरियर ने और एच प्लस अंदर पहुँचाए।",
+      "pins": [
+       {
+        "label": "Water splitting",
+        "x": 17.0,
+        "y": 69.0
+       },
+       {
+        "label": "Lumen",
+        "x": 66,
+        "y": 79
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 41.0,
+       "y": 53.0,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          18.0,
+          74.0
+         ],
+         [
+          30.0,
+          77.0
+         ]
+        ],
+        "count": 4,
+        "ms": 2300,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [
+       {
+        "part": "h_carrier",
+        "do": "carry",
+        "toward": [
+         41.0,
+         64.0
+        ],
+        "turns": 0,
+        "rider": "H+"
+       }
+      ],
+      "step": 2,
+      "count": {
+       "x": 24,
+       "y": 88,
+       "groups": [
+        {
+         "n": 4,
+         "label": "H⁺",
+         "colour": "gold"
+        }
+       ],
+       "then": []
+      },
+      "teaches": [
+       1,
+       4,
+       5
+      ],
+      "beyond": "Water splitting ke chaar H⁺ aur transport ko jodta hai.",
+      "part": "use"
+     },
+     {
+      "roman": "Saath hi NADPH banne mein stroma ke H⁺ istemal hue.",
+      "voice": "साथ ही एन ए डी पी एच बनने में स्ट्रोमा के एच प्लस इस्तेमाल हुए।",
+      "pins": [
+       {
+        "label": "Stroma",
+        "x": 61,
+        "y": 17
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 84,
+       "y": 30,
+       "scale": 1.2
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          83,
+          15
+         ],
+         [
+          91,
+          29
+         ]
+        ],
+        "count": 1,
+        "ms": 2400,
+        "loop": false
+       },
+       {
+        "what": "NADPH",
+        "colour": "green",
+        "label": "NADPH",
+        "points": [
+         [
+          91,
+          29
+         ],
+         [
+          88,
+          45
+         ]
+        ],
+        "count": 1,
+        "ms": 3500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 3,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       8
+      ],
+      "beyond": "",
+      "part": "use"
+     },
+     {
+      "roman": "Isliye lumen mein H⁺ zyada aur stroma mein kam hote gaye.",
+      "voice": "इसलिए ल्यूमेन में एच प्लस ज़्यादा और स्ट्रोमा में कम होते गए।",
+      "pins": [],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          28,
+          74
+         ],
+         [
+          55,
+          77
+         ]
+        ],
+        "count": 6,
+        "ms": 4500,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 4,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       9
+      ],
+      "beyond": "",
+      "part": "concept"
+     },
+     {
+      "roman": "Yeh fark thylakoid membrane ke aar-paar hai, chloroplast ki baahari boundary par nahi.",
+      "voice": "यह फर्क थायलाकोइड मेम्ब्रेन के आर-पार है, क्लोरोप्लास्ट की बाहरी बाउंड्री पर नहीं।",
+      "pins": [
+       {
+        "label": "Thylakoid membrane",
+        "x": 60,
+        "y": 48
+       },
+       {
+        "label": "Baahari boundary",
+        "x": 97.0,
+        "y": 8.0
+       }
+      ],
+      "arrows": [],
+      "effects": [
+       {
+        "type": "glow",
+        "x0": 7,
+        "x1": 93,
+        "y0": 43,
+        "y1": 56
+       }
+      ],
+      "focus": [],
+      "zoom": {
+       "x": 51,
+       "y": 49,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       10
+      ],
+      "beyond": "Gradient ko chloroplast envelope par rakhne ki galti door karta hai.",
+      "part": "concept"
+     }
+    ]
+   },
+   {
+    "id": "s6",
+    "title": "Lumen ka pH",
+    "key": "H⁺ concentration badhti hai toh lumen ka pH ghatta hai.",
+    "covers": [
+     3
+    ],
+    "visual": {
+     "type": "cutaway",
+     "image_prompt": "16:9 closer scientific cross-section inside preceding gold thylakoid lumen. Gold aqueous interior central and below, continuous deep-teal membrane above and around closed edges, ivory stroma beyond upper membrane. Preserve closed sac geometry and membrane depth. No resolved proteins. Leave interior and right margin clear for animated H+ and pH annotations. No loose molecules, charts, instruments or panels drawn.",
+     "svg": "",
+     "library": "",
+     "parts": []
+    },
+    "dive": {
+     "x": 48,
+     "y": 76
+    },
+    "place": "Lumen",
+    "aside": false,
+    "sentences": [
+     {
+      "roman": "Ab zyada H⁺ wale ghol ko socho: uski acidity badh jaati hai.",
+      "voice": "अब ज़्यादा एच प्लस वाले घोल को सोचो: उसकी एसिडिटी बढ़ जाती है।",
+      "pins": [
+       {
+        "label": "Acidity",
+        "x": 70,
+        "y": 66
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 50,
+       "y": 58,
+       "scale": 1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          29,
+          58
+         ],
+         [
+          46,
+          66
+         ],
+         [
+          58,
+          55
+         ]
+        ],
+        "count": 6,
+        "ms": 4000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       10
+      ],
+      "beyond": "H⁺ concentration ko acidity se jodta hai.",
+      "part": "prerequisite"
+     },
+     {
+      "roman": "Acidity bataane wale scale ko pH kehte hain; H⁺ ki concentration badhe toh pH ghatta hai.",
+      "voice": "एसिडिटी बताने वाले स्केल को पी एच कहते हैं; एच प्लस की कॉन्सन्ट्रेशन बढ़े तो पी एच घटता है।",
+      "pins": [
+       {
+        "label": "pH",
+        "x": 76,
+        "y": 49
+       }
+      ],
+      "arrows": [],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 60,
+       "y": 59,
+       "scale": 1.1
+      },
+      "moves": [
+       {
+        "what": "H+",
+        "colour": "gold",
+        "label": "H⁺",
+        "points": [
+         [
+          29,
+          58
+         ],
+         [
+          49,
+          64
+         ],
+         [
+          58,
+          55
+         ]
+        ],
+        "count": 8,
+        "ms": 4000,
+        "loop": false
+       }
+      ],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       10
+      ],
+      "beyond": "pH aur H⁺ concentration ka ulta sambandh saaf karta hai.",
+      "part": "concept"
+     },
+     {
+      "roman": "Isliye lumen ka pH ghatta hai, aur is kami ko naapa ja sakta hai.",
+      "voice": "इसलिए ल्यूमेन का पी एच घटता है, और इस कमी को नापा जा सकता है।",
+      "pins": [
+       {
+        "label": "Lumen",
+        "x": 43,
+        "y": 72
+       }
+      ],
+      "arrows": [
+       {
+        "points": [
+         [
+          77,
+          53
+         ],
+         [
+          77,
+          68
+         ]
+        ],
+        "label": "pH"
+       }
+      ],
+      "effects": [],
+      "focus": [],
+      "zoom": {
+       "x": 54,
+       "y": 59,
+       "scale": 1
+      },
+      "moves": [],
+      "grows": [],
+      "fuses": [],
+      "reacts": [],
+      "cycles": [],
+      "acts": [],
+      "step": 0,
+      "count": {
+       "x": 50,
+       "y": 86,
+       "groups": [],
+       "then": []
+      },
+      "teaches": [
+       10
+      ],
+      "beyond": "",
+      "part": "recap"
+     }
+    ]
+   }
+  ]
+ },
+ "problems": [],
+ "rounds": [
+  {
+   "round": 1,
+   "problems": [
+    "s2: 1 sentences; write 2 to 6",
+    "s3 sentence 6: labels 'Inner side' and 'Electron' are 4% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s4 sentence 1: labels 'Electrons' and 'NADP⁺' are 4% apart, on top of each other; keep two labels (pins, and the end of a labelled move) at least 8% apart",
+    "s6 sentence 3: move label 'H⁺' is not spoken in this sentence (dikhaya = bola)",
+    "s3 sentence 9: part 'H carrier' carrys here but the line does not name it (dikhaya = bola)",
+    "s3 sentence 10: part 'H carrier' carrys here but the line does not name it (dikhaya = bola)",
+    "s4 sentence 7: NADP+ takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s4 sentence 7: e- takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s4 sentence 9: NADP+ takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s4 sentence 9: e- takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s4 sentence 9: NADPH takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s5 sentence 3: NADP+ takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s5 sentence 3: e- takes part in the meeting but the line does not name it; name every molecule as it meets",
+    "s2: the aside maps the analogy in a pin (\"baandh = membrane\")",
+    "s3 sentence 8: step 5 adds nothing to the picture; each step draws its own arrow, pin or motion on it",
+    "s3 sentence 9: step 6 adds nothing to the picture; each step draws its own arrow, pin or motion on it",
+    "s3 sentence 1: a pump moves what travels here; list the pump as a part of this picture and show it carrying the thing across (carry: rider = what it moves, toward = where it lets go on the far side), instead of a move through it",
+    "s3 sentence 2: a pump moves what travels here; list the pump as a part of this picture and show it carrying the thing across (carry: rider = what it moves, toward = where it lets go on the far side), instead of a move through it",
+    "s3 sentence 4: a pump moves what travels here; list the pump as a part of this picture and show it carrying the thing across (carry: rider = what it moves, toward = where it lets go on the far side), instead of a move through it",
+    "s3 sentence 5: a pump moves what travels here; list the pump as a part of this picture and show it carrying the thing across (carry: rider = what it moves, toward = where it lets go on the far side), instead of a move through it"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": [
+    "s3: 9 different pins on one picture; at most 8",
+    "s3: 'inner side' is left of 'lumen' in s1 but right of it here; keep the same left-right layout in every picture (write it into image_prompt and pin it there)",
+    "s3: 'inner side' is left of 'stroma' in s1 but right of it here; keep the same left-right layout in every picture (write it into image_prompt and pin it there)",
+    "the film has 35 sentences and the teacher's script 34 lines: the film's sentences are his lines, every one, in his order",
+    "s2 sentence 1 is not the teacher's line L7 (\"Baandh wali tasveer mein pehla kaam ...\"; 54% of his words kept): keep his words, fixing only spelling slips",
+    "s2 sentence 2 is not the teacher's line L8 (\"Reaction centre ka electron pehle primary ...\"; 0% of his words kept): keep his words, fixing only spelling slips",
+    "s3 sentence 1 is not the teacher's line L9 (\"Ab aisa carrier socho jo electron ...\"; 17% of his words kept): keep his words, fixing only spelling slips",
+    "s3 sentence 2 is not the teacher's line L10 (\"Isi ko H carrier kehte hain; ...\"; 29% of his words kept): keep his words, fixing only spelling slips",
+    "s3 sentence 3 is not the teacher's line L11 (\"Outer-side primary acceptor se electron is ...\"; 30% of his words kept): keep his words, fixing only spelling slips",
+    "s3 sentence 4 is not the teacher's line L12 (\"Electron lete waqt carrier stroma se ...\"; 44% of his words kept): keep his words, fixing only spelling slips",
+    "s3 sentence 5 is not the teacher's line L13 (\"Ab aap inner side dekho: electron ...\"; 21% of his words kept): keep his words, fixing only spelling slips",
+    "s3 sentence 6 is not the teacher's line L14 (\"Water splitting ne H⁺ andar diye ...\"; 8% of his words kept): keep his words, fixing only spelling slips",
+    "s3 sentence 7 is not the teacher's line L15 (\"Yahaan stroma ke H⁺ isliye ghate ...\"; 23% of his words kept): keep his words, fixing only spelling slips",
+    "s3 sentence 8 is not the teacher's line L16 (\"Isi stroma-se-lumen movement ke kaaran bahar ...\"; 23% of his words kept): keep his words, fixing only spelling slips",
+    "s3 sentence 9 is not the teacher's line L17 (\"Electron aur H⁺ ke safar jude ...\"; 27% of his words kept): keep his words, fixing only spelling slips",
+    "s3 sentence 10 is not the teacher's line L18 (\"Yaad karo, PS I ke acceptor ...\"; 18% of his words kept): keep his words, fixing only spelling slips",
+    "s4 sentence 1 is not the teacher's line L19 (\"NADP⁺ electrons leta hai; isi electron ...\"; 33% of his words kept): keep his words, fixing only spelling slips",
+    "s4 sentence 2 is not the teacher's line L20 (\"NADP reductase yeh badlav karaata hai; ...\"; 27% of his words kept): keep his words, fixing only spelling slips",
+    "s4 sentence 3 is not the teacher's line L21 (\"Yeh enzyme stroma ki taraf kaam ...\"; 17% of his words kept): keep his words, fixing only spelling slips",
+    "s4 sentence 4 is not the teacher's line L22 (\"Aap pehle ka hisaab dekho: NADP⁺ ...\"; 0% of his words kept): keep his words, fixing only spelling slips",
+    "s4 sentence 5 is not the teacher's line L23 (\"NADPH banne mein yeh H⁺ kahaan ...\"; 25% of his words kept): keep his words, fixing only spelling slips",
+    "s4 sentence 6 is not the teacher's line L24 (\"NADPH banne mein yeh H⁺ stroma ...\"; 50% of his words kept): keep his words, fixing only spelling slips",
+    "s4 sentence 7 is not the teacher's line L25 (\"Aksar lagta hai ki teesra kaam ...\"; 17% of his words kept): keep his words, fixing only spelling slips",
+    "s4 sentence 8 is not the teacher's line L26 (\"Yahaan H⁺ stromal reaction mein istemal ...\"; 8% of his words kept): keep his words, fixing only spelling slips",
+    "s4 sentence 9 is not the teacher's line L27 (\"Ab aap do water molecules wala ...\"; 0% of his words kept): keep his words, fixing only spelling slips",
+    "s5 sentence 1 is not the teacher's line L28 (\"Water splitting ke chaar H⁺ lumen ...\"; 8% of his words kept): keep his words, fixing only spelling slips",
+    "s5 sentence 2 is not the teacher's line L29 (\"Saath hi NADPH banne mein stroma ...\"; 25% of his words kept): keep his words, fixing only spelling slips",
+    "s5 sentence 3 is not the teacher's line L30 (\"Isliye lumen mein H⁺ zyada aur ...\"; 30% of his words kept): keep his words, fixing only spelling slips",
+    "s5 sentence 4 is not the teacher's line L31 (\"Yeh fark thylakoid membrane ke aar-paar ...\"; 0% of his words kept): keep his words, fixing only spelling slips",
+    "s5 sentence 5 is not the teacher's line L32 (\"Ab zyada H⁺ wale ghol ko ...\"; 9% of his words kept): keep his words, fixing only spelling slips",
+    "s6 sentence 1 is not the teacher's line L33 (\"Acidity bataane wale scale ko pH ...\"; 31% of his words kept): keep his words, fixing only spelling slips",
+    "s6 sentence 2 is not the teacher's line L34 (\"Isliye lumen ka pH ghatta hai, ...\"; 30% of his words kept): keep his words, fixing only spelling slips",
+    "s2: the aside maps the analogy in a pin (\"baandh = membrane\")",
+    "s3 sentence 1: a pump moves what travels here; list the pump as a part of this picture and show it carrying the thing across (carry: rider = what it moves, toward = where it lets go on the far side), instead of a move through it",
+    "s3 sentence 4: a pump moves what travels here; list the pump as a part of this picture and show it carrying the thing across (carry: rider = what it moves, toward = where it lets go on the far side), instead of a move through it"
+   ]
+  },
+  {
+   "round": 3,
+   "problems": [
+    "s2: the image_prompt asks for a 'inset'; a picture shows one place, with no small picture of another place in it (BIE shows the path of places in a corner)",
+    "s4: dives into 'Stromal reaction site', which the picture before does not show; a dive goes into a part that picture shows"
+   ]
+  },
+  {
+   "round": 4,
+   "problems": []
+  }
+ ],
+ "images": {
+  "s1": "h11-6-3b-s1.png",
+  "s2": "h11-6-3b-s2.png",
+  "s3": "h11-6-3b-s3.png",
+  "s4": "h11-6-3b-s4.png",
+  "s5": "h11-6-3b-s5.png",
+  "s6": "h11-6-3b-s6.png"
+ },
+ "book_lines": [
+  {
+   "n": 1,
+   "text": "(a) Since splitting of the water molecule takes place on the inner side of the membrane, the protons or hydrogen ions that are produced by the splitting of water accumulate within the lumen of the thylakoids.",
+   "page": "140",
+   "blocks": [
+    "p0010-b0044",
+    "p0010-b0045",
+    "p0010-b0046"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "(b) As electrons move through the photosystems, protons are transported across the membrane.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0003",
+    "p0011-b0004"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "This happens because the primary accepter of electron which is located towards the outer side of the membrane transfers its electron not to an electron carrier but to an H carrier.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0004",
+    "p0011-b0005",
+    "p0011-b0006"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "Hence, this molecule removes a proton from the stroma while transporting an electron.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0007",
+    "p0011-b0008"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "When this molecule passes on its electron to the electron carrier on the inner side of the membrane, the proton is released into the inner side or the lumen side of the membrane.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0008",
+    "p0011-b0009",
+    "p0011-b0010"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "(c) The NADP reductase enzyme is located on the stroma side of the membrane.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0011",
+    "p0011-b0012"
+   ]
+  },
+  {
+   "n": 7,
+   "text": "Along with electrons that come from the acceptor of electrons of PS I, protons are necessary for the reduction of NADP⁺ to NADPH+ H⁺.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0012",
+    "p0011-b0013",
+    "p0011-b0014"
+   ]
+  },
+  {
+   "n": 8,
+   "text": "These protons are also removed from the stroma.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0014"
+   ]
+  },
+  {
+   "n": 9,
+   "text": "Hence, within the chloroplast, protons in the stroma decrease in number, while in the lumen there is accumulation of protons.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0015",
+    "p0011-b0016"
+   ]
+  },
+  {
+   "n": 10,
+   "text": "This creates a proton gradient across the thylakoid membrane as well as a measurable decrease in pH in the lumen.",
+   "page": "141",
+   "blocks": [
+    "p0011-b0016",
+    "p0011-b0017",
+    "p0011-b0018"
+   ]
+  }
+ ],
+ "placement": {
+  "s1": {
+   "items": 23,
+   "moved": 14,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 6615,
+    "output_tokens": 588,
+    "cached_input_tokens": 2560,
+    "reasoning_tokens": 115
+   }
+  },
+  "s2": {
+   "items": 6,
+   "moved": 2,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5450,
+    "output_tokens": 251,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 103
+   }
+  },
+  "s3": {
+   "items": 23,
+   "moved": 18,
+   "refused": 0,
+   "missing": [],
+   "parts": {
+    "h_carrier": {
+     "inside": [
+      [
+       29.7,
+       49.5
+      ],
+      [
+       28.5,
+       56.3
+      ],
+      [
+       31.0,
+       56.2
+      ],
+      [
+       36.7,
+       55.8
+      ],
+      [
+       41.2,
+       54.5
+      ]
+     ],
+     "outside": [
+      [
+       33.0,
+       50.0
+      ],
+      [
+       35.0,
+       61.0
+      ],
+      [
+       43.0,
+       55.0
+      ]
+     ],
+     "box": [
+      27.0,
+      48.4,
+      42.7,
+      61.2
+     ]
+    }
+   },
+   "usage": {
+    "input_tokens": 6616,
+    "output_tokens": 746,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 185
+   }
+  },
+  "s4": {
+   "items": 26,
+   "moved": 23,
+   "refused": 0,
+   "missing": [
+    "centre of the glowing part this sentence talks about"
+   ],
+   "parts": {
+    "reductase": {
+     "inside": [
+      [
+       57.0,
+       24.0
+      ],
+      [
+       72.0,
+       16.0
+      ],
+      [
+       76.0,
+       33.0
+      ],
+      [
+       52.0,
+       52.0
+      ],
+      [
+       55.0,
+       81.0
+      ]
+     ],
+     "outside": [
+      [
+       39.0,
+       59.0
+      ],
+      [
+       69.0,
+       66.0
+      ],
+      [
+       66.0,
+       84.0
+      ]
+     ],
+     "box": [
+      39.5,
+      3.0,
+      82.5,
+      93.5
+     ]
+    }
+   },
+   "usage": {
+    "input_tokens": 6890,
+    "output_tokens": 714,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 92
+   }
+  },
+  "s5": {
+   "items": 15,
+   "moved": 6,
+   "refused": 3,
+   "missing": [],
+   "parts": {
+    "h_carrier": {
+     "inside": [
+      [
+       37.5,
+       53.0
+      ],
+      [
+       39.0,
+       52.2
+      ],
+      [
+       41.5,
+       54.0
+      ],
+      [
+       45.0,
+       54.0
+      ]
+     ],
+     "outside": [],
+     "box": [
+      35.5,
+      47.8,
+      47.0,
+      58.3
+     ]
+    }
+   },
+   "usage": {
+    "input_tokens": 6093,
+    "output_tokens": 525,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 169
+   }
+  },
+  "s6": {
+   "items": 7,
+   "moved": 0,
+   "refused": 0,
+   "missing": [],
+   "usage": {
+    "input_tokens": 5538,
+    "output_tokens": 220,
+    "cached_input_tokens": 0,
+    "reasoning_tokens": 48
+   }
+  }
+ },
+ "parts": {
+  "wanted": 3,
+  "cut": 3,
+  "problems": [],
+  "parts": {
+   "s3.h_carrier": {
+    "area": 0.5,
+    "score": 0.833,
+    "box": [
+     26.077,
+     47.396,
+     42.943,
+     62.274
+    ],
+    "problems": []
+   },
+   "s4.reductase": {
+    "area": 22.96,
+    "score": 0.964,
+    "box": [
+     38.577,
+     2.338,
+     83.194,
+     94.261
+    ],
+    "problems": []
+   },
+   "s5.h_carrier": {
+    "area": 0.36,
+    "score": 0.818,
+    "box": [
+     34.689,
+     46.865,
+     47.967,
+     59.192
+    ],
+    "problems": []
+   }
+  }
+ }
+}
