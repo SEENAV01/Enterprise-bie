@@ -251,6 +251,13 @@ class LeanCodexCalls(unittest.TestCase):
         self.assertEqual(call["instructions"], cc.LEAN_INSTRUCTIONS_TEXT)
         self.assertNotIn("JSON", cc.LEAN_INSTRUCTIONS_TEXT)
         self.assertNotIn("--output-schema", call["args"])
+        # the prompt's closing rule too (the fresh-Claude test, 26 Nov 2026: every step-1 prompt ended "Reply with one JSON
+        # object that matches the required schema")
+        messages = [{"role": "system", "content": "Be exact."}, {"role": "user", "content": "Write the lesson as plain text."}]
+        text, _ = cc.build_prompt(messages, plain=True)
+        self.assertTrue(text.endswith(cc.ANSWER_RULES_TEXT))
+        self.assertNotIn("JSON", text)
+        self.assertTrue(cc.build_prompt(messages)[0].endswith(cc.ANSWER_RULES))
 
     def test_lean_calls_can_be_switched_off(self):
         from unittest import mock
