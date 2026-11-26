@@ -1558,19 +1558,36 @@ def film_id(section: str, part: int = 0, parts: int = 1) -> str:
 
 
 def _cut(points: list) -> list:
-    """The heading's points in films of at most FILM_LINES lines, cut only between points, the parts as even as they can be."""
+    """The heading's points in films of at most FILM_LINES lines, cut only between points: as few films as fit, and of
+    those the most even cut (the longest film as short as it can be). A greedy cut left a last film of 8 lines after
+    five full ones (Claude's 11.6.3, 26 November 2026); a point longer than FILM_LINES is a film by itself."""
     sizes = [len(sentences(p)) for p in points]
-    total = sum(sizes)
-    count = max(1, -(-total // FILM_LINES))
-    target = total / count
-    out, current, size = [], [], 0
-    for point, n in zip(points, sizes):
-        if current and (size + n > FILM_LINES or (size >= target and len(out) < count - 1)):
-            out.append(current)
-            current, size = [], 0
-        current.append(point)
+    if not sizes:
+        return []
+    count, size = 1, 0
+    for n in sizes:                          # the fewest films: fill each one as far as it goes
+        if size and size + n > FILM_LINES:
+            count, size = count + 1, 0
         size += n
-    return out + ([current] if current else [])
+    count = min(count, len(sizes))
+    ends = [0]
+    for n in sizes:
+        ends.append(ends[-1] + n)
+    worst = float("inf")
+    best = [[worst] * (count + 1) for _ in range(len(sizes) + 1)]   # best[i][k]: longest film, first i points in k films
+    back = [[0] * (count + 1) for _ in range(len(sizes) + 1)]
+    best[0][0] = 0
+    for i in range(1, len(sizes) + 1):
+        for k in range(1, min(i, count) + 1):
+            for j in range(k - 1, i):
+                longest = max(best[j][k - 1], ends[i] - ends[j])
+                if longest < best[i][k]:
+                    best[i][k], back[i][k] = longest, j
+    cuts, i = [], len(sizes)
+    for k in range(count, 0, -1):
+        cuts.append((back[i][k], i))
+        i = back[i][k]
+    return [points[j:i] for j, i in reversed(cuts)]
 
 
 def film_questions(script: dict, chapter: dict, naksha: dict | None = None, wanted: list | None = None) -> dict:

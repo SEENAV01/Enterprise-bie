@@ -692,7 +692,8 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    yours" of 23–24 November is gone), a check names the words a sentence adds to its line (two or more), the opener,
    question-opener and opening-question checks are off for script films, and the screen shows what each line says.
    A heading still written in parts of at most 48 lines now also plays as one film, `films/<h11-6-3>.html`, its parts'
-   shots in order (`studio_film.joined`, `vm_studio.whole_films`), and `videos: h11-6-3` brings all its parts.
+   shots in order (`studio_film.joined`, `vm_studio.whole_films`), and `videos: h11-6-3` brings all its parts; the
+   parts are the fewest that fit and as even as they can be (no last part of a few lines).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

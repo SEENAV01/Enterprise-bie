@@ -2056,3 +2056,15 @@ class FilmSaysTheScript(unittest.TestCase):
             page = (Path(folder) / "out" / "films" / "h1.html").read_text(encoding="utf-8")
             self.assertIn('"h1b-s2"', page)
             self.assertIn("poori film (1 Ghat): hisse h1a, h1b", (Path(folder) / "out" / "FILMS.md").read_text(encoding="utf-8"))
+
+    def test_a_heading_is_cut_into_the_fewest_even_films(self):
+        def points(*sizes):
+            return [{"says": [f"Line {n}." for n in range(size)]} for size in sizes]
+        cut = studio_script._cut(points(9, 9, 9, 9, 9, 9, 9))                   # a greedy cut gave 45 and 18
+        self.assertEqual(sorted(sum(len(p["says"]) for p in film) for film in cut), [27, 36])
+        cut = studio_script._cut(points(30, 17, 20, 20, 20, 20, 20, 20, 20, 8))  # never a last film of a few lines
+        sizes = [sum(len(p["says"]) for p in film) for film in cut]
+        self.assertEqual((len(cut), sum(sizes)), (5, 195))
+        self.assertTrue(min(sizes) >= 28 and max(sizes) <= studio_script.FILM_LINES, sizes)
+        self.assertEqual([len(f) for f in studio_script._cut(points(60, 5))], [1, 1])  # a long point is a film by itself
+        self.assertEqual(studio_script._cut([]), [])

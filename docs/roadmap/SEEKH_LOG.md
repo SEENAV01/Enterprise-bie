@@ -3344,7 +3344,9 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   line; `film_questions` puts no opening question in front (the goal, else the plan's question, is the film's title);
   `teacher_problems` names the words a script film's sentence adds to its line (`added_words`, two or more);
   `question_problems`, the opener habit and the first-sentence-is-a-question check are off for script films;
-  `studio_film.joined` and `vm_studio.whole_films` play a heading's parts as one film.
+  `studio_film.joined` and `vm_studio.whole_films` play a heading's parts as one film; `_cut` makes the fewest film parts
+  and then the most even cut (a greedy cut had left a last part of 8 lines after five of 28–48 in Claude's 11.6.3, and
+  of 10 lines in s12's 11.6.3).
 - **Measured before:** the 11.6.3b film (r4m) had its question lines opened with added words by rule. **After:** to be
   measured on the 11.6.2 and 11.6.3 films from BIE's s12 script and from Claude's scripts (sentences said as written,
   words added, whole-film minutes).
