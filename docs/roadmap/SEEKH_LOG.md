@@ -3379,3 +3379,16 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   (+46 % from fix rounds), problems 17 → 2 → 0. **After:** the first `maker: claude` job on 11.6.3, once Navin has signed
   in on the VM; measured the same way, and read by Navin beside the gold standard.
 
+## Entry · The teaching chat on the VM, not a new one; the teacher rule in the skill, 26 November 2026
+
+- **Taught by:** Navin's correction: the writer was to be this chat itself, with all it learned, not a new session
+  with the skill; and his teacher rule for every level (a teacher with full knowledge serves the learner the course
+  names their own book; fixed rules per class "boundation laga sakte hain").
+- **Changed in BIE (branch `writer-teleport-fix`):** `bie-claude-setup` step 3 teleports the chat in its own clone, on
+  the screen (teleport is interactive), keeps its transcript from the 30-day sweep and says why when it cannot; a
+  script job without the taught chat stops unless it says `"fresh": true`; the skill and `navin-ki-baatein.md` carry the teacher rule, the learner is the course's
+  (no fixed "Class 11 NEET learner"), and the gold standard's numbers are a guide; README names the Hostinger machine.
+- **Measured before:** jobs c1 and c2 ran with the skill only (fresh sessions). **After:** the same two headings from
+  the teaching chat, once Navin has run step 3 with its id; compared on BIE's problems, rounds, voice measures and his
+  reading beside the gold standard.
+

@@ -714,6 +714,20 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    `BASE_SESSION` is set; `deployment/codex-vm/bie-claude-setup` (Claude Code 2.1.331, his one-time sign-in, the
    optional teleport); CLAUDE.md records the decision. Navin's one-time step on the VM is still to do; the first job
    after it: 11.6.3 again, to compare with the fresh-Claude test and the gold standard.
+   **PR #225 merged.** Navin signed Claude in on the VM (26 November; the sign-in lasts about four weeks, to 21–24
+   December 2026, and is renewed with the same setup). His connection dropped before step 3, so no chat was brought
+   over and the first two `maker: claude` jobs (c1 11.7.2, c2 11.6.3) run as fresh sessions with the skill only; they
+   count as the skill-only baseline. **His correction (26 November): "tumhe yaani isi chat session ke llm ai ko
+   baithane ki baat huyi thi vm par ... to vm par dusra naya session kaise ho gaya".** **Branch
+   `writer-teleport-fix`:** step 3 of `bie-claude-setup` now teleports the teaching chat in a clone of its own
+   (`/var/lib/bie/claude/teleport-repo`), never in the checkout the running jobs use; teleport runs on the screen (the
+   CLI refuses it with redirected output, so the earlier `-p` form could not have worked): Navin sends one line and
+   types `/exit`, the setup records the transcript's local id and lifts Claude Code's 30-day transcript sweep; a script
+   job without that chat now stops (only `"fresh": true` starts a new session, for a test of the skill alone); the README's steps name the machine rightly (Hostinger KVM 2, Mumbai: hPanel → VPS → Manage → Browser
+   terminal; an earlier text said Lightsail); the skill opens with his teacher rule of 25–26 November (a teacher who
+   knows the subject fully teaches the learner the course names their own book; the gold standard's measures are a
+   guide for its Class 11 learner, not a limit; no fixed rule per class). No new `maker: claude` job until the chat is
+   brought over; if teleport fails on the VM, the fallback sends each script task into the teaching chat itself.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

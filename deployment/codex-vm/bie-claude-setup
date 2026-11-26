@@ -7,8 +7,9 @@
 # 2. signs it in with Navin's Claude account (a link to open on the tablet and a code to paste back; no API key is ever
 #    used, and BIE removes ANTHROPIC_API_KEY from the writer's environment); the sign-in stays in /var/lib/bie/claude
 #    (mode 700, owner bie), like Codex's in /var/lib/bie/codex;
-# 3. optionally brings the chat Navin taught to this machine (claude --teleport <session id>) and records its id in
-#    /var/lib/bie/claude/BASE_SESSION, so every script job starts from that chat's memory (a fork of it).
+# 3. brings the chat Navin taught to this machine (claude --teleport <session id>, on the screen, in a clone of its own)
+#    and records its local id in /var/lib/bie/claude/BASE_SESSION, so every script job starts from that chat's memory
+#    (a fork of it); a script job refuses to start without it unless the job says "fresh": true.
 set -euo pipefail
 CLAUDE_VERSION="2.1.331"
 BIE_HOME="${BIE_HOME:-/var/lib/bie}"
@@ -35,22 +36,45 @@ fi
 run_claude auth status --text || { echo "Sign-in nahi hua. Dobara chalaiye: sudo bie-claude-setup"; exit 1; }
 chmod -R go-rwx "$CONF"
 
-echo "== 3/3 Seekhi hui chat (zaroori nahi) =="
-echo "Jis chat ne gold script likhi, use yahan laana ho to uski session ID daaliye (claude.ai/code/session_... wali)."
-echo "Chhodna ho to bas Enter dabaiye; tab har job skill se naya Claude shuru karega."
+echo "== 3/3 Seekhi hui chat =="
+echo "Jis chat ne gold script likhi, uski session ID daaliye (claude.ai/code/ ke baad wala hissa, session_ se shuru)."
+echo "Bina chat ke script job nahi chalega (Navin, 26 November 2026: writer wahi chat hai, naya session nahi)."
 read -rp "Session ID: " session || session=""
 if [ -n "$session" ]; then
-  cd "$BIE_HOME/repo"
-  if run_claude --teleport "$session" -p "Is session ki yaadein ab BIE ke script writer ki hain. Sirf 'tayyar' likhiye." \
-       --output-format json > "$CONF/teleport.json" 2>"$CONF/teleport.err"; then
-    sudo -u bie python3 -c "import json,sys; print(json.load(open('$CONF/teleport.json')).get('session_id',''))" \
-      > "$CONF/BASE_SESSION"
+  # Teleport checks out the chat's branch, so it runs in a clone of its own, never in $BIE_HOME/repo (the checkout the
+  # running jobs use; Navin's screen, 26 November 2026, showed a film job running from it).
+  TP="$CONF/teleport-repo"
+  if [ ! -d "$TP/.git" ]; then
+    sudo -u bie git clone -q https://github.com/SEENAV01/Enterprise-bie.git "$TP"
+  fi
+  # Claude Code deletes chats older than 30 days by itself; the taught chat must stay, so that limit is lifted here.
+  sudo -u bie python3 - "$CONF/settings.json" <<'PY'
+import json, os, sys
+path = sys.argv[1]
+settings = json.load(open(path)) if os.path.exists(path) else {}
+settings["cleanupPeriodDays"] = 36500
+json.dump(settings, open(path, "w"), indent=2)
+PY
+  # Teleport opens Claude on the screen (it does not run in the background), so Navin sees the chat arrive and closes it.
+  echo
+  echo "Ab Claude khulega aur yeh chat yahan laayega (1-2 minute lag sakte hain)."
+  echo "  1. Rang (theme) ya 'trust this folder' jaisa kuchh poochhe to bas Enter dabaiye."
+  echo "  2. Chat aa jaaye to likhiye:  tayyar ho?   aur Enter dabaiye."
+  echo "  3. Jawab aa jaaye to likhiye:  /exit   aur Enter dabaiye."
+  read -rp "Shuru karne ke liye Enter dabaiye. " _ || true
+  mark="$CONF/.teleport-start"
+  sudo -u bie touch "$mark"
+  (cd "$TP" && run_claude --teleport "$session") || true
+  found=$(find "$CONF/projects" -name '*.jsonl' -newer "$mark" -printf '%s %p\n' 2>/dev/null | sort -n | tail -n 1 | cut -d' ' -f2-)
+  if [ -n "$found" ] && grep -q "11.6.3" "$found"; then
+    basename "$found" .jsonl > "$CONF/BASE_SESSION"
     chown bie:bie "$CONF/BASE_SESSION"; chmod 600 "$CONF/BASE_SESSION"
-    echo "Chat yahan aa gayi. Har script job ab isi ki copy se shuru hogi."
+    echo "Chat yahan aa gayi. Har script job ab isi chat ki copy se shuru hogi."
   else
-    echo "Chat yahan nahi aa payi (wajah: $CONF/teleport.err). Koi baat nahi: jobs skill se chalenge."
+    echo "Chat yahan nahi aa payi. Upar screen par jo likha aaya, uski photo Claude ko bhejiye."
     rm -f "$CONF/BASE_SESSION"
   fi
+  rm -f "$mark"
 fi
 echo
 echo "Ho gaya. Ab job mein \"maker\": \"claude\" likhne par script Claude likhega."

@@ -47,6 +47,8 @@ class Skill(unittest.TestCase):
         self.assertIn("bilkul passed hai meri taraf se", words)
         skill = " ".join((SKILL / "SKILL.md").read_text(encoding="utf-8").split())
         self.assertIn("Never open it while you write heading 11.6.3", skill)
+        self.assertIn("ek aise teacher ki bhanti padhaya hai jise us concept ki poori knowledge hai", skill)
+        self.assertNotIn("to a Class 11 NEET learner", skill)        # the learner is the course's, not a fixed class
         self.assertIn("not by adding lines", skill)
 
     def test_the_pairs_never_quote_six_words_of_the_withheld_example_as_text_to_copy(self):
@@ -157,7 +159,7 @@ class VmClaude(unittest.TestCase):
                                        "out": str(Path(self.folder.name) / "out")}, **more))
 
     def test_the_writer_writes_one_heading_and_bie_checks_it(self):
-        summary = self.vm_claude.script(self.args(), binary=str(self.fake))
+        summary = self.vm_claude.script(self.args(fresh=True), binary=str(self.fake))
         out = Path(self.folder.name) / "out"
         self.assertIn(summary["status"], ("ok", "needs_fix"), summary.get("error"))
         self.assertEqual(summary["rewritten"], ["11.6"])
@@ -188,11 +190,17 @@ class VmClaude(unittest.TestCase):
         self.assertEqual(call["args"][call["args"].index("--resume") + 1], "session-taught")
         self.assertIn("--fork-session", call["args"])
 
+    def test_without_the_taught_chat_a_job_stops_unless_it_says_fresh(self):
+        summary = self.vm_claude.script(self.args(), binary=str(self.fake))       # Navin, 26 November: the writer is that chat
+        self.assertEqual(summary["status"], "failed")
+        self.assertIn("step 3", summary["error"])
+        self.assertFalse(Path(self.env["FAKE_LOG"]).exists())                    # Claude was never started
+
     def test_a_missing_writer_or_heading_fails_with_the_fix(self):
-        summary = self.vm_claude.script(self.args(), binary=str(Path(self.folder.name) / "nothing"))
+        summary = self.vm_claude.script(self.args(fresh=True), binary=str(Path(self.folder.name) / "nothing"))
         self.assertEqual(summary["status"], "failed")
         self.assertIn("bie-claude-setup", summary["error"])
-        summary = self.vm_claude.script(self.args(videos="h99"), binary=str(self.fake))
+        summary = self.vm_claude.script(self.args(videos="h99", fresh=True), binary=str(self.fake))
         self.assertIn("no heading", summary["error"])
 
     def test_the_login_is_reported_without_account_details(self):
@@ -213,6 +221,11 @@ class VmClaude(unittest.TestCase):
         cmd = codex_vm.argv(job, Path("/tmp/o"))
         self.assertTrue(cmd[2].endswith("vm_claude.py") and cmd[3] == "script")
         self.assertEqual(cmd[cmd.index("--videos") + 1], "h11-6-3")
+        self.assertNotIn("--fresh", cmd)
+        self.assertIn("--fresh", codex_vm.argv(dict(job, fresh=True), Path("/tmp/o")))
+        with self.assertRaises(codex_vm.JobError):                               # fresh belongs to the Claude writer only
+            codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "c3-bad-test", "section": "studio", "stage": "script",
+                               "from_run": "https://x/run", "fresh": True})
         for bad in ({"section": "studio", "stage": "films", "from_run": "https://x/r"},
                     {"section": "understand", "source": "https://x/b.pdf"}):
             with self.assertRaises(codex_vm.JobError):
@@ -223,4 +236,8 @@ class VmClaude(unittest.TestCase):
         self.assertIn(f'CLAUDE_VERSION="{self.vm_claude.CLAUDE_VERSION}"', text)
         self.assertIn("env -u ANTHROPIC_API_KEY", text)
         self.assertIn("auth login", text)
+        self.assertIn('TP="$CONF/teleport-repo"', text)              # never the checkout the running jobs use
+        self.assertNotIn('cd "$BIE_HOME/repo"', text)
+        self.assertIn('run_claude --teleport "$session")', text)                # on the screen: teleport is interactive
+        self.assertIn('"cleanupPeriodDays"', text)                                # the taught chat is never swept away
         self.assertIn("bie-claude-setup", (ROOT / "deployment" / "codex-vm" / "setup.sh").read_text(encoding="utf-8"))
