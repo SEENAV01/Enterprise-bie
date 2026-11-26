@@ -992,3 +992,38 @@ class SeekhS11(unittest.TestCase):
         part["points"][0]["says"] = [passed["goal"]]
         self.assertNotIn("which this heading opens", " | ".join(studio_script.teacher_problems(part, heading, ch,
                                                                                                  part["points"])))
+
+
+class TeacherVoice(unittest.TestCase):
+    """Navin, 26 November 2026, on s11: "sentence ki lambai order sankya se hi clear ho rha hai kon teacher ki tarah
+    samjha rha hai aur kaun ab bhi jyu ka tyo likh rha hai"; the gold standard: 68 sentences of 15.1 words, a quarter
+    spoken to the learner, a third going on the way a teacher talks."""
+
+    def test_a_packed_textbook_heading_is_sent_back_and_the_gold_standard_is_not(self):
+        _, passed, ch, heading = target()
+        packed = ["Concentration aur electrical haalat ke is fark ko proton gradient kehte hain jo membrane ke dono taraf "
+                  "banta hai aur ATP formation se juda hai."] * 22
+        part = {"goal": "Electron ne ADP ko chhua tak nahi; toh ATP bana kaise?", "bridge": "x",
+                "points": [{"id": "11.6.3-k1", "kind": "explain", "says": ["Electron ne ADP ko chhua tak nahi; toh ATP "
+                                                                           "bana kaise?"] + packed}]}
+        found = " | ".join(studio_script.teacher_problems(part, heading, ch, part["points"]))
+        self.assertIn("words on average (the passed rewrite: 15)", found)
+        self.assertIn("of the sentences speak to the learner (the passed rewrite: a quarter)", found)
+        self.assertIn("go on from the one before the way a teacher talks", found)
+        points = [{"id": f"11.6.3-k{n}", "kind": "explain", "says": [line["says"] for line in p["lines"]],
+                   "roles": [line["role"] for line in p["lines"]]} for n, p in enumerate(passed["points"], 1)]
+        gold = {"goal": passed["goal"], "bridge": "x", "points": points}
+        found = " | ".join(studio_script.teacher_problems(gold, heading, ch, points))
+        for rule in ("words on average", "speak to the learner", "the way a teacher talks"):
+            self.assertNotIn(rule, found)
+
+    def test_the_lesson_comes_before_its_facts(self):
+        self.assertLess(studio_script.LESSON_PROMPT.index("LESSON\n["), studio_script.LESSON_PROMPT.index("FACTS\nf1"))
+        self.assertIn("write the lesson first and list its facts after it", studio_script.LESSON_PROMPT)
+        text = ("GOAL: Toh ATP bana kaise?\nMISAAL: baandh\nLESSON\n[p010-i14]\nAb ek baat par gaur karo.\n"
+                "Toh ATP bana kaise?\nFACTS\nf1 | p010-i14 | book | | ATP gradient se banta hai\nBRIDGE: Ab aage.")
+        lesson = studio_script.parse_lesson(text)
+        self.assertEqual(lesson["blocks"], [{"head": ["p010-i14"], "lines": ["Ab ek baat par gaur karo.",
+                                                                              "Toh ATP bana kaise?"]}])
+        self.assertEqual([f["id"] for f in lesson["facts"]], ["f1"])
+        self.assertEqual((lesson["goal"], lesson["bridge"]), ("Toh ATP bana kaise?", "Ab aage."))

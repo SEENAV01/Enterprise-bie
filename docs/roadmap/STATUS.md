@@ -664,7 +664,17 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    several names joined by ";" and each is checked by itself (in the figure, said where taught), never asked said
    joined; a hard word counts as opened only when a meaning word stands next to it (within three words after, or
    "yaani" just before); today's question may not name a term the heading opens. Before: s11 under these checks, 3
-   problems (the goal; gradient and electrochemical not opened next to the word). After: job s12.
+   problems (the goal; gradient and electrochemical not opened next to the word). **Navin on s11 (26 November 2026):**
+   "Abhi bhi kareeb nhi hai ... sentence ki lambai order sankya se hi clear ho rha hai kon teacher ki tarah samjha rha
+   hai aur kaun ab bhi jyu ka tyo likh rha hai ... Mujhe tumhare jaisi hi script wala output chahiye". Measured: the gold
+   standard's c2–c3 says three book lines and the figure in 68 sentences of 15.1 words, 25 % spoken to the learner, 34 %
+   opening the way a teacher goes on; s11's c2–c3 in 40 sentences of 18.4 words, 18 %, 10 %. BIE never saw the gold
+   standard while writing 11.6.3 (withheld by design); every other heading would see it, and that was never tested.
+   Card ("Plan 1 aur 2 abhi, 3 zaroorat par"): the lesson written first and its facts after it, with the gold standard's
+   speaking measures in the step-1 prompt; voice checks on a heading of 20 or more sentences (average sentence at most 16
+   words, at least 20 % spoken to the learner, at least 20 % going on the way a teacher talks; the gold standard passes,
+   s11 fails all three); then job s12 writes 11.6.2 (which sees the gold standard) and 11.6.3; if still far, Claude writes
+   a second example for Navin to pass.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

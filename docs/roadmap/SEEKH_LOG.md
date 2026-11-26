@@ -3307,4 +3307,16 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   the goal may not name a term the heading opens (the gold standard's puzzle names none).
 - **Measured before:** s11's 11.6.3 under the new checks: 3 problems (the goal; gradient and electrochemical not opened
   next to the word); the gold standard: unchanged (only the heading's later steps). After: job s12.
+- **Navin's verdict on s11:** "Abhi bhi kareeb nhi hai ... sentence ki lambai order sankya se hi clear ho rha hai kon
+  teacher ki tarah samjha rha hai aur kaun ab bhi jyu ka tyo likh rha hai". Measured on c2–c3: gold standard 68
+  sentences, 15.1 words each, 25 % spoken to the learner, 34 % opening as a teacher goes on; s11 40 sentences, 18.4
+  words, 18 %, 10 %; whole heading: gold 2.4 sentences per fact, s8 1.8, s9 1.3, s11 1.4. BIE packs each fact into one
+  long sentence; the gold standard tells it in several short ones, spoken to the child. Two causes beyond the checks:
+  the gold standard is withheld while 11.6.3 is written, so every 11.6.3 run had no example of the way; and step 1 wrote
+  the facts list before the lesson, so the lesson said the list again.
+- **Changed (same branch, card "Plan 1 aur 2 abhi, 3 zaroorat par"):** step 1 writes GOAL, MISAAL, the LESSON, then its
+  FACTS and the BRIDGE, with the gold standard's speaking measures in the prompt; voice checks on a heading of at least
+  20 sentences: average sentence at most 16 words, at least 20 % spoken to the learner (TALK), at least 20 % going on
+  from the sentence before (FLOW); the gold standard passes all three, s11's 11.6.3 fails all three (17.2, 16 %, 20 %).
+  Job s12 writes 11.6.2, which sees the gold standard as every heading but its own will, and then 11.6.3.
 

@@ -198,6 +198,19 @@ RESTATE_FROM = 4       # never sent back (the 11.6.3 rewrite, 25 November 2026: 
 CLASH = frozenset("the to me par main do so hi us is are ki ke ka na ho jo se ye yeh wo woh hai hain aur mein kar tab ab "
                   "jab kab bhi tha thi pe ek koi kuch log raha rahi aage peeche andar bahar upar neeche saath sath baat din "
                   "raat paani dekho socho".split())
+# How the teacher speaks, measured on the gold standard (Navin, 26 November 2026: "sentence ki lambai order sankya se hi
+# clear ho rha hai kon teacher ki tarah samjha rha hai aur kaun ab bhi jyu ka tyo likh rha hai"): the passed 11.6.3 c2-c3
+# says its three book lines and figure in 68 sentences of 15.1 words on average, 25 % of them spoken to the learner and 34 %
+# opening the way a teacher goes on talking; BIE's s11 said the whole heading in sentences of 17.2 words, 15 % spoken to the
+# learner, 10 % so opened (s8: 18.2 words, 7 %). Judged on a heading of at least VOICE_FROM sentences.
+VOICE_FROM = 20             # a short heading is not judged on shares of its sentences
+SENTENCE_AVG = 16.0
+TALK_SHARE = 0.20
+FLOW_SHARE = 0.20
+TALK = re.compile(r"\b(aap|aapne|aapko|aapke|aapki|hum|humne|hamare|hamari|hamein|socho|sochiye|dekho|dekhiye|samjho|"
+                  r"yaad karo|yaad rakho|batao|chalo|ruko|todo|gaur karo|pakki kar lo|jaan lo)\b", re.I)
+FLOW = re.compile(r"^\W*(ab|toh|to|socho|dekho|yeh|ye|yahi|isliye|par|lekin|bilkul|matlab|yaani|pehle|phir|aur|bas|"
+                  r"isi|iska|isse|jaise|aise|haan|chalo|ruko|class)\b", re.I)
 QUESTION_SHARE = 0.05          # at least this share of a heading's sentences asks the learner something: questions come
                                # at the turns, not by count (the passed 11.6.3 rewrite asks 4 in 68 sentences; the old
                                # one-in-five made s9 ask 18 in 116, several of them only to fill the count)
@@ -455,17 +468,24 @@ TEXT_ONLY = "In step 1 answer with the plain-text lesson only, in the form it gi
 LESSON_PROMPT = """
 
 STEP 1 OF 2: THE LESSON, AS YOU SPEAK IT (Navin, 26 November 2026, on BIE's 11.6.3 beside the rewrite he passed: "aas paas
-bhi nahi hai"; that rewrite was written as a teacher speaks, and each line's job was marked after). Write no JSON now:
-the JSON fields of the rules (roles, uses, terms, screen ...) are filled in step 2 from what you write here. Write this
-heading's lesson the way you would teach it to the class: for each book line one flow, from what the learner knows,
-through an everyday picture and plain words, to the book's term and its fact; every fact of your list taught, every line
-joined to the one before it, the way a story goes on. One spoken sentence, or two short ones, per line. Plain text in
-exactly this form, nothing before or after it:
+bhi nahi hai"; "tumhare jaisi hi script wala output chahiye"; that rewrite was written as a teacher speaks, and its facts
+and each line's job were marked after it). Write no JSON now: the JSON fields of the rules (roles, uses, terms, screen
+...) are filled in step 2 from what you write here. Know everything the learner must take from this heading before you
+start, but write the lesson first and list its facts after it, so the lesson is taught, not a list said again.
 
-FACTS
-f1 | <item id> | <book, word, base, label or extra> | <the book's word it is about (one label per line), or nothing> | <the fact, one short line>
-f2 | ...
-GOAL: <today's question>
+How the teacher speaks (measured on the passed rewrite of three book lines and their figure: 68 sentences, about 15
+words each, a quarter of them spoken to the learner, a third opening the way a teacher talks):
+- many short spoken sentences, one step each, about 15 words on average; a line may hold two or three of them;
+- each fact told in as many small steps as a child needs: what the child already knows, an everyday picture, plain
+  words, the why, then the book's word and its fact; never one long sentence packed with the whole fact;
+- talk to the learner ("aap", "hum", "socho", "dekho", "yaad karo", "ab ek baat par gaur karo"), and open sentences the
+  way a teacher goes on talking ("Ab ...", "Toh ...", "Socho ...", "Yeh ...", "Isliye ..."), varied, never one opener
+  again and again;
+- for each book line one flow, every line joined to the one before it, the way a story goes on.
+
+Plain text in exactly this form, nothing before or after it:
+
+GOAL: <today's question, a puzzle the learner feels, asked from what the learner already knows>
 MISAAL: <the running picture, its main word first>
 LESSON
 [<the item id or ids this block teaches, comma separated; or analogy, example or checkpoint for a block of its own>]
@@ -473,6 +493,9 @@ LESSON
 <a line>
 [<the next block's item ids>]
 <a line>
+FACTS
+f1 | <item id> | <book, word, base, label or extra> | <the book's word it is about (one label per line), or nothing> | <the fact, one short line>
+f2 | ...
 BRIDGE: <one line into the next heading>
 """
 
@@ -1075,6 +1098,22 @@ def teacher_problems(answer: dict, heading: dict, chapter: dict, points: list) -
         if not any(WHY.search(s) for s in asked) and not why_lines:
             out.append("no \"kyun\" in this heading: give the why of what matters (a why line, or a kyun question "
                        "reasoned out)")
+    if len(said) >= VOICE_FROM and number != RECAP:
+        lengths = [len(s.split()) for _, _, s in said]
+        mean = sum(lengths) / len(lengths)
+        talk = sum(1 for _, _, s in said if TALK.search(s)) / len(said)
+        flow = sum(1 for _, _, s in said if FLOW.search(s)) / len(said)
+        if mean > SENTENCE_AVG:
+            out.append(f"the heading's sentences have {mean:.1f} words on average (the passed rewrite: 15): say each fact in "
+                       "more, shorter spoken sentences, one step each (what the child knows, a picture, plain words, the why, "
+                       "the book's word), never one long sentence packed with the whole fact")
+        if talk < TALK_SHARE:
+            out.append(f"{talk:.0%} of the sentences speak to the learner (the passed rewrite: a quarter): talk to the child "
+                       "as a teacher does (\"aap\", \"hum\", \"socho\", \"dekho\", \"yaad karo\")")
+        if flow < FLOW_SHARE:
+            out.append(f"{flow:.0%} of the sentences go on from the one before the way a teacher talks (the passed rewrite: "
+                       "a third): join the lesson as one talk (\"Ab ...\", \"Toh ...\", \"Socho ...\", \"Yeh ...\", "
+                       "\"Isliye ...\"), varied, never one opener again and again")
     habit = opener_habit([s for _, _, s in said])
     if habit:
         out.append(f"{habit[1]} of {habit[2]} answers open with \"{habit[0].capitalize()}\"; vary the opener as a teacher "
