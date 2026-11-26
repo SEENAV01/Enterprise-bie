@@ -582,9 +582,10 @@ hume bache ko dena hai"); this film tells one heading of it. The film's sentence
 one, in their order, and nothing else is spoken (Navin, 26 November 2026: "koi chhut nahi"): keep their words and their
 voice ("dekho", "socho" stay), fixing only a spelling slip, and leave no word out. Add nothing to a line: no answer
 opener ("Iska seedha sa jawab hai ..."), no question opener ("Ab sawaal uthta hai ki ...", "Ab aap poochhenge ki ..."),
-no invitation, no bridge between shots and no question of your own; the rules above on openers, invitations and bridges
-are for films without a script, and here the script's own lines do that work. Where the script asks, the film asks.
-The screen shows what each line says while it is said (Navin, 26 November 2026: "jo script keh rahi hai wo hi visuals ke
+no invitation, no bridge between shots, no question of your own and no recap of your own: the film opens on the
+script's first line and ends on its last. The rules above on the opening question, openers, invitations, bridges and the
+closing recap are for films without a script; here the script's own lines do that work.
+Where the script asks, the film asks. The screen shows what each line says while it is said (Navin, 26 November 2026: "jo script keh rahi hai wo hi visuals ke
 madhyam se samajh mein aaye"): the picture, its pins and its motion follow the line, and nothing is shown that the line
 does not speak of. A NOTE under a line is the script's instruction for the screen (the point's kind and what the screen
 shows), never words to speak: follow it. A line of kind analogy is said on an aside shot (its own everyday picture); the

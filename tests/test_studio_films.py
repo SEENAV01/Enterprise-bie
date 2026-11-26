@@ -2009,6 +2009,7 @@ class FilmSaysTheScript(unittest.TestCase):
         self.assertEqual(len(studio_film.question_problems(made)), 1)
         self.assertEqual(studio_film.question_problems(made, {"script_lines": True}), [])
         self.assertIn("no question opener", studio_film.SCRIPT_PART)
+        self.assertIn("the film opens on the\nscript's first line and ends on its last", studio_film.SCRIPT_PART)
         self.assertIn("not in a film made from the chapter's script", studio_film.INSTRUCTIONS)
 
     def test_no_opening_question_is_put_in_front_of_the_script(self):
