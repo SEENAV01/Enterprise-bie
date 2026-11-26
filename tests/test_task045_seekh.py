@@ -235,6 +235,23 @@ class LeanCodexCalls(unittest.TestCase):
         self.assertEqual((call["images"], call["images_exist"]), ([".png"], True))
         self.assertGreater(call["prompt_chars"], 0)
 
+    def test_a_plain_text_call_is_not_told_to_answer_with_json(self):
+        # BIE's script, step 1 (26 Nov 2026): the lesson in plain text; with the JSON-only line Codex answered JSON (job s10)
+        from bie.model_gateway.live import codex_client as cc
+        with tempfile.TemporaryDirectory() as state:
+            environment = dict(os.environ, BIE_FAKE_CODEX_STATE=state, BIE_FAKE_CODEX_MODE="ok")
+            client = cc.CodexExecClient(executable=f"{sys.executable} {ROOT / 'bie' / 'brain' / 'fake_codex.py'}",
+                                        env=environment)
+            try:                                      # the fake answers only schemas it knows; the call is recorded first
+                client.chat(model="gpt-6.1-sol", messages=[{"role": "system", "content": "Be exact."},
+                                                           {"role": "user", "content": "Write the lesson as plain text."}])
+            except Exception:
+                pass
+            call = json.loads(Path(state, "calls.jsonl").read_text().splitlines()[0])
+        self.assertEqual(call["instructions"], cc.LEAN_INSTRUCTIONS_TEXT)
+        self.assertNotIn("JSON", cc.LEAN_INSTRUCTIONS_TEXT)
+        self.assertNotIn("--output-schema", call["args"])
+
     def test_lean_calls_can_be_switched_off(self):
         from unittest import mock
         with mock.patch.dict(os.environ, {"BIE_CODEX_LEAN": "0"}):

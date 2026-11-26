@@ -50,6 +50,12 @@ LEAN_INSTRUCTIONS = ("You are the model engine behind BIE (Book Intelligence Eng
                      "with findings to fix, and the attached page images. Work only from that message and the images: "
                      "no commands, files, browsing, questions or other agents. Take the time the task needs, then reply "
                      "with exactly one JSON object that matches the output schema, and nothing else.")
+# A call without an output schema asks for plain text (BIE's script, step 1: the lesson as the teacher speaks it, 26
+# November 2026): the JSON-only line above made Codex answer that step with JSON too, so the step never ran (job s10).
+LEAN_INSTRUCTIONS_TEXT = LEAN_INSTRUCTIONS.replace(
+    "reply with exactly one JSON object that matches the output schema, and nothing else.",
+    "reply with exactly what the task asks for, in the form it gives (plain text when it asks for text), and nothing "
+    "else.")
 # Codex 0.162.1 (pinned in deployment/codex-vm/setup.sh). A request captured offline against a local stand-in server
 # carried about 12,200 tokens of Codex's own instructions, tools and agent texts (o200k tokenizer); with these settings
 # about 3,800 remain (the few Codex always sends). Every name was checked against that version: an unknown setting or
@@ -266,7 +272,7 @@ class CodexExecClient:
                 cmd += ["-c", f'model_reasoning_effort="{self.reasoning_effort}"']
             if self.lean:
                 instructions = folder / "instructions.md"
-                instructions.write_text(LEAN_INSTRUCTIONS, encoding="utf-8")
+                instructions.write_text(LEAN_INSTRUCTIONS if schema is not None else LEAN_INSTRUCTIONS_TEXT, encoding="utf-8")
                 cmd += ["--strict-config", "-c", f"model_instructions_file={json.dumps(str(instructions))}"]
                 for setting in LEAN_SETTINGS:
                     cmd += ["-c", setting]
