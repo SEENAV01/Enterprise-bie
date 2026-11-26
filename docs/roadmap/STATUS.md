@@ -694,6 +694,15 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    A heading still written in parts of at most 48 lines now also plays as one film, `films/<h11-6-3>.html`, its parts'
    shots in order (`studio_film.joined`, `vm_studio.whole_films`), and `videos: h11-6-3` brings all its parts; the
    parts are the fewest that fit and as even as they can be (no last part of a few lines).
+   **PR #223 merged (26 November 2026).** Film jobs f1–f4 queued (11.6.3 and 11.6.2, Claude's script and BIE s12).
+   **Fresh-Claude test (Navin, 26 November 2026: "codex ki jagah tumhara model ... wahi sab cheejen milni chahiye jo
+   bie ke through codex ke paas jaati hain"):** BIE's script stage for 11.6.3 with job s12's context, every model call
+   sent with the same instructions, prompt and schema to a new Claude (Opus 5.5, extra effort) that knew nothing else;
+   gold withheld. 4 calls, BIE's problems 17 → 2 → 0 (s12's Codex: 19 → 11 → 3 → 1), about 55 minutes, Navin's Claude
+   plan, ₹0; 344 sentences of 12.5 words, 18 questions, 33 % spoken to the learner (235 sentences in its step 1).
+   Evidence: `codex-jobs` branch, `demo/fresh-claude-1163/`. Page for Navin: "Khaali Claude 11.6.3". Navin's verdict
+   pending. Found on the way: every plain-text Codex call (the script's step 1) ended on "Reply with one JSON object";
+   **branch `codex-text-answer`:** such a prompt now closes with a plain-text rule.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

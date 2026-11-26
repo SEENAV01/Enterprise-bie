@@ -3351,3 +3351,18 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   measured on the 11.6.2 and 11.6.3 films from BIE's s12 script and from Claude's scripts (sentences said as written,
   words added, whole-film minutes).
 
+## Entry · A fresh Claude in Codex's place (11.6.3), and the JSON line at the end of text calls, 26 November 2026
+
+- **Run:** BIE's script stage for 11.6.3 (`tools/vm_studio.script`, job s12's from_run and chapter map), each call relayed
+  with the Codex client's own instructions file, prompt and schema to a new Claude (Opus 5.5, extra effort) with no other
+  context; gold withheld. 4 calls; problems 17 → 2 → 0; about 55 minutes; ₹0 (Navin's Claude plan).
+- **Measured:** sentences, words per sentence, questions, spoken to the learner: fresh Claude 344, 12.5, 18, 33 %;
+  Codex s12 136, 13.9, 7, 28 %; gold c2–c3 68, 15.1, 4, 25 %. Its step 1 had 235 sentences of 15.2 words; the fix rounds
+  added 109 sentences and pushed the average to 16.8 before the voice check pulled it back (the patching effect).
+- **Taught:** the same messages give a much closer script from a stronger writer, so the gap is largely the writer, not
+  BIE's data; and every plain-text call's prompt ended on "Reply with one JSON object that matches the required schema"
+  (`ANSWER_RULES`), under instructions that asked for text, which explains s12's 11.6.3 lesson coming back as JSON.
+- **Changed in BIE (branch `codex-text-answer`):** `build_prompt(messages, plain=True)` closes a call without a schema
+  with `ANSWER_RULES_TEXT`; the Codex client passes it for every call without a schema. Test in `tests/test_task045_seekh.py`.
+- **Next:** Navin's verdict on the page; the route for Claude as the script writer is his decision (app, VM login or API).
+
