@@ -1,0 +1,1425 @@
+{
+ "chapter_title": "11. Photosynthesis in Higher Plants",
+ "made_by": "Claude ka namuna, BIE output nahi (26 November 2026): 11.6.2 Claude ki script; 11.6.3 c1 + gold standard c2, c3 (bina badlaav) + c4-c12 Claude ne dobara likhe. passed_outputs mein kabhi nahi.",
+ "parts": [
+  {
+   "section": "11.6.2",
+   "title": "Cyclic and Non-cyclic Photo-phosphorylation",
+   "goal": "Agar PS I ke aage NADP⁺ tak jaane ka raasta hi band ho, toh roshni se uchhla electron kahan jaayega, aur kya tab bhi kuch banega?",
+   "misaal": "relay daud: electron baton, carriers khiladi; non-cyclic mein baton NADP⁺ ke haath tak, cyclic mein track ka ek chakkar",
+   "bridge": "",
+   "facts": [
+    {
+     "id": "f1",
+     "item": "p009-i27",
+     "kind": "book",
+     "term": "",
+     "fact": "Jeev oxidisable substances se energy nikalte hain aur use bond energy ke roop mein rakhte hain."
+    },
+    {
+     "id": "f2",
+     "item": "p009-i27",
+     "kind": "book",
+     "term": "ATP",
+     "fact": "ATP jaise khaas molecules yeh energy apne chemical bonds mein lekar chalte hain."
+    },
+    {
+     "id": "f3",
+     "item": "p010-i1",
+     "kind": "book",
+     "term": "phosphorylation",
+     "fact": "Cell mitochondria aur chloroplast mein ATP banata hai; is kaam ko phosphorylation kehte hain."
+    },
+    {
+     "id": "f4",
+     "item": "p010-i1",
+     "kind": "book",
+     "term": "Photo-phosphorylation",
+     "fact": "Roshni mein ADP aur inorganic phosphate se ATP banna photo-phosphorylation hai."
+    },
+    {
+     "id": "f5",
+     "item": "p010-i2",
+     "kind": "book",
+     "term": "non-cyclic",
+     "fact": "Do photosystem series mein kaam karein, pehle PS II phir PS I, toh non-cyclic photo-phosphorylation hoti hai."
+    },
+    {
+     "id": "f6",
+     "item": "p010-i2",
+     "kind": "book",
+     "term": "electron transport chain",
+     "fact": "Dono photosystem electron transport chain se jude hain, jaise Z scheme mein dekha."
+    },
+    {
+     "id": "f7",
+     "item": "p010-i2",
+     "kind": "book",
+     "term": "",
+     "fact": "Is electron flow se ATP aur NADPH + H⁺ dono bante hain (Figure 11.5)."
+    },
+    {
+     "id": "f8",
+     "item": "p010-i3",
+     "kind": "book",
+     "term": "cyclic",
+     "fact": "Figure 11.6: PS I ka electron acceptor aur electron transport system se hokar P 700 par laut aata hai; saath mein ADP + Pi se ATP banta hai."
+    },
+    {
+     "id": "f9",
+     "item": "p010-i12",
+     "kind": "book",
+     "term": "",
+     "fact": "Jab sirf PS I kaam kare, electron photosystem ke andar ghoomta hai aur cyclic flow se phosphorylation hoti hai."
+    },
+    {
+     "id": "f10",
+     "item": "p010-i12",
+     "kind": "book",
+     "term": "stroma lamellae",
+     "fact": "Iski ek sambhav jagah stroma lamellae hai."
+    },
+    {
+     "id": "f11",
+     "item": "p010-i12",
+     "kind": "book",
+     "term": "",
+     "fact": "Grana ki lamellae mein PS I aur PS II dono hain; stroma lamellae mein PS II aur NADP reductase nahi hote."
+    },
+    {
+     "id": "f12",
+     "item": "p010-i12",
+     "kind": "book",
+     "term": "",
+     "fact": "Excited electron NADP⁺ ko nahi jaata; electron transport chain se PS I complex par laut aata hai."
+    },
+    {
+     "id": "f13",
+     "item": "p010-i12",
+     "kind": "book",
+     "term": "",
+     "fact": "Cyclic flow se sirf ATP banta hai, NADPH + H⁺ nahi."
+    },
+    {
+     "id": "f14",
+     "item": "p010-i12",
+     "kind": "book",
+     "term": "",
+     "fact": "Jab excitation ke liye sirf 680 nm se aage ki wavelength mile, tab bhi cyclic photophosphorylation hoti hai."
+    },
+    {
+     "id": "f15",
+     "item": "p009-i27",
+     "kind": "word",
+     "term": "oxidisable substances",
+     "fact": "Jo cheezein oxidation mein electron de sakein, jaise glucose."
+    },
+    {
+     "id": "f16",
+     "item": "p009-i27",
+     "kind": "word",
+     "term": "bond energy",
+     "fact": "Atomon ko jodne wale chemical bonds mein band energy."
+    },
+    {
+     "id": "f17",
+     "item": "p010-i1",
+     "kind": "word",
+     "term": "ATP",
+     "fact": "Adenosine triphosphate: tri yaani teen phosphate."
+    },
+    {
+     "id": "f18",
+     "item": "p010-i1",
+     "kind": "word",
+     "term": "ADP",
+     "fact": "Adenosine diphosphate: di yaani do phosphate."
+    },
+    {
+     "id": "f19",
+     "item": "p010-i1",
+     "kind": "word",
+     "term": "inorganic phosphate",
+     "fact": "Akela phosphate jo kisi molecule se juda nahi; chhote mein Pᵢ."
+    },
+    {
+     "id": "f20",
+     "item": "p010-i1",
+     "kind": "word",
+     "term": "phosphorylation",
+     "fact": "ADP mein phosphate jodkar ATP banana."
+    },
+    {
+     "id": "f21",
+     "item": "p010-i1",
+     "kind": "word",
+     "term": "Photo-phosphorylation",
+     "fact": "Photo yaani roshni: roshni ki madad se phosphorylation."
+    },
+    {
+     "id": "f22",
+     "item": "p010-i2",
+     "kind": "word",
+     "term": "electron transport chain",
+     "fact": "Carriers ki kadi jo electron ko ek se doosre tak aage deti hai."
+    },
+    {
+     "id": "f23",
+     "item": "p010-i2",
+     "kind": "word",
+     "term": "non-cyclic",
+     "fact": "Jo gol chakkar na ho: electron shuru par wapas nahi lautta."
+    },
+    {
+     "id": "f24",
+     "item": "p010-i3",
+     "kind": "word",
+     "term": "cyclic",
+     "fact": "Gol chakkar wala: electron jahan se chala, wahin laut aata hai."
+    },
+    {
+     "id": "f25",
+     "item": "p010-i12",
+     "kind": "word",
+     "term": "NADP reductase",
+     "fact": "Reductase yaani reduction karaane wala enzyme; NADP⁺ se NADPH banwata hai."
+    },
+    {
+     "id": "f26",
+     "item": "p010-i12",
+     "kind": "word",
+     "term": "stroma lamellae",
+     "fact": "Grana ko jodne wali patli, bina dher wali membrane; lamella yaani patli parat."
+    },
+    {
+     "id": "f27",
+     "item": "p010-i12",
+     "kind": "word",
+     "term": "wavelength",
+     "fact": "Roshni ki lehar mein ek chot se agli chot tak ki doori."
+    },
+    {
+     "id": "f28",
+     "item": "p009-i27",
+     "kind": "base",
+     "term": "oxidation",
+     "fact": "Oxidation yaani electron dena, reduction yaani electron lena."
+    },
+    {
+     "id": "f29",
+     "item": "p010-i2",
+     "kind": "base",
+     "term": "Z scheme",
+     "fact": "Z scheme: paani se PS II, phir carriers ki kadi, phir PS I, aakhir NADP⁺ (heading 11.6)."
+    },
+    {
+     "id": "f30",
+     "item": "p010-i12",
+     "kind": "base",
+     "term": "grana",
+     "fact": "Grana: thylakoid ki chapti thailiyon ke dher."
+    },
+    {
+     "id": "f31",
+     "item": "p010-i12",
+     "kind": "base",
+     "term": "P680",
+     "fact": "PS II ka reaction centre P680, PS I ka P700."
+    },
+    {
+     "id": "f32",
+     "item": "p010-i2",
+     "kind": "base",
+     "term": "splitting of water",
+     "fact": "Paani tootne se electron, H⁺ aur O₂ milte hain (heading 11.6.1)."
+    },
+    {
+     "id": "f33",
+     "item": "p010-i3",
+     "kind": "label",
+     "term": "Photosystem I",
+     "fact": "Figure ka bracket: yahan sirf PS I ka raasta dikhaya hai."
+    },
+    {
+     "id": "f34",
+     "item": "p010-i3",
+     "kind": "label",
+     "term": "Chlorophyll P 700",
+     "fact": "PS I ka reaction centre; roshni pakadta hai aur lautta electron wapas leta hai."
+    },
+    {
+     "id": "f35",
+     "item": "p010-i3",
+     "kind": "label",
+     "term": "Light",
+     "fact": "Peeli dashed teer: roshni P 700 par padti hai."
+    },
+    {
+     "id": "f36",
+     "item": "p010-i3",
+     "kind": "label",
+     "term": "e⁻ acceptor",
+     "fact": "Uchhla electron sabse pehle pakadne wala molecule."
+    },
+    {
+     "id": "f37",
+     "item": "p010-i3",
+     "kind": "label",
+     "term": "Electron transport system",
+     "fact": "Carriers ki kadi; electron ko wapas P 700 tak le aati hai."
+    },
+    {
+     "id": "f38",
+     "item": "p010-i3",
+     "kind": "label",
+     "term": "ADP + Pi",
+     "fact": "ATP banne ki shuruaati cheezein; Pi yaani inorganic phosphate."
+    },
+    {
+     "id": "f39",
+     "item": "p010-i3",
+     "kind": "label",
+     "term": "ATP",
+     "fact": "Kadi ke paas banne wala product."
+    },
+    {
+     "id": "f40",
+     "item": "p010-i12",
+     "kind": "extra",
+     "term": "",
+     "fact": "Cyclic raaste mein PS II nahi, isliye paani nahi tootta aur O₂ nahi banta."
+    },
+    {
+     "id": "f41",
+     "item": "p010-i12",
+     "kind": "extra",
+     "term": "",
+     "fact": "Kabhi paudhe ko NADPH se zyada ATP chahiye; iska kaaran Calvin cycle mein aage (heading 11.7)."
+    },
+    {
+     "id": "f42",
+     "item": "p010-i2",
+     "kind": "extra",
+     "term": "",
+     "fact": "NADPH + H⁺ likhne ka arth: NADPH ke saath ek H⁺ bhi likha jaata hai."
+    },
+    {
+     "id": "f43",
+     "item": "p010-i1",
+     "kind": "base",
+     "term": "chloroplast",
+     "fact": "Chloroplast aur mitochondria: cell ke do hisse, jahan ATP banta hai."
+    },
+    {
+     "id": "f44",
+     "item": "p010-i12",
+     "kind": "base",
+     "term": "PSI",
+     "fact": "PS I ko PSI aur PS II ko PSII bhi likhte hain: do photosystem."
+    }
+   ],
+   "points": [
+    {
+     "id": "11.6.2-k1",
+     "claude_id": "c1",
+     "kind": "recap",
+     "teaches": [],
+     "says": [
+      "Pichhli film mein humne dekha ki PS II ka khoya hua electron paani se aata hai.",
+      "Do paani ke molecule tootte hain, aur chaar electron, chaar H⁺ aur ek O₂ milte hain.",
+      "Usse pehle Z scheme mein electron ka poora safar dekha tha: paani se PS II, phir carriers ki kadi, phir PS I, aur aakhir mein NADP⁺.",
+      "Ab socho: agar PS I ke aage NADP⁺ tak jaane ka raasta hi band ho, toh roshni se uchhla electron kahan jaayega? Aur kya tab bhi kuch banega?"
+     ],
+     "roles": [
+      "known",
+      "known",
+      "known",
+      "ask"
+     ],
+     "screen": "Z scheme ka raasta ek chalti line ki tarah: paani, PS II, carriers ki kadi, PS I, NADP⁺; paani ke do molecule toot kar 4 e⁻, 4 H⁺ aur ek O₂; aakhri line par PS I ke aage NADP⁺ wala raasta band.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": []
+    },
+    {
+     "id": "11.6.2-k2",
+     "claude_id": "c2",
+     "kind": "explain",
+     "teaches": [
+      "p009-i27",
+      "p010-i1"
+     ],
+     "says": [
+      "Is sawaal ka jawab isi film mein milega. Par usse pehle ek zaroori cheez pakki kar lo: ATP.",
+      "Har jeev ko kaam ke liye energy chahiye: saans lene ke liye, chalne ke liye, ek naya molecule banane ke liye.",
+      "Yeh energy jeev kuch cheezon se nikaalte hain, jaise khaane ka glucose.",
+      "Yaad karo, oxidation ka matlab hai electron dena, aur reduction ka matlab hai electron lena.",
+      "Jo cheezein oxidation mein electron de sakti hain, unhe oxidisable substances kehte hain. Glucose aisi hi ek cheez hai.",
+      "Glucose se energy kaise nikalti hai, yeh aap aage respiration wale chapter mein padhoge. Abhi bas itna jaan lo ki aisi cheezon se energy nikalti hai.",
+      "Nikli hui energy jeev turant kharch nahi karte. Use molecules ke andar band karke rakh lete hain.",
+      "Band karke isliye rakhte hain kyunki energy ki zaroorat har jagah aur har pal hoti hai, aur band energy ko jahan chaaho wahan le ja sakte ho.",
+      "Socho ek gulel, jiski rubber ko kheench kar pakad liya. Energy us khinchi hui rubber mein band hai; chhodoge toh kaam karegi.",
+      "Molecule mein atom aapas mein bandhanon se jude hote hain, jinhe chemical bonds kehte hain. In bonds mein bhi aise hi energy band rehti hai; ise bond energy kehte hain.",
+      "ATP ek aisa hi khaas molecule hai. Yeh apne chemical bonds mein energy lekar chalta hai, aur cell ke har kaam tak pahunchata hai.",
+      "ATP ka poora naam hai adenosine triphosphate. Tri yaani teen, toh isme teen phosphate jude hain.",
+      "ADP yaani adenosine diphosphate. Di yaani do, toh isme do hi phosphate hain.",
+      "ATP ko ek bhari hui battery samjho, aur ADP ko ek khaali hoti battery.",
+      "Khaali battery ko phir se bharna hai, toh ADP mein ek phosphate aur jodna padta hai. Aur is jodne mein energy lagti hai.",
+      "Jo phosphate akela hai, kisi molecule se juda nahi, use inorganic phosphate kehte hain. Chhote mein ise Pᵢ likhte hain; i yaani inorganic.",
+      "ADP mein phosphate jodkar ATP banane ko phosphorylation kehte hain. Phosphate jodna, isliye naam phosphorylation.",
+      "Cell yeh kaam do jagah karta hai: mitochondria mein aur chloroplast mein.",
+      "Mitochondria wala tareeka bhi aap respiration wale chapter mein padhoge. Hamari kahani chloroplast ki hai.",
+      "Chloroplast mein yeh charging roshni se hoti hai, bilkul waise jaise solar charger dhoop se phone charge karta hai.",
+      "Roshni ki madad se ADP aur inorganic phosphate se ATP banane ko photo-phosphorylation kehte hain, kyunki photo ka matlab hi roshni hai."
+     ],
+     "roles": [
+      "link",
+      "known",
+      "plain",
+      "known",
+      "term",
+      "link",
+      "plain",
+      "why",
+      "picture",
+      "term",
+      "fact",
+      "term",
+      "term",
+      "picture",
+      "plain",
+      "term",
+      "term",
+      "fact",
+      "link",
+      "picture",
+      "term"
+     ],
+     "screen": "Energy ki zaroorat ke chhote drishya (saans, chalna, naya molecule); glucose se energy; oxidation = electron dena, reduction = electron lena; gulel ki khinchi rubber (apni tasveer); atomon ke beech chemical bond mein band energy; ATP: adenosine ke saath teen phosphate, ADP: do phosphate; bhari aur khaali battery (apni tasveer); ADP + Pᵢ → ATP, jodne mein energy; mitochondria aur chloroplast; dhoop se phone bharta solar charger (apni tasveer); roshni ke saath ADP + Pᵢ → ATP.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": [
+      {
+       "term": "oxidisable substances",
+       "meaning": "jo oxidation mein electron de sakein"
+      },
+      {
+       "term": "bond energy",
+       "meaning": "chemical bonds mein band energy"
+      },
+      {
+       "term": "inorganic phosphate",
+       "meaning": "akela phosphate, Pᵢ"
+      },
+      {
+       "term": "phosphorylation",
+       "meaning": "ADP mein phosphate jodkar ATP banana"
+      },
+      {
+       "term": "Photo-phosphorylation",
+       "meaning": "roshni ki madad se phosphorylation"
+      }
+     ]
+    },
+    {
+     "id": "11.6.2-k3",
+     "claude_id": "c3",
+     "kind": "explain",
+     "teaches": [
+      "p010-i2"
+     ],
+     "says": [
+      "Ab Figure 11.5 wali Z scheme yaad karo, jo hum pehle padh chuke hain.",
+      "Usme do photosystem the: pehle PS II, phir PS I. Dono par roshni padti thi.",
+      "Dono ke beech carriers ki ek kadi thi, jo electron ko ek se doosre tak aage deti hai.",
+      "Is kadi ko electron transport chain kehte hain: electron ka transport, yaani le jaana, ek chain mein.",
+      "Ise ek relay daud ki tarah socho. Har khiladi baton ko agle khiladi ke haath mein deta hai, aur baton aage badhta jaata hai.",
+      "Yahan baton hai electron, aur khiladi hain carriers. Roshni do jagah zor ka dhakka deti hai: PS II par aur PS I par.",
+      "Is daud mein baton paani se chalta hai. PS II aur PS I se hokar, aakhir mein NADP⁺ ke haath mein pahunchta hai.",
+      "NADP⁺ electron le leta hai aur NADPH ban jaata hai. Baton wahin ruk gaya; woh wapas shuru par nahi aata.",
+      "Toh is raaste mein do cheezein banti hain: ATP aur NADPH. Saath mein paani tootne se O₂ bhi nikalti hai.",
+      "Aksar ise NADPH + H⁺ likhte hain. Iska matlab bas itna hai ki NADPH ke saath ek H⁺ bhi likha jaata hai.",
+      "Dhyan do, electron ek seedhe raaste par aage gaya, aur jahan se chala tha wahan wapas nahi lauta. Raasta gol nahi hai.",
+      "Isliye ise non-cyclic photo-phosphorylation kehte hain. Cyclic yaani gol chakkar wala, aur non-cyclic yaani jo gol chakkar na ho.",
+      "Yaad rakho: non-cyclic mein dono photosystem ek ke baad ek kaam karte hain, pehle PS II, phir PS I. Aur ATP ke saath NADPH bhi banta hai."
+     ],
+     "roles": [
+      "known",
+      "known",
+      "known",
+      "term",
+      "picture",
+      "picture",
+      "plain",
+      "plain",
+      "fact",
+      "fact",
+      "why",
+      "term",
+      "fact"
+     ],
+     "screen": "Z scheme: PS II aur PS I, dono par roshni, beech mein carriers ki kadi; relay daud (apni tasveer): baton electron, khiladi carriers; electron paani se NADP⁺ tak pahunch kar NADPH; ATP, NADPH aur O₂; seedha raasta jo shuru par wapas nahi aata.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": [
+      {
+       "term": "electron transport chain",
+       "meaning": "carriers ki kadi jo electron aage deti hai"
+      },
+      {
+       "term": "non-cyclic",
+       "meaning": "jo gol chakkar na ho"
+      }
+     ]
+    },
+    {
+     "id": "11.6.2-k4",
+     "claude_id": "c4",
+     "kind": "figure",
+     "teaches": [
+      "p010-i3"
+     ],
+     "says": [
+      "Ab Figure 11.6 dekho. Yahan ek bilkul alag raasta hai.",
+      "Sabse upar bracket mein likha hai Photosystem I. Matlab is figure mein sirf PS I ka kaam dikhaya gaya hai; ise kahin-kahin PSI bhi likha milta hai.",
+      "Neeche likha hai Chlorophyll P 700. Yeh PS I ka reaction centre hai, jo lagbhag 700 nm ki roshni pakadta hai.",
+      "Peeli dashed teer par Light likha hai. Roshni seedhe P 700 par padti hai.",
+      "Roshni padte hi P 700 ka electron energy lekar uchhalta hai. Ungli rakho: gulabi teer seedhe upar e⁻ acceptor tak jaata hai.",
+      "e⁻ electron ka nishaan hai. Aur e⁻ acceptor woh molecule hai jo uchhla hua electron sabse pehle pakadta hai.",
+      "Ab acceptor se ek mudi hui gulabi teer neeche Electron transport system tak aati hai. Yeh carriers ki wahi kadi hai.",
+      "Ab ungli aage le chalo. Is kadi ke baad gulabi teer kahan jaati hai?",
+      "Is kadi ke baad gulabi teer wapas P 700 par hi pahunchti hai, wahin jahan se electron chala tha.",
+      "Electron ne ek gol chakkar poora kiya: P 700 se acceptor, phir kadi, phir wapas P 700. Isi gol chakkar ki wajah se ise cyclic kehte hain.",
+      "Relay wali daud yaad hai? Yahan baton kisi ko diya hi nahi gaya. Khiladi track ka ek chakkar lagakar wahin laut aaya jahan se chala tha.",
+      "Ab kadi ke paas ek kaali mudi teer dekho: ADP + Pi se ATP. Yaani is chakkar ke saath ATP banta hai.",
+      "Isliye ise cyclic photophosphorylation kehte hain: roshni se, ek gol chakkar ke saath, ATP banana.",
+      "Aur yeh bhi dekho ki figure mein kya nahi hai: na PS II hai, na NADP⁺ tak jaane wala raasta."
+     ],
+     "roles": [
+      "link",
+      "fact",
+      "fact",
+      "fact",
+      "plain",
+      "term",
+      "fact",
+      "ask",
+      "answer",
+      "term",
+      "picture",
+      "fact",
+      "term",
+      "fact"
+     ],
+     "screen": "Cyclic photophosphorylation ka figure jaisa drishya, har label tabhi jab line uska naam le: Photosystem I bracket, Chlorophyll P 700, Light ki peeli dashed teer, upar e⁻ acceptor tak gulabi teer, Electron transport system, wapas P 700 tak teer, ADP + Pi → ATP; relay mein khiladi track ka chakkar lagakar lautta (apni tasveer); aakhir mein dikhe ki PS II aur NADP⁺ ka raasta nahi hai.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": [
+      {
+       "term": "cyclic",
+       "meaning": "gol chakkar wala"
+      }
+     ]
+    },
+    {
+     "id": "11.6.2-k5",
+     "claude_id": "c5",
+     "kind": "explain",
+     "teaches": [
+      "p010-i12"
+     ],
+     "says": [
+      "Toh shuruaat ka sawaal: jab NADP⁺ tak jaane ka raasta na ho, toh electron kahan jaata hai?",
+      "Jab NADP⁺ tak raasta na ho, toh electron carriers ki kadi se hokar wapas PS I par laut aata hai.",
+      "Aisa tab hota hai jab sirf PS I kaam kar raha ho. Electron PS I ke andar hi chakkar lagata rehta hai.",
+      "Is gol bahav ke saath jo phosphorylation hoti hai, wahi cyclic photo-phosphorylation hai.",
+      "Par chloroplast mein aisa kahan ho sakta hai, yeh samajhne ke liye pehle uske andar ka naksha yaad karo.",
+      "Chloroplast mein thylakoid ki chapti thailiyan sikkon ki tarah ek ke upar ek rakhi hoti hain. Inke dher grana kehlate hain.",
+      "Do dheron ko jodne wali patli, bina dher wali membrane bhi hoti hai, jaise do imaraton ke beech ka galiyara. Inhe hum pehle stroma lamellae ke naam se dekh chuke hain; lamella yaani patli parat.",
+      "Grana ki membrane mein dono photosystem hote hain, PS I bhi aur PS II bhi.",
+      "Par stroma lamellae ki membrane mein PS II nahi hota. Aur NADP reductase enzyme bhi nahi hota.",
+      "NADP reductase woh enzyme hai jo NADP⁺ se NADPH banne ka kaam karata hai. Reductase yaani reduction karaane wala.",
+      "Toh socho, stroma lamellae mein uchhle electron ko NADP⁺ tak pahunchane wala enzyme hi nahi hai. Isliye electron ke paas wapas lautne ke siva koi raasta nahi.",
+      "Isliye stroma lamellae ko cyclic photo-phosphorylation ki ek sambhav jagah maana jaata hai.",
+      "Nateeja pakka yaad rakho: gol raaste mein sirf ATP banta hai, NADPH + H⁺ nahi banta.",
+      "Aksar log sochte hain ki light reaction mein hamesha ATP, NADPH aur O₂ teeno banenge. Par aisa nahi hai: gol raaste mein electron NADP⁺ tak jaata hi nahi, aur PS II ke bina paani bhi nahi tootta, isliye sirf ATP banta hai.",
+      "Ek aur haalat hai. Yaad karo, roshni lehron mein chalti hai, aur ek lehar ki chot se agli chot tak ki doori wavelength hai.",
+      "PS II ka centre P680 hai, jo lagbhag 680 nm ki roshni chahta hai. PS I ka P700, 700 nm tak ki roshni bhi pakad leta hai.",
+      "Jab sirf 680 nm se aage ki roshni mile, toh PS II theek se nahi jaagta. Sirf PS I chalta hai, aur cyclic photo-phosphorylation hoti hai.",
+      "Aksar log ise ulta samajh lete hain, par 680 nm se aage ka matlab hai 680 se zyada, yaani lambi wavelength, kam wavelength nahi.",
+      "Paudhe ko yeh gol raasta kyon chahiye, iska ek bada kaaran hum aage Calvin cycle mein dekhenge. Abhi bas itna jaan lo ki kabhi paudhe ko NADPH se zyada ATP chahiye hota hai."
+     ],
+     "roles": [
+      "ask",
+      "answer",
+      "plain",
+      "fact",
+      "link",
+      "known",
+      "known",
+      "fact",
+      "fact",
+      "term",
+      "why",
+      "fact",
+      "fact",
+      "galat",
+      "known",
+      "plain",
+      "fact",
+      "galat",
+      "link"
+     ],
+     "screen": "Electron wapas PS I par; chloroplast ka naksha: grana sikkon ke dher jaise, unhe jodti stroma lamellae galiyare jaisi; grana ki membrane mein PS I aur PS II, stroma lamellae mein sirf PS I (PS II aur NADP reductase nahi); lautta electron; sirf ATP; 680 nm aur 700 nm ki lehrein, 680 se lambi lehar.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": [
+      {
+       "term": "NADP reductase",
+       "meaning": "reduction karaane wala enzyme jo NADP⁺ se NADPH banwata hai"
+      }
+     ]
+    },
+    {
+     "id": "11.6.2-k6",
+     "claude_id": "c6",
+     "kind": "example",
+     "teaches": [],
+     "says": [
+      "Ab ek electron ko pakad kar stroma lamellae mein uska poora safar chalate hain.",
+      "Roshni P 700 par padi, aur uska ek electron energy lekar uchhal gaya.",
+      "e⁻ acceptor ne use pakda, aur woh carriers ki kadi mein aage badha.",
+      "Kadi ke aage use NADP⁺ tak le jaane wala NADP reductase mila hi nahi, kyunki yahan woh enzyme hai hi nahi.",
+      "Toh electron kadi se ghoom kar wapas P 700 par aa gaya, aur agli roshni ka intezaar karne laga.",
+      "Is ek chakkar ke saath ATP bana. NADPH ek bhi nahi bana, aur O₂ bhi nahi nikli."
+     ],
+     "roles": [
+      "link",
+      "plain",
+      "plain",
+      "plain",
+      "plain",
+      "fact"
+     ],
+     "screen": "Stroma lamellae mein ek electron ka safar, kadam-kadam ek hi tasveer par: P 700 par roshni, electron uchhla, e⁻ acceptor, kadi, NADP reductase ki khaali jagah, wapas P 700; ATP bana, NADPH aur O₂ nahi.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": []
+    },
+    {
+     "id": "11.6.2-k7",
+     "claude_id": "c7",
+     "kind": "checkpoint",
+     "teaches": [],
+     "says": [
+      "Ruko, pehle khud socho: agar kisi patti par sirf 700 nm wali roshni pade, toh usme NADPH banega ya nahi?",
+      "Aapne socha hoga ki NADPH nahi banega, aur yahi sahi hai. Aisi roshni mein sirf PS I chalega, electron gol chakkar lagayega, aur sirf ATP banega.",
+      "Ab dono raaste ek saath rakh kar dekho.",
+      "Seedhe raaste, yaani non-cyclic, mein electron paani se chalta hai: pehle PS II, phir PS I, aur aakhir NADP⁺. ATP, NADPH aur O₂ teeno bante hain.",
+      "Gol raaste, yaani cyclic, mein sirf PS I kaam karta hai, aur electron wapas P 700 par aata hai. Sirf ATP banta hai; na NADPH, na O₂.",
+      "Ab ek ajeeb baat par gaur karo, jo hamari agli film ka sawaal hai: dono raaston mein ATP bana, par electron ne kahin bhi ADP ko chhua tak nahi.",
+      "Toh ATP bana kaise?"
+     ],
+     "roles": [
+      "ask",
+      "answer",
+      "plain",
+      "fact",
+      "fact",
+      "link",
+      "ask"
+     ],
+     "screen": "Sawaal screen par; dono raaste saath-saath: non-cyclic (paani, PS II, PS I, NADP⁺; ATP, NADPH, O₂) aur cyclic (PS I se wapas P 700; sirf ATP); aakhir mein electron aur ADP ke beech khaali jagah.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "Sirf 700 nm ki roshni mein sirf PS I chalega, electron gol chakkar lagayega, sirf ATP banega, NADPH nahi.",
+     "watch_out": "Yeh sochna ki light reaction mein hamesha ATP, NADPH aur O₂ teeno banenge.",
+     "outside_book": "",
+     "terms": []
+    }
+   ]
+  },
+  {
+   "section": "11.6.3",
+   "title": "Chemiosmotic Hypothesis",
+   "goal": "Dono raaston mein kisi bhi electron ne ADP ko chhua tak nahi; toh ATP bana kaise?",
+   "misaal": "baandh: lumen ke H⁺ ruka paani, ATP synthase turbine",
+   "bridge": "",
+   "facts": [
+    {
+     "id": "f1",
+     "item": "p010-i14",
+     "kind": "book",
+     "term": "",
+     "fact": "Chloroplast mein ATP banne ka tarika chemiosmotic hypothesis samjhati hai."
+    },
+    {
+     "id": "f2",
+     "item": "p010-i14",
+     "kind": "word",
+     "term": "hypothesis",
+     "fact": "Hypothesis: kisi baat ko samjhane ke liye diya gaya vichaar, jise prayogon se parkha jaata hai."
+    },
+    {
+     "id": "f3",
+     "item": "p010-i14",
+     "kind": "word",
+     "term": "chemiosmotic hypothesis",
+     "fact": "Naam ke hisse: chemi = rasayanik kaam (ATP banana), osmotic = membrane ke aar-paar kisi cheez ka bahna (yahan H⁺ ka)."
+    },
+    {
+     "id": "f4",
+     "item": "p010-i14",
+     "kind": "extra",
+     "term": "",
+     "fact": "1961 mein Peter Mitchell ne yeh vichaar diya; pehle vaigyanik electron aur ATP ke beech seedha rasayanik jod maante the; prayogon ne Mitchell ko sahi saabit kiya, 1978 mein Nobel puraskaar."
+    },
+    {
+     "id": "f5",
+     "item": "p010-i14",
+     "kind": "base",
+     "term": "",
+     "fact": "Thylakoid ka naksha: chloroplast mein chapti thailiyan (thylakoid), unke dher grana; thaili ki deewar thylakoid membrane, andar ki band jagah lumen, bahar ka gaadha dravya stroma; photosystems aur carriers isi membrane mein."
+    },
+    {
+     "id": "f6",
+     "item": "p010-i14",
+     "kind": "base",
+     "term": "",
+     "fact": "H⁺ kya hai: hydrogen atom = ek proton + ek electron; electron nikal jaaye toh bacha positive proton, isliye H⁺ = hydrogen ion = proton."
+    },
+    {
+     "id": "f7",
+     "item": "p010-i14",
+     "kind": "base",
+     "term": "",
+     "fact": "Diffusion (class 9): koi cheez zyada wali jagah se apne-aap kam wali jagah ki taraf failti hai."
+    },
+    {
+     "id": "f8",
+     "item": "p010-i14",
+     "kind": "word",
+     "term": "proton gradient",
+     "fact": "Proton gradient: membrane ke ek taraf H⁺ zyada, doosri taraf kam, yaani H⁺ ki dhalaan; gradient = dhalaan."
+    },
+    {
+     "id": "f9",
+     "item": "p010-i14",
+     "kind": "book",
+     "term": "",
+     "fact": "Respiration ki tarah photosynthesis mein bhi ATP banna membrane ke aar-paar proton gradient banne se juda hai."
+    },
+    {
+     "id": "f10",
+     "item": "p010-i14",
+     "kind": "book",
+     "term": "",
+     "fact": "Photosynthesis mein yeh membrane thylakoid ki hai."
+    },
+    {
+     "id": "f11",
+     "item": "p010-i14",
+     "kind": "book",
+     "term": "lumen",
+     "fact": "Farq: yahan H⁺ membrane ke andar ki taraf, yaani lumen mein, jama hote hain."
+    },
+    {
+     "id": "f12",
+     "item": "p010-i14",
+     "kind": "word",
+     "term": "lumen",
+     "fact": "Lumen: thylakoid ki thaili ke andar ki band jagah."
+    },
+    {
+     "id": "f13",
+     "item": "p010-i14",
+     "kind": "base",
+     "term": "",
+     "fact": "Mitochondria ki do membranes (bahar wali, andar wali); andar wali membrane mein electron carriers ki kadi hoti hai."
+    },
+    {
+     "id": "f14",
+     "item": "p010-i14",
+     "kind": "word",
+     "term": "ETS",
+     "fact": "ETS = electron transport system, electron carriers ki kadi."
+    },
+    {
+     "id": "f15",
+     "item": "p010-i14",
+     "kind": "book",
+     "term": "intermembrane space",
+     "fact": "Respiration mein electron ETS se guzarte hain toh H⁺ mitochondria ke intermembrane space mein jama hote hain."
+    },
+    {
+     "id": "f16",
+     "item": "p010-i14",
+     "kind": "word",
+     "term": "intermembrane space",
+     "fact": "Intermembrane space: mitochondria ki dono membranes ke beech ki patli jagah."
+    },
+    {
+     "id": "f17",
+     "item": "p010-i15",
+     "kind": "book",
+     "term": "",
+     "fact": "Proton gradient kya banata hai, yeh samajhne ke liye electron ke activation aur transport ke kadam dobara dekhne hain (Figure 11.7)."
+    },
+    {
+     "id": "f18",
+     "item": "p010-i15",
+     "kind": "word",
+     "term": "activation of electrons",
+     "fact": "Activation of electrons: roshni P680 (PS II) aur P700 (PS I) par padti hai aur electron energy lekar uchhalta hai."
+    },
+    {
+     "id": "f19",
+     "item": "p010-i15",
+     "kind": "base",
+     "term": "",
+     "fact": "Uchhle electron ko primary acceptor pakadta hai, phir woh electron carriers ki kadi mein aage badhta hai: yahi transport."
+    },
+    {
+     "id": "f20",
+     "item": "p011-i1",
+     "kind": "book",
+     "term": "",
+     "fact": "Figure 11.7 dikhati hai ki electron ka raasta aur H⁺ ka jamaav kaise jude hain, aur teen jagah H⁺ ka hisaab badalta hai."
+    },
+    {
+     "id": "f21",
+     "item": "p011-i1",
+     "kind": "label",
+     "term": "lumen",
+     "fact": "Andar likha lumen, high H⁺; bahar stroma, low H⁺."
+    },
+    {
+     "id": "f22",
+     "item": "p011-i1",
+     "kind": "label",
+     "term": "P680",
+     "fact": "Roshni ke teer P680 (PS II) aur P700 (PS I) par."
+    },
+    {
+     "id": "f23",
+     "item": "p011-i1",
+     "kind": "label",
+     "term": "½O₂",
+     "fact": "PS II ke paas andar paani toot-ta hai; ½O₂ kyunki paani ke ek molecule se aadha O₂ molecule milta hai."
+    },
+    {
+     "id": "f24",
+     "item": "p011-i1",
+     "kind": "label",
+     "term": "plastoquinone",
+     "fact": "Electron ka raasta: PS II → PQ (plastoquinone) → cytochrome b6f → PC (plastocyanin) → PS I."
+    },
+    {
+     "id": "f25",
+     "item": "p011-i1",
+     "kind": "label",
+     "term": "Fd",
+     "fact": "PS I → Fd (ferredoxin) → NADP reductase, jo NADP⁺ se NADPH banata hai (Z scheme ka raasta)."
+    },
+    {
+     "id": "f26",
+     "item": "p011-i1",
+     "kind": "label",
+     "term": "H⁺",
+     "fact": "H⁺ ke teer stroma se lumen ki taraf; sab lumen mein jama."
+    },
+    {
+     "id": "f27",
+     "item": "p011-i1",
+     "kind": "label",
+     "term": "ADP + Pᵢ",
+     "fact": "Ek machine (membrane mein dhansa hissa, bahar nikla hissa) se H⁺ lumen se stroma lautte hain, aur ADP + Pᵢ se ATP banta hai."
+    },
+    {
+     "id": "f28",
+     "item": "p011-i1",
+     "kind": "label",
+     "term": "electrochemical potential gradient",
+     "fact": "Tikona nishaan andar high se bahar low: electro = charge (H⁺ positive), chemical = ginti (andar H⁺ zyada)."
+    }
+   ],
+   "points": [
+    {
+     "id": "11.6.3-k1",
+     "claude_id": "c1",
+     "kind": "recap",
+     "teaches": [],
+     "says": [
+      "Pichhli film mein humne electron ke do raaste dekhe the.",
+      "Seedhe raaste mein electron paani se chalkar NADP⁺ tak pahuncha, aur ATP aur NADPH dono bane.",
+      "Gol raaste mein electron ghoom kar PS I par hi laut aaya, aur sirf ATP bana.",
+      "Dono raaston mein ATP bana, par kaise bana, yeh humne abhi tak nahi dekha."
+     ],
+     "roles": [
+      "known",
+      "known",
+      "known",
+      "known"
+     ],
+     "screen": "Pichhle do raaste chhote mein: seedha (paani se NADP⁺; ATP aur NADPH) aur gol (PS I par wapas; sirf ATP); dono ke ATP ke paas sawaal.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": []
+    },
+    {
+     "id": "11.6.3-k2",
+     "claude_id": "c2",
+     "kind": "explain",
+     "teaches": [
+      "p010-i14"
+     ],
+     "says": [
+      "Ab ek baat par gaur karo: dono raaston mein kisi bhi electron ne ADP ko chhua tak nahi. Toh ATP bana kaise?",
+      "ATP bana kaise, yahi aaj ka sawaal hai: chloroplast mein ATP asal mein banta kaise hai.",
+      "Aksar hum sochte hain ki electron daudte-daudte khud ATP bana deta hai. Bahut saalon tak vaigyanik bhi kuch aisa hi maante the: ki electron ki daud aur ATP ke beech koi seedha rasayanik jod hai.",
+      "1961 mein Peter Mitchell naam ke vaigyanik ne ek naya vichaar diya. Baad mein prayogon ne use sahi saabit kiya, aur iske liye unhe 1978 mein Nobel puraskaar mila.",
+      "Kisi baat ko samjhane ke liye diya gaya aisa vichaar, jise prayogon se parkha jaata hai, hypothesis kehlata hai. Mitchell ke vichaar ka naam hai chemiosmotic hypothesis.",
+      "Naam ko todo toh poora vichaar samajh aa jaata hai. Chemi yaani rasayanik kaam, yahan ATP banana. Osmotic, jaise class 9 ka osmosis, yaani membrane ke aar-paar kisi cheez ka bahna; yahan H⁺ ka. Toh naam hi keh raha hai: membrane ke aar-paar H⁺ bahenge, aur us bahav se ATP banega.",
+      "Pehle jagah pakki kar lo. Chloroplast ke andar chapti-chapti thailiyan hoti hain, jinhe thylakoid kehte hain; inke dher ko grana kehte hain.",
+      "Har thaili ki deewar thylakoid membrane hai. Thaili ke andar ki band jagah lumen hai, aur thaili ke bahar, chloroplast ka gaadha dravya, stroma hai.",
+      "Socho paani se bhara ek balloon, jo paani ki baalti mein tair raha hai: balloon ki rubber membrane hai, balloon ke andar ka paani lumen hai, aur baalti ka paani stroma.",
+      "Is poori film mein andar ka matlab lumen, aur bahar ka matlab stroma. PS II, PS I aur electron carriers isi membrane mein, ya uske theek paas, baithe hain.",
+      "Ab H⁺ ko pehchano. Hydrogen ke atom mein ek proton aur ek electron hota hai. Electron nikal jaaye, toh bachta hai sirf ek proton, jis par positive charge hai.",
+      "Isliye H⁺ ko hydrogen ion bhi kehte hain aur proton bhi; teeno naam ek hi cheez ke hain.",
+      "Class 9 mein aapne padha tha: koi cheez jahan zyada hoti hai, wahan se apne-aap kam wali jagah ki taraf failti hai, jaise kamre mein agarbatti ki khushboo.",
+      "Yeh dhalaan jaisa hai: gend dhalaan par apne-aap neeche ludhakti hai, par upar chadhaane mein zor lagta hai.",
+      "Membrane ke ek taraf H⁺ zyada aur doosri taraf kam hon, toh H⁺ ki is dhalaan ko proton gradient kehte hain; gradient ka matlab hi dhalaan hai.",
+      "ATP banna isi dhalaan ke banne se juda hai: pehle dhalaan banti hai, phir H⁺ dhalaan se neeche bahte hain, aur us bahav se ATP banta hai. Dhalaan nahi, toh ATP nahi.",
+      "Bilkul baandh ki tarah: pehle paani ek taraf roka jaata hai, aur chhodne par usi se bijli banti hai.",
+      "Chloroplast mein yeh H⁺ thaili ke andar, yaani lumen mein, jama hote hain: andar zyada, bahar stroma mein kam.",
+      "Yahi tareeka aap aage respiration wale chapter mein mitochondria mein bhi padhoge. Jeevon mein ATP banane ka yeh sabse aam tareeka hai.",
+      "Mitochondria ki do membranes hoti hain, ek bahar wali aur ek andar wali. Andar wali membrane mein bhi electron carriers ki ek kadi hoti hai, jise electron transport system, yaani ETS, kehte hain.",
+      "Wahan jab electron ETS mein daudte hain, toh H⁺ dono membranes ke beech ki patli jagah mein jama hote hain. Is jagah ko intermembrane space kehte hain.",
+      "Toh batao, chloroplast mein H⁺ kahan jama hote hain, aur mitochondria mein kahan?",
+      "Chloroplast mein H⁺ thylakoid ke andar, lumen mein, jama hote hain; mitochondria mein do membranes ke beech, intermembrane space mein. Tareeka ek, jagah alag; yeh farq exam ke liye pakka yaad rakho."
+     ],
+     "roles": [
+      "ask",
+      "answer",
+      "galat",
+      "fact",
+      "term",
+      "plain",
+      "known",
+      "known",
+      "picture",
+      "plain",
+      "known",
+      "term",
+      "known",
+      "picture",
+      "term",
+      "why",
+      "picture",
+      "fact",
+      "link",
+      "plain",
+      "term",
+      "ask",
+      "answer"
+     ],
+     "screen": "Electron kadi mein daudta hai, ADP alag padha hai, use chhua nahi; Peter Mitchell ka naam, 1961 aur Nobel 1978; chemi aur osmotic shabd ke hisse; chloroplast ke andar thylakoid ki thailiyan aur grana; membrane, andar lumen, bahar stroma; baalti mein tairta paani ka balloon (apni tasveer); hydrogen atom: proton aur electron, electron nikla toh H⁺; kamre mein failti agarbatti ki khushboo (apni tasveer); dhalaan par ludhakti gend (apni tasveer); membrane ke ek taraf zyada H⁺, doosri taraf kam; baandh (apni tasveer); lumen mein H⁺ jama; mitochondria ki do membranes, ETS, intermembrane space mein H⁺; chloroplast aur mitochondria saath-saath.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": []
+    },
+    {
+     "id": "11.6.3-k3",
+     "claude_id": "c3",
+     "kind": "overview",
+     "teaches": [
+      "p010-i15",
+      "p011-i1"
+     ],
+     "says": [
+      "Ab agla sawaal: yeh dhalaan banti kaise hai? H⁺ ko andar bharta kaun hai?",
+      "H⁺ ko andar kaun bharta hai, iska jawab usi raaste mein chhupa hai jo hum pehle padh chuke hain: electron ka jaagna aur aage badhna. Isliye wahi raasta ek baar phir chalenge, par is baar nazar H⁺ par rakhenge.",
+      "Electron ka jaagna, yaani activation of electrons, aap jaante ho: roshni PS II ke reaction centre P680 aur PS I ke reaction centre P700 par padti hai, aur unka electron energy lekar upar uchhalta hai.",
+      "Uchhle electron ko sabse pehle primary acceptor pakadta hai. Phir woh electron carriers ki kadi mein ek se doosre tak aage badhta hai; yahi electron ka transport hai.",
+      "Ab Figure 11.7 dekho; ise saath-saath padhenge.",
+      "Beech mein thylakoid ki band membrane hai. Andar ki jagah par likha hai lumen, high H⁺; bahar likha hai stroma, low H⁺. Yaani andar H⁺ zyada, bahar kam.",
+      "Membrane mein PS II aur PS I baithe hain, aur dono par roshni ke teer pad rahe hain: P680 par aur P700 par.",
+      "PS II ke paas, andar ki taraf, paani toot raha hai. Wahan ½O₂ likha hai, kyunki paani ke ek molecule se aadha O₂ molecule milta hai; do molecule milkar ek poora O₂ dete hain.",
+      "Ab electron ke raaste par ungli rakh kar chalo: PS II se PQ, yaani plastoquinone; phir cytochrome b6f; phir PC, yaani plastocyanin; phir PS I.",
+      "PS I ke baad electron Fd, yaani ferredoxin, ke paas jaata hai, aur phir NADP reductase NADP⁺ se NADPH banata hai. Yeh wahi Z scheme ka raasta hai jo humne pehle padha tha.",
+      "Ab H⁺ ke teer dekho: kuch teer stroma se uthkar andar lumen mein jaate hain, aur saare teer lumen mein hi jama hote dikhte hain.",
+      "Figure mein ek machine bhi hai, jiska ek hissa membrane mein dhansa hai aur ek bahar nikla hai. Lumen ke H⁺ isi se bahar stroma mein lautte hain, aur wahin ADP + Pᵢ se ATP banta dikhaya hai. Is machine ko hum thodi der mein kholenge.",
+      "Aur ek tikona nishaan hai, jo andar high se bahar low ki taraf patla hota jaata hai; uspar likha hai electrochemical potential gradient.",
+      "Electrochemical isliye, kyunki dhalaan do cheezon ki hai. Chemical yaani ginti: andar H⁺ zyada. Electro yaani charge: H⁺ positive hain, toh andar positive charge bhi zyada. Dono milkar H⁺ ko andar se bahar ki taraf dhakelte hain.",
+      "Is poore raaste mein teen jagah H⁺ ka hisaab badalta hai. Yahi teen kaam humein dhoondhne hain: paani ka tootna, PQ ka H⁺ dhona, aur NADPH ka banna."
+     ],
+     "roles": [
+      "ask",
+      "answer",
+      "known",
+      "known",
+      "link",
+      "fact",
+      "fact",
+      "fact",
+      "fact",
+      "fact",
+      "fact",
+      "fact",
+      "plain",
+      "why",
+      "plain"
+     ],
+     "screen": "PS II ke P680 aur PS I ke P700 par roshni, electron uchhalta; primary acceptor aur carriers ki kadi; phir thylakoid ka aar-paar kaat (Figure 11.7 jaisa), har label tabhi jab line uska naam le: lumen high H⁺, stroma low H⁺, PS II, PS I, paani ka tootna aur ½O₂, PQ, cytochrome b6f, PC, Fd, NADP reductase, H⁺ ke teer, ATP synthase (abhi naam nahi), tikona electrochemical potential gradient; aakhir mein teen jagah: paani, PQ, NADPH.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": []
+    },
+    {
+     "id": "11.6.3-k4",
+     "claude_id": "c4",
+     "kind": "explain",
+     "teaches": [
+      "p010-i16"
+     ],
+     "says": [
+      "Pehla kaam aap jaante ho: paani ka tootna.",
+      "Paani PS II ke paas toot-ta hai, aur yeh jagah membrane ke andar wale chehre par hai, yaani lumen ki taraf.",
+      "Pichhli film mein humne dekha tha: paani ke do molecule toot kar chaar electron, chaar H⁺ aur ek O₂ dete hain.",
+      "Tootna andar ki taraf hota hai, isliye yeh chaar H⁺, yaani protons ya hydrogen ions, bahar nahi jaate. Woh seedhe lumen mein hi chhoot jaate hain.",
+      "Baandh ki jheel socho, jiske andar hi ek sota phoot pada ho. Paani bahar se laana hi nahi pada, jheel apne-aap bhar rahi hai.",
+      "Toh pehla kaam yeh hua: paani ke tootne se lumen mein H⁺ badhe."
+     ],
+     "roles": [
+      "known",
+      "fact",
+      "known",
+      "why",
+      "picture",
+      "plain"
+     ],
+     "screen": "Thylakoid ke kaat mein PS II paas se: andar wale chehre par paani toot-ta hai, chaar H⁺ lumen mein chhoot-te hain, O₂ nikalti hai; jheel ke andar phoota sota (apni tasveer); lumen mein H⁺ ki ginti badhti.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": [
+      {
+       "term": "protons or hydrogen ions",
+       "meaning": "H⁺ ke do naam: proton bhi, hydrogen ion bhi"
+      }
+     ]
+    },
+    {
+     "id": "11.6.3-k5",
+     "claude_id": "c5",
+     "kind": "explain",
+     "teaches": [
+      "p011-i20"
+     ],
+     "says": [
+      "Doosra kaam electron ke raaste mein chhupa hai. Ise dekhne ke liye aapko do tarah ke carriers ka farq samajhna hoga.",
+      "Kuch carriers sirf electron uthate hain, aur use aage de dete hain. Inhe electron carrier kehte hain.",
+      "Kuch carriers electron ke saath ek H⁺ bhi utha lete hain. Inhe H carrier kehte hain, yaani hydrogen carrier.",
+      "Aapko yaad hoga ki ek proton aur ek electron milkar hydrogen ka atom banate hain. Isliye H carrier asal mein poora hydrogen dhota hai.",
+      "Ab electron ka raasta dhyan se dekho. PS II se uchhla electron sabse pehle primary acceptor pakadta hai.",
+      "Yeh acceptor membrane ke bahar wale chehre ki taraf, yaani stroma ki taraf, baitha hai.",
+      "Yeh acceptor electron kisi electron carrier ko nahi deta. Woh use ek H carrier ko deta hai.",
+      "H carrier ko electron ke saath H⁺ bhi chahiye, aur woh bahar wale chehre par hai. Isliye electron lete waqt woh bahar stroma se ek H⁺ bhi utha leta hai.",
+      "Figure 11.7 mein yeh H carrier PQ hai, yaani plastoquinone. H⁺ uthane ke baad ise PQH₂ likhte hain.",
+      "PQ ek chhota molecule hai. Woh membrane ke andar hi tairta hua bahar wale chehre se andar wale chehre tak chala jaata hai.",
+      "Andar wale chehre par woh apna electron ek electron carrier ko de deta hai; figure mein yeh cytochrome b6f hai.",
+      "Aur electron dete hi PQ saath laaya H⁺ lumen mein chhod deta hai.",
+      "Baandh mein socho, ek pump neeche ki nadi se paani uthakar jheel mein daal raha hai. PQ yahi kaam H⁺ ke saath karta hai.",
+      "Ab aap batao, is ek kaam se dono taraf ka farq kaise badla?",
+      "Is ek kaam se farq do taraf se badla: bahar stroma mein ek H⁺ kam hua, aur andar lumen mein wahi H⁺ badh gaya.",
+      "Toh doosra kaam yeh hua: H carrier H⁺ ko bahar se uthakar andar chhodta hai."
+     ],
+     "roles": [
+      "plain",
+      "term",
+      "term",
+      "known",
+      "fact",
+      "fact",
+      "fact",
+      "why",
+      "fact",
+      "plain",
+      "fact",
+      "plain",
+      "picture",
+      "ask",
+      "answer",
+      "plain"
+     ],
+     "screen": "Do carriers saath-saath: electron carrier sirf e⁻ uthata, H carrier e⁻ aur H⁺; hydrogen atom = proton + electron; PS II ka primary acceptor bahar wale chehre par; PQ stroma se H⁺ uthata (PQH₂), membrane ke andar tairta hua andar wale chehre tak, cytochrome b6f ko electron, H⁺ lumen mein; nadi se jheel mein paani daalta pump (apni tasveer); stroma mein ek H⁺ kam, lumen mein ek zyada.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": [
+      {
+       "term": "H carrier",
+       "meaning": "electron ke saath H⁺ bhi uthane wala carrier"
+      },
+      {
+       "term": "electron carrier",
+       "meaning": "sirf electron uthane wala carrier"
+      }
+     ]
+    },
+    {
+     "id": "11.6.3-k6",
+     "claude_id": "c6",
+     "kind": "explain",
+     "teaches": [
+      "p011-i21"
+     ],
+     "says": [
+      "Teesra kaam raaste ke aakhir mein hai, jahan NADP⁺ se NADPH banta hai.",
+      "PS I se uchhla electron uske acceptor se Fd, yaani ferredoxin, ke paas jaata hai. Fd use aage ek enzyme tak pahunchata hai.",
+      "Yeh enzyme NADP reductase hai, aur yeh membrane ke bahar, stroma wale chehre par baitha hai. Figure mein ise FNR likha hai.",
+      "Yaad karo, electron lena reduction kehlata hai. NADP⁺ electron lekar NADPH banta hai, isliye yeh NADP⁺ ka reduction hai.",
+      "Is reduction ke liye sirf electron kaafi nahi. Saath mein H⁺ bhi chahiye, aur yeh H⁺ paas ke stroma se hi liye jaate hain.",
+      "Toh socho, kya yeh H⁺ andar lumen mein pahunche?",
+      "Yeh H⁺ andar lumen mein nahi pahunche. Yeh NADPH mein judkar wahin bahar kharch ho gaye.",
+      "Phir bhi farq badha, kyunki bahar se H⁺ kam hue. Andar utne hi rahe aur bahar kam ho gaye, toh dhalaan aur oonchi hui.",
+      "Baandh mein socho, aage ki nadi se koi paani nikal le. Jheel utni hi bhari hai, par aage ka paani aur neeche chala gaya."
+     ],
+     "roles": [
+      "link",
+      "plain",
+      "term",
+      "known",
+      "fact",
+      "ask",
+      "answer",
+      "why",
+      "picture"
+     ],
+     "screen": "PS I ke baad Fd, phir stroma wale chehre par NADP reductase; NADP⁺ ko electron aur stroma ka H⁺ milkar NADPH; woh H⁺ lumen mein nahi jaate; stroma mein H⁺ ki ginti ghatti; aage ki nadi se nikalta paani (apni tasveer).",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": [
+      {
+       "term": "reduction",
+       "meaning": "electron lena"
+      }
+     ]
+    },
+    {
+     "id": "11.6.3-k7",
+     "claude_id": "c7",
+     "kind": "example",
+     "teaches": [
+      "p011-i22"
+     ],
+     "says": [
+      "Ab hum teeno kaam ek saath jodte hain.",
+      "Lumen mein H⁺ do raaston se aaye: paani ke tootne se, aur PQ ke laane se.",
+      "Stroma se H⁺ do raaston se gaye: PQ ne uthaaye, aur NADPH ne kharch kiye.",
+      "Isliye chloroplast mein stroma ke H⁺ ghatte jaate hain, aur lumen mein H⁺ jama hote jaate hain.",
+      "Thylakoid membrane ke dono taraf H⁺ ka yahi farq proton gradient hai.",
+      "Baandh ke peeche jheel bharti ja rahi hai, aur aage ki nadi utarti ja rahi hai.",
+      "Ab pH yaad karo. Kisi ghol mein H⁺ jitne zyada, woh utna acidic, aur uska pH utna kam.",
+      "Toh batao, H⁺ bharne par lumen ka pH badhega ya ghatega?",
+      "H⁺ bharne par lumen ka pH ghatega. Aur yeh itna ghatta hai ki ise naapa ja sakta hai.",
+      "Roshni mein lumen ka pH lagbhag 5 tak aa jaata hai, jabki stroma lagbhag 8 par rehta hai.",
+      "pH ka har ek ank das guna H⁺ ka farq hai. Toh teen ank ka farq matlab andar H⁺ bahar se lagbhag hazaar guna.",
+      "Exam ke liye yaad rakho: lumen acidic hota hai, aur stroma mein H⁺ kam hote hain."
+     ],
+     "roles": [
+      "link",
+      "plain",
+      "plain",
+      "fact",
+      "term",
+      "picture",
+      "known",
+      "ask",
+      "answer",
+      "fact",
+      "plain",
+      "fact"
+     ],
+     "screen": "Teeno kaam ek tasveer par: lumen mein H⁺ do raaston se aate (paani, PQ), stroma se do raaston se jaate (PQ, NADPH); thylakoid membrane ke aar-paar proton gradient; bharti jheel aur utarti nadi (apni tasveer); pH ka paimana: lumen lagbhag 5, stroma lagbhag 8, hazaar guna.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "pH ke asli ank (lumen lagbhag 5, stroma lagbhag 8) kitaab mein nahi; samajh ke liye.",
+     "terms": [
+      {
+       "term": "pH",
+       "meaning": "H⁺ ka naap: H⁺ zyada toh pH kam"
+      }
+     ]
+    },
+    {
+     "id": "11.6.3-k8",
+     "claude_id": "c8",
+     "kind": "checkpoint",
+     "teaches": [
+      "p011-i23",
+      "p011-i24"
+     ],
+     "says": [
+      "Ab ruko aur socho: hum is proton gradient mein itni dilchaspi kyun le rahe hain?",
+      "Hum is gradient mein dilchaspi isliye le rahe hain, kyunki isi ke tootne se ATP banta hai.",
+      "Baandh mein ruka paani apne-aap bijli nahi banata. Bijli tab banti hai, jab paani neeche bahta hai.",
+      "Waise hi lumen mein H⁺ ka jama rehna ATP nahi banata. ATP tab banta hai jab H⁺ wapas bahar stroma mein bahte hain.",
+      "H⁺ ke wapas bahne se dono taraf ka farq ghatta hai. Isi ko gradient ka tootna kehte hain, yaani breakdown of this gradient.",
+      "Aksar hum sochte hain ki gradient tootne ka matlab H⁺ ka khatam hona hai. Par aisa nahi hai: H⁺ wahi rehte hain, bas andar aur bahar ka farq kam hota hai.",
+      "Par H⁺ membrane mein se aise hi nahi nikal sakte. Membrane unke liye ek band deewar hai.",
+      "Unhe ek khaas raasta chahiye, jo membrane ke aar-paar jaata ho. Aise raaste ko transmembrane channel kehte hain; trans yaani aar-paar.",
+      "Yeh raasta ek bade enzyme ka hissa hai. Chalo, ab is enzyme ko kholte hain."
+     ],
+     "roles": [
+      "ask",
+      "answer",
+      "picture",
+      "plain",
+      "term",
+      "galat",
+      "plain",
+      "term",
+      "link"
+     ],
+     "screen": "Sawaal screen par; ruka aur bahta baandh ka paani (apni tasveer); H⁺ lumen se stroma ki taraf bahte, farq ghatta; H⁺ ki ginti wahi, farq kam; membrane se takra kar rukte H⁺; membrane ke aar-paar channel.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "Gradient ke tootne se, yaani H⁺ ke wapas stroma mein bahne se, ATP banta hai.",
+     "watch_out": "Tootne ka matlab H⁺ ka khatam hona nahi; sirf andar-bahar ka farq ghatta hai.",
+     "outside_book": "",
+     "terms": [
+      {
+       "term": "breakdown of this gradient",
+       "meaning": "H⁺ ke wapas bahne se farq ka ghatna"
+      },
+      {
+       "term": "transmembrane",
+       "meaning": "membrane ke aar-paar"
+      }
+     ]
+    },
+    {
+     "id": "11.6.3-k9",
+     "claude_id": "c9",
+     "kind": "explain",
+     "teaches": [
+      "p012-i1"
+     ],
+     "says": [
+      "Baandh mein paani ek pipe se nikalta hai, aur pipe ke muh par turbine lagi hoti hai.",
+      "Thylakoid membrane mein bhi aisi ek machine lagi hai. Iska naam ATP synthase hai.",
+      "Synthase yaani banane wala enzyme. Toh ATP synthase, yaani ATP banane wala enzyme.",
+      "Iske do hisse hain. Pehla hissa membrane ke andar dhansa hua hai, aur aar-paar ek channel banata hai. Ise CF₀ kehte hain.",
+      "Doosra hissa membrane se bahar, stroma ki taraf, nikla hua hai. Ise CF₁ kehte hain.",
+      "Aap aise samjho: CF₀ pipe hai, aur CF₁ uske muh par lagi turbine.",
+      "H⁺ CF₀ se apne-aap bahte hain, kyunki andar zyada hain aur bahar kam. Protein unhe dhakelta nahi, bas raasta deta hai.",
+      "Zyada se kam ki taraf apne-aap failne ko diffusion kehte hain, jaise humne agarbatti ki khushboo mein dekha tha.",
+      "Jab yeh failna kisi protein ke raaste, uski madad se ho, toh use facilitated diffusion kehte hain. Facilitated yaani madad se.",
+      "Toh socho, ATP kis hisse mein banega, andar dhanse CF₀ mein ya bahar nikle CF₁ mein?",
+      "ATP bahar wale CF₁ mein banega. Isliye bana hua ATP seedhe stroma mein milta hai."
+     ],
+     "roles": [
+      "picture",
+      "fact",
+      "term",
+      "fact",
+      "fact",
+      "plain",
+      "why",
+      "known",
+      "term",
+      "ask",
+      "answer"
+     ],
+     "screen": "Baandh ka pipe aur uske muh par turbine (apni tasveer); thylakoid membrane mein ATP synthase: CF₀ membrane mein dhansa channel, CF₁ stroma ki taraf nikla sir; H⁺ CF₀ se apne-aap bahte; sawaal ke saath CF₀ aur CF₁; CF₁ par bana ATP stroma mein.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": [
+      {
+       "term": "CF₀",
+       "meaning": "membrane mein dhansa hissa jo H⁺ ka channel banata hai"
+      },
+      {
+       "term": "CF₁",
+       "meaning": "stroma ki taraf nikla hissa jahan ATP banta hai"
+      },
+      {
+       "term": "facilitated diffusion",
+       "meaning": "protein ki madad se zyada se kam ki taraf bahna"
+      }
+     ]
+    },
+    {
+     "id": "11.6.3-k10",
+     "claude_id": "c10",
+     "kind": "explain",
+     "teaches": [
+      "p012-i2"
+     ],
+     "says": [
+      "Aap jaante ho, ATP banane ke liye ADP aur Pᵢ ko jodna padta hai, aur jodne mein energy lagti hai.",
+      "Yeh energy gradient ke tootne se aati hai. Bahte H⁺ CF₁ ki shakal badal dete hain.",
+      "Socho CF₁ ek mutthi hai. Mutthi khuli, toh ADP aur Pᵢ andar aaye.",
+      "Mutthi bheench gayi, toh dono dabkar jud gaye, aur ATP ban gaya. Mutthi phir khuli, aur ATP bahar.",
+      "Mutthi bheenchne ki taakat H⁺ ke bahav se aati hai. Isliye bahav ruka, toh ATP banna bhi ruka.",
+      "Protein ki shakal ke is badlaav ko conformational change kehte hain. Conformation ka matlab hi shakal hai.",
+      "Aur yeh mutthi ek baar nahi, baar-baar khulti aur band hoti hai. Isliye ek enzyme bahut saare ATP bana deta hai.",
+      "Toh ab batao, electron ki daud aur ATP ke beech ki chhupi kadi kya nikli?",
+      "Electron ki daud aur ATP ke beech ki chhupi kadi H⁺ ka farq nikli. Electron ki daud farq banati hai, aur farq ke tootne se ATP banta hai."
+     ],
+     "roles": [
+      "known",
+      "fact",
+      "picture",
+      "picture",
+      "why",
+      "term",
+      "fact",
+      "ask",
+      "answer"
+     ],
+     "screen": "ADP + Pᵢ → ATP; H⁺ ke bahav se CF₁ ki shakal badalti; mutthi (apni tasveer): khuli, ADP aur Pᵢ andar, bheenchi, ATP, phir khuli; baar-baar bante ATP; aakhir mein kadi: electron, H⁺ ka farq, ATP.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": [
+      {
+       "term": "conformational change",
+       "meaning": "protein ki shakal ka badlaav"
+      }
+     ]
+    },
+    {
+     "id": "11.6.3-k11",
+     "claude_id": "c11",
+     "kind": "retell",
+     "teaches": [
+      "p012-i3"
+     ],
+     "says": [
+      "Ab poori kahani ek saath chalate hain, aur dekhte hain ki energy kahan se kahan gayi.",
+      "Roshni ki energy ne electron ko uchhala. Daudte electron ki energy se PQ ne H⁺ ko bahar se andar bhara.",
+      "Paani ke tootne ne bhi andar H⁺ chhode. Isse lumen mein H⁺ ki oonchi dhalaan bani, aur energy ab is dhalaan mein band hai.",
+      "Phir H⁺ CF₀ se wapas bahar bahe, aur us bahav ki energy se CF₁ ne ATP banaya.",
+      "Energy lagakar H⁺ ko membrane ke paar bharne wale ko proton pump kehte hain. Yahan yeh kaam electron ki kadi PQ ke saath karti hai.",
+      "Membrane ke aar-paar H⁺ ke is bahav se ATP banne ke poore tareeke ko chemiosmosis kehte hain.",
+      "Toh aap batao, chemiosmosis ke liye kaun-kaun si cheezein chahiye?",
+      "Chemiosmosis ke liye chaar cheezein chahiye: membrane, proton pump, proton gradient aur ATP synthase.",
+      "Baandh mein bhi yahi chaar hain: deewar, pump, ruka hua paani aur turbine.",
+      "Exam ke liye teen baatein pakki rakho: H⁺ lumen mein jama hote hain, lumen ka pH ghatta hai, aur ATP CF₁ par stroma ki taraf banta hai."
+     ],
+     "roles": [
+      "link",
+      "plain",
+      "plain",
+      "plain",
+      "term",
+      "term",
+      "ask",
+      "answer",
+      "picture",
+      "fact"
+     ],
+     "screen": "Energy ka safar ek tasveer par, kadam-kadam: roshni, electron uchhla, PQ ne H⁺ andar bhare, paani ke H⁺, lumen ki dhalaan, H⁺ CF₀ se bahar, CF₁ par ATP; chaar cheezein: membrane, proton pump, proton gradient, ATP synthase; baandh ke chaar hisse (apni tasveer): deewar, pump, ruka paani, turbine; teen exam baatein.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": [
+      {
+       "term": "proton pump",
+       "meaning": "energy lagakar H⁺ ko membrane ke paar bharne wala"
+      },
+      {
+       "term": "chemiosmosis",
+       "meaning": "H⁺ ke membrane paar bahav se ATP banna"
+      }
+     ]
+    },
+    {
+     "id": "11.6.3-k12",
+     "claude_id": "c12",
+     "kind": "explain",
+     "teaches": [
+      "p012-i4"
+     ],
+     "says": [
+      "Ab stroma ke paas do cheezein taiyaar hain: ATP, yaani energy, aur NADPH, yaani electron dene ki taakat.",
+      "Dono stroma ki taraf hi bane, isliye wahin turant kaam aate hain.",
+      "Stroma mein inse ek reaction chalti hai, jo hawa ki CO₂ pakadti hai aur sugar banati hai.",
+      "Aisi reaction ko biosynthetic reaction kehte hain. Bio yaani jeevan, synthetic yaani jodkar banana: jeev ke andar chhote molecule jodkar bade molecule banana.",
+      "CO₂ ke carbon ko pakadkar ek molecule mein jod lena CO₂ ko fix karna kehlata hai, yaani fixing CO₂.",
+      "Yeh sugar kaise banti hai, yeh hum agli film mein dekhenge. Abhi ke liye bas itna jaan lo ki light reaction ke ATP aur NADPH yahin kaam aate hain."
+     ],
+     "roles": [
+      "plain",
+      "why",
+      "fact",
+      "term",
+      "term",
+      "link"
+     ],
+     "screen": "Stroma mein ATP aur NADPH; hawa ki CO₂ pakadti reaction aur bani sugar; bio aur synthetic shabd ke hisse; CO₂ ka carbon ek molecule mein judta.",
+     "recalls": [],
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "outside_book": "",
+     "terms": [
+      {
+       "term": "fixing CO₂",
+       "meaning": "CO₂ ke carbon ko molecule mein jodna"
+      },
+      {
+       "term": "biosynthetic",
+       "meaning": "jeev ke andar jodkar banana"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
