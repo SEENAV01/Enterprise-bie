@@ -1,0 +1,179 @@
+{
+ "schema": "bie.studio-run/1",
+ "section": "studio",
+ "stage": "films",
+ "status": "needs_fix",
+ "maker": "codex on the ChatGPT plan (read-only, no shell)",
+ "cost": {
+  "total_inr": 0.0
+ },
+ "error": null,
+ "plan_usage_before": {
+  "rateLimits.primary.usedPercent": 18,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1795880458,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 18,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1795880458,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 1
+ },
+ "source_sha256": "e2dbdb1ec7793daa87101e8264dfe039f7d277ad6153b904ec078d65ed1adbc8",
+ "page_count": 22,
+ "pages_read": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22
+ ],
+ "voice": "kokoro hf_alpha",
+ "films": [
+  {
+   "qid": "h11-6-2a",
+   "question": "PS I se nikla electron NADP⁺ tak jaane ke bajay waapas laut aaye, toh kya ATP phir bhi ban sakta hai?",
+   "shots": 6,
+   "images": 6,
+   "minutes": 3.2,
+   "rounds": 2,
+   "problems": [],
+   "book_lines": "4/4",
+   "beyond": 22,
+   "points_moved": 59,
+   "teacher_lines": 29,
+   "kept_pictures": 0,
+   "colour_redraws": 0,
+   "parts_cut": 0,
+   "parts_wanted": 0,
+   "not_in_picture": [
+    "path of the moving ATP",
+    "where the product ADP goes",
+    "where the product molecule goes",
+    "label 'Adenosine diphosphate'",
+    "path of the moving ADP",
+    "path of the moving spark",
+    "where ADP comes from",
+    "where molecule comes from",
+    "label 'Inorganic phosphate'",
+    "path of the moving molecule",
+    "camera target: the part this sentence talks about",
+    "label 'Pi / iP'",
+    "centre of the glowing part this sentence talks about",
+    "camera target: the part this sentence talks about",
+    "label 'Photo'"
+   ]
+  },
+  {
+   "qid": "h11-6-2b",
+   "question": "Cyclic aur non-cyclic photophosphorylation mein kya difference hai?",
+   "shots": 8,
+   "images": 7,
+   "minutes": 4.4,
+   "rounds": 5,
+   "problems": [
+    "s5: the aside maps the analogy in a pin (\"baandh = membrane\")"
+   ],
+   "book_lines": "3/3",
+   "beyond": 38,
+   "points_moved": 76,
+   "teacher_lines": 43,
+   "kept_pictures": 0,
+   "colour_redraws": 0,
+   "parts_cut": 6,
+   "parts_wanted": 6,
+   "not_in_picture": [
+    "label 'Z scheme'",
+    "path of the moving ATP",
+    "label 'Z scheme'",
+    "label 'NADPH + H⁺'",
+    "path of the moving H+",
+    "label 'doosra terminal'"
+   ]
+  },
+  {
+   "qid": "h11-6-2c",
+   "question": "Cyclic aur non-cyclic photophosphorylation mein kya difference hai?",
+   "shots": 9,
+   "images": 8,
+   "minutes": 4.9,
+   "rounds": 3,
+   "problems": [
+    "s7: the picture paints 'PS II' teal, but the film gives it olive; the picture was drawn again but the redraw was no better, so the first stays",
+    "s7: the picture paints 'Acceptor' red, but the film gives it lavender; the picture was drawn again but the redraw was no better, so the first stays"
+   ],
+   "book_lines": "6/6",
+   "beyond": 25,
+   "points_moved": 43,
+   "teacher_lines": 41,
+   "kept_pictures": 0,
+   "colour_redraws": 1,
+   "parts_cut": 1,
+   "parts_wanted": 1,
+   "not_in_picture": [
+    "label 'Chloroplast'",
+    "label 'NADPH + H⁺ नहीं'",
+    "path of the moving ATP",
+    "label 'Water splitting नहीं'",
+    "label 'Net O₂ नहीं'",
+    "label 'PS II नहीं'",
+    "label 'NADP reductase नहीं'",
+    "label 'NADP⁺'",
+    "label '>680 nm'",
+    "path of the moving light",
+    "path of the moving light",
+    "camera target: the part this sentence talks about",
+    "label 'PS II: P680'"
+   ]
+  }
+ ],
+ "whole_films": [
+  {
+   "qid": "h11-6-2",
+   "title": "11.6.2 Cyclic and Non-cyclic Photo-phosphorylation",
+   "parts": [
+    "h11-6-2a",
+    "h11-6-2b",
+    "h11-6-2c"
+   ],
+   "missing": [],
+   "shots": 23,
+   "minutes": 12.5,
+   "problems": 3
+  }
+ ],
+ "usage": {
+  "input_tokens": 463050,
+  "output_tokens": 143271
+ },
+ "model": "gpt-6.1-sol",
+ "plan_usage_after": {
+  "rateLimits.primary.usedPercent": 18,
+  "rateLimits.primary.windowDurationMins": 10080,
+  "rateLimits.primary.resetsAt": 1795880458,
+  "rateLimits.planType": "prolite",
+  "rateLimitsByLimitId.codex.primary.usedPercent": 18,
+  "rateLimitsByLimitId.codex.primary.windowDurationMins": 10080,
+  "rateLimitsByLimitId.codex.primary.resetsAt": 1795880458,
+  "rateLimitsByLimitId.codex.planType": "prolite",
+  "rateLimitResetCredits.availableCount": 1
+ },
+ "minutes": 72.9
+}
