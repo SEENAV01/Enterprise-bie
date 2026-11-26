@@ -7,9 +7,9 @@
 # 2. signs it in with Navin's Claude account (a link to open on the tablet and a code to paste back; no API key is ever
 #    used, and BIE removes ANTHROPIC_API_KEY from the writer's environment); the sign-in stays in /var/lib/bie/claude
 #    (mode 700, owner bie), like Codex's in /var/lib/bie/codex;
-# 3. brings the chat Navin taught to this machine (claude --teleport <session id>, on the screen, in a clone of its own)
-#    and records its local id in /var/lib/bie/claude/BASE_SESSION, so every script job starts from that chat's memory
-#    (a fork of it); a script job refuses to start without it unless the job says "fresh": true.
+# 3. keeps the key of the taught chat's locked copy (/var/lib/bie/claude/chat.key, mode 600, owner bie); BIE's "copy" job
+#    installs each copy as /var/lib/bie/claude/BASE_SESSION, so every script job starts from that chat's memory (a fork
+#    of it); a script job refuses to start without it unless the job says "fresh": true.
 set -euo pipefail
 CLAUDE_VERSION="2.1.331"
 BIE_HOME="${BIE_HOME:-/var/lib/bie}"
@@ -36,45 +36,43 @@ fi
 run_claude auth status --text || { echo "Sign-in nahi hua. Dobara chalaiye: sudo bie-claude-setup"; exit 1; }
 chmod -R go-rwx "$CONF"
 
-echo "== 3/3 Seekhi hui chat =="
-echo "Jis chat ne gold script likhi, uski session ID daaliye (claude.ai/code/ ke baad wala hissa, session_ se shuru)."
-echo "Bina chat ke script job nahi chalega (Navin, 26 November 2026: writer wahi chat hai, naya session nahi)."
-read -rp "Session ID: " session || session=""
-if [ -n "$session" ]; then
-  # Teleport checks out the chat's branch, so it runs in a clone of its own, never in $BIE_HOME/repo (the checkout the
-  # running jobs use; Navin's screen, 26 November 2026, showed a film job running from it).
-  TP="$CONF/teleport-repo"
-  if [ ! -d "$TP/.git" ]; then
-    sudo -u bie git clone -q https://github.com/SEENAV01/Enterprise-bie.git "$TP"
+echo "== 3/3 Seekhi hui chat ki copy: chabi =="
+# The chat Navin taught comes as a locked copy of its own file (Navin, 27 November 2026, "Raasta 1"; teleport cannot
+# bring a chat started in the Claude app). Its key stays only here; BIE's "copy" job downloads, unlocks, tests and
+# installs each copy (tools/vm_claude.py).
+if [ -s "$CONF/chat.key" ]; then
+  echo "Chabi pehle se rakhi hai."
+else
+  echo "Claude ne jo chabi di hai use yahan chipkaiye (screen par dikhegi nahi), phir Enter."
+  read -rsp "Chabi: " key || key=""
+  echo
+  if [ -n "$key" ]; then
+    printf '%s\n' "$key" > "$CONF/chat.key"
+    chown bie:bie "$CONF/chat.key"; chmod 600 "$CONF/chat.key"
+    echo "Chabi rakh di."
+  else
+    echo "Chabi nahi mili; baad mein yahi setup dobara chalaiye."
   fi
-  # Claude Code deletes chats older than 30 days by itself; the taught chat must stay, so that limit is lifted here.
-  sudo -u bie python3 - "$CONF/settings.json" <<'PY'
+fi
+# Claude Code deletes chats older than 30 days by itself; the copies must stay, so that limit is lifted here. The jobs'
+# folder is marked trusted, so a job never stops at the folder question.
+sudo -u bie python3 - "$CONF" "$BIE_HOME/repo" <<'PY'
 import json, os, sys
-path = sys.argv[1]
+conf, repo = sys.argv[1], sys.argv[2]
+path = os.path.join(conf, "settings.json")
 settings = json.load(open(path)) if os.path.exists(path) else {}
 settings["cleanupPeriodDays"] = 36500
 json.dump(settings, open(path, "w"), indent=2)
+path = os.path.join(conf, ".claude.json")
+config = json.load(open(path)) if os.path.exists(path) else {}
+config.setdefault("projects", {}).setdefault(repo, {})["hasTrustDialogAccepted"] = True
+config["hasCompletedOnboarding"] = True
+json.dump(config, open(path, "w"), indent=2)
 PY
-  # Teleport opens Claude on the screen (it does not run in the background), so Navin sees the chat arrive and closes it.
-  echo
-  echo "Ab Claude khulega aur yeh chat yahan laayega (1-2 minute lag sakte hain)."
-  echo "  1. Rang (theme) ya 'trust this folder' jaisa kuchh poochhe to bas Enter dabaiye."
-  echo "  2. Chat aa jaaye to likhiye:  tayyar ho?   aur Enter dabaiye."
-  echo "  3. Jawab aa jaaye to likhiye:  /exit   aur Enter dabaiye."
-  read -rp "Shuru karne ke liye Enter dabaiye. " _ || true
-  mark="$CONF/.teleport-start"
-  sudo -u bie touch "$mark"
-  (cd "$TP" && run_claude --teleport "$session") || true
-  found=$(find "$CONF/projects" -name '*.jsonl' -newer "$mark" -printf '%s %p\n' 2>/dev/null | sort -n | tail -n 1 | cut -d' ' -f2-)
-  if [ -n "$found" ] && grep -q "11.6.3" "$found"; then
-    basename "$found" .jsonl > "$CONF/BASE_SESSION"
-    chown bie:bie "$CONF/BASE_SESSION"; chmod 600 "$CONF/BASE_SESSION"
-    echo "Chat yahan aa gayi. Har script job ab isi chat ki copy se shuru hogi."
-  else
-    echo "Chat yahan nahi aa payi. Upar screen par jo likha aaya, uski photo Claude ko bhejiye."
-    rm -f "$CONF/BASE_SESSION"
-  fi
-  rm -f "$mark"
+if [ -s "$CONF/BASE_SESSION" ]; then
+  echo "Copy lagi hui hai: $(cat "$CONF/BASE_SESSION")"
+else
+  echo "Copy abhi nahi lagi; Claude ka bheja 'copy' job use lagayega."
 fi
 echo
 echo "Ho gaya. Ab job mein \"maker\": \"claude\" likhne par script Claude likhega."

@@ -730,6 +730,29 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    knows the subject fully teaches the learner the course names their own book; the gold standard's measures are a
    guide for its Class 11 learner, not a limit; no fixed rule per class). No new `maker: claude` job until the chat is
    brought over; if teleport fails on the VM, the fallback sends each script task into the teaching chat itself.
+   **PR #226 merged** (26 November). c1 and c2 were taken off the queue before they started (they would have run as
+   fresh sessions). **Teleport failed on the VM (27 November, 02:46–03:08):** the folder question needed arrow keys his
+   tablet terminal lacked (solved by marking the folder trusted beforehand), then the server answered `[teleport]
+   Session session_01BocTi7DT9dSEyEryad3Djy not found` (and the same for its `cse_` id): a chat started in the Claude
+   app cannot be teleported. The setup also stopped silently after that (a `find` on a missing folder under `set -e`).
+   **Navin chose "Raasta 1" (27 November 03:51):** the taught chat goes to the VM as a locked copy of its own file
+   (AES-256, key only on the VM), with its gap fixed: Claude refreshes the copy after his verdicts. Before building,
+   the plan's risks were talked through one by one at his request ("pehale se hi soch ke rakh lo plan taaki baad mein
+   dikkat na ho"): the memory window (point 1), a weaker new copy (2), a copy too big for a job (3), disk (4: job
+   copies beyond five deleted; "photo copy mitengi ... job ki baatein to nhi": the script, numbers and YAADEIN_NEW go to
+   GitHub first), what the writer may read (5: found while planning, PR #225 let it read any file, so the sign-ins
+   and the deploy key could have been copied into a published script by a line hidden in a book; no Claude job ever ran
+   with it), privacy (6), plan limits shared with his own chats (7: measured on c3 from his Settings → Usage before
+   and after; one job per chapter or per group of headings decided after measuring), a job stopped by limits (8), and
+   the sign-in's end (9). **Branch `writer-copy`:** `vm_claude.py copy` (download from this repository, sha256, unlock
+   with `chat.key`, keep the copy in use in `archive/`, install, three questions on a fork; kept only when it answers
+   from the chat's memory with tokens at least 80 % of the job's figure, otherwise the old copy comes back; `opus[1m]`
+   tried when `opus` cannot hold it, and the working setting kept in `MODEL`; the answers stay on the VM); a `studio`
+   job of stage `copy` (`url` only from this repository, `sha256`, `tokens`); the writer reads only the repository and
+   its work folder (the Claude and Codex sign-ins, the copy and key, the deploy key, `/etc` and `/root` refused); job
+   forks beyond five deleted; `bie-claude-setup` step 3 keeps the key instead of teleporting. The first copy
+   (`writer-chat-1`, ending on the reply of 03:43) is installed by hand with two lines Navin runs on the VM; its test
+   shows whether the memory arrived whole.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

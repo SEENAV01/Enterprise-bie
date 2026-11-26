@@ -98,16 +98,24 @@ Codex.
   the plan's sign-in is for ordinary use of Claude Code by its purchaser, and its limits assume ordinary individual use;
   this is one person's own work on his own private machine, never resold or offered to others. The writer shares the
   plan's 5-hour and weekly limits with Navin's own Claude chats.
-- **What the writer may do:** print mode, `--permission-mode dontAsk`, tools Read, Glob, Grep, Write and Edit only in
-  the run's work folder, and Bash only for the self-check command; model `opus`, effort `xhigh`.
+- **What the writer may do:** print mode, `--permission-mode dontAsk`; Read only in the repository and the run's work
+  folder (Glob and Grep too), Write and Edit only in the work folder, Bash only for the self-check command; reading this
+  machine's Claude and Codex sign-ins, the chat's copy and key, the deploy key, `/etc` and `/root` is refused (Navin,
+  27 November 2026, plan point 5: no text in a book can make it copy a secret into a published script); model `opus`
+  (or `opus[1m]` when the copy's test found that only it holds the whole memory), effort `xhigh`.
 - **The chat Navin taught (needed; his correction of 26 November 2026: "tumhe yaani isi chat session ke llm ai ko
-  baithane ki baat huyi thi vm par"):** step 3 of `bie-claude-setup` brings that chat here with `claude --teleport
-  <session id>`. Teleport opens Claude on the screen (it refuses to run with its output redirected), in a clone of its
-  own at `/var/lib/bie/claude/teleport-repo`, never in the jobs' checkout; Navin sends one line and closes it with
-  `/exit`. The setup then records the local id of that transcript in `/var/lib/bie/claude/BASE_SESSION` and lifts
-  Claude Code's 30-day transcript sweep (`cleanupPeriodDays` in `/var/lib/bie/claude/settings.json`) so the chat
-  stays. Each job forks it (`--resume <id> --fork-session`; resuming by id finds a session from another folder).
-  Without it a script job stops; only a job with `"fresh": true` starts a new session from the skill alone (a test).
+  baithane ki baat huyi thi vm par"):** it comes as a locked copy of its own file (27 November 2026, "Raasta 1"):
+  teleport cannot bring a chat started in the Claude app (the server answers "not found"). Claude takes the copy so
+  that it ends on a finished reply, locks it (AES-256-CBC, PBKDF2 200000 rounds, after gzip) and pushes it to a branch
+  `writer-chat-<n>` holding only that file; the key is kept only here (`/var/lib/bie/claude/chat.key`, step 3 of
+  `bie-claude-setup`). A `studio` job with stage `copy` (`"maker": "claude"`, `url`, `sha256`, `tokens`) downloads it,
+  checks the sha256, unlocks it, keeps the copy in use in `/var/lib/bie/claude/archive/` (never deleted), installs the
+  new one as `BASE_SESSION` and asks it three questions: it stays only if it answers from the chat's memory with that
+  memory whole (tokens at least 80 % of the job's figure); otherwise the copy before comes back. The answers stay in
+  `/var/lib/bie/claude/copy-test.txt`; the run folder holds only checks and numbers. Each script job forks the copy
+  (`--resume <id> --fork-session`) and the job's own fork is deleted afterwards, except the newest five. Without a copy
+  a script job stops; only a job with `"fresh": true` starts a new session from the skill alone (a test). Claude Code's
+  30-day transcript sweep is lifted (`cleanupPeriodDays`) so copies stay.
 - **Memory:** the writer adds what it learned to `YAADEIN_NEW.md` in its run folder; Claude folds it into the skill's
   `references/yaadein.md` in a reviewed PR.
 
@@ -117,6 +125,5 @@ Codex.
 2. Chalaiye: `sudo bash /var/lib/bie/repo/deployment/codex-vm/bie-claude-setup` (jab VM koi job chala raha ho aur
    yeh file abhi na ho, to GitHub se utaar kar: `curl -fsSL https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/main/deployment/codex-vm/bie-claude-setup -o /tmp/bie-claude-setup && sudo bash /tmp/bie-claude-setup`)
 3. Jo link aaye, use tablet par kholiye, apne Claude account se login kijiye, aur code wapas terminal mein daaliye.
-4. Seekhi hui chat ki session ID daaliye (Claude batayega). Claude khulega: rang ya "trust this folder" poochhe to
-   Enter; chat aa jaaye to `tayyar ho?` likhiye; jawab aa jaaye to `/exit` likhiye. "Chat yahan aa gayi" aaye to ho
-   gaya; warna screen ki photo Claude ko bhejiye.
+4. Copy ki chabi chipkaiye (Claude chat mein deta hai; screen par dikhegi nahi). Pehle se rakhi ho to yeh kadam apne
+   aap nikal jaata hai. Copy Claude ka bheja "copy" job khud lagata hai.

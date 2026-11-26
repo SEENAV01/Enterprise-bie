@@ -3393,3 +3393,15 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   the teaching chat, once Navin has run step 3 with its id; compared on BIE's problems, rounds, voice measures and his
   reading beside the gold standard.
 
+## Entry · The taught chat as a locked copy, and what the writer may read, 27 November 2026
+
+- **Taught by:** the VM run of step 3: teleport cannot bring a chat started in the Claude app (`Session ... not found`),
+  the folder question needs arrow keys a tablet terminal lacks, and a `find` under `set -e` stopped the setup without a
+  word. Planning the copy route with Navin point by point found that the writer could read every file on the VM.
+- **Changed in BIE (branch `writer-copy`):** stage `copy` (a locked copy of the chat, tested before it is used, the old
+  one kept and restored on failure, the window setting found by the test); the writer's reads limited to the repository
+  and its work folder; job forks beyond five deleted; setup step 3 keeps the key.
+- **Measured before:** no Claude job had run on the VM. **After:** the first copy's test (does it answer from the chat's
+  memory; its tokens beside the 320k this chat held), then c3 (11.7.2): BIE's problems, voice measures, minutes, the
+  plan usage it took, and Navin's reading beside the gold standard.
+

@@ -55,7 +55,7 @@ SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "canv
 # machinery as structures with a controlled sheen, whole structures matte in controlled light)
 LOOKS = ("glossy", "mixed", "matte", "structure", "close_up", "overview", "asli", "asli_mixed")
 TOOL_SECTIONS = ("image", "look", "voice")
-STUDIO_STAGES = ("questions", "naksha", "script", "films", "games", "book", "pyq", "dub")   # dub: autodub (Navin, 21 November 2026)
+STUDIO_STAGES = ("questions", "naksha", "script", "films", "games", "book", "pyq", "dub", "copy")   # dub: autodub (Navin, 21 November 2026)
 # naksha: the chapter's teaching plan in two shapes from Section 1's chapter map (Navin, 21 November 2026)
 # "voice" (P1-D, Navin 5 November 2026): Chatterbox Multilingual speaks a video's narration sentences on this machine's
 # CPU (Rs 0) with its built-in voice or Navin's clip (/etc/bie/voice, "sirf VM par private"); the audio stays in
@@ -66,7 +66,8 @@ MAKERS = ("codex", "google", "openai", "claude")
 # "claude" (Navin, 26 November 2026: "tumhe hi script writing ke kaam mein baitha deta hun vm ke raaste se"): the chapter
 # script written by Claude Code on this machine with Navin's Claude plan and the bie-script-writer skill
 # (tools/vm_claude.py); only for studio script so far
-CLAUDE_STAGES = ("script",)
+CLAUDE_STAGES = ("script", "copy")     # copy: a newer locked copy of the taught chat (Navin, 27 November 2026)
+COPY_URL = "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/"
 REVIEWERS = ("google", "openai", "codex")      # codex: the checker on the plan too (Navin, 27 October 2026)
 URL = re.compile(r"^https://[A-Za-z0-9._~:/?#\[\]@!$&'()*+,;=%-]{1,400}$")
 FIELDS = {
@@ -95,7 +96,7 @@ def validate(job: dict) -> dict:
     allowed = {"job", "id", "section", "source", "chapter_map", "from_run", "resume_from", "library", "pages", "videos", "course",
                "maker", "reviewer", "reviewer_model", "models", "routes", "max_inr", "workers", "max_rounds", "language",
                "with_visual", "with_canvas", "with_show", "render", "fake", "note", "prompts", "request", "max_images", "stage",
-               "pyqs", "reference", "max_lines", "look", "fresh"}
+               "pyqs", "reference", "max_lines", "look", "fresh", "url", "sha256", "tokens"}
     unknown = sorted(set(job) - allowed)
     if unknown:
         raise JobError("unknown fields: " + ", ".join(unknown))
@@ -151,6 +152,15 @@ def validate(job: dict) -> dict:
         raise JobError("maker claude: only for studio " + ", ".join(CLAUDE_STAGES))
     if "fresh" in out and (out["maker"] != "claude" or not isinstance(out["fresh"], bool)):
         raise JobError("fresh: true or false, only with maker claude (a new session instead of the taught chat)")
+    if out["section"] == "studio" and out.get("stage") == "copy":
+        if out["maker"] != "claude":
+            raise JobError("studio copy: only with maker claude")
+        if not str(out.get("url") or "").startswith(COPY_URL) or not re.fullmatch(r"[0-9a-f]{64}", str(out.get("sha256") or "")):
+            raise JobError("studio copy: url (a file of this repository on GitHub) and sha256 (64 hex)")
+        if not isinstance(out.get("tokens", 0), int) or out.get("tokens", 0) < 0:
+            raise JobError("tokens: the copy's size in tokens, a whole number")
+    elif any(name in out for name in ("url", "sha256", "tokens")):
+        raise JobError("url, sha256 and tokens: only for studio copy")
     if out["section"] in ("lesson", "notes", "game", "notespages", "gamelevels") and not out.get("chapter_map"):
         raise JobError("chapter_map: needed for lesson, notes and game")
     if out["section"] in ("director", "visual", "canvas", "coder", "showplan") and not out.get("from_run"):
@@ -188,6 +198,9 @@ def argv(job: dict, out: Path, python: str = sys.executable) -> list:
                 cmd += ["--" + name.replace("_", "-"), str(job[name])]
         if job.get("fresh"):
             cmd.append("--fresh")
+        for name in ("url", "sha256", "tokens"):
+            if job.get(name):
+                cmd += ["--" + name, str(job[name])]
         return cmd
     if job["section"] == "studio":
         cmd = [python, "-B", str(ROOT / "tools" / "vm_studio.py"), "--stage", job.get("stage") or "questions",
