@@ -95,7 +95,7 @@ def validate(job: dict) -> dict:
     allowed = {"job", "id", "section", "source", "chapter_map", "from_run", "resume_from", "library", "pages", "videos", "course",
                "maker", "reviewer", "reviewer_model", "models", "routes", "max_inr", "workers", "max_rounds", "language",
                "with_visual", "with_canvas", "with_show", "render", "fake", "note", "prompts", "request", "max_images", "stage",
-               "pyqs", "reference", "max_lines", "look"}
+               "pyqs", "reference", "max_lines", "look", "fresh"}
     unknown = sorted(set(job) - allowed)
     if unknown:
         raise JobError("unknown fields: " + ", ".join(unknown))
@@ -149,6 +149,8 @@ def validate(job: dict) -> dict:
         raise JobError("stage: only for studio")
     if out["maker"] == "claude" and not (out["section"] == "studio" and out.get("stage") in CLAUDE_STAGES):
         raise JobError("maker claude: only for studio " + ", ".join(CLAUDE_STAGES))
+    if "fresh" in out and (out["maker"] != "claude" or not isinstance(out["fresh"], bool)):
+        raise JobError("fresh: true or false, only with maker claude (a new session instead of the taught chat)")
     if out["section"] in ("lesson", "notes", "game", "notespages", "gamelevels") and not out.get("chapter_map"):
         raise JobError("chapter_map: needed for lesson, notes and game")
     if out["section"] in ("director", "visual", "canvas", "coder", "showplan") and not out.get("from_run"):
@@ -184,6 +186,8 @@ def argv(job: dict, out: Path, python: str = sys.executable) -> list:
         for name in ("chapter_map", "from_run", "course", "language", "videos"):
             if job.get(name):
                 cmd += ["--" + name.replace("_", "-"), str(job[name])]
+        if job.get("fresh"):
+            cmd.append("--fresh")
         return cmd
     if job["section"] == "studio":
         cmd = [python, "-B", str(ROOT / "tools" / "vm_studio.py"), "--stage", job.get("stage") or "questions",

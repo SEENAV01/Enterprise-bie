@@ -18,6 +18,20 @@ each entry says what it replaced. Sources: this repository's `docs/roadmap/STATU
   several ATP): "bilkul yahi tha". BIE's line for the same NCERT line ("Proton return se released gradient energy CF₁ ki
   conformation badalne ke kaam aati hai") was what he did not want.
 
+## The teacher who knows everything (25–26 Nov)
+
+- **25 Nov, on Claude's first 11.6.3:** "kya tumne ncert ki lines mein present concept ko ek aise teacher ki bhanti
+  padhaya hai jise us concept ki poori knowledge hai even usse jyada aur ab book mein maujood knowledge ko wo bache ko
+  kaise samjhata hai ... maksad shabd ki ginti nahi bache ko samjhana hai jo us kitab ko pdhke nhi samjh rha".
+- **22 Nov:** "chapter 11 ki saari cheejen bache ko samjh aa jaaye aage wo koi is par based deep book bhi padhe to wo
+  book use samjh aa jaaye kyuki chapter 11 se jo maine samjha wo sahi dhang se ek ek baat apne shabdon mein maine bache
+  ko samjha di hai".
+- **26 Nov, on other levels (Class 6, UGC NET):** the same teacher with full knowledge serves that learner their own
+  book's knowledge in plain words, with misaal, sawaal and paheli; fixed rules per class (more stories for Class 6,
+  fewer pictures for UGC) "script ki quality par asar daal sakte hain, boundation laga sakte hain, sochne ka dayra
+  khatm kar sakte hain". One gold sample per level, and his verdict on it, settle the way. Rules come from samples: "mai
+  video dekhkar script dekhkar bta sakta hun ki haan yeh chahiye tha".
+
 ## Padhai pehle: nothing of the book dropped (25 Nov)
 
 - On Claude's first 11.6.3 (style right, content cut): "bacha connected rahega", but "concept poora padhaya nhi gaya";

@@ -100,16 +100,23 @@ Codex.
   plan's 5-hour and weekly limits with Navin's own Claude chats.
 - **What the writer may do:** print mode, `--permission-mode dontAsk`, tools Read, Glob, Grep, Write and Edit only in
   the run's work folder, and Bash only for the self-check command; model `opus`, effort `xhigh`.
-- **The chat Navin taught (optional):** step 3 of `bie-claude-setup` can bring that chat here (`claude --teleport
-  <session id>`) and record its id in `/var/lib/bie/claude/BASE_SESSION`; each job then forks it (`--resume <id>
-  --fork-session`). Without it, each job starts from the skill alone. Teleport is made for sessions tied to a
-  repository branch, so it may not work for every chat; the setup says so and carries on.
+- **The chat Navin taught (needed; his correction of 26 November 2026: "tumhe yaani isi chat session ke llm ai ko
+  baithane ki baat huyi thi vm par"):** step 3 of `bie-claude-setup` brings that chat here with `claude --teleport
+  <session id>`. Teleport opens Claude on the screen (it refuses to run with its output redirected), in a clone of its
+  own at `/var/lib/bie/claude/teleport-repo`, never in the jobs' checkout; Navin sends one line and closes it with
+  `/exit`. The setup then records the local id of that transcript in `/var/lib/bie/claude/BASE_SESSION` and lifts
+  Claude Code's 30-day transcript sweep (`cleanupPeriodDays` in `/var/lib/bie/claude/settings.json`) so the chat
+  stays. Each job forks it (`--resume <id> --fork-session`; resuming by id finds a session from another folder).
+  Without it a script job stops; only a job with `"fresh": true` starts a new session from the skill alone (a test).
 - **Memory:** the writer adds what it learned to `YAADEIN_NEW.md` in its run folder; Claude folds it into the skill's
   `references/yaadein.md` in a reviewed PR.
 
 ### Navin ke steps (ek baar)
 
-1. Lightsail ka browser terminal kholiye.
-2. Chalaiye: `sudo bash /var/lib/bie/repo/deployment/codex-vm/bie-claude-setup`
+1. Hostinger ka panel (hPanel) → VPS → Manage → Browser terminal kholiye (machine: Hostinger KVM 2, Mumbai).
+2. Chalaiye: `sudo bash /var/lib/bie/repo/deployment/codex-vm/bie-claude-setup` (jab VM koi job chala raha ho aur
+   yeh file abhi na ho, to GitHub se utaar kar: `curl -fsSL https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/main/deployment/codex-vm/bie-claude-setup -o /tmp/bie-claude-setup && sudo bash /tmp/bie-claude-setup`)
 3. Jo link aaye, use tablet par kholiye, apne Claude account se login kijiye, aur code wapas terminal mein daaliye.
-4. Seekhi hui chat laani ho to uski session ID daaliye, warna Enter dabaiye.
+4. Seekhi hui chat ki session ID daaliye (Claude batayega). Claude khulega: rang ya "trust this folder" poochhe to
+   Enter; chat aa jaaye to `tayyar ho?` likhiye; jawab aa jaaye to `/exit` likhiye. "Chat yahan aa gayi" aaye to ho
+   gaya; warna screen ki photo Claude ko bhejiye.

@@ -8,8 +8,11 @@ Anthropic API key: any ``ANTHROPIC_API_KEY`` is removed from its environment). I
 ``CLAUDE.md`` and the ``bie-script-writer`` skill load, and it works like the Claude Navin passed: it writes each heading
 as a teacher speaks it, runs ``tools/script_writer_check.py`` itself and weighs the findings. It may write only inside
 the run's work folder. When ``$BIE_HOME/claude/BASE_SESSION`` holds a session id (the chat Navin taught, brought to this
-machine), each job forks that session (``--resume <id> --fork-session``), so the writer starts with that chat's memory;
-otherwise a fresh session starts from the skill alone.
+machine), each job forks that session (``--resume <id> --fork-session``), so the writer starts with that chat's memory.
+Without it a job stops (Navin, 26 November 2026: "tumhe yaani isi chat session ke llm ai ko baithane ki baat huyi thi vm
+par ... to vm par dusra naya session kaise ho gaya"); only a job that says ``"fresh": true`` (a test of the skill alone)
+starts a new session. The taught chat's task opens by saying its own memory of Navin's words comes first and the skill
+is only a reminder (Navin, 26 November 2026, "haan likh do").
 
     python tools/vm_claude.py script --from-run <script run> --chapter-map <naksha run> --videos h11-6-3 --out <folder>
 """
@@ -34,6 +37,14 @@ MODEL = "opus"                      # Navin, 26 November 2026: "yhi same model o
 EFFORT = "xhigh"
 TIMEOUT = 6 * 3600
 MAKER = "claude (Claude Code on Navin's Claude plan, the bie-script-writer skill)"
+# The first words a job gives the taught chat (Navin, 26 November 2026, "haan likh do"): that chat already knows his
+# words and how the gold standard was made, so the skill must not pull it away from what he told it.
+TAUGHT = """You are the chat Navin taught: you wrote the gold standard with him and you remember his words and verdicts.
+Your own memory of what he told you comes first; the skill is only a reminder of it. Where the skill and what he told
+you differ, follow his latest word, and write in YAADEIN_NEW.md where they differed.
+
+"""
+
 TASK = """Use the bie-script-writer skill: read .claude/skills/bie-script-writer/SKILL.md and the files it names before you
 write. Course: {course}. Language: {language}.
 
@@ -127,9 +138,13 @@ def script(args, *, run=subprocess.run, binary: str = "") -> dict:
         (work / "script.json").write_text(studio_script.dump(so_far), encoding="utf-8")
         env = environment()
         binary = binary or shutil.which("claude") or "claude"
-        task = TASK.format(course=args.course or "", language=args.language or "Hinglish", headings=", ".join(wanted),
-                           work=work, python=sys.executable)
-        cmd = command(task, work, binary=binary, base=base_session(env))
+        base = base_session(env)
+        if not base and not getattr(args, "fresh", False):
+            raise SystemExit("the chat Navin taught is not on this machine yet (sudo bie-claude-setup, step 3); "
+                             "a job without it needs \"fresh\": true")
+        task = (TAUGHT if base else "") + TASK.format(course=args.course or "", language=args.language or "Hinglish",
+                                                      headings=", ".join(wanted), work=work, python=sys.executable)
+        cmd = command(task, work, binary=binary, base=base)
         summary["base_session"] = bool(cmd.count("--fork-session"))
         try:
             done = run(cmd, cwd=str(ROOT), env=env, capture_output=True, text=True, timeout=TIMEOUT)
@@ -204,6 +219,7 @@ def main(argv=None) -> int:
     parser.add_argument("--course", default="")
     parser.add_argument("--language", default="Hinglish")
     parser.add_argument("--max-rounds", default="")           # the writer weighs the checks itself; kept for the job form
+    parser.add_argument("--fresh", action="store_true")      # a new session from the skill alone, not the taught chat
     parser.add_argument("--out", required=True)
     args = parser.parse_args(argv)
     summary = script(args)
