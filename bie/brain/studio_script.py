@@ -174,7 +174,8 @@ KHOLO = (   # the meaning is a hint in English, so the maker tells it in his own
     ("photolysis", ("photo", "lysis"), "photo = light; lysis = splitting"),
     ("biosynthetic", ("biosynthe",), "making the living body's own molecules"),
 )
-GLOSS = re.compile(r"(?<![a-z])(yaani|yani|matlab|kehte|kehlata|kehlati|kehlate|arth|naam hai)(?![a-z])|=", re.I)
+GLOSS = re.compile(r"yaani|yani|matlab|kehte|kehlata|kehlati|kehlate|kehlaata|kehlaati|arth|=", re.I)   # one word, next to the
+                                                                                                      # word it opens
 # a name the book writes as a short form or a formula (ATP, ETS, P680, CF₀, NADP⁺, ½O₂, Pᵢ): the learner meets it in the
 # book and in its figures, so the script says it (Claude's first 11.6.3 script never said ETS, P680, P700, B6f or ½O₂)
 NAME = re.compile(r"½?[A-Za-z][A-Za-z0-9₀-₉⁰-⁹⁺⁻ᵢ]*")
@@ -462,7 +463,7 @@ joined to the one before it, the way a story goes on. One spoken sentence, or tw
 exactly this form, nothing before or after it:
 
 FACTS
-f1 | <item id> | <book, word, base, label or extra> | <the book's word it is about, or nothing> | <the fact, one short line>
+f1 | <item id> | <book, word, base, label or extra> | <the book's word it is about (one label per line), or nothing> | <the fact, one short line>
 f2 | ...
 GOAL: <today's question>
 MISAAL: <the running picture, its main word first>
@@ -798,8 +799,12 @@ def unopened_words(heading: dict, chapter: dict, points: list, opened=frozenset(
             for t in longer:
                 if part in t:
                     s = s.replace(t, " ")
-            if re.search(r"(?<![a-z])" + re.escape(part), s) and GLOSS.search(s):
-                return True
+            words = re.findall(r"[a-z0-9]+|=", s)
+            for k, w in enumerate(words):           # its meaning said next to it, not somewhere in the sentence (s11:
+                if w.startswith(part) and (         # "... kehte hain; yahaan unhe ulte gradient ke khilaaf" passed)
+                        any(GLOSS.fullmatch(x) for x in words[k + 1:k + 4])
+                        or any(x in ("yaani", "yani") for x in words[max(0, k - 2):k])):
+                    return True
         return False
 
     out = []
@@ -831,6 +836,13 @@ def restates(sentence: str, book_lines: list, chapter: dict) -> bool:
 STOPWORDS = frozenset("the and that this with from for are was were which into its their than then also have has had been "
                       "being such these those them they what when where why how not but can will may only all any each one "
                       "two three four more most other some very just like through".split())
+
+
+def _names(term: str) -> list:
+    """The book's names a fact's term holds: one, or several joined by ";" (job s11 joined a figure's labels into one fact,
+    "Stroma (low H⁺); Stroma", and the check that the term is said made the maker say "PQ; PQH₂; Plastoquinone wale
+    carrier" aloud)."""
+    return [n.strip() for n in re.split(r"[;|]", term or "") if n.strip()]
 
 
 def _kind(fact: dict) -> str:
@@ -891,24 +903,27 @@ def padhai_problems(answer: dict, heading: dict, chapter: dict, points: list, op
                        "the story")
         text = _figure_text(row, items)
         for f in mine:
-            if (f.get("term") or "").strip() and not _in_text(f["term"], text):
-                out.append(f"fact {f.get('id')}: the figure {iid} has no label {f['term']!r}; use the labels it has")
+            for name in _names(f.get("term") or ""):    # joined labels are checked one by one, never asked said joined
+                if not _in_text(name, text):
+                    out.append(f"fact {f.get('id')}: the figure {iid} has no label {name!r}; use the labels it has")
     # each word and label is said by its book name where it is taught
     for f in facts:
-        term = (f.get("term") or "").strip()
-        if not term or _kind(f) not in ("word", "label"):
+        if _kind(f) not in ("word", "label"):
             continue
         users = [p for p in points if f.get("id") in (p.get("uses") or [])]
-        if users and not any(_term_in(term, " ".join(p.get("says") or [])) for p in users):
-            out.append(f"fact {f.get('id')}: {term!r} is never said in {', '.join(p.get('id') for p in users)}, which "
-                       "teaches it; say the book's word and explain it (a term is taught, never dropped)")
+        said = " ".join(line for p in users for line in p.get("says") or [])
+        for term in _names(f.get("term") or ""):
+            if users and not _term_in(term, said):
+                out.append(f"fact {f.get('id')}: {term!r} is never said in {', '.join(p.get('id') for p in users)}, "
+                           "which teaches it; say the book's word and explain it (a term is taught, never dropped)")
     # the book's short forms and formulas are all said
     unsaid = unsaid_names(heading, chapter, points)
     if unsaid:
         out.append("the book writes these here and no line says them: " + ", ".join(f"{n} ({i})" for n, i in unsaid[:12])
                    + "; say each where its line is taught (open it in plain words when the learner needs its meaning)")
     # the hard words inside the book's lines and terms are opened by themselves
-    for word, meaning in unopened_words(heading, chapter, points, opened, [f.get("term") or "" for f in facts]):
+    for word, meaning in unopened_words(heading, chapter, points, opened,
+                                        [n for f in facts for n in _names(f.get("term") or "")]):
         how = ("break it into its parts inside the teaching and tell what each part means" if len(dict(
             (w, p) for w, p, _ in KHOLO)[word]) > 1 else "tell what it means inside the teaching, joined to the line it serves")
         out.append(f"the book writes {word!r} here and no sentence opens it by itself: where it is first needed, {how}, in "
@@ -1029,6 +1044,11 @@ def teacher_problems(answer: dict, heading: dict, chapter: dict, points: list) -
                    "from what came before)")
     elif _words(goal) and len(_words(goal) & _words(" ".join(points[0].get("says") or []))) < 0.6 * len(_words(goal)):
         out.append(f"{points[0].get('id')}: open the heading with its goal (say \"{goal[:90]}\" as the first sentence)")
+    named = [t for t, _ in first_terms(heading) if goal and _term_in(t, goal)]
+    if named and number != RECAP:              # s11: "... proton gradient ke zariye ATP banane tak kaise pahunchti hai?"
+        out.append(f"\"goal\" names {named[0]!r}, which this heading opens, so today's question holds its own answer: ask "
+                   "it from what the learner already knows, as a puzzle the heading then solves, and let the new words come "
+                   "with the answer")
     if goal and number != RECAP and "?" not in goal:
         out.append("\"goal\" is today's question (rule A4): ask what this heading finds out, as a question the learner feels "
                    "(a puzzle, or a common wrong idea that opens the door), right after one line of what was just learned")

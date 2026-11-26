@@ -3289,3 +3289,22 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   step 1 and step 2 get the right system; a JSON without points falls back.
 - **Measured:** nothing new on the script yet; after: job s11, the first run of the lesson step.
 
+## Entry · 11.6.3 with the lesson step (job s11), 26 November 2026
+
+- **Run:** job s11 (₹0, 20.6 minutes, 4 rounds: 29, 6, 2, 0 problems; 532,413 tokens in, 46,060 out). The lesson
+  step ran for the first time: the step-1 text is in the record.
+- **Measured:** c2 one flow of 14 lines; c2–c3 in 40 lines (passed 38, s9 50); 6 questions in the heading (s9 18);
+  20 of 22 c2–c3 things fully, 2 half; everyday English 7.0 % (s9 5.9 %, passed 2.7 %); respiration pointed ahead the
+  B4 way.
+- **Taught:** (1) the step-1 facts joined a figure's labels into one term ("Stroma (low H⁺); Stroma", "PQ; PQH₂;
+  Plastoquinone"), and the check that a fact's term is said where taught made the maker say the joined string aloud in
+  the fix rounds; (2) "gradient" passed as opened because "kehte" stood in the same sentence ("... facilitated diffusion
+  kehte hain; yahaan unhe ulte gradient ke khilaaf ..."); (3) the goal named the heading's own new term, so the
+  question held its answer and no puzzle formed.
+- **Changed in BIE (branch `script-label-paheli`):** `_names` splits a term on ";" and every check runs per name (in
+  the figure, said where taught), so joined labels are accepted and never asked said joined; step 1 asks one label per
+  line; `unopened_words` needs a meaning word next to the word (within three words after it, or "yaani" just before);
+  the goal may not name a term the heading opens (the gold standard's puzzle names none).
+- **Measured before:** s11's 11.6.3 under the new checks: 3 problems (the goal; gradient and electrochemical not opened
+  next to the word); the gold standard: unchanged (only the heading's later steps). After: job s12.
+
