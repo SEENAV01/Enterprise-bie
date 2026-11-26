@@ -883,10 +883,25 @@ class KahaniPehle(unittest.TestCase):
                   for n, p in enumerate(passed["points"], 1)]
         answer = {"section": "11.6.3", "goal": passed["goal"], "misaal": passed["misaal"], "facts": passed["facts"],
                   "points": points, "bridge": "Ab dekhenge ki yeh dhalaan banti kaise hai."}
-        found = " | ".join(studio_script.problems(answer, heading, ch, [], []))
-        for rule in ("lines; a point teaches", "sentences ask the learner", "no \"kyun\"", "words in one sentence",
-                     "roles must give", "does not open with its question's words", "galat line"):
-            self.assertNotIn(rule, found)
+        found = studio_script.problems(answer, heading, ch, [], [])
+        # the gold standard (Navin, 26 Nov 2026: "sabhi niyam jo pdhane se script se jude hai uske hisab se taya hone
+        # chahiye"): no check of the script sends it back; what is left is only what the heading's later steps teach (the
+        # machine CF₀-CF₁ and its synthase, FNR, chemiosmosis, the checkpoint and the worked example of the whole heading)
+        later_steps = ("'chemiosmosis'", "FNR (p011-i1), CF₀ (p011-i1), CF₁ (p011-i1)", "'synthase'",
+                       "needs at least one checkpoint", "needs at least one worked example")
+        self.assertEqual([x for x in found if not any(step in x for step in later_steps)], [])
+        self.assertEqual(len(found), 6, found)
+
+    def test_rule_b4_points_back_or_ahead_with_no_fixed_formula(self):
+        rules = studio_script.messages(chapter(), studio_script.headings(chapter())[1], [],
+                                       course=chapter()["course"])[0]["content"]
+        self.assertIn('rule B4: no fixed formula, the context decides', rules)
+        self.assertIn('"jaisa humne dekha tha ..."', rules)
+        self.assertIn('"aage hum dekhenge ki ...; abhi ke liye bas itna jaan lo ki ..."', rules)
+        _, passed, _, _ = target()                 # the gold standard does both: the path walked again, respiration ahead
+        said = " ".join(line["says"] for p in passed["points"] for line in p["lines"])
+        self.assertIn("jo hum pehle padh chuke hain", said)
+        self.assertIn("aage respiration wale chapter mein", said)
 
     def test_the_lesson_is_read_and_its_lines_are_kept_word_for_word(self):
         part = parts()[2]
@@ -911,11 +926,26 @@ class KahaniPehle(unittest.TestCase):
         (first, schema1), (second, schema2) = client.calls[:2]
         self.assertIsNone(schema1)                            # step 1 is plain text
         self.assertIn("STEP 1 OF 2: THE LESSON, AS YOU SPEAK IT", first[-1]["content"])
+        self.assertNotIn(studio_script.JSON_ONLY, first[0]["content"])        # s10: told "JSON only", it answered JSON
+        self.assertIn(studio_script.TEXT_ONLY, first[0]["content"])
+        self.assertIn(studio_script.JSON_ONLY, second[0]["content"])
         self.assertIs(schema2, studio_script.SCHEMA)
         self.assertEqual(second[-1]["content"], studio_script.STRUCTURE_PROMPT)
         self.assertEqual(second[-2]["content"], lesson_of(written[0]))
         self.assertIn("lesson", record["rounds"][0]["rounds"][0])
         self.assertEqual(record["usage"], {"input_tokens": 200 * len(written), "output_tokens": 40 * len(written)})
+
+    def test_a_step_one_json_without_points_is_not_taken_for_the_heading(self):
+        # job s10: step 1 came back as a JSON object of facts with no points ("no points" in round 1)
+        written = parts()
+        texts = [{"section": "", "facts": [], "goal": written[0]["goal"]}, written[0]]
+        for part in written[1:]:
+            texts += [part]
+        client = RawClient(texts)
+        record = studio_script.write(client, "fake", chapter(), course=chapter()["course"])
+        self.assertEqual(record["problems"], {})
+        self.assertEqual(client.calls[1][1], studio_script.SCHEMA)          # the JSON asked for directly
+        self.assertIn("told_unread", record["rounds"][0]["rounds"][0])
 
     def test_a_maker_that_answers_with_json_at_once_is_taken_as_it_is(self):
         client = Client(parts())

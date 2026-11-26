@@ -57,6 +57,11 @@ Book → LLM → Remotion shortcut.
   wait on it is finished first; a reversible decision left unanswered proceeds on the recommended option and the report
   says so; money (budget, paid routes), security-sensitive changes and quality verdicts always wait for his answer; a
   message he sends mid-task is read into the running task, and only "ruko" stops it.
+- **The gold-standard script (Navin, 26 Nov 2026).** In his words: "ab hmare paas gold standard namuna script hai to wo
+  sabhi niyam jo pdhane se script se jude hai uske hisab se taya hone chahiye". The 11.6.3 rewrite he passed
+  (`bie/brain/namuna/script_11.6.3.json`) is the gold standard for the teaching script: every script rule is set by it,
+  a rule that would send it back is changed (never the namuna), and `tests/test_studio_script.py` (KahaniPehle) fails
+  if any script check rejects it.
 - **Caution lines stay off the screen (Navin, 30 Oct 2026).** Caution and fact-check lines ("मान लीजिए", "illustrative",
   "the source does not say") are background checks: they live in the records and the review pages, never on the learner's
   screen (rule D1-06 in `bie/brain/rulebook/visual_verbs.json`).

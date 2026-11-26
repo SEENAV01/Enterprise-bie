@@ -339,10 +339,15 @@ Rules:
   upar do atrium, neeche do ventricle"), and name that point in "recalls": the id of a point of an earlier
   heading as THE SCRIPT SO FAR shows it (like 11.5-k4), never an item id; when nothing earlier taught it, teach it here
   and say so in outside_book.
+- A process another heading teaches (Navin, 26 November 2026, rule B4: no fixed formula, the context decides): taught
+  before, recall it from "jaisa humne dekha tha ..." and tell the part this place needs, as fully as it needs (the whole
+  path when a figure here walks it, a single step when only that step matters here); taught later, or in another chapter,
+  say just enough for this line and point ahead: "aage hum dekhenge ki ...; abhi ke liye bas itna jaan lo ki ...". Never
+  one fixed list (what goes in, what comes out) where this place needs something else.
 - Terms: open each term marked ★ in this heading's items where it is first needed: tell the idea in plain words, then
   name the term on it (role term), and give its meaning in simple words in "terms". Never define again in "terms" a term
   the script already opened (its idea may still be recalled as a base). Do not use a technical term of a later heading
-  before it is opened, except as a pointer ("isko aage dekhenge").
+  before it is opened, except as a pointer ("aage hum dekhenge ki ...; abhi ke liye bas itna jaan lo ki ...").
 - "misaal": the heading's one running picture, its main word first ("shehar ki paani ki line: heart pump, arteries
   mukhya pipe, capillaries gali ki patli pipe"), told fully once and then recalled in a few words (role picture) at each
   later step it fits, so the whole heading hangs on one picture the learner keeps; small pictures for single ideas are
@@ -443,6 +448,8 @@ Rules:
   earlier point prepared.
 
 Ids: points {tag}-k1, {tag}-k2 ... in order. Answer with the JSON object only."""
+JSON_ONLY = "Answer with the JSON object only."
+TEXT_ONLY = "In step 1 answer with the plain-text lesson only, in the form it gives; the JSON object comes in step 2."
 
 LESSON_PROMPT = """
 
@@ -1397,17 +1404,19 @@ def write(client, model: str, chapter: dict, *, course: dict, naksha: dict | Non
         for number in range(1, max_rounds + 1):
             if number == 1 and kahani:
                 # pehle padhana, phir dhaancha: the lesson as the teacher speaks it, then its JSON (Navin, 26 November 2026)
-                spoken = [convo[0], dict(convo[1], content=convo[1]["content"] + LESSON_PROMPT)]
+                spoken = [dict(convo[0], content=convo[0]["content"].replace(JSON_ONLY, TEXT_ONLY)),
+                          dict(convo[1], content=convo[1]["content"] + LESSON_PROMPT)]
                 first = client.chat(model=model, messages=spoken)
                 for key in usage:
                     usage[key] += int((first.get("usage") or {}).get(key) or 0)
                 told = first.get("content", "")
                 lesson = parse_lesson(told)
                 if lesson:
-                    convo = spoken + [{"role": "assistant", "content": told}, {"role": "user", "content": STRUCTURE_PROMPT}]
+                    convo = [convo[0], spoken[1], {"role": "assistant", "content": told},     # the JSON-only system
+                             {"role": "user", "content": STRUCTURE_PROMPT}]
                     reply = client.chat(model=model, messages=convo, schema=SCHEMA)
-                elif isinstance(parse(told), dict):
-                    reply = first                    # the maker answered with the JSON at once
+                elif isinstance(parse(told), dict) and (parse(told) or {}).get("points"):
+                    reply = first                    # the maker answered with the whole JSON at once
                 else:
                     reply = client.chat(model=model, messages=convo, schema=SCHEMA)
             else:
@@ -1426,7 +1435,8 @@ def write(client, model: str, chapter: dict, *, course: dict, naksha: dict | Non
                 found = found + [LOCKED]
             elif facts:
                 locked = facts
-            these.append({"round": number, "problems": found} | ({"lesson": told} if number == 1 and lesson else {}))
+            told_record = ({"lesson": told} if lesson else {"told_unread": told[:6000]}) if number == 1 and told else {}
+            these.append({"round": number, "problems": found} | told_record)
             if not found:
                 break
             convo = convo + [{"role": "assistant", "content": reply.get("content", "")},

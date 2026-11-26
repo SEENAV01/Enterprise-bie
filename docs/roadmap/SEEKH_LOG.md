@@ -3269,3 +3269,23 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   steps teach (FNR, CF₀, CF₁, synthase, chemiosmosis) or a three-item cut of the heading (its checkpoint and example
   are in the later steps). s9 under the new rules: 0. After: job s10.
 
+## Entry · Job s10 did not run the lesson step; rule B4 and the gold standard, 26 November 2026
+
+- **Run:** job s10 (₹0, 17 minutes, 402,459 tokens in, 33,830 out): status needs_fix after 4 rounds (27, 7 and 2
+  problems after a first round with "no points"; left: "chemiosmotic" unopened, the facts changed after round 1).
+- **Taught:** the two-step writing of PR #219 never ran on the VM. Codex runs with BIE's lean instructions, which end
+  "reply with exactly one JSON object that matches the output schema", and the script rules end "Answer with the JSON
+  object only"; asked for a plain lesson, Codex answered with a JSON object of facts and no points, which BIE took as
+  the heading's answer. The offline tests passed because the fake client answers whatever it is given. s10 measures
+  nothing about the method.
+- **Changed in BIE (branch `script-b4-sona`):** `LEAN_INSTRUCTIONS_TEXT` for a call without an output schema ("reply
+  with exactly what the task asks for, in the form it gives"); step 1's system replaces "Answer with the JSON object
+  only" with "In step 1 answer with the plain-text lesson only ... the JSON object comes in step 2", and step 2 goes back
+  to the JSON-only system; a step-1 JSON without points is never taken for the heading (the JSON is asked directly) and
+  the unread text is kept in the record (`told_unread`); rule B4 (no fixed formula: "jaisa humne dekha tha ..." for what
+  was taught, "aage hum dekhenge ki ...; abhi ke liye bas itna jaan lo ki ..." for what comes later, as much as the place
+  needs); the gold-standard test fails on any problem beyond what the heading's later steps teach (Navin: every script
+  rule is set by the passed rewrite). Tests: a plain-text Codex call carries no JSON instruction and no output schema;
+  step 1 and step 2 get the right system; a JSON without points falls back.
+- **Measured:** nothing new on the script yet; after: job s11, the first run of the lesson step.
+

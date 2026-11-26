@@ -641,6 +641,18 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    speaks it in plain text and then its JSON with the lesson's lines word for word (code checks they match); kholo hints
    in English, to be told in the maker's own words inside the teaching; "samajh lete" read as a wrong idea said. Before:
    the passed c2–c3 under BIE's checks, 12 problems; after: 6, all what the heading's later steps teach. After: job s10.
+   **PR #219 merged (26 November 2026, 79b4a802).** **Job s10 (₹0, 17 minutes, needs_fix after 4 rounds) never ran
+   step 1:** Codex's lean instructions say "reply with exactly one JSON object" and the rules end "Answer with the JSON
+   object only", so step 1 came back as JSON without points ("no points"), and the heading went the old way (it ended with
+   "chemiosmotic" unopened and its facts changed after round 1). s10 says nothing about the two-step method. **Rule B4
+   settled (Navin, 26 November 2026):** no fixed formula; taught before, "jaisa humne dekha tha ..." and as much as this
+   place needs (the whole path when a figure walks it); taught later, "aage hum dekhenge ki ...; abhi ke liye bas itna
+   jaan lo ki ...". **The gold standard (Navin, 26 November 2026):** "ab hmare paas gold standard namuna script hai to wo
+   sabhi niyam jo pdhane se script se jude hai uske hisab se taya hone chahiye" (CLAUDE.md). **Branch `script-b4-sona`:**
+   a plain-text Codex call gets its own lean instructions (no JSON line); step 1's system says the plain lesson comes now
+   and the JSON in step 2; a step-1 JSON without points is not taken for the heading (the JSON is asked directly) and its
+   text is kept in the record; rule B4 in the script rules; the gold-standard test now fails on any problem beyond what
+   the heading's later steps teach. After: job s11.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
