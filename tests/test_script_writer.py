@@ -452,6 +452,7 @@ class ChapterJob(WriterBase):
         self.assertIn('heading(s) "" (the opening) were written earlier in this job', second)
         self.assertIn("--heading 11.6.1", second)
         self.assertIn("takes up the\n  question that heading left open", second)
+        self.assertIn("older script", self.task(1))                              # recap is still BIE's older script
         self.assertNotIn("older script", self.task(2))                           # nothing old is left after the last
         self.assertEqual((self.out / "YAADEIN_NEW.md").read_text(encoding="utf-8").count(": seekha"), 3)
         self.assertEqual(summary["usage"], {"input_tokens": 300, "output_tokens": 15})
@@ -488,6 +489,11 @@ class ChapterJob(WriterBase):
         self.assertNotIn("--fork-session", args)
         self.assertTrue(self.task().startswith("The plan's usage limit stopped you part-way"))
         self.assertIn("this copy writes heading 11.6.1 only", self.task())
+
+    def test_the_older_script_is_named_while_any_of_it_is_left(self):
+        # only the opening asked for: the other headings stay BIE's older script, so the note on them stays
+        self.vm_claude.chapter(self.args(videos="h0", keep="h11-6"), binary=str(self.fake), now=self.now)
+        self.assertIn("older script", self.task())
 
     def test_a_copy_that_touches_another_heading_has_it_put_back(self):
         summary = self.turn(FAKE_TOUCH="11.6")

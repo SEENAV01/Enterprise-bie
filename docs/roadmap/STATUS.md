@@ -815,6 +815,10 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    it waits for the window to open again and the stopped fork goes on where it stopped. Dry start on Chapter 11 (c6 for
    the chapter, c7 for 11.6.2): 19 headings to write, 11.6.2 and 11.7.2 kept word for word. IMPLEMENTED with offline
    tests; INTEGRATED once the first real heading comes back.
+   **PR #233 merged (28 November, `1a4ef0cc`); job k1 queued** (the opening and 11.1, from c6 with c7's 11.6.2, both
+   kept headings word for word), the rest after Navin's look. **Branch `chapter-old-note`:** the note on BIE's older
+   script is given while any heading of it is still in the script (it was keyed to the job's own list, so a job of two
+   headings left it out of the second).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
