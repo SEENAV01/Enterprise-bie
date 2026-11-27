@@ -1422,25 +1422,36 @@ def namuna(chapter: dict, heading: dict, directory=None) -> str:
     return ("\n\n".join(out) + "\n\n") if out else ""
 
 
+def heading_items(chapter: dict, heading: dict) -> str:
+    """A heading's items as the writer reads them: each book line whole (a figure's description ran past 300 letters),
+    what it needs first, and what a figure shows by name."""
+    items = chapter.get("items") or {}
+    rows = {r["id"]: r for r in heading.get("rows") or []}
+    lines = []
+    for iid in heading["items"]:
+        it = items[iid]
+        lines.append(f"- {iid}: {it.get('content', '')}")
+        if it.get("prerequisites"):
+            lines.append("  needs first (base facts): " + "; ".join(it["prerequisites"]))
+        if it.get("content_type") == "figure" or it.get("kind") in ("diagram", "figure"):
+            lines.append("  shows by name (label facts): " + ", ".join(label_candidates(rows.get(iid) or {"id": iid}, items)))
+    return "\n".join(lines)
+
+
+def _exercise_lines(chapter: dict) -> str:
+    items = chapter.get("items") or {}
+    return "\n".join(f"- {iid}: {items[iid].get('content', '')[:240]}" for iid in exercises(chapter)) or "(none)"
+
+
 def messages(chapter: dict, heading: dict, parts: list, *, course: dict, naksha: dict | None = None,
              language: str = "Hinglish", next_title: str = "") -> list:
     system = RULES.format(subject=course.get("subject") or "the subject", learners=course.get("learners") or "the learners",
                           exam=course.get("exam") or "their exam", language=language or "Hinglish", max_words=MAX_WORDS,
                           max_sentences=MAX_SENTENCES, tag=tag(heading["number"]), openers=TEACHER_OPENERS,
                           bolchaal=", ".join(f"\"{w}\"" for w, _, _ in BOLCHAAL))
-    items = chapter.get("items") or {}
     stars = [f"{term} (in {iid})" for term, iid in first_terms(heading)]
-    rows = {r["id"]: r for r in heading.get("rows") or []}
-    lines = []
-    for iid in heading["items"]:             # the whole line (a figure's description ran past 300 letters), what it needs
-        it = items[iid]                      # first, and what a figure shows by name
-        lines.append(f"- {iid}: {it.get('content', '')}")
-        if it.get("prerequisites"):
-            lines.append("  needs first (base facts): " + "; ".join(it["prerequisites"]))
-        if it.get("content_type") == "figure" or it.get("kind") in ("diagram", "figure"):
-            lines.append("  shows by name (label facts): " + ", ".join(label_candidates(rows.get(iid) or {"id": iid}, items)))
-    lines = "\n".join(lines)
-    exercise_lines = "\n".join(f"- {iid}: {items[iid].get('content', '')[:240]}" for iid in exercises(chapter)) or "(none)"
+    lines = heading_items(chapter, heading)
+    exercise_lines = _exercise_lines(chapter)
     user = (f"THE CHAPTER FILE\n\n{chapter_file.markdown(chapter)}\n\nTHE SCRIPT SO FAR\n\n{script_so_far(parts, chapter)}\n\n"
             f"IDEAS FROM THE TEACHING PLAN FOR THIS HEADING (use what serves; not the cut into videos)\n\n"
             f"{plan_ideas(naksha, heading['number'])}\n\n"
@@ -1452,6 +1463,105 @@ def messages(chapter: dict, heading: dict, parts: list, *, course: dict, naksha:
             f"Terms the chapter opens here: {', '.join(stars) if stars else '(none)'}\n"
             f"The next heading: {next_title or '(none: this is the last heading)'}")
     return [{"role": "system", "content": system}, {"role": "user", "content": user}]
+
+
+def heading_needs(chapter: dict, heading: dict, earlier: list, later_terms: list = ()) -> dict:
+    """What BIE's checks will ask of a heading before a line of it is written, from the same helpers the checks use (the
+    taught chat's seekh, job c3, 27 November 2026: it wrote an empty probe through the self-check to learn this, and
+    every probe was a turn that re-read its whole memory). ``earlier``: the parts before the heading."""
+    items = chapter.get("items") or {}
+    rows = {r["id"]: r for r in heading.get("rows") or []}
+    opened = memory(earlier)["terms"]
+    terms = [(t, iid) for t, iid in first_terms(heading) if not any(_same_term(t, k) for k in opened)]
+    needs = []
+    for iid in heading["items"]:
+        for need in (items.get(iid) or {}).get("prerequisites") or []:
+            if need not in [n for n, _ in needs]:
+                needs.append((need, iid))
+    figures = []
+    for iid in heading["items"]:
+        it = items.get(iid) or {}
+        if it.get("content_type") == "figure" or it.get("kind") in ("diagram", "figure"):
+            shown = label_candidates(rows.get(iid) or {"id": iid}, items)
+            figures.append({"item": iid, "labels": shown, "at_least": min(LABELS_FROM, len(shown))})
+    book = " ".join((items.get(iid) or {}).get("content", "") for iid in heading["items"])
+    return {"terms": terms, "needs_first": needs, "figures": figures,
+            "short_forms": unsaid_names(heading, chapter, []),
+            "words_to_open": unopened_words(heading, chapter, [], opened, []),
+            # a later heading's term that this heading's own lines write (RuBisCO in 11.7.2) is taught here, not held back
+            "later_terms": [t for t in dict.fromkeys(later_terms) if not _term_in(t, book)]}
+
+
+def needs_text(needs: dict) -> str:
+    """``heading_needs`` as the writer reads it."""
+    out = ["What BIE's checks will ask of this heading (the self-check runs the same checks; advice to weigh):"]
+    if needs["terms"]:
+        out.append("- Terms the chapter opens here, each with a word fact (its meaning in everyday words, its parts where "
+                   "they help) and said by its book name where it is taught: "
+                   + "; ".join(f"{t} ({i})" for t, i in needs["terms"]))
+    if needs["needs_first"]:
+        out.append("- What the learner must have in mind first, each recalled by a base fact (role known), even when an "
+                   "earlier heading taught it: " + "; ".join(f"{n} ({i})" for n, i in needs["needs_first"]))
+    for f in needs["figures"]:
+        out.append(f"- Figure {f['item']}: walk at least {f['at_least']} of its labels by name, each with what it shows and "
+                   f"why it is written so: {', '.join(f['labels'])}")
+    if needs["short_forms"]:
+        out.append("- Short forms and formulas the book writes here, each said where its line is taught: "
+                   + ", ".join(f"{n} ({i})" for n, i in needs["short_forms"]))
+    if needs["words_to_open"]:
+        out.append("- Hard words the book writes here, each opened by itself where it is first needed (the meaning is a hint "
+                   "for you, never words to copy): " + "; ".join(f"{w} ({m})" for w, m in needs["words_to_open"]))
+    if needs["later_terms"]:
+        out.append("- Opened in later headings: a line that needs one opens it in that point's terms or points ahead "
+                   "(\"isko aage dekhenge\"): " + ", ".join(needs["later_terms"]))
+    return "\n".join(out)
+
+
+def _section_text(chapter: dict, heading: dict) -> str:
+    """The heading's own part of the chapter file (its items with their terms, why steps, examples and exam notes)."""
+    name = " ".join(x for x in (heading["number"], heading["title"]) if x) or "Opening"
+    text = chapter_file.markdown(chapter)
+    start = text.find(f"\n## {name}\n")
+    if start < 0:
+        return ""
+    end = text.find("\n## ", start + 1)
+    return text[start + 1:end if end > 0 else len(text)].strip()
+
+
+def packet(chapter: dict, heading: dict, parts: list, *, naksha: dict | None = None, next_title: str = "",
+           later_terms: list = ()) -> str:
+    """BIE's packet for the Claude writer: what BIE gives Codex for one heading, made to read once (Navin, 27 November
+    2026: "bs dhundhna kam kar rahe hai"; job c3 took 83 turns, many of them narrow searches of the one-line chapter map,
+    and every turn re-read the taught chat's whole memory). It holds the heading's part of the chapter file, its items
+    with what each needs first and what a figure shows, what BIE's checks will ask, the plan's ideas, the heading just
+    before it in full, the terms already opened and the exercises. It stays short on purpose (everything in it is re-read
+    on every later turn); the whole chapter file and the script so far are written beside it, to search. The worked
+    example is left out: the taught chat wrote it, and the skill names its file."""
+    number = heading["number"]
+    earlier = list(parts)
+    stars = [f"{term} (in {iid})" for term, iid in first_terms(heading)]
+    before = script_so_far(earlier[-1:], chapter).split("\nTerms already opened")[0].strip() if earlier else \
+        "(nothing yet: this is the first heading)"
+    opened = sorted(memory(earlier)["terms"])
+    section = _section_text(chapter, heading)
+    out = [f"# BIE's packet: heading {number or 'the opening'} {heading['title']}", "",
+           "What BIE gives its other writer for this heading, made to read once. The whole chapter file is chapter.md and "
+           "the script so far is script-so-far.md, beside this file, one item or point per line: search them for anything "
+           "more (an earlier heading's picture, a later heading's term). chapter_map.json and script.json stay as they are.",
+           "", "## The heading in the chapter file", "", section or "(not in the chapter file's body sections)", "",
+           f"## Its items (each in exactly one point's teaches)", "", heading_items(chapter, heading), "",
+           f"Terms the chapter opens here: {', '.join(stars) if stars else '(none)'}",
+           f"The next heading: {next_title or '(none: this is the last heading)'}", "",
+           "## " + needs_text(heading_needs(chapter, heading, earlier, later_terms)), "",
+           "## Ideas from the teaching plan for this heading (use what serves; not the cut into videos)", "",
+           plan_ideas(naksha, number), "",
+           "## The heading just before it, as written", "", before, "",
+           "## Terms already opened in the script so far (only named from here on)", "",
+           ", ".join(opened) if opened else "(none)", "",
+           "## The chapter's exercises (the script holds the knowledge for each; list a point's in prepares)", "",
+           _exercise_lines(chapter),
+           f"Not yet prepared by any point: {', '.join(unprepared(chapter, earlier)) or '(none)'}"]
+    return "\n".join(out).rstrip() + "\n"
 
 
 def _fact_lines(answer) -> list:

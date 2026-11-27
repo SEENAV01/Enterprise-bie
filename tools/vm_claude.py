@@ -78,6 +78,12 @@ JSON as the other headings of {work}/script.json), and put each one into {work}/
 that number, keeping every other heading exactly as it is. The script so far is in {work}/script.json; the teaching
 plan's ideas are in {work}/naksha.json when that file exists.
 
+BIE's packet for each heading is {work}/packet-<number>.md: the heading's part of the chapter file, its items with what
+each needs first and what a figure shows by name, what BIE's checks will ask, the plan's ideas, the heading just before
+it and the terms already opened. Read it first. The whole chapter file ({work}/chapter.md) and the script so far
+({work}/script-so-far.md) are beside it, one item or point per line: search them for anything more you need.
+chapter_map.json and script.json stay as they are.
+
 For each heading, before you hand it over, run:
 {python} tools/script_writer_check.py --script {work}/script.json --chapter {work}/chapter_map.json --heading <number>
 and weigh its findings as the skill says. Then add a few lines to {work}/YAADEIN_NEW.md: the heading and what you
@@ -95,6 +101,32 @@ def headings_of(videos: str, chapter: dict) -> list:
     for h in studio_script.headings(chapter):
         if not wanted or h["number"] in wanted or studio_script.film_id(h["number"]) in wanted:
             out.append(h["number"])
+    return out
+
+
+def write_packets(work: Path, chapter: dict, so_far: dict, wanted: list, naksha: dict | None) -> list:
+    """BIE's packet for each heading the writer writes, and the whole chapter file and the script so far to search (Navin,
+    27 November 2026: "bs dhundhna kam kar rahe hai"; job c3 searched the one-line chapter map turn by turn). The raw
+    chapter_map.json and script.json are left as they are. Returns the packet files."""
+    from bie.brain import chapter_file, studio_script
+    (work / "chapter.md").write_text(chapter_file.markdown(chapter), encoding="utf-8")
+    parts = so_far.get("parts") or []
+    (work / "script-so-far.md").write_text(
+        "The script as it stood when this job began (the headings you write in this job are in script.json).\n\n"
+        + studio_script.script_so_far(parts, chapter) + "\n", encoding="utf-8")
+    heads = studio_script.headings(chapter)
+    order = [h["number"] for h in heads]
+    out = []
+    for number in wanted:
+        n = order.index(number)
+        nxt = heads[n + 1] if n + 1 < len(heads) else None
+        later = [t for h in heads[n + 1:] for t, _ in studio_script.first_terms(h) if studio_script._technical(t)]
+        earlier = [p for p in parts if p.get("section") in order[:n]]
+        path = work / f"packet-{number or 'opening'}.md"
+        path.write_text(studio_script.packet(chapter, heads[n], earlier, naksha=naksha, later_terms=later,
+                                             next_title=f"{nxt['number']} {nxt['title']}" if nxt else ""),
+                        encoding="utf-8")
+        out.append(path)
     return out
 
 
@@ -208,6 +240,7 @@ def script(args, *, run=subprocess.run, binary: str = "") -> dict:
         title = (chapter.get("map") or {}).get("chapter_title", "")
         so_far = old if isinstance(old, dict) and old.get("parts") else {"chapter_title": title, "parts": []}
         (work / "script.json").write_text(studio_script.dump(so_far), encoding="utf-8")
+        write_packets(work, chapter, so_far, wanted, plans if isinstance(plans, dict) else None)
         env = environment()
         binary = binary or shutil.which("claude") or "claude"
         base = base_session(env)

@@ -753,6 +753,23 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    forks beyond five deleted; `bie-claude-setup` step 3 keeps the key instead of teleporting. The first copy
    (`writer-chat-1`, ending on the reply of 03:43) is installed by hand with two lines Navin runs on the VM; its test
    shows whether the memory arrived whole.
+   **PR #227 merged (27 November).** The copy answered from the chat's memory (369,706 tokens with `opus`, no error).
+   **Job c3 (11.7.2, the Calvin cycle; 27 November 07:43–08:16):** 181 sentences, 15.8 words each, a quarter spoken to
+   the learner, BIE's checks 0 problems after one rewording round that added nothing (Codex s6 on the same heading: 85
+   sentences, 31 problems); 83 turns, 26.3 million tokens read (the memory re-read every turn). Navin's Usage screen:
+   one heading ≈ 14 % of a 5-hour session and ≈ 1 % of the week. His first reading: "script achhi bani hai bahut";
+   decisions in talk: the length stays, all nine teacher's extras stay, rule B3 holds at a film's two ends (the chat
+   missed "yaad rakhein" at the start and half-answered the closing question), padaav marks not now, one heading one
+   film made in parts and joined (as since 26 November). The 11.6.3 film (6 parts, 18.9 min) checked for joins: the
+   spoken flow holds, the colours do not (each part chose its own: electrons blue, red, blue, purple); a shared colour
+   list is film-section work, after the script section. **Branch `writer-packet`:** the Claude writer gets BIE's packet
+   for each heading (what BIE gives Codex, made to read once: the heading's part of the chapter file, its items with
+   what they need first and the figure's labels, what BIE's checks will ask, the plan's ideas, the heading before it,
+   the terms already opened, the exercises; about 36,000 characters for 11.7.2 against Codex's 382,000), with the
+   whole chapter file and the script so far beside it as searchable text (`chapter.md`, `script-so-far.md`; the raw
+   JSON files unchanged); `script_writer_check.py --needs` prints the checks' asks before writing. Codex's messages
+   are byte for byte the same (all 21 headings of Chapter 11 compared). Test next: 11.7.2 again with the same copy,
+   Usage before and after, kept only if the script holds.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

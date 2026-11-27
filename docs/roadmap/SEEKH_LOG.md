@@ -3405,3 +3405,20 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   memory; its tokens beside the 320k this chat held), then c3 (11.7.2): BIE's problems, voice measures, minutes, the
   plan usage it took, and Navin's reading beside the gold standard.
 
+
+## Entry · BIE's packet for the Claude writer, and `--needs`, 27 November 2026
+
+- **Taught by:** job c3 (11.7.2 by the taught chat's copy on the VM): a good script (0 problems, Navin: "script achhi
+  bani hai bahut") in 83 turns, and each turn re-read the chat's whole memory (about 3.2 lakh tokens; 26.3 million
+  read in all; ≈ 14 % of a 5-hour session on Navin's Usage screen). The chat wrote that it searched the one-line
+  chapter map in many narrow steps and built an empty probe to learn what the checks would ask. Codex never searched:
+  BIE handed it the heading's whole message.
+- **Changed in BIE (branch `writer-packet`):** `studio_script.packet` (the heading's part of the chapter file, its items,
+  what the checks will ask, the plan's ideas, the heading before it, the terms already opened, the exercises; short on
+  purpose, since everything read stays in every later turn) written by `vm_claude.write_packets` beside the raw files,
+  with `chapter.md` and `script-so-far.md` to search; `studio_script.heading_needs` and `script_writer_check.py
+  --needs` from the same helpers the checks use; `heading_items` shared with Codex's messages (unchanged, compared byte
+  for byte).
+- **Measured before:** c3: 83 turns, ≈ 14 % session, ≈ 1 % week, 181 sentences, 0 problems. **After:** 11.7.2 again
+  with the same copy: turns, Usage, and the script beside c3 (all 30 items taught, the recalls of earlier headings
+  kept, BIE's problems). Kept only if the script holds.
