@@ -1,0 +1,105 @@
+{
+ "schema": "bie.studio-run/1",
+ "section": "studio",
+ "stage": "script",
+ "status": "ok",
+ "maker": "claude (Claude Code on Navin's Claude plan, the bie-script-writer skill)",
+ "model": "opus, effort xhigh",
+ "cost": {
+  "total_inr": 0.0
+ },
+ "error": null,
+ "base_session": true,
+ "usage": {
+  "input_tokens": 6684963,
+  "output_tokens": 14852
+ },
+ "turns": 22,
+ "writer_reply": "11.7.2: 185 sentences, 0 problems left.\n\nVerdict lagu kar diya hai. Sirf B3 ke do sire badle hain, c3 ki baaki har line jaisi thi waisi hai:\n- **Shuruaat:** recap ki teesri line ab \"Yaad rakhein:\" se shuru hoti hai (CO₂ pakadte hi RuBP toot kar PGA ban jaata hai). Uske baad ek nayi line jodi hai, \"Aage hum dekhenge ki yahi ek baat ek badi paheli khadi kar deti hai\", jo aaj ke sawaal tak le jaati hai.\n- **Ant:** shuru ka sawaal (\"patti ka RuBP khatam kyun nahi hota?\") wapas aata hai aur uska jawab milta hai: jitna RuBP pehle kadam mein lagta hai, utna hi teesre kadam mein wapas ban jaata hai. Phir dukaan ki misaal se baat poori hoti hai. Aakhir mein sirf sawaal rehta hai, adhoora jawab nahi: \"C₄ paudhe alag kis baat mein hain, yeh aage hum dekhenge.\"\n- Dono points ke screen note nayi lines ke hisaab se badal diye.\n- **Chhoda gaya:** heading ke `bridge` field ko nahi chhua, kyunki verdict sirf boli jaane wali lines ke baare mein tha. Woh field ab bhi kuch shabdon mein batata hai ki C₄ paudhe kya karte hain, jo bacha nahi sunta. Use bhi poori tarah khula chahiye to ek line ka badlaav hai.\n\nBIE ki jaanch mein kamiyan 0 hain. Vakya 181 se 185 hue (+2%), har vakya mein ausat 15.9 shabd hain, aur ek-chauthai vakya bache se seedhi baat karte hain. Seekh `YAADEIN_NEW.md` mein likh di hai.",
+ "notional_usd": 3573.4722670249585,
+ "rewritten": [
+  "11.7.2"
+ ],
+ "problems": {},
+ "script": {
+  "headings": 21,
+  "points": 230,
+  "summary_taught": 11,
+  "summary": 11,
+  "exercises_prepared": 13,
+  "exercises": 13,
+  "checkpoints": 20,
+  "sentences": 1586,
+  "words": 26661,
+  "minutes": 205,
+  "covered": 156,
+  "coverable": 156,
+  "analogies": 21,
+  "examples": 27,
+  "real_world": 15,
+  "outside_book": 121,
+  "questions": 238,
+  "question_share": 0.148,
+  "fragments": 0,
+  "retells": 18,
+  "facts": 189,
+  "english_heavy": 222,
+  "english_share": 0.181,
+  "goals": 21,
+  "baatein": {
+   "book": 50,
+   "word": 54,
+   "base": 30,
+   "label": 41,
+   "extra": 14
+  },
+  "names_unsaid": 7,
+  "galat": 6,
+  "misaal": 3,
+  "bolchaal": 163,
+  "unopened": 1
+ },
+ "verdict": "Navin, 27 November 2026, on this heading as you wrote it in job c3: \"Bilkul c3 hi meri choice thi ... uske teacher ka bolne ka tarika\"; \"C3 is our golden benchmark after rectifying recap ke sath yaad rakhein ant mein shuru ka sawal aur khula chhodo.\" So change only two places, by rule B3 as he settled it (navin-ki-baatein.md): (1) the start: the recap of the last heading ends with \"yaad rakhein\" (the one thing to hold from it) and \"aage hum dekhenge\" leading into today's question; (2) the end: ask the opening question again (why the leaf's RuBP never runs out) and answer it, then leave the next heading's question open with \"aage hum dekhenge\", never half answered (now it ends \"...apna khaas tareeka rakhte hain; yeh agle hisse mein khulega\"). The screen notes of those points follow the new lines. Every other line, point and field stays word for word.",
+ "verdict_changes": {
+  "points_changed": [
+   {
+    "id": "11.7.2-k1",
+    "added": false,
+    "removed": false,
+    "lines_removed": [
+     "Matlab CO₂ pakadte hi woh RuBP, RuBP nahi raha; woh toot kar PGA ban gaya."
+    ],
+    "lines_added": [
+     "Yaad rakhein: CO₂ pakadte hi woh RuBP, RuBP nahi rehta; woh toot kar PGA ban jaata hai.",
+     "Aage hum dekhenge ki yahi ek baat ek badi paheli khadi kar deti hai."
+    ],
+    "fields": [
+     "roles",
+     "screen"
+    ]
+   },
+   {
+    "id": "11.7.2-k13",
+    "added": false,
+    "removed": false,
+    "lines_removed": [
+     "C₄ paudhe alag isliye hain, kyunki woh CO₂ ko is chakkar tak pahunchane ka apna khaas tareeka rakhte hain; yeh agle hisse mein khulega."
+    ],
+    "lines_added": [
+     "Ab shuru wala sawaal phir se: har CO₂ par ek RuBP kharch hota hai, toh patti ka RuBP khatam kyun nahi hota?",
+     "RuBP khatam isliye nahi hota, kyunki jitna RuBP pehle kadam mein lagta hai, utna hi teesre kadam mein wapas ban jaata hai.",
+     "Bilkul wahi dukaan jo shuru mein dekhi: poonji roz lagti hai, shaam ko wapas thaili mein aa jaati hai, aur ghar sirf kamaai jaati hai.",
+     "C₄ paudhe alag kis baat mein hain, yeh aage hum dekhenge."
+    ],
+    "fields": [
+     "roles",
+     "screen"
+    ]
+   }
+  ],
+  "points_same": 11,
+  "fields_changed": []
+ },
+ "forks_deleted": 0,
+ "minutes": 3.6
+}
