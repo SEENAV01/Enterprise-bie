@@ -770,6 +770,17 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    JSON files unchanged); `script_writer_check.py --needs` prints the checks' asks before writing. Codex's messages
    are byte for byte the same (all 21 headings of Chapter 11 compared). Test next: 11.7.2 again with the same copy,
    Usage before and after, kept only if the script holds.
+   **PR #228 merged and tested (job c5):** 63 turns (c3: 83), 18.2 million tokens read (c3: 26.3), ≈ 12 % of a session
+   (5 → 17 %), 0 problems, a new picture (dahi aur jaman), finer exam points but less of c3's why. **Navin's verdict
+   (27 November):** c3 is his choice ("uske teacher ka bolne ka tarika") and the golden benchmark after B3's two ends
+   are fixed; the exam's fine points join c3's way; the packet is taken out ("packet needs wala option bhi hata do khi
+   usse kuchh negative effect na ho jaaye"). **Branch `writer-verdict`:** the packet and `--needs` retired (PR #228's
+   code reverted; the records stay), a `verdict` field for Claude script jobs (the writer applies Navin's verdict to one
+   heading of the run he judged and keeps every other line word for word; the summary lists each changed line), and
+   his words in the skill's `navin-ki-baatein.md` and `yaadein.md`. **The copy is not refreshed:** this chat compacted
+   on 27 November at 06:03, so a new copy would hold the gold days only as a summary, while `writer-chat-1` (which
+   wrote c3) holds them in full; his later verdicts reach it through `yaadein.md` and `navin-ki-baatein.md`, which it
+   reads before every job. Next: job c6 applies the verdict to c3 (start and end only).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

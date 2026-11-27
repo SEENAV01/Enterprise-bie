@@ -48,6 +48,10 @@ each entry says what it replaced. Sources: this repository's `docs/roadmap/STATU
 - "ab hmare paas gold standard namuna script hai to wo sabhi niyam jo pdhane se script se jude hai uske hisab se taya
   hone chahiye". A rule that sends the gold standard back changes; the gold standard does not.
 - When he says "namuna" he means "tumhare wala 23 lines wala c2" (and c3), Claude's passed script.
+- **27 Nov, a heading written on the VM:** "C3 is our golden benchmark after rectifying recap ke sath yaad rakhein ant
+  mein shuru ka sawal aur khula chhodo": job c3's 11.7.2 (the Calvin cycle, by the taught chat's copy) is the benchmark
+  for a whole heading once its start and end follow B3. "Jo c3 likh raha hai wohi rakhna hai bas wo jis dhang se kaam
+  kar rha hai wo shi hai."
 
 ## Verdicts on BIE's scripts (what "close" means)
 
@@ -57,6 +61,12 @@ each entry says what it replaced. Sources: this repository's `docs/roadmap/STATU
   se hi clear ho rha hai kon teacher ki tarah samjha rha hai aur kaun ab bhi jyu ka tyo likh rha hai cheejon ko ...
   Mujhe tumhare jaisi hi script wala output chahiye". (Gold: 15 words a sentence, a quarter spoken to the child, each
   fact in several short sentences; s11: 18 words, each fact packed into one.)
+- **c3 and c5, 27 Nov (11.7.2 twice by the same copy):** he chose c3 for "uske teacher ka bolne ka tarika" (dukaan ki
+  poonji carrying the whole cycle, "ruko, pehle khud socho" at the heading's real turn, the why steps); the length stays
+  ("abhi theek hai yaar jo bana hai achha bana hai") and all nine teacher's extras stay ("yeh kaam ko achha hi bana rahi
+  h bigad nhi rahi to 9 ki 9 theek hai"). From c5 only these join c3's way: B3's two ends (below) and the exam's fine
+  points (below). The packet test (c5) is kept out: "packet needs wala option bhi hata do khi usse kuchh negative effect
+  na ho jaaye".
 - **26 Nov:** he moved script writing to Claude: "mai tumhe script bnane ke kaam mein lagana chahta hun ... taaki script
   achhi bane"; "mujhe hubahu tumhare jaisi script chahiye".
 
@@ -66,6 +76,17 @@ each entry says what it replaced. Sources: this repository's `docs/roadmap/STATU
   words, for all questions.
 - **B3:** recap in 3–4 sentences (~25 s); the chapter's first film recalls the last chapter's key point; it ends with
   "yaad rakhein" and "aage hum dekhenge".
+  **27 Nov, both ends of a film:** the start recaps the last film and says "yaad rakhein" (the one thing to hold) and
+  "aage hum dekhenge" into today's question; the end asks the opening question again and answers it, then leaves the
+  next film's question open with "aage hum dekhenge", never half answered ("video ke khatam hone par bhi lagta hai jahan
+  hum aage dekhenge se agli video ka premise taiyar karte hai"). Inside one film: a thing said a minute ago gets a
+  one-line pointer ("wahi … jo abhi dekha"); an older film's thing "yaad karo" and one or two lines; a later film's
+  thing a one-line seed with no answer ("yeh aage … mein dekhenge").
+- **Exam ki baareek baatein (27 Nov):** inside c3's way, where the book's own words hide an exam trap, open it in a line
+  or two at that moment: c5's "the 3 of 3-PGA is the phosphate's place, the 3 of C₃ counts carbons", why the figure
+  writes "glycerate", the book's NADP is NADP⁺ once it has given its electrons, "dark reaction" is not darkness. "C3 ko
+  hi aur behtar kar rahe hai yeh exam ki bareek baatein … jodi ja sakti hai maujuda style mein." (N4, tying a film to
+  the chapter's NEET questions, is still to talk through.)
 - **C1:** before every machine or meeting of molecules, a short question (as in his film A).
 - **C2:** a question's opening words stay; the answer starts with the question's words, e.g. "Lautne ke liye energy
   isliye nahi lagti kyunki ...".

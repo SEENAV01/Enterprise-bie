@@ -18,3 +18,32 @@ session. When it grows past about 300 lines, fold old entries into the skill or 
   is pending, so they are not gold.
 - Every plain-text call BIE sent Codex ended "Reply with one JSON object" (fixed in PR #224); if a BIE message seems to
   ask for two forms, follow the task's own form.
+
+## 2026-11-27 · Chapter 11, heading 11.7.2 (Calvin cycle) · job c3, the taught chat's copy on the VM
+
+- First heading written on the VM by the copy of the chat Navin taught (PR #227), a heading it had never written.
+  181 sentences, 15.8 words each, 25 % spoken to the learner, 57 facts (9 teacher's extras); BIE's checks 0 problems
+  after one rewording round that added nothing. Codex s6 on the same heading: 85 sentences, 18.4 words, 31 problems,
+  English-heavy ("carbon ledger", "acceptor pool").
+- Puzzle: every CO₂ uses up one RuBP, so why does the leaf never run out? The deeper turn held for regeneration with
+  "ruko, pehle khud socho: RuBP ke paanch carbon kahan se aayenge?". Running picture: dukaan ki poonji (RuBP = poonji,
+  CO₂ = naya rupaya, ATP + NADPH = bijli-mazdoori, sugar = kamaai), which carries the count exactly (₹15 + ₹3, ₹15
+  back, ₹3 kamaai), why regeneration matters ("jo dukaandar poonji kha jaaye, uski dukaan agle din nahi khulti") and
+  why RuBP is not in the In/Out table.
+- Cost (Navin's Usage screen): one heading ≈ 14 % of a 5-hour session and ≈ 1 % of the week; 83 turns, each re-reading
+  the whole memory.
+
+## 2026-11-27 · heading 11.7.2 again · job c5, the same copy with a packet from BIE (kept out)
+
+- 209 sentences, all 11 items, 0 problems; 63 turns, ≈ 12 % of a session. A new picture (dahi aur jaman) and finer exam
+  points, but less of c3's why and no "ruko" at the real turn. The same copy writes differently each time: the way is
+  what holds, not the lines.
+
+## 2026-11-27 · Navin's verdict on c3 and c5
+
+- "Bilkul c3 hi meri choice thi … uske teacher ka bolne ka tarika". "C3 is our golden benchmark after rectifying recap
+  ke sath yaad rakhein ant mein shuru ka sawal aur khula chhodo." Keep c3's way; within it add the exam's fine points
+  and B3's two ends (`navin-ki-baatein.md`, B3 and "Exam ki baareek baatein"). The packet is taken out again ("packet
+  needs wala option bhi hata do").
+- What c3 missed: "yaad rakhein" in the opening recap, and its closing question was half answered ("…apna khaas
+  tareeka rakhte hain"); c5 asked the opening question again at the end and left the next one open.

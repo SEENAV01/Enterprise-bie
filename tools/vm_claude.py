@@ -70,20 +70,30 @@ put nothing of the chat itself into the work files beyond what the script needs 
 
 """
 
-TASK = """Use the bie-script-writer skill: read .claude/skills/bie-script-writer/SKILL.md and the files it names before you
-write. Course: {course}. Language: {language}.
-
-Write the script of heading(s) {headings} of the chapter in {work}/chapter_map.json, in BIE's script format (the same
+WRITE = """Write the script of heading(s) {headings} of the chapter in {work}/chapter_map.json, in BIE's script format (the same
 JSON as the other headings of {work}/script.json), and put each one into {work}/script.json in place of the heading with
 that number, keeping every other heading exactly as it is. The script so far is in {work}/script.json; the teaching
 plan's ideas are in {work}/naksha.json when that file exists.
+"""
 
-BIE's packet for each heading is {work}/packet-<number>.md: the heading's part of the chapter file, its items with what
-each needs first and what a figure shows by name, what BIE's checks will ask, the plan's ideas, the heading just before
-it and the terms already opened. Read it first. The whole chapter file ({work}/chapter.md) and the script so far
-({work}/script-so-far.md) are beside it, one item or point per line: search them for anything more you need.
-chapter_map.json and script.json stay as they are.
+# A verdict on a heading the writer wrote in an earlier run (Navin, 27 November 2026: "C3 is our golden benchmark after
+# rectifying recap ke sath yaad rakhein ant mein shuru ka sawal aur khula chhodo"): the writer applies it to that heading
+# and keeps every other line, so what he chose stays what he chose.
+VERDICT = """Navin gave his verdict on heading {headings} as it stands in {work}/script.json (you wrote it in an earlier job,
+and he chose it):
 
+{verdict}
+
+Apply the verdict to that heading in {work}/script.json and to nothing else: change only the lines and fields the verdict
+is about, and keep every other point, line and field of the heading word for word as it is; every other heading stays
+exactly as it is. The chapter is in {work}/chapter_map.json; the teaching plan's ideas are in {work}/naksha.json when
+that file exists.
+"""
+
+TASK = """Use the bie-script-writer skill: read .claude/skills/bie-script-writer/SKILL.md and the files it names before you
+write. Course: {course}. Language: {language}.
+
+{job}
 For each heading, before you hand it over, run:
 {python} tools/script_writer_check.py --script {work}/script.json --chapter {work}/chapter_map.json --heading <number>
 and weigh its findings as the skill says. Then add a few lines to {work}/YAADEIN_NEW.md: the heading and what you
@@ -101,32 +111,6 @@ def headings_of(videos: str, chapter: dict) -> list:
     for h in studio_script.headings(chapter):
         if not wanted or h["number"] in wanted or studio_script.film_id(h["number"]) in wanted:
             out.append(h["number"])
-    return out
-
-
-def write_packets(work: Path, chapter: dict, so_far: dict, wanted: list, naksha: dict | None) -> list:
-    """BIE's packet for each heading the writer writes, and the whole chapter file and the script so far to search (Navin,
-    27 November 2026: "bs dhundhna kam kar rahe hai"; job c3 searched the one-line chapter map turn by turn). The raw
-    chapter_map.json and script.json are left as they are. Returns the packet files."""
-    from bie.brain import chapter_file, studio_script
-    (work / "chapter.md").write_text(chapter_file.markdown(chapter), encoding="utf-8")
-    parts = so_far.get("parts") or []
-    (work / "script-so-far.md").write_text(
-        "The script as it stood when this job began (the headings you write in this job are in script.json).\n\n"
-        + studio_script.script_so_far(parts, chapter) + "\n", encoding="utf-8")
-    heads = studio_script.headings(chapter)
-    order = [h["number"] for h in heads]
-    out = []
-    for number in wanted:
-        n = order.index(number)
-        nxt = heads[n + 1] if n + 1 < len(heads) else None
-        later = [t for h in heads[n + 1:] for t, _ in studio_script.first_terms(h) if studio_script._technical(t)]
-        earlier = [p for p in parts if p.get("section") in order[:n]]
-        path = work / f"packet-{number or 'opening'}.md"
-        path.write_text(studio_script.packet(chapter, heads[n], earlier, naksha=naksha, later_terms=later,
-                                             next_title=f"{nxt['number']} {nxt['title']}" if nxt else ""),
-                        encoding="utf-8")
-        out.append(path)
     return out
 
 
@@ -216,6 +200,26 @@ def base_session(env: dict) -> str:
     return path.read_text(encoding="utf-8").strip() if path.exists() else ""
 
 
+def changes(before: dict, after: dict) -> dict:
+    """What a verdict job changed in one heading, point by point and line by line, so the review shows that every line
+    outside the verdict stayed as Navin chose it."""
+    old = {p.get("id"): p for p in before.get("points") or []}
+    new = {p.get("id"): p for p in after.get("points") or []}
+    points = []
+    for pid in list(dict.fromkeys(list(old) + list(new))):
+        a, b = old.get(pid) or {}, new.get(pid) or {}
+        if a == b:
+            continue
+        says_a, says_b = list(a.get("says") or []), list(b.get("says") or [])
+        points.append({"id": pid, "added": not a, "removed": not b,
+                       "lines_removed": [s for s in says_a if s not in says_b],
+                       "lines_added": [s for s in says_b if s not in says_a],
+                       "fields": sorted(k for k in set(a) | set(b) if k != "says" and a.get(k) != b.get(k))})
+    fields = sorted(k for k in set(before) | set(after) if k != "points" and before.get(k) != after.get(k))
+    return {"points_changed": points, "points_same": sum(1 for pid in old if old[pid] == new.get(pid)),
+            "fields_changed": fields}
+
+
 def script(args, *, run=subprocess.run, binary: str = "") -> dict:
     import vm_studio
     from bie.brain import studio_script
@@ -240,15 +244,18 @@ def script(args, *, run=subprocess.run, binary: str = "") -> dict:
         title = (chapter.get("map") or {}).get("chapter_title", "")
         so_far = old if isinstance(old, dict) and old.get("parts") else {"chapter_title": title, "parts": []}
         (work / "script.json").write_text(studio_script.dump(so_far), encoding="utf-8")
-        write_packets(work, chapter, so_far, wanted, plans if isinstance(plans, dict) else None)
         env = environment()
         binary = binary or shutil.which("claude") or "claude"
         base = base_session(env)
         if not base and not getattr(args, "fresh", False):
             raise SystemExit("the chat Navin taught is not on this machine yet (sudo bie-claude-setup, step 3); "
                              "a job without it needs \"fresh\": true")
+        verdict = (getattr(args, "verdict", "") or "").strip()
+        if verdict and (len(wanted) != 1 or not any(p.get("section") == wanted[0] for p in so_far.get("parts") or [])):
+            raise SystemExit("verdict: one heading, written in the run it judges (from_run)")
+        job = (VERDICT if verdict else WRITE).format(headings=", ".join(wanted), work=work, verdict=verdict)
         task = (TAUGHT if base else "") + TASK.format(course=args.course or "", language=args.language or "Hinglish",
-                                                      headings=", ".join(wanted), work=work, python=sys.executable)
+                                                      job=job, work=work, python=sys.executable)
         model = model_of(env)
         cmd = command(task, work, binary=binary, base=base, model=model, env=env)
         summary["base_session"] = bool(cmd.count("--fork-session"))
@@ -307,6 +314,11 @@ def script(args, *, run=subprocess.run, binary: str = "") -> dict:
             shutil.copy(work / "YAADEIN_NEW.md", out / "YAADEIN_NEW.md")
         summary.update(status="ok" if not problems else "needs_fix", rewritten=wanted, problems=problems,
                        script=studio_script.counts(chapter, record["parts"]))
+        if verdict:
+            before = next(p for p in so_far["parts"] if p.get("section") == wanted[0])
+            after = next((p for p in written.get("parts") or [] if p.get("section") == wanted[0]), {})
+            summary["verdict"] = verdict
+            summary["verdict_changes"] = changes(before, after)
     except SystemExit as exc:
         summary["error"] = str(exc)
     except Exception as exc:                        # the runner publishes the folder either way; the error says why
@@ -456,6 +468,7 @@ def main(argv=None) -> int:
     parser.add_argument("--url", default="")                 # stage copy: the locked copy of the taught chat
     parser.add_argument("--sha256", default="")
     parser.add_argument("--tokens", default="0")
+    parser.add_argument("--verdict", default="")              # stage script: Navin's verdict on one heading of from_run
     parser.add_argument("--out", required=True)
     args = parser.parse_args(argv)
     if args.stage == "copy":

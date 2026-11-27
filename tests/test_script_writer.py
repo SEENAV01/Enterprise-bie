@@ -91,53 +91,6 @@ class SelfCheck(unittest.TestCase):
                 script_writer_check.check({"parts": parts()}, chapter(), "9.9")
 
 
-class Needs(unittest.TestCase):
-    """What BIE's checks will ask of a heading, before it is written (the taught chat's seekh, job c3, 27 November 2026:
-    an empty probe through the self-check cost turns)."""
-
-    def test_needs_names_what_the_checks_ask_for(self):
-        found = script_writer_check.needs(chapter(), "11.6", {"parts": parts()})
-        heading = next(h for h in studio_script.headings(chapter()) if h["number"] == "11.6")
-        for key in ("terms", "needs_first", "figures", "short_forms", "words_to_open", "later_terms"):
-            self.assertIn(key, found)
-        self.assertLessEqual({t for t, _ in found["terms"]}, {t for t, _ in studio_script.first_terms(heading)})
-        # every word fact the checks ask of an empty heading is one --needs named, so the list is the checks' own
-        empty = {"section": "11.6", "goal": "", "facts": [], "bridge": "",
-                 "points": [{"id": "11.6-k1", "kind": "explain", "teaches": heading["items"], "says": ["Ek line."],
-                             "roles": ["plain"]}]}
-        earlier = [p for p in parts() if p.get("section") != "11.6"][:1]
-        asked = [m.group(1) for line in studio_script.problems(empty, heading, chapter(), earlier, [])
-                 for m in [re.match(r"no word fact tells what '(.+?)' \(first met", line)] if m]
-        self.assertTrue(asked)
-        self.assertLessEqual(set(asked), {t for t, _ in script_writer_check.needs(chapter(), "11.6",
-                                                                               {"parts": earlier + [empty]})["terms"]})
-
-    def test_the_command_prints_needs_without_a_script(self):
-        with tempfile.TemporaryDirectory() as folder:
-            chap = Path(folder) / "chapter.json"
-            chap.write_text(json.dumps(chapter()), encoding="utf-8")
-            printed = io.StringIO()
-            with redirect_stdout(printed):
-                script_writer_check.main(["--needs", "--chapter", str(chap), "--heading", "11.6"])
-            self.assertIn("What BIE's checks will ask", printed.getvalue())
-            with self.assertRaises(SystemExit):                     # the plain check still needs the script
-                script_writer_check.main(["--chapter", str(chap), "--heading", "11.6"])
-
-    def test_the_packet_is_bies_message_made_short(self):
-        heading = next(h for h in studio_script.headings(chapter()) if h["number"] == "11.6")
-        order = [h["number"] for h in studio_script.headings(chapter())]
-        earlier = [p for p in parts() if p.get("section") in order[:order.index("11.6")]]
-        text = studio_script.packet(chapter(), heading, earlier, next_title="11.7 Next")
-        self.assertIn(studio_script.heading_items(chapter(), heading), text)          # the items, as Codex reads them
-        self.assertIn("What BIE's checks will ask", text)
-        self.assertIn("The heading just before it", text)
-        self.assertIn("The next heading: 11.7 Next", text)
-        self.assertIn("chapter.md", text)                                            # the rest is beside it, to search
-        whole = studio_script.messages(chapter(), heading, earlier, course={})[1]["content"]
-        self.assertLess(len(text), len(whole))
-        self.assertNotIn("A WORKED EXAMPLE OF THE WAY", text)                         # the taught chat wrote it
-
-
 if __name__ == "__main__":
     unittest.main()
 
@@ -163,11 +116,8 @@ if task.startswith("Teen chhote jawab do"):                     # the copy's tes
                       "result": "(1) 11.6.3 ka c2-c3; Navin: bilkul passed (2) B8: film script ki lines hubahu (3) Navin ki",
                       "usage": {"input_tokens": 10, "cache_read_input_tokens": int(os.environ.get("FAKE_COPY_TOKENS", "300000"))}}))
     sys.exit(0)
-work = re.search(r"(\S+)/script\.json in place", task).group(1)
+work = re.search(r"(\S+)/script\.json(?: in place| \(you wrote)", task).group(1)
 written = json.loads(open(os.environ["FAKE_PART"]).read())
-packet = work + "/packet-" + written["section"] + ".md"
-open(log + ".work", "w").write(json.dumps({"files": sorted(os.listdir(work)),
-                                           "packet": open(packet).read() if os.path.exists(packet) else ""}))
 script = json.load(open(work + "/script.json"))
 script["parts"] = [written if p.get("section") == written["section"] else p for p in script["parts"]]
 open(work + "/script.json", "w").write(json.dumps(script))
@@ -258,17 +208,6 @@ class VmClaude(WriterBase):
         self.assertIn("bie-script-writer", call["args"][call["args"].index("-p") + 1])
         self.assertNotIn("You are the chat Navin taught", call["args"][call["args"].index("-p") + 1])
 
-    def test_the_writer_gets_bies_packet_beside_the_raw_files(self):
-        self.vm_claude.script(self.args(fresh=True), binary=str(self.fake))
-        seen = json.loads(Path(self.env["FAKE_LOG"] + ".work").read_text())
-        for name in ("packet-11.6.md", "chapter.md", "script-so-far.md", "chapter_map.json", "script.json"):
-            self.assertIn(name, seen["files"])
-        self.assertIn("BIE's packet: heading 11.6", seen["packet"])
-        self.assertIn("What BIE's checks will ask", seen["packet"])
-        task = self.call()["args"][self.call()["args"].index("-p") + 1]
-        self.assertIn("packet-<number>.md", task)
-        self.assertIn("Read it first", task)
-
     def test_a_base_session_is_forked_for_every_job(self):
         (Path(self.env["CLAUDE_CONFIG_DIR"]) / "BASE_SESSION").write_text("session-taught\n")
         summary = self.vm_claude.script(self.args(), binary=str(self.fake))
@@ -279,6 +218,42 @@ class VmClaude(WriterBase):
         task = call["args"][call["args"].index("-p") + 1]
         self.assertTrue(task.startswith("You are the chat Navin taught"))       # its memory first, the skill a reminder
         self.assertIn("follow his latest word", task)
+
+    def test_a_verdict_is_applied_to_the_heading_and_the_change_is_recorded(self):
+        # Navin, 27 November 2026: c3 is the golden benchmark once its start and end follow B3; the writer applies it
+        (Path(self.env["CLAUDE_CONFIG_DIR"]) / "BASE_SESSION").write_text("session-taught\n")
+        words = "Navin: shuruaat mein recap ke saath 'yaad rakhein'; baaki har line jaisi hai waisi."
+        summary = self.vm_claude.script(self.args(verdict=words), binary=str(self.fake))
+        self.assertIn(summary["status"], ("ok", "needs_fix"), summary.get("error"))
+        task = self.call()["args"][self.call()["args"].index("-p") + 1]
+        self.assertTrue(task.startswith("You are the chat Navin taught"))
+        self.assertIn("Navin gave his verdict on heading 11.6", task)
+        self.assertIn(words, task)
+        self.assertIn("word for word", task)
+        self.assertNotIn("Write the script of heading", task)
+        changed = summary["verdict_changes"]
+        self.assertEqual([p["id"] for p in changed["points_changed"]], [parts()[1]["points"][0]["id"]])
+        self.assertEqual(changed["points_changed"][0]["lines_added"],
+                         ["Yeh nayi line hai jo teacher ki tarah samjhati hai."])
+        self.assertEqual(changed["points_changed"][0]["lines_removed"], [])
+        self.assertEqual(changed["points_same"], len(parts()[1]["points"]) - 1)
+        self.assertEqual(summary["verdict"], words)
+
+    def test_a_verdict_needs_the_heading_it_judges(self):
+        (Path(self.env["CLAUDE_CONFIG_DIR"]) / "BASE_SESSION").write_text("session-taught\n")
+        (self.run_dir / "script.json").write_text(json.dumps({"chapter_title": "Ch", "parts": parts()[:1]}),
+                                                  encoding="utf-8")
+        summary = self.vm_claude.script(self.args(verdict="Navin ka verdict, lambi si baat yahan."),
+                                        binary=str(self.fake))
+        self.assertEqual(summary["status"], "failed")
+        self.assertIn("verdict: one heading", summary["error"])
+        self.assertFalse(Path(self.env["FAKE_LOG"]).exists())
+
+    def test_the_writer_gets_no_packet(self):
+        # Navin, 27 November 2026: "packet needs wala option bhi hata do" (the c5 test, kept out)
+        self.vm_claude.script(self.args(fresh=True), binary=str(self.fake))
+        task = self.call()["args"][self.call()["args"].index("-p") + 1]
+        self.assertNotIn("packet", task)
 
     def test_without_the_taught_chat_a_job_stops_unless_it_says_fresh(self):
         summary = self.vm_claude.script(self.args(), binary=str(self.fake))       # Navin, 26 November: the writer is that chat
@@ -316,6 +291,15 @@ class VmClaude(WriterBase):
         with self.assertRaises(codex_vm.JobError):                               # fresh belongs to the Claude writer only
             codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "c3-bad-test", "section": "studio", "stage": "script",
                                "from_run": "https://x/run", "fresh": True})
+        words = "Navin: c3 hi rakho; shuruaat mein yaad rakhein, ant mein khula sawaal."
+        cmd = codex_vm.argv(codex_vm.validate(dict(job, id="c6-verdict-test", verdict=words)), Path("/tmp/o"))
+        self.assertEqual(cmd[cmd.index("--verdict") + 1], words)
+        for bad in (dict(job, verdict="short"), dict(job, verdict=words, videos="h11-6-3,h11-7-2"),
+                    {"section": "studio", "stage": "films", "from_run": "https://x/r", "verdict": words},
+                    {"section": "studio", "stage": "script", "from_run": "https://x/r", "verdict": words}):
+            bad = dict(bad, job=codex_vm.JOB_SCHEMA, id="c7-bad-verdict")
+            with self.assertRaises(codex_vm.JobError):                           # a verdict: Claude's script, one heading
+                codex_vm.validate(bad)
         for bad in ({"section": "studio", "stage": "films", "from_run": "https://x/r"},
                     {"section": "understand", "source": "https://x/b.pdf"}):
             with self.assertRaises(codex_vm.JobError):
