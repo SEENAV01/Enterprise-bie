@@ -55,6 +55,10 @@ each entry says what it replaced. Sources: this repository's `docs/roadmap/STATU
   locked on his word "Haan, pakka karo": `references/benchmark-11.7.2.json`, the whole heading with its facts. Learn the
   way from it as from the gold standard; never copy its words, pictures or examples, and never open it while 11.7.2 of
   this book is written.
+- **27 Nov, 11.6.2 (Claude's demo of 26 Nov):** "Script yeh bhi bahut badhiya bani thi yeh bhi ek golden namune layak hai
+  of course with the changes described in c3 like wo ant shuru ki baat exam ki baareeki wali baat". Fixed in job c7 (the
+  start, one exam point: PS I is named for the order of discovery, and the end; 4 of 7 points word for word) and locked
+  on "Haan, pakka karo": `references/benchmark-11.6.2.json`, read the same way.
 
 ## Verdicts on BIE's scripts (what "close" means)
 

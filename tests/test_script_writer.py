@@ -128,6 +128,12 @@ class PassedScripts(unittest.TestCase):
         self.assertIn("never copy", bench["made_by"])
         words = (ROOT / ".claude" / "skills" / "bie-script-writer" / "references" / "navin-ki-baatein.md").read_text()
         self.assertIn("references/benchmark-11.7.2.json", words)
+        self.assertIn("references/benchmark-11.6.2.json", words)
+        other = json.loads((ROOT / ".claude" / "skills" / "bie-script-writer" / "references" / "benchmark-11.6.2.json")
+                           .read_text(encoding="utf-8"))
+        self.assertEqual(other["withheld_for"]["section"], "11.6.2")
+        self.assertIn("never copy", other["made_by"])
+        self.assertTrue(all(line["says"] for p in other["points"] for line in p["lines"]))
 
 
 if __name__ == "__main__":

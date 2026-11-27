@@ -788,6 +788,14 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    (`tests/fixtures/passed_outputs/scripts/photosynthesis-11.7.2-c3.json.gz`, with the chapter map it was checked
    against; a test keeps it passing BIE's script checks) and for the writer as `references/benchmark-11.7.2.json`
    (learn the way, never copy; withheld while 11.7.2 of this book is written).
+   **Job c7 (27 November):** Navin's verdict on Claude's 11.6.2 (the demo of 26 November: "yeh bhi ek golden namune
+   layak hai … with the changes described in c3") applied by the same copy: the recap's "yaad rakhein" and "aage hum
+   dekhenge", one exam point (PS I is numbered for the order of discovery), the opening question again at the end and
+   "ATP bana kaise, yeh aage hum dekhenge"; 4 of 7 points word for word. Locked on "Haan, pakka karo" as
+   `references/benchmark-11.6.2.json` (a writer's reference only: its points carry no `uses` and its bridge is empty,
+   which BIE's checks name). **Found:** the heading's last film speaks the `bridge` as its last line
+   (`studio_script` films cut), so 11.7.2's film would end twice and hint at C₄'s way; and the bridge check asks for "a
+   problem and its cure", against B3. Navin asked to talk it through before any change.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

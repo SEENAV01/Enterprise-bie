@@ -58,3 +58,12 @@ session. When it grows past about 300 lines, fold old entries into the skill or 
   holds the one thing to keep, so the recap does not grow.
 - Navin: "Haan, pakka karo". The heading is `references/benchmark-11.7.2.json` (learn the way, never copy; withheld
   while 11.7.2 of this book is written). The `bridge` field still names how C₄ plants differ; it is not spoken.
+
+## 2026-11-27 · heading 11.6.2 · job c7, Navin's verdict on Claude's 11.6.2, locked as a golden namuna
+
+- "Script yeh bhi bahut badhiya bani thi yeh bhi ek golden namune layak hai of course with the changes described in c3".
+  The same copy added, in 26 turns: the recap's "Yaad rakhein: is safar mein electron ek hi disha mein chalta hai …" and
+  "Aage hum dekhenge …"; one exam point (PS I is numbered for the order of discovery, not of work); at the end the
+  opening question again with its answer, and "ATP bana kaise, yeh aage hum dekhenge." 4 of 7 points word for word.
+- Navin: "Haan, pakka karo". The heading is `references/benchmark-11.6.2.json`. Its film (26 Nov) had a shot with no
+  picture (the gulel, lines 18–19: black screen, labels only) and arrow colours that differ from the script: film work.
