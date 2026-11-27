@@ -1,0 +1,124 @@
+{
+ "schema": "bie.studio-run/1",
+ "section": "studio",
+ "stage": "script",
+ "status": "needs_fix",
+ "maker": "claude (Claude Code on Navin's Claude plan, the bie-script-writer skill)",
+ "model": "opus, effort xhigh",
+ "cost": {
+  "total_inr": 0.0
+ },
+ "error": null,
+ "base_session": true,
+ "usage": {
+  "input_tokens": 7354458,
+  "output_tokens": 18892
+ },
+ "turns": 26,
+ "writer_reply": "11.6.2: 140 sentences, 2 problems left. I left both alone on purpose, and both were there before this job:\n- **bridge empty:** films speak the bridge as their last line, so a bridge naming the link would half-answer the next question. The new last lines already lead into 11.6.3.\n- **facts used by no point:** this script never had `uses` fields, and adding them would change every point, outside the verdict.\n\nWhat changed (132 → 140 sentences):\n- **Start:** the recap now ends with \"yaad rakhein\" and \"aage hum dekhenge\", then the same opening question.\n- **End:** the opening question is asked again and answered. The next film's question (\"ATP bana kaise?\") is left open with \"aage hum dekhenge\".\n- **Exam trap (one):** PS I and PS II are numbered by order of discovery, not the order they work in. Said in two lines right after \"pehle PS II, phir PS I\".\n\nThe screen notes of the three changed points follow the new lines. Everything else, and heading 11.6.3, is unchanged. Notes are in `YAADEIN_NEW.md`.",
+ "notional_usd": 3573.093440424957,
+ "rewritten": [
+  "11.6.2"
+ ],
+ "problems": {
+  "11.6.2": [
+   "\"bridge\" is empty: one line into the next heading that names the link (a problem and its cure, a need and what meets it)",
+   "facts f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18, f19, f20, f21, f22, f23, f24, f25, f26, f27, f28, f29, f30, f31, f32, f33, f34, f35, f36, f37, f38, f39, f40, f41, f42, f43, f44, f45 are used by no point: teach each fact (list it in a point's uses)"
+  ]
+ },
+ "script": {
+  "headings": 2,
+  "points": 19,
+  "summary_taught": 0,
+  "summary": 11,
+  "exercises_prepared": 0,
+  "exercises": 13,
+  "checkpoints": 2,
+  "sentences": 222,
+  "words": 4525,
+  "minutes": 35,
+  "covered": 18,
+  "coverable": 156,
+  "analogies": 0,
+  "examples": 2,
+  "real_world": 0,
+  "outside_book": 2,
+  "questions": 19,
+  "question_share": 0.054,
+  "fragments": 0,
+  "retells": 1,
+  "facts": 73,
+  "english_heavy": 0,
+  "english_share": 0.031,
+  "goals": 2,
+  "baatein": {
+   "book": 21,
+   "word": 20,
+   "base": 12,
+   "label": 15,
+   "extra": 5
+  },
+  "names_unsaid": 0,
+  "galat": 4,
+  "misaal": 2,
+  "bolchaal": 0,
+  "unopened": 0
+ },
+ "verdict": "Navin, 27 November 2026, on this heading as you wrote it on 26 November (your 11.6.2): \"Script yeh bhi bahut badhiya bani thi yeh bhi ek golden namune layak hai of course with the changes described in c3 like wo ant shuru ki baat exam ki baareeki wali baat\". So change only these, in this script's own way: (1) the start: the recap of the last heading ends with \"yaad rakhein\" (the one thing to hold from it) and \"aage hum dekhenge\" leading into today's question (rule B3); (2) the end: ask the opening question again and answer it, then leave the next heading's question open with \"aage hum dekhenge\", never half answered (rule B3); (3) where this heading's own book words hide an exam trap, open it in a line or two at that moment (navin-ki-baatein.md, \"Exam ki baareek baatein\"); only where a real trap is, not a list. The screen notes of changed points follow the new lines. Every other line, point and field stays word for word.",
+ "verdict_changes": {
+  "points_changed": [
+   {
+    "id": "11.6.2-k1",
+    "added": false,
+    "removed": false,
+    "lines_removed": [],
+    "lines_added": [
+     "Yaad rakhein: is safar mein electron ek hi disha mein chalta hai, paani se shuru hokar NADP⁺ par khatam.",
+     "Aage hum dekhenge ki yeh safar hamesha aise hi chalta hai ya nahi."
+    ],
+    "fields": [
+     "roles",
+     "screen"
+    ]
+   },
+   {
+    "id": "11.6.2-k3",
+    "added": false,
+    "removed": false,
+    "lines_removed": [],
+    "lines_added": [
+     "Yahan exam ki ek baareek baat hai: naam PS I hai, par kaam mein woh doosre number par aata hai.",
+     "Number kaam ke kram se nahi pade; PS I pehle khoja gaya tha, isliye uska naam I pada."
+    ],
+    "fields": [
+     "outside_book",
+     "roles",
+     "screen",
+     "watch_out"
+    ]
+   },
+   {
+    "id": "11.6.2-k7",
+    "added": false,
+    "removed": false,
+    "lines_removed": [],
+    "lines_added": [
+     "Ab shuruaat ka sawaal phir se: NADP⁺ ka raasta band ho, toh electron kahan jaayega, aur kya kuch banega?",
+     "Raasta band ho, toh electron carriers ki kadi se ghoom kar wapas P 700 par aa jaata hai.",
+     "Aur tab bhi kuch banta hai: ATP, bas NADPH nahi.",
+     "ATP bana kaise, yeh aage hum dekhenge."
+    ],
+    "fields": [
+     "roles",
+     "screen"
+    ]
+   }
+  ],
+  "points_same": 4,
+  "fields_changed": [
+   "facts"
+  ]
+ },
+ "forks_deleted": 0,
+ "minutes": 4.0
+}
