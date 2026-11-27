@@ -13,7 +13,10 @@ one-button app). The runner checks every field against a fixed list, runs ``tool
 ``tools/vm_look.py``, the LOOK-01 look check; Task 046; ``voice``: ``tools/vm_voice.py speak``, the clone voice on the CPU,
 audio kept on the machine), publishes the run folder to ``blindtest-results`` (``runs/vm-<id>-<section>/``)
 and writes ``jobs/<id>.result.json`` next to the job. Keys never leave the machine: run_brain redacts them
-and the auth file stays in CODEX_HOME. Only people with write access to the repository can add a job.
+and the auth file stays in CODEX_HOME. Only people with write access to the repository can add a job. A job that
+ends a call ``paused`` (a chapter job between headings, ``tools/vm_claude.py chapter``) gets no result yet: the runner
+notes its ``resume_at`` in ``BIE_HOME/paused/<id>``, publishes the run folder and ``progress/<id>.json``, and runs it
+again once that time has come; the other jobs run in between.
 
 Environment (systemd sets it from /etc/bie/bie.env): BIE_HOME (default /var/lib/bie), BIE_REPO_URL (git
 remote, default the repository over SSH with the deploy key), BIE_GIT_SSH (ssh command with the key),
@@ -55,7 +58,8 @@ SECTIONS = ("understand", "lesson", "director", "notes", "game", "visual", "canv
 # machinery as structures with a controlled sheen, whole structures matte in controlled light)
 LOOKS = ("glossy", "mixed", "matte", "structure", "close_up", "overview", "asli", "asli_mixed")
 TOOL_SECTIONS = ("image", "look", "voice")
-STUDIO_STAGES = ("questions", "naksha", "script", "films", "games", "book", "pyq", "dub", "copy")   # dub: autodub (Navin, 21 November 2026)
+STUDIO_STAGES = ("questions", "naksha", "script", "films", "games", "book", "pyq", "dub", "copy",  # dub: autodub (Navin, 21 November 2026)
+                 "chapter")    # the chapter's headings one after another by the taught chat (Navin, 28 November 2026)
 # naksha: the chapter's teaching plan in two shapes from Section 1's chapter map (Navin, 21 November 2026)
 # "voice" (P1-D, Navin 5 November 2026): Chatterbox Multilingual speaks a video's narration sentences on this machine's
 # CPU (Rs 0) with its built-in voice or Navin's clip (/etc/bie/voice, "sirf VM par private"); the audio stays in
@@ -66,7 +70,9 @@ MAKERS = ("codex", "google", "openai", "claude")
 # "claude" (Navin, 26 November 2026: "tumhe hi script writing ke kaam mein baitha deta hun vm ke raaste se"): the chapter
 # script written by Claude Code on this machine with Navin's Claude plan and the bie-script-writer skill
 # (tools/vm_claude.py); only for studio script so far
-CLAUDE_STAGES = ("script", "copy")     # copy: a newer locked copy of the taught chat (Navin, 27 November 2026)
+CLAUDE_STAGES = ("script", "copy", "chapter")   # copy: a newer locked copy of the taught chat (Navin, 27 November 2026)
+# chapter (Navin, 28 November 2026, "Option 1 chapter job ka code banaunga"): one call per heading; the job ends each call
+# "paused" with resume_at and runs again when that time comes, so other jobs run between its headings (tools/vm_claude.py)
 COPY_URL = "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/"
 REVIEWERS = ("google", "openai", "codex")      # codex: the checker on the plan too (Navin, 27 October 2026)
 URL = re.compile(r"^https://[A-Za-z0-9._~:/?#\[\]@!$&'()*+,;=%-]{1,400}$")
@@ -80,6 +86,7 @@ FIELDS = {
     "reviewer_model": re.compile(r"^[A-Za-z0-9/._:-]{1,80}$"),
     "language": re.compile(r"^[A-Za-z ]{2,30}$"),
     "stage": re.compile(r"^[a-z]{3,20}$"),
+    "keep": re.compile(r"^[A-Za-z0-9_,-]{1,200}$"),
 }
 DEFAULTS = {"maker": "codex", "reviewer": "google", "max_inr": 300, "workers": 2, "max_rounds": 3}
 RUN_TIMEOUT = 8 * 3600
@@ -96,7 +103,8 @@ def validate(job: dict) -> dict:
     allowed = {"job", "id", "section", "source", "chapter_map", "from_run", "resume_from", "library", "pages", "videos", "course",
                "maker", "reviewer", "reviewer_model", "models", "routes", "max_inr", "workers", "max_rounds", "language",
                "with_visual", "with_canvas", "with_show", "render", "fake", "note", "prompts", "request", "max_images", "stage",
-               "pyqs", "reference", "max_lines", "look", "fresh", "url", "sha256", "tokens", "verdict"}
+               "pyqs", "reference", "max_lines", "look", "fresh", "url", "sha256", "tokens", "verdict", "keep", "keep_from",
+               "per_window"}
     unknown = sorted(set(job) - allowed)
     if unknown:
         raise JobError("unknown fields: " + ", ".join(unknown))
@@ -107,7 +115,7 @@ def validate(job: dict) -> dict:
         raise JobError("look: one of " + ", ".join(LOOKS))
     if out["maker"] not in MAKERS or out["reviewer"] not in REVIEWERS:
         raise JobError("maker or reviewer: not allowed")
-    for name in ("source", "chapter_map", "from_run", "resume_from", "library", "prompts", "request", "pyqs"):
+    for name in ("source", "chapter_map", "from_run", "resume_from", "library", "prompts", "request", "pyqs", "keep_from"):
         if out.get(name) and not URL.match(str(out[name])):
             raise JobError(f"{name}: an https URL")
     if out["section"] == "image" and not out.get("prompts"):
@@ -170,6 +178,20 @@ def validate(job: dict) -> dict:
             raise JobError("verdict: Navin's words and what they ask, 20 to 3000 characters")
         if not out.get("from_run") or "," in str(out.get("videos") or "") or not out.get("videos"):
             raise JobError("verdict: from_run (the run he judged) and one heading in videos")
+    # chapter: the chapter's headings by the taught chat; keep: the headings Navin chose (from keep_from where that run
+    # holds them), never rewritten; per_window: headings in one of the plan's five-hour windows
+    if out["section"] == "studio" and out.get("stage") == "chapter":
+        if out["maker"] != "claude":
+            raise JobError("studio chapter: only with maker claude")
+        if not (out.get("chapter_map") or out.get("from_run")):
+            raise JobError("studio chapter: chapter_map (the naksha run) or from_run (the script so far)")
+        if "per_window" in out and (isinstance(out["per_window"], bool) or not isinstance(out["per_window"], int)
+                                    or not 1 <= out["per_window"] <= 12):
+            raise JobError("per_window: between 1 and 12")
+        if out.get("keep_from") and not out.get("keep"):
+            raise JobError("keep_from: with keep (the headings to take from it)")
+    elif any(name in out for name in ("keep", "keep_from", "per_window")):
+        raise JobError("keep, keep_from and per_window: only for studio chapter")
     if out["section"] in ("lesson", "notes", "game", "notespages", "gamelevels") and not out.get("chapter_map"):
         raise JobError("chapter_map: needed for lesson, notes and game")
     if out["section"] in ("director", "visual", "canvas", "coder", "showplan") and not out.get("from_run"):
@@ -207,9 +229,9 @@ def argv(job: dict, out: Path, python: str = sys.executable) -> list:
                 cmd += ["--" + name.replace("_", "-"), str(job[name])]
         if job.get("fresh"):
             cmd.append("--fresh")
-        for name in ("url", "sha256", "tokens", "verdict"):
+        for name in ("url", "sha256", "tokens", "verdict", "keep", "keep_from", "per_window"):
             if job.get(name):
-                cmd += ["--" + name, str(job[name])]
+                cmd += ["--" + name.replace("_", "-"), str(job[name])]
         return cmd
     if job["section"] == "studio":
         cmd = [python, "-B", str(ROOT / "tools" / "vm_studio.py"), "--stage", job.get("stage") or "questions",
@@ -308,13 +330,24 @@ def repo() -> Repo:
     return Repo(url, home() / "state-repo")
 
 
+def waiting(stem: str) -> bool:
+    """A paused job (a chapter job between headings) whose time to go on has not come yet."""
+    path = home() / "paused" / stem
+    if not path.exists():
+        return False
+    try:
+        return float(json.loads(path.read_text(encoding="utf-8")).get("resume_at") or 0) > time.time()
+    except (ValueError, OSError):
+        return False
+
+
 def queued(rep: Repo) -> list:
     names = rep.files(JOBS_BRANCH, "jobs")
     finished = {n[:-len(".result.json")] for n in names if n.endswith(".result.json")}
     done_dir = home() / "done"
     local = {p.name for p in done_dir.iterdir()} if done_dir.exists() else set()
     return [n for n in names if n.endswith(".json") and not n.endswith(".result.json")
-            and n[:-len(".json")] not in finished and Path(n).stem not in local]
+            and n[:-len(".json")] not in finished and Path(n).stem not in local and not waiting(Path(n).stem)]
 
 
 def run_one(rep: Repo, name: str, *, python: str = sys.executable) -> dict:
@@ -350,6 +383,9 @@ def run_one(rep: Repo, name: str, *, python: str = sys.executable) -> dict:
                   plan_usage_after=summary.get("plan_usage_after"),
                   quality=summary.get("quality"), map_status=summary.get("map_status"),
                   stop_reason=summary.get("stop_reason"), error=summary.get("error") or result.get("error"))
+    if summary.get("stage") == "chapter":                  # how far the chapter is, and when it goes on
+        result.update(progress=summary.get("progress"), resume_at=summary.get("resume_at"),
+                      resume_at_utc=summary.get("resume_at_utc"), waiting_for=summary.get("waiting_for"))
     if job["section"] == "image":
         result.update(images_made=sum(1 for r in summary.get("images") or [] if r.get("status") == "made"),
                       plan_usage_before=summary.get("plan_usage_before"))
@@ -391,6 +427,21 @@ def poll(*, python: str = sys.executable, update_main: bool = True) -> list:
         results = []
         for name in queued(rep):
             result = run_one(rep, name, python=python)
+            stem = Path(name).stem
+            if result["status"] == "paused":                # a chapter job between headings: it runs again at resume_at
+                (home() / "paused").mkdir(parents=True, exist_ok=True)
+                (home() / "paused" / stem).write_text(json.dumps({"resume_at": result.get("resume_at") or time.time()}),
+                                                      encoding="utf-8")
+                try:
+                    rep.commit_files(JOBS_BRANCH, {f"progress/{stem}.json": json.dumps(result, indent=1, sort_keys=True)
+                                                   + "\n"}, f"VM job {stem}: paused")
+                except (RuntimeError, subprocess.CalledProcessError):
+                    print(json.dumps({"job": result["job"], "warning": "progress not pushed"}), flush=True)
+                results.append(result)
+                print(json.dumps({k: result.get(k) for k in ("job", "status", "minutes", "resume_at_utc", "results")}),
+                      flush=True)
+                continue
+            (home() / "paused" / stem).unlink(missing_ok=True)
             (home() / "done").mkdir(parents=True, exist_ok=True)            # never run a job twice, even if reporting fails
             (home() / "done" / Path(name).stem).write_text(result["status"], encoding="utf-8")
             try:

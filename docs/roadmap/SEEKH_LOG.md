@@ -3457,3 +3457,18 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   field stays), so Codex's route and every saved script keep working.
 - **Measured:** 11.7.2's last film line is now its own open question; 11.6.2's problems drop from two to one (the
   missing `uses`, which the teaching does not depend on); every passed film and the benchmark still pass.
+
+## Entry · the chapter job, 28 November 2026
+
+- **Taught by:** c3 (one heading, 26.8 minutes, 83 turns, about 14 % of a session and 1 % of the week) and Navin's
+  wish to have the rest of Chapter 11 written the same way while films are discussed; the plan's session is shared
+  with his own chats, and a long job would hold the machine for days.
+- **Changed in BIE (branch `task044-chapter-job`):** stage `chapter` (one heading per call, each by a new fork of the
+  taught chat with the script so far, c3's task unchanged); `keep` / `keep_from` for Navin's chosen headings, put back
+  if a fork touches them; `paused` jobs in `codex_vm.py` (run again at `resume_at`, other jobs in between);
+  `per_window` headings per five-hour window; the plan's limit read from Claude Code's words (an epoch after "|", or
+  "resets 3pm (zone)") and the stopped fork continued, not restarted; a heading left unwritten or stopped by another
+  error tried again from the script before it (two retries, 15 minutes apart).
+- **Measured:** offline only so far (11 tests); the first real headings will give minutes, turns and the share of a
+  session per heading against c3's.
+

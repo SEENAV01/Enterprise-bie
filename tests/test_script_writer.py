@@ -162,6 +162,28 @@ if task.startswith("Teen chhote jawab do"):                     # the copy's tes
                       "usage": {"input_tokens": 10, "cache_read_input_tokens": int(os.environ.get("FAKE_COPY_TOKENS", "300000"))}}))
     sys.exit(0)
 work = re.search(r"(\S+)/script\.json(?: in place| \(you wrote)", task).group(1)
+chapter_heading = re.search(r"this copy writes heading (.+?) only", task)
+if chapter_heading:                                              # a chapter job: one heading per call
+    number = "" if chapter_heading.group(1).startswith('""') else chapter_heading.group(1)
+    tag = number or "0"
+    stamp = os.environ["FAKE_LOG"] + ".limited"
+    if os.environ.get("FAKE_LIMIT") == tag and not os.path.exists(stamp):
+        open(stamp, "w").write("1")
+        print(json.dumps({"type": "result", "is_error": True, "session_id": "fork-" + tag,
+                          "result": "Claude AI usage limit reached|" + os.environ.get("FAKE_RESET", "1700000000")}))
+        sys.exit(1)
+    script = json.load(open(work + "/script.json"))
+    for p in script["parts"]:
+        if p.get("section") == number and os.environ.get("FAKE_SKIP") != tag:
+            p["points"][0]["says"] = ["Nayi line " + tag + "."] + p["points"][0]["says"]
+        if p.get("section") == os.environ.get("FAKE_TOUCH"):
+            p["points"][0]["says"] = ["Galat chhed."] + p["points"][0]["says"]
+    open(work + "/script.json", "w").write(json.dumps(script))
+    open(work + "/YAADEIN_NEW.md", "a").write("- " + tag + ": seekha ki ...\n")
+    print(json.dumps({"type": "result", "is_error": False, "result": tag + ": 0 problems", "num_turns": 5,
+                      "session_id": "fork-" + tag,
+                      "usage": {"input_tokens": 10, "cache_read_input_tokens": 90, "output_tokens": 5}}))
+    sys.exit(0)
 written = json.loads(open(os.environ["FAKE_PART"]).read())
 script = json.load(open(work + "/script.json"))
 script["parts"] = [written if p.get("section") == written["section"] else p for p in script["parts"]]
@@ -362,6 +384,216 @@ class VmClaude(WriterBase):
         self.assertIn('"cleanupPeriodDays"', text)              # the copies are never swept away
         self.assertIn('"hasTrustDialogAccepted"', text)         # a job never stops at the folder question
         self.assertIn("bie-claude-setup", (ROOT / "deployment" / "codex-vm" / "setup.sh").read_text(encoding="utf-8"))
+
+
+class ChapterJob(WriterBase):
+    """Stage chapter (Navin, 28 November 2026, "Option 1 chapter job ka code banaunga"): the chapter's headings one after
+    another by the taught chat, one heading per call, his chosen headings never changed, paused at the plan's limit."""
+
+    def setUp(self):
+        super().setUp()
+        (Path(self.env["CLAUDE_CONFIG_DIR"]) / "BASE_SESSION").write_text("session-taught\n")
+        self.out = Path(self.folder.name) / "out"
+        self.clock = [1_800_000_000.0]
+
+    def now(self):
+        return self.clock[0]
+
+    def turn(self, **more):
+        import os
+        fake = {k: more.pop(k) for k in list(more) if k.startswith("FAKE_")}
+        old = {k: os.environ.get(k) for k in fake}
+        os.environ.update(fake)
+        try:
+            return self.vm_claude.chapter(self.args(videos="", keep="h11-6", **more), binary=str(self.fake),
+                                          now=self.now)
+        finally:
+            for k, v in old.items():
+                os.environ.pop(k) if v is None else os.environ.__setitem__(k, v)
+
+    def calls(self):
+        return [json.loads(line) for line in Path(self.env["FAKE_LOG"]).read_text().splitlines()]
+
+    def task(self, n=-1):
+        args = self.calls()[n]["args"]
+        return args[args.index("-p") + 1]
+
+    def script(self):
+        return {p["section"]: p for p in json.loads((self.out / "script.json").read_text(encoding="utf-8"))["parts"]}
+
+    def test_the_headings_are_written_one_per_call_in_the_chapters_order(self):
+        seen = []
+        for _ in range(6):
+            summary = self.turn()
+            seen.append(summary["status"])
+            self.clock[0] += 1800
+            if summary["status"] != "paused":
+                break
+        self.assertEqual(seen, ["paused", "paused", "ok"] if seen[-1] == "ok" else seen[:2] + ["needs_fix"])
+        self.assertEqual(summary["rewritten"], ["", "11.6.1", "recap"])          # 11.6 is Navin's choice: kept
+        script = self.script()
+        self.assertEqual(list(script), ["", "11.6", "11.6.1", "recap"])
+        self.assertEqual(script["11.6"], parts()[1])                             # word for word as he chose it
+        for number, tag in (("", "0"), ("11.6.1", "11.6.1"), ("recap", "recap")):
+            self.assertEqual(script[number]["points"][0]["says"][0], f"Nayi line {tag}.")
+        calls = self.calls()
+        self.assertEqual(len(calls), 3)                                          # one heading, one copy of the chat
+        for call in calls:
+            self.assertEqual(call["args"][call["args"].index("--resume") + 1], "session-taught")
+            self.assertIn("--fork-session", call["args"])
+            self.assertFalse(call["api_key"])
+        first, second = self.task(0), self.task(1)
+        self.assertTrue(first.startswith("You are the chat Navin taught"))
+        self.assertIn('this copy writes heading "" (the opening) only', first)
+        self.assertIn("--heading ''", first)
+        self.assertIn("Write the script of heading(s)", first)                   # c3's own task, as it was
+        self.assertNotIn("were written earlier in this job", first)
+        self.assertIn("heading(s) 11.6 are the ones Navin chose: never change them", first)
+        self.assertIn('heading(s) "" (the opening) were written earlier in this job', second)
+        self.assertIn("--heading 11.6.1", second)
+        self.assertIn("takes up the\n  question that heading left open", second)
+        self.assertNotIn("older script", self.task(2))                           # nothing old is left after the last
+        self.assertEqual((self.out / "YAADEIN_NEW.md").read_text(encoding="utf-8").count(": seekha"), 3)
+        self.assertEqual(summary["usage"], {"input_tokens": 300, "output_tokens": 15})
+        self.assertEqual(summary["progress"]["left"], [])
+        for name in ("record.json", "SCRIPT.md", "SCRIPT.html", "chapter_map.json", "SUMMARY.json"):
+            self.assertTrue((self.out / name).exists(), name)
+        self.assertFalse((self.out.parent / "out.work").exists())               # the job's state goes when it is done
+
+    def test_each_call_publishes_what_is_written_so_far(self):
+        summary = self.turn()
+        self.assertEqual(summary["status"], "paused")
+        self.assertEqual(summary["progress"], {"written": [""], "left": ["11.6.1", "recap"], "kept": ["11.6"],
+                                               "now": None, "per_window": 4})
+        self.assertEqual(summary["resume_at"], self.clock[0])                    # at once: other jobs go first
+        self.assertEqual(self.script()[""]["points"][0]["says"][0], "Nayi line 0.")
+        self.assertEqual(self.script()["11.6.1"], parts()[2])                    # not yet written: as it was
+        self.assertEqual(summary["headings"][""]["turns"], 5)
+        self.assertTrue((self.out.parent / "out.work" / "state.json").exists())
+
+    def test_the_plans_limit_pauses_the_job_and_the_same_copy_goes_on(self):
+        import time as clock
+        reset = int(clock.time()) + 7200
+        self.turn()                                                              # the opening
+        stopped = self.turn(FAKE_LIMIT="11.6.1", FAKE_RESET=str(reset))
+        self.assertEqual(stopped["status"], "paused")
+        self.assertEqual(stopped["resume_at"], reset + 180)
+        self.assertIn("plan's limit", stopped["waiting_for"])
+        self.assertEqual(stopped["progress"]["now"], "11.6.1")
+        self.assertEqual(stopped["progress"]["written"], [""])
+        went_on = self.turn()
+        self.assertEqual(went_on["progress"]["written"], ["", "11.6.1"])
+        args = self.calls()[-1]["args"]
+        self.assertEqual(args[args.index("--resume") + 1], "fork-11.6.1")        # the copy that stopped, not a new one
+        self.assertNotIn("--fork-session", args)
+        self.assertTrue(self.task().startswith("The plan's usage limit stopped you part-way"))
+        self.assertIn("this copy writes heading 11.6.1 only", self.task())
+
+    def test_a_copy_that_touches_another_heading_has_it_put_back(self):
+        summary = self.turn(FAKE_TOUCH="11.6")
+        self.assertEqual(self.script()["11.6"], parts()[1])
+        self.assertEqual(summary["headings"][""]["put_back"], ["11.6"])
+
+    def test_a_heading_left_unwritten_is_tried_again_from_the_script_before_it(self):
+        summary = self.turn(FAKE_SKIP="0")
+        self.assertEqual(summary["status"], "paused")
+        self.assertEqual(summary["progress"]["written"], [])
+        self.assertIn("not written", summary["waiting_for"])
+        summary = self.turn()
+        self.assertEqual(summary["progress"]["written"], [""])
+        self.assertTrue(self.calls()[-1]["args"].count("--fork-session"))
+
+    def test_after_its_headings_in_one_window_the_job_waits_for_the_next(self):
+        self.turn(per_window=1)
+        self.clock[0] += 600
+        summary = self.turn(per_window=1)
+        self.assertEqual(summary["status"], "paused")
+        self.assertEqual(summary["resume_at"], 1_800_000_000.0 + self.vm_claude.WINDOW + 120)
+        self.assertIn("window", summary["waiting_for"])
+        self.assertEqual(len(self.calls()), 1)                                   # the plan is left for Navin's chats
+        self.clock[0] = 1_800_000_000.0 + self.vm_claude.WINDOW + 200
+        summary = self.turn(per_window=1)
+        self.assertEqual(summary["progress"]["written"], ["", "11.6.1"])
+
+    def test_the_chosen_heading_can_come_from_another_run(self):
+        chosen = copy.deepcopy(parts()[1])
+        chosen["points"][0]["says"] = ["Navin ki chuni hui line."] + chosen["points"][0]["says"]
+        other = Path(self.folder.name) / "chosen"
+        other.mkdir()
+        (other / "script.json").write_text(json.dumps({"chapter_title": "Ch", "parts": [chosen, parts()[2]]}),
+                                           encoding="utf-8")
+        self.turn(keep_from=str(other))
+        self.assertEqual(self.script()["11.6"], chosen)
+        self.assertEqual(self.script()["11.6.1"], parts()[2])                    # only the kept heading is taken from it
+
+    def test_a_kept_heading_must_exist(self):
+        summary = self.vm_claude.chapter(self.args(videos="", keep="h11-6,h99"), binary=str(self.fake), now=self.now)
+        self.assertEqual(summary["status"], "failed")
+        self.assertIn("keep:", summary["error"])
+        self.assertFalse(Path(self.env["FAKE_LOG"]).exists())
+
+    def test_the_time_the_plan_opens_again(self):
+        from datetime import datetime, timezone
+        now = datetime(2026, 11, 28, 10, 0, tzinfo=timezone.utc).timestamp()
+        at = lambda text: datetime.fromtimestamp(self.vm_claude.reset_at(text, now) - 180, timezone.utc)
+        self.assertEqual(at(f"Claude AI usage limit reached|{int(now) + 3600}"), datetime(2026, 11, 28, 11, 0,
+                                                                                          tzinfo=timezone.utc))
+        self.assertEqual(at("5-hour limit reached ∙ resets 3pm (UTC)").hour, 15)
+        self.assertEqual(at("You've hit your session limit · resets 3:30am (UTC)"),
+                         datetime(2026, 11, 29, 3, 30, tzinfo=timezone.utc))                # tomorrow: 3:30 has gone
+        self.assertEqual(at("Weekly limit reached · resets Dec 2, 5am (UTC)"),
+                         datetime(2026, 12, 2, 5, 0, tzinfo=timezone.utc))
+        self.assertEqual(self.vm_claude.reset_at("usage limit reached", now), now + 3600)    # no time: an hour
+        self.assertTrue(self.vm_claude.LIMIT.search("Claude AI usage limit reached|1764345600"))
+        self.assertFalse(self.vm_claude.LIMIT.search("Prompt is too long"))
+
+    def test_the_chapter_job_is_checked_and_routed(self):
+        import codex_vm
+        job = {"job": codex_vm.JOB_SCHEMA, "id": "k1-chapter-test", "section": "studio", "stage": "chapter",
+               "maker": "claude", "from_run": "https://x/c6", "chapter_map": "https://x/s4", "keep_from": "https://x/c7",
+               "keep": "h11-6-2,h11-7-2", "per_window": 4}
+        cmd = codex_vm.argv(codex_vm.validate(dict(job)), Path("/tmp/o"))
+        self.assertEqual(cmd[3], "chapter")
+        self.assertEqual(cmd[cmd.index("--keep") + 1], "h11-6-2,h11-7-2")
+        self.assertEqual(cmd[cmd.index("--keep-from") + 1], "https://x/c7")
+        self.assertEqual(cmd[cmd.index("--per-window") + 1], "4")
+        for bad in (dict(job, maker="codex"), dict(job, per_window=0), dict(job, per_window=13), dict(job, per_window=True),
+                    {k: v for k, v in job.items() if k != "keep"}, dict(job, keep_from="http://x"),
+                    {k: v for k, v in job.items() if k not in ("from_run", "chapter_map")},
+                    dict(job, stage="script", videos="h11-6-3")):
+            with self.subTest(bad=str(bad)[-80:]), self.assertRaises(codex_vm.JobError):
+                codex_vm.validate(bad)
+
+    def test_the_runner_runs_a_paused_job_again_when_its_time_comes(self):
+        import os
+        import time as clock
+        from unittest import mock
+        import codex_vm
+        rep = mock.Mock()
+        rep.files.return_value = ["jobs/k1-chapter-test.json"]
+        answers = [{"job": "k1-chapter-test", "status": "paused", "resume_at": clock.time() + 3600},
+                   {"job": "k1-chapter-test", "status": "ok"}]
+        ran = []
+
+        def run_one(rep_, name, python=sys.executable):
+            ran.append(name)
+            return dict(answers[len(ran) - 1])
+        home = Path(self.folder.name) / "home"
+        with mock.patch.dict(os.environ, {"BIE_HOME": str(home)}), mock.patch.object(codex_vm, "repo", return_value=rep), \
+                mock.patch.object(codex_vm, "run_one", side_effect=run_one), redirect_stdout(io.StringIO()):
+            first = codex_vm.poll(update_main=False)
+            self.assertEqual([r["status"] for r in first], ["paused"])
+            self.assertFalse((home / "done" / "k1-chapter-test").exists())       # not finished: no result yet
+            pushed = rep.commit_files.call_args[0][1]
+            self.assertEqual(list(pushed), ["progress/k1-chapter-test.json"])
+            self.assertEqual(codex_vm.poll(update_main=False), [])                # its time has not come
+            (home / "paused" / "k1-chapter-test").write_text(json.dumps({"resume_at": clock.time() - 1}))
+            last = codex_vm.poll(update_main=False)
+        self.assertEqual([r["status"] for r in last], ["ok"])
+        self.assertEqual(len(ran), 2)
+        self.assertTrue((home / "done" / "k1-chapter-test").exists())
+        self.assertFalse((home / "paused" / "k1-chapter-test").exists())
+        self.assertEqual(list(rep.commit_files.call_args[0][1]), ["jobs/k1-chapter-test.result.json"])
 
 
 def locked_copy(folder: Path, key: Path, sid: str = "aaaaaaaa-1111-2222-3333-444444444444", lines: int = 3):

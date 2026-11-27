@@ -801,6 +801,20 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    the bridge check accepts an empty bridge after such a line and asks otherwise for an open question (rule B3); the
    writer's rule for the bridge says the same. 11.7.2's film now ends once, on "C₄ paudhe alag kis baat mein hain, yeh
    aage hum dekhenge."; 11.6.2's empty bridge passes.
+   **PR #232 merged (28 November, `ae8f364f`).** **Navin's card (28 November):** "Option 1 chapter job ka code banaunga
+   phir jab mai interface par book upload karunga to kaise kaam hoga". **Branch `task044-chapter-job`:** stage `chapter`
+   for maker claude (`tools/vm_claude.py chapter`): the chapter's headings one after another in the chapter's order,
+   each by its own fork of the taught chat with the script so far (the headings this job wrote before it included), the
+   task c3 had (WRITE, unchanged) and a short note on the others (written earlier in this job: build on them, the recap
+   recalls the one before and takes up its open question; Navin's chosen ones: never changed, the heading before one
+   ends on its question; the old ones: never their way of saying). `keep` names his chosen headings and `keep_from` the
+   run that holds them; a fork that touches any other heading has it put back. One call writes one heading and ends
+   `paused` (the runner keeps `BIE_HOME/paused/<id>`, publishes the run folder and `progress/<id>.json` on
+   `codex-jobs`, and runs it again at `resume_at`, so other jobs run between headings); after `per_window` headings
+   (default 4, about 56 % of a session at c3's 14 %) in one five-hour window, or when the plan's limit stops the writer,
+   it waits for the window to open again and the stopped fork goes on where it stopped. Dry start on Chapter 11 (c6 for
+   the chapter, c7 for 11.6.2): 19 headings to write, 11.6.2 and 11.7.2 kept word for word. IMPLEMENTED with offline
+   tests; INTEGRATED once the first real heading comes back.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

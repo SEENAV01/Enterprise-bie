@@ -28,7 +28,18 @@ machine's Claude and Codex sign-ins, the copy and its key, the deploy key and ``
 can make it copy a secret into a script that is published. Each job's own copy of the chat is deleted after the job
 except the last five (plan point 4); the copies in use and kept are never deleted.
 
+Stage ``chapter`` (Navin, 28 November 2026: "Option 1 chapter job ka code banaunga") writes a chapter's headings one after
+another in the chapter's order, each by its own fork of the taught chat with the script so far, the headings this job
+wrote before it included, so every heading is written the way c3 was. The headings Navin chose (``--keep``, taken from
+``--keep-from`` where that run holds them) are never changed: a fork that touches any heading but its own has that
+heading put back. One call writes one heading and ends ``paused`` with the time to go on, so the machine runs other jobs
+between headings; after ``--per-window`` headings in one of the plan's five-hour windows (room for Navin's own chats on
+the same plan), or when the plan's limit stops the writer, the job waits for the window to open again and the stopped
+fork goes on where it stopped. Its state lives beside the run folder (``<out>.work``), is never published, and goes when
+the chapter is done.
+
     python tools/vm_claude.py script --from-run <script run> --chapter-map <naksha run> --videos h11-6-3 --out <folder>
+    python tools/vm_claude.py chapter --from-run <script run> --chapter-map <naksha run> --keep h11-6-2,h11-7-2 --out <folder>
     python tools/vm_claude.py copy --url <locked copy> --sha256 <hex> --tokens <its size> --out <folder>
 """
 from __future__ import annotations
@@ -39,10 +50,12 @@ import hashlib
 import json
 import os
 import re
+import shlex
 import shutil
 import subprocess
 import sys
 import time
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -102,6 +115,41 @@ learned.
 Write only inside {work}. When you are done, reply with one line per heading: its number, its sentences and the
 problems left."""
 
+# A chapter job's heading (stage chapter): the WRITE task as c3 had it, and what this copy must know of the others.
+CHAPTER = """This is a chapter job: BIE has the chapter's headings written one after another in the chapter's order, each by a
+new copy of you, and this copy writes heading {heading} only. Its self-check is:
+{check}
+In {work}/script.json:
+{lines}{work}/YAADEIN_NEW.md holds what the earlier copies of this job learned; read it, and add yours at its bottom.
+"""
+CHAPTER_WRITTEN = """- heading(s) {names} were written earlier in this job by copies of you: build on them as on your own script. This
+  heading's opening recap recalls the heading just before it as it is written there, and its question takes up the
+  question that heading left open.
+"""
+CHAPTER_KEPT = """- heading(s) {names} are the ones Navin chose: never change them. Where the next heading is one of them, end on its
+  opening question left open, and teach in this heading what its opening recap recalls.
+"""
+CHAPTER_OLD = """- the other headings are BIE's older script and are written again after you: never take your way of saying things
+  from them.
+"""
+# The same fork, when the plan's limit stopped it part-way (the task again, so nothing depends on what the fork kept).
+CONTINUE = """The plan's usage limit stopped you part-way through this task; it has opened again. Go on from where you stopped:
+what you already wrote in {work} stays, so read it there first. The task, as it was:
+
+"""
+WINDOW = 5 * 3600                  # the plan's session window
+PER_WINDOW = 4                     # headings a chapter job writes in one window (about 14 % of a window each, c3)
+RETRIES = 2                        # a heading that stopped for another reason is tried again this many times
+RETRY_WAIT = 15 * 60
+# The plan's limit, as Claude Code says it ("Claude AI usage limit reached|<time>", "5-hour limit reached ∙ resets 3pm",
+# "You've hit your session limit · resets 3:00pm (Asia/Kolkata)"); never a long prompt ("Prompt is too long").
+LIMIT = re.compile(r"usage limit|limit reached|hit your (?:\w+ )?limit|\b(?:session|weekly|5-hour|opus) limit|"
+                   r"out of (?:extra )?usage", re.IGNORECASE)
+RESETS = re.compile(r"resets?\s+(?:at\s+|on\s+)?(?:(?P<mon>[A-Z][a-z]{2})[a-z]*\s+(?P<day>\d{1,2}),?\s+(?:at\s+)?)?"
+                    r"(?P<h>\d{1,2})(?::(?P<m>\d{2}))?\s*(?P<ap>[ap]\.?m\.?)?(?:\s*\((?P<tz>[A-Za-z_]+(?:/[A-Za-z_]+)*)\))?",
+                    re.IGNORECASE)
+MONTHS = ("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec")
+
 
 def headings_of(videos: str, chapter: dict) -> list:
     """Film ids or heading numbers ("h11-6-3", "11.6.3") as the chapter's heading numbers, in the chapter's order."""
@@ -127,10 +175,11 @@ def refused(env: dict) -> list:
 
 
 def command(task: str, work: Path, *, binary: str, base: str = "", python: str = sys.executable, model: str = MODEL,
-            env: dict | None = None) -> list:
+            env: dict | None = None, fork: bool = True) -> list:
     """The Claude Code call: print mode, JSON result, the model and effort Navin chose, and only the tools the writer
     needs: read the repository and the work folder, write and edit only in the work folder, run the self-check; the
-    sign-ins, keys and the chat's copy are refused."""
+    sign-ins, keys and the chat's copy are refused. ``fork=False`` goes on in ``base`` itself (a chapter job's fork that
+    the plan's limit stopped)."""
     env = env if env is not None else environment()
     cmd = [binary, "-p", task, "--model", model, "--effort", EFFORT, "--output-format", "json",
            "--permission-mode", "dontAsk", "--add-dir", str(work),
@@ -138,7 +187,7 @@ def command(task: str, work: Path, *, binary: str, base: str = "", python: str =
            f"Edit(/{work}/**)", f"Bash({python} tools/script_writer_check.py *)",
            "--disallowedTools", *refused(env)]
     if base:
-        cmd += ["--resume", base, "--fork-session"]
+        cmd += ["--resume", base] + (["--fork-session"] if fork else [])
     return cmd
 
 
@@ -220,6 +269,132 @@ def changes(before: dict, after: dict) -> dict:
             "fields_changed": fields}
 
 
+class Limit(Exception):
+    """The plan's session or weekly limit stopped the writer; ``reset`` is when it opens again (epoch seconds) and
+    ``session`` the chat that stopped, to go on in it."""
+
+    def __init__(self, text: str, reset: float, session: str = ""):
+        super().__init__(text)
+        self.text, self.reset, self.session = text, reset, session
+
+
+def reset_at(text: str, now: float | None = None) -> float:
+    """When the plan opens again, from Claude Code's words (an epoch after "|", or "resets 3pm", "resets 3:00pm
+    (Asia/Kolkata)", "resets Dec 2, 5am"), a few minutes late to be safe; an hour from now when it names no time."""
+    from zoneinfo import ZoneInfo
+    now = time.time() if now is None else now
+    found = re.search(r"\|(\d{10})\b", text)
+    if found:
+        return max(float(found.group(1)), now) + 180
+    found = RESETS.search(text)
+    if not found:
+        return now + 3600
+    try:
+        zone = ZoneInfo(found["tz"]) if found["tz"] else datetime.now().astimezone().tzinfo
+    except Exception:                                       # a zone this machine does not know: its own clock
+        zone = datetime.now().astimezone().tzinfo
+    hour, minute = int(found["h"]), int(found["m"] or 0)
+    noon = (found["ap"] or "").lower().replace(".", "")
+    if noon == "pm" and hour < 12:
+        hour += 12
+    if noon == "am" and hour == 12:
+        hour = 0
+    if hour > 23 or minute > 59:
+        return now + 3600
+    here = datetime.fromtimestamp(now, zone)
+    when = here.replace(hour=hour, minute=minute, second=0, microsecond=0)
+    if found["mon"] and found["mon"][:3].lower() in MONTHS:
+        when = when.replace(month=MONTHS.index(found["mon"][:3].lower()) + 1, day=int(found["day"]))
+        if when <= here:
+            when = when.replace(year=when.year + 1)
+    elif when <= here:
+        when += timedelta(days=1)
+    return min(when.timestamp(), now + 8 * 86400) + 180
+
+
+def call_writer(cmd: list, env: dict, run=subprocess.run, timeout: int = TIMEOUT) -> dict:
+    """One Claude Code call; its JSON result, or Limit when the plan's limit stopped it, or SystemExit saying why."""
+    try:
+        done = run(cmd, cwd=str(ROOT), env=env, capture_output=True, text=True, timeout=timeout)
+    except FileNotFoundError:
+        raise SystemExit("Claude Code is not installed on this machine: sudo bie-claude-setup") from None
+    except subprocess.TimeoutExpired:
+        raise SystemExit(f"the writer did not finish within {timeout // 3600} hours") from None
+    result = {}
+    try:
+        result = json.loads(done.stdout or "{}")
+    except json.JSONDecodeError:
+        result = {"result": (done.stdout or "")[-2000:]}
+    if not isinstance(result, dict):
+        result = {"result": str(result)[-2000:]}
+    if done.returncode != 0 or result.get("is_error"):
+        text = str(result.get("result") or done.stderr or done.stdout)[-400:]
+        if LIMIT.search(text):
+            raise Limit(text, reset_at(text), str(result.get("session_id") or ""))
+        raise SystemExit("the writer stopped: " + text + ("" if "login" not in text.lower() else
+                                                         " (sign in once: sudo bie-claude-setup)"))
+    return result
+
+
+def usage_of(result: dict) -> dict:
+    usage = result.get("usage") or {}
+    return {"input_tokens": int(usage.get("input_tokens") or 0) + int(usage.get("cache_read_input_tokens") or 0)
+            + int(usage.get("cache_creation_input_tokens") or 0), "output_tokens": int(usage.get("output_tokens") or 0)}
+
+
+def bie_checks(parts: list, chapter: dict, wanted: list) -> tuple:
+    """BIE's own checks (``studio_script.problems``) on the headings written, with the earlier headings of the same
+    script as what was taught before: (rounds, problems)."""
+    from bie.brain import studio_script
+    heads = {h["number"]: h for h in studio_script.headings(chapter)}
+    order = list(heads)
+    problems, rounds = {}, []
+    for number in wanted:
+        part = next((p for p in parts if p.get("section") == number), None)
+        if part is None:
+            problems[number] = ["the writer did not write this heading"]
+            continue
+        n = order.index(number)
+        earlier = [p for p in parts if p.get("section") in order[:n]]
+        later = [t for h in list(heads.values())[n + 1:] for t, _ in studio_script.first_terms(h)
+                 if studio_script._technical(t)]
+        found = studio_script.problems(part, heads[number], chapter, earlier, later)
+        rounds.append({"section": number, "rounds": [{"round": 1, "problems": found, "writer": "claude"}]})
+        if found:
+            problems[number] = found
+    return rounds, problems
+
+
+def write_outputs(out: Path, work: Path, chapter: dict, title: str, parts: list, rounds: list, problems: dict,
+                  usage: dict) -> list:
+    """The run folder as the films stage reads it: script.json, record.json, SCRIPT.md and .html, the chapter map and
+    plan, and what the writer learned (YAADEIN_NEW.md, folded into the skill by a reviewed PR)."""
+    from bie.brain import studio_script
+    record = {"parts": parts, "rounds": rounds, "problems": problems, "usage": usage}
+    (out / "script.json").write_text(studio_script.dump({"chapter_title": title, "parts": parts}), encoding="utf-8")
+    (out / "record.json").write_text(studio_script.dump({"rounds": rounds, "problems": problems, "usage": usage}),
+                                     encoding="utf-8")
+    (out / "SCRIPT.md").write_text(studio_script.markdown(chapter, record), encoding="utf-8")
+    (out / "SCRIPT.html").write_text(studio_script.html(chapter, record), encoding="utf-8")
+    shutil.copy(work / "chapter_map.json", out / "chapter_map.json")              # for the films stage
+    for name in ("naksha.json", "YAADEIN_NEW.md"):
+        if (work / name).exists():
+            shutil.copy(work / name, out / name)
+    return parts
+
+
+def in_order(parts: list, chapter: dict) -> list:
+    """The parts in the chapter's heading order (a part of no heading keeps its place at the end)."""
+    from bie.brain import studio_script
+    order = [h["number"] for h in studio_script.headings(chapter)]
+    rank = {number: n for n, number in enumerate(order)}
+    return sorted(parts, key=lambda p: rank.get(p.get("section"), len(order)))
+
+
+def name_of(number: str) -> str:
+    return number if number else '"" (the opening)'
+
+
 def script(args, *, run=subprocess.run, binary: str = "") -> dict:
     import vm_studio
     from bie.brain import studio_script
@@ -261,59 +436,17 @@ def script(args, *, run=subprocess.run, binary: str = "") -> dict:
         summary["base_session"] = bool(cmd.count("--fork-session"))
         summary["model"] = f"{model}, effort {EFFORT}"
         try:
-            done = run(cmd, cwd=str(ROOT), env=env, capture_output=True, text=True, timeout=TIMEOUT)
-        except FileNotFoundError:
-            raise SystemExit("Claude Code is not installed on this machine: sudo bie-claude-setup") from None
-        except subprocess.TimeoutExpired:
-            raise SystemExit(f"the writer did not finish within {TIMEOUT // 3600} hours") from None
-        result = {}
-        try:
-            result = json.loads(done.stdout or "{}")
-        except json.JSONDecodeError:
-            result = {"result": (done.stdout or "")[-2000:]}
-        if done.returncode != 0 or result.get("is_error"):
-            text = str(result.get("result") or done.stderr or done.stdout)[-400:]
-            raise SystemExit("the writer stopped: " + text + ("" if "login" not in text.lower() else
-                                                             " (sign in once: sudo bie-claude-setup)"))
-        usage = result.get("usage") or {}
-        summary.update(usage={"input_tokens": int(usage.get("input_tokens") or 0)
-                              + int(usage.get("cache_read_input_tokens") or 0)
-                              + int(usage.get("cache_creation_input_tokens") or 0),
-                              "output_tokens": int(usage.get("output_tokens") or 0)},
-                       turns=result.get("num_turns"), writer_reply=str(result.get("result") or "")[-1500:],
-                       notional_usd=result.get("total_cost_usd"))
+            result = call_writer(cmd, env, run)
+        except Limit as stop:
+            raise SystemExit("the writer stopped at the plan's limit: " + stop.text) from None
+        summary.update(usage=usage_of(result), turns=result.get("num_turns"),
+                       writer_reply=str(result.get("result") or "")[-1500:], notional_usd=result.get("total_cost_usd"))
         written = json.loads((work / "script.json").read_text(encoding="utf-8"))
-        heads = {h["number"]: h for h in studio_script.headings(chapter)}
-        order = list(heads)
-        problems, rounds = {}, []
-        for number in wanted:
-            part = next((p for p in written.get("parts") or [] if p.get("section") == number), None)
-            if part is None:
-                problems[number] = ["the writer did not write this heading"]
-                continue
-            n = order.index(number)
-            earlier = [p for p in written["parts"] if p.get("section") in order[:n]]
-            later = [t for h in list(heads.values())[n + 1:] for t, _ in studio_script.first_terms(h)
-                     if studio_script._technical(t)]
-            found = studio_script.problems(part, heads[number], chapter, earlier, later)
-            rounds.append({"section": number, "rounds": [{"round": 1, "problems": found, "writer": "claude"}]})
-            if found:
-                problems[number] = found
-        record = {"parts": written.get("parts") or [], "rounds": rounds, "problems": problems,
-                  "usage": summary["usage"]}
-        (out / "script.json").write_text(studio_script.dump({"chapter_title": written.get("chapter_title") or title,
-                                                             "parts": record["parts"]}), encoding="utf-8")
-        (out / "record.json").write_text(studio_script.dump({"rounds": rounds, "problems": problems,
-                                                             "usage": summary["usage"]}), encoding="utf-8")
-        (out / "SCRIPT.md").write_text(studio_script.markdown(chapter, record), encoding="utf-8")
-        (out / "SCRIPT.html").write_text(studio_script.html(chapter, record), encoding="utf-8")
-        shutil.copy(work / "chapter_map.json", out / "chapter_map.json")          # for the films stage
-        if (work / "naksha.json").exists():
-            shutil.copy(work / "naksha.json", out / "naksha.json")
-        if (work / "YAADEIN_NEW.md").exists():                                    # folded into the skill by a reviewed PR
-            shutil.copy(work / "YAADEIN_NEW.md", out / "YAADEIN_NEW.md")
+        rounds, problems = bie_checks(written.get("parts") or [], chapter, wanted)
+        parts = write_outputs(out, work, chapter, written.get("chapter_title") or title, written.get("parts") or [],
+                              rounds, problems, summary["usage"])
         summary.update(status="ok" if not problems else "needs_fix", rewritten=wanted, problems=problems,
-                       script=studio_script.counts(chapter, record["parts"]))
+                       script=studio_script.counts(chapter, parts))
         if verdict:
             before = next(p for p in so_far["parts"] if p.get("section") == wanted[0])
             after = next((p for p in written.get("parts") or [] if p.get("section") == wanted[0]), {})
@@ -331,6 +464,238 @@ def script(args, *, run=subprocess.run, binary: str = "") -> dict:
     summary["minutes"] = round((time.time() - started) / 60, 1)
     (out / "SUMMARY.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
     return summary
+
+
+IDENTITY = ("from_run", "chapter_map", "keep_from", "keep", "videos", "course", "language")
+
+
+def start_chapter(folder: Path, args) -> dict:
+    """A chapter job's first call: the work folder (chapter map, plan, the script so far with the chosen headings in
+    it) and its state: the headings to write in the chapter's order and the ones Navin chose."""
+    import vm_studio
+    from bie.brain import studio_script
+    source = args.chapter_map or args.from_run
+    if not source:
+        raise SystemExit("chapter: chapter_map (the naksha run) or from_run (a script run)")
+    chapter = vm_studio.read_json(source, "chapter_map.json")
+    plans = vm_studio.maybe_json(source, "naksha.json")
+    old = vm_studio.maybe_json(args.from_run, "script.json") if args.from_run else None
+    title = (chapter.get("map") or {}).get("chapter_title", "")
+    so_far = old if isinstance(old, dict) and old.get("parts") else {"chapter_title": title, "parts": []}
+    asked = [v for v in (getattr(args, "keep", "") or "").split(",") if v.strip()]
+    kept = headings_of(",".join(asked), chapter) if asked else []
+    if len(kept) != len(asked):
+        raise SystemExit(f"keep: {getattr(args, 'keep', '')!r} names a heading the chapter does not have")
+    if getattr(args, "keep_from", ""):                       # Navin's chosen headings, from the run that holds them
+        other = vm_studio.read_json(args.keep_from, "script.json")
+        chosen = {p.get("section"): p for p in other.get("parts") or [] if p.get("section") in kept}
+        so_far["parts"] = [chosen.pop(p.get("section"), p) for p in so_far["parts"]] + list(chosen.values())
+    have = {p.get("section") for p in so_far["parts"]}
+    missing = [name_of(h) for h in kept if h not in have]
+    if missing:
+        raise SystemExit("keep: " + ", ".join(missing) + " is in neither from_run nor keep_from")
+    todo = [h for h in headings_of(args.videos, chapter) if h not in kept]
+    if not todo:
+        raise SystemExit(f"videos: no heading to write ({args.videos!r}, kept {', '.join(map(name_of, kept))})")
+    so_far["parts"] = in_order(so_far["parts"], chapter)
+    shutil.rmtree(folder, ignore_errors=True)
+    work = folder / "work"
+    work.mkdir(parents=True)
+    (work / "chapter_map.json").write_text(json.dumps(chapter, ensure_ascii=False), encoding="utf-8")
+    if isinstance(plans, dict):
+        (work / "naksha.json").write_text(json.dumps(plans, ensure_ascii=False), encoding="utf-8")
+    (work / "script.json").write_text(studio_script.dump(so_far), encoding="utf-8")
+    per = int(getattr(args, "per_window", 0) or PER_WINDOW)
+    return {"schema": "bie.chapter-job/1", "job": {k: str(getattr(args, k, "") or "") for k in IDENTITY},
+            "title": so_far.get("chapter_title") or title, "todo": todo, "kept": kept, "done": [], "current": None,
+            "window": {"start": None, "count": 0}, "per_window": max(1, per), "headings": {}, "rounds": [],
+            "usage": {"input_tokens": 0, "output_tokens": 0}, "turns": 0, "calls": 0, "started": time.time()}
+
+
+def chapter(args, *, run=subprocess.run, binary: str = "", now=time.time) -> dict:
+    """Stage ``chapter``: one call writes the next heading of the chapter (see the module text) and ends ``paused``
+    with ``resume_at``, or ``ok`` / ``needs_fix`` when the last heading is written."""
+    from bie.brain import studio_script
+    out = Path(args.out)
+    out.mkdir(parents=True, exist_ok=True)
+    folder = out.parent / (out.name + ".work")
+    started = now()
+    summary = {"schema": "bie.studio-run/1", "section": "studio", "stage": "chapter", "status": "failed", "maker": MAKER,
+               "model": f"{MODEL}, effort {EFFORT}", "cost": {"total_inr": 0.0}, "error": None}
+    state, work = None, folder / "work"
+
+    def save():
+        (folder / "state.json").write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    def pause(when: float, why: str):
+        state["resume_at"] = when
+        save()
+        summary.update(status="paused", resume_at=when, waiting_for=why,
+                       resume_at_utc=datetime.fromtimestamp(when, timezone.utc).strftime("%Y-%m-%d %H:%M UTC"))
+
+    try:
+        env = environment()
+        binary = binary or shutil.which("claude") or "claude"
+        base = base_session(env)
+        if not base and not getattr(args, "fresh", False):
+            raise SystemExit("the chat Navin taught is not on this machine yet (sudo bie-claude-setup, step 3); "
+                             "a job without it needs \"fresh\": true")
+        identity = {k: str(getattr(args, k, "") or "") for k in IDENTITY}
+        if (folder / "state.json").exists():
+            state = json.loads((folder / "state.json").read_text(encoding="utf-8"))
+            if state.get("job") != identity:                 # the same id run again with other fields: start over
+                state = None
+        if state is None:
+            state = start_chapter(folder, args)
+            save()
+        chapter_map = json.loads((work / "chapter_map.json").read_text(encoding="utf-8"))
+        model = model_of(env)
+        summary["model"] = f"{model}, effort {EFFORT}"
+        t = now()
+        window = state["window"]
+        if window["start"] is not None and t - window["start"] >= WINDOW:
+            window.update(start=None, count=0)
+        if state["current"] is None and state["todo"] and window["count"] >= state["per_window"]:
+            pause(window["start"] + WINDOW + 120, f"{state['per_window']} headings written in this window of the plan")
+        elif state["todo"] or state["current"]:
+            fresh_start = state["current"] is None or not state["current"].get("session")
+            if state["current"] is None:
+                state["current"] = {"heading": state["todo"][0], "session": "", "tries": 0}
+                if window["start"] is None:
+                    window["start"] = t
+                window["count"] += 1
+            current = state["current"]
+            number = current["heading"]
+            if fresh_start:                                  # a heading always starts from the script before it
+                if (folder / "before.json").exists() and current.get("began"):
+                    shutil.copy(folder / "before.json", work / "script.json")
+                else:
+                    shutil.copy(work / "script.json", folder / "before.json")
+                current["began"] = t
+            save()
+            check = (f"{sys.executable} tools/script_writer_check.py --script {work}/script.json --chapter "
+                     f"{work}/chapter_map.json --heading {shlex.quote(number)}")
+            lines = ""
+            if state["done"]:
+                lines += CHAPTER_WRITTEN.format(names=", ".join(map(name_of, state["done"])))
+            if state["kept"]:
+                lines += CHAPTER_KEPT.format(names=", ".join(map(name_of, state["kept"])))
+            if len(state["todo"]) > 1:
+                lines += CHAPTER_OLD
+            job = WRITE.format(headings=name_of(number), work=work) + "\n" + CHAPTER.format(
+                heading=name_of(number), check=check, work=work, lines=lines)
+            task = (TAUGHT if base else "") + TASK.format(course=args.course or "", language=args.language or "Hinglish",
+                                                          job=job, work=work, python=sys.executable)
+            if current.get("session"):
+                cmd = command(CONTINUE.format(work=work) + task, work, binary=binary, base=current["session"],
+                              model=model, env=env, fork=False)
+            else:
+                cmd = command(task, work, binary=binary, base=base, model=model, env=env)
+            summary["base_session"] = bool(base)
+            state["calls"] += 1
+            call_started = now()
+            result = stop = error = None
+            try:
+                result = call_writer(cmd, env, run)
+            except Limit as exc:
+                stop = exc
+            except SystemExit as exc:
+                error = exc
+            current["spent"] = current.get("spent", 0) + now() - call_started
+            if stop is not None:                             # the same fork goes on when the plan opens again
+                current["session"] = stop.session or current.get("session") or ""
+                pause(stop.reset, "the plan's limit: " + stop.text[:200])
+            elif error is not None:
+                current["tries"] += 1
+                gone = current.get("session") and re.search(r"no conversation found|session.{0,40}not found",
+                                                            str(error), re.IGNORECASE)
+                current["session"] = ""                       # the next try starts the heading again from before it
+                if current["tries"] > RETRIES and not gone:
+                    save()
+                    raise error
+                pause(now() + (0 if gone else RETRY_WAIT), str(error)[:300])
+            else:
+                if finish_heading(state, folder, work, chapter_map, number, result, current["spent"]):
+                    if state["todo"]:
+                        pause(now(), "the next heading (other jobs on this machine go first)")
+                else:
+                    pause(now(), f"heading {name_of(number)} was not written; it is tried again")
+        if summary["status"] != "paused":
+            problems = {h: v["problems"] for h, v in state["headings"].items() if v.get("problems")}
+            summary.update(status="ok" if not problems else "needs_fix", problems=problems)
+    except SystemExit as exc:
+        summary["error"] = str(exc)
+    except Exception as exc:                        # the runner publishes the folder either way; the error says why
+        summary["error"] = f"{type(exc).__name__}: {str(exc)[:300]}"
+    if state is not None and (work / "script.json").exists():
+        try:                                        # what is written so far is published, whatever stopped the call
+            chapter_map = json.loads((work / "chapter_map.json").read_text(encoding="utf-8"))
+            parts = json.loads((work / "script.json").read_text(encoding="utf-8")).get("parts") or []
+            problems = {h: v["problems"] for h, v in state["headings"].items() if v.get("problems")}
+            write_outputs(out, work, chapter_map, state["title"], parts, state["rounds"], problems, state["usage"])
+            summary.update(rewritten=state["done"], kept=state["kept"], usage=state["usage"], turns=state["turns"],
+                           progress={"written": state["done"], "left": state["todo"], "kept": state["kept"],
+                                     "now": (state["current"] or {}).get("heading"), "per_window": state["per_window"]},
+                           headings=state["headings"], script=studio_script.counts(chapter_map, parts))
+        except Exception as exc:
+            summary["error"] = summary["error"] or f"publishing: {type(exc).__name__}: {str(exc)[:200]}"
+            if summary["status"] != "paused":
+                summary["status"] = "failed"
+        if summary["status"] in ("ok", "needs_fix"):
+            shutil.rmtree(folder, ignore_errors=True)        # the chapter is done: its state goes
+        elif summary["status"] == "failed":
+            summary["kept_state"] = ("the job's state stays on this machine; a new job can go on from this run folder "
+                                     "(from_run, with the headings written here added to keep)")
+    try:
+        summary["forks_deleted"] = len(prune_forks(environment()))
+    except Exception:                                   # tidying never decides a job
+        pass
+    summary["minutes"] = round((now() - started) / 60, 1)
+    (out / "SUMMARY.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
+    return summary
+
+
+def finish_heading(state: dict, folder: Path, work: Path, chapter_map: dict, number: str, result: dict,
+                   seconds: float) -> bool:
+    """A heading the writer finished: only its own part is taken (any other heading it touched is put back as it was,
+    so Navin's chosen headings and the ones written before stay), BIE's checks run, and the state moves on. False when
+    the writer left the heading out (it is tried again from the script before it)."""
+    before = json.loads((folder / "before.json").read_text(encoding="utf-8"))
+    try:
+        written = json.loads((work / "script.json").read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        written = {}
+    mine = next((p for p in written.get("parts") or [] if p.get("section") == number), None)
+    if mine is None or mine == next((p for p in before.get("parts") or [] if p.get("section") == number), None):
+        state["current"]["tries"] += 1
+        state["current"]["session"] = ""
+        shutil.copy(folder / "before.json", work / "script.json")
+        if state["current"]["tries"] > RETRIES:
+            raise SystemExit(f"the writer did not write heading {name_of(number)}")
+        return False
+    old = {p.get("section"): p for p in before.get("parts") or []}
+    new = {p.get("section"): p for p in written.get("parts") or []}
+    restored = sorted(s for s in old if s != number and new.get(s) != old[s])
+    dropped = sorted(s for s in new if s != number and s not in old)
+    parts = in_order([p for p in before.get("parts") or [] if p.get("section") != number] + [mine], chapter_map)
+    from bie.brain import studio_script
+    (work / "script.json").write_text(studio_script.dump(dict(before, parts=parts)), encoding="utf-8")
+    rounds, problems = bie_checks(parts, chapter_map, [number])
+    usage = usage_of(result)
+    state["rounds"] = [r for r in state["rounds"] if r.get("section") != number] + rounds
+    state["headings"][number] = {"problems": problems.get(number, []), "turns": result.get("num_turns"),
+                                 "usage": usage, "minutes": round(seconds / 60, 1),
+                                 "writer_reply": str(result.get("result") or "")[-800:],
+                                 "put_back": restored + dropped, "tries": state["current"]["tries"] + 1}
+    for key in usage:
+        state["usage"][key] += usage[key]
+    state["turns"] += int(result.get("num_turns") or 0)
+    state["done"].append(number)
+    state["todo"] = [h for h in state["todo"] if h != number]
+    state["current"] = None
+    (folder / "before.json").unlink(missing_ok=True)
+    (folder / "state.json").write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")
+    return True
 
 
 def unlock(data: bytes, key: Path) -> bytes:
@@ -457,7 +822,7 @@ def install_copy(args, *, run=subprocess.run, binary: str = "") -> dict:
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    parser.add_argument("stage", choices=["script", "copy"])
+    parser.add_argument("stage", choices=["script", "copy", "chapter"])
     parser.add_argument("--from-run", default="")
     parser.add_argument("--chapter-map", default="")
     parser.add_argument("--videos", default="")
@@ -469,12 +834,20 @@ def main(argv=None) -> int:
     parser.add_argument("--sha256", default="")
     parser.add_argument("--tokens", default="0")
     parser.add_argument("--verdict", default="")              # stage script: Navin's verdict on one heading of from_run
+    parser.add_argument("--keep", default="")                 # stage chapter: the headings Navin chose, never rewritten
+    parser.add_argument("--keep-from", default="")            # stage chapter: the run that holds them, when from_run does not
+    parser.add_argument("--per-window", type=int, default=PER_WINDOW)
     parser.add_argument("--out", required=True)
     args = parser.parse_args(argv)
     if args.stage == "copy":
         summary = install_copy(args)
         print(json.dumps({k: summary.get(k) for k in ("status", "error", "minutes", "tokens", "checks")}, ensure_ascii=False))
         return 0 if summary["status"] == "ok" else 1
+    if args.stage == "chapter":
+        summary = chapter(args)
+        print(json.dumps({k: summary.get(k) for k in ("status", "error", "minutes", "rewritten", "resume_at_utc")},
+                         ensure_ascii=False))
+        return 0 if summary["status"] in ("ok", "needs_fix", "paused") else 1
     summary = script(args)
     print(json.dumps({k: summary.get(k) for k in ("status", "error", "minutes", "rewritten")}, ensure_ascii=False))
     return 0 if summary["status"] in ("ok", "needs_fix") else 1
