@@ -47,3 +47,14 @@ session. When it grows past about 300 lines, fold old entries into the skill or 
   needs wala option bhi hata do").
 - What c3 missed: "yaad rakhein" in the opening recap, and its closing question was half answered ("…apna khaas
   tareeka rakhte hain"); c5 asked the opening question again at the end and left the next one open.
+
+## 2026-11-27 · heading 11.7.2 · job c6, Navin's verdict applied to c3, locked as the golden benchmark
+
+- The same copy applied his verdict to its own c3 in 22 turns: the recap's third line opens "Yaad rakhein:" and a new
+  line "Aage hum dekhenge ki yahi ek baat ek badi paheli khadi kar deti hai" leads into the question; at the end the
+  opening question comes back and is answered (with the dukaan), and the C₄ question stays open: "C₄ paudhe alag kis
+  baat mein hain, yeh aage hum dekhenge." 11 of 13 points word for word, 0 problems, 181 → 185 sentences.
+- Learned: a closing question carries no part of its answer; "yaad rakhein" sits best on the recap line that already
+  holds the one thing to keep, so the recap does not grow.
+- Navin: "Haan, pakka karo". The heading is `references/benchmark-11.7.2.json` (learn the way, never copy; withheld
+  while 11.7.2 of this book is written). The `bridge` field still names how C₄ plants differ; it is not spoken.

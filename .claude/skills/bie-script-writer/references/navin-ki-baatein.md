@@ -51,7 +51,10 @@ each entry says what it replaced. Sources: this repository's `docs/roadmap/STATU
 - **27 Nov, a heading written on the VM:** "C3 is our golden benchmark after rectifying recap ke sath yaad rakhein ant
   mein shuru ka sawal aur khula chhodo": job c3's 11.7.2 (the Calvin cycle, by the taught chat's copy) is the benchmark
   for a whole heading once its start and end follow B3. "Jo c3 likh raha hai wohi rakhna hai bas wo jis dhang se kaam
-  kar rha hai wo shi hai."
+  kar rha hai wo shi hai." Fixed in job c6 (only the start and the end changed, 11 of 13 points word for word) and
+  locked on his word "Haan, pakka karo": `references/benchmark-11.7.2.json`, the whole heading with its facts. Learn the
+  way from it as from the gold standard; never copy its words, pictures or examples, and never open it while 11.7.2 of
+  this book is written.
 
 ## Verdicts on BIE's scripts (what "close" means)
 

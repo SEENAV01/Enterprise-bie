@@ -781,6 +781,13 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    on 27 November at 06:03, so a new copy would hold the gold days only as a summary, while `writer-chat-1` (which
    wrote c3) holds them in full; his later verdicts reach it through `yaadein.md` and `navin-ki-baatein.md`, which it
    reads before every job. Next: job c6 applies the verdict to c3 (start and end only).
+   **PR #229 merged; job c6 (27 November, 22:09–22:19):** the same copy applied the verdict to its c3 in 22 turns: only
+   k1 (recap ends "Yaad rakhein: …", then "Aage hum dekhenge …") and k13 (the opening question asked again and answered,
+   the C₄ question left open) changed; 11 of 13 points and the other 20 headings word for word; 0 problems. Navin:
+   "Haan, pakka karo". **Branch `benchmark-1172`:** the fixed heading kept as a passed output
+   (`tests/fixtures/passed_outputs/scripts/photosynthesis-11.7.2-c3.json.gz`, with the chapter map it was checked
+   against; a test keeps it passing BIE's script checks) and for the writer as `references/benchmark-11.7.2.json`
+   (learn the way, never copy; withheld while 11.7.2 of this book is written).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

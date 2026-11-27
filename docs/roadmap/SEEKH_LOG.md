@@ -3436,3 +3436,13 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   --verdict`, `vm_claude.changes`); his words in the skill's references.
 - **Learned about the copy:** a refresh made after a compaction carries everything before it only as the summary, so
   the copy that holds the gold days in full (`writer-chat-1`) stays; verdicts travel through the skill's references.
+
+## Entry · the first verdict job and the golden benchmark for a heading, 27 November 2026
+
+- **Taught by:** job c6, the first verdict job: the taught chat's copy changed only what Navin's verdict named (k1 and
+  k13 of its c3), in 22 turns and 3.6 minutes of writing (c3 took 83 turns); `verdict_changes` showed 11 of 13 points
+  word for word. A verdict applied by the writer itself keeps what he chose and costs a fraction of a rewrite.
+- **Changed in BIE (branch `benchmark-1172`):** the first passed script heading in `tests/fixtures/passed_outputs/
+  scripts/` with a test that it still passes `studio_script.problems`; the writer's readable copy
+  `references/benchmark-11.7.2.json`, named in `navin-ki-baatein.md`.
+- **Measured:** 0 problems before and after the fix; 181 → 185 sentences.

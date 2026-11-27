@@ -91,6 +91,45 @@ class SelfCheck(unittest.TestCase):
                 script_writer_check.check({"parts": parts()}, chapter(), "9.9")
 
 
+class PassedScripts(unittest.TestCase):
+    """Seekh → BIE (CLAUDE.md): a script heading Navin passed must still pass BIE's script checks after any change. The
+    first is 11.7.2 by the taught chat's copy (job c3, its start and end fixed in job c6; Navin, 27 November 2026: "C3 is
+    our golden benchmark ...", then "Haan, pakka karo")."""
+
+    def test_every_passed_heading_still_passes(self):
+        import gzip
+        found = sorted((ROOT / "tests" / "fixtures" / "passed_outputs" / "scripts").glob("*.json.gz"))
+        self.assertTrue(found)
+        for path in found:
+            with gzip.open(path, "rt", encoding="utf-8") as f:
+                kept = json.load(f)
+            self.assertIn("Navin", kept["accepted"])
+            chap, parts_ = kept["chapter_map"], kept["script"]["parts"]
+            heads = {h["number"]: h for h in studio_script.headings(chap)}
+            order = list(heads)
+            n = order.index(kept["section"])
+            part = next(p for p in parts_ if p["section"] == kept["section"])
+            earlier = [p for p in parts_ if p.get("section") in order[:n]]
+            later = [t for h in list(heads.values())[n + 1:] for t, _ in studio_script.first_terms(h)
+                     if studio_script._technical(t)]
+            self.assertEqual(studio_script.problems(part, heads[kept["section"]], chap, earlier, later), [], path.name)
+
+    def test_the_writer_reads_the_benchmark_as_the_heading_it_was_passed(self):
+        import gzip
+        bench = json.loads((ROOT / ".claude" / "skills" / "bie-script-writer" / "references" / "benchmark-11.7.2.json")
+                           .read_text(encoding="utf-8"))
+        with gzip.open(ROOT / "tests" / "fixtures" / "passed_outputs" / "scripts" / "photosynthesis-11.7.2-c3.json.gz",
+                       "rt", encoding="utf-8") as f:
+            kept = json.load(f)
+        part = next(p for p in kept["script"]["parts"] if p["section"] == "11.7.2")
+        self.assertEqual([[line["says"] for line in p["lines"]] for p in bench["points"]],
+                         [p["says"] for p in part["points"]])
+        self.assertEqual(bench["withheld_for"]["section"], "11.7.2")
+        self.assertIn("never copy", bench["made_by"])
+        words = (ROOT / ".claude" / "skills" / "bie-script-writer" / "references" / "navin-ki-baatein.md").read_text()
+        self.assertIn("references/benchmark-11.7.2.json", words)
+
+
 if __name__ == "__main__":
     unittest.main()
 
@@ -453,4 +492,3 @@ class WriterCopy(WriterBase):
         with self.assertRaises(codex_vm.JobError):                                   # url belongs to the copy job only
             codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "c9-bad", "section": "studio", "stage": "script",
                                "maker": "claude", "from_run": "https://x/r", "url": codex_vm.COPY_URL + "a"})
-
