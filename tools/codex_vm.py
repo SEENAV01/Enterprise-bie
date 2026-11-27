@@ -96,7 +96,7 @@ def validate(job: dict) -> dict:
     allowed = {"job", "id", "section", "source", "chapter_map", "from_run", "resume_from", "library", "pages", "videos", "course",
                "maker", "reviewer", "reviewer_model", "models", "routes", "max_inr", "workers", "max_rounds", "language",
                "with_visual", "with_canvas", "with_show", "render", "fake", "note", "prompts", "request", "max_images", "stage",
-               "pyqs", "reference", "max_lines", "look", "fresh", "url", "sha256", "tokens"}
+               "pyqs", "reference", "max_lines", "look", "fresh", "url", "sha256", "tokens", "verdict"}
     unknown = sorted(set(job) - allowed)
     if unknown:
         raise JobError("unknown fields: " + ", ".join(unknown))
@@ -161,6 +161,15 @@ def validate(job: dict) -> dict:
             raise JobError("tokens: the copy's size in tokens, a whole number")
     elif any(name in out for name in ("url", "sha256", "tokens")):
         raise JobError("url, sha256 and tokens: only for studio copy")
+    # verdict: Navin's verdict on one heading as BIE's writer wrote it in an earlier run, applied by the writer itself
+    # (Navin, 27 November 2026: c3 is the golden benchmark once its start and end follow rule B3)
+    if "verdict" in out:
+        if out["maker"] != "claude" or out.get("stage") != "script":
+            raise JobError("verdict: only for studio script with maker claude")
+        if not isinstance(out["verdict"], str) or not 20 <= len(out["verdict"].strip()) <= 3000:
+            raise JobError("verdict: Navin's words and what they ask, 20 to 3000 characters")
+        if not out.get("from_run") or "," in str(out.get("videos") or "") or not out.get("videos"):
+            raise JobError("verdict: from_run (the run he judged) and one heading in videos")
     if out["section"] in ("lesson", "notes", "game", "notespages", "gamelevels") and not out.get("chapter_map"):
         raise JobError("chapter_map: needed for lesson, notes and game")
     if out["section"] in ("director", "visual", "canvas", "coder", "showplan") and not out.get("from_run"):
@@ -198,7 +207,7 @@ def argv(job: dict, out: Path, python: str = sys.executable) -> list:
                 cmd += ["--" + name.replace("_", "-"), str(job[name])]
         if job.get("fresh"):
             cmd.append("--fresh")
-        for name in ("url", "sha256", "tokens"):
+        for name in ("url", "sha256", "tokens", "verdict"):
             if job.get(name):
                 cmd += ["--" + name, str(job[name])]
         return cmd

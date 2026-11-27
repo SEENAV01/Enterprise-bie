@@ -3422,3 +3422,17 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
 - **Measured before:** c3: 83 turns, ≈ 14 % session, ≈ 1 % week, 181 sentences, 0 problems. **After:** 11.7.2 again
   with the same copy: turns, Usage, and the script beside c3 (all 30 items taught, the recalls of earlier headings
   kept, BIE's problems). Kept only if the script holds.
+
+## Entry · the packet test, Navin's verdict on c3, and a verdict job, 27 November 2026
+
+- **Measured after (PR #228):** job c5, the same copy with the packet: 63 turns (−24 %), 18.2 million tokens read
+  (−31 %), ≈ 12 % of a session against c3's ≈ 14 % (the Usage screen rounds), 0 problems both. The script changed in
+  ways a single run cannot pin on the packet (the same copy writes differently each time): a new picture, finer exam
+  points, less of c3's why.
+- **Navin's verdict:** c3 ("uske teacher ka bolne ka tarika"); c3 becomes the golden benchmark once B3's two ends are
+  fixed; the exam's fine points join c3's way; the packet comes out ("khi usse kuchh negative effect na ho jaaye").
+- **Changed in BIE (branch `writer-verdict`):** PR #228's code reverted (packet, `--needs`, `heading_items` refactor;
+  Codex's messages were identical either way); `verdict` for Claude script jobs (`codex_vm.validate`, `vm_claude
+  --verdict`, `vm_claude.changes`); his words in the skill's references.
+- **Learned about the copy:** a refresh made after a compaction carries everything before it only as the summary, so
+  the copy that holds the gold days in full (`writer-chat-1`) stays; verdicts travel through the skill's references.
