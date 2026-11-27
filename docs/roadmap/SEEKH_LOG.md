@@ -3446,3 +3446,14 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
   scripts/` with a test that it still passes `studio_script.problems`; the writer's readable copy
   `references/benchmark-11.7.2.json`, named in `navin-ki-baatein.md`.
 - **Measured:** 0 problems before and after the fix; 181 → 185 sentences.
+
+## Entry · the bridge and B3's open end, 27 November 2026
+
+- **Taught by:** job c7's note (films speak the bridge as their last line) and BIE's own film cut: 11.7.2's film would
+  end twice ("… yeh aage hum dekhenge." then the bridge "… kaun sa khaas tareeka rakhte hain"), the second time with a
+  hint of the next heading's answer; the bridge check asked for "a problem and its cure", against B3.
+- **Changed in BIE (branch `bridge-b3`, Navin's "Ok A"):** `ends_open`; the film skips the bridge after an open last
+  line; the check and the writer's rule ask for an open question, never the cure. The format is unchanged (the bridge
+  field stays), so Codex's route and every saved script keep working.
+- **Measured:** 11.7.2's last film line is now its own open question; 11.6.2's problems drop from two to one (the
+  missing `uses`, which the teaching does not depend on); every passed film and the benchmark still pass.

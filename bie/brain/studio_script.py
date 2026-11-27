@@ -455,8 +455,9 @@ Rules:
     night; the Calvin cycle releases CO2; pigments separate by weight; C4 plants store CO2 and open their stomata once;
     light saturates at 1 % of sunlight; temperature does not affect the light reaction; 360 and 450 are compensation
     points; pheophytin is a protein; NADP reductase gives the electron.
-- "bridge": one line that leads into the next heading and names the link: a problem and its cure, a need and what meets
-  it (empty only for the last heading).
+- "bridge": one line that leads into the next heading by leaving its question open ("... aage hum dekhenge"), never its
+  answer or a hint of it (Navin's rule B3, 27 November 2026); it may stay empty when the heading's own last line already
+  leaves the next question open, and is empty for the last heading.
 - The last heading, "recap", is the chapter's closing: it teaches the summary's lines as one connected picture (energy,
   electrons, protons and carbon, each traced end to end), recalls the points it rests on, and prepares every exercise no
   earlier point prepared.
@@ -1180,9 +1181,9 @@ def teacher_problems(answer: dict, heading: dict, chapter: dict, points: list) -
         out.append(f"the chapter file marks a common wrong idea here ({', '.join(marked[:4])}); say it and correct it "
                    "(\"aksar log sochte hain ki …, par asal mein …\")")
     last = (headings(chapter) or [{"number": number}])[-1]["number"]
-    if number != last and not (answer.get("bridge") or "").strip():
-        out.append("\"bridge\" is empty: one line into the next heading that names the link (a problem and its cure, a need "
-                   "and what meets it)")
+    if number != last and not (answer.get("bridge") or "").strip() and not ends_open(answer):
+        out.append("\"bridge\" is empty and the last line does not lead on: end on the next heading's question left open "
+                   "(\"... aage hum dekhenge\"), never its answer or a hint of it (rule B3)")
     return out
 
 
@@ -1557,6 +1558,19 @@ def film_id(section: str, part: int = 0, parts: int = 1) -> str:
     return "h" + (section or "0").replace(".", "-") + ("abcdefghijklmnopqrstuvwxyz"[part] if parts > 1 else "")
 
 
+# B3's closing (Navin, 27 November 2026): the film's last line leaves the next film's question open ("C₄ paudhe alag kis
+# baat mein hain, yeh aage hum dekhenge"); "agle heading/hisse/film mein dekhenge" says the same.
+OPEN_END = re.compile(r"\baage\s+(?:hum\s+)?dekhenge\b|\bagl[ei]\s+(?:heading|hisse|film|video)\s+mein\s+dekhenge\b",
+                      re.IGNORECASE)
+
+
+def ends_open(part: dict) -> bool:
+    """Whether the heading's own last spoken line already leaves the next question open (rule B3), so a bridge would only
+    say the end a second time."""
+    points = [p for p in part.get("points") or [] if p.get("says")]
+    return bool(points) and bool(OPEN_END.search(str(points[-1]["says"][-1])))
+
+
 def _cut(points: list) -> list:
     """The heading's points in films of at most FILM_LINES lines, cut only between points: as few films as fit, and of
     those the most even cut (the longest film as short as it can be). A greedy cut left a last film of 8 lines after
@@ -1629,7 +1643,7 @@ def film_questions(script: dict, chapter: dict, naksha: dict | None = None, want
             goal, planned_question = (part.get("goal") or "").strip(), (plan.get("question") or "").strip()
             question = next((x for x in (goal if number == 0 else "", planned_question) if x.endswith("?")), "") or next(
                 (x["roman"] for x in lines if x["roman"].rstrip().endswith("?")), (part.get("title") or section))
-            if number == len(pieces) - 1 and (part.get("bridge") or "").strip():
+            if number == len(pieces) - 1 and (part.get("bridge") or "").strip() and not ends_open(part):
                 lines.append({"roman": part["bridge"].strip(), "note": "bridge to the next heading's film", "kind": "bridge",
                               "point": ""})
             points = [{"block_ids": list(items[i].get("block_ids") or []), "point": items[i].get("content", "")[:200],

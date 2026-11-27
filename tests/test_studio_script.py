@@ -354,13 +354,18 @@ class Script(unittest.TestCase):
         self.assertEqual(studio_script.problems(part, heads[2], ch, parts()[:2], []), [])
         part["bridge"] = ""
         self.assertIn('"bridge" is empty', " | ".join(studio_script.problems(part, heads[2], ch, parts()[:2], [])))
+        # rule B3 (Navin, 27 November 2026): a last line that leaves the next question open needs no bridge
+        part["points"][-1]["says"].append("Electron ki kami kaun bharta hai, yeh aage hum dekhenge.")
+        part["points"][-1]["roles"].append("link")
+        self.assertTrue(studio_script.ends_open(part))
+        self.assertNotIn('"bridge"', " | ".join(studio_script.problems(part, heads[2], ch, parts()[:2], [])))
         self.assertEqual(studio_script.problems(parts()[3], heads[3], ch, parts()[:3], [], None, []), [])   # last heading
         counts = studio_script.counts(ch, parts())
         self.assertEqual((counts["retells"], counts["fragments"], counts["goals"]), (1, 0, 4))
         self.assertGreater(counts["question_share"], 0.15)
         rules = studio_script.messages(ch, heads[0], [], course=ch["course"])[0]["content"]
         for words in ("Ask the learner at the turns of the teaching", '"overview" point', '"retell" point',
-                      "never a sentence of three words or fewer", "oxygen-18 is radioactive", "names the link"):
+                      "never a sentence of three words or fewer", "oxygen-18 is radioactive", "leaving its question open"):
             self.assertIn(words, rules)
 
     def test_code_repairs_the_section_and_a_recall_of_an_item(self):
@@ -1044,3 +1049,34 @@ class LessonAsJson(unittest.TestCase):
         self.assertEqual([f["id"] for f in lesson["facts"]], ["f1", "f2"])
         self.assertEqual((lesson["goal"], lesson["misaal"], lesson["bridge"]), ("Toh ATP bana kaise?", "baandh", "Ab aage."))
         self.assertIsNone(studio_script.parse_lesson('{"section": "11.6.1", "points": []}'))
+
+
+class BridgeAndB3(unittest.TestCase):
+    """Navin, 27 November 2026 (raasta A): the heading's last film speaks the bridge after the script's lines, so when the
+    last line already leaves the next question open ("... aage hum dekhenge") the film does not say the end twice."""
+
+    def test_an_open_last_line_is_recognised(self):
+        for line, open_ in (("C₄ paudhe alag kis baat mein hain, yeh aage hum dekhenge.", True),
+                            ("ATP bana kaise, yeh aage dekhenge.", True),
+                            ("Yeh agle heading mein dekhenge.", True),
+                            ("Toh ATP bana kaise?", False)):
+            self.assertEqual(studio_script.ends_open({"points": [{"says": ["Ek line.", line]}]}), open_, line)
+        self.assertFalse(studio_script.ends_open({"points": []}))
+
+    def test_the_film_skips_the_bridge_after_an_open_last_line(self):
+        ch = chapter()
+        script = {"chapter_title": "Ch", "parts": copy.deepcopy(parts())}
+        target = script["parts"][2]
+        number = target["section"]
+        def last_lines(s):
+            films = studio_script.film_questions(s, ch)
+            mine = [q for q in films["questions"] if q["pillar"] == number]
+            return [x["roman"] for x in mine[-1]["teacher_lines"]]
+        bridge = target["bridge"].strip()
+        self.assertEqual(last_lines(script)[-1], bridge)                              # a closed end: the bridge leads on
+        target["points"][-1]["says"].append("Electron ki kami kaun bharta hai, yeh aage hum dekhenge.")
+        target["points"][-1]["roles"].append("link")
+        lines = last_lines(script)
+        self.assertEqual(lines[-1], "Electron ki kami kaun bharta hai, yeh aage hum dekhenge.")
+        self.assertNotIn(bridge, lines)
+

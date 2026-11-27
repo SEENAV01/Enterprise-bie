@@ -795,7 +795,12 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    `references/benchmark-11.6.2.json` (a writer's reference only: its points carry no `uses` and its bridge is empty,
    which BIE's checks name). **Found:** the heading's last film speaks the `bridge` as its last line
    (`studio_script` films cut), so 11.7.2's film would end twice and hint at C₄'s way; and the bridge check asks for "a
-   problem and its cure", against B3. Navin asked to talk it through before any change.
+   problem and its cure", against B3. Navin asked to talk it through before any change. **His choice: raasta A ("Ok A").**
+   **Branch `bridge-b3`:** `studio_script.ends_open` (the last spoken line leaves the next question open: "aage (hum)
+   dekhenge", "agle heading/hisse/film mein dekhenge"); `film_questions` no longer speaks the bridge after such a line;
+   the bridge check accepts an empty bridge after such a line and asks otherwise for an open question (rule B3); the
+   writer's rule for the bridge says the same. 11.7.2's film now ends once, on "C₄ paudhe alag kis baat mein hain, yeh
+   aage hum dekhenge."; 11.6.2's empty bridge passes.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

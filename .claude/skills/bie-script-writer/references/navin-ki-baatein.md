@@ -89,6 +89,9 @@ each entry says what it replaced. Sources: this repository's `docs/roadmap/STATU
   hum aage dekhenge se agli video ka premise taiyar karte hai"). Inside one film: a thing said a minute ago gets a
   one-line pointer ("wahi … jo abhi dekha"); an older film's thing "yaad karo" and one or two lines; a later film's
   thing a one-line seed with no answer ("yeh aage … mein dekhenge").
+  **27 Nov, the bridge (raasta A, "Ok A"):** the heading's last film speaks the script's `bridge` after its lines, so a
+  bridge only leaves the next heading's question open, never its cure; when the heading's own last line already does
+  ("… aage hum dekhenge"), the film does not speak the bridge and the bridge may stay empty.
 - **Exam ki baareek baatein (27 Nov):** inside c3's way, where the book's own words hide an exam trap, open it in a line
   or two at that moment: c5's "the 3 of 3-PGA is the phosphate's place, the 3 of C₃ counts carbons", why the figure
   writes "glycerate", the book's NADP is NADP⁺ once it has given its electrons, "dark reaction" is not darkness. "C3 ko
