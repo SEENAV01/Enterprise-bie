@@ -38,3 +38,31 @@
 - Skill and memory: no place where the skill differed from Navin's words. Unsure, for Navin to judge: the willow story
   and its numbers are outside the book (named in outside_book); the cyanobacteria point adds to the book's "only in
   plants".
+
+## 2026-11-27 · Chapter 11, heading 11.1 (What do we know?) · second copy
+
+- Puzzle taken up from the opening's open end: "Patti ke andar khana bante koi nahi dekh sakta; toh hum pakka kaise
+  jaante hain ki patti khana banati hai, aur use kya-kya chahiye?" (names no new term). Recap B3: willow, Calvin's C¹⁴,
+  "Yaad rakhein: ... photosynthesis", "Aage hum dekhenge ...". End: the opening question again, answered (the starch is
+  the visible sign; one thing taken away at a time), then 11.2's door left open: a candle dies in a closed jar; "Usi
+  jar mein ek hara paudha bhi rakh dein, toh kya hoga? ... yeh aage hum dekhenge." The 11.2 recap can recall: starch
+  and iodine as the sign of food, destarching, the three experiments and what each took away.
+- Running picture carried on from the opening's rasoi with new parts: roshni = aag, carbon dioxide = aata,
+  chlorophyll = tawa (catches the heat and bakes), starch = roti kept in the dabba, destarching = taking out
+  yesterday's roti before checking today's, each experiment = one thing taken away (aag bujhana, tawa hatana, aata
+  hatana). It carries the fair-test logic exactly ("aag aur aata ek saath hataye, toh kis kami se nahi bani?").
+- The book's three short lines hide a whole practical; taught as needed to follow them: sugar first, stored as starch
+  (Biomolecules); iodine brown-yellow to blue-black; boil, then alcohol in a hot-water bath (why: green hides blue;
+  alcohol catches fire); destarching two-three days in the dark (Class 10's activity says three days). "Ruko, pehle khud
+  socho" at the book's own question (p004-i2), with the clue (compare the two halves thing by thing) before it.
+- Two wrong ideas, both at their turns: "the tube blocked the light" (it was glass) and "only these three are needed"
+  (water too; it cannot be tested this way, a wilted leaf hides the cause). Exam points: chloro + phyll; KOH absorbs
+  CO₂, not O₂; the exterior half is the comparison; the KOH set-up is called Moll's half-leaf experiment; matching
+  variegated → chlorophyll, black paper → light, KOH → CO₂.
+- Terms opened here: chlorophyll, starch, destarching, variegated leaf, black paper, KOH, test tube, tested positive
+  (and negative), controlled comparison. CO₂ and pigment were only recalled (opened in the opening).
+- Measures: 155 sentences, 15.2 words each, 28 % spoken to the learner, 39 % going on, 17 questions, 35 facts; BIE's
+  checks 0 problems on the first run, no fix round.
+- Skill and memory: no place where the skill differed from Navin's words. Unsure, for Navin to judge: the extras
+  outside the three book lines (iodine test steps, destarching, cork on the tube, Moll's name, croton and money plant,
+  the doctor's "test positive") are all in outside_book; the closing jar-and-candle question chooses 11.2's door.

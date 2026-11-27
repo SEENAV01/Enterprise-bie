@@ -1779,142 +1779,545 @@
   },
   {
    "section": "11.1",
-   "goal": "Ab food formation ke evidence se jaanenge ki chlorophyll, light aur carbon dioxide ki zaroorat kaise pehchaani jaati hai.",
+   "goal": "Patti ke andar khana bante koi nahi dekh sakta; toh hum pakka kaise jaante hain ki patti khana banati hai, aur use kya-kya chahiye?",
+   "misaal": "rasoi: roshni choolhe ki aag, carbon dioxide aata, chlorophyll tawa jo aag ki garmi pakad kar roti sekta hai; starch dabbe mein rakhi roti; destarching kal ki bachi roti nikal kar dabba khaali karna; har prayog mein ek hi cheez hatana: aag bujhana, tawa hatana ya aata hatana",
+   "facts": [
+    {
+     "id": "f1",
+     "item": "p003-i10",
+     "kind": "book",
+     "term": "",
+     "fact": "Is hisse mein dekhte hain ki photosynthesis ke baare mein hum pehle se kya jaante hain (What do we know)."
+    },
+    {
+     "id": "f2",
+     "item": "p003-i10",
+     "kind": "book",
+     "term": "",
+     "fact": "Pichhli classes ke kuch saral prayogon ne dikhaya hai ki photosynthesis hone ke liye chlorophyll, light (roshni) aur CO₂ zaroori hain."
+    },
+    {
+     "id": "f3",
+     "item": "p003-i10",
+     "kind": "book",
+     "term": "chlorophyll",
+     "fact": "Chlorophyll patti ka hara pigment hai."
+    },
+    {
+     "id": "f4",
+     "item": "p003-i10",
+     "kind": "word",
+     "term": "chlorophyll",
+     "fact": "Chlorophyll: patti ko hara rang dene wala pigment, jo roshni pakadta hai; chloro = hara, phyll = patti."
+    },
+    {
+     "id": "f5",
+     "item": "p003-i10",
+     "kind": "base",
+     "term": "",
+     "fact": "Pigment: rang dene wala padarth, jo roshni (light) ka kuch hissa absorb karta, yaani sokh leta hai."
+    },
+    {
+     "id": "f6",
+     "item": "p003-i10",
+     "kind": "base",
+     "term": "",
+     "fact": "CO₂ carbon dioxide ka chemical formula hai; formula mein neeche likha chhota ank (subscript) atoms ginta hai: ek carbon, do oxygen."
+    },
+    {
+     "id": "f7",
+     "item": "p003-i10",
+     "kind": "base",
+     "term": "",
+     "fact": "Photosynthesis mein hara paudha roshni ki energy se carbon dioxide aur paani jodkar organic food banata hai; yeh khana carbohydrates hai, jaise sugar aur starch."
+    },
+    {
+     "id": "f8",
+     "item": "p003-i11",
+     "kind": "base",
+     "term": "",
+     "fact": "Light energy ka srot hai: photosynthesis ko chalane wali energy roshni deti hai, aur carbon dioxide khane ka carbon deti hai."
+    },
+    {
+     "id": "f9",
+     "item": "p003-i11",
+     "kind": "extra",
+     "term": "",
+     "fact": "Patti mein pehle sugar banti hai; bachi sugar jama hone ke liye starch ban jaati hai; isliye naya starch milna is baat ki nishaani hai ki patti ne khana banaya."
+    },
+    {
+     "id": "f10",
+     "item": "p003-i11",
+     "kind": "word",
+     "term": "starch",
+     "fact": "Starch: bahut saare glucose ek lambi zanjeer mein jud kar bana bada carbohydrate; paudhe ka jama kiya hua khana, jo aaloo, chawal aur gehun mein bhara hota hai."
+    },
+    {
+     "id": "f11",
+     "item": "p003-i11",
+     "kind": "base",
+     "term": "",
+     "fact": "Starch ek stored, yaani jama kiya hua, carbohydrate hai (Biomolecules chapter)."
+    },
+    {
+     "id": "f12",
+     "item": "p003-i11",
+     "kind": "extra",
+     "term": "iodine",
+     "fact": "Iodine test: iodine ka ghol bhoora-peela hota hai; starch se milte hi rang neela-kaala (blue-black) ho jaata hai."
+    },
+    {
+     "id": "f13",
+     "item": "p003-i11",
+     "kind": "extra",
+     "term": "",
+     "fact": "Test se pehle patti ko paani mein ubaalte hain, phir garam paani ke bartan mein rakhe alcohol mein garam karte hain; alcohol chlorophyll ghol leta hai aur patti ka rang halka ho jaata hai; alcohol jaldi aag pakadta hai, isliye use seedhe aag par nahi rakhte; phir patti dhokar iodine daalte hain."
+    },
+    {
+     "id": "f14",
+     "item": "p003-i11",
+     "kind": "extra",
+     "term": "destarching",
+     "fact": "Destarching: prayog se pehle paudhe ko do-teen din andhere mein rakhna, taaki pattiyan apna purana starch kharch kar dein; tab jo starch milega, woh prayog ke dauraan bana hoga; de = hatana."
+    },
+    {
+     "id": "f15",
+     "item": "p003-i11",
+     "kind": "book",
+     "term": "",
+     "fact": "Starch banne ka prayog do pattiyon par kiya jaata hai: ek variegated leaf, aur ek patti jiska kuch hissa black paper se dhaka ho; dono ko roshni mein rakha jaata hai."
+    },
+    {
+     "id": "f16",
+     "item": "p003-i11",
+     "kind": "book",
+     "term": "",
+     "fact": "In pattiyon mein starch dhoondhne par saaf hua ki photosynthesis sirf patti ke hare hisson mein aur roshni hone par hi hui."
+    },
+    {
+     "id": "f17",
+     "item": "p003-i11",
+     "kind": "word",
+     "term": "variegated leaf",
+     "fact": "Variegated leaf: aisi patti jisme hare hisson ke beech safed ya peele hisse hon; variegated = chitkabri, kai rangon wali; jaise croton aur money plant ki kuch kismein."
+    },
+    {
+     "id": "f18",
+     "item": "p003-i11",
+     "kind": "base",
+     "term": "",
+     "fact": "Chlorophyll patti ke hare hisson mein hi hota hai; variegated patti ke safed ya peele hisson mein chlorophyll nahi hota."
+    },
+    {
+     "id": "f19",
+     "item": "p003-i11",
+     "kind": "word",
+     "term": "black paper",
+     "fact": "Black paper: kaala kaagaz jo roshni ko aar-paar nahi jaane deta; patti ke ek hisse par dono taraf lagakar us hisse ki roshni rok di jaati hai."
+    },
+    {
+     "id": "f20",
+     "item": "p003-i11",
+     "kind": "base",
+     "term": "",
+     "fact": "Controlled comparison: ek baar mein sirf ek cheez (one factor) badlo aur baaki sab ek jaisa rakho; tab nateeje ka farq usi cheez ki wajah se maana ja sakta hai."
+    },
+    {
+     "id": "f21",
+     "item": "p003-i11",
+     "kind": "extra",
+     "term": "",
+     "fact": "Variegated patti ke safed hisse ko roshni aur hawa mili, par chlorophyll nahi tha; black paper ke neeche ke hisse mein chlorophyll tha, par roshni nahi thi."
+    },
+    {
+     "id": "f22",
+     "item": "p004-i1",
+     "kind": "book",
+     "term": "",
+     "fact": "Ek prayog mein patti ka ek hissa test tube mein band kiya jaata hai, jisme KOH mein bhigi rui hoti hai jo CO₂ sokhti hai; patti ka doosra aadha hissa khuli hawa mein rehta hai."
+    },
+    {
+     "id": "f23",
+     "item": "p004-i1",
+     "kind": "book",
+     "term": "",
+     "fact": "Yeh setup kuch der roshni mein rakha jaata hai."
+    },
+    {
+     "id": "f24",
+     "item": "p004-i1",
+     "kind": "book",
+     "term": "",
+     "fact": "Baad mein dono hisson mein starch dhoondhne par khula hissa starch ke liye tested positive aata hai, aur tube wala hissa tested negative."
+    },
+    {
+     "id": "f25",
+     "item": "p004-i1",
+     "kind": "book",
+     "term": "",
+     "fact": "Isse dikha ki photosynthesis ke liye CO₂ zaroori hai."
+    },
+    {
+     "id": "f26",
+     "item": "p004-i1",
+     "kind": "word",
+     "term": "KOH",
+     "fact": "KOH: potassium hydroxide; K = potassium, O = oxygen, H = hydrogen; hawa ki carbon dioxide ko sokh leta hai."
+    },
+    {
+     "id": "f27",
+     "item": "p004-i1",
+     "kind": "word",
+     "term": "tested positive",
+     "fact": "Tested positive: test mein jo cheez dhoondh rahe the, woh mil gayi; na mile toh tested negative."
+    },
+    {
+     "id": "f28",
+     "item": "p004-i1",
+     "kind": "word",
+     "term": "test tube",
+     "fact": "Test tube: kaanch ki patli nali jo ek taraf se band hoti hai; kaanch hone se roshni andar tak jaati hai."
+    },
+    {
+     "id": "f29",
+     "item": "p004-i1",
+     "kind": "extra",
+     "term": "",
+     "fact": "Nali ke munh par cork lagate hain, jiski daraar se patti andar jaati hai, taaki bahar ki hawa andar na aaye; exam mein is prayog ko Moll ka half-leaf experiment bhi kehte hain."
+    },
+    {
+     "id": "f30",
+     "item": "p004-i2",
+     "kind": "book",
+     "term": "",
+     "fact": "Sawaal: is prayog se yeh nateeja (conclusion) kaise nikala ja sakta hai ki CO₂ zaroori hai?"
+    },
+    {
+     "id": "f31",
+     "item": "p004-i2",
+     "kind": "extra",
+     "term": "",
+     "fact": "Nateeja aise nikalta hai: dono hisse ek hi patti ke, ek hi paudhe par, ek jaisi roshni mein, dono mein chlorophyll; farq sirf CO₂ ka (KOH ne nali ki CO₂ sokh li); starch sirf CO₂ wale hisse mein bana, isliye CO₂ zaroori hai."
+    },
+    {
+     "id": "f32",
+     "item": "p004-i2",
+     "kind": "extra",
+     "term": "",
+     "fact": "Bahar wala hissa tulna ka kaam karta hai: woh dikhata hai ki isi patti mein, inhi halaat mein starch ban sakta tha; uske bina akela negative nateeja kuch saabit nahi karta."
+    },
+    {
+     "id": "f33",
+     "item": "p004-i2",
+     "kind": "extra",
+     "term": "",
+     "fact": "Nali kaanch ki hoti hai, isliye roshni andar wale hisse tak pahunchti hai; KOH sirf CO₂ sokhta hai, oxygen nahi."
+    },
+    {
+     "id": "f34",
+     "item": "p004-i2",
+     "kind": "extra",
+     "term": "",
+     "fact": "Paani bhi photosynthesis ke liye zaroori hai, par use is tarah hata kar parakhna mushkil hai: paani ke bina patti murjha jaati hai, aur farq ki wajah alag nahi ho paati."
+    },
+    {
+     "id": "f35",
+     "item": "p004-i2",
+     "kind": "extra",
+     "term": "",
+     "fact": "Exam ki jodi: variegated leaf se chlorophyll, black paper se light, aur KOH se CO₂ ki zaroorat parakhi jaati hai."
+    }
+   ],
    "points": [
     {
      "id": "11.1-k1",
+     "kind": "recall",
+     "teaches": [],
+     "recalls": [
+      "0-k3",
+      "0-k20"
+     ],
+     "says": [
+      "Pichhli baar humne van Helmont ka willow dekha: ped paanch saal mein lagbhag 75 kilo badha, par mitti sirf 57 gram ghati.",
+      "Phir Calvin ne C¹⁴ wale carbon dioxide ka peechha kiya, aur woh carbon seedha paudhe ki sugar tak pahuncha.",
+      "Yaad rakhein: hara paudha roshni ki energy se carbon dioxide aur paani jodkar apna khana khud banata hai, aur isi kaam ka naam photosynthesis hai.",
+      "Aage hum dekhenge ki is baat par hum itna pakka yakeen kyun kar sakte hain.",
+      "Ab ek ajeeb baat socho: patti ke andar jhaank kar koi bhi khana bante hue nahi dekh sakta.",
+      "Sugar ke molecule itne chhote hote hain ki sabse achhe microscope mein bhi nahi dikhte.",
+      "Toh hum pakka kaise jaante hain ki patti sach mein khana banati hai, aur use iske liye kya-kya chahiye?",
+      "Patti khana banati hai ya nahi, aur use kya-kya chahiye, iska pakka jawab kuch saral prayog dete hain."
+     ],
+     "roles": [
+      "known",
+      "known",
+      "known",
+      "link",
+      "plain",
+      "plain",
+      "ask",
+      "answer"
+     ],
+     "screen": "Pichhli film ki yaad: tarazu par willow ka ped (+75 kilo) aur mitti ka gamla (sirf 57 gram kam); C¹⁴ ka chamakta carbon hawa se patti ki sugar tak; neeche 'Yaad rakhein: roshni + carbon dioxide + paani se khana = photosynthesis'; phir ek hari patti par magnifier, andar kuch dikhta nahi, sugar ke nanhe molecule microscope mein bhi gaayab; sawaal ka dabba: patti khana banati hai, pakka kaise? use kya-kya chahiye?",
+     "terms": [],
+     "outside_book": "Pichhli film (opening) ki yaad: van Helmont ka willow aur Calvin ka C¹⁴; sugar ke molecule microscope mein nahi dikhte.",
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "uses": [
+      "f7"
+     ]
+    },
+    {
+     "id": "11.1-k2",
      "kind": "explain",
      "teaches": [
       "p003-i10"
      ],
      "recalls": [
-      "0-k17"
+      "0-k9",
+      "0-k12"
      ],
      "says": [
-      "Ab food formation ke evidence se jaanenge ki chlorophyll, light aur carbon dioxide ki zaroorat kaise pehchaani jaati hai.",
-      "Pehle humne light ko energy input aur carbon dioxide ko carbon input se joda tha.",
-      "Chlorophyll leaf ka green pigment hai; pigment rang dene wala substance hai jo kuch light absorb karta hai.",
-      "CO₂ carbon dioxide ka formula hai: har molecule mein ek carbon aur do oxygen atoms hote hain.",
-      "Simple experiments chlorophyll, light aur CO₂ ki requirement dikhate hain.",
-      "Kya in teen requirements ka matlab water ki zaroorat nahi hai?",
-      "Dekho, yeh recalled requirements ki list hai, saare raw materials ki complete list nahi; water bhi photosynthesis ke liye zaroori hai."
+      "Is hisse ka naam hai What do we know, yaani is baare mein hum pehle se kya jaante hain.",
+      "Class 7 aur Class 10 mein aapne pattiyon par kuch saral prayog kiye honge.",
+      "Un prayogon ne dikhaya tha ki khana banane ke liye patti ko teen cheezein chahiye: apna hara rang, roshni aur carbon dioxide.",
+      "Pigment ka matlab aap jaante ho: rang dene wala padarth, jo roshni ka kuch hissa sokh leta hai.",
+      "Patti ki cells ke andar ek hara pigment bhara hota hai. Yahi patti ko hara rang deta hai, aur yahi roshni ko pakadta hai.",
+      "Isi hare pigment ko chlorophyll kehte hain: chloro yaani hara, aur phyll yaani patti.",
+      "CO₂ wahi carbon dioxide hai jisse hum mil chuke hain. Neeche likha chhota 2 batata hai ki ek carbon ke saath oxygen ke do atom jude hain.",
+      "Roshni is kaam ki energy deti hai, aur carbon dioxide woh carbon deti hai jisse khana banta hai.",
+      "Toh pichhli classes ka nichod yeh hai: photosynthesis ke liye chlorophyll, light aur CO₂, teeno zaroori hain.",
+      "Rasoi wali misaal se samjho: roti banane ke liye aag, tawa aur aata, teeno chahiye.",
+      "Roshni aag hai, carbon dioxide aata hai, aur chlorophyll tawa hai, jo aag ki garmi pakad kar roti sekta hai.",
+      "Inme se ek bhi na ho, toh roti nahi banegi.",
+      "Par yeh baat pakki kaise hui ki teeno zaroori hain?",
+      "Teeno zaroori hain, yeh pakka hua ek seedhe tareeke se: ek baar mein ek cheez hata kar dekha gaya ki khana bana ya nahi.",
+      "Par jab khana patti ke andar dikhta hi nahi, toh woh bana ya nahi, yeh pata kaise chalega?"
      ],
-     "screen": "Green leaf ke paas chlorophyll se light absorption, incoming light se energy aur CO₂ molecule se carbon input ke teen connected labels.",
+     "roles": [
+      "plain",
+      "known",
+      "fact",
+      "known",
+      "plain",
+      "term",
+      "known",
+      "why",
+      "fact",
+      "picture",
+      "picture",
+      "picture",
+      "ask",
+      "answer",
+      "ask"
+     ],
+     "screen": "Shabd 'What do we know?'; Class 7 aur Class 10 ki copy mein patti ke prayog; teen dabbe: hara rang, roshni, carbon dioxide; patti ki cell ke andar hare daane jo roshni ki kirnein pakadte; naam todna: chloro = hara, phyll = patti, chlorophyll; CO₂ molecule: ek carbon, do oxygen, chhote 2 par nishaan; roshni se energy ka teer, carbon dioxide se carbon ka teer; nichod: chlorophyll + light + CO₂; rasoi: choolhe ki aag (= roshni), tawa (= chlorophyll) garmi pakadta, aata (= carbon dioxide), aur roti; ek cheez hatate hi roti gaayab; aakhir mein patti par sawaal: andar ka khana dikhega kaise?",
      "terms": [
       {
        "term": "chlorophyll",
-       "meaning": "Leaf ka green pigment jo light absorb karta hai."
-      },
-      {
-       "term": "pigment",
-       "meaning": "Rang dene wala substance jo kuch light absorb karta hai."
-      },
-      {
-       "term": "CO₂",
-       "meaning": "Carbon dioxide; har molecule mein ek carbon aur do oxygen atoms."
+       "meaning": "Patti ko hara rang dene wala pigment, jo roshni pakadta hai; chloro yaani hara, phyll yaani patti."
       }
      ],
-     "outside_book": "",
+     "outside_book": "Class 7 aur Class 10 ke prayogon ki yaad; chloro = hara, phyll = patti; rasoi ki misaal (aag = roshni, tawa = chlorophyll, aata = carbon dioxide).",
      "prepares": [],
      "answer": "",
-     "watch_out": ""
-    },
-    {
-     "id": "11.1-k2",
-     "kind": "overview",
-     "teaches": [],
-     "recalls": [],
-     "says": [
-      "Har leaf experiment mein teen kaam karenge: starting leaf taiyaar karna, ek condition badalkar light mein rakhna, aur starch test se result compare karna.",
-      "Starch carbohydrate food ka stored form hai; leaf mein naya starch milna photosynthetic food formation ka indirect evidence banega.",
-      "Proof kaisa dikhega?",
-      "Dekho, iodine test mein starch wala region blue-black hoga, jabki starch na hone par iodine ka yellow-brown colour rahega.",
-      "Purana starch result ko confuse na kare, isliye pehle plant ko kaafi samay darkness mein rakhkar stored starch kam karte hain; ise destarching kehte hain.",
-      "Ek sample leaf ka negative starch test starting condition check kar sakta hai."
-     ],
-     "screen": "Teen-step evidence strip: destarched leaf → controlled light exposure → iodine test; blue-black aur yellow-brown result swatches.",
-     "terms": [
-      {
-       "term": "starch",
-       "meaning": "Carbohydrate food ka stored form."
-      }
-     ],
-     "outside_book": "Destarching, starting-condition verification aur iodine-test colours experimental evidence samajhne ke liye jode gaye hain.",
-     "prepares": [],
-     "answer": "",
-     "watch_out": ""
+     "watch_out": "",
+     "uses": [
+      "f1",
+      "f2",
+      "f3",
+      "f4",
+      "f5",
+      "f6",
+      "f8"
+     ]
     },
     {
      "id": "11.1-k3",
-     "kind": "analogy",
+     "kind": "activity",
      "teaches": [],
-     "recalls": [],
-     "says": [
-      "Socho, do identical lamps ek hi socket par baari-baari test kar rahe ho.",
-      "Pehli trial mein switch on hai, aur doosri mein sirf switch off karte ho; bulb aur socket wahi rehte hain.",
-      "Agar bulb bhi badal do, toh light band hone ki wajah switch tha ya bulb, kaise bataoge?",
-      "Dekho, sirf switch badalne se result ka connection usi change se jod sakte hain.",
-      "Leaf experiments mein switch ki jagah light ya CO₂ availability badalti hai, aur baaki relevant conditions comparable rakhte hain.",
-      "Yahi controlled comparison humein requirement pehchaanne mein madad karta hai."
+     "recalls": [
+      "0-k16"
      ],
-     "screen": "Same lamp aur socket ki do trials, sirf switch position badli hui; neeche comparable leaf regions mein ek changed condition.",
-     "terms": [],
-     "outside_book": "Controlled comparison ko lamp-switch analogy se samjhaya gaya hai.",
+     "says": [
+      "Khana bana ya nahi, iska pata hum patti ke jama khane se lagate hain.",
+      "Yaad karo, patti mein sabse pehle sugar banti hai, jo paani mein ghul jaati hai.",
+      "Par paudha saari sugar usi waqt kharch nahi karta. Bachi hui sugar ko woh jama karke rakh leta hai.",
+      "Biomolecules wale chapter mein aapne dekha tha ki bahut saare glucose jud kar ek lambi zanjeer banate hain.",
+      "Glucose ki isi lambi zanjeer ko starch kehte hain. Yahi paudhe ka jama kiya hua khana hai, yaani ek stored carbohydrate.",
+      "Aaloo, chawal aur gehun mein jo safed sa bhara hota hai, woh zyadatar starch hi hai.",
+      "Rasoi ki zubaan mein, starch woh roti hai jo bana kar dabbe mein rakh di gayi.",
+      "Isliye patti mein naya starch mile, toh samajh lo ki patti ne khana banaya tha.",
+      "Ab starch dhoondhne ka ek aasaan tareeka hai, jo aapne lab mein dekha hoga.",
+      "Iodine ka ghol bhoora-peela hota hai. Starch se milte hi uska rang gehra neela-kaala ho jaata hai.",
+      "Par hari patti par iodine daalo, toh neela rang dikhega kaise?",
+      "Hari patti par neela rang isliye nahi dikhta, kyunki patti ka gehra hara rang use chhupa leta hai.",
+      "Isliye hum pehle patti ko kuch minute paani mein ubaalte hain, taaki woh naram ho jaaye.",
+      "Phir hum use alcohol mein daalte hain, aur alcohol wale bartan ko garam paani mein rakh kar garam karte hain.",
+      "Alcohol chlorophyll ko ghol leta hai, aur patti ka rang halka ho jaata hai. Alcohol jaldi aag pakadta hai, isliye use kabhi seedhe aag par nahi rakhte.",
+      "Phir hum patti ko paani se dhokar us par iodine daalte hain. Jahan starch hoga, wahan neela-kaala rang ubhar aayega.",
+      "Par yahan ek dhokha ho sakta hai: agar patti mein kal ka bana starch pehle se pada ho, toh?",
+      "Kal ka bana starch pehle se pada ho, toh hum keh hi nahi paayenge ki aaj naya starch bana ya nahi.",
+      "Bilkul jaise rasoi ke dabbe mein kal ki roti padi ho, toh aaj roti bani ya nahi, pata hi nahi chalega.",
+      "Isliye prayog se pehle hum gamle ke paudhe ko do-teen din andhere mein rakhte hain. Andhere mein naya khana nahi banta, aur pattiyan apna jama starch kharch kar deti hain.",
+      "Patti se purane starch ko is tarah hata dene ko destarching kehte hain: de yaani hatana.",
+      "Ab prayog mein jo bhi starch milega, woh prayog ke dauraan bana naya starch hi hoga."
+     ],
+     "roles": [
+      "plain",
+      "known",
+      "plain",
+      "known",
+      "term",
+      "fact",
+      "picture",
+      "why",
+      "plain",
+      "fact",
+      "ask",
+      "answer",
+      "fact",
+      "fact",
+      "why",
+      "fact",
+      "ask",
+      "answer",
+      "picture",
+      "fact",
+      "term",
+      "plain"
+     ],
+     "screen": "Patti ki cell mein sugar ke chhote daane bante, kuch kaam mein jaate, baaki jud kar starch ke daane; glucose ke motiyon ki lambi zanjeer = starch; aaloo, chawal, gehun ke daanon mein starch; rasoi ka dabba jisme roti rakhi; iodine ka bhoora-peela ghol starch par girte hi neela-kaala; hari patti par neela rang chhupa hua; kadam: paani mein ubalti patti, garam paani ke bartan mein alcohol ki katori, patti ka rang utarta, seedhi aag par laal kaata nishaan, phir dhokar iodine aur neela-kaala dhabba; dabbe mein kal ki roti par sawaal ka nishaan; gamla andhere kamre mein, calendar par 2-3 din, pattiyon ka starch ghat-ta; shabd: de = hatana, destarching.",
+     "terms": [
+      {
+       "term": "starch",
+       "meaning": "Bahut saare glucose ki lambi zanjeer se bana carbohydrate; paudhe ka jama kiya hua khana."
+      },
+      {
+       "term": "destarching",
+       "meaning": "Prayog se pehle paudhe ko do-teen din andhere mein rakh kar pattiyon ka purana starch kharch karwa dena; de yaani hatana."
+      }
+     ],
+     "outside_book": "Iodine test (iodine bhoora-peela, starch se neela-kaala), patti ubaalna aur garam paani ke bartan mein alcohol se chlorophyll nikaalna, aur destarching (do-teen din andhera) prayog samajhne ke liye jode gaye hain; starch glucose ki zanjeer hai (Biomolecules).",
      "prepares": [],
-     "answer": "Switch badalna ek experimental condition badalne ke barabar hai; same bulb aur socket doosri relevant conditions comparable rakhne ke barabar hain.",
-     "watch_out": "Leaf living system hai, electrical circuit nahi; analogy sirf fair comparison ka logic samjhati hai."
+     "answer": "",
+     "watch_out": "",
+     "uses": [
+      "f9",
+      "f10",
+      "f11",
+      "f12",
+      "f13",
+      "f14"
+     ]
     },
     {
      "id": "11.1-k4",
-     "kind": "activity",
-     "teaches": [],
-     "recalls": [],
-     "says": [
-      "Starch test ka teacher-supervised demonstration dekho: exposure ke baad leaf ko pehle hot water mein treat karte hain.",
-      "Phir alcohol ko hot-water bath mein rakhkar leaf ka green colour nikaalte hain; alcohol ko direct flame par nahi garam karte.",
-      "Colour nikaalna zaroori kyun hai?",
-      "Dekho, green pigment hatne par iodine se aaya colour change clearly dikh sakta hai.",
-      "Leaf ko water se rinse karke iodine solution daalte hain, aur result ko exposure se pehle banaye leaf map se match karte hain."
-     ],
-     "screen": "Supervised starch-test sequence: hot water → alcohol in hot-water bath → water rinse → iodine; original leaf map result ke paas.",
-     "terms": [],
-     "outside_book": "Starch-test preparation, decolourisation ka reason aur alcohol-heating safety jodi gayi hai.",
-     "prepares": [],
-     "answer": "",
-     "watch_out": ""
-    },
-    {
-     "id": "11.1-k5",
      "kind": "example",
      "teaches": [
       "p003-i11"
      ],
      "recalls": [],
      "says": [
-      "Ab destarched variegated leaf lo, jisme green aur non-green patches hote hain; light dene se pehle unka map bana lo.",
-      "Light exposure ke baad starch test mein green regions blue-black bante hain, jabki non-green regions yellow-brown rehte hain.",
-      "Dono regions ko light mili, phir difference kyun aaya?",
-      "Dekho, green regions mein chlorophyll hone se photosynthetic food formation hui, isliye wahaan naya starch mila.",
-      "Ab doosri destarched green leaf ka kuch hissa black paper se dono taraf cover karo; black paper yahaan light rokne ka cover hai.",
-      "Light exposure ke baad paper hataakar test karne par uncovered region blue-black aur covered region yellow-brown milega.",
-      "Covered region green tha, lekin light nahi mili; isliye yeh comparison light ki requirement dikhata hai.",
-      "Variegated leaf chlorophyll ko test karti hai, aur black-paper comparison light ko test karta hai."
+      "Ab pehla prayog dekho, jo patti ke hare rang ki zaroorat parakhta hai.",
+      "Aapne kuch paudhon ki pattiyon par hare hisson ke beech safed ya peele dhabbe dekhe honge, jaise croton ya money plant ki kuch kismon mein.",
+      "Aisi chitkabri patti ko variegated leaf kehte hain; variegated yaani kai rangon wali.",
+      "Safed ya peele hisson mein chlorophyll nahi hota. Chlorophyll sirf hare hisson mein hota hai.",
+      "Hum destarch kiye gaye paudhe ki ek variegated leaf lete hain, aur uske hare aur safed hisson ka naksha kaagaz par bana lete hain.",
+      "Phir hum paudhe ko kuch ghante tez dhoop mein rakh dete hain.",
+      "Rasoi ki zubaan mein, is patti ke kuch hisson mein tawa hai hi nahi, jabki aag aur aata sabko mile hain.",
+      "Ab socho, iodine daalne par patti ke kaun-se hisse neele-kaale honge?",
+      "Iodine daalne par sirf hare hisse neele-kaale hote hain. Safed hisse iodine ka bhoora-peela rang hi rakhte hain.",
+      "Naksha milaao, toh neela-kaala rang theek wahin aata hai jahan pehle hara rang tha.",
+      "Safed hisson ko bhi utni hi roshni aur hawa mili thi. Toh wahan starch kyun nahi bana?",
+      "Safed hisson mein starch isliye nahi bana, kyunki wahan chlorophyll nahi tha jo roshni pakad sake.",
+      "Toh is prayog se pata chala ki khana sirf patti ke hare hisson mein banta hai, yaani chlorophyll zaroori hai.",
+      "Rasoi mein bhi bina tawe ke aag kitni bhi tez ho, roti nahi sikti."
      ],
-     "screen": "Do matched leaf maps: variegated leaf ke original green patches aur corresponding starch-positive patches; green leaf par black-paper mask aur uske matching starch-negative region.",
+     "roles": [
+      "plain",
+      "known",
+      "term",
+      "why",
+      "fact",
+      "fact",
+      "picture",
+      "ask",
+      "answer",
+      "fact",
+      "ask",
+      "answer",
+      "fact",
+      "picture"
+     ],
+     "screen": "Croton aur money plant ki chitkabri pattiyan; shabd: variegated = kai rangon wali; safed hisson par 'chlorophyll nahi'; patti ka hara-safed naksha kaagaz par; gamla tez dhoop mein, ghadi par kuch ghante; rasoi ka chhota chitra: aag aur aata hain, kuch jagah tawa gaayab; sawaal: kaun-se hisse neele-kaale?; iodine ke baad patti: hare hisse neele-kaale, safed hisse bhoore-peele; naksha upar rakh kar milaana; safed hisson par roshni aur hawa ke teer, phir bhi starch nahi; nateeja: chlorophyll zaroori; bina tawe ke aag par kachchi roti.",
      "terms": [
       {
        "term": "variegated leaf",
-       "meaning": "Green aur non-green patches wali leaf."
-      },
-      {
-       "term": "black paper",
-       "meaning": "Leaf ke selected region tak light pahunchne se rokne wala kaala cover."
+       "meaning": "Hare hisson ke beech safed ya peele hisson wali patti; variegated yaani kai rangon wali, chitkabri."
       }
      ],
-     "outside_book": "",
+     "outside_book": "Variegated patti ke udaharan croton aur money plant; prayog se pehle patti ka naksha banana; safed hisse ko bhi roshni aur hawa mili thi.",
      "prepares": [],
      "answer": "",
-     "watch_out": ""
+     "watch_out": "",
+     "uses": [
+      "f15",
+      "f17",
+      "f18"
+     ]
+    },
+    {
+     "id": "11.1-k5",
+     "kind": "example",
+     "teaches": [],
+     "recalls": [],
+     "says": [
+      "Ab doosra prayog dekho, jo roshni ki zaroorat parakhta hai.",
+      "Is baar hum destarch kiye paudhe ki ek poori hari patti lete hain, jisme har jagah chlorophyll hai.",
+      "Uske ek hisse ko kaale kaagaz ki ek patti se dhak dete hain, upar se bhi aur neeche se bhi.",
+      "Dono taraf isliye dhakte hain, taaki roshni kisi bhi taraf se us hisse tak na pahunche.",
+      "Roshni ko aar-paar na jaane dene wala yahi kaala kaagaz black paper hai.",
+      "Phir paudhe ko kuch ghante roshni mein rakhte hain, aur kaagaz hata kar patti par iodine wala test karte hain.",
+      "Ab batao, is baar patti ka kaun-sa hissa neela-kaala nahi hoga?",
+      "Is baar wahi hissa neela-kaala nahi hota jo kaagaz ke neeche dhaka tha. Baaki poori patti neeli-kaali ho jaati hai.",
+      "Dhake hisse mein bhi wahi chlorophyll tha, wahi hara rang. Use bas roshni nahi mili.",
+      "Toh is prayog se pata chala ki roshni ke bina khana nahi banta, yaani light zaroori hai.",
+      "Rasoi mein yeh aag bujha dene jaisa hai: tawa aur aata wahin hain, par aag ke bina roti nahi banti.",
+      "Ab dono prayog saath rakho. Photosynthesis sirf patti ke hare hisson mein hui, aur wahan bhi tabhi hui jab roshni mili.",
+      "Exam ke liye yeh jodi pakki kar lo: variegated leaf wala prayog chlorophyll parakhta hai, aur black paper wala prayog roshni."
+     ],
+     "roles": [
+      "plain",
+      "fact",
+      "plain",
+      "why",
+      "term",
+      "fact",
+      "ask",
+      "answer",
+      "why",
+      "fact",
+      "picture",
+      "fact",
+      "plain"
+     ],
+     "screen": "Ek poori hari patti, har jagah chlorophyll; beech mein kaale kaagaz ki patti upar aur neeche dono taraf clip; dhoop ke teer kaagaz par ruk jaate; label: black paper; ghadi par kuch ghante, phir kaagaz hatana aur iodine; nateeja: poori patti neeli-kaali, sirf dhaka patta bhoora-peela; dhake hisse par 'chlorophyll hai, roshni nahi'; rasoi: tawa aur aata, choolhe ki aag bujhi, kachchi roti; dono pattiyan saath: hare hisse + roshni = starch; neeche jodi: variegated leaf se chlorophyll, black paper se roshni.",
+     "terms": [
+      {
+       "term": "black paper",
+       "meaning": "Kaala kaagaz jo roshni ko aar-paar nahi jaane deta; patti ke ek hisse par dono taraf lagakar us hisse ki roshni roki jaati hai."
+      }
+     ],
+     "outside_book": "Kaala kaagaz patti ke dono taraf lagaya jaata hai taaki kisi taraf se roshni na pahunche.",
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "uses": [
+      "f16",
+      "f19",
+      "f21"
+     ]
     },
     {
      "id": "11.1-k6",
@@ -1924,30 +2327,76 @@
      ],
      "recalls": [],
      "says": [
-      "CO₂ test karne ke liye destarched plant ki ek green leaf ka portion test tube mein enclose karo, aur doosra portion outside air mein rehne do.",
-      "Tube mein KOH-soaked cotton rakha hai; KOH potassium hydroxide hai, jo tube ki air se CO₂ absorb karta hai.",
-      "Cotton leaf ko touch nahi karta, aur tube ka mouth leaf ke aas-paas seal karte hain taaki outside CO₂ andar na aaye.",
-      "Kya enclosed region ko light se bhi cover karna hai?",
-      "Dekho, transparent tube se light dono portions ko milni chahiye, kyunki yahaan badalni wali condition CO₂ availability hai.",
-      "Kuch samay light exposure ke baad outside portion blue-black hota hai: usne starch ke liye tested positive kiya, yaani starch mila.",
-      "Tube ke andar wala portion yellow-brown rehta hai, yaani starch test negative hai.",
-      "KOH ne CO₂ hatayi hai, oxygen nahi; gas ka role sahi pehchaanana zaroori hai."
+      "Ab teesra prayog dekho, jo carbon dioxide ki zaroorat parakhta hai.",
+      "Par patti ko carbon dioxide se kaise bachaayein, jab hawa mein har jagah carbon dioxide hai?",
+      "Patti ko carbon dioxide se bachaane ka tareeka hai: uske aas-paas ki hawa se carbon dioxide sokh lo.",
+      "Jaise sookhi rui paani sokh leti hai, waise hi kuch rasayan hawa se carbon dioxide sokh lete hain.",
+      "Aisa hi ek rasayan hai KOH, yaani potassium hydroxide: K potassium ka nishaan hai, O oxygen ka, aur H hydrogen ka.",
+      "KOH hawa ki carbon dioxide ko pakad kar apne saath baandh leta hai, aur woh carbon dioxide hawa mein nahi bachti.",
+      "Ab hum ek test tube lete hain, yaani kaanch ki ek patli nali, jo ek taraf se band hoti hai.",
+      "Nali mein hum KOH mein bhigi thodi rui daal dete hain.",
+      "Phir destarch kiye paudhe ki ek patti ka aadha hissa is nali ke andar daalte hain. Patti paudhe se judi rehti hai, aur uska baaki aadha hissa bahar khuli hawa mein rehta hai.",
+      "Nali ke munh par ek cork lagate hain, jiski daraar se patti andar jaati hai, taaki bahar ki hawa andar na aaye.",
+      "Phir is poore setup ko kuch der roshni mein rakh dete hain.",
+      "Nali kaanch ki hai, isliye roshni andar wale hisse tak bhi barabar pahunchti hai.",
+      "Rasoi ki zubaan mein, is baar aata hata diya gaya hai, jabki aag aur tawa dono maujood hain.",
+      "Kuch der baad hum dono hisson par starch wala test karte hain.",
+      "Aapne suna hoga ki doctor ka koi test positive aaya; matlab jo cheez dhoondhi ja rahi thi, woh mil gayi.",
+      "Isi tarah bahar wala hissa neela-kaala hota hai, yaani usne starch ke liye tested positive kiya, starch mila.",
+      "Nali ke andar wala hissa bhoora-peela rehta hai. Woh tested negative hai, yaani wahan starch nahi mila.",
+      "Isse dikha ki photosynthesis ke liye CO₂ zaroori hai.",
+      "Exam mein is prayog ko Moll ka half-leaf experiment bhi kehte hain, kyunki isme aadhi patti andar aur aadhi bahar hoti hai."
      ],
-     "screen": "Ek realistic attached leaf ka portion transparent sealed test tube mein; leaf se alag KOH cotton, outside air se CO₂ arrows, dono portions par light; phir matching iodine results.",
+     "roles": [
+      "plain",
+      "ask",
+      "answer",
+      "picture",
+      "term",
+      "plain",
+      "known",
+      "fact",
+      "fact",
+      "why",
+      "fact",
+      "why",
+      "picture",
+      "fact",
+      "known",
+      "term",
+      "fact",
+      "fact",
+      "plain"
+     ],
+     "screen": "Teesre prayog ka dabba: carbon dioxide; hawa mein har jagah CO₂ ke chhote molecule; sookhi rui paani sokhti; KOH ki bottle, label: K = potassium, O = oxygen, H = hydrogen; KOH CO₂ molecule pakad kar baandh leta; kaanch ki test tube, neeche KOH mein bhigi rui; destarch kiya paudha, patti ka aadha hissa cork ki daraar se nali mein, aadha bahar hawa mein; poora setup dhoop mein, roshni kaanch ke aar-paar; rasoi: aag aur tawa, aata gaayab; iodine ke baad: bahar ka aadha neela-kaala (tested positive), andar ka aadha bhoora-peela (tested negative); doctor ki report par 'positive'; nateeja: CO₂ zaroori; label: Moll ka half-leaf experiment.",
      "terms": [
       {
        "term": "KOH",
-       "meaning": "Potassium hydroxide; is setup mein CO₂ absorb karne wala substance."
+       "meaning": "Potassium hydroxide; K = potassium, O = oxygen, H = hydrogen; hawa ki carbon dioxide sokh leta hai."
+      },
+      {
+       "term": "test tube",
+       "meaning": "Kaanch ki patli nali jo ek taraf se band hoti hai."
       },
       {
        "term": "tested positive",
-       "meaning": "Test mein jis substance ko dhoondh rahe the, woh mila."
+       "meaning": "Test mein jo cheez dhoondh rahe the, woh mil gayi; na mile toh tested negative."
       }
      ],
-     "outside_book": "Tube sealing aur KOH cotton ko leaf se alag rakhne ki setup details fair comparison samajhne ke liye jodi gayi hain.",
+     "outside_book": "Nali ke munh par cork; doctor ke test positive ki misaal; exam mein is prayog ka naam: Moll ka half-leaf experiment.",
      "prepares": [],
      "answer": "",
-     "watch_out": ""
+     "watch_out": "",
+     "uses": [
+      "f22",
+      "f23",
+      "f24",
+      "f25",
+      "f26",
+      "f27",
+      "f28",
+      "f29"
+     ]
     },
     {
      "id": "11.1-k7",
@@ -1957,40 +2406,145 @@
      ],
      "recalls": [],
      "says": [
-      "Ab socho, tube ke andar starch na milne aur outside starch milne se CO₂ ki requirement ka conclusion kaise niklega?",
-      "Socho, phir aage badhenge: dono portions green aur illuminated the, toh kaunsi relevant condition alag thi?",
-      "Dekho, KOH wale portion mein CO₂ hataayi gayi thi, aur comparable outside portion mein CO₂ available thi, isliye contrasting new-starch formation CO₂ ki requirement support karti hai.",
-      "Sirf ek negative result kyun kaafi nahi hota?",
-      "Dekho, outside positive result dikhata hai ki isi leaf mein in conditions par starch ban sakta tha, isliye comparison CO₂ removal ko meaningful banata hai."
+      "Ab woh sawaal, jo is prayog ke saath aapse poocha jaata hai.",
+      "Is prayog se yeh nateeja, yaani conclusion, kaise nikala ja sakta hai ki CO₂ zaroori hai?",
+      "Yeh nateeja nikala ja sakta hai ek tulna se, aur uska clue yeh hai: dono hisson ki har cheez ek-ek karke milaao.",
+      "Ruko, pehle khud socho: dono hisson mein kya-kya ek jaisa tha, aur kya alag tha?",
+      "Aapne socha hoga ki dono hisse ek hi patti ke the, ek hi paudhe par the, aur dono ko ek jaisi roshni mili.",
+      "Dono mein chlorophyll bhi tha, kyunki patti poori hari thi.",
+      "Alag sirf ek cheez thi: nali ke andar KOH ne carbon dioxide sokh li thi, aur bahar carbon dioxide maujood thi.",
+      "Aur starch sirf usi hisse mein bana jise carbon dioxide mili. Jahan carbon dioxide nahi thi, wahan khana nahi bana.",
+      "Jab sirf ek cheez badli ho aur nateeja badal jaaye, toh nateeje ki wajah wahi cheez hoti hai. Isliye hum kehte hain ki CO₂ zaroori hai.",
+      "Par bahar wale hisse ki zaroorat hi kya thi? Sirf nali wala hissa test kar lete toh?",
+      "Sirf nali wala hissa dekhte, toh starch na milne par yeh shak reh jaata ki shaayad patti mein hi koi gadbad thi.",
+      "Bahar wala hissa dikhata hai ki isi patti mein, inhi halaat mein starch ban sakta tha. Isliye usse tulna karke hi nateeja pakka hota hai.",
+      "Aksar bachche sochte hain ki nali ke andar starch isliye nahi bana kyunki nali ne roshni rok di. Par aisa nahi hai: nali kaanch ki thi, aur roshni aar-paar gayi.",
+      "Aur yaad rakho, KOH ne sirf carbon dioxide sokhi thi, oxygen nahi. Isliye yeh prayog carbon dioxide ki hi baat karta hai."
      ],
-     "screen": "KOH leaf setup ke neeche comparison table: chlorophyll—dono mein; light—dono mein; CO₂—andar removed, bahar available; new starch—andar negative, bahar positive.",
+     "roles": [
+      "plain",
+      "ask",
+      "plain",
+      "ask",
+      "answer",
+      "fact",
+      "fact",
+      "fact",
+      "why",
+      "ask",
+      "answer",
+      "why",
+      "galat",
+      "plain"
+     ],
+     "screen": "Sawaal ka dabba: 'yeh nateeja (conclusion) kaise nikla?'; clue: dono hisson ki tulna ki table; 'Ruko, pehle khud socho' ke saath bada ? aur chhoti ghadi (teen second ruk); table bharti hai: ek hi patti (dono), ek hi paudha (dono), roshni (dono), chlorophyll (dono), CO₂ (bahar haan, andar nahi, KOH ki wajah se), starch (bahar haan, andar nahi); ek hi khaana badla to nateeja badla; akeli nali wali patti par 'shak'; bahar wali patti par 'tulna' ka label; galat soch 'nali ne roshni roki' par kaata nishaan, kaanch ke aar-paar roshni ke teer; KOH sirf CO₂ pakadta, O₂ ko chhod deta.",
      "terms": [],
-     "outside_book": "",
+     "outside_book": "Bahar wale hisse se tulna kyun zaroori hai; kaanch ki nali se roshni pahunchti hai; KOH oxygen nahi sokhta.",
      "prepares": [],
-     "answer": "Comparable green illuminated portions mein CO₂ availability ka difference starch outcomes se match karta hai; outside positive comparison CO₂ requirement ke inference ko support karta hai.",
-     "watch_out": "KOH light ya oxygen remove karne ka reagent nahi hai. Purana starch aur doosri uncontrolled conditions inference ko confuse kar sakti hain."
+     "answer": "Dono hisse ek hi patti ke, ek hi paudhe par, ek jaisi roshni mein the, aur dono mein chlorophyll tha; farq sirf CO₂ ka tha, kyunki nali ke andar KOH ne CO₂ sokh li. Starch sirf CO₂ wale hisse mein bana, isliye CO₂ zaroori hai. Bahar wala hissa tulna ka kaam karta hai: woh dikhata hai ki isi patti mein starch ban sakta tha.",
+     "watch_out": "Galat soch: nali ne roshni rok di, ya KOH ne oxygen hatayi. Nali kaanch ki thi, roshni pahunchi; KOH sirf CO₂ sokhta hai. Bahar wale hisse ke bina akela negative nateeja kuch saabit nahi karta.",
+     "uses": [
+      "f30",
+      "f31",
+      "f32",
+      "f33"
+     ]
     },
     {
      "id": "11.1-k8",
+     "kind": "question",
+     "teaches": [],
+     "recalls": [],
+     "says": [
+      "Ab teeno prayog ek saath rakh kar dekho.",
+      "Variegated leaf ke safed hisse ko roshni aur carbon dioxide mili, par chlorophyll nahi tha.",
+      "Black paper ke neeche wale hisse mein chlorophyll tha, par roshni nahi thi.",
+      "Aur nali ke andar wale hisse mein chlorophyll aur roshni dono the, par carbon dioxide nahi thi.",
+      "Yaani har prayog mein sirf ek cheez hatayi gayi, aur baaki sab waisa hi rakha gaya.",
+      "Ek baar mein sirf ek cheez badal kar baaki sab barabar rakhne wali is tulna ko controlled comparison kehte hain.",
+      "Rasoi mein bhi hum yahi karte: kabhi aag bujhao, kabhi tawa hatao, kabhi aata, aur har baar dekho ki roti bani ya nahi.",
+      "Agar ek saath aag bhi bujha do aur aata bhi hata do, aur roti na bane, toh kya bataoge?",
+      "Aag aur aata ek saath hataye, toh aap bata hi nahi paoge ki roti kis kami se nahi bani.",
+      "Aksar log sochte hain ki photosynthesis ke liye bas yahi teen cheezein chahiye. Par aisa nahi hai: paani bhi utna hi zaroori hai.",
+      "Toh paani ko bhi aise hata kar kyun nahi parakhte?",
+      "Paani ko aise hata kar parakhna mushkil hai, kyunki paani ke bina patti khud murjha jaati hai.",
+      "Phir starch na bane, toh pata nahi chalega ki starch paani ki kami se nahi bana, ya patti ke murjhaane se.",
+      "Paani ka asli kaam kya hai, yeh aage hum dekhenge."
+     ],
+     "roles": [
+      "plain",
+      "fact",
+      "fact",
+      "fact",
+      "why",
+      "term",
+      "picture",
+      "ask",
+      "answer",
+      "galat",
+      "ask",
+      "answer",
+      "why",
+      "link"
+     ],
+     "screen": "Teen pattiyan ek line mein: variegated (safed hissa: roshni haan, CO₂ haan, chlorophyll nahi), black paper (chlorophyll haan, roshni nahi), nali (chlorophyll haan, roshni haan, CO₂ nahi); har ek mein sirf ek khaana laal; label: controlled comparison; rasoi ke teen chitra: aag bujhi, tawa gaayab, aata gaayab; phir ek saath aag aur aata gaayab par sawaal ka nishaan; galat soch 'bas teen cheezein' par kaata nishaan, saath mein paani ki boond; murjhaayi patti par '?'; paani ki boond par 'aage'.",
+     "terms": [
+      {
+       "term": "controlled comparison",
+       "meaning": "Ek baar mein sirf ek cheez badal kar baaki sab barabar rakhne wali tulna."
+      }
+     ],
+     "outside_book": "Rasoi mein ek saath do cheezein hatane ki misaal; paani ko is tarah kyun nahi parakhte (patti murjha jaati hai).",
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "uses": [
+      "f20",
+      "f34",
+      "f35"
+     ]
+    },
+    {
+     "id": "11.1-k9",
      "kind": "retell",
      "teaches": [],
      "recalls": [],
      "says": [
-      "Poora evidence order mein jodo: pehle purana starch kam kiya, phir selected condition badli, aur light exposure ke baad iodine result compare kiya.",
-      "Variegated leaf mein green regions ka starch chlorophyll ki requirement support karta hai.",
-      "Black-paper-covered leaf mein sirf illuminated region ka starch light ki requirement support karta hai.",
-      "KOH setup mein sirf CO₂-available portion ka starch carbon dioxide ki requirement support karta hai.",
-      "Humne directly food banne ki har reaction nahi dekhi; naya starch us process ka indirect evidence bana."
+      "Ab aaj ki poori baat ek saath jodte hain.",
+      "Patti mein bana khana starch bankar jama hota hai, aur iodine use neela-kaala karke dikha deta hai.",
+      "Purana starch hatane ke liye paudhe ko pehle andhere mein rakhte hain, aur patti ka chlorophyll alcohol se nikaal kar test karte hain.",
+      "Variegated leaf ne dikhaya ki chlorophyll zaroori hai, black paper ne dikhaya ki roshni, aur KOH wali nali ne dikhaya ki CO₂.",
+      "Ab shuru wala sawaal phir se: jo khana dikhta hi nahi, uske baare mein hum itne pakke kaise hain, aur patti ko kya-kya chahiye?",
+      "Jo khana dikhta nahi, uske baare mein hum pakke isliye hain, kyunki uski nishaani dikhti hai: roshni mein rakhi patti mein naya starch milta hai.",
+      "Aur patti ko kya-kya chahiye, yeh humne ek-ek cheez hata kar jaana. Chlorophyll, light aur CO₂ mein se ek bhi na ho, toh starch nahi banta.",
+      "Bilkul rasoi ki tarah: aag, tawa aur aata mein se ek bhi na ho, toh dabbe mein nayi roti nahi milti.",
+      "Par ek samay aisa bhi tha, jab kisi ko pata hi nahi tha ki hawa mein alag-alag gases hoti hain.",
+      "Tab log dekhte the ki band kaanch ke jar mein jalti mombatti kuch der mein bujh jaati hai. Usi jar mein ek hara paudha bhi rakh dein, toh kya hoga?",
+      "Jar mein hara paudha rakhne par kya hoga, yeh aage hum dekhenge."
      ],
-     "screen": "Teen compact evidence pairs: green/non-green → chlorophyll; uncovered/covered → light; outside/KOH tube → CO₂; har pair ke saath starch-test result.",
+     "roles": [
+      "link",
+      "fact",
+      "fact",
+      "fact",
+      "ask",
+      "answer",
+      "answer",
+      "picture",
+      "plain",
+      "ask",
+      "link"
+     ],
+     "screen": "Ek line mein kahani: patti mein sugar se starch ke daane, iodine se neela-kaala; andhera kamra (destarching), alcohol mein patti ka rang utarna; teen pattiyan: variegated se chlorophyll, black paper se roshni, KOH nali se CO₂; shuru ka sawaal phir: khana dikhta nahi, par neela-kaala nishaan dikhta hai; rasoi: aag + tawa + aata se dabbe mein nayi roti, ek bhi gaayab to dabba khaali; phir purane zamaane ki prayogshala: band kaanch ka jar, jalti mombatti bujhti; jar mein hara paudha rakhte hi bada sawaal ka nishaan jo khula rehta hai.",
      "terms": [],
      "outside_book": "",
      "prepares": [],
      "answer": "",
-     "watch_out": ""
+     "watch_out": "",
+     "uses": []
     }
    ],
-   "bridge": "Ab in requirements ki historical khoj dekhenge: closed jars mein plants hawa ko kaise badalte hain, aur us badlav ka proof kaise mila?",
+   "bridge": "",
    "title": "WHAT DO WE KNOW?"
   },
   {

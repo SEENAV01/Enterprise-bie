@@ -2,7 +2,7 @@
  "schema": "bie.studio-run/1",
  "section": "studio",
  "stage": "chapter",
- "status": "paused",
+ "status": "ok",
  "maker": "claude (Claude Code on Navin's Claude plan, the bie-script-writer skill)",
  "model": "opus, effort xhigh",
  "cost": {
@@ -10,28 +10,26 @@
  },
  "error": null,
  "base_session": true,
- "resume_at": 1795817672.844576,
- "waiting_for": "the next heading (other jobs on this machine go first)",
- "resume_at_utc": "2026-11-27 22:14 UTC",
+ "problems": {},
  "rewritten": [
-  ""
+  "",
+  "11.1"
  ],
  "kept": [
   "11.6.2",
   "11.7.2"
  ],
  "usage": {
-  "input_tokens": 43362108,
-  "output_tokens": 221515
+  "input_tokens": 68685501,
+  "output_tokens": 325342
  },
- "turns": 146,
+ "turns": 218,
  "progress": {
   "written": [
-   ""
-  ],
-  "left": [
+   "",
    "11.1"
   ],
+  "left": [],
   "kept": [
    "11.6.2",
    "11.7.2"
@@ -51,46 +49,58 @@
    "writer_reply": "esult: the tree's weight came from the air's carbon dioxide and water. The running picture is \"rasoi\".\n  - **End:** the opening question is asked again and answered, and 11.1's question is left open with \"aage hum dekhenge\".\n- **For Navin to judge:**\n  - The willow story and its numbers are not in the book; they are listed in outside_book.\n  - The cyanobacteria point adds to the book's line that autotrophic nutrition is found \"sirf paudhon mein\".\n  - The length is about 4,000 words, roughly as dense per book item as the locked 11.7.2.\n- **A check misfire for BIE:** the office-word check for \"khaata\" (ledger) also flags \"khaate\", \"to eat\". I worded around it here, but it will keep flagging any heading that talks about food.\n\nThe notes for the next copies are at the bottom of YAADEIN_NEW.md.",
    "put_back": [],
    "tries": 1
+  },
+  "11.1": {
+   "problems": [],
+   "turns": 72,
+   "usage": {
+    "input_tokens": 25323393,
+    "output_tokens": 103827
+   },
+   "minutes": 18.8,
+   "writer_reply": "11.1: 155 sentences, 0 problems left",
+   "put_back": [],
+   "tries": 1
   }
  },
  "script": {
   "headings": 21,
-  "points": 227,
+  "points": 228,
   "summary_taught": 11,
   "summary": 11,
   "exercises_prepared": 13,
   "exercises": 13,
   "checkpoints": 20,
-  "sentences": 1687,
-  "words": 29055,
-  "minutes": 224,
+  "sentences": 1767,
+  "words": 30562,
+  "minutes": 235,
   "covered": 156,
   "coverable": 156,
-  "analogies": 19,
-  "examples": 26,
+  "analogies": 18,
+  "examples": 27,
   "real_world": 14,
-  "outside_book": 120,
-  "questions": 239,
-  "question_share": 0.131,
+  "outside_book": 124,
+  "questions": 247,
+  "question_share": 0.128,
   "fragments": 0,
   "retells": 16,
-  "facts": 265,
-  "english_heavy": 213,
-  "english_share": 0.163,
+  "facts": 300,
+  "english_heavy": 203,
+  "english_share": 0.15,
   "goals": 21,
   "baatein": {
-   "book": 75,
-   "word": 94,
-   "base": 37,
+   "book": 85,
+   "word": 101,
+   "base": 44,
    "label": 36,
-   "extra": 23
+   "extra": 34
   },
   "names_unsaid": 7,
-  "galat": 8,
-  "misaal": 4,
-  "bolchaal": 156,
+  "galat": 10,
+  "misaal": 5,
+  "bolchaal": 148,
   "unopened": 1
  },
  "forks_deleted": 1,
- "minutes": 37.1
+ "minutes": 18.8
 }
