@@ -91,6 +91,53 @@ class SelfCheck(unittest.TestCase):
                 script_writer_check.check({"parts": parts()}, chapter(), "9.9")
 
 
+class Needs(unittest.TestCase):
+    """What BIE's checks will ask of a heading, before it is written (the taught chat's seekh, job c3, 27 November 2026:
+    an empty probe through the self-check cost turns)."""
+
+    def test_needs_names_what_the_checks_ask_for(self):
+        found = script_writer_check.needs(chapter(), "11.6", {"parts": parts()})
+        heading = next(h for h in studio_script.headings(chapter()) if h["number"] == "11.6")
+        for key in ("terms", "needs_first", "figures", "short_forms", "words_to_open", "later_terms"):
+            self.assertIn(key, found)
+        self.assertLessEqual({t for t, _ in found["terms"]}, {t for t, _ in studio_script.first_terms(heading)})
+        # every word fact the checks ask of an empty heading is one --needs named, so the list is the checks' own
+        empty = {"section": "11.6", "goal": "", "facts": [], "bridge": "",
+                 "points": [{"id": "11.6-k1", "kind": "explain", "teaches": heading["items"], "says": ["Ek line."],
+                             "roles": ["plain"]}]}
+        earlier = [p for p in parts() if p.get("section") != "11.6"][:1]
+        asked = [m.group(1) for line in studio_script.problems(empty, heading, chapter(), earlier, [])
+                 for m in [re.match(r"no word fact tells what '(.+?)' \(first met", line)] if m]
+        self.assertTrue(asked)
+        self.assertLessEqual(set(asked), {t for t, _ in script_writer_check.needs(chapter(), "11.6",
+                                                                               {"parts": earlier + [empty]})["terms"]})
+
+    def test_the_command_prints_needs_without_a_script(self):
+        with tempfile.TemporaryDirectory() as folder:
+            chap = Path(folder) / "chapter.json"
+            chap.write_text(json.dumps(chapter()), encoding="utf-8")
+            printed = io.StringIO()
+            with redirect_stdout(printed):
+                script_writer_check.main(["--needs", "--chapter", str(chap), "--heading", "11.6"])
+            self.assertIn("What BIE's checks will ask", printed.getvalue())
+            with self.assertRaises(SystemExit):                     # the plain check still needs the script
+                script_writer_check.main(["--chapter", str(chap), "--heading", "11.6"])
+
+    def test_the_packet_is_bies_message_made_short(self):
+        heading = next(h for h in studio_script.headings(chapter()) if h["number"] == "11.6")
+        order = [h["number"] for h in studio_script.headings(chapter())]
+        earlier = [p for p in parts() if p.get("section") in order[:order.index("11.6")]]
+        text = studio_script.packet(chapter(), heading, earlier, next_title="11.7 Next")
+        self.assertIn(studio_script.heading_items(chapter(), heading), text)          # the items, as Codex reads them
+        self.assertIn("What BIE's checks will ask", text)
+        self.assertIn("The heading just before it", text)
+        self.assertIn("The next heading: 11.7 Next", text)
+        self.assertIn("chapter.md", text)                                            # the rest is beside it, to search
+        whole = studio_script.messages(chapter(), heading, earlier, course={})[1]["content"]
+        self.assertLess(len(text), len(whole))
+        self.assertNotIn("A WORKED EXAMPLE OF THE WAY", text)                         # the taught chat wrote it
+
+
 if __name__ == "__main__":
     unittest.main()
 
@@ -118,6 +165,9 @@ if task.startswith("Teen chhote jawab do"):                     # the copy's tes
     sys.exit(0)
 work = re.search(r"(\S+)/script\.json in place", task).group(1)
 written = json.loads(open(os.environ["FAKE_PART"]).read())
+packet = work + "/packet-" + written["section"] + ".md"
+open(log + ".work", "w").write(json.dumps({"files": sorted(os.listdir(work)),
+                                           "packet": open(packet).read() if os.path.exists(packet) else ""}))
 script = json.load(open(work + "/script.json"))
 script["parts"] = [written if p.get("section") == written["section"] else p for p in script["parts"]]
 open(work + "/script.json", "w").write(json.dumps(script))
@@ -207,6 +257,17 @@ class VmClaude(WriterBase):
         self.assertNotIn("--fork-session", call["args"])
         self.assertIn("bie-script-writer", call["args"][call["args"].index("-p") + 1])
         self.assertNotIn("You are the chat Navin taught", call["args"][call["args"].index("-p") + 1])
+
+    def test_the_writer_gets_bies_packet_beside_the_raw_files(self):
+        self.vm_claude.script(self.args(fresh=True), binary=str(self.fake))
+        seen = json.loads(Path(self.env["FAKE_LOG"] + ".work").read_text())
+        for name in ("packet-11.6.md", "chapter.md", "script-so-far.md", "chapter_map.json", "script.json"):
+            self.assertIn(name, seen["files"])
+        self.assertIn("BIE's packet: heading 11.6", seen["packet"])
+        self.assertIn("What BIE's checks will ask", seen["packet"])
+        task = self.call()["args"][self.call()["args"].index("-p") + 1]
+        self.assertIn("packet-<number>.md", task)
+        self.assertIn("Read it first", task)
 
     def test_a_base_session_is_forked_for_every_job(self):
         (Path(self.env["CLAUDE_CONFIG_DIR"]) / "BASE_SESSION").write_text("session-taught\n")

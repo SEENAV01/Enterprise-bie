@@ -7,6 +7,11 @@ that add sentences are patching).
     python3 tools/script_writer_check.py --script script.json --chapter chapter_map.json --heading 11.6.3 \
         [--before old_script.json] [--json out.json]
 
+Before writing, ``--needs`` prints what BIE's checks will ask of the heading (its terms, what must come first, the
+figure's labels, the short forms and hard words), from the same helpers the checks use:
+
+    python3 tools/script_writer_check.py --needs --chapter chapter_map.json --heading 11.6.3 [--script script.json]
+
 The problems are advice for the writer to weigh; BIE's script stage still runs its own checks on what is handed over.
 """
 from __future__ import annotations
@@ -62,15 +67,37 @@ def check(script: dict, chapter: dict, number: str, before: dict | None = None) 
     return out
 
 
+def needs(chapter: dict, number: str, script: dict | None = None) -> dict:
+    """What BIE's checks will ask of a heading before a line of it is written (``--needs``; the taught chat's seekh, job
+    c3, 27 November 2026); ``script``: the script so far, for the terms its earlier headings opened."""
+    heads = studio_script.headings(chapter)
+    order = [h["number"] for h in heads]
+    if number not in order:
+        raise SystemExit(f"heading {number} is not in the chapter file ({', '.join(order)})")
+    n = order.index(number)
+    earlier = [p for p in (script or {}).get("parts") or [] if p.get("section") in order[:n]]
+    later = [t for h in heads[n + 1:] for t, _ in studio_script.first_terms(h) if studio_script._technical(t)]
+    return studio_script.heading_needs(chapter, heads[n], earlier, later)
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    parser.add_argument("--script", required=True)
+    parser.add_argument("--script", default="", help="the script (required except with --needs)")
     parser.add_argument("--chapter", required=True, help="the chapter map (chapter_map.json)")
     parser.add_argument("--heading", required=True)
+    parser.add_argument("--needs", action="store_true", help="before writing: what BIE's checks will ask of the heading")
     parser.add_argument("--before", default="", help="an earlier version of the script, to see how much the heading grew")
     parser.add_argument("--json", default="", help="also write the result here")
     args = parser.parse_args(argv)
     read = lambda path: json.loads(Path(path).read_text(encoding="utf-8"))  # noqa: E731
+    if args.needs:
+        found = needs(read(args.chapter), args.heading, read(args.script) if args.script else None)
+        print(studio_script.needs_text(found))
+        if args.json:
+            Path(args.json).write_text(json.dumps(found, ensure_ascii=False, indent=1), encoding="utf-8")
+        return 0
+    if not args.script:
+        parser.error("--script is required (or --needs, before writing)")
     result = check(read(args.script), read(args.chapter), args.heading, read(args.before) if args.before else None)
     v = result["voice"]
     print(f"{result['heading']}: {v.get('sentences')} sentences, {v.get('words_per_sentence')} words each, "
