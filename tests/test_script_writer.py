@@ -103,8 +103,19 @@ if args[:2] == ["auth", "status"]:
     sys.exit(0)
 task = args[args.index("-p") + 1]
 log = os.environ["FAKE_LOG"]
-open(log, "w").write(json.dumps({"args": args, "api_key": "ANTHROPIC_API_KEY" in os.environ,
-                                 "config": os.environ.get("CLAUDE_CONFIG_DIR", "")}))
+open(log, "a").write(json.dumps({"args": args, "api_key": "ANTHROPIC_API_KEY" in os.environ,
+                                 "config": os.environ.get("CLAUDE_CONFIG_DIR", "")}) + "\n")
+if task.startswith("Teen chhote jawab do"):                     # the copy's test
+    model = args[args.index("--model") + 1]
+    if os.environ.get("FAKE_COPY_ONLY_1M") and model == "opus":
+        print(json.dumps({"type": "result", "is_error": True, "result": "Prompt is too long", "usage": {}}))
+        sys.exit(1)
+    if os.environ.get("FAKE_FORK_DIR"):
+        open(os.environ["FAKE_FORK_DIR"] + "/fork-test.jsonl", "w").write("{}")
+    print(json.dumps({"type": "result", "is_error": False, "session_id": "fork-test",
+                      "result": "(1) 11.6.3 ka c2-c3; Navin: bilkul passed (2) B8: film script ki lines hubahu (3) Navin ki",
+                      "usage": {"input_tokens": 10, "cache_read_input_tokens": int(os.environ.get("FAKE_COPY_TOKENS", "300000"))}}))
+    sys.exit(0)
 work = re.search(r"(\S+)/script\.json in place", task).group(1)
 written = json.loads(open(os.environ["FAKE_PART"]).read())
 script = json.load(open(work + "/script.json"))
@@ -117,8 +128,8 @@ print(json.dumps({"type": "result", "is_error": False, "result": "11.6: 10 sente
 '''
 
 
-class VmClaude(unittest.TestCase):
-    """The script stage on the VM with Claude as the writer (tools/vm_claude.py) and its job (maker "claude")."""
+class WriterBase(unittest.TestCase):
+    """A run folder, a chapter map, a fake Claude Code and its config folder for the writer's tests."""
 
     def setUp(self):
         import os
@@ -152,11 +163,18 @@ class VmClaude(unittest.TestCase):
                 os.environ[k] = v
         self.folder.cleanup()
 
+    def call(self, n=-1):
+        return [json.loads(line) for line in Path(self.env["FAKE_LOG"]).read_text().splitlines()][n]
+
     def args(self, **more):
         from types import SimpleNamespace
         return SimpleNamespace(**dict({"from_run": str(self.run_dir), "chapter_map": str(self.map_dir), "videos": "h11-6",
                                        "course": "Class 11", "language": "Hinglish",
                                        "out": str(Path(self.folder.name) / "out")}, **more))
+
+
+class VmClaude(WriterBase):
+    """The script stage on the VM with Claude as the writer (tools/vm_claude.py) and its job (maker "claude")."""
 
     def test_the_writer_writes_one_heading_and_bie_checks_it(self):
         summary = self.vm_claude.script(self.args(fresh=True), binary=str(self.fake))
@@ -172,13 +190,20 @@ class VmClaude(unittest.TestCase):
         self.assertFalse((out / "work").exists())
         self.assertEqual(summary["usage"], {"input_tokens": 150, "output_tokens": 20})
         self.assertEqual(summary["cost"], {"total_inr": 0.0})
-        call = json.loads(Path(self.env["FAKE_LOG"]).read_text())
+        call = self.call()
         self.assertFalse(call["api_key"])                       # never an Anthropic API key: Navin's plan only
         for flag in ("--model", "opus", "--effort", "xhigh", "--permission-mode", "dontAsk"):
             self.assertIn(flag, call["args"])
         allowed = call["args"][call["args"].index("--allowedTools") + 1:]
         self.assertTrue(any(a.startswith("Write(//") and a.endswith("/work/**)") for a in allowed))
         self.assertNotIn("Bash", allowed)                       # only the self-check may run
+        allowed = allowed[:allowed.index("--disallowedTools")]
+        self.assertNotIn("Read", allowed)                       # plan point 5: reading only the repository and the work
+        self.assertIn(f"Read(/{ROOT}/**)", allowed)
+        refused = call["args"][call["args"].index("--disallowedTools") + 1:]
+        conf = self.env["CLAUDE_CONFIG_DIR"]
+        for place in (conf, "/var/lib/bie/codex", "/var/lib/bie/deploy_key", "/etc"):
+            self.assertIn(f"Read(/{place}/**)", refused)        # sign-ins, the chat's copy and key, the deploy key
         self.assertNotIn("--fork-session", call["args"])
         self.assertIn("bie-script-writer", call["args"][call["args"].index("-p") + 1])
         self.assertNotIn("You are the chat Navin taught", call["args"][call["args"].index("-p") + 1])
@@ -186,7 +211,7 @@ class VmClaude(unittest.TestCase):
     def test_a_base_session_is_forked_for_every_job(self):
         (Path(self.env["CLAUDE_CONFIG_DIR"]) / "BASE_SESSION").write_text("session-taught\n")
         summary = self.vm_claude.script(self.args(), binary=str(self.fake))
-        call = json.loads(Path(self.env["FAKE_LOG"]).read_text())
+        call = self.call()
         self.assertTrue(summary["base_session"])
         self.assertEqual(call["args"][call["args"].index("--resume") + 1], "session-taught")
         self.assertIn("--fork-session", call["args"])
@@ -240,8 +265,147 @@ class VmClaude(unittest.TestCase):
         self.assertIn(f'CLAUDE_VERSION="{self.vm_claude.CLAUDE_VERSION}"', text)
         self.assertIn("env -u ANTHROPIC_API_KEY", text)
         self.assertIn("auth login", text)
-        self.assertIn('TP="$CONF/teleport-repo"', text)              # never the checkout the running jobs use
-        self.assertNotIn('cd "$BIE_HOME/repo"', text)
-        self.assertIn('run_claude --teleport "$session")', text)                # on the screen: teleport is interactive
-        self.assertIn('"cleanupPeriodDays"', text)                                # the taught chat is never swept away
+        self.assertNotIn("--teleport", text)                    # 27 November: teleport cannot bring a Claude app chat
+        self.assertIn('"$CONF/chat.key"', text)                 # the copy's key, kept only on the machine
+        self.assertIn('chmod 600 "$CONF/chat.key"', text)
+        self.assertIn('read -rsp', text)                        # pasted unseen
+        self.assertIn('"cleanupPeriodDays"', text)              # the copies are never swept away
+        self.assertIn('"hasTrustDialogAccepted"', text)         # a job never stops at the folder question
         self.assertIn("bie-claude-setup", (ROOT / "deployment" / "codex-vm" / "setup.sh").read_text(encoding="utf-8"))
+
+
+def locked_copy(folder: Path, key: Path, sid: str = "aaaaaaaa-1111-2222-3333-444444444444", lines: int = 3):
+    """A locked copy as Claude makes it: the chat's lines, gzip, then openssl AES-256-CBC with PBKDF2."""
+    import gzip
+    import hashlib
+    import subprocess
+    text = "".join(json.dumps({"type": "user", "sessionId": sid, "n": n}) + "\n" for n in range(lines))
+    path = folder / f"copy-{sid[:4]}-{lines}.enc"
+    done = subprocess.run(["openssl", "enc", "-aes-256-cbc", "-pbkdf2", "-iter", "200000", "-salt", "-pass",
+                           f"file:{key}"], input=gzip.compress(text.encode()), capture_output=True, check=True)
+    path.write_bytes(done.stdout)
+    return path, hashlib.sha256(done.stdout).hexdigest(), text
+
+
+class WriterCopy(WriterBase):
+    """Stage copy (Navin, 27 November 2026, "Raasta 1"): a newer locked copy of the taught chat is installed only when
+    it passes its test, the copy before is kept, and job copies beyond five are deleted."""
+
+    def setUp(self):
+        super().setUp()
+        import os
+        self.conf = Path(self.env["CLAUDE_CONFIG_DIR"])
+        self.key = self.conf / "chat.key"
+        self.key.write_text("k3y-for-tests\n")
+        self.project = self.vm_claude.project_dir(self.vm_claude.environment())
+        self.project.mkdir(parents=True)
+        os.environ["FAKE_FORK_DIR"] = str(self.project)
+
+    def tearDown(self):
+        import os
+        for name in ("FAKE_FORK_DIR", "FAKE_COPY_TOKENS", "FAKE_COPY_ONLY_1M"):
+            os.environ.pop(name, None)
+        super().tearDown()
+
+    def copy_args(self, path, sha, tokens=300000):
+        from types import SimpleNamespace
+        return SimpleNamespace(url=str(path), sha256=sha, tokens=tokens, out=str(Path(self.folder.name) / "cout"))
+
+    def test_a_good_copy_is_installed_and_the_one_before_kept(self):
+        old = "bbbbbbbb-1111-2222-3333-444444444444"
+        (self.project / f"{old}.jsonl").write_text("old chat\n")
+        (self.conf / "BASE_SESSION").write_text(old + "\n")
+        path, sha, text = locked_copy(Path(self.folder.name), self.key)
+        summary = self.vm_claude.install_copy(self.copy_args(path, sha), binary=str(self.fake))
+        self.assertEqual(summary["status"], "ok", summary.get("error"))
+        sid = "aaaaaaaa-1111-2222-3333-444444444444"
+        self.assertEqual((self.conf / "BASE_SESSION").read_text().strip(), sid)
+        self.assertEqual((self.project / f"{sid}.jsonl").read_text(), text)
+        kept = list((self.conf / "archive").glob("*.jsonl"))
+        self.assertEqual([p.read_text() for p in kept], ["old chat\n"])          # never deleted
+        self.assertEqual((self.conf / "MODEL").read_text().strip(), "opus")
+        self.assertFalse((self.project / "fork-test.jsonl").exists())            # the test's own copy goes at once
+        self.assertEqual(summary["checks"], {"answered": True, "knows_the_gold": True, "memory_whole": True})
+        published = (Path(self.folder.name) / "cout" / "SUMMARY.json").read_text()
+        self.assertNotIn("bilkul passed", published)                            # the chat's words stay on the machine
+        self.assertIn("bilkul passed", (self.conf / "copy-test.txt").read_text())
+        call = self.call()
+        self.assertEqual(call["args"][call["args"].index("--resume") + 1], sid)
+        self.assertIn("--fork-session", call["args"])
+        self.assertFalse(call["api_key"])
+
+    def test_a_copy_whose_memory_is_not_whole_is_refused_and_the_old_one_comes_back(self):
+        import os
+        old = "bbbbbbbb-1111-2222-3333-444444444444"
+        (self.project / f"{old}.jsonl").write_text("old chat\n")
+        (self.conf / "BASE_SESSION").write_text(old + "\n")
+        os.environ["FAKE_COPY_TOKENS"] = "150000"                                 # a summary, not the whole memory
+        path, sha, _ = locked_copy(Path(self.folder.name), self.key)
+        summary = self.vm_claude.install_copy(self.copy_args(path, sha, tokens=320000), binary=str(self.fake))
+        self.assertEqual(summary["status"], "failed")
+        self.assertIn("memory_whole", summary["error"])
+        self.assertTrue(summary["restored"])
+        self.assertEqual((self.conf / "BASE_SESSION").read_text().strip(), old)
+        self.assertEqual((self.project / f"{old}.jsonl").read_text(), "old chat\n")
+        self.assertFalse((self.project / "aaaaaaaa-1111-2222-3333-444444444444.jsonl").exists())
+        self.assertFalse((self.conf / "MODEL").exists())
+
+    def test_only_the_bigger_window_holds_it_then_that_setting_stays(self):
+        import os
+        os.environ["FAKE_COPY_ONLY_1M"] = "1"
+        path, sha, _ = locked_copy(Path(self.folder.name), self.key)
+        summary = self.vm_claude.install_copy(self.copy_args(path, sha), binary=str(self.fake))
+        self.assertEqual(summary["status"], "ok", summary.get("error"))
+        self.assertEqual([t["model"] for t in summary["tries"]], ["opus", "opus[1m]"])
+        self.assertEqual((self.conf / "MODEL").read_text().strip(), "opus[1m]")
+        self.assertEqual(self.vm_claude.model_of(self.vm_claude.environment()), "opus[1m]")
+
+    def test_a_copy_that_is_not_the_named_one_changes_nothing(self):
+        path, sha, _ = locked_copy(Path(self.folder.name), self.key)
+        summary = self.vm_claude.install_copy(self.copy_args(path, "0" * 64), binary=str(self.fake))
+        self.assertEqual(summary["status"], "failed")
+        self.assertIn("sha256", summary["error"])
+        self.assertFalse((self.conf / "BASE_SESSION").exists())
+        self.assertFalse(Path(self.env["FAKE_LOG"]).exists())                   # Claude never asked
+        self.key.write_text("another key\n")
+        summary = self.vm_claude.install_copy(self.copy_args(path, sha), binary=str(self.fake))
+        self.assertIn("did not unlock", summary["error"])
+
+    def test_job_copies_beyond_five_are_deleted_never_the_copy_in_use(self):
+        import os
+        import time
+        base = "aaaaaaaa-1111-2222-3333-444444444444"
+        (self.conf / "BASE_SESSION").write_text(base + "\n")
+        (self.project / f"{base}.jsonl").write_text("chat\n")
+        now = time.time()
+        for n in range(8):
+            fork = self.project / f"fork-{n}.jsonl"
+            fork.write_text("{}")
+            os.utime(fork, (now - 100 + n, now - 100 + n))
+        (self.project / "fork-0").mkdir()
+        gone = self.vm_claude.prune_forks(self.vm_claude.environment())
+        self.assertEqual(sorted(gone), ["fork-0", "fork-1", "fork-2"])
+        left = sorted(p.stem for p in self.project.glob("*.jsonl"))
+        self.assertEqual(left, [base] + [f"fork-{n}" for n in range(3, 8)])
+        self.assertFalse((self.project / "fork-0").exists())
+
+    def test_the_copy_job_is_checked_and_routed(self):
+        import codex_vm
+        sha = "a" * 64
+        job = codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "b1-writer-copy", "section": "studio", "stage": "copy",
+                                 "maker": "claude", "url": codex_vm.COPY_URL + "writer-chat-1/chat.enc", "sha256": sha,
+                                 "tokens": 320000})
+        cmd = codex_vm.argv(job, Path("/tmp/o"))
+        self.assertEqual(cmd[3], "copy")
+        self.assertEqual(cmd[cmd.index("--sha256") + 1], sha)
+        self.assertEqual(cmd[cmd.index("--tokens") + 1], "320000")
+        for bad in ({"url": "https://example.com/chat.enc", "sha256": sha},          # only this repository's files
+                    {"url": codex_vm.COPY_URL + "x/chat.enc", "sha256": "xyz"},
+                    {"url": codex_vm.COPY_URL + "x/chat.enc", "sha256": sha, "maker": "codex"}):
+            with self.assertRaises(codex_vm.JobError):
+                codex_vm.validate(dict({"job": codex_vm.JOB_SCHEMA, "id": "b2-bad-copy", "section": "studio",
+                                        "stage": "copy", "maker": "claude"}, **bad))
+        with self.assertRaises(codex_vm.JobError):                                   # url belongs to the copy job only
+            codex_vm.validate({"job": codex_vm.JOB_SCHEMA, "id": "c9-bad", "section": "studio", "stage": "script",
+                               "maker": "claude", "from_run": "https://x/r", "url": codex_vm.COPY_URL + "a"})
+

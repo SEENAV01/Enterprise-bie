@@ -41,7 +41,10 @@ Book → LLM → Remotion shortcut.
   skill `.claude/skills/bie-script-writer` (Navin's words, the gold standard's way, the self-check
   `tools/script_writer_check.py`) and BIE's own format and checks. Films, pictures, voice, games and notes stay with BIE
   and Codex. A script Claude writes outside that route (in a chat) is a labelled demo, not BIE output. The writer's
-  new memory comes back as `YAADEIN_NEW.md` in its run folder and is folded into the skill by a reviewed PR.
+  new memory comes back as `YAADEIN_NEW.md` in its run folder and is folded into the skill by a reviewed PR. The writer
+  is the chat Navin taught (his correction of 26 November), on the VM as a locked copy of its own file (27 November,
+  "Raasta 1"): Claude refreshes it after his verdicts with a `studio` job of stage `copy`, which keeps every earlier
+  copy and installs the new one only when it passes its test; the chat's words never go into the repository unlocked.
 
 ## How work is done
 

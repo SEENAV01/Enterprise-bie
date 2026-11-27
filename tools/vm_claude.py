@@ -14,13 +14,31 @@ par ... to vm par dusra naya session kaise ho gaya"); only a job that says ``"fr
 starts a new session. The taught chat's task opens by saying its own memory of Navin's words comes first and the skill
 is only a reminder (Navin, 26 November 2026, "haan likh do").
 
+The taught chat reaches this machine as a locked copy of its own file (Navin, 27 November 2026, "Raasta 1": teleport
+cannot bring a chat started in the Claude app; "Couldn't load the history of cloud session", the server answering "not
+found"). Stage ``copy`` installs a newer copy: it downloads the locked file from this repository, checks its sha256,
+unlocks it with the key kept only here (``$BIE_HOME/claude/chat.key``), keeps the copy in use in
+``$BIE_HOME/claude/archive/`` (never deleted: "purani copy mitayenge nahi"), installs the new one as ``BASE_SESSION``
+and asks it three questions. Only a copy that answers from the chat's memory, with that memory whole (its tokens near
+the size the job states), stays in use; otherwise the copy in use before comes back. The answers stay on this machine
+(``copy-test.txt``); the run folder holds only the checks and numbers, never the chat's words.
+
+What the writer may read (Navin, 27 November 2026, plan point 5): the repository and its work folder only; this
+machine's Claude and Codex sign-ins, the copy and its key, the deploy key and ``/etc`` are refused, so no text in a book
+can make it copy a secret into a script that is published. Each job's own copy of the chat is deleted after the job
+except the last five (plan point 4); the copies in use and kept are never deleted.
+
     python tools/vm_claude.py script --from-run <script run> --chapter-map <naksha run> --videos h11-6-3 --out <folder>
+    python tools/vm_claude.py copy --url <locked copy> --sha256 <hex> --tokens <its size> --out <folder>
 """
 from __future__ import annotations
 
 import argparse
+import gzip
+import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -35,13 +53,20 @@ sys.path.insert(0, str(ROOT / "tools"))
 CLAUDE_VERSION = "2.1.331"         # pinned in deployment/codex-vm/bie-claude-setup; Anthropic's Claude Code, run unmodified
 MODEL = "opus"                      # Navin, 26 November 2026: "yhi same model opus ... extra effort ke sath"
 EFFORT = "xhigh"
+MODELS = ("opus", "opus[1m]")        # the copy's test tries these in order; the first that holds the whole memory stays
 TIMEOUT = 6 * 3600
+KEEP_FORKS = 5                      # job copies of the chat kept for a look at how a script was thought (plan point 4)
+COPY_SOURCE = "https://raw.githubusercontent.com/SEENAV01/Enterprise-bie/"
+COPY_QUESTION = ("Teen chhote jawab do: (1) gold script kis heading ki hai aur Navin ne use pass karte waqt kya kaha? "
+                 "(2) niyam B8 kya kehta hai? (3) script likhte waqt sabse pehle kiski baat maanoge?")
+COPY_WARN_TOKENS = 750_000          # beyond this a job's reading and writing may not fit beside the memory (plan point 3)
 MAKER = "claude (Claude Code on Navin's Claude plan, the bie-script-writer skill)"
 # The first words a job gives the taught chat (Navin, 26 November 2026, "haan likh do"): that chat already knows his
 # words and how the gold standard was made, so the skill must not pull it away from what he told it.
 TAUGHT = """You are the chat Navin taught: you wrote the gold standard with him and you remember his words and verdicts.
 Your own memory of what he told you comes first; the skill is only a reminder of it. Where the skill and what he told
-you differ, follow his latest word, and write in YAADEIN_NEW.md where they differed.
+you differ, follow his latest word, and write in YAADEIN_NEW.md where they differed. What you write here is published:
+put nothing of the chat itself into the work files beyond what the script needs (no private messages, keys or paths).
 
 """
 
@@ -73,16 +98,63 @@ def headings_of(videos: str, chapter: dict) -> list:
     return out
 
 
-def command(task: str, work: Path, *, binary: str, base: str = "", python: str = sys.executable) -> list:
+def refused(env: dict) -> list:
+    """Folders the writer may never read (plan point 5): this machine's sign-ins, the chat's copy and key, the deploy
+    key and /etc. A permission rule's "//" is the filesystem root."""
+    home = Path(env.get("BIE_HOME") or "/var/lib/bie")
+    places = [Path(env["CLAUDE_CONFIG_DIR"]), home / "codex", home / "claude", home / "deploy_key", Path("/etc"),
+              Path("/root")]
+    out = []
+    for place in dict.fromkeys(str(p) for p in places):
+        out += [f"Read(/{place}/**)", f"Read(/{place})"]
+    return out
+
+
+def command(task: str, work: Path, *, binary: str, base: str = "", python: str = sys.executable, model: str = MODEL,
+            env: dict | None = None) -> list:
     """The Claude Code call: print mode, JSON result, the model and effort Navin chose, and only the tools the writer
-    needs (read anything, write and edit only in the work folder, run the self-check)."""
-    cmd = [binary, "-p", task, "--model", MODEL, "--effort", EFFORT, "--output-format", "json",
+    needs: read the repository and the work folder, write and edit only in the work folder, run the self-check; the
+    sign-ins, keys and the chat's copy are refused."""
+    env = env if env is not None else environment()
+    cmd = [binary, "-p", task, "--model", model, "--effort", EFFORT, "--output-format", "json",
            "--permission-mode", "dontAsk", "--add-dir", str(work),
-           "--allowedTools", "Read", "Glob", "Grep", f"Write(/{work}/**)", f"Edit(/{work}/**)",
-           f"Bash({python} tools/script_writer_check.py *)"]
+           "--allowedTools", f"Read(/{ROOT}/**)", f"Read(/{work}/**)", "Glob", "Grep", f"Write(/{work}/**)",
+           f"Edit(/{work}/**)", f"Bash({python} tools/script_writer_check.py *)",
+           "--disallowedTools", *refused(env)]
     if base:
         cmd += ["--resume", base, "--fork-session"]
     return cmd
+
+
+def conf_dir(env: dict) -> Path:
+    return Path(env["CLAUDE_CONFIG_DIR"])
+
+
+def project_dir(env: dict) -> Path:
+    """Where Claude Code keeps the chats of jobs run in the repository (its folder name: the path, "-" for the rest)."""
+    return conf_dir(env) / "projects" / re.sub(r"[^A-Za-z0-9]", "-", str(ROOT))
+
+
+def model_of(env: dict) -> str:
+    """The model setting the copy's test found to hold the whole memory (``MODEL`` until a copy has been tested)."""
+    path = conf_dir(env) / "MODEL"
+    value = path.read_text(encoding="utf-8").strip() if path.exists() else ""
+    return value if value in MODELS else MODEL
+
+
+def prune_forks(env: dict, keep: int = KEEP_FORKS) -> list:
+    """Delete the job copies of the chat beyond the newest ``keep`` (plan point 4); the copy in use is never touched."""
+    folder = project_dir(env)
+    if not folder.is_dir():
+        return []
+    base = base_session(env)
+    forks = sorted((p for p in folder.glob("*.jsonl") if p.stem != base), key=lambda p: p.stat().st_mtime, reverse=True)
+    gone = []
+    for path in forks[keep:]:
+        path.unlink(missing_ok=True)
+        shutil.rmtree(folder / path.stem, ignore_errors=True)                 # a job's own helpers, when it had any
+        gone.append(path.stem)
+    return gone
 
 
 def environment() -> dict:
@@ -144,8 +216,10 @@ def script(args, *, run=subprocess.run, binary: str = "") -> dict:
                              "a job without it needs \"fresh\": true")
         task = (TAUGHT if base else "") + TASK.format(course=args.course or "", language=args.language or "Hinglish",
                                                       headings=", ".join(wanted), work=work, python=sys.executable)
-        cmd = command(task, work, binary=binary, base=base)
+        model = model_of(env)
+        cmd = command(task, work, binary=binary, base=base, model=model, env=env)
         summary["base_session"] = bool(cmd.count("--fork-session"))
+        summary["model"] = f"{model}, effort {EFFORT}"
         try:
             done = run(cmd, cwd=str(ROOT), env=env, capture_output=True, text=True, timeout=TIMEOUT)
         except FileNotFoundError:
@@ -205,6 +279,132 @@ def script(args, *, run=subprocess.run, binary: str = "") -> dict:
     except Exception as exc:                        # the runner publishes the folder either way; the error says why
         summary["error"] = f"{type(exc).__name__}: {str(exc)[:300]}"
     shutil.rmtree(out / "work", ignore_errors=True)
+    try:
+        summary["forks_deleted"] = len(prune_forks(environment()))
+    except Exception:                                   # tidying never decides a job
+        pass
+    summary["minutes"] = round((time.time() - started) / 60, 1)
+    (out / "SUMMARY.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
+    return summary
+
+
+def unlock(data: bytes, key: Path) -> bytes:
+    """The copy as Claude Code wrote it: AES-256-CBC with PBKDF2 (openssl enc), then gzip."""
+    done = subprocess.run(["openssl", "enc", "-d", "-aes-256-cbc", "-pbkdf2", "-iter", "200000", "-pass",
+                           f"file:{key}"], input=data, capture_output=True, timeout=300)
+    if done.returncode != 0:
+        raise SystemExit("the copy did not unlock with this machine's key (chat.key)")
+    return gzip.decompress(done.stdout)
+
+
+def fetch(url: str) -> bytes:
+    if not url.startswith(("https://", "http://")):                         # a file on this machine (tests)
+        return Path(url).read_bytes()
+    import urllib.request
+    with urllib.request.urlopen(url, timeout=300) as answer:
+        return answer.read()
+
+
+def session_of(text: str) -> str:
+    """The chat's session id, as its own lines name it."""
+    for line in text.splitlines()[:200]:
+        try:
+            sid = json.loads(line).get("sessionId")
+        except (json.JSONDecodeError, AttributeError):
+            continue
+        if sid and re.fullmatch(r"[0-9a-f-]{36}", str(sid)):
+            return str(sid)
+    raise SystemExit("the copy names no session id")
+
+
+def ask(binary: str, sid: str, model: str, env: dict, run) -> dict:
+    """One question to the copy, on a copy of it (``--fork-session``), with no tools."""
+    cmd = [binary, "-p", COPY_QUESTION, "--resume", sid, "--fork-session", "--model", model, "--effort", "low",
+           "--output-format", "json", "--permission-mode", "dontAsk"]
+    done = run(cmd, cwd=str(ROOT), env=env, capture_output=True, text=True, timeout=1800)
+    try:
+        result = json.loads(done.stdout or "{}")
+    except json.JSONDecodeError:
+        result = {"is_error": True, "result": (done.stdout or done.stderr or "")[-400:]}
+    if done.returncode != 0 and not result.get("is_error"):
+        result = dict(result, is_error=True, result=str(result.get("result") or done.stderr or "")[-400:])
+    usage = result.get("usage") or {}
+    result["tokens"] = sum(int(usage.get(k) or 0) for k in ("input_tokens", "cache_read_input_tokens",
+                                                             "cache_creation_input_tokens"))
+    return result
+
+
+def install_copy(args, *, run=subprocess.run, binary: str = "") -> dict:
+    """Stage ``copy``: put a newer copy of the taught chat in use, only if it passes its test (see the module text)."""
+    out = Path(args.out)
+    out.mkdir(parents=True, exist_ok=True)
+    started = time.time()
+    summary = {"schema": "bie.studio-run/1", "section": "studio", "stage": "copy", "status": "failed", "maker": MAKER,
+               "cost": {"total_inr": 0.0}, "error": None, "sha256": args.sha256}
+    env = environment()
+    conf, folder = conf_dir(env), project_dir(env)
+    binary = binary or shutil.which("claude") or "claude"
+    old_sid = base_session(env)
+    kept = None
+    try:
+        key = conf / "chat.key"
+        if not key.exists():
+            raise SystemExit("this machine has no key for the copy yet (sudo bie-claude-setup, step 3)")
+        data = fetch(args.url)
+        if hashlib.sha256(data).hexdigest() != args.sha256:
+            raise SystemExit("the downloaded copy is not the one the job names (sha256 differs)")
+        text = unlock(data, key).decode("utf-8")
+        sid = session_of(text)
+        summary.update(session=sid, lines=text.count("\n"))
+        folder.mkdir(parents=True, exist_ok=True)
+        if old_sid and (folder / f"{old_sid}.jsonl").exists():                # kept, never deleted
+            (conf / "archive").mkdir(exist_ok=True)
+            stamp = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
+            kept = conf / "archive" / f"{stamp}-{old_sid[:8]}.jsonl"
+            shutil.move(str(folder / f"{old_sid}.jsonl"), kept)
+            summary["archived"] = kept.name
+        (folder / f"{sid}.jsonl").write_text(text, encoding="utf-8")
+        (conf / "BASE_SESSION").write_text(sid + "\n", encoding="utf-8")
+        tries = []
+        for model in MODELS:
+            answer = ask(binary, sid, model, env, run)
+            if answer.get("session_id"):                                      # the test's own copy goes at once
+                (folder / f"{answer['session_id']}.jsonl").unlink(missing_ok=True)
+            reply = str(answer.get("result") or "")
+            tries.append({"model": model, "tokens": answer["tokens"], "error": bool(answer.get("is_error"))})
+            if not answer.get("is_error"):
+                break
+            if not re.search(r"too long|context|too many tokens", reply, re.I):
+                break                                                         # not a size problem: no other model helps
+        summary["tries"] = tries
+        expected = int(getattr(args, "tokens", 0) or 0)
+        checks = {"answered": not answer.get("is_error"), "knows_the_gold": "11.6.3" in reply,
+                  "memory_whole": answer["tokens"] >= (0.8 * expected if expected else 100_000)}
+        summary.update(tokens=answer["tokens"], expected_tokens=expected or None, checks=checks,
+                       model=tries[-1]["model"])
+        (conf / "copy-test.txt").write_text(reply, encoding="utf-8")         # the chat's words stay on this machine
+        if not all(checks.values()):
+            raise SystemExit("the new copy did not pass its test: " + ", ".join(k for k, ok in checks.items() if not ok))
+        (conf / "MODEL").write_text(tries[-1]["model"] + "\n", encoding="utf-8")
+        if answer["tokens"] > COPY_WARN_TOKENS:
+            summary["warning"] = f"the copy holds {answer['tokens']} tokens; a job may not fit beside it"
+        summary["status"] = "ok"
+    except SystemExit as exc:
+        summary["error"] = str(exc)
+    except Exception as exc:
+        summary["error"] = f"{type(exc).__name__}: {str(exc)[:300]}"
+    if summary["status"] != "ok" and summary.get("session"):                  # the copy in use before comes back
+        sid = summary["session"]
+        if kept is not None:
+            (folder / f"{sid}.jsonl").unlink(missing_ok=True)
+            shutil.move(str(kept), folder / f"{old_sid}.jsonl")
+            summary["restored"] = True
+        elif not old_sid:
+            (folder / f"{sid}.jsonl").unlink(missing_ok=True)
+        if old_sid:
+            (conf / "BASE_SESSION").write_text(old_sid + "\n", encoding="utf-8")
+        else:
+            (conf / "BASE_SESSION").unlink(missing_ok=True)
     summary["minutes"] = round((time.time() - started) / 60, 1)
     (out / "SUMMARY.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
     return summary
@@ -212,7 +412,7 @@ def script(args, *, run=subprocess.run, binary: str = "") -> dict:
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    parser.add_argument("stage", choices=["script"])
+    parser.add_argument("stage", choices=["script", "copy"])
     parser.add_argument("--from-run", default="")
     parser.add_argument("--chapter-map", default="")
     parser.add_argument("--videos", default="")
@@ -220,8 +420,15 @@ def main(argv=None) -> int:
     parser.add_argument("--language", default="Hinglish")
     parser.add_argument("--max-rounds", default="")           # the writer weighs the checks itself; kept for the job form
     parser.add_argument("--fresh", action="store_true")      # a new session from the skill alone, not the taught chat
+    parser.add_argument("--url", default="")                 # stage copy: the locked copy of the taught chat
+    parser.add_argument("--sha256", default="")
+    parser.add_argument("--tokens", default="0")
     parser.add_argument("--out", required=True)
     args = parser.parse_args(argv)
+    if args.stage == "copy":
+        summary = install_copy(args)
+        print(json.dumps({k: summary.get(k) for k in ("status", "error", "minutes", "tokens", "checks")}, ensure_ascii=False))
+        return 0 if summary["status"] == "ok" else 1
     summary = script(args)
     print(json.dumps({k: summary.get(k) for k in ("status", "error", "minutes", "rewritten")}, ensure_ascii=False))
     return 0 if summary["status"] in ("ok", "needs_fix") else 1
