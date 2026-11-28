@@ -3493,3 +3493,15 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
 - **Measured:** tests: a picture that fails twice comes on the third try (status ok, no black shot); one that never
   comes is named first, `black_shots: ["s1"]`. f3's run would have shown `black_shots: ["s5"]` at the top.
 
+## Entry · E2 on BIE's own pictures, 28 November 2026 (learning track)
+
+- **Taught by:** Claude's demos on the films' own pictures and voice lines, each "Abhi" (BIE's player, recorded) then
+  "Sujhav": BIE's moves are rigid cut-outs (slide, scale, tilt; `POSE` in `studio_player.html`), so a closing hand, a
+  turning stalk or a breaking molecule cannot be shown, a moved part shows the hole under it, a speck-sized cut drops
+  silently, and a defining line got a squeeze. Moving the picture's own pixels (warps) closed a cleft, stretched a
+  bond, rolled a ball, raised a lake and turned the stalk on a cylinder; a fist needed pictures in steps (3 gave ghost
+  fingers, 5 almost none); a PDB bead model and TripoSR meshes did not fit the films.
+- **Changed in BIE:** nothing yet; Navin's choices are recorded in STATUS (pixel moves; steps pictures for big shape
+  changes; the speck and naming-line checks; tootna and failna as events; real molecules from RDKit). The build into
+  `studio_film.py` and `studio_player.html` follows after the remaining rules.
+- **Measured:** not yet; the first film made with these will be compared with 11.6.3's and 11.6.2's on the same lines.
