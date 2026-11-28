@@ -1,0 +1,100 @@
+{
+ "schema": "bie.studio-run/1",
+ "section": "studio",
+ "stage": "script",
+ "status": "ok",
+ "maker": "claude (Claude Code on Navin's Claude plan, the bie-script-writer skill)",
+ "model": "opus, effort xhigh",
+ "cost": {
+  "total_inr": 0.0
+ },
+ "error": null,
+ "base_session": true,
+ "usage": {
+  "input_tokens": 4623319,
+  "output_tokens": 11318
+ },
+ "turns": 20,
+ "writer_reply": "Opening heading (section \"\", Chapter 11 ki shuruaat): 310 sentences, 0 problems left.\n\nNavin ke verdict ke do badlaav lag gaye. 0-k16 mein exam wali line ke baad CO₂ organic kyon nahi gina jaata, uski wajah judi. 0-k9 mein 57 gram wali line ab \"shaayad\" ke saath hai, tolne ki chook ki baat ke saath. In dono points ke `screen` aur `outside_book` field bhi isi hisaab se badle. Baaki sab shabdashah wahi hai. Seekh YAADEIN_NEW.md mein likh di hai. Do jagah maine jaan-boojh kar nahi chhui: 0-k11 ka `answer` aur van Helmont wala fact. Woh bhi 57 gram ko bina \"shaayad\" ke bataate hain, aur woh Navin ke agle verdict ke liye likhe hain.",
+ "notional_usd": 3572.8438438249586,
+ "rewritten": [
+  ""
+ ],
+ "problems": {},
+ "script": {
+  "headings": 21,
+  "points": 228,
+  "summary_taught": 11,
+  "summary": 11,
+  "exercises_prepared": 13,
+  "exercises": 13,
+  "checkpoints": 20,
+  "sentences": 1768,
+  "words": 30609,
+  "minutes": 235,
+  "covered": 156,
+  "coverable": 156,
+  "analogies": 18,
+  "examples": 27,
+  "real_world": 14,
+  "outside_book": 124,
+  "questions": 247,
+  "question_share": 0.128,
+  "fragments": 0,
+  "retells": 16,
+  "facts": 300,
+  "english_heavy": 203,
+  "english_share": 0.15,
+  "goals": 21,
+  "baatein": {
+   "book": 85,
+   "word": 101,
+   "base": 44,
+   "label": 36,
+   "extra": 34
+  },
+  "names_unsaid": 7,
+  "galat": 10,
+  "misaal": 5,
+  "bolchaal": 148,
+  "unopened": 1
+ },
+ "verdict": "Navin's verdict on the opening (28 November 2026). Two changes, and nothing else changes:\n\n1. Point 0-k16. The line \"Carbon dioxide mein bhi carbon hai, phir bhi use organic compound nahi gina jaata.\" gives the exam point without its why. Right after it, add the why in one or two short sentences, in the heading's own voice, the reason a teacher gives a Class 11 learner: organic compounds have carbon joined to hydrogen (usually in a chain), while CO2 has none, so CO2 (like carbonates) is counted as inorganic. Keep it true and simple.\n\n2. Point 0-k9. \"Ab van Helmont ki mitti ke woh 57 gram samajh aate hain. Paudhe ne mitti se zyadatar yahi thode minerals liye the.\" is a teacher's guess, not a sure fact. Navin: \"Dhyan wali baat mein shayad kehna jyada sahi rahega.\" Say it with \"shaayad\" (those 57 grams may also hold some error of weighing); keep the point that a plant takes only a few minerals from the soil.\n\nNavin also said: the number of words the opening opens is fine for the learner (\"bache ke liye itna theek hai\"), and every outside-the-book addition stays (\"sab rakhein\").",
+ "verdict_changes": {
+  "points_changed": [
+   {
+    "id": "0-k9",
+    "added": false,
+    "removed": false,
+    "lines_removed": [
+     "Ab van Helmont ki mitti ke woh 57 gram samajh aate hain. Paudhe ne mitti se zyadatar yahi thode minerals liye the."
+    ],
+    "lines_added": [
+     "Ab van Helmont ki mitti ke woh 57 gram shaayad samajh aate hain. Paudhe ne mitti se shaayad yahi thode minerals liye the, aur kuch farq tolne ki chook ka bhi ho sakta hai."
+    ],
+    "fields": [
+     "outside_book",
+     "screen"
+    ]
+   },
+   {
+    "id": "0-k16",
+    "added": false,
+    "removed": false,
+    "lines_removed": [],
+    "lines_added": [
+     "Kyunki organic compounds mein carbon hydrogen se juda hota hai, aksar carbon ki kadi bana kar. Carbon dioxide mein carbon ke saath ek bhi hydrogen nahi, isliye ise carbonates ki tarah inorganic gina jaata hai."
+    ],
+    "fields": [
+     "outside_book",
+     "roles",
+     "screen"
+    ]
+   }
+  ],
+  "points_same": 18,
+  "fields_changed": []
+ },
+ "forks_deleted": 1,
+ "minutes": 2.8
+}
