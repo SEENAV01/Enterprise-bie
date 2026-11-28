@@ -580,6 +580,46 @@ class LabelsOnThePicture(unittest.TestCase):
             self.assertIn(rule, studio_film.INSTRUCTIONS)
 
 
+class BlackShots(unittest.TestCase):
+    """A shot that needs a picture and has none plays as a black screen with only its labels (11.6.2's gulel shot, film
+    f3, 28 November 2026): the picture is asked for again, and a shot still without one is named first."""
+
+    def stage(self, fails):
+        class Flaky(FakeClient):
+            def generate_image(self, prompt, out, model=None):
+                self.tries = getattr(self, "tries", 0) + 1
+                if self.tries <= fails:
+                    raise RuntimeError("codex:malformed: codex exec finished but no generated image was found")
+                return super().generate_image(prompt, out, model)
+        with tempfile.TemporaryDirectory() as folder:
+            run_dir = Path(folder) / "qrun"
+            run_dir.mkdir()
+            (run_dir / "questions.json").write_text(json.dumps({"chapter_title": "Monsoon", "questions": [QUESTION]}),
+                                                    encoding="utf-8")
+            args = SimpleNamespace(stage="films", source="", from_run=str(run_dir), videos="q01", out=str(Path(folder) / "out"),
+                                   pages="", course="Class 9", language="Hinglish", model="", max_rounds=2)
+            client = Flaky([film()])
+            summary = vm_studio.run(args, client=client, load=None, voice_maker=lambda: (FakeVoice(), None))
+            return summary, client
+
+    def test_a_picture_that_did_not_come_is_asked_again(self):
+        summary, client = self.stage(fails=2)
+        self.assertEqual((summary["status"], client.tries, client.images), ("ok", 3, 1), summary)
+        self.assertEqual(summary["films"][0]["black_shots"], [])
+
+    def test_a_shot_still_without_a_picture_is_named_first(self):
+        summary, client = self.stage(fails=99)
+        self.assertEqual(client.tries, vm_studio.IMAGE_TRIES)
+        self.assertEqual(summary["status"], "needs_fix")
+        self.assertEqual(summary["films"][0]["black_shots"], ["s1"])
+        self.assertTrue(summary["films"][0]["problems"][0].startswith("s1: no picture, so this shot is a black screen"))
+
+    def test_only_photo_and_cutaway_shots_need_a_picture(self):
+        shots = {"shots": [{"id": "s1", "visual": {"type": "photo"}}, {"id": "s2", "visual": {"type": "cutaway"}},
+                           {"id": "s3", "visual": {"type": "diagram", "svg": "<svg/>"}}]}
+        self.assertEqual(studio_film.missing_pictures(shots, {"s1": "data:image/webp;base64,AA"}), ["s2"])
+
+
 class FilmStage(unittest.TestCase):
     def test_films_stage_makes_a_phone_film(self):
         with tempfile.TemporaryDirectory() as folder:

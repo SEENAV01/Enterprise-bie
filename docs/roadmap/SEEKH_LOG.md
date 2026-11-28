@@ -3482,3 +3482,14 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
 - **Measured:** the saved scripts (k1, c6, c7: 3,575 lines) have no "khaata" flag before or after (their writers worded
   around it); the new tests: four eating lines pass, "lumen ke khaate mein" is still flagged.
 
+## Entry · black shots, 28 November 2026
+
+- **Taught by:** film f3 (11.6.2): the gulel shot played as a black screen with only its labels; its picture failed
+  once ("codex exec finished but no generated image was found") and the run was `needs_fix` with that line among
+  small ones (a part not cut cleanly), so it went unseen until Navin watched the film.
+- **Changed in BIE (branch `black-shot-check`):** `vm_studio.draw` asks up to `IMAGE_TRIES` (3) times;
+  `studio_film.missing_pictures` names every photo or cutaway shot left without a picture, first in the problems and
+  as `black_shots` in the film's row (a shot past the image cap included).
+- **Measured:** tests: a picture that fails twice comes on the third try (status ok, no black shot); one that never
+  comes is named first, `black_shots: ["s1"]`. f3's run would have shown `black_shots: ["s5"]` at the top.
+

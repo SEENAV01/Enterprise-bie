@@ -538,6 +538,13 @@ def _library_part(question: dict) -> str:
     return LIBRARY_PART.format(entries=text)
 
 
+def missing_pictures(film: dict, images: dict) -> list:
+    """The shots that need a picture (photo, cutaway) and have none in ``images``: each would play as a black screen with
+    only its labels (11.6.2's gulel shot, film f3, 28 November 2026)."""
+    return [s.get("id") for s in (film or {}).get("shots") or []
+            if (s.get("visual") or {}).get("type") in ("photo", "cutaway") and not images.get(s.get("id"))]
+
+
 def library_problems(film: dict, question: dict) -> list:
     """A shot that names a kept picture names one that is in the cupboard, of a type that is a picture."""
     kept = {e.get("id"): e for e in question.get("library") or []}
