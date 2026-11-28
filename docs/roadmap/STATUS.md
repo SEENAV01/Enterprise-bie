@@ -819,6 +819,20 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    kept headings word for word), the rest after Navin's look. **Branch `chapter-old-note`:** the note on BIE's older
    script is given while any heading of it is still in the script (it was keyed to the job's own list, so a job of two
    headings left it out of the second).
+   **PR #234 merged. Job k1 done (28 November, 03:07–04:17 IST, status ok):** the opening (20 points, 230 lines,
+   146 turns, 43.4 million tokens read, 37 minutes) and 11.1 (9 points, 130 lines, 72 turns, 25.3 million, 19 minutes),
+   0 problems each, nothing put back, 11.6.2 and 11.7.2 and the other 17 headings byte for byte. B3 at both ends of both;
+   11.1 takes up the question the opening left open and carries its running picture (rasoi). Review page "Opening aur
+   11.1 Script" (artifact) with Claude's comparison against c3: one exam line without its why (CO₂ not counted as
+   organic, 0-k16); 11.1 at 4.4 sentences per fact (c3 3.2) for the practical behind three book lines. Waiting for
+   Navin's verdict before the other 17 headings. **Film rule N2, settled (28 November):** one colour key for the whole
+   book ("Poori kitab ki ek chabi ho"); related things in one colour family, the filled one dark and the empty one light
+   (ATP/ADP, NADPH/NADP⁺; "A"); a colour a line names is the colour on screen, and a clash with the key stops the film
+   before it is made; BIE chooses the colours and Navin sees them on one page and changes any ("Haan rang bie chune mai
+   aur mai ek panne par dekh kar jo chahe badal sakun"). Found for it: the player draws every arrow in one gold
+   (`#e8c26a`), and in 11.6.2's film the electron was gold, red, gold across its three parts and purple was NADPH in one
+   part and ATP in the next. **Branch `bolchaal-khaate`:** the office-word check no longer reads "khaata"/"khaate" as an
+   account when a verb's helper follows ("khaata hai", "khaate hain"; job k1's writer had to word around it twice).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

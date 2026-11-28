@@ -136,7 +136,10 @@ KNOWN_SAME = 0.85      # a recall (role known) may say again what an earlier hea
 # Never flagged when the word is one of the chapter's terms or of the heading's book words.
 BOLCHAAL = (
     ("ledger", r"ledgers?", "hisaab, ginti (\"ab ginti karo: lumen mein kitne H⁺ aaye\")"),
-    ("khaata", r"khaat[ae]", "seedha kaho: \"lumen mein H⁺ badhte hain\""),
+    # "khaata" as an account, never as eating ("sher hiran ko khaata hai", "hum roti khaate hain": job k1's writer had to
+    # word around it in a heading about food, 28 November 2026): not when a verb's helper follows it
+    ("khaata", r"khaat[ae](?!\s+(?:hai|hain|ho|hoon|hun|hu|the|thi|tha|thin|hue|hua|waqt|rahe|rehte|rehta|lete|leta|dete|"
+               r"jaate|jaata|sakte|sakta|chale|chalo)(?![a-z]))", "seedha kaho: \"lumen mein H⁺ badhte hain\""),
     ("contribution", r"contributions?", "kaam, hissa (\"pehla kaam: paani ka tootna\")"),
     ("handover", r"handovers?|hand over", "aage dena (\"electron aage de deta hai\")"),
     ("accounting", r"accounting|accounted|account", "hisaab, ginti"),

@@ -780,6 +780,10 @@ class BolchaalAurKholo(unittest.TestCase):
     def test_an_accountants_words_are_found_unless_they_are_book_words(self):
         line = "Ledger ki pehli row mein lumen ke khaate mein H⁺ judte hain, yeh pehla contribution hai."
         self.assertEqual([w for w, _ in studio_script.bolchaal(line)], ["ledger", "khaata", "contribution"])
+        for eating in ("Sher hiran ko khaata hai.", "Hum roti khaate hain.", "Jo hum khaate the, woh paudhon se aaya.",
+                       "Gaay ghaas khaate waqt jugaali karti hai."):
+            self.assertEqual(studio_script.bolchaal(eating), [], eating)              # eating, not an account (job k1)
+        self.assertEqual([w for w, _ in studio_script.bolchaal("H⁺ lumen ke khaate mein jaate hain.")], ["khaata"])
         self.assertEqual(studio_script.bolchaal("Inner-side electron handover par H⁺ lumen mein chhoot jaata hai.")[0][0],
                          "handover")
         self.assertEqual(studio_script.bolchaal("Paani ka tootna pehla kaam hai, aur carrier H⁺ utha leta hai."), [])
