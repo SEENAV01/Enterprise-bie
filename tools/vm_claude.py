@@ -580,8 +580,9 @@ def chapter(args, *, run=subprocess.run, binary: str = "", now=time.time) -> dic
                 lines += CHAPTER_WRITTEN.format(names=", ".join(map(name_of, state["done"])))
             if state["kept"]:
                 lines += CHAPTER_KEPT.format(names=", ".join(map(name_of, state["kept"])))
-            if len(state["todo"]) > 1:
-                lines += CHAPTER_OLD
+            written_parts = json.loads((work / "script.json").read_text(encoding="utf-8")).get("parts") or []
+            if any(p.get("section") not in set(state["done"]) | set(state["kept"]) | {number} for p in written_parts):
+                lines += CHAPTER_OLD                         # headings of BIE's older script are still in it
             job = WRITE.format(headings=name_of(number), work=work) + "\n" + CHAPTER.format(
                 heading=name_of(number), check=check, work=work, lines=lines)
             task = (TAUGHT if base else "") + TASK.format(course=args.course or "", language=args.language or "Hinglish",
