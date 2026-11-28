@@ -1,6 +1,6 @@
 # BIE Status
 
-Updated: 25 November 2026 (rules form, the teacher's way, padhai pehle, job s8 and its seekh) · Read this first in every new session, then show Navin the current task card.
+Updated: 28 November 2026 (film rules: D8, A7, E2 decided on Claude's demos; job k2 running) · earlier: 25 November 2026 (rules form, the teacher's way, padhai pehle, job s8 and its seekh) · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
@@ -852,6 +852,31 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    never speak of a leak. **Branch `black-shot-check`:** a picture the image service did not hand back is asked for up
    to three times, and a photo or cutaway shot still without one is named first among the film's problems
    (`black_shots`); 11.6.2's gulel shot (f3) was one failed try listed among small problems.
+   **Film rules decided (Navin, 28 November, after Claude's demos on BIE's own pictures and voice lines; Claude's
+   demos, not BIE output, kept in the scratch folder only, none in `tests/fixtures/passed_outputs/`):** J1, X3, X1,
+   B2, B9, D9: yes. D8 final: pictures are made for the script; inside one film one clean picture is reused with code
+   changes (labels, droplets on a flow, light, inset); the almaari is memory to learn from, never to copy, plus a
+   store per heading for notes and games; no "look in the almaari first" for films; the zoom crop that lost detail is
+   to be fixed; each entry keeps its line, verdict and why. Verdicts: pass, pass with fixes, redo. A7: the misaal comes
+   from the script ("misal bhi script ke hisab se hi aayegi"); the film shows the script's misaal in its own picture
+   with mapping labels, with no count. **E2, moving parts:** (1) a part moves its own pixels inside the picture: bend,
+   close and open, stretch like a spring, roll, turn on a cylinder (the side that comes from behind stitched from
+   patches of the front, the outline moving with the bumps that pass the edge), and the place under a cut part is
+   filled before it moves (the "kaala chhed" seen in 11.6.2c s3 and 11.6.3a s7); (2) a big change of shape, like a
+   hand into a fist, uses pictures of the same thing in steps (5 pictures, open to fist, from the image service) and
+   goes through them on the line's word; (3) checks: a cut part the size of a speck stops the film (11.6.2a s6, the
+   bond, 0.03 % of the picture); a line that only names or defines a part lights it and does not move it (11.6.2c s3
+   squeezed the reductase); (4) tootna and failna as events: two waters break at PS II into 4 e⁻ (into PS II), 4 H⁺
+   (lumen) and O₂; the gradient breaks down while the H⁺ stay (counts on screen); a scent spreads; a lake rises. A
+   molecule a line names is drawn from its real structure (RDKit: NADP⁺ C₂₁H₂₉N₇O₁₇P₃⁺, NADPH C₂₁H₃₀N₇O₁₇P₃; Claude's
+   first r3 used three balls and Navin caught it). Not chosen: X2's PDB bead model ("X2 ka demo pasand nhi aaya")
+   and TripoSR (it made the ball and the carrier flat; for the stalk it was blurrier than the pixel turn). Two of
+   Claude's earlier "this went right" claims were wrong on the films: the ball spun in place and vanished leaving a
+   hole, the stalk tilted instead of turning. Navin's verdicts on the demo clips (28 November, card): f3, c1, b6, a7,
+   r3 (the real NADPH), g7 (the ball rolling), c2 (the lake rising) and e3 (the gradient breaking down) pass; the five
+   step pictures "kuchh to fark pada"; the pixel turn of the stalk "sahi laga". Next: the remaining rules (dher 2, dher 3, N3–N8); then E2 into the
+   film engine with tests and a real film. **Job k2:** 7 headings written (11.2–11.6.3), 10 left, a window at a
+   time.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
