@@ -12567,81 +12567,645 @@
   },
   {
    "section": "11.7",
-   "goal": "Ab ATP aur NADPH ki taiyaar supply ko sugar synthesis se jodenge, aur jaanenge ki fixed carbon ka pehla pehchaana product kya hai.",
+   "title": "WHERE ARE THE ATP AND NADPH USED?",
+   "goal": "Stroma ka sugar banane wala kaam roshni par kitna tika hai, aur hawa ki CO₂ ka carbon sugar tak pahunchne se pehle sabse pehle kahan rukta hai?",
+   "misaal": "marathon: start line = CO₂ ka stroma mein aana; raaste ke mod = beech ke padaav; finish line = sugar; pehla mod = first product (PGA); laal topi wale dhavak = ¹⁴C wale carbon; race ke ek ghante baad ki photo = der tak di gayi ¹⁴C wali CO₂ (nishaan har padaav mein bikhra); kuch second baad ki photo = Calvin ka kuch second wala prayog (sab pehle mod par); alag pehle mod wali do marathon = C₃ aur C₄",
+   "facts": [
+    {
+     "id": "f1",
+     "item": "p012-i6",
+     "kind": "base",
+     "term": "",
+     "fact": "Pichhli film (11.6.3): lumen ke H⁺ CF₀ ki nali se stroma mein lautte hain to CF₁ ATP banata hai; FNR stroma side par hai, isliye NADPH bhi stroma mein banta hai."
+    },
+    {
+     "id": "f2",
+     "item": "p012-i6",
+     "kind": "base",
+     "term": "",
+     "fact": "Roshni ka kaam ATP aur NADPH banane tak hai; roshni khud sugar nahi banati, sugar stroma mein banti hai (11.3, 11.6.3)."
+    },
+    {
+     "id": "f3",
+     "item": "p012-i6",
+     "kind": "book",
+     "term": "",
+     "fact": "Light reaction ke products ATP, NADPH aur O₂ hain."
+    },
+    {
+     "id": "f4",
+     "item": "p012-i6",
+     "kind": "word",
+     "term": "O₂",
+     "fact": "O₂: oxygen ka molecule, jisme do oxygen atom hain; photosynthesis mein yeh paani ke tootne se banti hai (11.2, 11.6.1)."
+    },
+    {
+     "id": "f5",
+     "item": "p012-i6",
+     "kind": "base",
+     "term": "",
+     "fact": "Diffusion (11.6.3): koi cheez zyada wali jagah se apne aap kam wali jagah ki taraf failti hai, jaise agarbatti ki khushboo."
+    },
+    {
+     "id": "f6",
+     "item": "p012-i6",
+     "kind": "book",
+     "term": "",
+     "fact": "Inme O₂ chloroplast se diffuse karke bahar chali jaati hai."
+    },
+    {
+     "id": "f7",
+     "item": "p012-i6",
+     "kind": "extra",
+     "term": "",
+     "fact": "Phir O₂ patti ke stomatal pores se hawa mein jaati hai, aur wahi O₂ jeev saans mein lete hain."
+    },
+    {
+     "id": "f8",
+     "item": "p012-i6",
+     "kind": "book",
+     "term": "",
+     "fact": "ATP aur NADPH un kaamon ko chalaate hain jo khana banaate hain; theek-theek kahein toh sugars."
+    },
+    {
+     "id": "f9",
+     "item": "p012-i6",
+     "kind": "base",
+     "term": "",
+     "fact": "Sugar ek carbohydrate hai; paudhe ka baaki khana, jaise starch, baad mein isi sugar se banta hai (11.3)."
+    },
+    {
+     "id": "f10",
+     "item": "p012-i6",
+     "kind": "extra",
+     "term": "",
+     "fact": "Paudhe ke liye photosynthesis ki asli kamaai sugar hai; O₂ paani ke tootne se bacha hissa hai, jo bahar chala jaata hai."
+    },
+    {
+     "id": "f11",
+     "item": "p012-i7",
+     "kind": "book",
+     "term": "biosynthetic phase",
+     "fact": "Sugar banane wala yeh hissa photosynthesis ka biosynthetic phase hai."
+    },
+    {
+     "id": "f12",
+     "item": "p012-i7",
+     "kind": "word",
+     "term": "biosynthetic phase",
+     "fact": "Biosynthetic phase: photosynthesis ka sugar banane wala daur; bio = jeevan, synthesis = banana, phase = kisi bade kaam ka ek daur."
+    },
+    {
+     "id": "f13",
+     "item": "p012-i7",
+     "kind": "book",
+     "term": "",
+     "fact": "Yeh daur roshni par seedhe nahi tika; yeh light reaction ke products ATP aur NADPH par tika hai, aur ise CO₂ aur H₂O bhi chahiye."
+    },
+    {
+     "id": "f14",
+     "item": "p012-i7",
+     "kind": "word",
+     "term": "H₂O",
+     "fact": "H₂O: paani; iske ek molecule mein do hydrogen aur ek oxygen atom hain."
+    },
+    {
+     "id": "f15",
+     "item": "p012-i7",
+     "kind": "book",
+     "term": "",
+     "fact": "Jaanch: roshni hatate hi biosynthetic kaam kuch der chalta rehta hai, aur phir ruk jaata hai."
+    },
+    {
+     "id": "f16",
+     "item": "p012-i7",
+     "kind": "book",
+     "term": "",
+     "fact": "Phir roshni dene par sugar banna phir se shuru ho jaata hai."
+    },
+    {
+     "id": "f17",
+     "item": "p012-i7",
+     "kind": "base",
+     "term": "",
+     "fact": "Seedhe tikna (direct) aur kisi ke zariye tikna (indirect) (11.3); light reactions roshni band hote hi usi pal ruk jaati hain."
+    },
+    {
+     "id": "f18",
+     "item": "p012-i7",
+     "kind": "extra",
+     "term": "",
+     "fact": "Andhere mein kaam kuch der pehle se bane aur bache hue ATP aur NADPH se chalta hai; unke khatam hote hi ruk jaata hai, aur roshni lautne par naye ATP aur NADPH se phir chalta hai."
+    },
+    {
+     "id": "f19",
+     "item": "p012-i8",
+     "kind": "book",
+     "term": "",
+     "fact": "Kya biosynthetic phase ko dark reaction kehna misnomer hai? Is par aapas mein charcha karo."
+    },
+    {
+     "id": "f20",
+     "item": "p012-i8",
+     "kind": "word",
+     "term": "misnomer",
+     "fact": "Misnomer: galat naam; mis = galat, nomer = naam."
+    },
+    {
+     "id": "f21",
+     "item": "p012-i8",
+     "kind": "base",
+     "term": "",
+     "fact": "Dark reactions (11.3): stroma ki sugar banane wali reactions ka purana, by convention chala aa raha naam; yeh raat mein nahi hoti."
+    },
+    {
+     "id": "f22",
+     "item": "p012-i8",
+     "kind": "extra",
+     "term": "",
+     "fact": "Haan, yeh misnomer hai: is kaam ko andhere ki zaroorat nahi, andhere mein yeh thodi der mein ruk jaata hai, aur din mein light reactions ke saath chalta hai."
+    },
+    {
+     "id": "f23",
+     "item": "p012-i9",
+     "kind": "book",
+     "term": "",
+     "fact": "Ab dekhna hai ki biosynthetic phase mein ATP aur NADPH kaise use hote hain (kis kadam mein kitne, 11.7.2 mein)."
+    },
+    {
+     "id": "f24",
+     "item": "p012-i9",
+     "kind": "book",
+     "term": "",
+     "fact": "CO₂, H₂O ke saath milkar (CH₂O)ₙ, yaani sugars, banati hai."
+    },
+    {
+     "id": "f25",
+     "item": "p012-i9",
+     "kind": "word",
+     "term": "(CH₂O)ₙ",
+     "fact": "(CH₂O)ₙ: sugar ka saancha; [CH₂O] wala hissa n baar juda hota hai; glucose mein n = 6, yaani C₆H₁₂O₆."
+    },
+    {
+     "id": "f26",
+     "item": "p012-i9",
+     "kind": "base",
+     "term": "",
+     "fact": "[CH₂O] (11.2): ek carbon, do hydrogen aur ek oxygen ka hissa, poora molecule nahi; formula ke chhote ank atom ginte hain."
+    },
+    {
+     "id": "f27",
+     "item": "p012-i9",
+     "kind": "book",
+     "term": "",
+     "fact": "Vaigyanik jaanna chahte the ki yeh reaction kaise aage badhti hai, yaani CO₂ ke reaction mein jaane, ya fix hone, par pehla product kaunsa banta hai."
+    },
+    {
+     "id": "f28",
+     "item": "p012-i9",
+     "kind": "word",
+     "term": "first product",
+     "fact": "First product: CO₂ ke fix hone ke baad sabse pehle banne wala molecule."
+    },
+    {
+     "id": "f29",
+     "item": "p012-i9",
+     "kind": "base",
+     "term": "",
+     "fact": "Fixing CO₂ (11.6.3): CO₂ ke carbon ko kisi molecule ka pakka hissa bana dena."
+    },
+    {
+     "id": "f30",
+     "item": "p012-i9",
+     "kind": "base",
+     "term": "",
+     "fact": "Poori equation sirf shuruaat aur aakhir batati hai; beech ke padaav nahi."
+    },
+    {
+     "id": "f31",
+     "item": "p012-i10",
+     "kind": "book",
+     "term": "",
+     "fact": "World War II ke theek baad radioisotopes ko achhe kaam mein lagane ki kai (several) koshishon mein Melvin Calvin ka kaam misaal ke laayak (exemplary) tha."
+    },
+    {
+     "id": "f32",
+     "item": "p012-i10",
+     "kind": "word",
+     "term": "radioisotopes",
+     "fact": "Radioisotopes: radioactive isotopes; radio = radiation chhodne wale, isotopes = ek hi element ke alag wazan wale atom."
+    },
+    {
+     "id": "f33",
+     "item": "p012-i10",
+     "kind": "word",
+     "term": "¹⁴C",
+     "fact": "¹⁴C: carbon ka radioactive isotope (6 proton, 8 neutron, wazan 14); ise C¹⁴ bhi likhte hain."
+    },
+    {
+     "id": "f34",
+     "item": "p012-i10",
+     "kind": "base",
+     "term": "",
+     "fact": "Isotopes aur radio-activity (shuruaat): ek element ke atom neutron ki ginti mein alag ho sakte hain; radioactive atom radiation chhodte hain, jise yantra pakad lete hain; ¹⁴C paudhe mein aam carbon jaisa hi chalta hai."
+    },
+    {
+     "id": "f35",
+     "item": "p012-i10",
+     "kind": "word",
+     "term": "algal",
+     "fact": "Algal: algae ka; algae paani mein rehne wale chhote, saral hare jeev hain jo photosynthesis karte hain."
+    },
+    {
+     "id": "f36",
+     "item": "p012-i10",
+     "kind": "extra",
+     "term": "",
+     "fact": "Calvin ne ¹⁴C wali CO₂ algae ko sirf kuch second di, phir unhe garam alcohol mein daal kar reactions rok di, molecule paper chromatography se alag kiye, aur X-ray film par ¹⁴C wale dhabbe dekhe; kuch second mein ¹⁴C sabse pehle PGA mein mila."
+    },
+    {
+     "id": "f37",
+     "item": "p012-i10",
+     "kind": "base",
+     "term": "",
+     "fact": "Paper chromatography (11.4): mishran ke padarth kaagaz par alag-alag doori tak chadh kar alag ho jaate hain."
+    },
+    {
+     "id": "f38",
+     "item": "p012-i10",
+     "kind": "book",
+     "term": "",
+     "fact": "Algae ke photosynthesis mein radioactive ¹⁴C se pata chala ki CO₂ fix hone ka pehla product teen carbon wala organic acid hai."
+    },
+    {
+     "id": "f39",
+     "item": "p012-i10",
+     "kind": "word",
+     "term": "organic acid",
+     "fact": "Organic acid: carbon wala acid; nimbu aur imli ka khattapan aise acids se aata hai."
+    },
+    {
+     "id": "f40",
+     "item": "p012-i10",
+     "kind": "book",
+     "term": "PGA",
+     "fact": "Pehchaana gaya pehla product 3-phosphoglyceric acid tha, chhote mein PGA."
+    },
+    {
+     "id": "f41",
+     "item": "p012-i10",
+     "kind": "word",
+     "term": "PGA",
+     "fact": "PGA = 3-phosphoglyceric acid: P = phospho (us par phosphate laga hai), G = glyceric (teen carbon ki reedh), A = acid."
+    },
+    {
+     "id": "f42",
+     "item": "p012-i10",
+     "kind": "book",
+     "term": "",
+     "fact": "Calvin ne poora biosynthetic raasta khojne mein bhi yogdaan diya; isliye ise unke naam par Calvin cycle kaha gaya."
+    },
+    {
+     "id": "f43",
+     "item": "p012-i10",
+     "kind": "word",
+     "term": "Calvin cycle",
+     "fact": "Calvin cycle: CO₂ ke carbon se sugar tak ka raasta, Calvin ke naam par; cycle = gol chakkar (kyun, 11.7.2 mein)."
+    },
+    {
+     "id": "f44",
+     "item": "p012-i11",
+     "kind": "book",
+     "term": "",
+     "fact": "PGA mein kitne carbon atom hain?"
+    },
+    {
+     "id": "f45",
+     "item": "p012-i11",
+     "kind": "book",
+     "term": "",
+     "fact": "PGA ke ek molecule mein teen carbon atom hain."
+    },
+    {
+     "id": "f46",
+     "item": "p012-i11",
+     "kind": "extra",
+     "term": "",
+     "fact": "Naam ka 3 phosphate ki jagah (teesra carbon) batata hai, carbon ki ginti nahi; teen carbon glyceric acid ki reedh se aate hain."
+    },
+    {
+     "id": "f47",
+     "item": "p012-i11",
+     "kind": "extra",
+     "term": "",
+     "fact": "Glycerine (glycerol) ki reedh bhi teen carbon ki hai; glyceric acid usi parivaar ka hai."
+    },
+    {
+     "id": "f48",
+     "item": "p012-i11",
+     "kind": "extra",
+     "term": "",
+     "fact": "Kuch second ke prayog mein ¹⁴C PGA ke teen carbon mein se sirf ek, acid wale sire ke carbon par mila; CO₂ ne ek carbon diya, baaki do kisi aur molecule se aaye."
+    },
+    {
+     "id": "f49",
+     "item": "p013-i1",
+     "kind": "book",
+     "term": "",
+     "fact": "Vaigyanikon ne jaanna chaaha ki kya sab paudhon mein CO₂ fixation ka pehla product PGA hi hai, ya kuch paudhon mein koi aur."
+    },
+    {
+     "id": "f50",
+     "item": "p013-i1",
+     "kind": "book",
+     "term": "",
+     "fact": "Bahut tarah ke paudhon par prayogon se ek aur group mila, jisme CO₂ fixation ka pehla stable product phir organic acid tha, par chaar carbon wala."
+    },
+    {
+     "id": "f51",
+     "item": "p013-i1",
+     "kind": "book",
+     "term": "oxaloacetic acid",
+     "fact": "Yeh acid oxaloacetic acid, yaani OAA, nikla."
+    },
+    {
+     "id": "f52",
+     "item": "p013-i1",
+     "kind": "word",
+     "term": "oxaloacetic acid",
+     "fact": "Oxaloacetic acid: chaar carbon wala organic acid; oxalo = oxalic acid (palak mein), acetic = sirke ka acid."
+    },
+    {
+     "id": "f64",
+     "item": "p013-i1",
+     "kind": "word",
+     "term": "OAA",
+     "fact": "OAA: oxaloacetic acid ka chhota naam (oxalo, acetic, acid ke pehle akshar)."
+    },
+    {
+     "id": "f53",
+     "item": "p013-i1",
+     "kind": "word",
+     "term": "first stable product",
+     "fact": "First stable product: CO₂ fix hone ke baad bana pehla tikau molecule, jo turant toot na jaaye."
+    },
+    {
+     "id": "f54",
+     "item": "p013-i1",
+     "kind": "word",
+     "term": "CO₂ fixation",
+     "fact": "CO₂ fixation: CO₂ ke carbon ka kisi molecule mein pakka bandh jaana (fixing CO₂)."
+    },
+    {
+     "id": "f55",
+     "item": "p013-i1",
+     "kind": "word",
+     "term": "CO₂ assimilation",
+     "fact": "CO₂ assimilation: CO₂ ke carbon ka paudhe ke apne molecules ka hissa ban jaana; assimilation = pach kar apna hissa banna."
+    },
+    {
+     "id": "f56",
+     "item": "p013-i1",
+     "kind": "book",
+     "term": "",
+     "fact": "Tab se photosynthesis mein CO₂ assimilation do mukhya prakaar ka maana gaya: pehla product C₃ acid (PGA) wale paudhon ka C₃ pathway, aur C₄ acid (OAA) wale paudhon ka C₄ pathway."
+    },
+    {
+     "id": "f57",
+     "item": "p013-i1",
+     "kind": "word",
+     "term": "C₃ pathway",
+     "fact": "C₃ pathway: jin paudhon mein CO₂ fixation ka pehla product teen carbon wala PGA hai, unka raasta."
+    },
+    {
+     "id": "f58",
+     "item": "p013-i1",
+     "kind": "word",
+     "term": "C₄ pathway",
+     "fact": "C₄ pathway: jin paudhon mein pehla product chaar carbon wala OAA hai, unka raasta."
+    },
+    {
+     "id": "f59",
+     "item": "p013-i1",
+     "kind": "book",
+     "term": "",
+     "fact": "In dono groups ke paudhon mein aur bhi jude hue gun hain, jo aage padhenge (11.8)."
+    },
+    {
+     "id": "f60",
+     "item": "p013-i1",
+     "kind": "base",
+     "term": "",
+     "fact": "Molecule ke carbon gine ja sakte hain: CO₂ mein ek, PGA mein teen, OAA mein chaar."
+    },
+    {
+     "id": "f61",
+     "item": "p013-i1",
+     "kind": "extra",
+     "term": "",
+     "fact": "C₃ ka 3 aur C₄ ka 4 pehle tikau product ke carbon ginte hain, CO₂ ke molecule nahi."
+    },
+    {
+     "id": "f62",
+     "item": "p013-i1",
+     "kind": "extra",
+     "term": "",
+     "fact": "Gehun aur chawal C₃ paudhe hain, makka aur ganna C₄; zyadatar paudhe C₃ hain."
+    },
+    {
+     "id": "f63",
+     "item": "p013-i1",
+     "kind": "extra",
+     "term": "",
+     "fact": "Sirf bahar se dekh kar paudha C₃ hai ya C₄, pakka nahi kaha ja sakta; pehchaan andar bane pehle product se hoti hai (patti ki banawat, 11.8)."
+    }
+   ],
    "points": [
     {
      "id": "11.7-k1",
      "kind": "overview",
+     "teaches": [],
+     "recalls": [
+      "11.6.3-k19",
+      "11.6.3-k18"
+     ],
+     "says": [
+      "Pichhli film mein humne lumen mein bhare H⁺ dekhe the. Jab woh CF₀ ki nali se stroma mein laut-te hain, toh CF₁ ki mutthi ATP bana deti hai.",
+      "Aur FNR ke stroma side par baithne se NADPH bhi stroma mein hi banta hai.",
+      "Matlab roshni wala kaam poora hote hi stroma mein do cheezein taiyaar milti hain: ATP aur NADPH.",
+      "Yaad rakhein: roshni ka kaam yahin tak hai; roshni ATP aur NADPH banati hai, sugar nahi.",
+      "Aage hum dekhenge ki stroma mein yeh dono kis kaam mein lagte hain, aur us kaam ka roshni se kya rishta hai.",
+      "Toh aaj ka sawaal suno. Stroma ka sugar banane wala kaam roshni par kitna tika hai, aur hawa ki CO₂ ka carbon sugar tak pahunchne se pehle sabse pehle kahan rukta hai?",
+      "Is sawaal ke do hisse hain, aur hum dono ko ek-ek karke kholenge.",
+      "Pehle ek seedha prayog dekhenge, jo bataayega ki roshni band karne par sugar ke kaam ka kya hota hai.",
+      "Phir hum Calvin ke saath CO₂ ke carbon ka peechha karenge. Dekhenge ki woh sabse pehle kis molecule mein pakda gaya."
+     ],
+     "roles": [
+      "known",
+      "known",
+      "known",
+      "known",
+      "link",
+      "ask",
+      "plain",
+      "plain",
+      "plain"
+     ],
+     "screen": "Pichhli film ka aakhri drishya: thylakoid membrane mein CF₀ ki nali se H⁺ stroma mein laut-te, CF₁ ki mutthi se ATP ke moti chhootte; stroma side par FNR se NADPH; stroma mein ATP aur NADPH ke moti taiyaar; dabba 'Yaad rakhein: roshni ATP aur NADPH banati hai, sugar nahi'; phir stroma mein hawa se aata CO₂ ka ek carbon aur door ek sugar ka molecule, beech mein do sawaal: 'roshni par kitna tika?' aur 'carbon pehle kahan?'; neeche do khaane: prayog, aur Calvin ke saath carbon ka peechha.",
+     "terms": [],
+     "outside_book": "Opening recap of 11.6.3 aur uska khula sawaal (stroma mein ATP aur NADPH ka kaam, aur us kaam ka roshni se rishta), aaj ke sawaal ke roop mein.",
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "uses": [
+      "f1",
+      "f2"
+     ]
+    },
+    {
+     "id": "11.7-k2",
+     "kind": "explain",
      "teaches": [
       "p012-i6"
      ],
      "recalls": [
-      "11.6.3-k13"
+      "11.6.1-k8",
+      "11.6.3-k3",
+      "0-k2"
      ],
      "says": [
-      "Ab ATP aur NADPH ki taiyaar supply ko sugar synthesis se jodenge, aur jaanenge ki fixed carbon ka pehla pehchaana product kya hai.",
-      "Stromal reactions ko ATP ki energy aur NADPH ki reducing power milti hai, jaisa hum abhi jod chuke hain.",
-      "Light reaction ke teen products ki destinations alag karo: O₂ chloroplast se diffuse karke bahar jaati hai, jabki ATP aur NADPH sugars banane ke kaam aate hain.",
-      "Kya released oxygen bhi sugar synthesis ki energy supply hai?",
-      "Dekho, energy aur reducing-power supplies ATP aur NADPH hain; O₂ ka outward diffusion unse alag destination hai.",
-      "Yahaan do sawaal follow karenge: sugar synthesis light ki supply par kaise depend karti hai, aur CO₂ ka carbon sabse pehle kis product mein milta hai?"
+      "Chalo, pehle gin lete hain ki roshni wale kaam se kya-kya nikalta hai.",
+      "Light reaction se teen cheezein nikalti hain: ATP, NADPH aur O₂.",
+      "Yaad karo, yeh O₂ paani ke tootne se aati hai.",
+      "Ab dekho, in teeno ka aage ka safar ek jaisa nahi hai.",
+      "O₂ chloroplast mein rukti nahi, woh apne aap bahar nikal jaati hai.",
+      "Chloroplast ke andar O₂ zyada banti hai, aur bahar kam hai. Isliye woh agarbatti ki khushboo ki tarah zyada se kam ki taraf failti hai.",
+      "Isi ko kehte hain ki O₂ chloroplast se diffuse karke bahar jaati hai.",
+      "Phir woh patti ke chhote chhedon, yaani stomatal pores, se hawa mein chali jaati hai. Wahi O₂ hum saans mein lete hain.",
+      "Par ATP aur NADPH bahar nahi jaate; woh stroma mein hi rukte hain.",
+      "Unka kaam hai un reactions ko chalaana, jo paudhe ka khana banati hain.",
+      "Ab socho, khana bahut bada shabd hai: roti, daal, phal, sab khana hi kehlaate hain.",
+      "Isliye theek-theek kahein toh chloroplast mein seedhe sugar banti hai. Paudhe ka baaki khana baad mein isi sugar se banta hai.",
+      "Aksar hum sochte hain ki paudha O₂ banane ke liye hi photosynthesis karta hai, par aisa nahi hai.",
+      "Paudhe ki asli kamaai sugar hai. O₂ to paani todne par bacha hua hissa hai, jo bahar chala jaata hai.",
+      "Haan, yahi bacha hua hissa hum jaise jeevon ke liye saans ka sahaara hai."
      ],
-     "screen": "Realistic chloroplast cutaway: thylakoids se ATP aur NADPH ki arrows surrounding stroma mein; O₂ ki separate arrow chloroplast boundary ke bahar. Saath do question labels: light dependence aur first fixation product.",
+     "roles": [
+      "link",
+      "fact",
+      "known",
+      "plain",
+      "plain",
+      "why",
+      "fact",
+      "plain",
+      "fact",
+      "fact",
+      "plain",
+      "fact",
+      "galat",
+      "why",
+      "plain"
+     ],
+     "screen": "Chloroplast ka realistic cutaway: thylakoid membranes se teen cheezein nikalti: ATP aur NADPH (moti) aur O₂ (chhote bulbule); O₂ ke bulbule chloroplast ki deewar se bahar failte, zyada se kam ki taraf (kone mein agarbatti ki khushboo); phir patti ke stomatal pore se hawa mein, aur ek bachche ki saans; ATP aur NADPH stroma mein hi rukte, enzymes ke paas; thaali mein roti, daal, phal ('khana'), aur chloroplast mein sugar ka molecule; 'O₂ hi maksad?' par kaata nishaan, sugar par 'kamaai'.",
      "terms": [],
-     "outside_book": "",
+     "outside_book": "Diffusion 11.6.3 se (agarbatti); O₂ stomatal pores se hawa mein (shuruaat ka stomatal pore); galat soch: paudha O₂ ke liye photosynthesis karta hai; O₂ paani todne ka bacha hissa (teacher ki taraf se).",
      "prepares": [],
      "answer": "",
-     "watch_out": ""
+     "watch_out": "Yeh sochna ki photosynthesis ka maksad O₂ banana hai; paudhe ke liye asli product sugar hai.",
+     "uses": [
+      "f3",
+      "f4",
+      "f5",
+      "f6",
+      "f7",
+      "f8",
+      "f9",
+      "f10"
+     ]
     },
     {
-     "id": "11.7-k2",
-     "kind": "example",
+     "id": "11.7-k3",
+     "kind": "explain",
      "teaches": [
       "p012-i7"
      ],
      "recalls": [
-      "11.3-k9"
+      "11.6.3-k18",
+      "11.5-k1",
+      "11.3-k9",
+      "11.3-k10",
+      "11.3-k8"
      ],
      "says": [
-      "Sugar banane wala yeh hissa biosynthetic phase hai; bio jeevan se aur synthesis naye substances banane se juda hai.",
-      "Is phase ko ATP aur NADPH ke alawa CO₂ aur H₂O chahiye; water ka formula hum pehle samajh chuke hain.",
-      "Indirect light dependence ko light-on → light-off → light-on comparison se samjho.",
-      "Light band karte hi sugar synthesis turant kyun nahi rukti?",
-      "Dekho, pehle se available ATP aur NADPH kuch der reactions support karte hain, lekin unki renewed supply na milne par synthesis ruk jaati hai.",
-      "Light wapas milne par light reactions supplies dobara banati hain aur sugar synthesis resume hoti hai.",
-      "Yeh sequence dikhata hai ki biosynthetic phase ko light seedhe nahi chalati, lekin light-reaction products ki availability usse jodkar rakhti hai."
+      "Ab stroma ke is sugar wale kaam ko uska naam do.",
+      "Yaad karo, pichhli film mein biosynthetic ka matlab dekha tha: bio yaani jeevan, aur synthesis yaani banana.",
+      "Sugar bhi ek naya molecule hai, jise jeevit cell apne andar khud banati hai.",
+      "Isliye photosynthesis ke is sugar banane wale daur ko biosynthetic phase kehte hain.",
+      "Phase yaani kisi bade kaam ka ek daur, jaise light reaction is kaam ka pehla daur tha.",
+      "Is daur ko chahiye ATP aur NADPH, aur saath mein CO₂ aur H₂O.",
+      "CO₂ isme carbon laati hai, aur H₂O yaani paani bhi in reactions mein kharch hota hai.",
+      "Ab gaur karo, is list mein roshni ka naam hi nahi hai.",
+      "Yeh daur roshni par seedhe nahi tika; yeh light reaction ke products, ATP aur NADPH, par tika hai.",
+      "Ab sawaal uthta hai: yeh pakka kaise ho ki ise roshni seedhe nahi chahiye, sirf roshni ke banaye ATP aur NADPH chahiye?",
+      "Roshni seedhe chahiye ya nahi, yeh pakka karne ka tareeka bahut seedha hai. Roshni mein kaam karti patti par achanak andhera kar do.",
+      "Andhera hote hi light reactions usi pal ruk jaati hain, yeh hum dekh chuke hain.",
+      "Aksar hum sochte hain ki tab sugar banna bhi usi pal ruk jaata hoga, par aisa nahi hota.",
+      "Sugar banna kuch der chalta rehta hai, aur phir ruk jaata hai.",
+      "Ab phir se roshni do, toh sugar banna phir se shuru ho jaata hai.",
+      "Kuch der isliye chalta hai, kyunki stroma mein pehle se bane ATP aur NADPH bache hote hain.",
+      "Jab yeh bache hue ATP aur NADPH kharch ho jaate hain, aur naye bante nahi, toh kaam ruk jaata hai.",
+      "Roshni lautte hi membranes phir naye ATP aur NADPH banane lagti hain. Tab stroma ka kaam phir chal padta hai.",
+      "Dekho, is prayog ka har hissa ek alag baat saabit karta hai.",
+      "Kuch der chalte rehna dikhata hai ki roshni ise seedhe nahi chalati. Warna yeh bhi pal bhar mein ruk jaata.",
+      "Aur phir ruk jaana dikhata hai ki yeh roshni ke banaye ATP aur NADPH ke bina nahi chal sakta.",
+      "Bilkul cheeni mill ki tarah. Bijlighar band hote hi floor ki machines bachi hui bijli se thodi der chal kar ruk jaati hain."
      ],
-     "screen": "Usi chloroplast ke neeche three-part timeline: light on par supplies aur sugar formation; light off par remaining ATP/NADPH ke saath brief continuation, phir stop; light return par renewed supplies aur restart.",
+     "roles": [
+      "link",
+      "known",
+      "plain",
+      "term",
+      "plain",
+      "fact",
+      "fact",
+      "plain",
+      "fact",
+      "ask",
+      "answer",
+      "known",
+      "galat",
+      "fact",
+      "fact",
+      "why",
+      "why",
+      "why",
+      "plain",
+      "why",
+      "why",
+      "picture"
+     ],
+     "screen": "Usi stroma mein enzymes, label 'biosynthetic phase (bio = jeevan, synthesis = banana, phase = daur)'; zaroorat ki list: ATP, NADPH, CO₂, H₂O, aur khaali jagah jahan 'roshni' nahi likha; phir prayog ki timeline ek patti par: roshni on (sugar ke molecule bante); roshni off (light reactions turant band, sugar thodi der aur bante, ATP aur NADPH ke moti ghatte, phir sab ruk); roshni phir on (naye moti, sugar phir); 'usi pal ruk jaata hai?' par kaata nishaan; kone mein cheeni mill: bijlighar band, floor ki machines thodi der chal kar rukti.",
      "terms": [
       {
        "term": "biosynthetic phase",
-       "meaning": "Photosynthesis ka organic substances, khaaskar sugars, banane wala hissa."
+       "meaning": "Photosynthesis ka sugar banane wala daur; bio = jeevan, synthesis = banana, phase = daur."
       }
      ],
-     "outside_book": "",
+     "outside_book": "Biosynthetic 11.6.3 se, phase 11.5 se; direct aur indirect, aur cheeni mill 11.3 se; andhere mein bache ATP aur NADPH se kaam ka kuch der chalna (teacher ki taraf se); galat soch: andhera hote hi sugar banna usi pal rukta hai; prayog ka har hissa kya saabit karta hai.",
      "prepares": [],
      "answer": "",
-     "watch_out": ""
-    },
-    {
-     "id": "11.7-k3",
-     "kind": "analogy",
-     "teaches": [],
-     "recalls": [],
-     "says": [
-      "Socho, bakery ko roz ingredients aur charged battery packs ki delivery milti hai.",
-      "Delivery van ruk jaaye, toh counter par rakhe ingredients aur battery packs se kuch aur batches ban sakte hain.",
-      "Kya van rukte hi ovens ka kaam usi second band hona zaroori hai?",
-      "Dekho, bacha stock kuch der kaam chalata hai, lekin stock khatam hone par fresh delivery ke bina production rukega.",
-      "Yahaan bakery stromal biosynthesis hai, delivery light reactions ki supply hai, aur bacha stock available ATP aur NADPH hai.",
-      "Light lautne se supply renew hona van ki delivery dobara shuru hone jaisa hai."
-     ],
-     "screen": "Bakery mein limited ingredient trays aur charged packs se do remaining batches; neeche matching chloroplast timeline mein available ATP/NADPH ghatte hue, phir supply restart.",
-     "terms": [],
-     "outside_book": "Limited-stock bakery analogy indirect dependence samjhane ke liye added hai.",
-     "prepares": [],
-     "answer": "Bakery = stromal biosynthesis; delivery = light-reaction supply; remaining stock = available ATP aur NADPH; delivery restart = illumination se renewed supply.",
-     "watch_out": "ATP aur NADPH ko long-term stored reserves ya bakery ingredients ke chemically identical equivalents na samjhein."
+     "watch_out": "Yeh sochna ki andhera hote hi sugar banna usi pal ruk jaata hai; woh bache ATP aur NADPH se kuch der chalta hai.",
+     "uses": [
+      "f11",
+      "f12",
+      "f13",
+      "f14",
+      "f15",
+      "f16",
+      "f17",
+      "f18"
+     ]
     },
     {
      "id": "11.7-k4",
@@ -12650,20 +13214,49 @@
       "p012-i8"
      ],
      "recalls": [
-      "11.3-k9"
+      "11.3-k10"
      ],
      "says": [
-      "Socho, phir aage badhenge: kya biosynthetic phase ko dark reaction kehna misleading naam, ya misnomer, ho sakta hai?",
-      "Light-off timeline ko reason banao; kya darkness ne synthesis ko start kiya tha?",
-      "Dekho, darkness is phase ki requirement nahi hai, aur light-reaction supplies khatam hone par yeh rukta hai, isliye dark naam night-only process ka galat impression deta hai.",
-      "Aksar log sochte hain ki light reactions din mein aur dark reactions sirf raat mein chalti hain, par asal mein yeh directly aur indirectly light-dependent kaamon ka distinction hai."
+      "Ab ek sawaal par ruk kar socho. Is par aap doston ke saath baith kar charcha bhi kar sakte ho.",
+      "Yaad karo, is biosynthetic phase ko dark reaction bhi kaha jaata hai, yaani andhere wali reaction.",
+      "Galat naam ke liye angrezi mein ek shabd hai, misnomer: mis yaani galat, aur nomer yaani naam.",
+      "Socho, phir aage badhenge: abhi wala prayog dekh kar batao, kya biosynthetic phase ko dark reaction kehna ek misnomer hai?",
+      "Haan, biosynthetic phase ko dark reaction kehna ek misnomer hai, kyunki is kaam ko andhere ki koi zaroorat nahi.",
+      "Prayog mein abhi dekha ki andhera hote hi yeh kaam bas thodi der chala, aur phir ruk gaya.",
+      "Matlab andhera iski madad nahi karta; andhere mein to yeh der tak chal hi nahi sakta.",
+      "Asal mein yeh din mein, light reactions ke saath-saath chalta hai. Tabhi to taaza ATP aur NADPH milte rehte hain.",
+      "Yeh naam bas purane zamane se chala aa raha hai, yaani by convention. Naam andhere ka hai, par kaam roshni ke sahaare chalta hai.",
+      "Isliye exam mein naam ke dhokhe mein mat aana. Yeh kaam andhere ka nahi, roshni ke banaye ATP aur NADPH ka hai."
      ],
-     "screen": "Light-off timeline par brief continuation aur later stop highlighted; uske saamne label: directly light-driven nahi, light-reaction products par dependent.",
-     "terms": [],
-     "outside_book": "",
+     "roles": [
+      "plain",
+      "known",
+      "term",
+      "ask",
+      "answer",
+      "why",
+      "why",
+      "fact",
+      "known",
+      "plain"
+     ],
+     "screen": "Wahi timeline, andhere wala hissa chamakta; label 'dark reaction'; shabd ke do tukde: mis = galat, nomer = naam; sawaal ka dabba 'kya misnomer hai?' aur chhoti ghadi; phir din ka sooraj, light reactions aur biosynthetic phase saath-saath chalte; 'raat mein hoti hai' par kaata nishaan; chhota label 'by convention: purana naam'.",
+     "terms": [
+      {
+       "term": "misnomer",
+       "meaning": "Galat naam; mis = galat, nomer = naam."
+      }
+     ],
+     "outside_book": "Misnomer ke hisse (mis + nomer); dark reactions aur by convention 11.3 se; exam ka jaal: dark reaction raat mein hoti hai.",
      "prepares": [],
-     "answer": "Dark naam misleading hai kyunki darkness required nahi; ATP aur NADPH ki renewed supply ke liye biosynthesis indirectly light reactions par depend karti hai.",
-     "watch_out": "Brief continuation ko unlimited darkness mein synthesis ka proof na samjhein; remaining supplies limited hain."
+     "answer": "Haan, misnomer hai: is kaam ko andhere ki zaroorat nahi; andhere mein yeh bache ATP aur NADPH khatam hote hi ruk jaata hai; din mein yeh light reactions ke saath chalta hai, kyunki roshni ke banaye ATP aur NADPH par tika hai.",
+     "watch_out": "Galat soch: andhere mein thodi der chalna dikhata hai ki yeh andhere wala kaam hai. Galat, kyunki woh sirf bache hue ATP aur NADPH se chalta hai aur jaldi ruk jaata hai.",
+     "uses": [
+      "f19",
+      "f20",
+      "f21",
+      "f22"
+     ]
     },
     {
      "id": "11.7-k5",
@@ -12672,32 +13265,82 @@
       "p012-i9"
      ],
      "recalls": [
-      "11.2-k14",
-      "11.6.3-k13"
+      "11.2-k9",
+      "11.6.3-k18"
      ],
      "says": [
-      "Ab ATP aur NADPH ka detailed use samajhne ke liye overall sugar formation ke andar carbon ka raasta dhoondhenge.",
-      "Humne CO₂ aur H₂O se carbohydrate formation ka overall account dekha tha; ab wahi carbohydrate composition (CH₂O)ₙ se likh sakte hain.",
-      "Is notation mein n batata hai ki CH₂O ka composition ratio kitni baar liya gaya; glucose ke liye n six hai.",
-      "Kya overall equation bata deti hai ki incoming carbon sabse pehle kis compound mein gaya?",
-      "Dekho, overall equation manzil batati hai, isliye scientists ne first product, yaani CO₂ fix hone ke baad sabse pehle pehchaane jaane wale compound, ki khoj ki.",
-      "Fixation ka pehle khola meaning yaad rakho: CO₂ ke carbon ko organic molecule ka hissa banana."
+      "Ab aaj ke sawaal ka doosra hissa: stroma mein ATP aur NADPH ka istemal kaise hota hai?",
+      "ATP aur NADPH theek kis kadam mein kitne lagte hain, yeh hum aage ginenge. Abhi ke liye bas itna jaan lo ki woh CO₂ ke carbon ko sugar banane mein lagte hain.",
+      "Isliye pehle CO₂ ke carbon ka peechha karna hoga.",
+      "Yaad karo, CO₂ paani ke saath milkar sugar banati hai.",
+      "Pehle humne [CH₂O] dekha tha. Woh ek carbon, do hydrogen aur ek oxygen wala chhota hissa hai, poora molecule nahi.",
+      "Sugar mein yahi hissa kai baar juda hota hai, isliye sugar ko (CH₂O)ₙ likhte hain.",
+      "Neeche likha n batata hai ki yeh hissa kitni baar juda hai.",
+      "Glucose mein yeh chhe baar juda hai, isliye glucose (CH₂O)₆ hai, yaani C₆H₁₂O₆.",
+      "n teen bhi ho sakta hai aur chhe bhi; zyadatar saadhaaran sugar isi saanche ki hoti hain.",
+      "Par equation sirf shuruaat aur aakhir dikhati hai: ek taraf CO₂ aur paani, doosri taraf sugar.",
+      "Isse lagta hai jaise chhe CO₂ ek saath judkar seedhe glucose ban jaate hain.",
+      "Toh kya sach mein aisa hota hai, ya carbon beech mein kahin rukta hai?",
+      "Nahi, sach mein aisa nahi hota; CO₂ ka carbon kai padaavon se guzar kar sugar tak pahunchta hai.",
+      "Isliye vaigyanik jaanna chahte the ki yeh reaction aage kaise badhti hai.",
+      "Unka asli sawaal tha ki CO₂ jab pehli baar kisi reaction mein jaati hai, toh sabse pehle kaunsa molecule banta hai.",
+      "Pichhli film mein humne fixing CO₂ dekha tha. Iska matlab hai CO₂ ke carbon ko kisi molecule ka pakka hissa bana dena.",
+      "Toh CO₂ ke fix hone ke baad sabse pehle bane molecule ko first product kehte hain.",
+      "Ise ek marathon se samjho, jo aaj ke baaki safar mein hamare saath chalega.",
+      "Hazaaron dhavak start line se daudte hain, kai modon se guzarte hain, aur aakhir finish line par pahunchte hain.",
+      "Yahan start line hai CO₂ ka stroma mein aana, raaste ke mod hain beech ke padaav, aur finish line hai sugar.",
+      "Aur first product woh pehla mod hai, jahan dhavak sabse pehle pahunchte hain.",
+      "Finish line par kaun pahuncha, yeh sab dekh lete hain. Par pehla mod kaunsa tha, yeh pakadna mushkil hai."
      ],
-     "screen": "Stroma mein CO₂ + H₂O se (CH₂O)ₙ ki overall arrow; arrow ke beech pehla unknown product-box khulta hai. Side par (CH₂O)₆ → C₆H₁₂O₆.",
+     "roles": [
+      "link",
+      "link",
+      "plain",
+      "known",
+      "known",
+      "term",
+      "plain",
+      "fact",
+      "plain",
+      "why",
+      "plain",
+      "ask",
+      "answer",
+      "fact",
+      "fact",
+      "known",
+      "term",
+      "picture",
+      "picture",
+      "picture",
+      "picture",
+      "plain"
+     ],
+     "screen": "Stroma mein CO₂ aur paani se sugar tak ek lamba teer; [CH₂O] ka chhota tukda, phir chhe tukde jud kar (CH₂O)₆ = C₆H₁₂O₆, neeche 'n = kitni baar'; teer ke beech dhundhle padaav aur '?'; 'chhe CO₂ seedhe glucose?' par kaata nishaan; label 'first product = fix hone ke baad pehla molecule'; phir marathon (apni tasveer): start line par CO₂, raaste mein kai mod, finish line par sugar, pehle mod par 'first product?'.",
      "terms": [
       {
        "term": "(CH₂O)ₙ",
-       "meaning": "Carbohydrate composition ka general notation; n CH₂O ratio ki repetitions batata hai."
+       "meaning": "Sugar ka saancha: [CH₂O] wala hissa n baar juda; glucose mein n = 6."
       },
       {
        "term": "first product",
-       "meaning": "CO₂ fixation ke baad shuru mein pehchaana gaya reaction product."
+       "meaning": "CO₂ ke fix hone ke baad sabse pehle banne wala molecule."
       }
      ],
-     "outside_book": "",
+     "outside_book": "[CH₂O] 11.2 se, n ka matlab; fixing CO₂ 11.6.3 se; ATP aur NADPH ki ginti aage (11.7.2); marathon ki misaal, jo baaki heading mein saath chalti hai.",
      "prepares": [],
      "answer": "",
-     "watch_out": ""
+     "watch_out": "",
+     "uses": [
+      "f23",
+      "f24",
+      "f25",
+      "f26",
+      "f27",
+      "f28",
+      "f29",
+      "f30"
+     ]
     },
     {
      "id": "11.7-k6",
@@ -12706,59 +13349,149 @@
       "p012-i10"
      ],
      "recalls": [
-      "0-k8"
+      "0-k7",
+      "0-k9",
+      "11.4-k1"
      ],
      "says": [
-      "Calvin aur Bassham ki labelled carbon wali khoj hum pehle mil chuke hain; ab us investigation ka specific result dekho.",
-      "World War II ke baad radioactive isotopes, ya radioisotopes, ka beneficial use karte hue Calvin ne algae mein photosynthesis investigate ki.",
-      "Pehle khola radioactive ¹⁴C yahaan carbon ki pehchaan tha; early products mein uska signal incoming carbon ka destination batata tha.",
-      "Un studies mein pehla identified CO₂ fixation product three-carbon organic acid, 3-phosphoglyceric acid, mila; iska short name PGA hai.",
-      "Final sugar se pehle acid milna important kyun tha?",
-      "Dekho, isse pata chala ki fixed carbon seedha final glucose ke roop mein identify nahi hua, balki beech ke product PGA mein mila.",
-      "Calvin aur co-workers ne complete biosynthetic pathway bhi work out kiya; unke naam par ise Calvin cycle kaha gaya."
+      "Yeh pehla mod dhoondhne ka kaam Melvin Calvin ne kiya, jinki kahani hum shuru mein sun chuke hain.",
+      "Yaad karo, World War II ke theek baad duniya ne radio-activity ki tabaahi dekhi thi.",
+      "Tab radioactive isotopes ko achhe kaam mein lagane ki kai koshishein hui. Unme Calvin ka kaam misaal ke laayak, yaani exemplary, tha.",
+      "Inhi radioactive isotopes ko chhote mein radioisotopes kehte hain. Radio ka matlab hai dikhai na dene wali radiation chhodne wale, aur isotopes ka matlab hai ek hi tatva ke alag-alag wazan wale atom.",
+      "Calvin ne radioactive carbon, ¹⁴C, ko apna nishaan banaya, jo paudhe mein aam carbon jaisa hi chalta hai.",
+      "Unhone yeh prayog algae par kiya, isliye ise algal photosynthesis ka adhyayan kehte hain. Algae yaani paani mein rehne wale chhote, saral hare jeev.",
+      "Ab marathon wali mushkil yaad karo: pehla mod pakda kaise jaaye?",
+      "Socho, ¹⁴C wali CO₂ algae ko ek ghante tak di jaaye, toh nishaan kahan-kahan milega?",
+      "Ek ghante mein ¹⁴C ka nishaan har padaav tak fail jaayega, aur sugar tak bhi pahunch jaayega.",
+      "Bilkul waise hi, jaise race shuru hone ke ek ghante baad photo lo, toh dhavak poore raaste par bikhre dikhenge.",
+      "Is tarah to pehla mod bheed mein chhup jaata hai.",
+      "Ruko, pehle khud socho: pehla mod pakadna ho, toh ¹⁴C wali CO₂ kitni der deni chahiye?",
+      "Aapne socha hoga ki bahut thodi der, aur aapne bilkul sahi socha. Calvin ne ise sirf kuch second ke liye diya.",
+      "Kuch second mein ¹⁴C ko bas pehle mod tak pahunchne ka samay milta hai, usse aage nahi.",
+      "Usi pal unhone algae ko garam alcohol mein daala, jisse unki saari reactions turant ruk gayin.",
+      "Phir paper chromatography se algae ke molecule alag kiye, wahi tareeka jisse humne patti ke rang alag kiye the.",
+      "Jis dhabbe mein ¹⁴C tha, usne X-ray film par kaala nishaan chhod diya.",
+      "Kuch second wale prayog mein ¹⁴C sabse pehle ek teen carbon wale organic acid mein mila.",
+      "Nimbu aur imli ka khattapan acid se aata hai. Carbon wale aise acid ko organic acid kehte hain.",
+      "Is acid ka poora naam hai 3-phosphoglyceric acid, aur chhote mein ise PGA kehte hain.",
+      "Yahi CO₂ ke fix hone ke baad pehchaana gaya pehla product tha, yaani hamari marathon ka pehla mod.",
+      "Calvin yahin nahi ruke. Unhone aage ka poora raasta bhi khoja, jisse CO₂ ka carbon sugar tak pahunchta hai.",
+      "Isliye is raaste ko unke naam par Calvin cycle kehte hain. Ise cycle kyun kehte hain, yeh aage dekhenge."
      ],
-     "screen": "Algal culture ko ¹⁴CO₂ input; early separated product mein labelled PGA highlighted. PGA ke teen carbon positions aur neeche pathway name Calvin cycle; abhi detailed cycle steps nahi.",
+     "roles": [
+      "link",
+      "known",
+      "fact",
+      "term",
+      "known",
+      "fact",
+      "link",
+      "ask",
+      "answer",
+      "picture",
+      "plain",
+      "ask",
+      "answer",
+      "why",
+      "fact",
+      "known",
+      "fact",
+      "fact",
+      "term",
+      "term",
+      "fact",
+      "fact",
+      "term"
+     ],
+     "screen": "Calvin ki prayogshala, World War II ke baad; label 'radioisotopes = radioactive isotopes'; ¹⁴C wali CO₂ (chamakte carbon) hare algae ke ghol mein; marathon ki do photo: ek ghante baad (laal topi wale dhavak poore raaste par bikhre) aur kuch second baad (sab pehle mod par); sawaal 'Ruko, pehle khud socho: kitni der?', bada '?' aur chhoti ghadi (teen second ruk); phir ghadi par kuch second, algae garam alcohol mein, paper chromatography ka kaagaz, X-ray film par ek kaala dhabba; dhabbe par naam '3-phosphoglyceric acid (PGA)', teen carbon; kone mein nimbu aur imli (organic acid ka khattapan); aage sugar tak jaata raasta, label 'Calvin cycle'.",
      "terms": [
       {
        "term": "radioisotopes",
-       "meaning": "Elements ke radioactive isotopes, jinhe detectable tracing labels ki tarah use kar sakte hain."
+       "meaning": "Radioactive isotopes: radiation chhodne wale, ek hi element ke alag wazan wale atom."
       },
       {
        "term": "¹⁴C",
-       "meaning": "Carbon ka radioactive isotope jiska mass number 14 hai; pehle C¹⁴ notation mein pehchaana tha."
+       "meaning": "Carbon ka radioactive isotope (6 proton, 8 neutron, wazan 14); C¹⁴ ka hi doosra likhne ka tareeka."
+      },
+      {
+       "term": "organic acid",
+       "meaning": "Carbon wala acid; jaise nimbu aur imli ka khattapan dene wale acid."
       },
       {
        "term": "PGA",
-       "meaning": "3-phosphoglyceric acid; teen carbon wala organic acid aur identified early fixation product."
+       "meaning": "3-phosphoglyceric acid: teen carbon wala organic acid, CO₂ fix hone ka pehla pehchaana product."
       },
       {
        "term": "Calvin cycle",
-       "meaning": "Calvin ke naam par jaana jaane wala photosynthetic carbon-assimilation ka biosynthetic pathway."
+       "meaning": "CO₂ ke carbon se sugar tak ka raasta, Melvin Calvin ke naam par."
       }
      ],
-     "outside_book": "",
+     "outside_book": "Calvin ki kahani shuruaat se (World War II, isotopes, C¹⁴); Calvin ka kuch second wala prayog: garam alcohol, paper chromatography (11.4 se), X-ray film par dhabba (kitaab mein nahi); ruko, pehle khud socho isi mod par; organic acid ka khattapan (nimbu, imli); cycle kyun, aage 11.7.2 mein.",
      "prepares": [],
      "answer": "",
-     "watch_out": ""
+     "watch_out": "",
+     "uses": [
+      "f31",
+      "f32",
+      "f33",
+      "f34",
+      "f35",
+      "f36",
+      "f37",
+      "f38",
+      "f39",
+      "f40",
+      "f41",
+      "f42",
+      "f43"
+     ]
     },
     {
      "id": "11.7-k7",
-     "kind": "question",
+     "kind": "example",
      "teaches": [
       "p012-i11"
      ],
      "recalls": [],
      "says": [
-      "Ab batao, PGA ke ek molecule mein kitne carbon atoms hain?",
-      "Dekho, PGA mein teen carbon atoms hain; tracer ka 14 carbon isotope ka mass number hai, PGA ke carbon atoms ki count nahi.",
-      "Ek PGA molecule mein labelled carbon milne se uska poora skeleton fourteen-carbon wala nahi ban jaata."
+      "Ab ¹⁴C wale ek carbon ka peechha karke dekho, kyunki isse ek zaroori sawaal hal hota hai.",
+      "Sawaal yeh hai: PGA ke ek molecule mein kitne carbon atom hain?",
+      "PGA ke ek molecule mein teen carbon atom hain.",
+      "Naam se samjho: PGA ka G hai glyceric acid, aur glyceric acid ki reedh teen carbon ki hoti hai.",
+      "Aapne glycerine dekhi hogi, jo sardi mein phate hothon par lagate hain. Uski reedh mein bhi teen carbon hain, aur glyceric acid usi parivaar ka hai.",
+      "P ka matlab phospho, yaani is par ek phosphate laga hai, aur A ka matlab acid.",
+      "Ab ek baareek baat yaad rakho. Naam ke shuru ka 3 carbon nahi ginta; woh batata hai ki phosphate teesre carbon par laga hai.",
+      "Teen carbon ki ginti to glyceric acid ki reedh se aati hai.",
+      "Ab ¹⁴C par lauto. Kuch second wale prayog mein PGA ke teen carbon mein se nishaan sirf ek carbon par mila.",
+      "Woh carbon PGA ke acid wale sire par tha, aur yahi carbon seedha CO₂ se aaya tha.",
+      "Matlab CO₂ ne sirf ek carbon diya, aur PGA ke baaki do carbon kisi aur molecule se aaye."
      ],
-     "screen": "Ek PGA carbon skeleton par teen numbered carbon positions; ek position par ¹⁴C tag. Separate labels: molecule carbon count = 3; tracer mass number = 14.",
+     "roles": [
+      "link",
+      "ask",
+      "answer",
+      "why",
+      "picture",
+      "plain",
+      "plain",
+      "plain",
+      "fact",
+      "fact",
+      "why"
+     ],
+     "screen": "PGA ka molecule paas se: teen carbon ki reedh, ek sire par acid wala hissa, teesre carbon par phosphate; naam ke tukde: P = phospho, G = glyceric, A = acid; kone mein glycerine ki bottle aur uski teen carbon ki reedh; '3 = carbon ki ginti?' par kaata nishaan, teesre carbon par teer 'phosphate yahan'; phir ¹⁴C ka nishaan sirf acid wale sire ke carbon par chamakta, baaki do carbon par '?'.",
      "terms": [],
-     "outside_book": "Tracer mass number aur product carbon-count ka explicit distinction added hai.",
+     "outside_book": "PGA ke naam ke hisse; glycerine ki teen carbon ki reedh; exam ki baareek baat: naam ka 3 phosphate ki jagah hai, carbon ki ginti nahi; ¹⁴C sirf acid wale sire ke ek carbon par (teacher ki taraf se), jo agle sawaal ki taraf le jaata hai.",
      "prepares": [],
-     "answer": "PGA ke ek molecule mein teen carbon atoms hote hain.",
-     "watch_out": "¹⁴C ka 14 isotope mass number hai, molecule mein carbon atoms ki sankhya nahi."
+     "answer": "",
+     "watch_out": "",
+     "uses": [
+      "f44",
+      "f45",
+      "f46",
+      "f47",
+      "f48"
+     ]
     },
     {
      "id": "11.7-k8",
@@ -12767,44 +13500,112 @@
       "p013-i1"
      ],
      "recalls": [
-      "0-k12",
-      "11.6.3-k13"
+      "0-k13"
      ],
      "says": [
-      "Agla sawaal tha: kya har plant mein initial CO₂ fixation ka pehla stable product PGA hi hota hai?",
-      "Wide plant surveys mein doosra group mila, jiska first stable product four-carbon organic acid oxaloacetic acid tha.",
-      "First stable product fixation ke baad pehla stable compound hai, sirf overall final sugar nahi.",
-      "CO₂ fixation ka meaning wahi organic molecule mein carbon jodna hai; CO₂ assimilation ka broader meaning us carbon ko plant ke organic substances mein incorporate karna hai.",
-      "Jin plants ka initial stable product three-carbon PGA hai, unka initial route C₃ pathway kehlaata hai.",
-      "Jinmein four-carbon oxaloacetic acid pehla stable product hai, unka initial route C₄ pathway kehlaata hai.",
-      "In names ke three aur four kya ginte hain?",
-      "Dekho, yeh first stable product ke carbon atoms ginte hain, incoming CO₂ molecules ya carbon lene wale starting molecule ke carbons nahi; associated differences aage dekhenge."
+      "Calvin ne PGA algae mein dhoondha tha; toh kya har paudhe mein CO₂ ka pehla product PGA hi hota hai?",
+      "Nahi, har paudhe mein pehla product PGA hi nahi hota. Yeh jaanne ke liye vaigyanikon ne bahut tarah ke paudhon par prayog kiye.",
+      "Socho, duniya mein laakhon tarah ke paudhe hain, thande pahaadon se garam registaan tak. Toh sabka tareeka ek jaisa ho, yeh zaroori nahi.",
+      "Zyadatar paudhon mein pehla product PGA hi nikla.",
+      "Par paudhon ka ek aur group mila, jisme pehla product bhi ek organic acid tha, magar usme chaar carbon the.",
+      "Is acid ka naam oxaloacetic acid hai. Chhote mein ise OAA likhte hain, yaani oxalo, acetic aur acid ke pehle akshar.",
+      "Iske naam ke hisse jaane-pehchaane hain. Oxalo aata hai oxalic acid se, jo palak mein milta hai, aur acetic yaani sirke ka acid.",
+      "Yahan ek shabd par gaur karo: stable, yaani tikau, jo banne ke baad turant toot na jaaye.",
+      "CO₂ fix hone ke baad jo pehla tikau molecule pakda ja sake, use first stable product kehte hain.",
+      "Gas wali CO₂ ke carbon ka aise kisi molecule mein pakka bandh jaana hi CO₂ fixation hai. Yeh wahi fixing CO₂ hai, jo hum dekh chuke hain.",
+      "Shuru mein humne assimilation ko khaane ke pach kar shareer ka hissa banne se samjha tha.",
+      "Waise hi CO₂ ka carbon jab paudhe ke apne molecule ka hissa ban jaata hai, toh ise CO₂ assimilation kehte hain.",
+      "Tab se photosynthesis mein CO₂ assimilation ko do mukhya prakaar ka maana gaya.",
+      "Jin paudhon mein CO₂ fixation ka pehla product C₃ acid, yaani PGA, hai, unka raasta C₃ pathway kehlaata hai.",
+      "Aur jahan pehla tikau product chaar carbon wala C₄ acid, yaani OAA, nikle, wahan ke raaste ko C₄ pathway kehte hain.",
+      "Ab ek baareek baat: C₃ ka 3 aur C₄ ka 4 pehle tikau product ke carbon ginte hain, CO₂ ke molecule nahi.",
+      "Ise do marathon ki tarah socho, jinka pehla mod alag hai. Ek mein pehla mod PGA hai, aur doosri mein OAA.",
+      "Gehun aur chawal jaise paudhe C₃ hain, aur makka aur ganna jaise paudhe C₄.",
+      "Par sirf bahar se dekh kar pakka nahi kaha ja sakta ki paudha C₃ hai ya C₄. Kyunki asli pehchaan andar bane pehle product se hoti hai, jo aankh se dikhta nahi.",
+      "In dono groups mein aur bhi jude hue farq hain, jaise patti ki banawat. Woh hum aage C₄ wale hisse mein dekhenge."
      ],
-     "screen": "Survey ka simple two-branch comparison: C₃ → PGA → 3 carbon positions; C₄ → oxaloacetic acid → 4 carbon positions. Column heading: initial first stable fixation product.",
+     "roles": [
+      "ask",
+      "answer",
+      "plain",
+      "fact",
+      "fact",
+      "term",
+      "plain",
+      "plain",
+      "term",
+      "term",
+      "known",
+      "term",
+      "fact",
+      "term",
+      "term",
+      "plain",
+      "picture",
+      "fact",
+      "why",
+      "link"
+     ],
+     "screen": "Duniya bhar ke paudhe ek ke baad ek (gehun, chawal, makka, ganna); zyadatar ke saath PGA (teen moti), ek group ke saath oxaloacetic acid (chaar moti), label OAA; naam ke tukde: oxalo (palak), acetic (sirka); label 'first stable product = pehla tikau molecule'; labels 'CO₂ fixation' aur 'CO₂ assimilation' (kone mein khana pach kar shareer ka hissa); do khaane: C₃ pathway (PGA, 3 carbon) aur C₄ pathway (OAA, 4 carbon); '3 = CO₂ ki ginti?' par kaata nishaan; do marathon ke raaste, alag pehla mod; patti ki banawat par '?', aage.",
      "terms": [
       {
-       "term": "CO₂ fixation",
-       "meaning": "CO₂ ke carbon ko organic molecule mein jodna; pehle fixing CO₂ ke roop mein samjha tha."
+       "term": "oxaloacetic acid",
+       "meaning": "Chaar carbon wala organic acid; C₄ paudhon mein CO₂ fixation ka pehla stable product."
       },
       {
-       "term": "CO₂ assimilation",
-       "meaning": "CO₂ ke carbon ko plant ke organic substances ka hissa banana."
-      },
-      {
-       "term": "oxaloacetic acid or OAA",
-       "meaning": "Four-carbon organic acid; C₄ route ka initial first stable fixation product."
+       "term": "OAA",
+       "meaning": "Oxaloacetic acid ka chhota naam: oxalo, acetic aur acid ke pehle akshar."
       },
       {
        "term": "first stable product",
-       "meaning": "Initial fixation ke baad milne wala pehla stable compound."
+       "meaning": "CO₂ fix hone ke baad bana pehla tikau molecule, jo turant toot na jaaye."
+      },
+      {
+       "term": "CO₂ fixation",
+       "meaning": "CO₂ ke carbon ka kisi molecule mein pakka bandh jaana."
+      },
+      {
+       "term": "CO₂ assimilation",
+       "meaning": "CO₂ ke carbon ka paudhe ke apne molecules ka hissa ban jaana."
+      },
+      {
+       "term": "C₃ pathway",
+       "meaning": "Jin paudhon mein CO₂ fixation ka pehla product teen carbon wala PGA hai, unka raasta."
+      },
+      {
+       "term": "C₄ acid",
+       "meaning": "Chaar carbon wala acid; yahan OAA."
+      },
+      {
+       "term": "C₄ pathway",
+       "meaning": "Jin paudhon mein pehla product chaar carbon wala OAA hai, unka raasta."
       }
      ],
-     "outside_book": "",
+     "outside_book": "Zyadatar paudhe C₃; oxalo aur acetic ke hisse (palak, sirka); assimilation shuruaat se; exam ki baareek baat: C₃ aur C₄ ka ank pehle tikau product ke carbon ginta hai; gehun aur chawal C₃, makka aur ganna C₄ (aage 11.8); bahar se dekh kar pehchaan nahi (exercise 1).",
      "prepares": [
-      "p022-i10"
+      "p022-i10",
+      "p021-i14"
      ],
      "answer": "",
-     "watch_out": "First stable product ko carbon receive karne wale starting molecule se confuse na karein."
+     "watch_out": "",
+     "uses": [
+      "f49",
+      "f50",
+      "f51",
+      "f52",
+      "f53",
+      "f54",
+      "f55",
+      "f56",
+      "f57",
+      "f58",
+      "f59",
+      "f60",
+      "f61",
+      "f62",
+      "f63",
+      "f64"
+     ]
     },
     {
      "id": "11.7-k9",
@@ -12812,23 +13613,43 @@
      "teaches": [],
      "recalls": [],
      "says": [
-      "Ab poora connection jodo: light reactions ki O₂ bahar diffuse hoti hai, aur ATP tatha NADPH stromal sugar synthesis ko support karte hain.",
-      "Light band hone par remaining supplies se brief continuation milti hai, phir stop; light lautne par renewed supply se synthesis resume hoti hai.",
-      "Carbon ka raasta dhoondhne par algal tracer studies mein three-carbon PGA pehla identified product mila.",
-      "Wider surveys ne four-carbon oxaloacetic acid wala initial route bhi dikhaya, isliye first stable product se C₃ aur C₄ classification bani.",
-      "Lekin incoming CO₂ ko sabse pehle receive kaun karta hai?",
-      "Dekho, product ki identity mil gayi hai; use banane wale primary CO₂ acceptor ki identity agle heading mein dekhenge."
+      "Ab aaj ki saari baatein ek dhaage mein piro lo.",
+      "Light reaction se O₂, ATP aur NADPH nikle. O₂ bahar diffuse ho gayi, aur ATP aur NADPH stroma mein sugar banane mein lag gaye.",
+      "Sugar wale is daur ko biosynthetic phase kehte hain. Ise ATP aur NADPH ke saath CO₂ aur H₂O bhi chahiye.",
+      "Andhera hote hi yeh kuch der chala, phir ruka, aur roshni lautte hi phir chal pada. Isliye dark reaction ek misnomer hai.",
+      "Phir humne Calvin ke saath carbon ka peechha kiya. Kuch second ki ¹⁴C wali CO₂ ne pehla mod dikha diya.",
+      "Pehla product nikla teen carbon wala PGA, aur doosre group mein chaar carbon wala OAA. Inhi se C₃ aur C₄ pathway ke naam bane.",
+      "Toh ab shuru ka sawaal phir se lo. Kya sugar banane ko roshni seedhe chahiye, aur hawa ka carbon pehle kis molecule mein pakda jaata hai?",
+      "Sugar banane ko roshni seedhe nahi chahiye. Use roshni ke banaye ATP aur NADPH chahiye, isliye yeh kaam roshni par ghuma kar tika hai.",
+      "Aur hawa ka carbon sabse pehle teen carbon wale acid, PGA, mein pakda jaata hai. C₄ paudhon mein woh pehle chaar carbon wale OAA mein pakda jaata hai.",
+      "Marathon ki zubaan mein: finish line sugar hai, par pehla mod PGA hai.",
+      "Par ek baat abhi khuli hai: PGA ke teen carbon mein se CO₂ ne to sirf ek diya tha.",
+      "CO₂ ka yeh carbon kis molecule se judkar PGA banata hai, yeh aage hum dekhenge."
      ],
-     "screen": "Teen connected compact panels: light supplies → stromal synthesis; on/off/on response; PGA–3C versus oxaloacetic acid–4C. Last panel se agle sawaal ki taraf arrow: CO₂ ko receive kaun karta hai?",
+     "roles": [
+      "link",
+      "fact",
+      "fact",
+      "fact",
+      "fact",
+      "fact",
+      "ask",
+      "answer",
+      "answer",
+      "picture",
+      "plain",
+      "link"
+     ],
+     "screen": "Aaj ki kahani ek patti par: thylakoid se O₂ bahar, ATP aur NADPH stroma mein; label biosynthetic phase; roshni on-off-on ki timeline; 'dark reaction = misnomer'; Calvin ka ¹⁴C, kuch second ki ghadi, pehla mod PGA (teen carbon) aur doosre group mein OAA (chaar carbon); C₃ aur C₄; shuru ka sawaal laut kar, jawab: roshni seedhe nahi, ATP aur NADPH ke zariye; carbon pehle PGA mein; marathon ka pehla mod; aakhir mein PGA ke teen carbon mein se ek par ¹⁴C, baaki do par '?', jo khula rehta hai.",
      "terms": [],
-     "outside_book": "",
+     "outside_book": "Shuru ka sawaal phir se, jawab ke saath; agli film (11.7.1) ka sawaal khula chhoda: CO₂ ka carbon kis molecule se judkar PGA banata hai.",
      "prepares": [],
      "answer": "",
-     "watch_out": ""
+     "watch_out": "",
+     "uses": []
     }
    ],
-   "bridge": "Pehla product PGA pehchaan liya; ab primary CO₂ acceptor khojkar samjhenge ki incoming carbon us product tak kaise pahunchta hai.",
-   "title": "WHERE ARE THE ATP AND NADPH USED?"
+   "bridge": ""
   },
   {
    "section": "11.7.1",

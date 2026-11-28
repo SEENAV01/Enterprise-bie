@@ -243,3 +243,52 @@
   each block was removed by its exact text, the last closing on the marker; one more Edit put the new part (facts one per
   line).
 - Skill and Navin's word did not differ for this heading.
+
+## 11.7 Where are the ATP and NADPH used? (eighth copy of this job)
+
+- Opening: recap of 11.6.3 as written there (lumen ke H⁺ CF₀ se laut kar CF₁ ki mutthi se ATP; FNR stroma side, isliye NADPH
+  bhi stroma mein), "Yaad rakhein: roshni ka kaam yahin tak hai; roshni ATP aur NADPH banati hai, sugar nahi", "Aage hum
+  dekhenge ki stroma mein yeh dono kis kaam mein lagte hain, aur us kaam ka roshni se kya rishta hai" (11.6.3's two open
+  parts). Goal: "Stroma ka sugar banane wala kaam roshni par kitna tika hai, aur hawa ki CO₂ ka carbon sugar tak pahunchne
+  se pehle sabse pehle kahan rukta hai?" (no term of the heading in it). The end asks it again in other words, answers
+  both (roshni seedhe nahi, ATP aur NADPH ke zariye; carbon pehle PGA mein, C₄ mein OAA mein), and leaves 11.7.1 open:
+  "CO₂ ka yeh carbon kis molecule se judkar PGA banata hai, yeh aage hum dekhenge." (bridge empty). Its line before:
+  "PGA ke teen carbon mein se CO₂ ne to sirf ek diya tha", from k7 (¹⁴C sirf acid wale sire ke ek carbon par): the 11.7.1
+  writer can take up exactly that, the book's own "How many carbon atoms would a molecule have which after accepting
+  CO₂ would have 3 carbons?". Nothing about the acceptor's carbons is said, so its 2-carbon guess and 5-carbon RuBP stay
+  its own.
+- 11.3 had already taught dark reactions, direct/indirect and the mill's shaam as its "ruko"; so here the light-off/on
+  experiment is the book's proof (each half proves one thing: kuch der chalna = roshni seedhe nahi; phir rukna = ATP aur
+  NADPH par tika), the mill only recalled, and the misnomer is the checkpoint (mis = galat, nomer = naam).
+- Running picture: marathon (start line = CO₂ ka stroma mein aana; mod = padaav; finish line = sugar; pehla mod = first
+  product; laal topi wale dhavak = ¹⁴C wale carbon; ek ghante baad ki photo = label har jagah bikhra; kuch second baad
+  ki photo = Calvin ka prayog; alag pehle mod wali do marathon = C₃ aur C₄). Now taken. I kept off the relay (11.6.2's).
+  Small pictures, also taken: nimbu-imli (organic acid), glycerine (teen carbon ki reedh), palak aur sirka (oxalo,
+  acetic), khana pachna (assimilation, the opening's, recalled).
+- "Ruko, pehle khud socho" at the heading's real turn: after the clue that an hour's ¹⁴C spreads to every padaav, "pehla
+  mod pakadna ho, toh ¹⁴C wali CO₂ kitni der deni chahiye?" → kuch second; then garam alcohol, paper chromatography (11.4)
+  and the X-ray film spot (teacher's extras, outside_book).
+- Exam points opened at their moment: O₂ is the by-product, sugar the plant's kamaai (galat 1); "food, more accurately,
+  sugars"; sugar banna andhera hote hi usi pal nahi rukta (galat 2); H₂O bhi in reactions mein kharch hota hai; (CH₂O)ₙ ka
+  n; the 3 of 3-phosphoglyceric acid is the phosphate's place, the three carbons come from glyceric acid; C₃/C₄ count the
+  first stable product's carbons, not CO₂; bahar se dekh kar C₃/C₄ pakka nahi (exercise 1, p021-i14, and 9a, p022-i10).
+- Point numbers kept on purpose: the locked 11.7.2 recalls 11.7-k6 (Calvin's ¹⁴C and PGA) and 11.7-k8 (C₃ and C₄, and CO₂
+  fixation "jise hum pehle mil chuke hain"), so k6 is the Calvin story and k8 the C₃/C₄ point that opens CO₂ fixation.
+  11.7.2's check after this heading: 0 problems.
+- Terms opened here: biosynthetic phase, misnomer, (CH₂O)ₙ, first product, radioisotopes, ¹⁴C (the opening opened C¹⁴;
+  the check still wants ¹⁴C in terms where its item first meets it), organic acid, PGA, Calvin cycle, oxaloacetic acid,
+  OAA, first stable product, CO₂ fixation, CO₂ assimilation, C₄ acid, C₃ pathway, C₄ pathway. Biosynthetic and fixing
+  CO₂ (11.6.3), phase (11.5), dark reactions and by convention (11.3), [CH₂O] (11.2), paper chromatography (11.4) were
+  reminded only.
+- BIE's check: a term written "X or Y" in the chapter map (here "oxaloacetic acid or OAA") is checked as said word for
+  word, so the facts name "oxaloacetic acid" (which the map's term contains) and the short form gets its own word fact
+  and terms entry; "C₄ acid" (the map marks it first in a later heading) also needs a terms entry. A sentence that
+  debunks a slip still trips the slip check if it says "dark reaction ... raat" together: say the right thing instead.
+  A line ending in "?" is read as a question even when its role is fact, and the next line must answer it.
+- First run: 13 findings (17.7 words a sentence; the slip wording; 'several' missing from p012-i10's facts; no why line in
+  k5; one English-heavy line; OAA, C₄ acid and ¹⁴C to open; one line like another). Fixed by splitting long lines at
+  their natural stops, rewording, one role changed to why, and terms entries; no line added. 144 → 189 sentences (only
+  splits; words about +2 %), 13.7 words each, 25 % spoken to the learner, 35 % going on, 0 problems.
+- Working note: one Edit put the new head, facts and k1–k9 in front of the old points behind a marker key; three Edits
+  removed the old points (k1–k3, k4–k6, k7–k9 with the old bridge and the old title at the end).
+- Skill and Navin's word did not differ for this heading.
