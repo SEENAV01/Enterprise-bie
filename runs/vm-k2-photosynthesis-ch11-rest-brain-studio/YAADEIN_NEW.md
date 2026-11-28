@@ -205,3 +205,41 @@
 - Working note: one Edit put the new head, facts and k1–k9 with a marker key ("OLDPOINTS": [) in front of the old points;
   two Edits removed the old points (k1–k4, then k5–k8 with the old bridge and title).
 - Skill and Navin's word did not differ for this heading.
+
+## 11.6.3 Chemiosmotic Hypothesis (seventh copy of this job)
+
+- The gold standard (this heading's c2–c3) was withheld and not opened; the heading is written from the way, in new
+  words, so Navin should read it beside the gold standard.
+- Opening: recap of the locked 11.6.2 (do raaste; "Yaad rakhein: dono raaston mein ATP bana, lekin electron ne ADP ko kabhi
+  seedhe haath tak nahi lagaya"; "Aage hum dekhenge ki ATP asal mein kis jagah, aur kis tareeke se banta hai"), then its open
+  question in other words: "Jab koi bhi electron ADP tak pahuncha hi nahi, toh ADP ko teesra phosphate jodne ki taakat mili
+  kahan se?" (no term of the heading in it). The end asks it again in other words, answers it (the H⁺ slope), and leaves
+  11.7 open: "Par stroma mein CO₂ se sugar banane mein yeh dono kaise kharch hote hain, aur kya us kaam ke liye roshni
+  chahiye, yeh aage hum dekhenge." (bridge empty). The 11.7 writer can recap from k19.
+- Door: the wrong idea "electron ki energy seedhe ADP mein jaati hai", broken by Mitchell's story (the long search for a
+  middle molecule; 1961; 1978 Nobel; outside_book). Hypothesis was opened in 11.2, so only reminded.
+- Running picture: baandh (deewaar = thylakoid membrane; ooncha paani = lumen ke H⁺; neeche = stroma; pump = electron ka
+  safar, PQ, FNR; gate = CF₀; turbine = CF₁; bijli = ATP; daraar = chhedon wali membrane). Small pictures: agarbatti
+  (diffusion), balti mein gubbara (thylakoid in stroma), nadi ki naav (PQ as the H carrier), nimbu (pH), mutthi (CF₁).
+  All now taken.
+- "Ruko, pehle khud socho" at Jagendorf's 1966 acid-bath experiment (dark, pH 4 then pH 8 with ADP and Pᵢ: ATP without
+  light or electrons), the clearest proof that the energy sits in the H⁺ slope. Checkpoint: a leaky membrane (electrons
+  run, no ATP; some chemicals do this).
+- Exam points opened at their moment: lumen (chloroplast) vs intermembrane space (mitochondria); ½O₂ is one water's share,
+  not half a molecule; FNR = the NADP reductase of 11.6.2, Fd = ferredoxin, the electron comes from Fd; PQ is the H
+  carrier and moves inside the membrane; more H⁺ = lower pH (lumen about 5, stroma about 8, about 1000×; galat 2);
+  breakdown of the gradient destroys no H⁺; facilitated diffusion needs no energy, pumping does; here the pump is the
+  electron flow and PQ; CF₁ and FNR face the stroma, so ATP and NADPH are made where sugar is made. Count for two
+  waters: lumen +8 H⁺ (4 from water, 4 by PQ), stroma −6 (4 by PQ, 2 into NADPH), and why the counts differ.
+- Terms opened here: chemiosmotic hypothesis, proton gradient, intermembrane space, activation of electrons, protons or
+  hydrogen ions, Plastoquinone, PQH₂, Cytochrome B6f, Plastocyanin, Fd, FNR, H carrier, stroma side, breakdown of this
+  gradient, transmembrane, CF₀, CF₁, facilitated diffusion, conformational change, chemiosmosis, proton pump, fixing CO₂.
+  Hypothesis (11.2), lumen and inner side (11.6.1), H⁺ and NADP⁺ (11.6), NADP reductase (11.6.2) were reminded only.
+- BIE's check, first run: 4 findings (16.5 words a sentence; 20 % spoken to the learner; one line with English
+  protein/conformation; one retell line too close to k10). Fixed by splitting long lines at their natural stops,
+  turning existing lines to the learner ("dekho", "socho", "chalo", "yaad rakho") and rewording two lines; no line added.
+  247 → 287 sentences (+16 %, only splits), 14.4 words each, 31 % spoken to the learner, 34 % going on, 0 problems.
+- Working note: the old 11.6.3 went in nine Edits: a marker key ("NEWPART": 1) took the place of its first block, then
+  each block was removed by its exact text, the last closing on the marker; one more Edit put the new part (facts one per
+  line).
+- Skill and Navin's word did not differ for this heading.

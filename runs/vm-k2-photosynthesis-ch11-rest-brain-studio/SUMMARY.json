@@ -10,16 +10,17 @@
  },
  "error": null,
  "base_session": true,
- "resume_at": 1795878722.1070738,
+ "resume_at": 1795881805.29042,
  "waiting_for": "the next heading (other jobs on this machine go first)",
- "resume_at_utc": "2026-11-28 15:12 UTC",
+ "resume_at_utc": "2026-11-28 16:03 UTC",
  "rewritten": [
   "11.2",
   "11.3",
   "11.4",
   "11.5",
   "11.6",
-  "11.6.1"
+  "11.6.1",
+  "11.6.3"
  ],
  "kept": [
   "",
@@ -28,10 +29,10 @@
   "11.7.2"
  ],
  "usage": {
-  "input_tokens": 216046746,
-  "output_tokens": 1053853
+  "input_tokens": 251863497,
+  "output_tokens": 1281120
  },
- "turns": 642,
+ "turns": 762,
  "progress": {
   "written": [
    "11.2",
@@ -39,10 +40,10 @@
    "11.4",
    "11.5",
    "11.6",
-   "11.6.1"
+   "11.6.1",
+   "11.6.3"
   ],
   "left": [
-   "11.6.3",
    "11.7",
    "11.7.1",
    "11.8",
@@ -135,39 +136,51 @@
    "writer_reply": "its points don't list `uses`), and nothing new came from this heading.\n- The two endings fit together. This heading's recap picks up the question 11.6 left open. It teaches what 11.6.2's recap repeats: one water molecule refills PS II, two of them give 4 electrons, 4 H⁺ and one O₂, and the electron moves in one direction. It ends on 11.6.2's question, left unanswered, worded so it doesn't repeat 11.6.2's opening line.\n- The first check found three small things. I fixed them by rewording only, with no new lines added.\n- What I learned is at the bottom of `YAADEIN_NEW.md`. The main points: the running picture (dahi ka bilona) is now used up for later headings. \"Lumen\" is first explained here, so 11.6.3 should only remind it. The skill and Navin's word did not differ anywhere in this heading.",
    "put_back": [],
    "tries": 1
+  },
+  "11.6.3": {
+   "problems": [],
+   "turns": 120,
+   "usage": {
+    "input_tokens": 35816751,
+    "output_tokens": 227267
+   },
+   "minutes": 36.2,
+   "writer_reply": "jo pichhli film mein dekha\n- H⁺ badhe toh pH ghatta hai (lumen lagbhag 5, stroma lagbhag 8)\n- do paani ke molecule par H⁺ ki ginti: lumen mein 8 badhe, stroma se 6 ghate\n\n**Pehli jaanch mein 4 kamiyan aayi thi**, sab maine theek kar di:\n- vakya lambe the\n- bache se seedhi baat kam thi\n- ek line mein angrezi zyada thi\n- ek line pehle kahi baat dohra rahi thi\n\nKoi nayi line nahi joda: lambi lines todi, kuch lines mein \"dekho\", \"socho\", \"chalo\" jaise shabd jode, aur do lines badli. Isse vakya 247 se 287 hue (16% zyada). Skill kehti hai 15% se zyada badhe toh line jodkar sudhaar ka khatra hai. Yahan sirf lambi lines tooti hain, phir bhi aap padhkar dekh lijiye.\n\nPurani BIE wali 11.6.3 poori hata di hai. Baaki headings jaisi thi waisi hain. Is heading ki seekh `YAADEIN_NEW.md` mein likh di hai.",
+   "put_back": [],
+   "tries": 1
   }
  },
  "script": {
   "headings": 21,
-  "points": 222,
+  "points": 228,
   "summary_taught": 11,
   "summary": 11,
   "exercises_prepared": 13,
   "exercises": 13,
   "checkpoints": 21,
-  "sentences": 2360,
-  "words": 41953,
-  "minutes": 323,
+  "sentences": 2471,
+  "words": 44183,
+  "minutes": 340,
   "covered": 156,
   "coverable": 156,
-  "analogies": 16,
+  "analogies": 15,
   "examples": 24,
   "real_world": 12,
-  "outside_book": 142,
-  "questions": 259,
-  "question_share": 0.092,
+  "outside_book": 158,
+  "questions": 268,
+  "question_share": 0.09,
   "fragments": 0,
   "retells": 16,
-  "facts": 723,
+  "facts": 749,
   "english_heavy": 113,
-  "english_share": 0.082,
+  "english_share": 0.077,
   "goals": 21,
   "baatein": {
-   "book": 197,
-   "word": 213,
-   "base": 129,
-   "label": 77,
-   "extra": 107
+   "book": 203,
+   "word": 209,
+   "base": 138,
+   "label": 80,
+   "extra": 119
   },
   "names_unsaid": 5,
   "galat": 22,
@@ -176,5 +189,5 @@
   "unopened": 1
  },
  "forks_deleted": 1,
- "minutes": 24.1
+ "minutes": 36.2
 }
