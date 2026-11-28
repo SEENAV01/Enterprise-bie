@@ -71,6 +71,9 @@ from bie.brain import studio  # noqa: E402
 
 STAGES = ("questions", "naksha", "script", "films", "games", "book", "pyq", "dub")
 MAX_IMAGES_PER_FILM = 12
+# A picture the image service did not hand back is asked for again (11.6.2's film, f3: one failed try, "codex exec finished
+# but no generated image was found", left the gulel shot a black screen with only its labels; Navin saw it).
+IMAGE_TRIES = 3
 MAX_COLOUR_REDRAWS = 3      # a film draws at most this many pictures again for a wrong colour (24 November 2026)
 PLAYER = ROOT / "bie" / "brain" / "studio_player.html"
 GAME_PLAYER = ROOT / "bie" / "brain" / "studio_game_player.html"
@@ -152,6 +155,16 @@ def cupboard(args) -> list:
                 seen.add(entry["id"])
                 out.append(dict(entry, source=source))
     return out
+
+
+def draw(client, prompt: str, target):
+    """The image service's picture for ``prompt``, asked up to IMAGE_TRIES times; the last failure when none came."""
+    for attempt in range(IMAGE_TRIES):
+        try:
+            return client.generate_image(prompt, target)
+        except Exception:
+            if attempt == IMAGE_TRIES - 1:
+                raise
 
 
 def image_uri(path, width: int = 1600) -> str:
@@ -469,9 +482,8 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                             record["problems"] = record["problems"] + [f"{shot.get('id')}: kept picture {entry['id']} not read "
                                                                        f"({str(exc)[:80]}); a new one was drawn"]
                     if saved is None:
-                        done = client.generate_image(studio_film.image_prompt(shot, film.get("look", ""),
-                                                                                 getattr(args, "look", "") or None),
-                                                     target)
+                        done = draw(client, studio_film.image_prompt(shot, film.get("look", ""),
+                                                                     getattr(args, "look", "") or None), target)
                         saved = target.with_name(done["file"]) if isinstance(done, dict) and done.get("file") else target
                         saved = saved if saved.exists() else target
                         made, fresh = made + 1, True
@@ -506,6 +518,10 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
         layers, plates, cut_report = cut_parts(film, placed, paths, out / "films" / "parts" / q["id"])
         record["problems"] = record["problems"] + cut_report["problems"]
         images.update({sid: image_uri(path) for sid, path in plates.items()})
+        # a shot that needs a picture and has none plays as a black screen with its labels: said first, by name
+        dark = studio_film.missing_pictures(film, images)
+        record["problems"] = [f"{sid}: no picture, so this shot is a black screen with only its labels (the film is "
+                              f"not ready)" for sid in dark] + record["problems"]
         data = studio_film.player_data(film, images=images, audio=audio, chapter=plan.get("chapter_title", ""), question=q,
                                        tint=studio.subject_tint(args.course), parts=layers)
         (out / "films" / f"{q['id']}.html").write_text(studio_film.html(data, template), encoding="utf-8")
@@ -529,7 +545,7 @@ def films(args, client, model, pages, out: Path, summary: dict, *, voice_maker=N
                      "book_lines": f"{covered['taught']}/{covered['total']}", "beyond": len(covered["beyond"]),
                      "points_moved": sum(p.get("moved", 0) for p in placed.values()),
                      "teacher_lines": len(q.get("teacher_lines") or []),
-                     "kept_pictures": kept, "colour_redraws": redrawn,
+                     "kept_pictures": kept, "colour_redraws": redrawn, "black_shots": dark,
                      "parts_cut": cut_report["cut"], "parts_wanted": cut_report["wanted"],
                      "not_in_picture": [m for p in placed.values() for m in p.get("missing", [])]})
 
