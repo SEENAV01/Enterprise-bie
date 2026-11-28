@@ -48,3 +48,37 @@
   no line added. 271 → 272 sentences (one question split out of a term line), 12.2 words each, 24 % spoken to the
   learner, 0 problems.
 - Skill and Navin's word did not differ for this heading.
+
+## 11.4 How many types of pigments? (third copy of this job)
+
+- Opening: recap of 11.3 (jagah: hare hisse, mesophyll, chloroplast; membranes roshni pakadti, stroma mein sugar),
+  "Yaad rakhein: roshni pakadne ka kaam ... thylakoid ki thailiyon par", "Aage hum dekhenge ki in membranes mein aisa
+  kya baitha hai ...", then 11.3's two open questions taken up. The child's own answer from 11.1 ("hara rang
+  chlorophyll ka") becomes the puzzle: "Agar patti ka hara rang sirf chlorophyll se aata, toh ek hi paudhe ki pattiyon
+  mein hare ke itne alag-alag shade kyun hote?" (no first term of the heading in it). Answered in k3 (chaar pigments,
+  alag matra), asked again in other words in the retell, and 11.5 left open: "Pigments membrane mein kaise jame hain
+  aur energy aage kya karti hai, yeh aage hum dekhenge." (bridge empty).
+- Running picture: Ganga aur uski sahayak nadiyaan (accessory = sahayak; Ganga = chlorophyll a; baarish ke ilaake =
+  wavelengths; sahayak nadi ka paani Ganga mein = energy chlorophyll a tak; Bihar-Bengal tak ka kul paani = action
+  spectrum). It carries the overlap checkpoint. Now taken. Small pictures, also taken: kaali sketch pen ki syaahi
+  (chromatography), rang milaana (shades), kaali aur safed shirt (absorb), talaab ki lehar (wavelength, said the way
+  the locked 11.6.2 recalls it: "lehar ki chot se agli chot tak ki doori"), baal ki motai (nm), dhoop mein rangeen
+  kapde ka rang udna (photo-oxidation).
+- "Ruko, pehle khud socho" at the real turn: "patti hari dikhti hai; toh chlorophyll kaun-si roshni sabse kam sokhta
+  hoga?", after the clue that a thing shows the colour it sends back; joined to Engelmann's few bacteria in green
+  light (11.2). Checkpoint: Figure 11.3c's one-to-one overlap (no), then "wahan ki roshni pakad kaun raha hai?".
+- Exam points opened at their moment: chlorophyll a blue-green, b yellow-green; separation by dissolving and sticking,
+  not by weight; xanthophylls are carotenoids too; a green pigment absorbs green least; graph ink colour is not the
+  pigment's colour; carotenoids look orange but absorb blue; action spectrum low in green, never zero; compare the
+  shapes of 11.3c, not the heights; its Absorption line is chlorophyll a only; chief is not sole; most abundant plant
+  pigment: chlorophyll a. Exercises 5, 6, 7 (p022-i2, i3, i4) prepared in k13, k14 and k3 (outside_book).
+- BIE's check, first run: 2 findings (16.5 words a sentence; p007-i6 counted as a figure that needs a label fact,
+  VIBGYOR). Fixed by splitting 20 long lines into two sentences each (nothing new said) and one label fact. 203 → 226
+  sentences (+11 %, only splits), 14.9 words each, 25 % spoken to the learner, 38 % going on, 0 problems.
+- A label fact's term is checked as said word for word, so the figure walk says the label itself
+  ("Iski khadi line par likha hai: Rate of photosynthesis (measured by O₂ release).").
+- Working note: chapter_map.json is one long line; Grep with -o reads it in windows of about 330 characters (longer
+  windows come back omitted), and a long item is read by starting the next window at the last words of the one before.
+  Each item's terms (unpack.terms) and prerequisites follow its "item_id"; the old part went in three Edits through a
+  marker key.
+- Skill and Navin's word did not differ for this heading.
