@@ -82,3 +82,40 @@
   Each item's terms (unpack.terms) and prerequisites follow its "item_id"; the old part went in three Edits through a
   marker key.
 - Skill and Navin's word did not differ for this heading.
+
+## 11.5 What is light reaction? (fourth copy of this job)
+
+- Opening: recap of 11.4 (chaar pigments; chlorophyll a neeli-laal, sahayak pigments apni energy use saunpte), "Yaad
+  rakhein: ... energy aakhir chlorophyll a tak hi pahunchti hai", "Aage hum dekhenge ki pigments membrane mein kaise jame
+  hain, aur ... energy karti kya hai" (11.4's two open questions). Then an odd, true fact as the door: a single pigment
+  molecule catches light only about ten times a second even in bright sun (a teacher's extra, outside_book). Goal: "Ek
+  akela pigment molecule ek second mein bas das-ek baar roshni pakad paata hai; toh is thodi-si pakad se patti ka kaam
+  chalta kaise hai?" (no term of the heading in it). Answered in k3 (sainkdon pigment ek hi jagah energy bhejte hain),
+  asked again in other words in the retell, and 11.6 left open: "Electron aage kahan jaata hai aur dono photosystem
+  aapas mein kaise jude hain, yeh aage hum dekhenge." (bridge empty).
+- Running picture: aatishi sheesha (bada lens se kaagaz sulgaana): sheeshe ka chehra = antenna, chamakta bindu =
+  reaction centre, kaagaz ka sulagna = electron ka primary acceptor tak jaana; sheeshe ke bina har jagah thodi dhoop =
+  akele pigment ki thodi pakad. Now taken. Small pictures, also taken: kisan ki fasal (harvest), TV/mobile antenna,
+  class ka roll number (PS I/II khoj ke kram se), protein complex = kai purzon wali machine.
+- "Ruko, pehle khud socho" at the real turn (Figure 11.4's blue arrow): after the clue that energy lifts an electron
+  (excite), "electron tik hi na paaye toh kya hoga?" → it leaves the molecule and the primary acceptor takes it; this is
+  where light becomes chemistry. Checkpoint: "antenna mein chlorophyll a hota hi nahi?" (it does, hundreds; only one is
+  the reaction centre) and "reaction centre na ho toh?" (no electron leaves; exercise 5, p022-i2).
+- Exam points opened at their moment: PS I/PS II numbered by discovery, PS II works first; LHC are inside the
+  photosystems; Figure 11.4 draws all pigments one green, but the antenna holds several kinds; the zigzag is energy (no
+  electron moves), the blue arrow is one electron; P = pigment, the number is the peak in nm; P700 and P680 are both
+  chlorophyll a (protein surroundings shift the red peak from about 660–670 nm); 680 < 700; "absorption maxima" is the
+  plural. Example: one 450 nm photon on a PS II carotenoid followed to P680 and the primary acceptor.
+- Terms opened here: phase, high-energy chemical intermediates, protein complexes, light harvesting complexes (LHC),
+  LHC, discrete, Photosystem, PS I, PS II, bound, light harvesting system, antennae, efficient, photon, reaction centre,
+  primary acceptor, absorption peak, absorption maxima, P700, P680. Later headings remind them, never open them again.
+  Light reactions, photochemical reactions, ATP, NADPH (11.3), wavelength (11.4), electron (opening) were reminded only.
+- BIE's check, first run: 8 findings: 17.9 words a sentence; 'LHC' used before the chapter opens it (a later heading
+  marks it first); the closing question too close to the opening one. A short form of three letters matches only
+  exactly, so "light harvesting complexes (LHC)" in terms does not open "LHC": it needs its own terms entry. Fixed by
+  splitting long lines at their natural stops (nothing new said), the LHC entry, and the closing question in new words;
+  then 20 % spoken to the learner, so 12 existing lines were turned to the learner ("dekho", "samjho", "aap"), no line
+  added. 159 → 196 sentences (only splits), 14.5 words each, 27 % spoken to the learner, 37 % going on, 0 problems.
+- Working note: the old 11.5 went in three Edits of whole point blocks (each ending at the next point's id), then one
+  Edit for the goal and facts.
+- Skill and Navin's word did not differ for this heading.

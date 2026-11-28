@@ -10,13 +10,14 @@
  },
  "error": null,
  "base_session": true,
- "resume_at": 1795862919.3130283,
+ "resume_at": 1795864857.0120282,
  "waiting_for": "the next heading (other jobs on this machine go first)",
- "resume_at_utc": "2026-11-28 10:48 UTC",
+ "resume_at_utc": "2026-11-28 11:20 UTC",
  "rewritten": [
   "11.2",
   "11.3",
-  "11.4"
+  "11.4",
+  "11.5"
  ],
  "kept": [
   "",
@@ -25,18 +26,18 @@
   "11.7.2"
  ],
  "usage": {
-  "input_tokens": 109277555,
-  "output_tokens": 595362
+  "input_tokens": 139537415,
+  "output_tokens": 731982
  },
- "turns": 334,
+ "turns": 435,
  "progress": {
   "written": [
    "11.2",
    "11.3",
-   "11.4"
+   "11.4",
+   "11.5"
   ],
   "left": [
-   "11.5",
    "11.6",
    "11.6.1",
    "11.6.3",
@@ -96,6 +97,18 @@
    "writer_reply": "IBGYOR strip had no label fact. I split 20 long lines, adding no new content, and added the label fact. The heading now averages 14.9 words a sentence, and a quarter of the sentences speak to the learner.\n\nWhat the heading does:\n- **Opening:** it picks up 11.3's open question about where a leaf's green comes from. Today's question is why one plant shows so many shades of green if the colour is only chlorophyll.\n- **Picture:** it rests on one running picture, the Ganga and its tributaries. \"Sahayak nadiyaan\" is the same word as \"accessory pigments\" (sahayak).\n- **Ending:** it leaves the next question open with \"aage hum dekhenge\": how the pigments sit in the membrane, and what the energy does after it reaches chlorophyll a.\n\nThe heading's lessons are added at the bottom of `YAADEIN_NEW.md`.",
    "put_back": [],
    "tries": 1
+  },
+  "11.5": {
+   "problems": [],
+   "turns": 101,
+   "usage": {
+    "input_tokens": 30259860,
+    "output_tokens": 136620
+   },
+   "minutes": 24.6,
+   "writer_reply": "khoj ke kram se hain. Antenna mein bhi chlorophyll a hai. P700 aur P680 dono chlorophyll a hi hain.\n- **Aakhir:** shuru ka sawaal naye shabdon mein dobara poocha aur uska jawab diya. Agla sawaal khula chhoda: \"electron aage kahan jaata hai, yeh aage hum dekhenge\".\n\nJaanch ki 8 kamiyan aisi theek kin: lambe vakyon ko tod kar, LHC ka naam kholkar, aur aakhir ka sawaal naye shabdon mein likh kar. Koi nayi baat nahi jodi. Skill aur Navin ki baat mein is heading par koi farq nahi mila. Seekh `YAADEIN_NEW.md` ke neeche jod di hai.\n\nAgli heading ke liye ek baat: 11.6 ki purani BIE script mein ek line hai, \"Dono LHC labels wahi light harvesting complexes hain...\". Yeh 11.5 mein khole gaye naam ko dobara samjhati hai. Jab 11.6 nayi likhi jaayegi, to wahan sirf yaad dilana hai, dobara samjhana nahi.",
+   "put_back": [],
+   "tries": 1
   }
  },
  "script": {
@@ -106,36 +119,36 @@
   "exercises_prepared": 13,
   "exercises": 13,
   "checkpoints": 21,
-  "sentences": 2075,
-  "words": 36363,
-  "minutes": 280,
+  "sentences": 2164,
+  "words": 38333,
+  "minutes": 295,
   "covered": 156,
   "coverable": 156,
   "analogies": 16,
   "examples": 24,
   "real_world": 12,
-  "outside_book": 132,
-  "questions": 246,
-  "question_share": 0.102,
+  "outside_book": 135,
+  "questions": 252,
+  "question_share": 0.099,
   "fragments": 0,
   "retells": 16,
-  "facts": 560,
-  "english_heavy": 135,
-  "english_share": 0.102,
+  "facts": 615,
+  "english_heavy": 125,
+  "english_share": 0.094,
   "goals": 21,
   "baatein": {
-   "book": 163,
-   "word": 172,
-   "base": 91,
-   "label": 59,
-   "extra": 75
+   "book": 173,
+   "word": 191,
+   "base": 102,
+   "label": 63,
+   "extra": 86
   },
-  "names_unsaid": 7,
-  "galat": 16,
-  "misaal": 8,
-  "bolchaal": 114,
+  "names_unsaid": 6,
+  "galat": 18,
+  "misaal": 9,
+  "bolchaal": 107,
   "unopened": 1
  },
  "forks_deleted": 1,
- "minutes": 34.2
+ "minutes": 24.7
 }
