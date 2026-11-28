@@ -23,3 +23,28 @@
   chunks with Edit (a marker line, each chunk deleted, then the marker replaced by the new heading). Leave no old
   keys behind: a later copy reading the raw file must see one 11.2 only.
 - Skill and Navin's word did not differ for this heading.
+
+## 11.3 Where does photosynthesis take place? (second copy of this job)
+
+- Opening: recap of 11.2 (the jasoos file, Ingenhousz's green parts, Sachs's chloroplast), "Yaad rakhein: ... chloroplast
+  naam ke chhote hare daanon ke andar", "Aage hum dekhenge ...", then 11.2's open question taken up and widened to two
+  levels: "Photosynthesis paudhe ke kin-kin hisson mein hota hai, aur un hisson ke andar bhi theek kis jagah?". The end
+  asks it again in fewer words, answers both levels, and leaves 11.4 open: "Patti ka hara rang kis cheez se banta hai,
+  aur membranes roshni kaise pakadti hain, yeh aage hum dekhenge." (bridge empty).
+- Running picture: cheeni mill (do chaardiwari = outer/inner membrane, dhoop se chalta bijlighar = grana membranes,
+  galiyare = stroma lamellae, ATP + NADPH = bijlighar se floor tak jaane wali do cheezein, floor = stroma, machines =
+  enzymes, godown ki boriyaan = starch granule, workshop = ribosomes). It carries the dark-reaction turn: "shaam ko
+  bijlighar band, toh floor kitni der chalega?" (ruko, pehle khud socho). Later headings: battery, solar charger, relay
+  (11.6.2), baandh (11.6.3), dukaan ki poonji (11.7.2) are taken; the mill is now taken too.
+- ATP and NADPH are first met here but opened fully in 11.6.2 (locked): only a seed here ("energy lekar chalta hai";
+  "electron aur hydrogen lekar chalta hai", tied to 11.2's reduce), full names "aage".
+- Exam points opened at their moment: not only leaves (Opuntia's green stem, sepals, unripe fruits); optimum is not
+  maximum; draw the light and the wall before the parallel/perpendicular question; stroma is not stroma lamellae;
+  granum/grana; not every round body is starch (lipid droplet); Figure 11.2 has eight labels and no arrows; 'dark' is
+  not night, dark reactions are light-dependent through ATP and NADPH, and "by convention" explains the misleading name.
+- BIE's check: the goal question first copied 11.2's last line (flagged as said again), and the closing question
+  copied the goal: say the same question in its own words each time, and open each answer with the question's words.
+  Talk share was 18 %: fixed by turning existing lines to the learner ("dekho", "samjho", "gaur karo", "aapne dekha"),
+  no line added. 271 → 272 sentences (one question split out of a term line), 12.2 words each, 24 % spoken to the
+  learner, 0 problems.
+- Skill and Navin's word did not differ for this heading.
