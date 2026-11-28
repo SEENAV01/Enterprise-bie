@@ -10,15 +10,16 @@
  },
  "error": null,
  "base_session": true,
- "resume_at": 1795876297.1267352,
+ "resume_at": 1795878722.1070738,
  "waiting_for": "the next heading (other jobs on this machine go first)",
- "resume_at_utc": "2026-11-28 14:31 UTC",
+ "resume_at_utc": "2026-11-28 15:12 UTC",
  "rewritten": [
   "11.2",
   "11.3",
   "11.4",
   "11.5",
-  "11.6"
+  "11.6",
+  "11.6.1"
  ],
  "kept": [
   "",
@@ -27,20 +28,20 @@
   "11.7.2"
  ],
  "usage": {
-  "input_tokens": 178528388,
-  "output_tokens": 927253
+  "input_tokens": 216046746,
+  "output_tokens": 1053853
  },
- "turns": 559,
+ "turns": 642,
  "progress": {
   "written": [
    "11.2",
    "11.3",
    "11.4",
    "11.5",
-   "11.6"
+   "11.6",
+   "11.6.1"
   ],
   "left": [
-   "11.6.1",
    "11.6.3",
    "11.7",
    "11.7.1",
@@ -122,46 +123,58 @@
    "writer_reply": "s chemically exact is noted only in the record (`outside_book`), never spoken.\n- **Fixes after the first check:** it raised 4 findings. I reworded three lines and split 24 long sentences. I also added one sentence in k5 that answers k1's promise of why the electron needs two pushes. That took the heading from 182 to 207 sentences with nothing else new.\n\nMy heading causes no clash with Navin's locked 11.6.2. The check on 11.6.2 does show one finding: its facts are not linked to any point. That comes from its own format, which I did not touch.\n\nNotes for later copies are at the bottom of `YAADEIN_NEW.md`. They list the pictures now taken and the terms already opened here. They also say why I kept a ball on a slope out of 11.6: the gold standard's 11.6.3 uses that picture for the H⁺ gradient.",
    "put_back": [],
    "tries": 1
+  },
+  "11.6.1": {
+   "problems": [],
+   "turns": 83,
+   "usage": {
+    "input_tokens": 37518358,
+    "output_tokens": 126600
+   },
+   "minutes": 24.1,
+   "writer_reply": "its points don't list `uses`), and nothing new came from this heading.\n- The two endings fit together. This heading's recap picks up the question 11.6 left open. It teaches what 11.6.2's recap repeats: one water molecule refills PS II, two of them give 4 electrons, 4 H⁺ and one O₂, and the electron moves in one direction. It ends on 11.6.2's question, left unanswered, worded so it doesn't repeat 11.6.2's opening line.\n- The first check found three small things. I fixed them by rewording only, with no new lines added.\n- What I learned is at the bottom of `YAADEIN_NEW.md`. The main points: the running picture (dahi ka bilona) is now used up for later headings. \"Lumen\" is first explained here, so 11.6.3 should only remind it. The skill and Navin's word did not differ anywhere in this heading.",
+   "put_back": [],
+   "tries": 1
   }
  },
  "script": {
   "headings": 21,
-  "points": 221,
+  "points": 222,
   "summary_taught": 11,
   "summary": 11,
   "exercises_prepared": 13,
   "exercises": 13,
   "checkpoints": 21,
-  "sentences": 2274,
-  "words": 40233,
-  "minutes": 309,
+  "sentences": 2360,
+  "words": 41953,
+  "minutes": 323,
   "covered": 156,
   "coverable": 156,
   "analogies": 16,
   "examples": 24,
   "real_world": 12,
-  "outside_book": 138,
-  "questions": 253,
-  "question_share": 0.094,
+  "outside_book": 142,
+  "questions": 259,
+  "question_share": 0.092,
   "fragments": 0,
   "retells": 16,
-  "facts": 683,
-  "english_heavy": 121,
-  "english_share": 0.087,
+  "facts": 723,
+  "english_heavy": 113,
+  "english_share": 0.082,
   "goals": 21,
   "baatein": {
-   "book": 186,
-   "word": 207,
-   "base": 117,
+   "book": 197,
+   "word": 213,
+   "base": 129,
    "label": 77,
-   "extra": 96
+   "extra": 107
   },
-  "names_unsaid": 6,
-  "galat": 20,
-  "misaal": 10,
-  "bolchaal": 89,
+  "names_unsaid": 5,
+  "galat": 22,
+  "misaal": 11,
+  "bolchaal": 72,
   "unopened": 1
  },
  "forks_deleted": 1,
- "minutes": 33.2
+ "minutes": 24.1
 }

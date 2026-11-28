@@ -165,3 +165,43 @@
 - Working note: the old 11.6 went in five Edits of whole point blocks (the last leaving a marker key in place of its
   tail), then one Edit put the new head, facts and k1 with a marker string, and two more Edits filled k2–k11.
 - Skill and Navin's word did not differ for this heading.
+
+## 11.6.1 Splitting of Water (sixth copy of this job)
+
+- Opening: recap of 11.6 (Z ka raasta, roller coaster, NADPH), "Yaad rakhein: PS I ki khaali jagah PS II se aaya electron
+  bharta hai ...", "Aage hum dekhenge ki is line ke bilkul shuru mein, PS II ki apni khaali jagah kaun bharta hai", the
+  figure's water hint, then 11.6's open question and the book's own ("How does PS II supply electrons continuously?") as
+  one puzzle: "PS II ko din bhar naye electron milte kahan se hain, aur shaant-sa paani unhe deta kaise hai?" (no term of
+  the heading in it). The end asks it again in other words ("khaali jagah har baar kaun bharta hai, aur paani apne
+  electron chhodta kaise hai?"), answers both, sets up 11.6.2's recap (paani se NADP⁺ tak ek hi disha) and leaves 11.6.2's
+  question open in other words, so its locked opening line is not "said again" ("... raasta hi na mile, toh electron ka
+  kya hoga, aur kuch banega bhi ya nahi?" → "yeh aage hum dekhenge"; bridge empty).
+- The real "kaise" of water giving electrons (a teacher's extra, in 11.6's own frame): paani apne electron bahut kas kar
+  pakadta hai (redox potential scale par bahut neeche); roshni ke baad P680 jeevit duniya ka sabse taaqatwar electron
+  kheenchne wala ban jaata hai aur paani se kheench leta hai ("paani ne diya nahi, P680 ne kheench liya").
+- Running picture: dahi ka bilona (dahi = paani, makhan = electron, mathani kheenchne wala haath = P680, chhachh = H⁺ aur
+  O₂, matka = thaili, andar = lumen, mathani matke ke andar = complex inner side par, dahi poora bant jaata = atom aur
+  charge ka barabar hisaab, roz naya dahi = jad se lagaataar paani). It carries the location turn. Now taken. I kept off a
+  gullak (sikke): 11.7.2's locked dukaan ki poonji already uses sikke and thaili. Small picture, also taken: roti ka net
+  (das bani, aath khaayi).
+- "Ruko, pehle khud socho" at the book's own question (p009-i25): after the clue that the complex faces the lumen, "H⁺
+  aur O₂ pehle kahan chhootenge?" → lumen; then O₂'s place of making against its manzil (hawa), and H⁺ jama hote hain
+  with a one-line seed only ("in H⁺ ka kya hota hai, yeh aage hum dekhenge"; no ATP named, so 11.6.2's end can still ask
+  "ATP bana kaise?").
+- Exam points opened at their moment: PS I ko electron seedhe PS II se, par har electron asal mein paani se (immediate vs
+  ultimate donor; the chapter marks "water refills PS I" as the wrong idea, galat 1); roshni seedhe paani nahi todti
+  (galat 2), naam photolysis of water; Figure 11.5 ka 2e⁻ + 2H⁺ + [O] ek paani ka hisaab, do paani par dugna; anupaat
+  2 : 4 : 1 : 4 by counting atoms and charge; P680 ek baar mein ek electron, chauthe ke baad O₂; ek O₂ = do NADPH = kam se
+  kam aath photon; manganese, calcium, chloride in the complex; oxygen evolving complex; PS II membrane mein dhansa, sirf
+  paani todne wala hissa lumen ki taraf (the book's "inner side" pictured rightly).
+- Terms opened here: splitting of water, net products, 4e⁻, lumen, inner side, water splitting complex. Lumen was not yet
+  opened by any earlier heading of this job (11.3 named thylakoid, stroma, grana only), so 11.6.3 should remind it.
+  O₂, H⁺, e⁻, redox potential, photon, protein complex were reminded only.
+- BIE's check: a short form stuck to a number ("4e⁻") does not count as saying "e⁻", so e⁻ is said by itself too; "PS II"
+  and "P680" are not words for the answer-opens-with-question check (it reads words of three letters or more), so the
+  answer must repeat other words of the question. First run: 3 findings (one answer opener, one line with English
+  ion/atom/gas, one "aapne socha hoga ..." line too close to 11.4's). Fixed by rewording only: 175 → 175 sentences, 14.5
+  words each, 25 % spoken to the learner, 43 % going on, 0 problems. 11.6.2 checked after it: only its own old finding.
+- Working note: one Edit put the new head, facts and k1–k9 with a marker key ("OLDPOINTS": [) in front of the old points;
+  two Edits removed the old points (k1–k4, then k5–k8 with the old bridge and title).
+- Skill and Navin's word did not differ for this heading.
