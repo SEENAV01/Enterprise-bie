@@ -872,7 +872,9 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    first r3 used three balls and Navin caught it). Not chosen: X2's PDB bead model ("X2 ka demo pasand nhi aaya")
    and TripoSR (it made the ball and the carrier flat; for the stalk it was blurrier than the pixel turn). Two of
    Claude's earlier "this went right" claims were wrong on the films: the ball spun in place and vanished leaving a
-   hole, the stalk tilted instead of turning. Next: the remaining rules (dher 2, dher 3, N3–N8); then E2 into the
+   hole, the stalk tilted instead of turning. Navin's verdicts on the demo clips (28 November, card): f3, c1, b6, a7,
+   r3 (the real NADPH), g7 (the ball rolling), c2 (the lake rising) and e3 (the gradient breaking down) pass; the five
+   step pictures "kuchh to fark pada"; the pixel turn of the stalk "sahi laga". Next: the remaining rules (dher 2, dher 3, N3–N8); then E2 into the
    film engine with tests and a real film. **Job k2:** 7 headings written (11.2–11.6.3), 10 left, a window at a
    time.
 
