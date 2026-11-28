@@ -122,12 +122,16 @@ new copy of you, and this copy writes heading {heading} only. Its self-check is:
 In {work}/script.json:
 {lines}{work}/YAADEIN_NEW.md holds what the earlier copies of this job learned; read it, and add yours at its bottom.
 """
-CHAPTER_WRITTEN = """- heading(s) {names} were written earlier in this job by copies of you: build on them as on your own script. This
-  heading's opening recap recalls the heading just before it as it is written there, and its question takes up the
-  question that heading left open.
+CHAPTER_WRITTEN = """- heading(s) {names} were written earlier in this job by copies of you: build on them as on your own script.
 """
-CHAPTER_KEPT = """- heading(s) {names} are the ones Navin chose: never change them. Where the next heading is one of them, end on its
-  opening question left open, and teach in this heading what its opening recap recalls.
+CHAPTER_KEPT = """- heading(s) {names} are the ones Navin chose: never change them.
+"""
+# The neighbours, whoever wrote them (this job or a heading Navin chose): the B3 joins at both ends of this heading.
+CHAPTER_BEFORE = """- this heading's opening recap recalls heading {prev}, just before it, as it is written there, and its question
+  takes up the question {prev} left open.
+"""
+CHAPTER_AFTER = """- heading {nxt}, just after this one, is one Navin chose: end on its opening question left open, and teach in this
+  heading what its opening recap recalls.
 """
 CHAPTER_OLD = """- the other headings are BIE's older script and are written again after you: never take your way of saying things
   from them.
@@ -580,6 +584,12 @@ def chapter(args, *, run=subprocess.run, binary: str = "", now=time.time) -> dic
                 lines += CHAPTER_WRITTEN.format(names=", ".join(map(name_of, state["done"])))
             if state["kept"]:
                 lines += CHAPTER_KEPT.format(names=", ".join(map(name_of, state["kept"])))
+            order = [h["number"] for h in studio_script.headings(chapter_map)]
+            at = order.index(number)
+            if at > 0 and order[at - 1] in set(state["done"]) | set(state["kept"]):
+                lines += CHAPTER_BEFORE.format(prev=name_of(order[at - 1]))
+            if at + 1 < len(order) and order[at + 1] in state["kept"]:
+                lines += CHAPTER_AFTER.format(nxt=name_of(order[at + 1]))
             written_parts = json.loads((work / "script.json").read_text(encoding="utf-8")).get("parts") or []
             if any(p.get("section") not in set(state["done"]) | set(state["kept"]) | {number} for p in written_parts):
                 lines += CHAPTER_OLD                         # headings of BIE's older script are still in it

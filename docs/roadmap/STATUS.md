@@ -833,6 +833,14 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    (`#e8c26a`), and in 11.6.2's film the electron was gold, red, gold across its three parts and purple was NADPH in one
    part and ATP in the next. **Branch `bolchaal-khaate`:** the office-word check no longer reads "khaata"/"khaate" as an
    account when a verb's helper follows ("khaata hai", "khaate hain"; job k1's writer had to word around it twice).
+   **PR #235 merged. Navin's verdict on k1 (28 November):** the terms the opening opens are fine for the learner, every
+   outside-the-book addition stays; job k1v added 0-k16's why (CO₂ has no hydrogen on its carbon, so it is counted
+   inorganic) and said 0-k9 with "shaayad" (20 turns, 4.6 million tokens, 0 problems, only those two points changed);
+   then "Shayad hata do jaisa tha waisa hi kar do": job k1w puts 0-k9 back as k1 wrote it. Then the other 17 headings.
+   **Branch `chapter-neighbours`:** the chapter note names both neighbours of the heading, whoever wrote them: the
+   recap recalls the heading before (written in this job or chosen by Navin) and takes up its open question, and the
+   end leaves the next heading's question open when Navin chose that one (before, the first was said only for
+   headings this job wrote, so 11.2 after the chosen 11.1 would not have been told).
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 

@@ -449,9 +449,15 @@ class ChapterJob(WriterBase):
         self.assertIn("Write the script of heading(s)", first)                   # c3's own task, as it was
         self.assertNotIn("were written earlier in this job", first)
         self.assertIn("heading(s) 11.6 are the ones Navin chose: never change them", first)
+        self.assertIn("heading 11.6, just after this one, is one Navin chose: end on its opening question", first)
+        self.assertNotIn("recap recalls heading", first)                         # nothing before the opening
         self.assertIn('heading(s) "" (the opening) were written earlier in this job', second)
         self.assertIn("--heading 11.6.1", second)
-        self.assertIn("takes up the\n  question that heading left open", second)
+        # after a heading Navin chose, too: the recap recalls it and takes up the question it left open
+        self.assertIn("recap recalls heading 11.6, just before it, as it is written there, and its question\n  takes up "
+                      "the question 11.6 left open", second)
+        self.assertNotIn("just after this one", second)
+        self.assertIn("recap recalls heading 11.6.1, just before it", self.task(2))
         self.assertIn("older script", self.task(1))                              # recap is still BIE's older script
         self.assertNotIn("older script", self.task(2))                           # nothing old is left after the last
         self.assertEqual((self.out / "YAADEIN_NEW.md").read_text(encoding="utf-8").count(": seekha"), 3)
