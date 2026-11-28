@@ -1,0 +1,86 @@
+{
+ "schema": "bie.studio-run/1",
+ "section": "studio",
+ "stage": "script",
+ "status": "ok",
+ "maker": "claude (Claude Code on Navin's Claude plan, the bie-script-writer skill)",
+ "model": "opus, effort xhigh",
+ "cost": {
+  "total_inr": 0.0
+ },
+ "error": null,
+ "base_session": true,
+ "usage": {
+  "input_tokens": 3757855,
+  "output_tokens": 3065
+ },
+ "turns": 12,
+ "writer_reply": "(opening, section \"\"): 310 sentences, 0 problems left. Point 0-k9 is back exactly as it was before the last change: the line, the soil part of its screen, and its outside_book. Nothing else in the script was changed, and the new why line in 0-k16 is still there.",
+ "notional_usd": 3571.663470824959,
+ "rewritten": [
+  ""
+ ],
+ "problems": {},
+ "script": {
+  "headings": 21,
+  "points": 228,
+  "summary_taught": 11,
+  "summary": 11,
+  "exercises_prepared": 13,
+  "exercises": 13,
+  "checkpoints": 20,
+  "sentences": 1768,
+  "words": 30597,
+  "minutes": 235,
+  "covered": 156,
+  "coverable": 156,
+  "analogies": 18,
+  "examples": 27,
+  "real_world": 14,
+  "outside_book": 124,
+  "questions": 247,
+  "question_share": 0.128,
+  "fragments": 0,
+  "retells": 16,
+  "facts": 300,
+  "english_heavy": 203,
+  "english_share": 0.15,
+  "goals": 21,
+  "baatein": {
+   "book": 85,
+   "word": 101,
+   "base": 44,
+   "label": 36,
+   "extra": 34
+  },
+  "names_unsaid": 7,
+  "galat": 10,
+  "misaal": 5,
+  "bolchaal": 148,
+  "unopened": 1
+ },
+ "verdict": "Navin's verdict on the opening (28 November 2026), after your last change: \"Shayad hata do jaisa tha waisa hi kar do.\" Put point 0-k9 back exactly as it was before that change, word for word, and change nothing else (the new why line in 0-k16 stays). Its line, as it was: \"Ab van Helmont ki mitti ke woh 57 gram samajh aate hain. Paudhe ne mitti se zyadatar yahi thode minerals liye the.\" Its outside_book, as it was: \"C¹⁴ aam carbon jaisa hi reactions mein chalta hai (neutron rasayanik vyavhaar nahi badalte); prayog mein C¹⁴ sugar mein mila; van Helmont ki mitti ke 57 gram minerals the; C¹⁴ ko ¹⁴C bhi likhte hain.\" In its screen, the part about the soil, as it was: \"van Helmont ki mitti ke 57 gram = minerals\".",
+ "verdict_changes": {
+  "points_changed": [
+   {
+    "id": "0-k9",
+    "added": false,
+    "removed": false,
+    "lines_removed": [
+     "Ab van Helmont ki mitti ke woh 57 gram shaayad samajh aate hain. Paudhe ne mitti se shaayad yahi thode minerals liye the, aur kuch farq tolne ki chook ka bhi ho sakta hai."
+    ],
+    "lines_added": [
+     "Ab van Helmont ki mitti ke woh 57 gram samajh aate hain. Paudhe ne mitti se zyadatar yahi thode minerals liye the."
+    ],
+    "fields": [
+     "outside_book",
+     "screen"
+    ]
+   }
+  ],
+  "points_same": 19,
+  "fields_changed": []
+ },
+ "forks_deleted": 1,
+ "minutes": 1.2
+}
