@@ -841,6 +841,17 @@ problems go back (at most `max_rounds`); a stage with problems left is reported 
    recap recalls the heading before (written in this job or chosen by Navin) and takes up its open question, and the
    end leaves the next heading's question open when Navin chose that one (before, the first was said only for
    headings this job wrote, so 11.2 after the chosen 11.1 would not have been told).
+   **PR #236 merged. Job k1w done** (12 turns, 0-k9 back byte for byte as k1 wrote it, 0-k16's why kept). **Job k2
+   queued (28 November):** the other 17 headings, keep `h0,h11-1,h11-6-2,h11-7-2`, 4 per window. **Film rule D8,
+   talked through (Navin, 28 November):** one clean picture per idea goes to the cupboard (the dam with no leak and
+   nothing stuck on it); the science stays the main picture and the dam comes as an inset when its analogy is spoken
+   (CF₀ = pipe, CF₁ = turbine); a detail a line needs (the leak) is added to that clean picture for that line only; in
+   another script or subject the same picture is changed to its use (labels, zoom, light, moving parts, cut-outs);
+   never forced: a new picture when the script needs one. Found for it: 11.6.3's film used one dam picture, with a
+   leaking joint and an ATP synthase inset painted in, unchanged in four shots (a-s10, e-s2, e-s5, e-s7) whose lines
+   never speak of a leak. **Branch `black-shot-check`:** a picture the image service did not hand back is asked for up
+   to three times, and a photo or cutaway shot still without one is named first among the film's problems
+   (`black_shots`); 11.6.2's gulel shot (f3) was one failed try listed among small problems.
 
 ## Film-pehle course studio: the Monsoon demo and its method (18 November 2026, learning track)
 
