@@ -9,14 +9,16 @@
   "total_inr": 0.0
  },
  "error": null,
- "resume_at": 1795874185.7916448,
- "waiting_for": "4 headings written in this window of the plan",
- "resume_at_utc": "2026-11-28 13:56 UTC",
+ "base_session": true,
+ "resume_at": 1795876297.1267352,
+ "waiting_for": "the next heading (other jobs on this machine go first)",
+ "resume_at_utc": "2026-11-28 14:31 UTC",
  "rewritten": [
   "11.2",
   "11.3",
   "11.4",
-  "11.5"
+  "11.5",
+  "11.6"
  ],
  "kept": [
   "",
@@ -25,19 +27,19 @@
   "11.7.2"
  ],
  "usage": {
-  "input_tokens": 139537415,
-  "output_tokens": 731982
+  "input_tokens": 178528388,
+  "output_tokens": 927253
  },
- "turns": 435,
+ "turns": 559,
  "progress": {
   "written": [
    "11.2",
    "11.3",
    "11.4",
-   "11.5"
+   "11.5",
+   "11.6"
   ],
   "left": [
-   "11.6",
    "11.6.1",
    "11.6.3",
    "11.7",
@@ -108,46 +110,58 @@
    "writer_reply": "khoj ke kram se hain. Antenna mein bhi chlorophyll a hai. P700 aur P680 dono chlorophyll a hi hain.\n- **Aakhir:** shuru ka sawaal naye shabdon mein dobara poocha aur uska jawab diya. Agla sawaal khula chhoda: \"electron aage kahan jaata hai, yeh aage hum dekhenge\".\n\nJaanch ki 8 kamiyan aisi theek kin: lambe vakyon ko tod kar, LHC ka naam kholkar, aur aakhir ka sawaal naye shabdon mein likh kar. Koi nayi baat nahi jodi. Skill aur Navin ki baat mein is heading par koi farq nahi mila. Seekh `YAADEIN_NEW.md` ke neeche jod di hai.\n\nAgli heading ke liye ek baat: 11.6 ki purani BIE script mein ek line hai, \"Dono LHC labels wahi light harvesting complexes hain...\". Yeh 11.5 mein khole gaye naam ko dobara samjhati hai. Jab 11.6 nayi likhi jaayegi, to wahan sirf yaad dilana hai, dobara samjhana nahi.",
    "put_back": [],
    "tries": 1
+  },
+  "11.6": {
+   "problems": [],
+   "turns": 124,
+   "usage": {
+    "input_tokens": 38990973,
+    "output_tokens": 195271
+   },
+   "minutes": 33.1,
+   "writer_reply": "s chemically exact is noted only in the record (`outside_book`), never spoken.\n- **Fixes after the first check:** it raised 4 findings. I reworded three lines and split 24 long sentences. I also added one sentence in k5 that answers k1's promise of why the electron needs two pushes. That took the heading from 182 to 207 sentences with nothing else new.\n\nMy heading causes no clash with Navin's locked 11.6.2. The check on 11.6.2 does show one finding: its facts are not linked to any point. That comes from its own format, which I did not touch.\n\nNotes for later copies are at the bottom of `YAADEIN_NEW.md`. They list the pictures now taken and the terms already opened here. They also say why I kept a ball on a slope out of 11.6: the gold standard's 11.6.3 uses that picture for the H⁺ gradient.",
+   "put_back": [],
+   "tries": 1
   }
  },
  "script": {
   "headings": 21,
-  "points": 220,
+  "points": 221,
   "summary_taught": 11,
   "summary": 11,
   "exercises_prepared": 13,
   "exercises": 13,
   "checkpoints": 21,
-  "sentences": 2164,
-  "words": 38333,
-  "minutes": 295,
+  "sentences": 2274,
+  "words": 40233,
+  "minutes": 309,
   "covered": 156,
   "coverable": 156,
   "analogies": 16,
   "examples": 24,
   "real_world": 12,
-  "outside_book": 135,
-  "questions": 252,
-  "question_share": 0.099,
+  "outside_book": 138,
+  "questions": 253,
+  "question_share": 0.094,
   "fragments": 0,
   "retells": 16,
-  "facts": 615,
-  "english_heavy": 125,
-  "english_share": 0.094,
+  "facts": 683,
+  "english_heavy": 121,
+  "english_share": 0.087,
   "goals": 21,
   "baatein": {
-   "book": 173,
-   "word": 191,
-   "base": 102,
-   "label": 63,
-   "extra": 86
+   "book": 186,
+   "word": 207,
+   "base": 117,
+   "label": 77,
+   "extra": 96
   },
   "names_unsaid": 6,
-  "galat": 18,
-  "misaal": 9,
-  "bolchaal": 107,
+  "galat": 20,
+  "misaal": 10,
+  "bolchaal": 89,
   "unopened": 1
  },
- "forks_deleted": 0,
- "minutes": 0.0
+ "forks_deleted": 1,
+ "minutes": 33.2
 }

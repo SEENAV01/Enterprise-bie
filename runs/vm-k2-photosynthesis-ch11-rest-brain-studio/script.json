@@ -8092,29 +8092,538 @@
   },
   {
    "section": "11.6",
-   "goal": "Ab reaction centre se nikle electron ka raasta follow karenge, aur samjhenge ki do light boosts use NADPH formation tak kaise pahunchate hain.",
+   "goal": "Har baar roshni padne par dono photosystem apna ek electron chhod dete hain; toh yeh electron jaate kahan hain, aur photosystem khaali kyun nahi ho jaate?",
+   "misaal": "roller coaster: gaadi = electron; do motor wali chain = roshni ke do dhakke (pehla PS II par, doosra PS I par); har choti = electron acceptor; pehli lambi utaar = PS II se PS I tak cytochromes ki kadi (downhill); doosri, aur bhi oonchi choti = PS I ka acceptor (greater redox potential); aakhri utaar = NADP⁺ tak; oonche platform wala station = NADP⁺, jahan electron rukta hai; poore raaste gaadi wahi rehti hai = electron kharch nahi hota; oonchai = energy",
+   "facts": [
+    {
+     "id": "f1",
+     "item": "p008-i14",
+     "kind": "book",
+     "term": "",
+     "fact": "PS II ke reaction centre ka chlorophyll a 680 nm wavelength ki laal roshni sokhta hai."
+    },
+    {
+     "id": "f2",
+     "item": "p008-i14",
+     "kind": "book",
+     "term": "",
+     "fact": "Isse electron excited hote hain aur atom ke nucleus se door wale orbit mein kood jaate hain."
+    },
+    {
+     "id": "f3",
+     "item": "p008-i14",
+     "kind": "book",
+     "term": "",
+     "fact": "In electrons ko ek electron acceptor pakadta hai, jo inhe aage electron transport system ko de deta hai."
+    },
+    {
+     "id": "f4",
+     "item": "p008-i14",
+     "kind": "word",
+     "term": "excited",
+     "fact": "Excited: energy paakar electron ka zyada energy wali, uchhli hui haalat mein pahunchna; excited = uttejit."
+    },
+    {
+     "id": "f5",
+     "item": "p008-i14",
+     "kind": "word",
+     "term": "orbit",
+     "fact": "Orbit: nucleus ke chaaron taraf electron ke ghoomne ka raasta; nucleus se jitna door ka orbit, wahan tikne ke liye utni zyada energy."
+    },
+    {
+     "id": "f6",
+     "item": "p008-i14",
+     "kind": "word",
+     "term": "electron acceptor",
+     "fact": "Electron acceptor: doosre molecule se electron lene wala molecule; accept = lena; PS II ka pehla acceptor wahi primary acceptor hai."
+    },
+    {
+     "id": "f7",
+     "item": "p008-i14",
+     "kind": "base",
+     "term": "",
+     "fact": "PS II and P680: PS II ka reaction centre P680 hai, ek chlorophyll a jiski absorption choti 680 nm par; kaam mein PS II pehle aata hai, number khoj ke kram se pade (pichhli film)."
+    },
+    {
+     "id": "f8",
+     "item": "p008-i14",
+     "kind": "base",
+     "term": "",
+     "fact": "Electron and atomic nucleus: atom ke beech mein nucleus (proton aur neutron), aur uske chaaron taraf chhote, negative charge wale electron ghoomte hain (Class 9; chapter ki shuruaat)."
+    },
+    {
+     "id": "f9",
+     "item": "p008-i14",
+     "kind": "base",
+     "term": "",
+     "fact": "Photon absorption: roshni photon naam ke packeton mein aati hai; antenna ke pigment photon sokh kar uski energy reaction centre tak bhejte hain (pichhli film)."
+    },
+    {
+     "id": "f10",
+     "item": "p008-i14",
+     "kind": "base",
+     "term": "",
+     "fact": "Electron acceptor (pichhli film): reaction centre se uchhla electron sabse pehle primary acceptor pakadta hai."
+    },
+    {
+     "id": "f11",
+     "item": "p008-i14",
+     "kind": "extra",
+     "term": "",
+     "fact": "Excited electron apne molecule mein der tak nahi tikta; paas baitha acceptor use turant le leta hai."
+    },
+    {
+     "id": "f12",
+     "item": "p009-i1",
+     "kind": "book",
+     "term": "",
+     "fact": "Electron transport system cytochromes se bana hai (Figure 11.5)."
+    },
+    {
+     "id": "f13",
+     "item": "p009-i1",
+     "kind": "book",
+     "term": "",
+     "fact": "Electrons ka yeh chalna oxidation-reduction, yaani redox potential, scale par downhill hai."
+    },
+    {
+     "id": "f14",
+     "item": "p009-i1",
+     "kind": "book",
+     "term": "",
+     "fact": "Electron transport chain se guzarte hue electron kharch nahi hote; woh aage PS I ke pigments tak de diye jaate hain."
+    },
+    {
+     "id": "f15",
+     "item": "p009-i1",
+     "kind": "book",
+     "term": "",
+     "fact": "Saath-saath PS I ke reaction centre ke electron 700 nm wavelength ki laal roshni paakar excite hote hain, aur ek doosre acceptor molecule ko de diye jaate hain, jiska redox potential greater hai."
+    },
+    {
+     "id": "f16",
+     "item": "p009-i1",
+     "kind": "word",
+     "term": "cytochromes",
+     "fact": "Cytochromes: electron lekar aage dene wale rangeen proteins; cyto = cell, chrome = rang; inke beech ka loha (iron) electron leta aur deta hai."
+    },
+    {
+     "id": "f17",
+     "item": "p009-i1",
+     "kind": "word",
+     "term": "redox potential",
+     "fact": "Redox potential: koi molecule electron ko kitne zor se pakadta hai ya kitni aasaani se chhodta hai, iska maap; redox = reduction + oxidation; is maap se molecules ko upar-neeche rakhne par redox potential scale banti hai."
+    },
+    {
+     "id": "f18",
+     "item": "p008-i14",
+     "kind": "word",
+     "term": "electron transport system",
+     "fact": "Electron transport system: electron ko aage pahunchane wala intezaam; transport = ek jagah se doosri jagah pahunchana, system = kai hisson ka milkar kaam karne wala intezaam."
+    },
+    {
+     "id": "f19",
+     "item": "p009-i1",
+     "kind": "word",
+     "term": "downhill",
+     "fact": "Downhill: down = neeche, hill = pahadi; redox potential scale par electron ka apne aap upar se neeche utarna, jismein uski kuch energy nikalti hai."
+    },
+    {
+     "id": "f20",
+     "item": "p009-i1",
+     "kind": "word",
+     "term": "electron transport chain",
+     "fact": "Electron transport chain: electron ko aage dene wale molecules ki kadi; chain = zanjeer, jo kadiyon se banti hai."
+    },
+    {
+     "id": "f21",
+     "item": "p009-i1",
+     "kind": "word",
+     "term": "greater redox potential",
+     "fact": "Greater redox potential wala acceptor: PS I ka doosra acceptor, jo scale par PS II wale acceptor se bhi oonchi jagah baitha hai; wahan pahunch kar electron sabse zyada energy wali haalat mein hota hai."
+    },
+    {
+     "id": "f22",
+     "item": "p009-i1",
+     "kind": "base",
+     "term": "",
+     "fact": "Light absorption by reaction-centre pigments: reaction centre ka chlorophyll a roshni ki energy paakar apna electron chhodta hai (pichhli film)."
+    },
+    {
+     "id": "f23",
+     "item": "p009-i1",
+     "kind": "base",
+     "term": "",
+     "fact": "Electrons and oxidation-reduction: molecule se electron (ya hydrogen) nikalna oxidation hai, aur milna reduction (11.2 aur 11.4 mein dekha)."
+    },
+    {
+     "id": "f24",
+     "item": "p009-i1",
+     "kind": "base",
+     "term": "",
+     "fact": "PS II and PS I: do photosystem; PS II ka reaction centre P680, PS I ka P700; kaam mein pehle PS II, phir PS I (pichhli film)."
+    },
+    {
+     "id": "f25",
+     "item": "p009-i1",
+     "kind": "extra",
+     "term": "",
+     "fact": "PS I ka electron chale jaane se uski jagah khaali hoti hai; kadi se aaya PS II ka electron yahi khaali jagah bharta hai, isliye dono photosystem ek line mein jude hain aur PS I khaali nahi hota."
+    },
+    {
+     "id": "f26",
+     "item": "p009-i1",
+     "kind": "extra",
+     "term": "",
+     "fact": "Redox potential scale par upar woh molecule jo electron aasaani se chhodte hain, neeche woh jo use kas kar pakadte hain; isliye electron apne aap upar se neeche jaata hai, kamzor pakad se mazboot pakad ki taraf."
+    },
+    {
+     "id": "f27",
+     "item": "p009-i2",
+     "kind": "book",
+     "term": "",
+     "fact": "Phir yeh electron dobara downhill jaate hain, is baar energy-rich NADP⁺ ke ek molecule tak."
+    },
+    {
+     "id": "f28",
+     "item": "p009-i2",
+     "kind": "book",
+     "term": "",
+     "fact": "In electrons ke judne se NADP⁺ reduce hota hai."
+    },
+    {
+     "id": "f29",
+     "item": "p009-i2",
+     "kind": "word",
+     "term": "NADP⁺",
+     "fact": "NADP⁺: electron lene ko taiyaar, khaali carrier molecule (khaali thaila); electron paakar yahi bhara hua NADPH banta hai."
+    },
+    {
+     "id": "f30",
+     "item": "p009-i2",
+     "kind": "word",
+     "term": "energy-rich",
+     "fact": "Energy-rich: energy se bhara; electron paakar bana NADPH energy se bhara hota hai."
+    },
+    {
+     "id": "f31",
+     "item": "p009-i2",
+     "kind": "base",
+     "term": "",
+     "fact": "Electron gain as reduction: kisi molecule ko electron milna hi uska reduction hai."
+    },
+    {
+     "id": "f32",
+     "item": "p009-i2",
+     "kind": "base",
+     "term": "",
+     "fact": "PS I excitation: PS I ka P700 700 nm ki roshni paakar excite hota hai aur apna electron doosre acceptor ko deta hai (abhi dekha)."
+    },
+    {
+     "id": "f33",
+     "item": "p009-i2",
+     "kind": "extra",
+     "term": "",
+     "fact": "Ek NADP⁺ ko NADPH banne ke liye do electron chahiye; exam ke liye: khaali NADP⁺, bhara NADPH, dono ke naam aapas mein nahi badalte."
+    },
+    {
+     "id": "f34",
+     "item": "p009-i3",
+     "kind": "book",
+     "term": "",
+     "fact": "NADP⁺ reduce hokar NADPH + H⁺ banta hai."
+    },
+    {
+     "id": "f35",
+     "item": "p009-i3",
+     "kind": "book",
+     "term": "",
+     "fact": "Electron ka poora raasta, PS II se uphill acceptor tak, electron transport chain se neeche PS I tak, electron ka excite hona, doosre acceptor tak jaana, aur aakhir mein downhill NADP⁺ tak jo reduce hokar NADPH + H⁺ banta hai, apne khaas aakaar ki wajah se Z scheme kehlata hai (Figure 11.5)."
+    },
+    {
+     "id": "f36",
+     "item": "p009-i3",
+     "kind": "book",
+     "term": "",
+     "fact": "Yeh aakaar tab banta hai jab saare carriers redox potential scale par ek kram mein rakhe jaayein."
+    },
+    {
+     "id": "f37",
+     "item": "p009-i3",
+     "kind": "word",
+     "term": "Z scheme",
+     "fact": "Z scheme: do baar roshni se upar uthte electron ka poora raasta, jo carriers ko scale par rakhne par karvat lete Z jaisa dikhta hai; scheme = khaaka."
+    },
+    {
+     "id": "f38",
+     "item": "p009-i3",
+     "kind": "word",
+     "term": "carrier",
+     "fact": "Carrier: electron lekar agle molecule ko dene wala molecule; carry = dhona, jaise cycle ka carrier saamaan dhota hai."
+    },
+    {
+     "id": "f39",
+     "item": "p009-i3",
+     "kind": "word",
+     "term": "uphill",
+     "fact": "Uphill: up = upar; scale par electron ka upar chadhna, jo apne aap nahi hota; iske liye roshni ki energy lagti hai."
+    },
+    {
+     "id": "f40",
+     "item": "p009-i3",
+     "kind": "word",
+     "term": "H⁺",
+     "fact": "H⁺: hydrogen atom jiska ek electron nikal gaya; bacha sirf ek proton, aur plus ka nishaan uska positive charge."
+    },
+    {
+     "id": "f41",
+     "item": "p009-i3",
+     "kind": "base",
+     "term": "",
+     "fact": "Electron transport between photosystems: PS II ka electron cytochromes ki kadi se utar kar PS I tak jaata hai (abhi dekha)."
+    },
+    {
+     "id": "f42",
+     "item": "p009-i3",
+     "kind": "base",
+     "term": "",
+     "fact": "Light-driven electron excitation: roshni electron ko oonchi energy tak uthaati hai, PS II par 680 nm aur PS I par 700 nm (abhi dekha)."
+    },
+    {
+     "id": "f43",
+     "item": "p009-i3",
+     "kind": "base",
+     "term": "",
+     "fact": "NADP⁺ reduction: NADP⁺ electron paakar reduce hota hai aur NADPH banta hai (abhi dekha)."
+    },
+    {
+     "id": "f44",
+     "item": "p009-i3",
+     "kind": "extra",
+     "term": "",
+     "fact": "Membrane mein electron Z ke aakaar mein nahi chalta; Z energy ka chitra hai, membrane ka raasta nahi (exam ki aam galatfahmi)."
+    },
+    {
+     "id": "f45",
+     "item": "p009-i3",
+     "kind": "extra",
+     "term": "",
+     "fact": "Ek NADP⁺ do electron aur H⁺ lekar NADPH banta hai; NADPH + H⁺ mein saath likha H⁺ hisaab poora rakhta hai."
+    },
+    {
+     "id": "f46",
+     "item": "p009-i3",
+     "kind": "extra",
+     "term": "",
+     "fact": "Exam mein Z scheme aksar adhoora dekar poochha jaata hai; kram: PS II, uska acceptor, kadi, PS I, uska acceptor, aur NADP⁺."
+    },
+    {
+     "id": "f47",
+     "item": "p009-i4",
+     "kind": "book",
+     "term": "",
+     "fact": "Figure 11.5 (Z scheme of light reaction): baayein Photosystem II, daayein Photosystem I; Light se peele dashed teer dono LHC tak; PS II ke LHC se laal teer upar uske e⁻ acceptor tak; phir laal teer Electron transport system se neeche PS I ke LHC tak; is system ke upar ADP + iP se ATP; PS I ke LHC se doosra laal teer upar uske e⁻ acceptor tak, phir NADP⁺ se NADPH; PS II ke neeche H₂O se 2e⁻ + 2H⁺ + [O], aur ek teer electron PS II ke LHC tak."
+    },
+    {
+     "id": "f48",
+     "item": "p009-i4",
+     "kind": "label",
+     "term": "Photosystem II",
+     "fact": "Photosystem II: upar baayein bracket, jo PS II aur uske electron acceptor ko gherta hai."
+    },
+    {
+     "id": "f49",
+     "item": "p009-i4",
+     "kind": "label",
+     "term": "Photosystem I",
+     "fact": "Photosystem I: daayein bracket, jo PS I aur uske electron acceptor ko gherta hai."
+    },
+    {
+     "id": "f50",
+     "item": "p009-i4",
+     "kind": "label",
+     "term": "Light",
+     "fact": "Light: baayein peela gola; usse peele dashed teer dono LHC tak, yaani roshni dono photosystem par padti hai."
+    },
+    {
+     "id": "f51",
+     "item": "p009-i4",
+     "kind": "label",
+     "term": "LHC",
+     "fact": "LHC (baayein, hara oval): PS II ka roshni batorne wala jhund; roshni aur paani se aaya electron yahin pahunchte hain, aur yahin se teer upar acceptor tak."
+    },
+    {
+     "id": "f52",
+     "item": "p009-i4",
+     "kind": "label",
+     "term": "LHC",
+     "fact": "LHC (daayein, hara oval): PS I ka roshni batorne wala jhund; roshni aur kadi se aaya electron yahin pahunchte hain, aur yahin se doosra teer upar."
+    },
+    {
+     "id": "f53",
+     "item": "p009-i4",
+     "kind": "label",
+     "term": "e⁻ acceptor",
+     "fact": "e⁻ acceptor (baayein, gulabi oval): PS II ke LHC se upar jaata laal teer yahin pahunchta hai; yahan se electron kadi ki taraf."
+    },
+    {
+     "id": "f54",
+     "item": "p009-i4",
+     "kind": "label",
+     "term": "e⁻ acceptor",
+     "fact": "e⁻ acceptor (daayein, gulabi oval): PS I ke LHC se doosra upar jaata teer yahin pahunchta hai; yahan se electron NADP⁺ ki taraf."
+    },
+    {
+     "id": "f55",
+     "item": "p009-i4",
+     "kind": "label",
+     "term": "Electron transport system",
+     "fact": "Electron transport system: beech ka baingani dabba, PS II ke acceptor aur PS I ke LHC ke beech neeche utarte laal teeron par; cytochromes wali kadi."
+    },
+    {
+     "id": "f56",
+     "item": "p009-i4",
+     "kind": "label",
+     "term": "ADP + iP",
+     "fact": "ADP + iP: dabbe ke upar mudi teer ki shuruaat; ATP banne ki shuruaati cheezein, electron ke utaar ke saath."
+    },
+    {
+     "id": "f57",
+     "item": "p009-i4",
+     "kind": "label",
+     "term": "ATP",
+     "fact": "ATP: usi mudi teer ka ant; electron ke utaar ke saath ATP banta hai (kaise, yeh aage)."
+    },
+    {
+     "id": "f58",
+     "item": "p009-i4",
+     "kind": "label",
+     "term": "NADP⁺",
+     "fact": "NADP⁺: daayein aakhri mudi teer par, khaali acceptor jahan electron ka safar khatam hota hai."
+    },
+    {
+     "id": "f59",
+     "item": "p009-i4",
+     "kind": "label",
+     "term": "NADPH",
+     "fact": "NADPH: usi aakhri teer par NADP⁺ ke upar likha bhara hua product."
+    },
+    {
+     "id": "f60",
+     "item": "p009-i4",
+     "kind": "label",
+     "term": "H₂O",
+     "fact": "H₂O: PS II ke neeche paani, jahan se electron dene wala teer shuru hota hai."
+    },
+    {
+     "id": "f61",
+     "item": "p009-i4",
+     "kind": "label",
+     "term": "2e⁻ + 2H⁺ + [O]",
+     "fact": "2e⁻ + 2H⁺ + [O]: ek paani ke molecule ka hisaab, do electron, do H⁺ aur oxygen ka ek atom; ek teer electron PS II ke LHC tak le jaata hai."
+    },
+    {
+     "id": "f62",
+     "item": "p009-i4",
+     "kind": "word",
+     "term": "e⁻",
+     "fact": "e⁻: electron ka nishaan; e = electron, upar ka chhota minus = uska negative charge."
+    },
+    {
+     "id": "f63",
+     "item": "p009-i4",
+     "kind": "base",
+     "term": "",
+     "fact": "Photosystems: do photosystem, har ek mein roshni batorne wala LHC aur ek reaction centre (pichhli film)."
+    },
+    {
+     "id": "f64",
+     "item": "p009-i4",
+     "kind": "base",
+     "term": "",
+     "fact": "Electron transfer: electron ek molecule se doosre molecule tak jaata hai; dene wala oxidise, lene wala reduce hota hai (abhi dekha)."
+    },
+    {
+     "id": "f65",
+     "item": "p009-i4",
+     "kind": "base",
+     "term": "",
+     "fact": "ATP and NADPH as light-reaction products: ATP energy lekar aur NADPH electron aur hydrogen lekar stroma tak jaate hain, jahan sugar banti hai (11.3, 11.5)."
+    },
+    {
+     "id": "f66",
+     "item": "p009-i4",
+     "kind": "extra",
+     "term": "",
+     "fact": "[O] yaani oxygen ka ek atom; aise do atom milkar O₂ gas banti hai, isliye figure ka [O] O₂ nahi hai."
+    },
+    {
+     "id": "f67",
+     "item": "p009-i3",
+     "kind": "extra",
+     "term": "",
+     "fact": "Ek NADPH ke liye kam se kam chaar photon lagte hain: do electron, aur har electron ke peeche ek photon PS II par aur ek PS I par."
+    },
+    {
+     "id": "f68",
+     "item": "p009-i1",
+     "kind": "extra",
+     "term": "",
+     "fact": "Kuch kharpatwar-naashak dawaiyaan (weed-killer) PS II ke aage ki kadi mein electron ka raasta rok deti hain; tab PS I ki khaali jagah nahi bharti, NADPH nahi banta aur paudha bhookha mar jaata hai."
+    }
+   ],
    "points": [
     {
      "id": "11.6-k1",
      "kind": "overview",
      "teaches": [],
      "recalls": [
-      "11.5-k5",
-      "11.5-k7"
+      "11.5-k9",
+      "11.5-k6"
      ],
      "says": [
-      "Ab reaction centre se nikle electron ka raasta follow karenge, aur samjhenge ki do light boosts use NADPH formation tak kaise pahunchate hain.",
-      "Reaction centre se primary acceptor ko electron donation aur P680–P700 ki identities hum pehle pehchaan chuke hain.",
-      "Yahaan teen padaav hain: PS II mein excitation, carriers se PS I tak transfer aur doosri excitation, phir final acceptor ki reduction.",
-      "Ek route mein light do baar kyun chahiye?",
-      "Dekho, beech ke transfers mein electron ki available energy ghatati hai, isliye aage reducing power banane ke liye PS I doosra boost deta hai."
+      "Pichhli film mein humne dekha ki har photosystem ke sainkdon pigment milkar roshni batorte hain. Unki saari energy ek hi jagah pahunchti hai: reaction centre par.",
+      "Wahan ka electron energy lekar uchhalta hai, aur primary acceptor use pakad leta hai. Yeh kaam PS II mein P680 karta hai, aur PS I mein P700.",
+      "Yaad rakhein: roshni ka asli kaam yahi hai, reaction centre ke ek electron ko uthakar doosre molecule tak pahunchana.",
+      "Aage hum dekhenge ki primary acceptor ke baad electron kis raaste jaata hai, aur do photosystem ek-doosre se kaise bandhe hain.",
+      "Par pehle ek ajeeb baat par gaur karo.",
+      "Socho, patti par din bhar roshni padti hai, aur har baar dono photosystem apna ek electron chhod dete hain.",
+      "Toh yeh saare electron jaate kahan hain, aur itne electron dekar bhi photosystem khaali kyun nahi ho jaate?",
+      "Electron kahan jaate hain aur photosystem khaali kyun nahi hote, yahi aaj ka sawaal hai.",
+      "Iska jawab ek safar mein chhupa hai, jo electron teen padaav mein poora karta hai.",
+      "Pehle padaav par PS II hai. Wahan roshni electron ko upar uchhaalti hai, aur ek acceptor use pakad leta hai.",
+      "Doosre padaav mein electron molecules ki ek kadi se neeche utar kar PS I tak aata hai. Phir wahan roshni use doosri baar uchhaalti hai.",
+      "Aur teesre padaav mein electron phir neeche utarta hai. Woh ek khaas molecule tak pahunch kar ruk jaata hai.",
+      "Aur ek hi electron ko roshni ka dhakka do baar kyun chahiye, yeh bhi aaj saaf ho jaayega."
      ],
-     "screen": "Realistic thylakoid membrane cutaway par PS II aur PS I ki positions; sirf PS II ke paas incoming light aur aage ke teen numbered route placeholders.",
+     "roles": [
+      "known",
+      "known",
+      "known",
+      "link",
+      "plain",
+      "plain",
+      "ask",
+      "answer",
+      "plain",
+      "plain",
+      "plain",
+      "plain",
+      "link"
+     ],
+     "screen": "Pichhli film ki yaad: ek photosystem ke sainkdon pigment se energy ke teer beech ke reaction centre tak; P680 (PS II) aur P700 (PS I) ke reaction centre se electron uchhal kar primary acceptor tak; neeche dabba 'Yaad rakhein: roshni ek electron ko uthakar doosre molecule tak pahunchati hai'. Phir thylakoid membrane par PS II aur PS I saath-saath, din bhar dhoop; dono par roshni padti, dono se ek-ek electron uchhalta; sawaal ka dabba 'electron kahan jaate hain? photosystem khaali kyun nahi hote?'. Phir safar ka naksha teen khaano mein: 1 PS II par roshni ka dhakka aur acceptor; 2 molecules ki kadi se neeche utar kar PS I tak, wahan doosra dhakka; 3 phir neeche utar kar ek khaas molecule par ruk jaana (naam ki jagah '?'); kone mein chhota sawaal '2 dhakke kyun?'.",
      "terms": [],
-     "outside_book": "",
+     "outside_book": "Opening recap of 11.5 (sainkdon pigment, reaction centre, primary acceptor, P680 aur P700) aur uske do khule sawaal; aaj ka sawaal: din bhar electron chhod kar bhi photosystem khaali kyun nahi hote.",
      "prepares": [],
      "answer": "",
-     "watch_out": ""
+     "watch_out": "",
+     "uses": [
+      "f7",
+      "f9",
+      "f10",
+      "f22",
+      "f24"
+     ]
     },
     {
      "id": "11.6-k2",
@@ -8123,247 +8632,659 @@
       "p008-i14"
      ],
      "recalls": [
-      "11.5-k7"
+      "11.5-k2",
+      "11.5-k6",
+      "11.5-k5",
+      "0-k7"
      ],
      "says": [
-      "Raasta PS II ke P680 reaction centre se shuru karo, jise hum special chlorophyll a site pehchaan chuke hain.",
-      "680 nm red light absorb hone par electron excited hota hai, yaani higher-energy state mein pahunchta hai.",
-      "Isse nucleus se farther orbit mein jump ki simple picture se samajh sakte ho; molecular level par important baat higher-energy state hai.",
-      "Electron acceptor woh molecule hai jo doosre molecule se electron receive karta hai; yahaan pehla receiver primary acceptor hai.",
-      "Excited electron ka agla stop kya hai?",
-      "Dekho, acceptor electron receive karke use aage electron transport system ko hand over karta hai."
+      "Ab pehle padaav par chalte hain, yaani PS II par.",
+      "Yaad karo, kaam mein PS II pehle aata hai, chahe uska number do ho. Number toh khoj ke kram se pade the.",
+      "PS II ka reaction centre P680 hai, yaani ek khaas chlorophyll a molecule.",
+      "Yeh 680 nm wavelength wali laal roshni sokhta hai.",
+      "Ab sochiye, roshni ki yeh energy jaati kahan hai?",
+      "Roshni ki yeh energy seedhe reaction centre ke ek electron ko milti hai.",
+      "Yaad karo, har atom ke beech mein nucleus hota hai, aur electron uske chaaron taraf ghoomte rehte hain.",
+      "Electron nucleus ke chaaron taraf jis raaste par ghoomta hai, use orbit kehte hain.",
+      "Nucleus se jitna door ka orbit ho, wahan tikne ke liye electron ko utni hi zyada energy chahiye.",
+      "Isliye roshni ki energy milte hi electron nucleus se door wale orbit mein kood jaata hai.",
+      "Bilkul waise, jaise aap koi achhi khabar sunkar khushi se uchhal padte ho.",
+      "Energy paakar electron ki is uchhli hui, zyada energy wali haalat ko excited kehte hain; excited yaani uttejit.",
+      "Ab samjho, excited electron apne molecule mein zyada der tik nahi paata.",
+      "Paas baitha ek molecule use turant pakad leta hai.",
+      "Jo molecule doosre molecule se electron le leta hai, use electron acceptor kehte hain; accept yaani lena.",
+      "Humne pichhli film mein isi pehle acceptor ko primary acceptor kaha tha, yaani sabse pehle lene wala.",
+      "Toh kya acceptor yeh electron apne paas rakh leta hai?",
+      "Acceptor yeh electron apne paas nahi rakhta. Woh use turant aage, ek electron transport system ko de deta hai.",
+      "Transport ka matlab aap jaante ho: ek jagah se doosri jagah pahunchana. System yaani kai hisson ka milkar kaam karne wala intezaam.",
+      "Matlab electron transport system woh intezaam hai, jo electron ko aage pahunchata hai.",
+      "Yeh intezaam kin molecules se bana hai, aur electron ko kahan le jaata hai, yeh hum agle padaav mein dekhenge."
      ],
-     "screen": "Ussi thylakoid cutaway mein P680 par 680 nm light; paas ke energy inset mein electron higher level par jaakar PS II acceptor tak pahunchta hai.",
+     "roles": [
+      "link",
+      "known",
+      "known",
+      "fact",
+      "ask",
+      "answer",
+      "known",
+      "term",
+      "why",
+      "plain",
+      "picture",
+      "term",
+      "plain",
+      "fact",
+      "term",
+      "known",
+      "ask",
+      "answer",
+      "plain",
+      "term",
+      "link"
+     ],
+     "screen": "Thylakoid membrane par PS II ka ghera; kone mein patti 'kaam ka kram: pehle PS II (number khoj se)'. Reaction centre P680 (ek chlorophyll a) par 680 nm ki laal roshni ka teer; sawaal ka chhota dabba 'energy kahan jaati?'. Phir paas se ek atom: beech mein nucleus, chaaron taraf orbit ke ghere, ek electron andar wale ghere par (label: orbit; door ka orbit = zyada energy); roshni ki energy aate hi electron door wale ghere mein koodta. Kone mein khushkhabri sunkar uchhalta insaan; label 'excited = uttejit'. Phir excited electron molecule se nikalta aur paas ka molecule use pakad leta (label: electron acceptor, accept = lena; wahi primary acceptor). Acceptor ke paas sawaal 'rakh lega?' par kaata nishaan; electron aage ek dhundhle intezaam ki taraf, label 'electron transport system: transport = pahunchana, system = intezaam', uspar '?' 'kin molecules se bana?'.",
      "terms": [
       {
+       "term": "orbit",
+       "meaning": "Nucleus ke chaaron taraf electron ke ghoomne ka raasta; door ka orbit = zyada energy."
+      },
+      {
        "term": "excited",
-       "meaning": "Energy milne par electron ka higher-energy state mein pahunchna."
+       "meaning": "Energy paakar electron ka zyada energy wali, uchhli hui haalat mein pahunchna; uttejit."
       },
       {
        "term": "electron acceptor",
-       "meaning": "Doosre molecule se electron receive karne wala molecule."
+       "meaning": "Doosre molecule se electron lene wala molecule; accept = lena."
+      },
+      {
+       "term": "electron transport system",
+       "meaning": "Electron ko aage pahunchane wala intezaam; transport = pahunchana, system = mila-jula intezaam."
       }
      ],
-     "outside_book": "Orbit picture ko molecular electron excitation ke higher-energy-state description se clarify kiya.",
+     "outside_book": "Orbit ka matlab aur 'door ka orbit = zyada energy' (Class 9 ka atom); khushi se uchhalne ki misaal; excited electron ka der tak na tikna; PS II ka pehla acceptor hi pichhli film ka primary acceptor; transport aur system ke matlab.",
      "prepares": [],
      "answer": "",
-     "watch_out": ""
+     "watch_out": "",
+     "uses": [
+      "f1",
+      "f2",
+      "f3",
+      "f4",
+      "f5",
+      "f6",
+      "f8",
+      "f11",
+      "f18"
+     ]
     },
     {
      "id": "11.6-k3",
+     "kind": "analogy",
+     "teaches": [],
+     "recalls": [],
+     "says": [
+      "Is poore safar ko ek mele ke roller coaster se samjho.",
+      "Roller coaster ki gaadi pehle dheere-dheere ek oonchi chadhai par chadhti hai. Use ek motor wali chain upar kheenchti hai; gaadi apne aap upar nahi ja sakti.",
+      "Choti par pahunch kar gaadi apne aap neeche utarti hai. Utaar par woh ek ke baad ek mod paar karti jaati hai.",
+      "Neeche pahunchte hi ek doosri chain use phir upar kheenchti hai, aur is baar pehle se bhi oonchi choti tak.",
+      "Wahan se gaadi doosri utaar par neeche aati hai. Aakhir mein woh ek oonche platform wale station par ruk jaati hai.",
+      "Ab batao, station toh oonchai par hai; pehli utaar ke baad gaadi wahan apne aap kyun nahi pahunch sakti?",
+      "Pehli utaar ke baad gaadi station tak apne aap isliye nahi pahunch sakti, kyunki woh neeche aa chuki hoti hai. Oonchai par chadhne ke liye use phir zor chahiye, aur yahi zor doosri chain deti hai.",
+      "Ab jodo: roller coaster ki gaadi hai electron. Dono motor wali chain hain roshni ke do dhakke, pehla PS II par aur doosra PS I par.",
+      "Har choti ek electron acceptor hai, jo upar pahunche electron ko pakad leta hai.",
+      "Pehli lambi utaar woh kadi hai, jisse electron PS II se PS I tak neeche utarta hai.",
+      "Aur oonche platform wala station woh khaas molecule hai, jahan electron ka safar khatam ho jaata hai.",
+      "Gaur karo, poore raaste mein gaadi wahi rehti hai; badalti hai toh bas uski oonchai.",
+      "Electron ke liye yahi oonchai uski energy hai: upar matlab zyada energy, aur neeche matlab kam."
+     ],
+     "roles": [
+      "picture",
+      "picture",
+      "picture",
+      "picture",
+      "picture",
+      "ask",
+      "answer",
+      "picture",
+      "picture",
+      "picture",
+      "picture",
+      "picture",
+      "plain"
+     ],
+     "screen": "Mele ka roller coaster, bagal se: ek gaadi motor wali chain par dheere-dheere pehli oonchi chadhai chadhti (chain ki tak-tak); choti se gaadi apne aap ghumaavdaar utaar par neeche; neeche doosri chain use aur bhi oonchi choti tak kheenchti; wahan se doosri utaar, aur aakhir mein oonche platform wale station par gaadi rukti. Sawaal ka dabba 'pehli utaar ke baad station tak kyun nahi?': gaadi platform ke neeche ruki, upar chadhne ke liye chain. Phir jod ke label, ek-ek karke: gaadi = electron; do chain = roshni ke do dhakke (PS II, PS I); choti = electron acceptor; pehli utaar = PS II se PS I tak ki kadi; station = khaas molecule (naam '?'). Aakhir mein gaadi par nishaan 'wahi gaadi', aur bagal mein ek khadi patti 'oonchai = energy'.",
+     "terms": [],
+     "outside_book": "Mele ke roller coaster ki misaal: do motor wali chadhai, beech ki utaar, oonche platform wala station.",
+     "prepares": [],
+     "answer": "Roller coaster ki gaadi = electron; dono motor wali chain = roshni ke do dhakke, pehla PS II par (680 nm) aur doosra PS I par (700 nm); har choti = electron acceptor; pehli lambi utaar = PS II se PS I tak cytochromes ki kadi, jahan electron apne aap downhill utarta hai; doosri, aur oonchi choti = PS I ka acceptor (greater redox potential); aakhri utaar = NADP⁺ tak; oonche platform wala station = NADP⁺, jahan electron ka safar khatam hota hai; poore raaste gaadi wahi rehti hai = electron kharch nahi hota; oonchai = energy, isliye pehli utaar ke baad doosra dhakka chahiye.",
+     "watch_out": "Electron sach mein upar-neeche nahi jaata: oonchai yahan energy hai, membrane mein jagah nahi. Gaadi ek patri par khud chalti hai, par electron ek molecule se doosre molecule ke paas jaata hai, jo use lete aur aage dete hain. Asli roller coaster ghoom kar shuru wale station par laut aata hai, par is raaste mein electron aakhri molecule (NADP⁺) par ruk jaata hai, wapas PS II par nahi aata. Motor aur chain bijli se chalte hain, yahan dhakka roshni deti hai.",
+     "uses": [
+      "f14",
+      "f42"
+     ]
+    },
+    {
+     "id": "11.6-k4",
      "kind": "explain",
      "teaches": [
       "p009-i1"
      ],
      "recalls": [
-      "11.2-k15",
-      "11.5-k7"
+      "11.2-k10",
+      "11.4-k13"
      ],
      "says": [
-      "PS II acceptor se electron cytochromes wale transport system mein aata hai; cytochromes electron receive karke aage dene wale proteins hain.",
-      "Redox potential electron lene ya dene ki tendency ka measure hai; oxidation aur reduction ko hum electron transfer se jod chuke hain.",
-      "Chain mein transfer energetically downhill hai, yaani electron ki available energy ka kuch hissa release hota hai.",
-      "Aksar log sochte hain ki energy dene par electron kharch ho gaya, par asal mein electron carriers ke beech transfer hota hai, destroy nahi hota.",
-      "Yeh chain electrons PS I tak pahunchakar uske donated electrons ki replacement deti hai.",
-      "Saath hi PS I ka P700 centre 700 nm red light se excite hokar electron apne acceptor ko donate karta hai.",
-      "Kya PS I ko light ke badle sirf PS II se electron milna kaafi hai?",
-      "Dekho, replacement electron supply banaye rakhti hai, lekin second excitation ki energy PS I ko absorbed light se hi milti hai."
+      "Ab doosra padaav: PS II ke acceptor ke baad electron jaata kahan hai?",
+      "Acceptor ke baad electron molecules ki ek kadi mein jaata hai, jismein kai khaas proteins baithe hain.",
+      "Yeh proteins electron ko ek pal ke liye lete hain, aur phir agle ko de dete hain.",
+      "Inke beech mein loha, yaani iron, ka ek atom hota hai; wahi electron ko leta aur aage deta hai.",
+      "In proteins ko cytochromes kehte hain: cyto yaani cell, aur chrome yaani rang, kyunki yeh rangeen proteins hain.",
+      "Isliye electron ko aage le jaane wala yeh intezaam cytochromes wala electron transport system kehlata hai.",
+      "Ab dekho ki electron is kadi mein kis disha mein chalta hai.",
+      "Yaad karo, molecule se electron nikal jaaye toh oxidation hota hai, aur electron mil jaaye toh reduction.",
+      "Har molecule electron ko alag zor se pakadta hai. Koi use kas kar pakadta hai, koi aasaani se chhod deta hai.",
+      "Pakad ke is zor ke maap ko redox potential kehte hain; redox yaani reduction aur oxidation, dono milkar.",
+      "Ab saare molecules ko is maap ke hisaab se upar-neeche ek line mein khada karo; yahi redox potential scale hai.",
+      "Upar woh molecule aate hain jo electron aasaani se chhod dete hain. Neeche woh, jo use kas kar pakadte hain.",
+      "Isliye electron apne aap upar se neeche jaata hai, kamzor pakad se mazboot pakad ki taraf. Is utaar mein uski kuch energy nikalti hai.",
+      "Electron ke is apne aap neeche utarne ko downhill jaana kehte hain; down yaani neeche, aur hill yaani pahadi.",
+      "Bilkul roller coaster ki pehli utaar ki tarah, jahan gaadi bina motor ke neeche aati hai.",
+      "Aksar hum sochte hain ki energy dete-dete electron raaste mein kharch ho jaata hai; par aisa nahi hai.",
+      "Electron transport chain se guzarte hue electron kharch nahi hote. Wahi electron ek molecule se agle molecule tak badhta jaata hai.",
+      "Chain yaani zanjeer: jaise zanjeer kadiyon se banti hai, waise hi yeh kadi bhi kai molecules se bani hai.",
+      "Kharch hoti hai toh sirf uski thodi energy. Bilkul waise, jaise roller coaster ki gaadi utaar par apni oonchai khoti hai.",
+      "Aur yeh kadi electron ko le kahan jaati hai?",
+      "Yeh kadi electron ko seedhe PS I ke pigments tak pahuncha deti hai."
      ],
-     "screen": "Pehle cutaway par PS II acceptor se cytochrome-containing chain aur PS I tak electron arrows judte hain; ab P700 par 700 nm light aur doosre acceptor tak arrow ubharta hai.",
+     "roles": [
+      "ask",
+      "answer",
+      "plain",
+      "plain",
+      "term",
+      "fact",
+      "link",
+      "known",
+      "plain",
+      "term",
+      "plain",
+      "plain",
+      "why",
+      "term",
+      "picture",
+      "galat",
+      "fact",
+      "plain",
+      "picture",
+      "ask",
+      "answer"
+     ],
+     "screen": "PS II ke acceptor se aage molecules ki ek kadi (zanjeer ki kadiyon jaisi); kadi mein kuch proteins chamakte, electron ek pal unke paas rukta aur aage jaata; ek protein ke beech loha (Fe) ka atom electron leta-deta; label 'cytochromes: cyto = cell, chrome = rang', proteins halke rangeen. Label 'cytochromes wala electron transport system'. Phir ek khadi seedhi jaisi patti: molecules upar-neeche khade, upar 'electron aasaani se chhodte', neeche 'kas kar pakadte'; kone mein 'oxidation = electron nikalna, reduction = electron milna'; label 'redox potential = pakad ka maap; redox = reduction + oxidation'; patti par likha 'redox potential scale'. Electron upar se neeche ek-ek molecule par utarta, har kadam par halki chamak (energy nikalti); label 'downhill: down = neeche, hill = pahadi'; kone mein roller coaster ki pehli utaar. 'Electron kharch?' par kaata nishaan: wahi electron har kadam par chamakta rehta, sirf oonchai ghatti. Aakhir mein kadi ka sira PS I ke pigments tak pahunchta.",
      "terms": [
       {
        "term": "cytochromes",
-       "meaning": "Electron receive karke aage transfer karne wale proteins."
+       "meaning": "Electron lekar aage dene wale rangeen proteins; cyto = cell, chrome = rang; inme loha (iron) electron leta-deta hai."
       },
       {
        "term": "redox potential",
-       "meaning": "Electron lene ya dene ki tendency batane wala measure."
+       "meaning": "Molecule electron ko kitne zor se pakadta ya kitni aasaani se chhodta hai, iska maap; redox = reduction + oxidation."
+      },
+      {
+       "term": "downhill",
+       "meaning": "Redox potential scale par electron ka apne aap upar se neeche utarna, jismein energy nikalti hai; down = neeche, hill = pahadi."
       }
      ],
-     "outside_book": "Downhill ko favourable energy transfer ke roop mein clarify kiya; redox potential aur electron energy ko ek hi numerical scale nahi banaya.",
-     "prepares": [
-      "p022-i11"
-     ],
-     "answer": "",
-     "watch_out": ""
-    },
-    {
-     "id": "11.6-k4",
-     "kind": "analogy",
-     "teaches": [],
-     "recalls": [],
-     "says": [
-      "Socho, ek trolley ko pehli powered lift upar le jaati hai, phir woh descending ramp par neeche aati hai.",
-      "Ramp ke end par doosri powered lift use phir upar le jaati hai, taaki agla downhill route poora ho sake.",
-      "Kya pehla ramp paar karte hi trolley gayab ho gayi?",
-      "Dekho, trolley wahi aage pahunchti hai, lekin uski height se judi energy ghatati hai; doosri lift usse naya boost deti hai.",
-      "Yahaan trolley electron hai, dono powered lifts PS II aur PS I ki light-driven excitations hain, aur descending ramps carrier transfers hain.",
-      "Lifts ko power dene wali supply dono photosystems par absorbed light hai."
-     ],
-     "screen": "Do powered lifts aur unke beech descending ramp par ek trolley; corresponding PS II, carrier chain aur PS I labels.",
-     "terms": [],
-     "outside_book": "Electron-energy changes ke liye trolley aur do lifts ki analogy.",
+     "outside_book": "Cytochromes mein heme ka loha (iron) electron leta-deta hai aur inka rang inhi se hai (cyto + chrome); redox potential ko 'pakad ka zor' aur scale ko upar-neeche ki line ki tarah samjhaya; downhill = down + hill; chain = zanjeer; electron kharch nahi hota, sirf uski energy ghatti hai (roller coaster ki utaar).",
      "prepares": [],
-     "answer": "Trolley electron ko, lifts light-driven excitation ko, aur ramps downhill electron transfers ko represent karte hain.",
-     "watch_out": "Electron ki energy spatial height nahi hai; electrons membrane mein literal lifts aur ramps par nahi chalte."
+     "answer": "",
+     "watch_out": "",
+     "uses": [
+      "f12",
+      "f13",
+      "f14",
+      "f16",
+      "f17",
+      "f19",
+      "f20",
+      "f23",
+      "f26"
+     ]
     },
     {
      "id": "11.6-k5",
+     "kind": "explain",
+     "teaches": [],
+     "recalls": [
+      "11.5-k6"
+     ],
+     "says": [
+      "Ab kadi ke doosre sire par chalo, jahan PS I baitha hai.",
+      "PS II ka electron abhi kadi mein neeche utar hi raha hota hai. Theek usi waqt PS I par bhi roshni padti hai.",
+      "PS I ke reaction centre, yaani P700, ke electron 700 nm wavelength wali laal roshni paakar excite ho jaate hain.",
+      "Yeh excited electron ek doosre acceptor molecule ke paas chala jaata hai.",
+      "Yeh doosra acceptor redox potential scale par PS II wale acceptor se bhi oonchi jagah baitha hai.",
+      "Isliye ise greater redox potential wala acceptor kaha jaata hai. Wahan pahunch kar electron sabse zyada energy wali haalat mein hota hai.",
+      "Yeh doosra dhakka isliye zaroori hai, kyunki kadi se utar kar electron neeche aa chuka hota hai. Roller coaster mein yahi doosri chain hai, jo gaadi ko pehle se bhi oonchi choti tak le jaati hai.",
+      "Ab socho, PS I ka apna electron toh chala gaya, toh uski jagah khaali ho gayi.",
+      "Ek clue par dhyan do: PS II ka electron kadi par neeche aa raha hai. Aur yeh kadi seedhe PS I tak jaati hai.",
+      "Ruko, pehle khud socho: PS I ki yeh khaali jagah kaun bharta hoga?",
+      "Aapne socha hoga ki PS II se aaya electron hi use bharta hai; aapne bilkul sahi socha.",
+      "Kadi PS II wale electron ko PS I ke pigments tak pahunchati hai. Wahi electron P700 ki khaali jagah bhar deta hai.",
+      "Isliye PS I baar-baar electron dekar bhi khaali nahi hota: uski bharpaai PS II se aate electron karte rehte hain.",
+      "Yahi woh jod hai jo pichhli film ne khula chhoda tha: dono photosystem electron ke ek hi safar se jude hain.",
+      "Pehle PS II, phir kadi, phir PS I; dono ek line mein, ek ke baad ek kaam karte hain."
+     ],
+     "roles": [
+      "link",
+      "plain",
+      "fact",
+      "fact",
+      "plain",
+      "fact",
+      "why",
+      "plain",
+      "plain",
+      "ask",
+      "answer",
+      "fact",
+      "why",
+      "link",
+      "plain"
+     ],
+     "screen": "Kadi ka doosra sira aur wahan PS I ka ghera; kadi par neeche utarta PS II ka electron, aur usi waqt PS I par 700 nm ki laal roshni (dono saath-saath, label 'usi waqt'). P700 ka electron uchhal kar ek doosre acceptor tak, jo scale ki patti par PS II wale acceptor se bhi upar bana; label 'greater redox potential wala acceptor: sabse zyada energy'. Kone mein roller coaster ki doosri chain, oonchi choti tak. Phir P700 par electron ki khaali jagah ka chamakta ghera; clue ka chhota teer kadi ke sire se PS I ki taraf. Sawaal 'Ruko, pehle khud socho: khaali jagah kaun bharega?', bada '?' aur chhoti ghadi (teen second ruk). Phir kadi se aaya PS II ka electron P700 ki khaali jagah mein baith jaata; label 'bharpaai'. Aakhir mein ek line: PS II → kadi → PS I, aur upar 'dono photosystem jude'.",
+     "terms": [],
+     "outside_book": "Book ka 'greater redox potential' (PS I ka doosra acceptor) figure ki tarah scale par oonchi jagah aur zyada energy ke roop mein padhaya; electrochemistry ki bhasha mein is acceptor ka reduction potential zyada negative hota hai, yeh baat sirf yahan record mein. PS II ka electron PS I ki khaali jagah bharta hai, yeh 'passed on to the pigments of PS I' ka matlab; ruko, pehle khud socho isi mod par.",
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "uses": [
+      "f15",
+      "f21",
+      "f24",
+      "f25",
+      "f32"
+     ]
+    },
+    {
+     "id": "11.6-k6",
      "kind": "explain",
      "teaches": [
       "p009-i2"
      ],
      "recalls": [
-      "11.3-k6",
-      "11.2-k15"
+      "11.3-k7",
+      "11.2-k10"
      ],
      "says": [
-      "PS I acceptor ke baad electrons phir energetically downhill transfer hote hue final acceptor NADP⁺ tak pahunchte hain.",
-      "NADP⁺ electron receive karne ke liye available oxidised carrier hai; electron gain se iska reduction hota hai.",
-      "NADPH ko hum reducing-power supply karne wala loaded carrier pehchaan chuke hain.",
-      "Ek NADPH banane ka electron ledger hai: NADP⁺ + 2e⁻ + H⁺ → NADPH.",
-      "Kya ek electron milte hi ek NADPH ban jaayega?",
-      "Dekho, ek NADPH ke liye do electrons aur ek proton chahiye; electrons light-driven route se aate hain aur carrier mein reducing power jama hoti hai."
+      "Ab teesra aur aakhri padaav: PS I ke doosre acceptor se electron aage kidhar badhta hai?",
+      "PS I ke acceptor ke baad electron phir downhill jaata hai, yaani apne aap neeche utarta hai.",
+      "Bilkul roller coaster ki doosri utaar ki tarah, jo gaadi ko aakhri station tak le jaati hai.",
+      "Yeh station ek khaas molecule hai, jo electron lene ke liye khaali baitha rehta hai.",
+      "Socho, bazaar jaate waqt haath mein ek khaali thaila, jo saamaan bharne ka intezaar kar raha ho.",
+      "Is khaali molecule ka naam NADP⁺ hai, aur electron aate hi yeh bharne lagta hai.",
+      "Yaad karo, kisi molecule ko electron milna hi uska reduction hai.",
+      "Isliye electron judte hi NADP⁺ reduce ho jaata hai; yahi is padaav ka asli kaam hai.",
+      "Ek NADP⁺ ko poora bharne ke liye do electron chahiye.",
+      "Bhar kar yahi molecule energy-rich, yaani energy se bhara, NADPH ban jaata hai.",
+      "NADPH ko aap pehle se jaante ho: yeh electron aur hydrogen lekar stroma tak jaata hai, jahan sugar banti hai.",
+      "Exam ke liye yeh pakki kar lo: khaali thaila NADP⁺ hai, aur bhara thaila NADPH. Dono ke naam aapas mein mat badalna.",
+      "Toh electron ka safar yahin khatam hota hai; roller coaster ki gaadi station par ruk gayi."
      ],
-     "screen": "Ussi membrane picture mein PS I acceptor ke baad NADP⁺ endpoint judta hai; side ledger par do electron tokens aur ek H⁺ se NADPH formation.",
+     "roles": [
+      "ask",
+      "answer",
+      "picture",
+      "plain",
+      "picture",
+      "term",
+      "known",
+      "why",
+      "fact",
+      "fact",
+      "known",
+      "plain",
+      "picture"
+     ],
+     "screen": "PS I ke acceptor se electron ek doosri utaar par neeche; kone mein roller coaster ki doosri utaar aur oonche platform wala station. Station ki jagah ek molecule, uske paas khaali thaile ki chhoti tasveer (bazaar jaata haath); label 'NADP⁺ = khaali thaila'. Do electron aakar judte, thaila bharta; label 'electron milna = reduction', 'NADP⁺ reduce hua'; ginti '2 electron'. Bhara thaila: label 'NADPH = energy-rich, energy se bhara'; NADPH stroma ki taraf jaata, wahan sugar ke moti. Exam ka card: 'khaali NADP⁺, bhara NADPH, naam mat badlo'. Aakhir mein roller coaster ki gaadi station par rukti.",
      "terms": [
       {
        "term": "NADP⁺",
-       "meaning": "Oxidised carrier jo electrons receive karke NADPH ban sakta hai."
+       "meaning": "Electron lene ko taiyaar khaali carrier molecule (khaali thaila); electron paakar NADPH banta hai."
       }
      ],
-     "outside_book": "NADP⁺ reduction ki balanced half-reaction se two-electron aur proton requirement kholi.",
-     "prepares": [
-      "p022-i11"
-     ],
+     "outside_book": "Khaali aur bhare thaile ki misaal; ek NADP⁺ ko do electron chahiye; book ka 'energy-rich NADP⁺' yahan bhare hue NADPH par lagaya, kyunki energy se bhara asal mein NADPH hai; exam ke liye NADP⁺ aur NADPH ka farq.",
+     "prepares": [],
      "answer": "",
-     "watch_out": ""
+     "watch_out": "",
+     "uses": [
+      "f27",
+      "f28",
+      "f29",
+      "f30",
+      "f31",
+      "f33",
+      "f65"
+     ]
     },
     {
-     "id": "11.6-k6",
+     "id": "11.6-k7",
      "kind": "explain",
      "teaches": [
       "p009-i3"
      ],
      "recalls": [],
      "says": [
-      "Electron lekar agle molecule ko dene wala substance carrier kehlaata hai.",
-      "In carriers ko transfer ke order mein redox-potential framework par rakhne se poore route ki characteristic Z-jaisi profile milti hai.",
-      "Isliye ise Z scheme kehte hain: PS II ka light boost, chain ka downhill transfer, PS I ka doosra boost, aur NADP⁺ tak transfer.",
-      "Kya Z thylakoid membrane ka actual shape batata hai?",
-      "Dekho, Z electron-transfer energetics ka representation hai, membrane mein bana literal zigzag raasta nahi.",
-      "NADPH + H⁺ ki notation bhi milti hai; reduced carrier NADPH hai, aur saath likha H⁺ medium ka proton dikhata hai.",
-      "Carrier reduction ka chemical ledger wahi NADP⁺ + 2e⁻ + H⁺ → NADPH rahega."
+      "Yaad karo, hydrogen sabse chhota atom hai: beech mein ek proton, aur bahar ek electron.",
+      "Woh electron nikal jaaye, toh jo bachta hai use H⁺ likhte hain; plus ka nishaan uske positive charge ka hai.",
+      "Ab NADP⁺ ke bharne ko aksar NADPH + H⁺ likha jaata hai.",
+      "Ek NADP⁺ do electron aur H⁺ lekar NADPH banta hai. Hisaab poora rakhne ke liye saath mein ek H⁺ likha jaata hai.",
+      "Ab is poore safar ko shuru se aakhir tak ek saath dekho.",
+      "Roshni ke bina electron kabhi upar nahi chadhta; upar chadhne ke liye use energy chahiye.",
+      "PS II par roshni ne electron ko acceptor tak upar chadhaya; is chadhai ko uphill jaana kehte hain, up yaani upar.",
+      "Phir electron transport chain se neeche PS I tak aaya, wahan dobara excite hua, aur doosre acceptor tak chadha.",
+      "Aakhir mein downhill utar kar woh NADP⁺ tak pahuncha, aur use NADPH + H⁺ bana diya.",
+      "Is raaste mein jo bhi molecule electron lekar agle ko deta hai, use carrier kehte hain; carry yaani dhona.",
+      "Jaise cycle ke peeche ka carrier saamaan dhota hai, waise yeh molecule electron dhote hain.",
+      "Ab saare carriers ko redox potential scale par unki jagah rakho, aur electron ke raaste ki lakeer kheencho.",
+      "Lakeer pehle upar jaati hai, phir neeche, phir dobara upar, aur aakhir mein neeche.",
+      "Is lakeer ko ek karvat lita do, toh angrezi ka akshar Z dikhta hai.",
+      "Isi khaas aakaar ki wajah se is poore raaste ko Z scheme kehte hain; scheme yaani khaaka.",
+      "Z ka aakaar isliye banta hai, kyunki electron do baar roshni se upar uthta hai. Aur dono baar uske baad woh neeche utarta hai.",
+      "Bilkul roller coaster ki patri jaisa: do chadhai, beech mein lambi utaar, aur aakhri utaar station tak.",
+      "Kai bachche sochte hain ki electron membrane mein sach mein Z ke aakaar mein chalta hai. Par asal mein Z sirf energy ka chitra hai, membrane ka raasta nahi.",
+      "Exam mein Z scheme aksar adhoora dekar poochha jaata hai. Isliye iska kram pakka yaad rakho: PS II, acceptor, kadi, PS I, acceptor, aur NADP⁺."
      ],
-     "screen": "Membrane picture ke saath progressively bana energy/redox schematic: do light-driven rises aur do descending stretches; final NADP⁺ → NADPH label.",
+     "roles": [
+      "known",
+      "term",
+      "fact",
+      "fact",
+      "link",
+      "plain",
+      "term",
+      "fact",
+      "fact",
+      "term",
+      "picture",
+      "plain",
+      "plain",
+      "plain",
+      "term",
+      "why",
+      "picture",
+      "galat",
+      "plain"
+     ],
+     "screen": "Hydrogen ka chhota atom: beech mein ek proton, bahar ek electron; electron udkar chala jaata, bacha proton, label 'H⁺: plus = positive charge'. Phir NADP⁺ ke bhare thaile ke paas likha 'NADPH + H⁺'; chhota hisaab: NADP⁺ + 2e⁻ + H⁺ → NADPH, saath mein ek H⁺. Phir poora safar ek lakeer ki tarah: PS II par roshni, electron upar acceptor tak (label 'uphill: up = upar'), kadi se neeche PS I tak, phir roshni se upar doosre acceptor tak, aakhir mein neeche NADP⁺ tak. Label 'carrier: carry = dhona', kone mein cycle ke peeche ka carrier jis par saamaan bandha. Saare carriers redox potential scale par apni jagah, unhe jodti lakeer: upar, neeche, upar, neeche. Lakeer karvat leti hai aur akshar Z ban jaata hai; label 'Z scheme (scheme = khaaka)'. Kone mein roller coaster ki patri usi aakaar mein. 'Membrane mein Z raasta?' par kaata nishaan: membrane mein carriers baithe, Z sirf energy ke graph par. Aakhir mein exam ka kram card: PS II → acceptor → kadi → PS I → acceptor → NADP⁺.",
      "terms": [
       {
+       "term": "H⁺",
+       "meaning": "Hydrogen atom jiska electron nikal gaya; bacha sirf ek proton, plus = positive charge."
+      },
+      {
+       "term": "uphill",
+       "meaning": "Scale par electron ka upar chadhna, jo roshni ki energy se hi hota hai; up = upar."
+      },
+      {
        "term": "carrier",
-       "meaning": "Electron receive karke agle molecule ko transfer karne wala substance."
+       "meaning": "Electron lekar agle molecule ko dene wala molecule; carry = dhona."
       },
       {
        "term": "Z scheme",
-       "meaning": "Do light-driven excitations aur carrier transfers ka characteristic Z-jaisa energetic representation."
+       "meaning": "Do baar roshni se upar uthte electron ka poora raasta, jo carriers ko redox potential scale par rakhne par karvat lete Z jaisa dikhta hai; scheme = khaaka."
       }
      ],
-     "outside_book": "NADPH + H⁺ notation ko NADPH ki balanced formation reaction se alag clarify kiya.",
+     "outside_book": "H⁺ ka matlab (proton); NADPH + H⁺ ke likhne ka hisaab (NADP⁺ + 2e⁻ + 2H⁺ → NADPH + H⁺); carrier ki cycle wali misaal; lakeer ko karvat lita kar Z dekhna; Z membrane ka raasta nahi, energy ka chitra hai (exam ki galatfahmi); adhoore Z scheme wale exam sawaal ke liye kram.",
      "prepares": [],
      "answer": "",
-     "watch_out": ""
+     "watch_out": "",
+     "uses": [
+      "f34",
+      "f35",
+      "f36",
+      "f37",
+      "f38",
+      "f39",
+      "f40",
+      "f41",
+      "f42",
+      "f43",
+      "f44",
+      "f45",
+      "f46"
+     ]
     },
     {
-     "id": "11.6-k7",
+     "id": "11.6-k8",
      "kind": "figure",
      "teaches": [
       "p009-i4"
      ],
      "recalls": [
-      "11.5-k2",
-      "11.2-k21"
+      "11.5-k2"
      ],
      "says": [
-      "Figure 11.5 mein left bracket Photosystem II aur right bracket Photosystem I identify karta hai; Light ki dashed arrows dono tak aati hain.",
-      "Dono LHC labels wahi light harvesting complexes hain, jo captured energy centres tak pahunchate hain.",
-      "PS II se upward electron arrow pehle e⁻ acceptor tak, phir descending arrows Electron transport system se PS I tak jaate hain.",
-      "PS I se doosra upward arrow uske e⁻ acceptor tak, aur final transfer NADP⁺ se NADPH formation tak follow karo.",
-      "Transport system ke paas ADP + iP → ATP label kya jodta hai?",
-      "Dekho, iP inorganic phosphate hai, aur yeh branch electron transport ko ATP formation se jodti hai; iska mechanism aage samjhenge.",
-      "PS II ke neeche H₂O → 2e⁻ + 2H⁺ + [O] shorthand hai, aur electron arrow PS II ko supply dikhata hai.",
-      "[O] ek oxygen-atom equivalent ka accounting symbol hai; released gas O₂ hoti hai, jiske liye do aise equivalents judte hain."
+      "Ab Figure 11.5 dekho; iske neeche likha hai Z scheme of light reaction, yaani light reaction ka Z jaisa khaaka.",
+      "Upar baayein ek bracket par likha hai Photosystem II, aur daayein doosre bracket par Photosystem I.",
+      "Har bracket apne photosystem ke saath uske acceptor ko bhi gherta hai.",
+      "Baayein ek peela gola hai, jis par likha hai Light, yaani roshni.",
+      "Usse peele dashed teer dono taraf ke hare ovals tak jaate hain, aur dono ovals par likha hai LHC.",
+      "LHC wahi roshni batorne wale jhund hain, jo humne pichhli film mein dekhe. Peele teer batate hain ki roshni dono photosystem par padti hai.",
+      "Ab ungli rakh kar chalo, baayein PS II ke LHC se.",
+      "Yahan se ek laal teer seedha upar ek gulabi oval tak jaata hai, jis par likha hai e⁻ acceptor.",
+      "e⁻ electron ka nishaan hai: e yaani electron, aur upar ka chhota minus uska negative charge.",
+      "Yeh upar jaata teer pehli chadhai hai: roshni ne electron ko uthaya, aur acceptor ne use pakda.",
+      "Ab ungli neeche le chalo: laal teer ek baingani dabbe se hote hue neeche utarte hain. Dabbe par likha hai Electron transport system.",
+      "Yahi cytochromes wali kadi hai, aur teer ka neeche jaana electron ka downhill utaar hai.",
+      "Is dabbe ke upar ek mudi hui teer dekho: ADP + iP se ATP.",
+      "Matlab electron ke is utaar ke saath ATP banne ka kaam bhi juda hai.",
+      "ADP aur iP kya hain, aur utaar se ATP banta kaise hai, yeh aage hum dekhenge.",
+      "Laal teer utaar ke baad daayein PS I ke LHC tak pahunchte hain.",
+      "Wahan se doosra laal teer phir upar jaata hai, aur doosre gulabi oval par bhi likha hai e⁻ acceptor.",
+      "Is acceptor se electron aakhir mein ek mudi hui teer par NADP⁺ tak jaata hai. Usi teer par likha hai NADPH.",
+      "Dekho, yahi hamara station hai: khaali NADP⁺ electron paakar bhara hua NADPH ban gaya.",
+      "Ab PS II ke neeche dekho: wahan likha hai H₂O, aur usse ek teer 2e⁻ + 2H⁺ + [O] tak jaata hai.",
+      "Wahan se ek teer electron ko PS II ke LHC tak pahunchata hai. Matlab PS II ki khaali jagah ka rishta paani se hai.",
+      "Bracket wala [O] yaani oxygen ka ek atom; aise do atom milkar O₂ gas banti hai.",
+      "Yeh hissa abhi bas pehchaan lo; iski poori kahani aage hum dekhenge."
      ],
-     "screen": "Figure 11.5 ka clean labelled schematic, pehle dono photosystem routes highlight; phir ADP + iP → ATP branch aur aakhir mein water-input shorthand highlight.",
+     "roles": [
+      "link",
+      "fact",
+      "plain",
+      "fact",
+      "fact",
+      "known",
+      "link",
+      "fact",
+      "term",
+      "plain",
+      "fact",
+      "plain",
+      "fact",
+      "why",
+      "link",
+      "fact",
+      "fact",
+      "fact",
+      "plain",
+      "fact",
+      "fact",
+      "plain",
+      "link"
+     ],
+     "screen": "Figure 11.5 ka saaf, bada chitra; neeche caption 'Z scheme of light reaction'. Ungli baari-baari: upar baayein bracket 'Photosystem II' aur daayein bracket 'Photosystem I' (dono apne acceptor samet) → baayein peela gola 'Light', usse peele dashed teer dono hare ovals tak, dono par 'LHC' → baayein LHC se laal teer upar gulabi oval 'e⁻ acceptor' tak (chhota label: e⁻ = electron, minus = negative charge; kone mein roller coaster ki pehli chadhai) → laal teer neeche baingani dabbe 'Electron transport system' se hote hue (label: cytochromes wali kadi, downhill) → dabbe ke upar mudi teer 'ADP + iP → ATP' halki chamak mein, uspar 'aage' ka chhota nishaan → teer daayein LHC tak → wahan se doosra laal teer upar doosre gulabi oval 'e⁻ acceptor' tak → mudi teer par 'NADP⁺' aur uske upar 'NADPH' (kone mein station par ruki gaadi) → PS II ke neeche 'H₂O' aur teer '2e⁻ + 2H⁺ + [O]' tak, ek teer electron ko PS II ke LHC tak; label '[O] = oxygen ka ek atom; 2 [O] = O₂'; is hisse par 'aage' ka nishaan.",
      "terms": [
       {
-       "term": "LHC",
-       "meaning": "Light harvesting complex ka short form; protein-bound pigments ka group jo light pakadkar energy reaction centre tak pahunchata hai."
+       "term": "e⁻",
+       "meaning": "Electron ka nishaan; e = electron, minus = negative charge."
       }
      ],
-     "outside_book": "ADP ko ATP formation ka precursor aur iP ko inorganic phosphate bataya; detailed phosphate addition agle subsection ke liye rakha.",
+     "outside_book": "e⁻ ka matlab; peele dashed teer roshni ke, laal teer electron ke; ADP + iP → ATP electron ke utaar par bana hai, iska tareeka aage; [O] oxygen ka ek atom hai, O₂ nahi (exam ki baareek baat); paani wala hissa sirf pehchaan, poori baat aage.",
      "prepares": [
       "p022-i11"
      ],
      "answer": "",
-     "watch_out": ""
-    },
-    {
-     "id": "11.6-k8",
-     "kind": "example",
-     "teaches": [],
-     "recalls": [],
-     "says": [
-      "Ab ek marked electron token ko P680 se follow karo: light excitation ke baad woh PS II acceptor, phir carriers aur PS I tak pahunchta hai.",
-      "PS I ki light-driven donation se electron flow doosre acceptor ki taraf badhta hai aur aakhir NADP⁺ reduction ko supply milti hai.",
-      "Token ki count beech ke carriers par kya hoti hai?",
-      "Dekho, har handover mein electron aage transfer hota hai, consume nahi hota; marked token electron continuity samjhata hai.",
-      "Ab do electrons ka batch lo: har electron ke liye PS II aur PS I ke excitation events jodne par minimum chaar reaction-centre photon events bante hain.",
-      "Yeh two-electron batch ek proton ke saath ek NADP⁺ ko ek NADPH mein reduce kar sakta hai."
-     ],
-     "screen": "Pehle se bane route par ek marked token ka handover; chhote ledger mein 2 electrons, 2 PS II excitations + 2 PS I excitations, aur 1 NADPH.",
-     "terms": [],
-     "outside_book": "Ideal two-electron batch ke liye minimum four reaction-centre photon events derive kiye; actual absorbed light requirement losses se badh sakti hai.",
-     "prepares": [],
-     "answer": "",
-     "watch_out": ""
+     "watch_out": "",
+     "uses": [
+      "f47",
+      "f48",
+      "f49",
+      "f50",
+      "f51",
+      "f52",
+      "f53",
+      "f54",
+      "f55",
+      "f56",
+      "f57",
+      "f58",
+      "f59",
+      "f60",
+      "f61",
+      "f62",
+      "f63",
+      "f64",
+      "f66"
+     ]
     },
     {
      "id": "11.6-k9",
+     "kind": "example",
+     "teaches": [],
+     "recalls": [
+      "11.5-k7"
+     ],
+     "says": [
+      "Chalo, ab ginti karke dekhte hain ki ek NADPH banane mein kitni roshni lagti hai.",
+      "Humne dekha ki ek NADP⁺ ko poora bharne ke liye do electron chahiye.",
+      "Ab pehle electron ka safar dekho.",
+      "PS II par ek photon padta hai, aur P680 ka electron uchhal kar PS II ke acceptor tak jaata hai.",
+      "Usi waqt roshni ka ek aur packet P700 ko jagaata hai, aur uska electron PS I ke apne acceptor par pahunch jaata hai.",
+      "PS II wala electron cytochromes ki kadi se utar kar P700 ki khaali jagah bhar deta hai.",
+      "Aur P700 wala electron downhill utar kar NADP⁺ tak pahunch jaata hai.",
+      "Toh NADP⁺ tak ek electron pahunchane ke peeche do photon lage: ek PS II par, aur ek PS I par.",
+      "Ab batao, ek poore NADPH ke liye kul kitne photon lagenge?",
+      "Ek poore NADPH ke liye kam se kam chaar photon lagenge. Do electron hain, aur har electron ke peeche do photon.",
+      "Inme se do photon PS II par padte hain, aur do PS I par.",
+      "Aur dhyan do, poore raaste mein dono electron kahin kharch nahi hue; bas unki energy upar-neeche hoti rahi.",
+      "Roller coaster mein socho toh do gaadiyaan, har ek ne do chadhai chadhi, aur dono station tak pahunchi."
+     ],
+     "roles": [
+      "link",
+      "known",
+      "plain",
+      "fact",
+      "fact",
+      "fact",
+      "fact",
+      "plain",
+      "ask",
+      "answer",
+      "fact",
+      "plain",
+      "picture"
+     ],
+     "screen": "Ginti ka board: 'ek NADPH = ?'. Pehle '2 electron' likha. Phir Z ka raasta: PS II par ek photon (roshni ka packet) girta, P680 ka electron uchhal kar acceptor tak; udhar PS I par ek photon, P700 ka electron doosre acceptor tak; PS II wala electron kadi se utar kar P700 ki khaali jagah mein; P700 wala electron neeche NADP⁺ tak. Board par '1 electron = 2 photon (1 PS II + 1 PS I)'. Sawaal 'ek NADPH = kitne photon?', phir '2 × 2 = 4': do photon PS II par, do PS I par. Dono electron ke paas 'kharch nahi' ka nishaan. Kone mein do roller coaster gaadiyaan, har ek do chadhai chadh kar station par.",
+     "terms": [],
+     "outside_book": "Ek NADPH ke liye kam se kam chaar photon (do electron, har electron ke peeche PS II aur PS I par ek-ek); asli patti mein kuch roshni bekaar jaane se thodi zyada lagti hai, yeh sirf record mein.",
+     "prepares": [],
+     "answer": "",
+     "watch_out": "",
+     "uses": [
+      "f67",
+      "f33",
+      "f42"
+     ]
+    },
+    {
+     "id": "11.6-k10",
      "kind": "checkpoint",
      "teaches": [],
      "recalls": [],
      "says": [
-      "Socho, phir aage badhenge: PS II electrons bhej raha hai, lekin PS I ko light na mile, toh kya NADPH formation ka yeh route continuously chalega?",
-      "Kya electron replacement aur electron excitation ek hi kaam hain?",
-      "Dekho, chain replacement electrons la sakti hai, lekin PS I ka light boost na hone par uske acceptor ki taraf sustained transfer rukega, isliye is route ki NADPH supply continue nahi hogi."
+      "Socho, phir aage badhenge: agar beech ki kadi kahin ruk jaaye, aur PS II ka electron PS I tak na pahunche, toh kya hoga?",
+      "Agar kadi ruk jaaye, toh PS I ki khaali jagah bharne wala koi nahi rahega.",
+      "PS I ek-do baar electron dekar khaali baitha rahega, aur NADP⁺ tak electron pahunchna band ho jaayega.",
+      "Isliye NADPH banna ruk jaayega, aur stroma mein sugar banne ka kaam bhi thap pad jaayega.",
+      "Kuch kharpatwar-naashak dawaiyaan, yaani weed-killer, theek yahi karti hain: woh is kadi mein electron ka raasta rok deti hain.",
+      "Isliye un dawaiyon se kharpatwar ka paudha roshni mein khada rehkar bhi bhookha mar jaata hai.",
+      "Matlab NADPH banane ke liye dono photosystem ek-doosre par tike hain. Beech ki kadi hi un dono ko jodti hai."
      ],
-     "screen": "Complete route mein PS I ki light input band; replacement arrow bana rahe, lekin PS I se acceptor aur NADPH endpoint ki flow indication ruk jaaye.",
+     "roles": [
+      "ask",
+      "answer",
+      "fact",
+      "why",
+      "fact",
+      "why",
+      "plain"
+     ],
+     "screen": "Z ka raasta; beech ki kadi par laal 'ruka' ka nishaan; sawaal ka dabba 'kadi ruk jaaye toh?'. PS II ka electron kadi par atka; P700 ki khaali jagah khaali hi chamakti; NADP⁺ tak jaata teer dhundhla aur band; NADPH ki jagah '0', stroma mein sugar ki machine thami. Phir khet mein kharpatwar par dawai ka chhidkaav (label: weed-killer), kadi par 'rok'; dhoop mein khada kharpatwar murjha jaata. Aakhir mein do photosystem aur beech ki kadi, upar 'ek-doosre par tike'.",
      "terms": [],
-     "outside_book": "",
+     "outside_book": "Kuch weed-killer (jaise DCMU aur atrazine wali dawaiyaan) PS II ke aage electron ka raasta rok deti hain; kadi rukne par NADPH banna ruk jaata hai.",
      "prepares": [],
-     "answer": "Replacement electron supply aur light-driven excitation alag requirements hain; PS I excitation ke bina is route ka sustained NADP⁺ reduction nahi chalega.",
-     "watch_out": "PS II se electron milna PS I ke photon input ka replacement nahi; electrons energy ke bina apne-aap second acceptor tak nahi bheje jaate."
+     "answer": "Kadi ruk jaaye toh PS II ka electron PS I tak nahi pahunchta, isliye P700 ki khaali jagah nahi bharti; PS I ek-do baar electron dekar ruk jaata hai, NADP⁺ tak electron jaana band hota hai aur NADPH nahi banta, to stroma mein sugar banna bhi rukta hai; kuch weed-killer is kadi ko rok kar yahi karte hain. Isliye NADPH ke liye dono photosystem ek-doosre par tike hain.",
+     "watch_out": "Galat soch 1: PS I ko roshni mil rahi hai, toh woh akele hi NADPH banata rahega; galat, uski khaali jagah PS II ke electron se hi bharti hai. Galat soch 2: kadi bas ek raasta hai, uske rukne se kuch nahi bigadta; galat, wahi dono photosystem ko jodti hai. Galat soch 3: electron raaste mein kharch ho jaate hain, isliye kami hoti hai; galat, electron kharch nahi hote, unka aage jaana rukta hai.",
+     "uses": [
+      "f68",
+      "f25"
+     ]
     },
     {
-     "id": "11.6-k10",
+     "id": "11.6-k11",
      "kind": "retell",
      "teaches": [],
      "recalls": [],
      "says": [
-      "Poora order phir jodo: P680 par 680 nm light excitation, pehla acceptor, cytochrome-containing chain, aur PS I tak electron supply.",
-      "P700 par 700 nm light doosra excitation deti hai; doosre acceptor ke baad electrons NADP⁺ reduction tak pahunchte hain.",
-      "Do electrons aur ek proton se ek NADPH banta hai; carriers mein electrons destroy nahi hote.",
-      "Do light boosts aur downhill transfers Z scheme ki profile dete hain, aur ATP formation ki branch bhi is transport se judi hai.",
-      "Ab PS II electrons deta rahe, toh uski apni electron kami kaun poori karega?",
-      "Dekho, figure ka water-input arrow isi replacement source ki taraf ishara karta hai; ab water splitting ka poora hisaab kholenge."
+      "Chalo, aaj ke safar ko shuru se aakhir tak ek baar phir chalein.",
+      "PS II ka P680, 680 nm ki laal roshni se excite hota hai, aur uska electron acceptor tak chadhta hai.",
+      "Phir electron cytochromes ki kadi mein downhill utarta hai, kharch hue bina, aur PS I tak pahunchta hai.",
+      "PS I ka P700, 700 nm ki roshni se excite hota hai. Uska electron doosre, aur bhi oonche acceptor tak jaata hai.",
+      "Wahan se electron downhill utar kar NADP⁺ ko reduce karta hai, aur NADPH + H⁺ banta hai.",
+      "Saare carriers ko redox potential scale par rakhne se yeh raasta Z jaisa dikhta hai, isliye iska naam Z scheme hai.",
+      "Ab wahi sawaal jisse shuru kiya tha: itne electron chhod kar bhi photosystem khaali kyun nahi padte, aur electron pahunchte kahan hain?",
+      "Photosystem isliye khaali nahi padte, kyunki ek ka chhoda electron doosre ki kami poori karta hai. PS II ka electron PS I ko milta hai.",
+      "PS I ka electron NADP⁺ tak pahunch kar ruk jaata hai, aur NADPH ban kar stroma ke kaam aata hai.",
+      "Aur PS II ki khaali jagah ka rishta, jaisa figure ne dikhaya, paani se hai.",
+      "Roller coaster mein bhi yahi tha: gaadi wahi rahi, bas do baar upar kheenchi gayi aur do baar neeche utri.",
+      "Par ek baat abhi bhi khuli hai: paani jaisa seedha-saadha molecule apne electron chhodta kaise hai, aur PS II ko lagaataar electron kaise milte rehte hain?",
+      "Paani apne electron kaise chhodta hai aur PS II ko lagaataar electron kaise milte hain, yeh aage hum dekhenge."
      ],
-     "screen": "Established route par order-wise gentle highlights; final focus PS II ke neeche water-input arrow par, baaki pathway quiet.",
+     "roles": [
+      "link",
+      "fact",
+      "fact",
+      "fact",
+      "fact",
+      "fact",
+      "ask",
+      "answer",
+      "fact",
+      "fact",
+      "picture",
+      "ask",
+      "link"
+     ],
+     "screen": "Aaj ka safar Z ki ek lakeer par: PS II (P680, 680 nm) se electron upar acceptor tak → cytochromes ki kadi par neeche (kharch nahi) → PS I (P700, 700 nm) se aur bhi oonche acceptor tak → neeche NADP⁺, jo NADPH + H⁺ banta; carriers scale par aur Z ka aakaar. Shuru ka sawaal laut kar aata: 'electron kahan? photosystem khaali kyun nahi?'; jawab ke teer: PS II ka electron PS I ki khaali jagah mein, PS I ka electron NADP⁺ par ruk kar NADPH, NADPH stroma ki taraf; PS II ki khaali jagah ke neeche paani ki boond. Kone mein roller coaster ki wahi gaadi, do chadhai aur do utaar. Aakhir mein paani ki boond par bada sawaal ka nishaan 'paani electron kaise chhodta hai?', jo khula rehta hai.",
      "terms": [],
      "outside_book": "",
-     "prepares": [],
+     "prepares": [
+      "p022-i11"
+     ],
      "answer": "",
-     "watch_out": ""
+     "watch_out": "",
+     "uses": [
+      "f1",
+      "f15",
+      "f28",
+      "f35",
+      "f36"
+     ]
     }
    ],
-   "bridge": "Ab electron flow ko lagataar chalane ke liye PS II ki replacement supply chahiye; water splitting batayegi ki yeh electrons aur released oxygen kahaan se aate hain.",
+   "bridge": "",
    "title": "THE ELECTRON TRANSPORT"
   },
   {

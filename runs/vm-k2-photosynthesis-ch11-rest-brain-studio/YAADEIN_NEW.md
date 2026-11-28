@@ -119,3 +119,49 @@
 - Working note: the old 11.5 went in three Edits of whole point blocks (each ending at the next point's id), then one
   Edit for the goal and facts.
 - Skill and Navin's word did not differ for this heading.
+
+## 11.6 The Electron Transport (fifth copy of this job)
+
+- Opening: recap of 11.5 (sainkdon pigment, reaction centre, primary acceptor, P680 aur P700), "Yaad rakhein: roshni ka
+  asli kaam ... ek electron ko uthakar doosre molecule tak pahunchana", "Aage hum dekhenge ki primary acceptor ke baad
+  electron kis raaste jaata hai, aur do photosystem ek-doosre se kaise bandhe hain" (11.5's two open questions). Goal:
+  "Har baar roshni padne par dono photosystem apna ek electron chhod dete hain; toh yeh electron jaate kahan hain, aur
+  photosystem khaali kyun nahi ho jaate?" (no term of the heading in it). Overview names three padaav; k1 also promises
+  "do dhakke kyun", delivered in k3 (picture) and k5 (real terms: kadi se utar kar electron neeche aa chuka hota hai).
+  The end asks the goal again in other words and answers it (PS II ka electron PS I ki kami bharta hai; PS I ka
+  electron NADP⁺ par rukta hai; PS II ki khaali jagah ka rishta paani se, as Figure 11.5 shows), and leaves 11.6.1
+  open: "Paani apne electron kaise chhodta hai aur PS II ko lagaataar electron kaise milte hain, yeh aage hum
+  dekhenge." (bridge empty). The 11.6.1 writer takes up exactly that, the book's own "How does PS II supply electrons
+  continuously?".
+- Running picture: mele ka roller coaster (gaadi = electron; do motor wali chain = roshni ke do dhakke; choti = electron
+  acceptor; pehli lambi utaar = cytochromes ki kadi, downhill; doosri, oonchi choti = PS I ka acceptor; oonche platform
+  ka station = NADP⁺; wahi gaadi = electron kharch nahi hota; oonchai = energy). It carries why two boosts are needed
+  ("station oonchai par hai; pehli utaar ke baad gaadi apne aap wahan nahi pahunch sakti"). Now taken. I kept off a ball
+  on a slope on purpose: the gold standard's 11.6.3 uses "gend dhalaan par ludhakti hai" for the H⁺ gradient. Small
+  pictures, also taken: khushkhabri sunkar uchhalna (excited), cycle ke peeche ka carrier (carrier), khaali aur bhara
+  thaila (NADP⁺ / NADPH), zanjeer ki kadiyaan (chain), weed-killer (checkpoint).
+- "Ruko, pehle khud socho" at the real turn: after the clue that the kadi runs straight to PS I, "PS I ki yeh khaali
+  jagah kaun bharta hoga?" → PS II's electron (the book's "passed on to the pigments of PS I"); this is where the two
+  photosystems are joined. Checkpoint (not 11.6.2's 700 nm one): "kadi ruk jaaye toh?" → no NADPH; some weed-killers
+  block this chain (extra, outside_book). Example: one NADPH = 2 electrons = at least 4 photons (2 at PS II, 2 at PS I).
+- Exam points opened at their moment: PS II works first though numbered II; 680 and 700; electrons are not used up
+  (galat 1); cyto + chrome, red + ox, down + hill, up + hill; khaali NADP⁺ and bhara NADPH never swapped (the book's
+  "energy-rich NADP⁺" taught as the NADPH it becomes, noted in outside_book); NADPH + H⁺ notation; Z is an energy
+  picture, not a path in the membrane (galat 2); Z scheme order for half-drawn diagrams; peele dashed teer = roshni,
+  laal teer = electron; ADP + iP → ATP sits on the downhill kadi (how: aage); [O] is one oxygen atom, two make O₂.
+- The book's "another acceptor that has a greater redox potential" is taught in its own frame (higher on the scale as
+  the figure draws it, the most energy); electrochemistry would call its reduction potential more negative. That note
+  is only in outside_book, never spoken.
+- Terms opened here: orbit, excited, electron acceptor, electron transport system, cytochromes, redox potential,
+  downhill, NADP⁺, H⁺, uphill, carrier, Z scheme, e⁻. Later headings remind them, never open them again. "Electron
+  transport chain" is said and opened in words (word fact f20) but kept out of the point terms, because Navin's locked
+  11.6.2 lists it in its terms; the check on 11.6.2 after this heading shows no clash from 11.6 (its one finding is its
+  own facts having no "uses", unchanged and not mine to touch).
+- BIE's check, first run: 4 findings (16.5 words a sentence; k1's link line too close to 11.5-k9's closing line; k6's
+  opening question too close to k4's; two example lines too alike). Fixed by rewording those three lines and splitting
+  24 long lines at their natural stops (nothing new said), plus one why sentence inside k5 that k1 had promised.
+  182 → 207 sentences (splits and that one sentence), 14.6 words each, 25 % spoken to the learner, 40 % going on,
+  0 problems.
+- Working note: the old 11.6 went in five Edits of whole point blocks (the last leaving a marker key in place of its
+  tail), then one Edit put the new head, facts and k1 with a marker string, and two more Edits filled k2–k11.
+- Skill and Navin's word did not differ for this heading.
