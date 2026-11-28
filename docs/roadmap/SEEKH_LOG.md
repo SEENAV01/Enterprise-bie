@@ -3472,3 +3472,13 @@ same job with `"reference": "navin"` measures his clone once his clip is on the 
 - **Measured:** offline only so far (11 tests); the first real headings will give minutes, turns and the share of a
   session per heading against c3's.
 
+## Entry · the first chapter job (k1) and "khaate", 28 November 2026
+
+- **Taught by:** job k1, the opening and 11.1 by two forks of the taught chat: both at the gold's way (B3 at both ends, a
+  "socho" turn with its clue, answers in their questions' words, two wrong ideas each), and 11.1 built on the opening
+  (its open question, its rasoi picture), which c3 could not do beside Codex's headings. The opening cost 1.65 times c3
+  (146 turns); 11.1 cost what c3 did (72). Both writers flagged the same false office word: "khaate" (eating).
+- **Changed in BIE (branch `bolchaal-khaate`):** `BOLCHAAL`'s "khaata" skips a verb's helper after it.
+- **Measured:** the saved scripts (k1, c6, c7: 3,575 lines) have no "khaata" flag before or after (their writers worded
+  around it); the new tests: four eating lines pass, "lumen ke khaate mein" is still flagged.
+
